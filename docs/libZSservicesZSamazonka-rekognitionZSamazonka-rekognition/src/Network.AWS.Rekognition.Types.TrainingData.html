@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The dataset used for training.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTrainingData' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679333932"><span id="local-6989586621679333933"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrainingData"><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData"><span class="hs-identifier hs-var">TrainingData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrainingData%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData%27"><span class="hs-identifier hs-var">TrainingData'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679334226"><span id="local-6989586621679334227"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrainingData"><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData"><span class="hs-identifier hs-var">TrainingData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrainingData%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData%27"><span class="hs-identifier hs-var">TrainingData'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A Sagemaker GroundTruth manifest file that contains the training images</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- (assets).</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aassets%3ATrainingData%27"><span class="annot"><span class="annottext">TrainingData -&gt; Maybe [Asset]
 </span><a href="Network.AWS.Rekognition.Types.TrainingData.html#%24sel%3Aassets%3ATrainingData%27"><span class="hs-identifier hs-var hs-var">assets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset"><span class="hs-identifier hs-type">Asset</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333926"><span id="local-6989586621679333928"><span class="annot"><span class="annottext">TrainingData -&gt; TrainingData -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334220"><span id="local-6989586621679334222"><span class="annot"><span class="annottext">TrainingData -&gt; TrainingData -&gt; Bool
 (TrainingData -&gt; TrainingData -&gt; Bool)
 -&gt; (TrainingData -&gt; TrainingData -&gt; Bool) -&gt; Eq TrainingData
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TrainingData -&gt; TrainingData -&gt; Bool
 == :: TrainingData -&gt; TrainingData -&gt; Bool
 $c== :: TrainingData -&gt; TrainingData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333917"><span id="local-6989586621679333919"><span id="local-6989586621679333921"><span id="local-6989586621679333923"><span class="annot"><span class="annottext">ReadPrec [TrainingData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334211"><span id="local-6989586621679334213"><span id="local-6989586621679334215"><span id="local-6989586621679334217"><span class="annot"><span class="annottext">ReadPrec [TrainingData]
 ReadPrec TrainingData
 Int -&gt; ReadS TrainingData
 ReadS [TrainingData]
@@ -61,7 +61,7 @@ readList :: ReadS [TrainingData]
 $creadList :: ReadS [TrainingData]
 readsPrec :: Int -&gt; ReadS TrainingData
 $creadsPrec :: Int -&gt; ReadS TrainingData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333910"><span id="local-6989586621679333912"><span id="local-6989586621679333914"><span class="annot"><span class="annottext">Int -&gt; TrainingData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334204"><span id="local-6989586621679334206"><span id="local-6989586621679334208"><span class="annot"><span class="annottext">Int -&gt; TrainingData -&gt; ShowS
 [TrainingData] -&gt; ShowS
 TrainingData -&gt; String
 (Int -&gt; TrainingData -&gt; ShowS)
@@ -116,16 +116,16 @@ forall a. Maybe a
 -&gt; (TrainingData -&gt; Maybe [Asset] -&gt; TrainingData)
 -&gt; Lens TrainingData TrainingData (Maybe [Asset]) (Maybe [Asset])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData%27"><span class="hs-identifier hs-type">TrainingData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333901"><span class="annot"><span class="annottext">Maybe [Asset]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData%27"><span class="hs-identifier hs-type">TrainingData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334195"><span class="annot"><span class="annottext">Maybe [Asset]
 assets :: Maybe [Asset]
 $sel:assets:TrainingData' :: TrainingData -&gt; Maybe [Asset]
-</span><a href="#local-6989586621679333901"><span class="hs-identifier hs-var hs-var">assets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Asset]
-</span><a href="#local-6989586621679333901"><span class="hs-identifier hs-var">assets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333900"><span class="annot"><span class="annottext">s :: TrainingData
-</span><a href="#local-6989586621679333900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData%27"><span class="hs-identifier hs-type">TrainingData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333899"><span class="annot"><span class="annottext">Maybe [Asset]
-</span><a href="#local-6989586621679333899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingData
-</span><a href="#local-6989586621679333900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assets:TrainingData' :: Maybe [Asset]
+</span><a href="#local-6989586621679334195"><span class="hs-identifier hs-var hs-var">assets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Asset]
+</span><a href="#local-6989586621679334195"><span class="hs-identifier hs-var">assets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334194"><span class="annot"><span class="annottext">s :: TrainingData
+</span><a href="#local-6989586621679334194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData%27"><span class="hs-identifier hs-type">TrainingData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334193"><span class="annot"><span class="annottext">Maybe [Asset]
+</span><a href="#local-6989586621679334193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingData
+</span><a href="#local-6989586621679334194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assets:TrainingData' :: Maybe [Asset]
 </span><a href="Network.AWS.Rekognition.Types.TrainingData.html#%24sel%3Aassets%3ATrainingData%27"><span class="hs-identifier hs-var">assets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Asset]
-</span><a href="#local-6989586621679333899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData"><span class="hs-identifier hs-type">TrainingData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Asset] -&gt; f (Maybe [Asset]))
+</span><a href="#local-6989586621679334193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData"><span class="hs-identifier hs-type">TrainingData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Asset] -&gt; f (Maybe [Asset]))
  -&gt; TrainingData -&gt; f TrainingData)
 -&gt; ((Maybe [Asset] -&gt; f (Maybe [Asset]))
     -&gt; Maybe [Asset] -&gt; f (Maybe [Asset]))
@@ -140,11 +140,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Asset] [Asset] [Asset] [Asset]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333893"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData"><span class="hs-identifier hs-type">TrainingData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679333891"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrainingData
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334187"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData"><span class="hs-identifier hs-type">TrainingData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679334185"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrainingData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TrainingData) -&gt; Value -&gt; Parser TrainingData
@@ -152,15 +152,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TrainingData&quot;</span></span><span>
-</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679333888"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679333888"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679334182"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334182"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Asset] -&gt; TrainingData
 </span><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData%27"><span class="hs-identifier hs-var">TrainingData'</span></a></span><span>
 </span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Asset] -&gt; TrainingData)
 -&gt; Parser (Maybe [Asset]) -&gt; Parser TrainingData
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679333888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Asset]))
+</span><a href="#local-6989586621679334182"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Asset]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Assets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Asset]))
@@ -171,16 +171,16 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333881"><span id="local-6989586621679333883"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData"><span class="hs-identifier hs-type">TrainingData</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334175"><span id="local-6989586621679334177"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData"><span class="hs-identifier hs-type">TrainingData</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333878"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData"><span class="hs-identifier hs-type">TrainingData</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334172"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData"><span class="hs-identifier hs-type">TrainingData</span></a></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333870"><span id="local-6989586621679333872"><span id="local-6989586621679333874"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData"><span class="hs-identifier hs-type">TrainingData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679333868"><span class="annot"><span class="annottext">toJSON :: TrainingData -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData%27"><span class="hs-identifier hs-type">TrainingData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333866"><span class="annot"><span class="annottext">Maybe [Asset]
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334164"><span id="local-6989586621679334166"><span id="local-6989586621679334168"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData"><span class="hs-identifier hs-type">TrainingData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679334162"><span class="annot"><span class="annottext">toJSON :: TrainingData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.TrainingData.html#TrainingData%27"><span class="hs-identifier hs-type">TrainingData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334160"><span class="annot"><span class="annottext">Maybe [Asset]
 assets :: Maybe [Asset]
 $sel:assets:TrainingData' :: TrainingData -&gt; Maybe [Asset]
-</span><a href="#local-6989586621679333866"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679334160"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -192,6 +192,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Asset] -&gt; Pair) -&gt; Maybe [Asset] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Asset]
-</span><a href="#local-6989586621679333866"><span class="hs-identifier hs-var">assets</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679334160"><span class="hs-identifier hs-var">assets</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- action.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRulesPackage' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679247392"><span id="local-6989586621679247393"></span></span><span class="hs-keyword">data</span><span> </span><span id="RulesPackage"><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-var">RulesPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RulesPackage%27"><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-var">RulesPackage'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679247750"><span id="local-6989586621679247751"></span></span><span class="hs-keyword">data</span><span> </span><span id="RulesPackage"><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-var">RulesPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RulesPackage%27"><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-var">RulesPackage'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the rules package.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Adescription%3ARulesPackage%27"><span class="annot"><span class="annottext">RulesPackage -&gt; Maybe Text
 </span><a href="Network.AWS.Inspector.Types.RulesPackage.html#%24sel%3Adescription%3ARulesPackage%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -45,7 +45,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Aprovider%3ARulesPackage%27"><span class="annot"><span class="annottext">RulesPackage -&gt; Text
 </span><a href="Network.AWS.Inspector.Types.RulesPackage.html#%24sel%3Aprovider%3ARulesPackage%27"><span class="hs-identifier hs-var hs-var">provider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247382"><span id="local-6989586621679247384"><span class="annot"><span class="annottext">RulesPackage -&gt; RulesPackage -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247740"><span id="local-6989586621679247742"><span class="annot"><span class="annottext">RulesPackage -&gt; RulesPackage -&gt; Bool
 (RulesPackage -&gt; RulesPackage -&gt; Bool)
 -&gt; (RulesPackage -&gt; RulesPackage -&gt; Bool) -&gt; Eq RulesPackage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RulesPackage -&gt; RulesPackage -&gt; Bool
 == :: RulesPackage -&gt; RulesPackage -&gt; Bool
 $c== :: RulesPackage -&gt; RulesPackage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247373"><span id="local-6989586621679247375"><span id="local-6989586621679247377"><span id="local-6989586621679247379"><span class="annot"><span class="annottext">ReadPrec [RulesPackage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247731"><span id="local-6989586621679247733"><span id="local-6989586621679247735"><span id="local-6989586621679247737"><span class="annot"><span class="annottext">ReadPrec [RulesPackage]
 ReadPrec RulesPackage
 Int -&gt; ReadS RulesPackage
 ReadS [RulesPackage]
@@ -73,7 +73,7 @@ readList :: ReadS [RulesPackage]
 $creadList :: ReadS [RulesPackage]
 readsPrec :: Int -&gt; ReadS RulesPackage
 $creadsPrec :: Int -&gt; ReadS RulesPackage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247366"><span id="local-6989586621679247368"><span id="local-6989586621679247370"><span class="annot"><span class="annottext">Int -&gt; RulesPackage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247724"><span id="local-6989586621679247726"><span id="local-6989586621679247728"><span class="annot"><span class="annottext">Int -&gt; RulesPackage -&gt; ShowS
 [RulesPackage] -&gt; ShowS
 RulesPackage -&gt; String
 (Int -&gt; RulesPackage -&gt; ShowS)
@@ -127,11 +127,11 @@ $cfrom :: forall x. RulesPackage -&gt; Rep RulesPackage x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span><span>
 </span><span id="line-72"></span><span id="newRulesPackage"><span class="annot"><span class="annottext">newRulesPackage :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; RulesPackage
-</span><a href="Network.AWS.Inspector.Types.RulesPackage.html#newRulesPackage"><span class="hs-identifier hs-var hs-var">newRulesPackage</span></a></span></span><span> </span><span id="local-6989586621679247360"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247360"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span id="local-6989586621679247359"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247359"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679247358"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247358"><span class="hs-identifier hs-var">pVersion_</span></a></span></span><span> </span><span id="local-6989586621679247357"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247357"><span class="hs-identifier hs-var">pProvider_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.Types.RulesPackage.html#newRulesPackage"><span class="hs-identifier hs-var hs-var">newRulesPackage</span></a></span></span><span> </span><span id="local-6989586621679247718"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247718"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span id="local-6989586621679247717"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247717"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679247716"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247716"><span class="hs-identifier hs-var">pVersion_</span></a></span></span><span> </span><span id="local-6989586621679247715"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247715"><span class="hs-identifier hs-var">pProvider_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">RulesPackage' :: Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; RulesPackage
 </span><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:RulesPackage' :: Maybe Text
@@ -140,16 +140,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:RulesPackage' :: Text
 </span><a href="Network.AWS.Inspector.Types.RulesPackage.html#%24sel%3Aarn%3ARulesPackage%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247360"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679247718"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:RulesPackage' :: Text
 </span><a href="Network.AWS.Inspector.Types.RulesPackage.html#%24sel%3Aname%3ARulesPackage%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247359"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679247717"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:RulesPackage' :: Text
 </span><a href="Network.AWS.Inspector.Types.RulesPackage.html#%24sel%3Aversion%3ARulesPackage%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247358"><span class="hs-identifier hs-var">pVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679247716"><span class="hs-identifier hs-var">pVersion_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:provider:RulesPackage' :: Text
 </span><a href="Network.AWS.Inspector.Types.RulesPackage.html#%24sel%3Aprovider%3ARulesPackage%27"><span class="hs-identifier hs-var">provider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247357"><span class="hs-identifier hs-var">pProvider_</span></a></span><span>
+</span><a href="#local-6989586621679247715"><span class="hs-identifier hs-var">pProvider_</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The description of the rules package.</span><span>
@@ -159,16 +159,16 @@ forall a. Maybe a
 -&gt; (RulesPackage -&gt; Maybe Text -&gt; RulesPackage)
 -&gt; Lens RulesPackage RulesPackage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247353"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247711"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:RulesPackage' :: RulesPackage -&gt; Maybe Text
-</span><a href="#local-6989586621679247353"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247353"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247352"><span class="annot"><span class="annottext">s :: RulesPackage
-</span><a href="#local-6989586621679247352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247351"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RulesPackage
-</span><a href="#local-6989586621679247352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:RulesPackage' :: Maybe Text
+</span><a href="#local-6989586621679247711"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247711"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247710"><span class="annot"><span class="annottext">s :: RulesPackage
+</span><a href="#local-6989586621679247710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247709"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RulesPackage
+</span><a href="#local-6989586621679247710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:RulesPackage' :: Maybe Text
 </span><a href="Network.AWS.Inspector.Types.RulesPackage.html#%24sel%3Adescription%3ARulesPackage%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The ARN of the rules package.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#rulesPackage_arn"><span class="hs-identifier hs-type">rulesPackage_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -177,16 +177,16 @@ $sel:description:RulesPackage' :: RulesPackage -&gt; Maybe Text
 -&gt; (RulesPackage -&gt; Text -&gt; RulesPackage)
 -&gt; Lens RulesPackage RulesPackage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247349"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247707"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:RulesPackage' :: RulesPackage -&gt; Text
-</span><a href="#local-6989586621679247349"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247349"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247348"><span class="annot"><span class="annottext">s :: RulesPackage
-</span><a href="#local-6989586621679247348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247347"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RulesPackage
-</span><a href="#local-6989586621679247348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:RulesPackage' :: Text
+</span><a href="#local-6989586621679247707"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247707"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247706"><span class="annot"><span class="annottext">s :: RulesPackage
+</span><a href="#local-6989586621679247706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247705"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RulesPackage
+</span><a href="#local-6989586621679247706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:RulesPackage' :: Text
 </span><a href="Network.AWS.Inspector.Types.RulesPackage.html#%24sel%3Aarn%3ARulesPackage%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The name of the rules package.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#rulesPackage_name"><span class="hs-identifier hs-type">rulesPackage_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -195,16 +195,16 @@ $sel:arn:RulesPackage' :: RulesPackage -&gt; Text
 -&gt; (RulesPackage -&gt; Text -&gt; RulesPackage)
 -&gt; Lens RulesPackage RulesPackage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247345"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247703"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:RulesPackage' :: RulesPackage -&gt; Text
-</span><a href="#local-6989586621679247345"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247345"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247344"><span class="annot"><span class="annottext">s :: RulesPackage
-</span><a href="#local-6989586621679247344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247343"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RulesPackage
-</span><a href="#local-6989586621679247344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RulesPackage' :: Text
+</span><a href="#local-6989586621679247703"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247703"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247702"><span class="annot"><span class="annottext">s :: RulesPackage
+</span><a href="#local-6989586621679247702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247701"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RulesPackage
+</span><a href="#local-6989586621679247702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RulesPackage' :: Text
 </span><a href="Network.AWS.Inspector.Types.RulesPackage.html#%24sel%3Aname%3ARulesPackage%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The version ID of the rules package.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#rulesPackage_version"><span class="hs-identifier hs-type">rulesPackage_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -213,16 +213,16 @@ $sel:name:RulesPackage' :: RulesPackage -&gt; Text
 -&gt; (RulesPackage -&gt; Text -&gt; RulesPackage)
 -&gt; Lens RulesPackage RulesPackage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247341"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247699"><span class="annot"><span class="annottext">Text
 version :: Text
 $sel:version:RulesPackage' :: RulesPackage -&gt; Text
-</span><a href="#local-6989586621679247341"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247341"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247340"><span class="annot"><span class="annottext">s :: RulesPackage
-</span><a href="#local-6989586621679247340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247339"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RulesPackage
-</span><a href="#local-6989586621679247340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:RulesPackage' :: Text
+</span><a href="#local-6989586621679247699"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247699"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247698"><span class="annot"><span class="annottext">s :: RulesPackage
+</span><a href="#local-6989586621679247698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247697"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RulesPackage
+</span><a href="#local-6989586621679247698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:RulesPackage' :: Text
 </span><a href="Network.AWS.Inspector.Types.RulesPackage.html#%24sel%3Aversion%3ARulesPackage%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The provider of the rules package.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#rulesPackage_provider"><span class="hs-identifier hs-type">rulesPackage_provider</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -231,19 +231,19 @@ $sel:version:RulesPackage' :: RulesPackage -&gt; Text
 -&gt; (RulesPackage -&gt; Text -&gt; RulesPackage)
 -&gt; Lens RulesPackage RulesPackage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247337"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247695"><span class="annot"><span class="annottext">Text
 provider :: Text
 $sel:provider:RulesPackage' :: RulesPackage -&gt; Text
-</span><a href="#local-6989586621679247337"><span class="hs-identifier hs-var hs-var">provider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247337"><span class="hs-identifier hs-var">provider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247336"><span class="annot"><span class="annottext">s :: RulesPackage
-</span><a href="#local-6989586621679247336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247335"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RulesPackage
-</span><a href="#local-6989586621679247336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provider:RulesPackage' :: Text
+</span><a href="#local-6989586621679247695"><span class="hs-identifier hs-var hs-var">provider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247695"><span class="hs-identifier hs-var">provider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247694"><span class="annot"><span class="annottext">s :: RulesPackage
+</span><a href="#local-6989586621679247694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-type">RulesPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247693"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RulesPackage
+</span><a href="#local-6989586621679247694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provider:RulesPackage' :: Text
 </span><a href="Network.AWS.Inspector.Types.RulesPackage.html#%24sel%3Aprovider%3ARulesPackage%27"><span class="hs-identifier hs-var">provider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247332"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679247330"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RulesPackage
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247690"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679247688"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RulesPackage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RulesPackage) -&gt; Value -&gt; Parser RulesPackage
@@ -251,8 +251,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RulesPackage&quot;</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247327"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247327"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247685"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247685"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; RulesPackage
 </span><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage%27"><span class="hs-identifier hs-var">RulesPackage'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; RulesPackage)
@@ -260,7 +260,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; Text -&gt; RulesPackage)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679247685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
@@ -268,7 +268,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; RulesPackage)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679247685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
@@ -276,7 +276,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; RulesPackage)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679247685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -284,20 +284,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; RulesPackage)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679247685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; RulesPackage) -&gt; Parser Text -&gt; Parser RulesPackage
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679247685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;provider&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247320"><span id="local-6989586621679247322"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247678"><span id="local-6989586621679247680"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247675"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.RulesPackage.html#RulesPackage"><span class="hs-identifier hs-type">RulesPackage</span></a></span></span><span>
 </span><span id="line-117"></span></pre></body></html>

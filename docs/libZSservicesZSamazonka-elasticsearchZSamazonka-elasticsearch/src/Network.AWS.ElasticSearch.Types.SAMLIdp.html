@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies the SAML Identity Provider\'s information.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSAMLIdp' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679300158"><span id="local-6989586621679300159"></span></span><span class="hs-keyword">data</span><span> </span><span id="SAMLIdp"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp"><span class="hs-identifier hs-var">SAMLIdp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SAMLIdp%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp%27"><span class="hs-identifier hs-var">SAMLIdp'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679300367"><span id="local-6989586621679300368"></span></span><span class="hs-keyword">data</span><span> </span><span id="SAMLIdp"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp"><span class="hs-identifier hs-var">SAMLIdp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SAMLIdp%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp%27"><span class="hs-identifier hs-var">SAMLIdp'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Metadata of the SAML application in xml format.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AmetadataContent%3ASAMLIdp%27"><span class="annot"><span class="annottext">SAMLIdp -&gt; Text
 </span><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#%24sel%3AmetadataContent%3ASAMLIdp%27"><span class="hs-identifier hs-var hs-var">metadataContent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AentityId%3ASAMLIdp%27"><span class="annot"><span class="annottext">SAMLIdp -&gt; Text
 </span><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#%24sel%3AentityId%3ASAMLIdp%27"><span class="hs-identifier hs-var hs-var">entityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300151"><span id="local-6989586621679300153"><span class="annot"><span class="annottext">SAMLIdp -&gt; SAMLIdp -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300360"><span id="local-6989586621679300362"><span class="annot"><span class="annottext">SAMLIdp -&gt; SAMLIdp -&gt; Bool
 (SAMLIdp -&gt; SAMLIdp -&gt; Bool)
 -&gt; (SAMLIdp -&gt; SAMLIdp -&gt; Bool) -&gt; Eq SAMLIdp
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SAMLIdp -&gt; SAMLIdp -&gt; Bool
 == :: SAMLIdp -&gt; SAMLIdp -&gt; Bool
 $c== :: SAMLIdp -&gt; SAMLIdp -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300142"><span id="local-6989586621679300144"><span id="local-6989586621679300146"><span id="local-6989586621679300148"><span class="annot"><span class="annottext">ReadPrec [SAMLIdp]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300351"><span id="local-6989586621679300353"><span id="local-6989586621679300355"><span id="local-6989586621679300357"><span class="annot"><span class="annottext">ReadPrec [SAMLIdp]
 ReadPrec SAMLIdp
 Int -&gt; ReadS SAMLIdp
 ReadS [SAMLIdp]
@@ -62,7 +62,7 @@ readList :: ReadS [SAMLIdp]
 $creadList :: ReadS [SAMLIdp]
 readsPrec :: Int -&gt; ReadS SAMLIdp
 $creadsPrec :: Int -&gt; ReadS SAMLIdp
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300135"><span id="local-6989586621679300137"><span id="local-6989586621679300139"><span class="annot"><span class="annottext">Int -&gt; SAMLIdp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300344"><span id="local-6989586621679300346"><span id="local-6989586621679300348"><span class="annot"><span class="annottext">Int -&gt; SAMLIdp -&gt; ShowS
 [SAMLIdp] -&gt; ShowS
 SAMLIdp -&gt; String
 (Int -&gt; SAMLIdp -&gt; ShowS)
@@ -103,17 +103,17 @@ $cfrom :: forall x. SAMLIdp -&gt; Rep SAMLIdp x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp"><span class="hs-identifier hs-type">SAMLIdp</span></a></span><span>
 </span><span id="line-54"></span><span id="newSAMLIdp"><span class="annot"><span class="annottext">newSAMLIdp :: Text -&gt; Text -&gt; SAMLIdp
-</span><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#newSAMLIdp"><span class="hs-identifier hs-var hs-var">newSAMLIdp</span></a></span></span><span> </span><span id="local-6989586621679300129"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300129"><span class="hs-identifier hs-var">pMetadataContent_</span></a></span></span><span> </span><span id="local-6989586621679300128"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300128"><span class="hs-identifier hs-var">pEntityId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#newSAMLIdp"><span class="hs-identifier hs-var hs-var">newSAMLIdp</span></a></span></span><span> </span><span id="local-6989586621679300338"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300338"><span class="hs-identifier hs-var">pMetadataContent_</span></a></span></span><span> </span><span id="local-6989586621679300337"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300337"><span class="hs-identifier hs-var">pEntityId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">SAMLIdp' :: Text -&gt; Text -&gt; SAMLIdp
 </span><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp%27"><span class="hs-identifier hs-type">SAMLIdp'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metadataContent:SAMLIdp' :: Text
 </span><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#%24sel%3AmetadataContent%3ASAMLIdp%27"><span class="hs-identifier hs-var">metadataContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300129"><span class="hs-identifier hs-var">pMetadataContent_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300338"><span class="hs-identifier hs-var">pMetadataContent_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityId:SAMLIdp' :: Text
 </span><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#%24sel%3AentityId%3ASAMLIdp%27"><span class="hs-identifier hs-var">entityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300128"><span class="hs-identifier hs-var">pEntityId_</span></a></span><span>
+</span><a href="#local-6989586621679300337"><span class="hs-identifier hs-var">pEntityId_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The Metadata of the SAML application in xml format.</span><span>
@@ -122,16 +122,16 @@ $cfrom :: forall x. SAMLIdp -&gt; Rep SAMLIdp x
 </span><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#sAMLIdp_metadataContent"><span class="hs-identifier hs-var hs-var">sAMLIdp_metadataContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SAMLIdp -&gt; Text)
 -&gt; (SAMLIdp -&gt; Text -&gt; SAMLIdp) -&gt; Lens SAMLIdp SAMLIdp Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp%27"><span class="hs-identifier hs-type">SAMLIdp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300124"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp%27"><span class="hs-identifier hs-type">SAMLIdp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300333"><span class="annot"><span class="annottext">Text
 metadataContent :: Text
 $sel:metadataContent:SAMLIdp' :: SAMLIdp -&gt; Text
-</span><a href="#local-6989586621679300124"><span class="hs-identifier hs-var hs-var">metadataContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300124"><span class="hs-identifier hs-var">metadataContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300123"><span class="annot"><span class="annottext">s :: SAMLIdp
-</span><a href="#local-6989586621679300123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp%27"><span class="hs-identifier hs-type">SAMLIdp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300122"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SAMLIdp
-</span><a href="#local-6989586621679300123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadataContent:SAMLIdp' :: Text
+</span><a href="#local-6989586621679300333"><span class="hs-identifier hs-var hs-var">metadataContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300333"><span class="hs-identifier hs-var">metadataContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300332"><span class="annot"><span class="annottext">s :: SAMLIdp
+</span><a href="#local-6989586621679300332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp%27"><span class="hs-identifier hs-type">SAMLIdp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300331"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SAMLIdp
+</span><a href="#local-6989586621679300332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadataContent:SAMLIdp' :: Text
 </span><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#%24sel%3AmetadataContent%3ASAMLIdp%27"><span class="hs-identifier hs-var">metadataContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp"><span class="hs-identifier hs-type">SAMLIdp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp"><span class="hs-identifier hs-type">SAMLIdp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The unique Entity ID of the application in SAML Identity Provider.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#sAMLIdp_entityId"><span class="hs-identifier hs-type">sAMLIdp_entityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp"><span class="hs-identifier hs-type">SAMLIdp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -139,58 +139,58 @@ $sel:metadataContent:SAMLIdp' :: SAMLIdp -&gt; Text
 </span><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#sAMLIdp_entityId"><span class="hs-identifier hs-var hs-var">sAMLIdp_entityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SAMLIdp -&gt; Text)
 -&gt; (SAMLIdp -&gt; Text -&gt; SAMLIdp) -&gt; Lens SAMLIdp SAMLIdp Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp%27"><span class="hs-identifier hs-type">SAMLIdp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300120"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp%27"><span class="hs-identifier hs-type">SAMLIdp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300329"><span class="annot"><span class="annottext">Text
 entityId :: Text
 $sel:entityId:SAMLIdp' :: SAMLIdp -&gt; Text
-</span><a href="#local-6989586621679300120"><span class="hs-identifier hs-var hs-var">entityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300120"><span class="hs-identifier hs-var">entityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300119"><span class="annot"><span class="annottext">s :: SAMLIdp
-</span><a href="#local-6989586621679300119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp%27"><span class="hs-identifier hs-type">SAMLIdp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300118"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SAMLIdp
-</span><a href="#local-6989586621679300119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityId:SAMLIdp' :: Text
+</span><a href="#local-6989586621679300329"><span class="hs-identifier hs-var hs-var">entityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300329"><span class="hs-identifier hs-var">entityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300328"><span class="annot"><span class="annottext">s :: SAMLIdp
+</span><a href="#local-6989586621679300328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp%27"><span class="hs-identifier hs-type">SAMLIdp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300327"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SAMLIdp
+</span><a href="#local-6989586621679300328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityId:SAMLIdp' :: Text
 </span><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#%24sel%3AentityId%3ASAMLIdp%27"><span class="hs-identifier hs-var">entityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp"><span class="hs-identifier hs-type">SAMLIdp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp"><span class="hs-identifier hs-type">SAMLIdp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300115"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp"><span class="hs-identifier hs-type">SAMLIdp</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679300113"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SAMLIdp
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300324"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp"><span class="hs-identifier hs-type">SAMLIdp</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679300322"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SAMLIdp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser SAMLIdp) -&gt; Value -&gt; Parser SAMLIdp
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SAMLIdp&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300110"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300110"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300319"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300319"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; SAMLIdp
 </span><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp%27"><span class="hs-identifier hs-var">SAMLIdp'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; SAMLIdp)
 -&gt; Parser Text -&gt; Parser (Text -&gt; SAMLIdp)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679300319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MetadataContent&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; SAMLIdp) -&gt; Parser Text -&gt; Parser SAMLIdp
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679300319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EntityId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300104"><span id="local-6989586621679300106"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp"><span class="hs-identifier hs-type">SAMLIdp</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300313"><span id="local-6989586621679300315"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp"><span class="hs-identifier hs-type">SAMLIdp</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300101"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp"><span class="hs-identifier hs-type">SAMLIdp</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300310"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp"><span class="hs-identifier hs-type">SAMLIdp</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300093"><span id="local-6989586621679300095"><span id="local-6989586621679300097"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp"><span class="hs-identifier hs-type">SAMLIdp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679300091"><span class="annot"><span class="annottext">toJSON :: SAMLIdp -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp%27"><span class="hs-identifier hs-type">SAMLIdp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300088"><span id="local-6989586621679300089"><span class="annot"><span class="annottext">Text
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300302"><span id="local-6989586621679300304"><span id="local-6989586621679300306"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp"><span class="hs-identifier hs-type">SAMLIdp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679300300"><span class="annot"><span class="annottext">toJSON :: SAMLIdp -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLIdp.html#SAMLIdp%27"><span class="hs-identifier hs-type">SAMLIdp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300297"><span id="local-6989586621679300298"><span class="annot"><span class="annottext">Text
 entityId :: Text
 metadataContent :: Text
 $sel:entityId:SAMLIdp' :: SAMLIdp -&gt; Text
 $sel:metadataContent:SAMLIdp' :: SAMLIdp -&gt; Text
-</span><a href="#local-6989586621679300088"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679300297"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -203,14 +203,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;MetadataContent&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300089"><span class="hs-identifier hs-var">metadataContent</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300298"><span class="hs-identifier hs-var">metadataContent</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EntityId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300088"><span class="hs-identifier hs-var">entityId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300297"><span class="hs-identifier hs-var">entityId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span></pre></body></html>

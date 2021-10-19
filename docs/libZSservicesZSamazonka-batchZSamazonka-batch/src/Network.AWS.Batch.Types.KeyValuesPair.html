@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- of results from a @ListJobs@ API operation.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newKeyValuesPair' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679261558"><span id="local-6989586621679261559"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyValuesPair"><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair"><span class="hs-identifier hs-var">KeyValuesPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyValuesPair%27"><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair%27"><span class="hs-identifier hs-var">KeyValuesPair'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679261840"><span id="local-6989586621679261841"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyValuesPair"><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair"><span class="hs-identifier hs-var">KeyValuesPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyValuesPair%27"><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair%27"><span class="hs-identifier hs-var">KeyValuesPair'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The filter values.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalues%3AKeyValuesPair%27"><span class="annot"><span class="annottext">KeyValuesPair -&gt; Maybe [Text]
 </span><a href="Network.AWS.Batch.Types.KeyValuesPair.html#%24sel%3Avalues%3AKeyValuesPair%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3AKeyValuesPair%27"><span class="annot"><span class="annottext">KeyValuesPair -&gt; Maybe Text
 </span><a href="Network.AWS.Batch.Types.KeyValuesPair.html#%24sel%3Aname%3AKeyValuesPair%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261551"><span id="local-6989586621679261553"><span class="annot"><span class="annottext">KeyValuesPair -&gt; KeyValuesPair -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261833"><span id="local-6989586621679261835"><span class="annot"><span class="annottext">KeyValuesPair -&gt; KeyValuesPair -&gt; Bool
 (KeyValuesPair -&gt; KeyValuesPair -&gt; Bool)
 -&gt; (KeyValuesPair -&gt; KeyValuesPair -&gt; Bool) -&gt; Eq KeyValuesPair
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KeyValuesPair -&gt; KeyValuesPair -&gt; Bool
 == :: KeyValuesPair -&gt; KeyValuesPair -&gt; Bool
 $c== :: KeyValuesPair -&gt; KeyValuesPair -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261542"><span id="local-6989586621679261544"><span id="local-6989586621679261546"><span id="local-6989586621679261548"><span class="annot"><span class="annottext">ReadPrec [KeyValuesPair]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261824"><span id="local-6989586621679261826"><span id="local-6989586621679261828"><span id="local-6989586621679261830"><span class="annot"><span class="annottext">ReadPrec [KeyValuesPair]
 ReadPrec KeyValuesPair
 Int -&gt; ReadS KeyValuesPair
 ReadS [KeyValuesPair]
@@ -63,7 +63,7 @@ readList :: ReadS [KeyValuesPair]
 $creadList :: ReadS [KeyValuesPair]
 readsPrec :: Int -&gt; ReadS KeyValuesPair
 $creadsPrec :: Int -&gt; ReadS KeyValuesPair
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261535"><span id="local-6989586621679261537"><span id="local-6989586621679261539"><span class="annot"><span class="annottext">Int -&gt; KeyValuesPair -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261817"><span id="local-6989586621679261819"><span id="local-6989586621679261821"><span class="annot"><span class="annottext">Int -&gt; KeyValuesPair -&gt; ShowS
 [KeyValuesPair] -&gt; ShowS
 KeyValuesPair -&gt; String
 (Int -&gt; KeyValuesPair -&gt; ShowS)
@@ -124,16 +124,16 @@ forall a. Maybe a
 -&gt; (KeyValuesPair -&gt; Maybe [Text] -&gt; KeyValuesPair)
 -&gt; Lens KeyValuesPair KeyValuesPair (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair%27"><span class="hs-identifier hs-type">KeyValuesPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261526"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair%27"><span class="hs-identifier hs-type">KeyValuesPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261808"><span class="annot"><span class="annottext">Maybe [Text]
 values :: Maybe [Text]
 $sel:values:KeyValuesPair' :: KeyValuesPair -&gt; Maybe [Text]
-</span><a href="#local-6989586621679261526"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261526"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261525"><span class="annot"><span class="annottext">s :: KeyValuesPair
-</span><a href="#local-6989586621679261525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair%27"><span class="hs-identifier hs-type">KeyValuesPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261524"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyValuesPair
-</span><a href="#local-6989586621679261525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:KeyValuesPair' :: Maybe [Text]
+</span><a href="#local-6989586621679261808"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679261808"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261807"><span class="annot"><span class="annottext">s :: KeyValuesPair
+</span><a href="#local-6989586621679261807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair%27"><span class="hs-identifier hs-type">KeyValuesPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261806"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679261806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyValuesPair
+</span><a href="#local-6989586621679261807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:KeyValuesPair' :: Maybe [Text]
 </span><a href="Network.AWS.Batch.Types.KeyValuesPair.html#%24sel%3Avalues%3AKeyValuesPair%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair"><span class="hs-identifier hs-type">KeyValuesPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679261806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair"><span class="hs-identifier hs-type">KeyValuesPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; KeyValuesPair -&gt; f KeyValuesPair)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -147,8 +147,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The name of the filter. Filter names are case sensitive.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#keyValuesPair_name"><span class="hs-identifier hs-type">keyValuesPair_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair"><span class="hs-identifier hs-type">KeyValuesPair</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -157,30 +157,30 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (KeyValuesPair -&gt; Maybe Text -&gt; KeyValuesPair)
 -&gt; Lens KeyValuesPair KeyValuesPair (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair%27"><span class="hs-identifier hs-type">KeyValuesPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261519"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair%27"><span class="hs-identifier hs-type">KeyValuesPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261801"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:KeyValuesPair' :: KeyValuesPair -&gt; Maybe Text
-</span><a href="#local-6989586621679261519"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261519"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261518"><span class="annot"><span class="annottext">s :: KeyValuesPair
-</span><a href="#local-6989586621679261518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair%27"><span class="hs-identifier hs-type">KeyValuesPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261517"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyValuesPair
-</span><a href="#local-6989586621679261518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:KeyValuesPair' :: Maybe Text
+</span><a href="#local-6989586621679261801"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261801"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261800"><span class="annot"><span class="annottext">s :: KeyValuesPair
+</span><a href="#local-6989586621679261800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair%27"><span class="hs-identifier hs-type">KeyValuesPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261799"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyValuesPair
+</span><a href="#local-6989586621679261800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:KeyValuesPair' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.KeyValuesPair.html#%24sel%3Aname%3AKeyValuesPair%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair"><span class="hs-identifier hs-type">KeyValuesPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair"><span class="hs-identifier hs-type">KeyValuesPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261513"><span id="local-6989586621679261515"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair"><span class="hs-identifier hs-type">KeyValuesPair</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261795"><span id="local-6989586621679261797"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair"><span class="hs-identifier hs-type">KeyValuesPair</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair"><span class="hs-identifier hs-type">KeyValuesPair</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261792"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair"><span class="hs-identifier hs-type">KeyValuesPair</span></a></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261502"><span id="local-6989586621679261504"><span id="local-6989586621679261506"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair"><span class="hs-identifier hs-type">KeyValuesPair</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679261500"><span class="annot"><span class="annottext">toJSON :: KeyValuesPair -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair%27"><span class="hs-identifier hs-type">KeyValuesPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261497"><span id="local-6989586621679261498"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261784"><span id="local-6989586621679261786"><span id="local-6989586621679261788"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair"><span class="hs-identifier hs-type">KeyValuesPair</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679261782"><span class="annot"><span class="annottext">toJSON :: KeyValuesPair -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.KeyValuesPair.html#KeyValuesPair%27"><span class="hs-identifier hs-type">KeyValuesPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261779"><span id="local-6989586621679261780"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 name :: Maybe Text
 values :: Maybe [Text]
 $sel:name:KeyValuesPair' :: KeyValuesPair -&gt; Maybe Text
 $sel:values:KeyValuesPair' :: KeyValuesPair -&gt; Maybe [Text]
-</span><a href="#local-6989586621679261497"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679261779"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -192,14 +192,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261498"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261780"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261497"><span class="hs-identifier hs-var">name</span></a></span><span>
+</span><a href="#local-6989586621679261779"><span class="hs-identifier hs-var">name</span></a></span><span>
 </span><span id="line-75"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span></pre></body></html>

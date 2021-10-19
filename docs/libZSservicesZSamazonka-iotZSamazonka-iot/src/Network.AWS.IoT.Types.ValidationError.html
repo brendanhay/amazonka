@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about an error found in a behavior specification.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newValidationError' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679805332"><span id="local-6989586621679805333"></span></span><span class="hs-keyword">data</span><span> </span><span id="ValidationError"><span class="annot"><a href="Network.AWS.IoT.Types.ValidationError.html#ValidationError"><span class="hs-identifier hs-var">ValidationError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ValidationError%27"><span class="annot"><a href="Network.AWS.IoT.Types.ValidationError.html#ValidationError%27"><span class="hs-identifier hs-var">ValidationError'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679806225"><span id="local-6989586621679806226"></span></span><span class="hs-keyword">data</span><span> </span><span id="ValidationError"><span class="annot"><a href="Network.AWS.IoT.Types.ValidationError.html#ValidationError"><span class="hs-identifier hs-var">ValidationError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ValidationError%27"><span class="annot"><a href="Network.AWS.IoT.Types.ValidationError.html#ValidationError%27"><span class="hs-identifier hs-var">ValidationError'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of an error found in the behaviors.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AerrorMessage%3AValidationError%27"><span class="annot"><span class="annottext">ValidationError -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.ValidationError.html#%24sel%3AerrorMessage%3AValidationError%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679805326"><span id="local-6989586621679805328"><span class="annot"><span class="annottext">ValidationError -&gt; ValidationError -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679806219"><span id="local-6989586621679806221"><span class="annot"><span class="annottext">ValidationError -&gt; ValidationError -&gt; Bool
 (ValidationError -&gt; ValidationError -&gt; Bool)
 -&gt; (ValidationError -&gt; ValidationError -&gt; Bool)
 -&gt; Eq ValidationError
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ValidationError -&gt; ValidationError -&gt; Bool
 == :: ValidationError -&gt; ValidationError -&gt; Bool
 $c== :: ValidationError -&gt; ValidationError -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805317"><span id="local-6989586621679805319"><span id="local-6989586621679805321"><span id="local-6989586621679805323"><span class="annot"><span class="annottext">ReadPrec [ValidationError]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679806210"><span id="local-6989586621679806212"><span id="local-6989586621679806214"><span id="local-6989586621679806216"><span class="annot"><span class="annottext">ReadPrec [ValidationError]
 ReadPrec ValidationError
 Int -&gt; ReadS ValidationError
 ReadS [ValidationError]
@@ -60,7 +60,7 @@ readList :: ReadS [ValidationError]
 $creadList :: ReadS [ValidationError]
 readsPrec :: Int -&gt; ReadS ValidationError
 $creadsPrec :: Int -&gt; ReadS ValidationError
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805310"><span id="local-6989586621679805312"><span id="local-6989586621679805314"><span class="annot"><span class="annottext">Int -&gt; ValidationError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679806203"><span id="local-6989586621679806205"><span id="local-6989586621679806207"><span class="annot"><span class="annottext">Int -&gt; ValidationError -&gt; ShowS
 [ValidationError] -&gt; ShowS
 ValidationError -&gt; String
 (Int -&gt; ValidationError -&gt; ShowS)
@@ -113,19 +113,19 @@ forall a. Maybe a
 -&gt; (ValidationError -&gt; Maybe Text -&gt; ValidationError)
 -&gt; Lens ValidationError ValidationError (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ValidationError.html#ValidationError%27"><span class="hs-identifier hs-type">ValidationError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805301"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ValidationError.html#ValidationError%27"><span class="hs-identifier hs-type">ValidationError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806194"><span class="annot"><span class="annottext">Maybe Text
 errorMessage :: Maybe Text
 $sel:errorMessage:ValidationError' :: ValidationError -&gt; Maybe Text
-</span><a href="#local-6989586621679805301"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805301"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805300"><span class="annot"><span class="annottext">s :: ValidationError
-</span><a href="#local-6989586621679805300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ValidationError.html#ValidationError%27"><span class="hs-identifier hs-type">ValidationError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805299"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValidationError
-</span><a href="#local-6989586621679805300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:ValidationError' :: Maybe Text
+</span><a href="#local-6989586621679806194"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806194"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806193"><span class="annot"><span class="annottext">s :: ValidationError
+</span><a href="#local-6989586621679806193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ValidationError.html#ValidationError%27"><span class="hs-identifier hs-type">ValidationError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806192"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValidationError
+</span><a href="#local-6989586621679806193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:ValidationError' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.ValidationError.html#%24sel%3AerrorMessage%3AValidationError%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ValidationError.html#ValidationError"><span class="hs-identifier hs-type">ValidationError</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679806192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ValidationError.html#ValidationError"><span class="hs-identifier hs-type">ValidationError</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805296"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ValidationError.html#ValidationError"><span class="hs-identifier hs-type">ValidationError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679805294"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ValidationError
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679806189"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ValidationError.html#ValidationError"><span class="hs-identifier hs-type">ValidationError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679806187"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ValidationError
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ValidationError)
@@ -135,21 +135,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ValidationError&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679805291"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805291"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679806184"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806184"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; ValidationError
 </span><a href="Network.AWS.IoT.Types.ValidationError.html#ValidationError%27"><span class="hs-identifier hs-var">ValidationError'</span></a></span><span>
 </span><span id="line-59"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; ValidationError)
 -&gt; Parser (Maybe Text) -&gt; Parser ValidationError
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679806184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;errorMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805285"><span id="local-6989586621679805287"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ValidationError.html#ValidationError"><span class="hs-identifier hs-type">ValidationError</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679806178"><span id="local-6989586621679806180"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ValidationError.html#ValidationError"><span class="hs-identifier hs-type">ValidationError</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805282"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ValidationError.html#ValidationError"><span class="hs-identifier hs-type">ValidationError</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679806175"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ValidationError.html#ValidationError"><span class="hs-identifier hs-type">ValidationError</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

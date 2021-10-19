@@ -40,8 +40,8 @@
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#newDeleteJob"><span class="hs-identifier">newDeleteJob</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#deleteJob_namespaceId"><span class="hs-identifier">deleteJob_namespaceId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#deleteJob_force"><span class="hs-identifier">deleteJob_force</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#deleteJob_force"><span class="hs-identifier">deleteJob_force</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#deleteJob_namespaceId"><span class="hs-identifier">deleteJob_namespaceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#deleteJob_jobId"><span class="hs-identifier">deleteJob_jobId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -58,29 +58,29 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDeleteJob' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679844059"><span id="local-6989586621679844060"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteJob"><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-var">DeleteJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteJob%27"><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-var">DeleteJob'</span></a></span></span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The namespace used to indicate that a job is a customer-managed job.</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- When you specify a value for this parameter, Amazon Web Services IoT</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- Core sends jobs notifications to MQTT topics that contain the value in</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- the following format.</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- The @namespaceId@ feature is in public preview.</span><span>
-</span><span id="line-71"></span><span>    </span><span id="%24sel%3AnamespaceId%3ADeleteJob%27"><span class="annot"><span class="annottext">DeleteJob -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.DeleteJob.html#%24sel%3AnamespaceId%3ADeleteJob%27"><span class="hs-identifier hs-var hs-var">namespaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | (Optional) When true, you can delete a job which is \&quot;IN_PROGRESS\&quot;.</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- Otherwise, you can only delete a job which is in a terminal state</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- (\&quot;COMPLETED\&quot; or \&quot;CANCELED\&quot;) or an exception will occur. The default</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- is false.</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- Deleting a job which is \&quot;IN_PROGRESS\&quot;, will cause a device which is</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- executing the job to be unable to access job information or update the</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- job execution status. Use caution and ensure that each device executing</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- a job which is deleted is able to recover to a valid state.</span><span>
-</span><span id="line-81"></span><span>    </span><span id="%24sel%3Aforce%3ADeleteJob%27"><span class="annot"><span class="annottext">DeleteJob -&gt; Maybe Bool
+</span><span id="line-61"></span><span id="local-6989586621679845047"><span id="local-6989586621679845048"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteJob"><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-var">DeleteJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteJob%27"><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-var">DeleteJob'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | (Optional) When true, you can delete a job which is \&quot;IN_PROGRESS\&quot;.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Otherwise, you can only delete a job which is in a terminal state</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- (\&quot;COMPLETED\&quot; or \&quot;CANCELED\&quot;) or an exception will occur. The default</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- is false.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- Deleting a job which is \&quot;IN_PROGRESS\&quot;, will cause a device which is</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- executing the job to be unable to access job information or update the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- job execution status. Use caution and ensure that each device executing</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- a job which is deleted is able to recover to a valid state.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Aforce%3ADeleteJob%27"><span class="annot"><span class="annottext">DeleteJob -&gt; Maybe Bool
 </span><a href="Network.AWS.IoT.DeleteJob.html#%24sel%3Aforce%3ADeleteJob%27"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The namespace used to indicate that a job is a customer-managed job.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- When you specify a value for this parameter, Amazon Web Services IoT</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- Core sends jobs notifications to MQTT topics that contain the value in</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- the following format.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- The @namespaceId@ feature is in public preview.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AnamespaceId%3ADeleteJob%27"><span class="annot"><span class="annottext">DeleteJob -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.DeleteJob.html#%24sel%3AnamespaceId%3ADeleteJob%27"><span class="hs-identifier hs-var hs-var">namespaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The ID of the job to be deleted.</span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-comment">-- After a job deletion is completed, you may reuse this jobId when you</span><span>
@@ -89,7 +89,7 @@
 </span><span id="line-87"></span><span>    </span><span id="%24sel%3AjobId%3ADeleteJob%27"><span class="annot"><span class="annottext">DeleteJob -&gt; Text
 </span><a href="Network.AWS.IoT.DeleteJob.html#%24sel%3AjobId%3ADeleteJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679844051"><span id="local-6989586621679844053"><span class="annot"><span class="annottext">DeleteJob -&gt; DeleteJob -&gt; Bool
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679845039"><span id="local-6989586621679845041"><span class="annot"><span class="annottext">DeleteJob -&gt; DeleteJob -&gt; Bool
 (DeleteJob -&gt; DeleteJob -&gt; Bool)
 -&gt; (DeleteJob -&gt; DeleteJob -&gt; Bool) -&gt; Eq DeleteJob
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -97,7 +97,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteJob -&gt; DeleteJob -&gt; Bool
 == :: DeleteJob -&gt; DeleteJob -&gt; Bool
 $c== :: DeleteJob -&gt; DeleteJob -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844042"><span id="local-6989586621679844044"><span id="local-6989586621679844046"><span id="local-6989586621679844048"><span class="annot"><span class="annottext">ReadPrec [DeleteJob]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845030"><span id="local-6989586621679845032"><span id="local-6989586621679845034"><span id="local-6989586621679845036"><span class="annot"><span class="annottext">ReadPrec [DeleteJob]
 ReadPrec DeleteJob
 Int -&gt; ReadS DeleteJob
 ReadS [DeleteJob]
@@ -117,7 +117,7 @@ readList :: ReadS [DeleteJob]
 $creadList :: ReadS [DeleteJob]
 readsPrec :: Int -&gt; ReadS DeleteJob
 $creadsPrec :: Int -&gt; ReadS DeleteJob
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844035"><span id="local-6989586621679844037"><span id="local-6989586621679844039"><span class="annot"><span class="annottext">Int -&gt; DeleteJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845023"><span id="local-6989586621679845025"><span id="local-6989586621679845027"><span class="annot"><span class="annottext">Int -&gt; DeleteJob -&gt; ShowS
 [DeleteJob] -&gt; ShowS
 DeleteJob -&gt; String
 (Int -&gt; DeleteJob -&gt; ShowS)
@@ -150,25 +150,25 @@ $cfrom :: forall x. DeleteJob -&gt; Rep DeleteJob x
 </span><span id="line-96"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'namespaceId', 'deleteJob_namespaceId' - The namespace used to indicate that a job is a customer-managed job.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- When you specify a value for this parameter, Amazon Web Services IoT</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- Core sends jobs notifications to MQTT topics that contain the value in</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- the following format.</span><span>
-</span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- The @namespaceId@ feature is in public preview.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'force', 'deleteJob_force' - (Optional) When true, you can delete a job which is \&quot;IN_PROGRESS\&quot;.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Otherwise, you can only delete a job which is in a terminal state</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- (\&quot;COMPLETED\&quot; or \&quot;CANCELED\&quot;) or an exception will occur. The default</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- is false.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Deleting a job which is \&quot;IN_PROGRESS\&quot;, will cause a device which is</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- executing the job to be unable to access job information or update the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- job execution status. Use caution and ensure that each device executing</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- a job which is deleted is able to recover to a valid state.</span><span>
 </span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- 'force', 'deleteJob_force' - (Optional) When true, you can delete a job which is \&quot;IN_PROGRESS\&quot;.</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- Otherwise, you can only delete a job which is in a terminal state</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- (\&quot;COMPLETED\&quot; or \&quot;CANCELED\&quot;) or an exception will occur. The default</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- is false.</span><span>
-</span><span id="line-113"></span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- Deleting a job which is \&quot;IN_PROGRESS\&quot;, will cause a device which is</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- executing the job to be unable to access job information or update the</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- job execution status. Use caution and ensure that each device executing</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- a job which is deleted is able to recover to a valid state.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'namespaceId', 'deleteJob_namespaceId' - The namespace used to indicate that a job is a customer-managed job.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- When you specify a value for this parameter, Amazon Web Services IoT</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Core sends jobs notifications to MQTT topics that contain the value in</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- the following format.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- The @namespaceId@ feature is in public preview.</span><span>
 </span><span id="line-118"></span><span class="hs-comment">--</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- 'jobId', 'deleteJob_jobId' - The ID of the job to be deleted.</span><span>
 </span><span id="line-120"></span><span class="hs-comment">--</span><span>
@@ -180,74 +180,74 @@ $cfrom :: forall x. DeleteJob -&gt; Rep DeleteJob x
 </span><span id="line-126"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span>
 </span><span id="line-128"></span><span id="newDeleteJob"><span class="annot"><span class="annottext">newDeleteJob :: Text -&gt; DeleteJob
-</span><a href="Network.AWS.IoT.DeleteJob.html#newDeleteJob"><span class="hs-identifier hs-var hs-var">newDeleteJob</span></a></span></span><span> </span><span id="local-6989586621679844030"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679844030"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-129"></span><span>  </span><span class="annot"><span class="annottext">DeleteJob' :: Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; DeleteJob
+</span><a href="Network.AWS.IoT.DeleteJob.html#newDeleteJob"><span class="hs-identifier hs-var hs-var">newDeleteJob</span></a></span></span><span> </span><span id="local-6989586621679845018"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679845018"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="annottext">DeleteJob' :: Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; DeleteJob
 </span><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:namespaceId:DeleteJob' :: Maybe Text
-</span><a href="Network.AWS.IoT.DeleteJob.html#%24sel%3AnamespaceId%3ADeleteJob%27"><span class="hs-identifier hs-var">namespaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-130"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:force:DeleteJob' :: Maybe Bool
+</span><a href="Network.AWS.IoT.DeleteJob.html#%24sel%3Aforce%3ADeleteJob%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:force:DeleteJob' :: Maybe Bool
-</span><a href="Network.AWS.IoT.DeleteJob.html#%24sel%3Aforce%3ADeleteJob%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:namespaceId:DeleteJob' :: Maybe Text
+</span><a href="Network.AWS.IoT.DeleteJob.html#%24sel%3AnamespaceId%3ADeleteJob%27"><span class="hs-identifier hs-var">namespaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:DeleteJob' :: Text
 </span><a href="Network.AWS.IoT.DeleteJob.html#%24sel%3AjobId%3ADeleteJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679844030"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
+</span><a href="#local-6989586621679845018"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | The namespace used to indicate that a job is a customer-managed job.</span><span>
-</span><span id="line-136"></span><span class="hs-comment">--</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- When you specify a value for this parameter, Amazon Web Services IoT</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- Core sends jobs notifications to MQTT topics that contain the value in</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- the following format.</span><span>
-</span><span id="line-140"></span><span class="hs-comment">--</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- The @namespaceId@ feature is in public preview.</span><span>
-</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#deleteJob_namespaceId"><span class="hs-identifier hs-type">deleteJob_namespaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span id="deleteJob_namespaceId"><span class="annot"><span class="annottext">deleteJob_namespaceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeleteJob -&gt; f DeleteJob
-</span><a href="Network.AWS.IoT.DeleteJob.html#deleteJob_namespaceId"><span class="hs-identifier hs-var hs-var">deleteJob_namespaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteJob -&gt; Maybe Text)
--&gt; (DeleteJob -&gt; Maybe Text -&gt; DeleteJob)
--&gt; Lens DeleteJob DeleteJob (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844027"><span class="annot"><span class="annottext">Maybe Text
-namespaceId :: Maybe Text
-$sel:namespaceId:DeleteJob' :: DeleteJob -&gt; Maybe Text
-</span><a href="#local-6989586621679844027"><span class="hs-identifier hs-var hs-var">namespaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679844027"><span class="hs-identifier hs-var">namespaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844026"><span class="annot"><span class="annottext">s :: DeleteJob
-</span><a href="#local-6989586621679844026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844025"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679844025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJob
-</span><a href="#local-6989586621679844026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespaceId:DeleteJob' :: Maybe Text
-</span><a href="Network.AWS.IoT.DeleteJob.html#%24sel%3AnamespaceId%3ADeleteJob%27"><span class="hs-identifier hs-var">namespaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679844025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- | (Optional) When true, you can delete a job which is \&quot;IN_PROGRESS\&quot;.</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- Otherwise, you can only delete a job which is in a terminal state</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- (\&quot;COMPLETED\&quot; or \&quot;CANCELED\&quot;) or an exception will occur. The default</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- is false.</span><span>
-</span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- Deleting a job which is \&quot;IN_PROGRESS\&quot;, will cause a device which is</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- executing the job to be unable to access job information or update the</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- job execution status. Use caution and ensure that each device executing</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- a job which is deleted is able to recover to a valid state.</span><span>
-</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#deleteJob_force"><span class="hs-identifier hs-type">deleteJob_force</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span id="deleteJob_force"><span class="annot"><span class="annottext">deleteJob_force :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; DeleteJob -&gt; f DeleteJob
+</span><span id="line-135"></span><span class="hs-comment">-- | (Optional) When true, you can delete a job which is \&quot;IN_PROGRESS\&quot;.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Otherwise, you can only delete a job which is in a terminal state</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- (\&quot;COMPLETED\&quot; or \&quot;CANCELED\&quot;) or an exception will occur. The default</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- is false.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Deleting a job which is \&quot;IN_PROGRESS\&quot;, will cause a device which is</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- executing the job to be unable to access job information or update the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- job execution status. Use caution and ensure that each device executing</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- a job which is deleted is able to recover to a valid state.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#deleteJob_force"><span class="hs-identifier hs-type">deleteJob_force</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="deleteJob_force"><span class="annot"><span class="annottext">deleteJob_force :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; DeleteJob -&gt; f DeleteJob
 </span><a href="Network.AWS.IoT.DeleteJob.html#deleteJob_force"><span class="hs-identifier hs-var hs-var">deleteJob_force</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteJob -&gt; Maybe Bool)
 -&gt; (DeleteJob -&gt; Maybe Bool -&gt; DeleteJob)
 -&gt; Lens DeleteJob DeleteJob (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844024"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845015"><span class="annot"><span class="annottext">Maybe Bool
 force :: Maybe Bool
 $sel:force:DeleteJob' :: DeleteJob -&gt; Maybe Bool
-</span><a href="#local-6989586621679844024"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679844024"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844023"><span class="annot"><span class="annottext">s :: DeleteJob
-</span><a href="#local-6989586621679844023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844022"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679844022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJob
-</span><a href="#local-6989586621679844023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:DeleteJob' :: Maybe Bool
+</span><a href="#local-6989586621679845015"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679845015"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845014"><span class="annot"><span class="annottext">s :: DeleteJob
+</span><a href="#local-6989586621679845014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845013"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679845013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJob
+</span><a href="#local-6989586621679845014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:DeleteJob' :: Maybe Bool
 </span><a href="Network.AWS.IoT.DeleteJob.html#%24sel%3Aforce%3ADeleteJob%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679844022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679845013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The namespace used to indicate that a job is a customer-managed job.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- When you specify a value for this parameter, Amazon Web Services IoT</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Core sends jobs notifications to MQTT topics that contain the value in</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- the following format.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- The @namespaceId@ feature is in public preview.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#deleteJob_namespaceId"><span class="hs-identifier hs-type">deleteJob_namespaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="deleteJob_namespaceId"><span class="annot"><span class="annottext">deleteJob_namespaceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeleteJob -&gt; f DeleteJob
+</span><a href="Network.AWS.IoT.DeleteJob.html#deleteJob_namespaceId"><span class="hs-identifier hs-var hs-var">deleteJob_namespaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteJob -&gt; Maybe Text)
+-&gt; (DeleteJob -&gt; Maybe Text -&gt; DeleteJob)
+-&gt; Lens DeleteJob DeleteJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845012"><span class="annot"><span class="annottext">Maybe Text
+namespaceId :: Maybe Text
+$sel:namespaceId:DeleteJob' :: DeleteJob -&gt; Maybe Text
+</span><a href="#local-6989586621679845012"><span class="hs-identifier hs-var hs-var">namespaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845012"><span class="hs-identifier hs-var">namespaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845011"><span class="annot"><span class="annottext">s :: DeleteJob
+</span><a href="#local-6989586621679845011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845010"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJob
+</span><a href="#local-6989586621679845011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespaceId:DeleteJob' :: Maybe Text
+</span><a href="Network.AWS.IoT.DeleteJob.html#%24sel%3AnamespaceId%3ADeleteJob%27"><span class="hs-identifier hs-var">namespaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | The ID of the job to be deleted.</span><span>
 </span><span id="line-160"></span><span class="hs-comment">--</span><span>
@@ -260,25 +260,25 @@ $sel:force:DeleteJob' :: DeleteJob -&gt; Maybe Bool
 -&gt; (DeleteJob -&gt; Text -&gt; DeleteJob)
 -&gt; Lens DeleteJob DeleteJob Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844021"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845009"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:DeleteJob' :: DeleteJob -&gt; Text
-</span><a href="#local-6989586621679844021"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679844021"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844020"><span class="annot"><span class="annottext">s :: DeleteJob
-</span><a href="#local-6989586621679844020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844019"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679844019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJob
-</span><a href="#local-6989586621679844020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DeleteJob' :: Text
+</span><a href="#local-6989586621679845009"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679845009"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845008"><span class="annot"><span class="annottext">s :: DeleteJob
+</span><a href="#local-6989586621679845008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845007"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679845007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJob
+</span><a href="#local-6989586621679845008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DeleteJob' :: Text
 </span><a href="Network.AWS.IoT.DeleteJob.html#%24sel%3AjobId%3ADeleteJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679844019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679845007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJobResponse"><span class="hs-identifier hs-type">DeleteJobResponse</span></a></span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679844015"><span class="annot"><span class="annottext">request :: DeleteJob -&gt; Request DeleteJob
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679845003"><span class="annot"><span class="annottext">request :: DeleteJob -&gt; Request DeleteJob
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteJob -&gt; Request DeleteJob
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679844011"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679844999"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteJob
 -&gt; ClientResponse ClientBody
@@ -301,12 +301,12 @@ AWSResponse a
 DeleteJobResponse
 </span><a href="Network.AWS.IoT.DeleteJob.html#DeleteJobResponse%27"><span class="hs-identifier hs-var">DeleteJobResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679844004"><span id="local-6989586621679844006"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679844992"><span id="local-6989586621679844994"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span></span></span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679844001"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679844989"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span></span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679843997"><span class="annot"><span class="annottext">toHeaders :: DeleteJob -&gt; [Header]
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679844985"><span class="annot"><span class="annottext">toHeaders :: DeleteJob -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteJob -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -314,57 +314,57 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679843992"><span class="annot"><span class="annottext">toPath :: DeleteJob -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679843988"><span id="local-6989586621679843989"><span id="local-6989586621679843990"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679844980"><span class="annot"><span class="annottext">toPath :: DeleteJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844976"><span id="local-6989586621679844977"><span id="local-6989586621679844978"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 jobId :: Text
-force :: Maybe Bool
 namespaceId :: Maybe Text
+force :: Maybe Bool
 $sel:jobId:DeleteJob' :: DeleteJob -&gt; Text
-$sel:force:DeleteJob' :: DeleteJob -&gt; Maybe Bool
 $sel:namespaceId:DeleteJob' :: DeleteJob -&gt; Maybe Text
-</span><a href="#local-6989586621679843988"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:force:DeleteJob' :: DeleteJob -&gt; Maybe Bool
+</span><a href="#local-6989586621679844976"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/jobs/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679843988"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679844976"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679843984"><span class="annot"><span class="annottext">toQuery :: DeleteJob -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679843980"><span id="local-6989586621679843981"><span id="local-6989586621679843982"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679844972"><span class="annot"><span class="annottext">toQuery :: DeleteJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844968"><span id="local-6989586621679844969"><span id="local-6989586621679844970"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 jobId :: Text
-force :: Maybe Bool
 namespaceId :: Maybe Text
+force :: Maybe Bool
 $sel:jobId:DeleteJob' :: DeleteJob -&gt; Text
-$sel:force:DeleteJob' :: DeleteJob -&gt; Maybe Bool
 $sel:namespaceId:DeleteJob' :: DeleteJob -&gt; Maybe Text
-</span><a href="#local-6989586621679843980"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:force:DeleteJob' :: DeleteJob -&gt; Maybe Bool
+</span><a href="#local-6989586621679844968"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;namespaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679843982"><span class="hs-identifier hs-var">namespaceId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;force&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679843981"><span class="hs-identifier hs-var">force</span></a></span><span>
+</span><a href="#local-6989586621679844970"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;namespaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679844969"><span class="hs-identifier hs-var">namespaceId</span></a></span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | /See:/ 'newDeleteJobResponse' smart constructor.</span><span>
-</span><span id="line-191"></span><span id="local-6989586621679843977"><span id="local-6989586621679843978"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteJobResponse"><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJobResponse"><span class="hs-identifier hs-var">DeleteJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteJobResponse%27"><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJobResponse%27"><span class="hs-identifier hs-var">DeleteJobResponse'</span></a></span></span><span>
+</span><span id="line-191"></span><span id="local-6989586621679844965"><span id="local-6989586621679844966"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteJobResponse"><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJobResponse"><span class="hs-identifier hs-var">DeleteJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteJobResponse%27"><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJobResponse%27"><span class="hs-identifier hs-var">DeleteJobResponse'</span></a></span></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679843973"><span id="local-6989586621679843975"><span class="annot"><span class="annottext">DeleteJobResponse -&gt; DeleteJobResponse -&gt; Bool
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679844961"><span id="local-6989586621679844963"><span class="annot"><span class="annottext">DeleteJobResponse -&gt; DeleteJobResponse -&gt; Bool
 (DeleteJobResponse -&gt; DeleteJobResponse -&gt; Bool)
 -&gt; (DeleteJobResponse -&gt; DeleteJobResponse -&gt; Bool)
 -&gt; Eq DeleteJobResponse
@@ -373,7 +373,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteJobResponse -&gt; DeleteJobResponse -&gt; Bool
 == :: DeleteJobResponse -&gt; DeleteJobResponse -&gt; Bool
 $c== :: DeleteJobResponse -&gt; DeleteJobResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679843965"><span id="local-6989586621679843967"><span id="local-6989586621679843969"><span id="local-6989586621679843971"><span class="annot"><span class="annottext">ReadPrec [DeleteJobResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844953"><span id="local-6989586621679844955"><span id="local-6989586621679844957"><span id="local-6989586621679844959"><span class="annot"><span class="annottext">ReadPrec [DeleteJobResponse]
 ReadPrec DeleteJobResponse
 Int -&gt; ReadS DeleteJobResponse
 ReadS [DeleteJobResponse]
@@ -393,7 +393,7 @@ readList :: ReadS [DeleteJobResponse]
 $creadList :: ReadS [DeleteJobResponse]
 readsPrec :: Int -&gt; ReadS DeleteJobResponse
 $creadsPrec :: Int -&gt; ReadS DeleteJobResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679843959"><span id="local-6989586621679843961"><span id="local-6989586621679843963"><span class="annot"><span class="annottext">Int -&gt; DeleteJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844947"><span id="local-6989586621679844949"><span id="local-6989586621679844951"><span class="annot"><span class="annottext">Int -&gt; DeleteJobResponse -&gt; ShowS
 [DeleteJobResponse] -&gt; ShowS
 DeleteJobResponse -&gt; String
 (Int -&gt; DeleteJobResponse -&gt; ShowS)
@@ -429,5 +429,5 @@ $cfrom :: forall x. DeleteJobResponse -&gt; Rep DeleteJobResponse x
 </span><a href="Network.AWS.IoT.DeleteJob.html#newDeleteJobResponse"><span class="hs-identifier hs-var hs-var">newDeleteJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteJobResponse
 </span><a href="Network.AWS.IoT.DeleteJob.html#DeleteJobResponse%27"><span class="hs-identifier hs-var">DeleteJobResponse'</span></a></span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679843955"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJobResponse"><span class="hs-identifier hs-type">DeleteJobResponse</span></a></span></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679844943"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteJob.html#DeleteJobResponse"><span class="hs-identifier hs-type">DeleteJobResponse</span></a></span></span><span>
 </span><span id="line-205"></span></pre></body></html>

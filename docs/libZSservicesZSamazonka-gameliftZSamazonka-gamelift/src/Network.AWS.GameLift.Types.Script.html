@@ -33,38 +33,38 @@
 </span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task&gt;</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newScript' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679440477"><span id="local-6989586621679440478"></span></span><span class="hs-keyword">data</span><span> </span><span id="Script"><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-var">Script</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Script%27"><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-var">Script'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679440939"><span id="local-6989586621679440940"></span></span><span class="hs-keyword">data</span><span> </span><span id="Script"><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-var">Script</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Script%27"><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-var">Script'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A time stamp indicating when this data object was created. Format is a</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- number expressed in Unix time as milliseconds (for example</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @\&quot;1469498468.057\&quot;@).</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AcreationTime%3AScript%27"><span class="annot"><span class="annottext">Script -&gt; Maybe POSIX
 </span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AcreationTime%3AScript%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Version information that is associated with a build or script. Version</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- strings do not need to be unique.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aversion%3AScript%27"><span class="annot"><span class="annottext">Script -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3Aversion%3AScript%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- that is assigned to a GameLift script resource and uniquely identifies</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- it. ARNs are unique across all Regions. In a GameLift script ARN, the</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- resource ID matches the /ScriptId/ value.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AscriptArn%3AScript%27"><span class="annot"><span class="annottext">Script -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AscriptArn%3AScript%27"><span class="hs-identifier hs-var hs-var">scriptArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | A descriptive label that is associated with a script. Script names do</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- not need to be unique.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3AScript%27"><span class="annot"><span class="annottext">Script -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3Aname%3AScript%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AstorageLocation%3AScript%27"><span class="annot"><span class="annottext">Script -&gt; Maybe S3Location
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AstorageLocation%3AScript%27"><span class="annot"><span class="annottext">Script -&gt; Maybe S3Location
 </span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AstorageLocation%3AScript%27"><span class="hs-identifier hs-var hs-var">storageLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The file size of the uploaded Realtime script, expressed in bytes. When</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- files are uploaded from an S3 location, this value remains at \&quot;0\&quot;.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AsizeOnDisk%3AScript%27"><span class="annot"><span class="annottext">Script -&gt; Maybe Natural
-</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AsizeOnDisk%3AScript%27"><span class="hs-identifier hs-var hs-var">sizeOnDisk</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the Realtime script</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AscriptId%3AScript%27"><span class="annot"><span class="annottext">Script -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AscriptId%3AScript%27"><span class="hs-identifier hs-var hs-var">scriptId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A descriptive label that is associated with a script. Script names do</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- not need to be unique.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aname%3AScript%27"><span class="annot"><span class="annottext">Script -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3Aname%3AScript%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the Realtime script</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AscriptId%3AScript%27"><span class="annot"><span class="annottext">Script -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AscriptId%3AScript%27"><span class="hs-identifier hs-var hs-var">scriptId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Version information that is associated with a build or script. Version</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- strings do not need to be unique.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aversion%3AScript%27"><span class="annot"><span class="annottext">Script -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3Aversion%3AScript%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- that is assigned to a GameLift script resource and uniquely identifies</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- it. ARNs are unique across all Regions. In a GameLift script ARN, the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- resource ID matches the /ScriptId/ value.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AscriptArn%3AScript%27"><span class="annot"><span class="annottext">Script -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AscriptArn%3AScript%27"><span class="hs-identifier hs-var hs-var">scriptArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The file size of the uploaded Realtime script, expressed in bytes. When</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- files are uploaded from an S3 location, this value remains at \&quot;0\&quot;.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AsizeOnDisk%3AScript%27"><span class="annot"><span class="annottext">Script -&gt; Maybe Natural
+</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AsizeOnDisk%3AScript%27"><span class="hs-identifier hs-var hs-var">sizeOnDisk</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440465"><span id="local-6989586621679440467"><span class="annot"><span class="annottext">Script -&gt; Script -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440927"><span id="local-6989586621679440929"><span class="annot"><span class="annottext">Script -&gt; Script -&gt; Bool
 (Script -&gt; Script -&gt; Bool)
 -&gt; (Script -&gt; Script -&gt; Bool) -&gt; Eq Script
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Script -&gt; Script -&gt; Bool
 == :: Script -&gt; Script -&gt; Bool
 $c== :: Script -&gt; Script -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440456"><span id="local-6989586621679440458"><span id="local-6989586621679440460"><span id="local-6989586621679440462"><span class="annot"><span class="annottext">ReadPrec [Script]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440918"><span id="local-6989586621679440920"><span id="local-6989586621679440922"><span id="local-6989586621679440924"><span class="annot"><span class="annottext">ReadPrec [Script]
 ReadPrec Script
 Int -&gt; ReadS Script
 ReadS [Script]
@@ -92,7 +92,7 @@ readList :: ReadS [Script]
 $creadList :: ReadS [Script]
 readsPrec :: Int -&gt; ReadS Script
 $creadsPrec :: Int -&gt; ReadS Script
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440449"><span id="local-6989586621679440451"><span id="local-6989586621679440453"><span class="annot"><span class="annottext">Int -&gt; Script -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440911"><span id="local-6989586621679440913"><span id="local-6989586621679440915"><span class="annot"><span class="annottext">Int -&gt; Script -&gt; ShowS
 [Script] -&gt; ShowS
 Script -&gt; String
 (Int -&gt; Script -&gt; ShowS)
@@ -127,63 +127,63 @@ $cfrom :: forall x. Script -&gt; Rep Script x
 </span><span id="line-71"></span><span class="hs-comment">-- number expressed in Unix time as milliseconds (for example</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- @\&quot;1469498468.057\&quot;@).</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'version', 'script_version' - Version information that is associated with a build or script. Version</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- strings do not need to be unique.</span><span>
-</span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'scriptArn', 'script_scriptArn' - The Amazon Resource Name</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- that is assigned to a GameLift script resource and uniquely identifies</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. In a GameLift script ARN, the</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- resource ID matches the /ScriptId/ value.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'name', 'script_name' - A descriptive label that is associated with a script. Script names do</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- not need to be unique.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'storageLocation', 'script_storageLocation' - Undocumented member.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'sizeOnDisk', 'script_sizeOnDisk' - The file size of the uploaded Realtime script, expressed in bytes. When</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- files are uploaded from an S3 location, this value remains at \&quot;0\&quot;.</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'scriptId', 'script_scriptId' - A unique identifier for the Realtime script</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'storageLocation', 'script_storageLocation' - Undocumented member.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'name', 'script_name' - A descriptive label that is associated with a script. Script names do</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- not need to be unique.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'scriptId', 'script_scriptId' - A unique identifier for the Realtime script</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'version', 'script_version' - Version information that is associated with a build or script. Version</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- strings do not need to be unique.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'scriptArn', 'script_scriptArn' - The Amazon Resource Name</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- that is assigned to a GameLift script resource and uniquely identifies</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. In a GameLift script ARN, the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- resource ID matches the /ScriptId/ value.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'sizeOnDisk', 'script_sizeOnDisk' - The file size of the uploaded Realtime script, expressed in bytes. When</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- files are uploaded from an S3 location, this value remains at \&quot;0\&quot;.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#newScript"><span class="hs-identifier hs-type">newScript</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span>
 </span><span id="line-94"></span><span id="newScript"><span class="annot"><span class="annottext">newScript :: Script
 </span><a href="Network.AWS.GameLift.Types.Script.html#newScript"><span class="hs-identifier hs-var hs-var">newScript</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">Script' :: Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe S3Location
--&gt; Maybe Natural
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; Script
 </span><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:Script' :: Maybe POSIX
 </span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AcreationTime%3AScript%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:Script' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3Aversion%3AScript%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:scriptArn:Script' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AscriptArn%3AScript%27"><span class="hs-identifier hs-var">scriptArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Script' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3Aname%3AScript%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:storageLocation:Script' :: Maybe S3Location
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:storageLocation:Script' :: Maybe S3Location
 </span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AstorageLocation%3AScript%27"><span class="hs-identifier hs-var">storageLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:sizeOnDisk:Script' :: Maybe Natural
-</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AsizeOnDisk%3AScript%27"><span class="hs-identifier hs-var">sizeOnDisk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Script' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3Aname%3AScript%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:scriptId:Script' :: Maybe Text
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:scriptId:Script' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AscriptId%3AScript%27"><span class="hs-identifier hs-var">scriptId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:Script' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3Aversion%3AScript%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:scriptArn:Script' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AscriptArn%3AScript%27"><span class="hs-identifier hs-var">scriptArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:sizeOnDisk:Script' :: Maybe Natural
+</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AsizeOnDisk%3AScript%27"><span class="hs-identifier hs-var">sizeOnDisk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
@@ -197,16 +197,16 @@ forall a. Maybe a
 -&gt; (Script -&gt; Maybe POSIX -&gt; Script)
 -&gt; Lens Script Script (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440440"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440902"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:Script' :: Script -&gt; Maybe POSIX
-</span><a href="#local-6989586621679440440"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679440440"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440439"><span class="annot"><span class="annottext">s :: Script
-</span><a href="#local-6989586621679440439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440438"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679440438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Script
-</span><a href="#local-6989586621679440439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Script' :: Maybe POSIX
+</span><a href="#local-6989586621679440902"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679440902"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440901"><span class="annot"><span class="annottext">s :: Script
+</span><a href="#local-6989586621679440901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440900"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679440900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Script
+</span><a href="#local-6989586621679440901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Script' :: Maybe POSIX
 </span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AcreationTime%3AScript%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679440438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Script -&gt; f Script)
+</span><a href="#local-6989586621679440900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Script -&gt; f Script)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -222,242 +222,239 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | Version information that is associated with a build or script. Version</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- strings do not need to be unique.</span><span>
-</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#script_version"><span class="hs-identifier hs-type">script_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span id="script_version"><span class="annot"><span class="annottext">script_version :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Script -&gt; f Script
-</span><a href="Network.AWS.GameLift.Types.Script.html#script_version"><span class="hs-identifier hs-var hs-var">script_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Script -&gt; Maybe Text)
--&gt; (Script -&gt; Maybe Text -&gt; Script)
--&gt; Lens Script Script (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440433"><span class="annot"><span class="annottext">Maybe Text
-version :: Maybe Text
-$sel:version:Script' :: Script -&gt; Maybe Text
-</span><a href="#local-6989586621679440433"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440433"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440432"><span class="annot"><span class="annottext">s :: Script
-</span><a href="#local-6989586621679440432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440431"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Script
-</span><a href="#local-6989586621679440432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:Script' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3Aversion%3AScript%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- that is assigned to a GameLift script resource and uniquely identifies</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. In a GameLift script ARN, the</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- resource ID matches the /ScriptId/ value.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#script_scriptArn"><span class="hs-identifier hs-type">script_scriptArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="script_scriptArn"><span class="annot"><span class="annottext">script_scriptArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Script -&gt; f Script
-</span><a href="Network.AWS.GameLift.Types.Script.html#script_scriptArn"><span class="hs-identifier hs-var hs-var">script_scriptArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Script -&gt; Maybe Text)
--&gt; (Script -&gt; Maybe Text -&gt; Script)
--&gt; Lens Script Script (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440429"><span class="annot"><span class="annottext">Maybe Text
-scriptArn :: Maybe Text
-$sel:scriptArn:Script' :: Script -&gt; Maybe Text
-</span><a href="#local-6989586621679440429"><span class="hs-identifier hs-var hs-var">scriptArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440429"><span class="hs-identifier hs-var">scriptArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440428"><span class="annot"><span class="annottext">s :: Script
-</span><a href="#local-6989586621679440428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440427"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Script
-</span><a href="#local-6989586621679440428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scriptArn:Script' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AscriptArn%3AScript%27"><span class="hs-identifier hs-var">scriptArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | A descriptive label that is associated with a script. Script names do</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- not need to be unique.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#script_name"><span class="hs-identifier hs-type">script_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="script_name"><span class="annot"><span class="annottext">script_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Script -&gt; f Script
-</span><a href="Network.AWS.GameLift.Types.Script.html#script_name"><span class="hs-identifier hs-var hs-var">script_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Script -&gt; Maybe Text)
--&gt; (Script -&gt; Maybe Text -&gt; Script)
--&gt; Lens Script Script (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440425"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:Script' :: Script -&gt; Maybe Text
-</span><a href="#local-6989586621679440425"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440425"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440424"><span class="annot"><span class="annottext">s :: Script
-</span><a href="#local-6989586621679440424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440423"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Script
-</span><a href="#local-6989586621679440424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Script' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3Aname%3AScript%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#script_storageLocation"><span class="hs-identifier hs-type">script_storageLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="script_storageLocation"><span class="annot"><span class="annottext">script_storageLocation :: (Maybe S3Location -&gt; f (Maybe S3Location)) -&gt; Script -&gt; f Script
+</span><span id="line-111"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#script_storageLocation"><span class="hs-identifier hs-type">script_storageLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="script_storageLocation"><span class="annot"><span class="annottext">script_storageLocation :: (Maybe S3Location -&gt; f (Maybe S3Location)) -&gt; Script -&gt; f Script
 </span><a href="Network.AWS.GameLift.Types.Script.html#script_storageLocation"><span class="hs-identifier hs-var hs-var">script_storageLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Script -&gt; Maybe S3Location)
 -&gt; (Script -&gt; Maybe S3Location -&gt; Script)
 -&gt; Lens Script Script (Maybe S3Location) (Maybe S3Location)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440421"><span class="annot"><span class="annottext">Maybe S3Location
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440895"><span class="annot"><span class="annottext">Maybe S3Location
 storageLocation :: Maybe S3Location
 $sel:storageLocation:Script' :: Script -&gt; Maybe S3Location
-</span><a href="#local-6989586621679440421"><span class="hs-identifier hs-var hs-var">storageLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679440421"><span class="hs-identifier hs-var">storageLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440420"><span class="annot"><span class="annottext">s :: Script
-</span><a href="#local-6989586621679440420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440419"><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679440419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Script
-</span><a href="#local-6989586621679440420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageLocation:Script' :: Maybe S3Location
+</span><a href="#local-6989586621679440895"><span class="hs-identifier hs-var hs-var">storageLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
+</span><a href="#local-6989586621679440895"><span class="hs-identifier hs-var">storageLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440894"><span class="annot"><span class="annottext">s :: Script
+</span><a href="#local-6989586621679440894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440893"><span class="annot"><span class="annottext">Maybe S3Location
+</span><a href="#local-6989586621679440893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Script
+</span><a href="#local-6989586621679440894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageLocation:Script' :: Maybe S3Location
 </span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AstorageLocation%3AScript%27"><span class="hs-identifier hs-var">storageLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679440419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | The file size of the uploaded Realtime script, expressed in bytes. When</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- files are uploaded from an S3 location, this value remains at \&quot;0\&quot;.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#script_sizeOnDisk"><span class="hs-identifier hs-type">script_sizeOnDisk</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="script_sizeOnDisk"><span class="annot"><span class="annottext">script_sizeOnDisk :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; Script -&gt; f Script
-</span><a href="Network.AWS.GameLift.Types.Script.html#script_sizeOnDisk"><span class="hs-identifier hs-var hs-var">script_sizeOnDisk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Script -&gt; Maybe Natural)
--&gt; (Script -&gt; Maybe Natural -&gt; Script)
--&gt; Lens Script Script (Maybe Natural) (Maybe Natural)
+</span><a href="#local-6989586621679440893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | A descriptive label that is associated with a script. Script names do</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- not need to be unique.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#script_name"><span class="hs-identifier hs-type">script_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="script_name"><span class="annot"><span class="annottext">script_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Script -&gt; f Script
+</span><a href="Network.AWS.GameLift.Types.Script.html#script_name"><span class="hs-identifier hs-var hs-var">script_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Script -&gt; Maybe Text)
+-&gt; (Script -&gt; Maybe Text -&gt; Script)
+-&gt; Lens Script Script (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440417"><span class="annot"><span class="annottext">Maybe Natural
-sizeOnDisk :: Maybe Natural
-$sel:sizeOnDisk:Script' :: Script -&gt; Maybe Natural
-</span><a href="#local-6989586621679440417"><span class="hs-identifier hs-var hs-var">sizeOnDisk</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440417"><span class="hs-identifier hs-var">sizeOnDisk</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440416"><span class="annot"><span class="annottext">s :: Script
-</span><a href="#local-6989586621679440416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440415"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Script
-</span><a href="#local-6989586621679440416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeOnDisk:Script' :: Maybe Natural
-</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AsizeOnDisk%3AScript%27"><span class="hs-identifier hs-var">sizeOnDisk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | A unique identifier for the Realtime script</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#script_scriptId"><span class="hs-identifier hs-type">script_scriptId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="script_scriptId"><span class="annot"><span class="annottext">script_scriptId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Script -&gt; f Script
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440891"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Script' :: Script -&gt; Maybe Text
+</span><a href="#local-6989586621679440891"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440891"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440890"><span class="annot"><span class="annottext">s :: Script
+</span><a href="#local-6989586621679440890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440889"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Script
+</span><a href="#local-6989586621679440890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Script' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3Aname%3AScript%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | A unique identifier for the Realtime script</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#script_scriptId"><span class="hs-identifier hs-type">script_scriptId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="script_scriptId"><span class="annot"><span class="annottext">script_scriptId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Script -&gt; f Script
 </span><a href="Network.AWS.GameLift.Types.Script.html#script_scriptId"><span class="hs-identifier hs-var hs-var">script_scriptId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Script -&gt; Maybe Text)
 -&gt; (Script -&gt; Maybe Text -&gt; Script)
 -&gt; Lens Script Script (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440413"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440887"><span class="annot"><span class="annottext">Maybe Text
 scriptId :: Maybe Text
 $sel:scriptId:Script' :: Script -&gt; Maybe Text
-</span><a href="#local-6989586621679440413"><span class="hs-identifier hs-var hs-var">scriptId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440413"><span class="hs-identifier hs-var">scriptId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440412"><span class="annot"><span class="annottext">s :: Script
-</span><a href="#local-6989586621679440412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440411"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Script
-</span><a href="#local-6989586621679440412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scriptId:Script' :: Maybe Text
+</span><a href="#local-6989586621679440887"><span class="hs-identifier hs-var hs-var">scriptId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440887"><span class="hs-identifier hs-var">scriptId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440886"><span class="annot"><span class="annottext">s :: Script
+</span><a href="#local-6989586621679440886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440885"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Script
+</span><a href="#local-6989586621679440886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scriptId:Script' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AscriptId%3AScript%27"><span class="hs-identifier hs-var">scriptId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | Version information that is associated with a build or script. Version</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- strings do not need to be unique.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#script_version"><span class="hs-identifier hs-type">script_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="script_version"><span class="annot"><span class="annottext">script_version :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Script -&gt; f Script
+</span><a href="Network.AWS.GameLift.Types.Script.html#script_version"><span class="hs-identifier hs-var hs-var">script_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Script -&gt; Maybe Text)
+-&gt; (Script -&gt; Maybe Text -&gt; Script)
+-&gt; Lens Script Script (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440883"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:Script' :: Script -&gt; Maybe Text
+</span><a href="#local-6989586621679440883"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440883"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440882"><span class="annot"><span class="annottext">s :: Script
+</span><a href="#local-6989586621679440882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440881"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Script
+</span><a href="#local-6989586621679440882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:Script' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3Aversion%3AScript%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- that is assigned to a GameLift script resource and uniquely identifies</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. In a GameLift script ARN, the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- resource ID matches the /ScriptId/ value.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#script_scriptArn"><span class="hs-identifier hs-type">script_scriptArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="script_scriptArn"><span class="annot"><span class="annottext">script_scriptArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Script -&gt; f Script
+</span><a href="Network.AWS.GameLift.Types.Script.html#script_scriptArn"><span class="hs-identifier hs-var hs-var">script_scriptArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Script -&gt; Maybe Text)
+-&gt; (Script -&gt; Maybe Text -&gt; Script)
+-&gt; Lens Script Script (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440879"><span class="annot"><span class="annottext">Maybe Text
+scriptArn :: Maybe Text
+$sel:scriptArn:Script' :: Script -&gt; Maybe Text
+</span><a href="#local-6989586621679440879"><span class="hs-identifier hs-var hs-var">scriptArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440879"><span class="hs-identifier hs-var">scriptArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440878"><span class="annot"><span class="annottext">s :: Script
+</span><a href="#local-6989586621679440878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440877"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Script
+</span><a href="#local-6989586621679440878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scriptArn:Script' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AscriptArn%3AScript%27"><span class="hs-identifier hs-var">scriptArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The file size of the uploaded Realtime script, expressed in bytes. When</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- files are uploaded from an S3 location, this value remains at \&quot;0\&quot;.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#script_sizeOnDisk"><span class="hs-identifier hs-type">script_sizeOnDisk</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="script_sizeOnDisk"><span class="annot"><span class="annottext">script_sizeOnDisk :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; Script -&gt; f Script
+</span><a href="Network.AWS.GameLift.Types.Script.html#script_sizeOnDisk"><span class="hs-identifier hs-var hs-var">script_sizeOnDisk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Script -&gt; Maybe Natural)
+-&gt; (Script -&gt; Maybe Natural -&gt; Script)
+-&gt; Lens Script Script (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440875"><span class="annot"><span class="annottext">Maybe Natural
+sizeOnDisk :: Maybe Natural
+$sel:sizeOnDisk:Script' :: Script -&gt; Maybe Natural
+</span><a href="#local-6989586621679440875"><span class="hs-identifier hs-var hs-var">sizeOnDisk</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679440875"><span class="hs-identifier hs-var">sizeOnDisk</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440874"><span class="annot"><span class="annottext">s :: Script
+</span><a href="#local-6989586621679440874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-type">Script'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440873"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679440873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Script
+</span><a href="#local-6989586621679440874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeOnDisk:Script' :: Maybe Natural
+</span><a href="Network.AWS.GameLift.Types.Script.html#%24sel%3AsizeOnDisk%3AScript%27"><span class="hs-identifier hs-var">sizeOnDisk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679440873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440408"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679440406"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Script
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440870"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679440868"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Script
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Script) -&gt; Value -&gt; Parser Script
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Script&quot;</span></span><span>
-</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440403"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440403"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440865"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679440865"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe S3Location
--&gt; Maybe Natural
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; Script
 </span><a href="Network.AWS.GameLift.Types.Script.html#Script%27"><span class="hs-identifier hs-var">Script'</span></a></span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe S3Location
- -&gt; Maybe Natural
  -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
  -&gt; Script)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe Text
+     (Maybe S3Location
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe S3Location
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Natural
-      -&gt; Maybe Text
       -&gt; Script)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679440865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
+  (Maybe S3Location
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe S3Location
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe Natural
-   -&gt; Maybe Text
    -&gt; Script)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe S3Location)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe S3Location
-      -&gt; Maybe Natural
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
       -&gt; Script)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe S3Location
-   -&gt; Maybe Natural
-   -&gt; Maybe Text
-   -&gt; Script)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe S3Location -&gt; Maybe Natural -&gt; Maybe Text -&gt; Script)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ScriptArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe S3Location -&gt; Maybe Natural -&gt; Maybe Text -&gt; Script)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe S3Location -&gt; Maybe Natural -&gt; Maybe Text -&gt; Script)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe S3Location -&gt; Maybe Natural -&gt; Maybe Text -&gt; Script)
--&gt; Parser (Maybe S3Location)
--&gt; Parser (Maybe Natural -&gt; Maybe Text -&gt; Script)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Location)
+</span><a href="#local-6989586621679440865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Location)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StorageLocation&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Text -&gt; Script)
--&gt; Parser (Maybe Natural) -&gt; Parser (Maybe Text -&gt; Script)
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Script)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; Script)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679440865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SizeOnDisk&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Script)
--&gt; Parser (Maybe Text) -&gt; Parser Script
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; Script)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; Script)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679440865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScriptId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; Script)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Natural -&gt; Script)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679440865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Natural -&gt; Script)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Natural -&gt; Script)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679440865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScriptArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Script)
+-&gt; Parser (Maybe Natural) -&gt; Parser Script
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679440865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SizeOnDisk&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440397"><span id="local-6989586621679440399"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440859"><span id="local-6989586621679440861"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span></span></span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440394"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440856"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span></span><span>
 </span><span id="line-160"></span></pre></body></html>

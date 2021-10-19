@@ -30,9 +30,9 @@
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_eventSourceArn"><span class="hs-identifier">listArchives_eventSourceArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_nextToken"><span class="hs-identifier">listArchives_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_namePrefix"><span class="hs-identifier">listArchives_namePrefix</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_state"><span class="hs-identifier">listArchives_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_state"><span class="hs-identifier">listArchives_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_nextToken"><span class="hs-identifier">listArchives_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_namePrefix"><span class="hs-identifier">listArchives_namePrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_limit"><span class="hs-identifier">listArchives_limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -40,8 +40,8 @@
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#newListArchivesResponse"><span class="hs-identifier">newListArchivesResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchivesResponse_nextToken"><span class="hs-identifier">listArchivesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchivesResponse_archives"><span class="hs-identifier">listArchivesResponse_archives</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchivesResponse_archives"><span class="hs-identifier">listArchivesResponse_archives</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchivesResponse_nextToken"><span class="hs-identifier">listArchivesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchivesResponse_httpStatus"><span class="hs-identifier">listArchivesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span class="hs-keyword">where</span><span>
@@ -54,26 +54,26 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListArchives' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679313628"><span id="local-6989586621679313629"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListArchives"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-var">ListArchives</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListArchives%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-var">ListArchives'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679313838"><span id="local-6989586621679313839"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListArchives"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-var">ListArchives</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListArchives%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-var">ListArchives'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the event source associated with the archive.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AeventSourceArn%3AListArchives%27"><span class="annot"><span class="annottext">ListArchives -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AeventSourceArn%3AListArchives%27"><span class="hs-identifier hs-var hs-var">eventSourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The token returned by a previous call to retrieve the next set of</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3AListArchives%27"><span class="annot"><span class="annottext">ListArchives -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AnextToken%3AListArchives%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | A name prefix to filter the archives returned. Only archives with name</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- that match the prefix are returned.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AnamePrefix%3AListArchives%27"><span class="annot"><span class="annottext">ListArchives -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AnamePrefix%3AListArchives%27"><span class="hs-identifier hs-var hs-var">namePrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The state of the archive.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3Astate%3AListArchives%27"><span class="annot"><span class="annottext">ListArchives -&gt; Maybe ArchiveState
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The state of the archive.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Astate%3AListArchives%27"><span class="annot"><span class="annottext">ListArchives -&gt; Maybe ArchiveState
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3Astate%3AListArchives%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ArchiveState.html#ArchiveState"><span class="hs-identifier hs-type">ArchiveState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The token returned by a previous call to retrieve the next set of</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AnextToken%3AListArchives%27"><span class="annot"><span class="annottext">ListArchives -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AnextToken%3AListArchives%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | A name prefix to filter the archives returned. Only archives with name</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- that match the prefix are returned.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AnamePrefix%3AListArchives%27"><span class="annot"><span class="annottext">ListArchives -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AnamePrefix%3AListArchives%27"><span class="hs-identifier hs-var hs-var">namePrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return.</span><span>
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3Alimit%3AListArchives%27"><span class="annot"><span class="annottext">ListArchives -&gt; Maybe Natural
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3Alimit%3AListArchives%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313618"><span id="local-6989586621679313620"><span class="annot"><span class="annottext">ListArchives -&gt; ListArchives -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313828"><span id="local-6989586621679313830"><span class="annot"><span class="annottext">ListArchives -&gt; ListArchives -&gt; Bool
 (ListArchives -&gt; ListArchives -&gt; Bool)
 -&gt; (ListArchives -&gt; ListArchives -&gt; Bool) -&gt; Eq ListArchives
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListArchives -&gt; ListArchives -&gt; Bool
 == :: ListArchives -&gt; ListArchives -&gt; Bool
 $c== :: ListArchives -&gt; ListArchives -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313609"><span id="local-6989586621679313611"><span id="local-6989586621679313613"><span id="local-6989586621679313615"><span class="annot"><span class="annottext">ReadPrec [ListArchives]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313819"><span id="local-6989586621679313821"><span id="local-6989586621679313823"><span id="local-6989586621679313825"><span class="annot"><span class="annottext">ReadPrec [ListArchives]
 ReadPrec ListArchives
 Int -&gt; ReadS ListArchives
 ReadS [ListArchives]
@@ -101,7 +101,7 @@ readList :: ReadS [ListArchives]
 $creadList :: ReadS [ListArchives]
 readsPrec :: Int -&gt; ReadS ListArchives
 $creadsPrec :: Int -&gt; ReadS ListArchives
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313602"><span id="local-6989586621679313604"><span id="local-6989586621679313606"><span class="annot"><span class="annottext">Int -&gt; ListArchives -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313812"><span id="local-6989586621679313814"><span id="local-6989586621679313816"><span class="annot"><span class="annottext">Int -&gt; ListArchives -&gt; ShowS
 [ListArchives] -&gt; ShowS
 ListArchives -&gt; String
 (Int -&gt; ListArchives -&gt; ShowS)
@@ -137,13 +137,13 @@ $cfrom :: forall x. ListArchives -&gt; Rep ListArchives x
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- 'eventSourceArn', 'listArchives_eventSourceArn' - The ARN of the event source associated with the archive.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'nextToken', 'listArchives_nextToken' - The token returned by a previous call to retrieve the next set of</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'namePrefix', 'listArchives_namePrefix' - A name prefix to filter the archives returned. Only archives with name</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- that match the prefix are returned.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'state', 'listArchives_state' - The state of the archive.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'state', 'listArchives_state' - The state of the archive.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'nextToken', 'listArchives_nextToken' - The token returned by a previous call to retrieve the next set of</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'namePrefix', 'listArchives_namePrefix' - A name prefix to filter the archives returned. Only archives with name</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- that match the prefix are returned.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- 'limit', 'listArchives_limit' - The maximum number of results to return.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#newListArchives"><span class="hs-identifier hs-type">newListArchives</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -151,9 +151,9 @@ $cfrom :: forall x. ListArchives -&gt; Rep ListArchives x
 </span><span id="line-94"></span><span id="newListArchives"><span class="annot"><span class="annottext">newListArchives :: ListArchives
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#newListArchives"><span class="hs-identifier hs-var hs-var">newListArchives</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">ListArchives' :: Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe ArchiveState
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Natural
 -&gt; ListArchives
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span>
@@ -161,16 +161,16 @@ $cfrom :: forall x. ListArchives -&gt; Rep ListArchives x
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AeventSourceArn%3AListArchives%27"><span class="hs-identifier hs-var">eventSourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListArchives' :: Maybe Text
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:ListArchives' :: Maybe ArchiveState
+</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3Astate%3AListArchives%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListArchives' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AnextToken%3AListArchives%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:namePrefix:ListArchives' :: Maybe Text
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:namePrefix:ListArchives' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AnamePrefix%3AListArchives%27"><span class="hs-identifier hs-var">namePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:ListArchives' :: Maybe ArchiveState
-</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3Astate%3AListArchives%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:ListArchives' :: Maybe Natural
@@ -186,74 +186,74 @@ forall a. Maybe a
 -&gt; (ListArchives -&gt; Maybe Text -&gt; ListArchives)
 -&gt; Lens ListArchives ListArchives (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313595"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313805"><span class="annot"><span class="annottext">Maybe Text
 eventSourceArn :: Maybe Text
 $sel:eventSourceArn:ListArchives' :: ListArchives -&gt; Maybe Text
-</span><a href="#local-6989586621679313595"><span class="hs-identifier hs-var hs-var">eventSourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313595"><span class="hs-identifier hs-var">eventSourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313594"><span class="annot"><span class="annottext">s :: ListArchives
-</span><a href="#local-6989586621679313594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313593"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArchives
-</span><a href="#local-6989586621679313594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSourceArn:ListArchives' :: Maybe Text
+</span><a href="#local-6989586621679313805"><span class="hs-identifier hs-var hs-var">eventSourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313805"><span class="hs-identifier hs-var">eventSourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313804"><span class="annot"><span class="annottext">s :: ListArchives
+</span><a href="#local-6989586621679313804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313803"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArchives
+</span><a href="#local-6989586621679313804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSourceArn:ListArchives' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AeventSourceArn%3AListArchives%27"><span class="hs-identifier hs-var">eventSourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | The token returned by a previous call to retrieve the next set of</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_nextToken"><span class="hs-identifier hs-type">listArchives_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="listArchives_nextToken"><span class="annot"><span class="annottext">listArchives_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListArchives -&gt; f ListArchives
-</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_nextToken"><span class="hs-identifier hs-var hs-var">listArchives_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArchives -&gt; Maybe Text)
--&gt; (ListArchives -&gt; Maybe Text -&gt; ListArchives)
--&gt; Lens ListArchives ListArchives (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313592"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListArchives' :: ListArchives -&gt; Maybe Text
-</span><a href="#local-6989586621679313592"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313592"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313591"><span class="annot"><span class="annottext">s :: ListArchives
-</span><a href="#local-6989586621679313591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313590"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArchives
-</span><a href="#local-6989586621679313591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListArchives' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AnextToken%3AListArchives%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | A name prefix to filter the archives returned. Only archives with name</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- that match the prefix are returned.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_namePrefix"><span class="hs-identifier hs-type">listArchives_namePrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="listArchives_namePrefix"><span class="annot"><span class="annottext">listArchives_namePrefix :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListArchives -&gt; f ListArchives
-</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_namePrefix"><span class="hs-identifier hs-var hs-var">listArchives_namePrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArchives -&gt; Maybe Text)
--&gt; (ListArchives -&gt; Maybe Text -&gt; ListArchives)
--&gt; Lens ListArchives ListArchives (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313589"><span class="annot"><span class="annottext">Maybe Text
-namePrefix :: Maybe Text
-$sel:namePrefix:ListArchives' :: ListArchives -&gt; Maybe Text
-</span><a href="#local-6989586621679313589"><span class="hs-identifier hs-var hs-var">namePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313589"><span class="hs-identifier hs-var">namePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313588"><span class="annot"><span class="annottext">s :: ListArchives
-</span><a href="#local-6989586621679313588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313587"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArchives
-</span><a href="#local-6989586621679313588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namePrefix:ListArchives' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AnamePrefix%3AListArchives%27"><span class="hs-identifier hs-var">namePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | The state of the archive.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_state"><span class="hs-identifier hs-type">listArchives_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ArchiveState.html#ArchiveState"><span class="hs-identifier hs-type">ArchiveState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="listArchives_state"><span class="annot"><span class="annottext">listArchives_state :: (Maybe ArchiveState -&gt; f (Maybe ArchiveState))
+</span><span id="line-107"></span><span class="hs-comment">-- | The state of the archive.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_state"><span class="hs-identifier hs-type">listArchives_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ArchiveState.html#ArchiveState"><span class="hs-identifier hs-type">ArchiveState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="listArchives_state"><span class="annot"><span class="annottext">listArchives_state :: (Maybe ArchiveState -&gt; f (Maybe ArchiveState))
 -&gt; ListArchives -&gt; f ListArchives
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_state"><span class="hs-identifier hs-var hs-var">listArchives_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArchives -&gt; Maybe ArchiveState)
 -&gt; (ListArchives -&gt; Maybe ArchiveState -&gt; ListArchives)
 -&gt; Lens
      ListArchives ListArchives (Maybe ArchiveState) (Maybe ArchiveState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313586"><span class="annot"><span class="annottext">Maybe ArchiveState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313802"><span class="annot"><span class="annottext">Maybe ArchiveState
 state :: Maybe ArchiveState
 $sel:state:ListArchives' :: ListArchives -&gt; Maybe ArchiveState
-</span><a href="#local-6989586621679313586"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveState
-</span><a href="#local-6989586621679313586"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313585"><span class="annot"><span class="annottext">s :: ListArchives
-</span><a href="#local-6989586621679313585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313584"><span class="annot"><span class="annottext">Maybe ArchiveState
-</span><a href="#local-6989586621679313584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArchives
-</span><a href="#local-6989586621679313585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:ListArchives' :: Maybe ArchiveState
+</span><a href="#local-6989586621679313802"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveState
+</span><a href="#local-6989586621679313802"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313801"><span class="annot"><span class="annottext">s :: ListArchives
+</span><a href="#local-6989586621679313801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313800"><span class="annot"><span class="annottext">Maybe ArchiveState
+</span><a href="#local-6989586621679313800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArchives
+</span><a href="#local-6989586621679313801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:ListArchives' :: Maybe ArchiveState
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3Astate%3AListArchives%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveState
-</span><a href="#local-6989586621679313584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The token returned by a previous call to retrieve the next set of</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_nextToken"><span class="hs-identifier hs-type">listArchives_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="listArchives_nextToken"><span class="annot"><span class="annottext">listArchives_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListArchives -&gt; f ListArchives
+</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_nextToken"><span class="hs-identifier hs-var hs-var">listArchives_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArchives -&gt; Maybe Text)
+-&gt; (ListArchives -&gt; Maybe Text -&gt; ListArchives)
+-&gt; Lens ListArchives ListArchives (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313799"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListArchives' :: ListArchives -&gt; Maybe Text
+</span><a href="#local-6989586621679313799"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313799"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313798"><span class="annot"><span class="annottext">s :: ListArchives
+</span><a href="#local-6989586621679313798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313797"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArchives
+</span><a href="#local-6989586621679313798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListArchives' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AnextToken%3AListArchives%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | A name prefix to filter the archives returned. Only archives with name</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- that match the prefix are returned.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_namePrefix"><span class="hs-identifier hs-type">listArchives_namePrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="listArchives_namePrefix"><span class="annot"><span class="annottext">listArchives_namePrefix :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListArchives -&gt; f ListArchives
+</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_namePrefix"><span class="hs-identifier hs-var hs-var">listArchives_namePrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArchives -&gt; Maybe Text)
+-&gt; (ListArchives -&gt; Maybe Text -&gt; ListArchives)
+-&gt; Lens ListArchives ListArchives (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313796"><span class="annot"><span class="annottext">Maybe Text
+namePrefix :: Maybe Text
+$sel:namePrefix:ListArchives' :: ListArchives -&gt; Maybe Text
+</span><a href="#local-6989586621679313796"><span class="hs-identifier hs-var hs-var">namePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313796"><span class="hs-identifier hs-var">namePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313795"><span class="annot"><span class="annottext">s :: ListArchives
+</span><a href="#local-6989586621679313795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313794"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArchives
+</span><a href="#local-6989586621679313795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namePrefix:ListArchives' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AnamePrefix%3AListArchives%27"><span class="hs-identifier hs-var">namePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The maximum number of results to return.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchives_limit"><span class="hs-identifier hs-type">listArchives_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -263,25 +263,25 @@ $sel:state:ListArchives' :: ListArchives -&gt; Maybe ArchiveState
 -&gt; (ListArchives -&gt; Maybe Natural -&gt; ListArchives)
 -&gt; Lens ListArchives ListArchives (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313583"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313793"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListArchives' :: ListArchives -&gt; Maybe Natural
-</span><a href="#local-6989586621679313583"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679313583"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313582"><span class="annot"><span class="annottext">s :: ListArchives
-</span><a href="#local-6989586621679313582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313581"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679313581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArchives
-</span><a href="#local-6989586621679313582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListArchives' :: Maybe Natural
+</span><a href="#local-6989586621679313793"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679313793"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313792"><span class="annot"><span class="annottext">s :: ListArchives
+</span><a href="#local-6989586621679313792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313791"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679313791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArchives
+</span><a href="#local-6989586621679313792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListArchives' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3Alimit%3AListArchives%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679313581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse"><span class="hs-identifier hs-type">ListArchivesResponse</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679313577"><span class="annot"><span class="annottext">request :: ListArchives -&gt; Request ListArchives
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679313787"><span class="annot"><span class="annottext">request :: ListArchives -&gt; Request ListArchives
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListArchives -&gt; Request ListArchives
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679313573"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679313783"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListArchives
 -&gt; ClientResponse ClientBody
@@ -305,27 +305,18 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313570"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313570"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313569"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679313569"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313568"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313568"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Archive] -&gt; Int -&gt; ListArchivesResponse
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313780"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313780"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313779"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679313779"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313778"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313778"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Archive] -&gt; Maybe Text -&gt; Int -&gt; ListArchivesResponse
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse%27"><span class="hs-identifier hs-var">ListArchivesResponse'</span></a></span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Archive] -&gt; Int -&gt; ListArchivesResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe [Archive] -&gt; Int -&gt; ListArchivesResponse)
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Archive] -&gt; Maybe Text -&gt; Int -&gt; ListArchivesResponse)
+-&gt; Either String (Maybe [Archive])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListArchivesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Archive] -&gt; Int -&gt; ListArchivesResponse)
--&gt; Either String (Maybe [Archive])
--&gt; Either String (Int -&gt; ListArchivesResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Archive]))
+</span><a href="#local-6989586621679313778"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Archive]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Archives&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Archive]))
@@ -334,6 +325,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Archive]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListArchivesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListArchivesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313778"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListArchivesResponse)
 -&gt; Either String Int -&gt; Either String ListArchivesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -342,15 +342,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313570"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313780"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313559"><span id="local-6989586621679313561"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313769"><span id="local-6989586621679313771"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313556"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313766"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679313552"><span class="annot"><span class="annottext">toHeaders :: ListArchives -&gt; ResponseHeaders
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679313762"><span class="annot"><span class="annottext">toHeaders :: ListArchives -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListArchives -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -375,22 +375,22 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313542"><span id="local-6989586621679313544"><span id="local-6989586621679313546"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679313540"><span class="annot"><span class="annottext">toJSON :: ListArchives -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313534"><span id="local-6989586621679313535"><span id="local-6989586621679313536"><span id="local-6989586621679313537"><span id="local-6989586621679313538"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313752"><span id="local-6989586621679313754"><span id="local-6989586621679313756"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679313750"><span class="annot"><span class="annottext">toJSON :: ListArchives -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives%27"><span class="hs-identifier hs-type">ListArchives'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313744"><span id="local-6989586621679313745"><span id="local-6989586621679313746"><span id="local-6989586621679313747"><span id="local-6989586621679313748"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe ArchiveState
 limit :: Maybe Natural
-state :: Maybe ArchiveState
 namePrefix :: Maybe Text
 nextToken :: Maybe Text
+state :: Maybe ArchiveState
 eventSourceArn :: Maybe Text
 $sel:limit:ListArchives' :: ListArchives -&gt; Maybe Natural
-$sel:state:ListArchives' :: ListArchives -&gt; Maybe ArchiveState
 $sel:namePrefix:ListArchives' :: ListArchives -&gt; Maybe Text
 $sel:nextToken:ListArchives' :: ListArchives -&gt; Maybe Text
+$sel:state:ListArchives' :: ListArchives -&gt; Maybe ArchiveState
 $sel:eventSourceArn:ListArchives' :: ListArchives -&gt; Maybe Text
-</span><a href="#local-6989586621679313534"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679313744"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -403,47 +403,47 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313538"><span class="hs-identifier hs-var">eventSourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313748"><span class="hs-identifier hs-var">eventSourceArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313537"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NamePrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313536"><span class="hs-identifier hs-var">namePrefix</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;State&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ArchiveState -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ArchiveState -&gt; Pair) -&gt; Maybe ArchiveState -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveState
-</span><a href="#local-6989586621679313535"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313747"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313746"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NamePrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313745"><span class="hs-identifier hs-var">namePrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679313534"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><a href="#local-6989586621679313744"><span class="hs-identifier hs-var">limit</span></a></span><span>
 </span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679313528"><span class="annot"><span class="annottext">toPath :: ListArchives -&gt; ByteString
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679313738"><span class="annot"><span class="annottext">toPath :: ListArchives -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListArchives -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchives"><span class="hs-identifier hs-type">ListArchives</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679313524"><span class="annot"><span class="annottext">toQuery :: ListArchives -&gt; QueryString
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679313734"><span class="annot"><span class="annottext">toQuery :: ListArchives -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListArchives -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -451,19 +451,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | /See:/ 'newListArchivesResponse' smart constructor.</span><span>
-</span><span id="line-174"></span><span id="local-6989586621679313521"><span id="local-6989586621679313522"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListArchivesResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse"><span class="hs-identifier hs-var">ListArchivesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListArchivesResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse%27"><span class="hs-identifier hs-var">ListArchivesResponse'</span></a></span></span><span>
-</span><span id="line-175"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token returned by a previous call to retrieve the next set of</span><span>
-</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-177"></span><span>    </span><span id="%24sel%3AnextToken%3AListArchivesResponse%27"><span class="annot"><span class="annottext">ListArchivesResponse -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AnextToken%3AListArchivesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | An array of @Archive@ objects that include details about an archive.</span><span>
-</span><span id="line-179"></span><span>    </span><span id="%24sel%3Aarchives%3AListArchivesResponse%27"><span class="annot"><span class="annottext">ListArchivesResponse -&gt; Maybe [Archive]
+</span><span id="line-174"></span><span id="local-6989586621679313731"><span id="local-6989586621679313732"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListArchivesResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse"><span class="hs-identifier hs-var">ListArchivesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListArchivesResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse%27"><span class="hs-identifier hs-var">ListArchivesResponse'</span></a></span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of @Archive@ objects that include details about an archive.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3Aarchives%3AListArchivesResponse%27"><span class="annot"><span class="annottext">ListArchivesResponse -&gt; Maybe [Archive]
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3Aarchives%3AListArchivesResponse%27"><span class="hs-identifier hs-var hs-var">archives</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Archive.html#Archive"><span class="hs-identifier hs-type">Archive</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The token returned by a previous call to retrieve the next set of</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AnextToken%3AListArchivesResponse%27"><span class="annot"><span class="annottext">ListArchivesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AnextToken%3AListArchivesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListArchivesResponse%27"><span class="annot"><span class="annottext">ListArchivesResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AhttpStatus%3AListArchivesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313514"><span id="local-6989586621679313516"><span class="annot"><span class="annottext">ListArchivesResponse -&gt; ListArchivesResponse -&gt; Bool
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313724"><span id="local-6989586621679313726"><span class="annot"><span class="annottext">ListArchivesResponse -&gt; ListArchivesResponse -&gt; Bool
 (ListArchivesResponse -&gt; ListArchivesResponse -&gt; Bool)
 -&gt; (ListArchivesResponse -&gt; ListArchivesResponse -&gt; Bool)
 -&gt; Eq ListArchivesResponse
@@ -472,7 +472,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListArchivesResponse -&gt; ListArchivesResponse -&gt; Bool
 == :: ListArchivesResponse -&gt; ListArchivesResponse -&gt; Bool
 $c== :: ListArchivesResponse -&gt; ListArchivesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313506"><span id="local-6989586621679313508"><span id="local-6989586621679313510"><span id="local-6989586621679313512"><span class="annot"><span class="annottext">ReadPrec [ListArchivesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313716"><span id="local-6989586621679313718"><span id="local-6989586621679313720"><span id="local-6989586621679313722"><span class="annot"><span class="annottext">ReadPrec [ListArchivesResponse]
 ReadPrec ListArchivesResponse
 Int -&gt; ReadS ListArchivesResponse
 ReadS [ListArchivesResponse]
@@ -492,7 +492,7 @@ readList :: ReadS [ListArchivesResponse]
 $creadList :: ReadS [ListArchivesResponse]
 readsPrec :: Int -&gt; ReadS ListArchivesResponse
 $creadsPrec :: Int -&gt; ReadS ListArchivesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313500"><span id="local-6989586621679313502"><span id="local-6989586621679313504"><span class="annot"><span class="annottext">Int -&gt; ListArchivesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313710"><span id="local-6989586621679313712"><span id="local-6989586621679313714"><span class="annot"><span class="annottext">Int -&gt; ListArchivesResponse -&gt; ShowS
 [ListArchivesResponse] -&gt; ShowS
 ListArchivesResponse -&gt; String
 (Int -&gt; ListArchivesResponse -&gt; ShowS)
@@ -526,10 +526,10 @@ $cfrom :: forall x. ListArchivesResponse -&gt; Rep ListArchivesResponse x
 </span><span id="line-190"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-192"></span><span class="hs-comment">--</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- 'nextToken', 'listArchivesResponse_nextToken' - The token returned by a previous call to retrieve the next set of</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-195"></span><span class="hs-comment">--</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- 'archives', 'listArchivesResponse_archives' - An array of @Archive@ objects that include details about an archive.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'archives', 'listArchivesResponse_archives' - An array of @Archive@ objects that include details about an archive.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'nextToken', 'listArchivesResponse_nextToken' - The token returned by a previous call to retrieve the next set of</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- results.</span><span>
 </span><span id="line-197"></span><span class="hs-comment">--</span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- 'httpStatus', 'listArchivesResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-199"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#newListArchivesResponse"><span class="hs-identifier hs-type">newListArchivesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -537,47 +537,26 @@ $cfrom :: forall x. ListArchivesResponse -&gt; Rep ListArchivesResponse x
 </span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-202"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse"><span class="hs-identifier hs-type">ListArchivesResponse</span></a></span><span>
 </span><span id="line-203"></span><span id="newListArchivesResponse"><span class="annot"><span class="annottext">newListArchivesResponse :: Int -&gt; ListArchivesResponse
-</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#newListArchivesResponse"><span class="hs-identifier hs-var hs-var">newListArchivesResponse</span></a></span></span><span> </span><span id="local-6989586621679313497"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313497"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-204"></span><span>  </span><span class="annot"><span class="annottext">ListArchivesResponse' :: Maybe Text -&gt; Maybe [Archive] -&gt; Int -&gt; ListArchivesResponse
+</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#newListArchivesResponse"><span class="hs-identifier hs-var hs-var">newListArchivesResponse</span></a></span></span><span> </span><span id="local-6989586621679313707"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313707"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="annottext">ListArchivesResponse' :: Maybe [Archive] -&gt; Maybe Text -&gt; Int -&gt; ListArchivesResponse
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse%27"><span class="hs-identifier hs-type">ListArchivesResponse'</span></a></span><span>
-</span><span id="line-205"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListArchivesResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AnextToken%3AListArchivesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-205"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:archives:ListArchivesResponse' :: Maybe [Archive]
+</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3Aarchives%3AListArchivesResponse%27"><span class="hs-identifier hs-var">archives</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Archive]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:archives:ListArchivesResponse' :: Maybe [Archive]
-</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3Aarchives%3AListArchivesResponse%27"><span class="hs-identifier hs-var">archives</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Archive]
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListArchivesResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AnextToken%3AListArchivesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListArchivesResponse' :: Int
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AhttpStatus%3AListArchivesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313497"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679313707"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-208"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- | The token returned by a previous call to retrieve the next set of</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchivesResponse_nextToken"><span class="hs-identifier hs-type">listArchivesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse"><span class="hs-identifier hs-type">ListArchivesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-213"></span><span id="listArchivesResponse_nextToken"><span class="annot"><span class="annottext">listArchivesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListArchivesResponse -&gt; f ListArchivesResponse
-</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchivesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listArchivesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArchivesResponse -&gt; Maybe Text)
--&gt; (ListArchivesResponse -&gt; Maybe Text -&gt; ListArchivesResponse)
--&gt; Lens
-     ListArchivesResponse ListArchivesResponse (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse%27"><span class="hs-identifier hs-type">ListArchivesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313496"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListArchivesResponse' :: ListArchivesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679313496"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313496"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313495"><span class="annot"><span class="annottext">s :: ListArchivesResponse
-</span><a href="#local-6989586621679313495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse%27"><span class="hs-identifier hs-type">ListArchivesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313494"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArchivesResponse
-</span><a href="#local-6989586621679313495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListArchivesResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AnextToken%3AListArchivesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse"><span class="hs-identifier hs-type">ListArchivesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- | An array of @Archive@ objects that include details about an archive.</span><span>
-</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchivesResponse_archives"><span class="hs-identifier hs-type">listArchivesResponse_archives</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse"><span class="hs-identifier hs-type">ListArchivesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Archive.html#Archive"><span class="hs-identifier hs-type">Archive</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-217"></span><span id="listArchivesResponse_archives"><span class="annot"><span class="annottext">listArchivesResponse_archives :: (Maybe [Archive] -&gt; f (Maybe [Archive]))
+</span><span id="line-210"></span><span class="hs-comment">-- | An array of @Archive@ objects that include details about an archive.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchivesResponse_archives"><span class="hs-identifier hs-type">listArchivesResponse_archives</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse"><span class="hs-identifier hs-type">ListArchivesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Archive.html#Archive"><span class="hs-identifier hs-type">Archive</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="listArchivesResponse_archives"><span class="annot"><span class="annottext">listArchivesResponse_archives :: (Maybe [Archive] -&gt; f (Maybe [Archive]))
 -&gt; ListArchivesResponse -&gt; f ListArchivesResponse
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchivesResponse_archives"><span class="hs-identifier hs-var hs-var">listArchivesResponse_archives</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArchivesResponse -&gt; Maybe [Archive])
 -&gt; (ListArchivesResponse
@@ -588,16 +567,16 @@ $sel:nextToken:ListArchivesResponse' :: ListArchivesResponse -&gt; Maybe Text
      (Maybe [Archive])
      (Maybe [Archive])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse%27"><span class="hs-identifier hs-type">ListArchivesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313493"><span class="annot"><span class="annottext">Maybe [Archive]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse%27"><span class="hs-identifier hs-type">ListArchivesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313706"><span class="annot"><span class="annottext">Maybe [Archive]
 archives :: Maybe [Archive]
 $sel:archives:ListArchivesResponse' :: ListArchivesResponse -&gt; Maybe [Archive]
-</span><a href="#local-6989586621679313493"><span class="hs-identifier hs-var hs-var">archives</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Archive]
-</span><a href="#local-6989586621679313493"><span class="hs-identifier hs-var">archives</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313492"><span class="annot"><span class="annottext">s :: ListArchivesResponse
-</span><a href="#local-6989586621679313492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse%27"><span class="hs-identifier hs-type">ListArchivesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313491"><span class="annot"><span class="annottext">Maybe [Archive]
-</span><a href="#local-6989586621679313491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArchivesResponse
-</span><a href="#local-6989586621679313492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archives:ListArchivesResponse' :: Maybe [Archive]
+</span><a href="#local-6989586621679313706"><span class="hs-identifier hs-var hs-var">archives</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Archive]
+</span><a href="#local-6989586621679313706"><span class="hs-identifier hs-var">archives</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313705"><span class="annot"><span class="annottext">s :: ListArchivesResponse
+</span><a href="#local-6989586621679313705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse%27"><span class="hs-identifier hs-type">ListArchivesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313704"><span class="annot"><span class="annottext">Maybe [Archive]
+</span><a href="#local-6989586621679313704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArchivesResponse
+</span><a href="#local-6989586621679313705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archives:ListArchivesResponse' :: Maybe [Archive]
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3Aarchives%3AListArchivesResponse%27"><span class="hs-identifier hs-var">archives</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Archive]
-</span><a href="#local-6989586621679313491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse"><span class="hs-identifier hs-type">ListArchivesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Archive] -&gt; f (Maybe [Archive]))
+</span><a href="#local-6989586621679313704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse"><span class="hs-identifier hs-type">ListArchivesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Archive] -&gt; f (Maybe [Archive]))
  -&gt; ListArchivesResponse -&gt; f ListArchivesResponse)
 -&gt; ((Maybe [Archive] -&gt; f (Maybe [Archive]))
     -&gt; Maybe [Archive] -&gt; f (Maybe [Archive]))
@@ -615,8 +594,29 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Archive] [Archive] [Archive] [Archive]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The token returned by a previous call to retrieve the next set of</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchivesResponse_nextToken"><span class="hs-identifier hs-type">listArchivesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse"><span class="hs-identifier hs-type">ListArchivesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="listArchivesResponse_nextToken"><span class="annot"><span class="annottext">listArchivesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListArchivesResponse -&gt; f ListArchivesResponse
+</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchivesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listArchivesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListArchivesResponse -&gt; Maybe Text)
+-&gt; (ListArchivesResponse -&gt; Maybe Text -&gt; ListArchivesResponse)
+-&gt; Lens
+     ListArchivesResponse ListArchivesResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse%27"><span class="hs-identifier hs-type">ListArchivesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313700"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListArchivesResponse' :: ListArchivesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679313700"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313700"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313699"><span class="annot"><span class="annottext">s :: ListArchivesResponse
+</span><a href="#local-6989586621679313699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse%27"><span class="hs-identifier hs-type">ListArchivesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313698"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArchivesResponse
+</span><a href="#local-6989586621679313699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListArchivesResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AnextToken%3AListArchivesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse"><span class="hs-identifier hs-type">ListArchivesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#listArchivesResponse_httpStatus"><span class="hs-identifier hs-type">listArchivesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse"><span class="hs-identifier hs-type">ListArchivesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -625,16 +625,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListArchivesResponse -&gt; Int -&gt; ListArchivesResponse)
 -&gt; Lens ListArchivesResponse ListArchivesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse%27"><span class="hs-identifier hs-type">ListArchivesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313487"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse%27"><span class="hs-identifier hs-type">ListArchivesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313697"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListArchivesResponse' :: ListArchivesResponse -&gt; Int
-</span><a href="#local-6989586621679313487"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313487"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313486"><span class="annot"><span class="annottext">s :: ListArchivesResponse
-</span><a href="#local-6989586621679313486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse%27"><span class="hs-identifier hs-type">ListArchivesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313485"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArchivesResponse
-</span><a href="#local-6989586621679313486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListArchivesResponse' :: Int
+</span><a href="#local-6989586621679313697"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313697"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313696"><span class="annot"><span class="annottext">s :: ListArchivesResponse
+</span><a href="#local-6989586621679313696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse%27"><span class="hs-identifier hs-type">ListArchivesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313695"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListArchivesResponse
+</span><a href="#local-6989586621679313696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListArchivesResponse' :: Int
 </span><a href="Network.AWS.CloudWatchEvents.ListArchives.html#%24sel%3AhttpStatus%3AListArchivesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse"><span class="hs-identifier hs-type">ListArchivesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse"><span class="hs-identifier hs-type">ListArchivesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313483"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse"><span class="hs-identifier hs-type">ListArchivesResponse</span></a></span></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313693"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListArchives.html#ListArchivesResponse"><span class="hs-identifier hs-type">ListArchivesResponse</span></a></span></span><span>
 </span><span id="line-224"></span></pre></body></html>

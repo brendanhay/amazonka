@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- for an account.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newStartLogging' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679197532"><span id="local-6989586621679197533"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartLogging"><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging"><span class="hs-identifier hs-var">StartLogging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartLogging%27"><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging%27"><span class="hs-identifier hs-var">StartLogging'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679197671"><span id="local-6989586621679197672"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartLogging"><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging"><span class="hs-identifier hs-var">StartLogging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartLogging%27"><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging%27"><span class="hs-identifier hs-var">StartLogging'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the name or the CloudTrail ARN of the trail for which</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- CloudTrail logs Amazon Web Services API calls. The following is the</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- format of a trail ARN.</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3Aname%3AStartLogging%27"><span class="annot"><span class="annottext">StartLogging -&gt; Text
 </span><a href="Network.AWS.CloudTrail.StartLogging.html#%24sel%3Aname%3AStartLogging%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197526"><span id="local-6989586621679197528"><span class="annot"><span class="annottext">StartLogging -&gt; StartLogging -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197665"><span id="local-6989586621679197667"><span class="annot"><span class="annottext">StartLogging -&gt; StartLogging -&gt; Bool
 (StartLogging -&gt; StartLogging -&gt; Bool)
 -&gt; (StartLogging -&gt; StartLogging -&gt; Bool) -&gt; Eq StartLogging
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartLogging -&gt; StartLogging -&gt; Bool
 == :: StartLogging -&gt; StartLogging -&gt; Bool
 $c== :: StartLogging -&gt; StartLogging -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197517"><span id="local-6989586621679197519"><span id="local-6989586621679197521"><span id="local-6989586621679197523"><span class="annot"><span class="annottext">ReadPrec [StartLogging]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197656"><span id="local-6989586621679197658"><span id="local-6989586621679197660"><span id="local-6989586621679197662"><span class="annot"><span class="annottext">ReadPrec [StartLogging]
 ReadPrec StartLogging
 Int -&gt; ReadS StartLogging
 ReadS [StartLogging]
@@ -90,7 +90,7 @@ readList :: ReadS [StartLogging]
 $creadList :: ReadS [StartLogging]
 readsPrec :: Int -&gt; ReadS StartLogging
 $creadsPrec :: Int -&gt; ReadS StartLogging
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197510"><span id="local-6989586621679197512"><span id="local-6989586621679197514"><span class="annot"><span class="annottext">Int -&gt; StartLogging -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197649"><span id="local-6989586621679197651"><span id="local-6989586621679197653"><span class="annot"><span class="annottext">Int -&gt; StartLogging -&gt; ShowS
 [StartLogging] -&gt; ShowS
 StartLogging -&gt; String
 (Int -&gt; StartLogging -&gt; ShowS)
@@ -134,11 +134,11 @@ $cfrom :: forall x. StartLogging -&gt; Rep StartLogging x
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging"><span class="hs-identifier hs-type">StartLogging</span></a></span><span>
 </span><span id="line-83"></span><span id="newStartLogging"><span class="annot"><span class="annottext">newStartLogging :: Text -&gt; StartLogging
-</span><a href="Network.AWS.CloudTrail.StartLogging.html#newStartLogging"><span class="hs-identifier hs-var hs-var">newStartLogging</span></a></span></span><span> </span><span id="local-6989586621679197505"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197505"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StartLogging' :: Text -&gt; StartLogging
+</span><a href="Network.AWS.CloudTrail.StartLogging.html#newStartLogging"><span class="hs-identifier hs-var hs-var">newStartLogging</span></a></span></span><span> </span><span id="local-6989586621679197644"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197644"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StartLogging' :: Text -&gt; StartLogging
 </span><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging%27"><span class="hs-identifier hs-type">StartLogging'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StartLogging' :: Text
 </span><a href="Network.AWS.CloudTrail.StartLogging.html#%24sel%3Aname%3AStartLogging%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197505"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679197644"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | Specifies the name or the CloudTrail ARN of the trail for which</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- CloudTrail logs Amazon Web Services API calls. The following is the</span><span>
@@ -151,25 +151,25 @@ $cfrom :: forall x. StartLogging -&gt; Rep StartLogging x
 -&gt; (StartLogging -&gt; Text -&gt; StartLogging)
 -&gt; Lens StartLogging StartLogging Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging%27"><span class="hs-identifier hs-type">StartLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197502"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging%27"><span class="hs-identifier hs-type">StartLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197641"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:StartLogging' :: StartLogging -&gt; Text
-</span><a href="#local-6989586621679197502"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197502"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197501"><span class="annot"><span class="annottext">s :: StartLogging
-</span><a href="#local-6989586621679197501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging%27"><span class="hs-identifier hs-type">StartLogging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197500"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartLogging
-</span><a href="#local-6989586621679197501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StartLogging' :: Text
+</span><a href="#local-6989586621679197641"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197641"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197640"><span class="annot"><span class="annottext">s :: StartLogging
+</span><a href="#local-6989586621679197640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging%27"><span class="hs-identifier hs-type">StartLogging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197639"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartLogging
+</span><a href="#local-6989586621679197640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StartLogging' :: Text
 </span><a href="Network.AWS.CloudTrail.StartLogging.html#%24sel%3Aname%3AStartLogging%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging"><span class="hs-identifier hs-type">StartLogging</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging"><span class="hs-identifier hs-type">StartLogging</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging"><span class="hs-identifier hs-type">StartLogging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging"><span class="hs-identifier hs-type">StartLogging</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLoggingResponse"><span class="hs-identifier hs-type">StartLoggingResponse</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679197496"><span class="annot"><span class="annottext">request :: StartLogging -&gt; Request StartLogging
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679197635"><span class="annot"><span class="annottext">request :: StartLogging -&gt; Request StartLogging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartLogging -&gt; Request StartLogging
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudTrail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679197492"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679197631"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartLogging
 -&gt; ClientResponse ClientBody
@@ -193,10 +193,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197489"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197489"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679197488"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679197488"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679197487"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679197487"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197628"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197628"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679197627"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679197627"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679197626"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679197626"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StartLoggingResponse
 </span><a href="Network.AWS.CloudTrail.StartLogging.html#StartLoggingResponse%27"><span class="hs-identifier hs-var">StartLoggingResponse'</span></a></span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StartLoggingResponse)
@@ -207,15 +207,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197489"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197628"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197480"><span id="local-6989586621679197482"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging"><span class="hs-identifier hs-type">StartLogging</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197619"><span id="local-6989586621679197621"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging"><span class="hs-identifier hs-type">StartLogging</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197477"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging"><span class="hs-identifier hs-type">StartLogging</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging"><span class="hs-identifier hs-type">StartLogging</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging"><span class="hs-identifier hs-type">StartLogging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679197473"><span class="annot"><span class="annottext">toHeaders :: StartLogging -&gt; ResponseHeaders
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679197612"><span class="annot"><span class="annottext">toHeaders :: StartLogging -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartLogging -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -242,12 +242,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197463"><span id="local-6989586621679197465"><span id="local-6989586621679197467"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging"><span class="hs-identifier hs-type">StartLogging</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679197461"><span class="annot"><span class="annottext">toJSON :: StartLogging -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging%27"><span class="hs-identifier hs-type">StartLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197459"><span class="annot"><span class="annottext">Text
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197602"><span id="local-6989586621679197604"><span id="local-6989586621679197606"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging"><span class="hs-identifier hs-type">StartLogging</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679197600"><span class="annot"><span class="annottext">toJSON :: StartLogging -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging%27"><span class="hs-identifier hs-type">StartLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197598"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:StartLogging' :: StartLogging -&gt; Text
-</span><a href="#local-6989586621679197459"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679197598"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -259,18 +259,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197459"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679197598"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging"><span class="hs-identifier hs-type">StartLogging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679197453"><span class="annot"><span class="annottext">toPath :: StartLogging -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679197592"><span class="annot"><span class="annottext">toPath :: StartLogging -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartLogging -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLogging"><span class="hs-identifier hs-type">StartLogging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679197449"><span class="annot"><span class="annottext">toQuery :: StartLogging -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679197588"><span class="annot"><span class="annottext">toQuery :: StartLogging -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartLogging -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -281,12 +281,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-136"></span><span class="hs-comment">-- returns an error.</span><span>
 </span><span id="line-137"></span><span class="hs-comment">--</span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- /See:/ 'newStartLoggingResponse' smart constructor.</span><span>
-</span><span id="line-139"></span><span id="local-6989586621679197446"><span id="local-6989586621679197447"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartLoggingResponse"><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLoggingResponse"><span class="hs-identifier hs-var">StartLoggingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartLoggingResponse%27"><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLoggingResponse%27"><span class="hs-identifier hs-var">StartLoggingResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span id="local-6989586621679197585"><span id="local-6989586621679197586"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartLoggingResponse"><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLoggingResponse"><span class="hs-identifier hs-var">StartLoggingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartLoggingResponse%27"><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLoggingResponse%27"><span class="hs-identifier hs-var">StartLoggingResponse'</span></a></span></span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartLoggingResponse%27"><span class="annot"><span class="annottext">StartLoggingResponse -&gt; Int
 </span><a href="Network.AWS.CloudTrail.StartLogging.html#%24sel%3AhttpStatus%3AStartLoggingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197441"><span id="local-6989586621679197443"><span class="annot"><span class="annottext">StartLoggingResponse -&gt; StartLoggingResponse -&gt; Bool
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197580"><span id="local-6989586621679197582"><span class="annot"><span class="annottext">StartLoggingResponse -&gt; StartLoggingResponse -&gt; Bool
 (StartLoggingResponse -&gt; StartLoggingResponse -&gt; Bool)
 -&gt; (StartLoggingResponse -&gt; StartLoggingResponse -&gt; Bool)
 -&gt; Eq StartLoggingResponse
@@ -295,7 +295,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartLoggingResponse -&gt; StartLoggingResponse -&gt; Bool
 == :: StartLoggingResponse -&gt; StartLoggingResponse -&gt; Bool
 $c== :: StartLoggingResponse -&gt; StartLoggingResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197433"><span id="local-6989586621679197435"><span id="local-6989586621679197437"><span id="local-6989586621679197439"><span class="annot"><span class="annottext">ReadPrec [StartLoggingResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197572"><span id="local-6989586621679197574"><span id="local-6989586621679197576"><span id="local-6989586621679197578"><span class="annot"><span class="annottext">ReadPrec [StartLoggingResponse]
 ReadPrec StartLoggingResponse
 Int -&gt; ReadS StartLoggingResponse
 ReadS [StartLoggingResponse]
@@ -315,7 +315,7 @@ readList :: ReadS [StartLoggingResponse]
 $creadList :: ReadS [StartLoggingResponse]
 readsPrec :: Int -&gt; ReadS StartLoggingResponse
 $creadsPrec :: Int -&gt; ReadS StartLoggingResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197427"><span id="local-6989586621679197429"><span id="local-6989586621679197431"><span class="annot"><span class="annottext">Int -&gt; StartLoggingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197566"><span id="local-6989586621679197568"><span id="local-6989586621679197570"><span class="annot"><span class="annottext">Int -&gt; StartLoggingResponse -&gt; ShowS
 [StartLoggingResponse] -&gt; ShowS
 StartLoggingResponse -&gt; String
 (Int -&gt; StartLoggingResponse -&gt; ShowS)
@@ -355,12 +355,12 @@ $cfrom :: forall x. StartLoggingResponse -&gt; Rep StartLoggingResponse x
 </span><span id="line-156"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-157"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLoggingResponse"><span class="hs-identifier hs-type">StartLoggingResponse</span></a></span><span>
 </span><span id="line-158"></span><span id="newStartLoggingResponse"><span class="annot"><span class="annottext">newStartLoggingResponse :: Int -&gt; StartLoggingResponse
-</span><a href="Network.AWS.CloudTrail.StartLogging.html#newStartLoggingResponse"><span class="hs-identifier hs-var hs-var">newStartLoggingResponse</span></a></span></span><span> </span><span id="local-6989586621679197424"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197424"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudTrail.StartLogging.html#newStartLoggingResponse"><span class="hs-identifier hs-var hs-var">newStartLoggingResponse</span></a></span></span><span> </span><span id="local-6989586621679197563"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197563"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><span class="annottext">StartLoggingResponse' :: Int -&gt; StartLoggingResponse
 </span><a href="Network.AWS.CloudTrail.StartLogging.html#StartLoggingResponse%27"><span class="hs-identifier hs-type">StartLoggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartLoggingResponse' :: Int
 </span><a href="Network.AWS.CloudTrail.StartLogging.html#%24sel%3AhttpStatus%3AStartLoggingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197424"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679197563"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-162"></span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#startLoggingResponse_httpStatus"><span class="hs-identifier hs-type">startLoggingResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLoggingResponse"><span class="hs-identifier hs-type">StartLoggingResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -369,16 +369,16 @@ $cfrom :: forall x. StartLoggingResponse -&gt; Rep StartLoggingResponse x
 -&gt; (StartLoggingResponse -&gt; Int -&gt; StartLoggingResponse)
 -&gt; Lens StartLoggingResponse StartLoggingResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLoggingResponse%27"><span class="hs-identifier hs-type">StartLoggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197423"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLoggingResponse%27"><span class="hs-identifier hs-type">StartLoggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197562"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StartLoggingResponse' :: StartLoggingResponse -&gt; Int
-</span><a href="#local-6989586621679197423"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197423"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197422"><span class="annot"><span class="annottext">s :: StartLoggingResponse
-</span><a href="#local-6989586621679197422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLoggingResponse%27"><span class="hs-identifier hs-type">StartLoggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197421"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartLoggingResponse
-</span><a href="#local-6989586621679197422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartLoggingResponse' :: Int
+</span><a href="#local-6989586621679197562"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197562"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197561"><span class="annot"><span class="annottext">s :: StartLoggingResponse
+</span><a href="#local-6989586621679197561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLoggingResponse%27"><span class="hs-identifier hs-type">StartLoggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197560"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartLoggingResponse
+</span><a href="#local-6989586621679197561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartLoggingResponse' :: Int
 </span><a href="Network.AWS.CloudTrail.StartLogging.html#%24sel%3AhttpStatus%3AStartLoggingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLoggingResponse"><span class="hs-identifier hs-type">StartLoggingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLoggingResponse"><span class="hs-identifier hs-type">StartLoggingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197419"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLoggingResponse"><span class="hs-identifier hs-type">StartLoggingResponse</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197558"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.StartLogging.html#StartLoggingResponse"><span class="hs-identifier hs-type">StartLoggingResponse</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

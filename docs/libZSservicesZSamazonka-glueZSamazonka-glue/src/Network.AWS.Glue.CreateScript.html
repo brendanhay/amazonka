@@ -27,9 +27,9 @@
 </span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#newCreateScript"><span class="hs-identifier">newCreateScript</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#createScript_dagNodes"><span class="hs-identifier">createScript_dagNodes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#createScript_dagEdges"><span class="hs-identifier">createScript_dagEdges</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#createScript_language"><span class="hs-identifier">createScript_language</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#createScript_dagEdges"><span class="hs-identifier">createScript_dagEdges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#createScript_dagNodes"><span class="hs-identifier">createScript_dagNodes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse"><span class="hs-identifier">CreateScriptResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -50,18 +50,18 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newCreateScript' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679737072"><span id="local-6989586621679737073"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateScript"><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-var">CreateScript</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateScript%27"><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript%27"><span class="hs-identifier hs-var">CreateScript'</span></a></span></span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the nodes in the DAG.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AdagNodes%3ACreateScript%27"><span class="annot"><span class="annottext">CreateScript -&gt; Maybe [CodeGenNode]
-</span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3AdagNodes%3ACreateScript%27"><span class="hs-identifier hs-var hs-var">dagNodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679738867"><span id="local-6989586621679738868"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateScript"><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-var">CreateScript</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateScript%27"><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript%27"><span class="hs-identifier hs-var">CreateScript'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the edges in the DAG.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AdagEdges%3ACreateScript%27"><span class="annot"><span class="annottext">CreateScript -&gt; Maybe [CodeGenEdge]
+</span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3AdagEdges%3ACreateScript%27"><span class="hs-identifier hs-var hs-var">dagEdges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenEdge.html#CodeGenEdge"><span class="hs-identifier hs-type">CodeGenEdge</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The programming language of the resulting code from the DAG.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3Alanguage%3ACreateScript%27"><span class="annot"><span class="annottext">CreateScript -&gt; Maybe Language
 </span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3Alanguage%3ACreateScript%27"><span class="hs-identifier hs-var hs-var">language</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Language.html#Language"><span class="hs-identifier hs-type">Language</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A list of the edges in the DAG.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdagEdges%3ACreateScript%27"><span class="annot"><span class="annottext">CreateScript -&gt; Maybe [CodeGenEdge]
-</span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3AdagEdges%3ACreateScript%27"><span class="hs-identifier hs-var hs-var">dagEdges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenEdge.html#CodeGenEdge"><span class="hs-identifier hs-type">CodeGenEdge</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A list of the nodes in the DAG.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdagNodes%3ACreateScript%27"><span class="annot"><span class="annottext">CreateScript -&gt; Maybe [CodeGenNode]
+</span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3AdagNodes%3ACreateScript%27"><span class="hs-identifier hs-var hs-var">dagNodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679737064"><span id="local-6989586621679737066"><span class="annot"><span class="annottext">CreateScript -&gt; CreateScript -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679738859"><span id="local-6989586621679738861"><span class="annot"><span class="annottext">CreateScript -&gt; CreateScript -&gt; Bool
 (CreateScript -&gt; CreateScript -&gt; Bool)
 -&gt; (CreateScript -&gt; CreateScript -&gt; Bool) -&gt; Eq CreateScript
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateScript -&gt; CreateScript -&gt; Bool
 == :: CreateScript -&gt; CreateScript -&gt; Bool
 $c== :: CreateScript -&gt; CreateScript -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679737055"><span id="local-6989586621679737057"><span id="local-6989586621679737059"><span id="local-6989586621679737061"><span class="annot"><span class="annottext">ReadPrec [CreateScript]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679738850"><span id="local-6989586621679738852"><span id="local-6989586621679738854"><span id="local-6989586621679738856"><span class="annot"><span class="annottext">ReadPrec [CreateScript]
 ReadPrec CreateScript
 Int -&gt; ReadS CreateScript
 ReadS [CreateScript]
@@ -89,7 +89,7 @@ readList :: ReadS [CreateScript]
 $creadList :: ReadS [CreateScript]
 readsPrec :: Int -&gt; ReadS CreateScript
 $creadsPrec :: Int -&gt; ReadS CreateScript
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679737048"><span id="local-6989586621679737050"><span id="local-6989586621679737052"><span class="annot"><span class="annottext">Int -&gt; CreateScript -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679738843"><span id="local-6989586621679738845"><span id="local-6989586621679738847"><span class="annot"><span class="annottext">Int -&gt; CreateScript -&gt; ShowS
 [CreateScript] -&gt; ShowS
 CreateScript -&gt; String
 (Int -&gt; CreateScript -&gt; ShowS)
@@ -123,96 +123,35 @@ $cfrom :: forall x. CreateScript -&gt; Rep CreateScript x
 </span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'dagNodes', 'createScript_dagNodes' - A list of the nodes in the DAG.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'dagEdges', 'createScript_dagEdges' - A list of the edges in the DAG.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- 'language', 'createScript_language' - The programming language of the resulting code from the DAG.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'dagEdges', 'createScript_dagEdges' - A list of the edges in the DAG.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'dagNodes', 'createScript_dagNodes' - A list of the nodes in the DAG.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#newCreateScript"><span class="hs-identifier hs-type">newCreateScript</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span><span>
 </span><span id="line-78"></span><span id="newCreateScript"><span class="annot"><span class="annottext">newCreateScript :: CreateScript
 </span><a href="Network.AWS.Glue.CreateScript.html#newCreateScript"><span class="hs-identifier hs-var hs-var">newCreateScript</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">CreateScript' :: Maybe [CodeGenNode]
--&gt; Maybe Language -&gt; Maybe [CodeGenEdge] -&gt; CreateScript
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">CreateScript' :: Maybe [CodeGenEdge]
+-&gt; Maybe Language -&gt; Maybe [CodeGenNode] -&gt; CreateScript
 </span><a href="Network.AWS.Glue.CreateScript.html#CreateScript%27"><span class="hs-identifier hs-type">CreateScript'</span></a></span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dagNodes:CreateScript' :: Maybe [CodeGenNode]
-</span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3AdagNodes%3ACreateScript%27"><span class="hs-identifier hs-var">dagNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenNode]
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dagEdges:CreateScript' :: Maybe [CodeGenEdge]
+</span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3AdagEdges%3ACreateScript%27"><span class="hs-identifier hs-var">dagEdges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:language:CreateScript' :: Maybe Language
 </span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3Alanguage%3ACreateScript%27"><span class="hs-identifier hs-var">language</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Language
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:dagEdges:CreateScript' :: Maybe [CodeGenEdge]
-</span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3AdagEdges%3ACreateScript%27"><span class="hs-identifier hs-var">dagEdges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:dagNodes:CreateScript' :: Maybe [CodeGenNode]
+</span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3AdagNodes%3ACreateScript%27"><span class="hs-identifier hs-var">dagNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenNode]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | A list of the nodes in the DAG.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#createScript_dagNodes"><span class="hs-identifier hs-type">createScript_dagNodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="createScript_dagNodes"><span class="annot"><span class="annottext">createScript_dagNodes :: (Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
--&gt; CreateScript -&gt; f CreateScript
-</span><a href="Network.AWS.Glue.CreateScript.html#createScript_dagNodes"><span class="hs-identifier hs-var hs-var">createScript_dagNodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateScript -&gt; Maybe [CodeGenNode])
--&gt; (CreateScript -&gt; Maybe [CodeGenNode] -&gt; CreateScript)
--&gt; Lens
-     CreateScript
-     CreateScript
-     (Maybe [CodeGenNode])
-     (Maybe [CodeGenNode])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript%27"><span class="hs-identifier hs-type">CreateScript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679737041"><span class="annot"><span class="annottext">Maybe [CodeGenNode]
-dagNodes :: Maybe [CodeGenNode]
-$sel:dagNodes:CreateScript' :: CreateScript -&gt; Maybe [CodeGenNode]
-</span><a href="#local-6989586621679737041"><span class="hs-identifier hs-var hs-var">dagNodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenNode]
-</span><a href="#local-6989586621679737041"><span class="hs-identifier hs-var">dagNodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679737040"><span class="annot"><span class="annottext">s :: CreateScript
-</span><a href="#local-6989586621679737040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript%27"><span class="hs-identifier hs-type">CreateScript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679737039"><span class="annot"><span class="annottext">Maybe [CodeGenNode]
-</span><a href="#local-6989586621679737039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScript
-</span><a href="#local-6989586621679737040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dagNodes:CreateScript' :: Maybe [CodeGenNode]
-</span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3AdagNodes%3ACreateScript%27"><span class="hs-identifier hs-var">dagNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenNode]
-</span><a href="#local-6989586621679737039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
- -&gt; CreateScript -&gt; f CreateScript)
--&gt; ((Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
-    -&gt; Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
--&gt; (Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
--&gt; CreateScript
--&gt; f CreateScript
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [CodeGenNode] [CodeGenNode] [CodeGenNode] [CodeGenNode]
--&gt; Iso
-     (Maybe [CodeGenNode])
-     (Maybe [CodeGenNode])
-     (Maybe [CodeGenNode])
-     (Maybe [CodeGenNode])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [CodeGenNode] [CodeGenNode] [CodeGenNode] [CodeGenNode]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The programming language of the resulting code from the DAG.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#createScript_language"><span class="hs-identifier hs-type">createScript_language</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Language.html#Language"><span class="hs-identifier hs-type">Language</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="createScript_language"><span class="annot"><span class="annottext">createScript_language :: (Maybe Language -&gt; f (Maybe Language))
--&gt; CreateScript -&gt; f CreateScript
-</span><a href="Network.AWS.Glue.CreateScript.html#createScript_language"><span class="hs-identifier hs-var hs-var">createScript_language</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateScript -&gt; Maybe Language)
--&gt; (CreateScript -&gt; Maybe Language -&gt; CreateScript)
--&gt; Lens CreateScript CreateScript (Maybe Language) (Maybe Language)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript%27"><span class="hs-identifier hs-type">CreateScript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679737035"><span class="annot"><span class="annottext">Maybe Language
-language :: Maybe Language
-$sel:language:CreateScript' :: CreateScript -&gt; Maybe Language
-</span><a href="#local-6989586621679737035"><span class="hs-identifier hs-var hs-var">language</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Language
-</span><a href="#local-6989586621679737035"><span class="hs-identifier hs-var">language</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679737034"><span class="annot"><span class="annottext">s :: CreateScript
-</span><a href="#local-6989586621679737034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript%27"><span class="hs-identifier hs-type">CreateScript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679737033"><span class="annot"><span class="annottext">Maybe Language
-</span><a href="#local-6989586621679737033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScript
-</span><a href="#local-6989586621679737034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:language:CreateScript' :: Maybe Language
-</span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3Alanguage%3ACreateScript%27"><span class="hs-identifier hs-var">language</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Language
-</span><a href="#local-6989586621679737033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | A list of the edges in the DAG.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#createScript_dagEdges"><span class="hs-identifier hs-type">createScript_dagEdges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenEdge.html#CodeGenEdge"><span class="hs-identifier hs-type">CodeGenEdge</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="createScript_dagEdges"><span class="annot"><span class="annottext">createScript_dagEdges :: (Maybe [CodeGenEdge] -&gt; f (Maybe [CodeGenEdge]))
+</span><span id="line-85"></span><span class="hs-comment">-- | A list of the edges in the DAG.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#createScript_dagEdges"><span class="hs-identifier hs-type">createScript_dagEdges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenEdge.html#CodeGenEdge"><span class="hs-identifier hs-type">CodeGenEdge</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="createScript_dagEdges"><span class="annot"><span class="annottext">createScript_dagEdges :: (Maybe [CodeGenEdge] -&gt; f (Maybe [CodeGenEdge]))
 -&gt; CreateScript -&gt; f CreateScript
 </span><a href="Network.AWS.Glue.CreateScript.html#createScript_dagEdges"><span class="hs-identifier hs-var hs-var">createScript_dagEdges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateScript -&gt; Maybe [CodeGenEdge])
 -&gt; (CreateScript -&gt; Maybe [CodeGenEdge] -&gt; CreateScript)
@@ -222,16 +161,16 @@ $sel:language:CreateScript' :: CreateScript -&gt; Maybe Language
      (Maybe [CodeGenEdge])
      (Maybe [CodeGenEdge])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript%27"><span class="hs-identifier hs-type">CreateScript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679737032"><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript%27"><span class="hs-identifier hs-type">CreateScript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679738836"><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
 dagEdges :: Maybe [CodeGenEdge]
 $sel:dagEdges:CreateScript' :: CreateScript -&gt; Maybe [CodeGenEdge]
-</span><a href="#local-6989586621679737032"><span class="hs-identifier hs-var hs-var">dagEdges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
-</span><a href="#local-6989586621679737032"><span class="hs-identifier hs-var">dagEdges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679737031"><span class="annot"><span class="annottext">s :: CreateScript
-</span><a href="#local-6989586621679737031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript%27"><span class="hs-identifier hs-type">CreateScript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679737030"><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
-</span><a href="#local-6989586621679737030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScript
-</span><a href="#local-6989586621679737031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dagEdges:CreateScript' :: Maybe [CodeGenEdge]
+</span><a href="#local-6989586621679738836"><span class="hs-identifier hs-var hs-var">dagEdges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
+</span><a href="#local-6989586621679738836"><span class="hs-identifier hs-var">dagEdges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679738835"><span class="annot"><span class="annottext">s :: CreateScript
+</span><a href="#local-6989586621679738835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript%27"><span class="hs-identifier hs-type">CreateScript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679738834"><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
+</span><a href="#local-6989586621679738834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScript
+</span><a href="#local-6989586621679738835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dagEdges:CreateScript' :: Maybe [CodeGenEdge]
 </span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3AdagEdges%3ACreateScript%27"><span class="hs-identifier hs-var">dagEdges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
-</span><a href="#local-6989586621679737030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CodeGenEdge] -&gt; f (Maybe [CodeGenEdge]))
+</span><a href="#local-6989586621679738834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CodeGenEdge] -&gt; f (Maybe [CodeGenEdge]))
  -&gt; CreateScript -&gt; f CreateScript)
 -&gt; ((Maybe [CodeGenEdge] -&gt; f (Maybe [CodeGenEdge]))
     -&gt; Maybe [CodeGenEdge] -&gt; f (Maybe [CodeGenEdge]))
@@ -249,17 +188,78 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [CodeGenEdge] [CodeGenEdge] [CodeGenEdge] [CodeGenEdge]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The programming language of the resulting code from the DAG.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#createScript_language"><span class="hs-identifier hs-type">createScript_language</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Language.html#Language"><span class="hs-identifier hs-type">Language</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="createScript_language"><span class="annot"><span class="annottext">createScript_language :: (Maybe Language -&gt; f (Maybe Language))
+-&gt; CreateScript -&gt; f CreateScript
+</span><a href="Network.AWS.Glue.CreateScript.html#createScript_language"><span class="hs-identifier hs-var hs-var">createScript_language</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateScript -&gt; Maybe Language)
+-&gt; (CreateScript -&gt; Maybe Language -&gt; CreateScript)
+-&gt; Lens CreateScript CreateScript (Maybe Language) (Maybe Language)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript%27"><span class="hs-identifier hs-type">CreateScript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679738830"><span class="annot"><span class="annottext">Maybe Language
+language :: Maybe Language
+$sel:language:CreateScript' :: CreateScript -&gt; Maybe Language
+</span><a href="#local-6989586621679738830"><span class="hs-identifier hs-var hs-var">language</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Language
+</span><a href="#local-6989586621679738830"><span class="hs-identifier hs-var">language</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679738829"><span class="annot"><span class="annottext">s :: CreateScript
+</span><a href="#local-6989586621679738829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript%27"><span class="hs-identifier hs-type">CreateScript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679738828"><span class="annot"><span class="annottext">Maybe Language
+</span><a href="#local-6989586621679738828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScript
+</span><a href="#local-6989586621679738829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:language:CreateScript' :: Maybe Language
+</span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3Alanguage%3ACreateScript%27"><span class="hs-identifier hs-var">language</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Language
+</span><a href="#local-6989586621679738828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | A list of the nodes in the DAG.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#createScript_dagNodes"><span class="hs-identifier hs-type">createScript_dagNodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="createScript_dagNodes"><span class="annot"><span class="annottext">createScript_dagNodes :: (Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
+-&gt; CreateScript -&gt; f CreateScript
+</span><a href="Network.AWS.Glue.CreateScript.html#createScript_dagNodes"><span class="hs-identifier hs-var hs-var">createScript_dagNodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateScript -&gt; Maybe [CodeGenNode])
+-&gt; (CreateScript -&gt; Maybe [CodeGenNode] -&gt; CreateScript)
+-&gt; Lens
+     CreateScript
+     CreateScript
+     (Maybe [CodeGenNode])
+     (Maybe [CodeGenNode])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript%27"><span class="hs-identifier hs-type">CreateScript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679738827"><span class="annot"><span class="annottext">Maybe [CodeGenNode]
+dagNodes :: Maybe [CodeGenNode]
+$sel:dagNodes:CreateScript' :: CreateScript -&gt; Maybe [CodeGenNode]
+</span><a href="#local-6989586621679738827"><span class="hs-identifier hs-var hs-var">dagNodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenNode]
+</span><a href="#local-6989586621679738827"><span class="hs-identifier hs-var">dagNodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679738826"><span class="annot"><span class="annottext">s :: CreateScript
+</span><a href="#local-6989586621679738826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript%27"><span class="hs-identifier hs-type">CreateScript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679738825"><span class="annot"><span class="annottext">Maybe [CodeGenNode]
+</span><a href="#local-6989586621679738825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScript
+</span><a href="#local-6989586621679738826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dagNodes:CreateScript' :: Maybe [CodeGenNode]
+</span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3AdagNodes%3ACreateScript%27"><span class="hs-identifier hs-var">dagNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenNode]
+</span><a href="#local-6989586621679738825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
+ -&gt; CreateScript -&gt; f CreateScript)
+-&gt; ((Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
+    -&gt; Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
+-&gt; (Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
+-&gt; CreateScript
+-&gt; f CreateScript
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [CodeGenNode] [CodeGenNode] [CodeGenNode] [CodeGenNode]
+-&gt; Iso
+     (Maybe [CodeGenNode])
+     (Maybe [CodeGenNode])
+     (Maybe [CodeGenNode])
+     (Maybe [CodeGenNode])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [CodeGenNode] [CodeGenNode] [CodeGenNode] [CodeGenNode]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse"><span class="hs-identifier hs-type">CreateScriptResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679737026"><span class="annot"><span class="annottext">request :: CreateScript -&gt; Request CreateScript
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679738821"><span class="annot"><span class="annottext">request :: CreateScript -&gt; Request CreateScript
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateScript -&gt; Request CreateScript
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679737022"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679738817"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateScript
 -&gt; ClientResponse ClientBody
@@ -283,10 +283,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679737019"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679737019"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679737018"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679737018"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679737017"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679737017"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679738814"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679738814"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679738813"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679738813"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679738812"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679738812"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateScriptResponse
 </span><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse%27"><span class="hs-identifier hs-var">CreateScriptResponse'</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateScriptResponse)
@@ -294,7 +294,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; CreateScriptResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679737017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679738812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PythonScript&quot;</span></span><span class="hs-special">)</span><span>
@@ -303,7 +303,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; CreateScriptResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679737017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679738812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScalaCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -315,15 +315,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679737019"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679738814"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679737009"><span id="local-6989586621679737011"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679738804"><span id="local-6989586621679738806"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679737006"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679738801"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679737002"><span class="annot"><span class="annottext">toHeaders :: CreateScript -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679738797"><span class="annot"><span class="annottext">toHeaders :: CreateScript -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateScript -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -348,56 +348,56 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679736992"><span id="local-6989586621679736994"><span id="local-6989586621679736996"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679736990"><span class="annot"><span class="annottext">toJSON :: CreateScript -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript%27"><span class="hs-identifier hs-type">CreateScript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679736986"><span id="local-6989586621679736987"><span id="local-6989586621679736988"><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679738787"><span id="local-6989586621679738789"><span id="local-6989586621679738791"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679738785"><span class="annot"><span class="annottext">toJSON :: CreateScript -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript%27"><span class="hs-identifier hs-type">CreateScript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679738781"><span id="local-6989586621679738782"><span id="local-6989586621679738783"><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
 Maybe [CodeGenNode]
 Maybe Language
-dagEdges :: Maybe [CodeGenEdge]
-language :: Maybe Language
 dagNodes :: Maybe [CodeGenNode]
-$sel:dagEdges:CreateScript' :: CreateScript -&gt; Maybe [CodeGenEdge]
-$sel:language:CreateScript' :: CreateScript -&gt; Maybe Language
+language :: Maybe Language
+dagEdges :: Maybe [CodeGenEdge]
 $sel:dagNodes:CreateScript' :: CreateScript -&gt; Maybe [CodeGenNode]
-</span><a href="#local-6989586621679736986"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:language:CreateScript' :: CreateScript -&gt; Maybe Language
+$sel:dagEdges:CreateScript' :: CreateScript -&gt; Maybe [CodeGenEdge]
+</span><a href="#local-6989586621679738781"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DagNodes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CodeGenNode] -&gt; Pair
+</span><span class="hs-string">&quot;DagEdges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CodeGenEdge] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([CodeGenNode] -&gt; Pair) -&gt; Maybe [CodeGenNode] -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([CodeGenEdge] -&gt; Pair) -&gt; Maybe [CodeGenEdge] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenNode]
-</span><a href="#local-6989586621679736988"><span class="hs-identifier hs-var">dagNodes</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
+</span><a href="#local-6989586621679738783"><span class="hs-identifier hs-var">dagEdges</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Language&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Language -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Language -&gt; Pair) -&gt; Maybe Language -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Language
-</span><a href="#local-6989586621679736987"><span class="hs-identifier hs-var">language</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679738782"><span class="hs-identifier hs-var">language</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DagEdges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CodeGenEdge] -&gt; Pair
+</span><span class="hs-string">&quot;DagNodes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CodeGenNode] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([CodeGenEdge] -&gt; Pair) -&gt; Maybe [CodeGenEdge] -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([CodeGenNode] -&gt; Pair) -&gt; Maybe [CodeGenNode] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
-</span><a href="#local-6989586621679736986"><span class="hs-identifier hs-var">dagEdges</span></a></span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenNode]
+</span><a href="#local-6989586621679738781"><span class="hs-identifier hs-var">dagNodes</span></a></span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679736980"><span class="annot"><span class="annottext">toPath :: CreateScript -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679738775"><span class="annot"><span class="annottext">toPath :: CreateScript -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateScript -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScript"><span class="hs-identifier hs-type">CreateScript</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679736976"><span class="annot"><span class="annottext">toQuery :: CreateScript -&gt; QueryString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679738771"><span class="annot"><span class="annottext">toQuery :: CreateScript -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateScript -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -405,7 +405,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newCreateScriptResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679736973"><span id="local-6989586621679736974"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateScriptResponse"><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse"><span class="hs-identifier hs-var">CreateScriptResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateScriptResponse%27"><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse%27"><span class="hs-identifier hs-var">CreateScriptResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span id="local-6989586621679738768"><span id="local-6989586621679738769"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateScriptResponse"><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse"><span class="hs-identifier hs-var">CreateScriptResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateScriptResponse%27"><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse%27"><span class="hs-identifier hs-var">CreateScriptResponse'</span></a></span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Python script generated from the DAG.</span><span>
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3ApythonScript%3ACreateScriptResponse%27"><span class="annot"><span class="annottext">CreateScriptResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3ApythonScript%3ACreateScriptResponse%27"><span class="hs-identifier hs-var hs-var">pythonScript</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -416,7 +416,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateScriptResponse%27"><span class="annot"><span class="annottext">CreateScriptResponse -&gt; Int
 </span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3AhttpStatus%3ACreateScriptResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679736966"><span id="local-6989586621679736968"><span class="annot"><span class="annottext">CreateScriptResponse -&gt; CreateScriptResponse -&gt; Bool
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679738761"><span id="local-6989586621679738763"><span class="annot"><span class="annottext">CreateScriptResponse -&gt; CreateScriptResponse -&gt; Bool
 (CreateScriptResponse -&gt; CreateScriptResponse -&gt; Bool)
 -&gt; (CreateScriptResponse -&gt; CreateScriptResponse -&gt; Bool)
 -&gt; Eq CreateScriptResponse
@@ -425,7 +425,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateScriptResponse -&gt; CreateScriptResponse -&gt; Bool
 == :: CreateScriptResponse -&gt; CreateScriptResponse -&gt; Bool
 $c== :: CreateScriptResponse -&gt; CreateScriptResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679736958"><span id="local-6989586621679736960"><span id="local-6989586621679736962"><span id="local-6989586621679736964"><span class="annot"><span class="annottext">ReadPrec [CreateScriptResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679738753"><span id="local-6989586621679738755"><span id="local-6989586621679738757"><span id="local-6989586621679738759"><span class="annot"><span class="annottext">ReadPrec [CreateScriptResponse]
 ReadPrec CreateScriptResponse
 Int -&gt; ReadS CreateScriptResponse
 ReadS [CreateScriptResponse]
@@ -445,7 +445,7 @@ readList :: ReadS [CreateScriptResponse]
 $creadList :: ReadS [CreateScriptResponse]
 readsPrec :: Int -&gt; ReadS CreateScriptResponse
 $creadsPrec :: Int -&gt; ReadS CreateScriptResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679736952"><span id="local-6989586621679736954"><span id="local-6989586621679736956"><span class="annot"><span class="annottext">Int -&gt; CreateScriptResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679738747"><span id="local-6989586621679738749"><span id="local-6989586621679738751"><span class="annot"><span class="annottext">Int -&gt; CreateScriptResponse -&gt; ShowS
 [CreateScriptResponse] -&gt; ShowS
 CreateScriptResponse -&gt; String
 (Int -&gt; CreateScriptResponse -&gt; ShowS)
@@ -489,8 +489,8 @@ $cfrom :: forall x. CreateScriptResponse -&gt; Rep CreateScriptResponse x
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse"><span class="hs-identifier hs-type">CreateScriptResponse</span></a></span><span>
 </span><span id="line-170"></span><span id="newCreateScriptResponse"><span class="annot"><span class="annottext">newCreateScriptResponse :: Int -&gt; CreateScriptResponse
-</span><a href="Network.AWS.Glue.CreateScript.html#newCreateScriptResponse"><span class="hs-identifier hs-var hs-var">newCreateScriptResponse</span></a></span></span><span> </span><span id="local-6989586621679736949"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679736949"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.CreateScript.html#newCreateScriptResponse"><span class="hs-identifier hs-var hs-var">newCreateScriptResponse</span></a></span></span><span> </span><span id="local-6989586621679738744"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679738744"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">CreateScriptResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateScriptResponse
 </span><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse%27"><span class="hs-identifier hs-type">CreateScriptResponse'</span></a></span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pythonScript:CreateScriptResponse' :: Maybe Text
@@ -504,7 +504,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateScriptResponse' :: Int
 </span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3AhttpStatus%3ACreateScriptResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679736949"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679738744"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The Python script generated from the DAG.</span><span>
@@ -516,16 +516,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateScriptResponse CreateScriptResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse%27"><span class="hs-identifier hs-type">CreateScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679736948"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse%27"><span class="hs-identifier hs-type">CreateScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679738743"><span class="annot"><span class="annottext">Maybe Text
 pythonScript :: Maybe Text
 $sel:pythonScript:CreateScriptResponse' :: CreateScriptResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679736948"><span class="hs-identifier hs-var hs-var">pythonScript</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679736948"><span class="hs-identifier hs-var">pythonScript</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679736947"><span class="annot"><span class="annottext">s :: CreateScriptResponse
-</span><a href="#local-6989586621679736947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse%27"><span class="hs-identifier hs-type">CreateScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679736946"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679736946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScriptResponse
-</span><a href="#local-6989586621679736947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pythonScript:CreateScriptResponse' :: Maybe Text
+</span><a href="#local-6989586621679738743"><span class="hs-identifier hs-var hs-var">pythonScript</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679738743"><span class="hs-identifier hs-var">pythonScript</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679738742"><span class="annot"><span class="annottext">s :: CreateScriptResponse
+</span><a href="#local-6989586621679738742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse%27"><span class="hs-identifier hs-type">CreateScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679738741"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679738741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScriptResponse
+</span><a href="#local-6989586621679738742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pythonScript:CreateScriptResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3ApythonScript%3ACreateScriptResponse%27"><span class="hs-identifier hs-var">pythonScript</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679736946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse"><span class="hs-identifier hs-type">CreateScriptResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679738741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse"><span class="hs-identifier hs-type">CreateScriptResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | The Scala code generated from the DAG.</span><span>
 </span><span id="line-183"></span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#createScriptResponse_scalaCode"><span class="hs-identifier hs-type">createScriptResponse_scalaCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse"><span class="hs-identifier hs-type">CreateScriptResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -536,16 +536,16 @@ $sel:pythonScript:CreateScriptResponse' :: CreateScriptResponse -&gt; Maybe Text
 -&gt; Lens
      CreateScriptResponse CreateScriptResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse%27"><span class="hs-identifier hs-type">CreateScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679736945"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse%27"><span class="hs-identifier hs-type">CreateScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679738740"><span class="annot"><span class="annottext">Maybe Text
 scalaCode :: Maybe Text
 $sel:scalaCode:CreateScriptResponse' :: CreateScriptResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679736945"><span class="hs-identifier hs-var hs-var">scalaCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679736945"><span class="hs-identifier hs-var">scalaCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679736944"><span class="annot"><span class="annottext">s :: CreateScriptResponse
-</span><a href="#local-6989586621679736944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse%27"><span class="hs-identifier hs-type">CreateScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679736943"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679736943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScriptResponse
-</span><a href="#local-6989586621679736944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalaCode:CreateScriptResponse' :: Maybe Text
+</span><a href="#local-6989586621679738740"><span class="hs-identifier hs-var hs-var">scalaCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679738740"><span class="hs-identifier hs-var">scalaCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679738739"><span class="annot"><span class="annottext">s :: CreateScriptResponse
+</span><a href="#local-6989586621679738739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse%27"><span class="hs-identifier hs-type">CreateScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679738738"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679738738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScriptResponse
+</span><a href="#local-6989586621679738739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalaCode:CreateScriptResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3AscalaCode%3ACreateScriptResponse%27"><span class="hs-identifier hs-var">scalaCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679736943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse"><span class="hs-identifier hs-type">CreateScriptResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679738738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse"><span class="hs-identifier hs-type">CreateScriptResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-187"></span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#createScriptResponse_httpStatus"><span class="hs-identifier hs-type">createScriptResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse"><span class="hs-identifier hs-type">CreateScriptResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -554,16 +554,16 @@ $sel:scalaCode:CreateScriptResponse' :: CreateScriptResponse -&gt; Maybe Text
 -&gt; (CreateScriptResponse -&gt; Int -&gt; CreateScriptResponse)
 -&gt; Lens CreateScriptResponse CreateScriptResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse%27"><span class="hs-identifier hs-type">CreateScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679736942"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse%27"><span class="hs-identifier hs-type">CreateScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679738737"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateScriptResponse' :: CreateScriptResponse -&gt; Int
-</span><a href="#local-6989586621679736942"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679736942"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679736941"><span class="annot"><span class="annottext">s :: CreateScriptResponse
-</span><a href="#local-6989586621679736941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse%27"><span class="hs-identifier hs-type">CreateScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679736940"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679736940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScriptResponse
-</span><a href="#local-6989586621679736941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateScriptResponse' :: Int
+</span><a href="#local-6989586621679738737"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679738737"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679738736"><span class="annot"><span class="annottext">s :: CreateScriptResponse
+</span><a href="#local-6989586621679738736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse%27"><span class="hs-identifier hs-type">CreateScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679738735"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679738735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateScriptResponse
+</span><a href="#local-6989586621679738736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateScriptResponse' :: Int
 </span><a href="Network.AWS.Glue.CreateScript.html#%24sel%3AhttpStatus%3ACreateScriptResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679736940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse"><span class="hs-identifier hs-type">CreateScriptResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679738735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse"><span class="hs-identifier hs-type">CreateScriptResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679736938"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse"><span class="hs-identifier hs-type">CreateScriptResponse</span></a></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679738733"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateScript.html#CreateScriptResponse"><span class="hs-identifier hs-type">CreateScriptResponse</span></a></span></span><span>
 </span><span id="line-191"></span></pre></body></html>

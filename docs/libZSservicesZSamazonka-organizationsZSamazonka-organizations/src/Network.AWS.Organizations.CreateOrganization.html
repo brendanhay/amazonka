@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newCreateOrganization' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679250211"><span id="local-6989586621679250212"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateOrganization"><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization"><span class="hs-identifier hs-var">CreateOrganization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateOrganization%27"><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization%27"><span class="hs-identifier hs-var">CreateOrganization'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679250359"><span id="local-6989586621679250360"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateOrganization"><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization"><span class="hs-identifier hs-var">CreateOrganization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateOrganization%27"><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization%27"><span class="hs-identifier hs-var">CreateOrganization'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the feature set supported by the new organization. Each</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- feature set supports different levels of functionality.</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -84,7 +84,7 @@
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3AfeatureSet%3ACreateOrganization%27"><span class="annot"><span class="annottext">CreateOrganization -&gt; Maybe OrganizationFeatureSet
 </span><a href="Network.AWS.Organizations.CreateOrganization.html#%24sel%3AfeatureSet%3ACreateOrganization%27"><span class="hs-identifier hs-var hs-var">featureSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationFeatureSet.html#OrganizationFeatureSet"><span class="hs-identifier hs-type">OrganizationFeatureSet</span></a></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250205"><span id="local-6989586621679250207"><span class="annot"><span class="annottext">CreateOrganization -&gt; CreateOrganization -&gt; Bool
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250353"><span id="local-6989586621679250355"><span class="annot"><span class="annottext">CreateOrganization -&gt; CreateOrganization -&gt; Bool
 (CreateOrganization -&gt; CreateOrganization -&gt; Bool)
 -&gt; (CreateOrganization -&gt; CreateOrganization -&gt; Bool)
 -&gt; Eq CreateOrganization
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateOrganization -&gt; CreateOrganization -&gt; Bool
 == :: CreateOrganization -&gt; CreateOrganization -&gt; Bool
 $c== :: CreateOrganization -&gt; CreateOrganization -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250196"><span id="local-6989586621679250198"><span id="local-6989586621679250200"><span id="local-6989586621679250202"><span class="annot"><span class="annottext">ReadPrec [CreateOrganization]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250344"><span id="local-6989586621679250346"><span id="local-6989586621679250348"><span id="local-6989586621679250350"><span class="annot"><span class="annottext">ReadPrec [CreateOrganization]
 ReadPrec CreateOrganization
 Int -&gt; ReadS CreateOrganization
 ReadS [CreateOrganization]
@@ -113,7 +113,7 @@ readList :: ReadS [CreateOrganization]
 $creadList :: ReadS [CreateOrganization]
 readsPrec :: Int -&gt; ReadS CreateOrganization
 $creadsPrec :: Int -&gt; ReadS CreateOrganization
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250189"><span id="local-6989586621679250191"><span id="local-6989586621679250193"><span class="annot"><span class="annottext">Int -&gt; CreateOrganization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250337"><span id="local-6989586621679250339"><span id="local-6989586621679250341"><span class="annot"><span class="annottext">Int -&gt; CreateOrganization -&gt; ShowS
 [CreateOrganization] -&gt; ShowS
 CreateOrganization -&gt; String
 (Int -&gt; CreateOrganization -&gt; ShowS)
@@ -205,27 +205,27 @@ forall a. Maybe a
      (Maybe OrganizationFeatureSet)
      (Maybe OrganizationFeatureSet)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization%27"><span class="hs-identifier hs-type">CreateOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250182"><span class="annot"><span class="annottext">Maybe OrganizationFeatureSet
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization%27"><span class="hs-identifier hs-type">CreateOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250330"><span class="annot"><span class="annottext">Maybe OrganizationFeatureSet
 featureSet :: Maybe OrganizationFeatureSet
 $sel:featureSet:CreateOrganization' :: CreateOrganization -&gt; Maybe OrganizationFeatureSet
-</span><a href="#local-6989586621679250182"><span class="hs-identifier hs-var hs-var">featureSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationFeatureSet
-</span><a href="#local-6989586621679250182"><span class="hs-identifier hs-var">featureSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250181"><span class="annot"><span class="annottext">s :: CreateOrganization
-</span><a href="#local-6989586621679250181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization%27"><span class="hs-identifier hs-type">CreateOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250180"><span class="annot"><span class="annottext">Maybe OrganizationFeatureSet
-</span><a href="#local-6989586621679250180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOrganization
-</span><a href="#local-6989586621679250181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureSet:CreateOrganization' :: Maybe OrganizationFeatureSet
+</span><a href="#local-6989586621679250330"><span class="hs-identifier hs-var hs-var">featureSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationFeatureSet
+</span><a href="#local-6989586621679250330"><span class="hs-identifier hs-var">featureSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250329"><span class="annot"><span class="annottext">s :: CreateOrganization
+</span><a href="#local-6989586621679250329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization%27"><span class="hs-identifier hs-type">CreateOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250328"><span class="annot"><span class="annottext">Maybe OrganizationFeatureSet
+</span><a href="#local-6989586621679250328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOrganization
+</span><a href="#local-6989586621679250329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureSet:CreateOrganization' :: Maybe OrganizationFeatureSet
 </span><a href="Network.AWS.Organizations.CreateOrganization.html#%24sel%3AfeatureSet%3ACreateOrganization%27"><span class="hs-identifier hs-var">featureSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationFeatureSet
-</span><a href="#local-6989586621679250180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization"><span class="hs-identifier hs-type">CreateOrganization</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization"><span class="hs-identifier hs-type">CreateOrganization</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization"><span class="hs-identifier hs-type">CreateOrganization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-142"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization"><span class="hs-identifier hs-type">CreateOrganization</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse"><span class="hs-identifier hs-type">CreateOrganizationResponse</span></a></span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679250176"><span class="annot"><span class="annottext">request :: CreateOrganization -&gt; Request CreateOrganization
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679250324"><span class="annot"><span class="annottext">request :: CreateOrganization -&gt; Request CreateOrganization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateOrganization -&gt; Request CreateOrganization
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Organizations.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679250172"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679250320"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateOrganization
 -&gt; ClientResponse ClientBody
@@ -251,10 +251,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250169"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250169"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679250168"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679250168"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679250167"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250167"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250317"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679250317"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679250316"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679250316"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679250315"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250315"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Maybe Organization -&gt; Int -&gt; CreateOrganizationResponse
 </span><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse%27"><span class="hs-identifier hs-var">CreateOrganizationResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Organization -&gt; Int -&gt; CreateOrganizationResponse)
@@ -262,7 +262,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateOrganizationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250167"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Organization)
+</span><a href="#local-6989586621679250315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Organization)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Organization&quot;</span></span><span class="hs-special">)</span><span>
@@ -274,15 +274,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250169"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250317"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250159"><span id="local-6989586621679250161"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization"><span class="hs-identifier hs-type">CreateOrganization</span></a></span></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250307"><span id="local-6989586621679250309"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization"><span class="hs-identifier hs-type">CreateOrganization</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250156"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization"><span class="hs-identifier hs-type">CreateOrganization</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250304"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization"><span class="hs-identifier hs-type">CreateOrganization</span></a></span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization"><span class="hs-identifier hs-type">CreateOrganization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679250152"><span class="annot"><span class="annottext">toHeaders :: CreateOrganization -&gt; ResponseHeaders
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679250300"><span class="annot"><span class="annottext">toHeaders :: CreateOrganization -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateOrganization -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -309,12 +309,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250142"><span id="local-6989586621679250144"><span id="local-6989586621679250146"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization"><span class="hs-identifier hs-type">CreateOrganization</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679250140"><span class="annot"><span class="annottext">toJSON :: CreateOrganization -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization%27"><span class="hs-identifier hs-type">CreateOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250138"><span class="annot"><span class="annottext">Maybe OrganizationFeatureSet
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250290"><span id="local-6989586621679250292"><span id="local-6989586621679250294"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization"><span class="hs-identifier hs-type">CreateOrganization</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679250288"><span class="annot"><span class="annottext">toJSON :: CreateOrganization -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization%27"><span class="hs-identifier hs-type">CreateOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250286"><span class="annot"><span class="annottext">Maybe OrganizationFeatureSet
 featureSet :: Maybe OrganizationFeatureSet
 $sel:featureSet:CreateOrganization' :: CreateOrganization -&gt; Maybe OrganizationFeatureSet
-</span><a href="#local-6989586621679250138"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679250286"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -327,18 +327,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe OrganizationFeatureSet -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationFeatureSet
-</span><a href="#local-6989586621679250138"><span class="hs-identifier hs-var">featureSet</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679250286"><span class="hs-identifier hs-var">featureSet</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization"><span class="hs-identifier hs-type">CreateOrganization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679250132"><span class="annot"><span class="annottext">toPath :: CreateOrganization -&gt; ByteString
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679250280"><span class="annot"><span class="annottext">toPath :: CreateOrganization -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateOrganization -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganization"><span class="hs-identifier hs-type">CreateOrganization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679250128"><span class="annot"><span class="annottext">toQuery :: CreateOrganization -&gt; QueryString
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679250276"><span class="annot"><span class="annottext">toQuery :: CreateOrganization -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateOrganization -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -346,7 +346,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | /See:/ 'newCreateOrganizationResponse' smart constructor.</span><span>
-</span><span id="line-186"></span><span id="local-6989586621679250125"><span id="local-6989586621679250126"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateOrganizationResponse"><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse"><span class="hs-identifier hs-var">CreateOrganizationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateOrganizationResponse%27"><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse%27"><span class="hs-identifier hs-var">CreateOrganizationResponse'</span></a></span></span><span>
+</span><span id="line-186"></span><span id="local-6989586621679250273"><span id="local-6989586621679250274"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateOrganizationResponse"><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse"><span class="hs-identifier hs-var">CreateOrganizationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateOrganizationResponse%27"><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse%27"><span class="hs-identifier hs-var">CreateOrganizationResponse'</span></a></span></span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A structure that contains details about the newly created organization.</span><span>
 </span><span id="line-188"></span><span>    </span><span id="%24sel%3Aorganization%3ACreateOrganizationResponse%27"><span class="annot"><span class="annottext">CreateOrganizationResponse -&gt; Maybe Organization
 </span><a href="Network.AWS.Organizations.CreateOrganization.html#%24sel%3Aorganization%3ACreateOrganizationResponse%27"><span class="hs-identifier hs-var hs-var">organization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span class="hs-special">,</span><span>
@@ -354,7 +354,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-190"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateOrganizationResponse%27"><span class="annot"><span class="annottext">CreateOrganizationResponse -&gt; Int
 </span><a href="Network.AWS.Organizations.CreateOrganization.html#%24sel%3AhttpStatus%3ACreateOrganizationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-191"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250119"><span id="local-6989586621679250121"><span class="annot"><span class="annottext">CreateOrganizationResponse -&gt; CreateOrganizationResponse -&gt; Bool
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250267"><span id="local-6989586621679250269"><span class="annot"><span class="annottext">CreateOrganizationResponse -&gt; CreateOrganizationResponse -&gt; Bool
 (CreateOrganizationResponse -&gt; CreateOrganizationResponse -&gt; Bool)
 -&gt; (CreateOrganizationResponse
     -&gt; CreateOrganizationResponse -&gt; Bool)
@@ -364,7 +364,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateOrganizationResponse -&gt; CreateOrganizationResponse -&gt; Bool
 == :: CreateOrganizationResponse -&gt; CreateOrganizationResponse -&gt; Bool
 $c== :: CreateOrganizationResponse -&gt; CreateOrganizationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250113"><span id="local-6989586621679250115"><span id="local-6989586621679250117"><span class="annot"><span class="annottext">Int -&gt; CreateOrganizationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250261"><span id="local-6989586621679250263"><span id="local-6989586621679250265"><span class="annot"><span class="annottext">Int -&gt; CreateOrganizationResponse -&gt; ShowS
 [CreateOrganizationResponse] -&gt; ShowS
 CreateOrganizationResponse -&gt; String
 (Int -&gt; CreateOrganizationResponse -&gt; ShowS)
@@ -412,8 +412,8 @@ CreateOrganizationResponse -&gt; Rep CreateOrganizationResponse x
 </span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse"><span class="hs-identifier hs-type">CreateOrganizationResponse</span></a></span><span>
 </span><span id="line-209"></span><span id="newCreateOrganizationResponse"><span class="annot"><span class="annottext">newCreateOrganizationResponse :: Int -&gt; CreateOrganizationResponse
-</span><a href="Network.AWS.Organizations.CreateOrganization.html#newCreateOrganizationResponse"><span class="hs-identifier hs-var hs-var">newCreateOrganizationResponse</span></a></span></span><span> </span><span id="local-6989586621679250110"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250110"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Organizations.CreateOrganization.html#newCreateOrganizationResponse"><span class="hs-identifier hs-var hs-var">newCreateOrganizationResponse</span></a></span></span><span> </span><span id="local-6989586621679250258"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679250258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="annottext">CreateOrganizationResponse' :: Maybe Organization -&gt; Int -&gt; CreateOrganizationResponse
 </span><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse%27"><span class="hs-identifier hs-type">CreateOrganizationResponse'</span></a></span><span>
 </span><span id="line-211"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:organization:CreateOrganizationResponse' :: Maybe Organization
@@ -423,7 +423,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateOrganizationResponse' :: Int
 </span><a href="Network.AWS.Organizations.CreateOrganization.html#%24sel%3AhttpStatus%3ACreateOrganizationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250110"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679250258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-214"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | A structure that contains details about the newly created organization.</span><span>
@@ -439,16 +439,16 @@ forall a. Maybe a
      (Maybe Organization)
      (Maybe Organization)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse%27"><span class="hs-identifier hs-type">CreateOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250109"><span class="annot"><span class="annottext">Maybe Organization
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse%27"><span class="hs-identifier hs-type">CreateOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250257"><span class="annot"><span class="annottext">Maybe Organization
 organization :: Maybe Organization
 $sel:organization:CreateOrganizationResponse' :: CreateOrganizationResponse -&gt; Maybe Organization
-</span><a href="#local-6989586621679250109"><span class="hs-identifier hs-var hs-var">organization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Organization
-</span><a href="#local-6989586621679250109"><span class="hs-identifier hs-var">organization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250108"><span class="annot"><span class="annottext">s :: CreateOrganizationResponse
-</span><a href="#local-6989586621679250108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse%27"><span class="hs-identifier hs-type">CreateOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250107"><span class="annot"><span class="annottext">Maybe Organization
-</span><a href="#local-6989586621679250107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOrganizationResponse
-</span><a href="#local-6989586621679250108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organization:CreateOrganizationResponse' :: Maybe Organization
+</span><a href="#local-6989586621679250257"><span class="hs-identifier hs-var hs-var">organization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Organization
+</span><a href="#local-6989586621679250257"><span class="hs-identifier hs-var">organization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250256"><span class="annot"><span class="annottext">s :: CreateOrganizationResponse
+</span><a href="#local-6989586621679250256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse%27"><span class="hs-identifier hs-type">CreateOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250255"><span class="annot"><span class="annottext">Maybe Organization
+</span><a href="#local-6989586621679250255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOrganizationResponse
+</span><a href="#local-6989586621679250256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organization:CreateOrganizationResponse' :: Maybe Organization
 </span><a href="Network.AWS.Organizations.CreateOrganization.html#%24sel%3Aorganization%3ACreateOrganizationResponse%27"><span class="hs-identifier hs-var">organization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Organization
-</span><a href="#local-6989586621679250107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse"><span class="hs-identifier hs-type">CreateOrganizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse"><span class="hs-identifier hs-type">CreateOrganizationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-221"></span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#createOrganizationResponse_httpStatus"><span class="hs-identifier hs-type">createOrganizationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse"><span class="hs-identifier hs-type">CreateOrganizationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -460,16 +460,16 @@ $sel:organization:CreateOrganizationResponse' :: CreateOrganizationResponse -&gt
 -&gt; Lens
      CreateOrganizationResponse CreateOrganizationResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse%27"><span class="hs-identifier hs-type">CreateOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250106"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse%27"><span class="hs-identifier hs-type">CreateOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250254"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateOrganizationResponse' :: CreateOrganizationResponse -&gt; Int
-</span><a href="#local-6989586621679250106"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250106"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250105"><span class="annot"><span class="annottext">s :: CreateOrganizationResponse
-</span><a href="#local-6989586621679250105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse%27"><span class="hs-identifier hs-type">CreateOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250104"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOrganizationResponse
-</span><a href="#local-6989586621679250105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateOrganizationResponse' :: Int
+</span><a href="#local-6989586621679250254"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679250254"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250253"><span class="annot"><span class="annottext">s :: CreateOrganizationResponse
+</span><a href="#local-6989586621679250253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse%27"><span class="hs-identifier hs-type">CreateOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250252"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679250252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOrganizationResponse
+</span><a href="#local-6989586621679250253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateOrganizationResponse' :: Int
 </span><a href="Network.AWS.Organizations.CreateOrganization.html#%24sel%3AhttpStatus%3ACreateOrganizationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse"><span class="hs-identifier hs-type">CreateOrganizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse"><span class="hs-identifier hs-type">CreateOrganizationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250102"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse"><span class="hs-identifier hs-type">CreateOrganizationResponse</span></a></span></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250250"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreateOrganization.html#CreateOrganizationResponse"><span class="hs-identifier hs-type">CreateOrganizationResponse</span></a></span></span><span>
 </span><span id="line-225"></span></pre></body></html>

@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newUntagResource' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679178432"><span id="local-6989586621679178433"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagResource"><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource"><span class="hs-identifier hs-var">UntagResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagResource%27"><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-var">UntagResource'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679178507"><span id="local-6989586621679178508"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagResource"><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource"><span class="hs-identifier hs-var">UntagResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagResource%27"><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-var">UntagResource'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The cluster identifier (ID) for the cluster whose tags you are removing.</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- To find the cluster ID, use DescribeClusters.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AresourceId%3AUntagResource%27"><span class="annot"><span class="annottext">UntagResource -&gt; Text
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AtagKeyList%3AUntagResource%27"><span class="annot"><span class="annottext">UntagResource -&gt; NonEmpty Text
 </span><a href="Network.AWS.CloudHSMv2.UntagResource.html#%24sel%3AtagKeyList%3AUntagResource%27"><span class="hs-identifier hs-var hs-var">tagKeyList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178425"><span id="local-6989586621679178427"><span class="annot"><span class="annottext">UntagResource -&gt; UntagResource -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178500"><span id="local-6989586621679178502"><span class="annot"><span class="annottext">UntagResource -&gt; UntagResource -&gt; Bool
 (UntagResource -&gt; UntagResource -&gt; Bool)
 -&gt; (UntagResource -&gt; UntagResource -&gt; Bool) -&gt; Eq UntagResource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UntagResource -&gt; UntagResource -&gt; Bool
 == :: UntagResource -&gt; UntagResource -&gt; Bool
 $c== :: UntagResource -&gt; UntagResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178416"><span id="local-6989586621679178418"><span id="local-6989586621679178420"><span id="local-6989586621679178422"><span class="annot"><span class="annottext">ReadPrec [UntagResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178491"><span id="local-6989586621679178493"><span id="local-6989586621679178495"><span id="local-6989586621679178497"><span class="annot"><span class="annottext">ReadPrec [UntagResource]
 ReadPrec UntagResource
 Int -&gt; ReadS UntagResource
 ReadS [UntagResource]
@@ -86,7 +86,7 @@ readList :: ReadS [UntagResource]
 $creadList :: ReadS [UntagResource]
 readsPrec :: Int -&gt; ReadS UntagResource
 $creadsPrec :: Int -&gt; ReadS UntagResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178409"><span id="local-6989586621679178411"><span id="local-6989586621679178413"><span class="annot"><span class="annottext">Int -&gt; UntagResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178484"><span id="local-6989586621679178486"><span id="local-6989586621679178488"><span class="annot"><span class="annottext">Int -&gt; UntagResource -&gt; ShowS
 [UntagResource] -&gt; ShowS
 UntagResource -&gt; String
 (Int -&gt; UntagResource -&gt; ShowS)
@@ -132,24 +132,24 @@ $cfrom :: forall x. UntagResource -&gt; Rep UntagResource x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span>
 </span><span id="line-80"></span><span id="newUntagResource"><span class="annot"><span class="annottext">newUntagResource :: Text -&gt; NonEmpty Text -&gt; UntagResource
-</span><a href="Network.AWS.CloudHSMv2.UntagResource.html#newUntagResource"><span class="hs-identifier hs-var hs-var">newUntagResource</span></a></span></span><span> </span><span id="local-6989586621679178404"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178404"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span id="local-6989586621679178403"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679178403"><span class="hs-identifier hs-var">pTagKeyList_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudHSMv2.UntagResource.html#newUntagResource"><span class="hs-identifier hs-var hs-var">newUntagResource</span></a></span></span><span> </span><span id="local-6989586621679178479"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178479"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span id="local-6989586621679178478"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679178478"><span class="hs-identifier hs-var">pTagKeyList_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">UntagResource' :: Text -&gt; NonEmpty Text -&gt; UntagResource
 </span><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceId:UntagResource' :: Text
 </span><a href="Network.AWS.CloudHSMv2.UntagResource.html#%24sel%3AresourceId%3AUntagResource%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178404"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679178479"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKeyList:UntagResource' :: NonEmpty Text
 </span><a href="Network.AWS.CloudHSMv2.UntagResource.html#%24sel%3AtagKeyList%3AUntagResource%27"><span class="hs-identifier hs-var">tagKeyList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679178403"><span class="hs-identifier hs-var">pTagKeyList_</span></a></span><span>
+</span><a href="#local-6989586621679178478"><span class="hs-identifier hs-var">pTagKeyList_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The cluster identifier (ID) for the cluster whose tags you are removing.</span><span>
@@ -160,16 +160,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (UntagResource -&gt; Text -&gt; UntagResource)
 -&gt; Lens UntagResource UntagResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178398"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178473"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:UntagResource' :: UntagResource -&gt; Text
-</span><a href="#local-6989586621679178398"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178398"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178397"><span class="annot"><span class="annottext">s :: UntagResource
-</span><a href="#local-6989586621679178397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178396"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResource
-</span><a href="#local-6989586621679178397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:UntagResource' :: Text
+</span><a href="#local-6989586621679178473"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178473"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178472"><span class="annot"><span class="annottext">s :: UntagResource
+</span><a href="#local-6989586621679178472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178471"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResource
+</span><a href="#local-6989586621679178472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:UntagResource' :: Text
 </span><a href="Network.AWS.CloudHSMv2.UntagResource.html#%24sel%3AresourceId%3AUntagResource%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | A list of one or more tag keys for the tags that you are removing.</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- Specify only the tag keys, not the tag values.</span><span>
@@ -180,16 +180,16 @@ $sel:resourceId:UntagResource' :: UntagResource -&gt; Text
 -&gt; (UntagResource -&gt; NonEmpty Text -&gt; UntagResource)
 -&gt; Lens UntagResource UntagResource (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178395"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178470"><span class="annot"><span class="annottext">NonEmpty Text
 tagKeyList :: NonEmpty Text
 $sel:tagKeyList:UntagResource' :: UntagResource -&gt; NonEmpty Text
-</span><a href="#local-6989586621679178395"><span class="hs-identifier hs-var hs-var">tagKeyList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679178395"><span class="hs-identifier hs-var">tagKeyList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178394"><span class="annot"><span class="annottext">s :: UntagResource
-</span><a href="#local-6989586621679178394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178393"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679178393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResource
-</span><a href="#local-6989586621679178394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeyList:UntagResource' :: NonEmpty Text
+</span><a href="#local-6989586621679178470"><span class="hs-identifier hs-var hs-var">tagKeyList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679178470"><span class="hs-identifier hs-var">tagKeyList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178469"><span class="annot"><span class="annottext">s :: UntagResource
+</span><a href="#local-6989586621679178469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178468"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679178468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResource
+</span><a href="#local-6989586621679178469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeyList:UntagResource' :: NonEmpty Text
 </span><a href="Network.AWS.CloudHSMv2.UntagResource.html#%24sel%3AtagKeyList%3AUntagResource%27"><span class="hs-identifier hs-var">tagKeyList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679178393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679178468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; UntagResource -&gt; f UntagResource)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -199,19 +199,19 @@ $sel:tagKeyList:UntagResource' :: UntagResource -&gt; NonEmpty Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679178388"><span class="annot"><span class="annottext">request :: UntagResource -&gt; Request UntagResource
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679178463"><span class="annot"><span class="annottext">request :: UntagResource -&gt; Request UntagResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UntagResource -&gt; Request UntagResource
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudHSMv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679178384"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679178459"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UntagResource
 -&gt; ClientResponse ClientBody
@@ -235,10 +235,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178381"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178381"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178380"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679178380"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178379"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679178379"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178456"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178456"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178455"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679178455"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178454"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679178454"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UntagResourceResponse
 </span><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-var">UntagResourceResponse'</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UntagResourceResponse)
@@ -249,15 +249,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178381"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178456"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178372"><span id="local-6989586621679178374"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178447"><span id="local-6989586621679178449"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178369"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178444"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679178365"><span class="annot"><span class="annottext">toHeaders :: UntagResource -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679178440"><span class="annot"><span class="annottext">toHeaders :: UntagResource -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UntagResource -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -284,15 +284,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178355"><span id="local-6989586621679178357"><span id="local-6989586621679178359"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679178353"><span class="annot"><span class="annottext">toJSON :: UntagResource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178350"><span id="local-6989586621679178351"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178430"><span id="local-6989586621679178432"><span id="local-6989586621679178434"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679178428"><span class="annot"><span class="annottext">toJSON :: UntagResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178425"><span id="local-6989586621679178426"><span class="annot"><span class="annottext">NonEmpty Text
 Text
 tagKeyList :: NonEmpty Text
 resourceId :: Text
 $sel:tagKeyList:UntagResource' :: UntagResource -&gt; NonEmpty Text
 $sel:resourceId:UntagResource' :: UntagResource -&gt; Text
-</span><a href="#local-6989586621679178350"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679178425"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -304,26 +304,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178351"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679178426"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TagKeyList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679178350"><span class="hs-identifier hs-var">tagKeyList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178425"><span class="hs-identifier hs-var">tagKeyList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679178344"><span class="annot"><span class="annottext">toPath :: UntagResource -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679178419"><span class="annot"><span class="annottext">toPath :: UntagResource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UntagResource -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679178340"><span class="annot"><span class="annottext">toQuery :: UntagResource -&gt; QueryString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679178415"><span class="annot"><span class="annottext">toQuery :: UntagResource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UntagResource -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -331,12 +331,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newUntagResourceResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679178337"><span id="local-6989586621679178338"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagResourceResponse"><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-var">UntagResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagResourceResponse%27"><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-var">UntagResourceResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span id="local-6989586621679178412"><span id="local-6989586621679178413"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagResourceResponse"><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-var">UntagResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagResourceResponse%27"><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-var">UntagResourceResponse'</span></a></span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUntagResourceResponse%27"><span class="annot"><span class="annottext">UntagResourceResponse -&gt; Int
 </span><a href="Network.AWS.CloudHSMv2.UntagResource.html#%24sel%3AhttpStatus%3AUntagResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178332"><span id="local-6989586621679178334"><span class="annot"><span class="annottext">UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178407"><span id="local-6989586621679178409"><span class="annot"><span class="annottext">UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
 (UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool)
 -&gt; (UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool)
 -&gt; Eq UntagResourceResponse
@@ -345,7 +345,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
 == :: UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
 $c== :: UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178324"><span id="local-6989586621679178326"><span id="local-6989586621679178328"><span id="local-6989586621679178330"><span class="annot"><span class="annottext">ReadPrec [UntagResourceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178399"><span id="local-6989586621679178401"><span id="local-6989586621679178403"><span id="local-6989586621679178405"><span class="annot"><span class="annottext">ReadPrec [UntagResourceResponse]
 ReadPrec UntagResourceResponse
 Int -&gt; ReadS UntagResourceResponse
 ReadS [UntagResourceResponse]
@@ -365,7 +365,7 @@ readList :: ReadS [UntagResourceResponse]
 $creadList :: ReadS [UntagResourceResponse]
 readsPrec :: Int -&gt; ReadS UntagResourceResponse
 $creadsPrec :: Int -&gt; ReadS UntagResourceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178318"><span id="local-6989586621679178320"><span id="local-6989586621679178322"><span class="annot"><span class="annottext">Int -&gt; UntagResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178393"><span id="local-6989586621679178395"><span id="local-6989586621679178397"><span class="annot"><span class="annottext">Int -&gt; UntagResourceResponse -&gt; ShowS
 [UntagResourceResponse] -&gt; ShowS
 UntagResourceResponse -&gt; String
 (Int -&gt; UntagResourceResponse -&gt; ShowS)
@@ -405,12 +405,12 @@ $cfrom :: forall x. UntagResourceResponse -&gt; Rep UntagResourceResponse x
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span><span>
 </span><span id="line-162"></span><span id="newUntagResourceResponse"><span class="annot"><span class="annottext">newUntagResourceResponse :: Int -&gt; UntagResourceResponse
-</span><a href="Network.AWS.CloudHSMv2.UntagResource.html#newUntagResourceResponse"><span class="hs-identifier hs-var hs-var">newUntagResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679178315"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178315"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudHSMv2.UntagResource.html#newUntagResourceResponse"><span class="hs-identifier hs-var hs-var">newUntagResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679178390"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178390"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">UntagResourceResponse' :: Int -&gt; UntagResourceResponse
 </span><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-type">UntagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UntagResourceResponse' :: Int
 </span><a href="Network.AWS.CloudHSMv2.UntagResource.html#%24sel%3AhttpStatus%3AUntagResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178315"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679178390"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-166"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#untagResourceResponse_httpStatus"><span class="hs-identifier hs-type">untagResourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -419,16 +419,16 @@ $cfrom :: forall x. UntagResourceResponse -&gt; Rep UntagResourceResponse x
 -&gt; (UntagResourceResponse -&gt; Int -&gt; UntagResourceResponse)
 -&gt; Lens UntagResourceResponse UntagResourceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-type">UntagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178314"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-type">UntagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178389"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UntagResourceResponse' :: UntagResourceResponse -&gt; Int
-</span><a href="#local-6989586621679178314"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178314"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178313"><span class="annot"><span class="annottext">s :: UntagResourceResponse
-</span><a href="#local-6989586621679178313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-type">UntagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178312"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResourceResponse
-</span><a href="#local-6989586621679178313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UntagResourceResponse' :: Int
+</span><a href="#local-6989586621679178389"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178389"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178388"><span class="annot"><span class="annottext">s :: UntagResourceResponse
+</span><a href="#local-6989586621679178388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-type">UntagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178387"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResourceResponse
+</span><a href="#local-6989586621679178388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UntagResourceResponse' :: Int
 </span><a href="Network.AWS.CloudHSMv2.UntagResource.html#%24sel%3AhttpStatus%3AUntagResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178310"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178385"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span></span><span>
 </span><span id="line-170"></span></pre></body></html>

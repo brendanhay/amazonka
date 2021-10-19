@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Maximum framerate in frames per second (Outputs only)</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679905449"><span id="local-6989586621679905450"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReservationMaximumFramerate"><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationMaximumFramerate.html#ReservationMaximumFramerate"><span class="hs-identifier hs-var">ReservationMaximumFramerate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservationMaximumFramerate%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationMaximumFramerate.html#ReservationMaximumFramerate%27"><span class="hs-identifier hs-var">ReservationMaximumFramerate'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679912947"><span id="local-6989586621679912948"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReservationMaximumFramerate"><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationMaximumFramerate.html#ReservationMaximumFramerate"><span class="hs-identifier hs-var">ReservationMaximumFramerate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservationMaximumFramerate%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ReservationMaximumFramerate.html#ReservationMaximumFramerate%27"><span class="hs-identifier hs-var">ReservationMaximumFramerate'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReservationMaximumFramerate"><span class="annot"><span class="annottext">ReservationMaximumFramerate -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.ReservationMaximumFramerate.html#fromReservationMaximumFramerate"><span class="hs-identifier hs-var hs-var">fromReservationMaximumFramerate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679905441"><span id="local-6989586621679905443"><span id="local-6989586621679905445"><span class="annot"><span class="annottext">Int -&gt; ReservationMaximumFramerate -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679912939"><span id="local-6989586621679912941"><span id="local-6989586621679912943"><span class="annot"><span class="annottext">Int -&gt; ReservationMaximumFramerate -&gt; ShowS
 [ReservationMaximumFramerate] -&gt; ShowS
 ReservationMaximumFramerate -&gt; String
 (Int -&gt; ReservationMaximumFramerate -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ReservationMaximumFramerate -&gt; String
 showsPrec :: Int -&gt; ReservationMaximumFramerate -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReservationMaximumFramerate -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679905432"><span id="local-6989586621679905434"><span id="local-6989586621679905436"><span id="local-6989586621679905438"><span class="annot"><span class="annottext">ReadPrec [ReservationMaximumFramerate]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679912930"><span id="local-6989586621679912932"><span id="local-6989586621679912934"><span id="local-6989586621679912936"><span class="annot"><span class="annottext">ReadPrec [ReservationMaximumFramerate]
 ReadPrec ReservationMaximumFramerate
 Int -&gt; ReadS ReservationMaximumFramerate
 ReadS [ReservationMaximumFramerate]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ReservationMaximumFramerate]
 readsPrec :: Int -&gt; ReadS ReservationMaximumFramerate
 $creadsPrec :: Int -&gt; ReadS ReservationMaximumFramerate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679905427"><span id="local-6989586621679905429"><span class="annot"><span class="annottext">ReservationMaximumFramerate -&gt; ReservationMaximumFramerate -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679912925"><span id="local-6989586621679912927"><span class="annot"><span class="annottext">ReservationMaximumFramerate -&gt; ReservationMaximumFramerate -&gt; Bool
 (ReservationMaximumFramerate
  -&gt; ReservationMaximumFramerate -&gt; Bool)
 -&gt; (ReservationMaximumFramerate
@@ -85,7 +85,7 @@ $c/= :: ReservationMaximumFramerate -&gt; ReservationMaximumFramerate -&gt; Bool
 == :: ReservationMaximumFramerate -&gt; ReservationMaximumFramerate -&gt; Bool
 $c== :: ReservationMaximumFramerate -&gt; ReservationMaximumFramerate -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679905411"><span id="local-6989586621679905413"><span id="local-6989586621679905415"><span id="local-6989586621679905417"><span id="local-6989586621679905419"><span id="local-6989586621679905421"><span id="local-6989586621679905423"><span class="annot"><span class="annottext">Eq ReservationMaximumFramerate
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679912909"><span id="local-6989586621679912911"><span id="local-6989586621679912913"><span id="local-6989586621679912915"><span id="local-6989586621679912917"><span id="local-6989586621679912919"><span id="local-6989586621679912921"><span class="annot"><span class="annottext">Eq ReservationMaximumFramerate
 Eq ReservationMaximumFramerate
 -&gt; (ReservationMaximumFramerate
     -&gt; ReservationMaximumFramerate -&gt; Ordering)
@@ -157,7 +157,7 @@ ReservationMaximumFramerate -&gt; Rep ReservationMaximumFramerate x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679905403"><span id="local-6989586621679905405"><span class="annot"><span class="annottext">Int -&gt; ReservationMaximumFramerate -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679912901"><span id="local-6989586621679912903"><span class="annot"><span class="annottext">Int -&gt; ReservationMaximumFramerate -&gt; Int
 ReservationMaximumFramerate -&gt; Int
 (Int -&gt; ReservationMaximumFramerate -&gt; Int)
 -&gt; (ReservationMaximumFramerate -&gt; Int)
@@ -168,56 +168,56 @@ $chash :: ReservationMaximumFramerate -&gt; Int
 hashWithSalt :: Int -&gt; ReservationMaximumFramerate -&gt; Int
 $chashWithSalt :: Int -&gt; ReservationMaximumFramerate -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679905400"><span class="annot"><span class="annottext">ReservationMaximumFramerate -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679912898"><span class="annot"><span class="annottext">ReservationMaximumFramerate -&gt; ()
 (ReservationMaximumFramerate -&gt; ())
 -&gt; NFData ReservationMaximumFramerate
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReservationMaximumFramerate -&gt; ()
 $crnf :: ReservationMaximumFramerate -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679905397"><span class="annot"><span class="annottext">Text -&gt; Either String ReservationMaximumFramerate
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679912895"><span class="annot"><span class="annottext">Text -&gt; Either String ReservationMaximumFramerate
 (Text -&gt; Either String ReservationMaximumFramerate)
 -&gt; FromText ReservationMaximumFramerate
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReservationMaximumFramerate
 $cfromText :: Text -&gt; Either String ReservationMaximumFramerate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679905394"><span class="annot"><span class="annottext">ReservationMaximumFramerate -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679912892"><span class="annot"><span class="annottext">ReservationMaximumFramerate -&gt; Text
 (ReservationMaximumFramerate -&gt; Text)
 -&gt; ToText ReservationMaximumFramerate
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReservationMaximumFramerate -&gt; Text
 $ctoText :: ReservationMaximumFramerate -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679905391"><span class="annot"><span class="annottext">ReservationMaximumFramerate -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679912889"><span class="annot"><span class="annottext">ReservationMaximumFramerate -&gt; ByteString
 (ReservationMaximumFramerate -&gt; ByteString)
 -&gt; ToByteString ReservationMaximumFramerate
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReservationMaximumFramerate -&gt; ByteString
 $ctoBS :: ReservationMaximumFramerate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679905388"><span class="annot"><span class="annottext">ReservationMaximumFramerate -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679912886"><span class="annot"><span class="annottext">ReservationMaximumFramerate -&gt; ByteStringBuilder
 (ReservationMaximumFramerate -&gt; ByteStringBuilder)
 -&gt; ToLog ReservationMaximumFramerate
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReservationMaximumFramerate -&gt; ByteStringBuilder
 $cbuild :: ReservationMaximumFramerate -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679905385"><span class="annot"><span class="annottext">HeaderName -&gt; ReservationMaximumFramerate -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679912883"><span class="annot"><span class="annottext">HeaderName -&gt; ReservationMaximumFramerate -&gt; [Header]
 (HeaderName -&gt; ReservationMaximumFramerate -&gt; [Header])
 -&gt; ToHeader ReservationMaximumFramerate
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReservationMaximumFramerate -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReservationMaximumFramerate -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679905382"><span class="annot"><span class="annottext">ReservationMaximumFramerate -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679912880"><span class="annot"><span class="annottext">ReservationMaximumFramerate -&gt; QueryString
 (ReservationMaximumFramerate -&gt; QueryString)
 -&gt; ToQuery ReservationMaximumFramerate
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReservationMaximumFramerate -&gt; QueryString
 $ctoQuery :: ReservationMaximumFramerate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679905377"><span id="local-6989586621679905379"><span class="annot"><span class="annottext">Value -&gt; Parser [ReservationMaximumFramerate]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679912875"><span id="local-6989586621679912877"><span class="annot"><span class="annottext">Value -&gt; Parser [ReservationMaximumFramerate]
 Value -&gt; Parser ReservationMaximumFramerate
 (Value -&gt; Parser ReservationMaximumFramerate)
 -&gt; (Value -&gt; Parser [ReservationMaximumFramerate])
@@ -229,7 +229,7 @@ $cparseJSONList :: Value -&gt; Parser [ReservationMaximumFramerate]
 parseJSON :: Value -&gt; Parser ReservationMaximumFramerate
 $cparseJSON :: Value -&gt; Parser ReservationMaximumFramerate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679905372"><span id="local-6989586621679905374"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReservationMaximumFramerate]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679912870"><span id="local-6989586621679912872"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReservationMaximumFramerate]
 FromJSONKeyFunction ReservationMaximumFramerate
 FromJSONKeyFunction ReservationMaximumFramerate
 -&gt; FromJSONKeyFunction [ReservationMaximumFramerate]
@@ -241,7 +241,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReservationMaximumFramerate]
 fromJSONKey :: FromJSONKeyFunction ReservationMaximumFramerate
 $cfromJSONKey :: FromJSONKeyFunction ReservationMaximumFramerate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679905363"><span id="local-6989586621679905365"><span id="local-6989586621679905367"><span id="local-6989586621679905369"><span class="annot"><span class="annottext">[ReservationMaximumFramerate] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679912861"><span id="local-6989586621679912863"><span id="local-6989586621679912865"><span id="local-6989586621679912867"><span class="annot"><span class="annottext">[ReservationMaximumFramerate] -&gt; Encoding
 [ReservationMaximumFramerate] -&gt; Value
 ReservationMaximumFramerate -&gt; Encoding
 ReservationMaximumFramerate -&gt; Value
@@ -265,7 +265,7 @@ $ctoEncoding :: ReservationMaximumFramerate -&gt; Encoding
 toJSON :: ReservationMaximumFramerate -&gt; Value
 $ctoJSON :: ReservationMaximumFramerate -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679905358"><span id="local-6989586621679905360"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReservationMaximumFramerate]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679912856"><span id="local-6989586621679912858"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReservationMaximumFramerate]
 ToJSONKeyFunction ReservationMaximumFramerate
 ToJSONKeyFunction ReservationMaximumFramerate
 -&gt; ToJSONKeyFunction [ReservationMaximumFramerate]
@@ -277,14 +277,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReservationMaximumFramerate]
 toJSONKey :: ToJSONKeyFunction ReservationMaximumFramerate
 $ctoJSONKey :: ToJSONKeyFunction ReservationMaximumFramerate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679905355"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReservationMaximumFramerate
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679912853"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReservationMaximumFramerate
 ([Node] -&gt; Either String ReservationMaximumFramerate)
 -&gt; FromXML ReservationMaximumFramerate
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReservationMaximumFramerate
 $cparseXML :: [Node] -&gt; Either String ReservationMaximumFramerate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679905352"><span class="annot"><span class="annottext">ReservationMaximumFramerate -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679912850"><span class="annot"><span class="annottext">ReservationMaximumFramerate -&gt; XML
 (ReservationMaximumFramerate -&gt; XML)
 -&gt; ToXML ReservationMaximumFramerate
 forall a. (a -&gt; XML) -&gt; ToXML a

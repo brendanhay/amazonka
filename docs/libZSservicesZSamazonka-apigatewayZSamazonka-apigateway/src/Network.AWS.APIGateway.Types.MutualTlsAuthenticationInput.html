@@ -28,21 +28,21 @@
 </span><span id="line-28"></span><span class="hs-comment">-- access your custom domain name.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMutualTlsAuthenticationInput' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679367854"><span id="local-6989586621679367855"></span></span><span class="hs-keyword">data</span><span> </span><span id="MutualTlsAuthenticationInput"><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput"><span class="hs-identifier hs-var">MutualTlsAuthenticationInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MutualTlsAuthenticationInput%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput%27"><span class="hs-identifier hs-var">MutualTlsAuthenticationInput'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the S3 object that contains your truststore. To specify a</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- version, you must have versioning enabled for the S3 bucket.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AtruststoreVersion%3AMutualTlsAuthenticationInput%27"><span class="annot"><span class="annottext">MutualTlsAuthenticationInput -&gt; Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#%24sel%3AtruststoreVersion%3AMutualTlsAuthenticationInput%27"><span class="hs-identifier hs-var hs-var">truststoreVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | An Amazon S3 resource ARN that specifies the truststore for mutual TLS</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- authentication, for example, @s3:\/\/bucket-name\/key-name@. The</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- truststore can contain certificates from public or private certificate</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- authorities. To update the truststore, upload a new version to S3, and</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- then update your custom domain name to use the new version. To update</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- the truststore, you must have permissions to access the S3 object.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AtruststoreUri%3AMutualTlsAuthenticationInput%27"><span class="annot"><span class="annottext">MutualTlsAuthenticationInput -&gt; Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#%24sel%3AtruststoreUri%3AMutualTlsAuthenticationInput%27"><span class="hs-identifier hs-var hs-var">truststoreUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679368358"><span id="local-6989586621679368359"></span></span><span class="hs-keyword">data</span><span> </span><span id="MutualTlsAuthenticationInput"><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput"><span class="hs-identifier hs-var">MutualTlsAuthenticationInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MutualTlsAuthenticationInput%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput%27"><span class="hs-identifier hs-var">MutualTlsAuthenticationInput'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An Amazon S3 resource ARN that specifies the truststore for mutual TLS</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- authentication, for example, @s3:\/\/bucket-name\/key-name@. The</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- truststore can contain certificates from public or private certificate</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- authorities. To update the truststore, upload a new version to S3, and</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- then update your custom domain name to use the new version. To update</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the truststore, you must have permissions to access the S3 object.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtruststoreUri%3AMutualTlsAuthenticationInput%27"><span class="annot"><span class="annottext">MutualTlsAuthenticationInput -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#%24sel%3AtruststoreUri%3AMutualTlsAuthenticationInput%27"><span class="hs-identifier hs-var hs-var">truststoreUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The version of the S3 object that contains your truststore. To specify a</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- version, you must have versioning enabled for the S3 bucket.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AtruststoreVersion%3AMutualTlsAuthenticationInput%27"><span class="annot"><span class="annottext">MutualTlsAuthenticationInput -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#%24sel%3AtruststoreVersion%3AMutualTlsAuthenticationInput%27"><span class="hs-identifier hs-var hs-var">truststoreVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367847"><span id="local-6989586621679367849"><span class="annot"><span class="annottext">MutualTlsAuthenticationInput
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368351"><span id="local-6989586621679368353"><span class="annot"><span class="annottext">MutualTlsAuthenticationInput
 -&gt; MutualTlsAuthenticationInput -&gt; Bool
 (MutualTlsAuthenticationInput
  -&gt; MutualTlsAuthenticationInput -&gt; Bool)
@@ -58,7 +58,7 @@ $c/= :: MutualTlsAuthenticationInput
 -&gt; MutualTlsAuthenticationInput -&gt; Bool
 $c== :: MutualTlsAuthenticationInput
 -&gt; MutualTlsAuthenticationInput -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367838"><span id="local-6989586621679367840"><span id="local-6989586621679367842"><span id="local-6989586621679367844"><span class="annot"><span class="annottext">ReadPrec [MutualTlsAuthenticationInput]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368342"><span id="local-6989586621679368344"><span id="local-6989586621679368346"><span id="local-6989586621679368348"><span class="annot"><span class="annottext">ReadPrec [MutualTlsAuthenticationInput]
 ReadPrec MutualTlsAuthenticationInput
 Int -&gt; ReadS MutualTlsAuthenticationInput
 ReadS [MutualTlsAuthenticationInput]
@@ -78,7 +78,7 @@ readList :: ReadS [MutualTlsAuthenticationInput]
 $creadList :: ReadS [MutualTlsAuthenticationInput]
 readsPrec :: Int -&gt; ReadS MutualTlsAuthenticationInput
 $creadsPrec :: Int -&gt; ReadS MutualTlsAuthenticationInput
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367831"><span id="local-6989586621679367833"><span id="local-6989586621679367835"><span class="annot"><span class="annottext">Int -&gt; MutualTlsAuthenticationInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368335"><span id="local-6989586621679368337"><span id="local-6989586621679368339"><span class="annot"><span class="annottext">Int -&gt; MutualTlsAuthenticationInput -&gt; ShowS
 [MutualTlsAuthenticationInput] -&gt; ShowS
 MutualTlsAuthenticationInput -&gt; String
 (Int -&gt; MutualTlsAuthenticationInput -&gt; ShowS)
@@ -118,65 +118,40 @@ MutualTlsAuthenticationInput -&gt; Rep MutualTlsAuthenticationInput x
 </span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'truststoreVersion', 'mutualTlsAuthenticationInput_truststoreVersion' - The version of the S3 object that contains your truststore. To specify a</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- version, you must have versioning enabled for the S3 bucket.</span><span>
-</span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'truststoreUri', 'mutualTlsAuthenticationInput_truststoreUri' - An Amazon S3 resource ARN that specifies the truststore for mutual TLS</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- authentication, for example, @s3:\/\/bucket-name\/key-name@. The</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- truststore can contain certificates from public or private certificate</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- authorities. To update the truststore, upload a new version to S3, and</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- then update your custom domain name to use the new version. To update</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- the truststore, you must have permissions to access the S3 object.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'truststoreUri', 'mutualTlsAuthenticationInput_truststoreUri' - An Amazon S3 resource ARN that specifies the truststore for mutual TLS</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- authentication, for example, @s3:\/\/bucket-name\/key-name@. The</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- truststore can contain certificates from public or private certificate</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- authorities. To update the truststore, upload a new version to S3, and</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- then update your custom domain name to use the new version. To update</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- the truststore, you must have permissions to access the S3 object.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'truststoreVersion', 'mutualTlsAuthenticationInput_truststoreVersion' - The version of the S3 object that contains your truststore. To specify a</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- version, you must have versioning enabled for the S3 bucket.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#newMutualTlsAuthenticationInput"><span class="hs-identifier hs-type">newMutualTlsAuthenticationInput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput</span></a></span><span>
 </span><span id="line-64"></span><span id="newMutualTlsAuthenticationInput"><span class="annot"><span class="annottext">newMutualTlsAuthenticationInput :: MutualTlsAuthenticationInput
 </span><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#newMutualTlsAuthenticationInput"><span class="hs-identifier hs-var hs-var">newMutualTlsAuthenticationInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">MutualTlsAuthenticationInput' :: Maybe Text -&gt; Maybe Text -&gt; MutualTlsAuthenticationInput
 </span><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput%27"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput'</span></a></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:truststoreVersion:MutualTlsAuthenticationInput' :: Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#%24sel%3AtruststoreVersion%3AMutualTlsAuthenticationInput%27"><span class="hs-identifier hs-var">truststoreVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:truststoreUri:MutualTlsAuthenticationInput' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#%24sel%3AtruststoreUri%3AMutualTlsAuthenticationInput%27"><span class="hs-identifier hs-var">truststoreUri</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:truststoreUri:MutualTlsAuthenticationInput' :: Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#%24sel%3AtruststoreUri%3AMutualTlsAuthenticationInput%27"><span class="hs-identifier hs-var">truststoreUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:truststoreVersion:MutualTlsAuthenticationInput' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#%24sel%3AtruststoreVersion%3AMutualTlsAuthenticationInput%27"><span class="hs-identifier hs-var">truststoreVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | The version of the S3 object that contains your truststore. To specify a</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- version, you must have versioning enabled for the S3 bucket.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#mutualTlsAuthenticationInput_truststoreVersion"><span class="hs-identifier hs-type">mutualTlsAuthenticationInput_truststoreVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="mutualTlsAuthenticationInput_truststoreVersion"><span class="annot"><span class="annottext">mutualTlsAuthenticationInput_truststoreVersion :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MutualTlsAuthenticationInput -&gt; f MutualTlsAuthenticationInput
-</span><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#mutualTlsAuthenticationInput_truststoreVersion"><span class="hs-identifier hs-var hs-var">mutualTlsAuthenticationInput_truststoreVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MutualTlsAuthenticationInput -&gt; Maybe Text)
--&gt; (MutualTlsAuthenticationInput
-    -&gt; Maybe Text -&gt; MutualTlsAuthenticationInput)
--&gt; Lens
-     MutualTlsAuthenticationInput
-     MutualTlsAuthenticationInput
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput%27"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367822"><span class="annot"><span class="annottext">Maybe Text
-truststoreVersion :: Maybe Text
-$sel:truststoreVersion:MutualTlsAuthenticationInput' :: MutualTlsAuthenticationInput -&gt; Maybe Text
-</span><a href="#local-6989586621679367822"><span class="hs-identifier hs-var hs-var">truststoreVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367822"><span class="hs-identifier hs-var">truststoreVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367821"><span class="annot"><span class="annottext">s :: MutualTlsAuthenticationInput
-</span><a href="#local-6989586621679367821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput%27"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367820"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MutualTlsAuthenticationInput
-</span><a href="#local-6989586621679367821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:truststoreVersion:MutualTlsAuthenticationInput' :: Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#%24sel%3AtruststoreVersion%3AMutualTlsAuthenticationInput%27"><span class="hs-identifier hs-var">truststoreVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | An Amazon S3 resource ARN that specifies the truststore for mutual TLS</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- authentication, for example, @s3:\/\/bucket-name\/key-name@. The</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- truststore can contain certificates from public or private certificate</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- authorities. To update the truststore, upload a new version to S3, and</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- then update your custom domain name to use the new version. To update</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- the truststore, you must have permissions to access the S3 object.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#mutualTlsAuthenticationInput_truststoreUri"><span class="hs-identifier hs-type">mutualTlsAuthenticationInput_truststoreUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="mutualTlsAuthenticationInput_truststoreUri"><span class="annot"><span class="annottext">mutualTlsAuthenticationInput_truststoreUri :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-71"></span><span class="hs-comment">-- | An Amazon S3 resource ARN that specifies the truststore for mutual TLS</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- authentication, for example, @s3:\/\/bucket-name\/key-name@. The</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- truststore can contain certificates from public or private certificate</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- authorities. To update the truststore, upload a new version to S3, and</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- then update your custom domain name to use the new version. To update</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- the truststore, you must have permissions to access the S3 object.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#mutualTlsAuthenticationInput_truststoreUri"><span class="hs-identifier hs-type">mutualTlsAuthenticationInput_truststoreUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="mutualTlsAuthenticationInput_truststoreUri"><span class="annot"><span class="annottext">mutualTlsAuthenticationInput_truststoreUri :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; MutualTlsAuthenticationInput -&gt; f MutualTlsAuthenticationInput
 </span><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#mutualTlsAuthenticationInput_truststoreUri"><span class="hs-identifier hs-var hs-var">mutualTlsAuthenticationInput_truststoreUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MutualTlsAuthenticationInput -&gt; Maybe Text)
 -&gt; (MutualTlsAuthenticationInput
@@ -187,51 +162,76 @@ $sel:truststoreVersion:MutualTlsAuthenticationInput' :: MutualTlsAuthenticationI
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput%27"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367818"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput%27"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368326"><span class="annot"><span class="annottext">Maybe Text
 truststoreUri :: Maybe Text
 $sel:truststoreUri:MutualTlsAuthenticationInput' :: MutualTlsAuthenticationInput -&gt; Maybe Text
-</span><a href="#local-6989586621679367818"><span class="hs-identifier hs-var hs-var">truststoreUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367818"><span class="hs-identifier hs-var">truststoreUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367817"><span class="annot"><span class="annottext">s :: MutualTlsAuthenticationInput
-</span><a href="#local-6989586621679367817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput%27"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367816"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MutualTlsAuthenticationInput
-</span><a href="#local-6989586621679367817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:truststoreUri:MutualTlsAuthenticationInput' :: Maybe Text
+</span><a href="#local-6989586621679368326"><span class="hs-identifier hs-var hs-var">truststoreUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368326"><span class="hs-identifier hs-var">truststoreUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368325"><span class="annot"><span class="annottext">s :: MutualTlsAuthenticationInput
+</span><a href="#local-6989586621679368325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput%27"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368324"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MutualTlsAuthenticationInput
+</span><a href="#local-6989586621679368325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:truststoreUri:MutualTlsAuthenticationInput' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#%24sel%3AtruststoreUri%3AMutualTlsAuthenticationInput%27"><span class="hs-identifier hs-var">truststoreUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The version of the S3 object that contains your truststore. To specify a</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- version, you must have versioning enabled for the S3 bucket.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#mutualTlsAuthenticationInput_truststoreVersion"><span class="hs-identifier hs-type">mutualTlsAuthenticationInput_truststoreVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="mutualTlsAuthenticationInput_truststoreVersion"><span class="annot"><span class="annottext">mutualTlsAuthenticationInput_truststoreVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MutualTlsAuthenticationInput -&gt; f MutualTlsAuthenticationInput
+</span><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#mutualTlsAuthenticationInput_truststoreVersion"><span class="hs-identifier hs-var hs-var">mutualTlsAuthenticationInput_truststoreVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MutualTlsAuthenticationInput -&gt; Maybe Text)
+-&gt; (MutualTlsAuthenticationInput
+    -&gt; Maybe Text -&gt; MutualTlsAuthenticationInput)
+-&gt; Lens
+     MutualTlsAuthenticationInput
+     MutualTlsAuthenticationInput
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput%27"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368322"><span class="annot"><span class="annottext">Maybe Text
+truststoreVersion :: Maybe Text
+$sel:truststoreVersion:MutualTlsAuthenticationInput' :: MutualTlsAuthenticationInput -&gt; Maybe Text
+</span><a href="#local-6989586621679368322"><span class="hs-identifier hs-var hs-var">truststoreVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368322"><span class="hs-identifier hs-var">truststoreVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368321"><span class="annot"><span class="annottext">s :: MutualTlsAuthenticationInput
+</span><a href="#local-6989586621679368321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput%27"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368320"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MutualTlsAuthenticationInput
+</span><a href="#local-6989586621679368321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:truststoreVersion:MutualTlsAuthenticationInput' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#%24sel%3AtruststoreVersion%3AMutualTlsAuthenticationInput%27"><span class="hs-identifier hs-var">truststoreVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679367812"><span id="local-6989586621679367814"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679368316"><span id="local-6989586621679368318"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368313"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput</span></a></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367801"><span id="local-6989586621679367803"><span id="local-6989586621679367805"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679367799"><span class="annot"><span class="annottext">toJSON :: MutualTlsAuthenticationInput -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput%27"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367796"><span id="local-6989586621679367797"><span class="annot"><span class="annottext">Maybe Text
-truststoreUri :: Maybe Text
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368305"><span id="local-6989586621679368307"><span id="local-6989586621679368309"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679368303"><span class="annot"><span class="annottext">toJSON :: MutualTlsAuthenticationInput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput.html#MutualTlsAuthenticationInput%27"><span class="hs-identifier hs-type">MutualTlsAuthenticationInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368300"><span id="local-6989586621679368301"><span class="annot"><span class="annottext">Maybe Text
 truststoreVersion :: Maybe Text
-$sel:truststoreUri:MutualTlsAuthenticationInput' :: MutualTlsAuthenticationInput -&gt; Maybe Text
+truststoreUri :: Maybe Text
 $sel:truststoreVersion:MutualTlsAuthenticationInput' :: MutualTlsAuthenticationInput -&gt; Maybe Text
-</span><a href="#local-6989586621679367796"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:truststoreUri:MutualTlsAuthenticationInput' :: MutualTlsAuthenticationInput -&gt; Maybe Text
+</span><a href="#local-6989586621679368300"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;truststoreVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367797"><span class="hs-identifier hs-var">truststoreVersion</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;truststoreUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367796"><span class="hs-identifier hs-var">truststoreUri</span></a></span><span>
+</span><a href="#local-6989586621679368301"><span class="hs-identifier hs-var">truststoreUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;truststoreVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368300"><span class="hs-identifier hs-var">truststoreVersion</span></a></span><span>
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span></pre></body></html>

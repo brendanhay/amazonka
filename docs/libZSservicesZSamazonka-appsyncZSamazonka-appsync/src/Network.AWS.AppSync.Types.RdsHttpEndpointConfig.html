@@ -26,24 +26,24 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The Amazon RDS HTTP endpoint configuration.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRdsHttpEndpointConfig' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679251040"><span id="local-6989586621679251041"></span></span><span class="hs-keyword">data</span><span> </span><span id="RdsHttpEndpointConfig"><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-var">RdsHttpEndpointConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RdsHttpEndpointConfig%27"><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">RdsHttpEndpointConfig'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Logical schema name.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aschema%3ARdsHttpEndpointConfig%27"><span class="annot"><span class="annottext">RdsHttpEndpointConfig -&gt; Maybe Text
-</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3Aschema%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var hs-var">schema</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Amazon Web Services secret store ARN for database credentials.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AawsSecretStoreArn%3ARdsHttpEndpointConfig%27"><span class="annot"><span class="annottext">RdsHttpEndpointConfig -&gt; Maybe Text
-</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AawsSecretStoreArn%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var hs-var">awsSecretStoreArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Amazon RDS cluster ARN.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdbClusterIdentifier%3ARdsHttpEndpointConfig%27"><span class="annot"><span class="annottext">RdsHttpEndpointConfig -&gt; Maybe Text
+</span><span id="line-29"></span><span id="local-6989586621679251117"><span id="local-6989586621679251118"></span></span><span class="hs-keyword">data</span><span> </span><span id="RdsHttpEndpointConfig"><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-var">RdsHttpEndpointConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RdsHttpEndpointConfig%27"><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">RdsHttpEndpointConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amazon RDS cluster ARN.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AdbClusterIdentifier%3ARdsHttpEndpointConfig%27"><span class="annot"><span class="annottext">RdsHttpEndpointConfig -&gt; Maybe Text
 </span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AdbClusterIdentifier%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Logical schema name.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aschema%3ARdsHttpEndpointConfig%27"><span class="annot"><span class="annottext">RdsHttpEndpointConfig -&gt; Maybe Text
+</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3Aschema%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var hs-var">schema</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Logical database name.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdatabaseName%3ARdsHttpEndpointConfig%27"><span class="annot"><span class="annottext">RdsHttpEndpointConfig -&gt; Maybe Text
+</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AdatabaseName%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Amazon Web Services Region for RDS HTTP endpoint.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AawsRegion%3ARdsHttpEndpointConfig%27"><span class="annot"><span class="annottext">RdsHttpEndpointConfig -&gt; Maybe Text
 </span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AawsRegion%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Logical database name.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdatabaseName%3ARdsHttpEndpointConfig%27"><span class="annot"><span class="annottext">RdsHttpEndpointConfig -&gt; Maybe Text
-</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AdatabaseName%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Amazon Web Services secret store ARN for database credentials.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AawsSecretStoreArn%3ARdsHttpEndpointConfig%27"><span class="annot"><span class="annottext">RdsHttpEndpointConfig -&gt; Maybe Text
+</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AawsSecretStoreArn%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var hs-var">awsSecretStoreArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251030"><span id="local-6989586621679251032"><span class="annot"><span class="annottext">RdsHttpEndpointConfig -&gt; RdsHttpEndpointConfig -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251107"><span id="local-6989586621679251109"><span class="annot"><span class="annottext">RdsHttpEndpointConfig -&gt; RdsHttpEndpointConfig -&gt; Bool
 (RdsHttpEndpointConfig -&gt; RdsHttpEndpointConfig -&gt; Bool)
 -&gt; (RdsHttpEndpointConfig -&gt; RdsHttpEndpointConfig -&gt; Bool)
 -&gt; Eq RdsHttpEndpointConfig
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RdsHttpEndpointConfig -&gt; RdsHttpEndpointConfig -&gt; Bool
 == :: RdsHttpEndpointConfig -&gt; RdsHttpEndpointConfig -&gt; Bool
 $c== :: RdsHttpEndpointConfig -&gt; RdsHttpEndpointConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251021"><span id="local-6989586621679251023"><span id="local-6989586621679251025"><span id="local-6989586621679251027"><span class="annot"><span class="annottext">ReadPrec [RdsHttpEndpointConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251098"><span id="local-6989586621679251100"><span id="local-6989586621679251102"><span id="local-6989586621679251104"><span class="annot"><span class="annottext">ReadPrec [RdsHttpEndpointConfig]
 ReadPrec RdsHttpEndpointConfig
 Int -&gt; ReadS RdsHttpEndpointConfig
 ReadS [RdsHttpEndpointConfig]
@@ -72,7 +72,7 @@ readList :: ReadS [RdsHttpEndpointConfig]
 $creadList :: ReadS [RdsHttpEndpointConfig]
 readsPrec :: Int -&gt; ReadS RdsHttpEndpointConfig
 $creadsPrec :: Int -&gt; ReadS RdsHttpEndpointConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251014"><span id="local-6989586621679251016"><span id="local-6989586621679251018"><span class="annot"><span class="annottext">Int -&gt; RdsHttpEndpointConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251091"><span id="local-6989586621679251093"><span id="local-6989586621679251095"><span class="annot"><span class="annottext">Int -&gt; RdsHttpEndpointConfig -&gt; ShowS
 [RdsHttpEndpointConfig] -&gt; ShowS
 RdsHttpEndpointConfig -&gt; String
 (Int -&gt; RdsHttpEndpointConfig -&gt; ShowS)
@@ -106,15 +106,15 @@ $cfrom :: forall x. RdsHttpEndpointConfig -&gt; Rep RdsHttpEndpointConfig x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'schema', 'rdsHttpEndpointConfig_schema' - Logical schema name.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'dbClusterIdentifier', 'rdsHttpEndpointConfig_dbClusterIdentifier' - Amazon RDS cluster ARN.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'awsSecretStoreArn', 'rdsHttpEndpointConfig_awsSecretStoreArn' - Amazon Web Services secret store ARN for database credentials.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'schema', 'rdsHttpEndpointConfig_schema' - Logical schema name.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'dbClusterIdentifier', 'rdsHttpEndpointConfig_dbClusterIdentifier' - Amazon RDS cluster ARN.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'databaseName', 'rdsHttpEndpointConfig_databaseName' - Logical database name.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- 'awsRegion', 'rdsHttpEndpointConfig_awsRegion' - Amazon Web Services Region for RDS HTTP endpoint.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'databaseName', 'rdsHttpEndpointConfig_databaseName' - Logical database name.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'awsSecretStoreArn', 'rdsHttpEndpointConfig_awsSecretStoreArn' - Amazon Web Services secret store ARN for database credentials.</span><span>
 </span><span id="line-60"></span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#newRdsHttpEndpointConfig"><span class="hs-identifier hs-type">newRdsHttpEndpointConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span>
 </span><span id="line-62"></span><span id="newRdsHttpEndpointConfig"><span class="annot"><span class="annottext">newRdsHttpEndpointConfig :: RdsHttpEndpointConfig
@@ -126,77 +126,32 @@ $cfrom :: forall x. RdsHttpEndpointConfig -&gt; Rep RdsHttpEndpointConfig x
 -&gt; Maybe Text
 -&gt; RdsHttpEndpointConfig
 </span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:schema:RdsHttpEndpointConfig' :: Maybe Text
+</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:RdsHttpEndpointConfig' :: Maybe Text
+</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AdbClusterIdentifier%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:schema:RdsHttpEndpointConfig' :: Maybe Text
 </span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3Aschema%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">schema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsSecretStoreArn:RdsHttpEndpointConfig' :: Maybe Text
-</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AawsSecretStoreArn%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">awsSecretStoreArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:RdsHttpEndpointConfig' :: Maybe Text
+</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AdatabaseName%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:RdsHttpEndpointConfig' :: Maybe Text
-</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AdbClusterIdentifier%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsRegion:RdsHttpEndpointConfig' :: Maybe Text
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsRegion:RdsHttpEndpointConfig' :: Maybe Text
 </span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AawsRegion%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:RdsHttpEndpointConfig' :: Maybe Text
-</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AdatabaseName%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsSecretStoreArn:RdsHttpEndpointConfig' :: Maybe Text
+</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AawsSecretStoreArn%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">awsSecretStoreArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | Logical schema name.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_schema"><span class="hs-identifier hs-type">rdsHttpEndpointConfig_schema</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="rdsHttpEndpointConfig_schema"><span class="annot"><span class="annottext">rdsHttpEndpointConfig_schema :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RdsHttpEndpointConfig -&gt; f RdsHttpEndpointConfig
-</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_schema"><span class="hs-identifier hs-var hs-var">rdsHttpEndpointConfig_schema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsHttpEndpointConfig -&gt; Maybe Text)
--&gt; (RdsHttpEndpointConfig -&gt; Maybe Text -&gt; RdsHttpEndpointConfig)
--&gt; Lens
-     RdsHttpEndpointConfig
-     RdsHttpEndpointConfig
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251005"><span class="annot"><span class="annottext">Maybe Text
-schema :: Maybe Text
-$sel:schema:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679251005"><span class="hs-identifier hs-var hs-var">schema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251005"><span class="hs-identifier hs-var">schema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251004"><span class="annot"><span class="annottext">s :: RdsHttpEndpointConfig
-</span><a href="#local-6989586621679251004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251003"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsHttpEndpointConfig
-</span><a href="#local-6989586621679251004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schema:RdsHttpEndpointConfig' :: Maybe Text
-</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3Aschema%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">schema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | Amazon Web Services secret store ARN for database credentials.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_awsSecretStoreArn"><span class="hs-identifier hs-type">rdsHttpEndpointConfig_awsSecretStoreArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="rdsHttpEndpointConfig_awsSecretStoreArn"><span class="annot"><span class="annottext">rdsHttpEndpointConfig_awsSecretStoreArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RdsHttpEndpointConfig -&gt; f RdsHttpEndpointConfig
-</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_awsSecretStoreArn"><span class="hs-identifier hs-var hs-var">rdsHttpEndpointConfig_awsSecretStoreArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsHttpEndpointConfig -&gt; Maybe Text)
--&gt; (RdsHttpEndpointConfig -&gt; Maybe Text -&gt; RdsHttpEndpointConfig)
--&gt; Lens
-     RdsHttpEndpointConfig
-     RdsHttpEndpointConfig
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251001"><span class="annot"><span class="annottext">Maybe Text
-awsSecretStoreArn :: Maybe Text
-$sel:awsSecretStoreArn:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679251001"><span class="hs-identifier hs-var hs-var">awsSecretStoreArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251001"><span class="hs-identifier hs-var">awsSecretStoreArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251000"><span class="annot"><span class="annottext">s :: RdsHttpEndpointConfig
-</span><a href="#local-6989586621679251000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250999"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsHttpEndpointConfig
-</span><a href="#local-6989586621679251000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsSecretStoreArn:RdsHttpEndpointConfig' :: Maybe Text
-</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AawsSecretStoreArn%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">awsSecretStoreArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | Amazon RDS cluster ARN.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_dbClusterIdentifier"><span class="hs-identifier hs-type">rdsHttpEndpointConfig_dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="rdsHttpEndpointConfig_dbClusterIdentifier"><span class="annot"><span class="annottext">rdsHttpEndpointConfig_dbClusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Amazon RDS cluster ARN.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_dbClusterIdentifier"><span class="hs-identifier hs-type">rdsHttpEndpointConfig_dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="rdsHttpEndpointConfig_dbClusterIdentifier"><span class="annot"><span class="annottext">rdsHttpEndpointConfig_dbClusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; RdsHttpEndpointConfig -&gt; f RdsHttpEndpointConfig
 </span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_dbClusterIdentifier"><span class="hs-identifier hs-var hs-var">rdsHttpEndpointConfig_dbClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsHttpEndpointConfig -&gt; Maybe Text)
 -&gt; (RdsHttpEndpointConfig -&gt; Maybe Text -&gt; RdsHttpEndpointConfig)
@@ -206,22 +161,22 @@ $sel:awsSecretStoreArn:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; May
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250997"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251082"><span class="annot"><span class="annottext">Maybe Text
 dbClusterIdentifier :: Maybe Text
 $sel:dbClusterIdentifier:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679250997"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250997"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250996"><span class="annot"><span class="annottext">s :: RdsHttpEndpointConfig
-</span><a href="#local-6989586621679250996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250995"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsHttpEndpointConfig
-</span><a href="#local-6989586621679250996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:RdsHttpEndpointConfig' :: Maybe Text
+</span><a href="#local-6989586621679251082"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251082"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251081"><span class="annot"><span class="annottext">s :: RdsHttpEndpointConfig
+</span><a href="#local-6989586621679251081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251080"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsHttpEndpointConfig
+</span><a href="#local-6989586621679251081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:RdsHttpEndpointConfig' :: Maybe Text
 </span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AdbClusterIdentifier%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | Amazon Web Services Region for RDS HTTP endpoint.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_awsRegion"><span class="hs-identifier hs-type">rdsHttpEndpointConfig_awsRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="rdsHttpEndpointConfig_awsRegion"><span class="annot"><span class="annottext">rdsHttpEndpointConfig_awsRegion :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679251080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | Logical schema name.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_schema"><span class="hs-identifier hs-type">rdsHttpEndpointConfig_schema</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="rdsHttpEndpointConfig_schema"><span class="annot"><span class="annottext">rdsHttpEndpointConfig_schema :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; RdsHttpEndpointConfig -&gt; f RdsHttpEndpointConfig
-</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_awsRegion"><span class="hs-identifier hs-var hs-var">rdsHttpEndpointConfig_awsRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsHttpEndpointConfig -&gt; Maybe Text)
+</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_schema"><span class="hs-identifier hs-var hs-var">rdsHttpEndpointConfig_schema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsHttpEndpointConfig -&gt; Maybe Text)
 -&gt; (RdsHttpEndpointConfig -&gt; Maybe Text -&gt; RdsHttpEndpointConfig)
 -&gt; Lens
      RdsHttpEndpointConfig
@@ -229,20 +184,20 @@ $sel:dbClusterIdentifier:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; M
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250993"><span class="annot"><span class="annottext">Maybe Text
-awsRegion :: Maybe Text
-$sel:awsRegion:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679250993"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250993"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250992"><span class="annot"><span class="annottext">s :: RdsHttpEndpointConfig
-</span><a href="#local-6989586621679250992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250991"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsHttpEndpointConfig
-</span><a href="#local-6989586621679250992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegion:RdsHttpEndpointConfig' :: Maybe Text
-</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AawsRegion%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | Logical database name.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_databaseName"><span class="hs-identifier hs-type">rdsHttpEndpointConfig_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="rdsHttpEndpointConfig_databaseName"><span class="annot"><span class="annottext">rdsHttpEndpointConfig_databaseName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251078"><span class="annot"><span class="annottext">Maybe Text
+schema :: Maybe Text
+$sel:schema:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679251078"><span class="hs-identifier hs-var hs-var">schema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251078"><span class="hs-identifier hs-var">schema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251077"><span class="annot"><span class="annottext">s :: RdsHttpEndpointConfig
+</span><a href="#local-6989586621679251077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251076"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsHttpEndpointConfig
+</span><a href="#local-6989586621679251077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schema:RdsHttpEndpointConfig' :: Maybe Text
+</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3Aschema%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">schema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | Logical database name.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_databaseName"><span class="hs-identifier hs-type">rdsHttpEndpointConfig_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="rdsHttpEndpointConfig_databaseName"><span class="annot"><span class="annottext">rdsHttpEndpointConfig_databaseName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; RdsHttpEndpointConfig -&gt; f RdsHttpEndpointConfig
 </span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_databaseName"><span class="hs-identifier hs-var hs-var">rdsHttpEndpointConfig_databaseName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsHttpEndpointConfig -&gt; Maybe Text)
 -&gt; (RdsHttpEndpointConfig -&gt; Maybe Text -&gt; RdsHttpEndpointConfig)
@@ -252,38 +207,84 @@ $sel:awsRegion:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250989"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251074"><span class="annot"><span class="annottext">Maybe Text
 databaseName :: Maybe Text
 $sel:databaseName:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679250989"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250989"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250988"><span class="annot"><span class="annottext">s :: RdsHttpEndpointConfig
-</span><a href="#local-6989586621679250988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250987"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsHttpEndpointConfig
-</span><a href="#local-6989586621679250988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:RdsHttpEndpointConfig' :: Maybe Text
+</span><a href="#local-6989586621679251074"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251074"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251073"><span class="annot"><span class="annottext">s :: RdsHttpEndpointConfig
+</span><a href="#local-6989586621679251073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251072"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsHttpEndpointConfig
+</span><a href="#local-6989586621679251073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:RdsHttpEndpointConfig' :: Maybe Text
 </span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AdatabaseName%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250984"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679250982"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RdsHttpEndpointConfig
+</span><a href="#local-6989586621679251072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | Amazon Web Services Region for RDS HTTP endpoint.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_awsRegion"><span class="hs-identifier hs-type">rdsHttpEndpointConfig_awsRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="rdsHttpEndpointConfig_awsRegion"><span class="annot"><span class="annottext">rdsHttpEndpointConfig_awsRegion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RdsHttpEndpointConfig -&gt; f RdsHttpEndpointConfig
+</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_awsRegion"><span class="hs-identifier hs-var hs-var">rdsHttpEndpointConfig_awsRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsHttpEndpointConfig -&gt; Maybe Text)
+-&gt; (RdsHttpEndpointConfig -&gt; Maybe Text -&gt; RdsHttpEndpointConfig)
+-&gt; Lens
+     RdsHttpEndpointConfig
+     RdsHttpEndpointConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251070"><span class="annot"><span class="annottext">Maybe Text
+awsRegion :: Maybe Text
+$sel:awsRegion:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679251070"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251070"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251069"><span class="annot"><span class="annottext">s :: RdsHttpEndpointConfig
+</span><a href="#local-6989586621679251069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251068"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsHttpEndpointConfig
+</span><a href="#local-6989586621679251069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegion:RdsHttpEndpointConfig' :: Maybe Text
+</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AawsRegion%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Amazon Web Services secret store ARN for database credentials.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_awsSecretStoreArn"><span class="hs-identifier hs-type">rdsHttpEndpointConfig_awsSecretStoreArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="rdsHttpEndpointConfig_awsSecretStoreArn"><span class="annot"><span class="annottext">rdsHttpEndpointConfig_awsSecretStoreArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RdsHttpEndpointConfig -&gt; f RdsHttpEndpointConfig
+</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#rdsHttpEndpointConfig_awsSecretStoreArn"><span class="hs-identifier hs-var hs-var">rdsHttpEndpointConfig_awsSecretStoreArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RdsHttpEndpointConfig -&gt; Maybe Text)
+-&gt; (RdsHttpEndpointConfig -&gt; Maybe Text -&gt; RdsHttpEndpointConfig)
+-&gt; Lens
+     RdsHttpEndpointConfig
+     RdsHttpEndpointConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251066"><span class="annot"><span class="annottext">Maybe Text
+awsSecretStoreArn :: Maybe Text
+$sel:awsSecretStoreArn:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679251066"><span class="hs-identifier hs-var hs-var">awsSecretStoreArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251066"><span class="hs-identifier hs-var">awsSecretStoreArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251065"><span class="annot"><span class="annottext">s :: RdsHttpEndpointConfig
+</span><a href="#local-6989586621679251065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251064"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RdsHttpEndpointConfig
+</span><a href="#local-6989586621679251065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsSecretStoreArn:RdsHttpEndpointConfig' :: Maybe Text
+</span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#%24sel%3AawsSecretStoreArn%3ARdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">awsSecretStoreArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251061"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679251059"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RdsHttpEndpointConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RdsHttpEndpointConfig)
 -&gt; Value
 -&gt; Parser RdsHttpEndpointConfig
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RdsHttpEndpointConfig&quot;</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250979"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250979"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251056"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251056"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; RdsHttpEndpointConfig
 </span><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-var">RdsHttpEndpointConfig'</span></a></span><span>
-</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
@@ -295,11 +296,11 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RdsHttpEndpointConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679251056"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;schema&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;dbClusterIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RdsHttpEndpointConfig)
 -&gt; Parser (Maybe Text)
@@ -307,99 +308,99 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RdsHttpEndpointConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679251056"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;awsSecretStoreArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;schema&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RdsHttpEndpointConfig)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; RdsHttpEndpointConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679251056"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;dbClusterIdentifier&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; RdsHttpEndpointConfig)
+</span><span class="hs-string">&quot;databaseName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; RdsHttpEndpointConfig)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; RdsHttpEndpointConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679251056"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;awsRegion&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; RdsHttpEndpointConfig)
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; RdsHttpEndpointConfig)
 -&gt; Parser (Maybe Text) -&gt; Parser RdsHttpEndpointConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679251056"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;databaseName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250973"><span id="local-6989586621679250975"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span></span></span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250970"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span></span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250962"><span id="local-6989586621679250964"><span id="local-6989586621679250966"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679250960"><span class="annot"><span class="annottext">toJSON :: RdsHttpEndpointConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250954"><span id="local-6989586621679250955"><span id="local-6989586621679250956"><span id="local-6989586621679250957"><span id="local-6989586621679250958"><span class="annot"><span class="annottext">Maybe Text
-databaseName :: Maybe Text
-awsRegion :: Maybe Text
-dbClusterIdentifier :: Maybe Text
+</span><span class="hs-string">&quot;awsSecretStoreArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251050"><span id="local-6989586621679251052"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251047"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251039"><span id="local-6989586621679251041"><span id="local-6989586621679251043"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig"><span class="hs-identifier hs-type">RdsHttpEndpointConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679251037"><span class="annot"><span class="annottext">toJSON :: RdsHttpEndpointConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.RdsHttpEndpointConfig.html#RdsHttpEndpointConfig%27"><span class="hs-identifier hs-type">RdsHttpEndpointConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251031"><span id="local-6989586621679251032"><span id="local-6989586621679251033"><span id="local-6989586621679251034"><span id="local-6989586621679251035"><span class="annot"><span class="annottext">Maybe Text
 awsSecretStoreArn :: Maybe Text
+awsRegion :: Maybe Text
+databaseName :: Maybe Text
 schema :: Maybe Text
-$sel:databaseName:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; Maybe Text
-$sel:awsRegion:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; Maybe Text
-$sel:dbClusterIdentifier:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; Maybe Text
+dbClusterIdentifier :: Maybe Text
 $sel:awsSecretStoreArn:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; Maybe Text
+$sel:awsRegion:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; Maybe Text
+$sel:databaseName:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; Maybe Text
 $sel:schema:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679250954"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:dbClusterIdentifier:RdsHttpEndpointConfig' :: RdsHttpEndpointConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679251031"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;schema&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250958"><span class="hs-identifier hs-var">schema</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;awsSecretStoreArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dbClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250957"><span class="hs-identifier hs-var">awsSecretStoreArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251035"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;dbClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;schema&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250956"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251034"><span class="hs-identifier hs-var">schema</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;databaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251033"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;awsRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250955"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251032"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;databaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;awsSecretStoreArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250954"><span class="hs-identifier hs-var">databaseName</span></a></span><span>
-</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span></pre></body></html>
+</span><a href="#local-6989586621679251031"><span class="hs-identifier hs-var">awsSecretStoreArn</span></a></span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span></pre></body></html>

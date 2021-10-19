@@ -28,24 +28,24 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Contains summary information about a phone number for a contact center.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newPhoneNumberSummary' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679401440"><span id="local-6989586621679401441"></span></span><span class="hs-keyword">data</span><span> </span><span id="PhoneNumberSummary"><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-var">PhoneNumberSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PhoneNumberSummary%27"><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-var">PhoneNumberSummary'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The phone number.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AphoneNumber%3APhoneNumberSummary%27"><span class="annot"><span class="annottext">PhoneNumberSummary -&gt; Maybe Text
-</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3AphoneNumber%3APhoneNumberSummary%27"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679401722"><span id="local-6989586621679401723"></span></span><span class="hs-keyword">data</span><span> </span><span id="PhoneNumberSummary"><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-var">PhoneNumberSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PhoneNumberSummary%27"><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-var">PhoneNumberSummary'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of phone number.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AphoneNumberType%3APhoneNumberSummary%27"><span class="annot"><span class="annottext">PhoneNumberSummary -&gt; Maybe PhoneNumberType
+</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3AphoneNumberType%3APhoneNumberSummary%27"><span class="hs-identifier hs-var hs-var">phoneNumberType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberType.html#PhoneNumberType"><span class="hs-identifier hs-type">PhoneNumberType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the phone number.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aarn%3APhoneNumberSummary%27"><span class="annot"><span class="annottext">PhoneNumberSummary -&gt; Maybe Text
 </span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3Aarn%3APhoneNumberSummary%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The identifier of the phone number.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aid%3APhoneNumberSummary%27"><span class="annot"><span class="annottext">PhoneNumberSummary -&gt; Maybe Text
-</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3Aid%3APhoneNumberSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The type of phone number.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AphoneNumberType%3APhoneNumberSummary%27"><span class="annot"><span class="annottext">PhoneNumberSummary -&gt; Maybe PhoneNumberType
-</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3AphoneNumberType%3APhoneNumberSummary%27"><span class="hs-identifier hs-var hs-var">phoneNumberType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberType.html#PhoneNumberType"><span class="hs-identifier hs-type">PhoneNumberType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The ISO country code.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AphoneNumberCountryCode%3APhoneNumberSummary%27"><span class="annot"><span class="annottext">PhoneNumberSummary -&gt; Maybe PhoneNumberCountryCode
-</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3AphoneNumberCountryCode%3APhoneNumberSummary%27"><span class="hs-identifier hs-var hs-var">phoneNumberCountryCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberCountryCode.html#PhoneNumberCountryCode"><span class="hs-identifier hs-type">PhoneNumberCountryCode</span></a></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The phone number.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AphoneNumber%3APhoneNumberSummary%27"><span class="annot"><span class="annottext">PhoneNumberSummary -&gt; Maybe Text
+</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3AphoneNumber%3APhoneNumberSummary%27"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ISO country code.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AphoneNumberCountryCode%3APhoneNumberSummary%27"><span class="annot"><span class="annottext">PhoneNumberSummary -&gt; Maybe PhoneNumberCountryCode
+</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3AphoneNumberCountryCode%3APhoneNumberSummary%27"><span class="hs-identifier hs-var hs-var">phoneNumberCountryCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberCountryCode.html#PhoneNumberCountryCode"><span class="hs-identifier hs-type">PhoneNumberCountryCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The identifier of the phone number.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aid%3APhoneNumberSummary%27"><span class="annot"><span class="annottext">PhoneNumberSummary -&gt; Maybe Text
+</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3Aid%3APhoneNumberSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401430"><span id="local-6989586621679401432"><span class="annot"><span class="annottext">PhoneNumberSummary -&gt; PhoneNumberSummary -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401712"><span id="local-6989586621679401714"><span class="annot"><span class="annottext">PhoneNumberSummary -&gt; PhoneNumberSummary -&gt; Bool
 (PhoneNumberSummary -&gt; PhoneNumberSummary -&gt; Bool)
 -&gt; (PhoneNumberSummary -&gt; PhoneNumberSummary -&gt; Bool)
 -&gt; Eq PhoneNumberSummary
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PhoneNumberSummary -&gt; PhoneNumberSummary -&gt; Bool
 == :: PhoneNumberSummary -&gt; PhoneNumberSummary -&gt; Bool
 $c== :: PhoneNumberSummary -&gt; PhoneNumberSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401421"><span id="local-6989586621679401423"><span id="local-6989586621679401425"><span id="local-6989586621679401427"><span class="annot"><span class="annottext">ReadPrec [PhoneNumberSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401703"><span id="local-6989586621679401705"><span id="local-6989586621679401707"><span id="local-6989586621679401709"><span class="annot"><span class="annottext">ReadPrec [PhoneNumberSummary]
 ReadPrec PhoneNumberSummary
 Int -&gt; ReadS PhoneNumberSummary
 ReadS [PhoneNumberSummary]
@@ -74,7 +74,7 @@ readList :: ReadS [PhoneNumberSummary]
 $creadList :: ReadS [PhoneNumberSummary]
 readsPrec :: Int -&gt; ReadS PhoneNumberSummary
 $creadsPrec :: Int -&gt; ReadS PhoneNumberSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401414"><span id="local-6989586621679401416"><span id="local-6989586621679401418"><span class="annot"><span class="annottext">Int -&gt; PhoneNumberSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401696"><span id="local-6989586621679401698"><span id="local-6989586621679401700"><span class="annot"><span class="annottext">Int -&gt; PhoneNumberSummary -&gt; ShowS
 [PhoneNumberSummary] -&gt; ShowS
 PhoneNumberSummary -&gt; String
 (Int -&gt; PhoneNumberSummary -&gt; ShowS)
@@ -108,111 +108,52 @@ $cfrom :: forall x. PhoneNumberSummary -&gt; Rep PhoneNumberSummary x
 </span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'phoneNumber', 'phoneNumberSummary_phoneNumber' - The phone number.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'phoneNumberType', 'phoneNumberSummary_phoneNumberType' - The type of phone number.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- 'arn', 'phoneNumberSummary_arn' - The Amazon Resource Name (ARN) of the phone number.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'id', 'phoneNumberSummary_id' - The identifier of the phone number.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'phoneNumber', 'phoneNumberSummary_phoneNumber' - The phone number.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'phoneNumberType', 'phoneNumberSummary_phoneNumberType' - The type of phone number.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'phoneNumberCountryCode', 'phoneNumberSummary_phoneNumberCountryCode' - The ISO country code.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'phoneNumberCountryCode', 'phoneNumberSummary_phoneNumberCountryCode' - The ISO country code.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'id', 'phoneNumberSummary_id' - The identifier of the phone number.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#newPhoneNumberSummary"><span class="hs-identifier hs-type">newPhoneNumberSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span>
 </span><span id="line-64"></span><span id="newPhoneNumberSummary"><span class="annot"><span class="annottext">newPhoneNumberSummary :: PhoneNumberSummary
 </span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#newPhoneNumberSummary"><span class="hs-identifier hs-var hs-var">newPhoneNumberSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">PhoneNumberSummary' :: Maybe Text
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">PhoneNumberSummary' :: Maybe PhoneNumberType
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe PhoneNumberType
 -&gt; Maybe PhoneNumberCountryCode
+-&gt; Maybe Text
 -&gt; PhoneNumberSummary
 </span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:phoneNumber:PhoneNumberSummary' :: Maybe Text
-</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3AphoneNumber%3APhoneNumberSummary%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:phoneNumberType:PhoneNumberSummary' :: Maybe PhoneNumberType
+</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3AphoneNumberType%3APhoneNumberSummary%27"><span class="hs-identifier hs-var">phoneNumberType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe PhoneNumberType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:PhoneNumberSummary' :: Maybe Text
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:PhoneNumberSummary' :: Maybe Text
 </span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3Aarn%3APhoneNumberSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:PhoneNumberSummary' :: Maybe Text
-</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3Aid%3APhoneNumberSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:phoneNumberType:PhoneNumberSummary' :: Maybe PhoneNumberType
-</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3AphoneNumberType%3APhoneNumberSummary%27"><span class="hs-identifier hs-var">phoneNumberType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberType
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:phoneNumber:PhoneNumberSummary' :: Maybe Text
+</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3AphoneNumber%3APhoneNumberSummary%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:phoneNumberCountryCode:PhoneNumberSummary' :: Maybe PhoneNumberCountryCode
 </span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3AphoneNumberCountryCode%3APhoneNumberSummary%27"><span class="hs-identifier hs-var">phoneNumberCountryCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberCountryCode
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | The phone number.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#phoneNumberSummary_phoneNumber"><span class="hs-identifier hs-type">phoneNumberSummary_phoneNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="phoneNumberSummary_phoneNumber"><span class="annot"><span class="annottext">phoneNumberSummary_phoneNumber :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PhoneNumberSummary -&gt; f PhoneNumberSummary
-</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#phoneNumberSummary_phoneNumber"><span class="hs-identifier hs-var hs-var">phoneNumberSummary_phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PhoneNumberSummary -&gt; Maybe Text)
--&gt; (PhoneNumberSummary -&gt; Maybe Text -&gt; PhoneNumberSummary)
--&gt; Lens
-     PhoneNumberSummary PhoneNumberSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401405"><span class="annot"><span class="annottext">Maybe Text
-phoneNumber :: Maybe Text
-$sel:phoneNumber:PhoneNumberSummary' :: PhoneNumberSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679401405"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401405"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401404"><span class="annot"><span class="annottext">s :: PhoneNumberSummary
-</span><a href="#local-6989586621679401404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401403"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhoneNumberSummary
-</span><a href="#local-6989586621679401404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumber:PhoneNumberSummary' :: Maybe Text
-</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3AphoneNumber%3APhoneNumberSummary%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the phone number.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#phoneNumberSummary_arn"><span class="hs-identifier hs-type">phoneNumberSummary_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="phoneNumberSummary_arn"><span class="annot"><span class="annottext">phoneNumberSummary_arn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PhoneNumberSummary -&gt; f PhoneNumberSummary
-</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#phoneNumberSummary_arn"><span class="hs-identifier hs-var hs-var">phoneNumberSummary_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PhoneNumberSummary -&gt; Maybe Text)
--&gt; (PhoneNumberSummary -&gt; Maybe Text -&gt; PhoneNumberSummary)
--&gt; Lens
-     PhoneNumberSummary PhoneNumberSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401401"><span class="annot"><span class="annottext">Maybe Text
-arn :: Maybe Text
-$sel:arn:PhoneNumberSummary' :: PhoneNumberSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679401401"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401401"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401400"><span class="annot"><span class="annottext">s :: PhoneNumberSummary
-</span><a href="#local-6989586621679401400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401399"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhoneNumberSummary
-</span><a href="#local-6989586621679401400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:PhoneNumberSummary' :: Maybe Text
-</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3Aarn%3APhoneNumberSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The identifier of the phone number.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#phoneNumberSummary_id"><span class="hs-identifier hs-type">phoneNumberSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="phoneNumberSummary_id"><span class="annot"><span class="annottext">phoneNumberSummary_id :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PhoneNumberSummary -&gt; f PhoneNumberSummary
-</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#phoneNumberSummary_id"><span class="hs-identifier hs-var hs-var">phoneNumberSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PhoneNumberSummary -&gt; Maybe Text)
--&gt; (PhoneNumberSummary -&gt; Maybe Text -&gt; PhoneNumberSummary)
--&gt; Lens
-     PhoneNumberSummary PhoneNumberSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401397"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:PhoneNumberSummary' :: PhoneNumberSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679401397"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401397"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401396"><span class="annot"><span class="annottext">s :: PhoneNumberSummary
-</span><a href="#local-6989586621679401396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401395"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhoneNumberSummary
-</span><a href="#local-6989586621679401396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:PhoneNumberSummary' :: Maybe Text
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:PhoneNumberSummary' :: Maybe Text
 </span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3Aid%3APhoneNumberSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The type of phone number.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#phoneNumberSummary_phoneNumberType"><span class="hs-identifier hs-type">phoneNumberSummary_phoneNumberType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberType.html#PhoneNumberType"><span class="hs-identifier hs-type">PhoneNumberType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="phoneNumberSummary_phoneNumberType"><span class="annot"><span class="annottext">phoneNumberSummary_phoneNumberType :: (Maybe PhoneNumberType -&gt; f (Maybe PhoneNumberType))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The type of phone number.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#phoneNumberSummary_phoneNumberType"><span class="hs-identifier hs-type">phoneNumberSummary_phoneNumberType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberType.html#PhoneNumberType"><span class="hs-identifier hs-type">PhoneNumberType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="phoneNumberSummary_phoneNumberType"><span class="annot"><span class="annottext">phoneNumberSummary_phoneNumberType :: (Maybe PhoneNumberType -&gt; f (Maybe PhoneNumberType))
 -&gt; PhoneNumberSummary -&gt; f PhoneNumberSummary
 </span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#phoneNumberSummary_phoneNumberType"><span class="hs-identifier hs-var hs-var">phoneNumberSummary_phoneNumberType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PhoneNumberSummary -&gt; Maybe PhoneNumberType)
 -&gt; (PhoneNumberSummary
@@ -223,20 +164,60 @@ $sel:id:PhoneNumberSummary' :: PhoneNumberSummary -&gt; Maybe Text
      (Maybe PhoneNumberType)
      (Maybe PhoneNumberType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401393"><span class="annot"><span class="annottext">Maybe PhoneNumberType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401687"><span class="annot"><span class="annottext">Maybe PhoneNumberType
 phoneNumberType :: Maybe PhoneNumberType
 $sel:phoneNumberType:PhoneNumberSummary' :: PhoneNumberSummary -&gt; Maybe PhoneNumberType
-</span><a href="#local-6989586621679401393"><span class="hs-identifier hs-var hs-var">phoneNumberType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberType
-</span><a href="#local-6989586621679401393"><span class="hs-identifier hs-var">phoneNumberType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401392"><span class="annot"><span class="annottext">s :: PhoneNumberSummary
-</span><a href="#local-6989586621679401392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401391"><span class="annot"><span class="annottext">Maybe PhoneNumberType
-</span><a href="#local-6989586621679401391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhoneNumberSummary
-</span><a href="#local-6989586621679401392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumberType:PhoneNumberSummary' :: Maybe PhoneNumberType
+</span><a href="#local-6989586621679401687"><span class="hs-identifier hs-var hs-var">phoneNumberType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberType
+</span><a href="#local-6989586621679401687"><span class="hs-identifier hs-var">phoneNumberType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401686"><span class="annot"><span class="annottext">s :: PhoneNumberSummary
+</span><a href="#local-6989586621679401686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401685"><span class="annot"><span class="annottext">Maybe PhoneNumberType
+</span><a href="#local-6989586621679401685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhoneNumberSummary
+</span><a href="#local-6989586621679401686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumberType:PhoneNumberSummary' :: Maybe PhoneNumberType
 </span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3AphoneNumberType%3APhoneNumberSummary%27"><span class="hs-identifier hs-var">phoneNumberType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberType
-</span><a href="#local-6989586621679401391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The ISO country code.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#phoneNumberSummary_phoneNumberCountryCode"><span class="hs-identifier hs-type">phoneNumberSummary_phoneNumberCountryCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberCountryCode.html#PhoneNumberCountryCode"><span class="hs-identifier hs-type">PhoneNumberCountryCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="phoneNumberSummary_phoneNumberCountryCode"><span class="annot"><span class="annottext">phoneNumberSummary_phoneNumberCountryCode :: (Maybe PhoneNumberCountryCode -&gt; f (Maybe PhoneNumberCountryCode))
+</span><a href="#local-6989586621679401685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the phone number.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#phoneNumberSummary_arn"><span class="hs-identifier hs-type">phoneNumberSummary_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="phoneNumberSummary_arn"><span class="annot"><span class="annottext">phoneNumberSummary_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PhoneNumberSummary -&gt; f PhoneNumberSummary
+</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#phoneNumberSummary_arn"><span class="hs-identifier hs-var hs-var">phoneNumberSummary_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PhoneNumberSummary -&gt; Maybe Text)
+-&gt; (PhoneNumberSummary -&gt; Maybe Text -&gt; PhoneNumberSummary)
+-&gt; Lens
+     PhoneNumberSummary PhoneNumberSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401683"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:PhoneNumberSummary' :: PhoneNumberSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679401683"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401683"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401682"><span class="annot"><span class="annottext">s :: PhoneNumberSummary
+</span><a href="#local-6989586621679401682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401681"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhoneNumberSummary
+</span><a href="#local-6989586621679401682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:PhoneNumberSummary' :: Maybe Text
+</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3Aarn%3APhoneNumberSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The phone number.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#phoneNumberSummary_phoneNumber"><span class="hs-identifier hs-type">phoneNumberSummary_phoneNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="phoneNumberSummary_phoneNumber"><span class="annot"><span class="annottext">phoneNumberSummary_phoneNumber :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PhoneNumberSummary -&gt; f PhoneNumberSummary
+</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#phoneNumberSummary_phoneNumber"><span class="hs-identifier hs-var hs-var">phoneNumberSummary_phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PhoneNumberSummary -&gt; Maybe Text)
+-&gt; (PhoneNumberSummary -&gt; Maybe Text -&gt; PhoneNumberSummary)
+-&gt; Lens
+     PhoneNumberSummary PhoneNumberSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401679"><span class="annot"><span class="annottext">Maybe Text
+phoneNumber :: Maybe Text
+$sel:phoneNumber:PhoneNumberSummary' :: PhoneNumberSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679401679"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401679"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401678"><span class="annot"><span class="annottext">s :: PhoneNumberSummary
+</span><a href="#local-6989586621679401678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401677"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhoneNumberSummary
+</span><a href="#local-6989586621679401678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumber:PhoneNumberSummary' :: Maybe Text
+</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3AphoneNumber%3APhoneNumberSummary%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The ISO country code.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#phoneNumberSummary_phoneNumberCountryCode"><span class="hs-identifier hs-type">phoneNumberSummary_phoneNumberCountryCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberCountryCode.html#PhoneNumberCountryCode"><span class="hs-identifier hs-type">PhoneNumberCountryCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="phoneNumberSummary_phoneNumberCountryCode"><span class="annot"><span class="annottext">phoneNumberSummary_phoneNumberCountryCode :: (Maybe PhoneNumberCountryCode -&gt; f (Maybe PhoneNumberCountryCode))
 -&gt; PhoneNumberSummary -&gt; f PhoneNumberSummary
 </span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#phoneNumberSummary_phoneNumberCountryCode"><span class="hs-identifier hs-var hs-var">phoneNumberSummary_phoneNumberCountryCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PhoneNumberSummary -&gt; Maybe PhoneNumberCountryCode)
 -&gt; (PhoneNumberSummary
@@ -247,112 +228,129 @@ $sel:phoneNumberType:PhoneNumberSummary' :: PhoneNumberSummary -&gt; Maybe Phone
      (Maybe PhoneNumberCountryCode)
      (Maybe PhoneNumberCountryCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401389"><span class="annot"><span class="annottext">Maybe PhoneNumberCountryCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401675"><span class="annot"><span class="annottext">Maybe PhoneNumberCountryCode
 phoneNumberCountryCode :: Maybe PhoneNumberCountryCode
 $sel:phoneNumberCountryCode:PhoneNumberSummary' :: PhoneNumberSummary -&gt; Maybe PhoneNumberCountryCode
-</span><a href="#local-6989586621679401389"><span class="hs-identifier hs-var hs-var">phoneNumberCountryCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberCountryCode
-</span><a href="#local-6989586621679401389"><span class="hs-identifier hs-var">phoneNumberCountryCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401388"><span class="annot"><span class="annottext">s :: PhoneNumberSummary
-</span><a href="#local-6989586621679401388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401387"><span class="annot"><span class="annottext">Maybe PhoneNumberCountryCode
-</span><a href="#local-6989586621679401387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhoneNumberSummary
-</span><a href="#local-6989586621679401388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumberCountryCode:PhoneNumberSummary' :: Maybe PhoneNumberCountryCode
+</span><a href="#local-6989586621679401675"><span class="hs-identifier hs-var hs-var">phoneNumberCountryCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberCountryCode
+</span><a href="#local-6989586621679401675"><span class="hs-identifier hs-var">phoneNumberCountryCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401674"><span class="annot"><span class="annottext">s :: PhoneNumberSummary
+</span><a href="#local-6989586621679401674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401673"><span class="annot"><span class="annottext">Maybe PhoneNumberCountryCode
+</span><a href="#local-6989586621679401673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhoneNumberSummary
+</span><a href="#local-6989586621679401674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumberCountryCode:PhoneNumberSummary' :: Maybe PhoneNumberCountryCode
 </span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3AphoneNumberCountryCode%3APhoneNumberSummary%27"><span class="hs-identifier hs-var">phoneNumberCountryCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberCountryCode
-</span><a href="#local-6989586621679401387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401384"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679401382"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PhoneNumberSummary
+</span><a href="#local-6989586621679401673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The identifier of the phone number.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#phoneNumberSummary_id"><span class="hs-identifier hs-type">phoneNumberSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="phoneNumberSummary_id"><span class="annot"><span class="annottext">phoneNumberSummary_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PhoneNumberSummary -&gt; f PhoneNumberSummary
+</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#phoneNumberSummary_id"><span class="hs-identifier hs-var hs-var">phoneNumberSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PhoneNumberSummary -&gt; Maybe Text)
+-&gt; (PhoneNumberSummary -&gt; Maybe Text -&gt; PhoneNumberSummary)
+-&gt; Lens
+     PhoneNumberSummary PhoneNumberSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401671"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:PhoneNumberSummary' :: PhoneNumberSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679401671"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401671"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401670"><span class="annot"><span class="annottext">s :: PhoneNumberSummary
+</span><a href="#local-6989586621679401670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-type">PhoneNumberSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401669"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhoneNumberSummary
+</span><a href="#local-6989586621679401670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:PhoneNumberSummary' :: Maybe Text
+</span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#%24sel%3Aid%3APhoneNumberSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401666"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679401664"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PhoneNumberSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PhoneNumberSummary)
 -&gt; Value
 -&gt; Parser PhoneNumberSummary
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PhoneNumberSummary&quot;</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679401379"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401379"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679401661"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401661"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe PhoneNumberType
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe PhoneNumberType
 -&gt; Maybe PhoneNumberCountryCode
+-&gt; Maybe Text
 -&gt; PhoneNumberSummary
 </span><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary%27"><span class="hs-identifier hs-var">PhoneNumberSummary'</span></a></span><span>
-</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PhoneNumberType
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe PhoneNumberType
  -&gt; Maybe PhoneNumberCountryCode
+ -&gt; Maybe Text
  -&gt; PhoneNumberSummary)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe PhoneNumberType)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe PhoneNumberType
       -&gt; Maybe PhoneNumberCountryCode
+      -&gt; Maybe Text
       -&gt; PhoneNumberSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679401661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PhoneNumberType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PhoneNumber&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;PhoneNumberType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe PhoneNumberType
    -&gt; Maybe PhoneNumberCountryCode
+   -&gt; Maybe Text
    -&gt; PhoneNumberSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe PhoneNumberType
       -&gt; Maybe PhoneNumberCountryCode
+      -&gt; Maybe Text
       -&gt; PhoneNumberSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679401661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe PhoneNumberType
    -&gt; Maybe PhoneNumberCountryCode
+   -&gt; Maybe Text
    -&gt; PhoneNumberSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe PhoneNumberType
-      -&gt; Maybe PhoneNumberCountryCode -&gt; PhoneNumberSummary)
+     (Maybe PhoneNumberCountryCode -&gt; Maybe Text -&gt; PhoneNumberSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679401661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe PhoneNumberType
-   -&gt; Maybe PhoneNumberCountryCode -&gt; PhoneNumberSummary)
--&gt; Parser (Maybe PhoneNumberType)
--&gt; Parser (Maybe PhoneNumberCountryCode -&gt; PhoneNumberSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PhoneNumberType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PhoneNumberType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe PhoneNumberCountryCode -&gt; PhoneNumberSummary)
+</span><span class="hs-string">&quot;PhoneNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PhoneNumberCountryCode -&gt; Maybe Text -&gt; PhoneNumberSummary)
 -&gt; Parser (Maybe PhoneNumberCountryCode)
--&gt; Parser PhoneNumberSummary
+-&gt; Parser (Maybe Text -&gt; PhoneNumberSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PhoneNumberCountryCode)
+</span><a href="#local-6989586621679401661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PhoneNumberCountryCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PhoneNumberCountryCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401373"><span id="local-6989586621679401375"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span></span></span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span></span><span>
-</span><span id="line-109"></span></pre></body></html>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PhoneNumberSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser PhoneNumberSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401655"><span id="local-6989586621679401657"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401652"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberSummary.html#PhoneNumberSummary"><span class="hs-identifier hs-type">PhoneNumberSummary</span></a></span></span><span>
+</span><span id="line-110"></span></pre></body></html>

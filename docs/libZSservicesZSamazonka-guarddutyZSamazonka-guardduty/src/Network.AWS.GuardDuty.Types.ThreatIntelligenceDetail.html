@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- for the finding.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newThreatIntelligenceDetail' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679301577"><span id="local-6989586621679301578"></span></span><span class="hs-keyword">data</span><span> </span><span id="ThreatIntelligenceDetail"><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail"><span class="hs-identifier hs-var">ThreatIntelligenceDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThreatIntelligenceDetail%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail%27"><span class="hs-identifier hs-var">ThreatIntelligenceDetail'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679301868"><span id="local-6989586621679301869"></span></span><span class="hs-keyword">data</span><span> </span><span id="ThreatIntelligenceDetail"><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail"><span class="hs-identifier hs-var">ThreatIntelligenceDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThreatIntelligenceDetail%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail%27"><span class="hs-identifier hs-var">ThreatIntelligenceDetail'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of names of the threats in the threat intelligence list that</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- triggered the finding.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AthreatNames%3AThreatIntelligenceDetail%27"><span class="annot"><span class="annottext">ThreatIntelligenceDetail -&gt; Maybe [Text]
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AthreatListName%3AThreatIntelligenceDetail%27"><span class="annot"><span class="annottext">ThreatIntelligenceDetail -&gt; Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#%24sel%3AthreatListName%3AThreatIntelligenceDetail%27"><span class="hs-identifier hs-var hs-var">threatListName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301570"><span id="local-6989586621679301572"><span class="annot"><span class="annottext">ThreatIntelligenceDetail -&gt; ThreatIntelligenceDetail -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301861"><span id="local-6989586621679301863"><span class="annot"><span class="annottext">ThreatIntelligenceDetail -&gt; ThreatIntelligenceDetail -&gt; Bool
 (ThreatIntelligenceDetail -&gt; ThreatIntelligenceDetail -&gt; Bool)
 -&gt; (ThreatIntelligenceDetail -&gt; ThreatIntelligenceDetail -&gt; Bool)
 -&gt; Eq ThreatIntelligenceDetail
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ThreatIntelligenceDetail -&gt; ThreatIntelligenceDetail -&gt; Bool
 == :: ThreatIntelligenceDetail -&gt; ThreatIntelligenceDetail -&gt; Bool
 $c== :: ThreatIntelligenceDetail -&gt; ThreatIntelligenceDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301561"><span id="local-6989586621679301563"><span id="local-6989586621679301565"><span id="local-6989586621679301567"><span class="annot"><span class="annottext">ReadPrec [ThreatIntelligenceDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301852"><span id="local-6989586621679301854"><span id="local-6989586621679301856"><span id="local-6989586621679301858"><span class="annot"><span class="annottext">ReadPrec [ThreatIntelligenceDetail]
 ReadPrec ThreatIntelligenceDetail
 Int -&gt; ReadS ThreatIntelligenceDetail
 ReadS [ThreatIntelligenceDetail]
@@ -65,7 +65,7 @@ readList :: ReadS [ThreatIntelligenceDetail]
 $creadList :: ReadS [ThreatIntelligenceDetail]
 readsPrec :: Int -&gt; ReadS ThreatIntelligenceDetail
 $creadsPrec :: Int -&gt; ReadS ThreatIntelligenceDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301554"><span id="local-6989586621679301556"><span id="local-6989586621679301558"><span class="annot"><span class="annottext">Int -&gt; ThreatIntelligenceDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301845"><span id="local-6989586621679301847"><span id="local-6989586621679301849"><span class="annot"><span class="annottext">Int -&gt; ThreatIntelligenceDetail -&gt; ShowS
 [ThreatIntelligenceDetail] -&gt; ShowS
 ThreatIntelligenceDetail -&gt; String
 (Int -&gt; ThreatIntelligenceDetail -&gt; ShowS)
@@ -140,16 +140,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail%27"><span class="hs-identifier hs-type">ThreatIntelligenceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301545"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail%27"><span class="hs-identifier hs-type">ThreatIntelligenceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301836"><span class="annot"><span class="annottext">Maybe [Text]
 threatNames :: Maybe [Text]
 $sel:threatNames:ThreatIntelligenceDetail' :: ThreatIntelligenceDetail -&gt; Maybe [Text]
-</span><a href="#local-6989586621679301545"><span class="hs-identifier hs-var hs-var">threatNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679301545"><span class="hs-identifier hs-var">threatNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301544"><span class="annot"><span class="annottext">s :: ThreatIntelligenceDetail
-</span><a href="#local-6989586621679301544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail%27"><span class="hs-identifier hs-type">ThreatIntelligenceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301543"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679301543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThreatIntelligenceDetail
-</span><a href="#local-6989586621679301544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threatNames:ThreatIntelligenceDetail' :: Maybe [Text]
+</span><a href="#local-6989586621679301836"><span class="hs-identifier hs-var hs-var">threatNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679301836"><span class="hs-identifier hs-var">threatNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301835"><span class="annot"><span class="annottext">s :: ThreatIntelligenceDetail
+</span><a href="#local-6989586621679301835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail%27"><span class="hs-identifier hs-type">ThreatIntelligenceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301834"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679301834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThreatIntelligenceDetail
+</span><a href="#local-6989586621679301835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threatNames:ThreatIntelligenceDetail' :: Maybe [Text]
 </span><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#%24sel%3AthreatNames%3AThreatIntelligenceDetail%27"><span class="hs-identifier hs-var">threatNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679301543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail"><span class="hs-identifier hs-type">ThreatIntelligenceDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679301834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail"><span class="hs-identifier hs-type">ThreatIntelligenceDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ThreatIntelligenceDetail -&gt; f ThreatIntelligenceDetail)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -163,8 +163,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The name of the threat intelligence list that triggered the finding.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#threatIntelligenceDetail_threatListName"><span class="hs-identifier hs-type">threatIntelligenceDetail_threatListName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail"><span class="hs-identifier hs-type">ThreatIntelligenceDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -179,19 +179,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail%27"><span class="hs-identifier hs-type">ThreatIntelligenceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301538"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail%27"><span class="hs-identifier hs-type">ThreatIntelligenceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301829"><span class="annot"><span class="annottext">Maybe Text
 threatListName :: Maybe Text
 $sel:threatListName:ThreatIntelligenceDetail' :: ThreatIntelligenceDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679301538"><span class="hs-identifier hs-var hs-var">threatListName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679301538"><span class="hs-identifier hs-var">threatListName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301537"><span class="annot"><span class="annottext">s :: ThreatIntelligenceDetail
-</span><a href="#local-6989586621679301537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail%27"><span class="hs-identifier hs-type">ThreatIntelligenceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301536"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679301536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThreatIntelligenceDetail
-</span><a href="#local-6989586621679301537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threatListName:ThreatIntelligenceDetail' :: Maybe Text
+</span><a href="#local-6989586621679301829"><span class="hs-identifier hs-var hs-var">threatListName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301829"><span class="hs-identifier hs-var">threatListName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301828"><span class="annot"><span class="annottext">s :: ThreatIntelligenceDetail
+</span><a href="#local-6989586621679301828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail%27"><span class="hs-identifier hs-type">ThreatIntelligenceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301827"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThreatIntelligenceDetail
+</span><a href="#local-6989586621679301828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threatListName:ThreatIntelligenceDetail' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#%24sel%3AthreatListName%3AThreatIntelligenceDetail%27"><span class="hs-identifier hs-var">threatListName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679301536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail"><span class="hs-identifier hs-type">ThreatIntelligenceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679301827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail"><span class="hs-identifier hs-type">ThreatIntelligenceDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301533"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail"><span class="hs-identifier hs-type">ThreatIntelligenceDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679301531"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ThreatIntelligenceDetail
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301824"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail"><span class="hs-identifier hs-type">ThreatIntelligenceDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679301822"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ThreatIntelligenceDetail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ThreatIntelligenceDetail)
@@ -201,8 +201,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ThreatIntelligenceDetail&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679301528"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301528"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679301819"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301819"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; ThreatIntelligenceDetail
 </span><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail%27"><span class="hs-identifier hs-var">ThreatIntelligenceDetail'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; ThreatIntelligenceDetail)
@@ -210,7 +210,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; ThreatIntelligenceDetail)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301528"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679301819"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;threatNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -223,13 +223,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser ThreatIntelligenceDetail
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301528"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679301819"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;threatListName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301521"><span id="local-6989586621679301523"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail"><span class="hs-identifier hs-type">ThreatIntelligenceDetail</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301812"><span id="local-6989586621679301814"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail"><span class="hs-identifier hs-type">ThreatIntelligenceDetail</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301518"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail"><span class="hs-identifier hs-type">ThreatIntelligenceDetail</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail"><span class="hs-identifier hs-type">ThreatIntelligenceDetail</span></a></span></span><span>
 </span><span id="line-82"></span></pre></body></html>

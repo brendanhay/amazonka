@@ -28,24 +28,24 @@
 </span><span id="line-28"></span><span class="hs-comment">-- could be an image, a button, a link, or text.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newGenericAttachment' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679173391"><span id="local-6989586621679173392"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenericAttachment"><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-var">GenericAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenericAttachment%27"><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-var">GenericAttachment'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The title of the option.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Atitle%3AGenericAttachment%27"><span class="annot"><span class="annottext">GenericAttachment -&gt; Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3Atitle%3AGenericAttachment%27"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The list of options to show to the user.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Abuttons%3AGenericAttachment%27"><span class="annot"><span class="annottext">GenericAttachment -&gt; Maybe [Button]
+</span><span id="line-31"></span><span id="local-6989586621679173460"><span id="local-6989586621679173461"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenericAttachment"><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-var">GenericAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenericAttachment%27"><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-var">GenericAttachment'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of options to show to the user.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Abuttons%3AGenericAttachment%27"><span class="annot"><span class="annottext">GenericAttachment -&gt; Maybe [Button]
 </span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3Abuttons%3AGenericAttachment%27"><span class="hs-identifier hs-var hs-var">buttons</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button"><span class="hs-identifier hs-type">Button</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The URL of an attachment to the response card.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AattachmentLinkUrl%3AGenericAttachment%27"><span class="annot"><span class="annottext">GenericAttachment -&gt; Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3AattachmentLinkUrl%3AGenericAttachment%27"><span class="hs-identifier hs-var hs-var">attachmentLinkUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The URL of an image that is displayed to the user.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AimageUrl%3AGenericAttachment%27"><span class="annot"><span class="annottext">GenericAttachment -&gt; Maybe Text
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The subtitle shown below the title.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsubTitle%3AGenericAttachment%27"><span class="annot"><span class="annottext">GenericAttachment -&gt; Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3AsubTitle%3AGenericAttachment%27"><span class="hs-identifier hs-var hs-var">subTitle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The URL of an image that is displayed to the user.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AimageUrl%3AGenericAttachment%27"><span class="annot"><span class="annottext">GenericAttachment -&gt; Maybe Text
 </span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3AimageUrl%3AGenericAttachment%27"><span class="hs-identifier hs-var hs-var">imageUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The subtitle shown below the title.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AsubTitle%3AGenericAttachment%27"><span class="annot"><span class="annottext">GenericAttachment -&gt; Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3AsubTitle%3AGenericAttachment%27"><span class="hs-identifier hs-var hs-var">subTitle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The URL of an attachment to the response card.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AattachmentLinkUrl%3AGenericAttachment%27"><span class="annot"><span class="annottext">GenericAttachment -&gt; Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3AattachmentLinkUrl%3AGenericAttachment%27"><span class="hs-identifier hs-var hs-var">attachmentLinkUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The title of the option.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Atitle%3AGenericAttachment%27"><span class="annot"><span class="annottext">GenericAttachment -&gt; Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3Atitle%3AGenericAttachment%27"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679173381"><span id="local-6989586621679173383"><span class="annot"><span class="annottext">GenericAttachment -&gt; GenericAttachment -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679173450"><span id="local-6989586621679173452"><span class="annot"><span class="annottext">GenericAttachment -&gt; GenericAttachment -&gt; Bool
 (GenericAttachment -&gt; GenericAttachment -&gt; Bool)
 -&gt; (GenericAttachment -&gt; GenericAttachment -&gt; Bool)
 -&gt; Eq GenericAttachment
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GenericAttachment -&gt; GenericAttachment -&gt; Bool
 == :: GenericAttachment -&gt; GenericAttachment -&gt; Bool
 $c== :: GenericAttachment -&gt; GenericAttachment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173372"><span id="local-6989586621679173374"><span id="local-6989586621679173376"><span id="local-6989586621679173378"><span class="annot"><span class="annottext">ReadPrec [GenericAttachment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173441"><span id="local-6989586621679173443"><span id="local-6989586621679173445"><span id="local-6989586621679173447"><span class="annot"><span class="annottext">ReadPrec [GenericAttachment]
 ReadPrec GenericAttachment
 Int -&gt; ReadS GenericAttachment
 ReadS [GenericAttachment]
@@ -74,7 +74,7 @@ readList :: ReadS [GenericAttachment]
 $creadList :: ReadS [GenericAttachment]
 readsPrec :: Int -&gt; ReadS GenericAttachment
 $creadsPrec :: Int -&gt; ReadS GenericAttachment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173365"><span id="local-6989586621679173367"><span id="local-6989586621679173369"><span class="annot"><span class="annottext">Int -&gt; GenericAttachment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173434"><span id="local-6989586621679173436"><span id="local-6989586621679173438"><span class="annot"><span class="annottext">Int -&gt; GenericAttachment -&gt; ShowS
 [GenericAttachment] -&gt; ShowS
 GenericAttachment -&gt; String
 (Int -&gt; GenericAttachment -&gt; ShowS)
@@ -108,71 +108,51 @@ $cfrom :: forall x. GenericAttachment -&gt; Rep GenericAttachment x
 </span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'title', 'genericAttachment_title' - The title of the option.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'buttons', 'genericAttachment_buttons' - The list of options to show to the user.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'buttons', 'genericAttachment_buttons' - The list of options to show to the user.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'subTitle', 'genericAttachment_subTitle' - The subtitle shown below the title.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'attachmentLinkUrl', 'genericAttachment_attachmentLinkUrl' - The URL of an attachment to the response card.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'imageUrl', 'genericAttachment_imageUrl' - The URL of an image that is displayed to the user.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'imageUrl', 'genericAttachment_imageUrl' - The URL of an image that is displayed to the user.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'attachmentLinkUrl', 'genericAttachment_attachmentLinkUrl' - The URL of an attachment to the response card.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'subTitle', 'genericAttachment_subTitle' - The subtitle shown below the title.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'title', 'genericAttachment_title' - The title of the option.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#newGenericAttachment"><span class="hs-identifier hs-type">newGenericAttachment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span>
 </span><span id="line-64"></span><span id="newGenericAttachment"><span class="annot"><span class="annottext">newGenericAttachment :: GenericAttachment
 </span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#newGenericAttachment"><span class="hs-identifier hs-var hs-var">newGenericAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">GenericAttachment' :: Maybe Text
--&gt; Maybe [Button]
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">GenericAttachment' :: Maybe [Button]
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; GenericAttachment
 </span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:title:GenericAttachment' :: Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3Atitle%3AGenericAttachment%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:buttons:GenericAttachment' :: Maybe [Button]
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:buttons:GenericAttachment' :: Maybe [Button]
 </span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3Abuttons%3AGenericAttachment%27"><span class="hs-identifier hs-var">buttons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Button]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:attachmentLinkUrl:GenericAttachment' :: Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3AattachmentLinkUrl%3AGenericAttachment%27"><span class="hs-identifier hs-var">attachmentLinkUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:subTitle:GenericAttachment' :: Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3AsubTitle%3AGenericAttachment%27"><span class="hs-identifier hs-var">subTitle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageUrl:GenericAttachment' :: Maybe Text
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageUrl:GenericAttachment' :: Maybe Text
 </span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3AimageUrl%3AGenericAttachment%27"><span class="hs-identifier hs-var">imageUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:subTitle:GenericAttachment' :: Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3AsubTitle%3AGenericAttachment%27"><span class="hs-identifier hs-var">subTitle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:attachmentLinkUrl:GenericAttachment' :: Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3AattachmentLinkUrl%3AGenericAttachment%27"><span class="hs-identifier hs-var">attachmentLinkUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:title:GenericAttachment' :: Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3Atitle%3AGenericAttachment%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | The title of the option.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#genericAttachment_title"><span class="hs-identifier hs-type">genericAttachment_title</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="genericAttachment_title"><span class="annot"><span class="annottext">genericAttachment_title :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GenericAttachment -&gt; f GenericAttachment
-</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#genericAttachment_title"><span class="hs-identifier hs-var hs-var">genericAttachment_title</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenericAttachment -&gt; Maybe Text)
--&gt; (GenericAttachment -&gt; Maybe Text -&gt; GenericAttachment)
--&gt; Lens
-     GenericAttachment GenericAttachment (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173356"><span class="annot"><span class="annottext">Maybe Text
-title :: Maybe Text
-$sel:title:GenericAttachment' :: GenericAttachment -&gt; Maybe Text
-</span><a href="#local-6989586621679173356"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173356"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173355"><span class="annot"><span class="annottext">s :: GenericAttachment
-</span><a href="#local-6989586621679173355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173354"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenericAttachment
-</span><a href="#local-6989586621679173355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:GenericAttachment' :: Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3Atitle%3AGenericAttachment%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | The list of options to show to the user.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#genericAttachment_buttons"><span class="hs-identifier hs-type">genericAttachment_buttons</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button"><span class="hs-identifier hs-type">Button</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="genericAttachment_buttons"><span class="annot"><span class="annottext">genericAttachment_buttons :: (Maybe [Button] -&gt; f (Maybe [Button]))
+</span><span id="line-73"></span><span class="hs-comment">-- | The list of options to show to the user.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#genericAttachment_buttons"><span class="hs-identifier hs-type">genericAttachment_buttons</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.Button.html#Button"><span class="hs-identifier hs-type">Button</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="genericAttachment_buttons"><span class="annot"><span class="annottext">genericAttachment_buttons :: (Maybe [Button] -&gt; f (Maybe [Button]))
 -&gt; GenericAttachment -&gt; f GenericAttachment
 </span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#genericAttachment_buttons"><span class="hs-identifier hs-var hs-var">genericAttachment_buttons</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenericAttachment -&gt; Maybe [Button])
 -&gt; (GenericAttachment -&gt; Maybe [Button] -&gt; GenericAttachment)
@@ -182,16 +162,16 @@ $sel:title:GenericAttachment' :: GenericAttachment -&gt; Maybe Text
      (Maybe [Button])
      (Maybe [Button])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173352"><span class="annot"><span class="annottext">Maybe [Button]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173425"><span class="annot"><span class="annottext">Maybe [Button]
 buttons :: Maybe [Button]
 $sel:buttons:GenericAttachment' :: GenericAttachment -&gt; Maybe [Button]
-</span><a href="#local-6989586621679173352"><span class="hs-identifier hs-var hs-var">buttons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Button]
-</span><a href="#local-6989586621679173352"><span class="hs-identifier hs-var">buttons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173351"><span class="annot"><span class="annottext">s :: GenericAttachment
-</span><a href="#local-6989586621679173351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173350"><span class="annot"><span class="annottext">Maybe [Button]
-</span><a href="#local-6989586621679173350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenericAttachment
-</span><a href="#local-6989586621679173351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buttons:GenericAttachment' :: Maybe [Button]
+</span><a href="#local-6989586621679173425"><span class="hs-identifier hs-var hs-var">buttons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Button]
+</span><a href="#local-6989586621679173425"><span class="hs-identifier hs-var">buttons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173424"><span class="annot"><span class="annottext">s :: GenericAttachment
+</span><a href="#local-6989586621679173424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173423"><span class="annot"><span class="annottext">Maybe [Button]
+</span><a href="#local-6989586621679173423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenericAttachment
+</span><a href="#local-6989586621679173424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buttons:GenericAttachment' :: Maybe [Button]
 </span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3Abuttons%3AGenericAttachment%27"><span class="hs-identifier hs-var">buttons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Button]
-</span><a href="#local-6989586621679173350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Button] -&gt; f (Maybe [Button]))
+</span><a href="#local-6989586621679173423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Button] -&gt; f (Maybe [Button]))
  -&gt; GenericAttachment -&gt; f GenericAttachment)
 -&gt; ((Maybe [Button] -&gt; f (Maybe [Button]))
     -&gt; Maybe [Button] -&gt; f (Maybe [Button]))
@@ -206,71 +186,91 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Button] [Button] [Button] [Button]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The URL of an attachment to the response card.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#genericAttachment_attachmentLinkUrl"><span class="hs-identifier hs-type">genericAttachment_attachmentLinkUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="genericAttachment_attachmentLinkUrl"><span class="annot"><span class="annottext">genericAttachment_attachmentLinkUrl :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GenericAttachment -&gt; f GenericAttachment
-</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#genericAttachment_attachmentLinkUrl"><span class="hs-identifier hs-var hs-var">genericAttachment_attachmentLinkUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenericAttachment -&gt; Maybe Text)
--&gt; (GenericAttachment -&gt; Maybe Text -&gt; GenericAttachment)
--&gt; Lens
-     GenericAttachment GenericAttachment (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173345"><span class="annot"><span class="annottext">Maybe Text
-attachmentLinkUrl :: Maybe Text
-$sel:attachmentLinkUrl:GenericAttachment' :: GenericAttachment -&gt; Maybe Text
-</span><a href="#local-6989586621679173345"><span class="hs-identifier hs-var hs-var">attachmentLinkUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173345"><span class="hs-identifier hs-var">attachmentLinkUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173344"><span class="annot"><span class="annottext">s :: GenericAttachment
-</span><a href="#local-6989586621679173344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173343"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenericAttachment
-</span><a href="#local-6989586621679173344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachmentLinkUrl:GenericAttachment' :: Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3AattachmentLinkUrl%3AGenericAttachment%27"><span class="hs-identifier hs-var">attachmentLinkUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The URL of an image that is displayed to the user.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#genericAttachment_imageUrl"><span class="hs-identifier hs-type">genericAttachment_imageUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="genericAttachment_imageUrl"><span class="annot"><span class="annottext">genericAttachment_imageUrl :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GenericAttachment -&gt; f GenericAttachment
-</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#genericAttachment_imageUrl"><span class="hs-identifier hs-var hs-var">genericAttachment_imageUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenericAttachment -&gt; Maybe Text)
--&gt; (GenericAttachment -&gt; Maybe Text -&gt; GenericAttachment)
--&gt; Lens
-     GenericAttachment GenericAttachment (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173341"><span class="annot"><span class="annottext">Maybe Text
-imageUrl :: Maybe Text
-$sel:imageUrl:GenericAttachment' :: GenericAttachment -&gt; Maybe Text
-</span><a href="#local-6989586621679173341"><span class="hs-identifier hs-var hs-var">imageUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173341"><span class="hs-identifier hs-var">imageUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173340"><span class="annot"><span class="annottext">s :: GenericAttachment
-</span><a href="#local-6989586621679173340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173339"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenericAttachment
-</span><a href="#local-6989586621679173340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageUrl:GenericAttachment' :: Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3AimageUrl%3AGenericAttachment%27"><span class="hs-identifier hs-var">imageUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The subtitle shown below the title.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#genericAttachment_subTitle"><span class="hs-identifier hs-type">genericAttachment_subTitle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="genericAttachment_subTitle"><span class="annot"><span class="annottext">genericAttachment_subTitle :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The subtitle shown below the title.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#genericAttachment_subTitle"><span class="hs-identifier hs-type">genericAttachment_subTitle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="genericAttachment_subTitle"><span class="annot"><span class="annottext">genericAttachment_subTitle :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GenericAttachment -&gt; f GenericAttachment
 </span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#genericAttachment_subTitle"><span class="hs-identifier hs-var hs-var">genericAttachment_subTitle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenericAttachment -&gt; Maybe Text)
 -&gt; (GenericAttachment -&gt; Maybe Text -&gt; GenericAttachment)
 -&gt; Lens
      GenericAttachment GenericAttachment (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173337"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173418"><span class="annot"><span class="annottext">Maybe Text
 subTitle :: Maybe Text
 $sel:subTitle:GenericAttachment' :: GenericAttachment -&gt; Maybe Text
-</span><a href="#local-6989586621679173337"><span class="hs-identifier hs-var hs-var">subTitle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173337"><span class="hs-identifier hs-var">subTitle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173336"><span class="annot"><span class="annottext">s :: GenericAttachment
-</span><a href="#local-6989586621679173336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173335"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenericAttachment
-</span><a href="#local-6989586621679173336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subTitle:GenericAttachment' :: Maybe Text
+</span><a href="#local-6989586621679173418"><span class="hs-identifier hs-var hs-var">subTitle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173418"><span class="hs-identifier hs-var">subTitle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173417"><span class="annot"><span class="annottext">s :: GenericAttachment
+</span><a href="#local-6989586621679173417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173416"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenericAttachment
+</span><a href="#local-6989586621679173417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subTitle:GenericAttachment' :: Maybe Text
 </span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3AsubTitle%3AGenericAttachment%27"><span class="hs-identifier hs-var">subTitle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679173416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The URL of an image that is displayed to the user.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#genericAttachment_imageUrl"><span class="hs-identifier hs-type">genericAttachment_imageUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="genericAttachment_imageUrl"><span class="annot"><span class="annottext">genericAttachment_imageUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GenericAttachment -&gt; f GenericAttachment
+</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#genericAttachment_imageUrl"><span class="hs-identifier hs-var hs-var">genericAttachment_imageUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenericAttachment -&gt; Maybe Text)
+-&gt; (GenericAttachment -&gt; Maybe Text -&gt; GenericAttachment)
+-&gt; Lens
+     GenericAttachment GenericAttachment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173414"><span class="annot"><span class="annottext">Maybe Text
+imageUrl :: Maybe Text
+$sel:imageUrl:GenericAttachment' :: GenericAttachment -&gt; Maybe Text
+</span><a href="#local-6989586621679173414"><span class="hs-identifier hs-var hs-var">imageUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173414"><span class="hs-identifier hs-var">imageUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173413"><span class="annot"><span class="annottext">s :: GenericAttachment
+</span><a href="#local-6989586621679173413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173412"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenericAttachment
+</span><a href="#local-6989586621679173413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageUrl:GenericAttachment' :: Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3AimageUrl%3AGenericAttachment%27"><span class="hs-identifier hs-var">imageUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The URL of an attachment to the response card.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#genericAttachment_attachmentLinkUrl"><span class="hs-identifier hs-type">genericAttachment_attachmentLinkUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="genericAttachment_attachmentLinkUrl"><span class="annot"><span class="annottext">genericAttachment_attachmentLinkUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GenericAttachment -&gt; f GenericAttachment
+</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#genericAttachment_attachmentLinkUrl"><span class="hs-identifier hs-var hs-var">genericAttachment_attachmentLinkUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenericAttachment -&gt; Maybe Text)
+-&gt; (GenericAttachment -&gt; Maybe Text -&gt; GenericAttachment)
+-&gt; Lens
+     GenericAttachment GenericAttachment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173410"><span class="annot"><span class="annottext">Maybe Text
+attachmentLinkUrl :: Maybe Text
+$sel:attachmentLinkUrl:GenericAttachment' :: GenericAttachment -&gt; Maybe Text
+</span><a href="#local-6989586621679173410"><span class="hs-identifier hs-var hs-var">attachmentLinkUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173410"><span class="hs-identifier hs-var">attachmentLinkUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173409"><span class="annot"><span class="annottext">s :: GenericAttachment
+</span><a href="#local-6989586621679173409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173408"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenericAttachment
+</span><a href="#local-6989586621679173409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachmentLinkUrl:GenericAttachment' :: Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3AattachmentLinkUrl%3AGenericAttachment%27"><span class="hs-identifier hs-var">attachmentLinkUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The title of the option.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#genericAttachment_title"><span class="hs-identifier hs-type">genericAttachment_title</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="genericAttachment_title"><span class="annot"><span class="annottext">genericAttachment_title :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GenericAttachment -&gt; f GenericAttachment
+</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#genericAttachment_title"><span class="hs-identifier hs-var hs-var">genericAttachment_title</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenericAttachment -&gt; Maybe Text)
+-&gt; (GenericAttachment -&gt; Maybe Text -&gt; GenericAttachment)
+-&gt; Lens
+     GenericAttachment GenericAttachment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173406"><span class="annot"><span class="annottext">Maybe Text
+title :: Maybe Text
+$sel:title:GenericAttachment' :: GenericAttachment -&gt; Maybe Text
+</span><a href="#local-6989586621679173406"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173406"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173405"><span class="annot"><span class="annottext">s :: GenericAttachment
+</span><a href="#local-6989586621679173405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-type">GenericAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173404"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenericAttachment
+</span><a href="#local-6989586621679173405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:GenericAttachment' :: Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#%24sel%3Atitle%3AGenericAttachment%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173332"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679173330"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GenericAttachment
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173401"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679173399"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GenericAttachment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser GenericAttachment)
@@ -280,40 +280,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;GenericAttachment&quot;</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679173327"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173327"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [Button]
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679173396"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173396"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Button]
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; GenericAttachment
 </span><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment%27"><span class="hs-identifier hs-var">GenericAttachment'</span></a></span><span>
-</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [Button]
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Button]
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; GenericAttachment)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Button])
 -&gt; Parser
-     (Maybe [Button]
+     (Maybe Text
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; GenericAttachment)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;title&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [Button]
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; GenericAttachment)
--&gt; Parser (Maybe [Button])
--&gt; Parser
-     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; GenericAttachment)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Button]))
+</span><a href="#local-6989586621679173396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Button]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;buttons&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Button]))
@@ -322,35 +310,47 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Button]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; GenericAttachment)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; GenericAttachment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;subTitle&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; GenericAttachment)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; GenericAttachment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679173396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;attachmentLinkUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;imageUrl&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; GenericAttachment)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; GenericAttachment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679173396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;imageUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;attachmentLinkUrl&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; GenericAttachment)
 -&gt; Parser (Maybe Text) -&gt; Parser GenericAttachment
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679173396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;subTitle&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;title&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173320"><span id="local-6989586621679173322"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173389"><span id="local-6989586621679173391"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173386"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span></span><span>
 </span><span id="line-109"></span></pre></body></html>

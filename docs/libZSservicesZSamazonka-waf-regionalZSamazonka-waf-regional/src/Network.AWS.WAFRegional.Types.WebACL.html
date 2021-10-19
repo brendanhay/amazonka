@@ -45,7 +45,7 @@
 </span><span id="line-45"></span><span class="hs-comment">-- blocked, or counted. For more information, see UpdateWebACL.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- /See:/ 'newWebACL' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679311047"><span id="local-6989586621679311048"></span></span><span class="hs-keyword">data</span><span> </span><span id="WebACL"><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-var">WebACL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebACL%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-var">WebACL'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679311300"><span id="local-6989586621679311301"></span></span><span class="hs-keyword">data</span><span> </span><span id="WebACL"><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-var">WebACL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebACL%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-var">WebACL'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A friendly name or description for the metrics for this @WebACL@. The</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">-- name can contain only alphanumeric characters (A-Z, a-z, 0-9), with</span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-comment">-- maximum length 128 and minimum length one. It can\'t contain whitespace</span><span>
@@ -54,13 +54,13 @@
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- @WebACL@.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AmetricName%3AWebACL%27"><span class="annot"><span class="annottext">WebACL -&gt; Maybe Text
 </span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3AmetricName%3AWebACL%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Tha Amazon Resource Name (ARN) of the web ACL.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3AwebACLArn%3AWebACL%27"><span class="annot"><span class="annottext">WebACL -&gt; Maybe Text
-</span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3AwebACLArn%3AWebACL%27"><span class="hs-identifier hs-var hs-var">webACLArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A friendly name or description of the @WebACL@. You can\'t change the</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- name of a @WebACL@ after you create it.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3Aname%3AWebACL%27"><span class="annot"><span class="annottext">WebACL -&gt; Maybe Text
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | A friendly name or description of the @WebACL@. You can\'t change the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- name of a @WebACL@ after you create it.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aname%3AWebACL%27"><span class="annot"><span class="annottext">WebACL -&gt; Maybe Text
 </span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3Aname%3AWebACL%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Tha Amazon Resource Name (ARN) of the web ACL.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AwebACLArn%3AWebACL%27"><span class="annot"><span class="annottext">WebACL -&gt; Maybe Text
+</span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3AwebACLArn%3AWebACL%27"><span class="hs-identifier hs-var hs-var">webACLArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | A unique identifier for a @WebACL@. You use @WebACLId@ to get</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- information about a @WebACL@ (see GetWebACL), update a @WebACL@ (see</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- UpdateWebACL), and delete a @WebACL@ from AWS WAF (see DeleteWebACL).</span><span>
@@ -77,7 +77,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3Arules%3AWebACL%27"><span class="annot"><span class="annottext">WebACL -&gt; [ActivatedRule]
 </span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3Arules%3AWebACL%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.ActivatedRule.html#ActivatedRule"><span class="hs-identifier hs-type">ActivatedRule</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311036"><span id="local-6989586621679311038"><span class="annot"><span class="annottext">WebACL -&gt; WebACL -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311289"><span id="local-6989586621679311291"><span class="annot"><span class="annottext">WebACL -&gt; WebACL -&gt; Bool
 (WebACL -&gt; WebACL -&gt; Bool)
 -&gt; (WebACL -&gt; WebACL -&gt; Bool) -&gt; Eq WebACL
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WebACL -&gt; WebACL -&gt; Bool
 == :: WebACL -&gt; WebACL -&gt; Bool
 $c== :: WebACL -&gt; WebACL -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311027"><span id="local-6989586621679311029"><span id="local-6989586621679311031"><span id="local-6989586621679311033"><span class="annot"><span class="annottext">ReadPrec [WebACL]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311280"><span id="local-6989586621679311282"><span id="local-6989586621679311284"><span id="local-6989586621679311286"><span class="annot"><span class="annottext">ReadPrec [WebACL]
 ReadPrec WebACL
 Int -&gt; ReadS WebACL
 ReadS [WebACL]
@@ -105,7 +105,7 @@ readList :: ReadS [WebACL]
 $creadList :: ReadS [WebACL]
 readsPrec :: Int -&gt; ReadS WebACL
 $creadsPrec :: Int -&gt; ReadS WebACL
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311020"><span id="local-6989586621679311022"><span id="local-6989586621679311024"><span class="annot"><span class="annottext">Int -&gt; WebACL -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311273"><span id="local-6989586621679311275"><span id="local-6989586621679311277"><span class="annot"><span class="annottext">Int -&gt; WebACL -&gt; ShowS
 [WebACL] -&gt; ShowS
 WebACL -&gt; String
 (Int -&gt; WebACL -&gt; ShowS)
@@ -143,10 +143,10 @@ $cfrom :: forall x. WebACL -&gt; Rep WebACL x
 </span><span id="line-88"></span><span class="hs-comment">-- \&quot;Default_Action.\&quot; You can\'t change @MetricName@ after you create the</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- @WebACL@.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'webACLArn', 'webACL_webACLArn' - Tha Amazon Resource Name (ARN) of the web ACL.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'name', 'webACL_name' - A friendly name or description of the @WebACL@. You can\'t change the</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- name of a @WebACL@ after you create it.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'name', 'webACL_name' - A friendly name or description of the @WebACL@. You can\'t change the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- name of a @WebACL@ after you create it.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'webACLArn', 'webACL_webACLArn' - Tha Amazon Resource Name (ARN) of the web ACL.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- 'webACLId', 'webACL_webACLId' - A unique identifier for a @WebACL@. You use @WebACLId@ to get</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- information about a @WebACL@ (see GetWebACL), update a @WebACL@ (see</span><span>
@@ -166,9 +166,9 @@ $cfrom :: forall x. WebACL -&gt; Rep WebACL x
 </span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction"><span class="hs-identifier hs-type">WafAction</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span><span>
 </span><span id="line-113"></span><span id="newWebACL"><span class="annot"><span class="annottext">newWebACL :: Text -&gt; WafAction -&gt; WebACL
-</span><a href="Network.AWS.WAFRegional.Types.WebACL.html#newWebACL"><span class="hs-identifier hs-var hs-var">newWebACL</span></a></span></span><span> </span><span id="local-6989586621679311014"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311014"><span class="hs-identifier hs-var">pWebACLId_</span></a></span></span><span> </span><span id="local-6989586621679311013"><span class="annot"><span class="annottext">WafAction
-</span><a href="#local-6989586621679311013"><span class="hs-identifier hs-var">pDefaultAction_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAFRegional.Types.WebACL.html#newWebACL"><span class="hs-identifier hs-var hs-var">newWebACL</span></a></span></span><span> </span><span id="local-6989586621679311267"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311267"><span class="hs-identifier hs-var">pWebACLId_</span></a></span></span><span> </span><span id="local-6989586621679311266"><span class="annot"><span class="annottext">WafAction
+</span><a href="#local-6989586621679311266"><span class="hs-identifier hs-var">pDefaultAction_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">WebACL' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -181,20 +181,20 @@ $cfrom :: forall x. WebACL -&gt; Rep WebACL x
 </span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3AmetricName%3AWebACL%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:webACLArn:WebACL' :: Maybe Text
-</span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3AwebACLArn%3AWebACL%27"><span class="hs-identifier hs-var">webACLArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:WebACL' :: Maybe Text
+</span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3Aname%3AWebACL%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:WebACL' :: Maybe Text
-</span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3Aname%3AWebACL%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:webACLArn:WebACL' :: Maybe Text
+</span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3AwebACLArn%3AWebACL%27"><span class="hs-identifier hs-var">webACLArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:webACLId:WebACL' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3AwebACLId%3AWebACL%27"><span class="hs-identifier hs-var">webACLId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311014"><span class="hs-identifier hs-var">pWebACLId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311267"><span class="hs-identifier hs-var">pWebACLId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultAction:WebACL' :: WafAction
 </span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3AdefaultAction%3AWebACL%27"><span class="hs-identifier hs-var">defaultAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WafAction
-</span><a href="#local-6989586621679311013"><span class="hs-identifier hs-var">pDefaultAction_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311266"><span class="hs-identifier hs-var">pDefaultAction_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:rules:WebACL' :: [ActivatedRule]
 </span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3Arules%3AWebACL%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ActivatedRule]
 forall a. Monoid a =&gt; a
@@ -213,53 +213,53 @@ forall a. Monoid a =&gt; a
 -&gt; (WebACL -&gt; Maybe Text -&gt; WebACL)
 -&gt; Lens WebACL WebACL (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311009"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311262"><span class="annot"><span class="annottext">Maybe Text
 metricName :: Maybe Text
 $sel:metricName:WebACL' :: WebACL -&gt; Maybe Text
-</span><a href="#local-6989586621679311009"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311009"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311008"><span class="annot"><span class="annottext">s :: WebACL
-</span><a href="#local-6989586621679311008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311007"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebACL
-</span><a href="#local-6989586621679311008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:WebACL' :: Maybe Text
+</span><a href="#local-6989586621679311262"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311262"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311261"><span class="annot"><span class="annottext">s :: WebACL
+</span><a href="#local-6989586621679311261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311260"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebACL
+</span><a href="#local-6989586621679311261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:WebACL' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3AmetricName%3AWebACL%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | Tha Amazon Resource Name (ARN) of the web ACL.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#webACL_webACLArn"><span class="hs-identifier hs-type">webACL_webACLArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="webACL_webACLArn"><span class="annot"><span class="annottext">webACL_webACLArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; WebACL -&gt; f WebACL
-</span><a href="Network.AWS.WAFRegional.Types.WebACL.html#webACL_webACLArn"><span class="hs-identifier hs-var hs-var">webACL_webACLArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WebACL -&gt; Maybe Text)
--&gt; (WebACL -&gt; Maybe Text -&gt; WebACL)
--&gt; Lens WebACL WebACL (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311005"><span class="annot"><span class="annottext">Maybe Text
-webACLArn :: Maybe Text
-$sel:webACLArn:WebACL' :: WebACL -&gt; Maybe Text
-</span><a href="#local-6989586621679311005"><span class="hs-identifier hs-var hs-var">webACLArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311005"><span class="hs-identifier hs-var">webACLArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311004"><span class="annot"><span class="annottext">s :: WebACL
-</span><a href="#local-6989586621679311004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311003"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebACL
-</span><a href="#local-6989586621679311004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webACLArn:WebACL' :: Maybe Text
-</span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3AwebACLArn%3AWebACL%27"><span class="hs-identifier hs-var">webACLArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | A friendly name or description of the @WebACL@. You can\'t change the</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- name of a @WebACL@ after you create it.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#webACL_name"><span class="hs-identifier hs-type">webACL_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="webACL_name"><span class="annot"><span class="annottext">webACL_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; WebACL -&gt; f WebACL
+</span><span id="line-132"></span><span class="hs-comment">-- | A friendly name or description of the @WebACL@. You can\'t change the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- name of a @WebACL@ after you create it.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#webACL_name"><span class="hs-identifier hs-type">webACL_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="webACL_name"><span class="annot"><span class="annottext">webACL_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; WebACL -&gt; f WebACL
 </span><a href="Network.AWS.WAFRegional.Types.WebACL.html#webACL_name"><span class="hs-identifier hs-var hs-var">webACL_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WebACL -&gt; Maybe Text)
 -&gt; (WebACL -&gt; Maybe Text -&gt; WebACL)
 -&gt; Lens WebACL WebACL (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311001"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311258"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:WebACL' :: WebACL -&gt; Maybe Text
-</span><a href="#local-6989586621679311001"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311001"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311000"><span class="annot"><span class="annottext">s :: WebACL
-</span><a href="#local-6989586621679311000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310999"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebACL
-</span><a href="#local-6989586621679311000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:WebACL' :: Maybe Text
+</span><a href="#local-6989586621679311258"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311258"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311257"><span class="annot"><span class="annottext">s :: WebACL
+</span><a href="#local-6989586621679311257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311256"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebACL
+</span><a href="#local-6989586621679311257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:WebACL' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3Aname%3AWebACL%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | Tha Amazon Resource Name (ARN) of the web ACL.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#webACL_webACLArn"><span class="hs-identifier hs-type">webACL_webACLArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="webACL_webACLArn"><span class="annot"><span class="annottext">webACL_webACLArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; WebACL -&gt; f WebACL
+</span><a href="Network.AWS.WAFRegional.Types.WebACL.html#webACL_webACLArn"><span class="hs-identifier hs-var hs-var">webACL_webACLArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WebACL -&gt; Maybe Text)
+-&gt; (WebACL -&gt; Maybe Text -&gt; WebACL)
+-&gt; Lens WebACL WebACL (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311254"><span class="annot"><span class="annottext">Maybe Text
+webACLArn :: Maybe Text
+$sel:webACLArn:WebACL' :: WebACL -&gt; Maybe Text
+</span><a href="#local-6989586621679311254"><span class="hs-identifier hs-var hs-var">webACLArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311254"><span class="hs-identifier hs-var">webACLArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311253"><span class="annot"><span class="annottext">s :: WebACL
+</span><a href="#local-6989586621679311253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311252"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebACL
+</span><a href="#local-6989586621679311253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webACLArn:WebACL' :: Maybe Text
+</span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3AwebACLArn%3AWebACL%27"><span class="hs-identifier hs-var">webACLArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | A unique identifier for a @WebACL@. You use @WebACLId@ to get</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- information about a @WebACL@ (see GetWebACL), update a @WebACL@ (see</span><span>
@@ -271,16 +271,16 @@ $sel:name:WebACL' :: WebACL -&gt; Maybe Text
 </span><a href="Network.AWS.WAFRegional.Types.WebACL.html#webACL_webACLId"><span class="hs-identifier hs-var hs-var">webACL_webACLId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WebACL -&gt; Text)
 -&gt; (WebACL -&gt; Text -&gt; WebACL) -&gt; Lens WebACL WebACL Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310997"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311250"><span class="annot"><span class="annottext">Text
 webACLId :: Text
 $sel:webACLId:WebACL' :: WebACL -&gt; Text
-</span><a href="#local-6989586621679310997"><span class="hs-identifier hs-var hs-var">webACLId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679310997"><span class="hs-identifier hs-var">webACLId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310996"><span class="annot"><span class="annottext">s :: WebACL
-</span><a href="#local-6989586621679310996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310995"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679310995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebACL
-</span><a href="#local-6989586621679310996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webACLId:WebACL' :: Text
+</span><a href="#local-6989586621679311250"><span class="hs-identifier hs-var hs-var">webACLId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311250"><span class="hs-identifier hs-var">webACLId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311249"><span class="annot"><span class="annottext">s :: WebACL
+</span><a href="#local-6989586621679311249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311248"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebACL
+</span><a href="#local-6989586621679311249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webACLId:WebACL' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3AwebACLId%3AWebACL%27"><span class="hs-identifier hs-var">webACLId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679310995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The action to perform if none of the @Rules@ contained in the @WebACL@</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- match. The action is specified by the WafAction object.</span><span>
@@ -290,16 +290,16 @@ $sel:webACLId:WebACL' :: WebACL -&gt; Text
 -&gt; (WebACL -&gt; WafAction -&gt; WebACL)
 -&gt; Lens WebACL WebACL WafAction WafAction
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310993"><span class="annot"><span class="annottext">WafAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311246"><span class="annot"><span class="annottext">WafAction
 defaultAction :: WafAction
 $sel:defaultAction:WebACL' :: WebACL -&gt; WafAction
-</span><a href="#local-6989586621679310993"><span class="hs-identifier hs-var hs-var">defaultAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WafAction
-</span><a href="#local-6989586621679310993"><span class="hs-identifier hs-var">defaultAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310992"><span class="annot"><span class="annottext">s :: WebACL
-</span><a href="#local-6989586621679310992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310991"><span class="annot"><span class="annottext">WafAction
-</span><a href="#local-6989586621679310991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebACL
-</span><a href="#local-6989586621679310992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultAction:WebACL' :: WafAction
+</span><a href="#local-6989586621679311246"><span class="hs-identifier hs-var hs-var">defaultAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WafAction
+</span><a href="#local-6989586621679311246"><span class="hs-identifier hs-var">defaultAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311245"><span class="annot"><span class="annottext">s :: WebACL
+</span><a href="#local-6989586621679311245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311244"><span class="annot"><span class="annottext">WafAction
+</span><a href="#local-6989586621679311244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebACL
+</span><a href="#local-6989586621679311245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultAction:WebACL' :: WafAction
 </span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3AdefaultAction%3AWebACL%27"><span class="hs-identifier hs-var">defaultAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WafAction
-</span><a href="#local-6989586621679310991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | An array that contains the action for each @Rule@ in a @WebACL@, the</span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- priority of the @Rule@, and the ID of the @Rule@.</span><span>
@@ -309,16 +309,16 @@ $sel:defaultAction:WebACL' :: WebACL -&gt; WafAction
 -&gt; (WebACL -&gt; [ActivatedRule] -&gt; WebACL)
 -&gt; Lens WebACL WebACL [ActivatedRule] [ActivatedRule]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310989"><span class="annot"><span class="annottext">[ActivatedRule]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311242"><span class="annot"><span class="annottext">[ActivatedRule]
 rules :: [ActivatedRule]
 $sel:rules:WebACL' :: WebACL -&gt; [ActivatedRule]
-</span><a href="#local-6989586621679310989"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ActivatedRule]
-</span><a href="#local-6989586621679310989"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310988"><span class="annot"><span class="annottext">s :: WebACL
-</span><a href="#local-6989586621679310988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310987"><span class="annot"><span class="annottext">[ActivatedRule]
-</span><a href="#local-6989586621679310987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebACL
-</span><a href="#local-6989586621679310988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:WebACL' :: [ActivatedRule]
+</span><a href="#local-6989586621679311242"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ActivatedRule]
+</span><a href="#local-6989586621679311242"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311241"><span class="annot"><span class="annottext">s :: WebACL
+</span><a href="#local-6989586621679311241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL%27"><span class="hs-identifier hs-type">WebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311240"><span class="annot"><span class="annottext">[ActivatedRule]
+</span><a href="#local-6989586621679311240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebACL
+</span><a href="#local-6989586621679311241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:WebACL' :: [ActivatedRule]
 </span><a href="Network.AWS.WAFRegional.Types.WebACL.html#%24sel%3Arules%3AWebACL%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ActivatedRule]
-</span><a href="#local-6989586621679310987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ActivatedRule] -&gt; f [ActivatedRule]) -&gt; WebACL -&gt; f WebACL)
+</span><a href="#local-6989586621679311240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ActivatedRule] -&gt; f [ActivatedRule]) -&gt; WebACL -&gt; f WebACL)
 -&gt; (([ActivatedRule] -&gt; f [ActivatedRule])
     -&gt; [ActivatedRule] -&gt; f [ActivatedRule])
 -&gt; ([ActivatedRule] -&gt; f [ActivatedRule])
@@ -327,19 +327,19 @@ $sel:rules:WebACL' :: WebACL -&gt; [ActivatedRule]
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ActivatedRule] -&gt; f [ActivatedRule])
 -&gt; [ActivatedRule] -&gt; f [ActivatedRule]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310982"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679310980"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WebACL
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311235"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679311233"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WebACL
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser WebACL) -&gt; Value -&gt; Parser WebACL
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WebACL&quot;</span></span><span>
-</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310977"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310977"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311230"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311230"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -361,7 +361,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Text -&gt; Text -&gt; WafAction -&gt; [ActivatedRule] -&gt; WebACL)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679311230"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MetricName&quot;</span></span><span class="hs-special">)</span><span>
@@ -373,25 +373,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Text -&gt; WafAction -&gt; [ActivatedRule] -&gt; WebACL)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679311230"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;WebACLArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text -&gt; Text -&gt; WafAction -&gt; [ActivatedRule] -&gt; WebACL)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Text -&gt; WafAction -&gt; [ActivatedRule] -&gt; WebACL)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679311230"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;WebACLArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; WafAction -&gt; [ActivatedRule] -&gt; WebACL)
 -&gt; Parser Text -&gt; Parser (WafAction -&gt; [ActivatedRule] -&gt; WebACL)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679311230"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WebACLId&quot;</span></span><span class="hs-special">)</span><span>
@@ -399,7 +399,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser WafAction -&gt; Parser ([ActivatedRule] -&gt; WebACL)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WafAction
+</span><a href="#local-6989586621679311230"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WafAction
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultAction&quot;</span></span><span class="hs-special">)</span><span>
@@ -407,7 +407,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser [ActivatedRule] -&gt; Parser WebACL
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [ActivatedRule])
+</span><a href="#local-6989586621679311230"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [ActivatedRule])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Rules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [ActivatedRule])
@@ -418,7 +418,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310969"><span id="local-6989586621679310971"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311222"><span id="local-6989586621679311224"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span></span></span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310966"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311219"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WebACL.html#WebACL"><span class="hs-identifier hs-type">WebACL</span></a></span></span><span>
 </span><span id="line-176"></span></pre></body></html>

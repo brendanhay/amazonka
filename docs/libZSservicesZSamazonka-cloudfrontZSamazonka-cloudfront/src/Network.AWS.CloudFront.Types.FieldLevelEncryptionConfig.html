@@ -29,26 +29,26 @@
 </span><span id="line-29"></span><span class="hs-comment">-- for field-level encryption.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newFieldLevelEncryptionConfig' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679398689"><span id="local-6989586621679398690"></span></span><span class="hs-keyword">data</span><span> </span><span id="FieldLevelEncryptionConfig"><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-var">FieldLevelEncryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FieldLevelEncryptionConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var">FieldLevelEncryptionConfig'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional comment about the configuration. The comment cannot be</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- longer than 128 characters.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Acomment%3AFieldLevelEncryptionConfig%27"><span class="annot"><span class="annottext">FieldLevelEncryptionConfig -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#%24sel%3Acomment%3AFieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A complex data type that specifies when to forward content if a content</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- type isn\'t recognized and profiles to use as by default in a request if</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- a query argument doesn\'t specify a profile to use.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcontentTypeProfileConfig%3AFieldLevelEncryptionConfig%27"><span class="annot"><span class="annottext">FieldLevelEncryptionConfig -&gt; Maybe ContentTypeProfileConfig
-</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#%24sel%3AcontentTypeProfileConfig%3AFieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var hs-var">contentTypeProfileConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfileConfig.html#ContentTypeProfileConfig"><span class="hs-identifier hs-type">ContentTypeProfileConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A complex data type that specifies when to forward content if a profile</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- isn\'t found and the profile that can be provided as a query argument in</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- a request.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AqueryArgProfileConfig%3AFieldLevelEncryptionConfig%27"><span class="annot"><span class="annottext">FieldLevelEncryptionConfig -&gt; Maybe QueryArgProfileConfig
+</span><span id="line-32"></span><span id="local-6989586621679398944"><span id="local-6989586621679398945"></span></span><span class="hs-keyword">data</span><span> </span><span id="FieldLevelEncryptionConfig"><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-var">FieldLevelEncryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FieldLevelEncryptionConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var">FieldLevelEncryptionConfig'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A complex data type that specifies when to forward content if a profile</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- isn\'t found and the profile that can be provided as a query argument in</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- a request.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AqueryArgProfileConfig%3AFieldLevelEncryptionConfig%27"><span class="annot"><span class="annottext">FieldLevelEncryptionConfig -&gt; Maybe QueryArgProfileConfig
 </span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#%24sel%3AqueryArgProfileConfig%3AFieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var hs-var">queryArgProfileConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfileConfig.html#QueryArgProfileConfig"><span class="hs-identifier hs-type">QueryArgProfileConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A complex data type that specifies when to forward content if a content</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- type isn\'t recognized and profiles to use as by default in a request if</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- a query argument doesn\'t specify a profile to use.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcontentTypeProfileConfig%3AFieldLevelEncryptionConfig%27"><span class="annot"><span class="annottext">FieldLevelEncryptionConfig -&gt; Maybe ContentTypeProfileConfig
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#%24sel%3AcontentTypeProfileConfig%3AFieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var hs-var">contentTypeProfileConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfileConfig.html#ContentTypeProfileConfig"><span class="hs-identifier hs-type">ContentTypeProfileConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | An optional comment about the configuration. The comment cannot be</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- longer than 128 characters.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Acomment%3AFieldLevelEncryptionConfig%27"><span class="annot"><span class="annottext">FieldLevelEncryptionConfig -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#%24sel%3Acomment%3AFieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | A unique number that ensures the request can\'t be replayed.</span><span>
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AcallerReference%3AFieldLevelEncryptionConfig%27"><span class="annot"><span class="annottext">FieldLevelEncryptionConfig -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#%24sel%3AcallerReference%3AFieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679398680"><span id="local-6989586621679398682"><span class="annot"><span class="annottext">FieldLevelEncryptionConfig -&gt; FieldLevelEncryptionConfig -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679398935"><span id="local-6989586621679398937"><span class="annot"><span class="annottext">FieldLevelEncryptionConfig -&gt; FieldLevelEncryptionConfig -&gt; Bool
 (FieldLevelEncryptionConfig -&gt; FieldLevelEncryptionConfig -&gt; Bool)
 -&gt; (FieldLevelEncryptionConfig
     -&gt; FieldLevelEncryptionConfig -&gt; Bool)
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FieldLevelEncryptionConfig -&gt; FieldLevelEncryptionConfig -&gt; Bool
 == :: FieldLevelEncryptionConfig -&gt; FieldLevelEncryptionConfig -&gt; Bool
 $c== :: FieldLevelEncryptionConfig -&gt; FieldLevelEncryptionConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398671"><span id="local-6989586621679398673"><span id="local-6989586621679398675"><span id="local-6989586621679398677"><span class="annot"><span class="annottext">ReadPrec [FieldLevelEncryptionConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398926"><span id="local-6989586621679398928"><span id="local-6989586621679398930"><span id="local-6989586621679398932"><span class="annot"><span class="annottext">ReadPrec [FieldLevelEncryptionConfig]
 ReadPrec FieldLevelEncryptionConfig
 Int -&gt; ReadS FieldLevelEncryptionConfig
 ReadS [FieldLevelEncryptionConfig]
@@ -78,7 +78,7 @@ readList :: ReadS [FieldLevelEncryptionConfig]
 $creadList :: ReadS [FieldLevelEncryptionConfig]
 readsPrec :: Int -&gt; ReadS FieldLevelEncryptionConfig
 $creadsPrec :: Int -&gt; ReadS FieldLevelEncryptionConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398664"><span id="local-6989586621679398666"><span id="local-6989586621679398668"><span class="annot"><span class="annottext">Int -&gt; FieldLevelEncryptionConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398919"><span id="local-6989586621679398921"><span id="local-6989586621679398923"><span class="annot"><span class="annottext">Int -&gt; FieldLevelEncryptionConfig -&gt; ShowS
 [FieldLevelEncryptionConfig] -&gt; ShowS
 FieldLevelEncryptionConfig -&gt; String
 (Int -&gt; FieldLevelEncryptionConfig -&gt; ShowS)
@@ -118,16 +118,16 @@ FieldLevelEncryptionConfig -&gt; Rep FieldLevelEncryptionConfig x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'comment', 'fieldLevelEncryptionConfig_comment' - An optional comment about the configuration. The comment cannot be</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- longer than 128 characters.</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'contentTypeProfileConfig', 'fieldLevelEncryptionConfig_contentTypeProfileConfig' - A complex data type that specifies when to forward content if a content</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- type isn\'t recognized and profiles to use as by default in a request if</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- a query argument doesn\'t specify a profile to use.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'queryArgProfileConfig', 'fieldLevelEncryptionConfig_queryArgProfileConfig' - A complex data type that specifies when to forward content if a profile</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- isn\'t found and the profile that can be provided as a query argument in</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- a request.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'queryArgProfileConfig', 'fieldLevelEncryptionConfig_queryArgProfileConfig' - A complex data type that specifies when to forward content if a profile</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- isn\'t found and the profile that can be provided as a query argument in</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- a request.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'contentTypeProfileConfig', 'fieldLevelEncryptionConfig_contentTypeProfileConfig' - A complex data type that specifies when to forward content if a content</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- type isn\'t recognized and profiles to use as by default in a request if</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- a query argument doesn\'t specify a profile to use.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'comment', 'fieldLevelEncryptionConfig_comment' - An optional comment about the configuration. The comment cannot be</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- longer than 128 characters.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- 'callerReference', 'fieldLevelEncryptionConfig_callerReference' - A unique number that ensures the request can\'t be replayed.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#newFieldLevelEncryptionConfig"><span class="hs-identifier hs-type">newFieldLevelEncryptionConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -135,62 +135,63 @@ FieldLevelEncryptionConfig -&gt; Rep FieldLevelEncryptionConfig x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span><span>
 </span><span id="line-73"></span><span id="newFieldLevelEncryptionConfig"><span class="annot"><span class="annottext">newFieldLevelEncryptionConfig :: Text -&gt; FieldLevelEncryptionConfig
-</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#newFieldLevelEncryptionConfig"><span class="hs-identifier hs-var hs-var">newFieldLevelEncryptionConfig</span></a></span></span><span> </span><span id="local-6989586621679398658"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679398658"><span class="hs-identifier hs-var">pCallerReference_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">FieldLevelEncryptionConfig' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#newFieldLevelEncryptionConfig"><span class="hs-identifier hs-var hs-var">newFieldLevelEncryptionConfig</span></a></span></span><span> </span><span id="local-6989586621679398913"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679398913"><span class="hs-identifier hs-var">pCallerReference_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">FieldLevelEncryptionConfig' :: Maybe QueryArgProfileConfig
 -&gt; Maybe ContentTypeProfileConfig
--&gt; Maybe QueryArgProfileConfig
+-&gt; Maybe Text
 -&gt; Text
 -&gt; FieldLevelEncryptionConfig
 </span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:comment:FieldLevelEncryptionConfig' :: Maybe Text
-</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#%24sel%3Acomment%3AFieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queryArgProfileConfig:FieldLevelEncryptionConfig' :: Maybe QueryArgProfileConfig
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#%24sel%3AqueryArgProfileConfig%3AFieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var">queryArgProfileConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryArgProfileConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentTypeProfileConfig:FieldLevelEncryptionConfig' :: Maybe ContentTypeProfileConfig
 </span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#%24sel%3AcontentTypeProfileConfig%3AFieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var">contentTypeProfileConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContentTypeProfileConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryArgProfileConfig:FieldLevelEncryptionConfig' :: Maybe QueryArgProfileConfig
-</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#%24sel%3AqueryArgProfileConfig%3AFieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var">queryArgProfileConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryArgProfileConfig
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:comment:FieldLevelEncryptionConfig' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#%24sel%3Acomment%3AFieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:callerReference:FieldLevelEncryptionConfig' :: Text
 </span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#%24sel%3AcallerReference%3AFieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679398658"><span class="hs-identifier hs-var">pCallerReference_</span></a></span><span>
+</span><a href="#local-6989586621679398913"><span class="hs-identifier hs-var">pCallerReference_</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | An optional comment about the configuration. The comment cannot be</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- longer than 128 characters.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#fieldLevelEncryptionConfig_comment"><span class="hs-identifier hs-type">fieldLevelEncryptionConfig_comment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="fieldLevelEncryptionConfig_comment"><span class="annot"><span class="annottext">fieldLevelEncryptionConfig_comment :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-82"></span><span class="hs-comment">-- | A complex data type that specifies when to forward content if a profile</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- isn\'t found and the profile that can be provided as a query argument in</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- a request.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#fieldLevelEncryptionConfig_queryArgProfileConfig"><span class="hs-identifier hs-type">fieldLevelEncryptionConfig_queryArgProfileConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfileConfig.html#QueryArgProfileConfig"><span class="hs-identifier hs-type">QueryArgProfileConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="fieldLevelEncryptionConfig_queryArgProfileConfig"><span class="annot"><span class="annottext">fieldLevelEncryptionConfig_queryArgProfileConfig :: (Maybe QueryArgProfileConfig -&gt; f (Maybe QueryArgProfileConfig))
 -&gt; FieldLevelEncryptionConfig -&gt; f FieldLevelEncryptionConfig
-</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#fieldLevelEncryptionConfig_comment"><span class="hs-identifier hs-var hs-var">fieldLevelEncryptionConfig_comment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldLevelEncryptionConfig -&gt; Maybe Text)
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#fieldLevelEncryptionConfig_queryArgProfileConfig"><span class="hs-identifier hs-var hs-var">fieldLevelEncryptionConfig_queryArgProfileConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldLevelEncryptionConfig -&gt; Maybe QueryArgProfileConfig)
 -&gt; (FieldLevelEncryptionConfig
-    -&gt; Maybe Text -&gt; FieldLevelEncryptionConfig)
+    -&gt; Maybe QueryArgProfileConfig -&gt; FieldLevelEncryptionConfig)
 -&gt; Lens
      FieldLevelEncryptionConfig
      FieldLevelEncryptionConfig
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe QueryArgProfileConfig)
+     (Maybe QueryArgProfileConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398654"><span class="annot"><span class="annottext">Maybe Text
-comment :: Maybe Text
-$sel:comment:FieldLevelEncryptionConfig' :: FieldLevelEncryptionConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679398654"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679398654"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398653"><span class="annot"><span class="annottext">s :: FieldLevelEncryptionConfig
-</span><a href="#local-6989586621679398653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398652"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679398652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldLevelEncryptionConfig
-</span><a href="#local-6989586621679398653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:FieldLevelEncryptionConfig' :: Maybe Text
-</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#%24sel%3Acomment%3AFieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679398652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | A complex data type that specifies when to forward content if a content</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- type isn\'t recognized and profiles to use as by default in a request if</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- a query argument doesn\'t specify a profile to use.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#fieldLevelEncryptionConfig_contentTypeProfileConfig"><span class="hs-identifier hs-type">fieldLevelEncryptionConfig_contentTypeProfileConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfileConfig.html#ContentTypeProfileConfig"><span class="hs-identifier hs-type">ContentTypeProfileConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="fieldLevelEncryptionConfig_contentTypeProfileConfig"><span class="annot"><span class="annottext">fieldLevelEncryptionConfig_contentTypeProfileConfig :: (Maybe ContentTypeProfileConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398909"><span class="annot"><span class="annottext">Maybe QueryArgProfileConfig
+queryArgProfileConfig :: Maybe QueryArgProfileConfig
+$sel:queryArgProfileConfig:FieldLevelEncryptionConfig' :: FieldLevelEncryptionConfig -&gt; Maybe QueryArgProfileConfig
+</span><a href="#local-6989586621679398909"><span class="hs-identifier hs-var hs-var">queryArgProfileConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryArgProfileConfig
+</span><a href="#local-6989586621679398909"><span class="hs-identifier hs-var">queryArgProfileConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398908"><span class="annot"><span class="annottext">s :: FieldLevelEncryptionConfig
+</span><a href="#local-6989586621679398908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398907"><span class="annot"><span class="annottext">Maybe QueryArgProfileConfig
+</span><a href="#local-6989586621679398907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldLevelEncryptionConfig
+</span><a href="#local-6989586621679398908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryArgProfileConfig:FieldLevelEncryptionConfig' :: Maybe QueryArgProfileConfig
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#%24sel%3AqueryArgProfileConfig%3AFieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var">queryArgProfileConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryArgProfileConfig
+</span><a href="#local-6989586621679398907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | A complex data type that specifies when to forward content if a content</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- type isn\'t recognized and profiles to use as by default in a request if</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- a query argument doesn\'t specify a profile to use.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#fieldLevelEncryptionConfig_contentTypeProfileConfig"><span class="hs-identifier hs-type">fieldLevelEncryptionConfig_contentTypeProfileConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfileConfig.html#ContentTypeProfileConfig"><span class="hs-identifier hs-type">ContentTypeProfileConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="fieldLevelEncryptionConfig_contentTypeProfileConfig"><span class="annot"><span class="annottext">fieldLevelEncryptionConfig_contentTypeProfileConfig :: (Maybe ContentTypeProfileConfig
  -&gt; f (Maybe ContentTypeProfileConfig))
 -&gt; FieldLevelEncryptionConfig -&gt; f FieldLevelEncryptionConfig
 </span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#fieldLevelEncryptionConfig_contentTypeProfileConfig"><span class="hs-identifier hs-var hs-var">fieldLevelEncryptionConfig_contentTypeProfileConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldLevelEncryptionConfig -&gt; Maybe ContentTypeProfileConfig)
@@ -202,42 +203,41 @@ $sel:comment:FieldLevelEncryptionConfig' :: FieldLevelEncryptionConfig -&gt; May
      (Maybe ContentTypeProfileConfig)
      (Maybe ContentTypeProfileConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398650"><span class="annot"><span class="annottext">Maybe ContentTypeProfileConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398905"><span class="annot"><span class="annottext">Maybe ContentTypeProfileConfig
 contentTypeProfileConfig :: Maybe ContentTypeProfileConfig
 $sel:contentTypeProfileConfig:FieldLevelEncryptionConfig' :: FieldLevelEncryptionConfig -&gt; Maybe ContentTypeProfileConfig
-</span><a href="#local-6989586621679398650"><span class="hs-identifier hs-var hs-var">contentTypeProfileConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContentTypeProfileConfig
-</span><a href="#local-6989586621679398650"><span class="hs-identifier hs-var">contentTypeProfileConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398649"><span class="annot"><span class="annottext">s :: FieldLevelEncryptionConfig
-</span><a href="#local-6989586621679398649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398648"><span class="annot"><span class="annottext">Maybe ContentTypeProfileConfig
-</span><a href="#local-6989586621679398648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldLevelEncryptionConfig
-</span><a href="#local-6989586621679398649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentTypeProfileConfig:FieldLevelEncryptionConfig' :: Maybe ContentTypeProfileConfig
+</span><a href="#local-6989586621679398905"><span class="hs-identifier hs-var hs-var">contentTypeProfileConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContentTypeProfileConfig
+</span><a href="#local-6989586621679398905"><span class="hs-identifier hs-var">contentTypeProfileConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398904"><span class="annot"><span class="annottext">s :: FieldLevelEncryptionConfig
+</span><a href="#local-6989586621679398904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398903"><span class="annot"><span class="annottext">Maybe ContentTypeProfileConfig
+</span><a href="#local-6989586621679398903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldLevelEncryptionConfig
+</span><a href="#local-6989586621679398904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentTypeProfileConfig:FieldLevelEncryptionConfig' :: Maybe ContentTypeProfileConfig
 </span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#%24sel%3AcontentTypeProfileConfig%3AFieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var">contentTypeProfileConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContentTypeProfileConfig
-</span><a href="#local-6989586621679398648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | A complex data type that specifies when to forward content if a profile</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- isn\'t found and the profile that can be provided as a query argument in</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- a request.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#fieldLevelEncryptionConfig_queryArgProfileConfig"><span class="hs-identifier hs-type">fieldLevelEncryptionConfig_queryArgProfileConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfileConfig.html#QueryArgProfileConfig"><span class="hs-identifier hs-type">QueryArgProfileConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="fieldLevelEncryptionConfig_queryArgProfileConfig"><span class="annot"><span class="annottext">fieldLevelEncryptionConfig_queryArgProfileConfig :: (Maybe QueryArgProfileConfig -&gt; f (Maybe QueryArgProfileConfig))
+</span><a href="#local-6989586621679398903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | An optional comment about the configuration. The comment cannot be</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- longer than 128 characters.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#fieldLevelEncryptionConfig_comment"><span class="hs-identifier hs-type">fieldLevelEncryptionConfig_comment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="fieldLevelEncryptionConfig_comment"><span class="annot"><span class="annottext">fieldLevelEncryptionConfig_comment :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; FieldLevelEncryptionConfig -&gt; f FieldLevelEncryptionConfig
-</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#fieldLevelEncryptionConfig_queryArgProfileConfig"><span class="hs-identifier hs-var hs-var">fieldLevelEncryptionConfig_queryArgProfileConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldLevelEncryptionConfig -&gt; Maybe QueryArgProfileConfig)
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#fieldLevelEncryptionConfig_comment"><span class="hs-identifier hs-var hs-var">fieldLevelEncryptionConfig_comment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldLevelEncryptionConfig -&gt; Maybe Text)
 -&gt; (FieldLevelEncryptionConfig
-    -&gt; Maybe QueryArgProfileConfig -&gt; FieldLevelEncryptionConfig)
+    -&gt; Maybe Text -&gt; FieldLevelEncryptionConfig)
 -&gt; Lens
      FieldLevelEncryptionConfig
      FieldLevelEncryptionConfig
-     (Maybe QueryArgProfileConfig)
-     (Maybe QueryArgProfileConfig)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398646"><span class="annot"><span class="annottext">Maybe QueryArgProfileConfig
-queryArgProfileConfig :: Maybe QueryArgProfileConfig
-$sel:queryArgProfileConfig:FieldLevelEncryptionConfig' :: FieldLevelEncryptionConfig -&gt; Maybe QueryArgProfileConfig
-</span><a href="#local-6989586621679398646"><span class="hs-identifier hs-var hs-var">queryArgProfileConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryArgProfileConfig
-</span><a href="#local-6989586621679398646"><span class="hs-identifier hs-var">queryArgProfileConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398645"><span class="annot"><span class="annottext">s :: FieldLevelEncryptionConfig
-</span><a href="#local-6989586621679398645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398644"><span class="annot"><span class="annottext">Maybe QueryArgProfileConfig
-</span><a href="#local-6989586621679398644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldLevelEncryptionConfig
-</span><a href="#local-6989586621679398645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryArgProfileConfig:FieldLevelEncryptionConfig' :: Maybe QueryArgProfileConfig
-</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#%24sel%3AqueryArgProfileConfig%3AFieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var">queryArgProfileConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryArgProfileConfig
-</span><a href="#local-6989586621679398644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398901"><span class="annot"><span class="annottext">Maybe Text
+comment :: Maybe Text
+$sel:comment:FieldLevelEncryptionConfig' :: FieldLevelEncryptionConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679398901"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679398901"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398900"><span class="annot"><span class="annottext">s :: FieldLevelEncryptionConfig
+</span><a href="#local-6989586621679398900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398899"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679398899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldLevelEncryptionConfig
+</span><a href="#local-6989586621679398900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:FieldLevelEncryptionConfig' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#%24sel%3Acomment%3AFieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679398899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | A unique number that ensures the request can\'t be replayed.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#fieldLevelEncryptionConfig_callerReference"><span class="hs-identifier hs-type">fieldLevelEncryptionConfig_callerReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -249,124 +249,116 @@ $sel:queryArgProfileConfig:FieldLevelEncryptionConfig' :: FieldLevelEncryptionCo
 -&gt; Lens
      FieldLevelEncryptionConfig FieldLevelEncryptionConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398642"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398897"><span class="annot"><span class="annottext">Text
 callerReference :: Text
 $sel:callerReference:FieldLevelEncryptionConfig' :: FieldLevelEncryptionConfig -&gt; Text
-</span><a href="#local-6989586621679398642"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679398642"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398641"><span class="annot"><span class="annottext">s :: FieldLevelEncryptionConfig
-</span><a href="#local-6989586621679398641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398640"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679398640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldLevelEncryptionConfig
-</span><a href="#local-6989586621679398641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerReference:FieldLevelEncryptionConfig' :: Text
+</span><a href="#local-6989586621679398897"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679398897"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398896"><span class="annot"><span class="annottext">s :: FieldLevelEncryptionConfig
+</span><a href="#local-6989586621679398896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398895"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679398895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldLevelEncryptionConfig
+</span><a href="#local-6989586621679398896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerReference:FieldLevelEncryptionConfig' :: Text
 </span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#%24sel%3AcallerReference%3AFieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679398640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679398895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679398637"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FieldLevelEncryptionConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679398635"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679398635"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679398892"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FieldLevelEncryptionConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679398890"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679398890"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">Maybe QueryArgProfileConfig
 -&gt; Maybe ContentTypeProfileConfig
--&gt; Maybe QueryArgProfileConfig
+-&gt; Maybe Text
 -&gt; Text
 -&gt; FieldLevelEncryptionConfig
 </span><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-var">FieldLevelEncryptionConfig'</span></a></span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">(Maybe QueryArgProfileConfig
  -&gt; Maybe ContentTypeProfileConfig
- -&gt; Maybe QueryArgProfileConfig
+ -&gt; Maybe Text
  -&gt; Text
  -&gt; FieldLevelEncryptionConfig)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe QueryArgProfileConfig)
 -&gt; Either
      String
      (Maybe ContentTypeProfileConfig
-      -&gt; Maybe QueryArgProfileConfig
-      -&gt; Text
-      -&gt; FieldLevelEncryptionConfig)
+      -&gt; Maybe Text -&gt; Text -&gt; FieldLevelEncryptionConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679398635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Comment&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ContentTypeProfileConfig
-   -&gt; Maybe QueryArgProfileConfig
-   -&gt; Text
-   -&gt; FieldLevelEncryptionConfig)
--&gt; Either String (Maybe ContentTypeProfileConfig)
--&gt; Either
-     String
-     (Maybe QueryArgProfileConfig -&gt; Text -&gt; FieldLevelEncryptionConfig)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679398635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ContentTypeProfileConfig)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ContentTypeProfileConfig&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe QueryArgProfileConfig -&gt; Text -&gt; FieldLevelEncryptionConfig)
--&gt; Either String (Maybe QueryArgProfileConfig)
--&gt; Either String (Text -&gt; FieldLevelEncryptionConfig)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679398635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe QueryArgProfileConfig)
+</span><a href="#local-6989586621679398890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe QueryArgProfileConfig)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QueryArgProfileConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ContentTypeProfileConfig
+   -&gt; Maybe Text -&gt; Text -&gt; FieldLevelEncryptionConfig)
+-&gt; Either String (Maybe ContentTypeProfileConfig)
+-&gt; Either String (Maybe Text -&gt; Text -&gt; FieldLevelEncryptionConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679398890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ContentTypeProfileConfig)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContentTypeProfileConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Text -&gt; FieldLevelEncryptionConfig)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Text -&gt; FieldLevelEncryptionConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679398890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Comment&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; FieldLevelEncryptionConfig)
 -&gt; Either String Text -&gt; Either String FieldLevelEncryptionConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679398635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679398890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CallerReference&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398628"><span id="local-6989586621679398630"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398883"><span id="local-6989586621679398885"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398880"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679398621"><span class="annot"><span class="annottext">toXML :: FieldLevelEncryptionConfig -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398616"><span id="local-6989586621679398617"><span id="local-6989586621679398618"><span id="local-6989586621679398619"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679398876"><span class="annot"><span class="annottext">toXML :: FieldLevelEncryptionConfig -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig.html#FieldLevelEncryptionConfig%27"><span class="hs-identifier hs-type">FieldLevelEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398871"><span id="local-6989586621679398872"><span id="local-6989586621679398873"><span id="local-6989586621679398874"><span class="annot"><span class="annottext">Maybe Text
 Maybe ContentTypeProfileConfig
 Maybe QueryArgProfileConfig
 Text
 callerReference :: Text
-queryArgProfileConfig :: Maybe QueryArgProfileConfig
-contentTypeProfileConfig :: Maybe ContentTypeProfileConfig
 comment :: Maybe Text
+contentTypeProfileConfig :: Maybe ContentTypeProfileConfig
+queryArgProfileConfig :: Maybe QueryArgProfileConfig
 $sel:callerReference:FieldLevelEncryptionConfig' :: FieldLevelEncryptionConfig -&gt; Text
-$sel:queryArgProfileConfig:FieldLevelEncryptionConfig' :: FieldLevelEncryptionConfig -&gt; Maybe QueryArgProfileConfig
-$sel:contentTypeProfileConfig:FieldLevelEncryptionConfig' :: FieldLevelEncryptionConfig -&gt; Maybe ContentTypeProfileConfig
 $sel:comment:FieldLevelEncryptionConfig' :: FieldLevelEncryptionConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679398616"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:contentTypeProfileConfig:FieldLevelEncryptionConfig' :: FieldLevelEncryptionConfig -&gt; Maybe ContentTypeProfileConfig
+$sel:queryArgProfileConfig:FieldLevelEncryptionConfig' :: FieldLevelEncryptionConfig -&gt; Maybe QueryArgProfileConfig
+</span><a href="#local-6989586621679398871"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;QueryArgProfileConfig&quot;</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe QueryArgProfileConfig -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryArgProfileConfig
+</span><a href="#local-6989586621679398874"><span class="hs-identifier hs-var">queryArgProfileConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;ContentTypeProfileConfig&quot;</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe ContentTypeProfileConfig -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe ContentTypeProfileConfig
+</span><a href="#local-6989586621679398873"><span class="hs-identifier hs-var">contentTypeProfileConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Comment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679398619"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;ContentTypeProfileConfig&quot;</span></span><span>
-</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe ContentTypeProfileConfig -&gt; XML
-forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe ContentTypeProfileConfig
-</span><a href="#local-6989586621679398618"><span class="hs-identifier hs-var">contentTypeProfileConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;QueryArgProfileConfig&quot;</span></span><span>
-</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe QueryArgProfileConfig -&gt; XML
-forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryArgProfileConfig
-</span><a href="#local-6989586621679398617"><span class="hs-identifier hs-var">queryArgProfileConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679398872"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;CallerReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679398616"><span class="hs-identifier hs-var">callerReference</span></a></span><span>
+</span><a href="#local-6989586621679398871"><span class="hs-identifier hs-var">callerReference</span></a></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span></pre></body></html>

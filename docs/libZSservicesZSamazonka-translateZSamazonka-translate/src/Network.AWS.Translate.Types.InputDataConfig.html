@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- job.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInputDataConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679182434"><span id="local-6989586621679182435"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputDataConfig"><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-var">InputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputDataConfig%27"><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-var">InputDataConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679182491"><span id="local-6989586621679182492"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputDataConfig"><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-var">InputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputDataConfig%27"><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-var">InputDataConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The URI of the AWS S3 folder that contains the input file. The folder</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- must be in the same Region as the API endpoint you are calling.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3As3Uri%3AInputDataConfig%27"><span class="annot"><span class="annottext">InputDataConfig -&gt; Text
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AcontentType%3AInputDataConfig%27"><span class="annot"><span class="annottext">InputDataConfig -&gt; Text
 </span><a href="Network.AWS.Translate.Types.InputDataConfig.html#%24sel%3AcontentType%3AInputDataConfig%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182427"><span id="local-6989586621679182429"><span class="annot"><span class="annottext">InputDataConfig -&gt; InputDataConfig -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182484"><span id="local-6989586621679182486"><span class="annot"><span class="annottext">InputDataConfig -&gt; InputDataConfig -&gt; Bool
 (InputDataConfig -&gt; InputDataConfig -&gt; Bool)
 -&gt; (InputDataConfig -&gt; InputDataConfig -&gt; Bool)
 -&gt; Eq InputDataConfig
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InputDataConfig -&gt; InputDataConfig -&gt; Bool
 == :: InputDataConfig -&gt; InputDataConfig -&gt; Bool
 $c== :: InputDataConfig -&gt; InputDataConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182418"><span id="local-6989586621679182420"><span id="local-6989586621679182422"><span id="local-6989586621679182424"><span class="annot"><span class="annottext">ReadPrec [InputDataConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182475"><span id="local-6989586621679182477"><span id="local-6989586621679182479"><span id="local-6989586621679182481"><span class="annot"><span class="annottext">ReadPrec [InputDataConfig]
 ReadPrec InputDataConfig
 Int -&gt; ReadS InputDataConfig
 ReadS [InputDataConfig]
@@ -91,7 +91,7 @@ readList :: ReadS [InputDataConfig]
 $creadList :: ReadS [InputDataConfig]
 readsPrec :: Int -&gt; ReadS InputDataConfig
 $creadsPrec :: Int -&gt; ReadS InputDataConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182411"><span id="local-6989586621679182413"><span id="local-6989586621679182415"><span class="annot"><span class="annottext">Int -&gt; InputDataConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182468"><span id="local-6989586621679182470"><span id="local-6989586621679182472"><span class="annot"><span class="annottext">Int -&gt; InputDataConfig -&gt; ShowS
 [InputDataConfig] -&gt; ShowS
 InputDataConfig -&gt; String
 (Int -&gt; InputDataConfig -&gt; ShowS)
@@ -162,17 +162,17 @@ $cfrom :: forall x. InputDataConfig -&gt; Rep InputDataConfig x
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span>
 </span><span id="line-109"></span><span id="newInputDataConfig"><span class="annot"><span class="annottext">newInputDataConfig :: Text -&gt; Text -&gt; InputDataConfig
-</span><a href="Network.AWS.Translate.Types.InputDataConfig.html#newInputDataConfig"><span class="hs-identifier hs-var hs-var">newInputDataConfig</span></a></span></span><span> </span><span id="local-6989586621679182405"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182405"><span class="hs-identifier hs-var">pS3Uri_</span></a></span></span><span> </span><span id="local-6989586621679182404"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182404"><span class="hs-identifier hs-var">pContentType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Translate.Types.InputDataConfig.html#newInputDataConfig"><span class="hs-identifier hs-var hs-var">newInputDataConfig</span></a></span></span><span> </span><span id="local-6989586621679182462"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182462"><span class="hs-identifier hs-var">pS3Uri_</span></a></span></span><span> </span><span id="local-6989586621679182461"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182461"><span class="hs-identifier hs-var">pContentType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><span class="annottext">InputDataConfig' :: Text -&gt; Text -&gt; InputDataConfig
 </span><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3Uri:InputDataConfig' :: Text
 </span><a href="Network.AWS.Translate.Types.InputDataConfig.html#%24sel%3As3Uri%3AInputDataConfig%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182405"><span class="hs-identifier hs-var">pS3Uri_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679182462"><span class="hs-identifier hs-var">pS3Uri_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentType:InputDataConfig' :: Text
 </span><a href="Network.AWS.Translate.Types.InputDataConfig.html#%24sel%3AcontentType%3AInputDataConfig%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182404"><span class="hs-identifier hs-var">pContentType_</span></a></span><span>
+</span><a href="#local-6989586621679182461"><span class="hs-identifier hs-var">pContentType_</span></a></span><span>
 </span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The URI of the AWS S3 folder that contains the input file. The folder</span><span>
@@ -183,16 +183,16 @@ $cfrom :: forall x. InputDataConfig -&gt; Rep InputDataConfig x
 -&gt; (InputDataConfig -&gt; Text -&gt; InputDataConfig)
 -&gt; Lens InputDataConfig InputDataConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182400"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182457"><span class="annot"><span class="annottext">Text
 s3Uri :: Text
 $sel:s3Uri:InputDataConfig' :: InputDataConfig -&gt; Text
-</span><a href="#local-6989586621679182400"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182400"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182399"><span class="annot"><span class="annottext">s :: InputDataConfig
-</span><a href="#local-6989586621679182399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182398"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
-</span><a href="#local-6989586621679182399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:InputDataConfig' :: Text
+</span><a href="#local-6989586621679182457"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182457"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182456"><span class="annot"><span class="annottext">s :: InputDataConfig
+</span><a href="#local-6989586621679182456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182455"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679182456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:InputDataConfig' :: Text
 </span><a href="Network.AWS.Translate.Types.InputDataConfig.html#%24sel%3As3Uri%3AInputDataConfig%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679182455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | Describes the format of the data that you submit to Amazon Translate as</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- input. You can specify one of the following multipurpose internet mail</span><span>
@@ -227,19 +227,19 @@ $sel:s3Uri:InputDataConfig' :: InputDataConfig -&gt; Text
 -&gt; (InputDataConfig -&gt; Text -&gt; InputDataConfig)
 -&gt; Lens InputDataConfig InputDataConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182396"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182453"><span class="annot"><span class="annottext">Text
 contentType :: Text
 $sel:contentType:InputDataConfig' :: InputDataConfig -&gt; Text
-</span><a href="#local-6989586621679182396"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182396"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182395"><span class="annot"><span class="annottext">s :: InputDataConfig
-</span><a href="#local-6989586621679182395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182394"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
-</span><a href="#local-6989586621679182395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:InputDataConfig' :: Text
+</span><a href="#local-6989586621679182453"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182453"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182452"><span class="annot"><span class="annottext">s :: InputDataConfig
+</span><a href="#local-6989586621679182452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182451"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679182452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:InputDataConfig' :: Text
 </span><a href="Network.AWS.Translate.Types.InputDataConfig.html#%24sel%3AcontentType%3AInputDataConfig%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679182451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182391"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679182389"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputDataConfig
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182448"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679182446"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputDataConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InputDataConfig)
@@ -249,15 +249,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InputDataConfig&quot;</span></span><span>
-</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679182386"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182386"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679182443"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182443"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; InputDataConfig
 </span><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-var">InputDataConfig'</span></a></span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; InputDataConfig)
 -&gt; Parser Text -&gt; Parser (Text -&gt; InputDataConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679182443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span class="hs-special">)</span><span>
@@ -265,24 +265,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser InputDataConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679182443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContentType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182380"><span id="local-6989586621679182382"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182437"><span id="local-6989586621679182439"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span></span></span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182377"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182434"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span></span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182369"><span id="local-6989586621679182371"><span id="local-6989586621679182373"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679182367"><span class="annot"><span class="annottext">toJSON :: InputDataConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182364"><span id="local-6989586621679182365"><span class="annot"><span class="annottext">Text
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182426"><span id="local-6989586621679182428"><span id="local-6989586621679182430"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679182424"><span class="annot"><span class="annottext">toJSON :: InputDataConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182421"><span id="local-6989586621679182422"><span class="annot"><span class="annottext">Text
 contentType :: Text
 s3Uri :: Text
 $sel:contentType:InputDataConfig' :: InputDataConfig -&gt; Text
 $sel:s3Uri:InputDataConfig' :: InputDataConfig -&gt; Text
-</span><a href="#local-6989586621679182364"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679182421"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -294,14 +294,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182365"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679182422"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContentType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182364"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679182421"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span></pre></body></html>

@@ -44,8 +44,8 @@
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#newListRulesResponse"><span class="hs-identifier">newListRulesResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#listRulesResponse_nextToken"><span class="hs-identifier">listRulesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#listRulesResponse_rules"><span class="hs-identifier">listRulesResponse_rules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#listRulesResponse_rules"><span class="hs-identifier">listRulesResponse_rules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#listRulesResponse_nextToken"><span class="hs-identifier">listRulesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#listRulesResponse_httpStatus"><span class="hs-identifier">listRulesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span class="hs-keyword">where</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newListRules' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679311549"><span id="local-6989586621679311550"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRules"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-var">ListRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRules%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-var">ListRules'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679311751"><span id="local-6989586621679311752"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRules"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-var">ListRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRules%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-var">ListRules'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token returned by a previous call to retrieve the next set of</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- results.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AnextToken%3AListRules%27"><span class="annot"><span class="annottext">ListRules -&gt; Maybe Text
@@ -74,7 +74,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3Alimit%3AListRules%27"><span class="annot"><span class="annottext">ListRules -&gt; Maybe Natural
 </span><a href="Network.AWS.CloudWatchEvents.ListRules.html#%24sel%3Alimit%3AListRules%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311540"><span id="local-6989586621679311542"><span class="annot"><span class="annottext">ListRules -&gt; ListRules -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311742"><span id="local-6989586621679311744"><span class="annot"><span class="annottext">ListRules -&gt; ListRules -&gt; Bool
 (ListRules -&gt; ListRules -&gt; Bool)
 -&gt; (ListRules -&gt; ListRules -&gt; Bool) -&gt; Eq ListRules
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListRules -&gt; ListRules -&gt; Bool
 == :: ListRules -&gt; ListRules -&gt; Bool
 $c== :: ListRules -&gt; ListRules -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311531"><span id="local-6989586621679311533"><span id="local-6989586621679311535"><span id="local-6989586621679311537"><span class="annot"><span class="annottext">ReadPrec [ListRules]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311733"><span id="local-6989586621679311735"><span id="local-6989586621679311737"><span id="local-6989586621679311739"><span class="annot"><span class="annottext">ReadPrec [ListRules]
 ReadPrec ListRules
 Int -&gt; ReadS ListRules
 ReadS [ListRules]
@@ -102,7 +102,7 @@ readList :: ReadS [ListRules]
 $creadList :: ReadS [ListRules]
 readsPrec :: Int -&gt; ReadS ListRules
 $creadsPrec :: Int -&gt; ReadS ListRules
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311524"><span id="local-6989586621679311526"><span id="local-6989586621679311528"><span class="annot"><span class="annottext">Int -&gt; ListRules -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311726"><span id="local-6989586621679311728"><span id="local-6989586621679311730"><span class="annot"><span class="annottext">Int -&gt; ListRules -&gt; ShowS
 [ListRules] -&gt; ShowS
 ListRules -&gt; String
 (Int -&gt; ListRules -&gt; ShowS)
@@ -177,16 +177,16 @@ forall a. Maybe a
 -&gt; (ListRules -&gt; Maybe Text -&gt; ListRules)
 -&gt; Lens ListRules ListRules (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311518"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311720"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListRules' :: ListRules -&gt; Maybe Text
-</span><a href="#local-6989586621679311518"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311518"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311517"><span class="annot"><span class="annottext">s :: ListRules
-</span><a href="#local-6989586621679311517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311516"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRules
-</span><a href="#local-6989586621679311517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRules' :: Maybe Text
+</span><a href="#local-6989586621679311720"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311720"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311719"><span class="annot"><span class="annottext">s :: ListRules
+</span><a href="#local-6989586621679311719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311718"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRules
+</span><a href="#local-6989586621679311719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRules' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.ListRules.html#%24sel%3AnextToken%3AListRules%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The name or ARN of the event bus to list the rules for. If you omit</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- this, the default event bus is used.</span><span>
@@ -196,16 +196,16 @@ $sel:nextToken:ListRules' :: ListRules -&gt; Maybe Text
 -&gt; (ListRules -&gt; Maybe Text -&gt; ListRules)
 -&gt; Lens ListRules ListRules (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311515"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311717"><span class="annot"><span class="annottext">Maybe Text
 eventBusName :: Maybe Text
 $sel:eventBusName:ListRules' :: ListRules -&gt; Maybe Text
-</span><a href="#local-6989586621679311515"><span class="hs-identifier hs-var hs-var">eventBusName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311515"><span class="hs-identifier hs-var">eventBusName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311514"><span class="annot"><span class="annottext">s :: ListRules
-</span><a href="#local-6989586621679311514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311513"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRules
-</span><a href="#local-6989586621679311514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventBusName:ListRules' :: Maybe Text
+</span><a href="#local-6989586621679311717"><span class="hs-identifier hs-var hs-var">eventBusName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311717"><span class="hs-identifier hs-var">eventBusName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311716"><span class="annot"><span class="annottext">s :: ListRules
+</span><a href="#local-6989586621679311716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311715"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRules
+</span><a href="#local-6989586621679311716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventBusName:ListRules' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.ListRules.html#%24sel%3AeventBusName%3AListRules%27"><span class="hs-identifier hs-var">eventBusName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The prefix matching the rule name.</span><span>
 </span><span id="line-113"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#listRules_namePrefix"><span class="hs-identifier hs-type">listRules_namePrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -214,16 +214,16 @@ $sel:eventBusName:ListRules' :: ListRules -&gt; Maybe Text
 -&gt; (ListRules -&gt; Maybe Text -&gt; ListRules)
 -&gt; Lens ListRules ListRules (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311512"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311714"><span class="annot"><span class="annottext">Maybe Text
 namePrefix :: Maybe Text
 $sel:namePrefix:ListRules' :: ListRules -&gt; Maybe Text
-</span><a href="#local-6989586621679311512"><span class="hs-identifier hs-var hs-var">namePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311512"><span class="hs-identifier hs-var">namePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311511"><span class="annot"><span class="annottext">s :: ListRules
-</span><a href="#local-6989586621679311511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311510"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRules
-</span><a href="#local-6989586621679311511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namePrefix:ListRules' :: Maybe Text
+</span><a href="#local-6989586621679311714"><span class="hs-identifier hs-var hs-var">namePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311714"><span class="hs-identifier hs-var">namePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311713"><span class="annot"><span class="annottext">s :: ListRules
+</span><a href="#local-6989586621679311713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311712"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRules
+</span><a href="#local-6989586621679311713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namePrefix:ListRules' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.ListRules.html#%24sel%3AnamePrefix%3AListRules%27"><span class="hs-identifier hs-var">namePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The maximum number of results to return.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#listRules_limit"><span class="hs-identifier hs-type">listRules_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -232,28 +232,28 @@ $sel:namePrefix:ListRules' :: ListRules -&gt; Maybe Text
 -&gt; (ListRules -&gt; Maybe Natural -&gt; ListRules)
 -&gt; Lens ListRules ListRules (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311509"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311711"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListRules' :: ListRules -&gt; Maybe Natural
-</span><a href="#local-6989586621679311509"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679311509"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311508"><span class="annot"><span class="annottext">s :: ListRules
-</span><a href="#local-6989586621679311508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311507"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679311507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRules
-</span><a href="#local-6989586621679311508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListRules' :: Maybe Natural
+</span><a href="#local-6989586621679311711"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679311711"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311710"><span class="annot"><span class="annottext">s :: ListRules
+</span><a href="#local-6989586621679311710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311709"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679311709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRules
+</span><a href="#local-6989586621679311710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListRules' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchEvents.ListRules.html#%24sel%3Alimit%3AListRules%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679311507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679311503"><span class="annot"><span class="annottext">page :: ListRules -&gt; AWSResponse ListRules -&gt; Maybe ListRules
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679311501"><span class="annot"><span class="annottext">ListRules
-</span><a href="#local-6989586621679311501"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679311500"><span class="annot"><span class="annottext">AWSResponse ListRules
-</span><a href="#local-6989586621679311500"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679311705"><span class="annot"><span class="annottext">page :: ListRules -&gt; AWSResponse ListRules -&gt; Maybe ListRules
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679311703"><span class="annot"><span class="annottext">ListRules
+</span><a href="#local-6989586621679311703"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679311702"><span class="annot"><span class="annottext">AWSResponse ListRules
+</span><a href="#local-6989586621679311702"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-123"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRules
 ListRulesResponse
-</span><a href="#local-6989586621679311500"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679311702"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">ListRulesResponse
 -&gt; Getting (First Text) ListRulesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -279,7 +279,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-128"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRules
 ListRulesResponse
-</span><a href="#local-6989586621679311500"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679311702"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">ListRulesResponse
 -&gt; Getting (First [Rule]) ListRulesResponse [Rule] -&gt; Maybe [Rule]
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -308,7 +308,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">ListRules
-</span><a href="#local-6989586621679311501"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679311703"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">ListRules -&gt; (ListRules -&gt; ListRules) -&gt; ListRules
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -321,7 +321,7 @@ Lens ListRules ListRules (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRules
 ListRulesResponse
-</span><a href="#local-6989586621679311500"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679311702"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">ListRulesResponse
 -&gt; Getting (First Text) ListRulesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -341,12 +341,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679311490"><span class="annot"><span class="annottext">request :: ListRules -&gt; Request ListRules
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679311692"><span class="annot"><span class="annottext">request :: ListRules -&gt; Request ListRules
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListRules -&gt; Request ListRules
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679311486"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679311688"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListRules
 -&gt; ClientResponse ClientBody
@@ -370,27 +370,18 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311483"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311483"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311482"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679311482"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311481"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311481"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Rule] -&gt; Int -&gt; ListRulesResponse
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311685"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311685"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311684"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679311684"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311683"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311683"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Rule] -&gt; Maybe Text -&gt; Int -&gt; ListRulesResponse
 </span><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-var">ListRulesResponse'</span></a></span><span>
-</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Rule] -&gt; Int -&gt; ListRulesResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe [Rule] -&gt; Int -&gt; ListRulesResponse)
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Rule] -&gt; Maybe Text -&gt; Int -&gt; ListRulesResponse)
+-&gt; Either String (Maybe [Rule])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListRulesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311481"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Rule] -&gt; Int -&gt; ListRulesResponse)
--&gt; Either String (Maybe [Rule])
--&gt; Either String (Int -&gt; ListRulesResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311481"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Rule]))
+</span><a href="#local-6989586621679311683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Rule]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Rules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Rule]))
@@ -399,6 +390,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListRulesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListRulesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListRulesResponse)
 -&gt; Either String Int -&gt; Either String ListRulesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -407,15 +407,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311483"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311685"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311472"><span id="local-6989586621679311474"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311674"><span id="local-6989586621679311676"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311469"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311671"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679311465"><span class="annot"><span class="annottext">toHeaders :: ListRules -&gt; ResponseHeaders
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679311667"><span class="annot"><span class="annottext">toHeaders :: ListRules -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListRules -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -440,9 +440,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311455"><span id="local-6989586621679311457"><span id="local-6989586621679311459"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679311453"><span class="annot"><span class="annottext">toJSON :: ListRules -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311448"><span id="local-6989586621679311449"><span id="local-6989586621679311450"><span id="local-6989586621679311451"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311657"><span id="local-6989586621679311659"><span id="local-6989586621679311661"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679311655"><span class="annot"><span class="annottext">toJSON :: ListRules -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules%27"><span class="hs-identifier hs-type">ListRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311650"><span id="local-6989586621679311651"><span id="local-6989586621679311652"><span id="local-6989586621679311653"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 limit :: Maybe Natural
 namePrefix :: Maybe Text
@@ -452,7 +452,7 @@ $sel:limit:ListRules' :: ListRules -&gt; Maybe Natural
 $sel:namePrefix:ListRules' :: ListRules -&gt; Maybe Text
 $sel:eventBusName:ListRules' :: ListRules -&gt; Maybe Text
 $sel:nextToken:ListRules' :: ListRules -&gt; Maybe Text
-</span><a href="#local-6989586621679311448"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679311650"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -464,40 +464,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311451"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311653"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventBusName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311450"><span class="hs-identifier hs-var">eventBusName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311652"><span class="hs-identifier hs-var">eventBusName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NamePrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311449"><span class="hs-identifier hs-var">namePrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311651"><span class="hs-identifier hs-var">namePrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679311448"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><a href="#local-6989586621679311650"><span class="hs-identifier hs-var">limit</span></a></span><span>
 </span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679311442"><span class="annot"><span class="annottext">toPath :: ListRules -&gt; ByteString
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679311644"><span class="annot"><span class="annottext">toPath :: ListRules -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListRules -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRules"><span class="hs-identifier hs-type">ListRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679311438"><span class="annot"><span class="annottext">toQuery :: ListRules -&gt; QueryString
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679311640"><span class="annot"><span class="annottext">toQuery :: ListRules -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListRules -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -505,19 +505,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | /See:/ 'newListRulesResponse' smart constructor.</span><span>
-</span><span id="line-186"></span><span id="local-6989586621679311435"><span id="local-6989586621679311436"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRulesResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-var">ListRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRulesResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-var">ListRulesResponse'</span></a></span></span><span>
-</span><span id="line-187"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether there are additional results to retrieve. If there are</span><span>
-</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- no more results, the value is null.</span><span>
-</span><span id="line-189"></span><span>    </span><span id="%24sel%3AnextToken%3AListRulesResponse%27"><span class="annot"><span class="annottext">ListRulesResponse -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.ListRules.html#%24sel%3AnextToken%3AListRulesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- | The rules that match the specified criteria.</span><span>
-</span><span id="line-191"></span><span>    </span><span id="%24sel%3Arules%3AListRulesResponse%27"><span class="annot"><span class="annottext">ListRulesResponse -&gt; Maybe [Rule]
+</span><span id="line-186"></span><span id="local-6989586621679311637"><span id="local-6989586621679311638"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRulesResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-var">ListRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRulesResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-var">ListRulesResponse'</span></a></span></span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The rules that match the specified criteria.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3Arules%3AListRulesResponse%27"><span class="annot"><span class="annottext">ListRulesResponse -&gt; Maybe [Rule]
 </span><a href="Network.AWS.CloudWatchEvents.ListRules.html#%24sel%3Arules%3AListRulesResponse%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | Indicates whether there are additional results to retrieve. If there are</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- no more results, the value is null.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AnextToken%3AListRulesResponse%27"><span class="annot"><span class="annottext">ListRulesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListRules.html#%24sel%3AnextToken%3AListRulesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-193"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListRulesResponse%27"><span class="annot"><span class="annottext">ListRulesResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchEvents.ListRules.html#%24sel%3AhttpStatus%3AListRulesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311428"><span id="local-6989586621679311430"><span class="annot"><span class="annottext">ListRulesResponse -&gt; ListRulesResponse -&gt; Bool
+</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311630"><span id="local-6989586621679311632"><span class="annot"><span class="annottext">ListRulesResponse -&gt; ListRulesResponse -&gt; Bool
 (ListRulesResponse -&gt; ListRulesResponse -&gt; Bool)
 -&gt; (ListRulesResponse -&gt; ListRulesResponse -&gt; Bool)
 -&gt; Eq ListRulesResponse
@@ -526,7 +526,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListRulesResponse -&gt; ListRulesResponse -&gt; Bool
 == :: ListRulesResponse -&gt; ListRulesResponse -&gt; Bool
 $c== :: ListRulesResponse -&gt; ListRulesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311420"><span id="local-6989586621679311422"><span id="local-6989586621679311424"><span id="local-6989586621679311426"><span class="annot"><span class="annottext">ReadPrec [ListRulesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311622"><span id="local-6989586621679311624"><span id="local-6989586621679311626"><span id="local-6989586621679311628"><span class="annot"><span class="annottext">ReadPrec [ListRulesResponse]
 ReadPrec ListRulesResponse
 Int -&gt; ReadS ListRulesResponse
 ReadS [ListRulesResponse]
@@ -546,7 +546,7 @@ readList :: ReadS [ListRulesResponse]
 $creadList :: ReadS [ListRulesResponse]
 readsPrec :: Int -&gt; ReadS ListRulesResponse
 $creadsPrec :: Int -&gt; ReadS ListRulesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311414"><span id="local-6989586621679311416"><span id="local-6989586621679311418"><span class="annot"><span class="annottext">Int -&gt; ListRulesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311616"><span id="local-6989586621679311618"><span id="local-6989586621679311620"><span class="annot"><span class="annottext">Int -&gt; ListRulesResponse -&gt; ShowS
 [ListRulesResponse] -&gt; ShowS
 ListRulesResponse -&gt; String
 (Int -&gt; ListRulesResponse -&gt; ShowS)
@@ -580,10 +580,10 @@ $cfrom :: forall x. ListRulesResponse -&gt; Rep ListRulesResponse x
 </span><span id="line-202"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-204"></span><span class="hs-comment">--</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- 'nextToken', 'listRulesResponse_nextToken' - Indicates whether there are additional results to retrieve. If there are</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- no more results, the value is null.</span><span>
-</span><span id="line-207"></span><span class="hs-comment">--</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- 'rules', 'listRulesResponse_rules' - The rules that match the specified criteria.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'rules', 'listRulesResponse_rules' - The rules that match the specified criteria.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'nextToken', 'listRulesResponse_nextToken' - Indicates whether there are additional results to retrieve. If there are</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- no more results, the value is null.</span><span>
 </span><span id="line-209"></span><span class="hs-comment">--</span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- 'httpStatus', 'listRulesResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-211"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#newListRulesResponse"><span class="hs-identifier hs-type">newListRulesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -591,61 +591,41 @@ $cfrom :: forall x. ListRulesResponse -&gt; Rep ListRulesResponse x
 </span><span id="line-213"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-214"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span>
 </span><span id="line-215"></span><span id="newListRulesResponse"><span class="annot"><span class="annottext">newListRulesResponse :: Int -&gt; ListRulesResponse
-</span><a href="Network.AWS.CloudWatchEvents.ListRules.html#newListRulesResponse"><span class="hs-identifier hs-var hs-var">newListRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679311411"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311411"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-216"></span><span>  </span><span class="annot"><span class="annottext">ListRulesResponse' :: Maybe Text -&gt; Maybe [Rule] -&gt; Int -&gt; ListRulesResponse
+</span><a href="Network.AWS.CloudWatchEvents.ListRules.html#newListRulesResponse"><span class="hs-identifier hs-var hs-var">newListRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679311613"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311613"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><span class="annottext">ListRulesResponse' :: Maybe [Rule] -&gt; Maybe Text -&gt; Int -&gt; ListRulesResponse
 </span><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span>
-</span><span id="line-217"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListRulesResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.ListRules.html#%24sel%3AnextToken%3AListRulesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-217"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rules:ListRulesResponse' :: Maybe [Rule]
+</span><a href="Network.AWS.CloudWatchEvents.ListRules.html#%24sel%3Arules%3AListRulesResponse%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:rules:ListRulesResponse' :: Maybe [Rule]
-</span><a href="Network.AWS.CloudWatchEvents.ListRules.html#%24sel%3Arules%3AListRulesResponse%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListRulesResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListRules.html#%24sel%3AnextToken%3AListRulesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListRulesResponse' :: Int
 </span><a href="Network.AWS.CloudWatchEvents.ListRules.html#%24sel%3AhttpStatus%3AListRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311411"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679311613"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- | Indicates whether there are additional results to retrieve. If there are</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- no more results, the value is null.</span><span>
-</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#listRulesResponse_nextToken"><span class="hs-identifier hs-type">listRulesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-225"></span><span id="listRulesResponse_nextToken"><span class="annot"><span class="annottext">listRulesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListRulesResponse -&gt; f ListRulesResponse
-</span><a href="Network.AWS.CloudWatchEvents.ListRules.html#listRulesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listRulesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRulesResponse -&gt; Maybe Text)
--&gt; (ListRulesResponse -&gt; Maybe Text -&gt; ListRulesResponse)
--&gt; Lens' ListRulesResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311410"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListRulesResponse' :: ListRulesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679311410"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311410"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311409"><span class="annot"><span class="annottext">s :: ListRulesResponse
-</span><a href="#local-6989586621679311409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311408"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesResponse
-</span><a href="#local-6989586621679311409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRulesResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.ListRules.html#%24sel%3AnextToken%3AListRulesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- | The rules that match the specified criteria.</span><span>
-</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#listRulesResponse_rules"><span class="hs-identifier hs-type">listRulesResponse_rules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-229"></span><span id="listRulesResponse_rules"><span class="annot"><span class="annottext">listRulesResponse_rules :: (Maybe [Rule] -&gt; f (Maybe [Rule]))
+</span><span id="line-222"></span><span class="hs-comment">-- | The rules that match the specified criteria.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#listRulesResponse_rules"><span class="hs-identifier hs-type">listRulesResponse_rules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="listRulesResponse_rules"><span class="annot"><span class="annottext">listRulesResponse_rules :: (Maybe [Rule] -&gt; f (Maybe [Rule]))
 -&gt; ListRulesResponse -&gt; f ListRulesResponse
 </span><a href="Network.AWS.CloudWatchEvents.ListRules.html#listRulesResponse_rules"><span class="hs-identifier hs-var hs-var">listRulesResponse_rules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRulesResponse -&gt; Maybe [Rule])
 -&gt; (ListRulesResponse -&gt; Maybe [Rule] -&gt; ListRulesResponse)
 -&gt; Lens' ListRulesResponse (Maybe [Rule])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311407"><span class="annot"><span class="annottext">Maybe [Rule]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311612"><span class="annot"><span class="annottext">Maybe [Rule]
 rules :: Maybe [Rule]
 $sel:rules:ListRulesResponse' :: ListRulesResponse -&gt; Maybe [Rule]
-</span><a href="#local-6989586621679311407"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
-</span><a href="#local-6989586621679311407"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311406"><span class="annot"><span class="annottext">s :: ListRulesResponse
-</span><a href="#local-6989586621679311406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311405"><span class="annot"><span class="annottext">Maybe [Rule]
-</span><a href="#local-6989586621679311405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesResponse
-</span><a href="#local-6989586621679311406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:ListRulesResponse' :: Maybe [Rule]
+</span><a href="#local-6989586621679311612"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+</span><a href="#local-6989586621679311612"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311611"><span class="annot"><span class="annottext">s :: ListRulesResponse
+</span><a href="#local-6989586621679311611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311610"><span class="annot"><span class="annottext">Maybe [Rule]
+</span><a href="#local-6989586621679311610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesResponse
+</span><a href="#local-6989586621679311611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:ListRulesResponse' :: Maybe [Rule]
 </span><a href="Network.AWS.CloudWatchEvents.ListRules.html#%24sel%3Arules%3AListRulesResponse%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
-</span><a href="#local-6989586621679311405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Rule] -&gt; f (Maybe [Rule]))
+</span><a href="#local-6989586621679311610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Rule] -&gt; f (Maybe [Rule]))
  -&gt; ListRulesResponse -&gt; f ListRulesResponse)
 -&gt; ((Maybe [Rule] -&gt; f (Maybe [Rule]))
     -&gt; Maybe [Rule] -&gt; f (Maybe [Rule]))
@@ -659,8 +639,28 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Rule] [Rule] [Rule] [Rule]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | Indicates whether there are additional results to retrieve. If there are</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- no more results, the value is null.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#listRulesResponse_nextToken"><span class="hs-identifier hs-type">listRulesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="listRulesResponse_nextToken"><span class="annot"><span class="annottext">listRulesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListRulesResponse -&gt; f ListRulesResponse
+</span><a href="Network.AWS.CloudWatchEvents.ListRules.html#listRulesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listRulesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRulesResponse -&gt; Maybe Text)
+-&gt; (ListRulesResponse -&gt; Maybe Text -&gt; ListRulesResponse)
+-&gt; Lens' ListRulesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311607"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListRulesResponse' :: ListRulesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679311607"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311607"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311606"><span class="annot"><span class="annottext">s :: ListRulesResponse
+</span><a href="#local-6989586621679311606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311605"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesResponse
+</span><a href="#local-6989586621679311606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRulesResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.ListRules.html#%24sel%3AnextToken%3AListRulesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-232"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#listRulesResponse_httpStatus"><span class="hs-identifier hs-type">listRulesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -669,16 +669,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListRulesResponse -&gt; Int -&gt; ListRulesResponse)
 -&gt; Lens ListRulesResponse ListRulesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311402"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311604"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListRulesResponse' :: ListRulesResponse -&gt; Int
-</span><a href="#local-6989586621679311402"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311402"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311401"><span class="annot"><span class="annottext">s :: ListRulesResponse
-</span><a href="#local-6989586621679311401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311400"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesResponse
-</span><a href="#local-6989586621679311401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRulesResponse' :: Int
+</span><a href="#local-6989586621679311604"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311604"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311603"><span class="annot"><span class="annottext">s :: ListRulesResponse
+</span><a href="#local-6989586621679311603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse%27"><span class="hs-identifier hs-type">ListRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311602"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesResponse
+</span><a href="#local-6989586621679311603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRulesResponse' :: Int
 </span><a href="Network.AWS.CloudWatchEvents.ListRules.html#%24sel%3AhttpStatus%3AListRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311398"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311600"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.ListRules.html#ListRulesResponse"><span class="hs-identifier hs-type">ListRulesResponse</span></a></span></span><span>
 </span><span id="line-236"></span></pre></body></html>

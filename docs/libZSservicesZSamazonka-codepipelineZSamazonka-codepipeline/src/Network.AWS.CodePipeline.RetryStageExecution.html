@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-comment">-- | Represents the input of a @RetryStageExecution@ action.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newRetryStageExecution' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679286268"><span id="local-6989586621679286269"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetryStageExecution"><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-var">RetryStageExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetryStageExecution%27"><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-var">RetryStageExecution'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679286489"><span id="local-6989586621679286490"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetryStageExecution"><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-var">RetryStageExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetryStageExecution%27"><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-var">RetryStageExecution'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the pipeline that contains the failed stage.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3ApipelineName%3ARetryStageExecution%27"><span class="annot"><span class="annottext">RetryStageExecution -&gt; Text
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#%24sel%3ApipelineName%3ARetryStageExecution%27"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -72,7 +72,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AretryMode%3ARetryStageExecution%27"><span class="annot"><span class="annottext">RetryStageExecution -&gt; StageRetryMode
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#%24sel%3AretryMode%3ARetryStageExecution%27"><span class="hs-identifier hs-var hs-var">retryMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageRetryMode.html#StageRetryMode"><span class="hs-identifier hs-type">StageRetryMode</span></a></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286259"><span id="local-6989586621679286261"><span class="annot"><span class="annottext">RetryStageExecution -&gt; RetryStageExecution -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286480"><span id="local-6989586621679286482"><span class="annot"><span class="annottext">RetryStageExecution -&gt; RetryStageExecution -&gt; Bool
 (RetryStageExecution -&gt; RetryStageExecution -&gt; Bool)
 -&gt; (RetryStageExecution -&gt; RetryStageExecution -&gt; Bool)
 -&gt; Eq RetryStageExecution
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RetryStageExecution -&gt; RetryStageExecution -&gt; Bool
 == :: RetryStageExecution -&gt; RetryStageExecution -&gt; Bool
 $c== :: RetryStageExecution -&gt; RetryStageExecution -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286250"><span id="local-6989586621679286252"><span id="local-6989586621679286254"><span id="local-6989586621679286256"><span class="annot"><span class="annottext">ReadPrec [RetryStageExecution]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286471"><span id="local-6989586621679286473"><span id="local-6989586621679286475"><span id="local-6989586621679286477"><span class="annot"><span class="annottext">ReadPrec [RetryStageExecution]
 ReadPrec RetryStageExecution
 Int -&gt; ReadS RetryStageExecution
 ReadS [RetryStageExecution]
@@ -101,7 +101,7 @@ readList :: ReadS [RetryStageExecution]
 $creadList :: ReadS [RetryStageExecution]
 readsPrec :: Int -&gt; ReadS RetryStageExecution
 $creadsPrec :: Int -&gt; ReadS RetryStageExecution
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286243"><span id="local-6989586621679286245"><span id="local-6989586621679286247"><span class="annot"><span class="annottext">Int -&gt; RetryStageExecution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286464"><span id="local-6989586621679286466"><span id="local-6989586621679286468"><span class="annot"><span class="annottext">Int -&gt; RetryStageExecution -&gt; ShowS
 [RetryStageExecution] -&gt; ShowS
 RetryStageExecution -&gt; String
 (Int -&gt; RetryStageExecution -&gt; ShowS)
@@ -157,28 +157,28 @@ $cfrom :: forall x. RetryStageExecution -&gt; Rep RetryStageExecution x
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span><span>
 </span><span id="line-101"></span><span id="newRetryStageExecution"><span class="annot"><span class="annottext">newRetryStageExecution :: Text -&gt; Text -&gt; Text -&gt; StageRetryMode -&gt; RetryStageExecution
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#newRetryStageExecution"><span class="hs-identifier hs-var hs-var">newRetryStageExecution</span></a></span></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679286238"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286238"><span class="hs-identifier hs-var">pPipelineName_</span></a></span></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679286237"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286237"><span class="hs-identifier hs-var">pStageName_</span></a></span></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679286236"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286236"><span class="hs-identifier hs-var">pPipelineExecutionId_</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679286235"><span class="annot"><span class="annottext">StageRetryMode
-</span><a href="#local-6989586621679286235"><span class="hs-identifier hs-var">pRetryMode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679286459"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286459"><span class="hs-identifier hs-var">pPipelineName_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679286458"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286458"><span class="hs-identifier hs-var">pStageName_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679286457"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286457"><span class="hs-identifier hs-var">pPipelineExecutionId_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679286456"><span class="annot"><span class="annottext">StageRetryMode
+</span><a href="#local-6989586621679286456"><span class="hs-identifier hs-var">pRetryMode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">RetryStageExecution' :: Text -&gt; Text -&gt; Text -&gt; StageRetryMode -&gt; RetryStageExecution
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pipelineName:RetryStageExecution' :: Text
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#%24sel%3ApipelineName%3ARetryStageExecution%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286238"><span class="hs-identifier hs-var">pPipelineName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679286459"><span class="hs-identifier hs-var">pPipelineName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:stageName:RetryStageExecution' :: Text
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#%24sel%3AstageName%3ARetryStageExecution%27"><span class="hs-identifier hs-var">stageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286237"><span class="hs-identifier hs-var">pStageName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679286458"><span class="hs-identifier hs-var">pStageName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:RetryStageExecution' :: Text
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#%24sel%3ApipelineExecutionId%3ARetryStageExecution%27"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286236"><span class="hs-identifier hs-var">pPipelineExecutionId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679286457"><span class="hs-identifier hs-var">pPipelineExecutionId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:retryMode:RetryStageExecution' :: StageRetryMode
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#%24sel%3AretryMode%3ARetryStageExecution%27"><span class="hs-identifier hs-var">retryMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StageRetryMode
-</span><a href="#local-6989586621679286235"><span class="hs-identifier hs-var">pRetryMode_</span></a></span><span>
+</span><a href="#local-6989586621679286456"><span class="hs-identifier hs-var">pRetryMode_</span></a></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The name of the pipeline that contains the failed stage.</span><span>
@@ -188,16 +188,16 @@ $cfrom :: forall x. RetryStageExecution -&gt; Rep RetryStageExecution x
 -&gt; (RetryStageExecution -&gt; Text -&gt; RetryStageExecution)
 -&gt; Lens RetryStageExecution RetryStageExecution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286232"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286453"><span class="annot"><span class="annottext">Text
 pipelineName :: Text
 $sel:pipelineName:RetryStageExecution' :: RetryStageExecution -&gt; Text
-</span><a href="#local-6989586621679286232"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286232"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286231"><span class="annot"><span class="annottext">s :: RetryStageExecution
-</span><a href="#local-6989586621679286231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286230"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryStageExecution
-</span><a href="#local-6989586621679286231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineName:RetryStageExecution' :: Text
+</span><a href="#local-6989586621679286453"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286453"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286452"><span class="annot"><span class="annottext">s :: RetryStageExecution
+</span><a href="#local-6989586621679286452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286451"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryStageExecution
+</span><a href="#local-6989586621679286452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineName:RetryStageExecution' :: Text
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#%24sel%3ApipelineName%3ARetryStageExecution%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The name of the failed stage to be retried.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#retryStageExecution_stageName"><span class="hs-identifier hs-type">retryStageExecution_stageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -206,16 +206,16 @@ $sel:pipelineName:RetryStageExecution' :: RetryStageExecution -&gt; Text
 -&gt; (RetryStageExecution -&gt; Text -&gt; RetryStageExecution)
 -&gt; Lens RetryStageExecution RetryStageExecution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286229"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286450"><span class="annot"><span class="annottext">Text
 stageName :: Text
 $sel:stageName:RetryStageExecution' :: RetryStageExecution -&gt; Text
-</span><a href="#local-6989586621679286229"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286229"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286228"><span class="annot"><span class="annottext">s :: RetryStageExecution
-</span><a href="#local-6989586621679286228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286227"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryStageExecution
-</span><a href="#local-6989586621679286228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stageName:RetryStageExecution' :: Text
+</span><a href="#local-6989586621679286450"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286450"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286449"><span class="annot"><span class="annottext">s :: RetryStageExecution
+</span><a href="#local-6989586621679286449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286448"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryStageExecution
+</span><a href="#local-6989586621679286449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stageName:RetryStageExecution' :: Text
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#%24sel%3AstageName%3ARetryStageExecution%27"><span class="hs-identifier hs-var">stageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The ID of the pipeline execution in the failed stage to be retried. Use</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- the GetPipelineState action to retrieve the current pipelineExecutionId</span><span>
@@ -226,16 +226,16 @@ $sel:stageName:RetryStageExecution' :: RetryStageExecution -&gt; Text
 -&gt; (RetryStageExecution -&gt; Text -&gt; RetryStageExecution)
 -&gt; Lens RetryStageExecution RetryStageExecution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286226"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286447"><span class="annot"><span class="annottext">Text
 pipelineExecutionId :: Text
 $sel:pipelineExecutionId:RetryStageExecution' :: RetryStageExecution -&gt; Text
-</span><a href="#local-6989586621679286226"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286226"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286225"><span class="annot"><span class="annottext">s :: RetryStageExecution
-</span><a href="#local-6989586621679286225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286224"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryStageExecution
-</span><a href="#local-6989586621679286225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:RetryStageExecution' :: Text
+</span><a href="#local-6989586621679286447"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286447"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286446"><span class="annot"><span class="annottext">s :: RetryStageExecution
+</span><a href="#local-6989586621679286446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286445"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryStageExecution
+</span><a href="#local-6989586621679286446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:RetryStageExecution' :: Text
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#%24sel%3ApipelineExecutionId%3ARetryStageExecution%27"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The scope of the retry attempt. Currently, the only supported value is</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- FAILED_ACTIONS.</span><span>
@@ -250,27 +250,27 @@ $sel:pipelineExecutionId:RetryStageExecution' :: RetryStageExecution -&gt; Text
      StageRetryMode
      StageRetryMode
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286223"><span class="annot"><span class="annottext">StageRetryMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286444"><span class="annot"><span class="annottext">StageRetryMode
 retryMode :: StageRetryMode
 $sel:retryMode:RetryStageExecution' :: RetryStageExecution -&gt; StageRetryMode
-</span><a href="#local-6989586621679286223"><span class="hs-identifier hs-var hs-var">retryMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StageRetryMode
-</span><a href="#local-6989586621679286223"><span class="hs-identifier hs-var">retryMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286222"><span class="annot"><span class="annottext">s :: RetryStageExecution
-</span><a href="#local-6989586621679286222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286221"><span class="annot"><span class="annottext">StageRetryMode
-</span><a href="#local-6989586621679286221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryStageExecution
-</span><a href="#local-6989586621679286222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryMode:RetryStageExecution' :: StageRetryMode
+</span><a href="#local-6989586621679286444"><span class="hs-identifier hs-var hs-var">retryMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StageRetryMode
+</span><a href="#local-6989586621679286444"><span class="hs-identifier hs-var">retryMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286443"><span class="annot"><span class="annottext">s :: RetryStageExecution
+</span><a href="#local-6989586621679286443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286442"><span class="annot"><span class="annottext">StageRetryMode
+</span><a href="#local-6989586621679286442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryStageExecution
+</span><a href="#local-6989586621679286443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryMode:RetryStageExecution' :: StageRetryMode
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#%24sel%3AretryMode%3ARetryStageExecution%27"><span class="hs-identifier hs-var">retryMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StageRetryMode
-</span><a href="#local-6989586621679286221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-134"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse"><span class="hs-identifier hs-type">RetryStageExecutionResponse</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679286217"><span class="annot"><span class="annottext">request :: RetryStageExecution -&gt; Request RetryStageExecution
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679286438"><span class="annot"><span class="annottext">request :: RetryStageExecution -&gt; Request RetryStageExecution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RetryStageExecution -&gt; Request RetryStageExecution
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodePipeline.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679286213"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679286434"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RetryStageExecution
 -&gt; ClientResponse ClientBody
@@ -296,10 +296,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679286210"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286210"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679286209"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679286209"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679286208"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679286208"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679286431"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286431"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679286430"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679286430"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679286429"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286429"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; RetryStageExecutionResponse
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse%27"><span class="hs-identifier hs-var">RetryStageExecutionResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; RetryStageExecutionResponse)
@@ -307,7 +307,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; RetryStageExecutionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679286208"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679286429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pipelineExecutionId&quot;</span></span><span class="hs-special">)</span><span>
@@ -319,15 +319,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286210"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286431"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286200"><span id="local-6989586621679286202"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286421"><span id="local-6989586621679286423"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286197"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286418"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679286193"><span class="annot"><span class="annottext">toHeaders :: RetryStageExecution -&gt; ResponseHeaders
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679286414"><span class="annot"><span class="annottext">toHeaders :: RetryStageExecution -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RetryStageExecution -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -354,9 +354,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286183"><span id="local-6989586621679286185"><span id="local-6989586621679286187"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679286181"><span class="annot"><span class="annottext">toJSON :: RetryStageExecution -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286176"><span id="local-6989586621679286177"><span id="local-6989586621679286178"><span id="local-6989586621679286179"><span class="annot"><span class="annottext">Text
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286404"><span id="local-6989586621679286406"><span id="local-6989586621679286408"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679286402"><span class="annot"><span class="annottext">toJSON :: RetryStageExecution -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution%27"><span class="hs-identifier hs-type">RetryStageExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286397"><span id="local-6989586621679286398"><span id="local-6989586621679286399"><span id="local-6989586621679286400"><span class="annot"><span class="annottext">Text
 StageRetryMode
 retryMode :: StageRetryMode
 pipelineExecutionId :: Text
@@ -366,7 +366,7 @@ $sel:retryMode:RetryStageExecution' :: RetryStageExecution -&gt; StageRetryMode
 $sel:pipelineExecutionId:RetryStageExecution' :: RetryStageExecution -&gt; Text
 $sel:stageName:RetryStageExecution' :: RetryStageExecution -&gt; Text
 $sel:pipelineName:RetryStageExecution' :: RetryStageExecution -&gt; Text
-</span><a href="#local-6989586621679286176"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679286397"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -378,14 +378,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;pipelineName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286179"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679286400"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stageName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286178"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679286399"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -393,26 +393,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;pipelineExecutionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286177"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679286398"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;retryMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StageRetryMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">StageRetryMode
-</span><a href="#local-6989586621679286176"><span class="hs-identifier hs-var">retryMode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286397"><span class="hs-identifier hs-var">retryMode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679286170"><span class="annot"><span class="annottext">toPath :: RetryStageExecution -&gt; ByteString
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679286391"><span class="annot"><span class="annottext">toPath :: RetryStageExecution -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RetryStageExecution -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecution"><span class="hs-identifier hs-type">RetryStageExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679286166"><span class="annot"><span class="annottext">toQuery :: RetryStageExecution -&gt; QueryString
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679286387"><span class="annot"><span class="annottext">toQuery :: RetryStageExecution -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RetryStageExecution -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -422,7 +422,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-182"></span><span class="hs-comment">-- | Represents the output of a @RetryStageExecution@ action.</span><span>
 </span><span id="line-183"></span><span class="hs-comment">--</span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- /See:/ 'newRetryStageExecutionResponse' smart constructor.</span><span>
-</span><span id="line-185"></span><span id="local-6989586621679286163"><span id="local-6989586621679286164"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetryStageExecutionResponse"><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse"><span class="hs-identifier hs-var">RetryStageExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetryStageExecutionResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse%27"><span class="hs-identifier hs-var">RetryStageExecutionResponse'</span></a></span></span><span>
+</span><span id="line-185"></span><span id="local-6989586621679286384"><span id="local-6989586621679286385"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetryStageExecutionResponse"><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse"><span class="hs-identifier hs-var">RetryStageExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetryStageExecutionResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse%27"><span class="hs-identifier hs-var">RetryStageExecutionResponse'</span></a></span></span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the current workflow execution in the failed stage.</span><span>
 </span><span id="line-187"></span><span>    </span><span id="%24sel%3ApipelineExecutionId%3ARetryStageExecutionResponse%27"><span class="annot"><span class="annottext">RetryStageExecutionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#%24sel%3ApipelineExecutionId%3ARetryStageExecutionResponse%27"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -430,7 +430,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-189"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARetryStageExecutionResponse%27"><span class="annot"><span class="annottext">RetryStageExecutionResponse -&gt; Int
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#%24sel%3AhttpStatus%3ARetryStageExecutionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286157"><span id="local-6989586621679286159"><span class="annot"><span class="annottext">RetryStageExecutionResponse -&gt; RetryStageExecutionResponse -&gt; Bool
+</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286378"><span id="local-6989586621679286380"><span class="annot"><span class="annottext">RetryStageExecutionResponse -&gt; RetryStageExecutionResponse -&gt; Bool
 (RetryStageExecutionResponse
  -&gt; RetryStageExecutionResponse -&gt; Bool)
 -&gt; (RetryStageExecutionResponse
@@ -441,7 +441,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RetryStageExecutionResponse -&gt; RetryStageExecutionResponse -&gt; Bool
 == :: RetryStageExecutionResponse -&gt; RetryStageExecutionResponse -&gt; Bool
 $c== :: RetryStageExecutionResponse -&gt; RetryStageExecutionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286149"><span id="local-6989586621679286151"><span id="local-6989586621679286153"><span id="local-6989586621679286155"><span class="annot"><span class="annottext">ReadPrec [RetryStageExecutionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286370"><span id="local-6989586621679286372"><span id="local-6989586621679286374"><span id="local-6989586621679286376"><span class="annot"><span class="annottext">ReadPrec [RetryStageExecutionResponse]
 ReadPrec RetryStageExecutionResponse
 Int -&gt; ReadS RetryStageExecutionResponse
 ReadS [RetryStageExecutionResponse]
@@ -461,7 +461,7 @@ readList :: ReadS [RetryStageExecutionResponse]
 $creadList :: ReadS [RetryStageExecutionResponse]
 readsPrec :: Int -&gt; ReadS RetryStageExecutionResponse
 $creadsPrec :: Int -&gt; ReadS RetryStageExecutionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286143"><span id="local-6989586621679286145"><span id="local-6989586621679286147"><span class="annot"><span class="annottext">Int -&gt; RetryStageExecutionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286364"><span id="local-6989586621679286366"><span id="local-6989586621679286368"><span class="annot"><span class="annottext">Int -&gt; RetryStageExecutionResponse -&gt; ShowS
 [RetryStageExecutionResponse] -&gt; ShowS
 RetryStageExecutionResponse -&gt; String
 (Int -&gt; RetryStageExecutionResponse -&gt; ShowS)
@@ -509,8 +509,8 @@ RetryStageExecutionResponse -&gt; Rep RetryStageExecutionResponse x
 </span><span id="line-206"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-207"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse"><span class="hs-identifier hs-type">RetryStageExecutionResponse</span></a></span><span>
 </span><span id="line-208"></span><span id="newRetryStageExecutionResponse"><span class="annot"><span class="annottext">newRetryStageExecutionResponse :: Int -&gt; RetryStageExecutionResponse
-</span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#newRetryStageExecutionResponse"><span class="hs-identifier hs-var hs-var">newRetryStageExecutionResponse</span></a></span></span><span> </span><span id="local-6989586621679286140"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286140"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#newRetryStageExecutionResponse"><span class="hs-identifier hs-var hs-var">newRetryStageExecutionResponse</span></a></span></span><span> </span><span id="local-6989586621679286361"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286361"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-209"></span><span>  </span><span class="annot"><span class="annottext">RetryStageExecutionResponse' :: Maybe Text -&gt; Int -&gt; RetryStageExecutionResponse
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse%27"><span class="hs-identifier hs-type">RetryStageExecutionResponse'</span></a></span><span>
 </span><span id="line-210"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:RetryStageExecutionResponse' :: Maybe Text
@@ -520,7 +520,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RetryStageExecutionResponse' :: Int
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#%24sel%3AhttpStatus%3ARetryStageExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286140"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679286361"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-213"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | The ID of the current workflow execution in the failed stage.</span><span>
@@ -536,16 +536,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse%27"><span class="hs-identifier hs-type">RetryStageExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286139"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse%27"><span class="hs-identifier hs-type">RetryStageExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286360"><span class="annot"><span class="annottext">Maybe Text
 pipelineExecutionId :: Maybe Text
 $sel:pipelineExecutionId:RetryStageExecutionResponse' :: RetryStageExecutionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679286139"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679286139"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286138"><span class="annot"><span class="annottext">s :: RetryStageExecutionResponse
-</span><a href="#local-6989586621679286138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse%27"><span class="hs-identifier hs-type">RetryStageExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286137"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679286137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryStageExecutionResponse
-</span><a href="#local-6989586621679286138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:RetryStageExecutionResponse' :: Maybe Text
+</span><a href="#local-6989586621679286360"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286360"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286359"><span class="annot"><span class="annottext">s :: RetryStageExecutionResponse
+</span><a href="#local-6989586621679286359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse%27"><span class="hs-identifier hs-type">RetryStageExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286358"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryStageExecutionResponse
+</span><a href="#local-6989586621679286359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:RetryStageExecutionResponse' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#%24sel%3ApipelineExecutionId%3ARetryStageExecutionResponse%27"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679286137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse"><span class="hs-identifier hs-type">RetryStageExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse"><span class="hs-identifier hs-type">RetryStageExecutionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#retryStageExecutionResponse_httpStatus"><span class="hs-identifier hs-type">retryStageExecutionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse"><span class="hs-identifier hs-type">RetryStageExecutionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -557,16 +557,16 @@ $sel:pipelineExecutionId:RetryStageExecutionResponse' :: RetryStageExecutionResp
 -&gt; Lens
      RetryStageExecutionResponse RetryStageExecutionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse%27"><span class="hs-identifier hs-type">RetryStageExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286136"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse%27"><span class="hs-identifier hs-type">RetryStageExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286357"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RetryStageExecutionResponse' :: RetryStageExecutionResponse -&gt; Int
-</span><a href="#local-6989586621679286136"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286136"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286135"><span class="annot"><span class="annottext">s :: RetryStageExecutionResponse
-</span><a href="#local-6989586621679286135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse%27"><span class="hs-identifier hs-type">RetryStageExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286134"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryStageExecutionResponse
-</span><a href="#local-6989586621679286135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RetryStageExecutionResponse' :: Int
+</span><a href="#local-6989586621679286357"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286357"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286356"><span class="annot"><span class="annottext">s :: RetryStageExecutionResponse
+</span><a href="#local-6989586621679286356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse%27"><span class="hs-identifier hs-type">RetryStageExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286355"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryStageExecutionResponse
+</span><a href="#local-6989586621679286356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RetryStageExecutionResponse' :: Int
 </span><a href="Network.AWS.CodePipeline.RetryStageExecution.html#%24sel%3AhttpStatus%3ARetryStageExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse"><span class="hs-identifier hs-type">RetryStageExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse"><span class="hs-identifier hs-type">RetryStageExecutionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286132"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse"><span class="hs-identifier hs-type">RetryStageExecutionResponse</span></a></span></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286353"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.RetryStageExecution.html#RetryStageExecutionResponse"><span class="hs-identifier hs-type">RetryStageExecutionResponse</span></a></span></span><span>
 </span><span id="line-224"></span></pre></body></html>

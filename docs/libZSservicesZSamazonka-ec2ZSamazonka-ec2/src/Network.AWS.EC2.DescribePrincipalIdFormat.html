@@ -47,18 +47,18 @@
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#newDescribePrincipalIdFormat"><span class="hs-identifier">newDescribePrincipalIdFormat</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_nextToken"><span class="hs-identifier">describePrincipalIdFormat_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_maxResults"><span class="hs-identifier">describePrincipalIdFormat_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_resources"><span class="hs-identifier">describePrincipalIdFormat_resources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_nextToken"><span class="hs-identifier">describePrincipalIdFormat_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_dryRun"><span class="hs-identifier">describePrincipalIdFormat_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_resources"><span class="hs-identifier">describePrincipalIdFormat_resources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_maxResults"><span class="hs-identifier">describePrincipalIdFormat_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse"><span class="hs-identifier">DescribePrincipalIdFormatResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#newDescribePrincipalIdFormatResponse"><span class="hs-identifier">newDescribePrincipalIdFormatResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormatResponse_nextToken"><span class="hs-identifier">describePrincipalIdFormatResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormatResponse_principals"><span class="hs-identifier">describePrincipalIdFormatResponse_principals</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormatResponse_principals"><span class="hs-identifier">describePrincipalIdFormatResponse_principals</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormatResponse_nextToken"><span class="hs-identifier">describePrincipalIdFormatResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormatResponse_httpStatus"><span class="hs-identifier">describePrincipalIdFormatResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span class="hs-keyword">where</span><span>
@@ -71,35 +71,35 @@
 </span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | /See:/ 'newDescribePrincipalIdFormat' smart constructor.</span><span>
-</span><span id="line-74"></span><span id="local-6989586621681217863"><span id="local-6989586621681217864"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePrincipalIdFormat"><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-var">DescribePrincipalIdFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePrincipalIdFormat%27"><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-var">DescribePrincipalIdFormat'</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to request the next page of results.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribePrincipalIdFormat%27"><span class="annot"><span class="annottext">DescribePrincipalIdFormat -&gt; Maybe Text
+</span><span id="line-74"></span><span id="local-6989586621681253577"><span id="local-6989586621681253578"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePrincipalIdFormat"><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-var">DescribePrincipalIdFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePrincipalIdFormat%27"><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-var">DescribePrincipalIdFormat'</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ |</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- @internet-gateway@ | @network-acl@ | @network-acl-association@ |</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- @network-interface@ | @network-interface-attachment@ | @prefix-list@ |</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- @reservation@ | @route-table@ | @route-table-association@ |</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- @security-group@ | @snapshot@ | @subnet@ |</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- @subnet-cidr-block-association@ | @volume@ | @vpc@ |</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | @vpn-connection@ | @vpn-gateway@</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3Aresources%3ADescribePrincipalIdFormat%27"><span class="annot"><span class="annottext">DescribePrincipalIdFormat -&gt; Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3Aresources%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The token to request the next page of results.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribePrincipalIdFormat%27"><span class="annot"><span class="annottext">DescribePrincipalIdFormat -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AnextToken%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return in a single call. To retrieve</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned NextToken</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- value.</span><span>
-</span><span id="line-80"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribePrincipalIdFormat%27"><span class="annot"><span class="annottext">DescribePrincipalIdFormat -&gt; Maybe Natural
-</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AmaxResults%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-85"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribePrincipalIdFormat%27"><span class="annot"><span class="annottext">DescribePrincipalIdFormat -&gt; Maybe Bool
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribePrincipalIdFormat%27"><span class="annot"><span class="annottext">DescribePrincipalIdFormat -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AdryRun%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ |</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- @internet-gateway@ | @network-acl@ | @network-acl-association@ |</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- @network-interface@ | @network-interface-attachment@ | @prefix-list@ |</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- @reservation@ | @route-table@ | @route-table-association@ |</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- @security-group@ | @snapshot@ | @subnet@ |</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- @subnet-cidr-block-association@ | @volume@ | @vpc@ |</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | @vpn-connection@ | @vpn-gateway@</span><span>
-</span><span id="line-96"></span><span>    </span><span id="%24sel%3Aresources%3ADescribePrincipalIdFormat%27"><span class="annot"><span class="annottext">DescribePrincipalIdFormat -&gt; Maybe [Text]
-</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3Aresources%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return in a single call. To retrieve</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned NextToken</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribePrincipalIdFormat%27"><span class="annot"><span class="annottext">DescribePrincipalIdFormat -&gt; Maybe Natural
+</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AmaxResults%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681217854"><span id="local-6989586621681217856"><span class="annot"><span class="annottext">DescribePrincipalIdFormat -&gt; DescribePrincipalIdFormat -&gt; Bool
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681253568"><span id="local-6989586621681253570"><span class="annot"><span class="annottext">DescribePrincipalIdFormat -&gt; DescribePrincipalIdFormat -&gt; Bool
 (DescribePrincipalIdFormat -&gt; DescribePrincipalIdFormat -&gt; Bool)
 -&gt; (DescribePrincipalIdFormat -&gt; DescribePrincipalIdFormat -&gt; Bool)
 -&gt; Eq DescribePrincipalIdFormat
@@ -108,7 +108,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribePrincipalIdFormat -&gt; DescribePrincipalIdFormat -&gt; Bool
 == :: DescribePrincipalIdFormat -&gt; DescribePrincipalIdFormat -&gt; Bool
 $c== :: DescribePrincipalIdFormat -&gt; DescribePrincipalIdFormat -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681217845"><span id="local-6989586621681217847"><span id="local-6989586621681217849"><span id="local-6989586621681217851"><span class="annot"><span class="annottext">ReadPrec [DescribePrincipalIdFormat]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681253559"><span id="local-6989586621681253561"><span id="local-6989586621681253563"><span id="local-6989586621681253565"><span class="annot"><span class="annottext">ReadPrec [DescribePrincipalIdFormat]
 ReadPrec DescribePrincipalIdFormat
 Int -&gt; ReadS DescribePrincipalIdFormat
 ReadS [DescribePrincipalIdFormat]
@@ -128,7 +128,7 @@ readList :: ReadS [DescribePrincipalIdFormat]
 $creadList :: ReadS [DescribePrincipalIdFormat]
 readsPrec :: Int -&gt; ReadS DescribePrincipalIdFormat
 $creadsPrec :: Int -&gt; ReadS DescribePrincipalIdFormat
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681217838"><span id="local-6989586621681217840"><span id="local-6989586621681217842"><span class="annot"><span class="annottext">Int -&gt; DescribePrincipalIdFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681253552"><span id="local-6989586621681253554"><span id="local-6989586621681253556"><span class="annot"><span class="annottext">Int -&gt; DescribePrincipalIdFormat -&gt; ShowS
 [DescribePrincipalIdFormat] -&gt; ShowS
 DescribePrincipalIdFormat -&gt; String
 (Int -&gt; DescribePrincipalIdFormat -&gt; ShowS)
@@ -168,145 +168,68 @@ DescribePrincipalIdFormat -&gt; Rep DescribePrincipalIdFormat x
 </span><span id="line-105"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-107"></span><span class="hs-comment">--</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- 'nextToken', 'describePrincipalIdFormat_nextToken' - The token to request the next page of results.</span><span>
-</span><span id="line-109"></span><span class="hs-comment">--</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- 'maxResults', 'describePrincipalIdFormat_maxResults' - The maximum number of results to return in a single call. To retrieve</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- the remaining results, make another call with the returned NextToken</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- value.</span><span>
-</span><span id="line-113"></span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- 'dryRun', 'describePrincipalIdFormat_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'resources', 'describePrincipalIdFormat_resources' - The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ |</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- @internet-gateway@ | @network-acl@ | @network-acl-association@ |</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- @network-interface@ | @network-interface-attachment@ | @prefix-list@ |</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- @reservation@ | @route-table@ | @route-table-association@ |</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- @security-group@ | @snapshot@ | @subnet@ |</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- @subnet-cidr-block-association@ | @volume@ | @vpc@ |</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | @vpn-connection@ | @vpn-gateway@</span><span>
 </span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- 'resources', 'describePrincipalIdFormat_resources' - The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ |</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- @internet-gateway@ | @network-acl@ | @network-acl-association@ |</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- @network-interface@ | @network-interface-attachment@ | @prefix-list@ |</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- @reservation@ | @route-table@ | @route-table-association@ |</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- @security-group@ | @snapshot@ | @subnet@ |</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- @subnet-cidr-block-association@ | @volume@ | @vpc@ |</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | @vpn-connection@ | @vpn-gateway@</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'nextToken', 'describePrincipalIdFormat_nextToken' - The token to request the next page of results.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'dryRun', 'describePrincipalIdFormat_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'maxResults', 'describePrincipalIdFormat_maxResults' - The maximum number of results to return in a single call. To retrieve</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- the remaining results, make another call with the returned NextToken</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- value.</span><span>
 </span><span id="line-129"></span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#newDescribePrincipalIdFormat"><span class="hs-identifier hs-type">newDescribePrincipalIdFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span>
 </span><span id="line-131"></span><span id="newDescribePrincipalIdFormat"><span class="annot"><span class="annottext">newDescribePrincipalIdFormat :: DescribePrincipalIdFormat
 </span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#newDescribePrincipalIdFormat"><span class="hs-identifier hs-var hs-var">newDescribePrincipalIdFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">DescribePrincipalIdFormat' :: Maybe Text
--&gt; Maybe Natural
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">DescribePrincipalIdFormat' :: Maybe [Text]
+-&gt; Maybe Text
 -&gt; Maybe Bool
--&gt; Maybe [Text]
+-&gt; Maybe Natural
 -&gt; DescribePrincipalIdFormat
 </span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span>
-</span><span id="line-133"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribePrincipalIdFormat' :: Maybe Text
-</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AnextToken%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-133"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resources:DescribePrincipalIdFormat' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3Aresources%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribePrincipalIdFormat' :: Maybe Natural
-</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AmaxResults%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribePrincipalIdFormat' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AnextToken%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DescribePrincipalIdFormat' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AdryRun%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:resources:DescribePrincipalIdFormat' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3Aresources%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribePrincipalIdFormat' :: Maybe Natural
+</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AmaxResults%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | The token to request the next page of results.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_nextToken"><span class="hs-identifier hs-type">describePrincipalIdFormat_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="describePrincipalIdFormat_nextToken"><span class="annot"><span class="annottext">describePrincipalIdFormat_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribePrincipalIdFormat -&gt; f DescribePrincipalIdFormat
-</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_nextToken"><span class="hs-identifier hs-var hs-var">describePrincipalIdFormat_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePrincipalIdFormat -&gt; Maybe Text)
--&gt; (DescribePrincipalIdFormat
-    -&gt; Maybe Text -&gt; DescribePrincipalIdFormat)
--&gt; Lens
-     DescribePrincipalIdFormat
-     DescribePrincipalIdFormat
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681217832"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribePrincipalIdFormat' :: DescribePrincipalIdFormat -&gt; Maybe Text
-</span><a href="#local-6989586621681217832"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681217832"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681217831"><span class="annot"><span class="annottext">s :: DescribePrincipalIdFormat
-</span><a href="#local-6989586621681217831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681217830"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681217830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePrincipalIdFormat
-</span><a href="#local-6989586621681217831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribePrincipalIdFormat' :: Maybe Text
-</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AnextToken%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681217830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | The maximum number of results to return in a single call. To retrieve</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- the remaining results, make another call with the returned NextToken</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- value.</span><span>
-</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_maxResults"><span class="hs-identifier hs-type">describePrincipalIdFormat_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span id="describePrincipalIdFormat_maxResults"><span class="annot"><span class="annottext">describePrincipalIdFormat_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; DescribePrincipalIdFormat -&gt; f DescribePrincipalIdFormat
-</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_maxResults"><span class="hs-identifier hs-var hs-var">describePrincipalIdFormat_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePrincipalIdFormat -&gt; Maybe Natural)
--&gt; (DescribePrincipalIdFormat
-    -&gt; Maybe Natural -&gt; DescribePrincipalIdFormat)
--&gt; Lens
-     DescribePrincipalIdFormat
-     DescribePrincipalIdFormat
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681217829"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:DescribePrincipalIdFormat' :: DescribePrincipalIdFormat -&gt; Maybe Natural
-</span><a href="#local-6989586621681217829"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681217829"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681217828"><span class="annot"><span class="annottext">s :: DescribePrincipalIdFormat
-</span><a href="#local-6989586621681217828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681217827"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681217827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePrincipalIdFormat
-</span><a href="#local-6989586621681217828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribePrincipalIdFormat' :: Maybe Natural
-</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AmaxResults%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681217827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_dryRun"><span class="hs-identifier hs-type">describePrincipalIdFormat_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span id="describePrincipalIdFormat_dryRun"><span class="annot"><span class="annottext">describePrincipalIdFormat_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; DescribePrincipalIdFormat -&gt; f DescribePrincipalIdFormat
-</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_dryRun"><span class="hs-identifier hs-var hs-var">describePrincipalIdFormat_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePrincipalIdFormat -&gt; Maybe Bool)
--&gt; (DescribePrincipalIdFormat
-    -&gt; Maybe Bool -&gt; DescribePrincipalIdFormat)
--&gt; Lens
-     DescribePrincipalIdFormat
-     DescribePrincipalIdFormat
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681217826"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:DescribePrincipalIdFormat' :: DescribePrincipalIdFormat -&gt; Maybe Bool
-</span><a href="#local-6989586621681217826"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681217826"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681217825"><span class="annot"><span class="annottext">s :: DescribePrincipalIdFormat
-</span><a href="#local-6989586621681217825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681217824"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681217824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePrincipalIdFormat
-</span><a href="#local-6989586621681217825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribePrincipalIdFormat' :: Maybe Bool
-</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AdryRun%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681217824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ |</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- @internet-gateway@ | @network-acl@ | @network-acl-association@ |</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- @network-interface@ | @network-interface-attachment@ | @prefix-list@ |</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- @reservation@ | @route-table@ | @route-table-association@ |</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- @security-group@ | @snapshot@ | @subnet@ |</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- @subnet-cidr-block-association@ | @volume@ | @vpc@ |</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- | @vpn-connection@ | @vpn-gateway@</span><span>
-</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_resources"><span class="hs-identifier hs-type">describePrincipalIdFormat_resources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span id="describePrincipalIdFormat_resources"><span class="annot"><span class="annottext">describePrincipalIdFormat_resources :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-140"></span><span class="hs-comment">-- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- @internet-gateway@ | @network-acl@ | @network-acl-association@ |</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- @network-interface@ | @network-interface-attachment@ | @prefix-list@ |</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- @reservation@ | @route-table@ | @route-table-association@ |</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- @security-group@ | @snapshot@ | @subnet@ |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- @subnet-cidr-block-association@ | @volume@ | @vpc@ |</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | @vpn-connection@ | @vpn-gateway@</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_resources"><span class="hs-identifier hs-type">describePrincipalIdFormat_resources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="describePrincipalIdFormat_resources"><span class="annot"><span class="annottext">describePrincipalIdFormat_resources :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; DescribePrincipalIdFormat -&gt; f DescribePrincipalIdFormat
 </span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_resources"><span class="hs-identifier hs-var hs-var">describePrincipalIdFormat_resources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePrincipalIdFormat -&gt; Maybe [Text])
 -&gt; (DescribePrincipalIdFormat
@@ -317,16 +240,16 @@ $sel:dryRun:DescribePrincipalIdFormat' :: DescribePrincipalIdFormat -&gt; Maybe 
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681217823"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681253546"><span class="annot"><span class="annottext">Maybe [Text]
 resources :: Maybe [Text]
 $sel:resources:DescribePrincipalIdFormat' :: DescribePrincipalIdFormat -&gt; Maybe [Text]
-</span><a href="#local-6989586621681217823"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681217823"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681217822"><span class="annot"><span class="annottext">s :: DescribePrincipalIdFormat
-</span><a href="#local-6989586621681217822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681217821"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681217821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePrincipalIdFormat
-</span><a href="#local-6989586621681217822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:DescribePrincipalIdFormat' :: Maybe [Text]
+</span><a href="#local-6989586621681253546"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681253546"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681253545"><span class="annot"><span class="annottext">s :: DescribePrincipalIdFormat
+</span><a href="#local-6989586621681253545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681253544"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681253544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePrincipalIdFormat
+</span><a href="#local-6989586621681253545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:DescribePrincipalIdFormat' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3Aresources%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681217821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681253544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribePrincipalIdFormat -&gt; f DescribePrincipalIdFormat)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -340,22 +263,99 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The token to request the next page of results.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_nextToken"><span class="hs-identifier hs-type">describePrincipalIdFormat_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="describePrincipalIdFormat_nextToken"><span class="annot"><span class="annottext">describePrincipalIdFormat_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePrincipalIdFormat -&gt; f DescribePrincipalIdFormat
+</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_nextToken"><span class="hs-identifier hs-var hs-var">describePrincipalIdFormat_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePrincipalIdFormat -&gt; Maybe Text)
+-&gt; (DescribePrincipalIdFormat
+    -&gt; Maybe Text -&gt; DescribePrincipalIdFormat)
+-&gt; Lens
+     DescribePrincipalIdFormat
+     DescribePrincipalIdFormat
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681253540"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribePrincipalIdFormat' :: DescribePrincipalIdFormat -&gt; Maybe Text
+</span><a href="#local-6989586621681253540"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681253540"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681253539"><span class="annot"><span class="annottext">s :: DescribePrincipalIdFormat
+</span><a href="#local-6989586621681253539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681253538"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681253538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePrincipalIdFormat
+</span><a href="#local-6989586621681253539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribePrincipalIdFormat' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AnextToken%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681253538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_dryRun"><span class="hs-identifier hs-type">describePrincipalIdFormat_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="describePrincipalIdFormat_dryRun"><span class="annot"><span class="annottext">describePrincipalIdFormat_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribePrincipalIdFormat -&gt; f DescribePrincipalIdFormat
+</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_dryRun"><span class="hs-identifier hs-var hs-var">describePrincipalIdFormat_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePrincipalIdFormat -&gt; Maybe Bool)
+-&gt; (DescribePrincipalIdFormat
+    -&gt; Maybe Bool -&gt; DescribePrincipalIdFormat)
+-&gt; Lens
+     DescribePrincipalIdFormat
+     DescribePrincipalIdFormat
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681253537"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DescribePrincipalIdFormat' :: DescribePrincipalIdFormat -&gt; Maybe Bool
+</span><a href="#local-6989586621681253537"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681253537"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681253536"><span class="annot"><span class="annottext">s :: DescribePrincipalIdFormat
+</span><a href="#local-6989586621681253536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681253535"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681253535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePrincipalIdFormat
+</span><a href="#local-6989586621681253536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribePrincipalIdFormat' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AdryRun%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681253535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The maximum number of results to return in a single call. To retrieve</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- the remaining results, make another call with the returned NextToken</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_maxResults"><span class="hs-identifier hs-type">describePrincipalIdFormat_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="describePrincipalIdFormat_maxResults"><span class="annot"><span class="annottext">describePrincipalIdFormat_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribePrincipalIdFormat -&gt; f DescribePrincipalIdFormat
+</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormat_maxResults"><span class="hs-identifier hs-var hs-var">describePrincipalIdFormat_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePrincipalIdFormat -&gt; Maybe Natural)
+-&gt; (DescribePrincipalIdFormat
+    -&gt; Maybe Natural -&gt; DescribePrincipalIdFormat)
+-&gt; Lens
+     DescribePrincipalIdFormat
+     DescribePrincipalIdFormat
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681253534"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribePrincipalIdFormat' :: DescribePrincipalIdFormat -&gt; Maybe Natural
+</span><a href="#local-6989586621681253534"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681253534"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681253533"><span class="annot"><span class="annottext">s :: DescribePrincipalIdFormat
+</span><a href="#local-6989586621681253533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681253532"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681253532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePrincipalIdFormat
+</span><a href="#local-6989586621681253533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribePrincipalIdFormat' :: Maybe Natural
+</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AmaxResults%3ADescribePrincipalIdFormat%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681253532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621681217814"><span class="annot"><span class="annottext">page :: DescribePrincipalIdFormat
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621681253528"><span class="annot"><span class="annottext">page :: DescribePrincipalIdFormat
 -&gt; AWSResponse DescribePrincipalIdFormat
 -&gt; Maybe DescribePrincipalIdFormat
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681217812"><span class="annot"><span class="annottext">DescribePrincipalIdFormat
-</span><a href="#local-6989586621681217812"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681217811"><span class="annot"><span class="annottext">AWSResponse DescribePrincipalIdFormat
-</span><a href="#local-6989586621681217811"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681253526"><span class="annot"><span class="annottext">DescribePrincipalIdFormat
+</span><a href="#local-6989586621681253526"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681253525"><span class="annot"><span class="annottext">AWSResponse DescribePrincipalIdFormat
+</span><a href="#local-6989586621681253525"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-173"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribePrincipalIdFormat
 DescribePrincipalIdFormatResponse
-</span><a href="#local-6989586621681217811"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681253525"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">DescribePrincipalIdFormatResponse
 -&gt; Getting (First Text) DescribePrincipalIdFormatResponse Text
 -&gt; Maybe Text
@@ -385,7 +385,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-179"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribePrincipalIdFormat
 DescribePrincipalIdFormatResponse
-</span><a href="#local-6989586621681217811"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681253525"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">DescribePrincipalIdFormatResponse
 -&gt; Getting
      (First [PrincipalIdFormat])
@@ -433,7 +433,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">DescribePrincipalIdFormat
-</span><a href="#local-6989586621681217812"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621681253526"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">DescribePrincipalIdFormat
 -&gt; (DescribePrincipalIdFormat -&gt; DescribePrincipalIdFormat)
 -&gt; DescribePrincipalIdFormat
@@ -454,7 +454,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribePrincipalIdFormat
 DescribePrincipalIdFormatResponse
-</span><a href="#local-6989586621681217811"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681253525"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-189"></span><span>          </span><span class="annot"><span class="annottext">DescribePrincipalIdFormatResponse
 -&gt; Getting (First Text) DescribePrincipalIdFormatResponse Text
 -&gt; Maybe Text
@@ -480,13 +480,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-193"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-194"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse</span></a></span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621681217802"><span class="annot"><span class="annottext">request :: DescribePrincipalIdFormat -&gt; Request DescribePrincipalIdFormat
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621681253516"><span class="annot"><span class="annottext">request :: DescribePrincipalIdFormat -&gt; Request DescribePrincipalIdFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribePrincipalIdFormat -&gt; Request DescribePrincipalIdFormat
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621681217798"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621681253512"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribePrincipalIdFormat
 -&gt; ClientResponse ClientBody
@@ -512,39 +512,21 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-199"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681217795"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681217795"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681217794"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681217794"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681217793"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681217793"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-200"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [PrincipalIdFormat]
--&gt; Int
--&gt; DescribePrincipalIdFormatResponse
+</span><span id="line-199"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681253509"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681253509"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681253508"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681253508"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681253507"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681253507"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-200"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PrincipalIdFormat]
+-&gt; Maybe Text -&gt; Int -&gt; DescribePrincipalIdFormatResponse
 </span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-var">DescribePrincipalIdFormatResponse'</span></a></span><span>
-</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [PrincipalIdFormat]
- -&gt; Int
- -&gt; DescribePrincipalIdFormatResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [PrincipalIdFormat]
-      -&gt; Int -&gt; DescribePrincipalIdFormatResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681217793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [PrincipalIdFormat]
-   -&gt; Int -&gt; DescribePrincipalIdFormatResponse)
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PrincipalIdFormat]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribePrincipalIdFormatResponse)
 -&gt; Either String (Maybe [PrincipalIdFormat])
--&gt; Either String (Int -&gt; DescribePrincipalIdFormatResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681217793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribePrincipalIdFormatResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681253507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;principalSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -552,7 +534,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-203"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-202"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [PrincipalIdFormat]))
 -&gt; Either String (Maybe [PrincipalIdFormat])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -565,7 +547,17 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-204"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; DescribePrincipalIdFormatResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribePrincipalIdFormatResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681253507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribePrincipalIdFormatResponse)
 -&gt; Either String Int
 -&gt; Either String DescribePrincipalIdFormatResponse
@@ -575,15 +567,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681217795"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681253509"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681217782"><span id="local-6989586621681217784"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span></span></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681253496"><span id="local-6989586621681253498"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span></span></span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681217779"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681253493"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span></span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621681217775"><span class="annot"><span class="annottext">toHeaders :: DescribePrincipalIdFormat -&gt; ResponseHeaders
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621681253489"><span class="annot"><span class="annottext">toHeaders :: DescribePrincipalIdFormat -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribePrincipalIdFormat -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -591,27 +583,27 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621681217770"><span class="annot"><span class="annottext">toPath :: DescribePrincipalIdFormat -&gt; ByteString
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621681253484"><span class="annot"><span class="annottext">toPath :: DescribePrincipalIdFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribePrincipalIdFormat -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat"><span class="hs-identifier hs-type">DescribePrincipalIdFormat</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-219"></span><span>  </span><span id="local-6989586621681217766"><span class="annot"><span class="annottext">toQuery :: DescribePrincipalIdFormat -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681217761"><span id="local-6989586621681217762"><span id="local-6989586621681217763"><span id="local-6989586621681217764"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621681253480"><span class="annot"><span class="annottext">toQuery :: DescribePrincipalIdFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormat%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681253475"><span id="local-6989586621681253476"><span id="local-6989586621681253477"><span id="local-6989586621681253478"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe [Text]
 Maybe Text
-resources :: Maybe [Text]
-dryRun :: Maybe Bool
 maxResults :: Maybe Natural
+dryRun :: Maybe Bool
 nextToken :: Maybe Text
-$sel:resources:DescribePrincipalIdFormat' :: DescribePrincipalIdFormat -&gt; Maybe [Text]
-$sel:dryRun:DescribePrincipalIdFormat' :: DescribePrincipalIdFormat -&gt; Maybe Bool
+resources :: Maybe [Text]
 $sel:maxResults:DescribePrincipalIdFormat' :: DescribePrincipalIdFormat -&gt; Maybe Natural
+$sel:dryRun:DescribePrincipalIdFormat' :: DescribePrincipalIdFormat -&gt; Maybe Bool
 $sel:nextToken:DescribePrincipalIdFormat' :: DescribePrincipalIdFormat -&gt; Maybe Text
-</span><a href="#local-6989586621681217761"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:resources:DescribePrincipalIdFormat' :: DescribePrincipalIdFormat -&gt; Maybe [Text]
+</span><a href="#local-6989586621681253475"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -627,25 +619,10 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681217764"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681217763"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681217762"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-229"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+</span><span id="line-226"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
@@ -653,23 +630,38 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Resource&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681217761"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681253478"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681253477"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681253476"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681253475"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-230"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- | /See:/ 'newDescribePrincipalIdFormatResponse' smart constructor.</span><span>
-</span><span id="line-233"></span><span id="local-6989586621681217757"><span id="local-6989586621681217758"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePrincipalIdFormatResponse"><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse"><span class="hs-identifier hs-var">DescribePrincipalIdFormatResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePrincipalIdFormatResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-var">DescribePrincipalIdFormatResponse'</span></a></span></span><span>
-</span><span id="line-234"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
-</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- null when there are no more results to return.</span><span>
-</span><span id="line-236"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribePrincipalIdFormatResponse%27"><span class="annot"><span class="annottext">DescribePrincipalIdFormatResponse -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AnextToken%3ADescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- | Information about the ID format settings for the ARN.</span><span>
-</span><span id="line-238"></span><span>    </span><span id="%24sel%3Aprincipals%3ADescribePrincipalIdFormatResponse%27"><span class="annot"><span class="annottext">DescribePrincipalIdFormatResponse -&gt; Maybe [PrincipalIdFormat]
+</span><span id="line-233"></span><span id="local-6989586621681253471"><span id="local-6989586621681253472"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePrincipalIdFormatResponse"><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse"><span class="hs-identifier hs-var">DescribePrincipalIdFormatResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePrincipalIdFormatResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-var">DescribePrincipalIdFormatResponse'</span></a></span></span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the ID format settings for the ARN.</span><span>
+</span><span id="line-235"></span><span>    </span><span id="%24sel%3Aprincipals%3ADescribePrincipalIdFormatResponse%27"><span class="annot"><span class="annottext">DescribePrincipalIdFormatResponse -&gt; Maybe [PrincipalIdFormat]
 </span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3Aprincipals%3ADescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-var hs-var">principals</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PrincipalIdFormat.html#PrincipalIdFormat"><span class="hs-identifier hs-type">PrincipalIdFormat</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- null when there are no more results to return.</span><span>
+</span><span id="line-238"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribePrincipalIdFormatResponse%27"><span class="annot"><span class="annottext">DescribePrincipalIdFormatResponse -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AnextToken%3ADescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-239"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-240"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribePrincipalIdFormatResponse%27"><span class="annot"><span class="annottext">DescribePrincipalIdFormatResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AhttpStatus%3ADescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-241"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681217750"><span id="local-6989586621681217752"><span class="annot"><span class="annottext">DescribePrincipalIdFormatResponse
+</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681253464"><span id="local-6989586621681253466"><span class="annot"><span class="annottext">DescribePrincipalIdFormatResponse
 -&gt; DescribePrincipalIdFormatResponse -&gt; Bool
 (DescribePrincipalIdFormatResponse
  -&gt; DescribePrincipalIdFormatResponse -&gt; Bool)
@@ -685,7 +677,7 @@ $c/= :: DescribePrincipalIdFormatResponse
 -&gt; DescribePrincipalIdFormatResponse -&gt; Bool
 $c== :: DescribePrincipalIdFormatResponse
 -&gt; DescribePrincipalIdFormatResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681217742"><span id="local-6989586621681217744"><span id="local-6989586621681217746"><span id="local-6989586621681217748"><span class="annot"><span class="annottext">ReadPrec [DescribePrincipalIdFormatResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681253456"><span id="local-6989586621681253458"><span id="local-6989586621681253460"><span id="local-6989586621681253462"><span class="annot"><span class="annottext">ReadPrec [DescribePrincipalIdFormatResponse]
 ReadPrec DescribePrincipalIdFormatResponse
 Int -&gt; ReadS DescribePrincipalIdFormatResponse
 ReadS [DescribePrincipalIdFormatResponse]
@@ -705,7 +697,7 @@ readList :: ReadS [DescribePrincipalIdFormatResponse]
 $creadList :: ReadS [DescribePrincipalIdFormatResponse]
 readsPrec :: Int -&gt; ReadS DescribePrincipalIdFormatResponse
 $creadsPrec :: Int -&gt; ReadS DescribePrincipalIdFormatResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681217736"><span id="local-6989586621681217738"><span id="local-6989586621681217740"><span class="annot"><span class="annottext">Int -&gt; DescribePrincipalIdFormatResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681253450"><span id="local-6989586621681253452"><span id="local-6989586621681253454"><span class="annot"><span class="annottext">Int -&gt; DescribePrincipalIdFormatResponse -&gt; ShowS
 [DescribePrincipalIdFormatResponse] -&gt; ShowS
 DescribePrincipalIdFormatResponse -&gt; String
 (Int -&gt; DescribePrincipalIdFormatResponse -&gt; ShowS)
@@ -751,10 +743,10 @@ DescribePrincipalIdFormatResponse
 </span><span id="line-249"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-251"></span><span class="hs-comment">--</span><span>
-</span><span id="line-252"></span><span class="hs-comment">-- 'nextToken', 'describePrincipalIdFormatResponse_nextToken' - The token to use to retrieve the next page of results. This value is</span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- null when there are no more results to return.</span><span>
-</span><span id="line-254"></span><span class="hs-comment">--</span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- 'principals', 'describePrincipalIdFormatResponse_principals' - Information about the ID format settings for the ARN.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- 'principals', 'describePrincipalIdFormatResponse_principals' - Information about the ID format settings for the ARN.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- 'nextToken', 'describePrincipalIdFormatResponse_nextToken' - The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- null when there are no more results to return.</span><span>
 </span><span id="line-256"></span><span class="hs-comment">--</span><span>
 </span><span id="line-257"></span><span class="hs-comment">-- 'httpStatus', 'describePrincipalIdFormatResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-258"></span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#newDescribePrincipalIdFormatResponse"><span class="hs-identifier hs-type">newDescribePrincipalIdFormatResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -762,52 +754,28 @@ DescribePrincipalIdFormatResponse
 </span><span id="line-260"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-261"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse</span></a></span><span>
 </span><span id="line-262"></span><span id="newDescribePrincipalIdFormatResponse"><span class="annot"><span class="annottext">newDescribePrincipalIdFormatResponse :: Int -&gt; DescribePrincipalIdFormatResponse
-</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#newDescribePrincipalIdFormatResponse"><span class="hs-identifier hs-var hs-var">newDescribePrincipalIdFormatResponse</span></a></span></span><span> </span><span id="local-6989586621681217733"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681217733"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-263"></span><span>  </span><span class="annot"><span class="annottext">DescribePrincipalIdFormatResponse' :: Maybe Text
--&gt; Maybe [PrincipalIdFormat]
--&gt; Int
--&gt; DescribePrincipalIdFormatResponse
+</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#newDescribePrincipalIdFormatResponse"><span class="hs-identifier hs-var hs-var">newDescribePrincipalIdFormatResponse</span></a></span></span><span> </span><span id="local-6989586621681253447"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681253447"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-263"></span><span>  </span><span class="annot"><span class="annottext">DescribePrincipalIdFormatResponse' :: Maybe [PrincipalIdFormat]
+-&gt; Maybe Text -&gt; Int -&gt; DescribePrincipalIdFormatResponse
 </span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse'</span></a></span><span>
-</span><span id="line-264"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribePrincipalIdFormatResponse' :: Maybe Text
-</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AnextToken%3ADescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-264"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:principals:DescribePrincipalIdFormatResponse' :: Maybe [PrincipalIdFormat]
+</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3Aprincipals%3ADescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-var">principals</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">Maybe [PrincipalIdFormat]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">$sel:principals:DescribePrincipalIdFormatResponse' :: Maybe [PrincipalIdFormat]
-</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3Aprincipals%3ADescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-var">principals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalIdFormat]
+</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribePrincipalIdFormatResponse' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AnextToken%3ADescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-267"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePrincipalIdFormatResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AhttpStatus%3ADescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681217733"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681253447"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-268"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-269"></span><span>
-</span><span id="line-270"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
-</span><span id="line-271"></span><span class="hs-comment">-- null when there are no more results to return.</span><span>
-</span><span id="line-272"></span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormatResponse_nextToken"><span class="hs-identifier hs-type">describePrincipalIdFormatResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-273"></span><span id="describePrincipalIdFormatResponse_nextToken"><span class="annot"><span class="annottext">describePrincipalIdFormatResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribePrincipalIdFormatResponse
--&gt; f DescribePrincipalIdFormatResponse
-</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormatResponse_nextToken"><span class="hs-identifier hs-var hs-var">describePrincipalIdFormatResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePrincipalIdFormatResponse -&gt; Maybe Text)
--&gt; (DescribePrincipalIdFormatResponse
-    -&gt; Maybe Text -&gt; DescribePrincipalIdFormatResponse)
--&gt; Lens' DescribePrincipalIdFormatResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681217732"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribePrincipalIdFormatResponse' :: DescribePrincipalIdFormatResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681217732"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681217732"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681217731"><span class="annot"><span class="annottext">s :: DescribePrincipalIdFormatResponse
-</span><a href="#local-6989586621681217731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681217730"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681217730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePrincipalIdFormatResponse
-</span><a href="#local-6989586621681217731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribePrincipalIdFormatResponse' :: Maybe Text
-</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AnextToken%3ADescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681217730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-274"></span><span>
-</span><span id="line-275"></span><span class="hs-comment">-- | Information about the ID format settings for the ARN.</span><span>
-</span><span id="line-276"></span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormatResponse_principals"><span class="hs-identifier hs-type">describePrincipalIdFormatResponse_principals</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PrincipalIdFormat.html#PrincipalIdFormat"><span class="hs-identifier hs-type">PrincipalIdFormat</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-277"></span><span id="describePrincipalIdFormatResponse_principals"><span class="annot"><span class="annottext">describePrincipalIdFormatResponse_principals :: (Maybe [PrincipalIdFormat] -&gt; f (Maybe [PrincipalIdFormat]))
+</span><span id="line-270"></span><span class="hs-comment">-- | Information about the ID format settings for the ARN.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormatResponse_principals"><span class="hs-identifier hs-type">describePrincipalIdFormatResponse_principals</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PrincipalIdFormat.html#PrincipalIdFormat"><span class="hs-identifier hs-type">PrincipalIdFormat</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span id="describePrincipalIdFormatResponse_principals"><span class="annot"><span class="annottext">describePrincipalIdFormatResponse_principals :: (Maybe [PrincipalIdFormat] -&gt; f (Maybe [PrincipalIdFormat]))
 -&gt; DescribePrincipalIdFormatResponse
 -&gt; f DescribePrincipalIdFormatResponse
 </span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormatResponse_principals"><span class="hs-identifier hs-var hs-var">describePrincipalIdFormatResponse_principals</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePrincipalIdFormatResponse -&gt; Maybe [PrincipalIdFormat])
@@ -816,16 +784,16 @@ $sel:nextToken:DescribePrincipalIdFormatResponse' :: DescribePrincipalIdFormatRe
 -&gt; Lens'
      DescribePrincipalIdFormatResponse (Maybe [PrincipalIdFormat])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681217729"><span class="annot"><span class="annottext">Maybe [PrincipalIdFormat]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681253446"><span class="annot"><span class="annottext">Maybe [PrincipalIdFormat]
 principals :: Maybe [PrincipalIdFormat]
 $sel:principals:DescribePrincipalIdFormatResponse' :: DescribePrincipalIdFormatResponse -&gt; Maybe [PrincipalIdFormat]
-</span><a href="#local-6989586621681217729"><span class="hs-identifier hs-var hs-var">principals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalIdFormat]
-</span><a href="#local-6989586621681217729"><span class="hs-identifier hs-var">principals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681217728"><span class="annot"><span class="annottext">s :: DescribePrincipalIdFormatResponse
-</span><a href="#local-6989586621681217728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681217727"><span class="annot"><span class="annottext">Maybe [PrincipalIdFormat]
-</span><a href="#local-6989586621681217727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePrincipalIdFormatResponse
-</span><a href="#local-6989586621681217728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principals:DescribePrincipalIdFormatResponse' :: Maybe [PrincipalIdFormat]
+</span><a href="#local-6989586621681253446"><span class="hs-identifier hs-var hs-var">principals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalIdFormat]
+</span><a href="#local-6989586621681253446"><span class="hs-identifier hs-var">principals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681253445"><span class="annot"><span class="annottext">s :: DescribePrincipalIdFormatResponse
+</span><a href="#local-6989586621681253445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681253444"><span class="annot"><span class="annottext">Maybe [PrincipalIdFormat]
+</span><a href="#local-6989586621681253444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePrincipalIdFormatResponse
+</span><a href="#local-6989586621681253445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principals:DescribePrincipalIdFormatResponse' :: Maybe [PrincipalIdFormat]
 </span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3Aprincipals%3ADescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-var">principals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalIdFormat]
-</span><a href="#local-6989586621681217727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PrincipalIdFormat] -&gt; f (Maybe [PrincipalIdFormat]))
+</span><a href="#local-6989586621681253444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PrincipalIdFormat] -&gt; f (Maybe [PrincipalIdFormat]))
  -&gt; DescribePrincipalIdFormatResponse
  -&gt; f DescribePrincipalIdFormatResponse)
 -&gt; ((Maybe [PrincipalIdFormat] -&gt; f (Maybe [PrincipalIdFormat]))
@@ -852,8 +820,30 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [PrincipalIdFormat]
   [PrincipalIdFormat]
   [PrincipalIdFormat]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- null when there are no more results to return.</span><span>
+</span><span id="line-276"></span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormatResponse_nextToken"><span class="hs-identifier hs-type">describePrincipalIdFormatResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span id="describePrincipalIdFormatResponse_nextToken"><span class="annot"><span class="annottext">describePrincipalIdFormatResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribePrincipalIdFormatResponse
+-&gt; f DescribePrincipalIdFormatResponse
+</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormatResponse_nextToken"><span class="hs-identifier hs-var hs-var">describePrincipalIdFormatResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePrincipalIdFormatResponse -&gt; Maybe Text)
+-&gt; (DescribePrincipalIdFormatResponse
+    -&gt; Maybe Text -&gt; DescribePrincipalIdFormatResponse)
+-&gt; Lens' DescribePrincipalIdFormatResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681253443"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribePrincipalIdFormatResponse' :: DescribePrincipalIdFormatResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681253443"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681253443"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681253442"><span class="annot"><span class="annottext">s :: DescribePrincipalIdFormatResponse
+</span><a href="#local-6989586621681253442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681253441"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681253441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePrincipalIdFormatResponse
+</span><a href="#local-6989586621681253442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribePrincipalIdFormatResponse' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AnextToken%3ADescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681253441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-278"></span><span>
 </span><span id="line-279"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-280"></span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#describePrincipalIdFormatResponse_httpStatus"><span class="hs-identifier hs-type">describePrincipalIdFormatResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -869,18 +859,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681217726"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681253440"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribePrincipalIdFormatResponse' :: DescribePrincipalIdFormatResponse -&gt; Int
-</span><a href="#local-6989586621681217726"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681217726"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681217725"><span class="annot"><span class="annottext">s :: DescribePrincipalIdFormatResponse
-</span><a href="#local-6989586621681217725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681217724"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681217724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePrincipalIdFormatResponse
-</span><a href="#local-6989586621681217725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePrincipalIdFormatResponse' :: Int
+</span><a href="#local-6989586621681253440"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681253440"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681253439"><span class="annot"><span class="annottext">s :: DescribePrincipalIdFormatResponse
+</span><a href="#local-6989586621681253439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681253438"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681253438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePrincipalIdFormatResponse
+</span><a href="#local-6989586621681253439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePrincipalIdFormatResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#%24sel%3AhttpStatus%3ADescribePrincipalIdFormatResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681217724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681253438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-282"></span><span>
 </span><span id="line-283"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-284"></span><span>  </span><span id="local-6989586621681217722"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621681253436"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-285"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribePrincipalIdFormat.html#DescribePrincipalIdFormatResponse"><span class="hs-identifier hs-type">DescribePrincipalIdFormatResponse</span></a></span></span><span>
 </span><span id="line-286"></span></pre></body></html>

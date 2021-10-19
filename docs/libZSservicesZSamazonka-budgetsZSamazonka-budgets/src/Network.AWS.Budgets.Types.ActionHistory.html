@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | The historical records for a budget action.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newActionHistory' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679209111"><span id="local-6989586621679209112"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionHistory"><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory"><span class="hs-identifier hs-var">ActionHistory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionHistory%27"><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory%27"><span class="hs-identifier hs-var">ActionHistory'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679209216"><span id="local-6989586621679209217"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionHistory"><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory"><span class="hs-identifier hs-var">ActionHistory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionHistory%27"><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory%27"><span class="hs-identifier hs-var">ActionHistory'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Atimestamp%3AActionHistory%27"><span class="annot"><span class="annottext">ActionHistory -&gt; POSIX
 </span><a href="Network.AWS.Budgets.Types.ActionHistory.html#%24sel%3Atimestamp%3AActionHistory%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The status of action at the time of the event.</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AactionHistoryDetails%3AActionHistory%27"><span class="annot"><span class="annottext">ActionHistory -&gt; ActionHistoryDetails
 </span><a href="Network.AWS.Budgets.Types.ActionHistory.html#%24sel%3AactionHistoryDetails%3AActionHistory%27"><span class="hs-identifier hs-var hs-var">actionHistoryDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistoryDetails.html#ActionHistoryDetails"><span class="hs-identifier hs-type">ActionHistoryDetails</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209102"><span id="local-6989586621679209104"><span class="annot"><span class="annottext">ActionHistory -&gt; ActionHistory -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209207"><span id="local-6989586621679209209"><span class="annot"><span class="annottext">ActionHistory -&gt; ActionHistory -&gt; Bool
 (ActionHistory -&gt; ActionHistory -&gt; Bool)
 -&gt; (ActionHistory -&gt; ActionHistory -&gt; Bool) -&gt; Eq ActionHistory
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ActionHistory -&gt; ActionHistory -&gt; Bool
 == :: ActionHistory -&gt; ActionHistory -&gt; Bool
 $c== :: ActionHistory -&gt; ActionHistory -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209095"><span id="local-6989586621679209097"><span id="local-6989586621679209099"><span class="annot"><span class="annottext">Int -&gt; ActionHistory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209200"><span id="local-6989586621679209202"><span id="local-6989586621679209204"><span class="annot"><span class="annottext">Int -&gt; ActionHistory -&gt; ShowS
 [ActionHistory] -&gt; ShowS
 ActionHistory -&gt; String
 (Int -&gt; ActionHistory -&gt; ShowS)
@@ -109,14 +109,14 @@ $cfrom :: forall x. ActionHistory -&gt; Rep ActionHistory x
 -&gt; ActionHistoryDetails
 -&gt; ActionHistory
 </span><a href="Network.AWS.Budgets.Types.ActionHistory.html#newActionHistory"><span class="hs-identifier hs-var hs-var">newActionHistory</span></a></span></span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679209089"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679209089"><span class="hs-identifier hs-var">pTimestamp_</span></a></span></span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679209088"><span class="annot"><span class="annottext">ActionStatus
-</span><a href="#local-6989586621679209088"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679209087"><span class="annot"><span class="annottext">EventType
-</span><a href="#local-6989586621679209087"><span class="hs-identifier hs-var">pEventType_</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679209086"><span class="annot"><span class="annottext">ActionHistoryDetails
-</span><a href="#local-6989586621679209086"><span class="hs-identifier hs-var">pActionHistoryDetails_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679209194"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679209194"><span class="hs-identifier hs-var">pTimestamp_</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679209193"><span class="annot"><span class="annottext">ActionStatus
+</span><a href="#local-6989586621679209193"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679209192"><span class="annot"><span class="annottext">EventType
+</span><a href="#local-6989586621679209192"><span class="hs-identifier hs-var">pEventType_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679209191"><span class="annot"><span class="annottext">ActionHistoryDetails
+</span><a href="#local-6989586621679209191"><span class="hs-identifier hs-var">pActionHistoryDetails_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">ActionHistory' :: POSIX
 -&gt; ActionStatus
 -&gt; EventType
@@ -132,16 +132,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679209089"><span class="hs-identifier hs-var">pTimestamp_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209194"><span class="hs-identifier hs-var">pTimestamp_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:ActionHistory' :: ActionStatus
 </span><a href="Network.AWS.Budgets.Types.ActionHistory.html#%24sel%3Astatus%3AActionHistory%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionStatus
-</span><a href="#local-6989586621679209088"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209193"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">$sel:eventType:ActionHistory' :: EventType
 </span><a href="Network.AWS.Budgets.Types.ActionHistory.html#%24sel%3AeventType%3AActionHistory%27"><span class="hs-identifier hs-var">eventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EventType
-</span><a href="#local-6989586621679209087"><span class="hs-identifier hs-var">pEventType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209192"><span class="hs-identifier hs-var">pEventType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:actionHistoryDetails:ActionHistory' :: ActionHistoryDetails
 </span><a href="Network.AWS.Budgets.Types.ActionHistory.html#%24sel%3AactionHistoryDetails%3AActionHistory%27"><span class="hs-identifier hs-var">actionHistoryDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionHistoryDetails
-</span><a href="#local-6989586621679209086"><span class="hs-identifier hs-var">pActionHistoryDetails_</span></a></span><span>
+</span><a href="#local-6989586621679209191"><span class="hs-identifier hs-var">pActionHistoryDetails_</span></a></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -151,16 +151,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (ActionHistory -&gt; POSIX -&gt; ActionHistory)
 -&gt; Lens ActionHistory ActionHistory POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory%27"><span class="hs-identifier hs-type">ActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209080"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory%27"><span class="hs-identifier hs-type">ActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209185"><span class="annot"><span class="annottext">POSIX
 timestamp :: POSIX
 $sel:timestamp:ActionHistory' :: ActionHistory -&gt; POSIX
-</span><a href="#local-6989586621679209080"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679209080"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209079"><span class="annot"><span class="annottext">s :: ActionHistory
-</span><a href="#local-6989586621679209079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory%27"><span class="hs-identifier hs-type">ActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209078"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679209078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionHistory
-</span><a href="#local-6989586621679209079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:ActionHistory' :: POSIX
+</span><a href="#local-6989586621679209185"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679209185"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209184"><span class="annot"><span class="annottext">s :: ActionHistory
+</span><a href="#local-6989586621679209184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory%27"><span class="hs-identifier hs-type">ActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209183"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679209183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionHistory
+</span><a href="#local-6989586621679209184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:ActionHistory' :: POSIX
 </span><a href="Network.AWS.Budgets.Types.ActionHistory.html#%24sel%3Atimestamp%3AActionHistory%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679209078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory"><span class="hs-identifier hs-type">ActionHistory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ActionHistory -&gt; f ActionHistory)
+</span><a href="#local-6989586621679209183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory"><span class="hs-identifier hs-type">ActionHistory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ActionHistory -&gt; f ActionHistory)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; ActionHistory
@@ -178,16 +178,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (ActionHistory -&gt; ActionStatus -&gt; ActionHistory)
 -&gt; Lens ActionHistory ActionHistory ActionStatus ActionStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory%27"><span class="hs-identifier hs-type">ActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209075"><span class="annot"><span class="annottext">ActionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory%27"><span class="hs-identifier hs-type">ActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209180"><span class="annot"><span class="annottext">ActionStatus
 status :: ActionStatus
 $sel:status:ActionHistory' :: ActionHistory -&gt; ActionStatus
-</span><a href="#local-6989586621679209075"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionStatus
-</span><a href="#local-6989586621679209075"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209074"><span class="annot"><span class="annottext">s :: ActionHistory
-</span><a href="#local-6989586621679209074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory%27"><span class="hs-identifier hs-type">ActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209073"><span class="annot"><span class="annottext">ActionStatus
-</span><a href="#local-6989586621679209073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionHistory
-</span><a href="#local-6989586621679209074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ActionHistory' :: ActionStatus
+</span><a href="#local-6989586621679209180"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionStatus
+</span><a href="#local-6989586621679209180"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209179"><span class="annot"><span class="annottext">s :: ActionHistory
+</span><a href="#local-6989586621679209179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory%27"><span class="hs-identifier hs-type">ActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209178"><span class="annot"><span class="annottext">ActionStatus
+</span><a href="#local-6989586621679209178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionHistory
+</span><a href="#local-6989586621679209179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ActionHistory' :: ActionStatus
 </span><a href="Network.AWS.Budgets.Types.ActionHistory.html#%24sel%3Astatus%3AActionHistory%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionStatus
-</span><a href="#local-6989586621679209073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory"><span class="hs-identifier hs-type">ActionHistory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory"><span class="hs-identifier hs-type">ActionHistory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | This distinguishes between whether the events are triggered by the user</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- or generated by the system.</span><span>
@@ -197,16 +197,16 @@ $sel:status:ActionHistory' :: ActionHistory -&gt; ActionStatus
 -&gt; (ActionHistory -&gt; EventType -&gt; ActionHistory)
 -&gt; Lens ActionHistory ActionHistory EventType EventType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory%27"><span class="hs-identifier hs-type">ActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209071"><span class="annot"><span class="annottext">EventType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory%27"><span class="hs-identifier hs-type">ActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209176"><span class="annot"><span class="annottext">EventType
 eventType :: EventType
 $sel:eventType:ActionHistory' :: ActionHistory -&gt; EventType
-</span><a href="#local-6989586621679209071"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventType
-</span><a href="#local-6989586621679209071"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209070"><span class="annot"><span class="annottext">s :: ActionHistory
-</span><a href="#local-6989586621679209070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory%27"><span class="hs-identifier hs-type">ActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209069"><span class="annot"><span class="annottext">EventType
-</span><a href="#local-6989586621679209069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionHistory
-</span><a href="#local-6989586621679209070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventType:ActionHistory' :: EventType
+</span><a href="#local-6989586621679209176"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventType
+</span><a href="#local-6989586621679209176"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209175"><span class="annot"><span class="annottext">s :: ActionHistory
+</span><a href="#local-6989586621679209175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory%27"><span class="hs-identifier hs-type">ActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209174"><span class="annot"><span class="annottext">EventType
+</span><a href="#local-6989586621679209174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionHistory
+</span><a href="#local-6989586621679209175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventType:ActionHistory' :: EventType
 </span><a href="Network.AWS.Budgets.Types.ActionHistory.html#%24sel%3AeventType%3AActionHistory%27"><span class="hs-identifier hs-var">eventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EventType
-</span><a href="#local-6989586621679209069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory"><span class="hs-identifier hs-type">ActionHistory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory"><span class="hs-identifier hs-type">ActionHistory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The description of details of the event.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#actionHistory_actionHistoryDetails"><span class="hs-identifier hs-type">actionHistory_actionHistoryDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory"><span class="hs-identifier hs-type">ActionHistory</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistoryDetails.html#ActionHistoryDetails"><span class="hs-identifier hs-type">ActionHistoryDetails</span></a></span><span>
@@ -220,19 +220,19 @@ $sel:eventType:ActionHistory' :: ActionHistory -&gt; EventType
      ActionHistoryDetails
      ActionHistoryDetails
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory%27"><span class="hs-identifier hs-type">ActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209067"><span class="annot"><span class="annottext">ActionHistoryDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory%27"><span class="hs-identifier hs-type">ActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209172"><span class="annot"><span class="annottext">ActionHistoryDetails
 actionHistoryDetails :: ActionHistoryDetails
 $sel:actionHistoryDetails:ActionHistory' :: ActionHistory -&gt; ActionHistoryDetails
-</span><a href="#local-6989586621679209067"><span class="hs-identifier hs-var hs-var">actionHistoryDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionHistoryDetails
-</span><a href="#local-6989586621679209067"><span class="hs-identifier hs-var">actionHistoryDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209066"><span class="annot"><span class="annottext">s :: ActionHistory
-</span><a href="#local-6989586621679209066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory%27"><span class="hs-identifier hs-type">ActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209065"><span class="annot"><span class="annottext">ActionHistoryDetails
-</span><a href="#local-6989586621679209065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionHistory
-</span><a href="#local-6989586621679209066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionHistoryDetails:ActionHistory' :: ActionHistoryDetails
+</span><a href="#local-6989586621679209172"><span class="hs-identifier hs-var hs-var">actionHistoryDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionHistoryDetails
+</span><a href="#local-6989586621679209172"><span class="hs-identifier hs-var">actionHistoryDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209171"><span class="annot"><span class="annottext">s :: ActionHistory
+</span><a href="#local-6989586621679209171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory%27"><span class="hs-identifier hs-type">ActionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209170"><span class="annot"><span class="annottext">ActionHistoryDetails
+</span><a href="#local-6989586621679209170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionHistory
+</span><a href="#local-6989586621679209171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionHistoryDetails:ActionHistory' :: ActionHistoryDetails
 </span><a href="Network.AWS.Budgets.Types.ActionHistory.html#%24sel%3AactionHistoryDetails%3AActionHistory%27"><span class="hs-identifier hs-var">actionHistoryDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionHistoryDetails
-</span><a href="#local-6989586621679209065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory"><span class="hs-identifier hs-type">ActionHistory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory"><span class="hs-identifier hs-type">ActionHistory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209062"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory"><span class="hs-identifier hs-type">ActionHistory</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679209060"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionHistory
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209167"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory"><span class="hs-identifier hs-type">ActionHistory</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679209165"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionHistory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ActionHistory)
@@ -242,8 +242,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ActionHistory&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209057"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209057"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209162"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209162"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">POSIX
 -&gt; ActionStatus
 -&gt; EventType
@@ -261,7 +261,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; EventType -&gt; ActionHistoryDetails -&gt; ActionHistory)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209057"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679209162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
@@ -272,7 +272,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (EventType -&gt; ActionHistoryDetails -&gt; ActionHistory)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209057"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ActionStatus
+</span><a href="#local-6989586621679209162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ActionStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -281,7 +281,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (ActionHistoryDetails -&gt; ActionHistory)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209057"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EventType
+</span><a href="#local-6989586621679209162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EventType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventType&quot;</span></span><span class="hs-special">)</span><span>
@@ -289,13 +289,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ActionHistoryDetails -&gt; Parser ActionHistory
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209057"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ActionHistoryDetails
+</span><a href="#local-6989586621679209162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ActionHistoryDetails
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ActionHistoryDetails&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209051"><span id="local-6989586621679209053"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory"><span class="hs-identifier hs-type">ActionHistory</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209156"><span id="local-6989586621679209158"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory"><span class="hs-identifier hs-type">ActionHistory</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209048"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory"><span class="hs-identifier hs-type">ActionHistory</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209153"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionHistory.html#ActionHistory"><span class="hs-identifier hs-type">ActionHistory</span></a></span></span><span>
 </span><span id="line-115"></span></pre></body></html>

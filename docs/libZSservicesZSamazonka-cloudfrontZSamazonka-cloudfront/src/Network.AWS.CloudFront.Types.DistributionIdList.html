@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A list of distribution IDs.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDistributionIdList' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679389045"><span id="local-6989586621679389046"></span></span><span class="hs-keyword">data</span><span> </span><span id="DistributionIdList"><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-var">DistributionIdList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DistributionIdList%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-var">DistributionIdList'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679389273"><span id="local-6989586621679389274"></span></span><span class="hs-keyword">data</span><span> </span><span id="DistributionIdList"><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-var">DistributionIdList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DistributionIdList%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-var">DistributionIdList'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the distribution IDs in the list.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aitems%3ADistributionIdList%27"><span class="annot"><span class="annottext">DistributionIdList -&gt; Maybe [Text]
 </span><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#%24sel%3Aitems%3ADistributionIdList%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3Aquantity%3ADistributionIdList%27"><span class="annot"><span class="annottext">DistributionIdList -&gt; Int
 </span><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#%24sel%3Aquantity%3ADistributionIdList%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389034"><span id="local-6989586621679389036"><span class="annot"><span class="annottext">DistributionIdList -&gt; DistributionIdList -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389262"><span id="local-6989586621679389264"><span class="annot"><span class="annottext">DistributionIdList -&gt; DistributionIdList -&gt; Bool
 (DistributionIdList -&gt; DistributionIdList -&gt; Bool)
 -&gt; (DistributionIdList -&gt; DistributionIdList -&gt; Bool)
 -&gt; Eq DistributionIdList
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DistributionIdList -&gt; DistributionIdList -&gt; Bool
 == :: DistributionIdList -&gt; DistributionIdList -&gt; Bool
 $c== :: DistributionIdList -&gt; DistributionIdList -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389025"><span id="local-6989586621679389027"><span id="local-6989586621679389029"><span id="local-6989586621679389031"><span class="annot"><span class="annottext">ReadPrec [DistributionIdList]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389253"><span id="local-6989586621679389255"><span id="local-6989586621679389257"><span id="local-6989586621679389259"><span class="annot"><span class="annottext">ReadPrec [DistributionIdList]
 ReadPrec DistributionIdList
 Int -&gt; ReadS DistributionIdList
 ReadS [DistributionIdList]
@@ -80,7 +80,7 @@ readList :: ReadS [DistributionIdList]
 $creadList :: ReadS [DistributionIdList]
 readsPrec :: Int -&gt; ReadS DistributionIdList
 $creadsPrec :: Int -&gt; ReadS DistributionIdList
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389018"><span id="local-6989586621679389020"><span id="local-6989586621679389022"><span class="annot"><span class="annottext">Int -&gt; DistributionIdList -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389246"><span id="local-6989586621679389248"><span id="local-6989586621679389250"><span class="annot"><span class="annottext">Int -&gt; DistributionIdList -&gt; ShowS
 [DistributionIdList] -&gt; ShowS
 DistributionIdList -&gt; String
 (Int -&gt; DistributionIdList -&gt; ShowS)
@@ -142,14 +142,14 @@ $cfrom :: forall x. DistributionIdList -&gt; Rep DistributionIdList x
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span><span>
 </span><span id="line-84"></span><span id="newDistributionIdList"><span class="annot"><span class="annottext">newDistributionIdList :: Text -&gt; Int -&gt; Bool -&gt; Int -&gt; DistributionIdList
 </span><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#newDistributionIdList"><span class="hs-identifier hs-var hs-var">newDistributionIdList</span></a></span></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679389012"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389012"><span class="hs-identifier hs-var">pMarker_</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679389011"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389011"><span class="hs-identifier hs-var">pMaxItems_</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679389010"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679389010"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679389009"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389009"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679389240"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389240"><span class="hs-identifier hs-var">pMarker_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679389239"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389239"><span class="hs-identifier hs-var">pMaxItems_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679389238"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679389238"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679389237"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389237"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">DistributionIdList' :: Maybe [Text]
 -&gt; Maybe Text -&gt; Text -&gt; Int -&gt; Bool -&gt; Int -&gt; DistributionIdList
 </span><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span>
@@ -163,16 +163,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:marker:DistributionIdList' :: Text
 </span><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#%24sel%3Amarker%3ADistributionIdList%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389012"><span class="hs-identifier hs-var">pMarker_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389240"><span class="hs-identifier hs-var">pMarker_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxItems:DistributionIdList' :: Int
 </span><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#%24sel%3AmaxItems%3ADistributionIdList%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389011"><span class="hs-identifier hs-var">pMaxItems_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389239"><span class="hs-identifier hs-var">pMaxItems_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:isTruncated:DistributionIdList' :: Bool
 </span><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#%24sel%3AisTruncated%3ADistributionIdList%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679389010"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389238"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:quantity:DistributionIdList' :: Int
 </span><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#%24sel%3Aquantity%3ADistributionIdList%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389009"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
+</span><a href="#local-6989586621679389237"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | Contains the distribution IDs in the list.</span><span>
@@ -184,16 +184,16 @@ forall a. Maybe a
 -&gt; Lens
      DistributionIdList DistributionIdList (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389005"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389233"><span class="annot"><span class="annottext">Maybe [Text]
 items :: Maybe [Text]
 $sel:items:DistributionIdList' :: DistributionIdList -&gt; Maybe [Text]
-</span><a href="#local-6989586621679389005"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679389005"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389004"><span class="annot"><span class="annottext">s :: DistributionIdList
-</span><a href="#local-6989586621679389004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389003"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679389003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionIdList
-</span><a href="#local-6989586621679389004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:DistributionIdList' :: Maybe [Text]
+</span><a href="#local-6989586621679389233"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679389233"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389232"><span class="annot"><span class="annottext">s :: DistributionIdList
+</span><a href="#local-6989586621679389232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389231"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679389231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionIdList
+</span><a href="#local-6989586621679389232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:DistributionIdList' :: Maybe [Text]
 </span><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#%24sel%3Aitems%3ADistributionIdList%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679389003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679389231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DistributionIdList -&gt; f DistributionIdList)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -207,8 +207,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | Contains the value that you should use in the @Marker@ field of a</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- subsequent request to continue listing distribution IDs where you left</span><span>
@@ -221,16 +221,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      DistributionIdList DistributionIdList (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388998"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389226"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:DistributionIdList' :: DistributionIdList -&gt; Maybe Text
-</span><a href="#local-6989586621679388998"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388998"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388997"><span class="annot"><span class="annottext">s :: DistributionIdList
-</span><a href="#local-6989586621679388997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388996"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionIdList
-</span><a href="#local-6989586621679388997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:DistributionIdList' :: Maybe Text
+</span><a href="#local-6989586621679389226"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389226"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389225"><span class="annot"><span class="annottext">s :: DistributionIdList
+</span><a href="#local-6989586621679389225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389224"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionIdList
+</span><a href="#local-6989586621679389225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:DistributionIdList' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#%24sel%3AnextMarker%3ADistributionIdList%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The value provided in the @Marker@ request field.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#distributionIdList_marker"><span class="hs-identifier hs-type">distributionIdList_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -239,16 +239,16 @@ $sel:nextMarker:DistributionIdList' :: DistributionIdList -&gt; Maybe Text
 -&gt; (DistributionIdList -&gt; Text -&gt; DistributionIdList)
 -&gt; Lens DistributionIdList DistributionIdList Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388994"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389222"><span class="annot"><span class="annottext">Text
 marker :: Text
 $sel:marker:DistributionIdList' :: DistributionIdList -&gt; Text
-</span><a href="#local-6989586621679388994"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388994"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388993"><span class="annot"><span class="annottext">s :: DistributionIdList
-</span><a href="#local-6989586621679388993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388992"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionIdList
-</span><a href="#local-6989586621679388993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DistributionIdList' :: Text
+</span><a href="#local-6989586621679389222"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389222"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389221"><span class="annot"><span class="annottext">s :: DistributionIdList
+</span><a href="#local-6989586621679389221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389220"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionIdList
+</span><a href="#local-6989586621679389221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DistributionIdList' :: Text
 </span><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#%24sel%3Amarker%3ADistributionIdList%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The maximum number of distribution IDs requested.</span><span>
 </span><span id="line-113"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#distributionIdList_maxItems"><span class="hs-identifier hs-type">distributionIdList_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -257,16 +257,16 @@ $sel:marker:DistributionIdList' :: DistributionIdList -&gt; Text
 -&gt; (DistributionIdList -&gt; Int -&gt; DistributionIdList)
 -&gt; Lens DistributionIdList DistributionIdList Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388990"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389218"><span class="annot"><span class="annottext">Int
 maxItems :: Int
 $sel:maxItems:DistributionIdList' :: DistributionIdList -&gt; Int
-</span><a href="#local-6989586621679388990"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388990"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388989"><span class="annot"><span class="annottext">s :: DistributionIdList
-</span><a href="#local-6989586621679388989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388988"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionIdList
-</span><a href="#local-6989586621679388989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:DistributionIdList' :: Int
+</span><a href="#local-6989586621679389218"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389218"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389217"><span class="annot"><span class="annottext">s :: DistributionIdList
+</span><a href="#local-6989586621679389217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389216"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionIdList
+</span><a href="#local-6989586621679389217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:DistributionIdList' :: Int
 </span><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#%24sel%3AmaxItems%3ADistributionIdList%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | A flag that indicates whether more distribution IDs remain to be listed.</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- If your results were truncated, you can make a subsequent request using</span><span>
@@ -278,16 +278,16 @@ $sel:maxItems:DistributionIdList' :: DistributionIdList -&gt; Int
 -&gt; (DistributionIdList -&gt; Bool -&gt; DistributionIdList)
 -&gt; Lens DistributionIdList DistributionIdList Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388986"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389214"><span class="annot"><span class="annottext">Bool
 isTruncated :: Bool
 $sel:isTruncated:DistributionIdList' :: DistributionIdList -&gt; Bool
-</span><a href="#local-6989586621679388986"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679388986"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388985"><span class="annot"><span class="annottext">s :: DistributionIdList
-</span><a href="#local-6989586621679388985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388984"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679388984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionIdList
-</span><a href="#local-6989586621679388985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:DistributionIdList' :: Bool
+</span><a href="#local-6989586621679389214"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679389214"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389213"><span class="annot"><span class="annottext">s :: DistributionIdList
+</span><a href="#local-6989586621679389213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389212"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679389212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionIdList
+</span><a href="#local-6989586621679389213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:DistributionIdList' :: Bool
 </span><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#%24sel%3AisTruncated%3ADistributionIdList%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679388984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The total number of distribution IDs returned in the response.</span><span>
 </span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#distributionIdList_quantity"><span class="hs-identifier hs-type">distributionIdList_quantity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -296,21 +296,21 @@ $sel:isTruncated:DistributionIdList' :: DistributionIdList -&gt; Bool
 -&gt; (DistributionIdList -&gt; Int -&gt; DistributionIdList)
 -&gt; Lens DistributionIdList DistributionIdList Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388982"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389210"><span class="annot"><span class="annottext">Int
 quantity :: Int
 $sel:quantity:DistributionIdList' :: DistributionIdList -&gt; Int
-</span><a href="#local-6989586621679388982"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388982"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388981"><span class="annot"><span class="annottext">s :: DistributionIdList
-</span><a href="#local-6989586621679388981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388980"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionIdList
-</span><a href="#local-6989586621679388981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:DistributionIdList' :: Int
+</span><a href="#local-6989586621679389210"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389210"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389209"><span class="annot"><span class="annottext">s :: DistributionIdList
+</span><a href="#local-6989586621679389209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-type">DistributionIdList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389208"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionIdList
+</span><a href="#local-6989586621679389209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:DistributionIdList' :: Int
 </span><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#%24sel%3Aquantity%3ADistributionIdList%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679388977"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DistributionIdList
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679388975"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388975"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679389205"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DistributionIdList
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679389203"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679389203"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe Text -&gt; Text -&gt; Int -&gt; Bool -&gt; Int -&gt; DistributionIdList
 </span><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList%27"><span class="hs-identifier hs-var">DistributionIdList'</span></a></span><span>
@@ -322,7 +322,7 @@ $sel:quantity:DistributionIdList' :: DistributionIdList -&gt; Int
      (Maybe Text -&gt; Text -&gt; Int -&gt; Bool -&gt; Int -&gt; DistributionIdList)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679389203"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -351,7 +351,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Text -&gt; Int -&gt; Bool -&gt; Int -&gt; DistributionIdList)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679389203"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -360,7 +360,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; Bool -&gt; Int -&gt; DistributionIdList)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679389203"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -369,7 +369,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Bool -&gt; Int -&gt; DistributionIdList)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679389203"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span class="hs-special">)</span><span>
@@ -377,7 +377,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Bool -&gt; Either String (Int -&gt; DistributionIdList)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+</span><a href="#local-6989586621679389203"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
@@ -385,12 +385,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Int -&gt; Either String DistributionIdList
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679389203"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388965"><span id="local-6989586621679388967"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389193"><span id="local-6989586621679389195"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span></span></span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388962"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389190"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionIdList.html#DistributionIdList"><span class="hs-identifier hs-type">DistributionIdList</span></a></span></span><span>
 </span><span id="line-142"></span></pre></body></html>

@@ -44,10 +44,10 @@
 </span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- | /See:/ 'newIsVpcPeered' smart constructor.</span><span>
-</span><span id="line-47"></span><span id="local-6989586621679633143"><span id="local-6989586621679633144"></span></span><span class="hs-keyword">data</span><span> </span><span id="IsVpcPeered"><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeered"><span class="hs-identifier hs-var">IsVpcPeered</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IsVpcPeered%27"><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeered%27"><span class="hs-identifier hs-var">IsVpcPeered'</span></a></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679634101"><span id="local-6989586621679634102"></span></span><span class="hs-keyword">data</span><span> </span><span id="IsVpcPeered"><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeered"><span class="hs-identifier hs-var">IsVpcPeered</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IsVpcPeered%27"><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeered%27"><span class="hs-identifier hs-var">IsVpcPeered'</span></a></span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679633138"><span id="local-6989586621679633140"><span class="annot"><span class="annottext">IsVpcPeered -&gt; IsVpcPeered -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679634096"><span id="local-6989586621679634098"><span class="annot"><span class="annottext">IsVpcPeered -&gt; IsVpcPeered -&gt; Bool
 (IsVpcPeered -&gt; IsVpcPeered -&gt; Bool)
 -&gt; (IsVpcPeered -&gt; IsVpcPeered -&gt; Bool) -&gt; Eq IsVpcPeered
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IsVpcPeered -&gt; IsVpcPeered -&gt; Bool
 == :: IsVpcPeered -&gt; IsVpcPeered -&gt; Bool
 $c== :: IsVpcPeered -&gt; IsVpcPeered -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633129"><span id="local-6989586621679633131"><span id="local-6989586621679633133"><span id="local-6989586621679633135"><span class="annot"><span class="annottext">ReadPrec [IsVpcPeered]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679634087"><span id="local-6989586621679634089"><span id="local-6989586621679634091"><span id="local-6989586621679634093"><span class="annot"><span class="annottext">ReadPrec [IsVpcPeered]
 ReadPrec IsVpcPeered
 Int -&gt; ReadS IsVpcPeered
 ReadS [IsVpcPeered]
@@ -75,7 +75,7 @@ readList :: ReadS [IsVpcPeered]
 $creadList :: ReadS [IsVpcPeered]
 readsPrec :: Int -&gt; ReadS IsVpcPeered
 $creadsPrec :: Int -&gt; ReadS IsVpcPeered
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633122"><span id="local-6989586621679633124"><span id="local-6989586621679633126"><span class="annot"><span class="annottext">Int -&gt; IsVpcPeered -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679634080"><span id="local-6989586621679634082"><span id="local-6989586621679634084"><span class="annot"><span class="annottext">Int -&gt; IsVpcPeered -&gt; ShowS
 [IsVpcPeered] -&gt; ShowS
 IsVpcPeered -&gt; String
 (Int -&gt; IsVpcPeered -&gt; ShowS)
@@ -113,12 +113,12 @@ $cfrom :: forall x. IsVpcPeered -&gt; Rep IsVpcPeered x
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeered"><span class="hs-identifier hs-type">IsVpcPeered</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeered"><span class="hs-identifier hs-type">IsVpcPeered</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse"><span class="hs-identifier hs-type">IsVpcPeeredResponse</span></a></span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679633114"><span class="annot"><span class="annottext">request :: IsVpcPeered -&gt; Request IsVpcPeered
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679634072"><span class="annot"><span class="annottext">request :: IsVpcPeered -&gt; Request IsVpcPeered
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; IsVpcPeered -&gt; Request IsVpcPeered
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679633110"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679634068"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy IsVpcPeered
 -&gt; ClientResponse ClientBody
@@ -142,10 +142,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679633107"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633107"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679633106"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679633106"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679633105"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679633105"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679634065"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679634065"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679634064"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679634064"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679634063"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679634063"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Int -&gt; IsVpcPeeredResponse
 </span><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse%27"><span class="hs-identifier hs-var">IsVpcPeeredResponse'</span></a></span><span>
 </span><span id="line-67"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Int -&gt; IsVpcPeeredResponse)
@@ -153,7 +153,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; IsVpcPeeredResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679633105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679634063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;isPeered&quot;</span></span><span class="hs-special">)</span><span>
@@ -165,15 +165,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633107"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679634065"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633097"><span id="local-6989586621679633099"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeered"><span class="hs-identifier hs-type">IsVpcPeered</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679634055"><span id="local-6989586621679634057"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeered"><span class="hs-identifier hs-type">IsVpcPeered</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633094"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeered"><span class="hs-identifier hs-type">IsVpcPeered</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679634052"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeered"><span class="hs-identifier hs-type">IsVpcPeered</span></a></span></span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeered"><span class="hs-identifier hs-type">IsVpcPeered</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679633090"><span class="annot"><span class="annottext">toHeaders :: IsVpcPeered -&gt; ResponseHeaders
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679634048"><span class="annot"><span class="annottext">toHeaders :: IsVpcPeered -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; IsVpcPeered -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -200,8 +200,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633080"><span id="local-6989586621679633082"><span id="local-6989586621679633084"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeered"><span class="hs-identifier hs-type">IsVpcPeered</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679633078"><span class="annot"><span class="annottext">toJSON :: IsVpcPeered -&gt; Value
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679634038"><span id="local-6989586621679634040"><span id="local-6989586621679634042"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeered"><span class="hs-identifier hs-type">IsVpcPeered</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679634036"><span class="annot"><span class="annottext">toJSON :: IsVpcPeered -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; IsVpcPeered -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -210,14 +210,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeered"><span class="hs-identifier hs-type">IsVpcPeered</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679633073"><span class="annot"><span class="annottext">toPath :: IsVpcPeered -&gt; ByteString
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679634031"><span class="annot"><span class="annottext">toPath :: IsVpcPeered -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; IsVpcPeered -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeered"><span class="hs-identifier hs-type">IsVpcPeered</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679633069"><span class="annot"><span class="annottext">toQuery :: IsVpcPeered -&gt; QueryString
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679634027"><span class="annot"><span class="annottext">toQuery :: IsVpcPeered -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; IsVpcPeered -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -225,7 +225,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | /See:/ 'newIsVpcPeeredResponse' smart constructor.</span><span>
-</span><span id="line-100"></span><span id="local-6989586621679633066"><span id="local-6989586621679633067"></span></span><span class="hs-keyword">data</span><span> </span><span id="IsVpcPeeredResponse"><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse"><span class="hs-identifier hs-var">IsVpcPeeredResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IsVpcPeeredResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse%27"><span class="hs-identifier hs-var">IsVpcPeeredResponse'</span></a></span></span><span>
+</span><span id="line-100"></span><span id="local-6989586621679634024"><span id="local-6989586621679634025"></span></span><span class="hs-keyword">data</span><span> </span><span id="IsVpcPeeredResponse"><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse"><span class="hs-identifier hs-var">IsVpcPeeredResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IsVpcPeeredResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse%27"><span class="hs-identifier hs-var">IsVpcPeeredResponse'</span></a></span></span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns @true@ if the Lightsail VPC is peered; otherwise, @false@.</span><span>
 </span><span id="line-102"></span><span>    </span><span id="%24sel%3AisPeered%3AIsVpcPeeredResponse%27"><span class="annot"><span class="annottext">IsVpcPeeredResponse -&gt; Maybe Bool
 </span><a href="Network.AWS.Lightsail.IsVpcPeered.html#%24sel%3AisPeered%3AIsVpcPeeredResponse%27"><span class="hs-identifier hs-var hs-var">isPeered</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -233,7 +233,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-104"></span><span>    </span><span id="%24sel%3AhttpStatus%3AIsVpcPeeredResponse%27"><span class="annot"><span class="annottext">IsVpcPeeredResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.IsVpcPeered.html#%24sel%3AhttpStatus%3AIsVpcPeeredResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679633060"><span id="local-6989586621679633062"><span class="annot"><span class="annottext">IsVpcPeeredResponse -&gt; IsVpcPeeredResponse -&gt; Bool
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679634018"><span id="local-6989586621679634020"><span class="annot"><span class="annottext">IsVpcPeeredResponse -&gt; IsVpcPeeredResponse -&gt; Bool
 (IsVpcPeeredResponse -&gt; IsVpcPeeredResponse -&gt; Bool)
 -&gt; (IsVpcPeeredResponse -&gt; IsVpcPeeredResponse -&gt; Bool)
 -&gt; Eq IsVpcPeeredResponse
@@ -242,7 +242,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IsVpcPeeredResponse -&gt; IsVpcPeeredResponse -&gt; Bool
 == :: IsVpcPeeredResponse -&gt; IsVpcPeeredResponse -&gt; Bool
 $c== :: IsVpcPeeredResponse -&gt; IsVpcPeeredResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633052"><span id="local-6989586621679633054"><span id="local-6989586621679633056"><span id="local-6989586621679633058"><span class="annot"><span class="annottext">ReadPrec [IsVpcPeeredResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679634010"><span id="local-6989586621679634012"><span id="local-6989586621679634014"><span id="local-6989586621679634016"><span class="annot"><span class="annottext">ReadPrec [IsVpcPeeredResponse]
 ReadPrec IsVpcPeeredResponse
 Int -&gt; ReadS IsVpcPeeredResponse
 ReadS [IsVpcPeeredResponse]
@@ -262,7 +262,7 @@ readList :: ReadS [IsVpcPeeredResponse]
 $creadList :: ReadS [IsVpcPeeredResponse]
 readsPrec :: Int -&gt; ReadS IsVpcPeeredResponse
 $creadsPrec :: Int -&gt; ReadS IsVpcPeeredResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633046"><span id="local-6989586621679633048"><span id="local-6989586621679633050"><span class="annot"><span class="annottext">Int -&gt; IsVpcPeeredResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679634004"><span id="local-6989586621679634006"><span id="local-6989586621679634008"><span class="annot"><span class="annottext">Int -&gt; IsVpcPeeredResponse -&gt; ShowS
 [IsVpcPeeredResponse] -&gt; ShowS
 IsVpcPeeredResponse -&gt; String
 (Int -&gt; IsVpcPeeredResponse -&gt; ShowS)
@@ -304,8 +304,8 @@ $cfrom :: forall x. IsVpcPeeredResponse -&gt; Rep IsVpcPeeredResponse x
 </span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse"><span class="hs-identifier hs-type">IsVpcPeeredResponse</span></a></span><span>
 </span><span id="line-123"></span><span id="newIsVpcPeeredResponse"><span class="annot"><span class="annottext">newIsVpcPeeredResponse :: Int -&gt; IsVpcPeeredResponse
-</span><a href="Network.AWS.Lightsail.IsVpcPeered.html#newIsVpcPeeredResponse"><span class="hs-identifier hs-var hs-var">newIsVpcPeeredResponse</span></a></span></span><span> </span><span id="local-6989586621679633043"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633043"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.IsVpcPeered.html#newIsVpcPeeredResponse"><span class="hs-identifier hs-var hs-var">newIsVpcPeeredResponse</span></a></span></span><span> </span><span id="local-6989586621679634001"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679634001"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>  </span><span class="annot"><span class="annottext">IsVpcPeeredResponse' :: Maybe Bool -&gt; Int -&gt; IsVpcPeeredResponse
 </span><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse%27"><span class="hs-identifier hs-type">IsVpcPeeredResponse'</span></a></span><span>
 </span><span id="line-125"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:isPeered:IsVpcPeeredResponse' :: Maybe Bool
@@ -314,7 +314,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:IsVpcPeeredResponse' :: Int
 </span><a href="Network.AWS.Lightsail.IsVpcPeered.html#%24sel%3AhttpStatus%3AIsVpcPeeredResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633043"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679634001"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | Returns @true@ if the Lightsail VPC is peered; otherwise, @false@.</span><span>
@@ -326,16 +326,16 @@ forall a. Maybe a
 -&gt; Lens
      IsVpcPeeredResponse IsVpcPeeredResponse (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse%27"><span class="hs-identifier hs-type">IsVpcPeeredResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633040"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse%27"><span class="hs-identifier hs-type">IsVpcPeeredResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633998"><span class="annot"><span class="annottext">Maybe Bool
 isPeered :: Maybe Bool
 $sel:isPeered:IsVpcPeeredResponse' :: IsVpcPeeredResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679633040"><span class="hs-identifier hs-var hs-var">isPeered</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679633040"><span class="hs-identifier hs-var">isPeered</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633039"><span class="annot"><span class="annottext">s :: IsVpcPeeredResponse
-</span><a href="#local-6989586621679633039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse%27"><span class="hs-identifier hs-type">IsVpcPeeredResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633038"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679633038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IsVpcPeeredResponse
-</span><a href="#local-6989586621679633039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isPeered:IsVpcPeeredResponse' :: Maybe Bool
+</span><a href="#local-6989586621679633998"><span class="hs-identifier hs-var hs-var">isPeered</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679633998"><span class="hs-identifier hs-var">isPeered</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633997"><span class="annot"><span class="annottext">s :: IsVpcPeeredResponse
+</span><a href="#local-6989586621679633997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse%27"><span class="hs-identifier hs-type">IsVpcPeeredResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633996"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679633996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IsVpcPeeredResponse
+</span><a href="#local-6989586621679633997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isPeered:IsVpcPeeredResponse' :: Maybe Bool
 </span><a href="Network.AWS.Lightsail.IsVpcPeered.html#%24sel%3AisPeered%3AIsVpcPeeredResponse%27"><span class="hs-identifier hs-var">isPeered</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679633038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse"><span class="hs-identifier hs-type">IsVpcPeeredResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679633996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse"><span class="hs-identifier hs-type">IsVpcPeeredResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#isVpcPeeredResponse_httpStatus"><span class="hs-identifier hs-type">isVpcPeeredResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse"><span class="hs-identifier hs-type">IsVpcPeeredResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -344,16 +344,16 @@ $sel:isPeered:IsVpcPeeredResponse' :: IsVpcPeeredResponse -&gt; Maybe Bool
 -&gt; (IsVpcPeeredResponse -&gt; Int -&gt; IsVpcPeeredResponse)
 -&gt; Lens IsVpcPeeredResponse IsVpcPeeredResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse%27"><span class="hs-identifier hs-type">IsVpcPeeredResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633037"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse%27"><span class="hs-identifier hs-type">IsVpcPeeredResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633995"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:IsVpcPeeredResponse' :: IsVpcPeeredResponse -&gt; Int
-</span><a href="#local-6989586621679633037"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633037"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633036"><span class="annot"><span class="annottext">s :: IsVpcPeeredResponse
-</span><a href="#local-6989586621679633036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse%27"><span class="hs-identifier hs-type">IsVpcPeeredResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633035"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IsVpcPeeredResponse
-</span><a href="#local-6989586621679633036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:IsVpcPeeredResponse' :: Int
+</span><a href="#local-6989586621679633995"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679633995"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633994"><span class="annot"><span class="annottext">s :: IsVpcPeeredResponse
+</span><a href="#local-6989586621679633994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse%27"><span class="hs-identifier hs-type">IsVpcPeeredResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633993"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679633993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IsVpcPeeredResponse
+</span><a href="#local-6989586621679633994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:IsVpcPeeredResponse' :: Int
 </span><a href="Network.AWS.Lightsail.IsVpcPeered.html#%24sel%3AhttpStatus%3AIsVpcPeeredResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse"><span class="hs-identifier hs-type">IsVpcPeeredResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679633993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse"><span class="hs-identifier hs-type">IsVpcPeeredResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633033"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse"><span class="hs-identifier hs-type">IsVpcPeeredResponse</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633991"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.IsVpcPeered.html#IsVpcPeeredResponse"><span class="hs-identifier hs-type">IsVpcPeeredResponse</span></a></span></span><span>
 </span><span id="line-138"></span></pre></body></html>

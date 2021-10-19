@@ -26,15 +26,15 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains the unmodified data for the report. For more information, see .</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newReportWithRawData' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679374389"><span id="local-6989586621679374390"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReportWithRawData"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData"><span class="hs-identifier hs-var">ReportWithRawData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportWithRawData%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData%27"><span class="hs-identifier hs-var">ReportWithRawData'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the report.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AreportArn%3AReportWithRawData%27"><span class="annot"><span class="annottext">ReportWithRawData -&gt; Maybe Text
-</span><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#%24sel%3AreportArn%3AReportWithRawData%27"><span class="hs-identifier hs-var hs-var">reportArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The value of the requested data field from the report.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Adata%27%3AReportWithRawData%27"><span class="annot"><span class="annottext">ReportWithRawData -&gt; Maybe Text
-</span><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#%24sel%3Adata%27%3AReportWithRawData%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679376272"><span id="local-6989586621679376273"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReportWithRawData"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData"><span class="hs-identifier hs-var">ReportWithRawData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportWithRawData%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData%27"><span class="hs-identifier hs-var">ReportWithRawData'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the requested data field from the report.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Adata%27%3AReportWithRawData%27"><span class="annot"><span class="annottext">ReportWithRawData -&gt; Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#%24sel%3Adata%27%3AReportWithRawData%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The ARN of the report.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AreportArn%3AReportWithRawData%27"><span class="annot"><span class="annottext">ReportWithRawData -&gt; Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#%24sel%3AreportArn%3AReportWithRawData%27"><span class="hs-identifier hs-var hs-var">reportArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374382"><span id="local-6989586621679374384"><span class="annot"><span class="annottext">ReportWithRawData -&gt; ReportWithRawData -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376265"><span id="local-6989586621679376267"><span class="annot"><span class="annottext">ReportWithRawData -&gt; ReportWithRawData -&gt; Bool
 (ReportWithRawData -&gt; ReportWithRawData -&gt; Bool)
 -&gt; (ReportWithRawData -&gt; ReportWithRawData -&gt; Bool)
 -&gt; Eq ReportWithRawData
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReportWithRawData -&gt; ReportWithRawData -&gt; Bool
 == :: ReportWithRawData -&gt; ReportWithRawData -&gt; Bool
 $c== :: ReportWithRawData -&gt; ReportWithRawData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374373"><span id="local-6989586621679374375"><span id="local-6989586621679374377"><span id="local-6989586621679374379"><span class="annot"><span class="annottext">ReadPrec [ReportWithRawData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376256"><span id="local-6989586621679376258"><span id="local-6989586621679376260"><span id="local-6989586621679376262"><span class="annot"><span class="annottext">ReadPrec [ReportWithRawData]
 ReadPrec ReportWithRawData
 Int -&gt; ReadS ReportWithRawData
 ReadS [ReportWithRawData]
@@ -63,7 +63,7 @@ readList :: ReadS [ReportWithRawData]
 $creadList :: ReadS [ReportWithRawData]
 readsPrec :: Int -&gt; ReadS ReportWithRawData
 $creadsPrec :: Int -&gt; ReadS ReportWithRawData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374366"><span id="local-6989586621679374368"><span id="local-6989586621679374370"><span class="annot"><span class="annottext">Int -&gt; ReportWithRawData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376249"><span id="local-6989586621679376251"><span id="local-6989586621679376253"><span class="annot"><span class="annottext">Int -&gt; ReportWithRawData -&gt; ShowS
 [ReportWithRawData] -&gt; ShowS
 ReportWithRawData -&gt; String
 (Int -&gt; ReportWithRawData -&gt; ShowS)
@@ -97,67 +97,67 @@ $cfrom :: forall x. ReportWithRawData -&gt; Rep ReportWithRawData x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'reportArn', 'reportWithRawData_reportArn' - The ARN of the report.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'data'', 'reportWithRawData_data' - The value of the requested data field from the report.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'data'', 'reportWithRawData_data' - The value of the requested data field from the report.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'reportArn', 'reportWithRawData_reportArn' - The ARN of the report.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#newReportWithRawData"><span class="hs-identifier hs-type">newReportWithRawData</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData"><span class="hs-identifier hs-type">ReportWithRawData</span></a></span><span>
 </span><span id="line-50"></span><span id="newReportWithRawData"><span class="annot"><span class="annottext">newReportWithRawData :: ReportWithRawData
 </span><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#newReportWithRawData"><span class="hs-identifier hs-var hs-var">newReportWithRawData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">ReportWithRawData' :: Maybe Text -&gt; Maybe Text -&gt; ReportWithRawData
 </span><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData%27"><span class="hs-identifier hs-type">ReportWithRawData'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reportArn:ReportWithRawData' :: Maybe Text
-</span><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#%24sel%3AreportArn%3AReportWithRawData%27"><span class="hs-identifier hs-var">reportArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:data':ReportWithRawData' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#%24sel%3Adata%27%3AReportWithRawData%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:data':ReportWithRawData' :: Maybe Text
-</span><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#%24sel%3Adata%27%3AReportWithRawData%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:reportArn:ReportWithRawData' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#%24sel%3AreportArn%3AReportWithRawData%27"><span class="hs-identifier hs-var">reportArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- | The ARN of the report.</span><span>
-</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#reportWithRawData_reportArn"><span class="hs-identifier hs-type">reportWithRawData_reportArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData"><span class="hs-identifier hs-type">ReportWithRawData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-58"></span><span id="reportWithRawData_reportArn"><span class="annot"><span class="annottext">reportWithRawData_reportArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ReportWithRawData -&gt; f ReportWithRawData
-</span><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#reportWithRawData_reportArn"><span class="hs-identifier hs-var hs-var">reportWithRawData_reportArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReportWithRawData -&gt; Maybe Text)
--&gt; (ReportWithRawData -&gt; Maybe Text -&gt; ReportWithRawData)
--&gt; Lens
-     ReportWithRawData ReportWithRawData (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData%27"><span class="hs-identifier hs-type">ReportWithRawData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374357"><span class="annot"><span class="annottext">Maybe Text
-reportArn :: Maybe Text
-$sel:reportArn:ReportWithRawData' :: ReportWithRawData -&gt; Maybe Text
-</span><a href="#local-6989586621679374357"><span class="hs-identifier hs-var hs-var">reportArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374357"><span class="hs-identifier hs-var">reportArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374356"><span class="annot"><span class="annottext">s :: ReportWithRawData
-</span><a href="#local-6989586621679374356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData%27"><span class="hs-identifier hs-type">ReportWithRawData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374355"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportWithRawData
-</span><a href="#local-6989586621679374356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportArn:ReportWithRawData' :: Maybe Text
-</span><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#%24sel%3AreportArn%3AReportWithRawData%27"><span class="hs-identifier hs-var">reportArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData"><span class="hs-identifier hs-type">ReportWithRawData</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | The value of the requested data field from the report.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#reportWithRawData_data"><span class="hs-identifier hs-type">reportWithRawData_data</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData"><span class="hs-identifier hs-type">ReportWithRawData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="reportWithRawData_data"><span class="annot"><span class="annottext">reportWithRawData_data :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-56"></span><span class="hs-comment">-- | The value of the requested data field from the report.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#reportWithRawData_data"><span class="hs-identifier hs-type">reportWithRawData_data</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData"><span class="hs-identifier hs-type">ReportWithRawData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="reportWithRawData_data"><span class="annot"><span class="annottext">reportWithRawData_data :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ReportWithRawData -&gt; f ReportWithRawData
 </span><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#reportWithRawData_data"><span class="hs-identifier hs-var hs-var">reportWithRawData_data</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReportWithRawData -&gt; Maybe Text)
 -&gt; (ReportWithRawData -&gt; Maybe Text -&gt; ReportWithRawData)
 -&gt; Lens
      ReportWithRawData ReportWithRawData (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData%27"><span class="hs-identifier hs-type">ReportWithRawData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374353"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData%27"><span class="hs-identifier hs-type">ReportWithRawData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376240"><span class="annot"><span class="annottext">Maybe Text
 data' :: Maybe Text
 $sel:data':ReportWithRawData' :: ReportWithRawData -&gt; Maybe Text
-</span><a href="#local-6989586621679374353"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374353"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374352"><span class="annot"><span class="annottext">s :: ReportWithRawData
-</span><a href="#local-6989586621679374352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData%27"><span class="hs-identifier hs-type">ReportWithRawData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374351"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportWithRawData
-</span><a href="#local-6989586621679374352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':ReportWithRawData' :: Maybe Text
+</span><a href="#local-6989586621679376240"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376240"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376239"><span class="annot"><span class="annottext">s :: ReportWithRawData
+</span><a href="#local-6989586621679376239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData%27"><span class="hs-identifier hs-type">ReportWithRawData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376238"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportWithRawData
+</span><a href="#local-6989586621679376239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':ReportWithRawData' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#%24sel%3Adata%27%3AReportWithRawData%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData"><span class="hs-identifier hs-type">ReportWithRawData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData"><span class="hs-identifier hs-type">ReportWithRawData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The ARN of the report.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#reportWithRawData_reportArn"><span class="hs-identifier hs-type">reportWithRawData_reportArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData"><span class="hs-identifier hs-type">ReportWithRawData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="reportWithRawData_reportArn"><span class="annot"><span class="annottext">reportWithRawData_reportArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReportWithRawData -&gt; f ReportWithRawData
+</span><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#reportWithRawData_reportArn"><span class="hs-identifier hs-var hs-var">reportWithRawData_reportArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReportWithRawData -&gt; Maybe Text)
+-&gt; (ReportWithRawData -&gt; Maybe Text -&gt; ReportWithRawData)
+-&gt; Lens
+     ReportWithRawData ReportWithRawData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData%27"><span class="hs-identifier hs-type">ReportWithRawData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376236"><span class="annot"><span class="annottext">Maybe Text
+reportArn :: Maybe Text
+$sel:reportArn:ReportWithRawData' :: ReportWithRawData -&gt; Maybe Text
+</span><a href="#local-6989586621679376236"><span class="hs-identifier hs-var hs-var">reportArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376236"><span class="hs-identifier hs-var">reportArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376235"><span class="annot"><span class="annottext">s :: ReportWithRawData
+</span><a href="#local-6989586621679376235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData%27"><span class="hs-identifier hs-type">ReportWithRawData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376234"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportWithRawData
+</span><a href="#local-6989586621679376235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportArn:ReportWithRawData' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#%24sel%3AreportArn%3AReportWithRawData%27"><span class="hs-identifier hs-var">reportArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData"><span class="hs-identifier hs-type">ReportWithRawData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374348"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData"><span class="hs-identifier hs-type">ReportWithRawData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679374346"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReportWithRawData
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376231"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData"><span class="hs-identifier hs-type">ReportWithRawData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679376229"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReportWithRawData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReportWithRawData)
@@ -167,29 +167,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReportWithRawData&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374343"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374343"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376226"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376226"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; ReportWithRawData
 </span><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData%27"><span class="hs-identifier hs-var">ReportWithRawData'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; ReportWithRawData)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ReportWithRawData)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374343"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679376226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;reportArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;data&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ReportWithRawData)
 -&gt; Parser (Maybe Text) -&gt; Parser ReportWithRawData
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374343"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679376226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;data&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;reportArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374337"><span id="local-6989586621679374339"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData"><span class="hs-identifier hs-type">ReportWithRawData</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376220"><span id="local-6989586621679376222"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData"><span class="hs-identifier hs-type">ReportWithRawData</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374334"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData"><span class="hs-identifier hs-type">ReportWithRawData</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376217"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportWithRawData.html#ReportWithRawData"><span class="hs-identifier hs-type">ReportWithRawData</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

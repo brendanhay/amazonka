@@ -29,9 +29,9 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#newUpdateGroup"><span class="hs-identifier">newUpdateGroup</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_roleArn"><span class="hs-identifier">updateGroup_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_precedence"><span class="hs-identifier">updateGroup_precedence</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_description"><span class="hs-identifier">updateGroup_description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_precedence"><span class="hs-identifier">updateGroup_precedence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_roleArn"><span class="hs-identifier">updateGroup_roleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_groupName"><span class="hs-identifier">updateGroup_groupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_userPoolId"><span class="hs-identifier">updateGroup_userPoolId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
@@ -53,19 +53,19 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newUpdateGroup' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679460580"><span id="local-6989586621679460581"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGroup"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-var">UpdateGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGroup%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-var">UpdateGroup'</span></a></span></span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new role ARN for the group. This is used for setting the</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- @cognito:roles@ and @cognito:preferred_role@ claims in the token.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AroleArn%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Maybe Text
-</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3AroleArn%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A string containing the new description of the group.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Maybe Text
-</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3Adescription%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The new precedence value for the group. For more information about this</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- parameter, see</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup&gt;.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3Aprecedence%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Maybe Natural
+</span><span id="line-56"></span><span id="local-6989586621679461123"><span id="local-6989586621679461124"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGroup"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-var">UpdateGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGroup%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-var">UpdateGroup'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new precedence value for the group. For more information about this</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- parameter, see</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup&gt;.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Aprecedence%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Maybe Natural
 </span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3Aprecedence%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">precedence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | A string containing the new description of the group.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3Adescription%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The new role ARN for the group. This is used for setting the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @cognito:roles@ and @cognito:preferred_role@ claims in the token.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AroleArn%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3AroleArn%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The name of the group.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AgroupName%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3AgroupName%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -73,7 +73,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AuserPoolId%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3AuserPoolId%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679460570"><span id="local-6989586621679460572"><span class="annot"><span class="annottext">UpdateGroup -&gt; UpdateGroup -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679461113"><span id="local-6989586621679461115"><span class="annot"><span class="annottext">UpdateGroup -&gt; UpdateGroup -&gt; Bool
 (UpdateGroup -&gt; UpdateGroup -&gt; Bool)
 -&gt; (UpdateGroup -&gt; UpdateGroup -&gt; Bool) -&gt; Eq UpdateGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateGroup -&gt; UpdateGroup -&gt; Bool
 == :: UpdateGroup -&gt; UpdateGroup -&gt; Bool
 $c== :: UpdateGroup -&gt; UpdateGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460561"><span id="local-6989586621679460563"><span id="local-6989586621679460565"><span id="local-6989586621679460567"><span class="annot"><span class="annottext">ReadPrec [UpdateGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461104"><span id="local-6989586621679461106"><span id="local-6989586621679461108"><span id="local-6989586621679461110"><span class="annot"><span class="annottext">ReadPrec [UpdateGroup]
 ReadPrec UpdateGroup
 Int -&gt; ReadS UpdateGroup
 ReadS [UpdateGroup]
@@ -101,7 +101,7 @@ readList :: ReadS [UpdateGroup]
 $creadList :: ReadS [UpdateGroup]
 readsPrec :: Int -&gt; ReadS UpdateGroup
 $creadsPrec :: Int -&gt; ReadS UpdateGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460554"><span id="local-6989586621679460556"><span id="local-6989586621679460558"><span class="annot"><span class="annottext">Int -&gt; UpdateGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461097"><span id="local-6989586621679461099"><span id="local-6989586621679461101"><span class="annot"><span class="annottext">Int -&gt; UpdateGroup -&gt; ShowS
 [UpdateGroup] -&gt; ShowS
 UpdateGroup -&gt; String
 (Int -&gt; UpdateGroup -&gt; ShowS)
@@ -135,14 +135,14 @@ $cfrom :: forall x. UpdateGroup -&gt; Rep UpdateGroup x
 </span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'roleArn', 'updateGroup_roleArn' - The new role ARN for the group. This is used for setting the</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- @cognito:roles@ and @cognito:preferred_role@ claims in the token.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'description', 'updateGroup_description' - A string containing the new description of the group.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'precedence', 'updateGroup_precedence' - The new precedence value for the group. For more information about this</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- parameter, see</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup&gt;.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'precedence', 'updateGroup_precedence' - The new precedence value for the group. For more information about this</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- parameter, see</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup&gt;.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'description', 'updateGroup_description' - A string containing the new description of the group.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'roleArn', 'updateGroup_roleArn' - The new role ARN for the group. This is used for setting the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- @cognito:roles@ and @cognito:preferred_role@ claims in the token.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- 'groupName', 'updateGroup_groupName' - The name of the group.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
@@ -154,89 +154,89 @@ $cfrom :: forall x. UpdateGroup -&gt; Rep UpdateGroup x
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span>
 </span><span id="line-99"></span><span id="newUpdateGroup"><span class="annot"><span class="annottext">newUpdateGroup :: Text -&gt; Text -&gt; UpdateGroup
-</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#newUpdateGroup"><span class="hs-identifier hs-var hs-var">newUpdateGroup</span></a></span></span><span> </span><span id="local-6989586621679460549"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460549"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span id="local-6989586621679460548"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460548"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">UpdateGroup' :: Maybe Text
--&gt; Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; Text -&gt; UpdateGroup
+</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#newUpdateGroup"><span class="hs-identifier hs-var hs-var">newUpdateGroup</span></a></span></span><span> </span><span id="local-6989586621679461092"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461092"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span id="local-6989586621679461091"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461091"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">UpdateGroup' :: Maybe Natural
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; UpdateGroup
 </span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleArn:UpdateGroup' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3AroleArn%3AUpdateGroup%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:precedence:UpdateGroup' :: Maybe Natural
+</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3Aprecedence%3AUpdateGroup%27"><span class="hs-identifier hs-var">precedence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateGroup' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3Adescription%3AUpdateGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:precedence:UpdateGroup' :: Maybe Natural
-</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3Aprecedence%3AUpdateGroup%27"><span class="hs-identifier hs-var">precedence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:UpdateGroup' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3AroleArn%3AUpdateGroup%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:UpdateGroup' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3AgroupName%3AUpdateGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460549"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679461092"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPoolId:UpdateGroup' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3AuserPoolId%3AUpdateGroup%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460548"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span>
+</span><a href="#local-6989586621679461091"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The new role ARN for the group. This is used for setting the</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- @cognito:roles@ and @cognito:preferred_role@ claims in the token.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_roleArn"><span class="hs-identifier hs-type">updateGroup_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="updateGroup_roleArn"><span class="annot"><span class="annottext">updateGroup_roleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateGroup -&gt; f UpdateGroup
-</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_roleArn"><span class="hs-identifier hs-var hs-var">updateGroup_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroup -&gt; Maybe Text)
--&gt; (UpdateGroup -&gt; Maybe Text -&gt; UpdateGroup)
--&gt; Lens UpdateGroup UpdateGroup (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460545"><span class="annot"><span class="annottext">Maybe Text
-roleArn :: Maybe Text
-$sel:roleArn:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679460545"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460545"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460544"><span class="annot"><span class="annottext">s :: UpdateGroup
-</span><a href="#local-6989586621679460544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460543"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
-</span><a href="#local-6989586621679460544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:UpdateGroup' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3AroleArn%3AUpdateGroup%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | A string containing the new description of the group.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_description"><span class="hs-identifier hs-type">updateGroup_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="updateGroup_description"><span class="annot"><span class="annottext">updateGroup_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateGroup -&gt; f UpdateGroup
-</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_description"><span class="hs-identifier hs-var hs-var">updateGroup_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroup -&gt; Maybe Text)
--&gt; (UpdateGroup -&gt; Maybe Text -&gt; UpdateGroup)
--&gt; Lens UpdateGroup UpdateGroup (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460542"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679460542"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460542"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460541"><span class="annot"><span class="annottext">s :: UpdateGroup
-</span><a href="#local-6989586621679460541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460540"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
-</span><a href="#local-6989586621679460541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateGroup' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3Adescription%3AUpdateGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | The new precedence value for the group. For more information about this</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- parameter, see</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup&gt;.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_precedence"><span class="hs-identifier hs-type">updateGroup_precedence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="updateGroup_precedence"><span class="annot"><span class="annottext">updateGroup_precedence :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-108"></span><span class="hs-comment">-- | The new precedence value for the group. For more information about this</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- parameter, see</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup&gt;.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_precedence"><span class="hs-identifier hs-type">updateGroup_precedence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="updateGroup_precedence"><span class="annot"><span class="annottext">updateGroup_precedence :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; UpdateGroup -&gt; f UpdateGroup
 </span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_precedence"><span class="hs-identifier hs-var hs-var">updateGroup_precedence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroup -&gt; Maybe Natural)
 -&gt; (UpdateGroup -&gt; Maybe Natural -&gt; UpdateGroup)
 -&gt; Lens UpdateGroup UpdateGroup (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460539"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461088"><span class="annot"><span class="annottext">Maybe Natural
 precedence :: Maybe Natural
 $sel:precedence:UpdateGroup' :: UpdateGroup -&gt; Maybe Natural
-</span><a href="#local-6989586621679460539"><span class="hs-identifier hs-var hs-var">precedence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679460539"><span class="hs-identifier hs-var">precedence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460538"><span class="annot"><span class="annottext">s :: UpdateGroup
-</span><a href="#local-6989586621679460538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460537"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679460537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
-</span><a href="#local-6989586621679460538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:precedence:UpdateGroup' :: Maybe Natural
+</span><a href="#local-6989586621679461088"><span class="hs-identifier hs-var hs-var">precedence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679461088"><span class="hs-identifier hs-var">precedence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461087"><span class="annot"><span class="annottext">s :: UpdateGroup
+</span><a href="#local-6989586621679461087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461086"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679461086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
+</span><a href="#local-6989586621679461087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:precedence:UpdateGroup' :: Maybe Natural
 </span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3Aprecedence%3AUpdateGroup%27"><span class="hs-identifier hs-var">precedence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679460537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679461086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | A string containing the new description of the group.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_description"><span class="hs-identifier hs-type">updateGroup_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="updateGroup_description"><span class="annot"><span class="annottext">updateGroup_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateGroup -&gt; f UpdateGroup
+</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_description"><span class="hs-identifier hs-var hs-var">updateGroup_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroup -&gt; Maybe Text)
+-&gt; (UpdateGroup -&gt; Maybe Text -&gt; UpdateGroup)
+-&gt; Lens UpdateGroup UpdateGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461085"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679461085"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461085"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461084"><span class="annot"><span class="annottext">s :: UpdateGroup
+</span><a href="#local-6989586621679461084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461083"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
+</span><a href="#local-6989586621679461084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateGroup' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3Adescription%3AUpdateGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The new role ARN for the group. This is used for setting the</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- @cognito:roles@ and @cognito:preferred_role@ claims in the token.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_roleArn"><span class="hs-identifier hs-type">updateGroup_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="updateGroup_roleArn"><span class="annot"><span class="annottext">updateGroup_roleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateGroup -&gt; f UpdateGroup
+</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_roleArn"><span class="hs-identifier hs-var hs-var">updateGroup_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroup -&gt; Maybe Text)
+-&gt; (UpdateGroup -&gt; Maybe Text -&gt; UpdateGroup)
+-&gt; Lens UpdateGroup UpdateGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461082"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679461082"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461082"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461081"><span class="annot"><span class="annottext">s :: UpdateGroup
+</span><a href="#local-6989586621679461081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461080"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
+</span><a href="#local-6989586621679461081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:UpdateGroup' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3AroleArn%3AUpdateGroup%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The name of the group.</span><span>
 </span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_groupName"><span class="hs-identifier hs-type">updateGroup_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -245,16 +245,16 @@ $sel:precedence:UpdateGroup' :: UpdateGroup -&gt; Maybe Natural
 -&gt; (UpdateGroup -&gt; Text -&gt; UpdateGroup)
 -&gt; Lens UpdateGroup UpdateGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460536"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461079"><span class="annot"><span class="annottext">Text
 groupName :: Text
 $sel:groupName:UpdateGroup' :: UpdateGroup -&gt; Text
-</span><a href="#local-6989586621679460536"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460536"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460535"><span class="annot"><span class="annottext">s :: UpdateGroup
-</span><a href="#local-6989586621679460535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460534"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
-</span><a href="#local-6989586621679460535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:UpdateGroup' :: Text
+</span><a href="#local-6989586621679461079"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461079"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461078"><span class="annot"><span class="annottext">s :: UpdateGroup
+</span><a href="#local-6989586621679461078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461077"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
+</span><a href="#local-6989586621679461078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:UpdateGroup' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3AgroupName%3AUpdateGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679461077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The user pool ID for the user pool.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroup_userPoolId"><span class="hs-identifier hs-type">updateGroup_userPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -263,25 +263,25 @@ $sel:groupName:UpdateGroup' :: UpdateGroup -&gt; Text
 -&gt; (UpdateGroup -&gt; Text -&gt; UpdateGroup)
 -&gt; Lens UpdateGroup UpdateGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460533"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461076"><span class="annot"><span class="annottext">Text
 userPoolId :: Text
 $sel:userPoolId:UpdateGroup' :: UpdateGroup -&gt; Text
-</span><a href="#local-6989586621679460533"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460533"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460532"><span class="annot"><span class="annottext">s :: UpdateGroup
-</span><a href="#local-6989586621679460532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460531"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
-</span><a href="#local-6989586621679460532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:UpdateGroup' :: Text
+</span><a href="#local-6989586621679461076"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461076"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461075"><span class="annot"><span class="annottext">s :: UpdateGroup
+</span><a href="#local-6989586621679461075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461074"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
+</span><a href="#local-6989586621679461075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:UpdateGroup' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3AuserPoolId%3AUpdateGroup%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679461074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679460527"><span class="annot"><span class="annottext">request :: UpdateGroup -&gt; Request UpdateGroup
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679461070"><span class="annot"><span class="annottext">request :: UpdateGroup -&gt; Request UpdateGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateGroup -&gt; Request UpdateGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679460523"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679461066"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateGroup
 -&gt; ClientResponse ClientBody
@@ -305,10 +305,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679460520"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679460520"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679460519"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679460519"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679460518"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679460518"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679461063"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679461063"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679461062"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679461062"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679461061"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461061"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe GroupType -&gt; Int -&gt; UpdateGroupResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-var">UpdateGroupResponse'</span></a></span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GroupType -&gt; Int -&gt; UpdateGroupResponse)
@@ -316,7 +316,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679460518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GroupType)
+</span><a href="#local-6989586621679461061"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GroupType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Group&quot;</span></span><span class="hs-special">)</span><span>
@@ -328,15 +328,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679460520"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679461063"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460510"><span id="local-6989586621679460512"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461053"><span id="local-6989586621679461055"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460507"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461050"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679460503"><span class="annot"><span class="annottext">toHeaders :: UpdateGroup -&gt; ResponseHeaders
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679461046"><span class="annot"><span class="annottext">toHeaders :: UpdateGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -363,74 +363,74 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460493"><span id="local-6989586621679460495"><span id="local-6989586621679460497"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679460491"><span class="annot"><span class="annottext">toJSON :: UpdateGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460485"><span id="local-6989586621679460486"><span id="local-6989586621679460487"><span id="local-6989586621679460488"><span id="local-6989586621679460489"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461036"><span id="local-6989586621679461038"><span id="local-6989586621679461040"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679461034"><span class="annot"><span class="annottext">toJSON :: UpdateGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461028"><span id="local-6989586621679461029"><span id="local-6989586621679461030"><span id="local-6989586621679461031"><span id="local-6989586621679461032"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 userPoolId :: Text
 groupName :: Text
-precedence :: Maybe Natural
-description :: Maybe Text
 roleArn :: Maybe Text
+description :: Maybe Text
+precedence :: Maybe Natural
 $sel:userPoolId:UpdateGroup' :: UpdateGroup -&gt; Text
 $sel:groupName:UpdateGroup' :: UpdateGroup -&gt; Text
-$sel:precedence:UpdateGroup' :: UpdateGroup -&gt; Maybe Natural
-$sel:description:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
 $sel:roleArn:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679460485"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:description:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
+$sel:precedence:UpdateGroup' :: UpdateGroup -&gt; Maybe Natural
+</span><a href="#local-6989586621679461028"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-165"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;Precedence&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460489"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679461032"><span class="hs-identifier hs-var">precedence</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460488"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679461031"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Precedence&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679460487"><span class="hs-identifier hs-var">precedence</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461030"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460486"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679461029"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460485"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679461028"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679460479"><span class="annot"><span class="annottext">toPath :: UpdateGroup -&gt; ByteString
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679461022"><span class="annot"><span class="annottext">toPath :: UpdateGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679460475"><span class="annot"><span class="annottext">toQuery :: UpdateGroup -&gt; QueryString
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679461018"><span class="annot"><span class="annottext">toQuery :: UpdateGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -438,7 +438,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | /See:/ 'newUpdateGroupResponse' smart constructor.</span><span>
-</span><span id="line-180"></span><span id="local-6989586621679460472"><span id="local-6989586621679460473"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGroupResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-var">UpdateGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGroupResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-var">UpdateGroupResponse'</span></a></span></span><span>
+</span><span id="line-180"></span><span id="local-6989586621679461015"><span id="local-6989586621679461016"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGroupResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-var">UpdateGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGroupResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-var">UpdateGroupResponse'</span></a></span></span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The group object for the group.</span><span>
 </span><span id="line-182"></span><span>    </span><span id="%24sel%3Agroup%27%3AUpdateGroupResponse%27"><span class="annot"><span class="annottext">UpdateGroupResponse -&gt; Maybe GroupType
 </span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3Agroup%27%3AUpdateGroupResponse%27"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.GroupType.html#GroupType"><span class="hs-identifier hs-type">GroupType</span></a></span><span class="hs-special">,</span><span>
@@ -446,7 +446,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-184"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateGroupResponse%27"><span class="annot"><span class="annottext">UpdateGroupResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3AhttpStatus%3AUpdateGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679460466"><span id="local-6989586621679460468"><span class="annot"><span class="annottext">UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679461009"><span id="local-6989586621679461011"><span class="annot"><span class="annottext">UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
 (UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool)
 -&gt; (UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool)
 -&gt; Eq UpdateGroupResponse
@@ -455,7 +455,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
 == :: UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
 $c== :: UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460458"><span id="local-6989586621679460460"><span id="local-6989586621679460462"><span id="local-6989586621679460464"><span class="annot"><span class="annottext">ReadPrec [UpdateGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461001"><span id="local-6989586621679461003"><span id="local-6989586621679461005"><span id="local-6989586621679461007"><span class="annot"><span class="annottext">ReadPrec [UpdateGroupResponse]
 ReadPrec UpdateGroupResponse
 Int -&gt; ReadS UpdateGroupResponse
 ReadS [UpdateGroupResponse]
@@ -475,7 +475,7 @@ readList :: ReadS [UpdateGroupResponse]
 $creadList :: ReadS [UpdateGroupResponse]
 readsPrec :: Int -&gt; ReadS UpdateGroupResponse
 $creadsPrec :: Int -&gt; ReadS UpdateGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460452"><span id="local-6989586621679460454"><span id="local-6989586621679460456"><span class="annot"><span class="annottext">Int -&gt; UpdateGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460995"><span id="local-6989586621679460997"><span id="local-6989586621679460999"><span class="annot"><span class="annottext">Int -&gt; UpdateGroupResponse -&gt; ShowS
 [UpdateGroupResponse] -&gt; ShowS
 UpdateGroupResponse -&gt; String
 (Int -&gt; UpdateGroupResponse -&gt; ShowS)
@@ -517,8 +517,8 @@ $cfrom :: forall x. UpdateGroupResponse -&gt; Rep UpdateGroupResponse x
 </span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-202"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span>
 </span><span id="line-203"></span><span id="newUpdateGroupResponse"><span class="annot"><span class="annottext">newUpdateGroupResponse :: Int -&gt; UpdateGroupResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#newUpdateGroupResponse"><span class="hs-identifier hs-var hs-var">newUpdateGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679460449"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679460449"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#newUpdateGroupResponse"><span class="hs-identifier hs-var hs-var">newUpdateGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679460992"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679460992"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-204"></span><span>  </span><span class="annot"><span class="annottext">UpdateGroupResponse' :: Maybe GroupType -&gt; Int -&gt; UpdateGroupResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span>
 </span><span id="line-205"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:group':UpdateGroupResponse' :: Maybe GroupType
@@ -527,7 +527,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGroupResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3AhttpStatus%3AUpdateGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679460449"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679460992"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-207"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | The group object for the group.</span><span>
@@ -542,16 +542,16 @@ forall a. Maybe a
      (Maybe GroupType)
      (Maybe GroupType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460448"><span class="annot"><span class="annottext">Maybe GroupType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460991"><span class="annot"><span class="annottext">Maybe GroupType
 group' :: Maybe GroupType
 $sel:group':UpdateGroupResponse' :: UpdateGroupResponse -&gt; Maybe GroupType
-</span><a href="#local-6989586621679460448"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GroupType
-</span><a href="#local-6989586621679460448"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460447"><span class="annot"><span class="annottext">s :: UpdateGroupResponse
-</span><a href="#local-6989586621679460447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460446"><span class="annot"><span class="annottext">Maybe GroupType
-</span><a href="#local-6989586621679460446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroupResponse
-</span><a href="#local-6989586621679460447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':UpdateGroupResponse' :: Maybe GroupType
+</span><a href="#local-6989586621679460991"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GroupType
+</span><a href="#local-6989586621679460991"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460990"><span class="annot"><span class="annottext">s :: UpdateGroupResponse
+</span><a href="#local-6989586621679460990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460989"><span class="annot"><span class="annottext">Maybe GroupType
+</span><a href="#local-6989586621679460989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroupResponse
+</span><a href="#local-6989586621679460990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':UpdateGroupResponse' :: Maybe GroupType
 </span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3Agroup%27%3AUpdateGroupResponse%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GroupType
-</span><a href="#local-6989586621679460446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-214"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#updateGroupResponse_httpStatus"><span class="hs-identifier hs-type">updateGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -560,16 +560,16 @@ $sel:group':UpdateGroupResponse' :: UpdateGroupResponse -&gt; Maybe GroupType
 -&gt; (UpdateGroupResponse -&gt; Int -&gt; UpdateGroupResponse)
 -&gt; Lens UpdateGroupResponse UpdateGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460445"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460988"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateGroupResponse' :: UpdateGroupResponse -&gt; Int
-</span><a href="#local-6989586621679460445"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679460445"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460444"><span class="annot"><span class="annottext">s :: UpdateGroupResponse
-</span><a href="#local-6989586621679460444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460443"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679460443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroupResponse
-</span><a href="#local-6989586621679460444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGroupResponse' :: Int
+</span><a href="#local-6989586621679460988"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679460988"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460987"><span class="annot"><span class="annottext">s :: UpdateGroupResponse
+</span><a href="#local-6989586621679460987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460986"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679460986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroupResponse
+</span><a href="#local-6989586621679460987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGroupResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#%24sel%3AhttpStatus%3AUpdateGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679460443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460441"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460984"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span></span><span>
 </span><span id="line-218"></span></pre></body></html>

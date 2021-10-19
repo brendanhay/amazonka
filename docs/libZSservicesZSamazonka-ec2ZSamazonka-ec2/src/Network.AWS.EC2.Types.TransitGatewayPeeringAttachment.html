@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- | Describes the transit gateway peering attachment.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newTransitGatewayPeeringAttachment' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621681137883"><span id="local-6989586621681137884"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransitGatewayPeeringAttachment"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-var">TransitGatewayPeeringAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitGatewayPeeringAttachment%27"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">TransitGatewayPeeringAttachment'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681173026"><span id="local-6989586621681173027"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransitGatewayPeeringAttachment"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-var">TransitGatewayPeeringAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitGatewayPeeringAttachment%27"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">TransitGatewayPeeringAttachment'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time the transit gateway peering attachment was created.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AcreationTime%3ATransitGatewayPeeringAttachment%27"><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment -&gt; Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3AcreationTime%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
@@ -41,22 +41,22 @@
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The status of the transit gateway peering attachment.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Astatus%3ATransitGatewayPeeringAttachment%27"><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment -&gt; Maybe PeeringAttachmentStatus
 </span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3Astatus%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringAttachmentStatus.html#PeeringAttachmentStatus"><span class="hs-identifier hs-type">PeeringAttachmentStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Information about the accepter transit gateway.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AaccepterTgwInfo%3ATransitGatewayPeeringAttachment%27"><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment -&gt; Maybe PeeringTgwInfo
-</span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3AaccepterTgwInfo%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var hs-var">accepterTgwInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringTgwInfo.html#PeeringTgwInfo"><span class="hs-identifier hs-type">PeeringTgwInfo</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The state of the transit gateway peering attachment. Note that the</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- @initiating@ state has been deprecated.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Astate%3ATransitGatewayPeeringAttachment%27"><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The state of the transit gateway peering attachment. Note that the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- @initiating@ state has been deprecated.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Astate%3ATransitGatewayPeeringAttachment%27"><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment
 -&gt; Maybe TransitGatewayAttachmentState
 </span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3Astate%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentState.html#TransitGatewayAttachmentState"><span class="hs-identifier hs-type">TransitGatewayAttachmentState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The tags for the transit gateway peering attachment.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Atags%3ATransitGatewayPeeringAttachment%27"><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment -&gt; Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3Atags%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The ID of the transit gateway peering attachment.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayPeeringAttachment%27"><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Information about the accepter transit gateway.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AaccepterTgwInfo%3ATransitGatewayPeeringAttachment%27"><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment -&gt; Maybe PeeringTgwInfo
+</span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3AaccepterTgwInfo%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var hs-var">accepterTgwInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringTgwInfo.html#PeeringTgwInfo"><span class="hs-identifier hs-type">PeeringTgwInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The ID of the transit gateway peering attachment.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayPeeringAttachment%27"><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The tags for the transit gateway peering attachment.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Atags%3ATransitGatewayPeeringAttachment%27"><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment -&gt; Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3Atags%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681137871"><span id="local-6989586621681137873"><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681173014"><span id="local-6989586621681173016"><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment
 -&gt; TransitGatewayPeeringAttachment -&gt; Bool
 (TransitGatewayPeeringAttachment
  -&gt; TransitGatewayPeeringAttachment -&gt; Bool)
@@ -72,7 +72,7 @@ $c/= :: TransitGatewayPeeringAttachment
 -&gt; TransitGatewayPeeringAttachment -&gt; Bool
 $c== :: TransitGatewayPeeringAttachment
 -&gt; TransitGatewayPeeringAttachment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681137862"><span id="local-6989586621681137864"><span id="local-6989586621681137866"><span id="local-6989586621681137868"><span class="annot"><span class="annottext">ReadPrec [TransitGatewayPeeringAttachment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681173005"><span id="local-6989586621681173007"><span id="local-6989586621681173009"><span id="local-6989586621681173011"><span class="annot"><span class="annottext">ReadPrec [TransitGatewayPeeringAttachment]
 ReadPrec TransitGatewayPeeringAttachment
 Int -&gt; ReadS TransitGatewayPeeringAttachment
 ReadS [TransitGatewayPeeringAttachment]
@@ -92,7 +92,7 @@ readList :: ReadS [TransitGatewayPeeringAttachment]
 $creadList :: ReadS [TransitGatewayPeeringAttachment]
 readsPrec :: Int -&gt; ReadS TransitGatewayPeeringAttachment
 $creadsPrec :: Int -&gt; ReadS TransitGatewayPeeringAttachment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681137855"><span id="local-6989586621681137857"><span id="local-6989586621681137859"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayPeeringAttachment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681172998"><span id="local-6989586621681173000"><span id="local-6989586621681173002"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayPeeringAttachment -&gt; ShowS
 [TransitGatewayPeeringAttachment] -&gt; ShowS
 TransitGatewayPeeringAttachment -&gt; String
 (Int -&gt; TransitGatewayPeeringAttachment -&gt; ShowS)
@@ -144,14 +144,14 @@ TransitGatewayPeeringAttachment
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- 'status', 'transitGatewayPeeringAttachment_status' - The status of the transit gateway peering attachment.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'accepterTgwInfo', 'transitGatewayPeeringAttachment_accepterTgwInfo' - Information about the accepter transit gateway.</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'state', 'transitGatewayPeeringAttachment_state' - The state of the transit gateway peering attachment. Note that the</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- @initiating@ state has been deprecated.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'state', 'transitGatewayPeeringAttachment_state' - The state of the transit gateway peering attachment. Note that the</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- @initiating@ state has been deprecated.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'accepterTgwInfo', 'transitGatewayPeeringAttachment_accepterTgwInfo' - Information about the accepter transit gateway.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'tags', 'transitGatewayPeeringAttachment_tags' - The tags for the transit gateway peering attachment.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'transitGatewayAttachmentId', 'transitGatewayPeeringAttachment_transitGatewayAttachmentId' - The ID of the transit gateway peering attachment.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'transitGatewayAttachmentId', 'transitGatewayPeeringAttachment_transitGatewayAttachmentId' - The ID of the transit gateway peering attachment.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'tags', 'transitGatewayPeeringAttachment_tags' - The tags for the transit gateway peering attachment.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#newTransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">newTransitGatewayPeeringAttachment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span>
 </span><span id="line-77"></span><span id="newTransitGatewayPeeringAttachment"><span class="annot"><span class="annottext">newTransitGatewayPeeringAttachment :: TransitGatewayPeeringAttachment
@@ -159,10 +159,10 @@ TransitGatewayPeeringAttachment
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment' :: Maybe ISO8601
 -&gt; Maybe PeeringTgwInfo
 -&gt; Maybe PeeringAttachmentStatus
--&gt; Maybe PeeringTgwInfo
 -&gt; Maybe TransitGatewayAttachmentState
--&gt; Maybe [Tag]
+-&gt; Maybe PeeringTgwInfo
 -&gt; Maybe Text
+-&gt; Maybe [Tag]
 -&gt; TransitGatewayPeeringAttachment
 </span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:TransitGatewayPeeringAttachment' :: Maybe ISO8601
@@ -178,21 +178,21 @@ forall a. Maybe a
 </span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3Astatus%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PeeringAttachmentStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:accepterTgwInfo:TransitGatewayPeeringAttachment' :: Maybe PeeringTgwInfo
-</span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3AaccepterTgwInfo%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">accepterTgwInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PeeringTgwInfo
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:TransitGatewayPeeringAttachment' :: Maybe TransitGatewayAttachmentState
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:TransitGatewayPeeringAttachment' :: Maybe TransitGatewayAttachmentState
 </span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3Astate%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayAttachmentState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:TransitGatewayPeeringAttachment' :: Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3Atags%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:accepterTgwInfo:TransitGatewayPeeringAttachment' :: Maybe PeeringTgwInfo
+</span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3AaccepterTgwInfo%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">accepterTgwInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PeeringTgwInfo
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:TransitGatewayPeeringAttachment' :: Maybe Text
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:TransitGatewayPeeringAttachment' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:TransitGatewayPeeringAttachment' :: Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3Atags%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
@@ -211,16 +211,16 @@ forall a. Maybe a
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681137846"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681172989"><span class="annot"><span class="annottext">Maybe ISO8601
 creationTime :: Maybe ISO8601
 $sel:creationTime:TransitGatewayPeeringAttachment' :: TransitGatewayPeeringAttachment -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681137846"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681137846"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681137845"><span class="annot"><span class="annottext">s :: TransitGatewayPeeringAttachment
-</span><a href="#local-6989586621681137845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681137844"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681137844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment
-</span><a href="#local-6989586621681137845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:TransitGatewayPeeringAttachment' :: Maybe ISO8601
+</span><a href="#local-6989586621681172989"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681172989"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681172988"><span class="annot"><span class="annottext">s :: TransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681172988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681172987"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681172987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681172988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:TransitGatewayPeeringAttachment' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3AcreationTime%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681137844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621681172987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; TransitGatewayPeeringAttachment
  -&gt; f TransitGatewayPeeringAttachment)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -253,16 +253,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe PeeringTgwInfo)
      (Maybe PeeringTgwInfo)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681137839"><span class="annot"><span class="annottext">Maybe PeeringTgwInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681172982"><span class="annot"><span class="annottext">Maybe PeeringTgwInfo
 requesterTgwInfo :: Maybe PeeringTgwInfo
 $sel:requesterTgwInfo:TransitGatewayPeeringAttachment' :: TransitGatewayPeeringAttachment -&gt; Maybe PeeringTgwInfo
-</span><a href="#local-6989586621681137839"><span class="hs-identifier hs-var hs-var">requesterTgwInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PeeringTgwInfo
-</span><a href="#local-6989586621681137839"><span class="hs-identifier hs-var">requesterTgwInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681137838"><span class="annot"><span class="annottext">s :: TransitGatewayPeeringAttachment
-</span><a href="#local-6989586621681137838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681137837"><span class="annot"><span class="annottext">Maybe PeeringTgwInfo
-</span><a href="#local-6989586621681137837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment
-</span><a href="#local-6989586621681137838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requesterTgwInfo:TransitGatewayPeeringAttachment' :: Maybe PeeringTgwInfo
+</span><a href="#local-6989586621681172982"><span class="hs-identifier hs-var hs-var">requesterTgwInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PeeringTgwInfo
+</span><a href="#local-6989586621681172982"><span class="hs-identifier hs-var">requesterTgwInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681172981"><span class="annot"><span class="annottext">s :: TransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681172981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681172980"><span class="annot"><span class="annottext">Maybe PeeringTgwInfo
+</span><a href="#local-6989586621681172980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681172981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requesterTgwInfo:TransitGatewayPeeringAttachment' :: Maybe PeeringTgwInfo
 </span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3ArequesterTgwInfo%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">requesterTgwInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PeeringTgwInfo
-</span><a href="#local-6989586621681137837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681172980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The status of the transit gateway peering attachment.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#transitGatewayPeeringAttachment_status"><span class="hs-identifier hs-type">transitGatewayPeeringAttachment_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringAttachmentStatus.html#PeeringAttachmentStatus"><span class="hs-identifier hs-type">PeeringAttachmentStatus</span></a></span><span class="hs-special">)</span><span>
@@ -280,46 +280,21 @@ $sel:requesterTgwInfo:TransitGatewayPeeringAttachment' :: TransitGatewayPeeringA
      (Maybe PeeringAttachmentStatus)
      (Maybe PeeringAttachmentStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681137835"><span class="annot"><span class="annottext">Maybe PeeringAttachmentStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681172978"><span class="annot"><span class="annottext">Maybe PeeringAttachmentStatus
 status :: Maybe PeeringAttachmentStatus
 $sel:status:TransitGatewayPeeringAttachment' :: TransitGatewayPeeringAttachment -&gt; Maybe PeeringAttachmentStatus
-</span><a href="#local-6989586621681137835"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PeeringAttachmentStatus
-</span><a href="#local-6989586621681137835"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681137834"><span class="annot"><span class="annottext">s :: TransitGatewayPeeringAttachment
-</span><a href="#local-6989586621681137834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681137833"><span class="annot"><span class="annottext">Maybe PeeringAttachmentStatus
-</span><a href="#local-6989586621681137833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment
-</span><a href="#local-6989586621681137834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:TransitGatewayPeeringAttachment' :: Maybe PeeringAttachmentStatus
+</span><a href="#local-6989586621681172978"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PeeringAttachmentStatus
+</span><a href="#local-6989586621681172978"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681172977"><span class="annot"><span class="annottext">s :: TransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681172977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681172976"><span class="annot"><span class="annottext">Maybe PeeringAttachmentStatus
+</span><a href="#local-6989586621681172976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681172977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:TransitGatewayPeeringAttachment' :: Maybe PeeringAttachmentStatus
 </span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3Astatus%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PeeringAttachmentStatus
-</span><a href="#local-6989586621681137833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681172976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | Information about the accepter transit gateway.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#transitGatewayPeeringAttachment_accepterTgwInfo"><span class="hs-identifier hs-type">transitGatewayPeeringAttachment_accepterTgwInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringTgwInfo.html#PeeringTgwInfo"><span class="hs-identifier hs-type">PeeringTgwInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="transitGatewayPeeringAttachment_accepterTgwInfo"><span class="annot"><span class="annottext">transitGatewayPeeringAttachment_accepterTgwInfo :: (Maybe PeeringTgwInfo -&gt; f (Maybe PeeringTgwInfo))
--&gt; TransitGatewayPeeringAttachment
--&gt; f TransitGatewayPeeringAttachment
-</span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#transitGatewayPeeringAttachment_accepterTgwInfo"><span class="hs-identifier hs-var hs-var">transitGatewayPeeringAttachment_accepterTgwInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayPeeringAttachment -&gt; Maybe PeeringTgwInfo)
--&gt; (TransitGatewayPeeringAttachment
-    -&gt; Maybe PeeringTgwInfo -&gt; TransitGatewayPeeringAttachment)
--&gt; Lens
-     TransitGatewayPeeringAttachment
-     TransitGatewayPeeringAttachment
-     (Maybe PeeringTgwInfo)
-     (Maybe PeeringTgwInfo)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681137831"><span class="annot"><span class="annottext">Maybe PeeringTgwInfo
-accepterTgwInfo :: Maybe PeeringTgwInfo
-$sel:accepterTgwInfo:TransitGatewayPeeringAttachment' :: TransitGatewayPeeringAttachment -&gt; Maybe PeeringTgwInfo
-</span><a href="#local-6989586621681137831"><span class="hs-identifier hs-var hs-var">accepterTgwInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PeeringTgwInfo
-</span><a href="#local-6989586621681137831"><span class="hs-identifier hs-var">accepterTgwInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681137830"><span class="annot"><span class="annottext">s :: TransitGatewayPeeringAttachment
-</span><a href="#local-6989586621681137830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681137829"><span class="annot"><span class="annottext">Maybe PeeringTgwInfo
-</span><a href="#local-6989586621681137829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment
-</span><a href="#local-6989586621681137830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accepterTgwInfo:TransitGatewayPeeringAttachment' :: Maybe PeeringTgwInfo
-</span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3AaccepterTgwInfo%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">accepterTgwInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PeeringTgwInfo
-</span><a href="#local-6989586621681137829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | The state of the transit gateway peering attachment. Note that the</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- @initiating@ state has been deprecated.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#transitGatewayPeeringAttachment_state"><span class="hs-identifier hs-type">transitGatewayPeeringAttachment_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentState.html#TransitGatewayAttachmentState"><span class="hs-identifier hs-type">TransitGatewayAttachmentState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="transitGatewayPeeringAttachment_state"><span class="annot"><span class="annottext">transitGatewayPeeringAttachment_state :: (Maybe TransitGatewayAttachmentState
+</span><span id="line-102"></span><span class="hs-comment">-- | The state of the transit gateway peering attachment. Note that the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- @initiating@ state has been deprecated.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#transitGatewayPeeringAttachment_state"><span class="hs-identifier hs-type">transitGatewayPeeringAttachment_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentState.html#TransitGatewayAttachmentState"><span class="hs-identifier hs-type">TransitGatewayAttachmentState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="transitGatewayPeeringAttachment_state"><span class="annot"><span class="annottext">transitGatewayPeeringAttachment_state :: (Maybe TransitGatewayAttachmentState
  -&gt; f (Maybe TransitGatewayAttachmentState))
 -&gt; TransitGatewayPeeringAttachment
 -&gt; f TransitGatewayPeeringAttachment
@@ -334,21 +309,71 @@ $sel:accepterTgwInfo:TransitGatewayPeeringAttachment' :: TransitGatewayPeeringAt
      (Maybe TransitGatewayAttachmentState)
      (Maybe TransitGatewayAttachmentState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681137827"><span class="annot"><span class="annottext">Maybe TransitGatewayAttachmentState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681172974"><span class="annot"><span class="annottext">Maybe TransitGatewayAttachmentState
 state :: Maybe TransitGatewayAttachmentState
 $sel:state:TransitGatewayPeeringAttachment' :: TransitGatewayPeeringAttachment
 -&gt; Maybe TransitGatewayAttachmentState
-</span><a href="#local-6989586621681137827"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayAttachmentState
-</span><a href="#local-6989586621681137827"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681137826"><span class="annot"><span class="annottext">s :: TransitGatewayPeeringAttachment
-</span><a href="#local-6989586621681137826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681137825"><span class="annot"><span class="annottext">Maybe TransitGatewayAttachmentState
-</span><a href="#local-6989586621681137825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment
-</span><a href="#local-6989586621681137826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:TransitGatewayPeeringAttachment' :: Maybe TransitGatewayAttachmentState
+</span><a href="#local-6989586621681172974"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayAttachmentState
+</span><a href="#local-6989586621681172974"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681172973"><span class="annot"><span class="annottext">s :: TransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681172973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681172972"><span class="annot"><span class="annottext">Maybe TransitGatewayAttachmentState
+</span><a href="#local-6989586621681172972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681172973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:TransitGatewayPeeringAttachment' :: Maybe TransitGatewayAttachmentState
 </span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3Astate%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayAttachmentState
-</span><a href="#local-6989586621681137825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681172972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Information about the accepter transit gateway.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#transitGatewayPeeringAttachment_accepterTgwInfo"><span class="hs-identifier hs-type">transitGatewayPeeringAttachment_accepterTgwInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringTgwInfo.html#PeeringTgwInfo"><span class="hs-identifier hs-type">PeeringTgwInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="transitGatewayPeeringAttachment_accepterTgwInfo"><span class="annot"><span class="annottext">transitGatewayPeeringAttachment_accepterTgwInfo :: (Maybe PeeringTgwInfo -&gt; f (Maybe PeeringTgwInfo))
+-&gt; TransitGatewayPeeringAttachment
+-&gt; f TransitGatewayPeeringAttachment
+</span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#transitGatewayPeeringAttachment_accepterTgwInfo"><span class="hs-identifier hs-var hs-var">transitGatewayPeeringAttachment_accepterTgwInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayPeeringAttachment -&gt; Maybe PeeringTgwInfo)
+-&gt; (TransitGatewayPeeringAttachment
+    -&gt; Maybe PeeringTgwInfo -&gt; TransitGatewayPeeringAttachment)
+-&gt; Lens
+     TransitGatewayPeeringAttachment
+     TransitGatewayPeeringAttachment
+     (Maybe PeeringTgwInfo)
+     (Maybe PeeringTgwInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681172970"><span class="annot"><span class="annottext">Maybe PeeringTgwInfo
+accepterTgwInfo :: Maybe PeeringTgwInfo
+$sel:accepterTgwInfo:TransitGatewayPeeringAttachment' :: TransitGatewayPeeringAttachment -&gt; Maybe PeeringTgwInfo
+</span><a href="#local-6989586621681172970"><span class="hs-identifier hs-var hs-var">accepterTgwInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PeeringTgwInfo
+</span><a href="#local-6989586621681172970"><span class="hs-identifier hs-var">accepterTgwInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681172969"><span class="annot"><span class="annottext">s :: TransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681172969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681172968"><span class="annot"><span class="annottext">Maybe PeeringTgwInfo
+</span><a href="#local-6989586621681172968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681172969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accepterTgwInfo:TransitGatewayPeeringAttachment' :: Maybe PeeringTgwInfo
+</span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3AaccepterTgwInfo%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">accepterTgwInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PeeringTgwInfo
+</span><a href="#local-6989586621681172968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The tags for the transit gateway peering attachment.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#transitGatewayPeeringAttachment_tags"><span class="hs-identifier hs-type">transitGatewayPeeringAttachment_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="transitGatewayPeeringAttachment_tags"><span class="annot"><span class="annottext">transitGatewayPeeringAttachment_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><span id="line-111"></span><span class="hs-comment">-- | The ID of the transit gateway peering attachment.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#transitGatewayPeeringAttachment_transitGatewayAttachmentId"><span class="hs-identifier hs-type">transitGatewayPeeringAttachment_transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="transitGatewayPeeringAttachment_transitGatewayAttachmentId"><span class="annot"><span class="annottext">transitGatewayPeeringAttachment_transitGatewayAttachmentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TransitGatewayPeeringAttachment
+-&gt; f TransitGatewayPeeringAttachment
+</span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#transitGatewayPeeringAttachment_transitGatewayAttachmentId"><span class="hs-identifier hs-var hs-var">transitGatewayPeeringAttachment_transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayPeeringAttachment -&gt; Maybe Text)
+-&gt; (TransitGatewayPeeringAttachment
+    -&gt; Maybe Text -&gt; TransitGatewayPeeringAttachment)
+-&gt; Lens
+     TransitGatewayPeeringAttachment
+     TransitGatewayPeeringAttachment
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681172966"><span class="annot"><span class="annottext">Maybe Text
+transitGatewayAttachmentId :: Maybe Text
+$sel:transitGatewayAttachmentId:TransitGatewayPeeringAttachment' :: TransitGatewayPeeringAttachment -&gt; Maybe Text
+</span><a href="#local-6989586621681172966"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681172966"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681172965"><span class="annot"><span class="annottext">s :: TransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681172965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681172964"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681172964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681172965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:TransitGatewayPeeringAttachment' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681172964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The tags for the transit gateway peering attachment.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#transitGatewayPeeringAttachment_tags"><span class="hs-identifier hs-type">transitGatewayPeeringAttachment_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="transitGatewayPeeringAttachment_tags"><span class="annot"><span class="annottext">transitGatewayPeeringAttachment_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; TransitGatewayPeeringAttachment
 -&gt; f TransitGatewayPeeringAttachment
 </span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#transitGatewayPeeringAttachment_tags"><span class="hs-identifier hs-var hs-var">transitGatewayPeeringAttachment_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayPeeringAttachment -&gt; Maybe [Tag])
@@ -360,16 +385,16 @@ $sel:state:TransitGatewayPeeringAttachment' :: TransitGatewayPeeringAttachment
      (Maybe [Tag])
      (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681137823"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681172962"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:TransitGatewayPeeringAttachment' :: TransitGatewayPeeringAttachment -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681137823"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681137823"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681137822"><span class="annot"><span class="annottext">s :: TransitGatewayPeeringAttachment
-</span><a href="#local-6989586621681137822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681137821"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681137821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment
-</span><a href="#local-6989586621681137822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TransitGatewayPeeringAttachment' :: Maybe [Tag]
+</span><a href="#local-6989586621681172962"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681172962"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681172961"><span class="annot"><span class="annottext">s :: TransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681172961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681172960"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681172960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment
+</span><a href="#local-6989586621681172961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TransitGatewayPeeringAttachment' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3Atags%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681137821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621681172960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; TransitGatewayPeeringAttachment
  -&gt; f TransitGatewayPeeringAttachment)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -384,68 +409,43 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The ID of the transit gateway peering attachment.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#transitGatewayPeeringAttachment_transitGatewayAttachmentId"><span class="hs-identifier hs-type">transitGatewayPeeringAttachment_transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="transitGatewayPeeringAttachment_transitGatewayAttachmentId"><span class="annot"><span class="annottext">transitGatewayPeeringAttachment_transitGatewayAttachmentId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; TransitGatewayPeeringAttachment
--&gt; f TransitGatewayPeeringAttachment
-</span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#transitGatewayPeeringAttachment_transitGatewayAttachmentId"><span class="hs-identifier hs-var hs-var">transitGatewayPeeringAttachment_transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayPeeringAttachment -&gt; Maybe Text)
--&gt; (TransitGatewayPeeringAttachment
-    -&gt; Maybe Text -&gt; TransitGatewayPeeringAttachment)
--&gt; Lens
-     TransitGatewayPeeringAttachment
-     TransitGatewayPeeringAttachment
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681137818"><span class="annot"><span class="annottext">Maybe Text
-transitGatewayAttachmentId :: Maybe Text
-$sel:transitGatewayAttachmentId:TransitGatewayPeeringAttachment' :: TransitGatewayPeeringAttachment -&gt; Maybe Text
-</span><a href="#local-6989586621681137818"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681137818"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681137817"><span class="annot"><span class="annottext">s :: TransitGatewayPeeringAttachment
-</span><a href="#local-6989586621681137817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681137816"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681137816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayPeeringAttachment
-</span><a href="#local-6989586621681137817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:TransitGatewayPeeringAttachment' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681137816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621681137813"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TransitGatewayPeeringAttachment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681137811"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681137811"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621681172956"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TransitGatewayPeeringAttachment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681172954"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681172954"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
 -&gt; Maybe PeeringTgwInfo
 -&gt; Maybe PeeringAttachmentStatus
--&gt; Maybe PeeringTgwInfo
 -&gt; Maybe TransitGatewayAttachmentState
--&gt; Maybe [Tag]
+-&gt; Maybe PeeringTgwInfo
 -&gt; Maybe Text
+-&gt; Maybe [Tag]
 -&gt; TransitGatewayPeeringAttachment
 </span><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment%27"><span class="hs-identifier hs-var">TransitGatewayPeeringAttachment'</span></a></span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601
  -&gt; Maybe PeeringTgwInfo
  -&gt; Maybe PeeringAttachmentStatus
- -&gt; Maybe PeeringTgwInfo
  -&gt; Maybe TransitGatewayAttachmentState
- -&gt; Maybe [Tag]
+ -&gt; Maybe PeeringTgwInfo
  -&gt; Maybe Text
+ -&gt; Maybe [Tag]
  -&gt; TransitGatewayPeeringAttachment)
 -&gt; Either String (Maybe ISO8601)
 -&gt; Either
      String
      (Maybe PeeringTgwInfo
       -&gt; Maybe PeeringAttachmentStatus
-      -&gt; Maybe PeeringTgwInfo
       -&gt; Maybe TransitGatewayAttachmentState
-      -&gt; Maybe [Tag]
+      -&gt; Maybe PeeringTgwInfo
       -&gt; Maybe Text
+      -&gt; Maybe [Tag]
       -&gt; TransitGatewayPeeringAttachment)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681137811"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621681172954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -453,89 +453,98 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
   String
   (Maybe PeeringTgwInfo
    -&gt; Maybe PeeringAttachmentStatus
-   -&gt; Maybe PeeringTgwInfo
    -&gt; Maybe TransitGatewayAttachmentState
-   -&gt; Maybe [Tag]
+   -&gt; Maybe PeeringTgwInfo
    -&gt; Maybe Text
+   -&gt; Maybe [Tag]
    -&gt; TransitGatewayPeeringAttachment)
 -&gt; Either String (Maybe PeeringTgwInfo)
 -&gt; Either
      String
      (Maybe PeeringAttachmentStatus
-      -&gt; Maybe PeeringTgwInfo
       -&gt; Maybe TransitGatewayAttachmentState
-      -&gt; Maybe [Tag]
+      -&gt; Maybe PeeringTgwInfo
       -&gt; Maybe Text
+      -&gt; Maybe [Tag]
       -&gt; TransitGatewayPeeringAttachment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681137811"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PeeringTgwInfo)
+</span><a href="#local-6989586621681172954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PeeringTgwInfo)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;requesterTgwInfo&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe PeeringAttachmentStatus
-   -&gt; Maybe PeeringTgwInfo
    -&gt; Maybe TransitGatewayAttachmentState
-   -&gt; Maybe [Tag]
+   -&gt; Maybe PeeringTgwInfo
    -&gt; Maybe Text
+   -&gt; Maybe [Tag]
    -&gt; TransitGatewayPeeringAttachment)
 -&gt; Either String (Maybe PeeringAttachmentStatus)
 -&gt; Either
      String
-     (Maybe PeeringTgwInfo
-      -&gt; Maybe TransitGatewayAttachmentState
-      -&gt; Maybe [Tag]
+     (Maybe TransitGatewayAttachmentState
+      -&gt; Maybe PeeringTgwInfo
       -&gt; Maybe Text
+      -&gt; Maybe [Tag]
       -&gt; TransitGatewayPeeringAttachment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681137811"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PeeringAttachmentStatus)
+</span><a href="#local-6989586621681172954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PeeringAttachmentStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe PeeringTgwInfo
-   -&gt; Maybe TransitGatewayAttachmentState
-   -&gt; Maybe [Tag]
-   -&gt; Maybe Text
-   -&gt; TransitGatewayPeeringAttachment)
--&gt; Either String (Maybe PeeringTgwInfo)
--&gt; Either
-     String
-     (Maybe TransitGatewayAttachmentState
-      -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; TransitGatewayPeeringAttachment)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681137811"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PeeringTgwInfo)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;accepterTgwInfo&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
   (Maybe TransitGatewayAttachmentState
-   -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; TransitGatewayPeeringAttachment)
+   -&gt; Maybe PeeringTgwInfo
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; TransitGatewayPeeringAttachment)
 -&gt; Either String (Maybe TransitGatewayAttachmentState)
 -&gt; Either
      String
-     (Maybe [Tag] -&gt; Maybe Text -&gt; TransitGatewayPeeringAttachment)
+     (Maybe PeeringTgwInfo
+      -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; TransitGatewayPeeringAttachment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681137811"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681172954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe TransitGatewayAttachmentState)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe PeeringTgwInfo
+   -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; TransitGatewayPeeringAttachment)
+-&gt; Either String (Maybe PeeringTgwInfo)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe [Tag] -&gt; TransitGatewayPeeringAttachment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681172954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PeeringTgwInfo)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;accepterTgwInfo&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe [Tag] -&gt; Maybe Text -&gt; TransitGatewayPeeringAttachment)
+  (Maybe Text -&gt; Maybe [Tag] -&gt; TransitGatewayPeeringAttachment)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Tag] -&gt; TransitGatewayPeeringAttachment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681172954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;transitGatewayAttachmentId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; TransitGatewayPeeringAttachment)
 -&gt; Either String (Maybe [Tag])
--&gt; Either String (Maybe Text -&gt; TransitGatewayPeeringAttachment)
+-&gt; Either String TransitGatewayPeeringAttachment
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681137811"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681172954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -543,7 +552,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-128"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-129"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Tag]))
 -&gt; Either String (Maybe [Tag])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -556,22 +565,13 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; TransitGatewayPeeringAttachment)
--&gt; Either String (Maybe Text)
--&gt; Either String TransitGatewayPeeringAttachment
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681137811"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;transitGatewayAttachmentId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621681137802"><span id="local-6989586621681137804"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621681172945"><span id="local-6989586621681172947"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span></span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621681137799"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621681172942"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPeeringAttachment.html#TransitGatewayPeeringAttachment"><span class="hs-identifier hs-type">TransitGatewayPeeringAttachment</span></a></span></span><span>
 </span><span id="line-139"></span></pre></body></html>

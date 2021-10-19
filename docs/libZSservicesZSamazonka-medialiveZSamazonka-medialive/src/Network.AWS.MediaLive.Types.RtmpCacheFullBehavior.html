@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Rtmp Cache Full Behavior</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679907127"><span id="local-6989586621679907128"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RtmpCacheFullBehavior"><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpCacheFullBehavior.html#RtmpCacheFullBehavior"><span class="hs-identifier hs-var">RtmpCacheFullBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RtmpCacheFullBehavior%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpCacheFullBehavior.html#RtmpCacheFullBehavior%27"><span class="hs-identifier hs-var">RtmpCacheFullBehavior'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679914626"><span id="local-6989586621679914627"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RtmpCacheFullBehavior"><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpCacheFullBehavior.html#RtmpCacheFullBehavior"><span class="hs-identifier hs-var">RtmpCacheFullBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RtmpCacheFullBehavior%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpCacheFullBehavior.html#RtmpCacheFullBehavior%27"><span class="hs-identifier hs-var">RtmpCacheFullBehavior'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRtmpCacheFullBehavior"><span class="annot"><span class="annottext">RtmpCacheFullBehavior -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.RtmpCacheFullBehavior.html#fromRtmpCacheFullBehavior"><span class="hs-identifier hs-var hs-var">fromRtmpCacheFullBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679907119"><span id="local-6989586621679907121"><span id="local-6989586621679907123"><span class="annot"><span class="annottext">Int -&gt; RtmpCacheFullBehavior -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679914618"><span id="local-6989586621679914620"><span id="local-6989586621679914622"><span class="annot"><span class="annottext">Int -&gt; RtmpCacheFullBehavior -&gt; ShowS
 [RtmpCacheFullBehavior] -&gt; ShowS
 RtmpCacheFullBehavior -&gt; String
 (Int -&gt; RtmpCacheFullBehavior -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: RtmpCacheFullBehavior -&gt; String
 showsPrec :: Int -&gt; RtmpCacheFullBehavior -&gt; ShowS
 $cshowsPrec :: Int -&gt; RtmpCacheFullBehavior -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679907110"><span id="local-6989586621679907112"><span id="local-6989586621679907114"><span id="local-6989586621679907116"><span class="annot"><span class="annottext">ReadPrec [RtmpCacheFullBehavior]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679914609"><span id="local-6989586621679914611"><span id="local-6989586621679914613"><span id="local-6989586621679914615"><span class="annot"><span class="annottext">ReadPrec [RtmpCacheFullBehavior]
 ReadPrec RtmpCacheFullBehavior
 Int -&gt; ReadS RtmpCacheFullBehavior
 ReadS [RtmpCacheFullBehavior]
@@ -73,7 +73,7 @@ $creadList :: ReadS [RtmpCacheFullBehavior]
 readsPrec :: Int -&gt; ReadS RtmpCacheFullBehavior
 $creadsPrec :: Int -&gt; ReadS RtmpCacheFullBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679907105"><span id="local-6989586621679907107"><span class="annot"><span class="annottext">RtmpCacheFullBehavior -&gt; RtmpCacheFullBehavior -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679914604"><span id="local-6989586621679914606"><span class="annot"><span class="annottext">RtmpCacheFullBehavior -&gt; RtmpCacheFullBehavior -&gt; Bool
 (RtmpCacheFullBehavior -&gt; RtmpCacheFullBehavior -&gt; Bool)
 -&gt; (RtmpCacheFullBehavior -&gt; RtmpCacheFullBehavior -&gt; Bool)
 -&gt; Eq RtmpCacheFullBehavior
@@ -83,7 +83,7 @@ $c/= :: RtmpCacheFullBehavior -&gt; RtmpCacheFullBehavior -&gt; Bool
 == :: RtmpCacheFullBehavior -&gt; RtmpCacheFullBehavior -&gt; Bool
 $c== :: RtmpCacheFullBehavior -&gt; RtmpCacheFullBehavior -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679907089"><span id="local-6989586621679907091"><span id="local-6989586621679907093"><span id="local-6989586621679907095"><span id="local-6989586621679907097"><span id="local-6989586621679907099"><span id="local-6989586621679907101"><span class="annot"><span class="annottext">Eq RtmpCacheFullBehavior
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679914588"><span id="local-6989586621679914590"><span id="local-6989586621679914592"><span id="local-6989586621679914594"><span id="local-6989586621679914596"><span id="local-6989586621679914598"><span id="local-6989586621679914600"><span class="annot"><span class="annottext">Eq RtmpCacheFullBehavior
 Eq RtmpCacheFullBehavior
 -&gt; (RtmpCacheFullBehavior -&gt; RtmpCacheFullBehavior -&gt; Ordering)
 -&gt; (RtmpCacheFullBehavior -&gt; RtmpCacheFullBehavior -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. RtmpCacheFullBehavior -&gt; Rep RtmpCacheFullBehavior x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679907081"><span id="local-6989586621679907083"><span class="annot"><span class="annottext">Int -&gt; RtmpCacheFullBehavior -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679914580"><span id="local-6989586621679914582"><span class="annot"><span class="annottext">Int -&gt; RtmpCacheFullBehavior -&gt; Int
 RtmpCacheFullBehavior -&gt; Int
 (Int -&gt; RtmpCacheFullBehavior -&gt; Int)
 -&gt; (RtmpCacheFullBehavior -&gt; Int) -&gt; Hashable RtmpCacheFullBehavior
@@ -151,54 +151,54 @@ $chash :: RtmpCacheFullBehavior -&gt; Int
 hashWithSalt :: Int -&gt; RtmpCacheFullBehavior -&gt; Int
 $chashWithSalt :: Int -&gt; RtmpCacheFullBehavior -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679907078"><span class="annot"><span class="annottext">RtmpCacheFullBehavior -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679914577"><span class="annot"><span class="annottext">RtmpCacheFullBehavior -&gt; ()
 (RtmpCacheFullBehavior -&gt; ()) -&gt; NFData RtmpCacheFullBehavior
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RtmpCacheFullBehavior -&gt; ()
 $crnf :: RtmpCacheFullBehavior -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679907075"><span class="annot"><span class="annottext">Text -&gt; Either String RtmpCacheFullBehavior
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679914574"><span class="annot"><span class="annottext">Text -&gt; Either String RtmpCacheFullBehavior
 (Text -&gt; Either String RtmpCacheFullBehavior)
 -&gt; FromText RtmpCacheFullBehavior
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RtmpCacheFullBehavior
 $cfromText :: Text -&gt; Either String RtmpCacheFullBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679907072"><span class="annot"><span class="annottext">RtmpCacheFullBehavior -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679914571"><span class="annot"><span class="annottext">RtmpCacheFullBehavior -&gt; Text
 (RtmpCacheFullBehavior -&gt; Text) -&gt; ToText RtmpCacheFullBehavior
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RtmpCacheFullBehavior -&gt; Text
 $ctoText :: RtmpCacheFullBehavior -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679907069"><span class="annot"><span class="annottext">RtmpCacheFullBehavior -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679914568"><span class="annot"><span class="annottext">RtmpCacheFullBehavior -&gt; ByteString
 (RtmpCacheFullBehavior -&gt; ByteString)
 -&gt; ToByteString RtmpCacheFullBehavior
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RtmpCacheFullBehavior -&gt; ByteString
 $ctoBS :: RtmpCacheFullBehavior -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679907066"><span class="annot"><span class="annottext">RtmpCacheFullBehavior -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679914565"><span class="annot"><span class="annottext">RtmpCacheFullBehavior -&gt; ByteStringBuilder
 (RtmpCacheFullBehavior -&gt; ByteStringBuilder)
 -&gt; ToLog RtmpCacheFullBehavior
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RtmpCacheFullBehavior -&gt; ByteStringBuilder
 $cbuild :: RtmpCacheFullBehavior -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679907063"><span class="annot"><span class="annottext">HeaderName -&gt; RtmpCacheFullBehavior -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679914562"><span class="annot"><span class="annottext">HeaderName -&gt; RtmpCacheFullBehavior -&gt; [Header]
 (HeaderName -&gt; RtmpCacheFullBehavior -&gt; [Header])
 -&gt; ToHeader RtmpCacheFullBehavior
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RtmpCacheFullBehavior -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RtmpCacheFullBehavior -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679907060"><span class="annot"><span class="annottext">RtmpCacheFullBehavior -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679914559"><span class="annot"><span class="annottext">RtmpCacheFullBehavior -&gt; QueryString
 (RtmpCacheFullBehavior -&gt; QueryString)
 -&gt; ToQuery RtmpCacheFullBehavior
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RtmpCacheFullBehavior -&gt; QueryString
 $ctoQuery :: RtmpCacheFullBehavior -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679907055"><span id="local-6989586621679907057"><span class="annot"><span class="annottext">Value -&gt; Parser [RtmpCacheFullBehavior]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679914554"><span id="local-6989586621679914556"><span class="annot"><span class="annottext">Value -&gt; Parser [RtmpCacheFullBehavior]
 Value -&gt; Parser RtmpCacheFullBehavior
 (Value -&gt; Parser RtmpCacheFullBehavior)
 -&gt; (Value -&gt; Parser [RtmpCacheFullBehavior])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [RtmpCacheFullBehavior]
 parseJSON :: Value -&gt; Parser RtmpCacheFullBehavior
 $cparseJSON :: Value -&gt; Parser RtmpCacheFullBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679907050"><span id="local-6989586621679907052"><span class="annot"><span class="annottext">FromJSONKeyFunction [RtmpCacheFullBehavior]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679914549"><span id="local-6989586621679914551"><span class="annot"><span class="annottext">FromJSONKeyFunction [RtmpCacheFullBehavior]
 FromJSONKeyFunction RtmpCacheFullBehavior
 FromJSONKeyFunction RtmpCacheFullBehavior
 -&gt; FromJSONKeyFunction [RtmpCacheFullBehavior]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RtmpCacheFullBehavior]
 fromJSONKey :: FromJSONKeyFunction RtmpCacheFullBehavior
 $cfromJSONKey :: FromJSONKeyFunction RtmpCacheFullBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679907041"><span id="local-6989586621679907043"><span id="local-6989586621679907045"><span id="local-6989586621679907047"><span class="annot"><span class="annottext">[RtmpCacheFullBehavior] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679914540"><span id="local-6989586621679914542"><span id="local-6989586621679914544"><span id="local-6989586621679914546"><span class="annot"><span class="annottext">[RtmpCacheFullBehavior] -&gt; Encoding
 [RtmpCacheFullBehavior] -&gt; Value
 RtmpCacheFullBehavior -&gt; Encoding
 RtmpCacheFullBehavior -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: RtmpCacheFullBehavior -&gt; Encoding
 toJSON :: RtmpCacheFullBehavior -&gt; Value
 $ctoJSON :: RtmpCacheFullBehavior -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679907036"><span id="local-6989586621679907038"><span class="annot"><span class="annottext">ToJSONKeyFunction [RtmpCacheFullBehavior]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679914535"><span id="local-6989586621679914537"><span class="annot"><span class="annottext">ToJSONKeyFunction [RtmpCacheFullBehavior]
 ToJSONKeyFunction RtmpCacheFullBehavior
 ToJSONKeyFunction RtmpCacheFullBehavior
 -&gt; ToJSONKeyFunction [RtmpCacheFullBehavior]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RtmpCacheFullBehavior]
 toJSONKey :: ToJSONKeyFunction RtmpCacheFullBehavior
 $ctoJSONKey :: ToJSONKeyFunction RtmpCacheFullBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679907033"><span class="annot"><span class="annottext">[Node] -&gt; Either String RtmpCacheFullBehavior
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679914532"><span class="annot"><span class="annottext">[Node] -&gt; Either String RtmpCacheFullBehavior
 ([Node] -&gt; Either String RtmpCacheFullBehavior)
 -&gt; FromXML RtmpCacheFullBehavior
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RtmpCacheFullBehavior
 $cparseXML :: [Node] -&gt; Either String RtmpCacheFullBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679907030"><span class="annot"><span class="annottext">RtmpCacheFullBehavior -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679914529"><span class="annot"><span class="annottext">RtmpCacheFullBehavior -&gt; XML
 (RtmpCacheFullBehavior -&gt; XML) -&gt; ToXML RtmpCacheFullBehavior
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RtmpCacheFullBehavior -&gt; XML

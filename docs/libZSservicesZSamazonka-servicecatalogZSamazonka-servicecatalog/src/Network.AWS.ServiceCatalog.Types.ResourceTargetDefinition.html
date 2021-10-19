@@ -28,20 +28,20 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Information about a change to a resource attribute.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newResourceTargetDefinition' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679405664"><span id="local-6989586621679405665"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceTargetDefinition"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-var">ResourceTargetDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceTargetDefinition%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition%27"><span class="hs-identifier hs-var">ResourceTargetDefinition'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the attribute is @Properties@, indicates whether a change to this</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- property causes the resource to be re-created.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3ArequiresRecreation%3AResourceTargetDefinition%27"><span class="annot"><span class="annottext">ResourceTargetDefinition -&gt; Maybe RequiresRecreation
+</span><span id="line-31"></span><span id="local-6989586621679406118"><span id="local-6989586621679406119"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceTargetDefinition"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-var">ResourceTargetDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceTargetDefinition%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition%27"><span class="hs-identifier hs-var">ResourceTargetDefinition'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The attribute to be changed.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aattribute%3AResourceTargetDefinition%27"><span class="annot"><span class="annottext">ResourceTargetDefinition -&gt; Maybe ResourceAttribute
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#%24sel%3Aattribute%3AResourceTargetDefinition%27"><span class="hs-identifier hs-var hs-var">attribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | If the attribute is @Properties@, indicates whether a change to this</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- property causes the resource to be re-created.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3ArequiresRecreation%3AResourceTargetDefinition%27"><span class="annot"><span class="annottext">ResourceTargetDefinition -&gt; Maybe RequiresRecreation
 </span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#%24sel%3ArequiresRecreation%3AResourceTargetDefinition%27"><span class="hs-identifier hs-var hs-var">requiresRecreation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RequiresRecreation.html#RequiresRecreation"><span class="hs-identifier hs-type">RequiresRecreation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | If the attribute is @Properties@, the value is the name of the property.</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Otherwise, the value is null.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aname%3AResourceTargetDefinition%27"><span class="annot"><span class="annottext">ResourceTargetDefinition -&gt; Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#%24sel%3Aname%3AResourceTargetDefinition%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The attribute to be changed.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aattribute%3AResourceTargetDefinition%27"><span class="annot"><span class="annottext">ResourceTargetDefinition -&gt; Maybe ResourceAttribute
-</span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#%24sel%3Aattribute%3AResourceTargetDefinition%27"><span class="hs-identifier hs-var hs-var">attribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | If the attribute is @Properties@, the value is the name of the property.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Otherwise, the value is null.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aname%3AResourceTargetDefinition%27"><span class="annot"><span class="annottext">ResourceTargetDefinition -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#%24sel%3Aname%3AResourceTargetDefinition%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679405656"><span id="local-6989586621679405658"><span class="annot"><span class="annottext">ResourceTargetDefinition -&gt; ResourceTargetDefinition -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406110"><span id="local-6989586621679406112"><span class="annot"><span class="annottext">ResourceTargetDefinition -&gt; ResourceTargetDefinition -&gt; Bool
 (ResourceTargetDefinition -&gt; ResourceTargetDefinition -&gt; Bool)
 -&gt; (ResourceTargetDefinition -&gt; ResourceTargetDefinition -&gt; Bool)
 -&gt; Eq ResourceTargetDefinition
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceTargetDefinition -&gt; ResourceTargetDefinition -&gt; Bool
 == :: ResourceTargetDefinition -&gt; ResourceTargetDefinition -&gt; Bool
 $c== :: ResourceTargetDefinition -&gt; ResourceTargetDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405647"><span id="local-6989586621679405649"><span id="local-6989586621679405651"><span id="local-6989586621679405653"><span class="annot"><span class="annottext">ReadPrec [ResourceTargetDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406101"><span id="local-6989586621679406103"><span id="local-6989586621679406105"><span id="local-6989586621679406107"><span class="annot"><span class="annottext">ReadPrec [ResourceTargetDefinition]
 ReadPrec ResourceTargetDefinition
 Int -&gt; ReadS ResourceTargetDefinition
 ReadS [ResourceTargetDefinition]
@@ -70,7 +70,7 @@ readList :: ReadS [ResourceTargetDefinition]
 $creadList :: ReadS [ResourceTargetDefinition]
 readsPrec :: Int -&gt; ReadS ResourceTargetDefinition
 $creadsPrec :: Int -&gt; ReadS ResourceTargetDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405640"><span id="local-6989586621679405642"><span id="local-6989586621679405644"><span class="annot"><span class="annottext">Int -&gt; ResourceTargetDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406094"><span id="local-6989586621679406096"><span id="local-6989586621679406098"><span class="annot"><span class="annottext">Int -&gt; ResourceTargetDefinition -&gt; ShowS
 [ResourceTargetDefinition] -&gt; ShowS
 ResourceTargetDefinition -&gt; String
 (Int -&gt; ResourceTargetDefinition -&gt; ShowS)
@@ -110,90 +110,40 @@ ResourceTargetDefinition -&gt; Rep ResourceTargetDefinition x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'requiresRecreation', 'resourceTargetDefinition_requiresRecreation' - If the attribute is @Properties@, indicates whether a change to this</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- property causes the resource to be re-created.</span><span>
-</span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'name', 'resourceTargetDefinition_name' - If the attribute is @Properties@, the value is the name of the property.</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- Otherwise, the value is null.</span><span>
-</span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'attribute', 'resourceTargetDefinition_attribute' - The attribute to be changed.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'attribute', 'resourceTargetDefinition_attribute' - The attribute to be changed.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'requiresRecreation', 'resourceTargetDefinition_requiresRecreation' - If the attribute is @Properties@, indicates whether a change to this</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- property causes the resource to be re-created.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'name', 'resourceTargetDefinition_name' - If the attribute is @Properties@, the value is the name of the property.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Otherwise, the value is null.</span><span>
 </span><span id="line-58"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#newResourceTargetDefinition"><span class="hs-identifier hs-type">newResourceTargetDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span><span>
 </span><span id="line-60"></span><span id="newResourceTargetDefinition"><span class="annot"><span class="annottext">newResourceTargetDefinition :: ResourceTargetDefinition
 </span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#newResourceTargetDefinition"><span class="hs-identifier hs-var hs-var">newResourceTargetDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">ResourceTargetDefinition' :: Maybe RequiresRecreation
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">ResourceTargetDefinition' :: Maybe ResourceAttribute
+-&gt; Maybe RequiresRecreation
 -&gt; Maybe Text
--&gt; Maybe ResourceAttribute
 -&gt; ResourceTargetDefinition
 </span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition%27"><span class="hs-identifier hs-type">ResourceTargetDefinition'</span></a></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requiresRecreation:ResourceTargetDefinition' :: Maybe RequiresRecreation
-</span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#%24sel%3ArequiresRecreation%3AResourceTargetDefinition%27"><span class="hs-identifier hs-var">requiresRecreation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe RequiresRecreation
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attribute:ResourceTargetDefinition' :: Maybe ResourceAttribute
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#%24sel%3Aattribute%3AResourceTargetDefinition%27"><span class="hs-identifier hs-var">attribute</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe ResourceAttribute
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ResourceTargetDefinition' :: Maybe Text
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:requiresRecreation:ResourceTargetDefinition' :: Maybe RequiresRecreation
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#%24sel%3ArequiresRecreation%3AResourceTargetDefinition%27"><span class="hs-identifier hs-var">requiresRecreation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequiresRecreation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ResourceTargetDefinition' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#%24sel%3Aname%3AResourceTargetDefinition%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:attribute:ResourceTargetDefinition' :: Maybe ResourceAttribute
-</span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#%24sel%3Aattribute%3AResourceTargetDefinition%27"><span class="hs-identifier hs-var">attribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceAttribute
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | If the attribute is @Properties@, indicates whether a change to this</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- property causes the resource to be re-created.</span><span>
-</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#resourceTargetDefinition_requiresRecreation"><span class="hs-identifier hs-type">resourceTargetDefinition_requiresRecreation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RequiresRecreation.html#RequiresRecreation"><span class="hs-identifier hs-type">RequiresRecreation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span id="resourceTargetDefinition_requiresRecreation"><span class="annot"><span class="annottext">resourceTargetDefinition_requiresRecreation :: (Maybe RequiresRecreation -&gt; f (Maybe RequiresRecreation))
--&gt; ResourceTargetDefinition -&gt; f ResourceTargetDefinition
-</span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#resourceTargetDefinition_requiresRecreation"><span class="hs-identifier hs-var hs-var">resourceTargetDefinition_requiresRecreation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceTargetDefinition -&gt; Maybe RequiresRecreation)
--&gt; (ResourceTargetDefinition
-    -&gt; Maybe RequiresRecreation -&gt; ResourceTargetDefinition)
--&gt; Lens
-     ResourceTargetDefinition
-     ResourceTargetDefinition
-     (Maybe RequiresRecreation)
-     (Maybe RequiresRecreation)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition%27"><span class="hs-identifier hs-type">ResourceTargetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405631"><span class="annot"><span class="annottext">Maybe RequiresRecreation
-requiresRecreation :: Maybe RequiresRecreation
-$sel:requiresRecreation:ResourceTargetDefinition' :: ResourceTargetDefinition -&gt; Maybe RequiresRecreation
-</span><a href="#local-6989586621679405631"><span class="hs-identifier hs-var hs-var">requiresRecreation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequiresRecreation
-</span><a href="#local-6989586621679405631"><span class="hs-identifier hs-var">requiresRecreation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405630"><span class="annot"><span class="annottext">s :: ResourceTargetDefinition
-</span><a href="#local-6989586621679405630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition%27"><span class="hs-identifier hs-type">ResourceTargetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405629"><span class="annot"><span class="annottext">Maybe RequiresRecreation
-</span><a href="#local-6989586621679405629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceTargetDefinition
-</span><a href="#local-6989586621679405630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requiresRecreation:ResourceTargetDefinition' :: Maybe RequiresRecreation
-</span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#%24sel%3ArequiresRecreation%3AResourceTargetDefinition%27"><span class="hs-identifier hs-var">requiresRecreation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequiresRecreation
-</span><a href="#local-6989586621679405629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | If the attribute is @Properties@, the value is the name of the property.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- Otherwise, the value is null.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#resourceTargetDefinition_name"><span class="hs-identifier hs-type">resourceTargetDefinition_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="resourceTargetDefinition_name"><span class="annot"><span class="annottext">resourceTargetDefinition_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ResourceTargetDefinition -&gt; f ResourceTargetDefinition
-</span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#resourceTargetDefinition_name"><span class="hs-identifier hs-var hs-var">resourceTargetDefinition_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceTargetDefinition -&gt; Maybe Text)
--&gt; (ResourceTargetDefinition
-    -&gt; Maybe Text -&gt; ResourceTargetDefinition)
--&gt; Lens
-     ResourceTargetDefinition
-     ResourceTargetDefinition
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition%27"><span class="hs-identifier hs-type">ResourceTargetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405627"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:ResourceTargetDefinition' :: ResourceTargetDefinition -&gt; Maybe Text
-</span><a href="#local-6989586621679405627"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405627"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405626"><span class="annot"><span class="annottext">s :: ResourceTargetDefinition
-</span><a href="#local-6989586621679405626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition%27"><span class="hs-identifier hs-type">ResourceTargetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405625"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceTargetDefinition
-</span><a href="#local-6989586621679405626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ResourceTargetDefinition' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#%24sel%3Aname%3AResourceTargetDefinition%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The attribute to be changed.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#resourceTargetDefinition_attribute"><span class="hs-identifier hs-type">resourceTargetDefinition_attribute</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="resourceTargetDefinition_attribute"><span class="annot"><span class="annottext">resourceTargetDefinition_attribute :: (Maybe ResourceAttribute -&gt; f (Maybe ResourceAttribute))
+</span><span id="line-68"></span><span class="hs-comment">-- | The attribute to be changed.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#resourceTargetDefinition_attribute"><span class="hs-identifier hs-type">resourceTargetDefinition_attribute</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="resourceTargetDefinition_attribute"><span class="annot"><span class="annottext">resourceTargetDefinition_attribute :: (Maybe ResourceAttribute -&gt; f (Maybe ResourceAttribute))
 -&gt; ResourceTargetDefinition -&gt; f ResourceTargetDefinition
 </span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#resourceTargetDefinition_attribute"><span class="hs-identifier hs-var hs-var">resourceTargetDefinition_attribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceTargetDefinition -&gt; Maybe ResourceAttribute)
 -&gt; (ResourceTargetDefinition
@@ -204,19 +154,69 @@ $sel:name:ResourceTargetDefinition' :: ResourceTargetDefinition -&gt; Maybe Text
      (Maybe ResourceAttribute)
      (Maybe ResourceAttribute)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition%27"><span class="hs-identifier hs-type">ResourceTargetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405623"><span class="annot"><span class="annottext">Maybe ResourceAttribute
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition%27"><span class="hs-identifier hs-type">ResourceTargetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406085"><span class="annot"><span class="annottext">Maybe ResourceAttribute
 attribute :: Maybe ResourceAttribute
 $sel:attribute:ResourceTargetDefinition' :: ResourceTargetDefinition -&gt; Maybe ResourceAttribute
-</span><a href="#local-6989586621679405623"><span class="hs-identifier hs-var hs-var">attribute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceAttribute
-</span><a href="#local-6989586621679405623"><span class="hs-identifier hs-var">attribute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405622"><span class="annot"><span class="annottext">s :: ResourceTargetDefinition
-</span><a href="#local-6989586621679405622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition%27"><span class="hs-identifier hs-type">ResourceTargetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405621"><span class="annot"><span class="annottext">Maybe ResourceAttribute
-</span><a href="#local-6989586621679405621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceTargetDefinition
-</span><a href="#local-6989586621679405622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attribute:ResourceTargetDefinition' :: Maybe ResourceAttribute
+</span><a href="#local-6989586621679406085"><span class="hs-identifier hs-var hs-var">attribute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceAttribute
+</span><a href="#local-6989586621679406085"><span class="hs-identifier hs-var">attribute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406084"><span class="annot"><span class="annottext">s :: ResourceTargetDefinition
+</span><a href="#local-6989586621679406084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition%27"><span class="hs-identifier hs-type">ResourceTargetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406083"><span class="annot"><span class="annottext">Maybe ResourceAttribute
+</span><a href="#local-6989586621679406083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceTargetDefinition
+</span><a href="#local-6989586621679406084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attribute:ResourceTargetDefinition' :: Maybe ResourceAttribute
 </span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#%24sel%3Aattribute%3AResourceTargetDefinition%27"><span class="hs-identifier hs-var">attribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceAttribute
-</span><a href="#local-6989586621679405621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679406083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | If the attribute is @Properties@, indicates whether a change to this</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- property causes the resource to be re-created.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#resourceTargetDefinition_requiresRecreation"><span class="hs-identifier hs-type">resourceTargetDefinition_requiresRecreation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RequiresRecreation.html#RequiresRecreation"><span class="hs-identifier hs-type">RequiresRecreation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="resourceTargetDefinition_requiresRecreation"><span class="annot"><span class="annottext">resourceTargetDefinition_requiresRecreation :: (Maybe RequiresRecreation -&gt; f (Maybe RequiresRecreation))
+-&gt; ResourceTargetDefinition -&gt; f ResourceTargetDefinition
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#resourceTargetDefinition_requiresRecreation"><span class="hs-identifier hs-var hs-var">resourceTargetDefinition_requiresRecreation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceTargetDefinition -&gt; Maybe RequiresRecreation)
+-&gt; (ResourceTargetDefinition
+    -&gt; Maybe RequiresRecreation -&gt; ResourceTargetDefinition)
+-&gt; Lens
+     ResourceTargetDefinition
+     ResourceTargetDefinition
+     (Maybe RequiresRecreation)
+     (Maybe RequiresRecreation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition%27"><span class="hs-identifier hs-type">ResourceTargetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406081"><span class="annot"><span class="annottext">Maybe RequiresRecreation
+requiresRecreation :: Maybe RequiresRecreation
+$sel:requiresRecreation:ResourceTargetDefinition' :: ResourceTargetDefinition -&gt; Maybe RequiresRecreation
+</span><a href="#local-6989586621679406081"><span class="hs-identifier hs-var hs-var">requiresRecreation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequiresRecreation
+</span><a href="#local-6989586621679406081"><span class="hs-identifier hs-var">requiresRecreation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406080"><span class="annot"><span class="annottext">s :: ResourceTargetDefinition
+</span><a href="#local-6989586621679406080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition%27"><span class="hs-identifier hs-type">ResourceTargetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406079"><span class="annot"><span class="annottext">Maybe RequiresRecreation
+</span><a href="#local-6989586621679406079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceTargetDefinition
+</span><a href="#local-6989586621679406080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requiresRecreation:ResourceTargetDefinition' :: Maybe RequiresRecreation
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#%24sel%3ArequiresRecreation%3AResourceTargetDefinition%27"><span class="hs-identifier hs-var">requiresRecreation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequiresRecreation
+</span><a href="#local-6989586621679406079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | If the attribute is @Properties@, the value is the name of the property.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Otherwise, the value is null.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#resourceTargetDefinition_name"><span class="hs-identifier hs-type">resourceTargetDefinition_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="resourceTargetDefinition_name"><span class="annot"><span class="annottext">resourceTargetDefinition_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResourceTargetDefinition -&gt; f ResourceTargetDefinition
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#resourceTargetDefinition_name"><span class="hs-identifier hs-var hs-var">resourceTargetDefinition_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceTargetDefinition -&gt; Maybe Text)
+-&gt; (ResourceTargetDefinition
+    -&gt; Maybe Text -&gt; ResourceTargetDefinition)
+-&gt; Lens
+     ResourceTargetDefinition
+     ResourceTargetDefinition
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition%27"><span class="hs-identifier hs-type">ResourceTargetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406077"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ResourceTargetDefinition' :: ResourceTargetDefinition -&gt; Maybe Text
+</span><a href="#local-6989586621679406077"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406077"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406076"><span class="annot"><span class="annottext">s :: ResourceTargetDefinition
+</span><a href="#local-6989586621679406076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition%27"><span class="hs-identifier hs-type">ResourceTargetDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406075"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceTargetDefinition
+</span><a href="#local-6989586621679406076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ResourceTargetDefinition' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#%24sel%3Aname%3AResourceTargetDefinition%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405618"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679405616"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceTargetDefinition
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406072"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679406070"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceTargetDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceTargetDefinition)
@@ -226,48 +226,49 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceTargetDefinition&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679405613"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679405613"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe RequiresRecreation
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679406067"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679406067"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResourceAttribute
+-&gt; Maybe RequiresRecreation
 -&gt; Maybe Text
--&gt; Maybe ResourceAttribute
 -&gt; ResourceTargetDefinition
 </span><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition%27"><span class="hs-identifier hs-var">ResourceTargetDefinition'</span></a></span><span>
-</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RequiresRecreation
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ResourceAttribute
+ -&gt; Maybe RequiresRecreation
  -&gt; Maybe Text
- -&gt; Maybe ResourceAttribute
  -&gt; ResourceTargetDefinition)
--&gt; Parser (Maybe RequiresRecreation)
+-&gt; Parser (Maybe ResourceAttribute)
 -&gt; Parser
-     (Maybe Text -&gt; Maybe ResourceAttribute -&gt; ResourceTargetDefinition)
+     (Maybe RequiresRecreation
+      -&gt; Maybe Text -&gt; ResourceTargetDefinition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679405613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RequiresRecreation)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RequiresRecreation&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text -&gt; Maybe ResourceAttribute -&gt; ResourceTargetDefinition)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe ResourceAttribute -&gt; ResourceTargetDefinition)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679405613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ResourceAttribute -&gt; ResourceTargetDefinition)
--&gt; Parser (Maybe ResourceAttribute)
--&gt; Parser ResourceTargetDefinition
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679405613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceAttribute)
+</span><a href="#local-6989586621679406067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceAttribute)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attribute&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RequiresRecreation
+   -&gt; Maybe Text -&gt; ResourceTargetDefinition)
+-&gt; Parser (Maybe RequiresRecreation)
+-&gt; Parser (Maybe Text -&gt; ResourceTargetDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679406067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RequiresRecreation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequiresRecreation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ResourceTargetDefinition)
+-&gt; Parser (Maybe Text) -&gt; Parser ResourceTargetDefinition
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679406067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405607"><span id="local-6989586621679405609"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406061"><span id="local-6989586621679406063"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405604"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406058"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span></span><span>
 </span><span id="line-96"></span></pre></body></html>

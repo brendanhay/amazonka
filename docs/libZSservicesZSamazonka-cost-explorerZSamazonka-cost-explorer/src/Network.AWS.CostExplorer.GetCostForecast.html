@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newGetCostForecast' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679345383"><span id="local-6989586621679345384"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCostForecast"><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-var">GetCostForecast</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCostForecast%27"><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-var">GetCostForecast'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679345746"><span id="local-6989586621679345747"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCostForecast"><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-var">GetCostForecast</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCostForecast%27"><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-var">GetCostForecast'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Cost Explorer always returns the mean forecast as a single point. You</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- can request a prediction interval around the mean by specifying a</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- confidence level. The higher the confidence level, the more confident</span><span>
@@ -142,7 +142,7 @@
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3Agranularity%3AGetCostForecast%27"><span class="annot"><span class="annottext">GetCostForecast -&gt; Granularity
 </span><a href="Network.AWS.CostExplorer.GetCostForecast.html#%24sel%3Agranularity%3AGetCostForecast%27"><span class="hs-identifier hs-var hs-var">granularity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Granularity.html#Granularity"><span class="hs-identifier hs-type">Granularity</span></a></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345373"><span id="local-6989586621679345375"><span class="annot"><span class="annottext">GetCostForecast -&gt; GetCostForecast -&gt; Bool
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345736"><span id="local-6989586621679345738"><span class="annot"><span class="annottext">GetCostForecast -&gt; GetCostForecast -&gt; Bool
 (GetCostForecast -&gt; GetCostForecast -&gt; Bool)
 -&gt; (GetCostForecast -&gt; GetCostForecast -&gt; Bool)
 -&gt; Eq GetCostForecast
@@ -151,7 +151,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetCostForecast -&gt; GetCostForecast -&gt; Bool
 == :: GetCostForecast -&gt; GetCostForecast -&gt; Bool
 $c== :: GetCostForecast -&gt; GetCostForecast -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345364"><span id="local-6989586621679345366"><span id="local-6989586621679345368"><span id="local-6989586621679345370"><span class="annot"><span class="annottext">ReadPrec [GetCostForecast]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345727"><span id="local-6989586621679345729"><span id="local-6989586621679345731"><span id="local-6989586621679345733"><span class="annot"><span class="annottext">ReadPrec [GetCostForecast]
 ReadPrec GetCostForecast
 Int -&gt; ReadS GetCostForecast
 ReadS [GetCostForecast]
@@ -171,7 +171,7 @@ readList :: ReadS [GetCostForecast]
 $creadList :: ReadS [GetCostForecast]
 readsPrec :: Int -&gt; ReadS GetCostForecast
 $creadsPrec :: Int -&gt; ReadS GetCostForecast
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345357"><span id="local-6989586621679345359"><span id="local-6989586621679345361"><span class="annot"><span class="annottext">Int -&gt; GetCostForecast -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345720"><span id="local-6989586621679345722"><span id="local-6989586621679345724"><span class="annot"><span class="annottext">Int -&gt; GetCostForecast -&gt; ShowS
 [GetCostForecast] -&gt; ShowS
 GetCostForecast -&gt; String
 (Int -&gt; GetCostForecast -&gt; ShowS)
@@ -295,12 +295,12 @@ $cfrom :: forall x. GetCostForecast -&gt; Rep GetCostForecast x
 </span><span id="line-237"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span><span>
 </span><span id="line-238"></span><span id="newGetCostForecast"><span class="annot"><span class="annottext">newGetCostForecast :: DateInterval -&gt; Metric -&gt; Granularity -&gt; GetCostForecast
 </span><a href="Network.AWS.CostExplorer.GetCostForecast.html#newGetCostForecast"><span class="hs-identifier hs-var hs-var">newGetCostForecast</span></a></span></span><span>
-</span><span id="line-239"></span><span>  </span><span id="local-6989586621679345352"><span class="annot"><span class="annottext">DateInterval
-</span><a href="#local-6989586621679345352"><span class="hs-identifier hs-var">pTimePeriod_</span></a></span></span><span>
-</span><span id="line-240"></span><span>  </span><span id="local-6989586621679345351"><span class="annot"><span class="annottext">Metric
-</span><a href="#local-6989586621679345351"><span class="hs-identifier hs-var">pMetric_</span></a></span></span><span>
-</span><span id="line-241"></span><span>  </span><span id="local-6989586621679345350"><span class="annot"><span class="annottext">Granularity
-</span><a href="#local-6989586621679345350"><span class="hs-identifier hs-var">pGranularity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679345715"><span class="annot"><span class="annottext">DateInterval
+</span><a href="#local-6989586621679345715"><span class="hs-identifier hs-var">pTimePeriod_</span></a></span></span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679345714"><span class="annot"><span class="annottext">Metric
+</span><a href="#local-6989586621679345714"><span class="hs-identifier hs-var">pMetric_</span></a></span></span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679345713"><span class="annot"><span class="annottext">Granularity
+</span><a href="#local-6989586621679345713"><span class="hs-identifier hs-var">pGranularity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-242"></span><span>    </span><span class="annot"><span class="annottext">GetCostForecast' :: Maybe Natural
 -&gt; Maybe Expression
 -&gt; DateInterval
@@ -319,13 +319,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">$sel:timePeriod:GetCostForecast' :: DateInterval
 </span><a href="Network.AWS.CostExplorer.GetCostForecast.html#%24sel%3AtimePeriod%3AGetCostForecast%27"><span class="hs-identifier hs-var">timePeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DateInterval
-</span><a href="#local-6989586621679345352"><span class="hs-identifier hs-var">pTimePeriod_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679345715"><span class="hs-identifier hs-var">pTimePeriod_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-247"></span><span>        </span><span class="annot"><span class="annottext">$sel:metric:GetCostForecast' :: Metric
 </span><a href="Network.AWS.CostExplorer.GetCostForecast.html#%24sel%3Ametric%3AGetCostForecast%27"><span class="hs-identifier hs-var">metric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Metric
-</span><a href="#local-6989586621679345351"><span class="hs-identifier hs-var">pMetric_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679345714"><span class="hs-identifier hs-var">pMetric_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-248"></span><span>        </span><span class="annot"><span class="annottext">$sel:granularity:GetCostForecast' :: Granularity
 </span><a href="Network.AWS.CostExplorer.GetCostForecast.html#%24sel%3Agranularity%3AGetCostForecast%27"><span class="hs-identifier hs-var">granularity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Granularity
-</span><a href="#local-6989586621679345350"><span class="hs-identifier hs-var">pGranularity_</span></a></span><span>
+</span><a href="#local-6989586621679345713"><span class="hs-identifier hs-var">pGranularity_</span></a></span><span>
 </span><span id="line-249"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-comment">-- | Cost Explorer always returns the mean forecast as a single point. You</span><span>
@@ -341,16 +341,16 @@ forall a. Maybe a
 -&gt; Lens
      GetCostForecast GetCostForecast (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345347"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345710"><span class="annot"><span class="annottext">Maybe Natural
 predictionIntervalLevel :: Maybe Natural
 $sel:predictionIntervalLevel:GetCostForecast' :: GetCostForecast -&gt; Maybe Natural
-</span><a href="#local-6989586621679345347"><span class="hs-identifier hs-var hs-var">predictionIntervalLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679345347"><span class="hs-identifier hs-var">predictionIntervalLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345346"><span class="annot"><span class="annottext">s :: GetCostForecast
-</span><a href="#local-6989586621679345346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345345"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679345345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostForecast
-</span><a href="#local-6989586621679345346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:predictionIntervalLevel:GetCostForecast' :: Maybe Natural
+</span><a href="#local-6989586621679345710"><span class="hs-identifier hs-var hs-var">predictionIntervalLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679345710"><span class="hs-identifier hs-var">predictionIntervalLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345709"><span class="annot"><span class="annottext">s :: GetCostForecast
+</span><a href="#local-6989586621679345709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345708"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679345708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostForecast
+</span><a href="#local-6989586621679345709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:predictionIntervalLevel:GetCostForecast' :: Maybe Natural
 </span><a href="Network.AWS.CostExplorer.GetCostForecast.html#%24sel%3ApredictionIntervalLevel%3AGetCostForecast%27"><span class="hs-identifier hs-var">predictionIntervalLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679345345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- | The filters that you want to use to filter your forecast. The</span><span>
 </span><span id="line-260"></span><span class="hs-comment">-- @GetCostForecast@ API supports filtering by the following dimensions:</span><span>
@@ -411,16 +411,16 @@ $sel:predictionIntervalLevel:GetCostForecast' :: GetCostForecast -&gt; Maybe Nat
      (Maybe Expression)
      (Maybe Expression)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345344"><span class="annot"><span class="annottext">Maybe Expression
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345707"><span class="annot"><span class="annottext">Maybe Expression
 filter' :: Maybe Expression
 $sel:filter':GetCostForecast' :: GetCostForecast -&gt; Maybe Expression
-</span><a href="#local-6989586621679345344"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Expression
-</span><a href="#local-6989586621679345344"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345343"><span class="annot"><span class="annottext">s :: GetCostForecast
-</span><a href="#local-6989586621679345343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345342"><span class="annot"><span class="annottext">Maybe Expression
-</span><a href="#local-6989586621679345342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostForecast
-</span><a href="#local-6989586621679345343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':GetCostForecast' :: Maybe Expression
+</span><a href="#local-6989586621679345707"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Expression
+</span><a href="#local-6989586621679345707"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345706"><span class="annot"><span class="annottext">s :: GetCostForecast
+</span><a href="#local-6989586621679345706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345705"><span class="annot"><span class="annottext">Maybe Expression
+</span><a href="#local-6989586621679345705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostForecast
+</span><a href="#local-6989586621679345706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':GetCostForecast' :: Maybe Expression
 </span><a href="Network.AWS.CostExplorer.GetCostForecast.html#%24sel%3Afilter%27%3AGetCostForecast%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Expression
-</span><a href="#local-6989586621679345342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-309"></span><span>
 </span><span id="line-310"></span><span class="hs-comment">-- | The period of time that you want the forecast to cover. The start date</span><span>
 </span><span id="line-311"></span><span class="hs-comment">-- must be equal to or no later than the current date to avoid a validation</span><span>
@@ -432,16 +432,16 @@ $sel:filter':GetCostForecast' :: GetCostForecast -&gt; Maybe Expression
 -&gt; (GetCostForecast -&gt; DateInterval -&gt; GetCostForecast)
 -&gt; Lens GetCostForecast GetCostForecast DateInterval DateInterval
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345341"><span class="annot"><span class="annottext">DateInterval
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345704"><span class="annot"><span class="annottext">DateInterval
 timePeriod :: DateInterval
 $sel:timePeriod:GetCostForecast' :: GetCostForecast -&gt; DateInterval
-</span><a href="#local-6989586621679345341"><span class="hs-identifier hs-var hs-var">timePeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DateInterval
-</span><a href="#local-6989586621679345341"><span class="hs-identifier hs-var">timePeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345340"><span class="annot"><span class="annottext">s :: GetCostForecast
-</span><a href="#local-6989586621679345340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345339"><span class="annot"><span class="annottext">DateInterval
-</span><a href="#local-6989586621679345339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostForecast
-</span><a href="#local-6989586621679345340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timePeriod:GetCostForecast' :: DateInterval
+</span><a href="#local-6989586621679345704"><span class="hs-identifier hs-var hs-var">timePeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DateInterval
+</span><a href="#local-6989586621679345704"><span class="hs-identifier hs-var">timePeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345703"><span class="annot"><span class="annottext">s :: GetCostForecast
+</span><a href="#local-6989586621679345703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345702"><span class="annot"><span class="annottext">DateInterval
+</span><a href="#local-6989586621679345702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostForecast
+</span><a href="#local-6989586621679345703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timePeriod:GetCostForecast' :: DateInterval
 </span><a href="Network.AWS.CostExplorer.GetCostForecast.html#%24sel%3AtimePeriod%3AGetCostForecast%27"><span class="hs-identifier hs-var">timePeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DateInterval
-</span><a href="#local-6989586621679345339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-315"></span><span>
 </span><span id="line-316"></span><span class="hs-comment">-- | Which metric Cost Explorer uses to create your forecast. For more</span><span>
 </span><span id="line-317"></span><span class="hs-comment">-- information about blended and unblended rates, see</span><span>
@@ -464,16 +464,16 @@ $sel:timePeriod:GetCostForecast' :: GetCostForecast -&gt; DateInterval
 -&gt; (GetCostForecast -&gt; Metric -&gt; GetCostForecast)
 -&gt; Lens GetCostForecast GetCostForecast Metric Metric
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345338"><span class="annot"><span class="annottext">Metric
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345701"><span class="annot"><span class="annottext">Metric
 metric :: Metric
 $sel:metric:GetCostForecast' :: GetCostForecast -&gt; Metric
-</span><a href="#local-6989586621679345338"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Metric
-</span><a href="#local-6989586621679345338"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345337"><span class="annot"><span class="annottext">s :: GetCostForecast
-</span><a href="#local-6989586621679345337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345336"><span class="annot"><span class="annottext">Metric
-</span><a href="#local-6989586621679345336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostForecast
-</span><a href="#local-6989586621679345337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metric:GetCostForecast' :: Metric
+</span><a href="#local-6989586621679345701"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Metric
+</span><a href="#local-6989586621679345701"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345700"><span class="annot"><span class="annottext">s :: GetCostForecast
+</span><a href="#local-6989586621679345700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345699"><span class="annot"><span class="annottext">Metric
+</span><a href="#local-6989586621679345699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostForecast
+</span><a href="#local-6989586621679345700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metric:GetCostForecast' :: Metric
 </span><a href="Network.AWS.CostExplorer.GetCostForecast.html#%24sel%3Ametric%3AGetCostForecast%27"><span class="hs-identifier hs-var">metric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Metric
-</span><a href="#local-6989586621679345336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-333"></span><span>
 </span><span id="line-334"></span><span class="hs-comment">-- | How granular you want the forecast to be. You can get 3 months of</span><span>
 </span><span id="line-335"></span><span class="hs-comment">-- @DAILY@ forecasts or 12 months of @MONTHLY@ forecasts.</span><span>
@@ -487,27 +487,27 @@ $sel:metric:GetCostForecast' :: GetCostForecast -&gt; Metric
 -&gt; (GetCostForecast -&gt; Granularity -&gt; GetCostForecast)
 -&gt; Lens GetCostForecast GetCostForecast Granularity Granularity
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345335"><span class="annot"><span class="annottext">Granularity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345698"><span class="annot"><span class="annottext">Granularity
 granularity :: Granularity
 $sel:granularity:GetCostForecast' :: GetCostForecast -&gt; Granularity
-</span><a href="#local-6989586621679345335"><span class="hs-identifier hs-var hs-var">granularity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Granularity
-</span><a href="#local-6989586621679345335"><span class="hs-identifier hs-var">granularity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345334"><span class="annot"><span class="annottext">s :: GetCostForecast
-</span><a href="#local-6989586621679345334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345333"><span class="annot"><span class="annottext">Granularity
-</span><a href="#local-6989586621679345333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostForecast
-</span><a href="#local-6989586621679345334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:granularity:GetCostForecast' :: Granularity
+</span><a href="#local-6989586621679345698"><span class="hs-identifier hs-var hs-var">granularity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Granularity
+</span><a href="#local-6989586621679345698"><span class="hs-identifier hs-var">granularity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345697"><span class="annot"><span class="annottext">s :: GetCostForecast
+</span><a href="#local-6989586621679345697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345696"><span class="annot"><span class="annottext">Granularity
+</span><a href="#local-6989586621679345696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostForecast
+</span><a href="#local-6989586621679345697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:granularity:GetCostForecast' :: Granularity
 </span><a href="Network.AWS.CostExplorer.GetCostForecast.html#%24sel%3Agranularity%3AGetCostForecast%27"><span class="hs-identifier hs-var">granularity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Granularity
-</span><a href="#local-6989586621679345333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-341"></span><span>
 </span><span id="line-342"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-343"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-344"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-345"></span><span>      </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse"><span class="hs-identifier hs-type">GetCostForecastResponse</span></a></span><span>
-</span><span id="line-346"></span><span>  </span><span id="local-6989586621679345329"><span class="annot"><span class="annottext">request :: GetCostForecast -&gt; Request GetCostForecast
+</span><span id="line-346"></span><span>  </span><span id="local-6989586621679345692"><span class="annot"><span class="annottext">request :: GetCostForecast -&gt; Request GetCostForecast
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetCostForecast -&gt; Request GetCostForecast
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CostExplorer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-347"></span><span>  </span><span id="local-6989586621679345325"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-347"></span><span>  </span><span id="local-6989586621679345688"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetCostForecast
 -&gt; ClientResponse ClientBody
@@ -531,10 +531,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-349"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679345322"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345322"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679345321"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679345321"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679345320"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679345320"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-349"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679345685"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679345685"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679345684"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679345684"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679345683"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345683"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-350"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ForecastResult]
 -&gt; Maybe MetricValue -&gt; Int -&gt; GetCostForecastResponse
 </span><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse%27"><span class="hs-identifier hs-var">GetCostForecastResponse'</span></a></span><span>
@@ -545,7 +545,7 @@ MonadResource m =&gt;
      String (Maybe MetricValue -&gt; Int -&gt; GetCostForecastResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679345320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ForecastResult]))
+</span><a href="#local-6989586621679345683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ForecastResult]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ForecastResultsByTime&quot;</span></span><span>
@@ -561,7 +561,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; GetCostForecastResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679345320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MetricValue)
+</span><a href="#local-6989586621679345683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MetricValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Total&quot;</span></span><span class="hs-special">)</span><span>
@@ -573,15 +573,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345322"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345685"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-356"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-357"></span><span>
-</span><span id="line-358"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345311"><span id="local-6989586621679345313"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span></span></span><span>
+</span><span id="line-358"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345674"><span id="local-6989586621679345676"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span></span></span><span>
 </span><span id="line-359"></span><span>
-</span><span id="line-360"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345308"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span></span><span>
+</span><span id="line-360"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345671"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span></span><span>
 </span><span id="line-361"></span><span>
 </span><span id="line-362"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-363"></span><span>  </span><span id="local-6989586621679345304"><span class="annot"><span class="annottext">toHeaders :: GetCostForecast -&gt; ResponseHeaders
+</span><span id="line-363"></span><span>  </span><span id="local-6989586621679345667"><span class="annot"><span class="annottext">toHeaders :: GetCostForecast -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-364"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCostForecast -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -608,9 +608,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-374"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-375"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-376"></span><span>
-</span><span id="line-377"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345294"><span id="local-6989586621679345296"><span id="local-6989586621679345298"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-378"></span><span>  </span><span id="local-6989586621679345292"><span class="annot"><span class="annottext">toJSON :: GetCostForecast -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345286"><span id="local-6989586621679345287"><span id="local-6989586621679345288"><span id="local-6989586621679345289"><span id="local-6989586621679345290"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-377"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345657"><span id="local-6989586621679345659"><span id="local-6989586621679345661"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-378"></span><span>  </span><span id="local-6989586621679345655"><span class="annot"><span class="annottext">toJSON :: GetCostForecast -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast%27"><span class="hs-identifier hs-type">GetCostForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345649"><span id="local-6989586621679345650"><span id="local-6989586621679345651"><span id="local-6989586621679345652"><span id="local-6989586621679345653"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Expression
 DateInterval
 Granularity
@@ -625,7 +625,7 @@ $sel:metric:GetCostForecast' :: GetCostForecast -&gt; Metric
 $sel:timePeriod:GetCostForecast' :: GetCostForecast -&gt; DateInterval
 $sel:filter':GetCostForecast' :: GetCostForecast -&gt; Maybe Expression
 $sel:predictionIntervalLevel:GetCostForecast' :: GetCostForecast -&gt; Maybe Natural
-</span><a href="#local-6989586621679345286"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679345649"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-379"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-380"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -638,47 +638,47 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-382"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679345290"><span class="hs-identifier hs-var">predictionIntervalLevel</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679345653"><span class="hs-identifier hs-var">predictionIntervalLevel</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-383"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Expression -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Pair) -&gt; Maybe Expression -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Expression
-</span><a href="#local-6989586621679345289"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679345652"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-384"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TimePeriod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DateInterval -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DateInterval
-</span><a href="#local-6989586621679345288"><span class="hs-identifier hs-var">timePeriod</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679345651"><span class="hs-identifier hs-var">timePeriod</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-385"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Metric&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Metric -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Metric
-</span><a href="#local-6989586621679345287"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679345650"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-386"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Granularity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Granularity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Granularity
-</span><a href="#local-6989586621679345286"><span class="hs-identifier hs-var">granularity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345649"><span class="hs-identifier hs-var">granularity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-387"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-388"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-389"></span><span>
 </span><span id="line-390"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-391"></span><span>  </span><span id="local-6989586621679345280"><span class="annot"><span class="annottext">toPath :: GetCostForecast -&gt; ByteString
+</span><span id="line-391"></span><span>  </span><span id="local-6989586621679345643"><span class="annot"><span class="annottext">toPath :: GetCostForecast -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetCostForecast -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-392"></span><span>
 </span><span id="line-393"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecast"><span class="hs-identifier hs-type">GetCostForecast</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-394"></span><span>  </span><span id="local-6989586621679345276"><span class="annot"><span class="annottext">toQuery :: GetCostForecast -&gt; QueryString
+</span><span id="line-394"></span><span>  </span><span id="local-6989586621679345639"><span class="annot"><span class="annottext">toQuery :: GetCostForecast -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetCostForecast -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -686,7 +686,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-395"></span><span>
 </span><span id="line-396"></span><span class="hs-comment">-- | /See:/ 'newGetCostForecastResponse' smart constructor.</span><span>
-</span><span id="line-397"></span><span id="local-6989586621679345273"><span id="local-6989586621679345274"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCostForecastResponse"><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse"><span class="hs-identifier hs-var">GetCostForecastResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCostForecastResponse%27"><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse%27"><span class="hs-identifier hs-var">GetCostForecastResponse'</span></a></span></span><span>
+</span><span id="line-397"></span><span id="local-6989586621679345636"><span id="local-6989586621679345637"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCostForecastResponse"><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse"><span class="hs-identifier hs-var">GetCostForecastResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCostForecastResponse%27"><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse%27"><span class="hs-identifier hs-var">GetCostForecastResponse'</span></a></span></span><span>
 </span><span id="line-398"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The forecasts for your query, in order. For @DAILY@ forecasts, this is a</span><span>
 </span><span id="line-399"></span><span>    </span><span class="hs-comment">-- list of days. For @MONTHLY@ forecasts, this is a list of months.</span><span>
 </span><span id="line-400"></span><span>    </span><span id="%24sel%3AforecastResultsByTime%3AGetCostForecastResponse%27"><span class="annot"><span class="annottext">GetCostForecastResponse -&gt; Maybe [ForecastResult]
@@ -698,7 +698,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-404"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCostForecastResponse%27"><span class="annot"><span class="annottext">GetCostForecastResponse -&gt; Int
 </span><a href="Network.AWS.CostExplorer.GetCostForecast.html#%24sel%3AhttpStatus%3AGetCostForecastResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-405"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-406"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345266"><span id="local-6989586621679345268"><span class="annot"><span class="annottext">GetCostForecastResponse -&gt; GetCostForecastResponse -&gt; Bool
+</span><span id="line-406"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345629"><span id="local-6989586621679345631"><span class="annot"><span class="annottext">GetCostForecastResponse -&gt; GetCostForecastResponse -&gt; Bool
 (GetCostForecastResponse -&gt; GetCostForecastResponse -&gt; Bool)
 -&gt; (GetCostForecastResponse -&gt; GetCostForecastResponse -&gt; Bool)
 -&gt; Eq GetCostForecastResponse
@@ -707,7 +707,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetCostForecastResponse -&gt; GetCostForecastResponse -&gt; Bool
 == :: GetCostForecastResponse -&gt; GetCostForecastResponse -&gt; Bool
 $c== :: GetCostForecastResponse -&gt; GetCostForecastResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345258"><span id="local-6989586621679345260"><span id="local-6989586621679345262"><span id="local-6989586621679345264"><span class="annot"><span class="annottext">ReadPrec [GetCostForecastResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345621"><span id="local-6989586621679345623"><span id="local-6989586621679345625"><span id="local-6989586621679345627"><span class="annot"><span class="annottext">ReadPrec [GetCostForecastResponse]
 ReadPrec GetCostForecastResponse
 Int -&gt; ReadS GetCostForecastResponse
 ReadS [GetCostForecastResponse]
@@ -727,7 +727,7 @@ readList :: ReadS [GetCostForecastResponse]
 $creadList :: ReadS [GetCostForecastResponse]
 readsPrec :: Int -&gt; ReadS GetCostForecastResponse
 $creadsPrec :: Int -&gt; ReadS GetCostForecastResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345252"><span id="local-6989586621679345254"><span id="local-6989586621679345256"><span class="annot"><span class="annottext">Int -&gt; GetCostForecastResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345615"><span id="local-6989586621679345617"><span id="local-6989586621679345619"><span class="annot"><span class="annottext">Int -&gt; GetCostForecastResponse -&gt; ShowS
 [GetCostForecastResponse] -&gt; ShowS
 GetCostForecastResponse -&gt; String
 (Int -&gt; GetCostForecastResponse -&gt; ShowS)
@@ -774,8 +774,8 @@ $cfrom :: forall x. GetCostForecastResponse -&gt; Rep GetCostForecastResponse x
 </span><span id="line-424"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-425"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse"><span class="hs-identifier hs-type">GetCostForecastResponse</span></a></span><span>
 </span><span id="line-426"></span><span id="newGetCostForecastResponse"><span class="annot"><span class="annottext">newGetCostForecastResponse :: Int -&gt; GetCostForecastResponse
-</span><a href="Network.AWS.CostExplorer.GetCostForecast.html#newGetCostForecastResponse"><span class="hs-identifier hs-var hs-var">newGetCostForecastResponse</span></a></span></span><span> </span><span id="local-6989586621679345249"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345249"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CostExplorer.GetCostForecast.html#newGetCostForecastResponse"><span class="hs-identifier hs-var hs-var">newGetCostForecastResponse</span></a></span></span><span> </span><span id="local-6989586621679345612"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679345612"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-427"></span><span>  </span><span class="annot"><span class="annottext">GetCostForecastResponse' :: Maybe [ForecastResult]
 -&gt; Maybe MetricValue -&gt; Int -&gt; GetCostForecastResponse
 </span><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse%27"><span class="hs-identifier hs-type">GetCostForecastResponse'</span></a></span><span>
@@ -790,7 +790,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-431"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCostForecastResponse' :: Int
 </span><a href="Network.AWS.CostExplorer.GetCostForecast.html#%24sel%3AhttpStatus%3AGetCostForecastResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345249"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679345612"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-432"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-433"></span><span>
 </span><span id="line-434"></span><span class="hs-comment">-- | The forecasts for your query, in order. For @DAILY@ forecasts, this is a</span><span>
@@ -807,16 +807,16 @@ forall a. Maybe a
      (Maybe [ForecastResult])
      (Maybe [ForecastResult])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse%27"><span class="hs-identifier hs-type">GetCostForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345248"><span class="annot"><span class="annottext">Maybe [ForecastResult]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse%27"><span class="hs-identifier hs-type">GetCostForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345611"><span class="annot"><span class="annottext">Maybe [ForecastResult]
 forecastResultsByTime :: Maybe [ForecastResult]
 $sel:forecastResultsByTime:GetCostForecastResponse' :: GetCostForecastResponse -&gt; Maybe [ForecastResult]
-</span><a href="#local-6989586621679345248"><span class="hs-identifier hs-var hs-var">forecastResultsByTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ForecastResult]
-</span><a href="#local-6989586621679345248"><span class="hs-identifier hs-var">forecastResultsByTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345247"><span class="annot"><span class="annottext">s :: GetCostForecastResponse
-</span><a href="#local-6989586621679345247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse%27"><span class="hs-identifier hs-type">GetCostForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345246"><span class="annot"><span class="annottext">Maybe [ForecastResult]
-</span><a href="#local-6989586621679345246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostForecastResponse
-</span><a href="#local-6989586621679345247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forecastResultsByTime:GetCostForecastResponse' :: Maybe [ForecastResult]
+</span><a href="#local-6989586621679345611"><span class="hs-identifier hs-var hs-var">forecastResultsByTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ForecastResult]
+</span><a href="#local-6989586621679345611"><span class="hs-identifier hs-var">forecastResultsByTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345610"><span class="annot"><span class="annottext">s :: GetCostForecastResponse
+</span><a href="#local-6989586621679345610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse%27"><span class="hs-identifier hs-type">GetCostForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345609"><span class="annot"><span class="annottext">Maybe [ForecastResult]
+</span><a href="#local-6989586621679345609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostForecastResponse
+</span><a href="#local-6989586621679345610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forecastResultsByTime:GetCostForecastResponse' :: Maybe [ForecastResult]
 </span><a href="Network.AWS.CostExplorer.GetCostForecast.html#%24sel%3AforecastResultsByTime%3AGetCostForecastResponse%27"><span class="hs-identifier hs-var">forecastResultsByTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ForecastResult]
-</span><a href="#local-6989586621679345246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse"><span class="hs-identifier hs-type">GetCostForecastResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ForecastResult] -&gt; f (Maybe [ForecastResult]))
+</span><a href="#local-6989586621679345609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse"><span class="hs-identifier hs-type">GetCostForecastResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ForecastResult] -&gt; f (Maybe [ForecastResult]))
  -&gt; GetCostForecastResponse -&gt; f GetCostForecastResponse)
 -&gt; ((Maybe [ForecastResult] -&gt; f (Maybe [ForecastResult]))
     -&gt; Maybe [ForecastResult] -&gt; f (Maybe [ForecastResult]))
@@ -836,8 +836,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [ForecastResult] [ForecastResult] [ForecastResult] [ForecastResult]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-438"></span><span>
 </span><span id="line-439"></span><span class="hs-comment">-- | How much you are forecasted to spend over the forecast period, in @USD@.</span><span>
 </span><span id="line-440"></span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#getCostForecastResponse_total"><span class="hs-identifier hs-type">getCostForecastResponse_total</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse"><span class="hs-identifier hs-type">GetCostForecastResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span>
@@ -852,16 +852,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe MetricValue)
      (Maybe MetricValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse%27"><span class="hs-identifier hs-type">GetCostForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345242"><span class="annot"><span class="annottext">Maybe MetricValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse%27"><span class="hs-identifier hs-type">GetCostForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345605"><span class="annot"><span class="annottext">Maybe MetricValue
 total :: Maybe MetricValue
 $sel:total:GetCostForecastResponse' :: GetCostForecastResponse -&gt; Maybe MetricValue
-</span><a href="#local-6989586621679345242"><span class="hs-identifier hs-var hs-var">total</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricValue
-</span><a href="#local-6989586621679345242"><span class="hs-identifier hs-var">total</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345241"><span class="annot"><span class="annottext">s :: GetCostForecastResponse
-</span><a href="#local-6989586621679345241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse%27"><span class="hs-identifier hs-type">GetCostForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345240"><span class="annot"><span class="annottext">Maybe MetricValue
-</span><a href="#local-6989586621679345240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostForecastResponse
-</span><a href="#local-6989586621679345241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:total:GetCostForecastResponse' :: Maybe MetricValue
+</span><a href="#local-6989586621679345605"><span class="hs-identifier hs-var hs-var">total</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricValue
+</span><a href="#local-6989586621679345605"><span class="hs-identifier hs-var">total</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345604"><span class="annot"><span class="annottext">s :: GetCostForecastResponse
+</span><a href="#local-6989586621679345604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse%27"><span class="hs-identifier hs-type">GetCostForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345603"><span class="annot"><span class="annottext">Maybe MetricValue
+</span><a href="#local-6989586621679345603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostForecastResponse
+</span><a href="#local-6989586621679345604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:total:GetCostForecastResponse' :: Maybe MetricValue
 </span><a href="Network.AWS.CostExplorer.GetCostForecast.html#%24sel%3Atotal%3AGetCostForecastResponse%27"><span class="hs-identifier hs-var">total</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricValue
-</span><a href="#local-6989586621679345240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse"><span class="hs-identifier hs-type">GetCostForecastResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse"><span class="hs-identifier hs-type">GetCostForecastResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-442"></span><span>
 </span><span id="line-443"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-444"></span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#getCostForecastResponse_httpStatus"><span class="hs-identifier hs-type">getCostForecastResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse"><span class="hs-identifier hs-type">GetCostForecastResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -871,16 +871,16 @@ $sel:total:GetCostForecastResponse' :: GetCostForecastResponse -&gt; Maybe Metri
 -&gt; (GetCostForecastResponse -&gt; Int -&gt; GetCostForecastResponse)
 -&gt; Lens GetCostForecastResponse GetCostForecastResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse%27"><span class="hs-identifier hs-type">GetCostForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345239"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse%27"><span class="hs-identifier hs-type">GetCostForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345602"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetCostForecastResponse' :: GetCostForecastResponse -&gt; Int
-</span><a href="#local-6989586621679345239"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345239"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345238"><span class="annot"><span class="annottext">s :: GetCostForecastResponse
-</span><a href="#local-6989586621679345238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse%27"><span class="hs-identifier hs-type">GetCostForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345237"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostForecastResponse
-</span><a href="#local-6989586621679345238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCostForecastResponse' :: Int
+</span><a href="#local-6989586621679345602"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679345602"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345601"><span class="annot"><span class="annottext">s :: GetCostForecastResponse
+</span><a href="#local-6989586621679345601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse%27"><span class="hs-identifier hs-type">GetCostForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345600"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679345600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCostForecastResponse
+</span><a href="#local-6989586621679345601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCostForecastResponse' :: Int
 </span><a href="Network.AWS.CostExplorer.GetCostForecast.html#%24sel%3AhttpStatus%3AGetCostForecastResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse"><span class="hs-identifier hs-type">GetCostForecastResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse"><span class="hs-identifier hs-type">GetCostForecastResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-446"></span><span>
-</span><span id="line-447"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345235"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse"><span class="hs-identifier hs-type">GetCostForecastResponse</span></a></span></span><span>
+</span><span id="line-447"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345598"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetCostForecast.html#GetCostForecastResponse"><span class="hs-identifier hs-type">GetCostForecastResponse</span></a></span></span><span>
 </span><span id="line-448"></span></pre></body></html>

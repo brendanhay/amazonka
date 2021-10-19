@@ -76,7 +76,7 @@
 </span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | /See:/ 'newCreateLogGroup' smart constructor.</span><span>
-</span><span id="line-79"></span><span id="local-6989586621679232536"><span id="local-6989586621679232537"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLogGroup"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-var">CreateLogGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLogGroup%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup%27"><span class="hs-identifier hs-var">CreateLogGroup'</span></a></span></span><span>
+</span><span id="line-79"></span><span id="local-6989586621679232701"><span id="local-6989586621679232702"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLogGroup"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-var">CreateLogGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLogGroup%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup%27"><span class="hs-identifier hs-var">CreateLogGroup'</span></a></span></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log</span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-comment">-- data. For more information, see</span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - Key Management Service&gt;.</span><span>
@@ -95,7 +95,7 @@
 </span><span id="line-93"></span><span>    </span><span id="%24sel%3AlogGroupName%3ACreateLogGroup%27"><span class="annot"><span class="annottext">CreateLogGroup -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#%24sel%3AlogGroupName%3ACreateLogGroup%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232528"><span id="local-6989586621679232530"><span class="annot"><span class="annottext">CreateLogGroup -&gt; CreateLogGroup -&gt; Bool
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232693"><span id="local-6989586621679232695"><span class="annot"><span class="annottext">CreateLogGroup -&gt; CreateLogGroup -&gt; Bool
 (CreateLogGroup -&gt; CreateLogGroup -&gt; Bool)
 -&gt; (CreateLogGroup -&gt; CreateLogGroup -&gt; Bool) -&gt; Eq CreateLogGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -103,7 +103,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateLogGroup -&gt; CreateLogGroup -&gt; Bool
 == :: CreateLogGroup -&gt; CreateLogGroup -&gt; Bool
 $c== :: CreateLogGroup -&gt; CreateLogGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232519"><span id="local-6989586621679232521"><span id="local-6989586621679232523"><span id="local-6989586621679232525"><span class="annot"><span class="annottext">ReadPrec [CreateLogGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232684"><span id="local-6989586621679232686"><span id="local-6989586621679232688"><span id="local-6989586621679232690"><span class="annot"><span class="annottext">ReadPrec [CreateLogGroup]
 ReadPrec CreateLogGroup
 Int -&gt; ReadS CreateLogGroup
 ReadS [CreateLogGroup]
@@ -123,7 +123,7 @@ readList :: ReadS [CreateLogGroup]
 $creadList :: ReadS [CreateLogGroup]
 readsPrec :: Int -&gt; ReadS CreateLogGroup
 $creadsPrec :: Int -&gt; ReadS CreateLogGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232512"><span id="local-6989586621679232514"><span id="local-6989586621679232516"><span class="annot"><span class="annottext">Int -&gt; CreateLogGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232677"><span id="local-6989586621679232679"><span id="local-6989586621679232681"><span class="annot"><span class="annottext">Int -&gt; CreateLogGroup -&gt; ShowS
 [CreateLogGroup] -&gt; ShowS
 CreateLogGroup -&gt; String
 (Int -&gt; CreateLogGroup -&gt; ShowS)
@@ -175,8 +175,8 @@ $cfrom :: forall x. CreateLogGroup -&gt; Rep CreateLogGroup x
 </span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span><span>
 </span><span id="line-122"></span><span id="newCreateLogGroup"><span class="annot"><span class="annottext">newCreateLogGroup :: Text -&gt; CreateLogGroup
-</span><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#newCreateLogGroup"><span class="hs-identifier hs-var hs-var">newCreateLogGroup</span></a></span></span><span> </span><span id="local-6989586621679232507"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679232507"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#newCreateLogGroup"><span class="hs-identifier hs-var hs-var">newCreateLogGroup</span></a></span></span><span> </span><span id="local-6989586621679232672"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232672"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">CreateLogGroup' :: Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Text -&gt; CreateLogGroup
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup%27"><span class="hs-identifier hs-type">CreateLogGroup'</span></a></span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:kmsKeyId:CreateLogGroup' :: Maybe Text
@@ -189,7 +189,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:logGroupName:CreateLogGroup' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#%24sel%3AlogGroupName%3ACreateLogGroup%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679232507"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679232672"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log</span><span>
@@ -202,16 +202,16 @@ forall a. Maybe a
 -&gt; (CreateLogGroup -&gt; Maybe Text -&gt; CreateLogGroup)
 -&gt; Lens CreateLogGroup CreateLogGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup%27"><span class="hs-identifier hs-type">CreateLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232504"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup%27"><span class="hs-identifier hs-type">CreateLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232669"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyId :: Maybe Text
 $sel:kmsKeyId:CreateLogGroup' :: CreateLogGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679232504"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232504"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232503"><span class="annot"><span class="annottext">s :: CreateLogGroup
-</span><a href="#local-6989586621679232503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup%27"><span class="hs-identifier hs-type">CreateLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232502"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLogGroup
-</span><a href="#local-6989586621679232503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:CreateLogGroup' :: Maybe Text
+</span><a href="#local-6989586621679232669"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232669"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232668"><span class="annot"><span class="annottext">s :: CreateLogGroup
+</span><a href="#local-6989586621679232668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup%27"><span class="hs-identifier hs-type">CreateLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232667"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLogGroup
+</span><a href="#local-6989586621679232668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:CreateLogGroup' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#%24sel%3AkmsKeyId%3ACreateLogGroup%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The key-value pairs to use for the tags.</span><span>
 </span><span id="line-136"></span><span class="hs-comment">--</span><span>
@@ -231,16 +231,16 @@ $sel:kmsKeyId:CreateLogGroup' :: CreateLogGroup -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup%27"><span class="hs-identifier hs-type">CreateLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232501"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup%27"><span class="hs-identifier hs-type">CreateLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232666"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:CreateLogGroup' :: CreateLogGroup -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679232501"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679232501"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232500"><span class="annot"><span class="annottext">s :: CreateLogGroup
-</span><a href="#local-6989586621679232500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup%27"><span class="hs-identifier hs-type">CreateLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232499"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679232499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLogGroup
-</span><a href="#local-6989586621679232500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateLogGroup' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679232666"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679232666"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232665"><span class="annot"><span class="annottext">s :: CreateLogGroup
+</span><a href="#local-6989586621679232665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup%27"><span class="hs-identifier hs-type">CreateLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232664"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679232664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLogGroup
+</span><a href="#local-6989586621679232665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateLogGroup' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#%24sel%3Atags%3ACreateLogGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679232499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679232664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; CreateLogGroup -&gt; f CreateLogGroup)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -266,8 +266,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The name of the log group.</span><span>
 </span><span id="line-146"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#createLogGroup_logGroupName"><span class="hs-identifier hs-type">createLogGroup_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -276,27 +276,27 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateLogGroup -&gt; Text -&gt; CreateLogGroup)
 -&gt; Lens CreateLogGroup CreateLogGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup%27"><span class="hs-identifier hs-type">CreateLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232495"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup%27"><span class="hs-identifier hs-type">CreateLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232660"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 $sel:logGroupName:CreateLogGroup' :: CreateLogGroup -&gt; Text
-</span><a href="#local-6989586621679232495"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679232495"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232494"><span class="annot"><span class="annottext">s :: CreateLogGroup
-</span><a href="#local-6989586621679232494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup%27"><span class="hs-identifier hs-type">CreateLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232493"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679232493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLogGroup
-</span><a href="#local-6989586621679232494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:CreateLogGroup' :: Text
+</span><a href="#local-6989586621679232660"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232660"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232659"><span class="annot"><span class="annottext">s :: CreateLogGroup
+</span><a href="#local-6989586621679232659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup%27"><span class="hs-identifier hs-type">CreateLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232658"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLogGroup
+</span><a href="#local-6989586621679232659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:CreateLogGroup' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#%24sel%3AlogGroupName%3ACreateLogGroup%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679232493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-151"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroupResponse"><span class="hs-identifier hs-type">CreateLogGroupResponse</span></a></span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679232489"><span class="annot"><span class="annottext">request :: CreateLogGroup -&gt; Request CreateLogGroup
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679232654"><span class="annot"><span class="annottext">request :: CreateLogGroup -&gt; Request CreateLogGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateLogGroup -&gt; Request CreateLogGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679232485"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679232650"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateLogGroup
 -&gt; ClientResponse ClientBody
@@ -320,12 +320,12 @@ AWSResponse a
 CreateLogGroupResponse
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroupResponse%27"><span class="hs-identifier hs-var">CreateLogGroupResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232478"><span id="local-6989586621679232480"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232643"><span id="local-6989586621679232645"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span></span></span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232475"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232640"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679232471"><span class="annot"><span class="annottext">toHeaders :: CreateLogGroup -&gt; [Header]
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679232636"><span class="annot"><span class="annottext">toHeaders :: CreateLogGroup -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; CreateLogGroup -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -352,9 +352,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232461"><span id="local-6989586621679232463"><span id="local-6989586621679232465"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679232459"><span class="annot"><span class="annottext">toJSON :: CreateLogGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup%27"><span class="hs-identifier hs-type">CreateLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232455"><span id="local-6989586621679232456"><span id="local-6989586621679232457"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232626"><span id="local-6989586621679232628"><span id="local-6989586621679232630"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679232624"><span class="annot"><span class="annottext">toJSON :: CreateLogGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup%27"><span class="hs-identifier hs-type">CreateLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232620"><span id="local-6989586621679232621"><span id="local-6989586621679232622"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text Text)
 Text
 logGroupName :: Text
@@ -363,7 +363,7 @@ kmsKeyId :: Maybe Text
 $sel:logGroupName:CreateLogGroup' :: CreateLogGroup -&gt; Text
 $sel:tags:CreateLogGroup' :: CreateLogGroup -&gt; Maybe (HashMap Text Text)
 $sel:kmsKeyId:CreateLogGroup' :: CreateLogGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679232455"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679232620"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -375,7 +375,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232457"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679232622"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -383,26 +383,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679232456"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679232621"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679232455"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232620"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679232448"><span class="annot"><span class="annottext">toPath :: CreateLogGroup -&gt; ByteString
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679232613"><span class="annot"><span class="annottext">toPath :: CreateLogGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateLogGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroup"><span class="hs-identifier hs-type">CreateLogGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679232444"><span class="annot"><span class="annottext">toQuery :: CreateLogGroup -&gt; QueryString
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679232609"><span class="annot"><span class="annottext">toQuery :: CreateLogGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateLogGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -410,10 +410,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | /See:/ 'newCreateLogGroupResponse' smart constructor.</span><span>
-</span><span id="line-193"></span><span id="local-6989586621679232441"><span id="local-6989586621679232442"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLogGroupResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroupResponse"><span class="hs-identifier hs-var">CreateLogGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLogGroupResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroupResponse%27"><span class="hs-identifier hs-var">CreateLogGroupResponse'</span></a></span></span><span>
+</span><span id="line-193"></span><span id="local-6989586621679232606"><span id="local-6989586621679232607"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLogGroupResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroupResponse"><span class="hs-identifier hs-var">CreateLogGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLogGroupResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroupResponse%27"><span class="hs-identifier hs-var">CreateLogGroupResponse'</span></a></span></span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-195"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232437"><span id="local-6989586621679232439"><span class="annot"><span class="annottext">CreateLogGroupResponse -&gt; CreateLogGroupResponse -&gt; Bool
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232602"><span id="local-6989586621679232604"><span class="annot"><span class="annottext">CreateLogGroupResponse -&gt; CreateLogGroupResponse -&gt; Bool
 (CreateLogGroupResponse -&gt; CreateLogGroupResponse -&gt; Bool)
 -&gt; (CreateLogGroupResponse -&gt; CreateLogGroupResponse -&gt; Bool)
 -&gt; Eq CreateLogGroupResponse
@@ -422,7 +422,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateLogGroupResponse -&gt; CreateLogGroupResponse -&gt; Bool
 == :: CreateLogGroupResponse -&gt; CreateLogGroupResponse -&gt; Bool
 $c== :: CreateLogGroupResponse -&gt; CreateLogGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232429"><span id="local-6989586621679232431"><span id="local-6989586621679232433"><span id="local-6989586621679232435"><span class="annot"><span class="annottext">ReadPrec [CreateLogGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232594"><span id="local-6989586621679232596"><span id="local-6989586621679232598"><span id="local-6989586621679232600"><span class="annot"><span class="annottext">ReadPrec [CreateLogGroupResponse]
 ReadPrec CreateLogGroupResponse
 Int -&gt; ReadS CreateLogGroupResponse
 ReadS [CreateLogGroupResponse]
@@ -442,7 +442,7 @@ readList :: ReadS [CreateLogGroupResponse]
 $creadList :: ReadS [CreateLogGroupResponse]
 readsPrec :: Int -&gt; ReadS CreateLogGroupResponse
 $creadsPrec :: Int -&gt; ReadS CreateLogGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232423"><span id="local-6989586621679232425"><span id="local-6989586621679232427"><span class="annot"><span class="annottext">Int -&gt; CreateLogGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232588"><span id="local-6989586621679232590"><span id="local-6989586621679232592"><span class="annot"><span class="annottext">Int -&gt; CreateLogGroupResponse -&gt; ShowS
 [CreateLogGroupResponse] -&gt; ShowS
 CreateLogGroupResponse -&gt; String
 (Int -&gt; CreateLogGroupResponse -&gt; ShowS)
@@ -479,5 +479,5 @@ $cfrom :: forall x. CreateLogGroupResponse -&gt; Rep CreateLogGroupResponse x
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#newCreateLogGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateLogGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CreateLogGroupResponse
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroupResponse%27"><span class="hs-identifier hs-var">CreateLogGroupResponse'</span></a></span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232419"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroupResponse"><span class="hs-identifier hs-type">CreateLogGroupResponse</span></a></span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232584"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogGroup.html#CreateLogGroupResponse"><span class="hs-identifier hs-type">CreateLogGroupResponse</span></a></span></span><span>
 </span><span id="line-207"></span></pre></body></html>

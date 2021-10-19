@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newSetDesiredCapacity' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679335778"><span id="local-6989586621679335779"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetDesiredCapacity"><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-var">SetDesiredCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetDesiredCapacity%27"><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity%27"><span class="hs-identifier hs-var">SetDesiredCapacity'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679336447"><span id="local-6989586621679336448"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetDesiredCapacity"><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-var">SetDesiredCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetDesiredCapacity%27"><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity%27"><span class="hs-identifier hs-var">SetDesiredCapacity'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- to complete before initiating a scaling activity to set your Auto</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Scaling group to its new capacity. By default, Amazon EC2 Auto Scaling</span><span>
@@ -69,7 +69,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AdesiredCapacity%3ASetDesiredCapacity%27"><span class="annot"><span class="annottext">SetDesiredCapacity -&gt; Int
 </span><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#%24sel%3AdesiredCapacity%3ASetDesiredCapacity%27"><span class="hs-identifier hs-var hs-var">desiredCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679335770"><span id="local-6989586621679335772"><span class="annot"><span class="annottext">SetDesiredCapacity -&gt; SetDesiredCapacity -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336439"><span id="local-6989586621679336441"><span class="annot"><span class="annottext">SetDesiredCapacity -&gt; SetDesiredCapacity -&gt; Bool
 (SetDesiredCapacity -&gt; SetDesiredCapacity -&gt; Bool)
 -&gt; (SetDesiredCapacity -&gt; SetDesiredCapacity -&gt; Bool)
 -&gt; Eq SetDesiredCapacity
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetDesiredCapacity -&gt; SetDesiredCapacity -&gt; Bool
 == :: SetDesiredCapacity -&gt; SetDesiredCapacity -&gt; Bool
 $c== :: SetDesiredCapacity -&gt; SetDesiredCapacity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335761"><span id="local-6989586621679335763"><span id="local-6989586621679335765"><span id="local-6989586621679335767"><span class="annot"><span class="annottext">ReadPrec [SetDesiredCapacity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336430"><span id="local-6989586621679336432"><span id="local-6989586621679336434"><span id="local-6989586621679336436"><span class="annot"><span class="annottext">ReadPrec [SetDesiredCapacity]
 ReadPrec SetDesiredCapacity
 Int -&gt; ReadS SetDesiredCapacity
 ReadS [SetDesiredCapacity]
@@ -98,7 +98,7 @@ readList :: ReadS [SetDesiredCapacity]
 $creadList :: ReadS [SetDesiredCapacity]
 readsPrec :: Int -&gt; ReadS SetDesiredCapacity
 $creadsPrec :: Int -&gt; ReadS SetDesiredCapacity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335754"><span id="local-6989586621679335756"><span id="local-6989586621679335758"><span class="annot"><span class="annottext">Int -&gt; SetDesiredCapacity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336423"><span id="local-6989586621679336425"><span id="local-6989586621679336427"><span class="annot"><span class="annottext">Int -&gt; SetDesiredCapacity -&gt; ShowS
 [SetDesiredCapacity] -&gt; ShowS
 SetDesiredCapacity -&gt; String
 (Int -&gt; SetDesiredCapacity -&gt; ShowS)
@@ -149,10 +149,10 @@ $cfrom :: forall x. SetDesiredCapacity -&gt; Rep SetDesiredCapacity x
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-type">SetDesiredCapacity</span></a></span><span>
 </span><span id="line-94"></span><span id="newSetDesiredCapacity"><span class="annot"><span class="annottext">newSetDesiredCapacity :: Text -&gt; Int -&gt; SetDesiredCapacity
 </span><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#newSetDesiredCapacity"><span class="hs-identifier hs-var hs-var">newSetDesiredCapacity</span></a></span></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679335749"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335749"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679335748"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335748"><span class="hs-identifier hs-var">pDesiredCapacity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679336418"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336418"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679336417"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336417"><span class="hs-identifier hs-var">pDesiredCapacity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">SetDesiredCapacity' :: Maybe Bool -&gt; Text -&gt; Int -&gt; SetDesiredCapacity
 </span><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity%27"><span class="hs-identifier hs-type">SetDesiredCapacity'</span></a></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:honorCooldown:SetDesiredCapacity' :: Maybe Bool
@@ -162,10 +162,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:SetDesiredCapacity' :: Text
 </span><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#%24sel%3AautoScalingGroupName%3ASetDesiredCapacity%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335749"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679336418"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:desiredCapacity:SetDesiredCapacity' :: Int
 </span><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#%24sel%3AdesiredCapacity%3ASetDesiredCapacity%27"><span class="hs-identifier hs-var">desiredCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335748"><span class="hs-identifier hs-var">pDesiredCapacity_</span></a></span><span>
+</span><a href="#local-6989586621679336417"><span class="hs-identifier hs-var">pDesiredCapacity_</span></a></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period</span><span>
@@ -180,16 +180,16 @@ forall a. Maybe a
 -&gt; Lens
      SetDesiredCapacity SetDesiredCapacity (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity%27"><span class="hs-identifier hs-type">SetDesiredCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335745"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity%27"><span class="hs-identifier hs-type">SetDesiredCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336414"><span class="annot"><span class="annottext">Maybe Bool
 honorCooldown :: Maybe Bool
 $sel:honorCooldown:SetDesiredCapacity' :: SetDesiredCapacity -&gt; Maybe Bool
-</span><a href="#local-6989586621679335745"><span class="hs-identifier hs-var hs-var">honorCooldown</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679335745"><span class="hs-identifier hs-var">honorCooldown</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335744"><span class="annot"><span class="annottext">s :: SetDesiredCapacity
-</span><a href="#local-6989586621679335744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity%27"><span class="hs-identifier hs-type">SetDesiredCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335743"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679335743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetDesiredCapacity
-</span><a href="#local-6989586621679335744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:honorCooldown:SetDesiredCapacity' :: Maybe Bool
+</span><a href="#local-6989586621679336414"><span class="hs-identifier hs-var hs-var">honorCooldown</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679336414"><span class="hs-identifier hs-var">honorCooldown</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336413"><span class="annot"><span class="annottext">s :: SetDesiredCapacity
+</span><a href="#local-6989586621679336413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity%27"><span class="hs-identifier hs-type">SetDesiredCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336412"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679336412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetDesiredCapacity
+</span><a href="#local-6989586621679336413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:honorCooldown:SetDesiredCapacity' :: Maybe Bool
 </span><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#%24sel%3AhonorCooldown%3ASetDesiredCapacity%27"><span class="hs-identifier hs-var">honorCooldown</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679335743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-type">SetDesiredCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-type">SetDesiredCapacity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#setDesiredCapacity_autoScalingGroupName"><span class="hs-identifier hs-type">setDesiredCapacity_autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-type">SetDesiredCapacity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -198,16 +198,16 @@ $sel:honorCooldown:SetDesiredCapacity' :: SetDesiredCapacity -&gt; Maybe Bool
 -&gt; (SetDesiredCapacity -&gt; Text -&gt; SetDesiredCapacity)
 -&gt; Lens SetDesiredCapacity SetDesiredCapacity Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity%27"><span class="hs-identifier hs-type">SetDesiredCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335742"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity%27"><span class="hs-identifier hs-type">SetDesiredCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336411"><span class="annot"><span class="annottext">Text
 autoScalingGroupName :: Text
 $sel:autoScalingGroupName:SetDesiredCapacity' :: SetDesiredCapacity -&gt; Text
-</span><a href="#local-6989586621679335742"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335742"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335741"><span class="annot"><span class="annottext">s :: SetDesiredCapacity
-</span><a href="#local-6989586621679335741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity%27"><span class="hs-identifier hs-type">SetDesiredCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335740"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetDesiredCapacity
-</span><a href="#local-6989586621679335741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:SetDesiredCapacity' :: Text
+</span><a href="#local-6989586621679336411"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336411"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336410"><span class="annot"><span class="annottext">s :: SetDesiredCapacity
+</span><a href="#local-6989586621679336410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity%27"><span class="hs-identifier hs-type">SetDesiredCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336409"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetDesiredCapacity
+</span><a href="#local-6989586621679336410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:SetDesiredCapacity' :: Text
 </span><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#%24sel%3AautoScalingGroupName%3ASetDesiredCapacity%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-type">SetDesiredCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-type">SetDesiredCapacity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The desired capacity is the initial capacity of the Auto Scaling group</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- after this operation completes and the capacity it attempts to maintain.</span><span>
@@ -217,27 +217,27 @@ $sel:autoScalingGroupName:SetDesiredCapacity' :: SetDesiredCapacity -&gt; Text
 -&gt; (SetDesiredCapacity -&gt; Int -&gt; SetDesiredCapacity)
 -&gt; Lens SetDesiredCapacity SetDesiredCapacity Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity%27"><span class="hs-identifier hs-type">SetDesiredCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335739"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity%27"><span class="hs-identifier hs-type">SetDesiredCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336408"><span class="annot"><span class="annottext">Int
 desiredCapacity :: Int
 $sel:desiredCapacity:SetDesiredCapacity' :: SetDesiredCapacity -&gt; Int
-</span><a href="#local-6989586621679335739"><span class="hs-identifier hs-var hs-var">desiredCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335739"><span class="hs-identifier hs-var">desiredCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335738"><span class="annot"><span class="annottext">s :: SetDesiredCapacity
-</span><a href="#local-6989586621679335738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity%27"><span class="hs-identifier hs-type">SetDesiredCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335737"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetDesiredCapacity
-</span><a href="#local-6989586621679335738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredCapacity:SetDesiredCapacity' :: Int
+</span><a href="#local-6989586621679336408"><span class="hs-identifier hs-var hs-var">desiredCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336408"><span class="hs-identifier hs-var">desiredCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336407"><span class="annot"><span class="annottext">s :: SetDesiredCapacity
+</span><a href="#local-6989586621679336407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity%27"><span class="hs-identifier hs-type">SetDesiredCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336406"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetDesiredCapacity
+</span><a href="#local-6989586621679336407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredCapacity:SetDesiredCapacity' :: Int
 </span><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#%24sel%3AdesiredCapacity%3ASetDesiredCapacity%27"><span class="hs-identifier hs-var">desiredCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-type">SetDesiredCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-type">SetDesiredCapacity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-type">SetDesiredCapacity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-type">SetDesiredCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacityResponse"><span class="hs-identifier hs-type">SetDesiredCapacityResponse</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679335733"><span class="annot"><span class="annottext">request :: SetDesiredCapacity -&gt; Request SetDesiredCapacity
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679336402"><span class="annot"><span class="annottext">request :: SetDesiredCapacity -&gt; Request SetDesiredCapacity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetDesiredCapacity -&gt; Request SetDesiredCapacity
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679335729"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679336398"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetDesiredCapacity
 -&gt; ClientResponse ClientBody
@@ -263,12 +263,12 @@ AWSResponse a
 SetDesiredCapacityResponse
 </span><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacityResponse%27"><span class="hs-identifier hs-var">SetDesiredCapacityResponse'</span></a></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335722"><span id="local-6989586621679335724"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-type">SetDesiredCapacity</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336391"><span id="local-6989586621679336393"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-type">SetDesiredCapacity</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335719"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-type">SetDesiredCapacity</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336388"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-type">SetDesiredCapacity</span></a></span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-type">SetDesiredCapacity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679335715"><span class="annot"><span class="annottext">toHeaders :: SetDesiredCapacity -&gt; [Header]
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679336384"><span class="annot"><span class="annottext">toHeaders :: SetDesiredCapacity -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; SetDesiredCapacity -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -276,15 +276,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-type">SetDesiredCapacity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679335710"><span class="annot"><span class="annottext">toPath :: SetDesiredCapacity -&gt; ByteString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679336379"><span class="annot"><span class="annottext">toPath :: SetDesiredCapacity -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetDesiredCapacity -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity"><span class="hs-identifier hs-type">SetDesiredCapacity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679335706"><span class="annot"><span class="annottext">toQuery :: SetDesiredCapacity -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity%27"><span class="hs-identifier hs-type">SetDesiredCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335702"><span id="local-6989586621679335703"><span id="local-6989586621679335704"><span class="annot"><span class="annottext">Int
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679336375"><span class="annot"><span class="annottext">toQuery :: SetDesiredCapacity -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacity%27"><span class="hs-identifier hs-type">SetDesiredCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336371"><span id="local-6989586621679336372"><span id="local-6989586621679336373"><span class="annot"><span class="annottext">Int
 Maybe Bool
 Text
 desiredCapacity :: Int
@@ -293,7 +293,7 @@ honorCooldown :: Maybe Bool
 $sel:desiredCapacity:SetDesiredCapacity' :: SetDesiredCapacity -&gt; Int
 $sel:autoScalingGroupName:SetDesiredCapacity' :: SetDesiredCapacity -&gt; Text
 $sel:honorCooldown:SetDesiredCapacity' :: SetDesiredCapacity -&gt; Maybe Bool
-</span><a href="#local-6989586621679335702"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679336371"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -313,24 +313,24 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;HonorCooldown&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679335704"><span class="hs-identifier hs-var">honorCooldown</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679336373"><span class="hs-identifier hs-var">honorCooldown</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AutoScalingGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335703"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679336372"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DesiredCapacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335702"><span class="hs-identifier hs-var">desiredCapacity</span></a></span><span>
+</span><a href="#local-6989586621679336371"><span class="hs-identifier hs-var">desiredCapacity</span></a></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newSetDesiredCapacityResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679335699"><span id="local-6989586621679335700"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetDesiredCapacityResponse"><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacityResponse"><span class="hs-identifier hs-var">SetDesiredCapacityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetDesiredCapacityResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacityResponse%27"><span class="hs-identifier hs-var">SetDesiredCapacityResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679336368"><span id="local-6989586621679336369"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetDesiredCapacityResponse"><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacityResponse"><span class="hs-identifier hs-var">SetDesiredCapacityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetDesiredCapacityResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacityResponse%27"><span class="hs-identifier hs-var">SetDesiredCapacityResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679335695"><span id="local-6989586621679335697"><span class="annot"><span class="annottext">SetDesiredCapacityResponse -&gt; SetDesiredCapacityResponse -&gt; Bool
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336364"><span id="local-6989586621679336366"><span class="annot"><span class="annottext">SetDesiredCapacityResponse -&gt; SetDesiredCapacityResponse -&gt; Bool
 (SetDesiredCapacityResponse -&gt; SetDesiredCapacityResponse -&gt; Bool)
 -&gt; (SetDesiredCapacityResponse
     -&gt; SetDesiredCapacityResponse -&gt; Bool)
@@ -340,7 +340,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetDesiredCapacityResponse -&gt; SetDesiredCapacityResponse -&gt; Bool
 == :: SetDesiredCapacityResponse -&gt; SetDesiredCapacityResponse -&gt; Bool
 $c== :: SetDesiredCapacityResponse -&gt; SetDesiredCapacityResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335687"><span id="local-6989586621679335689"><span id="local-6989586621679335691"><span id="local-6989586621679335693"><span class="annot"><span class="annottext">ReadPrec [SetDesiredCapacityResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336356"><span id="local-6989586621679336358"><span id="local-6989586621679336360"><span id="local-6989586621679336362"><span class="annot"><span class="annottext">ReadPrec [SetDesiredCapacityResponse]
 ReadPrec SetDesiredCapacityResponse
 Int -&gt; ReadS SetDesiredCapacityResponse
 ReadS [SetDesiredCapacityResponse]
@@ -360,7 +360,7 @@ readList :: ReadS [SetDesiredCapacityResponse]
 $creadList :: ReadS [SetDesiredCapacityResponse]
 readsPrec :: Int -&gt; ReadS SetDesiredCapacityResponse
 $creadsPrec :: Int -&gt; ReadS SetDesiredCapacityResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335681"><span id="local-6989586621679335683"><span id="local-6989586621679335685"><span class="annot"><span class="annottext">Int -&gt; SetDesiredCapacityResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336350"><span id="local-6989586621679336352"><span id="local-6989586621679336354"><span class="annot"><span class="annottext">Int -&gt; SetDesiredCapacityResponse -&gt; ShowS
 [SetDesiredCapacityResponse] -&gt; ShowS
 SetDesiredCapacityResponse -&gt; String
 (Int -&gt; SetDesiredCapacityResponse -&gt; ShowS)
@@ -403,5 +403,5 @@ SetDesiredCapacityResponse -&gt; Rep SetDesiredCapacityResponse x
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">SetDesiredCapacityResponse
 </span><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacityResponse%27"><span class="hs-identifier hs-var">SetDesiredCapacityResponse'</span></a></span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335677"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacityResponse"><span class="hs-identifier hs-type">SetDesiredCapacityResponse</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336346"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetDesiredCapacity.html#SetDesiredCapacityResponse"><span class="hs-identifier hs-type">SetDesiredCapacityResponse</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

@@ -40,21 +40,21 @@
 </span><span id="line-40"></span><span class="hs-comment">-- object.</span><span>
 </span><span id="line-41"></span><span class="hs-comment">--</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- /See:/ 'newClassifier' smart constructor.</span><span>
-</span><span id="line-43"></span><span id="local-6989586621679706418"><span id="local-6989586621679706419"></span></span><span class="hs-keyword">data</span><span> </span><span id="Classifier"><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-var">Classifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Classifier%27"><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-var">Classifier'</span></a></span></span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A classifier for XML content.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AxMLClassifier%3AClassifier%27"><span class="annot"><span class="annottext">Classifier -&gt; Maybe XMLClassifier
+</span><span id="line-43"></span><span id="local-6989586621679708149"><span id="local-6989586621679708150"></span></span><span class="hs-keyword">data</span><span> </span><span id="Classifier"><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-var">Classifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Classifier%27"><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-var">Classifier'</span></a></span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A classifier that uses @grok@.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AgrokClassifier%3AClassifier%27"><span class="annot"><span class="annottext">Classifier -&gt; Maybe GrokClassifier
+</span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AgrokClassifier%3AClassifier%27"><span class="hs-identifier hs-var hs-var">grokClassifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A classifier for XML content.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AxMLClassifier%3AClassifier%27"><span class="annot"><span class="annottext">Classifier -&gt; Maybe XMLClassifier
 </span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AxMLClassifier%3AClassifier%27"><span class="hs-identifier hs-var hs-var">xMLClassifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.XMLClassifier.html#XMLClassifier"><span class="hs-identifier hs-type">XMLClassifier</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A classifier for JSON content.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AjsonClassifier%3AClassifier%27"><span class="annot"><span class="annottext">Classifier -&gt; Maybe JsonClassifier
-</span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AjsonClassifier%3AClassifier%27"><span class="hs-identifier hs-var hs-var">jsonClassifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | A classifier for comma-separated values (CSV).</span><span>
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AcsvClassifier%3AClassifier%27"><span class="annot"><span class="annottext">Classifier -&gt; Maybe CsvClassifier
 </span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AcsvClassifier%3AClassifier%27"><span class="hs-identifier hs-var hs-var">csvClassifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | A classifier that uses @grok@.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AgrokClassifier%3AClassifier%27"><span class="annot"><span class="annottext">Classifier -&gt; Maybe GrokClassifier
-</span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AgrokClassifier%3AClassifier%27"><span class="hs-identifier hs-var hs-var">grokClassifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | A classifier for JSON content.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AjsonClassifier%3AClassifier%27"><span class="annot"><span class="annottext">Classifier -&gt; Maybe JsonClassifier
+</span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AjsonClassifier%3AClassifier%27"><span class="hs-identifier hs-var hs-var">jsonClassifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679706409"><span id="local-6989586621679706411"><span class="annot"><span class="annottext">Classifier -&gt; Classifier -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679708140"><span id="local-6989586621679708142"><span class="annot"><span class="annottext">Classifier -&gt; Classifier -&gt; Bool
 (Classifier -&gt; Classifier -&gt; Bool)
 -&gt; (Classifier -&gt; Classifier -&gt; Bool) -&gt; Eq Classifier
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Classifier -&gt; Classifier -&gt; Bool
 == :: Classifier -&gt; Classifier -&gt; Bool
 $c== :: Classifier -&gt; Classifier -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679706400"><span id="local-6989586621679706402"><span id="local-6989586621679706404"><span id="local-6989586621679706406"><span class="annot"><span class="annottext">ReadPrec [Classifier]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679708131"><span id="local-6989586621679708133"><span id="local-6989586621679708135"><span id="local-6989586621679708137"><span class="annot"><span class="annottext">ReadPrec [Classifier]
 ReadPrec Classifier
 Int -&gt; ReadS Classifier
 ReadS [Classifier]
@@ -82,7 +82,7 @@ readList :: ReadS [Classifier]
 $creadList :: ReadS [Classifier]
 readsPrec :: Int -&gt; ReadS Classifier
 $creadsPrec :: Int -&gt; ReadS Classifier
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679706393"><span id="local-6989586621679706395"><span id="local-6989586621679706397"><span class="annot"><span class="annottext">Int -&gt; Classifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679708124"><span id="local-6989586621679708126"><span id="local-6989586621679708128"><span class="annot"><span class="annottext">Int -&gt; Classifier -&gt; ShowS
 [Classifier] -&gt; ShowS
 Classifier -&gt; String
 (Int -&gt; Classifier -&gt; ShowS)
@@ -115,80 +115,80 @@ $cfrom :: forall x. Classifier -&gt; Rep Classifier x
 </span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'xMLClassifier', 'classifier_xMLClassifier' - A classifier for XML content.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'grokClassifier', 'classifier_grokClassifier' - A classifier that uses @grok@.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'jsonClassifier', 'classifier_jsonClassifier' - A classifier for JSON content.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'xMLClassifier', 'classifier_xMLClassifier' - A classifier for XML content.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- 'csvClassifier', 'classifier_csvClassifier' - A classifier for comma-separated values (CSV).</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'grokClassifier', 'classifier_grokClassifier' - A classifier that uses @grok@.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'jsonClassifier', 'classifier_jsonClassifier' - A classifier for JSON content.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#newClassifier"><span class="hs-identifier hs-type">newClassifier</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span><span>
 </span><span id="line-72"></span><span id="newClassifier"><span class="annot"><span class="annottext">newClassifier :: Classifier
 </span><a href="Network.AWS.Glue.Types.Classifier.html#newClassifier"><span class="hs-identifier hs-var hs-var">newClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">Classifier' :: Maybe XMLClassifier
--&gt; Maybe JsonClassifier
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">Classifier' :: Maybe GrokClassifier
+-&gt; Maybe XMLClassifier
 -&gt; Maybe CsvClassifier
--&gt; Maybe GrokClassifier
+-&gt; Maybe JsonClassifier
 -&gt; Classifier
 </span><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-type">Classifier'</span></a></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:xMLClassifier:Classifier' :: Maybe XMLClassifier
-</span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AxMLClassifier%3AClassifier%27"><span class="hs-identifier hs-var">xMLClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe XMLClassifier
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:grokClassifier:Classifier' :: Maybe GrokClassifier
+</span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AgrokClassifier%3AClassifier%27"><span class="hs-identifier hs-var">grokClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GrokClassifier
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:jsonClassifier:Classifier' :: Maybe JsonClassifier
-</span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AjsonClassifier%3AClassifier%27"><span class="hs-identifier hs-var">jsonClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JsonClassifier
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:xMLClassifier:Classifier' :: Maybe XMLClassifier
+</span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AxMLClassifier%3AClassifier%27"><span class="hs-identifier hs-var">xMLClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe XMLClassifier
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:csvClassifier:Classifier' :: Maybe CsvClassifier
 </span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AcsvClassifier%3AClassifier%27"><span class="hs-identifier hs-var">csvClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CsvClassifier
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:grokClassifier:Classifier' :: Maybe GrokClassifier
-</span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AgrokClassifier%3AClassifier%27"><span class="hs-identifier hs-var">grokClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GrokClassifier
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:jsonClassifier:Classifier' :: Maybe JsonClassifier
+</span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AjsonClassifier%3AClassifier%27"><span class="hs-identifier hs-var">jsonClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JsonClassifier
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | A classifier for XML content.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#classifier_xMLClassifier"><span class="hs-identifier hs-type">classifier_xMLClassifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.XMLClassifier.html#XMLClassifier"><span class="hs-identifier hs-type">XMLClassifier</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="classifier_xMLClassifier"><span class="annot"><span class="annottext">classifier_xMLClassifier :: (Maybe XMLClassifier -&gt; f (Maybe XMLClassifier))
+</span><span id="line-80"></span><span class="hs-comment">-- | A classifier that uses @grok@.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#classifier_grokClassifier"><span class="hs-identifier hs-type">classifier_grokClassifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="classifier_grokClassifier"><span class="annot"><span class="annottext">classifier_grokClassifier :: (Maybe GrokClassifier -&gt; f (Maybe GrokClassifier))
+-&gt; Classifier -&gt; f Classifier
+</span><a href="Network.AWS.Glue.Types.Classifier.html#classifier_grokClassifier"><span class="hs-identifier hs-var hs-var">classifier_grokClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Classifier -&gt; Maybe GrokClassifier)
+-&gt; (Classifier -&gt; Maybe GrokClassifier -&gt; Classifier)
+-&gt; Lens
+     Classifier Classifier (Maybe GrokClassifier) (Maybe GrokClassifier)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-type">Classifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679708115"><span class="annot"><span class="annottext">Maybe GrokClassifier
+grokClassifier :: Maybe GrokClassifier
+$sel:grokClassifier:Classifier' :: Classifier -&gt; Maybe GrokClassifier
+</span><a href="#local-6989586621679708115"><span class="hs-identifier hs-var hs-var">grokClassifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GrokClassifier
+</span><a href="#local-6989586621679708115"><span class="hs-identifier hs-var">grokClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679708114"><span class="annot"><span class="annottext">s :: Classifier
+</span><a href="#local-6989586621679708114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-type">Classifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679708113"><span class="annot"><span class="annottext">Maybe GrokClassifier
+</span><a href="#local-6989586621679708113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Classifier
+</span><a href="#local-6989586621679708114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grokClassifier:Classifier' :: Maybe GrokClassifier
+</span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AgrokClassifier%3AClassifier%27"><span class="hs-identifier hs-var">grokClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GrokClassifier
+</span><a href="#local-6989586621679708113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | A classifier for XML content.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#classifier_xMLClassifier"><span class="hs-identifier hs-type">classifier_xMLClassifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.XMLClassifier.html#XMLClassifier"><span class="hs-identifier hs-type">XMLClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="classifier_xMLClassifier"><span class="annot"><span class="annottext">classifier_xMLClassifier :: (Maybe XMLClassifier -&gt; f (Maybe XMLClassifier))
 -&gt; Classifier -&gt; f Classifier
 </span><a href="Network.AWS.Glue.Types.Classifier.html#classifier_xMLClassifier"><span class="hs-identifier hs-var hs-var">classifier_xMLClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Classifier -&gt; Maybe XMLClassifier)
 -&gt; (Classifier -&gt; Maybe XMLClassifier -&gt; Classifier)
 -&gt; Lens
      Classifier Classifier (Maybe XMLClassifier) (Maybe XMLClassifier)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-type">Classifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679706384"><span class="annot"><span class="annottext">Maybe XMLClassifier
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-type">Classifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679708111"><span class="annot"><span class="annottext">Maybe XMLClassifier
 xMLClassifier :: Maybe XMLClassifier
 $sel:xMLClassifier:Classifier' :: Classifier -&gt; Maybe XMLClassifier
-</span><a href="#local-6989586621679706384"><span class="hs-identifier hs-var hs-var">xMLClassifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe XMLClassifier
-</span><a href="#local-6989586621679706384"><span class="hs-identifier hs-var">xMLClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679706383"><span class="annot"><span class="annottext">s :: Classifier
-</span><a href="#local-6989586621679706383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-type">Classifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679706382"><span class="annot"><span class="annottext">Maybe XMLClassifier
-</span><a href="#local-6989586621679706382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Classifier
-</span><a href="#local-6989586621679706383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:xMLClassifier:Classifier' :: Maybe XMLClassifier
+</span><a href="#local-6989586621679708111"><span class="hs-identifier hs-var hs-var">xMLClassifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe XMLClassifier
+</span><a href="#local-6989586621679708111"><span class="hs-identifier hs-var">xMLClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679708110"><span class="annot"><span class="annottext">s :: Classifier
+</span><a href="#local-6989586621679708110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-type">Classifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679708109"><span class="annot"><span class="annottext">Maybe XMLClassifier
+</span><a href="#local-6989586621679708109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Classifier
+</span><a href="#local-6989586621679708110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:xMLClassifier:Classifier' :: Maybe XMLClassifier
 </span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AxMLClassifier%3AClassifier%27"><span class="hs-identifier hs-var">xMLClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe XMLClassifier
-</span><a href="#local-6989586621679706382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | A classifier for JSON content.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#classifier_jsonClassifier"><span class="hs-identifier hs-type">classifier_jsonClassifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="classifier_jsonClassifier"><span class="annot"><span class="annottext">classifier_jsonClassifier :: (Maybe JsonClassifier -&gt; f (Maybe JsonClassifier))
--&gt; Classifier -&gt; f Classifier
-</span><a href="Network.AWS.Glue.Types.Classifier.html#classifier_jsonClassifier"><span class="hs-identifier hs-var hs-var">classifier_jsonClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Classifier -&gt; Maybe JsonClassifier)
--&gt; (Classifier -&gt; Maybe JsonClassifier -&gt; Classifier)
--&gt; Lens
-     Classifier Classifier (Maybe JsonClassifier) (Maybe JsonClassifier)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-type">Classifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679706380"><span class="annot"><span class="annottext">Maybe JsonClassifier
-jsonClassifier :: Maybe JsonClassifier
-$sel:jsonClassifier:Classifier' :: Classifier -&gt; Maybe JsonClassifier
-</span><a href="#local-6989586621679706380"><span class="hs-identifier hs-var hs-var">jsonClassifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JsonClassifier
-</span><a href="#local-6989586621679706380"><span class="hs-identifier hs-var">jsonClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679706379"><span class="annot"><span class="annottext">s :: Classifier
-</span><a href="#local-6989586621679706379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-type">Classifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679706378"><span class="annot"><span class="annottext">Maybe JsonClassifier
-</span><a href="#local-6989586621679706378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Classifier
-</span><a href="#local-6989586621679706379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jsonClassifier:Classifier' :: Maybe JsonClassifier
-</span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AjsonClassifier%3AClassifier%27"><span class="hs-identifier hs-var">jsonClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JsonClassifier
-</span><a href="#local-6989586621679706378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679708109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | A classifier for comma-separated values (CSV).</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#classifier_csvClassifier"><span class="hs-identifier hs-type">classifier_csvClassifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CsvClassifier.html#CsvClassifier"><span class="hs-identifier hs-type">CsvClassifier</span></a></span><span class="hs-special">)</span><span>
@@ -199,39 +199,39 @@ $sel:jsonClassifier:Classifier' :: Classifier -&gt; Maybe JsonClassifier
 -&gt; Lens
      Classifier Classifier (Maybe CsvClassifier) (Maybe CsvClassifier)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-type">Classifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679706376"><span class="annot"><span class="annottext">Maybe CsvClassifier
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-type">Classifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679708107"><span class="annot"><span class="annottext">Maybe CsvClassifier
 csvClassifier :: Maybe CsvClassifier
 $sel:csvClassifier:Classifier' :: Classifier -&gt; Maybe CsvClassifier
-</span><a href="#local-6989586621679706376"><span class="hs-identifier hs-var hs-var">csvClassifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CsvClassifier
-</span><a href="#local-6989586621679706376"><span class="hs-identifier hs-var">csvClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679706375"><span class="annot"><span class="annottext">s :: Classifier
-</span><a href="#local-6989586621679706375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-type">Classifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679706374"><span class="annot"><span class="annottext">Maybe CsvClassifier
-</span><a href="#local-6989586621679706374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Classifier
-</span><a href="#local-6989586621679706375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:csvClassifier:Classifier' :: Maybe CsvClassifier
+</span><a href="#local-6989586621679708107"><span class="hs-identifier hs-var hs-var">csvClassifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CsvClassifier
+</span><a href="#local-6989586621679708107"><span class="hs-identifier hs-var">csvClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679708106"><span class="annot"><span class="annottext">s :: Classifier
+</span><a href="#local-6989586621679708106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-type">Classifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679708105"><span class="annot"><span class="annottext">Maybe CsvClassifier
+</span><a href="#local-6989586621679708105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Classifier
+</span><a href="#local-6989586621679708106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:csvClassifier:Classifier' :: Maybe CsvClassifier
 </span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AcsvClassifier%3AClassifier%27"><span class="hs-identifier hs-var">csvClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CsvClassifier
-</span><a href="#local-6989586621679706374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679708105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | A classifier that uses @grok@.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#classifier_grokClassifier"><span class="hs-identifier hs-type">classifier_grokClassifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.GrokClassifier.html#GrokClassifier"><span class="hs-identifier hs-type">GrokClassifier</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="classifier_grokClassifier"><span class="annot"><span class="annottext">classifier_grokClassifier :: (Maybe GrokClassifier -&gt; f (Maybe GrokClassifier))
+</span><span id="line-92"></span><span class="hs-comment">-- | A classifier for JSON content.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#classifier_jsonClassifier"><span class="hs-identifier hs-type">classifier_jsonClassifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="classifier_jsonClassifier"><span class="annot"><span class="annottext">classifier_jsonClassifier :: (Maybe JsonClassifier -&gt; f (Maybe JsonClassifier))
 -&gt; Classifier -&gt; f Classifier
-</span><a href="Network.AWS.Glue.Types.Classifier.html#classifier_grokClassifier"><span class="hs-identifier hs-var hs-var">classifier_grokClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Classifier -&gt; Maybe GrokClassifier)
--&gt; (Classifier -&gt; Maybe GrokClassifier -&gt; Classifier)
+</span><a href="Network.AWS.Glue.Types.Classifier.html#classifier_jsonClassifier"><span class="hs-identifier hs-var hs-var">classifier_jsonClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Classifier -&gt; Maybe JsonClassifier)
+-&gt; (Classifier -&gt; Maybe JsonClassifier -&gt; Classifier)
 -&gt; Lens
-     Classifier Classifier (Maybe GrokClassifier) (Maybe GrokClassifier)
+     Classifier Classifier (Maybe JsonClassifier) (Maybe JsonClassifier)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-type">Classifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679706372"><span class="annot"><span class="annottext">Maybe GrokClassifier
-grokClassifier :: Maybe GrokClassifier
-$sel:grokClassifier:Classifier' :: Classifier -&gt; Maybe GrokClassifier
-</span><a href="#local-6989586621679706372"><span class="hs-identifier hs-var hs-var">grokClassifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GrokClassifier
-</span><a href="#local-6989586621679706372"><span class="hs-identifier hs-var">grokClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679706371"><span class="annot"><span class="annottext">s :: Classifier
-</span><a href="#local-6989586621679706371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-type">Classifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679706370"><span class="annot"><span class="annottext">Maybe GrokClassifier
-</span><a href="#local-6989586621679706370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Classifier
-</span><a href="#local-6989586621679706371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grokClassifier:Classifier' :: Maybe GrokClassifier
-</span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AgrokClassifier%3AClassifier%27"><span class="hs-identifier hs-var">grokClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GrokClassifier
-</span><a href="#local-6989586621679706370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-type">Classifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679708103"><span class="annot"><span class="annottext">Maybe JsonClassifier
+jsonClassifier :: Maybe JsonClassifier
+$sel:jsonClassifier:Classifier' :: Classifier -&gt; Maybe JsonClassifier
+</span><a href="#local-6989586621679708103"><span class="hs-identifier hs-var hs-var">jsonClassifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JsonClassifier
+</span><a href="#local-6989586621679708103"><span class="hs-identifier hs-var">jsonClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679708102"><span class="annot"><span class="annottext">s :: Classifier
+</span><a href="#local-6989586621679708102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-type">Classifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679708101"><span class="annot"><span class="annottext">Maybe JsonClassifier
+</span><a href="#local-6989586621679708101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Classifier
+</span><a href="#local-6989586621679708102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jsonClassifier:Classifier' :: Maybe JsonClassifier
+</span><a href="Network.AWS.Glue.Types.Classifier.html#%24sel%3AjsonClassifier%3AClassifier%27"><span class="hs-identifier hs-var">jsonClassifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JsonClassifier
+</span><a href="#local-6989586621679708101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679706367"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679706365"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Classifier
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679708098"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679708096"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Classifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Classifier) -&gt; Value -&gt; Parser Classifier
@@ -239,61 +239,61 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Classifier&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679706362"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679706362"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe XMLClassifier
--&gt; Maybe JsonClassifier
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679708093"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679708093"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe GrokClassifier
+-&gt; Maybe XMLClassifier
 -&gt; Maybe CsvClassifier
--&gt; Maybe GrokClassifier
+-&gt; Maybe JsonClassifier
 -&gt; Classifier
 </span><a href="Network.AWS.Glue.Types.Classifier.html#Classifier%27"><span class="hs-identifier hs-var">Classifier'</span></a></span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe XMLClassifier
- -&gt; Maybe JsonClassifier
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GrokClassifier
+ -&gt; Maybe XMLClassifier
  -&gt; Maybe CsvClassifier
- -&gt; Maybe GrokClassifier
+ -&gt; Maybe JsonClassifier
  -&gt; Classifier)
--&gt; Parser (Maybe XMLClassifier)
+-&gt; Parser (Maybe GrokClassifier)
 -&gt; Parser
-     (Maybe JsonClassifier
-      -&gt; Maybe CsvClassifier -&gt; Maybe GrokClassifier -&gt; Classifier)
+     (Maybe XMLClassifier
+      -&gt; Maybe CsvClassifier -&gt; Maybe JsonClassifier -&gt; Classifier)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679706362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe XMLClassifier)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;XMLClassifier&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe JsonClassifier
-   -&gt; Maybe CsvClassifier -&gt; Maybe GrokClassifier -&gt; Classifier)
--&gt; Parser (Maybe JsonClassifier)
--&gt; Parser
-     (Maybe CsvClassifier -&gt; Maybe GrokClassifier -&gt; Classifier)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679706362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JsonClassifier)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;JsonClassifier&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe CsvClassifier -&gt; Maybe GrokClassifier -&gt; Classifier)
--&gt; Parser (Maybe CsvClassifier)
--&gt; Parser (Maybe GrokClassifier -&gt; Classifier)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679706362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CsvClassifier)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CsvClassifier&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe GrokClassifier -&gt; Classifier)
--&gt; Parser (Maybe GrokClassifier) -&gt; Parser Classifier
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679706362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GrokClassifier)
+</span><a href="#local-6989586621679708093"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GrokClassifier)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GrokClassifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe XMLClassifier
+   -&gt; Maybe CsvClassifier -&gt; Maybe JsonClassifier -&gt; Classifier)
+-&gt; Parser (Maybe XMLClassifier)
+-&gt; Parser
+     (Maybe CsvClassifier -&gt; Maybe JsonClassifier -&gt; Classifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679708093"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe XMLClassifier)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;XMLClassifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe CsvClassifier -&gt; Maybe JsonClassifier -&gt; Classifier)
+-&gt; Parser (Maybe CsvClassifier)
+-&gt; Parser (Maybe JsonClassifier -&gt; Classifier)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679708093"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CsvClassifier)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CsvClassifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe JsonClassifier -&gt; Classifier)
+-&gt; Parser (Maybe JsonClassifier) -&gt; Parser Classifier
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679708093"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JsonClassifier)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JsonClassifier&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679706356"><span id="local-6989586621679706358"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679708087"><span id="local-6989586621679708089"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679706353"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679708084"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span></span><span>
 </span><span id="line-111"></span></pre></body></html>

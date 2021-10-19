@@ -28,33 +28,33 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Contains information about a connection.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newConnection' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679301387"><span id="local-6989586621679301388"></span></span><span class="hs-keyword">data</span><span> </span><span id="Connection"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-var">Connection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Connection%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-var">Connection'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679301567"><span id="local-6989586621679301568"></span></span><span class="hs-keyword">data</span><span> </span><span id="Connection"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-var">Connection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Connection%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-var">Connection'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A time stamp for the time that the connection was created.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AcreationTime%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AcreationTime%3AConnection%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The state of the connection.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AconnectionState%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe ConnectionState
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AconnectionState%3AConnection%27"><span class="hs-identifier hs-var hs-var">connectionState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The reason that the connection is in the connection state.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AstateReason%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AstateReason%3AConnection%27"><span class="hs-identifier hs-var hs-var">stateReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ARN of the connection.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AconnectionArn%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AconnectionArn%3AConnection%27"><span class="hs-identifier hs-var hs-var">connectionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A time stamp for the time that the connection was last modified.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe POSIX
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AlastModifiedTime%3AConnection%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the connection.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aname%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3Aname%3AConnection%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A time stamp for the time that the connection was last authorized.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlastAuthorizedTime%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe POSIX
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AlastAuthorizedTime%3AConnection%27"><span class="hs-identifier hs-var hs-var">lastAuthorizedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The authorization type specified for the connection.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AauthorizationType%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe ConnectionAuthorizationType
 </span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AauthorizationType%3AConnection%27"><span class="hs-identifier hs-var hs-var">authorizationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType"><span class="hs-identifier hs-type">ConnectionAuthorizationType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of the connection.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aname%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3Aname%3AConnection%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | A time stamp for the time that the connection was last modified.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe POSIX
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AlastModifiedTime%3AConnection%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A time stamp for the time that the connection was last authorized.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AlastAuthorizedTime%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe POSIX
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AlastAuthorizedTime%3AConnection%27"><span class="hs-identifier hs-var hs-var">lastAuthorizedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The ARN of the connection.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AconnectionArn%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AconnectionArn%3AConnection%27"><span class="hs-identifier hs-var hs-var">connectionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The reason that the connection is in the connection state.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AstateReason%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AstateReason%3AConnection%27"><span class="hs-identifier hs-var hs-var">stateReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The state of the connection.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AconnectionState%3AConnection%27"><span class="annot"><span class="annottext">Connection -&gt; Maybe ConnectionState
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AconnectionState%3AConnection%27"><span class="hs-identifier hs-var hs-var">connectionState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301374"><span id="local-6989586621679301376"><span class="annot"><span class="annottext">Connection -&gt; Connection -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301554"><span id="local-6989586621679301556"><span class="annot"><span class="annottext">Connection -&gt; Connection -&gt; Bool
 (Connection -&gt; Connection -&gt; Bool)
 -&gt; (Connection -&gt; Connection -&gt; Bool) -&gt; Eq Connection
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Connection -&gt; Connection -&gt; Bool
 == :: Connection -&gt; Connection -&gt; Bool
 $c== :: Connection -&gt; Connection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301365"><span id="local-6989586621679301367"><span id="local-6989586621679301369"><span id="local-6989586621679301371"><span class="annot"><span class="annottext">ReadPrec [Connection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301545"><span id="local-6989586621679301547"><span id="local-6989586621679301549"><span id="local-6989586621679301551"><span class="annot"><span class="annottext">ReadPrec [Connection]
 ReadPrec Connection
 Int -&gt; ReadS Connection
 ReadS [Connection]
@@ -82,7 +82,7 @@ readList :: ReadS [Connection]
 $creadList :: ReadS [Connection]
 readsPrec :: Int -&gt; ReadS Connection
 $creadsPrec :: Int -&gt; ReadS Connection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301358"><span id="local-6989586621679301360"><span id="local-6989586621679301362"><span class="annot"><span class="annottext">Int -&gt; Connection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301538"><span id="local-6989586621679301540"><span id="local-6989586621679301542"><span class="annot"><span class="annottext">Int -&gt; Connection -&gt; ShowS
 [Connection] -&gt; ShowS
 Connection -&gt; String
 (Int -&gt; Connection -&gt; ShowS)
@@ -117,63 +117,63 @@ $cfrom :: forall x. Connection -&gt; Rep Connection x
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- 'creationTime', 'connection_creationTime' - A time stamp for the time that the connection was created.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'connectionState', 'connection_connectionState' - The state of the connection.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'lastModifiedTime', 'connection_lastModifiedTime' - A time stamp for the time that the connection was last modified.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'stateReason', 'connection_stateReason' - The reason that the connection is in the connection state.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'name', 'connection_name' - The name of the connection.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'connectionArn', 'connection_connectionArn' - The ARN of the connection.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'lastAuthorizedTime', 'connection_lastAuthorizedTime' - A time stamp for the time that the connection was last authorized.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- 'authorizationType', 'connection_authorizationType' - The authorization type specified for the connection.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'name', 'connection_name' - The name of the connection.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'connectionArn', 'connection_connectionArn' - The ARN of the connection.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'lastModifiedTime', 'connection_lastModifiedTime' - A time stamp for the time that the connection was last modified.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'stateReason', 'connection_stateReason' - The reason that the connection is in the connection state.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'lastAuthorizedTime', 'connection_lastAuthorizedTime' - A time stamp for the time that the connection was last authorized.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'connectionState', 'connection_connectionState' - The state of the connection.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#newConnection"><span class="hs-identifier hs-type">newConnection</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span>
 </span><span id="line-76"></span><span id="newConnection"><span class="annot"><span class="annottext">newConnection :: Connection
 </span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#newConnection"><span class="hs-identifier hs-var hs-var">newConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">Connection' :: Maybe POSIX
--&gt; Maybe ConnectionState
+-&gt; Maybe POSIX
 -&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe ConnectionAuthorizationType
 -&gt; Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe ConnectionState
 -&gt; Connection
 </span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:Connection' :: Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AcreationTime%3AConnection%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionState:Connection' :: Maybe ConnectionState
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AconnectionState%3AConnection%27"><span class="hs-identifier hs-var">connectionState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:Connection' :: Maybe POSIX
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AlastModifiedTime%3AConnection%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateReason:Connection' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AstateReason%3AConnection%27"><span class="hs-identifier hs-var">stateReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Connection' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3Aname%3AConnection%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionArn:Connection' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AconnectionArn%3AConnection%27"><span class="hs-identifier hs-var">connectionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastAuthorizedTime:Connection' :: Maybe POSIX
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AlastAuthorizedTime%3AConnection%27"><span class="hs-identifier hs-var">lastAuthorizedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:authorizationType:Connection' :: Maybe ConnectionAuthorizationType
 </span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AauthorizationType%3AConnection%27"><span class="hs-identifier hs-var">authorizationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionAuthorizationType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Connection' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3Aname%3AConnection%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionArn:Connection' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AconnectionArn%3AConnection%27"><span class="hs-identifier hs-var">connectionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:Connection' :: Maybe POSIX
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AlastModifiedTime%3AConnection%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateReason:Connection' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AstateReason%3AConnection%27"><span class="hs-identifier hs-var">stateReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastAuthorizedTime:Connection' :: Maybe POSIX
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AlastAuthorizedTime%3AConnection%27"><span class="hs-identifier hs-var">lastAuthorizedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionState:Connection' :: Maybe ConnectionState
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AconnectionState%3AConnection%27"><span class="hs-identifier hs-var">connectionState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
@@ -185,16 +185,16 @@ forall a. Maybe a
 -&gt; (Connection -&gt; Maybe POSIX -&gt; Connection)
 -&gt; Lens Connection Connection (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301349"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301529"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:Connection' :: Connection -&gt; Maybe POSIX
-</span><a href="#local-6989586621679301349"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679301349"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301348"><span class="annot"><span class="annottext">s :: Connection
-</span><a href="#local-6989586621679301348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301347"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679301347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
-</span><a href="#local-6989586621679301348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Connection' :: Maybe POSIX
+</span><a href="#local-6989586621679301529"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679301529"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301528"><span class="annot"><span class="annottext">s :: Connection
+</span><a href="#local-6989586621679301528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301527"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679301527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
+</span><a href="#local-6989586621679301528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Connection' :: Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AcreationTime%3AConnection%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679301347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Connection -&gt; f Connection)
+</span><a href="#local-6989586621679301527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Connection -&gt; f Connection)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -210,64 +210,87 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | The state of the connection.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_connectionState"><span class="hs-identifier hs-type">connection_connectionState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="connection_connectionState"><span class="annot"><span class="annottext">connection_connectionState :: (Maybe ConnectionState -&gt; f (Maybe ConnectionState))
--&gt; Connection -&gt; f Connection
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_connectionState"><span class="hs-identifier hs-var hs-var">connection_connectionState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connection -&gt; Maybe ConnectionState)
--&gt; (Connection -&gt; Maybe ConnectionState -&gt; Connection)
--&gt; Lens
-     Connection
-     Connection
-     (Maybe ConnectionState)
-     (Maybe ConnectionState)
+</span><span id="line-92"></span><span class="hs-comment">-- | A time stamp for the time that the connection was last modified.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_lastModifiedTime"><span class="hs-identifier hs-type">connection_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="connection_lastModifiedTime"><span class="annot"><span class="annottext">connection_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Connection -&gt; f Connection
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_lastModifiedTime"><span class="hs-identifier hs-var hs-var">connection_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connection -&gt; Maybe POSIX)
+-&gt; (Connection -&gt; Maybe POSIX -&gt; Connection)
+-&gt; Lens Connection Connection (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301342"><span class="annot"><span class="annottext">Maybe ConnectionState
-connectionState :: Maybe ConnectionState
-$sel:connectionState:Connection' :: Connection -&gt; Maybe ConnectionState
-</span><a href="#local-6989586621679301342"><span class="hs-identifier hs-var hs-var">connectionState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
-</span><a href="#local-6989586621679301342"><span class="hs-identifier hs-var">connectionState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301341"><span class="annot"><span class="annottext">s :: Connection
-</span><a href="#local-6989586621679301341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301340"><span class="annot"><span class="annottext">Maybe ConnectionState
-</span><a href="#local-6989586621679301340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
-</span><a href="#local-6989586621679301341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionState:Connection' :: Maybe ConnectionState
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AconnectionState%3AConnection%27"><span class="hs-identifier hs-var">connectionState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
-</span><a href="#local-6989586621679301340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301522"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedTime :: Maybe POSIX
+$sel:lastModifiedTime:Connection' :: Connection -&gt; Maybe POSIX
+</span><a href="#local-6989586621679301522"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679301522"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301521"><span class="annot"><span class="annottext">s :: Connection
+</span><a href="#local-6989586621679301521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301520"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679301520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
+</span><a href="#local-6989586621679301521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:Connection' :: Maybe POSIX
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AlastModifiedTime%3AConnection%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679301520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Connection -&gt; f Connection)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Connection
+-&gt; f Connection
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The reason that the connection is in the connection state.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_stateReason"><span class="hs-identifier hs-type">connection_stateReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="connection_stateReason"><span class="annot"><span class="annottext">connection_stateReason :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connection -&gt; f Connection
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_stateReason"><span class="hs-identifier hs-var hs-var">connection_stateReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connection -&gt; Maybe Text)
+</span><span id="line-96"></span><span class="hs-comment">-- | The name of the connection.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_name"><span class="hs-identifier hs-type">connection_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="connection_name"><span class="annot"><span class="annottext">connection_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connection -&gt; f Connection
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_name"><span class="hs-identifier hs-var hs-var">connection_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connection -&gt; Maybe Text)
 -&gt; (Connection -&gt; Maybe Text -&gt; Connection)
 -&gt; Lens Connection Connection (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301338"><span class="annot"><span class="annottext">Maybe Text
-stateReason :: Maybe Text
-$sel:stateReason:Connection' :: Connection -&gt; Maybe Text
-</span><a href="#local-6989586621679301338"><span class="hs-identifier hs-var hs-var">stateReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679301338"><span class="hs-identifier hs-var">stateReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301337"><span class="annot"><span class="annottext">s :: Connection
-</span><a href="#local-6989586621679301337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301336"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679301336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
-</span><a href="#local-6989586621679301337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateReason:Connection' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AstateReason%3AConnection%27"><span class="hs-identifier hs-var">stateReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679301336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301518"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Connection' :: Connection -&gt; Maybe Text
+</span><a href="#local-6989586621679301518"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301518"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301517"><span class="annot"><span class="annottext">s :: Connection
+</span><a href="#local-6989586621679301517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301516"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
+</span><a href="#local-6989586621679301517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Connection' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3Aname%3AConnection%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The ARN of the connection.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_connectionArn"><span class="hs-identifier hs-type">connection_connectionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="connection_connectionArn"><span class="annot"><span class="annottext">connection_connectionArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connection -&gt; f Connection
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_connectionArn"><span class="hs-identifier hs-var hs-var">connection_connectionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connection -&gt; Maybe Text)
--&gt; (Connection -&gt; Maybe Text -&gt; Connection)
--&gt; Lens Connection Connection (Maybe Text) (Maybe Text)
+</span><span id="line-100"></span><span class="hs-comment">-- | A time stamp for the time that the connection was last authorized.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_lastAuthorizedTime"><span class="hs-identifier hs-type">connection_lastAuthorizedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="connection_lastAuthorizedTime"><span class="annot"><span class="annottext">connection_lastAuthorizedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Connection -&gt; f Connection
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_lastAuthorizedTime"><span class="hs-identifier hs-var hs-var">connection_lastAuthorizedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connection -&gt; Maybe POSIX)
+-&gt; (Connection -&gt; Maybe POSIX -&gt; Connection)
+-&gt; Lens Connection Connection (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301334"><span class="annot"><span class="annottext">Maybe Text
-connectionArn :: Maybe Text
-$sel:connectionArn:Connection' :: Connection -&gt; Maybe Text
-</span><a href="#local-6989586621679301334"><span class="hs-identifier hs-var hs-var">connectionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679301334"><span class="hs-identifier hs-var">connectionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301333"><span class="annot"><span class="annottext">s :: Connection
-</span><a href="#local-6989586621679301333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301332"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679301332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
-</span><a href="#local-6989586621679301333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionArn:Connection' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AconnectionArn%3AConnection%27"><span class="hs-identifier hs-var">connectionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679301332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301514"><span class="annot"><span class="annottext">Maybe POSIX
+lastAuthorizedTime :: Maybe POSIX
+$sel:lastAuthorizedTime:Connection' :: Connection -&gt; Maybe POSIX
+</span><a href="#local-6989586621679301514"><span class="hs-identifier hs-var hs-var">lastAuthorizedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679301514"><span class="hs-identifier hs-var">lastAuthorizedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301513"><span class="annot"><span class="annottext">s :: Connection
+</span><a href="#local-6989586621679301513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301512"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679301512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
+</span><a href="#local-6989586621679301513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAuthorizedTime:Connection' :: Maybe POSIX
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AlastAuthorizedTime%3AConnection%27"><span class="hs-identifier hs-var">lastAuthorizedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679301512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Connection -&gt; f Connection)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Connection
+-&gt; f Connection
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The authorization type specified for the connection.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_authorizationType"><span class="hs-identifier hs-type">connection_authorizationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType"><span class="hs-identifier hs-type">ConnectionAuthorizationType</span></a></span><span class="hs-special">)</span><span>
@@ -282,101 +305,78 @@ $sel:connectionArn:Connection' :: Connection -&gt; Maybe Text
      (Maybe ConnectionAuthorizationType)
      (Maybe ConnectionAuthorizationType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301330"><span class="annot"><span class="annottext">Maybe ConnectionAuthorizationType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301510"><span class="annot"><span class="annottext">Maybe ConnectionAuthorizationType
 authorizationType :: Maybe ConnectionAuthorizationType
 $sel:authorizationType:Connection' :: Connection -&gt; Maybe ConnectionAuthorizationType
-</span><a href="#local-6989586621679301330"><span class="hs-identifier hs-var hs-var">authorizationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionAuthorizationType
-</span><a href="#local-6989586621679301330"><span class="hs-identifier hs-var">authorizationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301329"><span class="annot"><span class="annottext">s :: Connection
-</span><a href="#local-6989586621679301329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301328"><span class="annot"><span class="annottext">Maybe ConnectionAuthorizationType
-</span><a href="#local-6989586621679301328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
-</span><a href="#local-6989586621679301329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationType:Connection' :: Maybe ConnectionAuthorizationType
+</span><a href="#local-6989586621679301510"><span class="hs-identifier hs-var hs-var">authorizationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionAuthorizationType
+</span><a href="#local-6989586621679301510"><span class="hs-identifier hs-var">authorizationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301509"><span class="annot"><span class="annottext">s :: Connection
+</span><a href="#local-6989586621679301509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301508"><span class="annot"><span class="annottext">Maybe ConnectionAuthorizationType
+</span><a href="#local-6989586621679301508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
+</span><a href="#local-6989586621679301509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationType:Connection' :: Maybe ConnectionAuthorizationType
 </span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AauthorizationType%3AConnection%27"><span class="hs-identifier hs-var">authorizationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionAuthorizationType
-</span><a href="#local-6989586621679301328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679301508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The name of the connection.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_name"><span class="hs-identifier hs-type">connection_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="connection_name"><span class="annot"><span class="annottext">connection_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connection -&gt; f Connection
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_name"><span class="hs-identifier hs-var hs-var">connection_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connection -&gt; Maybe Text)
+</span><span id="line-108"></span><span class="hs-comment">-- | The ARN of the connection.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_connectionArn"><span class="hs-identifier hs-type">connection_connectionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="connection_connectionArn"><span class="annot"><span class="annottext">connection_connectionArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connection -&gt; f Connection
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_connectionArn"><span class="hs-identifier hs-var hs-var">connection_connectionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connection -&gt; Maybe Text)
 -&gt; (Connection -&gt; Maybe Text -&gt; Connection)
 -&gt; Lens Connection Connection (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301326"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:Connection' :: Connection -&gt; Maybe Text
-</span><a href="#local-6989586621679301326"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679301326"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301325"><span class="annot"><span class="annottext">s :: Connection
-</span><a href="#local-6989586621679301325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301324"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679301324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
-</span><a href="#local-6989586621679301325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Connection' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3Aname%3AConnection%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679301324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301506"><span class="annot"><span class="annottext">Maybe Text
+connectionArn :: Maybe Text
+$sel:connectionArn:Connection' :: Connection -&gt; Maybe Text
+</span><a href="#local-6989586621679301506"><span class="hs-identifier hs-var hs-var">connectionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301506"><span class="hs-identifier hs-var">connectionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301505"><span class="annot"><span class="annottext">s :: Connection
+</span><a href="#local-6989586621679301505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301504"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
+</span><a href="#local-6989586621679301505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionArn:Connection' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AconnectionArn%3AConnection%27"><span class="hs-identifier hs-var">connectionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | A time stamp for the time that the connection was last modified.</span><span>
-</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_lastModifiedTime"><span class="hs-identifier hs-type">connection_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span id="connection_lastModifiedTime"><span class="annot"><span class="annottext">connection_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Connection -&gt; f Connection
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_lastModifiedTime"><span class="hs-identifier hs-var hs-var">connection_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connection -&gt; Maybe POSIX)
--&gt; (Connection -&gt; Maybe POSIX -&gt; Connection)
--&gt; Lens Connection Connection (Maybe POSIX) (Maybe POSIX)
+</span><span id="line-112"></span><span class="hs-comment">-- | The reason that the connection is in the connection state.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_stateReason"><span class="hs-identifier hs-type">connection_stateReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="connection_stateReason"><span class="annot"><span class="annottext">connection_stateReason :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connection -&gt; f Connection
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_stateReason"><span class="hs-identifier hs-var hs-var">connection_stateReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connection -&gt; Maybe Text)
+-&gt; (Connection -&gt; Maybe Text -&gt; Connection)
+-&gt; Lens Connection Connection (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301322"><span class="annot"><span class="annottext">Maybe POSIX
-lastModifiedTime :: Maybe POSIX
-$sel:lastModifiedTime:Connection' :: Connection -&gt; Maybe POSIX
-</span><a href="#local-6989586621679301322"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679301322"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301321"><span class="annot"><span class="annottext">s :: Connection
-</span><a href="#local-6989586621679301321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301320"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679301320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
-</span><a href="#local-6989586621679301321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:Connection' :: Maybe POSIX
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AlastModifiedTime%3AConnection%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679301320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Connection -&gt; f Connection)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; Connection
--&gt; f Connection
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301502"><span class="annot"><span class="annottext">Maybe Text
+stateReason :: Maybe Text
+$sel:stateReason:Connection' :: Connection -&gt; Maybe Text
+</span><a href="#local-6989586621679301502"><span class="hs-identifier hs-var hs-var">stateReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301502"><span class="hs-identifier hs-var">stateReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301501"><span class="annot"><span class="annottext">s :: Connection
+</span><a href="#local-6989586621679301501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301500"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
+</span><a href="#local-6989586621679301501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateReason:Connection' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AstateReason%3AConnection%27"><span class="hs-identifier hs-var">stateReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679301500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | A time stamp for the time that the connection was last authorized.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_lastAuthorizedTime"><span class="hs-identifier hs-type">connection_lastAuthorizedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="connection_lastAuthorizedTime"><span class="annot"><span class="annottext">connection_lastAuthorizedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Connection -&gt; f Connection
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_lastAuthorizedTime"><span class="hs-identifier hs-var hs-var">connection_lastAuthorizedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connection -&gt; Maybe POSIX)
--&gt; (Connection -&gt; Maybe POSIX -&gt; Connection)
--&gt; Lens Connection Connection (Maybe POSIX) (Maybe POSIX)
+</span><span id="line-116"></span><span class="hs-comment">-- | The state of the connection.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_connectionState"><span class="hs-identifier hs-type">connection_connectionState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionState.html#ConnectionState"><span class="hs-identifier hs-type">ConnectionState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="connection_connectionState"><span class="annot"><span class="annottext">connection_connectionState :: (Maybe ConnectionState -&gt; f (Maybe ConnectionState))
+-&gt; Connection -&gt; f Connection
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#connection_connectionState"><span class="hs-identifier hs-var hs-var">connection_connectionState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connection -&gt; Maybe ConnectionState)
+-&gt; (Connection -&gt; Maybe ConnectionState -&gt; Connection)
+-&gt; Lens
+     Connection
+     Connection
+     (Maybe ConnectionState)
+     (Maybe ConnectionState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301318"><span class="annot"><span class="annottext">Maybe POSIX
-lastAuthorizedTime :: Maybe POSIX
-$sel:lastAuthorizedTime:Connection' :: Connection -&gt; Maybe POSIX
-</span><a href="#local-6989586621679301318"><span class="hs-identifier hs-var hs-var">lastAuthorizedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679301318"><span class="hs-identifier hs-var">lastAuthorizedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301317"><span class="annot"><span class="annottext">s :: Connection
-</span><a href="#local-6989586621679301317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301316"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679301316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
-</span><a href="#local-6989586621679301317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAuthorizedTime:Connection' :: Maybe POSIX
-</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AlastAuthorizedTime%3AConnection%27"><span class="hs-identifier hs-var">lastAuthorizedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679301316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Connection -&gt; f Connection)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; Connection
--&gt; f Connection
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301498"><span class="annot"><span class="annottext">Maybe ConnectionState
+connectionState :: Maybe ConnectionState
+$sel:connectionState:Connection' :: Connection -&gt; Maybe ConnectionState
+</span><a href="#local-6989586621679301498"><span class="hs-identifier hs-var hs-var">connectionState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
+</span><a href="#local-6989586621679301498"><span class="hs-identifier hs-var">connectionState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301497"><span class="annot"><span class="annottext">s :: Connection
+</span><a href="#local-6989586621679301497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-type">Connection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301496"><span class="annot"><span class="annottext">Maybe ConnectionState
+</span><a href="#local-6989586621679301496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connection
+</span><a href="#local-6989586621679301497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionState:Connection' :: Maybe ConnectionState
+</span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#%24sel%3AconnectionState%3AConnection%27"><span class="hs-identifier hs-var">connectionState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionState
+</span><a href="#local-6989586621679301496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301313"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679301311"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Connection
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301493"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679301491"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Connection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Connection) -&gt; Value -&gt; Parser Connection
@@ -384,145 +384,148 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Connection&quot;</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679301308"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301308"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679301488"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301488"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe ConnectionState
+-&gt; Maybe POSIX
 -&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe ConnectionAuthorizationType
 -&gt; Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe ConnectionState
 -&gt; Connection
 </span><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection%27"><span class="hs-identifier hs-var">Connection'</span></a></span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe ConnectionState
+ -&gt; Maybe POSIX
  -&gt; Maybe Text
- -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; Maybe ConnectionAuthorizationType
  -&gt; Maybe Text
- -&gt; Maybe POSIX
- -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe ConnectionState
  -&gt; Connection)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe ConnectionState
+     (Maybe POSIX
       -&gt; Maybe Text
-      -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Maybe ConnectionAuthorizationType
       -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ConnectionState
       -&gt; Connection)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679301488"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ConnectionState
+  (Maybe POSIX
    -&gt; Maybe Text
-   -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; Maybe ConnectionAuthorizationType
    -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ConnectionState
    -&gt; Connection)
--&gt; Parser (Maybe ConnectionState)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Maybe ConnectionAuthorizationType
       -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ConnectionState
       -&gt; Connection)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConnectionState)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ConnectionState&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ConnectionAuthorizationType
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe POSIX
-   -&gt; Connection)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe ConnectionAuthorizationType
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe POSIX
-      -&gt; Connection)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StateReason&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe ConnectionAuthorizationType
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe POSIX
-   -&gt; Connection)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe ConnectionAuthorizationType
-      -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; Connection)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ConnectionArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ConnectionAuthorizationType
-   -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; Connection)
--&gt; Parser (Maybe ConnectionAuthorizationType)
--&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; Connection)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConnectionAuthorizationType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AuthorizationType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; Connection)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; Connection)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; Connection)
--&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe POSIX -&gt; Connection)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679301488"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Connection)
--&gt; Parser (Maybe POSIX) -&gt; Parser Connection
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ConnectionAuthorizationType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ConnectionState
+   -&gt; Connection)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe ConnectionAuthorizationType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ConnectionState
+      -&gt; Connection)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679301488"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe ConnectionAuthorizationType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ConnectionState
+   -&gt; Connection)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe ConnectionAuthorizationType
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe ConnectionState -&gt; Connection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301488"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastAuthorizedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ConnectionAuthorizationType
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe ConnectionState -&gt; Connection)
+-&gt; Parser (Maybe ConnectionAuthorizationType)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe ConnectionState -&gt; Connection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301488"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConnectionAuthorizationType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuthorizationType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe ConnectionState -&gt; Connection)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe ConnectionState -&gt; Connection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301488"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe ConnectionState -&gt; Connection)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ConnectionState -&gt; Connection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301488"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StateReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ConnectionState -&gt; Connection)
+-&gt; Parser (Maybe ConnectionState) -&gt; Parser Connection
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301488"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConnectionState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectionState&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301302"><span id="local-6989586621679301304"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301482"><span id="local-6989586621679301484"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span></span></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301299"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301479"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span></span><span>
 </span><span id="line-139"></span></pre></body></html>

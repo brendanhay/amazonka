@@ -29,24 +29,24 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | A Common Media Application Format (CMAF) packaging configuration.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCmafPackage' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679239436"><span id="local-6989586621679239437"></span></span><span class="hs-keyword">data</span><span> </span><span id="CmafPackage"><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-var">CmafPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafPackage%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-var">CmafPackage'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AstreamSelection%3ACmafPackage%27"><span class="annot"><span class="annottext">CmafPackage -&gt; Maybe StreamSelection
-</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AstreamSelection%3ACmafPackage%27"><span class="hs-identifier hs-var hs-var">streamSelection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A list of HLS manifest configurations</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AhlsManifests%3ACmafPackage%27"><span class="annot"><span class="annottext">CmafPackage -&gt; Maybe [HlsManifest]
+</span><span id="line-32"></span><span id="local-6989586621679239567"><span id="local-6989586621679239568"></span></span><span class="hs-keyword">data</span><span> </span><span id="CmafPackage"><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-var">CmafPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafPackage%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-var">CmafPackage'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of HLS manifest configurations</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AhlsManifests%3ACmafPackage%27"><span class="annot"><span class="annottext">CmafPackage -&gt; Maybe [HlsManifest]
 </span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AhlsManifests%3ACmafPackage%27"><span class="hs-identifier hs-var hs-var">hlsManifests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsManifest.html#HlsManifest"><span class="hs-identifier hs-type">HlsManifest</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | An optional custom string that is prepended to the name of each segment.</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- If not specified, it defaults to the ChannelId.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsegmentPrefix%3ACmafPackage%27"><span class="annot"><span class="annottext">CmafPackage -&gt; Maybe Text
-</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AsegmentPrefix%3ACmafPackage%27"><span class="hs-identifier hs-var hs-var">segmentPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Duration (in seconds) of each segment. Actual segments will be rounded</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- to the nearest multiple of the source segment duration.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsegmentDurationSeconds%3ACmafPackage%27"><span class="annot"><span class="annottext">CmafPackage -&gt; Maybe Int
+</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AsegmentDurationSeconds%3ACmafPackage%27"><span class="hs-identifier hs-var hs-var">segmentDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AstreamSelection%3ACmafPackage%27"><span class="annot"><span class="annottext">CmafPackage -&gt; Maybe StreamSelection
+</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AstreamSelection%3ACmafPackage%27"><span class="hs-identifier hs-var hs-var">streamSelection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Aencryption%3ACmafPackage%27"><span class="annot"><span class="annottext">CmafPackage -&gt; Maybe CmafEncryption
 </span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3Aencryption%3ACmafPackage%27"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Duration (in seconds) of each segment. Actual segments will be rounded</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- to the nearest multiple of the source segment duration.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsegmentDurationSeconds%3ACmafPackage%27"><span class="annot"><span class="annottext">CmafPackage -&gt; Maybe Int
-</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AsegmentDurationSeconds%3ACmafPackage%27"><span class="hs-identifier hs-var hs-var">segmentDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | An optional custom string that is prepended to the name of each segment.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- If not specified, it defaults to the ChannelId.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsegmentPrefix%3ACmafPackage%27"><span class="annot"><span class="annottext">CmafPackage -&gt; Maybe Text
+</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AsegmentPrefix%3ACmafPackage%27"><span class="hs-identifier hs-var hs-var">segmentPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239426"><span id="local-6989586621679239428"><span class="annot"><span class="annottext">CmafPackage -&gt; CmafPackage -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239557"><span id="local-6989586621679239559"><span class="annot"><span class="annottext">CmafPackage -&gt; CmafPackage -&gt; Bool
 (CmafPackage -&gt; CmafPackage -&gt; Bool)
 -&gt; (CmafPackage -&gt; CmafPackage -&gt; Bool) -&gt; Eq CmafPackage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CmafPackage -&gt; CmafPackage -&gt; Bool
 == :: CmafPackage -&gt; CmafPackage -&gt; Bool
 $c== :: CmafPackage -&gt; CmafPackage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239417"><span id="local-6989586621679239419"><span id="local-6989586621679239421"><span id="local-6989586621679239423"><span class="annot"><span class="annottext">ReadPrec [CmafPackage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239548"><span id="local-6989586621679239550"><span id="local-6989586621679239552"><span id="local-6989586621679239554"><span class="annot"><span class="annottext">ReadPrec [CmafPackage]
 ReadPrec CmafPackage
 Int -&gt; ReadS CmafPackage
 ReadS [CmafPackage]
@@ -74,7 +74,7 @@ readList :: ReadS [CmafPackage]
 $creadList :: ReadS [CmafPackage]
 readsPrec :: Int -&gt; ReadS CmafPackage
 $creadsPrec :: Int -&gt; ReadS CmafPackage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239410"><span id="local-6989586621679239412"><span id="local-6989586621679239414"><span class="annot"><span class="annottext">Int -&gt; CmafPackage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239541"><span id="local-6989586621679239543"><span id="local-6989586621679239545"><span class="annot"><span class="annottext">Int -&gt; CmafPackage -&gt; ShowS
 [CmafPackage] -&gt; ShowS
 CmafPackage -&gt; String
 (Int -&gt; CmafPackage -&gt; ShowS)
@@ -108,92 +108,69 @@ $cfrom :: forall x. CmafPackage -&gt; Rep CmafPackage x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'streamSelection', 'cmafPackage_streamSelection' - Undocumented member.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'hlsManifests', 'cmafPackage_hlsManifests' - A list of HLS manifest configurations</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'hlsManifests', 'cmafPackage_hlsManifests' - A list of HLS manifest configurations</span><span>
-</span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'segmentPrefix', 'cmafPackage_segmentPrefix' - An optional custom string that is prepended to the name of each segment.</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- If not specified, it defaults to the ChannelId.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'segmentDurationSeconds', 'cmafPackage_segmentDurationSeconds' - Duration (in seconds) of each segment. Actual segments will be rounded</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- to the nearest multiple of the source segment duration.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'streamSelection', 'cmafPackage_streamSelection' - Undocumented member.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- 'encryption', 'cmafPackage_encryption' - Undocumented member.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'segmentDurationSeconds', 'cmafPackage_segmentDurationSeconds' - Duration (in seconds) of each segment. Actual segments will be rounded</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- to the nearest multiple of the source segment duration.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'segmentPrefix', 'cmafPackage_segmentPrefix' - An optional custom string that is prepended to the name of each segment.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- If not specified, it defaults to the ChannelId.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#newCmafPackage"><span class="hs-identifier hs-type">newCmafPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span>
 </span><span id="line-67"></span><span id="newCmafPackage"><span class="annot"><span class="annottext">newCmafPackage :: CmafPackage
 </span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#newCmafPackage"><span class="hs-identifier hs-var hs-var">newCmafPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">CmafPackage' :: Maybe StreamSelection
--&gt; Maybe [HlsManifest]
--&gt; Maybe Text
--&gt; Maybe CmafEncryption
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">CmafPackage' :: Maybe [HlsManifest]
 -&gt; Maybe Int
+-&gt; Maybe StreamSelection
+-&gt; Maybe CmafEncryption
+-&gt; Maybe Text
 -&gt; CmafPackage
 </span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamSelection:CmafPackage' :: Maybe StreamSelection
-</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AstreamSelection%3ACmafPackage%27"><span class="hs-identifier hs-var">streamSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamSelection
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:hlsManifests:CmafPackage' :: Maybe [HlsManifest]
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hlsManifests:CmafPackage' :: Maybe [HlsManifest]
 </span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AhlsManifests%3ACmafPackage%27"><span class="hs-identifier hs-var">hlsManifests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HlsManifest]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:segmentPrefix:CmafPackage' :: Maybe Text
-</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AsegmentPrefix%3ACmafPackage%27"><span class="hs-identifier hs-var">segmentPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:segmentDurationSeconds:CmafPackage' :: Maybe Int
+</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AsegmentDurationSeconds%3ACmafPackage%27"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamSelection:CmafPackage' :: Maybe StreamSelection
+</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AstreamSelection%3ACmafPackage%27"><span class="hs-identifier hs-var">streamSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamSelection
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryption:CmafPackage' :: Maybe CmafEncryption
 </span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3Aencryption%3ACmafPackage%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmafEncryption
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:segmentDurationSeconds:CmafPackage' :: Maybe Int
-</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AsegmentDurationSeconds%3ACmafPackage%27"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:segmentPrefix:CmafPackage' :: Maybe Text
+</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AsegmentPrefix%3ACmafPackage%27"><span class="hs-identifier hs-var">segmentPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#cmafPackage_streamSelection"><span class="hs-identifier hs-type">cmafPackage_streamSelection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="cmafPackage_streamSelection"><span class="annot"><span class="annottext">cmafPackage_streamSelection :: (Maybe StreamSelection -&gt; f (Maybe StreamSelection))
--&gt; CmafPackage -&gt; f CmafPackage
-</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#cmafPackage_streamSelection"><span class="hs-identifier hs-var hs-var">cmafPackage_streamSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafPackage -&gt; Maybe StreamSelection)
--&gt; (CmafPackage -&gt; Maybe StreamSelection -&gt; CmafPackage)
--&gt; Lens
-     CmafPackage
-     CmafPackage
-     (Maybe StreamSelection)
-     (Maybe StreamSelection)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239401"><span class="annot"><span class="annottext">Maybe StreamSelection
-streamSelection :: Maybe StreamSelection
-$sel:streamSelection:CmafPackage' :: CmafPackage -&gt; Maybe StreamSelection
-</span><a href="#local-6989586621679239401"><span class="hs-identifier hs-var hs-var">streamSelection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StreamSelection
-</span><a href="#local-6989586621679239401"><span class="hs-identifier hs-var">streamSelection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239400"><span class="annot"><span class="annottext">s :: CmafPackage
-</span><a href="#local-6989586621679239400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239399"><span class="annot"><span class="annottext">Maybe StreamSelection
-</span><a href="#local-6989586621679239399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafPackage
-</span><a href="#local-6989586621679239400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamSelection:CmafPackage' :: Maybe StreamSelection
-</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AstreamSelection%3ACmafPackage%27"><span class="hs-identifier hs-var">streamSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamSelection
-</span><a href="#local-6989586621679239399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | A list of HLS manifest configurations</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#cmafPackage_hlsManifests"><span class="hs-identifier hs-type">cmafPackage_hlsManifests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsManifest.html#HlsManifest"><span class="hs-identifier hs-type">HlsManifest</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="cmafPackage_hlsManifests"><span class="annot"><span class="annottext">cmafPackage_hlsManifests :: (Maybe [HlsManifest] -&gt; f (Maybe [HlsManifest]))
+</span><span id="line-76"></span><span class="hs-comment">-- | A list of HLS manifest configurations</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#cmafPackage_hlsManifests"><span class="hs-identifier hs-type">cmafPackage_hlsManifests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.HlsManifest.html#HlsManifest"><span class="hs-identifier hs-type">HlsManifest</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="cmafPackage_hlsManifests"><span class="annot"><span class="annottext">cmafPackage_hlsManifests :: (Maybe [HlsManifest] -&gt; f (Maybe [HlsManifest]))
 -&gt; CmafPackage -&gt; f CmafPackage
 </span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#cmafPackage_hlsManifests"><span class="hs-identifier hs-var hs-var">cmafPackage_hlsManifests</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafPackage -&gt; Maybe [HlsManifest])
 -&gt; (CmafPackage -&gt; Maybe [HlsManifest] -&gt; CmafPackage)
 -&gt; Lens
      CmafPackage CmafPackage (Maybe [HlsManifest]) (Maybe [HlsManifest])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239397"><span class="annot"><span class="annottext">Maybe [HlsManifest]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239532"><span class="annot"><span class="annottext">Maybe [HlsManifest]
 hlsManifests :: Maybe [HlsManifest]
 $sel:hlsManifests:CmafPackage' :: CmafPackage -&gt; Maybe [HlsManifest]
-</span><a href="#local-6989586621679239397"><span class="hs-identifier hs-var hs-var">hlsManifests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HlsManifest]
-</span><a href="#local-6989586621679239397"><span class="hs-identifier hs-var">hlsManifests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239396"><span class="annot"><span class="annottext">s :: CmafPackage
-</span><a href="#local-6989586621679239396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239395"><span class="annot"><span class="annottext">Maybe [HlsManifest]
-</span><a href="#local-6989586621679239395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafPackage
-</span><a href="#local-6989586621679239396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hlsManifests:CmafPackage' :: Maybe [HlsManifest]
+</span><a href="#local-6989586621679239532"><span class="hs-identifier hs-var hs-var">hlsManifests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HlsManifest]
+</span><a href="#local-6989586621679239532"><span class="hs-identifier hs-var">hlsManifests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239531"><span class="annot"><span class="annottext">s :: CmafPackage
+</span><a href="#local-6989586621679239531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239530"><span class="annot"><span class="annottext">Maybe [HlsManifest]
+</span><a href="#local-6989586621679239530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafPackage
+</span><a href="#local-6989586621679239531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hlsManifests:CmafPackage' :: Maybe [HlsManifest]
 </span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AhlsManifests%3ACmafPackage%27"><span class="hs-identifier hs-var">hlsManifests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HlsManifest]
-</span><a href="#local-6989586621679239395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HlsManifest] -&gt; f (Maybe [HlsManifest]))
+</span><a href="#local-6989586621679239530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HlsManifest] -&gt; f (Maybe [HlsManifest]))
  -&gt; CmafPackage -&gt; f CmafPackage)
 -&gt; ((Maybe [HlsManifest] -&gt; f (Maybe [HlsManifest]))
     -&gt; Maybe [HlsManifest] -&gt; f (Maybe [HlsManifest]))
@@ -211,27 +188,50 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [HlsManifest] [HlsManifest] [HlsManifest] [HlsManifest]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | An optional custom string that is prepended to the name of each segment.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- If not specified, it defaults to the ChannelId.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#cmafPackage_segmentPrefix"><span class="hs-identifier hs-type">cmafPackage_segmentPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="cmafPackage_segmentPrefix"><span class="annot"><span class="annottext">cmafPackage_segmentPrefix :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CmafPackage -&gt; f CmafPackage
-</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#cmafPackage_segmentPrefix"><span class="hs-identifier hs-var hs-var">cmafPackage_segmentPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafPackage -&gt; Maybe Text)
--&gt; (CmafPackage -&gt; Maybe Text -&gt; CmafPackage)
--&gt; Lens CmafPackage CmafPackage (Maybe Text) (Maybe Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | Duration (in seconds) of each segment. Actual segments will be rounded</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- to the nearest multiple of the source segment duration.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#cmafPackage_segmentDurationSeconds"><span class="hs-identifier hs-type">cmafPackage_segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="cmafPackage_segmentDurationSeconds"><span class="annot"><span class="annottext">cmafPackage_segmentDurationSeconds :: (Maybe Int -&gt; f (Maybe Int)) -&gt; CmafPackage -&gt; f CmafPackage
+</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#cmafPackage_segmentDurationSeconds"><span class="hs-identifier hs-var hs-var">cmafPackage_segmentDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafPackage -&gt; Maybe Int)
+-&gt; (CmafPackage -&gt; Maybe Int -&gt; CmafPackage)
+-&gt; Lens CmafPackage CmafPackage (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239390"><span class="annot"><span class="annottext">Maybe Text
-segmentPrefix :: Maybe Text
-$sel:segmentPrefix:CmafPackage' :: CmafPackage -&gt; Maybe Text
-</span><a href="#local-6989586621679239390"><span class="hs-identifier hs-var hs-var">segmentPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239390"><span class="hs-identifier hs-var">segmentPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239389"><span class="annot"><span class="annottext">s :: CmafPackage
-</span><a href="#local-6989586621679239389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239388"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafPackage
-</span><a href="#local-6989586621679239389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentPrefix:CmafPackage' :: Maybe Text
-</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AsegmentPrefix%3ACmafPackage%27"><span class="hs-identifier hs-var">segmentPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239525"><span class="annot"><span class="annottext">Maybe Int
+segmentDurationSeconds :: Maybe Int
+$sel:segmentDurationSeconds:CmafPackage' :: CmafPackage -&gt; Maybe Int
+</span><a href="#local-6989586621679239525"><span class="hs-identifier hs-var hs-var">segmentDurationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679239525"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239524"><span class="annot"><span class="annottext">s :: CmafPackage
+</span><a href="#local-6989586621679239524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239523"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679239523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafPackage
+</span><a href="#local-6989586621679239524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentDurationSeconds:CmafPackage' :: Maybe Int
+</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AsegmentDurationSeconds%3ACmafPackage%27"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679239523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#cmafPackage_streamSelection"><span class="hs-identifier hs-type">cmafPackage_streamSelection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="cmafPackage_streamSelection"><span class="annot"><span class="annottext">cmafPackage_streamSelection :: (Maybe StreamSelection -&gt; f (Maybe StreamSelection))
+-&gt; CmafPackage -&gt; f CmafPackage
+</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#cmafPackage_streamSelection"><span class="hs-identifier hs-var hs-var">cmafPackage_streamSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafPackage -&gt; Maybe StreamSelection)
+-&gt; (CmafPackage -&gt; Maybe StreamSelection -&gt; CmafPackage)
+-&gt; Lens
+     CmafPackage
+     CmafPackage
+     (Maybe StreamSelection)
+     (Maybe StreamSelection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239521"><span class="annot"><span class="annottext">Maybe StreamSelection
+streamSelection :: Maybe StreamSelection
+$sel:streamSelection:CmafPackage' :: CmafPackage -&gt; Maybe StreamSelection
+</span><a href="#local-6989586621679239521"><span class="hs-identifier hs-var hs-var">streamSelection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StreamSelection
+</span><a href="#local-6989586621679239521"><span class="hs-identifier hs-var">streamSelection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239520"><span class="annot"><span class="annottext">s :: CmafPackage
+</span><a href="#local-6989586621679239520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239519"><span class="annot"><span class="annottext">Maybe StreamSelection
+</span><a href="#local-6989586621679239519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafPackage
+</span><a href="#local-6989586621679239520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamSelection:CmafPackage' :: Maybe StreamSelection
+</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AstreamSelection%3ACmafPackage%27"><span class="hs-identifier hs-var">streamSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamSelection
+</span><a href="#local-6989586621679239519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#cmafPackage_encryption"><span class="hs-identifier hs-type">cmafPackage_encryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafEncryption.html#CmafEncryption"><span class="hs-identifier hs-type">CmafEncryption</span></a></span><span class="hs-special">)</span><span>
@@ -245,38 +245,38 @@ $sel:segmentPrefix:CmafPackage' :: CmafPackage -&gt; Maybe Text
      (Maybe CmafEncryption)
      (Maybe CmafEncryption)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239386"><span class="annot"><span class="annottext">Maybe CmafEncryption
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239517"><span class="annot"><span class="annottext">Maybe CmafEncryption
 encryption :: Maybe CmafEncryption
 $sel:encryption:CmafPackage' :: CmafPackage -&gt; Maybe CmafEncryption
-</span><a href="#local-6989586621679239386"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmafEncryption
-</span><a href="#local-6989586621679239386"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239385"><span class="annot"><span class="annottext">s :: CmafPackage
-</span><a href="#local-6989586621679239385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239384"><span class="annot"><span class="annottext">Maybe CmafEncryption
-</span><a href="#local-6989586621679239384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafPackage
-</span><a href="#local-6989586621679239385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:CmafPackage' :: Maybe CmafEncryption
+</span><a href="#local-6989586621679239517"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmafEncryption
+</span><a href="#local-6989586621679239517"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239516"><span class="annot"><span class="annottext">s :: CmafPackage
+</span><a href="#local-6989586621679239516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239515"><span class="annot"><span class="annottext">Maybe CmafEncryption
+</span><a href="#local-6989586621679239515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafPackage
+</span><a href="#local-6989586621679239516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:CmafPackage' :: Maybe CmafEncryption
 </span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3Aencryption%3ACmafPackage%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmafEncryption
-</span><a href="#local-6989586621679239384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679239515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | Duration (in seconds) of each segment. Actual segments will be rounded</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- to the nearest multiple of the source segment duration.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#cmafPackage_segmentDurationSeconds"><span class="hs-identifier hs-type">cmafPackage_segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="cmafPackage_segmentDurationSeconds"><span class="annot"><span class="annottext">cmafPackage_segmentDurationSeconds :: (Maybe Int -&gt; f (Maybe Int)) -&gt; CmafPackage -&gt; f CmafPackage
-</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#cmafPackage_segmentDurationSeconds"><span class="hs-identifier hs-var hs-var">cmafPackage_segmentDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafPackage -&gt; Maybe Int)
--&gt; (CmafPackage -&gt; Maybe Int -&gt; CmafPackage)
--&gt; Lens CmafPackage CmafPackage (Maybe Int) (Maybe Int)
+</span><span id="line-93"></span><span class="hs-comment">-- | An optional custom string that is prepended to the name of each segment.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- If not specified, it defaults to the ChannelId.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#cmafPackage_segmentPrefix"><span class="hs-identifier hs-type">cmafPackage_segmentPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="cmafPackage_segmentPrefix"><span class="annot"><span class="annottext">cmafPackage_segmentPrefix :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CmafPackage -&gt; f CmafPackage
+</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#cmafPackage_segmentPrefix"><span class="hs-identifier hs-var hs-var">cmafPackage_segmentPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafPackage -&gt; Maybe Text)
+-&gt; (CmafPackage -&gt; Maybe Text -&gt; CmafPackage)
+-&gt; Lens CmafPackage CmafPackage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239382"><span class="annot"><span class="annottext">Maybe Int
-segmentDurationSeconds :: Maybe Int
-$sel:segmentDurationSeconds:CmafPackage' :: CmafPackage -&gt; Maybe Int
-</span><a href="#local-6989586621679239382"><span class="hs-identifier hs-var hs-var">segmentDurationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679239382"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239381"><span class="annot"><span class="annottext">s :: CmafPackage
-</span><a href="#local-6989586621679239381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239380"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679239380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafPackage
-</span><a href="#local-6989586621679239381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentDurationSeconds:CmafPackage' :: Maybe Int
-</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AsegmentDurationSeconds%3ACmafPackage%27"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679239380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239513"><span class="annot"><span class="annottext">Maybe Text
+segmentPrefix :: Maybe Text
+$sel:segmentPrefix:CmafPackage' :: CmafPackage -&gt; Maybe Text
+</span><a href="#local-6989586621679239513"><span class="hs-identifier hs-var hs-var">segmentPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239513"><span class="hs-identifier hs-var">segmentPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239512"><span class="annot"><span class="annottext">s :: CmafPackage
+</span><a href="#local-6989586621679239512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-type">CmafPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239511"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafPackage
+</span><a href="#local-6989586621679239512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentPrefix:CmafPackage' :: Maybe Text
+</span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#%24sel%3AsegmentPrefix%3ACmafPackage%27"><span class="hs-identifier hs-var">segmentPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239377"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679239375"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CmafPackage
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239508"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679239506"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CmafPackage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CmafPackage) -&gt; Value -&gt; Parser CmafPackage
@@ -284,40 +284,31 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CmafPackage&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679239372"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679239372"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe StreamSelection
--&gt; Maybe [HlsManifest]
--&gt; Maybe Text
--&gt; Maybe CmafEncryption
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679239503"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239503"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe [HlsManifest]
 -&gt; Maybe Int
+-&gt; Maybe StreamSelection
+-&gt; Maybe CmafEncryption
+-&gt; Maybe Text
 -&gt; CmafPackage
 </span><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage%27"><span class="hs-identifier hs-var">CmafPackage'</span></a></span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe StreamSelection
- -&gt; Maybe [HlsManifest]
- -&gt; Maybe Text
- -&gt; Maybe CmafEncryption
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [HlsManifest]
  -&gt; Maybe Int
+ -&gt; Maybe StreamSelection
+ -&gt; Maybe CmafEncryption
+ -&gt; Maybe Text
  -&gt; CmafPackage)
--&gt; Parser (Maybe StreamSelection)
--&gt; Parser
-     (Maybe [HlsManifest]
-      -&gt; Maybe Text -&gt; Maybe CmafEncryption -&gt; Maybe Int -&gt; CmafPackage)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679239372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StreamSelection)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;streamSelection&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [HlsManifest]
-   -&gt; Maybe Text -&gt; Maybe CmafEncryption -&gt; Maybe Int -&gt; CmafPackage)
 -&gt; Parser (Maybe [HlsManifest])
 -&gt; Parser
-     (Maybe Text -&gt; Maybe CmafEncryption -&gt; Maybe Int -&gt; CmafPackage)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679239372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [HlsManifest]))
+     (Maybe Int
+      -&gt; Maybe StreamSelection
+      -&gt; Maybe CmafEncryption
+      -&gt; Maybe Text
+      -&gt; CmafPackage)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [HlsManifest]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hlsManifests&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [HlsManifest]))
@@ -326,36 +317,53 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [HlsManifest]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text -&gt; Maybe CmafEncryption -&gt; Maybe Int -&gt; CmafPackage)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe CmafEncryption -&gt; Maybe Int -&gt; CmafPackage)
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe StreamSelection
+   -&gt; Maybe CmafEncryption
+   -&gt; Maybe Text
+   -&gt; CmafPackage)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe StreamSelection
+      -&gt; Maybe CmafEncryption -&gt; Maybe Text -&gt; CmafPackage)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679239372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;segmentPrefix&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe CmafEncryption -&gt; Maybe Int -&gt; CmafPackage)
--&gt; Parser (Maybe CmafEncryption)
--&gt; Parser (Maybe Int -&gt; CmafPackage)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679239372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmafEncryption)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;encryption&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; CmafPackage)
--&gt; Parser (Maybe Int) -&gt; Parser CmafPackage
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679239372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679239503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;segmentDurationSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe StreamSelection
+   -&gt; Maybe CmafEncryption -&gt; Maybe Text -&gt; CmafPackage)
+-&gt; Parser (Maybe StreamSelection)
+-&gt; Parser (Maybe CmafEncryption -&gt; Maybe Text -&gt; CmafPackage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StreamSelection)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;streamSelection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe CmafEncryption -&gt; Maybe Text -&gt; CmafPackage)
+-&gt; Parser (Maybe CmafEncryption)
+-&gt; Parser (Maybe Text -&gt; CmafPackage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmafEncryption)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryption&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; CmafPackage)
+-&gt; Parser (Maybe Text) -&gt; Parser CmafPackage
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;segmentPrefix&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239365"><span id="local-6989586621679239367"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239496"><span id="local-6989586621679239498"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239493"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span></span><span>
 </span><span id="line-114"></span></pre></body></html>

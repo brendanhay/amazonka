@@ -27,21 +27,21 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A summary of information about a pipeline.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPipelineSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679258088"><span id="local-6989586621679258089"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineSummary"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-var">PipelineSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineSummary%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-var">PipelineSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679258292"><span id="local-6989586621679258293"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineSummary"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-var">PipelineSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineSummary%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-var">PipelineSummary'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When the pipeline was created.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AcreationTime%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe POSIX
 </span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#%24sel%3AcreationTime%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | When the pipeline was last updated.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlastUpdateTime%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe POSIX
-</span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#%24sel%3AlastUpdateTime%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the pipeline.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3ApipelineName%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe Text
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#%24sel%3ApipelineName%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A summary of information about the pipeline reprocessing.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AreprocessingSummaries%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe [ReprocessingSummary]
 </span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#%24sel%3AreprocessingSummaries%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">reprocessingSummaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the pipeline.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3ApipelineName%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe Text
-</span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#%24sel%3ApipelineName%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | When the pipeline was last updated.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlastUpdateTime%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#%24sel%3AlastUpdateTime%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258079"><span id="local-6989586621679258081"><span class="annot"><span class="annottext">PipelineSummary -&gt; PipelineSummary -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258283"><span id="local-6989586621679258285"><span class="annot"><span class="annottext">PipelineSummary -&gt; PipelineSummary -&gt; Bool
 (PipelineSummary -&gt; PipelineSummary -&gt; Bool)
 -&gt; (PipelineSummary -&gt; PipelineSummary -&gt; Bool)
 -&gt; Eq PipelineSummary
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PipelineSummary -&gt; PipelineSummary -&gt; Bool
 == :: PipelineSummary -&gt; PipelineSummary -&gt; Bool
 $c== :: PipelineSummary -&gt; PipelineSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258070"><span id="local-6989586621679258072"><span id="local-6989586621679258074"><span id="local-6989586621679258076"><span class="annot"><span class="annottext">ReadPrec [PipelineSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258274"><span id="local-6989586621679258276"><span id="local-6989586621679258278"><span id="local-6989586621679258280"><span class="annot"><span class="annottext">ReadPrec [PipelineSummary]
 ReadPrec PipelineSummary
 Int -&gt; ReadS PipelineSummary
 ReadS [PipelineSummary]
@@ -70,7 +70,7 @@ readList :: ReadS [PipelineSummary]
 $creadList :: ReadS [PipelineSummary]
 readsPrec :: Int -&gt; ReadS PipelineSummary
 $creadsPrec :: Int -&gt; ReadS PipelineSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258063"><span id="local-6989586621679258065"><span id="local-6989586621679258067"><span class="annot"><span class="annottext">Int -&gt; PipelineSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258267"><span id="local-6989586621679258269"><span id="local-6989586621679258271"><span class="annot"><span class="annottext">Int -&gt; PipelineSummary -&gt; ShowS
 [PipelineSummary] -&gt; ShowS
 PipelineSummary -&gt; String
 (Int -&gt; PipelineSummary -&gt; ShowS)
@@ -106,35 +106,35 @@ $cfrom :: forall x. PipelineSummary -&gt; Rep PipelineSummary x
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- 'creationTime', 'pipelineSummary_creationTime' - When the pipeline was created.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'lastUpdateTime', 'pipelineSummary_lastUpdateTime' - When the pipeline was last updated.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'pipelineName', 'pipelineSummary_pipelineName' - The name of the pipeline.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- 'reprocessingSummaries', 'pipelineSummary_reprocessingSummaries' - A summary of information about the pipeline reprocessing.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'pipelineName', 'pipelineSummary_pipelineName' - The name of the pipeline.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'lastUpdateTime', 'pipelineSummary_lastUpdateTime' - When the pipeline was last updated.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#newPipelineSummary"><span class="hs-identifier hs-type">newPipelineSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span>
 </span><span id="line-59"></span><span id="newPipelineSummary"><span class="annot"><span class="annottext">newPipelineSummary :: PipelineSummary
 </span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#newPipelineSummary"><span class="hs-identifier hs-var hs-var">newPipelineSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">PipelineSummary' :: Maybe POSIX
--&gt; Maybe POSIX
--&gt; Maybe [ReprocessingSummary]
 -&gt; Maybe Text
+-&gt; Maybe [ReprocessingSummary]
+-&gt; Maybe POSIX
 -&gt; PipelineSummary
 </span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:PipelineSummary' :: Maybe POSIX
 </span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#%24sel%3AcreationTime%3APipelineSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdateTime:PipelineSummary' :: Maybe POSIX
-</span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#%24sel%3AlastUpdateTime%3APipelineSummary%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineName:PipelineSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#%24sel%3ApipelineName%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:reprocessingSummaries:PipelineSummary' :: Maybe [ReprocessingSummary]
 </span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#%24sel%3AreprocessingSummaries%3APipelineSummary%27"><span class="hs-identifier hs-var">reprocessingSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReprocessingSummary]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineName:PipelineSummary' :: Maybe Text
-</span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#%24sel%3ApipelineName%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdateTime:PipelineSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#%24sel%3AlastUpdateTime%3APipelineSummary%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
@@ -147,16 +147,16 @@ forall a. Maybe a
 -&gt; (PipelineSummary -&gt; Maybe POSIX -&gt; PipelineSummary)
 -&gt; Lens PipelineSummary PipelineSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258054"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258258"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:PipelineSummary' :: PipelineSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679258054"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679258054"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258053"><span class="annot"><span class="annottext">s :: PipelineSummary
-</span><a href="#local-6989586621679258053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258052"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679258052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
-</span><a href="#local-6989586621679258053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:PipelineSummary' :: Maybe POSIX
+</span><a href="#local-6989586621679258258"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679258258"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258257"><span class="annot"><span class="annottext">s :: PipelineSummary
+</span><a href="#local-6989586621679258257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258256"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679258256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
+</span><a href="#local-6989586621679258257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:PipelineSummary' :: Maybe POSIX
 </span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#%24sel%3AcreationTime%3APipelineSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679258052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679258256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; PipelineSummary -&gt; f PipelineSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -173,39 +173,24 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | When the pipeline was last updated.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#pipelineSummary_lastUpdateTime"><span class="hs-identifier hs-type">pipelineSummary_lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="pipelineSummary_lastUpdateTime"><span class="annot"><span class="annottext">pipelineSummary_lastUpdateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-71"></span><span class="hs-comment">-- | The name of the pipeline.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#pipelineSummary_pipelineName"><span class="hs-identifier hs-type">pipelineSummary_pipelineName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="pipelineSummary_pipelineName"><span class="annot"><span class="annottext">pipelineSummary_pipelineName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PipelineSummary -&gt; f PipelineSummary
-</span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#pipelineSummary_lastUpdateTime"><span class="hs-identifier hs-var hs-var">pipelineSummary_lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineSummary -&gt; Maybe POSIX)
--&gt; (PipelineSummary -&gt; Maybe POSIX -&gt; PipelineSummary)
--&gt; Lens PipelineSummary PipelineSummary (Maybe POSIX) (Maybe POSIX)
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#pipelineSummary_pipelineName"><span class="hs-identifier hs-var hs-var">pipelineSummary_pipelineName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineSummary -&gt; Maybe Text)
+-&gt; (PipelineSummary -&gt; Maybe Text -&gt; PipelineSummary)
+-&gt; Lens PipelineSummary PipelineSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258047"><span class="annot"><span class="annottext">Maybe POSIX
-lastUpdateTime :: Maybe POSIX
-$sel:lastUpdateTime:PipelineSummary' :: PipelineSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679258047"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679258047"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258046"><span class="annot"><span class="annottext">s :: PipelineSummary
-</span><a href="#local-6989586621679258046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258045"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679258045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
-</span><a href="#local-6989586621679258046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateTime:PipelineSummary' :: Maybe POSIX
-</span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#%24sel%3AlastUpdateTime%3APipelineSummary%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679258045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; PipelineSummary -&gt; f PipelineSummary)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; PipelineSummary
--&gt; f PipelineSummary
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258251"><span class="annot"><span class="annottext">Maybe Text
+pipelineName :: Maybe Text
+$sel:pipelineName:PipelineSummary' :: PipelineSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679258251"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679258251"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258250"><span class="annot"><span class="annottext">s :: PipelineSummary
+</span><a href="#local-6989586621679258250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258249"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679258249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
+</span><a href="#local-6989586621679258250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineName:PipelineSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#%24sel%3ApipelineName%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679258249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | A summary of information about the pipeline reprocessing.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#pipelineSummary_reprocessingSummaries"><span class="hs-identifier hs-type">pipelineSummary_reprocessingSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -220,16 +205,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe [ReprocessingSummary])
      (Maybe [ReprocessingSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258043"><span class="annot"><span class="annottext">Maybe [ReprocessingSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258247"><span class="annot"><span class="annottext">Maybe [ReprocessingSummary]
 reprocessingSummaries :: Maybe [ReprocessingSummary]
 $sel:reprocessingSummaries:PipelineSummary' :: PipelineSummary -&gt; Maybe [ReprocessingSummary]
-</span><a href="#local-6989586621679258043"><span class="hs-identifier hs-var hs-var">reprocessingSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReprocessingSummary]
-</span><a href="#local-6989586621679258043"><span class="hs-identifier hs-var">reprocessingSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258042"><span class="annot"><span class="annottext">s :: PipelineSummary
-</span><a href="#local-6989586621679258042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258041"><span class="annot"><span class="annottext">Maybe [ReprocessingSummary]
-</span><a href="#local-6989586621679258041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
-</span><a href="#local-6989586621679258042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reprocessingSummaries:PipelineSummary' :: Maybe [ReprocessingSummary]
+</span><a href="#local-6989586621679258247"><span class="hs-identifier hs-var hs-var">reprocessingSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReprocessingSummary]
+</span><a href="#local-6989586621679258247"><span class="hs-identifier hs-var">reprocessingSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258246"><span class="annot"><span class="annottext">s :: PipelineSummary
+</span><a href="#local-6989586621679258246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258245"><span class="annot"><span class="annottext">Maybe [ReprocessingSummary]
+</span><a href="#local-6989586621679258245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
+</span><a href="#local-6989586621679258246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reprocessingSummaries:PipelineSummary' :: Maybe [ReprocessingSummary]
 </span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#%24sel%3AreprocessingSummaries%3APipelineSummary%27"><span class="hs-identifier hs-var">reprocessingSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReprocessingSummary]
-</span><a href="#local-6989586621679258041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReprocessingSummary] -&gt; f (Maybe [ReprocessingSummary]))
+</span><a href="#local-6989586621679258245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReprocessingSummary] -&gt; f (Maybe [ReprocessingSummary]))
  -&gt; PipelineSummary -&gt; f PipelineSummary)
 -&gt; ((Maybe [ReprocessingSummary]
      -&gt; f (Maybe [ReprocessingSummary]))
@@ -256,30 +241,45 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ReprocessingSummary]
   [ReprocessingSummary]
   [ReprocessingSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | The name of the pipeline.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#pipelineSummary_pipelineName"><span class="hs-identifier hs-type">pipelineSummary_pipelineName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="pipelineSummary_pipelineName"><span class="annot"><span class="annottext">pipelineSummary_pipelineName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-79"></span><span class="hs-comment">-- | When the pipeline was last updated.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#pipelineSummary_lastUpdateTime"><span class="hs-identifier hs-type">pipelineSummary_lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="pipelineSummary_lastUpdateTime"><span class="annot"><span class="annottext">pipelineSummary_lastUpdateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; PipelineSummary -&gt; f PipelineSummary
-</span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#pipelineSummary_pipelineName"><span class="hs-identifier hs-var hs-var">pipelineSummary_pipelineName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineSummary -&gt; Maybe Text)
--&gt; (PipelineSummary -&gt; Maybe Text -&gt; PipelineSummary)
--&gt; Lens PipelineSummary PipelineSummary (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#pipelineSummary_lastUpdateTime"><span class="hs-identifier hs-var hs-var">pipelineSummary_lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineSummary -&gt; Maybe POSIX)
+-&gt; (PipelineSummary -&gt; Maybe POSIX -&gt; PipelineSummary)
+-&gt; Lens PipelineSummary PipelineSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258038"><span class="annot"><span class="annottext">Maybe Text
-pipelineName :: Maybe Text
-$sel:pipelineName:PipelineSummary' :: PipelineSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679258038"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258038"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258037"><span class="annot"><span class="annottext">s :: PipelineSummary
-</span><a href="#local-6989586621679258037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258036"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
-</span><a href="#local-6989586621679258037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineName:PipelineSummary' :: Maybe Text
-</span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#%24sel%3ApipelineName%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258242"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdateTime :: Maybe POSIX
+$sel:lastUpdateTime:PipelineSummary' :: PipelineSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679258242"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679258242"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258241"><span class="annot"><span class="annottext">s :: PipelineSummary
+</span><a href="#local-6989586621679258241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258240"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679258240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
+</span><a href="#local-6989586621679258241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateTime:PipelineSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#%24sel%3AlastUpdateTime%3APipelineSummary%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679258240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; PipelineSummary -&gt; f PipelineSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PipelineSummary
+-&gt; f PipelineSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258033"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679258031"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineSummary
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258237"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679258235"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PipelineSummary)
@@ -289,48 +289,48 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PipelineSummary&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258028"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258028"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258232"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258232"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe POSIX
--&gt; Maybe [ReprocessingSummary]
 -&gt; Maybe Text
+-&gt; Maybe [ReprocessingSummary]
+-&gt; Maybe POSIX
 -&gt; PipelineSummary
 </span><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-var">PipelineSummary'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe POSIX
- -&gt; Maybe [ReprocessingSummary]
  -&gt; Maybe Text
+ -&gt; Maybe [ReprocessingSummary]
+ -&gt; Maybe POSIX
  -&gt; PipelineSummary)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe [ReprocessingSummary] -&gt; Maybe Text -&gt; PipelineSummary)
+     (Maybe Text
+      -&gt; Maybe [ReprocessingSummary] -&gt; Maybe POSIX -&gt; PipelineSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258028"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679258232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe [ReprocessingSummary] -&gt; Maybe Text -&gt; PipelineSummary)
--&gt; Parser (Maybe POSIX)
+  (Maybe Text
+   -&gt; Maybe [ReprocessingSummary] -&gt; Maybe POSIX -&gt; PipelineSummary)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe [ReprocessingSummary] -&gt; Maybe Text -&gt; PipelineSummary)
+     (Maybe [ReprocessingSummary] -&gt; Maybe POSIX -&gt; PipelineSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258028"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679258232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lastUpdateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;pipelineName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [ReprocessingSummary] -&gt; Maybe Text -&gt; PipelineSummary)
+  (Maybe [ReprocessingSummary] -&gt; Maybe POSIX -&gt; PipelineSummary)
 -&gt; Parser (Maybe [ReprocessingSummary])
--&gt; Parser (Maybe Text -&gt; PipelineSummary)
+-&gt; Parser (Maybe POSIX -&gt; PipelineSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258028"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ReprocessingSummary]))
+</span><a href="#local-6989586621679258232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ReprocessingSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;reprocessingSummaries&quot;</span></span><span>
@@ -342,17 +342,17 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-93"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PipelineSummary)
--&gt; Parser (Maybe Text) -&gt; Parser PipelineSummary
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; PipelineSummary)
+-&gt; Parser (Maybe POSIX) -&gt; Parser PipelineSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258028"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679258232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;pipelineName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;lastUpdateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258021"><span id="local-6989586621679258023"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258225"><span id="local-6989586621679258227"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258018"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258222"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span></span><span>
 </span><span id="line-100"></span></pre></body></html>

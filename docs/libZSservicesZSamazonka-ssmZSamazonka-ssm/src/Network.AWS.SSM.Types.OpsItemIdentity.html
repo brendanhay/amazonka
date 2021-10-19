@@ -26,13 +26,13 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about the user or resource that created an OpsItem event.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newOpsItemIdentity' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679802334"><span id="local-6989586621679802335"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpsItemIdentity"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#OpsItemIdentity"><span class="hs-identifier hs-var">OpsItemIdentity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsItemIdentity%27"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#OpsItemIdentity%27"><span class="hs-identifier hs-var">OpsItemIdentity'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679803998"><span id="local-6989586621679803999"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpsItemIdentity"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#OpsItemIdentity"><span class="hs-identifier hs-var">OpsItemIdentity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsItemIdentity%27"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#OpsItemIdentity%27"><span class="hs-identifier hs-var">OpsItemIdentity'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM entity that created the</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- OpsItem event.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aarn%3AOpsItemIdentity%27"><span class="annot"><span class="annottext">OpsItemIdentity -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#%24sel%3Aarn%3AOpsItemIdentity%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679802328"><span id="local-6989586621679802330"><span class="annot"><span class="annottext">OpsItemIdentity -&gt; OpsItemIdentity -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679803992"><span id="local-6989586621679803994"><span class="annot"><span class="annottext">OpsItemIdentity -&gt; OpsItemIdentity -&gt; Bool
 (OpsItemIdentity -&gt; OpsItemIdentity -&gt; Bool)
 -&gt; (OpsItemIdentity -&gt; OpsItemIdentity -&gt; Bool)
 -&gt; Eq OpsItemIdentity
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OpsItemIdentity -&gt; OpsItemIdentity -&gt; Bool
 == :: OpsItemIdentity -&gt; OpsItemIdentity -&gt; Bool
 $c== :: OpsItemIdentity -&gt; OpsItemIdentity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679802319"><span id="local-6989586621679802321"><span id="local-6989586621679802323"><span id="local-6989586621679802325"><span class="annot"><span class="annottext">ReadPrec [OpsItemIdentity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803983"><span id="local-6989586621679803985"><span id="local-6989586621679803987"><span id="local-6989586621679803989"><span class="annot"><span class="annottext">ReadPrec [OpsItemIdentity]
 ReadPrec OpsItemIdentity
 Int -&gt; ReadS OpsItemIdentity
 ReadS [OpsItemIdentity]
@@ -61,7 +61,7 @@ readList :: ReadS [OpsItemIdentity]
 $creadList :: ReadS [OpsItemIdentity]
 readsPrec :: Int -&gt; ReadS OpsItemIdentity
 $creadsPrec :: Int -&gt; ReadS OpsItemIdentity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679802312"><span id="local-6989586621679802314"><span id="local-6989586621679802316"><span class="annot"><span class="annottext">Int -&gt; OpsItemIdentity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803976"><span id="local-6989586621679803978"><span id="local-6989586621679803980"><span class="annot"><span class="annottext">Int -&gt; OpsItemIdentity -&gt; ShowS
 [OpsItemIdentity] -&gt; ShowS
 OpsItemIdentity -&gt; String
 (Int -&gt; OpsItemIdentity -&gt; ShowS)
@@ -116,19 +116,19 @@ forall a. Maybe a
 -&gt; (OpsItemIdentity -&gt; Maybe Text -&gt; OpsItemIdentity)
 -&gt; Lens OpsItemIdentity OpsItemIdentity (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#OpsItemIdentity%27"><span class="hs-identifier hs-type">OpsItemIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679802303"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#OpsItemIdentity%27"><span class="hs-identifier hs-type">OpsItemIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803967"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:OpsItemIdentity' :: OpsItemIdentity -&gt; Maybe Text
-</span><a href="#local-6989586621679802303"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679802303"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679802302"><span class="annot"><span class="annottext">s :: OpsItemIdentity
-</span><a href="#local-6989586621679802302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#OpsItemIdentity%27"><span class="hs-identifier hs-type">OpsItemIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679802301"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679802301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsItemIdentity
-</span><a href="#local-6989586621679802302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:OpsItemIdentity' :: Maybe Text
+</span><a href="#local-6989586621679803967"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679803967"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803966"><span class="annot"><span class="annottext">s :: OpsItemIdentity
+</span><a href="#local-6989586621679803966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#OpsItemIdentity%27"><span class="hs-identifier hs-type">OpsItemIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803965"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679803965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsItemIdentity
+</span><a href="#local-6989586621679803966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:OpsItemIdentity' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#%24sel%3Aarn%3AOpsItemIdentity%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679802301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#OpsItemIdentity"><span class="hs-identifier hs-type">OpsItemIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679803965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#OpsItemIdentity"><span class="hs-identifier hs-type">OpsItemIdentity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679802298"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#OpsItemIdentity"><span class="hs-identifier hs-type">OpsItemIdentity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679802296"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OpsItemIdentity
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803962"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#OpsItemIdentity"><span class="hs-identifier hs-type">OpsItemIdentity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679803960"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OpsItemIdentity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OpsItemIdentity)
@@ -138,20 +138,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OpsItemIdentity&quot;</span></span><span>
-</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679802293"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679802293"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679803957"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679803957"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; OpsItemIdentity
 </span><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#OpsItemIdentity%27"><span class="hs-identifier hs-var">OpsItemIdentity'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; OpsItemIdentity)
 -&gt; Parser (Maybe Text) -&gt; Parser OpsItemIdentity
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679802293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679803957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679802287"><span id="local-6989586621679802289"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#OpsItemIdentity"><span class="hs-identifier hs-type">OpsItemIdentity</span></a></span></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803951"><span id="local-6989586621679803953"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#OpsItemIdentity"><span class="hs-identifier hs-type">OpsItemIdentity</span></a></span></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679802284"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#OpsItemIdentity"><span class="hs-identifier hs-type">OpsItemIdentity</span></a></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803948"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemIdentity.html#OpsItemIdentity"><span class="hs-identifier hs-type">OpsItemIdentity</span></a></span></span><span>
 </span><span id="line-67"></span></pre></body></html>

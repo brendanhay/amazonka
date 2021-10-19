@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679454406"><span id="local-6989586621679454407"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LaunchType"><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType"><span class="hs-identifier hs-var">LaunchType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchType%27"><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType%27"><span class="hs-identifier hs-var">LaunchType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679455123"><span id="local-6989586621679455124"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LaunchType"><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType"><span class="hs-identifier hs-var">LaunchType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchType%27"><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType%27"><span class="hs-identifier hs-var">LaunchType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLaunchType"><span class="annot"><span class="annottext">LaunchType -&gt; Text
 </span><a href="Network.AWS.ECS.Types.LaunchType.html#fromLaunchType"><span class="hs-identifier hs-var hs-var">fromLaunchType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679454398"><span id="local-6989586621679454400"><span id="local-6989586621679454402"><span class="annot"><span class="annottext">Int -&gt; LaunchType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679455115"><span id="local-6989586621679455117"><span id="local-6989586621679455119"><span class="annot"><span class="annottext">Int -&gt; LaunchType -&gt; ShowS
 [LaunchType] -&gt; ShowS
 LaunchType -&gt; String
 (Int -&gt; LaunchType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: LaunchType -&gt; String
 showsPrec :: Int -&gt; LaunchType -&gt; ShowS
 $cshowsPrec :: Int -&gt; LaunchType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679454389"><span id="local-6989586621679454391"><span id="local-6989586621679454393"><span id="local-6989586621679454395"><span class="annot"><span class="annottext">ReadPrec [LaunchType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679455106"><span id="local-6989586621679455108"><span id="local-6989586621679455110"><span id="local-6989586621679455112"><span class="annot"><span class="annottext">ReadPrec [LaunchType]
 ReadPrec LaunchType
 Int -&gt; ReadS LaunchType
 ReadS [LaunchType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [LaunchType]
 readsPrec :: Int -&gt; ReadS LaunchType
 $creadsPrec :: Int -&gt; ReadS LaunchType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679454384"><span id="local-6989586621679454386"><span class="annot"><span class="annottext">LaunchType -&gt; LaunchType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679455101"><span id="local-6989586621679455103"><span class="annot"><span class="annottext">LaunchType -&gt; LaunchType -&gt; Bool
 (LaunchType -&gt; LaunchType -&gt; Bool)
 -&gt; (LaunchType -&gt; LaunchType -&gt; Bool) -&gt; Eq LaunchType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: LaunchType -&gt; LaunchType -&gt; Bool
 == :: LaunchType -&gt; LaunchType -&gt; Bool
 $c== :: LaunchType -&gt; LaunchType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679454368"><span id="local-6989586621679454370"><span id="local-6989586621679454372"><span id="local-6989586621679454374"><span id="local-6989586621679454376"><span id="local-6989586621679454378"><span id="local-6989586621679454380"><span class="annot"><span class="annottext">Eq LaunchType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679455085"><span id="local-6989586621679455087"><span id="local-6989586621679455089"><span id="local-6989586621679455091"><span id="local-6989586621679455093"><span id="local-6989586621679455095"><span id="local-6989586621679455097"><span class="annot"><span class="annottext">Eq LaunchType
 Eq LaunchType
 -&gt; (LaunchType -&gt; LaunchType -&gt; Ordering)
 -&gt; (LaunchType -&gt; LaunchType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. LaunchType -&gt; Rep LaunchType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679454360"><span id="local-6989586621679454362"><span class="annot"><span class="annottext">Int -&gt; LaunchType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679455077"><span id="local-6989586621679455079"><span class="annot"><span class="annottext">Int -&gt; LaunchType -&gt; Int
 LaunchType -&gt; Int
 (Int -&gt; LaunchType -&gt; Int)
 -&gt; (LaunchType -&gt; Int) -&gt; Hashable LaunchType
@@ -142,49 +142,49 @@ $chash :: LaunchType -&gt; Int
 hashWithSalt :: Int -&gt; LaunchType -&gt; Int
 $chashWithSalt :: Int -&gt; LaunchType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679454357"><span class="annot"><span class="annottext">LaunchType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679455074"><span class="annot"><span class="annottext">LaunchType -&gt; ()
 (LaunchType -&gt; ()) -&gt; NFData LaunchType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LaunchType -&gt; ()
 $crnf :: LaunchType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679454354"><span class="annot"><span class="annottext">Text -&gt; Either String LaunchType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679455071"><span class="annot"><span class="annottext">Text -&gt; Either String LaunchType
 (Text -&gt; Either String LaunchType) -&gt; FromText LaunchType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LaunchType
 $cfromText :: Text -&gt; Either String LaunchType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679454351"><span class="annot"><span class="annottext">LaunchType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679455068"><span class="annot"><span class="annottext">LaunchType -&gt; Text
 (LaunchType -&gt; Text) -&gt; ToText LaunchType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LaunchType -&gt; Text
 $ctoText :: LaunchType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679454348"><span class="annot"><span class="annottext">LaunchType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679455065"><span class="annot"><span class="annottext">LaunchType -&gt; ByteString
 (LaunchType -&gt; ByteString) -&gt; ToByteString LaunchType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LaunchType -&gt; ByteString
 $ctoBS :: LaunchType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679454345"><span class="annot"><span class="annottext">LaunchType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679455062"><span class="annot"><span class="annottext">LaunchType -&gt; ByteStringBuilder
 (LaunchType -&gt; ByteStringBuilder) -&gt; ToLog LaunchType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LaunchType -&gt; ByteStringBuilder
 $cbuild :: LaunchType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679454342"><span class="annot"><span class="annottext">HeaderName -&gt; LaunchType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679455059"><span class="annot"><span class="annottext">HeaderName -&gt; LaunchType -&gt; [Header]
 (HeaderName -&gt; LaunchType -&gt; [Header]) -&gt; ToHeader LaunchType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LaunchType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LaunchType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679454339"><span class="annot"><span class="annottext">LaunchType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679455056"><span class="annot"><span class="annottext">LaunchType -&gt; QueryString
 (LaunchType -&gt; QueryString) -&gt; ToQuery LaunchType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LaunchType -&gt; QueryString
 $ctoQuery :: LaunchType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679454334"><span id="local-6989586621679454336"><span class="annot"><span class="annottext">Value -&gt; Parser [LaunchType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679455051"><span id="local-6989586621679455053"><span class="annot"><span class="annottext">Value -&gt; Parser [LaunchType]
 Value -&gt; Parser LaunchType
 (Value -&gt; Parser LaunchType)
 -&gt; (Value -&gt; Parser [LaunchType]) -&gt; FromJSON LaunchType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [LaunchType]
 parseJSON :: Value -&gt; Parser LaunchType
 $cparseJSON :: Value -&gt; Parser LaunchType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679454329"><span id="local-6989586621679454331"><span class="annot"><span class="annottext">FromJSONKeyFunction [LaunchType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679455046"><span id="local-6989586621679455048"><span class="annot"><span class="annottext">FromJSONKeyFunction [LaunchType]
 FromJSONKeyFunction LaunchType
 FromJSONKeyFunction LaunchType
 -&gt; FromJSONKeyFunction [LaunchType] -&gt; FromJSONKey LaunchType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LaunchType]
 fromJSONKey :: FromJSONKeyFunction LaunchType
 $cfromJSONKey :: FromJSONKeyFunction LaunchType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679454320"><span id="local-6989586621679454322"><span id="local-6989586621679454324"><span id="local-6989586621679454326"><span class="annot"><span class="annottext">[LaunchType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679455037"><span id="local-6989586621679455039"><span id="local-6989586621679455041"><span id="local-6989586621679455043"><span class="annot"><span class="annottext">[LaunchType] -&gt; Encoding
 [LaunchType] -&gt; Value
 LaunchType -&gt; Encoding
 LaunchType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: LaunchType -&gt; Encoding
 toJSON :: LaunchType -&gt; Value
 $ctoJSON :: LaunchType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679454315"><span id="local-6989586621679454317"><span class="annot"><span class="annottext">ToJSONKeyFunction [LaunchType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679455032"><span id="local-6989586621679455034"><span class="annot"><span class="annottext">ToJSONKeyFunction [LaunchType]
 ToJSONKeyFunction LaunchType
 ToJSONKeyFunction LaunchType
 -&gt; ToJSONKeyFunction [LaunchType] -&gt; ToJSONKey LaunchType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LaunchType]
 toJSONKey :: ToJSONKeyFunction LaunchType
 $ctoJSONKey :: ToJSONKeyFunction LaunchType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679454312"><span class="annot"><span class="annottext">[Node] -&gt; Either String LaunchType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679455029"><span class="annot"><span class="annottext">[Node] -&gt; Either String LaunchType
 ([Node] -&gt; Either String LaunchType) -&gt; FromXML LaunchType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LaunchType
 $cparseXML :: [Node] -&gt; Either String LaunchType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679454309"><span class="annot"><span class="annottext">LaunchType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679455026"><span class="annot"><span class="annottext">LaunchType -&gt; XML
 (LaunchType -&gt; XML) -&gt; ToXML LaunchType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LaunchType -&gt; XML

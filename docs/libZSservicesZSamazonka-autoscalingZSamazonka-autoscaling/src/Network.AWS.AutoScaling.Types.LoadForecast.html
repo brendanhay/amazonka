@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- the metric specification.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newLoadForecast' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679330898"><span id="local-6989586621679330899"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoadForecast"><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast"><span class="hs-identifier hs-var">LoadForecast</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoadForecast%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast%27"><span class="hs-identifier hs-var">LoadForecast'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679331556"><span id="local-6989586621679331557"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoadForecast"><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast"><span class="hs-identifier hs-var">LoadForecast</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoadForecast%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast%27"><span class="hs-identifier hs-var">LoadForecast'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time stamps for the data points, in UTC format.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Atimestamps%3ALoadForecast%27"><span class="annot"><span class="annottext">LoadForecast -&gt; [ISO8601]
 </span><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#%24sel%3Atimestamps%3ALoadForecast%27"><span class="hs-identifier hs-var hs-var">timestamps</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AmetricSpecification%3ALoadForecast%27"><span class="annot"><span class="annottext">LoadForecast -&gt; PredictiveScalingMetricSpecification
 </span><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#%24sel%3AmetricSpecification%3ALoadForecast%27"><span class="hs-identifier hs-var hs-var">metricSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330890"><span id="local-6989586621679330892"><span class="annot"><span class="annottext">LoadForecast -&gt; LoadForecast -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331548"><span id="local-6989586621679331550"><span class="annot"><span class="annottext">LoadForecast -&gt; LoadForecast -&gt; Bool
 (LoadForecast -&gt; LoadForecast -&gt; Bool)
 -&gt; (LoadForecast -&gt; LoadForecast -&gt; Bool) -&gt; Eq LoadForecast
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LoadForecast -&gt; LoadForecast -&gt; Bool
 == :: LoadForecast -&gt; LoadForecast -&gt; Bool
 $c== :: LoadForecast -&gt; LoadForecast -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330881"><span id="local-6989586621679330883"><span id="local-6989586621679330885"><span id="local-6989586621679330887"><span class="annot"><span class="annottext">ReadPrec [LoadForecast]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331539"><span id="local-6989586621679331541"><span id="local-6989586621679331543"><span id="local-6989586621679331545"><span class="annot"><span class="annottext">ReadPrec [LoadForecast]
 ReadPrec LoadForecast
 Int -&gt; ReadS LoadForecast
 ReadS [LoadForecast]
@@ -69,7 +69,7 @@ readList :: ReadS [LoadForecast]
 $creadList :: ReadS [LoadForecast]
 readsPrec :: Int -&gt; ReadS LoadForecast
 $creadsPrec :: Int -&gt; ReadS LoadForecast
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330874"><span id="local-6989586621679330876"><span id="local-6989586621679330878"><span class="annot"><span class="annottext">Int -&gt; LoadForecast -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331532"><span id="local-6989586621679331534"><span id="local-6989586621679331536"><span class="annot"><span class="annottext">Int -&gt; LoadForecast -&gt; ShowS
 [LoadForecast] -&gt; ShowS
 LoadForecast -&gt; String
 (Int -&gt; LoadForecast -&gt; ShowS)
@@ -113,8 +113,8 @@ $cfrom :: forall x. LoadForecast -&gt; Rep LoadForecast x
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast"><span class="hs-identifier hs-type">LoadForecast</span></a></span><span>
 </span><span id="line-60"></span><span id="newLoadForecast"><span class="annot"><span class="annottext">newLoadForecast :: PredictiveScalingMetricSpecification -&gt; LoadForecast
-</span><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#newLoadForecast"><span class="hs-identifier hs-var hs-var">newLoadForecast</span></a></span></span><span> </span><span id="local-6989586621679330868"><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
-</span><a href="#local-6989586621679330868"><span class="hs-identifier hs-var">pMetricSpecification_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#newLoadForecast"><span class="hs-identifier hs-var hs-var">newLoadForecast</span></a></span></span><span> </span><span id="local-6989586621679331526"><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
+</span><a href="#local-6989586621679331526"><span class="hs-identifier hs-var">pMetricSpecification_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">LoadForecast' :: [ISO8601]
 -&gt; [Double] -&gt; PredictiveScalingMetricSpecification -&gt; LoadForecast
 </span><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast%27"><span class="hs-identifier hs-type">LoadForecast'</span></a></span><span>
@@ -128,7 +128,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricSpecification:LoadForecast' :: PredictiveScalingMetricSpecification
 </span><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#%24sel%3AmetricSpecification%3ALoadForecast%27"><span class="hs-identifier hs-var">metricSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
-</span><a href="#local-6989586621679330868"><span class="hs-identifier hs-var">pMetricSpecification_</span></a></span><span>
+</span><a href="#local-6989586621679331526"><span class="hs-identifier hs-var">pMetricSpecification_</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The time stamps for the data points, in UTC format.</span><span>
@@ -138,24 +138,24 @@ forall a. Monoid a =&gt; a
 -&gt; (LoadForecast -&gt; [ISO8601] -&gt; LoadForecast)
 -&gt; Lens LoadForecast LoadForecast [ISO8601] [ISO8601]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast%27"><span class="hs-identifier hs-type">LoadForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330864"><span class="annot"><span class="annottext">[ISO8601]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast%27"><span class="hs-identifier hs-type">LoadForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331522"><span class="annot"><span class="annottext">[ISO8601]
 timestamps :: [ISO8601]
 $sel:timestamps:LoadForecast' :: LoadForecast -&gt; [ISO8601]
-</span><a href="#local-6989586621679330864"><span class="hs-identifier hs-var hs-var">timestamps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ISO8601]
-</span><a href="#local-6989586621679330864"><span class="hs-identifier hs-var">timestamps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330863"><span class="annot"><span class="annottext">s :: LoadForecast
-</span><a href="#local-6989586621679330863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast%27"><span class="hs-identifier hs-type">LoadForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330862"><span class="annot"><span class="annottext">[ISO8601]
-</span><a href="#local-6989586621679330862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadForecast
-</span><a href="#local-6989586621679330863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamps:LoadForecast' :: [ISO8601]
+</span><a href="#local-6989586621679331522"><span class="hs-identifier hs-var hs-var">timestamps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ISO8601]
+</span><a href="#local-6989586621679331522"><span class="hs-identifier hs-var">timestamps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331521"><span class="annot"><span class="annottext">s :: LoadForecast
+</span><a href="#local-6989586621679331521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast%27"><span class="hs-identifier hs-type">LoadForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331520"><span class="annot"><span class="annottext">[ISO8601]
+</span><a href="#local-6989586621679331520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadForecast
+</span><a href="#local-6989586621679331521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamps:LoadForecast' :: [ISO8601]
 </span><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#%24sel%3Atimestamps%3ALoadForecast%27"><span class="hs-identifier hs-var">timestamps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ISO8601]
-</span><a href="#local-6989586621679330862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast"><span class="hs-identifier hs-type">LoadForecast</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ISO8601] -&gt; f [ISO8601]) -&gt; LoadForecast -&gt; f LoadForecast)
+</span><a href="#local-6989586621679331520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast"><span class="hs-identifier hs-type">LoadForecast</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ISO8601] -&gt; f [ISO8601]) -&gt; LoadForecast -&gt; f LoadForecast)
 -&gt; (([UTCTime] -&gt; f [UTCTime]) -&gt; [ISO8601] -&gt; f [ISO8601])
 -&gt; ([UTCTime] -&gt; f [UTCTime])
 -&gt; LoadForecast
 -&gt; f LoadForecast
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([UTCTime] -&gt; f [UTCTime]) -&gt; [ISO8601] -&gt; f [ISO8601]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The values of the data points.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#loadForecast_values"><span class="hs-identifier hs-type">loadForecast_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast"><span class="hs-identifier hs-type">LoadForecast</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">]</span><span>
@@ -164,24 +164,24 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (LoadForecast -&gt; [Double] -&gt; LoadForecast)
 -&gt; Lens LoadForecast LoadForecast [Double] [Double]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast%27"><span class="hs-identifier hs-type">LoadForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330858"><span class="annot"><span class="annottext">[Double]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast%27"><span class="hs-identifier hs-type">LoadForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331516"><span class="annot"><span class="annottext">[Double]
 values :: [Double]
 $sel:values:LoadForecast' :: LoadForecast -&gt; [Double]
-</span><a href="#local-6989586621679330858"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Double]
-</span><a href="#local-6989586621679330858"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330857"><span class="annot"><span class="annottext">s :: LoadForecast
-</span><a href="#local-6989586621679330857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast%27"><span class="hs-identifier hs-type">LoadForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330856"><span class="annot"><span class="annottext">[Double]
-</span><a href="#local-6989586621679330856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadForecast
-</span><a href="#local-6989586621679330857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:LoadForecast' :: [Double]
+</span><a href="#local-6989586621679331516"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Double]
+</span><a href="#local-6989586621679331516"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331515"><span class="annot"><span class="annottext">s :: LoadForecast
+</span><a href="#local-6989586621679331515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast%27"><span class="hs-identifier hs-type">LoadForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331514"><span class="annot"><span class="annottext">[Double]
+</span><a href="#local-6989586621679331514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadForecast
+</span><a href="#local-6989586621679331515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:LoadForecast' :: [Double]
 </span><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#%24sel%3Avalues%3ALoadForecast%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Double]
-</span><a href="#local-6989586621679330856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast"><span class="hs-identifier hs-type">LoadForecast</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Double] -&gt; f [Double]) -&gt; LoadForecast -&gt; f LoadForecast)
+</span><a href="#local-6989586621679331514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast"><span class="hs-identifier hs-type">LoadForecast</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Double] -&gt; f [Double]) -&gt; LoadForecast -&gt; f LoadForecast)
 -&gt; (([Double] -&gt; f [Double]) -&gt; [Double] -&gt; f [Double])
 -&gt; ([Double] -&gt; f [Double])
 -&gt; LoadForecast
 -&gt; f LoadForecast
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Double] -&gt; f [Double]) -&gt; [Double] -&gt; f [Double]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The metric specification for the load forecast.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#loadForecast_metricSpecification"><span class="hs-identifier hs-type">loadForecast_metricSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast"><span class="hs-identifier hs-type">LoadForecast</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span>
@@ -197,21 +197,21 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      PredictiveScalingMetricSpecification
      PredictiveScalingMetricSpecification
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast%27"><span class="hs-identifier hs-type">LoadForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330854"><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast%27"><span class="hs-identifier hs-type">LoadForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331512"><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
 metricSpecification :: PredictiveScalingMetricSpecification
 $sel:metricSpecification:LoadForecast' :: LoadForecast -&gt; PredictiveScalingMetricSpecification
-</span><a href="#local-6989586621679330854"><span class="hs-identifier hs-var hs-var">metricSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
-</span><a href="#local-6989586621679330854"><span class="hs-identifier hs-var">metricSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330853"><span class="annot"><span class="annottext">s :: LoadForecast
-</span><a href="#local-6989586621679330853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast%27"><span class="hs-identifier hs-type">LoadForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330852"><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
-</span><a href="#local-6989586621679330852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadForecast
-</span><a href="#local-6989586621679330853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricSpecification:LoadForecast' :: PredictiveScalingMetricSpecification
+</span><a href="#local-6989586621679331512"><span class="hs-identifier hs-var hs-var">metricSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
+</span><a href="#local-6989586621679331512"><span class="hs-identifier hs-var">metricSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331511"><span class="annot"><span class="annottext">s :: LoadForecast
+</span><a href="#local-6989586621679331511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast%27"><span class="hs-identifier hs-type">LoadForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331510"><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
+</span><a href="#local-6989586621679331510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadForecast
+</span><a href="#local-6989586621679331511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricSpecification:LoadForecast' :: PredictiveScalingMetricSpecification
 </span><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#%24sel%3AmetricSpecification%3ALoadForecast%27"><span class="hs-identifier hs-var">metricSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
-</span><a href="#local-6989586621679330852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast"><span class="hs-identifier hs-type">LoadForecast</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679331510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast"><span class="hs-identifier hs-type">LoadForecast</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast"><span class="hs-identifier hs-type">LoadForecast</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679330849"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LoadForecast
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679330847"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679330847"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679331507"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LoadForecast
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679331505"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331505"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[ISO8601]
 -&gt; [Double] -&gt; PredictiveScalingMetricSpecification -&gt; LoadForecast
 </span><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast%27"><span class="hs-identifier hs-var">LoadForecast'</span></a></span><span>
@@ -225,7 +225,7 @@ $sel:metricSpecification:LoadForecast' :: LoadForecast -&gt; PredictiveScalingMe
      ([Double] -&gt; PredictiveScalingMetricSpecification -&gt; LoadForecast)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679330847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679331505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timestamps&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -249,7 +249,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
      String (PredictiveScalingMetricSpecification -&gt; LoadForecast)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679330847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679331505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -271,13 +271,13 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String LoadForecast
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679330847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String PredictiveScalingMetricSpecification
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MetricSpecification&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330838"><span id="local-6989586621679330840"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast"><span class="hs-identifier hs-type">LoadForecast</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331496"><span id="local-6989586621679331498"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast"><span class="hs-identifier hs-type">LoadForecast</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330835"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast"><span class="hs-identifier hs-type">LoadForecast</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331493"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LoadForecast.html#LoadForecast"><span class="hs-identifier hs-type">LoadForecast</span></a></span></span><span>
 </span><span id="line-93"></span></pre></body></html>

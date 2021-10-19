@@ -27,16 +27,16 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The IAM SAML identity provider used for federated authentication.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFederatedAuthenticationRequest' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681072825"><span id="local-6989586621681072826"></span></span><span class="hs-keyword">data</span><span> </span><span id="FederatedAuthenticationRequest"><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest"><span class="hs-identifier hs-var">FederatedAuthenticationRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FederatedAuthenticationRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest%27"><span class="hs-identifier hs-var">FederatedAuthenticationRequest'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM SAML identity provider for the</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- self-service portal.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AselfServiceSAMLProviderArn%3AFederatedAuthenticationRequest%27"><span class="annot"><span class="annottext">FederatedAuthenticationRequest -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#%24sel%3AselfServiceSAMLProviderArn%3AFederatedAuthenticationRequest%27"><span class="hs-identifier hs-var hs-var">selfServiceSAMLProviderArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM SAML identity provider.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsAMLProviderArn%3AFederatedAuthenticationRequest%27"><span class="annot"><span class="annottext">FederatedAuthenticationRequest -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#%24sel%3AsAMLProviderArn%3AFederatedAuthenticationRequest%27"><span class="hs-identifier hs-var hs-var">sAMLProviderArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681106852"><span id="local-6989586621681106853"></span></span><span class="hs-keyword">data</span><span> </span><span id="FederatedAuthenticationRequest"><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest"><span class="hs-identifier hs-var">FederatedAuthenticationRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FederatedAuthenticationRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest%27"><span class="hs-identifier hs-var">FederatedAuthenticationRequest'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM SAML identity provider.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AsAMLProviderArn%3AFederatedAuthenticationRequest%27"><span class="annot"><span class="annottext">FederatedAuthenticationRequest -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#%24sel%3AsAMLProviderArn%3AFederatedAuthenticationRequest%27"><span class="hs-identifier hs-var hs-var">sAMLProviderArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM SAML identity provider for the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- self-service portal.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AselfServiceSAMLProviderArn%3AFederatedAuthenticationRequest%27"><span class="annot"><span class="annottext">FederatedAuthenticationRequest -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#%24sel%3AselfServiceSAMLProviderArn%3AFederatedAuthenticationRequest%27"><span class="hs-identifier hs-var hs-var">selfServiceSAMLProviderArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681072818"><span id="local-6989586621681072820"><span class="annot"><span class="annottext">FederatedAuthenticationRequest
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681106845"><span id="local-6989586621681106847"><span class="annot"><span class="annottext">FederatedAuthenticationRequest
 -&gt; FederatedAuthenticationRequest -&gt; Bool
 (FederatedAuthenticationRequest
  -&gt; FederatedAuthenticationRequest -&gt; Bool)
@@ -52,7 +52,7 @@ $c/= :: FederatedAuthenticationRequest
 -&gt; FederatedAuthenticationRequest -&gt; Bool
 $c== :: FederatedAuthenticationRequest
 -&gt; FederatedAuthenticationRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681072809"><span id="local-6989586621681072811"><span id="local-6989586621681072813"><span id="local-6989586621681072815"><span class="annot"><span class="annottext">ReadPrec [FederatedAuthenticationRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681106836"><span id="local-6989586621681106838"><span id="local-6989586621681106840"><span id="local-6989586621681106842"><span class="annot"><span class="annottext">ReadPrec [FederatedAuthenticationRequest]
 ReadPrec FederatedAuthenticationRequest
 Int -&gt; ReadS FederatedAuthenticationRequest
 ReadS [FederatedAuthenticationRequest]
@@ -72,7 +72,7 @@ readList :: ReadS [FederatedAuthenticationRequest]
 $creadList :: ReadS [FederatedAuthenticationRequest]
 readsPrec :: Int -&gt; ReadS FederatedAuthenticationRequest
 $creadsPrec :: Int -&gt; ReadS FederatedAuthenticationRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681072802"><span id="local-6989586621681072804"><span id="local-6989586621681072806"><span class="annot"><span class="annottext">Int -&gt; FederatedAuthenticationRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681106829"><span id="local-6989586621681106831"><span id="local-6989586621681106833"><span class="annot"><span class="annottext">Int -&gt; FederatedAuthenticationRequest -&gt; ShowS
 [FederatedAuthenticationRequest] -&gt; ShowS
 FederatedAuthenticationRequest -&gt; String
 (Int -&gt; FederatedAuthenticationRequest -&gt; ShowS)
@@ -118,56 +118,31 @@ FederatedAuthenticationRequest
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'selfServiceSAMLProviderArn', 'federatedAuthenticationRequest_selfServiceSAMLProviderArn' - The Amazon Resource Name (ARN) of the IAM SAML identity provider for the</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- self-service portal.</span><span>
-</span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'sAMLProviderArn', 'federatedAuthenticationRequest_sAMLProviderArn' - The Amazon Resource Name (ARN) of the IAM SAML identity provider.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'sAMLProviderArn', 'federatedAuthenticationRequest_sAMLProviderArn' - The Amazon Resource Name (ARN) of the IAM SAML identity provider.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'selfServiceSAMLProviderArn', 'federatedAuthenticationRequest_selfServiceSAMLProviderArn' - The Amazon Resource Name (ARN) of the IAM SAML identity provider for the</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- self-service portal.</span><span>
 </span><span id="line-51"></span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#newFederatedAuthenticationRequest"><span class="hs-identifier hs-type">newFederatedAuthenticationRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest"><span class="hs-identifier hs-type">FederatedAuthenticationRequest</span></a></span><span>
 </span><span id="line-53"></span><span id="newFederatedAuthenticationRequest"><span class="annot"><span class="annottext">newFederatedAuthenticationRequest :: FederatedAuthenticationRequest
 </span><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#newFederatedAuthenticationRequest"><span class="hs-identifier hs-var hs-var">newFederatedAuthenticationRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">FederatedAuthenticationRequest' :: Maybe Text -&gt; Maybe Text -&gt; FederatedAuthenticationRequest
 </span><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest%27"><span class="hs-identifier hs-type">FederatedAuthenticationRequest'</span></a></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:selfServiceSAMLProviderArn:FederatedAuthenticationRequest' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#%24sel%3AselfServiceSAMLProviderArn%3AFederatedAuthenticationRequest%27"><span class="hs-identifier hs-var">selfServiceSAMLProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sAMLProviderArn:FederatedAuthenticationRequest' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#%24sel%3AsAMLProviderArn%3AFederatedAuthenticationRequest%27"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:sAMLProviderArn:FederatedAuthenticationRequest' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#%24sel%3AsAMLProviderArn%3AFederatedAuthenticationRequest%27"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:selfServiceSAMLProviderArn:FederatedAuthenticationRequest' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#%24sel%3AselfServiceSAMLProviderArn%3AFederatedAuthenticationRequest%27"><span class="hs-identifier hs-var">selfServiceSAMLProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM SAML identity provider for the</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- self-service portal.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#federatedAuthenticationRequest_selfServiceSAMLProviderArn"><span class="hs-identifier hs-type">federatedAuthenticationRequest_selfServiceSAMLProviderArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest"><span class="hs-identifier hs-type">FederatedAuthenticationRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="federatedAuthenticationRequest_selfServiceSAMLProviderArn"><span class="annot"><span class="annottext">federatedAuthenticationRequest_selfServiceSAMLProviderArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; FederatedAuthenticationRequest
--&gt; f FederatedAuthenticationRequest
-</span><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#federatedAuthenticationRequest_selfServiceSAMLProviderArn"><span class="hs-identifier hs-var hs-var">federatedAuthenticationRequest_selfServiceSAMLProviderArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FederatedAuthenticationRequest -&gt; Maybe Text)
--&gt; (FederatedAuthenticationRequest
-    -&gt; Maybe Text -&gt; FederatedAuthenticationRequest)
--&gt; Lens
-     FederatedAuthenticationRequest
-     FederatedAuthenticationRequest
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest%27"><span class="hs-identifier hs-type">FederatedAuthenticationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681072793"><span class="annot"><span class="annottext">Maybe Text
-selfServiceSAMLProviderArn :: Maybe Text
-$sel:selfServiceSAMLProviderArn:FederatedAuthenticationRequest' :: FederatedAuthenticationRequest -&gt; Maybe Text
-</span><a href="#local-6989586621681072793"><span class="hs-identifier hs-var hs-var">selfServiceSAMLProviderArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072793"><span class="hs-identifier hs-var">selfServiceSAMLProviderArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681072792"><span class="annot"><span class="annottext">s :: FederatedAuthenticationRequest
-</span><a href="#local-6989586621681072792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest%27"><span class="hs-identifier hs-type">FederatedAuthenticationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681072791"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FederatedAuthenticationRequest
-</span><a href="#local-6989586621681072792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selfServiceSAMLProviderArn:FederatedAuthenticationRequest' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#%24sel%3AselfServiceSAMLProviderArn%3AFederatedAuthenticationRequest%27"><span class="hs-identifier hs-var">selfServiceSAMLProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest"><span class="hs-identifier hs-type">FederatedAuthenticationRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM SAML identity provider.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#federatedAuthenticationRequest_sAMLProviderArn"><span class="hs-identifier hs-type">federatedAuthenticationRequest_sAMLProviderArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest"><span class="hs-identifier hs-type">FederatedAuthenticationRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="federatedAuthenticationRequest_sAMLProviderArn"><span class="annot"><span class="annottext">federatedAuthenticationRequest_sAMLProviderArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM SAML identity provider.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#federatedAuthenticationRequest_sAMLProviderArn"><span class="hs-identifier hs-type">federatedAuthenticationRequest_sAMLProviderArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest"><span class="hs-identifier hs-type">FederatedAuthenticationRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="federatedAuthenticationRequest_sAMLProviderArn"><span class="annot"><span class="annottext">federatedAuthenticationRequest_sAMLProviderArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; FederatedAuthenticationRequest
 -&gt; f FederatedAuthenticationRequest
 </span><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#federatedAuthenticationRequest_sAMLProviderArn"><span class="hs-identifier hs-var hs-var">federatedAuthenticationRequest_sAMLProviderArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FederatedAuthenticationRequest -&gt; Maybe Text)
@@ -179,46 +154,72 @@ $sel:selfServiceSAMLProviderArn:FederatedAuthenticationRequest' :: FederatedAuth
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest%27"><span class="hs-identifier hs-type">FederatedAuthenticationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681072789"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest%27"><span class="hs-identifier hs-type">FederatedAuthenticationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106820"><span class="annot"><span class="annottext">Maybe Text
 sAMLProviderArn :: Maybe Text
 $sel:sAMLProviderArn:FederatedAuthenticationRequest' :: FederatedAuthenticationRequest -&gt; Maybe Text
-</span><a href="#local-6989586621681072789"><span class="hs-identifier hs-var hs-var">sAMLProviderArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072789"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681072788"><span class="annot"><span class="annottext">s :: FederatedAuthenticationRequest
-</span><a href="#local-6989586621681072788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest%27"><span class="hs-identifier hs-type">FederatedAuthenticationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681072787"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FederatedAuthenticationRequest
-</span><a href="#local-6989586621681072788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sAMLProviderArn:FederatedAuthenticationRequest' :: Maybe Text
+</span><a href="#local-6989586621681106820"><span class="hs-identifier hs-var hs-var">sAMLProviderArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106820"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106819"><span class="annot"><span class="annottext">s :: FederatedAuthenticationRequest
+</span><a href="#local-6989586621681106819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest%27"><span class="hs-identifier hs-type">FederatedAuthenticationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106818"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FederatedAuthenticationRequest
+</span><a href="#local-6989586621681106819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sAMLProviderArn:FederatedAuthenticationRequest' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#%24sel%3AsAMLProviderArn%3AFederatedAuthenticationRequest%27"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest"><span class="hs-identifier hs-type">FederatedAuthenticationRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621681072783"><span id="local-6989586621681072785"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
-</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest"><span class="hs-identifier hs-type">FederatedAuthenticationRequest</span></a></span></span></span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621681072780"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest"><span class="hs-identifier hs-type">FederatedAuthenticationRequest</span></a></span></span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest"><span class="hs-identifier hs-type">FederatedAuthenticationRequest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621681072776"><span class="annot"><span class="annottext">toQuery :: FederatedAuthenticationRequest -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest%27"><span class="hs-identifier hs-type">FederatedAuthenticationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681072773"><span id="local-6989586621681072774"><span class="annot"><span class="annottext">Maybe Text
-sAMLProviderArn :: Maybe Text
+</span><a href="#local-6989586621681106818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest"><span class="hs-identifier hs-type">FederatedAuthenticationRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM SAML identity provider for the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- self-service portal.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#federatedAuthenticationRequest_selfServiceSAMLProviderArn"><span class="hs-identifier hs-type">federatedAuthenticationRequest_selfServiceSAMLProviderArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest"><span class="hs-identifier hs-type">FederatedAuthenticationRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="federatedAuthenticationRequest_selfServiceSAMLProviderArn"><span class="annot"><span class="annottext">federatedAuthenticationRequest_selfServiceSAMLProviderArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FederatedAuthenticationRequest
+-&gt; f FederatedAuthenticationRequest
+</span><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#federatedAuthenticationRequest_selfServiceSAMLProviderArn"><span class="hs-identifier hs-var hs-var">federatedAuthenticationRequest_selfServiceSAMLProviderArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FederatedAuthenticationRequest -&gt; Maybe Text)
+-&gt; (FederatedAuthenticationRequest
+    -&gt; Maybe Text -&gt; FederatedAuthenticationRequest)
+-&gt; Lens
+     FederatedAuthenticationRequest
+     FederatedAuthenticationRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest%27"><span class="hs-identifier hs-type">FederatedAuthenticationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106816"><span class="annot"><span class="annottext">Maybe Text
 selfServiceSAMLProviderArn :: Maybe Text
-$sel:sAMLProviderArn:FederatedAuthenticationRequest' :: FederatedAuthenticationRequest -&gt; Maybe Text
 $sel:selfServiceSAMLProviderArn:FederatedAuthenticationRequest' :: FederatedAuthenticationRequest -&gt; Maybe Text
-</span><a href="#local-6989586621681072773"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+</span><a href="#local-6989586621681106816"><span class="hs-identifier hs-var hs-var">selfServiceSAMLProviderArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106816"><span class="hs-identifier hs-var">selfServiceSAMLProviderArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106815"><span class="annot"><span class="annottext">s :: FederatedAuthenticationRequest
+</span><a href="#local-6989586621681106815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest%27"><span class="hs-identifier hs-type">FederatedAuthenticationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106814"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FederatedAuthenticationRequest
+</span><a href="#local-6989586621681106815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selfServiceSAMLProviderArn:FederatedAuthenticationRequest' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#%24sel%3AselfServiceSAMLProviderArn%3AFederatedAuthenticationRequest%27"><span class="hs-identifier hs-var">selfServiceSAMLProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest"><span class="hs-identifier hs-type">FederatedAuthenticationRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621681106810"><span id="local-6989586621681106812"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest"><span class="hs-identifier hs-type">FederatedAuthenticationRequest</span></a></span></span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621681106807"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest"><span class="hs-identifier hs-type">FederatedAuthenticationRequest</span></a></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest"><span class="hs-identifier hs-type">FederatedAuthenticationRequest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621681106803"><span class="annot"><span class="annottext">toQuery :: FederatedAuthenticationRequest -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthenticationRequest.html#FederatedAuthenticationRequest%27"><span class="hs-identifier hs-type">FederatedAuthenticationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106800"><span id="local-6989586621681106801"><span class="annot"><span class="annottext">Maybe Text
+selfServiceSAMLProviderArn :: Maybe Text
+sAMLProviderArn :: Maybe Text
+$sel:selfServiceSAMLProviderArn:FederatedAuthenticationRequest' :: FederatedAuthenticationRequest -&gt; Maybe Text
+$sel:sAMLProviderArn:FederatedAuthenticationRequest' :: FederatedAuthenticationRequest -&gt; Maybe Text
+</span><a href="#local-6989586621681106800"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;SelfServiceSAMLProviderArn&quot;</span></span><span>
-</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072774"><span class="hs-identifier hs-var">selfServiceSAMLProviderArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-81"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SAMLProviderArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072773"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-84"></span></pre></body></html>
+</span><a href="#local-6989586621681106801"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SelfServiceSAMLProviderArn&quot;</span></span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106800"><span class="hs-identifier hs-var">selfServiceSAMLProviderArn</span></a></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-85"></span></pre></body></html>

@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The key of a tag.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTagKeyOnly' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679197890"><span id="local-6989586621679197891"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagKeyOnly"><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly"><span class="hs-identifier hs-var">TagKeyOnly</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagKeyOnly%27"><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly%27"><span class="hs-identifier hs-var">TagKeyOnly'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679198122"><span id="local-6989586621679198123"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagKeyOnly"><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly"><span class="hs-identifier hs-var">TagKeyOnly</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagKeyOnly%27"><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly%27"><span class="hs-identifier hs-var">TagKeyOnly'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the key.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Akey%3ATagKeyOnly%27"><span class="annot"><span class="annottext">TagKeyOnly -&gt; Maybe Text
 </span><a href="Network.AWS.ELB.Types.TagKeyOnly.html#%24sel%3Akey%3ATagKeyOnly%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197884"><span id="local-6989586621679197886"><span class="annot"><span class="annottext">TagKeyOnly -&gt; TagKeyOnly -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198116"><span id="local-6989586621679198118"><span class="annot"><span class="annottext">TagKeyOnly -&gt; TagKeyOnly -&gt; Bool
 (TagKeyOnly -&gt; TagKeyOnly -&gt; Bool)
 -&gt; (TagKeyOnly -&gt; TagKeyOnly -&gt; Bool) -&gt; Eq TagKeyOnly
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagKeyOnly -&gt; TagKeyOnly -&gt; Bool
 == :: TagKeyOnly -&gt; TagKeyOnly -&gt; Bool
 $c== :: TagKeyOnly -&gt; TagKeyOnly -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197875"><span id="local-6989586621679197877"><span id="local-6989586621679197879"><span id="local-6989586621679197881"><span class="annot"><span class="annottext">ReadPrec [TagKeyOnly]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198107"><span id="local-6989586621679198109"><span id="local-6989586621679198111"><span id="local-6989586621679198113"><span class="annot"><span class="annottext">ReadPrec [TagKeyOnly]
 ReadPrec TagKeyOnly
 Int -&gt; ReadS TagKeyOnly
 ReadS [TagKeyOnly]
@@ -60,7 +60,7 @@ readList :: ReadS [TagKeyOnly]
 $creadList :: ReadS [TagKeyOnly]
 readsPrec :: Int -&gt; ReadS TagKeyOnly
 $creadsPrec :: Int -&gt; ReadS TagKeyOnly
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197868"><span id="local-6989586621679197870"><span id="local-6989586621679197872"><span class="annot"><span class="annottext">Int -&gt; TagKeyOnly -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198100"><span id="local-6989586621679198102"><span id="local-6989586621679198104"><span class="annot"><span class="annottext">Int -&gt; TagKeyOnly -&gt; ShowS
 [TagKeyOnly] -&gt; ShowS
 TagKeyOnly -&gt; String
 (Int -&gt; TagKeyOnly -&gt; ShowS)
@@ -110,32 +110,32 @@ forall a. Maybe a
 -&gt; (TagKeyOnly -&gt; Maybe Text -&gt; TagKeyOnly)
 -&gt; Lens TagKeyOnly TagKeyOnly (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly%27"><span class="hs-identifier hs-type">TagKeyOnly'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197859"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly%27"><span class="hs-identifier hs-type">TagKeyOnly'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198091"><span class="annot"><span class="annottext">Maybe Text
 key :: Maybe Text
 $sel:key:TagKeyOnly' :: TagKeyOnly -&gt; Maybe Text
-</span><a href="#local-6989586621679197859"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197859"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197858"><span class="annot"><span class="annottext">s :: TagKeyOnly
-</span><a href="#local-6989586621679197858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly%27"><span class="hs-identifier hs-type">TagKeyOnly'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197857"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagKeyOnly
-</span><a href="#local-6989586621679197858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:TagKeyOnly' :: Maybe Text
+</span><a href="#local-6989586621679198091"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198091"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198090"><span class="annot"><span class="annottext">s :: TagKeyOnly
+</span><a href="#local-6989586621679198090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly%27"><span class="hs-identifier hs-type">TagKeyOnly'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198089"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagKeyOnly
+</span><a href="#local-6989586621679198090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:TagKeyOnly' :: Maybe Text
 </span><a href="Network.AWS.ELB.Types.TagKeyOnly.html#%24sel%3Akey%3ATagKeyOnly%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly"><span class="hs-identifier hs-type">TagKeyOnly</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly"><span class="hs-identifier hs-type">TagKeyOnly</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197853"><span id="local-6989586621679197855"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly"><span class="hs-identifier hs-type">TagKeyOnly</span></a></span></span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198085"><span id="local-6989586621679198087"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly"><span class="hs-identifier hs-type">TagKeyOnly</span></a></span></span></span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197850"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly"><span class="hs-identifier hs-type">TagKeyOnly</span></a></span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198082"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly"><span class="hs-identifier hs-type">TagKeyOnly</span></a></span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly"><span class="hs-identifier hs-type">TagKeyOnly</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679197846"><span class="annot"><span class="annottext">toQuery :: TagKeyOnly -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly%27"><span class="hs-identifier hs-type">TagKeyOnly'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197844"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679198078"><span class="annot"><span class="annottext">toQuery :: TagKeyOnly -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.TagKeyOnly.html#TagKeyOnly%27"><span class="hs-identifier hs-type">TagKeyOnly'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198076"><span class="annot"><span class="annottext">Maybe Text
 key :: Maybe Text
 $sel:key:TagKeyOnly' :: TagKeyOnly -&gt; Maybe Text
-</span><a href="#local-6989586621679197844"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679198076"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197844"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679198076"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-60"></span></pre></body></html>

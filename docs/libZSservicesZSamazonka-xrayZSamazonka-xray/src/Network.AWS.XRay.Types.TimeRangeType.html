@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679256742"><span id="local-6989586621679256743"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TimeRangeType"><span class="annot"><a href="Network.AWS.XRay.Types.TimeRangeType.html#TimeRangeType"><span class="hs-identifier hs-var">TimeRangeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeRangeType%27"><span class="annot"><a href="Network.AWS.XRay.Types.TimeRangeType.html#TimeRangeType%27"><span class="hs-identifier hs-var">TimeRangeType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679257033"><span id="local-6989586621679257034"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TimeRangeType"><span class="annot"><a href="Network.AWS.XRay.Types.TimeRangeType.html#TimeRangeType"><span class="hs-identifier hs-var">TimeRangeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeRangeType%27"><span class="annot"><a href="Network.AWS.XRay.Types.TimeRangeType.html#TimeRangeType%27"><span class="hs-identifier hs-var">TimeRangeType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTimeRangeType"><span class="annot"><span class="annottext">TimeRangeType -&gt; Text
 </span><a href="Network.AWS.XRay.Types.TimeRangeType.html#fromTimeRangeType"><span class="hs-identifier hs-var hs-var">fromTimeRangeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679256734"><span id="local-6989586621679256736"><span id="local-6989586621679256738"><span class="annot"><span class="annottext">Int -&gt; TimeRangeType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679257025"><span id="local-6989586621679257027"><span id="local-6989586621679257029"><span class="annot"><span class="annottext">Int -&gt; TimeRangeType -&gt; ShowS
 [TimeRangeType] -&gt; ShowS
 TimeRangeType -&gt; String
 (Int -&gt; TimeRangeType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: TimeRangeType -&gt; String
 showsPrec :: Int -&gt; TimeRangeType -&gt; ShowS
 $cshowsPrec :: Int -&gt; TimeRangeType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679256725"><span id="local-6989586621679256727"><span id="local-6989586621679256729"><span id="local-6989586621679256731"><span class="annot"><span class="annottext">ReadPrec [TimeRangeType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679257016"><span id="local-6989586621679257018"><span id="local-6989586621679257020"><span id="local-6989586621679257022"><span class="annot"><span class="annottext">ReadPrec [TimeRangeType]
 ReadPrec TimeRangeType
 Int -&gt; ReadS TimeRangeType
 ReadS [TimeRangeType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [TimeRangeType]
 readsPrec :: Int -&gt; ReadS TimeRangeType
 $creadsPrec :: Int -&gt; ReadS TimeRangeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679256720"><span id="local-6989586621679256722"><span class="annot"><span class="annottext">TimeRangeType -&gt; TimeRangeType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679257011"><span id="local-6989586621679257013"><span class="annot"><span class="annottext">TimeRangeType -&gt; TimeRangeType -&gt; Bool
 (TimeRangeType -&gt; TimeRangeType -&gt; Bool)
 -&gt; (TimeRangeType -&gt; TimeRangeType -&gt; Bool) -&gt; Eq TimeRangeType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: TimeRangeType -&gt; TimeRangeType -&gt; Bool
 == :: TimeRangeType -&gt; TimeRangeType -&gt; Bool
 $c== :: TimeRangeType -&gt; TimeRangeType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679256704"><span id="local-6989586621679256706"><span id="local-6989586621679256708"><span id="local-6989586621679256710"><span id="local-6989586621679256712"><span id="local-6989586621679256714"><span id="local-6989586621679256716"><span class="annot"><span class="annottext">Eq TimeRangeType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679256995"><span id="local-6989586621679256997"><span id="local-6989586621679256999"><span id="local-6989586621679257001"><span id="local-6989586621679257003"><span id="local-6989586621679257005"><span id="local-6989586621679257007"><span class="annot"><span class="annottext">Eq TimeRangeType
 Eq TimeRangeType
 -&gt; (TimeRangeType -&gt; TimeRangeType -&gt; Ordering)
 -&gt; (TimeRangeType -&gt; TimeRangeType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. TimeRangeType -&gt; Rep TimeRangeType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679256696"><span id="local-6989586621679256698"><span class="annot"><span class="annottext">Int -&gt; TimeRangeType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679256987"><span id="local-6989586621679256989"><span class="annot"><span class="annottext">Int -&gt; TimeRangeType -&gt; Int
 TimeRangeType -&gt; Int
 (Int -&gt; TimeRangeType -&gt; Int)
 -&gt; (TimeRangeType -&gt; Int) -&gt; Hashable TimeRangeType
@@ -142,49 +142,49 @@ $chash :: TimeRangeType -&gt; Int
 hashWithSalt :: Int -&gt; TimeRangeType -&gt; Int
 $chashWithSalt :: Int -&gt; TimeRangeType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679256693"><span class="annot"><span class="annottext">TimeRangeType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679256984"><span class="annot"><span class="annottext">TimeRangeType -&gt; ()
 (TimeRangeType -&gt; ()) -&gt; NFData TimeRangeType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TimeRangeType -&gt; ()
 $crnf :: TimeRangeType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679256690"><span class="annot"><span class="annottext">Text -&gt; Either String TimeRangeType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679256981"><span class="annot"><span class="annottext">Text -&gt; Either String TimeRangeType
 (Text -&gt; Either String TimeRangeType) -&gt; FromText TimeRangeType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TimeRangeType
 $cfromText :: Text -&gt; Either String TimeRangeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679256687"><span class="annot"><span class="annottext">TimeRangeType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679256978"><span class="annot"><span class="annottext">TimeRangeType -&gt; Text
 (TimeRangeType -&gt; Text) -&gt; ToText TimeRangeType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TimeRangeType -&gt; Text
 $ctoText :: TimeRangeType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679256684"><span class="annot"><span class="annottext">TimeRangeType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679256975"><span class="annot"><span class="annottext">TimeRangeType -&gt; ByteString
 (TimeRangeType -&gt; ByteString) -&gt; ToByteString TimeRangeType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TimeRangeType -&gt; ByteString
 $ctoBS :: TimeRangeType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679256681"><span class="annot"><span class="annottext">TimeRangeType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679256972"><span class="annot"><span class="annottext">TimeRangeType -&gt; ByteStringBuilder
 (TimeRangeType -&gt; ByteStringBuilder) -&gt; ToLog TimeRangeType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TimeRangeType -&gt; ByteStringBuilder
 $cbuild :: TimeRangeType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679256678"><span class="annot"><span class="annottext">HeaderName -&gt; TimeRangeType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679256969"><span class="annot"><span class="annottext">HeaderName -&gt; TimeRangeType -&gt; [Header]
 (HeaderName -&gt; TimeRangeType -&gt; [Header]) -&gt; ToHeader TimeRangeType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TimeRangeType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TimeRangeType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679256675"><span class="annot"><span class="annottext">TimeRangeType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679256966"><span class="annot"><span class="annottext">TimeRangeType -&gt; QueryString
 (TimeRangeType -&gt; QueryString) -&gt; ToQuery TimeRangeType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TimeRangeType -&gt; QueryString
 $ctoQuery :: TimeRangeType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679256670"><span id="local-6989586621679256672"><span class="annot"><span class="annottext">Value -&gt; Parser [TimeRangeType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679256961"><span id="local-6989586621679256963"><span class="annot"><span class="annottext">Value -&gt; Parser [TimeRangeType]
 Value -&gt; Parser TimeRangeType
 (Value -&gt; Parser TimeRangeType)
 -&gt; (Value -&gt; Parser [TimeRangeType]) -&gt; FromJSON TimeRangeType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [TimeRangeType]
 parseJSON :: Value -&gt; Parser TimeRangeType
 $cparseJSON :: Value -&gt; Parser TimeRangeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679256665"><span id="local-6989586621679256667"><span class="annot"><span class="annottext">FromJSONKeyFunction [TimeRangeType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679256956"><span id="local-6989586621679256958"><span class="annot"><span class="annottext">FromJSONKeyFunction [TimeRangeType]
 FromJSONKeyFunction TimeRangeType
 FromJSONKeyFunction TimeRangeType
 -&gt; FromJSONKeyFunction [TimeRangeType] -&gt; FromJSONKey TimeRangeType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TimeRangeType]
 fromJSONKey :: FromJSONKeyFunction TimeRangeType
 $cfromJSONKey :: FromJSONKeyFunction TimeRangeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679256656"><span id="local-6989586621679256658"><span id="local-6989586621679256660"><span id="local-6989586621679256662"><span class="annot"><span class="annottext">[TimeRangeType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679256947"><span id="local-6989586621679256949"><span id="local-6989586621679256951"><span id="local-6989586621679256953"><span class="annot"><span class="annottext">[TimeRangeType] -&gt; Encoding
 [TimeRangeType] -&gt; Value
 TimeRangeType -&gt; Encoding
 TimeRangeType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: TimeRangeType -&gt; Encoding
 toJSON :: TimeRangeType -&gt; Value
 $ctoJSON :: TimeRangeType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679256651"><span id="local-6989586621679256653"><span class="annot"><span class="annottext">ToJSONKeyFunction [TimeRangeType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679256942"><span id="local-6989586621679256944"><span class="annot"><span class="annottext">ToJSONKeyFunction [TimeRangeType]
 ToJSONKeyFunction TimeRangeType
 ToJSONKeyFunction TimeRangeType
 -&gt; ToJSONKeyFunction [TimeRangeType] -&gt; ToJSONKey TimeRangeType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TimeRangeType]
 toJSONKey :: ToJSONKeyFunction TimeRangeType
 $ctoJSONKey :: ToJSONKeyFunction TimeRangeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679256648"><span class="annot"><span class="annottext">[Node] -&gt; Either String TimeRangeType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679256939"><span class="annot"><span class="annottext">[Node] -&gt; Either String TimeRangeType
 ([Node] -&gt; Either String TimeRangeType) -&gt; FromXML TimeRangeType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TimeRangeType
 $cparseXML :: [Node] -&gt; Either String TimeRangeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679256645"><span class="annot"><span class="annottext">TimeRangeType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679256936"><span class="annot"><span class="annottext">TimeRangeType -&gt; XML
 (TimeRangeType -&gt; XML) -&gt; ToXML TimeRangeType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TimeRangeType -&gt; XML

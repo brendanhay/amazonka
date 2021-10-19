@@ -27,22 +27,22 @@
 </span><span id="line-27"></span><span class="hs-comment">-- managing tests.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newProject' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679365102"><span id="local-6989586621679365103"></span></span><span class="hs-keyword">data</span><span> </span><span id="Project"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-var">Project</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Project%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-var">Project'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679365339"><span id="local-6989586621679365340"></span></span><span class="hs-keyword">data</span><span> </span><span id="Project"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-var">Project</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Project%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-var">Project'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The project\'s ARN.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aarn%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
 </span><a href="Network.AWS.DeviceFarm.Types.Project.html#%24sel%3Aarn%3AProject%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The project\'s name.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
-</span><a href="Network.AWS.DeviceFarm.Types.Project.html#%24sel%3Aname%3AProject%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | When the project was created.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Acreated%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe POSIX
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | When the project was created.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Acreated%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe POSIX
 </span><a href="Network.AWS.DeviceFarm.Types.Project.html#%24sel%3Acreated%3AProject%27"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The project\'s name.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aname%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.Project.html#%24sel%3Aname%3AProject%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The default number of minutes (at the project level) a test run executes</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- before it times out. The default value is 150 minutes.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AdefaultJobTimeoutMinutes%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.Project.html#%24sel%3AdefaultJobTimeoutMinutes%3AProject%27"><span class="hs-identifier hs-var hs-var">defaultJobTimeoutMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365093"><span id="local-6989586621679365095"><span class="annot"><span class="annottext">Project -&gt; Project -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365330"><span id="local-6989586621679365332"><span class="annot"><span class="annottext">Project -&gt; Project -&gt; Bool
 (Project -&gt; Project -&gt; Bool)
 -&gt; (Project -&gt; Project -&gt; Bool) -&gt; Eq Project
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Project -&gt; Project -&gt; Bool
 == :: Project -&gt; Project -&gt; Bool
 $c== :: Project -&gt; Project -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365084"><span id="local-6989586621679365086"><span id="local-6989586621679365088"><span id="local-6989586621679365090"><span class="annot"><span class="annottext">ReadPrec [Project]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365321"><span id="local-6989586621679365323"><span id="local-6989586621679365325"><span id="local-6989586621679365327"><span class="annot"><span class="annottext">ReadPrec [Project]
 ReadPrec Project
 Int -&gt; ReadS Project
 ReadS [Project]
@@ -70,7 +70,7 @@ readList :: ReadS [Project]
 $creadList :: ReadS [Project]
 readsPrec :: Int -&gt; ReadS Project
 $creadsPrec :: Int -&gt; ReadS Project
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365077"><span id="local-6989586621679365079"><span id="local-6989586621679365081"><span class="annot"><span class="annottext">Int -&gt; Project -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365314"><span id="local-6989586621679365316"><span id="local-6989586621679365318"><span class="annot"><span class="annottext">Int -&gt; Project -&gt; ShowS
 [Project] -&gt; ShowS
 Project -&gt; String
 (Int -&gt; Project -&gt; ShowS)
@@ -103,9 +103,9 @@ $cfrom :: forall x. Project -&gt; Rep Project x
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- 'arn', 'project_arn' - The project\'s ARN.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'name', 'project_name' - The project\'s name.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'created', 'project_created' - When the project was created.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'created', 'project_created' - When the project was created.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'name', 'project_name' - The project\'s name.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- 'defaultJobTimeoutMinutes', 'project_defaultJobTimeoutMinutes' - The default number of minutes (at the project level) a test run executes</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- before it times out. The default value is 150 minutes.</span><span>
@@ -113,18 +113,18 @@ $cfrom :: forall x. Project -&gt; Rep Project x
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span>
 </span><span id="line-61"></span><span id="newProject"><span class="annot"><span class="annottext">newProject :: Project
 </span><a href="Network.AWS.DeviceFarm.Types.Project.html#newProject"><span class="hs-identifier hs-var hs-var">newProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">Project' :: Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Int -&gt; Project
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">Project' :: Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Int -&gt; Project
 </span><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:Project' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.Types.Project.html#%24sel%3Aarn%3AProject%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Project' :: Maybe Text
-</span><a href="Network.AWS.DeviceFarm.Types.Project.html#%24sel%3Aname%3AProject%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:created:Project' :: Maybe POSIX
+</span><a href="Network.AWS.DeviceFarm.Types.Project.html#%24sel%3Acreated%3AProject%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:created:Project' :: Maybe POSIX
-</span><a href="Network.AWS.DeviceFarm.Types.Project.html#%24sel%3Acreated%3AProject%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Project' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.Project.html#%24sel%3Aname%3AProject%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultJobTimeoutMinutes:Project' :: Maybe Int
@@ -140,52 +140,34 @@ forall a. Maybe a
 -&gt; (Project -&gt; Maybe Text -&gt; Project)
 -&gt; Lens Project Project (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365068"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365305"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:Project' :: Project -&gt; Maybe Text
-</span><a href="#local-6989586621679365068"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365068"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365067"><span class="annot"><span class="annottext">s :: Project
-</span><a href="#local-6989586621679365067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365066"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
-</span><a href="#local-6989586621679365067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Project' :: Maybe Text
+</span><a href="#local-6989586621679365305"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365305"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365304"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679365304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365303"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679365304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Project' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.Types.Project.html#%24sel%3Aarn%3AProject%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | The project\'s name.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#project_name"><span class="hs-identifier hs-type">project_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="project_name"><span class="annot"><span class="annottext">project_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
-</span><a href="Network.AWS.DeviceFarm.Types.Project.html#project_name"><span class="hs-identifier hs-var hs-var">project_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
--&gt; (Project -&gt; Maybe Text -&gt; Project)
--&gt; Lens Project Project (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365064"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:Project' :: Project -&gt; Maybe Text
-</span><a href="#local-6989586621679365064"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365064"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365063"><span class="annot"><span class="annottext">s :: Project
-</span><a href="#local-6989586621679365063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365062"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
-</span><a href="#local-6989586621679365063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Project' :: Maybe Text
-</span><a href="Network.AWS.DeviceFarm.Types.Project.html#%24sel%3Aname%3AProject%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | When the project was created.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#project_created"><span class="hs-identifier hs-type">project_created</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="project_created"><span class="annot"><span class="annottext">project_created :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Project -&gt; f Project
+</span><span id="line-73"></span><span class="hs-comment">-- | When the project was created.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#project_created"><span class="hs-identifier hs-type">project_created</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="project_created"><span class="annot"><span class="annottext">project_created :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Project -&gt; f Project
 </span><a href="Network.AWS.DeviceFarm.Types.Project.html#project_created"><span class="hs-identifier hs-var hs-var">project_created</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe POSIX)
 -&gt; (Project -&gt; Maybe POSIX -&gt; Project)
 -&gt; Lens Project Project (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365060"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365301"><span class="annot"><span class="annottext">Maybe POSIX
 created :: Maybe POSIX
 $sel:created:Project' :: Project -&gt; Maybe POSIX
-</span><a href="#local-6989586621679365060"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679365060"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365059"><span class="annot"><span class="annottext">s :: Project
-</span><a href="#local-6989586621679365059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365058"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679365058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
-</span><a href="#local-6989586621679365059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:Project' :: Maybe POSIX
+</span><a href="#local-6989586621679365301"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679365301"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365300"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679365300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365299"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679365299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679365300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:Project' :: Maybe POSIX
 </span><a href="Network.AWS.DeviceFarm.Types.Project.html#%24sel%3Acreated%3AProject%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679365058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Project -&gt; f Project)
+</span><a href="#local-6989586621679365299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Project -&gt; f Project)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -200,6 +182,24 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The project\'s name.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#project_name"><span class="hs-identifier hs-type">project_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="project_name"><span class="annot"><span class="annottext">project_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
+</span><a href="Network.AWS.DeviceFarm.Types.Project.html#project_name"><span class="hs-identifier hs-var hs-var">project_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
+-&gt; (Project -&gt; Maybe Text -&gt; Project)
+-&gt; Lens Project Project (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365294"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Project' :: Project -&gt; Maybe Text
+</span><a href="#local-6989586621679365294"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365294"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365293"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679365293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365292"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679365293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Project' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.Project.html#%24sel%3Aname%3AProject%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The default number of minutes (at the project level) a test run executes</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- before it times out. The default value is 150 minutes.</span><span>
@@ -209,66 +209,66 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (Project -&gt; Maybe Int -&gt; Project)
 -&gt; Lens Project Project (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365053"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365290"><span class="annot"><span class="annottext">Maybe Int
 defaultJobTimeoutMinutes :: Maybe Int
 $sel:defaultJobTimeoutMinutes:Project' :: Project -&gt; Maybe Int
-</span><a href="#local-6989586621679365053"><span class="hs-identifier hs-var hs-var">defaultJobTimeoutMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679365053"><span class="hs-identifier hs-var">defaultJobTimeoutMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365052"><span class="annot"><span class="annottext">s :: Project
-</span><a href="#local-6989586621679365052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365051"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679365051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
-</span><a href="#local-6989586621679365052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultJobTimeoutMinutes:Project' :: Maybe Int
+</span><a href="#local-6989586621679365290"><span class="hs-identifier hs-var hs-var">defaultJobTimeoutMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679365290"><span class="hs-identifier hs-var">defaultJobTimeoutMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365289"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621679365289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365288"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679365288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621679365289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultJobTimeoutMinutes:Project' :: Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.Project.html#%24sel%3AdefaultJobTimeoutMinutes%3AProject%27"><span class="hs-identifier hs-var">defaultJobTimeoutMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679365051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365048"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679365046"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Project
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365285"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679365283"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Project
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Project) -&gt; Value -&gt; Parser Project
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Project&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365043"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365043"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Int -&gt; Project
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365280"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365280"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Int -&gt; Project
 </span><a href="Network.AWS.DeviceFarm.Types.Project.html#Project%27"><span class="hs-identifier hs-var">Project'</span></a></span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Int -&gt; Project)
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Int -&gt; Project)
 -&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Int -&gt; Project)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Int -&gt; Project)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679365280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Int -&gt; Project)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe POSIX -&gt; Maybe Int -&gt; Project)
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Int -&gt; Project)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe Int -&gt; Project)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Int -&gt; Project)
--&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Int -&gt; Project)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679365280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;created&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Int -&gt; Project)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Int -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Project)
 -&gt; Parser (Maybe Int) -&gt; Parser Project
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679365280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;defaultJobTimeoutMinutes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365037"><span id="local-6989586621679365039"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365274"><span id="local-6989586621679365276"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365034"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365271"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span></span><span>
 </span><span id="line-101"></span></pre></body></html>

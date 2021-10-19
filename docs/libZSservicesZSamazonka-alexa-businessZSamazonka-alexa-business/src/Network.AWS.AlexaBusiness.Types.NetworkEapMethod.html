@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679369152"><span id="local-6989586621679369153"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NetworkEapMethod"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkEapMethod.html#NetworkEapMethod"><span class="hs-identifier hs-var">NetworkEapMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkEapMethod%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkEapMethod.html#NetworkEapMethod%27"><span class="hs-identifier hs-var">NetworkEapMethod'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679369470"><span id="local-6989586621679369471"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NetworkEapMethod"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkEapMethod.html#NetworkEapMethod"><span class="hs-identifier hs-var">NetworkEapMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkEapMethod%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkEapMethod.html#NetworkEapMethod%27"><span class="hs-identifier hs-var">NetworkEapMethod'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNetworkEapMethod"><span class="annot"><span class="annottext">NetworkEapMethod -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.Types.NetworkEapMethod.html#fromNetworkEapMethod"><span class="hs-identifier hs-var hs-var">fromNetworkEapMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369144"><span id="local-6989586621679369146"><span id="local-6989586621679369148"><span class="annot"><span class="annottext">Int -&gt; NetworkEapMethod -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369462"><span id="local-6989586621679369464"><span id="local-6989586621679369466"><span class="annot"><span class="annottext">Int -&gt; NetworkEapMethod -&gt; ShowS
 [NetworkEapMethod] -&gt; ShowS
 NetworkEapMethod -&gt; String
 (Int -&gt; NetworkEapMethod -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: NetworkEapMethod -&gt; String
 showsPrec :: Int -&gt; NetworkEapMethod -&gt; ShowS
 $cshowsPrec :: Int -&gt; NetworkEapMethod -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679369135"><span id="local-6989586621679369137"><span id="local-6989586621679369139"><span id="local-6989586621679369141"><span class="annot"><span class="annottext">ReadPrec [NetworkEapMethod]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679369453"><span id="local-6989586621679369455"><span id="local-6989586621679369457"><span id="local-6989586621679369459"><span class="annot"><span class="annottext">ReadPrec [NetworkEapMethod]
 ReadPrec NetworkEapMethod
 Int -&gt; ReadS NetworkEapMethod
 ReadS [NetworkEapMethod]
@@ -71,7 +71,7 @@ $creadList :: ReadS [NetworkEapMethod]
 readsPrec :: Int -&gt; ReadS NetworkEapMethod
 $creadsPrec :: Int -&gt; ReadS NetworkEapMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679369130"><span id="local-6989586621679369132"><span class="annot"><span class="annottext">NetworkEapMethod -&gt; NetworkEapMethod -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679369448"><span id="local-6989586621679369450"><span class="annot"><span class="annottext">NetworkEapMethod -&gt; NetworkEapMethod -&gt; Bool
 (NetworkEapMethod -&gt; NetworkEapMethod -&gt; Bool)
 -&gt; (NetworkEapMethod -&gt; NetworkEapMethod -&gt; Bool)
 -&gt; Eq NetworkEapMethod
@@ -81,7 +81,7 @@ $c/= :: NetworkEapMethod -&gt; NetworkEapMethod -&gt; Bool
 == :: NetworkEapMethod -&gt; NetworkEapMethod -&gt; Bool
 $c== :: NetworkEapMethod -&gt; NetworkEapMethod -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679369114"><span id="local-6989586621679369116"><span id="local-6989586621679369118"><span id="local-6989586621679369120"><span id="local-6989586621679369122"><span id="local-6989586621679369124"><span id="local-6989586621679369126"><span class="annot"><span class="annottext">Eq NetworkEapMethod
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679369432"><span id="local-6989586621679369434"><span id="local-6989586621679369436"><span id="local-6989586621679369438"><span id="local-6989586621679369440"><span id="local-6989586621679369442"><span id="local-6989586621679369444"><span class="annot"><span class="annottext">Eq NetworkEapMethod
 Eq NetworkEapMethod
 -&gt; (NetworkEapMethod -&gt; NetworkEapMethod -&gt; Ordering)
 -&gt; (NetworkEapMethod -&gt; NetworkEapMethod -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. NetworkEapMethod -&gt; Rep NetworkEapMethod x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369106"><span id="local-6989586621679369108"><span class="annot"><span class="annottext">Int -&gt; NetworkEapMethod -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369424"><span id="local-6989586621679369426"><span class="annot"><span class="annottext">Int -&gt; NetworkEapMethod -&gt; Int
 NetworkEapMethod -&gt; Int
 (Int -&gt; NetworkEapMethod -&gt; Int)
 -&gt; (NetworkEapMethod -&gt; Int) -&gt; Hashable NetworkEapMethod
@@ -142,51 +142,51 @@ $chash :: NetworkEapMethod -&gt; Int
 hashWithSalt :: Int -&gt; NetworkEapMethod -&gt; Int
 $chashWithSalt :: Int -&gt; NetworkEapMethod -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679369103"><span class="annot"><span class="annottext">NetworkEapMethod -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679369421"><span class="annot"><span class="annottext">NetworkEapMethod -&gt; ()
 (NetworkEapMethod -&gt; ()) -&gt; NFData NetworkEapMethod
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NetworkEapMethod -&gt; ()
 $crnf :: NetworkEapMethod -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679369100"><span class="annot"><span class="annottext">Text -&gt; Either String NetworkEapMethod
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679369418"><span class="annot"><span class="annottext">Text -&gt; Either String NetworkEapMethod
 (Text -&gt; Either String NetworkEapMethod)
 -&gt; FromText NetworkEapMethod
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NetworkEapMethod
 $cfromText :: Text -&gt; Either String NetworkEapMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679369097"><span class="annot"><span class="annottext">NetworkEapMethod -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679369415"><span class="annot"><span class="annottext">NetworkEapMethod -&gt; Text
 (NetworkEapMethod -&gt; Text) -&gt; ToText NetworkEapMethod
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NetworkEapMethod -&gt; Text
 $ctoText :: NetworkEapMethod -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679369094"><span class="annot"><span class="annottext">NetworkEapMethod -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679369412"><span class="annot"><span class="annottext">NetworkEapMethod -&gt; ByteString
 (NetworkEapMethod -&gt; ByteString) -&gt; ToByteString NetworkEapMethod
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NetworkEapMethod -&gt; ByteString
 $ctoBS :: NetworkEapMethod -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679369091"><span class="annot"><span class="annottext">NetworkEapMethod -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679369409"><span class="annot"><span class="annottext">NetworkEapMethod -&gt; ByteStringBuilder
 (NetworkEapMethod -&gt; ByteStringBuilder) -&gt; ToLog NetworkEapMethod
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NetworkEapMethod -&gt; ByteStringBuilder
 $cbuild :: NetworkEapMethod -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679369088"><span class="annot"><span class="annottext">HeaderName -&gt; NetworkEapMethod -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679369406"><span class="annot"><span class="annottext">HeaderName -&gt; NetworkEapMethod -&gt; [Header]
 (HeaderName -&gt; NetworkEapMethod -&gt; [Header])
 -&gt; ToHeader NetworkEapMethod
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NetworkEapMethod -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NetworkEapMethod -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679369085"><span class="annot"><span class="annottext">NetworkEapMethod -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679369403"><span class="annot"><span class="annottext">NetworkEapMethod -&gt; QueryString
 (NetworkEapMethod -&gt; QueryString) -&gt; ToQuery NetworkEapMethod
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NetworkEapMethod -&gt; QueryString
 $ctoQuery :: NetworkEapMethod -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679369080"><span id="local-6989586621679369082"><span class="annot"><span class="annottext">Value -&gt; Parser [NetworkEapMethod]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679369398"><span id="local-6989586621679369400"><span class="annot"><span class="annottext">Value -&gt; Parser [NetworkEapMethod]
 Value -&gt; Parser NetworkEapMethod
 (Value -&gt; Parser NetworkEapMethod)
 -&gt; (Value -&gt; Parser [NetworkEapMethod])
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [NetworkEapMethod]
 parseJSON :: Value -&gt; Parser NetworkEapMethod
 $cparseJSON :: Value -&gt; Parser NetworkEapMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679369075"><span id="local-6989586621679369077"><span class="annot"><span class="annottext">FromJSONKeyFunction [NetworkEapMethod]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679369393"><span id="local-6989586621679369395"><span class="annot"><span class="annottext">FromJSONKeyFunction [NetworkEapMethod]
 FromJSONKeyFunction NetworkEapMethod
 FromJSONKeyFunction NetworkEapMethod
 -&gt; FromJSONKeyFunction [NetworkEapMethod]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NetworkEapMethod]
 fromJSONKey :: FromJSONKeyFunction NetworkEapMethod
 $cfromJSONKey :: FromJSONKeyFunction NetworkEapMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679369066"><span id="local-6989586621679369068"><span id="local-6989586621679369070"><span id="local-6989586621679369072"><span class="annot"><span class="annottext">[NetworkEapMethod] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679369384"><span id="local-6989586621679369386"><span id="local-6989586621679369388"><span id="local-6989586621679369390"><span class="annot"><span class="annottext">[NetworkEapMethod] -&gt; Encoding
 [NetworkEapMethod] -&gt; Value
 NetworkEapMethod -&gt; Encoding
 NetworkEapMethod -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: NetworkEapMethod -&gt; Encoding
 toJSON :: NetworkEapMethod -&gt; Value
 $ctoJSON :: NetworkEapMethod -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679369061"><span id="local-6989586621679369063"><span class="annot"><span class="annottext">ToJSONKeyFunction [NetworkEapMethod]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679369379"><span id="local-6989586621679369381"><span class="annot"><span class="annottext">ToJSONKeyFunction [NetworkEapMethod]
 ToJSONKeyFunction NetworkEapMethod
 ToJSONKeyFunction NetworkEapMethod
 -&gt; ToJSONKeyFunction [NetworkEapMethod]
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NetworkEapMethod]
 toJSONKey :: ToJSONKeyFunction NetworkEapMethod
 $ctoJSONKey :: ToJSONKeyFunction NetworkEapMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679369058"><span class="annot"><span class="annottext">[Node] -&gt; Either String NetworkEapMethod
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679369376"><span class="annot"><span class="annottext">[Node] -&gt; Either String NetworkEapMethod
 ([Node] -&gt; Either String NetworkEapMethod)
 -&gt; FromXML NetworkEapMethod
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NetworkEapMethod
 $cparseXML :: [Node] -&gt; Either String NetworkEapMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679369055"><span class="annot"><span class="annottext">NetworkEapMethod -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679369373"><span class="annot"><span class="annottext">NetworkEapMethod -&gt; XML
 (NetworkEapMethod -&gt; XML) -&gt; ToXML NetworkEapMethod
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NetworkEapMethod -&gt; XML

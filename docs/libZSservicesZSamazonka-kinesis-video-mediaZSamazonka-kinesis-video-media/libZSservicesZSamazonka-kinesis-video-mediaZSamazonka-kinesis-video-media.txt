@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-kinesis-video-mediaZSamazonka-kinesis-video-media
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.KinesisVideoMedia.Types.StartSelectorType
@@ -56,7 +56,12 @@ module Network.AWS.KinesisVideoMedia.Types.StartSelector
 --   
 --   <i>See:</i> <a>newStartSelector</a> smart constructor.
 data StartSelector
-StartSelector' :: Maybe Text -> Maybe POSIX -> Maybe Text -> StartSelectorType -> StartSelector
+StartSelector' :: Maybe Text -> Maybe Text -> Maybe POSIX -> StartSelectorType -> StartSelector
+
+-- | Continuation token that Kinesis Video Streams returned in the previous
+--   <tt>GetMedia</tt> response. The <tt>GetMedia</tt> API then starts with
+--   the chunk identified by the continuation token.
+[$sel:continuationToken:StartSelector'] :: StartSelector -> Maybe Text
 
 -- | Specifies the fragment number from where you want the
 --   <tt>GetMedia</tt> API to start returning the fragments.
@@ -67,11 +72,6 @@ StartSelector' :: Maybe Text -> Maybe POSIX -> Maybe Text -> StartSelectorType -
 --   <tt>startSelectorType</tt>. The <tt>GetMedia</tt> API then starts with
 --   the chunk containing the fragment that has the specified timestamp.
 [$sel:startTimestamp:StartSelector'] :: StartSelector -> Maybe POSIX
-
--- | Continuation token that Kinesis Video Streams returned in the previous
---   <tt>GetMedia</tt> response. The <tt>GetMedia</tt> API then starts with
---   the chunk identified by the continuation token.
-[$sel:continuationToken:StartSelector'] :: StartSelector -> Maybe Text
 
 -- | Identifies the fragment on the Kinesis video stream where you want to
 --   start getting the data from.
@@ -102,6 +102,12 @@ StartSelector' :: Maybe Text -> Maybe POSIX -> Maybe Text -> StartSelectorType -
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:continuationToken:StartSelector'</a>,
+--   <a>startSelector_continuationToken</a> - Continuation token that
+--   Kinesis Video Streams returned in the previous <tt>GetMedia</tt>
+--   response. The <tt>GetMedia</tt> API then starts with the chunk
+--   identified by the continuation token.
+--   
 --   <a>$sel:afterFragmentNumber:StartSelector'</a>,
 --   <a>startSelector_afterFragmentNumber</a> - Specifies the fragment
 --   number from where you want the <tt>GetMedia</tt> API to start
@@ -113,12 +119,6 @@ StartSelector' :: Maybe Text -> Maybe POSIX -> Maybe Text -> StartSelectorType -
 --   as the <tt>startSelectorType</tt>. The <tt>GetMedia</tt> API then
 --   starts with the chunk containing the fragment that has the specified
 --   timestamp.
---   
---   <a>$sel:continuationToken:StartSelector'</a>,
---   <a>startSelector_continuationToken</a> - Continuation token that
---   Kinesis Video Streams returned in the previous <tt>GetMedia</tt>
---   response. The <tt>GetMedia</tt> API then starts with the chunk
---   identified by the continuation token.
 --   
 --   <a>$sel:startSelectorType:StartSelector'</a>,
 --   <a>startSelector_startSelectorType</a> - Identifies the fragment on
@@ -142,6 +142,11 @@ StartSelector' :: Maybe Text -> Maybe POSIX -> Maybe Text -> StartSelectorType -
 --   information in the <tt>startSelector</tt>.
 newStartSelector :: StartSelectorType -> StartSelector
 
+-- | Continuation token that Kinesis Video Streams returned in the previous
+--   <tt>GetMedia</tt> response. The <tt>GetMedia</tt> API then starts with
+--   the chunk identified by the continuation token.
+startSelector_continuationToken :: Lens' StartSelector (Maybe Text)
+
 -- | Specifies the fragment number from where you want the
 --   <tt>GetMedia</tt> API to start returning the fragments.
 startSelector_afterFragmentNumber :: Lens' StartSelector (Maybe Text)
@@ -151,11 +156,6 @@ startSelector_afterFragmentNumber :: Lens' StartSelector (Maybe Text)
 --   <tt>startSelectorType</tt>. The <tt>GetMedia</tt> API then starts with
 --   the chunk containing the fragment that has the specified timestamp.
 startSelector_startTimestamp :: Lens' StartSelector (Maybe UTCTime)
-
--- | Continuation token that Kinesis Video Streams returned in the previous
---   <tt>GetMedia</tt> response. The <tt>GetMedia</tt> API then starts with
---   the chunk identified by the continuation token.
-startSelector_continuationToken :: Lens' StartSelector (Maybe Text)
 
 -- | Identifies the fragment on the Kinesis video stream where you want to
 --   start getting the data from.
@@ -195,6 +195,13 @@ defaultService :: Service
 --   exceeded the limit of allowed client connections.
 _ConnectionLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
+-- | The value for this input parameter is invalid.
+_InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Status Code: 403, The caller is not authorized to perform an operation
+--   on the given stream, or the token has expired.
+_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
+
 -- | Kinesis Video Streams has throttled the request because you have
 --   exceeded the limit of allowed client calls. Try making the call later.
 _ClientLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -208,13 +215,6 @@ _InvalidEndpointException :: AsError a => Getting (First ServiceError) a Service
 
 -- | Status Code: 404, The stream with the given name does not exist.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Status Code: 403, The caller is not authorized to perform an operation
---   on the given stream, or the token has expired.
-_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The value for this input parameter is invalid.
-_InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
 newtype StartSelectorType
 StartSelectorType' :: Text -> StartSelectorType
 [fromStartSelectorType] :: StartSelectorType -> Text
@@ -243,7 +243,12 @@ pattern StartSelectorType_SERVER_TIMESTAMP :: StartSelectorType
 --   
 --   <i>See:</i> <a>newStartSelector</a> smart constructor.
 data StartSelector
-StartSelector' :: Maybe Text -> Maybe POSIX -> Maybe Text -> StartSelectorType -> StartSelector
+StartSelector' :: Maybe Text -> Maybe Text -> Maybe POSIX -> StartSelectorType -> StartSelector
+
+-- | Continuation token that Kinesis Video Streams returned in the previous
+--   <tt>GetMedia</tt> response. The <tt>GetMedia</tt> API then starts with
+--   the chunk identified by the continuation token.
+[$sel:continuationToken:StartSelector'] :: StartSelector -> Maybe Text
 
 -- | Specifies the fragment number from where you want the
 --   <tt>GetMedia</tt> API to start returning the fragments.
@@ -254,11 +259,6 @@ StartSelector' :: Maybe Text -> Maybe POSIX -> Maybe Text -> StartSelectorType -
 --   <tt>startSelectorType</tt>. The <tt>GetMedia</tt> API then starts with
 --   the chunk containing the fragment that has the specified timestamp.
 [$sel:startTimestamp:StartSelector'] :: StartSelector -> Maybe POSIX
-
--- | Continuation token that Kinesis Video Streams returned in the previous
---   <tt>GetMedia</tt> response. The <tt>GetMedia</tt> API then starts with
---   the chunk identified by the continuation token.
-[$sel:continuationToken:StartSelector'] :: StartSelector -> Maybe Text
 
 -- | Identifies the fragment on the Kinesis video stream where you want to
 --   start getting the data from.
@@ -289,6 +289,12 @@ StartSelector' :: Maybe Text -> Maybe POSIX -> Maybe Text -> StartSelectorType -
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:continuationToken:StartSelector'</a>,
+--   <a>startSelector_continuationToken</a> - Continuation token that
+--   Kinesis Video Streams returned in the previous <tt>GetMedia</tt>
+--   response. The <tt>GetMedia</tt> API then starts with the chunk
+--   identified by the continuation token.
+--   
 --   <a>$sel:afterFragmentNumber:StartSelector'</a>,
 --   <a>startSelector_afterFragmentNumber</a> - Specifies the fragment
 --   number from where you want the <tt>GetMedia</tt> API to start
@@ -300,12 +306,6 @@ StartSelector' :: Maybe Text -> Maybe POSIX -> Maybe Text -> StartSelectorType -
 --   as the <tt>startSelectorType</tt>. The <tt>GetMedia</tt> API then
 --   starts with the chunk containing the fragment that has the specified
 --   timestamp.
---   
---   <a>$sel:continuationToken:StartSelector'</a>,
---   <a>startSelector_continuationToken</a> - Continuation token that
---   Kinesis Video Streams returned in the previous <tt>GetMedia</tt>
---   response. The <tt>GetMedia</tt> API then starts with the chunk
---   identified by the continuation token.
 --   
 --   <a>$sel:startSelectorType:StartSelector'</a>,
 --   <a>startSelector_startSelectorType</a> - Identifies the fragment on
@@ -329,6 +329,11 @@ StartSelector' :: Maybe Text -> Maybe POSIX -> Maybe Text -> StartSelectorType -
 --   information in the <tt>startSelector</tt>.
 newStartSelector :: StartSelectorType -> StartSelector
 
+-- | Continuation token that Kinesis Video Streams returned in the previous
+--   <tt>GetMedia</tt> response. The <tt>GetMedia</tt> API then starts with
+--   the chunk identified by the continuation token.
+startSelector_continuationToken :: Lens' StartSelector (Maybe Text)
+
 -- | Specifies the fragment number from where you want the
 --   <tt>GetMedia</tt> API to start returning the fragments.
 startSelector_afterFragmentNumber :: Lens' StartSelector (Maybe Text)
@@ -338,11 +343,6 @@ startSelector_afterFragmentNumber :: Lens' StartSelector (Maybe Text)
 --   <tt>startSelectorType</tt>. The <tt>GetMedia</tt> API then starts with
 --   the chunk containing the fragment that has the specified timestamp.
 startSelector_startTimestamp :: Lens' StartSelector (Maybe UTCTime)
-
--- | Continuation token that Kinesis Video Streams returned in the previous
---   <tt>GetMedia</tt> response. The <tt>GetMedia</tt> API then starts with
---   the chunk identified by the continuation token.
-startSelector_continuationToken :: Lens' StartSelector (Maybe Text)
 
 -- | Identifies the fragment on the Kinesis video stream where you want to
 --   start getting the data from.
@@ -716,6 +716,11 @@ getMediaResponse_httpStatus :: Lens' GetMediaResponse Int
 --   </ul>
 getMediaResponse_payload :: Lens' GetMediaResponse ResponseBody
 
+-- | Continuation token that Kinesis Video Streams returned in the previous
+--   <tt>GetMedia</tt> response. The <tt>GetMedia</tt> API then starts with
+--   the chunk identified by the continuation token.
+startSelector_continuationToken :: Lens' StartSelector (Maybe Text)
+
 -- | Specifies the fragment number from where you want the
 --   <tt>GetMedia</tt> API to start returning the fragments.
 startSelector_afterFragmentNumber :: Lens' StartSelector (Maybe Text)
@@ -725,11 +730,6 @@ startSelector_afterFragmentNumber :: Lens' StartSelector (Maybe Text)
 --   <tt>startSelectorType</tt>. The <tt>GetMedia</tt> API then starts with
 --   the chunk containing the fragment that has the specified timestamp.
 startSelector_startTimestamp :: Lens' StartSelector (Maybe UTCTime)
-
--- | Continuation token that Kinesis Video Streams returned in the previous
---   <tt>GetMedia</tt> response. The <tt>GetMedia</tt> API then starts with
---   the chunk identified by the continuation token.
-startSelector_continuationToken :: Lens' StartSelector (Maybe Text)
 
 -- | Identifies the fragment on the Kinesis video stream where you want to
 --   start getting the data from.
@@ -767,6 +767,13 @@ defaultService :: Service
 --   exceeded the limit of allowed client connections.
 _ConnectionLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
+-- | The value for this input parameter is invalid.
+_InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Status Code: 403, The caller is not authorized to perform an operation
+--   on the given stream, or the token has expired.
+_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
+
 -- | Kinesis Video Streams has throttled the request because you have
 --   exceeded the limit of allowed client calls. Try making the call later.
 _ClientLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -780,13 +787,6 @@ _InvalidEndpointException :: AsError a => Getting (First ServiceError) a Service
 
 -- | Status Code: 404, The stream with the given name does not exist.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Status Code: 403, The caller is not authorized to perform an operation
---   on the given stream, or the token has expired.
-_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The value for this input parameter is invalid.
-_InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | <i>See:</i> <a>newGetMedia</a> smart constructor.
 data GetMedia
@@ -908,7 +908,7 @@ pattern StartSelectorType_SERVER_TIMESTAMP :: StartSelectorType
 --   
 --   <i>See:</i> <a>newStartSelector</a> smart constructor.
 data StartSelector
-StartSelector' :: Maybe Text -> Maybe POSIX -> Maybe Text -> StartSelectorType -> StartSelector
+StartSelector' :: Maybe Text -> Maybe Text -> Maybe POSIX -> StartSelectorType -> StartSelector
 
 -- | Create a value of <a>StartSelector</a> with all optional fields
 --   omitted.
@@ -918,6 +918,12 @@ StartSelector' :: Maybe Text -> Maybe POSIX -> Maybe Text -> StartSelectorType -
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:continuationToken:StartSelector'</a>,
+--   <a>startSelector_continuationToken</a> - Continuation token that
+--   Kinesis Video Streams returned in the previous <tt>GetMedia</tt>
+--   response. The <tt>GetMedia</tt> API then starts with the chunk
+--   identified by the continuation token.
 --   
 --   <a>$sel:afterFragmentNumber:StartSelector'</a>,
 --   <a>startSelector_afterFragmentNumber</a> - Specifies the fragment
@@ -930,12 +936,6 @@ StartSelector' :: Maybe Text -> Maybe POSIX -> Maybe Text -> StartSelectorType -
 --   as the <tt>startSelectorType</tt>. The <tt>GetMedia</tt> API then
 --   starts with the chunk containing the fragment that has the specified
 --   timestamp.
---   
---   <a>$sel:continuationToken:StartSelector'</a>,
---   <a>startSelector_continuationToken</a> - Continuation token that
---   Kinesis Video Streams returned in the previous <tt>GetMedia</tt>
---   response. The <tt>GetMedia</tt> API then starts with the chunk
---   identified by the continuation token.
 --   
 --   <a>$sel:startSelectorType:StartSelector'</a>,
 --   <a>startSelector_startSelectorType</a> - Identifies the fragment on

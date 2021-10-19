@@ -27,19 +27,19 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The cost associated with the Reserved Instance.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newReservationValue' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681108915"><span id="local-6989586621681108916"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReservationValue"><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-var">ReservationValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservationValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue%27"><span class="hs-identifier hs-var">ReservationValue'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The remaining upfront cost of the reservation.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AremainingUpfrontValue%3AReservationValue%27"><span class="annot"><span class="annottext">ReservationValue -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.ReservationValue.html#%24sel%3AremainingUpfrontValue%3AReservationValue%27"><span class="hs-identifier hs-var hs-var">remainingUpfrontValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The hourly rate of the reservation.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AhourlyPrice%3AReservationValue%27"><span class="annot"><span class="annottext">ReservationValue -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621681143755"><span id="local-6989586621681143756"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReservationValue"><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-var">ReservationValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservationValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue%27"><span class="hs-identifier hs-var">ReservationValue'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The hourly rate of the reservation.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AhourlyPrice%3AReservationValue%27"><span class="annot"><span class="annottext">ReservationValue -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.ReservationValue.html#%24sel%3AhourlyPrice%3AReservationValue%27"><span class="hs-identifier hs-var hs-var">hourlyPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The balance of the total value (the sum of remainingUpfrontValue +</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- hourlyPrice * number of hours remaining).</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AremainingTotalValue%3AReservationValue%27"><span class="annot"><span class="annottext">ReservationValue -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.ReservationValue.html#%24sel%3AremainingTotalValue%3AReservationValue%27"><span class="hs-identifier hs-var hs-var">remainingTotalValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The balance of the total value (the sum of remainingUpfrontValue +</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- hourlyPrice * number of hours remaining).</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AremainingTotalValue%3AReservationValue%27"><span class="annot"><span class="annottext">ReservationValue -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ReservationValue.html#%24sel%3AremainingTotalValue%3AReservationValue%27"><span class="hs-identifier hs-var hs-var">remainingTotalValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The remaining upfront cost of the reservation.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AremainingUpfrontValue%3AReservationValue%27"><span class="annot"><span class="annottext">ReservationValue -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ReservationValue.html#%24sel%3AremainingUpfrontValue%3AReservationValue%27"><span class="hs-identifier hs-var hs-var">remainingUpfrontValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681108907"><span id="local-6989586621681108909"><span class="annot"><span class="annottext">ReservationValue -&gt; ReservationValue -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681143747"><span id="local-6989586621681143749"><span class="annot"><span class="annottext">ReservationValue -&gt; ReservationValue -&gt; Bool
 (ReservationValue -&gt; ReservationValue -&gt; Bool)
 -&gt; (ReservationValue -&gt; ReservationValue -&gt; Bool)
 -&gt; Eq ReservationValue
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReservationValue -&gt; ReservationValue -&gt; Bool
 == :: ReservationValue -&gt; ReservationValue -&gt; Bool
 $c== :: ReservationValue -&gt; ReservationValue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681108898"><span id="local-6989586621681108900"><span id="local-6989586621681108902"><span id="local-6989586621681108904"><span class="annot"><span class="annottext">ReadPrec [ReservationValue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681143738"><span id="local-6989586621681143740"><span id="local-6989586621681143742"><span id="local-6989586621681143744"><span class="annot"><span class="annottext">ReadPrec [ReservationValue]
 ReadPrec ReservationValue
 Int -&gt; ReadS ReservationValue
 ReadS [ReservationValue]
@@ -68,7 +68,7 @@ readList :: ReadS [ReservationValue]
 $creadList :: ReadS [ReservationValue]
 readsPrec :: Int -&gt; ReadS ReservationValue
 $creadsPrec :: Int -&gt; ReadS ReservationValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681108891"><span id="local-6989586621681108893"><span id="local-6989586621681108895"><span class="annot"><span class="annottext">Int -&gt; ReservationValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681143731"><span id="local-6989586621681143733"><span id="local-6989586621681143735"><span class="annot"><span class="annottext">Int -&gt; ReservationValue -&gt; ShowS
 [ReservationValue] -&gt; ShowS
 ReservationValue -&gt; String
 (Int -&gt; ReservationValue -&gt; ShowS)
@@ -102,125 +102,124 @@ $cfrom :: forall x. ReservationValue -&gt; Rep ReservationValue x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'remainingUpfrontValue', 'reservationValue_remainingUpfrontValue' - The remaining upfront cost of the reservation.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'hourlyPrice', 'reservationValue_hourlyPrice' - The hourly rate of the reservation.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'hourlyPrice', 'reservationValue_hourlyPrice' - The hourly rate of the reservation.</span><span>
-</span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'remainingTotalValue', 'reservationValue_remainingTotalValue' - The balance of the total value (the sum of remainingUpfrontValue +</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- hourlyPrice * number of hours remaining).</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'remainingTotalValue', 'reservationValue_remainingTotalValue' - The balance of the total value (the sum of remainingUpfrontValue +</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- hourlyPrice * number of hours remaining).</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'remainingUpfrontValue', 'reservationValue_remainingUpfrontValue' - The remaining upfront cost of the reservation.</span><span>
 </span><span id="line-55"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#newReservationValue"><span class="hs-identifier hs-type">newReservationValue</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span>
 </span><span id="line-57"></span><span id="newReservationValue"><span class="annot"><span class="annottext">newReservationValue :: ReservationValue
 </span><a href="Network.AWS.EC2.Types.ReservationValue.html#newReservationValue"><span class="hs-identifier hs-var hs-var">newReservationValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">ReservationValue' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ReservationValue
 </span><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue%27"><span class="hs-identifier hs-type">ReservationValue'</span></a></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:remainingUpfrontValue:ReservationValue' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ReservationValue.html#%24sel%3AremainingUpfrontValue%3AReservationValue%27"><span class="hs-identifier hs-var">remainingUpfrontValue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:hourlyPrice:ReservationValue' :: Maybe Text
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hourlyPrice:ReservationValue' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ReservationValue.html#%24sel%3AhourlyPrice%3AReservationValue%27"><span class="hs-identifier hs-var">hourlyPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:remainingTotalValue:ReservationValue' :: Maybe Text
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:remainingTotalValue:ReservationValue' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ReservationValue.html#%24sel%3AremainingTotalValue%3AReservationValue%27"><span class="hs-identifier hs-var">remainingTotalValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | The remaining upfront cost of the reservation.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#reservationValue_remainingUpfrontValue"><span class="hs-identifier hs-type">reservationValue_remainingUpfrontValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="reservationValue_remainingUpfrontValue"><span class="annot"><span class="annottext">reservationValue_remainingUpfrontValue :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ReservationValue -&gt; f ReservationValue
-</span><a href="Network.AWS.EC2.Types.ReservationValue.html#reservationValue_remainingUpfrontValue"><span class="hs-identifier hs-var hs-var">reservationValue_remainingUpfrontValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationValue -&gt; Maybe Text)
--&gt; (ReservationValue -&gt; Maybe Text -&gt; ReservationValue)
--&gt; Lens ReservationValue ReservationValue (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue%27"><span class="hs-identifier hs-type">ReservationValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681108882"><span class="annot"><span class="annottext">Maybe Text
-remainingUpfrontValue :: Maybe Text
-$sel:remainingUpfrontValue:ReservationValue' :: ReservationValue -&gt; Maybe Text
-</span><a href="#local-6989586621681108882"><span class="hs-identifier hs-var hs-var">remainingUpfrontValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681108882"><span class="hs-identifier hs-var">remainingUpfrontValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681108881"><span class="annot"><span class="annottext">s :: ReservationValue
-</span><a href="#local-6989586621681108881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue%27"><span class="hs-identifier hs-type">ReservationValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681108880"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681108880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationValue
-</span><a href="#local-6989586621681108881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remainingUpfrontValue:ReservationValue' :: Maybe Text
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:remainingUpfrontValue:ReservationValue' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ReservationValue.html#%24sel%3AremainingUpfrontValue%3AReservationValue%27"><span class="hs-identifier hs-var">remainingUpfrontValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681108880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | The hourly rate of the reservation.</span><span>
-</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#reservationValue_hourlyPrice"><span class="hs-identifier hs-type">reservationValue_hourlyPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span id="reservationValue_hourlyPrice"><span class="annot"><span class="annottext">reservationValue_hourlyPrice :: (Maybe Text -&gt; f (Maybe Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The hourly rate of the reservation.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#reservationValue_hourlyPrice"><span class="hs-identifier hs-type">reservationValue_hourlyPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="reservationValue_hourlyPrice"><span class="annot"><span class="annottext">reservationValue_hourlyPrice :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ReservationValue -&gt; f ReservationValue
 </span><a href="Network.AWS.EC2.Types.ReservationValue.html#reservationValue_hourlyPrice"><span class="hs-identifier hs-var hs-var">reservationValue_hourlyPrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationValue -&gt; Maybe Text)
 -&gt; (ReservationValue -&gt; Maybe Text -&gt; ReservationValue)
 -&gt; Lens ReservationValue ReservationValue (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue%27"><span class="hs-identifier hs-type">ReservationValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681108878"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue%27"><span class="hs-identifier hs-type">ReservationValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681143722"><span class="annot"><span class="annottext">Maybe Text
 hourlyPrice :: Maybe Text
 $sel:hourlyPrice:ReservationValue' :: ReservationValue -&gt; Maybe Text
-</span><a href="#local-6989586621681108878"><span class="hs-identifier hs-var hs-var">hourlyPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681108878"><span class="hs-identifier hs-var">hourlyPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681108877"><span class="annot"><span class="annottext">s :: ReservationValue
-</span><a href="#local-6989586621681108877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue%27"><span class="hs-identifier hs-type">ReservationValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681108876"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681108876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationValue
-</span><a href="#local-6989586621681108877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hourlyPrice:ReservationValue' :: Maybe Text
+</span><a href="#local-6989586621681143722"><span class="hs-identifier hs-var hs-var">hourlyPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681143722"><span class="hs-identifier hs-var">hourlyPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681143721"><span class="annot"><span class="annottext">s :: ReservationValue
+</span><a href="#local-6989586621681143721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue%27"><span class="hs-identifier hs-type">ReservationValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681143720"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681143720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationValue
+</span><a href="#local-6989586621681143721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hourlyPrice:ReservationValue' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ReservationValue.html#%24sel%3AhourlyPrice%3AReservationValue%27"><span class="hs-identifier hs-var">hourlyPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681108876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | The balance of the total value (the sum of remainingUpfrontValue +</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- hourlyPrice * number of hours remaining).</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#reservationValue_remainingTotalValue"><span class="hs-identifier hs-type">reservationValue_remainingTotalValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="reservationValue_remainingTotalValue"><span class="annot"><span class="annottext">reservationValue_remainingTotalValue :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621681143720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The balance of the total value (the sum of remainingUpfrontValue +</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- hourlyPrice * number of hours remaining).</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#reservationValue_remainingTotalValue"><span class="hs-identifier hs-type">reservationValue_remainingTotalValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="reservationValue_remainingTotalValue"><span class="annot"><span class="annottext">reservationValue_remainingTotalValue :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ReservationValue -&gt; f ReservationValue
 </span><a href="Network.AWS.EC2.Types.ReservationValue.html#reservationValue_remainingTotalValue"><span class="hs-identifier hs-var hs-var">reservationValue_remainingTotalValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationValue -&gt; Maybe Text)
 -&gt; (ReservationValue -&gt; Maybe Text -&gt; ReservationValue)
 -&gt; Lens ReservationValue ReservationValue (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue%27"><span class="hs-identifier hs-type">ReservationValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681108874"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue%27"><span class="hs-identifier hs-type">ReservationValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681143718"><span class="annot"><span class="annottext">Maybe Text
 remainingTotalValue :: Maybe Text
 $sel:remainingTotalValue:ReservationValue' :: ReservationValue -&gt; Maybe Text
-</span><a href="#local-6989586621681108874"><span class="hs-identifier hs-var hs-var">remainingTotalValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681108874"><span class="hs-identifier hs-var">remainingTotalValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681108873"><span class="annot"><span class="annottext">s :: ReservationValue
-</span><a href="#local-6989586621681108873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue%27"><span class="hs-identifier hs-type">ReservationValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681108872"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681108872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationValue
-</span><a href="#local-6989586621681108873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remainingTotalValue:ReservationValue' :: Maybe Text
+</span><a href="#local-6989586621681143718"><span class="hs-identifier hs-var hs-var">remainingTotalValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681143718"><span class="hs-identifier hs-var">remainingTotalValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681143717"><span class="annot"><span class="annottext">s :: ReservationValue
+</span><a href="#local-6989586621681143717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue%27"><span class="hs-identifier hs-type">ReservationValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681143716"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681143716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationValue
+</span><a href="#local-6989586621681143717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remainingTotalValue:ReservationValue' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ReservationValue.html#%24sel%3AremainingTotalValue%3AReservationValue%27"><span class="hs-identifier hs-var">remainingTotalValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681108872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621681108869"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReservationValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681108867"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681108867"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ReservationValue
+</span><a href="#local-6989586621681143716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The remaining upfront cost of the reservation.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#reservationValue_remainingUpfrontValue"><span class="hs-identifier hs-type">reservationValue_remainingUpfrontValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="reservationValue_remainingUpfrontValue"><span class="annot"><span class="annottext">reservationValue_remainingUpfrontValue :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReservationValue -&gt; f ReservationValue
+</span><a href="Network.AWS.EC2.Types.ReservationValue.html#reservationValue_remainingUpfrontValue"><span class="hs-identifier hs-var hs-var">reservationValue_remainingUpfrontValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationValue -&gt; Maybe Text)
+-&gt; (ReservationValue -&gt; Maybe Text -&gt; ReservationValue)
+-&gt; Lens ReservationValue ReservationValue (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue%27"><span class="hs-identifier hs-type">ReservationValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681143714"><span class="annot"><span class="annottext">Maybe Text
+remainingUpfrontValue :: Maybe Text
+$sel:remainingUpfrontValue:ReservationValue' :: ReservationValue -&gt; Maybe Text
+</span><a href="#local-6989586621681143714"><span class="hs-identifier hs-var hs-var">remainingUpfrontValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681143714"><span class="hs-identifier hs-var">remainingUpfrontValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681143713"><span class="annot"><span class="annottext">s :: ReservationValue
+</span><a href="#local-6989586621681143713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue%27"><span class="hs-identifier hs-type">ReservationValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681143712"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681143712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationValue
+</span><a href="#local-6989586621681143713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remainingUpfrontValue:ReservationValue' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ReservationValue.html#%24sel%3AremainingUpfrontValue%3AReservationValue%27"><span class="hs-identifier hs-var">remainingUpfrontValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681143712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621681143709"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReservationValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681143707"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681143707"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ReservationValue
 </span><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue%27"><span class="hs-identifier hs-var">ReservationValue'</span></a></span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ReservationValue)
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ReservationValue)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; ReservationValue)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681108867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681143707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;remainingUpfrontValue&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; ReservationValue)
+</span><span class="hs-string">&quot;hourlyPrice&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; ReservationValue)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; ReservationValue)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681108867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;hourlyPrice&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ReservationValue)
--&gt; Either String (Maybe Text) -&gt; Either String ReservationValue
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681108867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681143707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;remainingTotalValue&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681108861"><span id="local-6989586621681108863"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span></span></span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681108858"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span></span><span>
-</span><span id="line-88"></span></pre></body></html>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ReservationValue)
+-&gt; Either String (Maybe Text) -&gt; Either String ReservationValue
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681143707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;remainingUpfrontValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681143701"><span id="local-6989586621681143703"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681143698"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservationValue.html#ReservationValue"><span class="hs-identifier hs-type">ReservationValue</span></a></span></span><span>
+</span><span id="line-87"></span></pre></body></html>

@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteContainerService' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679653567"><span id="local-6989586621679653568"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteContainerService"><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService"><span class="hs-identifier hs-var">DeleteContainerService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteContainerService%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService%27"><span class="hs-identifier hs-var">DeleteContainerService'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679654595"><span id="local-6989586621679654596"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteContainerService"><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService"><span class="hs-identifier hs-var">DeleteContainerService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteContainerService%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService%27"><span class="hs-identifier hs-var">DeleteContainerService'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the container service to delete.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AserviceName%3ADeleteContainerService%27"><span class="annot"><span class="annottext">DeleteContainerService -&gt; Text
 </span><a href="Network.AWS.Lightsail.DeleteContainerService.html#%24sel%3AserviceName%3ADeleteContainerService%27"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679653561"><span id="local-6989586621679653563"><span class="annot"><span class="annottext">DeleteContainerService -&gt; DeleteContainerService -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679654589"><span id="local-6989586621679654591"><span class="annot"><span class="annottext">DeleteContainerService -&gt; DeleteContainerService -&gt; Bool
 (DeleteContainerService -&gt; DeleteContainerService -&gt; Bool)
 -&gt; (DeleteContainerService -&gt; DeleteContainerService -&gt; Bool)
 -&gt; Eq DeleteContainerService
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteContainerService -&gt; DeleteContainerService -&gt; Bool
 == :: DeleteContainerService -&gt; DeleteContainerService -&gt; Bool
 $c== :: DeleteContainerService -&gt; DeleteContainerService -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653552"><span id="local-6989586621679653554"><span id="local-6989586621679653556"><span id="local-6989586621679653558"><span class="annot"><span class="annottext">ReadPrec [DeleteContainerService]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654580"><span id="local-6989586621679654582"><span id="local-6989586621679654584"><span id="local-6989586621679654586"><span class="annot"><span class="annottext">ReadPrec [DeleteContainerService]
 ReadPrec DeleteContainerService
 Int -&gt; ReadS DeleteContainerService
 ReadS [DeleteContainerService]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteContainerService]
 $creadList :: ReadS [DeleteContainerService]
 readsPrec :: Int -&gt; ReadS DeleteContainerService
 $creadsPrec :: Int -&gt; ReadS DeleteContainerService
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653545"><span id="local-6989586621679653547"><span id="local-6989586621679653549"><span class="annot"><span class="annottext">Int -&gt; DeleteContainerService -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654573"><span id="local-6989586621679654575"><span id="local-6989586621679654577"><span class="annot"><span class="annottext">Int -&gt; DeleteContainerService -&gt; ShowS
 [DeleteContainerService] -&gt; ShowS
 DeleteContainerService -&gt; String
 (Int -&gt; DeleteContainerService -&gt; ShowS)
@@ -121,14 +121,14 @@ $cfrom :: forall x. DeleteContainerService -&gt; Rep DeleteContainerService x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService"><span class="hs-identifier hs-type">DeleteContainerService</span></a></span><span>
 </span><span id="line-68"></span><span id="newDeleteContainerService"><span class="annot"><span class="annottext">newDeleteContainerService :: Text -&gt; DeleteContainerService
-</span><a href="Network.AWS.Lightsail.DeleteContainerService.html#newDeleteContainerService"><span class="hs-identifier hs-var hs-var">newDeleteContainerService</span></a></span></span><span> </span><span id="local-6989586621679653540"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679653540"><span class="hs-identifier hs-var">pServiceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteContainerService.html#newDeleteContainerService"><span class="hs-identifier hs-var hs-var">newDeleteContainerService</span></a></span></span><span> </span><span id="local-6989586621679654568"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679654568"><span class="hs-identifier hs-var">pServiceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteContainerService' :: Text -&gt; DeleteContainerService
 </span><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService%27"><span class="hs-identifier hs-type">DeleteContainerService'</span></a></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceName:DeleteContainerService' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteContainerService.html#%24sel%3AserviceName%3ADeleteContainerService%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679653540"><span class="hs-identifier hs-var">pServiceName_</span></a></span><span>
+</span><a href="#local-6989586621679654568"><span class="hs-identifier hs-var">pServiceName_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The name of the container service to delete.</span><span>
@@ -139,27 +139,27 @@ $cfrom :: forall x. DeleteContainerService -&gt; Rep DeleteContainerService x
 -&gt; (DeleteContainerService -&gt; Text -&gt; DeleteContainerService)
 -&gt; Lens DeleteContainerService DeleteContainerService Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService%27"><span class="hs-identifier hs-type">DeleteContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679653537"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService%27"><span class="hs-identifier hs-type">DeleteContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654565"><span class="annot"><span class="annottext">Text
 serviceName :: Text
 $sel:serviceName:DeleteContainerService' :: DeleteContainerService -&gt; Text
-</span><a href="#local-6989586621679653537"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679653537"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679653536"><span class="annot"><span class="annottext">s :: DeleteContainerService
-</span><a href="#local-6989586621679653536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService%27"><span class="hs-identifier hs-type">DeleteContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679653535"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679653535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteContainerService
-</span><a href="#local-6989586621679653536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:DeleteContainerService' :: Text
+</span><a href="#local-6989586621679654565"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679654565"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679654564"><span class="annot"><span class="annottext">s :: DeleteContainerService
+</span><a href="#local-6989586621679654564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService%27"><span class="hs-identifier hs-type">DeleteContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679654563"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679654563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteContainerService
+</span><a href="#local-6989586621679654564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:DeleteContainerService' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteContainerService.html#%24sel%3AserviceName%3ADeleteContainerService%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679653535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService"><span class="hs-identifier hs-type">DeleteContainerService</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679654563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService"><span class="hs-identifier hs-type">DeleteContainerService</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService"><span class="hs-identifier hs-type">DeleteContainerService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService"><span class="hs-identifier hs-type">DeleteContainerService</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerServiceResponse"><span class="hs-identifier hs-type">DeleteContainerServiceResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679653531"><span class="annot"><span class="annottext">request :: DeleteContainerService -&gt; Request DeleteContainerService
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679654559"><span class="annot"><span class="annottext">request :: DeleteContainerService -&gt; Request DeleteContainerService
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteContainerService -&gt; Request DeleteContainerService
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679653527"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679654555"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteContainerService
 -&gt; ClientResponse ClientBody
@@ -185,10 +185,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679653524"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679653524"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679653523"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679653523"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679653522"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679653522"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679654552"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679654552"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679654551"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679654551"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679654550"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679654550"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteContainerServiceResponse
 </span><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerServiceResponse%27"><span class="hs-identifier hs-var">DeleteContainerServiceResponse'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteContainerServiceResponse)
@@ -200,15 +200,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679653524"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679654552"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679653515"><span id="local-6989586621679653517"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService"><span class="hs-identifier hs-type">DeleteContainerService</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654543"><span id="local-6989586621679654545"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService"><span class="hs-identifier hs-type">DeleteContainerService</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679653512"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService"><span class="hs-identifier hs-type">DeleteContainerService</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654540"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService"><span class="hs-identifier hs-type">DeleteContainerService</span></a></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService"><span class="hs-identifier hs-type">DeleteContainerService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679653508"><span class="annot"><span class="annottext">toHeaders :: DeleteContainerService -&gt; ResponseHeaders
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679654536"><span class="annot"><span class="annottext">toHeaders :: DeleteContainerService -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteContainerService -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -235,12 +235,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679653498"><span id="local-6989586621679653500"><span id="local-6989586621679653502"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService"><span class="hs-identifier hs-type">DeleteContainerService</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679653496"><span class="annot"><span class="annottext">toJSON :: DeleteContainerService -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService%27"><span class="hs-identifier hs-type">DeleteContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679653494"><span class="annot"><span class="annottext">Text
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654526"><span id="local-6989586621679654528"><span id="local-6989586621679654530"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService"><span class="hs-identifier hs-type">DeleteContainerService</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679654524"><span class="annot"><span class="annottext">toJSON :: DeleteContainerService -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService%27"><span class="hs-identifier hs-type">DeleteContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654522"><span class="annot"><span class="annottext">Text
 serviceName :: Text
 $sel:serviceName:DeleteContainerService' :: DeleteContainerService -&gt; Text
-</span><a href="#local-6989586621679653494"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679654522"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -252,18 +252,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;serviceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679653494"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679654522"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService"><span class="hs-identifier hs-type">DeleteContainerService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679653488"><span class="annot"><span class="annottext">toPath :: DeleteContainerService -&gt; ByteString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679654516"><span class="annot"><span class="annottext">toPath :: DeleteContainerService -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteContainerService -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerService"><span class="hs-identifier hs-type">DeleteContainerService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679653484"><span class="annot"><span class="annottext">toQuery :: DeleteContainerService -&gt; QueryString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679654512"><span class="annot"><span class="annottext">toQuery :: DeleteContainerService -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteContainerService -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -271,12 +271,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newDeleteContainerServiceResponse' smart constructor.</span><span>
-</span><span id="line-123"></span><span id="local-6989586621679653481"><span id="local-6989586621679653482"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteContainerServiceResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerServiceResponse"><span class="hs-identifier hs-var">DeleteContainerServiceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteContainerServiceResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerServiceResponse%27"><span class="hs-identifier hs-var">DeleteContainerServiceResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span id="local-6989586621679654509"><span id="local-6989586621679654510"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteContainerServiceResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerServiceResponse"><span class="hs-identifier hs-var">DeleteContainerServiceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteContainerServiceResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerServiceResponse%27"><span class="hs-identifier hs-var">DeleteContainerServiceResponse'</span></a></span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteContainerServiceResponse%27"><span class="annot"><span class="annottext">DeleteContainerServiceResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.DeleteContainerService.html#%24sel%3AhttpStatus%3ADeleteContainerServiceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679653476"><span id="local-6989586621679653478"><span class="annot"><span class="annottext">DeleteContainerServiceResponse
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679654504"><span id="local-6989586621679654506"><span class="annot"><span class="annottext">DeleteContainerServiceResponse
 -&gt; DeleteContainerServiceResponse -&gt; Bool
 (DeleteContainerServiceResponse
  -&gt; DeleteContainerServiceResponse -&gt; Bool)
@@ -292,7 +292,7 @@ $c/= :: DeleteContainerServiceResponse
 -&gt; DeleteContainerServiceResponse -&gt; Bool
 $c== :: DeleteContainerServiceResponse
 -&gt; DeleteContainerServiceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653468"><span id="local-6989586621679653470"><span id="local-6989586621679653472"><span id="local-6989586621679653474"><span class="annot"><span class="annottext">ReadPrec [DeleteContainerServiceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654496"><span id="local-6989586621679654498"><span id="local-6989586621679654500"><span id="local-6989586621679654502"><span class="annot"><span class="annottext">ReadPrec [DeleteContainerServiceResponse]
 ReadPrec DeleteContainerServiceResponse
 Int -&gt; ReadS DeleteContainerServiceResponse
 ReadS [DeleteContainerServiceResponse]
@@ -312,7 +312,7 @@ readList :: ReadS [DeleteContainerServiceResponse]
 $creadList :: ReadS [DeleteContainerServiceResponse]
 readsPrec :: Int -&gt; ReadS DeleteContainerServiceResponse
 $creadsPrec :: Int -&gt; ReadS DeleteContainerServiceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653462"><span id="local-6989586621679653464"><span id="local-6989586621679653466"><span class="annot"><span class="annottext">Int -&gt; DeleteContainerServiceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654490"><span id="local-6989586621679654492"><span id="local-6989586621679654494"><span class="annot"><span class="annottext">Int -&gt; DeleteContainerServiceResponse -&gt; ShowS
 [DeleteContainerServiceResponse] -&gt; ShowS
 DeleteContainerServiceResponse -&gt; String
 (Int -&gt; DeleteContainerServiceResponse -&gt; ShowS)
@@ -364,14 +364,14 @@ DeleteContainerServiceResponse
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerServiceResponse"><span class="hs-identifier hs-type">DeleteContainerServiceResponse</span></a></span><span>
 </span><span id="line-142"></span><span id="newDeleteContainerServiceResponse"><span class="annot"><span class="annottext">newDeleteContainerServiceResponse :: Int -&gt; DeleteContainerServiceResponse
-</span><a href="Network.AWS.Lightsail.DeleteContainerService.html#newDeleteContainerServiceResponse"><span class="hs-identifier hs-var hs-var">newDeleteContainerServiceResponse</span></a></span></span><span> </span><span id="local-6989586621679653459"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679653459"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteContainerService.html#newDeleteContainerServiceResponse"><span class="hs-identifier hs-var hs-var">newDeleteContainerServiceResponse</span></a></span></span><span> </span><span id="local-6989586621679654487"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679654487"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">DeleteContainerServiceResponse' :: Int -&gt; DeleteContainerServiceResponse
 </span><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerServiceResponse%27"><span class="hs-identifier hs-type">DeleteContainerServiceResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteContainerServiceResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteContainerService.html#%24sel%3AhttpStatus%3ADeleteContainerServiceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679653459"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679654487"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -388,18 +388,18 @@ DeleteContainerServiceResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerServiceResponse%27"><span class="hs-identifier hs-type">DeleteContainerServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679653458"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerServiceResponse%27"><span class="hs-identifier hs-type">DeleteContainerServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654486"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteContainerServiceResponse' :: DeleteContainerServiceResponse -&gt; Int
-</span><a href="#local-6989586621679653458"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679653458"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679653457"><span class="annot"><span class="annottext">s :: DeleteContainerServiceResponse
-</span><a href="#local-6989586621679653457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerServiceResponse%27"><span class="hs-identifier hs-type">DeleteContainerServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679653456"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679653456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteContainerServiceResponse
-</span><a href="#local-6989586621679653457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteContainerServiceResponse' :: Int
+</span><a href="#local-6989586621679654486"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679654486"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679654485"><span class="annot"><span class="annottext">s :: DeleteContainerServiceResponse
+</span><a href="#local-6989586621679654485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerServiceResponse%27"><span class="hs-identifier hs-type">DeleteContainerServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679654484"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679654484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteContainerServiceResponse
+</span><a href="#local-6989586621679654485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteContainerServiceResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteContainerService.html#%24sel%3AhttpStatus%3ADeleteContainerServiceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679653456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerServiceResponse"><span class="hs-identifier hs-type">DeleteContainerServiceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679654484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerServiceResponse"><span class="hs-identifier hs-type">DeleteContainerServiceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679653454"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679654482"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteContainerService.html#DeleteContainerServiceResponse"><span class="hs-identifier hs-type">DeleteContainerServiceResponse</span></a></span></span><span>
 </span><span id="line-155"></span></pre></body></html>

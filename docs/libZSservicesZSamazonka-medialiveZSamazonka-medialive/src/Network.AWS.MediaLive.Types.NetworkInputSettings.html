@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- node that is running the live event through a network connection.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newNetworkInputSettings' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679901756"><span id="local-6989586621679901757"></span></span><span class="hs-keyword">data</span><span> </span><span id="NetworkInputSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings"><span class="hs-identifier hs-var">NetworkInputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkInputSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings%27"><span class="hs-identifier hs-var">NetworkInputSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679908429"><span id="local-6989586621679908430"></span></span><span class="hs-keyword">data</span><span> </span><span id="NetworkInputSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings"><span class="hs-identifier hs-var">NetworkInputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkInputSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings%27"><span class="hs-identifier hs-var">NetworkInputSettings'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies HLS input settings when the uri is for a HLS manifest.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AhlsInputSettings%3ANetworkInputSettings%27"><span class="annot"><span class="annottext">NetworkInputSettings -&gt; Maybe HlsInputSettings
 </span><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#%24sel%3AhlsInputSettings%3ANetworkInputSettings%27"><span class="hs-identifier hs-var hs-var">hlsInputSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span><span class="hs-special">,</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AserverValidation%3ANetworkInputSettings%27"><span class="annot"><span class="annottext">NetworkInputSettings -&gt; Maybe NetworkInputServerValidation
 </span><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#%24sel%3AserverValidation%3ANetworkInputSettings%27"><span class="hs-identifier hs-var hs-var">serverValidation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputServerValidation.html#NetworkInputServerValidation"><span class="hs-identifier hs-type">NetworkInputServerValidation</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679901749"><span id="local-6989586621679901751"><span class="annot"><span class="annottext">NetworkInputSettings -&gt; NetworkInputSettings -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679908422"><span id="local-6989586621679908424"><span class="annot"><span class="annottext">NetworkInputSettings -&gt; NetworkInputSettings -&gt; Bool
 (NetworkInputSettings -&gt; NetworkInputSettings -&gt; Bool)
 -&gt; (NetworkInputSettings -&gt; NetworkInputSettings -&gt; Bool)
 -&gt; Eq NetworkInputSettings
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NetworkInputSettings -&gt; NetworkInputSettings -&gt; Bool
 == :: NetworkInputSettings -&gt; NetworkInputSettings -&gt; Bool
 $c== :: NetworkInputSettings -&gt; NetworkInputSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679901740"><span id="local-6989586621679901742"><span id="local-6989586621679901744"><span id="local-6989586621679901746"><span class="annot"><span class="annottext">ReadPrec [NetworkInputSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679908413"><span id="local-6989586621679908415"><span id="local-6989586621679908417"><span id="local-6989586621679908419"><span class="annot"><span class="annottext">ReadPrec [NetworkInputSettings]
 ReadPrec NetworkInputSettings
 Int -&gt; ReadS NetworkInputSettings
 ReadS [NetworkInputSettings]
@@ -71,7 +71,7 @@ readList :: ReadS [NetworkInputSettings]
 $creadList :: ReadS [NetworkInputSettings]
 readsPrec :: Int -&gt; ReadS NetworkInputSettings
 $creadsPrec :: Int -&gt; ReadS NetworkInputSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679901733"><span id="local-6989586621679901735"><span id="local-6989586621679901737"><span class="annot"><span class="annottext">Int -&gt; NetworkInputSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679908406"><span id="local-6989586621679908408"><span id="local-6989586621679908410"><span class="annot"><span class="annottext">Int -&gt; NetworkInputSettings -&gt; ShowS
 [NetworkInputSettings] -&gt; ShowS
 NetworkInputSettings -&gt; String
 (Int -&gt; NetworkInputSettings -&gt; ShowS)
@@ -144,16 +144,16 @@ forall a. Maybe a
      (Maybe HlsInputSettings)
      (Maybe HlsInputSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings%27"><span class="hs-identifier hs-type">NetworkInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679901724"><span class="annot"><span class="annottext">Maybe HlsInputSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings%27"><span class="hs-identifier hs-type">NetworkInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679908397"><span class="annot"><span class="annottext">Maybe HlsInputSettings
 hlsInputSettings :: Maybe HlsInputSettings
 $sel:hlsInputSettings:NetworkInputSettings' :: NetworkInputSettings -&gt; Maybe HlsInputSettings
-</span><a href="#local-6989586621679901724"><span class="hs-identifier hs-var hs-var">hlsInputSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsInputSettings
-</span><a href="#local-6989586621679901724"><span class="hs-identifier hs-var">hlsInputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679901723"><span class="annot"><span class="annottext">s :: NetworkInputSettings
-</span><a href="#local-6989586621679901723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings%27"><span class="hs-identifier hs-type">NetworkInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679901722"><span class="annot"><span class="annottext">Maybe HlsInputSettings
-</span><a href="#local-6989586621679901722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInputSettings
-</span><a href="#local-6989586621679901723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hlsInputSettings:NetworkInputSettings' :: Maybe HlsInputSettings
+</span><a href="#local-6989586621679908397"><span class="hs-identifier hs-var hs-var">hlsInputSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsInputSettings
+</span><a href="#local-6989586621679908397"><span class="hs-identifier hs-var">hlsInputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679908396"><span class="annot"><span class="annottext">s :: NetworkInputSettings
+</span><a href="#local-6989586621679908396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings%27"><span class="hs-identifier hs-type">NetworkInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679908395"><span class="annot"><span class="annottext">Maybe HlsInputSettings
+</span><a href="#local-6989586621679908395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInputSettings
+</span><a href="#local-6989586621679908396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hlsInputSettings:NetworkInputSettings' :: Maybe HlsInputSettings
 </span><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#%24sel%3AhlsInputSettings%3ANetworkInputSettings%27"><span class="hs-identifier hs-var">hlsInputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsInputSettings
-</span><a href="#local-6989586621679901722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings"><span class="hs-identifier hs-type">NetworkInputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679908395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings"><span class="hs-identifier hs-type">NetworkInputSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | Check HTTPS server certificates. When set to checkCryptographyOnly,</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- cryptography in the certificate will be checked, but not the server\'s</span><span>
@@ -174,19 +174,19 @@ $sel:hlsInputSettings:NetworkInputSettings' :: NetworkInputSettings -&gt; Maybe 
      (Maybe NetworkInputServerValidation)
      (Maybe NetworkInputServerValidation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings%27"><span class="hs-identifier hs-type">NetworkInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679901720"><span class="annot"><span class="annottext">Maybe NetworkInputServerValidation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings%27"><span class="hs-identifier hs-type">NetworkInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679908393"><span class="annot"><span class="annottext">Maybe NetworkInputServerValidation
 serverValidation :: Maybe NetworkInputServerValidation
 $sel:serverValidation:NetworkInputSettings' :: NetworkInputSettings -&gt; Maybe NetworkInputServerValidation
-</span><a href="#local-6989586621679901720"><span class="hs-identifier hs-var hs-var">serverValidation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInputServerValidation
-</span><a href="#local-6989586621679901720"><span class="hs-identifier hs-var">serverValidation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679901719"><span class="annot"><span class="annottext">s :: NetworkInputSettings
-</span><a href="#local-6989586621679901719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings%27"><span class="hs-identifier hs-type">NetworkInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679901718"><span class="annot"><span class="annottext">Maybe NetworkInputServerValidation
-</span><a href="#local-6989586621679901718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInputSettings
-</span><a href="#local-6989586621679901719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverValidation:NetworkInputSettings' :: Maybe NetworkInputServerValidation
+</span><a href="#local-6989586621679908393"><span class="hs-identifier hs-var hs-var">serverValidation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInputServerValidation
+</span><a href="#local-6989586621679908393"><span class="hs-identifier hs-var">serverValidation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679908392"><span class="annot"><span class="annottext">s :: NetworkInputSettings
+</span><a href="#local-6989586621679908392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings%27"><span class="hs-identifier hs-type">NetworkInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679908391"><span class="annot"><span class="annottext">Maybe NetworkInputServerValidation
+</span><a href="#local-6989586621679908391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInputSettings
+</span><a href="#local-6989586621679908392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverValidation:NetworkInputSettings' :: Maybe NetworkInputServerValidation
 </span><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#%24sel%3AserverValidation%3ANetworkInputSettings%27"><span class="hs-identifier hs-var">serverValidation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInputServerValidation
-</span><a href="#local-6989586621679901718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings"><span class="hs-identifier hs-type">NetworkInputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679908391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings"><span class="hs-identifier hs-type">NetworkInputSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679901715"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings"><span class="hs-identifier hs-type">NetworkInputSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679901713"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NetworkInputSettings
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908388"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings"><span class="hs-identifier hs-type">NetworkInputSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679908386"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NetworkInputSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser NetworkInputSettings)
@@ -196,8 +196,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;NetworkInputSettings&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679901710"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679901710"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679908383"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679908383"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe HlsInputSettings
 -&gt; Maybe NetworkInputServerValidation -&gt; NetworkInputSettings
 </span><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings%27"><span class="hs-identifier hs-var">NetworkInputSettings'</span></a></span><span>
@@ -208,7 +208,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe NetworkInputServerValidation -&gt; NetworkInputSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679901710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsInputSettings)
+</span><a href="#local-6989586621679908383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsInputSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hlsInputSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -217,25 +217,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser NetworkInputSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679901710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NetworkInputServerValidation)
+</span><a href="#local-6989586621679908383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NetworkInputServerValidation)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serverValidation&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679901704"><span id="local-6989586621679901706"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings"><span class="hs-identifier hs-type">NetworkInputSettings</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908377"><span id="local-6989586621679908379"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings"><span class="hs-identifier hs-type">NetworkInputSettings</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679901701"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings"><span class="hs-identifier hs-type">NetworkInputSettings</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908374"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings"><span class="hs-identifier hs-type">NetworkInputSettings</span></a></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679901693"><span id="local-6989586621679901695"><span id="local-6989586621679901697"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings"><span class="hs-identifier hs-type">NetworkInputSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679901691"><span class="annot"><span class="annottext">toJSON :: NetworkInputSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings%27"><span class="hs-identifier hs-type">NetworkInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679901688"><span id="local-6989586621679901689"><span class="annot"><span class="annottext">Maybe HlsInputSettings
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908366"><span id="local-6989586621679908368"><span id="local-6989586621679908370"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings"><span class="hs-identifier hs-type">NetworkInputSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679908364"><span class="annot"><span class="annottext">toJSON :: NetworkInputSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NetworkInputSettings.html#NetworkInputSettings%27"><span class="hs-identifier hs-type">NetworkInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679908361"><span id="local-6989586621679908362"><span class="annot"><span class="annottext">Maybe HlsInputSettings
 Maybe NetworkInputServerValidation
 serverValidation :: Maybe NetworkInputServerValidation
 hlsInputSettings :: Maybe HlsInputSettings
 $sel:serverValidation:NetworkInputSettings' :: NetworkInputSettings -&gt; Maybe NetworkInputServerValidation
 $sel:hlsInputSettings:NetworkInputSettings' :: NetworkInputSettings -&gt; Maybe HlsInputSettings
-</span><a href="#local-6989586621679901688"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679908361"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -248,7 +248,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">(HlsInputSettings -&gt; Pair) -&gt; Maybe HlsInputSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HlsInputSettings
-</span><a href="#local-6989586621679901689"><span class="hs-identifier hs-var">hlsInputSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679908362"><span class="hs-identifier hs-var">hlsInputSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serverValidation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NetworkInputServerValidation -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -257,7 +257,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe NetworkInputServerValidation -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInputServerValidation
-</span><a href="#local-6989586621679901688"><span class="hs-identifier hs-var">serverValidation</span></a></span><span>
+</span><a href="#local-6989586621679908361"><span class="hs-identifier hs-var">serverValidation</span></a></span><span>
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span></pre></body></html>

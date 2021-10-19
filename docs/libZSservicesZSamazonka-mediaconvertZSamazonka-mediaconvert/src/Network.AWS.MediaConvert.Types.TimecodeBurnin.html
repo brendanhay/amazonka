@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- output.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTimecodeBurnin' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680003082"><span id="local-6989586621680003083"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimecodeBurnin"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-var">TimecodeBurnin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimecodeBurnin%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin%27"><span class="hs-identifier hs-var">TimecodeBurnin'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680008013"><span id="local-6989586621680008014"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimecodeBurnin"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-var">TimecodeBurnin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimecodeBurnin%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin%27"><span class="hs-identifier hs-var">TimecodeBurnin'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use Prefix (Prefix) to place ASCII characters before any burned-in</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- timecode. For example, a prefix of \&quot;EZ-\&quot; will result in the timecode</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- \&quot;EZ-00:00:00:00\&quot;. Provide either the characters themselves or the</span><span>
@@ -37,16 +37,16 @@
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- represented on a standard English keyboard.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Aprefix%3ATimecodeBurnin%27"><span class="annot"><span class="annottext">TimecodeBurnin -&gt; Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#%24sel%3Aprefix%3ATimecodeBurnin%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- specify the location the burned-in timecode on output video.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aposition%3ATimecodeBurnin%27"><span class="annot"><span class="annottext">TimecodeBurnin -&gt; Maybe TimecodeBurninPosition
-</span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#%24sel%3Aposition%3ATimecodeBurnin%27"><span class="hs-identifier hs-var hs-var">position</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurninPosition.html#TimecodeBurninPosition"><span class="hs-identifier hs-type">TimecodeBurninPosition</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Use Font Size (FontSize) to set the font size of any burned-in timecode.</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Valid values are 10, 16, 32, 48.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AfontSize%3ATimecodeBurnin%27"><span class="annot"><span class="annottext">TimecodeBurnin -&gt; Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#%24sel%3AfontSize%3ATimecodeBurnin%27"><span class="hs-identifier hs-var hs-var">fontSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Use Font Size (FontSize) to set the font size of any burned-in timecode.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Valid values are 10, 16, 32, 48.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AfontSize%3ATimecodeBurnin%27"><span class="annot"><span class="annottext">TimecodeBurnin -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#%24sel%3AfontSize%3ATimecodeBurnin%27"><span class="hs-identifier hs-var hs-var">fontSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- specify the location the burned-in timecode on output video.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aposition%3ATimecodeBurnin%27"><span class="annot"><span class="annottext">TimecodeBurnin -&gt; Maybe TimecodeBurninPosition
+</span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#%24sel%3Aposition%3ATimecodeBurnin%27"><span class="hs-identifier hs-var hs-var">position</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurninPosition.html#TimecodeBurninPosition"><span class="hs-identifier hs-type">TimecodeBurninPosition</span></a></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680003074"><span id="local-6989586621680003076"><span class="annot"><span class="annottext">TimecodeBurnin -&gt; TimecodeBurnin -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680008005"><span id="local-6989586621680008007"><span class="annot"><span class="annottext">TimecodeBurnin -&gt; TimecodeBurnin -&gt; Bool
 (TimecodeBurnin -&gt; TimecodeBurnin -&gt; Bool)
 -&gt; (TimecodeBurnin -&gt; TimecodeBurnin -&gt; Bool) -&gt; Eq TimecodeBurnin
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TimecodeBurnin -&gt; TimecodeBurnin -&gt; Bool
 == :: TimecodeBurnin -&gt; TimecodeBurnin -&gt; Bool
 $c== :: TimecodeBurnin -&gt; TimecodeBurnin -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680003065"><span id="local-6989586621680003067"><span id="local-6989586621680003069"><span id="local-6989586621680003071"><span class="annot"><span class="annottext">ReadPrec [TimecodeBurnin]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680007996"><span id="local-6989586621680007998"><span id="local-6989586621680008000"><span id="local-6989586621680008002"><span class="annot"><span class="annottext">ReadPrec [TimecodeBurnin]
 ReadPrec TimecodeBurnin
 Int -&gt; ReadS TimecodeBurnin
 ReadS [TimecodeBurnin]
@@ -74,7 +74,7 @@ readList :: ReadS [TimecodeBurnin]
 $creadList :: ReadS [TimecodeBurnin]
 readsPrec :: Int -&gt; ReadS TimecodeBurnin
 $creadsPrec :: Int -&gt; ReadS TimecodeBurnin
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680003058"><span id="local-6989586621680003060"><span id="local-6989586621680003062"><span class="annot"><span class="annottext">Int -&gt; TimecodeBurnin -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680007989"><span id="local-6989586621680007991"><span id="local-6989586621680007993"><span class="annot"><span class="annottext">Int -&gt; TimecodeBurnin -&gt; ShowS
 [TimecodeBurnin] -&gt; ShowS
 TimecodeBurnin -&gt; String
 (Int -&gt; TimecodeBurnin -&gt; ShowS)
@@ -115,28 +115,28 @@ $cfrom :: forall x. TimecodeBurnin -&gt; Rep TimecodeBurnin x
 </span><span id="line-60"></span><span class="hs-comment">-- through 0x7e. This includes letters, numbers, and all special characters</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- represented on a standard English keyboard.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'position', 'timecodeBurnin_position' - Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- specify the location the burned-in timecode on output video.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'fontSize', 'timecodeBurnin_fontSize' - Use Font Size (FontSize) to set the font size of any burned-in timecode.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Valid values are 10, 16, 32, 48.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'fontSize', 'timecodeBurnin_fontSize' - Use Font Size (FontSize) to set the font size of any burned-in timecode.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- Valid values are 10, 16, 32, 48.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'position', 'timecodeBurnin_position' - Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- specify the location the burned-in timecode on output video.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#newTimecodeBurnin"><span class="hs-identifier hs-type">newTimecodeBurnin</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span><span>
 </span><span id="line-70"></span><span id="newTimecodeBurnin"><span class="annot"><span class="annottext">newTimecodeBurnin :: TimecodeBurnin
 </span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#newTimecodeBurnin"><span class="hs-identifier hs-var hs-var">newTimecodeBurnin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">TimecodeBurnin' :: Maybe Text
--&gt; Maybe TimecodeBurninPosition -&gt; Maybe Natural -&gt; TimecodeBurnin
+-&gt; Maybe Natural -&gt; Maybe TimecodeBurninPosition -&gt; TimecodeBurnin
 </span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin%27"><span class="hs-identifier hs-type">TimecodeBurnin'</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:prefix:TimecodeBurnin' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#%24sel%3Aprefix%3ATimecodeBurnin%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:position:TimecodeBurnin' :: Maybe TimecodeBurninPosition
-</span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#%24sel%3Aposition%3ATimecodeBurnin%27"><span class="hs-identifier hs-var">position</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimecodeBurninPosition
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:fontSize:TimecodeBurnin' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#%24sel%3AfontSize%3ATimecodeBurnin%27"><span class="hs-identifier hs-var">fontSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:fontSize:TimecodeBurnin' :: Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#%24sel%3AfontSize%3ATimecodeBurnin%27"><span class="hs-identifier hs-var">fontSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:position:TimecodeBurnin' :: Maybe TimecodeBurninPosition
+</span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#%24sel%3Aposition%3ATimecodeBurnin%27"><span class="hs-identifier hs-var">position</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimecodeBurninPosition
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
@@ -154,21 +154,42 @@ forall a. Maybe a
 -&gt; (TimecodeBurnin -&gt; Maybe Text -&gt; TimecodeBurnin)
 -&gt; Lens TimecodeBurnin TimecodeBurnin (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin%27"><span class="hs-identifier hs-type">TimecodeBurnin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003049"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin%27"><span class="hs-identifier hs-type">TimecodeBurnin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007980"><span class="annot"><span class="annottext">Maybe Text
 prefix :: Maybe Text
 $sel:prefix:TimecodeBurnin' :: TimecodeBurnin -&gt; Maybe Text
-</span><a href="#local-6989586621680003049"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680003049"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003048"><span class="annot"><span class="annottext">s :: TimecodeBurnin
-</span><a href="#local-6989586621680003048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin%27"><span class="hs-identifier hs-type">TimecodeBurnin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003047"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680003047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimecodeBurnin
-</span><a href="#local-6989586621680003048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:TimecodeBurnin' :: Maybe Text
+</span><a href="#local-6989586621680007980"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680007980"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007979"><span class="annot"><span class="annottext">s :: TimecodeBurnin
+</span><a href="#local-6989586621680007979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin%27"><span class="hs-identifier hs-type">TimecodeBurnin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007978"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680007978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimecodeBurnin
+</span><a href="#local-6989586621680007979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:TimecodeBurnin' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#%24sel%3Aprefix%3ATimecodeBurnin%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680003047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680007978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- specify the location the burned-in timecode on output video.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#timecodeBurnin_position"><span class="hs-identifier hs-type">timecodeBurnin_position</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurninPosition.html#TimecodeBurninPosition"><span class="hs-identifier hs-type">TimecodeBurninPosition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="timecodeBurnin_position"><span class="annot"><span class="annottext">timecodeBurnin_position :: (Maybe TimecodeBurninPosition -&gt; f (Maybe TimecodeBurninPosition))
+</span><span id="line-86"></span><span class="hs-comment">-- | Use Font Size (FontSize) to set the font size of any burned-in timecode.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Valid values are 10, 16, 32, 48.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#timecodeBurnin_fontSize"><span class="hs-identifier hs-type">timecodeBurnin_fontSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="timecodeBurnin_fontSize"><span class="annot"><span class="annottext">timecodeBurnin_fontSize :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; TimecodeBurnin -&gt; f TimecodeBurnin
+</span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#timecodeBurnin_fontSize"><span class="hs-identifier hs-var hs-var">timecodeBurnin_fontSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimecodeBurnin -&gt; Maybe Natural)
+-&gt; (TimecodeBurnin -&gt; Maybe Natural -&gt; TimecodeBurnin)
+-&gt; Lens
+     TimecodeBurnin TimecodeBurnin (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin%27"><span class="hs-identifier hs-type">TimecodeBurnin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007976"><span class="annot"><span class="annottext">Maybe Natural
+fontSize :: Maybe Natural
+$sel:fontSize:TimecodeBurnin' :: TimecodeBurnin -&gt; Maybe Natural
+</span><a href="#local-6989586621680007976"><span class="hs-identifier hs-var hs-var">fontSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680007976"><span class="hs-identifier hs-var">fontSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007975"><span class="annot"><span class="annottext">s :: TimecodeBurnin
+</span><a href="#local-6989586621680007975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin%27"><span class="hs-identifier hs-type">TimecodeBurnin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007974"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680007974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimecodeBurnin
+</span><a href="#local-6989586621680007975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fontSize:TimecodeBurnin' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#%24sel%3AfontSize%3ATimecodeBurnin%27"><span class="hs-identifier hs-var">fontSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680007974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- specify the location the burned-in timecode on output video.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#timecodeBurnin_position"><span class="hs-identifier hs-type">timecodeBurnin_position</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurninPosition.html#TimecodeBurninPosition"><span class="hs-identifier hs-type">TimecodeBurninPosition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="timecodeBurnin_position"><span class="annot"><span class="annottext">timecodeBurnin_position :: (Maybe TimecodeBurninPosition -&gt; f (Maybe TimecodeBurninPosition))
 -&gt; TimecodeBurnin -&gt; f TimecodeBurnin
 </span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#timecodeBurnin_position"><span class="hs-identifier hs-var hs-var">timecodeBurnin_position</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimecodeBurnin -&gt; Maybe TimecodeBurninPosition)
 -&gt; (TimecodeBurnin
@@ -179,40 +200,19 @@ $sel:prefix:TimecodeBurnin' :: TimecodeBurnin -&gt; Maybe Text
      (Maybe TimecodeBurninPosition)
      (Maybe TimecodeBurninPosition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin%27"><span class="hs-identifier hs-type">TimecodeBurnin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003045"><span class="annot"><span class="annottext">Maybe TimecodeBurninPosition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin%27"><span class="hs-identifier hs-type">TimecodeBurnin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007972"><span class="annot"><span class="annottext">Maybe TimecodeBurninPosition
 position :: Maybe TimecodeBurninPosition
 $sel:position:TimecodeBurnin' :: TimecodeBurnin -&gt; Maybe TimecodeBurninPosition
-</span><a href="#local-6989586621680003045"><span class="hs-identifier hs-var hs-var">position</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimecodeBurninPosition
-</span><a href="#local-6989586621680003045"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003044"><span class="annot"><span class="annottext">s :: TimecodeBurnin
-</span><a href="#local-6989586621680003044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin%27"><span class="hs-identifier hs-type">TimecodeBurnin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003043"><span class="annot"><span class="annottext">Maybe TimecodeBurninPosition
-</span><a href="#local-6989586621680003043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimecodeBurnin
-</span><a href="#local-6989586621680003044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:position:TimecodeBurnin' :: Maybe TimecodeBurninPosition
+</span><a href="#local-6989586621680007972"><span class="hs-identifier hs-var hs-var">position</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimecodeBurninPosition
+</span><a href="#local-6989586621680007972"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007971"><span class="annot"><span class="annottext">s :: TimecodeBurnin
+</span><a href="#local-6989586621680007971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin%27"><span class="hs-identifier hs-type">TimecodeBurnin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007970"><span class="annot"><span class="annottext">Maybe TimecodeBurninPosition
+</span><a href="#local-6989586621680007970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimecodeBurnin
+</span><a href="#local-6989586621680007971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:position:TimecodeBurnin' :: Maybe TimecodeBurninPosition
 </span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#%24sel%3Aposition%3ATimecodeBurnin%27"><span class="hs-identifier hs-var">position</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimecodeBurninPosition
-</span><a href="#local-6989586621680003043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | Use Font Size (FontSize) to set the font size of any burned-in timecode.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- Valid values are 10, 16, 32, 48.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#timecodeBurnin_fontSize"><span class="hs-identifier hs-type">timecodeBurnin_fontSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="timecodeBurnin_fontSize"><span class="annot"><span class="annottext">timecodeBurnin_fontSize :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; TimecodeBurnin -&gt; f TimecodeBurnin
-</span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#timecodeBurnin_fontSize"><span class="hs-identifier hs-var hs-var">timecodeBurnin_fontSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimecodeBurnin -&gt; Maybe Natural)
--&gt; (TimecodeBurnin -&gt; Maybe Natural -&gt; TimecodeBurnin)
--&gt; Lens
-     TimecodeBurnin TimecodeBurnin (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin%27"><span class="hs-identifier hs-type">TimecodeBurnin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003041"><span class="annot"><span class="annottext">Maybe Natural
-fontSize :: Maybe Natural
-$sel:fontSize:TimecodeBurnin' :: TimecodeBurnin -&gt; Maybe Natural
-</span><a href="#local-6989586621680003041"><span class="hs-identifier hs-var hs-var">fontSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680003041"><span class="hs-identifier hs-var">fontSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003040"><span class="annot"><span class="annottext">s :: TimecodeBurnin
-</span><a href="#local-6989586621680003040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin%27"><span class="hs-identifier hs-type">TimecodeBurnin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003039"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680003039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimecodeBurnin
-</span><a href="#local-6989586621680003040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fontSize:TimecodeBurnin' :: Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#%24sel%3AfontSize%3ATimecodeBurnin%27"><span class="hs-identifier hs-var">fontSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680003039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680007970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003036"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621680003034"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimecodeBurnin
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007967"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621680007965"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimecodeBurnin
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TimecodeBurnin)
@@ -222,58 +222,58 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TimecodeBurnin&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680003031"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680003031"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680007962"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680007962"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe TimecodeBurninPosition -&gt; Maybe Natural -&gt; TimecodeBurnin
+-&gt; Maybe Natural -&gt; Maybe TimecodeBurninPosition -&gt; TimecodeBurnin
 </span><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin%27"><span class="hs-identifier hs-var">TimecodeBurnin'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe TimecodeBurninPosition -&gt; Maybe Natural -&gt; TimecodeBurnin)
+ -&gt; Maybe Natural -&gt; Maybe TimecodeBurninPosition -&gt; TimecodeBurnin)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe TimecodeBurninPosition -&gt; Maybe Natural -&gt; TimecodeBurnin)
+     (Maybe Natural -&gt; Maybe TimecodeBurninPosition -&gt; TimecodeBurnin)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680003031"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680007962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;prefix&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe TimecodeBurninPosition -&gt; Maybe Natural -&gt; TimecodeBurnin)
--&gt; Parser (Maybe TimecodeBurninPosition)
--&gt; Parser (Maybe Natural -&gt; TimecodeBurnin)
+  (Maybe Natural -&gt; Maybe TimecodeBurninPosition -&gt; TimecodeBurnin)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe TimecodeBurninPosition -&gt; TimecodeBurnin)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680003031"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimecodeBurninPosition)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;position&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; TimecodeBurnin)
--&gt; Parser (Maybe Natural) -&gt; Parser TimecodeBurnin
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680003031"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680007962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fontSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TimecodeBurninPosition -&gt; TimecodeBurnin)
+-&gt; Parser (Maybe TimecodeBurninPosition) -&gt; Parser TimecodeBurnin
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680007962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimecodeBurninPosition)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;position&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003025"><span id="local-6989586621680003027"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007956"><span id="local-6989586621680007958"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003022"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007953"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003014"><span id="local-6989586621680003016"><span id="local-6989586621680003018"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621680003012"><span class="annot"><span class="annottext">toJSON :: TimecodeBurnin -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin%27"><span class="hs-identifier hs-type">TimecodeBurnin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003008"><span id="local-6989586621680003009"><span id="local-6989586621680003010"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007945"><span id="local-6989586621680007947"><span id="local-6989586621680007949"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin"><span class="hs-identifier hs-type">TimecodeBurnin</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621680007943"><span class="annot"><span class="annottext">toJSON :: TimecodeBurnin -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TimecodeBurnin.html#TimecodeBurnin%27"><span class="hs-identifier hs-type">TimecodeBurnin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007939"><span id="local-6989586621680007940"><span id="local-6989586621680007941"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe TimecodeBurninPosition
-fontSize :: Maybe Natural
 position :: Maybe TimecodeBurninPosition
+fontSize :: Maybe Natural
 prefix :: Maybe Text
-$sel:fontSize:TimecodeBurnin' :: TimecodeBurnin -&gt; Maybe Natural
 $sel:position:TimecodeBurnin' :: TimecodeBurnin -&gt; Maybe TimecodeBurninPosition
+$sel:fontSize:TimecodeBurnin' :: TimecodeBurnin -&gt; Maybe Natural
 $sel:prefix:TimecodeBurnin' :: TimecodeBurnin -&gt; Maybe Text
-</span><a href="#local-6989586621680003008"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680007939"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -285,22 +285,22 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680003010"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680007941"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fontSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680007940"><span class="hs-identifier hs-var">fontSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;position&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimecodeBurninPosition -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TimecodeBurninPosition -&gt; Pair)
 -&gt; Maybe TimecodeBurninPosition -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimecodeBurninPosition
-</span><a href="#local-6989586621680003009"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;fontSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680003008"><span class="hs-identifier hs-var">fontSize</span></a></span><span>
+</span><a href="#local-6989586621680007939"><span class="hs-identifier hs-var">position</span></a></span><span>
 </span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span></pre></body></html>

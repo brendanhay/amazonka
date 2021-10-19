@@ -34,8 +34,8 @@
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#newStopContinuousExportResponse"><span class="hs-identifier">newStopContinuousExportResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#stopContinuousExportResponse_stopTime"><span class="hs-identifier">stopContinuousExportResponse_stopTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#stopContinuousExportResponse_startTime"><span class="hs-identifier">stopContinuousExportResponse_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#stopContinuousExportResponse_startTime"><span class="hs-identifier">stopContinuousExportResponse_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#stopContinuousExportResponse_stopTime"><span class="hs-identifier">stopContinuousExportResponse_stopTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#stopContinuousExportResponse_httpStatus"><span class="hs-identifier">stopContinuousExportResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-41"></span><span class="hs-keyword">where</span><span>
@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newStopContinuousExport' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679205658"><span id="local-6989586621679205659"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopContinuousExport"><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport"><span class="hs-identifier hs-var">StopContinuousExport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopContinuousExport%27"><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport%27"><span class="hs-identifier hs-var">StopContinuousExport'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679205862"><span id="local-6989586621679205863"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopContinuousExport"><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport"><span class="hs-identifier hs-var">StopContinuousExport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopContinuousExport%27"><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport%27"><span class="hs-identifier hs-var">StopContinuousExport'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID assigned to this export.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AexportId%3AStopContinuousExport%27"><span class="annot"><span class="annottext">StopContinuousExport -&gt; Text
 </span><a href="Network.AWS.Discovery.StopContinuousExport.html#%24sel%3AexportId%3AStopContinuousExport%27"><span class="hs-identifier hs-var hs-var">exportId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205652"><span id="local-6989586621679205654"><span class="annot"><span class="annottext">StopContinuousExport -&gt; StopContinuousExport -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205856"><span id="local-6989586621679205858"><span class="annot"><span class="annottext">StopContinuousExport -&gt; StopContinuousExport -&gt; Bool
 (StopContinuousExport -&gt; StopContinuousExport -&gt; Bool)
 -&gt; (StopContinuousExport -&gt; StopContinuousExport -&gt; Bool)
 -&gt; Eq StopContinuousExport
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopContinuousExport -&gt; StopContinuousExport -&gt; Bool
 == :: StopContinuousExport -&gt; StopContinuousExport -&gt; Bool
 $c== :: StopContinuousExport -&gt; StopContinuousExport -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205643"><span id="local-6989586621679205645"><span id="local-6989586621679205647"><span id="local-6989586621679205649"><span class="annot"><span class="annottext">ReadPrec [StopContinuousExport]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205847"><span id="local-6989586621679205849"><span id="local-6989586621679205851"><span id="local-6989586621679205853"><span class="annot"><span class="annottext">ReadPrec [StopContinuousExport]
 ReadPrec StopContinuousExport
 Int -&gt; ReadS StopContinuousExport
 ReadS [StopContinuousExport]
@@ -82,7 +82,7 @@ readList :: ReadS [StopContinuousExport]
 $creadList :: ReadS [StopContinuousExport]
 readsPrec :: Int -&gt; ReadS StopContinuousExport
 $creadsPrec :: Int -&gt; ReadS StopContinuousExport
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205636"><span id="local-6989586621679205638"><span id="local-6989586621679205640"><span class="annot"><span class="annottext">Int -&gt; StopContinuousExport -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205840"><span id="local-6989586621679205842"><span id="local-6989586621679205844"><span class="annot"><span class="annottext">Int -&gt; StopContinuousExport -&gt; ShowS
 [StopContinuousExport] -&gt; ShowS
 StopContinuousExport -&gt; String
 (Int -&gt; StopContinuousExport -&gt; ShowS)
@@ -122,12 +122,12 @@ $cfrom :: forall x. StopContinuousExport -&gt; Rep StopContinuousExport x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport"><span class="hs-identifier hs-type">StopContinuousExport</span></a></span><span>
 </span><span id="line-70"></span><span id="newStopContinuousExport"><span class="annot"><span class="annottext">newStopContinuousExport :: Text -&gt; StopContinuousExport
-</span><a href="Network.AWS.Discovery.StopContinuousExport.html#newStopContinuousExport"><span class="hs-identifier hs-var hs-var">newStopContinuousExport</span></a></span></span><span> </span><span id="local-6989586621679205631"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679205631"><span class="hs-identifier hs-var">pExportId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Discovery.StopContinuousExport.html#newStopContinuousExport"><span class="hs-identifier hs-var hs-var">newStopContinuousExport</span></a></span></span><span> </span><span id="local-6989586621679205835"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205835"><span class="hs-identifier hs-var">pExportId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">StopContinuousExport' :: Text -&gt; StopContinuousExport
 </span><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport%27"><span class="hs-identifier hs-type">StopContinuousExport'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportId:StopContinuousExport' :: Text
 </span><a href="Network.AWS.Discovery.StopContinuousExport.html#%24sel%3AexportId%3AStopContinuousExport%27"><span class="hs-identifier hs-var">exportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679205631"><span class="hs-identifier hs-var">pExportId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679205835"><span class="hs-identifier hs-var">pExportId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The unique ID assigned to this export.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#stopContinuousExport_exportId"><span class="hs-identifier hs-type">stopContinuousExport_exportId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport"><span class="hs-identifier hs-type">StopContinuousExport</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -136,27 +136,27 @@ $cfrom :: forall x. StopContinuousExport -&gt; Rep StopContinuousExport x
 -&gt; (StopContinuousExport -&gt; Text -&gt; StopContinuousExport)
 -&gt; Lens StopContinuousExport StopContinuousExport Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport%27"><span class="hs-identifier hs-type">StopContinuousExport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205628"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport%27"><span class="hs-identifier hs-type">StopContinuousExport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205832"><span class="annot"><span class="annottext">Text
 exportId :: Text
 $sel:exportId:StopContinuousExport' :: StopContinuousExport -&gt; Text
-</span><a href="#local-6989586621679205628"><span class="hs-identifier hs-var hs-var">exportId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679205628"><span class="hs-identifier hs-var">exportId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205627"><span class="annot"><span class="annottext">s :: StopContinuousExport
-</span><a href="#local-6989586621679205627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport%27"><span class="hs-identifier hs-type">StopContinuousExport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205626"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679205626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopContinuousExport
-</span><a href="#local-6989586621679205627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportId:StopContinuousExport' :: Text
+</span><a href="#local-6989586621679205832"><span class="hs-identifier hs-var hs-var">exportId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205832"><span class="hs-identifier hs-var">exportId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205831"><span class="annot"><span class="annottext">s :: StopContinuousExport
+</span><a href="#local-6989586621679205831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport%27"><span class="hs-identifier hs-type">StopContinuousExport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205830"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopContinuousExport
+</span><a href="#local-6989586621679205831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportId:StopContinuousExport' :: Text
 </span><a href="Network.AWS.Discovery.StopContinuousExport.html#%24sel%3AexportId%3AStopContinuousExport%27"><span class="hs-identifier hs-var">exportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679205626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport"><span class="hs-identifier hs-type">StopContinuousExport</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679205830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport"><span class="hs-identifier hs-type">StopContinuousExport</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport"><span class="hs-identifier hs-type">StopContinuousExport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport"><span class="hs-identifier hs-type">StopContinuousExport</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse"><span class="hs-identifier hs-type">StopContinuousExportResponse</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679205622"><span class="annot"><span class="annottext">request :: StopContinuousExport -&gt; Request StopContinuousExport
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679205826"><span class="annot"><span class="annottext">request :: StopContinuousExport -&gt; Request StopContinuousExport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopContinuousExport -&gt; Request StopContinuousExport
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Discovery.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679205618"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679205822"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopContinuousExport
 -&gt; ClientResponse ClientBody
@@ -182,10 +182,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205615"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205615"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679205614"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679205614"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679205613"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679205613"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205819"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205819"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679205818"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679205818"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679205817"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205817"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe POSIX -&gt; Int -&gt; StopContinuousExportResponse
 </span><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse%27"><span class="hs-identifier hs-var">StopContinuousExportResponse'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe POSIX -&gt; Int -&gt; StopContinuousExportResponse)
@@ -194,19 +194,19 @@ MonadResource m =&gt;
      String (Maybe POSIX -&gt; Int -&gt; StopContinuousExportResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679205613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679205817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;stopTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe POSIX -&gt; Int -&gt; StopContinuousExportResponse)
 -&gt; Either String (Maybe POSIX)
 -&gt; Either String (Int -&gt; StopContinuousExportResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679205613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679205817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;stopTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StopContinuousExportResponse)
 -&gt; Either String Int -&gt; Either String StopContinuousExportResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -215,15 +215,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205615"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679205819"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205605"><span id="local-6989586621679205607"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport"><span class="hs-identifier hs-type">StopContinuousExport</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205809"><span id="local-6989586621679205811"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport"><span class="hs-identifier hs-type">StopContinuousExport</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205602"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport"><span class="hs-identifier hs-type">StopContinuousExport</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205806"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport"><span class="hs-identifier hs-type">StopContinuousExport</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport"><span class="hs-identifier hs-type">StopContinuousExport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679205598"><span class="annot"><span class="annottext">toHeaders :: StopContinuousExport -&gt; ResponseHeaders
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679205802"><span class="annot"><span class="annottext">toHeaders :: StopContinuousExport -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopContinuousExport -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -250,12 +250,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205588"><span id="local-6989586621679205590"><span id="local-6989586621679205592"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport"><span class="hs-identifier hs-type">StopContinuousExport</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679205586"><span class="annot"><span class="annottext">toJSON :: StopContinuousExport -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport%27"><span class="hs-identifier hs-type">StopContinuousExport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205584"><span class="annot"><span class="annottext">Text
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205792"><span id="local-6989586621679205794"><span id="local-6989586621679205796"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport"><span class="hs-identifier hs-type">StopContinuousExport</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679205790"><span class="annot"><span class="annottext">toJSON :: StopContinuousExport -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport%27"><span class="hs-identifier hs-type">StopContinuousExport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205788"><span class="annot"><span class="annottext">Text
 exportId :: Text
 $sel:exportId:StopContinuousExport' :: StopContinuousExport -&gt; Text
-</span><a href="#local-6989586621679205584"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679205788"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -267,18 +267,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;exportId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679205584"><span class="hs-identifier hs-var">exportId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679205788"><span class="hs-identifier hs-var">exportId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport"><span class="hs-identifier hs-type">StopContinuousExport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679205578"><span class="annot"><span class="annottext">toPath :: StopContinuousExport -&gt; ByteString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679205782"><span class="annot"><span class="annottext">toPath :: StopContinuousExport -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopContinuousExport -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExport"><span class="hs-identifier hs-type">StopContinuousExport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679205574"><span class="annot"><span class="annottext">toQuery :: StopContinuousExport -&gt; QueryString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679205778"><span class="annot"><span class="annottext">toQuery :: StopContinuousExport -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopContinuousExport -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -286,19 +286,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | /See:/ 'newStopContinuousExportResponse' smart constructor.</span><span>
-</span><span id="line-124"></span><span id="local-6989586621679205571"><span id="local-6989586621679205572"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopContinuousExportResponse"><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse"><span class="hs-identifier hs-var">StopContinuousExportResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopContinuousExportResponse%27"><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse%27"><span class="hs-identifier hs-var">StopContinuousExportResponse'</span></a></span></span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Timestamp that represents when this continuous export was stopped.</span><span>
-</span><span id="line-126"></span><span>    </span><span id="%24sel%3AstopTime%3AStopContinuousExportResponse%27"><span class="annot"><span class="annottext">StopContinuousExportResponse -&gt; Maybe POSIX
-</span><a href="Network.AWS.Discovery.StopContinuousExport.html#%24sel%3AstopTime%3AStopContinuousExportResponse%27"><span class="hs-identifier hs-var hs-var">stopTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | Timestamp that represents when this continuous export started collecting</span><span>
-</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- data.</span><span>
-</span><span id="line-129"></span><span>    </span><span id="%24sel%3AstartTime%3AStopContinuousExportResponse%27"><span class="annot"><span class="annottext">StopContinuousExportResponse -&gt; Maybe POSIX
+</span><span id="line-124"></span><span id="local-6989586621679205775"><span id="local-6989586621679205776"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopContinuousExportResponse"><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse"><span class="hs-identifier hs-var">StopContinuousExportResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopContinuousExportResponse%27"><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse%27"><span class="hs-identifier hs-var">StopContinuousExportResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Timestamp that represents when this continuous export started collecting</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AstartTime%3AStopContinuousExportResponse%27"><span class="annot"><span class="annottext">StopContinuousExportResponse -&gt; Maybe POSIX
 </span><a href="Network.AWS.Discovery.StopContinuousExport.html#%24sel%3AstartTime%3AStopContinuousExportResponse%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | Timestamp that represents when this continuous export was stopped.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AstopTime%3AStopContinuousExportResponse%27"><span class="annot"><span class="annottext">StopContinuousExportResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.Discovery.StopContinuousExport.html#%24sel%3AstopTime%3AStopContinuousExportResponse%27"><span class="hs-identifier hs-var hs-var">stopTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopContinuousExportResponse%27"><span class="annot"><span class="annottext">StopContinuousExportResponse -&gt; Int
 </span><a href="Network.AWS.Discovery.StopContinuousExport.html#%24sel%3AhttpStatus%3AStopContinuousExportResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205564"><span id="local-6989586621679205566"><span class="annot"><span class="annottext">StopContinuousExportResponse
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205768"><span id="local-6989586621679205770"><span class="annot"><span class="annottext">StopContinuousExportResponse
 -&gt; StopContinuousExportResponse -&gt; Bool
 (StopContinuousExportResponse
  -&gt; StopContinuousExportResponse -&gt; Bool)
@@ -314,7 +314,7 @@ $c/= :: StopContinuousExportResponse
 -&gt; StopContinuousExportResponse -&gt; Bool
 $c== :: StopContinuousExportResponse
 -&gt; StopContinuousExportResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205556"><span id="local-6989586621679205558"><span id="local-6989586621679205560"><span id="local-6989586621679205562"><span class="annot"><span class="annottext">ReadPrec [StopContinuousExportResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205760"><span id="local-6989586621679205762"><span id="local-6989586621679205764"><span id="local-6989586621679205766"><span class="annot"><span class="annottext">ReadPrec [StopContinuousExportResponse]
 ReadPrec StopContinuousExportResponse
 Int -&gt; ReadS StopContinuousExportResponse
 ReadS [StopContinuousExportResponse]
@@ -334,7 +334,7 @@ readList :: ReadS [StopContinuousExportResponse]
 $creadList :: ReadS [StopContinuousExportResponse]
 readsPrec :: Int -&gt; ReadS StopContinuousExportResponse
 $creadsPrec :: Int -&gt; ReadS StopContinuousExportResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205550"><span id="local-6989586621679205552"><span id="local-6989586621679205554"><span class="annot"><span class="annottext">Int -&gt; StopContinuousExportResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205754"><span id="local-6989586621679205756"><span id="local-6989586621679205758"><span class="annot"><span class="annottext">Int -&gt; StopContinuousExportResponse -&gt; ShowS
 [StopContinuousExportResponse] -&gt; ShowS
 StopContinuousExportResponse -&gt; String
 (Int -&gt; StopContinuousExportResponse -&gt; ShowS)
@@ -374,10 +374,10 @@ StopContinuousExportResponse -&gt; Rep StopContinuousExportResponse x
 </span><span id="line-140"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-142"></span><span class="hs-comment">--</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- 'stopTime', 'stopContinuousExportResponse_stopTime' - Timestamp that represents when this continuous export was stopped.</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- 'startTime', 'stopContinuousExportResponse_startTime' - Timestamp that represents when this continuous export started collecting</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'startTime', 'stopContinuousExportResponse_startTime' - Timestamp that represents when this continuous export started collecting</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'stopTime', 'stopContinuousExportResponse_stopTime' - Timestamp that represents when this continuous export was stopped.</span><span>
 </span><span id="line-147"></span><span class="hs-comment">--</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- 'httpStatus', 'stopContinuousExportResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-149"></span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#newStopContinuousExportResponse"><span class="hs-identifier hs-type">newStopContinuousExportResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -385,29 +385,30 @@ StopContinuousExportResponse -&gt; Rep StopContinuousExportResponse x
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse"><span class="hs-identifier hs-type">StopContinuousExportResponse</span></a></span><span>
 </span><span id="line-153"></span><span id="newStopContinuousExportResponse"><span class="annot"><span class="annottext">newStopContinuousExportResponse :: Int -&gt; StopContinuousExportResponse
-</span><a href="Network.AWS.Discovery.StopContinuousExport.html#newStopContinuousExportResponse"><span class="hs-identifier hs-var hs-var">newStopContinuousExportResponse</span></a></span></span><span> </span><span id="local-6989586621679205547"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205547"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Discovery.StopContinuousExport.html#newStopContinuousExportResponse"><span class="hs-identifier hs-var hs-var">newStopContinuousExportResponse</span></a></span></span><span> </span><span id="local-6989586621679205751"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205751"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">StopContinuousExportResponse' :: Maybe POSIX -&gt; Maybe POSIX -&gt; Int -&gt; StopContinuousExportResponse
 </span><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse%27"><span class="hs-identifier hs-type">StopContinuousExportResponse'</span></a></span><span>
-</span><span id="line-155"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stopTime:StopContinuousExportResponse' :: Maybe POSIX
-</span><a href="Network.AWS.Discovery.StopContinuousExport.html#%24sel%3AstopTime%3AStopContinuousExportResponse%27"><span class="hs-identifier hs-var">stopTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startTime:StopContinuousExportResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Discovery.StopContinuousExport.html#%24sel%3AstartTime%3AStopContinuousExportResponse%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:StopContinuousExportResponse' :: Maybe POSIX
-</span><a href="Network.AWS.Discovery.StopContinuousExport.html#%24sel%3AstartTime%3AStopContinuousExportResponse%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:stopTime:StopContinuousExportResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Discovery.StopContinuousExport.html#%24sel%3AstopTime%3AStopContinuousExportResponse%27"><span class="hs-identifier hs-var">stopTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopContinuousExportResponse' :: Int
 </span><a href="Network.AWS.Discovery.StopContinuousExport.html#%24sel%3AhttpStatus%3AStopContinuousExportResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205547"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679205751"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- | Timestamp that represents when this continuous export was stopped.</span><span>
-</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#stopContinuousExportResponse_stopTime"><span class="hs-identifier hs-type">stopContinuousExportResponse_stopTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse"><span class="hs-identifier hs-type">StopContinuousExportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span id="stopContinuousExportResponse_stopTime"><span class="annot"><span class="annottext">stopContinuousExportResponse_stopTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-161"></span><span class="hs-comment">-- | Timestamp that represents when this continuous export started collecting</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#stopContinuousExportResponse_startTime"><span class="hs-identifier hs-type">stopContinuousExportResponse_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse"><span class="hs-identifier hs-type">StopContinuousExportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="stopContinuousExportResponse_startTime"><span class="annot"><span class="annottext">stopContinuousExportResponse_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; StopContinuousExportResponse -&gt; f StopContinuousExportResponse
-</span><a href="Network.AWS.Discovery.StopContinuousExport.html#stopContinuousExportResponse_stopTime"><span class="hs-identifier hs-var hs-var">stopContinuousExportResponse_stopTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopContinuousExportResponse -&gt; Maybe POSIX)
+</span><a href="Network.AWS.Discovery.StopContinuousExport.html#stopContinuousExportResponse_startTime"><span class="hs-identifier hs-var hs-var">stopContinuousExportResponse_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopContinuousExportResponse -&gt; Maybe POSIX)
 -&gt; (StopContinuousExportResponse
     -&gt; Maybe POSIX -&gt; StopContinuousExportResponse)
 -&gt; Lens
@@ -416,16 +417,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse%27"><span class="hs-identifier hs-type">StopContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205546"><span class="annot"><span class="annottext">Maybe POSIX
-stopTime :: Maybe POSIX
-$sel:stopTime:StopContinuousExportResponse' :: StopContinuousExportResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679205546"><span class="hs-identifier hs-var hs-var">stopTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679205546"><span class="hs-identifier hs-var">stopTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205545"><span class="annot"><span class="annottext">s :: StopContinuousExportResponse
-</span><a href="#local-6989586621679205545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse%27"><span class="hs-identifier hs-type">StopContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205544"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679205544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopContinuousExportResponse
-</span><a href="#local-6989586621679205545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopTime:StopContinuousExportResponse' :: Maybe POSIX
-</span><a href="Network.AWS.Discovery.StopContinuousExport.html#%24sel%3AstopTime%3AStopContinuousExportResponse%27"><span class="hs-identifier hs-var">stopTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679205544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse"><span class="hs-identifier hs-type">StopContinuousExportResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse%27"><span class="hs-identifier hs-type">StopContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205750"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:StopContinuousExportResponse' :: StopContinuousExportResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679205750"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205750"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205749"><span class="annot"><span class="annottext">s :: StopContinuousExportResponse
+</span><a href="#local-6989586621679205749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse%27"><span class="hs-identifier hs-type">StopContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205748"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopContinuousExportResponse
+</span><a href="#local-6989586621679205749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:StopContinuousExportResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Discovery.StopContinuousExport.html#%24sel%3AstartTime%3AStopContinuousExportResponse%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse"><span class="hs-identifier hs-type">StopContinuousExportResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; StopContinuousExportResponse -&gt; f StopContinuousExportResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -441,13 +442,12 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- | Timestamp that represents when this continuous export started collecting</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- data.</span><span>
-</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#stopContinuousExportResponse_startTime"><span class="hs-identifier hs-type">stopContinuousExportResponse_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse"><span class="hs-identifier hs-type">StopContinuousExportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span id="stopContinuousExportResponse_startTime"><span class="annot"><span class="annottext">stopContinuousExportResponse_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | Timestamp that represents when this continuous export was stopped.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#stopContinuousExportResponse_stopTime"><span class="hs-identifier hs-type">stopContinuousExportResponse_stopTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse"><span class="hs-identifier hs-type">StopContinuousExportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="stopContinuousExportResponse_stopTime"><span class="annot"><span class="annottext">stopContinuousExportResponse_stopTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; StopContinuousExportResponse -&gt; f StopContinuousExportResponse
-</span><a href="Network.AWS.Discovery.StopContinuousExport.html#stopContinuousExportResponse_startTime"><span class="hs-identifier hs-var hs-var">stopContinuousExportResponse_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopContinuousExportResponse -&gt; Maybe POSIX)
+</span><a href="Network.AWS.Discovery.StopContinuousExport.html#stopContinuousExportResponse_stopTime"><span class="hs-identifier hs-var hs-var">stopContinuousExportResponse_stopTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopContinuousExportResponse -&gt; Maybe POSIX)
 -&gt; (StopContinuousExportResponse
     -&gt; Maybe POSIX -&gt; StopContinuousExportResponse)
 -&gt; Lens
@@ -456,16 +456,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse%27"><span class="hs-identifier hs-type">StopContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205540"><span class="annot"><span class="annottext">Maybe POSIX
-startTime :: Maybe POSIX
-$sel:startTime:StopContinuousExportResponse' :: StopContinuousExportResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679205540"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679205540"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205539"><span class="annot"><span class="annottext">s :: StopContinuousExportResponse
-</span><a href="#local-6989586621679205539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse%27"><span class="hs-identifier hs-type">StopContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205538"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679205538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopContinuousExportResponse
-</span><a href="#local-6989586621679205539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:StopContinuousExportResponse' :: Maybe POSIX
-</span><a href="Network.AWS.Discovery.StopContinuousExport.html#%24sel%3AstartTime%3AStopContinuousExportResponse%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679205538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse"><span class="hs-identifier hs-type">StopContinuousExportResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse%27"><span class="hs-identifier hs-type">StopContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205744"><span class="annot"><span class="annottext">Maybe POSIX
+stopTime :: Maybe POSIX
+$sel:stopTime:StopContinuousExportResponse' :: StopContinuousExportResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679205744"><span class="hs-identifier hs-var hs-var">stopTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205744"><span class="hs-identifier hs-var">stopTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205743"><span class="annot"><span class="annottext">s :: StopContinuousExportResponse
+</span><a href="#local-6989586621679205743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse%27"><span class="hs-identifier hs-type">StopContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205742"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopContinuousExportResponse
+</span><a href="#local-6989586621679205743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopTime:StopContinuousExportResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Discovery.StopContinuousExport.html#%24sel%3AstopTime%3AStopContinuousExportResponse%27"><span class="hs-identifier hs-var">stopTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679205742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse"><span class="hs-identifier hs-type">StopContinuousExportResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; StopContinuousExportResponse -&gt; f StopContinuousExportResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -492,16 +492,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      StopContinuousExportResponse StopContinuousExportResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse%27"><span class="hs-identifier hs-type">StopContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205537"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse%27"><span class="hs-identifier hs-type">StopContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205741"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopContinuousExportResponse' :: StopContinuousExportResponse -&gt; Int
-</span><a href="#local-6989586621679205537"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205537"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205536"><span class="annot"><span class="annottext">s :: StopContinuousExportResponse
-</span><a href="#local-6989586621679205536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse%27"><span class="hs-identifier hs-type">StopContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205535"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopContinuousExportResponse
-</span><a href="#local-6989586621679205536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopContinuousExportResponse' :: Int
+</span><a href="#local-6989586621679205741"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205741"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205740"><span class="annot"><span class="annottext">s :: StopContinuousExportResponse
+</span><a href="#local-6989586621679205740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse%27"><span class="hs-identifier hs-type">StopContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205739"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopContinuousExportResponse
+</span><a href="#local-6989586621679205740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopContinuousExportResponse' :: Int
 </span><a href="Network.AWS.Discovery.StopContinuousExport.html#%24sel%3AhttpStatus%3AStopContinuousExportResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse"><span class="hs-identifier hs-type">StopContinuousExportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679205739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse"><span class="hs-identifier hs-type">StopContinuousExportResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205533"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse"><span class="hs-identifier hs-type">StopContinuousExportResponse</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StopContinuousExport.html#StopContinuousExportResponse"><span class="hs-identifier hs-type">StopContinuousExportResponse</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

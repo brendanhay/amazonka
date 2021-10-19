@@ -30,9 +30,9 @@
 </span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#newDescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier">newDescribeInstancePatchStatesForPatchGroup</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroup_nextToken"><span class="hs-identifier">describeInstancePatchStatesForPatchGroup_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroup_maxResults"><span class="hs-identifier">describeInstancePatchStatesForPatchGroup_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroup_filters"><span class="hs-identifier">describeInstancePatchStatesForPatchGroup_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroup_filters"><span class="hs-identifier">describeInstancePatchStatesForPatchGroup_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroup_nextToken"><span class="hs-identifier">describeInstancePatchStatesForPatchGroup_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroup_maxResults"><span class="hs-identifier">describeInstancePatchStatesForPatchGroup_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroup_patchGroup"><span class="hs-identifier">describeInstancePatchStatesForPatchGroup_patchGroup</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -54,30 +54,30 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeInstancePatchStatesForPatchGroup' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679843687"><span id="local-6989586621679843688"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstancePatchStatesForPatchGroup"><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-var">DescribeInstancePatchStatesForPatchGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstancePatchStatesForPatchGroup%27"><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var">DescribeInstancePatchStatesForPatchGroup'</span></a></span></span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- from a previous call.)</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3AnextToken%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The maximum number of patches to return (per page).</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup -&gt; Maybe Natural
-</span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3AmaxResults%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Each entry in the array is a structure containing:</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   Key (string between 1 and 200 characters)</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   Values (array containing a single string)</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   Type (string \&quot;Equal\&quot;, \&quot;NotEqual\&quot;, \&quot;LessThan\&quot;, \&quot;GreaterThan\&quot;)</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup
+</span><span id="line-57"></span><span id="local-6989586621679845496"><span id="local-6989586621679845497"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstancePatchStatesForPatchGroup"><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-var">DescribeInstancePatchStatesForPatchGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstancePatchStatesForPatchGroup%27"><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var">DescribeInstancePatchStatesForPatchGroup'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Each entry in the array is a structure containing:</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   Key (string between 1 and 200 characters)</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   Values (array containing a single string)</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   Type (string \&quot;Equal\&quot;, \&quot;NotEqual\&quot;, \&quot;LessThan\&quot;, \&quot;GreaterThan\&quot;)</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup
 -&gt; Maybe [InstancePatchStateFilter]
 </span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3Afilters%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InstancePatchStateFilter.html#InstancePatchStateFilter"><span class="hs-identifier hs-type">InstancePatchStateFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3AnextToken%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The maximum number of patches to return (per page).</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup -&gt; Maybe Natural
+</span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3AmaxResults%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The name of the patch group for which the patch state information should</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">-- be retrieved.</span><span>
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3ApatchGroup%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup -&gt; Text
 </span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3ApatchGroup%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var hs-var">patchGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679843678"><span id="local-6989586621679843680"><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679845487"><span id="local-6989586621679845489"><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup
 -&gt; DescribeInstancePatchStatesForPatchGroup -&gt; Bool
 (DescribeInstancePatchStatesForPatchGroup
  -&gt; DescribeInstancePatchStatesForPatchGroup -&gt; Bool)
@@ -93,7 +93,7 @@ $c/= :: DescribeInstancePatchStatesForPatchGroup
 -&gt; DescribeInstancePatchStatesForPatchGroup -&gt; Bool
 $c== :: DescribeInstancePatchStatesForPatchGroup
 -&gt; DescribeInstancePatchStatesForPatchGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679843669"><span id="local-6989586621679843671"><span id="local-6989586621679843673"><span id="local-6989586621679843675"><span class="annot"><span class="annottext">ReadPrec [DescribeInstancePatchStatesForPatchGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845478"><span id="local-6989586621679845480"><span id="local-6989586621679845482"><span id="local-6989586621679845484"><span class="annot"><span class="annottext">ReadPrec [DescribeInstancePatchStatesForPatchGroup]
 ReadPrec DescribeInstancePatchStatesForPatchGroup
 Int -&gt; ReadS DescribeInstancePatchStatesForPatchGroup
 ReadS [DescribeInstancePatchStatesForPatchGroup]
@@ -113,7 +113,7 @@ readList :: ReadS [DescribeInstancePatchStatesForPatchGroup]
 $creadList :: ReadS [DescribeInstancePatchStatesForPatchGroup]
 readsPrec :: Int -&gt; ReadS DescribeInstancePatchStatesForPatchGroup
 $creadsPrec :: Int -&gt; ReadS DescribeInstancePatchStatesForPatchGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679843662"><span id="local-6989586621679843664"><span id="local-6989586621679843666"><span class="annot"><span class="annottext">Int -&gt; DescribeInstancePatchStatesForPatchGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845471"><span id="local-6989586621679845473"><span id="local-6989586621679845475"><span class="annot"><span class="annottext">Int -&gt; DescribeInstancePatchStatesForPatchGroup -&gt; ShowS
 [DescribeInstancePatchStatesForPatchGroup] -&gt; ShowS
 DescribeInstancePatchStatesForPatchGroup -&gt; String
 (Int -&gt; DescribeInstancePatchStatesForPatchGroup -&gt; ShowS)
@@ -159,18 +159,18 @@ DescribeInstancePatchStatesForPatchGroup
 </span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'nextToken', 'describeInstancePatchStatesForPatchGroup_nextToken' - The token for the next set of items to return. (You received this token</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- from a previous call.)</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'maxResults', 'describeInstancePatchStatesForPatchGroup_maxResults' - The maximum number of patches to return (per page).</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'filters', 'describeInstancePatchStatesForPatchGroup_filters' - Each entry in the array is a structure containing:</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- -   Key (string between 1 and 200 characters)</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- -   Values (array containing a single string)</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'filters', 'describeInstancePatchStatesForPatchGroup_filters' - Each entry in the array is a structure containing:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- -   Key (string between 1 and 200 characters)</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- -   Values (array containing a single string)</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- -   Type (string \&quot;Equal\&quot;, \&quot;NotEqual\&quot;, \&quot;LessThan\&quot;, \&quot;GreaterThan\&quot;)</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'nextToken', 'describeInstancePatchStatesForPatchGroup_nextToken' - The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- from a previous call.)</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- -   Type (string \&quot;Equal\&quot;, \&quot;NotEqual\&quot;, \&quot;LessThan\&quot;, \&quot;GreaterThan\&quot;)</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'maxResults', 'describeInstancePatchStatesForPatchGroup_maxResults' - The maximum number of patches to return (per page).</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- 'patchGroup', 'describeInstancePatchStatesForPatchGroup_patchGroup' - The name of the patch group for which the patch state information should</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- be retrieved.</span><span>
@@ -180,92 +180,41 @@ DescribeInstancePatchStatesForPatchGroup
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span>
 </span><span id="line-104"></span><span id="newDescribeInstancePatchStatesForPatchGroup"><span class="annot"><span class="annottext">newDescribeInstancePatchStatesForPatchGroup :: Text -&gt; DescribeInstancePatchStatesForPatchGroup
 </span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#newDescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-var hs-var">newDescribeInstancePatchStatesForPatchGroup</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679843657"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679843657"><span class="hs-identifier hs-var">pPatchGroup_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup' :: Maybe Text
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679845466"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679845466"><span class="hs-identifier hs-var">pPatchGroup_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup' :: Maybe [InstancePatchStateFilter]
+-&gt; Maybe Text
 -&gt; Maybe Natural
--&gt; Maybe [InstancePatchStateFilter]
 -&gt; Text
 -&gt; DescribeInstancePatchStatesForPatchGroup
 </span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstancePatchStatesForPatchGroup' :: Maybe Text
-</span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3AnextToken%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-107"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:DescribeInstancePatchStatesForPatchGroup' :: Maybe [InstancePatchStateFilter]
+</span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3Afilters%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe [InstancePatchStateFilter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeInstancePatchStatesForPatchGroup' :: Maybe Natural
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstancePatchStatesForPatchGroup' :: Maybe Text
+</span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3AnextToken%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeInstancePatchStatesForPatchGroup' :: Maybe Natural
 </span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3AmaxResults%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:filters:DescribeInstancePatchStatesForPatchGroup' :: Maybe [InstancePatchStateFilter]
-</span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3Afilters%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePatchStateFilter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:patchGroup:DescribeInstancePatchStatesForPatchGroup' :: Text
 </span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3ApatchGroup%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var">patchGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679843657"><span class="hs-identifier hs-var">pPatchGroup_</span></a></span><span>
+</span><a href="#local-6989586621679845466"><span class="hs-identifier hs-var">pPatchGroup_</span></a></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- from a previous call.)</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroup_nextToken"><span class="hs-identifier hs-type">describeInstancePatchStatesForPatchGroup_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="describeInstancePatchStatesForPatchGroup_nextToken"><span class="annot"><span class="annottext">describeInstancePatchStatesForPatchGroup_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeInstancePatchStatesForPatchGroup
--&gt; f DescribeInstancePatchStatesForPatchGroup
-</span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroup_nextToken"><span class="hs-identifier hs-var hs-var">describeInstancePatchStatesForPatchGroup_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstancePatchStatesForPatchGroup -&gt; Maybe Text)
--&gt; (DescribeInstancePatchStatesForPatchGroup
-    -&gt; Maybe Text -&gt; DescribeInstancePatchStatesForPatchGroup)
--&gt; Lens
-     DescribeInstancePatchStatesForPatchGroup
-     DescribeInstancePatchStatesForPatchGroup
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679843655"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeInstancePatchStatesForPatchGroup' :: DescribeInstancePatchStatesForPatchGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679843655"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679843655"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679843654"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStatesForPatchGroup
-</span><a href="#local-6989586621679843654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679843653"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679843653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup
-</span><a href="#local-6989586621679843654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstancePatchStatesForPatchGroup' :: Maybe Text
-</span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3AnextToken%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679843653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The maximum number of patches to return (per page).</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroup_maxResults"><span class="hs-identifier hs-type">describeInstancePatchStatesForPatchGroup_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="describeInstancePatchStatesForPatchGroup_maxResults"><span class="annot"><span class="annottext">describeInstancePatchStatesForPatchGroup_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; DescribeInstancePatchStatesForPatchGroup
--&gt; f DescribeInstancePatchStatesForPatchGroup
-</span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroup_maxResults"><span class="hs-identifier hs-var hs-var">describeInstancePatchStatesForPatchGroup_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstancePatchStatesForPatchGroup -&gt; Maybe Natural)
--&gt; (DescribeInstancePatchStatesForPatchGroup
-    -&gt; Maybe Natural -&gt; DescribeInstancePatchStatesForPatchGroup)
--&gt; Lens
-     DescribeInstancePatchStatesForPatchGroup
-     DescribeInstancePatchStatesForPatchGroup
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679843652"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:DescribeInstancePatchStatesForPatchGroup' :: DescribeInstancePatchStatesForPatchGroup -&gt; Maybe Natural
-</span><a href="#local-6989586621679843652"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679843652"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679843651"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStatesForPatchGroup
-</span><a href="#local-6989586621679843651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679843650"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679843650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup
-</span><a href="#local-6989586621679843651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeInstancePatchStatesForPatchGroup' :: Maybe Natural
-</span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3AmaxResults%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679843650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | Each entry in the array is a structure containing:</span><span>
-</span><span id="line-124"></span><span class="hs-comment">--</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- -   Key (string between 1 and 200 characters)</span><span>
-</span><span id="line-126"></span><span class="hs-comment">--</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- -   Values (array containing a single string)</span><span>
-</span><span id="line-128"></span><span class="hs-comment">--</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- -   Type (string \&quot;Equal\&quot;, \&quot;NotEqual\&quot;, \&quot;LessThan\&quot;, \&quot;GreaterThan\&quot;)</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroup_filters"><span class="hs-identifier hs-type">describeInstancePatchStatesForPatchGroup_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InstancePatchStateFilter.html#InstancePatchStateFilter"><span class="hs-identifier hs-type">InstancePatchStateFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="describeInstancePatchStatesForPatchGroup_filters"><span class="annot"><span class="annottext">describeInstancePatchStatesForPatchGroup_filters :: (Maybe [InstancePatchStateFilter]
+</span><span id="line-114"></span><span class="hs-comment">-- | Each entry in the array is a structure containing:</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- -   Key (string between 1 and 200 characters)</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   Values (array containing a single string)</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- -   Type (string \&quot;Equal\&quot;, \&quot;NotEqual\&quot;, \&quot;LessThan\&quot;, \&quot;GreaterThan\&quot;)</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroup_filters"><span class="hs-identifier hs-type">describeInstancePatchStatesForPatchGroup_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InstancePatchStateFilter.html#InstancePatchStateFilter"><span class="hs-identifier hs-type">InstancePatchStateFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="describeInstancePatchStatesForPatchGroup_filters"><span class="annot"><span class="annottext">describeInstancePatchStatesForPatchGroup_filters :: (Maybe [InstancePatchStateFilter]
  -&gt; f (Maybe [InstancePatchStateFilter]))
 -&gt; DescribeInstancePatchStatesForPatchGroup
 -&gt; f DescribeInstancePatchStatesForPatchGroup
@@ -280,17 +229,17 @@ $sel:maxResults:DescribeInstancePatchStatesForPatchGroup' :: DescribeInstancePat
      (Maybe [InstancePatchStateFilter])
      (Maybe [InstancePatchStateFilter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679843649"><span class="annot"><span class="annottext">Maybe [InstancePatchStateFilter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845464"><span class="annot"><span class="annottext">Maybe [InstancePatchStateFilter]
 filters :: Maybe [InstancePatchStateFilter]
 $sel:filters:DescribeInstancePatchStatesForPatchGroup' :: DescribeInstancePatchStatesForPatchGroup
 -&gt; Maybe [InstancePatchStateFilter]
-</span><a href="#local-6989586621679843649"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePatchStateFilter]
-</span><a href="#local-6989586621679843649"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679843648"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStatesForPatchGroup
-</span><a href="#local-6989586621679843648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679843647"><span class="annot"><span class="annottext">Maybe [InstancePatchStateFilter]
-</span><a href="#local-6989586621679843647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup
-</span><a href="#local-6989586621679843648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeInstancePatchStatesForPatchGroup' :: Maybe [InstancePatchStateFilter]
+</span><a href="#local-6989586621679845464"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePatchStateFilter]
+</span><a href="#local-6989586621679845464"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845463"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStatesForPatchGroup
+</span><a href="#local-6989586621679845463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845462"><span class="annot"><span class="annottext">Maybe [InstancePatchStateFilter]
+</span><a href="#local-6989586621679845462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup
+</span><a href="#local-6989586621679845463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeInstancePatchStatesForPatchGroup' :: Maybe [InstancePatchStateFilter]
 </span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3Afilters%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePatchStateFilter]
-</span><a href="#local-6989586621679843647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstancePatchStateFilter]
+</span><a href="#local-6989586621679845462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstancePatchStateFilter]
   -&gt; f (Maybe [InstancePatchStateFilter]))
  -&gt; DescribeInstancePatchStatesForPatchGroup
  -&gt; f DescribeInstancePatchStatesForPatchGroup)
@@ -321,8 +270,59 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [InstancePatchStateFilter]
   [InstancePatchStateFilter]
   [InstancePatchStateFilter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroup_nextToken"><span class="hs-identifier hs-type">describeInstancePatchStatesForPatchGroup_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="describeInstancePatchStatesForPatchGroup_nextToken"><span class="annot"><span class="annottext">describeInstancePatchStatesForPatchGroup_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeInstancePatchStatesForPatchGroup
+-&gt; f DescribeInstancePatchStatesForPatchGroup
+</span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroup_nextToken"><span class="hs-identifier hs-var hs-var">describeInstancePatchStatesForPatchGroup_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstancePatchStatesForPatchGroup -&gt; Maybe Text)
+-&gt; (DescribeInstancePatchStatesForPatchGroup
+    -&gt; Maybe Text -&gt; DescribeInstancePatchStatesForPatchGroup)
+-&gt; Lens
+     DescribeInstancePatchStatesForPatchGroup
+     DescribeInstancePatchStatesForPatchGroup
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845458"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeInstancePatchStatesForPatchGroup' :: DescribeInstancePatchStatesForPatchGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679845458"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845458"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845457"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStatesForPatchGroup
+</span><a href="#local-6989586621679845457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845456"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup
+</span><a href="#local-6989586621679845457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstancePatchStatesForPatchGroup' :: Maybe Text
+</span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3AnextToken%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The maximum number of patches to return (per page).</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroup_maxResults"><span class="hs-identifier hs-type">describeInstancePatchStatesForPatchGroup_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="describeInstancePatchStatesForPatchGroup_maxResults"><span class="annot"><span class="annottext">describeInstancePatchStatesForPatchGroup_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeInstancePatchStatesForPatchGroup
+-&gt; f DescribeInstancePatchStatesForPatchGroup
+</span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroup_maxResults"><span class="hs-identifier hs-var hs-var">describeInstancePatchStatesForPatchGroup_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstancePatchStatesForPatchGroup -&gt; Maybe Natural)
+-&gt; (DescribeInstancePatchStatesForPatchGroup
+    -&gt; Maybe Natural -&gt; DescribeInstancePatchStatesForPatchGroup)
+-&gt; Lens
+     DescribeInstancePatchStatesForPatchGroup
+     DescribeInstancePatchStatesForPatchGroup
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845455"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeInstancePatchStatesForPatchGroup' :: DescribeInstancePatchStatesForPatchGroup -&gt; Maybe Natural
+</span><a href="#local-6989586621679845455"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679845455"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845454"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStatesForPatchGroup
+</span><a href="#local-6989586621679845454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845453"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679845453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup
+</span><a href="#local-6989586621679845454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeInstancePatchStatesForPatchGroup' :: Maybe Natural
+</span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3AmaxResults%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679845453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The name of the patch group for which the patch state information should</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- be retrieved.</span><span>
@@ -339,33 +339,33 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679843643"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845452"><span class="annot"><span class="annottext">Text
 patchGroup :: Text
 $sel:patchGroup:DescribeInstancePatchStatesForPatchGroup' :: DescribeInstancePatchStatesForPatchGroup -&gt; Text
-</span><a href="#local-6989586621679843643"><span class="hs-identifier hs-var hs-var">patchGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679843643"><span class="hs-identifier hs-var">patchGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679843642"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStatesForPatchGroup
-</span><a href="#local-6989586621679843642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679843641"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679843641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup
-</span><a href="#local-6989586621679843642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchGroup:DescribeInstancePatchStatesForPatchGroup' :: Text
+</span><a href="#local-6989586621679845452"><span class="hs-identifier hs-var hs-var">patchGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679845452"><span class="hs-identifier hs-var">patchGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845451"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStatesForPatchGroup
+</span><a href="#local-6989586621679845451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845450"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679845450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup
+</span><a href="#local-6989586621679845451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchGroup:DescribeInstancePatchStatesForPatchGroup' :: Text
 </span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3ApatchGroup%3ADescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-var">patchGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679843641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679845450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679843637"><span class="annot"><span class="annottext">page :: DescribeInstancePatchStatesForPatchGroup
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679845446"><span class="annot"><span class="annottext">page :: DescribeInstancePatchStatesForPatchGroup
 -&gt; AWSResponse DescribeInstancePatchStatesForPatchGroup
 -&gt; Maybe DescribeInstancePatchStatesForPatchGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679843635"><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup
-</span><a href="#local-6989586621679843635"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679843634"><span class="annot"><span class="annottext">AWSResponse DescribeInstancePatchStatesForPatchGroup
-</span><a href="#local-6989586621679843634"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679845444"><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup
+</span><a href="#local-6989586621679845444"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679845443"><span class="annot"><span class="annottext">AWSResponse DescribeInstancePatchStatesForPatchGroup
+</span><a href="#local-6989586621679845443"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-144"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstancePatchStatesForPatchGroup
 DescribeInstancePatchStatesForPatchGroupResponse
-</span><a href="#local-6989586621679843634"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679845443"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroupResponse
 -&gt; Getting
      (First Text) DescribeInstancePatchStatesForPatchGroupResponse Text
@@ -399,7 +399,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-150"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstancePatchStatesForPatchGroup
 DescribeInstancePatchStatesForPatchGroupResponse
-</span><a href="#local-6989586621679843634"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679845443"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroupResponse
 -&gt; Getting
      (First [InstancePatchState])
@@ -487,7 +487,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup
-</span><a href="#local-6989586621679843635"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679845444"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroup
 -&gt; (DescribeInstancePatchStatesForPatchGroup
     -&gt; DescribeInstancePatchStatesForPatchGroup)
@@ -511,7 +511,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstancePatchStatesForPatchGroup
 DescribeInstancePatchStatesForPatchGroupResponse
-</span><a href="#local-6989586621679843634"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679845443"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroupResponse
 -&gt; Getting
      (First Text) DescribeInstancePatchStatesForPatchGroupResponse Text
@@ -545,7 +545,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-169"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse</span></a></span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679843624"><span class="annot"><span class="annottext">request :: DescribeInstancePatchStatesForPatchGroup
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679845433"><span class="annot"><span class="annottext">request :: DescribeInstancePatchStatesForPatchGroup
 -&gt; Request DescribeInstancePatchStatesForPatchGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeInstancePatchStatesForPatchGroup
@@ -553,7 +553,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679843620"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679845429"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeInstancePatchStatesForPatchGroup
 -&gt; ClientResponse ClientBody
@@ -584,10 +584,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679843617"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679843617"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679843616"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679843616"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679843615"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679843615"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679845426"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845426"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679845425"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679845425"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679845424"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679845424"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe (NonEmpty InstancePatchState)
 -&gt; Int
@@ -604,7 +604,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; DescribeInstancePatchStatesForPatchGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679843615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679845424"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -617,7 +617,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String (Int -&gt; DescribeInstancePatchStatesForPatchGroupResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679843615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679845424"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (NonEmpty InstancePatchState))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -632,22 +632,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679843617"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679845426"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679843607"><span id="local-6989586621679843609"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679845416"><span id="local-6989586621679845418"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span></span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679843604"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679845413"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span></span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679843600"><span class="annot"><span class="annottext">toHeaders :: DescribeInstancePatchStatesForPatchGroup -&gt; ResponseHeaders
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679845409"><span class="annot"><span class="annottext">toHeaders :: DescribeInstancePatchStatesForPatchGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DescribeInstancePatchStatesForPatchGroup -&gt; ResponseHeaders
@@ -676,58 +676,58 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-206"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-209"></span><span>  </span><span id="local-6989586621679843590"><span id="local-6989586621679843592"><span id="local-6989586621679843594"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679845399"><span id="local-6989586621679845401"><span id="local-6989586621679845403"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-210"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span></span></span></span><span>
 </span><span id="line-211"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621679843588"><span class="annot"><span class="annottext">toJSON :: DescribeInstancePatchStatesForPatchGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679843583"><span id="local-6989586621679843584"><span id="local-6989586621679843585"><span id="local-6989586621679843586"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679845397"><span class="annot"><span class="annottext">toJSON :: DescribeInstancePatchStatesForPatchGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845392"><span id="local-6989586621679845393"><span id="local-6989586621679845394"><span id="local-6989586621679845395"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [InstancePatchStateFilter]
 Maybe Text
 Text
 patchGroup :: Text
-filters :: Maybe [InstancePatchStateFilter]
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
+filters :: Maybe [InstancePatchStateFilter]
 $sel:patchGroup:DescribeInstancePatchStatesForPatchGroup' :: DescribeInstancePatchStatesForPatchGroup -&gt; Text
-$sel:filters:DescribeInstancePatchStatesForPatchGroup' :: DescribeInstancePatchStatesForPatchGroup
--&gt; Maybe [InstancePatchStateFilter]
 $sel:maxResults:DescribeInstancePatchStatesForPatchGroup' :: DescribeInstancePatchStatesForPatchGroup -&gt; Maybe Natural
 $sel:nextToken:DescribeInstancePatchStatesForPatchGroup' :: DescribeInstancePatchStatesForPatchGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679843583"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:filters:DescribeInstancePatchStatesForPatchGroup' :: DescribeInstancePatchStatesForPatchGroup
+-&gt; Maybe [InstancePatchStateFilter]
+</span><a href="#local-6989586621679845392"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-215"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679843586"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679843585"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [InstancePatchStateFilter] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([InstancePatchStateFilter] -&gt; Pair)
 -&gt; Maybe [InstancePatchStateFilter] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePatchStateFilter]
-</span><a href="#local-6989586621679843584"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679845395"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845394"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679845393"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PatchGroup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679843583"><span class="hs-identifier hs-var">patchGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679845392"><span class="hs-identifier hs-var">patchGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-220"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
@@ -735,7 +735,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-223"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-224"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span>
 </span><span id="line-225"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-226"></span><span>  </span><span id="local-6989586621679843577"><span class="annot"><span class="annottext">toPath :: DescribeInstancePatchStatesForPatchGroup -&gt; ByteString
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679845386"><span class="annot"><span class="annottext">toPath :: DescribeInstancePatchStatesForPatchGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
 -&gt; DescribeInstancePatchStatesForPatchGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -746,7 +746,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-229"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-230"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroup"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroup</span></a></span><span>
 </span><span id="line-231"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679843573"><span class="annot"><span class="annottext">toQuery :: DescribeInstancePatchStatesForPatchGroup -&gt; QueryString
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679845382"><span class="annot"><span class="annottext">toQuery :: DescribeInstancePatchStatesForPatchGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString
 -&gt; DescribeInstancePatchStatesForPatchGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -755,7 +755,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | /See:/ 'newDescribeInstancePatchStatesForPatchGroupResponse' smart constructor.</span><span>
-</span><span id="line-235"></span><span id="local-6989586621679843570"><span id="local-6989586621679843571"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstancePatchStatesForPatchGroupResponse"><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse"><span class="hs-identifier hs-var">DescribeInstancePatchStatesForPatchGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstancePatchStatesForPatchGroupResponse%27"><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-var">DescribeInstancePatchStatesForPatchGroupResponse'</span></a></span></span><span>
+</span><span id="line-235"></span><span id="local-6989586621679845379"><span id="local-6989586621679845380"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstancePatchStatesForPatchGroupResponse"><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse"><span class="hs-identifier hs-var">DescribeInstancePatchStatesForPatchGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstancePatchStatesForPatchGroupResponse%27"><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-var">DescribeInstancePatchStatesForPatchGroupResponse'</span></a></span></span><span>
 </span><span id="line-236"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use when requesting the next set of items. If there are no</span><span>
 </span><span id="line-237"></span><span>    </span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
 </span><span id="line-238"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeInstancePatchStatesForPatchGroupResponse%27"><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroupResponse -&gt; Maybe Text
@@ -768,7 +768,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-242"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeInstancePatchStatesForPatchGroupResponse%27"><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroupResponse -&gt; Int
 </span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3AhttpStatus%3ADescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-243"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-244"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679843563"><span id="local-6989586621679843565"><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroupResponse
+</span><span id="line-244"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679845372"><span id="local-6989586621679845374"><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroupResponse
 -&gt; DescribeInstancePatchStatesForPatchGroupResponse -&gt; Bool
 (DescribeInstancePatchStatesForPatchGroupResponse
  -&gt; DescribeInstancePatchStatesForPatchGroupResponse -&gt; Bool)
@@ -784,7 +784,7 @@ $c/= :: DescribeInstancePatchStatesForPatchGroupResponse
 -&gt; DescribeInstancePatchStatesForPatchGroupResponse -&gt; Bool
 $c== :: DescribeInstancePatchStatesForPatchGroupResponse
 -&gt; DescribeInstancePatchStatesForPatchGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679843557"><span id="local-6989586621679843559"><span id="local-6989586621679843561"><span class="annot"><span class="annottext">Int -&gt; DescribeInstancePatchStatesForPatchGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845366"><span id="local-6989586621679845368"><span id="local-6989586621679845370"><span class="annot"><span class="annottext">Int -&gt; DescribeInstancePatchStatesForPatchGroupResponse -&gt; ShowS
 [DescribeInstancePatchStatesForPatchGroupResponse] -&gt; ShowS
 DescribeInstancePatchStatesForPatchGroupResponse -&gt; String
 (Int -&gt; DescribeInstancePatchStatesForPatchGroupResponse -&gt; ShowS)
@@ -842,8 +842,8 @@ DescribeInstancePatchStatesForPatchGroupResponse
 </span><span id="line-263"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse</span></a></span><span>
 </span><span id="line-264"></span><span id="newDescribeInstancePatchStatesForPatchGroupResponse"><span class="annot"><span class="annottext">newDescribeInstancePatchStatesForPatchGroupResponse :: Int -&gt; DescribeInstancePatchStatesForPatchGroupResponse
 </span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#newDescribeInstancePatchStatesForPatchGroupResponse"><span class="hs-identifier hs-var hs-var">newDescribeInstancePatchStatesForPatchGroupResponse</span></a></span></span><span>
-</span><span id="line-265"></span><span>  </span><span id="local-6989586621679843554"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679843554"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-265"></span><span>  </span><span id="local-6989586621679845363"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845363"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-266"></span><span>    </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroupResponse' :: Maybe Text
 -&gt; Maybe (NonEmpty InstancePatchState)
 -&gt; Int
@@ -861,7 +861,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-271"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstancePatchStatesForPatchGroupResponse' :: Int
 </span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3AhttpStatus%3ADescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679843554"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679845363"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-272"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-comment">-- | The token to use when requesting the next set of items. If there are no</span><span>
@@ -876,16 +876,16 @@ forall a. Maybe a
 -&gt; Lens'
      DescribeInstancePatchStatesForPatchGroupResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679843553"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845362"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeInstancePatchStatesForPatchGroupResponse' :: DescribeInstancePatchStatesForPatchGroupResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679843553"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679843553"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679843552"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStatesForPatchGroupResponse
-</span><a href="#local-6989586621679843552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679843551"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679843551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroupResponse
-</span><a href="#local-6989586621679843552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstancePatchStatesForPatchGroupResponse' :: Maybe Text
+</span><a href="#local-6989586621679845362"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845362"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845361"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStatesForPatchGroupResponse
+</span><a href="#local-6989586621679845361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845360"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroupResponse
+</span><a href="#local-6989586621679845361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstancePatchStatesForPatchGroupResponse' :: Maybe Text
 </span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3AnextToken%3ADescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679843551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679845360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-278"></span><span>
 </span><span id="line-279"></span><span class="hs-comment">-- | The high-level patch state for the requested instances.</span><span>
 </span><span id="line-280"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroupResponse_instancePatchStates"><span class="hs-identifier hs-type">describeInstancePatchStatesForPatchGroupResponse_instancePatchStates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstancePatchState.html#InstancePatchState"><span class="hs-identifier hs-type">InstancePatchState</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -902,17 +902,17 @@ $sel:nextToken:DescribeInstancePatchStatesForPatchGroupResponse' :: DescribeInst
      DescribeInstancePatchStatesForPatchGroupResponse
      (Maybe (NonEmpty InstancePatchState))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679843550"><span class="annot"><span class="annottext">Maybe (NonEmpty InstancePatchState)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845359"><span class="annot"><span class="annottext">Maybe (NonEmpty InstancePatchState)
 instancePatchStates :: Maybe (NonEmpty InstancePatchState)
 $sel:instancePatchStates:DescribeInstancePatchStatesForPatchGroupResponse' :: DescribeInstancePatchStatesForPatchGroupResponse
 -&gt; Maybe (NonEmpty InstancePatchState)
-</span><a href="#local-6989586621679843550"><span class="hs-identifier hs-var hs-var">instancePatchStates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty InstancePatchState)
-</span><a href="#local-6989586621679843550"><span class="hs-identifier hs-var">instancePatchStates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679843549"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStatesForPatchGroupResponse
-</span><a href="#local-6989586621679843549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679843548"><span class="annot"><span class="annottext">Maybe (NonEmpty InstancePatchState)
-</span><a href="#local-6989586621679843548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroupResponse
-</span><a href="#local-6989586621679843549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instancePatchStates:DescribeInstancePatchStatesForPatchGroupResponse' :: Maybe (NonEmpty InstancePatchState)
+</span><a href="#local-6989586621679845359"><span class="hs-identifier hs-var hs-var">instancePatchStates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty InstancePatchState)
+</span><a href="#local-6989586621679845359"><span class="hs-identifier hs-var">instancePatchStates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845358"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStatesForPatchGroupResponse
+</span><a href="#local-6989586621679845358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845357"><span class="annot"><span class="annottext">Maybe (NonEmpty InstancePatchState)
+</span><a href="#local-6989586621679845357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroupResponse
+</span><a href="#local-6989586621679845358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instancePatchStates:DescribeInstancePatchStatesForPatchGroupResponse' :: Maybe (NonEmpty InstancePatchState)
 </span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3AinstancePatchStates%3ADescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-var">instancePatchStates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty InstancePatchState)
-</span><a href="#local-6989586621679843548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty InstancePatchState)
+</span><a href="#local-6989586621679845357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty InstancePatchState)
   -&gt; f (Maybe (NonEmpty InstancePatchState)))
  -&gt; DescribeInstancePatchStatesForPatchGroupResponse
  -&gt; f DescribeInstancePatchStatesForPatchGroupResponse)
@@ -943,8 +943,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty InstancePatchState)
   (NonEmpty InstancePatchState)
   (NonEmpty InstancePatchState)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-282"></span><span>
 </span><span id="line-283"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-284"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#describeInstancePatchStatesForPatchGroupResponse_httpStatus"><span class="hs-identifier hs-type">describeInstancePatchStatesForPatchGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -960,18 +960,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679843547"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845356"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeInstancePatchStatesForPatchGroupResponse' :: DescribeInstancePatchStatesForPatchGroupResponse -&gt; Int
-</span><a href="#local-6989586621679843547"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679843547"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679843546"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStatesForPatchGroupResponse
-</span><a href="#local-6989586621679843546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679843545"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679843545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroupResponse
-</span><a href="#local-6989586621679843546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstancePatchStatesForPatchGroupResponse' :: Int
+</span><a href="#local-6989586621679845356"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845356"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845355"><span class="annot"><span class="annottext">s :: DescribeInstancePatchStatesForPatchGroupResponse
+</span><a href="#local-6989586621679845355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845354"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancePatchStatesForPatchGroupResponse
+</span><a href="#local-6989586621679845355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstancePatchStatesForPatchGroupResponse' :: Int
 </span><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#%24sel%3AhttpStatus%3ADescribeInstancePatchStatesForPatchGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679843545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679845354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-286"></span><span>
 </span><span id="line-287"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-288"></span><span>  </span><span id="local-6989586621679843543"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-288"></span><span>  </span><span id="local-6989586621679845352"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-289"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup.html#DescribeInstancePatchStatesForPatchGroupResponse"><span class="hs-identifier hs-type">DescribeInstancePatchStatesForPatchGroupResponse</span></a></span></span><span>
 </span><span id="line-290"></span></pre></body></html>

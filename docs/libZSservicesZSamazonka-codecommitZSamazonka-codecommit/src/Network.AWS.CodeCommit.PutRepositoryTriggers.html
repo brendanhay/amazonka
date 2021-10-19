@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- | Represents the input of a put repository triggers operation.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newPutRepositoryTriggers' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679357499"><span id="local-6989586621679357500"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRepositoryTriggers"><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-var">PutRepositoryTriggers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRepositoryTriggers%27"><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers%27"><span class="hs-identifier hs-var">PutRepositoryTriggers'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679357782"><span id="local-6989586621679357783"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRepositoryTriggers"><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-var">PutRepositoryTriggers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRepositoryTriggers%27"><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers%27"><span class="hs-identifier hs-var">PutRepositoryTriggers'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the repository where you want to create or update the</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- trigger.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3ArepositoryName%3APutRepositoryTriggers%27"><span class="annot"><span class="annottext">PutRepositoryTriggers -&gt; Text
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3Atriggers%3APutRepositoryTriggers%27"><span class="annot"><span class="annottext">PutRepositoryTriggers -&gt; [RepositoryTrigger]
 </span><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#%24sel%3Atriggers%3APutRepositoryTriggers%27"><span class="hs-identifier hs-var hs-var">triggers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357492"><span id="local-6989586621679357494"><span class="annot"><span class="annottext">PutRepositoryTriggers -&gt; PutRepositoryTriggers -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357775"><span id="local-6989586621679357777"><span class="annot"><span class="annottext">PutRepositoryTriggers -&gt; PutRepositoryTriggers -&gt; Bool
 (PutRepositoryTriggers -&gt; PutRepositoryTriggers -&gt; Bool)
 -&gt; (PutRepositoryTriggers -&gt; PutRepositoryTriggers -&gt; Bool)
 -&gt; Eq PutRepositoryTriggers
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutRepositoryTriggers -&gt; PutRepositoryTriggers -&gt; Bool
 == :: PutRepositoryTriggers -&gt; PutRepositoryTriggers -&gt; Bool
 $c== :: PutRepositoryTriggers -&gt; PutRepositoryTriggers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357483"><span id="local-6989586621679357485"><span id="local-6989586621679357487"><span id="local-6989586621679357489"><span class="annot"><span class="annottext">ReadPrec [PutRepositoryTriggers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357766"><span id="local-6989586621679357768"><span id="local-6989586621679357770"><span id="local-6989586621679357772"><span class="annot"><span class="annottext">ReadPrec [PutRepositoryTriggers]
 ReadPrec PutRepositoryTriggers
 Int -&gt; ReadS PutRepositoryTriggers
 ReadS [PutRepositoryTriggers]
@@ -89,7 +89,7 @@ readList :: ReadS [PutRepositoryTriggers]
 $creadList :: ReadS [PutRepositoryTriggers]
 readsPrec :: Int -&gt; ReadS PutRepositoryTriggers
 $creadsPrec :: Int -&gt; ReadS PutRepositoryTriggers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357476"><span id="local-6989586621679357478"><span id="local-6989586621679357480"><span class="annot"><span class="annottext">Int -&gt; PutRepositoryTriggers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357759"><span id="local-6989586621679357761"><span id="local-6989586621679357763"><span class="annot"><span class="annottext">Int -&gt; PutRepositoryTriggers -&gt; ShowS
 [PutRepositoryTriggers] -&gt; ShowS
 PutRepositoryTriggers -&gt; String
 (Int -&gt; PutRepositoryTriggers -&gt; ShowS)
@@ -132,14 +132,14 @@ $cfrom :: forall x. PutRepositoryTriggers -&gt; Rep PutRepositoryTriggers x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-type">PutRepositoryTriggers</span></a></span><span>
 </span><span id="line-79"></span><span id="newPutRepositoryTriggers"><span class="annot"><span class="annottext">newPutRepositoryTriggers :: Text -&gt; PutRepositoryTriggers
-</span><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#newPutRepositoryTriggers"><span class="hs-identifier hs-var hs-var">newPutRepositoryTriggers</span></a></span></span><span> </span><span id="local-6989586621679357471"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357471"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#newPutRepositoryTriggers"><span class="hs-identifier hs-var hs-var">newPutRepositoryTriggers</span></a></span></span><span> </span><span id="local-6989586621679357754"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357754"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">PutRepositoryTriggers' :: Text -&gt; [RepositoryTrigger] -&gt; PutRepositoryTriggers
 </span><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers%27"><span class="hs-identifier hs-type">PutRepositoryTriggers'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:repositoryName:PutRepositoryTriggers' :: Text
 </span><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#%24sel%3ArepositoryName%3APutRepositoryTriggers%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357471"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679357754"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:triggers:PutRepositoryTriggers' :: [RepositoryTrigger]
 </span><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#%24sel%3Atriggers%3APutRepositoryTriggers%27"><span class="hs-identifier hs-var">triggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RepositoryTrigger]
 forall a. Monoid a =&gt; a
@@ -155,16 +155,16 @@ forall a. Monoid a =&gt; a
 -&gt; (PutRepositoryTriggers -&gt; Text -&gt; PutRepositoryTriggers)
 -&gt; Lens PutRepositoryTriggers PutRepositoryTriggers Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers%27"><span class="hs-identifier hs-type">PutRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357468"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers%27"><span class="hs-identifier hs-type">PutRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357751"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:PutRepositoryTriggers' :: PutRepositoryTriggers -&gt; Text
-</span><a href="#local-6989586621679357468"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357468"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357467"><span class="annot"><span class="annottext">s :: PutRepositoryTriggers
-</span><a href="#local-6989586621679357467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers%27"><span class="hs-identifier hs-type">PutRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357466"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRepositoryTriggers
-</span><a href="#local-6989586621679357467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:PutRepositoryTriggers' :: Text
+</span><a href="#local-6989586621679357751"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357751"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357750"><span class="annot"><span class="annottext">s :: PutRepositoryTriggers
+</span><a href="#local-6989586621679357750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers%27"><span class="hs-identifier hs-type">PutRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357749"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRepositoryTriggers
+</span><a href="#local-6989586621679357750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:PutRepositoryTriggers' :: Text
 </span><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#%24sel%3ArepositoryName%3APutRepositoryTriggers%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-type">PutRepositoryTriggers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-type">PutRepositoryTriggers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The JSON block of configuration information for each trigger.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#putRepositoryTriggers_triggers"><span class="hs-identifier hs-type">putRepositoryTriggers_triggers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-type">PutRepositoryTriggers</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span><span class="hs-special">]</span><span>
@@ -179,16 +179,16 @@ $sel:repositoryName:PutRepositoryTriggers' :: PutRepositoryTriggers -&gt; Text
      [RepositoryTrigger]
      [RepositoryTrigger]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers%27"><span class="hs-identifier hs-type">PutRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357465"><span class="annot"><span class="annottext">[RepositoryTrigger]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers%27"><span class="hs-identifier hs-type">PutRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357748"><span class="annot"><span class="annottext">[RepositoryTrigger]
 triggers :: [RepositoryTrigger]
 $sel:triggers:PutRepositoryTriggers' :: PutRepositoryTriggers -&gt; [RepositoryTrigger]
-</span><a href="#local-6989586621679357465"><span class="hs-identifier hs-var hs-var">triggers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[RepositoryTrigger]
-</span><a href="#local-6989586621679357465"><span class="hs-identifier hs-var">triggers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357464"><span class="annot"><span class="annottext">s :: PutRepositoryTriggers
-</span><a href="#local-6989586621679357464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers%27"><span class="hs-identifier hs-type">PutRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357463"><span class="annot"><span class="annottext">[RepositoryTrigger]
-</span><a href="#local-6989586621679357463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRepositoryTriggers
-</span><a href="#local-6989586621679357464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggers:PutRepositoryTriggers' :: [RepositoryTrigger]
+</span><a href="#local-6989586621679357748"><span class="hs-identifier hs-var hs-var">triggers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[RepositoryTrigger]
+</span><a href="#local-6989586621679357748"><span class="hs-identifier hs-var">triggers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357747"><span class="annot"><span class="annottext">s :: PutRepositoryTriggers
+</span><a href="#local-6989586621679357747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers%27"><span class="hs-identifier hs-type">PutRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357746"><span class="annot"><span class="annottext">[RepositoryTrigger]
+</span><a href="#local-6989586621679357746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRepositoryTriggers
+</span><a href="#local-6989586621679357747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggers:PutRepositoryTriggers' :: [RepositoryTrigger]
 </span><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#%24sel%3Atriggers%3APutRepositoryTriggers%27"><span class="hs-identifier hs-var">triggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RepositoryTrigger]
-</span><a href="#local-6989586621679357463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-type">PutRepositoryTriggers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([RepositoryTrigger] -&gt; f [RepositoryTrigger])
+</span><a href="#local-6989586621679357746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-type">PutRepositoryTriggers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([RepositoryTrigger] -&gt; f [RepositoryTrigger])
  -&gt; PutRepositoryTriggers -&gt; f PutRepositoryTriggers)
 -&gt; (([RepositoryTrigger] -&gt; f [RepositoryTrigger])
     -&gt; [RepositoryTrigger] -&gt; f [RepositoryTrigger])
@@ -198,19 +198,19 @@ $sel:triggers:PutRepositoryTriggers' :: PutRepositoryTriggers -&gt; [RepositoryT
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([RepositoryTrigger] -&gt; f [RepositoryTrigger])
 -&gt; [RepositoryTrigger] -&gt; f [RepositoryTrigger]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-type">PutRepositoryTriggers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-type">PutRepositoryTriggers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse"><span class="hs-identifier hs-type">PutRepositoryTriggersResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679357457"><span class="annot"><span class="annottext">request :: PutRepositoryTriggers -&gt; Request PutRepositoryTriggers
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679357740"><span class="annot"><span class="annottext">request :: PutRepositoryTriggers -&gt; Request PutRepositoryTriggers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutRepositoryTriggers -&gt; Request PutRepositoryTriggers
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679357453"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679357736"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutRepositoryTriggers
 -&gt; ClientResponse ClientBody
@@ -236,10 +236,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679357450"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679357450"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679357449"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679357449"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679357448"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679357448"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679357733"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357733"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679357732"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679357732"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679357731"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357731"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; PutRepositoryTriggersResponse
 </span><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse%27"><span class="hs-identifier hs-var">PutRepositoryTriggersResponse'</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; PutRepositoryTriggersResponse)
@@ -247,7 +247,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; PutRepositoryTriggersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679357448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679357731"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;configurationId&quot;</span></span><span class="hs-special">)</span><span>
@@ -259,15 +259,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679357450"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357733"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357440"><span id="local-6989586621679357442"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-type">PutRepositoryTriggers</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357723"><span id="local-6989586621679357725"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-type">PutRepositoryTriggers</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357437"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-type">PutRepositoryTriggers</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357720"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-type">PutRepositoryTriggers</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-type">PutRepositoryTriggers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679357433"><span class="annot"><span class="annottext">toHeaders :: PutRepositoryTriggers -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679357716"><span class="annot"><span class="annottext">toHeaders :: PutRepositoryTriggers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutRepositoryTriggers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -294,15 +294,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357423"><span id="local-6989586621679357425"><span id="local-6989586621679357427"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-type">PutRepositoryTriggers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679357421"><span class="annot"><span class="annottext">toJSON :: PutRepositoryTriggers -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers%27"><span class="hs-identifier hs-type">PutRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357418"><span id="local-6989586621679357419"><span class="annot"><span class="annottext">[RepositoryTrigger]
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357706"><span id="local-6989586621679357708"><span id="local-6989586621679357710"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-type">PutRepositoryTriggers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679357704"><span class="annot"><span class="annottext">toJSON :: PutRepositoryTriggers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers%27"><span class="hs-identifier hs-type">PutRepositoryTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357701"><span id="local-6989586621679357702"><span class="annot"><span class="annottext">[RepositoryTrigger]
 Text
 triggers :: [RepositoryTrigger]
 repositoryName :: Text
 $sel:triggers:PutRepositoryTriggers' :: PutRepositoryTriggers -&gt; [RepositoryTrigger]
 $sel:repositoryName:PutRepositoryTriggers' :: PutRepositoryTriggers -&gt; Text
-</span><a href="#local-6989586621679357418"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679357701"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -315,26 +315,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357419"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679357702"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;triggers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [RepositoryTrigger] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[RepositoryTrigger]
-</span><a href="#local-6989586621679357418"><span class="hs-identifier hs-var">triggers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357701"><span class="hs-identifier hs-var">triggers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-type">PutRepositoryTriggers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679357412"><span class="annot"><span class="annottext">toPath :: PutRepositoryTriggers -&gt; ByteString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679357695"><span class="annot"><span class="annottext">toPath :: PutRepositoryTriggers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutRepositoryTriggers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggers"><span class="hs-identifier hs-type">PutRepositoryTriggers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679357408"><span class="annot"><span class="annottext">toQuery :: PutRepositoryTriggers -&gt; QueryString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679357691"><span class="annot"><span class="annottext">toQuery :: PutRepositoryTriggers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutRepositoryTriggers -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -344,7 +344,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-143"></span><span class="hs-comment">-- | Represents the output of a put repository triggers operation.</span><span>
 </span><span id="line-144"></span><span class="hs-comment">--</span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- /See:/ 'newPutRepositoryTriggersResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679357405"><span id="local-6989586621679357406"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRepositoryTriggersResponse"><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse"><span class="hs-identifier hs-var">PutRepositoryTriggersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRepositoryTriggersResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse%27"><span class="hs-identifier hs-var">PutRepositoryTriggersResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679357688"><span id="local-6989586621679357689"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRepositoryTriggersResponse"><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse"><span class="hs-identifier hs-var">PutRepositoryTriggersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRepositoryTriggersResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse%27"><span class="hs-identifier hs-var">PutRepositoryTriggersResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The system-generated unique ID for the create or update operation.</span><span>
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3AconfigurationId%3APutRepositoryTriggersResponse%27"><span class="annot"><span class="annottext">PutRepositoryTriggersResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#%24sel%3AconfigurationId%3APutRepositoryTriggersResponse%27"><span class="hs-identifier hs-var hs-var">configurationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -352,7 +352,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutRepositoryTriggersResponse%27"><span class="annot"><span class="annottext">PutRepositoryTriggersResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#%24sel%3AhttpStatus%3APutRepositoryTriggersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357399"><span id="local-6989586621679357401"><span class="annot"><span class="annottext">PutRepositoryTriggersResponse
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357682"><span id="local-6989586621679357684"><span class="annot"><span class="annottext">PutRepositoryTriggersResponse
 -&gt; PutRepositoryTriggersResponse -&gt; Bool
 (PutRepositoryTriggersResponse
  -&gt; PutRepositoryTriggersResponse -&gt; Bool)
@@ -368,7 +368,7 @@ $c/= :: PutRepositoryTriggersResponse
 -&gt; PutRepositoryTriggersResponse -&gt; Bool
 $c== :: PutRepositoryTriggersResponse
 -&gt; PutRepositoryTriggersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357391"><span id="local-6989586621679357393"><span id="local-6989586621679357395"><span id="local-6989586621679357397"><span class="annot"><span class="annottext">ReadPrec [PutRepositoryTriggersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357674"><span id="local-6989586621679357676"><span id="local-6989586621679357678"><span id="local-6989586621679357680"><span class="annot"><span class="annottext">ReadPrec [PutRepositoryTriggersResponse]
 ReadPrec PutRepositoryTriggersResponse
 Int -&gt; ReadS PutRepositoryTriggersResponse
 ReadS [PutRepositoryTriggersResponse]
@@ -388,7 +388,7 @@ readList :: ReadS [PutRepositoryTriggersResponse]
 $creadList :: ReadS [PutRepositoryTriggersResponse]
 readsPrec :: Int -&gt; ReadS PutRepositoryTriggersResponse
 $creadsPrec :: Int -&gt; ReadS PutRepositoryTriggersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357385"><span id="local-6989586621679357387"><span id="local-6989586621679357389"><span class="annot"><span class="annottext">Int -&gt; PutRepositoryTriggersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357668"><span id="local-6989586621679357670"><span id="local-6989586621679357672"><span class="annot"><span class="annottext">Int -&gt; PutRepositoryTriggersResponse -&gt; ShowS
 [PutRepositoryTriggersResponse] -&gt; ShowS
 PutRepositoryTriggersResponse -&gt; String
 (Int -&gt; PutRepositoryTriggersResponse -&gt; ShowS)
@@ -442,8 +442,8 @@ PutRepositoryTriggersResponse
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse"><span class="hs-identifier hs-type">PutRepositoryTriggersResponse</span></a></span><span>
 </span><span id="line-169"></span><span id="newPutRepositoryTriggersResponse"><span class="annot"><span class="annottext">newPutRepositoryTriggersResponse :: Int -&gt; PutRepositoryTriggersResponse
-</span><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#newPutRepositoryTriggersResponse"><span class="hs-identifier hs-var hs-var">newPutRepositoryTriggersResponse</span></a></span></span><span> </span><span id="local-6989586621679357382"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679357382"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#newPutRepositoryTriggersResponse"><span class="hs-identifier hs-var hs-var">newPutRepositoryTriggersResponse</span></a></span></span><span> </span><span id="local-6989586621679357665"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357665"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">PutRepositoryTriggersResponse' :: Maybe Text -&gt; Int -&gt; PutRepositoryTriggersResponse
 </span><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">PutRepositoryTriggersResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:configurationId:PutRepositoryTriggersResponse' :: Maybe Text
@@ -453,7 +453,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutRepositoryTriggersResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#%24sel%3AhttpStatus%3APutRepositoryTriggersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679357382"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679357665"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The system-generated unique ID for the create or update operation.</span><span>
@@ -469,16 +469,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">PutRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357381"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">PutRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357664"><span class="annot"><span class="annottext">Maybe Text
 configurationId :: Maybe Text
 $sel:configurationId:PutRepositoryTriggersResponse' :: PutRepositoryTriggersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679357381"><span class="hs-identifier hs-var hs-var">configurationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357381"><span class="hs-identifier hs-var">configurationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357380"><span class="annot"><span class="annottext">s :: PutRepositoryTriggersResponse
-</span><a href="#local-6989586621679357380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">PutRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357379"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRepositoryTriggersResponse
-</span><a href="#local-6989586621679357380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationId:PutRepositoryTriggersResponse' :: Maybe Text
+</span><a href="#local-6989586621679357664"><span class="hs-identifier hs-var hs-var">configurationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357664"><span class="hs-identifier hs-var">configurationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357663"><span class="annot"><span class="annottext">s :: PutRepositoryTriggersResponse
+</span><a href="#local-6989586621679357663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">PutRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357662"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRepositoryTriggersResponse
+</span><a href="#local-6989586621679357663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationId:PutRepositoryTriggersResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#%24sel%3AconfigurationId%3APutRepositoryTriggersResponse%27"><span class="hs-identifier hs-var">configurationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse"><span class="hs-identifier hs-type">PutRepositoryTriggersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse"><span class="hs-identifier hs-type">PutRepositoryTriggersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-181"></span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#putRepositoryTriggersResponse_httpStatus"><span class="hs-identifier hs-type">putRepositoryTriggersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse"><span class="hs-identifier hs-type">PutRepositoryTriggersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -490,16 +490,16 @@ $sel:configurationId:PutRepositoryTriggersResponse' :: PutRepositoryTriggersResp
 -&gt; Lens
      PutRepositoryTriggersResponse PutRepositoryTriggersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">PutRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357378"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">PutRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357661"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutRepositoryTriggersResponse' :: PutRepositoryTriggersResponse -&gt; Int
-</span><a href="#local-6989586621679357378"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679357378"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357377"><span class="annot"><span class="annottext">s :: PutRepositoryTriggersResponse
-</span><a href="#local-6989586621679357377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">PutRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357376"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679357376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRepositoryTriggersResponse
-</span><a href="#local-6989586621679357377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutRepositoryTriggersResponse' :: Int
+</span><a href="#local-6989586621679357661"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357661"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357660"><span class="annot"><span class="annottext">s :: PutRepositoryTriggersResponse
+</span><a href="#local-6989586621679357660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse%27"><span class="hs-identifier hs-type">PutRepositoryTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357659"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRepositoryTriggersResponse
+</span><a href="#local-6989586621679357660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutRepositoryTriggersResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#%24sel%3AhttpStatus%3APutRepositoryTriggersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679357376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse"><span class="hs-identifier hs-type">PutRepositoryTriggersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse"><span class="hs-identifier hs-type">PutRepositoryTriggersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357374"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse"><span class="hs-identifier hs-type">PutRepositoryTriggersResponse</span></a></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357657"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutRepositoryTriggers.html#PutRepositoryTriggersResponse"><span class="hs-identifier hs-type">PutRepositoryTriggersResponse</span></a></span></span><span>
 </span><span id="line-185"></span></pre></body></html>

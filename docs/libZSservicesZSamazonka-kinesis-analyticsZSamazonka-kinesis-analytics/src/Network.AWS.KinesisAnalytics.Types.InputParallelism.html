@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input&gt;.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInputParallelism' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679205588"><span id="local-6989586621679205589"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputParallelism"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-var">InputParallelism</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputParallelism%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism%27"><span class="hs-identifier hs-var">InputParallelism'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679205687"><span id="local-6989586621679205688"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputParallelism"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-var">InputParallelism</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputParallelism%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism%27"><span class="hs-identifier hs-var">InputParallelism'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Number of in-application streams to create. For more information, see</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html Limits&gt;.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Acount%3AInputParallelism%27"><span class="annot"><span class="annottext">InputParallelism -&gt; Maybe Natural
 </span><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#%24sel%3Acount%3AInputParallelism%27"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205582"><span id="local-6989586621679205584"><span class="annot"><span class="annottext">InputParallelism -&gt; InputParallelism -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205681"><span id="local-6989586621679205683"><span class="annot"><span class="annottext">InputParallelism -&gt; InputParallelism -&gt; Bool
 (InputParallelism -&gt; InputParallelism -&gt; Bool)
 -&gt; (InputParallelism -&gt; InputParallelism -&gt; Bool)
 -&gt; Eq InputParallelism
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InputParallelism -&gt; InputParallelism -&gt; Bool
 == :: InputParallelism -&gt; InputParallelism -&gt; Bool
 $c== :: InputParallelism -&gt; InputParallelism -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205573"><span id="local-6989586621679205575"><span id="local-6989586621679205577"><span id="local-6989586621679205579"><span class="annot"><span class="annottext">ReadPrec [InputParallelism]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205672"><span id="local-6989586621679205674"><span id="local-6989586621679205676"><span id="local-6989586621679205678"><span class="annot"><span class="annottext">ReadPrec [InputParallelism]
 ReadPrec InputParallelism
 Int -&gt; ReadS InputParallelism
 ReadS [InputParallelism]
@@ -63,7 +63,7 @@ readList :: ReadS [InputParallelism]
 $creadList :: ReadS [InputParallelism]
 readsPrec :: Int -&gt; ReadS InputParallelism
 $creadsPrec :: Int -&gt; ReadS InputParallelism
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205566"><span id="local-6989586621679205568"><span id="local-6989586621679205570"><span class="annot"><span class="annottext">Int -&gt; InputParallelism -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205665"><span id="local-6989586621679205667"><span id="local-6989586621679205669"><span class="annot"><span class="annottext">Int -&gt; InputParallelism -&gt; ShowS
 [InputParallelism] -&gt; ShowS
 InputParallelism -&gt; String
 (Int -&gt; InputParallelism -&gt; ShowS)
@@ -119,19 +119,19 @@ forall a. Maybe a
 -&gt; Lens
      InputParallelism InputParallelism (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism%27"><span class="hs-identifier hs-type">InputParallelism'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205557"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism%27"><span class="hs-identifier hs-type">InputParallelism'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205656"><span class="annot"><span class="annottext">Maybe Natural
 count :: Maybe Natural
 $sel:count:InputParallelism' :: InputParallelism -&gt; Maybe Natural
-</span><a href="#local-6989586621679205557"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679205557"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205556"><span class="annot"><span class="annottext">s :: InputParallelism
-</span><a href="#local-6989586621679205556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism%27"><span class="hs-identifier hs-type">InputParallelism'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205555"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679205555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputParallelism
-</span><a href="#local-6989586621679205556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:InputParallelism' :: Maybe Natural
+</span><a href="#local-6989586621679205656"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679205656"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205655"><span class="annot"><span class="annottext">s :: InputParallelism
+</span><a href="#local-6989586621679205655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism%27"><span class="hs-identifier hs-type">InputParallelism'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205654"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679205654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputParallelism
+</span><a href="#local-6989586621679205655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:InputParallelism' :: Maybe Natural
 </span><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#%24sel%3Acount%3AInputParallelism%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679205555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679205654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205552"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679205550"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputParallelism
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205651"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679205649"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputParallelism
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InputParallelism)
@@ -141,29 +141,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InputParallelism&quot;</span></span><span>
-</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205547"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679205547"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205646"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205646"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-63"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; InputParallelism
 </span><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism%27"><span class="hs-identifier hs-var">InputParallelism'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; InputParallelism)
 -&gt; Parser (Maybe Natural) -&gt; Parser InputParallelism
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679205547"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679205646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Count&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205541"><span id="local-6989586621679205543"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205640"><span id="local-6989586621679205642"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205538"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205637"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205530"><span id="local-6989586621679205532"><span id="local-6989586621679205534"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679205528"><span class="annot"><span class="annottext">toJSON :: InputParallelism -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism%27"><span class="hs-identifier hs-type">InputParallelism'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205526"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205629"><span id="local-6989586621679205631"><span id="local-6989586621679205633"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679205627"><span class="annot"><span class="annottext">toJSON :: InputParallelism -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism%27"><span class="hs-identifier hs-type">InputParallelism'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205625"><span class="annot"><span class="annottext">Maybe Natural
 count :: Maybe Natural
 $sel:count:InputParallelism' :: InputParallelism -&gt; Maybe Natural
-</span><a href="#local-6989586621679205526"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679205625"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -175,6 +175,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679205526"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679205625"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span></pre></body></html>

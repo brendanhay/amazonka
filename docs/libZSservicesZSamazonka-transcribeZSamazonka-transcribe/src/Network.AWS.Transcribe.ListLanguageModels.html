@@ -30,10 +30,10 @@
 </span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#newListLanguageModels"><span class="hs-identifier">newListLanguageModels</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_nextToken"><span class="hs-identifier">listLanguageModels_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_nameContains"><span class="hs-identifier">listLanguageModels_nameContains</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_maxResults"><span class="hs-identifier">listLanguageModels_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_statusEquals"><span class="hs-identifier">listLanguageModels_statusEquals</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_nameContains"><span class="hs-identifier">listLanguageModels_nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_nextToken"><span class="hs-identifier">listLanguageModels_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_statusEquals"><span class="hs-identifier">listLanguageModels_statusEquals</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_maxResults"><span class="hs-identifier">listLanguageModels_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse"><span class="hs-identifier">ListLanguageModelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -54,29 +54,29 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.html"><span class="hs-identifier">Network.AWS.Transcribe.Types</span></a></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListLanguageModels' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679282002"><span id="local-6989586621679282003"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLanguageModels"><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-var">ListLanguageModels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLanguageModels%27"><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-var">ListLanguageModels'</span></a></span></span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When included, fetches the next set of jobs if the result of the</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- previous request was truncated.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnextToken%3AListLanguageModels%27"><span class="annot"><span class="annottext">ListLanguageModels -&gt; Maybe Text
-</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AnextToken%3AListLanguageModels%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | When specified, the custom language model names returned contain the</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- substring you\'ve specified.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnameContains%3AListLanguageModels%27"><span class="annot"><span class="annottext">ListLanguageModels -&gt; Maybe Text
+</span><span id="line-57"></span><span id="local-6989586621679282191"><span id="local-6989586621679282192"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLanguageModels"><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-var">ListLanguageModels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLanguageModels%27"><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-var">ListLanguageModels'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When specified, the custom language model names returned contain the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- substring you\'ve specified.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnameContains%3AListLanguageModels%27"><span class="annot"><span class="annottext">ListLanguageModels -&gt; Maybe Text
 </span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AnameContains%3AListLanguageModels%27"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The maximum number of language models to return in each page of results.</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- If there are fewer results than the value you specify, only the actual</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- results are returned. If you do not specify a value, the default of 5 is</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- used.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AmaxResults%3AListLanguageModels%27"><span class="annot"><span class="annottext">ListLanguageModels -&gt; Maybe Natural
-</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AmaxResults%3AListLanguageModels%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | When specified, returns only custom language models with the specified</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- status. Language models are ordered by creation date, with the newest</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- models first. If you don\'t specify a status, Amazon Transcribe returns</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- all custom language models ordered by date.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AstatusEquals%3AListLanguageModels%27"><span class="annot"><span class="annottext">ListLanguageModels -&gt; Maybe ModelStatus
-</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AstatusEquals%3AListLanguageModels%27"><span class="hs-identifier hs-var hs-var">statusEquals</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelStatus.html#ModelStatus"><span class="hs-identifier hs-type">ModelStatus</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | When included, fetches the next set of jobs if the result of the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- previous request was truncated.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3AListLanguageModels%27"><span class="annot"><span class="annottext">ListLanguageModels -&gt; Maybe Text
+</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AnextToken%3AListLanguageModels%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | When specified, returns only custom language models with the specified</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- status. Language models are ordered by creation date, with the newest</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- models first. If you don\'t specify a status, Amazon Transcribe returns</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- all custom language models ordered by date.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AstatusEquals%3AListLanguageModels%27"><span class="annot"><span class="annottext">ListLanguageModels -&gt; Maybe ModelStatus
+</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AstatusEquals%3AListLanguageModels%27"><span class="hs-identifier hs-var hs-var">statusEquals</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelStatus.html#ModelStatus"><span class="hs-identifier hs-type">ModelStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The maximum number of language models to return in each page of results.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- If there are fewer results than the value you specify, only the actual</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- results are returned. If you do not specify a value, the default of 5 is</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AmaxResults%3AListLanguageModels%27"><span class="annot"><span class="annottext">ListLanguageModels -&gt; Maybe Natural
+</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AmaxResults%3AListLanguageModels%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281993"><span id="local-6989586621679281995"><span class="annot"><span class="annottext">ListLanguageModels -&gt; ListLanguageModels -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282182"><span id="local-6989586621679282184"><span class="annot"><span class="annottext">ListLanguageModels -&gt; ListLanguageModels -&gt; Bool
 (ListLanguageModels -&gt; ListLanguageModels -&gt; Bool)
 -&gt; (ListLanguageModels -&gt; ListLanguageModels -&gt; Bool)
 -&gt; Eq ListLanguageModels
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListLanguageModels -&gt; ListLanguageModels -&gt; Bool
 == :: ListLanguageModels -&gt; ListLanguageModels -&gt; Bool
 $c== :: ListLanguageModels -&gt; ListLanguageModels -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281984"><span id="local-6989586621679281986"><span id="local-6989586621679281988"><span id="local-6989586621679281990"><span class="annot"><span class="annottext">ReadPrec [ListLanguageModels]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282173"><span id="local-6989586621679282175"><span id="local-6989586621679282177"><span id="local-6989586621679282179"><span class="annot"><span class="annottext">ReadPrec [ListLanguageModels]
 ReadPrec ListLanguageModels
 Int -&gt; ReadS ListLanguageModels
 ReadS [ListLanguageModels]
@@ -105,7 +105,7 @@ readList :: ReadS [ListLanguageModels]
 $creadList :: ReadS [ListLanguageModels]
 readsPrec :: Int -&gt; ReadS ListLanguageModels
 $creadsPrec :: Int -&gt; ReadS ListLanguageModels
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281977"><span id="local-6989586621679281979"><span id="local-6989586621679281981"><span class="annot"><span class="annottext">Int -&gt; ListLanguageModels -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282166"><span id="local-6989586621679282168"><span id="local-6989586621679282170"><span class="annot"><span class="annottext">Int -&gt; ListLanguageModels -&gt; ShowS
 [ListLanguageModels] -&gt; ShowS
 ListLanguageModels -&gt; String
 (Int -&gt; ListLanguageModels -&gt; ShowS)
@@ -139,123 +139,97 @@ $cfrom :: forall x. ListLanguageModels -&gt; Rep ListLanguageModels x
 </span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'nextToken', 'listLanguageModels_nextToken' - When included, fetches the next set of jobs if the result of the</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- previous request was truncated.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'nameContains', 'listLanguageModels_nameContains' - When specified, the custom language model names returned contain the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- substring you\'ve specified.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'nameContains', 'listLanguageModels_nameContains' - When specified, the custom language model names returned contain the</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- substring you\'ve specified.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'nextToken', 'listLanguageModels_nextToken' - When included, fetches the next set of jobs if the result of the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- previous request was truncated.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'maxResults', 'listLanguageModels_maxResults' - The maximum number of language models to return in each page of results.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- If there are fewer results than the value you specify, only the actual</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- results are returned. If you do not specify a value, the default of 5 is</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'statusEquals', 'listLanguageModels_statusEquals' - When specified, returns only custom language models with the specified</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- status. Language models are ordered by creation date, with the newest</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- models first. If you don\'t specify a status, Amazon Transcribe returns</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- all custom language models ordered by date.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'statusEquals', 'listLanguageModels_statusEquals' - When specified, returns only custom language models with the specified</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- status. Language models are ordered by creation date, with the newest</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- models first. If you don\'t specify a status, Amazon Transcribe returns</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- all custom language models ordered by date.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'maxResults', 'listLanguageModels_maxResults' - The maximum number of language models to return in each page of results.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- If there are fewer results than the value you specify, only the actual</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- results are returned. If you do not specify a value, the default of 5 is</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- used.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#newListLanguageModels"><span class="hs-identifier hs-type">newListLanguageModels</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span>
 </span><span id="line-102"></span><span id="newListLanguageModels"><span class="annot"><span class="annottext">newListLanguageModels :: ListLanguageModels
 </span><a href="Network.AWS.Transcribe.ListLanguageModels.html#newListLanguageModels"><span class="hs-identifier hs-var hs-var">newListLanguageModels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">ListLanguageModels' :: Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Natural
 -&gt; Maybe ModelStatus
+-&gt; Maybe Natural
 -&gt; ListLanguageModels
 </span><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListLanguageModels' :: Maybe Text
-</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AnextToken%3AListLanguageModels%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:nameContains:ListLanguageModels' :: Maybe Text
+</span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nameContains:ListLanguageModels' :: Maybe Text
 </span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AnameContains%3AListLanguageModels%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListLanguageModels' :: Maybe Natural
-</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AmaxResults%3AListLanguageModels%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListLanguageModels' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AnextToken%3AListLanguageModels%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusEquals:ListLanguageModels' :: Maybe ModelStatus
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusEquals:ListLanguageModels' :: Maybe ModelStatus
 </span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AstatusEquals%3AListLanguageModels%27"><span class="hs-identifier hs-var">statusEquals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListLanguageModels' :: Maybe Natural
+</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AmaxResults%3AListLanguageModels%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | When included, fetches the next set of jobs if the result of the</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- previous request was truncated.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_nextToken"><span class="hs-identifier hs-type">listLanguageModels_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="listLanguageModels_nextToken"><span class="annot"><span class="annottext">listLanguageModels_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListLanguageModels -&gt; f ListLanguageModels
-</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_nextToken"><span class="hs-identifier hs-var hs-var">listLanguageModels_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLanguageModels -&gt; Maybe Text)
--&gt; (ListLanguageModels -&gt; Maybe Text -&gt; ListLanguageModels)
--&gt; Lens
-     ListLanguageModels ListLanguageModels (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281970"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListLanguageModels' :: ListLanguageModels -&gt; Maybe Text
-</span><a href="#local-6989586621679281970"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281970"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281969"><span class="annot"><span class="annottext">s :: ListLanguageModels
-</span><a href="#local-6989586621679281969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281968"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLanguageModels
-</span><a href="#local-6989586621679281969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLanguageModels' :: Maybe Text
-</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AnextToken%3AListLanguageModels%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | When specified, the custom language model names returned contain the</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- substring you\'ve specified.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_nameContains"><span class="hs-identifier hs-type">listLanguageModels_nameContains</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="listLanguageModels_nameContains"><span class="annot"><span class="annottext">listLanguageModels_nameContains :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-110"></span><span class="hs-comment">-- | When specified, the custom language model names returned contain the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- substring you\'ve specified.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_nameContains"><span class="hs-identifier hs-type">listLanguageModels_nameContains</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="listLanguageModels_nameContains"><span class="annot"><span class="annottext">listLanguageModels_nameContains :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListLanguageModels -&gt; f ListLanguageModels
 </span><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_nameContains"><span class="hs-identifier hs-var hs-var">listLanguageModels_nameContains</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLanguageModels -&gt; Maybe Text)
 -&gt; (ListLanguageModels -&gt; Maybe Text -&gt; ListLanguageModels)
 -&gt; Lens
      ListLanguageModels ListLanguageModels (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281967"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282159"><span class="annot"><span class="annottext">Maybe Text
 nameContains :: Maybe Text
 $sel:nameContains:ListLanguageModels' :: ListLanguageModels -&gt; Maybe Text
-</span><a href="#local-6989586621679281967"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281967"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281966"><span class="annot"><span class="annottext">s :: ListLanguageModels
-</span><a href="#local-6989586621679281966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281965"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLanguageModels
-</span><a href="#local-6989586621679281966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:ListLanguageModels' :: Maybe Text
+</span><a href="#local-6989586621679282159"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282159"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282158"><span class="annot"><span class="annottext">s :: ListLanguageModels
+</span><a href="#local-6989586621679282158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282157"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLanguageModels
+</span><a href="#local-6989586621679282158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:ListLanguageModels' :: Maybe Text
 </span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AnameContains%3AListLanguageModels%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | The maximum number of language models to return in each page of results.</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- If there are fewer results than the value you specify, only the actual</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- results are returned. If you do not specify a value, the default of 5 is</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- used.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_maxResults"><span class="hs-identifier hs-type">listLanguageModels_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="listLanguageModels_maxResults"><span class="annot"><span class="annottext">listLanguageModels_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><a href="#local-6989586621679282157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | When included, fetches the next set of jobs if the result of the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- previous request was truncated.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_nextToken"><span class="hs-identifier hs-type">listLanguageModels_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="listLanguageModels_nextToken"><span class="annot"><span class="annottext">listLanguageModels_nextToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListLanguageModels -&gt; f ListLanguageModels
-</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_maxResults"><span class="hs-identifier hs-var hs-var">listLanguageModels_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLanguageModels -&gt; Maybe Natural)
--&gt; (ListLanguageModels -&gt; Maybe Natural -&gt; ListLanguageModels)
+</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_nextToken"><span class="hs-identifier hs-var hs-var">listLanguageModels_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLanguageModels -&gt; Maybe Text)
+-&gt; (ListLanguageModels -&gt; Maybe Text -&gt; ListLanguageModels)
 -&gt; Lens
-     ListLanguageModels
-     ListLanguageModels
-     (Maybe Natural)
-     (Maybe Natural)
+     ListLanguageModels ListLanguageModels (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281964"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:ListLanguageModels' :: ListLanguageModels -&gt; Maybe Natural
-</span><a href="#local-6989586621679281964"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679281964"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281963"><span class="annot"><span class="annottext">s :: ListLanguageModels
-</span><a href="#local-6989586621679281963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281962"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679281962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLanguageModels
-</span><a href="#local-6989586621679281963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListLanguageModels' :: Maybe Natural
-</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AmaxResults%3AListLanguageModels%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679281962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | When specified, returns only custom language models with the specified</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- status. Language models are ordered by creation date, with the newest</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- models first. If you don\'t specify a status, Amazon Transcribe returns</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- all custom language models ordered by date.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_statusEquals"><span class="hs-identifier hs-type">listLanguageModels_statusEquals</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelStatus.html#ModelStatus"><span class="hs-identifier hs-type">ModelStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="listLanguageModels_statusEquals"><span class="annot"><span class="annottext">listLanguageModels_statusEquals :: (Maybe ModelStatus -&gt; f (Maybe ModelStatus))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282156"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListLanguageModels' :: ListLanguageModels -&gt; Maybe Text
+</span><a href="#local-6989586621679282156"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282156"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282155"><span class="annot"><span class="annottext">s :: ListLanguageModels
+</span><a href="#local-6989586621679282155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282154"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLanguageModels
+</span><a href="#local-6989586621679282155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLanguageModels' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AnextToken%3AListLanguageModels%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | When specified, returns only custom language models with the specified</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- status. Language models are ordered by creation date, with the newest</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- models first. If you don\'t specify a status, Amazon Transcribe returns</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- all custom language models ordered by date.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_statusEquals"><span class="hs-identifier hs-type">listLanguageModels_statusEquals</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelStatus.html#ModelStatus"><span class="hs-identifier hs-type">ModelStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="listLanguageModels_statusEquals"><span class="annot"><span class="annottext">listLanguageModels_statusEquals :: (Maybe ModelStatus -&gt; f (Maybe ModelStatus))
 -&gt; ListLanguageModels -&gt; f ListLanguageModels
 </span><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_statusEquals"><span class="hs-identifier hs-var hs-var">listLanguageModels_statusEquals</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLanguageModels -&gt; Maybe ModelStatus)
 -&gt; (ListLanguageModels -&gt; Maybe ModelStatus -&gt; ListLanguageModels)
@@ -265,27 +239,53 @@ $sel:maxResults:ListLanguageModels' :: ListLanguageModels -&gt; Maybe Natural
      (Maybe ModelStatus)
      (Maybe ModelStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281961"><span class="annot"><span class="annottext">Maybe ModelStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282153"><span class="annot"><span class="annottext">Maybe ModelStatus
 statusEquals :: Maybe ModelStatus
 $sel:statusEquals:ListLanguageModels' :: ListLanguageModels -&gt; Maybe ModelStatus
-</span><a href="#local-6989586621679281961"><span class="hs-identifier hs-var hs-var">statusEquals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStatus
-</span><a href="#local-6989586621679281961"><span class="hs-identifier hs-var">statusEquals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281960"><span class="annot"><span class="annottext">s :: ListLanguageModels
-</span><a href="#local-6989586621679281960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281959"><span class="annot"><span class="annottext">Maybe ModelStatus
-</span><a href="#local-6989586621679281959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLanguageModels
-</span><a href="#local-6989586621679281960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusEquals:ListLanguageModels' :: Maybe ModelStatus
+</span><a href="#local-6989586621679282153"><span class="hs-identifier hs-var hs-var">statusEquals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStatus
+</span><a href="#local-6989586621679282153"><span class="hs-identifier hs-var">statusEquals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282152"><span class="annot"><span class="annottext">s :: ListLanguageModels
+</span><a href="#local-6989586621679282152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282151"><span class="annot"><span class="annottext">Maybe ModelStatus
+</span><a href="#local-6989586621679282151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLanguageModels
+</span><a href="#local-6989586621679282152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusEquals:ListLanguageModels' :: Maybe ModelStatus
 </span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AstatusEquals%3AListLanguageModels%27"><span class="hs-identifier hs-var">statusEquals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStatus
-</span><a href="#local-6989586621679281959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The maximum number of language models to return in each page of results.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- If there are fewer results than the value you specify, only the actual</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- results are returned. If you do not specify a value, the default of 5 is</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_maxResults"><span class="hs-identifier hs-type">listLanguageModels_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="listLanguageModels_maxResults"><span class="annot"><span class="annottext">listLanguageModels_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListLanguageModels -&gt; f ListLanguageModels
+</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModels_maxResults"><span class="hs-identifier hs-var hs-var">listLanguageModels_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLanguageModels -&gt; Maybe Natural)
+-&gt; (ListLanguageModels -&gt; Maybe Natural -&gt; ListLanguageModels)
+-&gt; Lens
+     ListLanguageModels
+     ListLanguageModels
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282150"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListLanguageModels' :: ListLanguageModels -&gt; Maybe Natural
+</span><a href="#local-6989586621679282150"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679282150"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282149"><span class="annot"><span class="annottext">s :: ListLanguageModels
+</span><a href="#local-6989586621679282149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282148"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679282148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLanguageModels
+</span><a href="#local-6989586621679282149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListLanguageModels' :: Maybe Natural
+</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AmaxResults%3AListLanguageModels%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679282148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-136"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse"><span class="hs-identifier hs-type">ListLanguageModelsResponse</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679281955"><span class="annot"><span class="annottext">request :: ListLanguageModels -&gt; Request ListLanguageModels
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679282144"><span class="annot"><span class="annottext">request :: ListLanguageModels -&gt; Request ListLanguageModels
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListLanguageModels -&gt; Request ListLanguageModels
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Transcribe.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679281951"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679282140"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListLanguageModels
 -&gt; ClientResponse ClientBody
@@ -311,10 +311,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679281948"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281948"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679281947"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679281947"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679281946"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679281946"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679282137"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282137"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679282136"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679282136"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679282135"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679282135"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [LanguageModel] -&gt; Int -&gt; ListLanguageModelsResponse
 </span><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse%27"><span class="hs-identifier hs-var">ListLanguageModelsResponse'</span></a></span><span>
@@ -325,7 +325,7 @@ MonadResource m =&gt;
      String (Maybe [LanguageModel] -&gt; Int -&gt; ListLanguageModelsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679281946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679282135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -335,7 +335,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListLanguageModelsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679281946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [LanguageModel]))
+</span><a href="#local-6989586621679282135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [LanguageModel]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Models&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [LanguageModel]))
@@ -352,15 +352,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281948"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282137"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281937"><span id="local-6989586621679281939"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282126"><span id="local-6989586621679282128"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span></span></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281934"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282123"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679281930"><span class="annot"><span class="annottext">toHeaders :: ListLanguageModels -&gt; ResponseHeaders
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679282119"><span class="annot"><span class="annottext">toHeaders :: ListLanguageModels -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListLanguageModels -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -387,65 +387,65 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281920"><span id="local-6989586621679281922"><span id="local-6989586621679281924"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679281918"><span class="annot"><span class="annottext">toJSON :: ListLanguageModels -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281913"><span id="local-6989586621679281914"><span id="local-6989586621679281915"><span id="local-6989586621679281916"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282109"><span id="local-6989586621679282111"><span id="local-6989586621679282113"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679282107"><span class="annot"><span class="annottext">toJSON :: ListLanguageModels -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels%27"><span class="hs-identifier hs-type">ListLanguageModels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282102"><span id="local-6989586621679282103"><span id="local-6989586621679282104"><span id="local-6989586621679282105"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe ModelStatus
-statusEquals :: Maybe ModelStatus
 maxResults :: Maybe Natural
-nameContains :: Maybe Text
+statusEquals :: Maybe ModelStatus
 nextToken :: Maybe Text
-$sel:statusEquals:ListLanguageModels' :: ListLanguageModels -&gt; Maybe ModelStatus
+nameContains :: Maybe Text
 $sel:maxResults:ListLanguageModels' :: ListLanguageModels -&gt; Maybe Natural
-$sel:nameContains:ListLanguageModels' :: ListLanguageModels -&gt; Maybe Text
+$sel:statusEquals:ListLanguageModels' :: ListLanguageModels -&gt; Maybe ModelStatus
 $sel:nextToken:ListLanguageModels' :: ListLanguageModels -&gt; Maybe Text
-</span><a href="#local-6989586621679281913"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:nameContains:ListLanguageModels' :: ListLanguageModels -&gt; Maybe Text
+</span><a href="#local-6989586621679282102"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-171"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281916"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NameContains&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281915"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+</span><a href="#local-6989586621679282105"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679281914"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282104"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StatusEquals&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ModelStatus -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ModelStatus -&gt; Pair) -&gt; Maybe ModelStatus -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ModelStatus
-</span><a href="#local-6989586621679281913"><span class="hs-identifier hs-var">statusEquals</span></a></span><span>
+</span><a href="#local-6989586621679282103"><span class="hs-identifier hs-var">statusEquals</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679282102"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-175"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679281907"><span class="annot"><span class="annottext">toPath :: ListLanguageModels -&gt; ByteString
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679282096"><span class="annot"><span class="annottext">toPath :: ListLanguageModels -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListLanguageModels -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModels"><span class="hs-identifier hs-type">ListLanguageModels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679281903"><span class="annot"><span class="annottext">toQuery :: ListLanguageModels -&gt; QueryString
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679282092"><span class="annot"><span class="annottext">toQuery :: ListLanguageModels -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListLanguageModels -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -453,7 +453,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | /See:/ 'newListLanguageModelsResponse' smart constructor.</span><span>
-</span><span id="line-185"></span><span id="local-6989586621679281900"><span id="local-6989586621679281901"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLanguageModelsResponse"><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse"><span class="hs-identifier hs-var">ListLanguageModelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLanguageModelsResponse%27"><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse%27"><span class="hs-identifier hs-var">ListLanguageModelsResponse'</span></a></span></span><span>
+</span><span id="line-185"></span><span id="local-6989586621679282089"><span id="local-6989586621679282090"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLanguageModelsResponse"><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse"><span class="hs-identifier hs-var">ListLanguageModelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLanguageModelsResponse%27"><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse%27"><span class="hs-identifier hs-var">ListLanguageModelsResponse'</span></a></span></span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The operation returns a page of jobs at a time. The maximum size of the</span><span>
 </span><span id="line-187"></span><span>    </span><span class="hs-comment">-- list is set by the MaxResults parameter. If there are more language</span><span>
 </span><span id="line-188"></span><span>    </span><span class="hs-comment">-- models in the list than the page size, Amazon Transcribe returns the</span><span>
@@ -468,7 +468,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListLanguageModelsResponse%27"><span class="annot"><span class="annottext">ListLanguageModelsResponse -&gt; Int
 </span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AhttpStatus%3AListLanguageModelsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281893"><span id="local-6989586621679281895"><span class="annot"><span class="annottext">ListLanguageModelsResponse -&gt; ListLanguageModelsResponse -&gt; Bool
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282082"><span id="local-6989586621679282084"><span class="annot"><span class="annottext">ListLanguageModelsResponse -&gt; ListLanguageModelsResponse -&gt; Bool
 (ListLanguageModelsResponse -&gt; ListLanguageModelsResponse -&gt; Bool)
 -&gt; (ListLanguageModelsResponse
     -&gt; ListLanguageModelsResponse -&gt; Bool)
@@ -478,7 +478,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListLanguageModelsResponse -&gt; ListLanguageModelsResponse -&gt; Bool
 == :: ListLanguageModelsResponse -&gt; ListLanguageModelsResponse -&gt; Bool
 $c== :: ListLanguageModelsResponse -&gt; ListLanguageModelsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281885"><span id="local-6989586621679281887"><span id="local-6989586621679281889"><span id="local-6989586621679281891"><span class="annot"><span class="annottext">ReadPrec [ListLanguageModelsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282074"><span id="local-6989586621679282076"><span id="local-6989586621679282078"><span id="local-6989586621679282080"><span class="annot"><span class="annottext">ReadPrec [ListLanguageModelsResponse]
 ReadPrec ListLanguageModelsResponse
 Int -&gt; ReadS ListLanguageModelsResponse
 ReadS [ListLanguageModelsResponse]
@@ -498,7 +498,7 @@ readList :: ReadS [ListLanguageModelsResponse]
 $creadList :: ReadS [ListLanguageModelsResponse]
 readsPrec :: Int -&gt; ReadS ListLanguageModelsResponse
 $creadsPrec :: Int -&gt; ReadS ListLanguageModelsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281879"><span id="local-6989586621679281881"><span id="local-6989586621679281883"><span class="annot"><span class="annottext">Int -&gt; ListLanguageModelsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282068"><span id="local-6989586621679282070"><span id="local-6989586621679282072"><span class="annot"><span class="annottext">Int -&gt; ListLanguageModelsResponse -&gt; ShowS
 [ListLanguageModelsResponse] -&gt; ShowS
 ListLanguageModelsResponse -&gt; String
 (Int -&gt; ListLanguageModelsResponse -&gt; ShowS)
@@ -552,8 +552,8 @@ ListLanguageModelsResponse -&gt; Rep ListLanguageModelsResponse x
 </span><span id="line-218"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-219"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse"><span class="hs-identifier hs-type">ListLanguageModelsResponse</span></a></span><span>
 </span><span id="line-220"></span><span id="newListLanguageModelsResponse"><span class="annot"><span class="annottext">newListLanguageModelsResponse :: Int -&gt; ListLanguageModelsResponse
-</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#newListLanguageModelsResponse"><span class="hs-identifier hs-var hs-var">newListLanguageModelsResponse</span></a></span></span><span> </span><span id="local-6989586621679281876"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281876"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Transcribe.ListLanguageModels.html#newListLanguageModelsResponse"><span class="hs-identifier hs-var hs-var">newListLanguageModelsResponse</span></a></span></span><span> </span><span id="local-6989586621679282065"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282065"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-221"></span><span>  </span><span class="annot"><span class="annottext">ListLanguageModelsResponse' :: Maybe Text
 -&gt; Maybe [LanguageModel] -&gt; Int -&gt; ListLanguageModelsResponse
 </span><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse%27"><span class="hs-identifier hs-type">ListLanguageModelsResponse'</span></a></span><span>
@@ -568,7 +568,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListLanguageModelsResponse' :: Int
 </span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AhttpStatus%3AListLanguageModelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281876"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679282065"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-226"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | The operation returns a page of jobs at a time. The maximum size of the</span><span>
@@ -588,16 +588,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse%27"><span class="hs-identifier hs-type">ListLanguageModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281875"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse%27"><span class="hs-identifier hs-type">ListLanguageModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282064"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListLanguageModelsResponse' :: ListLanguageModelsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679281875"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281875"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281874"><span class="annot"><span class="annottext">s :: ListLanguageModelsResponse
-</span><a href="#local-6989586621679281874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse%27"><span class="hs-identifier hs-type">ListLanguageModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281873"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLanguageModelsResponse
-</span><a href="#local-6989586621679281874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLanguageModelsResponse' :: Maybe Text
+</span><a href="#local-6989586621679282064"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282064"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282063"><span class="annot"><span class="annottext">s :: ListLanguageModelsResponse
+</span><a href="#local-6989586621679282063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse%27"><span class="hs-identifier hs-type">ListLanguageModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282062"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLanguageModelsResponse
+</span><a href="#local-6989586621679282063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLanguageModelsResponse' :: Maybe Text
 </span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AnextToken%3AListLanguageModelsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse"><span class="hs-identifier hs-type">ListLanguageModelsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse"><span class="hs-identifier hs-type">ListLanguageModelsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | A list of objects containing information about custom language models.</span><span>
 </span><span id="line-237"></span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModelsResponse_models"><span class="hs-identifier hs-type">listLanguageModelsResponse_models</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse"><span class="hs-identifier hs-type">ListLanguageModelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Transcribe.Types.LanguageModel.html#LanguageModel"><span class="hs-identifier hs-type">LanguageModel</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -612,16 +612,16 @@ $sel:nextToken:ListLanguageModelsResponse' :: ListLanguageModelsResponse -&gt; M
      (Maybe [LanguageModel])
      (Maybe [LanguageModel])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse%27"><span class="hs-identifier hs-type">ListLanguageModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281872"><span class="annot"><span class="annottext">Maybe [LanguageModel]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse%27"><span class="hs-identifier hs-type">ListLanguageModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282061"><span class="annot"><span class="annottext">Maybe [LanguageModel]
 models :: Maybe [LanguageModel]
 $sel:models:ListLanguageModelsResponse' :: ListLanguageModelsResponse -&gt; Maybe [LanguageModel]
-</span><a href="#local-6989586621679281872"><span class="hs-identifier hs-var hs-var">models</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LanguageModel]
-</span><a href="#local-6989586621679281872"><span class="hs-identifier hs-var">models</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281871"><span class="annot"><span class="annottext">s :: ListLanguageModelsResponse
-</span><a href="#local-6989586621679281871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse%27"><span class="hs-identifier hs-type">ListLanguageModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281870"><span class="annot"><span class="annottext">Maybe [LanguageModel]
-</span><a href="#local-6989586621679281870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLanguageModelsResponse
-</span><a href="#local-6989586621679281871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:models:ListLanguageModelsResponse' :: Maybe [LanguageModel]
+</span><a href="#local-6989586621679282061"><span class="hs-identifier hs-var hs-var">models</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LanguageModel]
+</span><a href="#local-6989586621679282061"><span class="hs-identifier hs-var">models</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282060"><span class="annot"><span class="annottext">s :: ListLanguageModelsResponse
+</span><a href="#local-6989586621679282060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse%27"><span class="hs-identifier hs-type">ListLanguageModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282059"><span class="annot"><span class="annottext">Maybe [LanguageModel]
+</span><a href="#local-6989586621679282059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLanguageModelsResponse
+</span><a href="#local-6989586621679282060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:models:ListLanguageModelsResponse' :: Maybe [LanguageModel]
 </span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3Amodels%3AListLanguageModelsResponse%27"><span class="hs-identifier hs-var">models</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LanguageModel]
-</span><a href="#local-6989586621679281870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse"><span class="hs-identifier hs-type">ListLanguageModelsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LanguageModel] -&gt; f (Maybe [LanguageModel]))
+</span><a href="#local-6989586621679282059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse"><span class="hs-identifier hs-type">ListLanguageModelsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LanguageModel] -&gt; f (Maybe [LanguageModel]))
  -&gt; ListLanguageModelsResponse -&gt; f ListLanguageModelsResponse)
 -&gt; ((Maybe [LanguageModel] -&gt; f (Maybe [LanguageModel]))
     -&gt; Maybe [LanguageModel] -&gt; f (Maybe [LanguageModel]))
@@ -641,8 +641,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [LanguageModel] [LanguageModel] [LanguageModel] [LanguageModel]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-241"></span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#listLanguageModelsResponse_httpStatus"><span class="hs-identifier hs-type">listLanguageModelsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse"><span class="hs-identifier hs-type">ListLanguageModelsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -654,16 +654,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      ListLanguageModelsResponse ListLanguageModelsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse%27"><span class="hs-identifier hs-type">ListLanguageModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281866"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse%27"><span class="hs-identifier hs-type">ListLanguageModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282055"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListLanguageModelsResponse' :: ListLanguageModelsResponse -&gt; Int
-</span><a href="#local-6989586621679281866"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281866"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281865"><span class="annot"><span class="annottext">s :: ListLanguageModelsResponse
-</span><a href="#local-6989586621679281865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse%27"><span class="hs-identifier hs-type">ListLanguageModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281864"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLanguageModelsResponse
-</span><a href="#local-6989586621679281865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListLanguageModelsResponse' :: Int
+</span><a href="#local-6989586621679282055"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282055"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282054"><span class="annot"><span class="annottext">s :: ListLanguageModelsResponse
+</span><a href="#local-6989586621679282054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse%27"><span class="hs-identifier hs-type">ListLanguageModelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282053"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLanguageModelsResponse
+</span><a href="#local-6989586621679282054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListLanguageModelsResponse' :: Int
 </span><a href="Network.AWS.Transcribe.ListLanguageModels.html#%24sel%3AhttpStatus%3AListLanguageModelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse"><span class="hs-identifier hs-type">ListLanguageModelsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse"><span class="hs-identifier hs-type">ListLanguageModelsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>
-</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281862"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse"><span class="hs-identifier hs-type">ListLanguageModelsResponse</span></a></span></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282051"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListLanguageModels.html#ListLanguageModelsResponse"><span class="hs-identifier hs-type">ListLanguageModelsResponse</span></a></span></span><span>
 </span><span id="line-245"></span></pre></body></html>

@@ -29,30 +29,30 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes an import volume task.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newImportInstanceVolumeDetailItem' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681079731"><span id="local-6989586621681079732"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportInstanceVolumeDetailItem"><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-var">ImportInstanceVolumeDetailItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportInstanceVolumeDetailItem%27"><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">ImportInstanceVolumeDetailItem'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of bytes converted so far.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AbytesConverted%3AImportInstanceVolumeDetailItem%27"><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem -&gt; Maybe Integer
-</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3AbytesConverted%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var hs-var">bytesConverted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The status information or errors related to the disk image.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AstatusMessage%3AImportInstanceVolumeDetailItem%27"><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3AstatusMessage%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The status of the import of this particular disk image.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Astatus%3AImportInstanceVolumeDetailItem%27"><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem -&gt; Maybe Text
+</span><span id="line-32"></span><span id="local-6989586621681114081"><span id="local-6989586621681114082"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportInstanceVolumeDetailItem"><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-var">ImportInstanceVolumeDetailItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportInstanceVolumeDetailItem%27"><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">ImportInstanceVolumeDetailItem'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the import of this particular disk image.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3AImportInstanceVolumeDetailItem%27"><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3Astatus%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The number of bytes converted so far.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AbytesConverted%3AImportInstanceVolumeDetailItem%27"><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem -&gt; Maybe Integer
+</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3AbytesConverted%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var hs-var">bytesConverted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The image.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aimage%3AImportInstanceVolumeDetailItem%27"><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem -&gt; Maybe DiskImageDescription
+</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3Aimage%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDescription.html#DiskImageDescription"><span class="hs-identifier hs-type">DiskImageDescription</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The volume.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Avolume%3AImportInstanceVolumeDetailItem%27"><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem -&gt; Maybe DiskImageVolumeDescription
 </span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3Avolume%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var hs-var">volume</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageVolumeDescription.html#DiskImageVolumeDescription"><span class="hs-identifier hs-type">DiskImageVolumeDescription</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The image.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aimage%3AImportInstanceVolumeDetailItem%27"><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem -&gt; Maybe DiskImageDescription
-</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3Aimage%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDescription.html#DiskImageDescription"><span class="hs-identifier hs-type">DiskImageDescription</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The Availability Zone where the resulting instance will reside.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AavailabilityZone%3AImportInstanceVolumeDetailItem%27"><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem -&gt; Maybe Text
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Availability Zone where the resulting instance will reside.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AavailabilityZone%3AImportInstanceVolumeDetailItem%27"><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3AavailabilityZone%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The status information or errors related to the disk image.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AstatusMessage%3AImportInstanceVolumeDetailItem%27"><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3AstatusMessage%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | A description of the task.</span><span>
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3Adescription%3AImportInstanceVolumeDetailItem%27"><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3Adescription%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681079719"><span id="local-6989586621681079721"><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681114069"><span id="local-6989586621681114071"><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem
 -&gt; ImportInstanceVolumeDetailItem -&gt; Bool
 (ImportInstanceVolumeDetailItem
  -&gt; ImportInstanceVolumeDetailItem -&gt; Bool)
@@ -68,7 +68,7 @@ $c/= :: ImportInstanceVolumeDetailItem
 -&gt; ImportInstanceVolumeDetailItem -&gt; Bool
 $c== :: ImportInstanceVolumeDetailItem
 -&gt; ImportInstanceVolumeDetailItem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681079710"><span id="local-6989586621681079712"><span id="local-6989586621681079714"><span id="local-6989586621681079716"><span class="annot"><span class="annottext">ReadPrec [ImportInstanceVolumeDetailItem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681114060"><span id="local-6989586621681114062"><span id="local-6989586621681114064"><span id="local-6989586621681114066"><span class="annot"><span class="annottext">ReadPrec [ImportInstanceVolumeDetailItem]
 ReadPrec ImportInstanceVolumeDetailItem
 Int -&gt; ReadS ImportInstanceVolumeDetailItem
 ReadS [ImportInstanceVolumeDetailItem]
@@ -88,7 +88,7 @@ readList :: ReadS [ImportInstanceVolumeDetailItem]
 $creadList :: ReadS [ImportInstanceVolumeDetailItem]
 readsPrec :: Int -&gt; ReadS ImportInstanceVolumeDetailItem
 $creadsPrec :: Int -&gt; ReadS ImportInstanceVolumeDetailItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681079703"><span id="local-6989586621681079705"><span id="local-6989586621681079707"><span class="annot"><span class="annottext">Int -&gt; ImportInstanceVolumeDetailItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681114053"><span id="local-6989586621681114055"><span id="local-6989586621681114057"><span class="annot"><span class="annottext">Int -&gt; ImportInstanceVolumeDetailItem -&gt; ShowS
 [ImportInstanceVolumeDetailItem] -&gt; ShowS
 ImportInstanceVolumeDetailItem -&gt; String
 (Int -&gt; ImportInstanceVolumeDetailItem -&gt; ShowS)
@@ -134,55 +134,55 @@ ImportInstanceVolumeDetailItem
 </span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'bytesConverted', 'importInstanceVolumeDetailItem_bytesConverted' - The number of bytes converted so far.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'status', 'importInstanceVolumeDetailItem_status' - The status of the import of this particular disk image.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'statusMessage', 'importInstanceVolumeDetailItem_statusMessage' - The status information or errors related to the disk image.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'bytesConverted', 'importInstanceVolumeDetailItem_bytesConverted' - The number of bytes converted so far.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'status', 'importInstanceVolumeDetailItem_status' - The status of the import of this particular disk image.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'image', 'importInstanceVolumeDetailItem_image' - The image.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- 'volume', 'importInstanceVolumeDetailItem_volume' - The volume.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'image', 'importInstanceVolumeDetailItem_image' - The image.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'availabilityZone', 'importInstanceVolumeDetailItem_availabilityZone' - The Availability Zone where the resulting instance will reside.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'availabilityZone', 'importInstanceVolumeDetailItem_availabilityZone' - The Availability Zone where the resulting instance will reside.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'statusMessage', 'importInstanceVolumeDetailItem_statusMessage' - The status information or errors related to the disk image.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- 'description', 'importInstanceVolumeDetailItem_description' - A description of the task.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#newImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">newImportInstanceVolumeDetailItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span>
 </span><span id="line-73"></span><span id="newImportInstanceVolumeDetailItem"><span class="annot"><span class="annottext">newImportInstanceVolumeDetailItem :: ImportInstanceVolumeDetailItem
 </span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#newImportInstanceVolumeDetailItem"><span class="hs-identifier hs-var hs-var">newImportInstanceVolumeDetailItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem' :: Maybe Integer
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe DiskImageVolumeDescription
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem' :: Maybe Text
+-&gt; Maybe Integer
 -&gt; Maybe DiskImageDescription
+-&gt; Maybe DiskImageVolumeDescription
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; ImportInstanceVolumeDetailItem
 </span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bytesConverted:ImportInstanceVolumeDetailItem' :: Maybe Integer
-</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3AbytesConverted%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">bytesConverted</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ImportInstanceVolumeDetailItem' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3Astatus%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusMessage:ImportInstanceVolumeDetailItem' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3AstatusMessage%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:bytesConverted:ImportInstanceVolumeDetailItem' :: Maybe Integer
+</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3AbytesConverted%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">bytesConverted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ImportInstanceVolumeDetailItem' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3Astatus%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:image:ImportInstanceVolumeDetailItem' :: Maybe DiskImageDescription
+</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3Aimage%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageDescription
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:volume:ImportInstanceVolumeDetailItem' :: Maybe DiskImageVolumeDescription
 </span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3Avolume%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">volume</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageVolumeDescription
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:image:ImportInstanceVolumeDetailItem' :: Maybe DiskImageDescription
-</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3Aimage%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageDescription
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZone:ImportInstanceVolumeDetailItem' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3AavailabilityZone%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZone:ImportInstanceVolumeDetailItem' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3AavailabilityZone%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusMessage:ImportInstanceVolumeDetailItem' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3AstatusMessage%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ImportInstanceVolumeDetailItem' :: Maybe Text
@@ -191,59 +191,9 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The number of bytes converted so far.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_bytesConverted"><span class="hs-identifier hs-type">importInstanceVolumeDetailItem_bytesConverted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="importInstanceVolumeDetailItem_bytesConverted"><span class="annot"><span class="annottext">importInstanceVolumeDetailItem_bytesConverted :: (Maybe Integer -&gt; f (Maybe Integer))
--&gt; ImportInstanceVolumeDetailItem
--&gt; f ImportInstanceVolumeDetailItem
-</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_bytesConverted"><span class="hs-identifier hs-var hs-var">importInstanceVolumeDetailItem_bytesConverted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstanceVolumeDetailItem -&gt; Maybe Integer)
--&gt; (ImportInstanceVolumeDetailItem
-    -&gt; Maybe Integer -&gt; ImportInstanceVolumeDetailItem)
--&gt; Lens
-     ImportInstanceVolumeDetailItem
-     ImportInstanceVolumeDetailItem
-     (Maybe Integer)
-     (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681079694"><span class="annot"><span class="annottext">Maybe Integer
-bytesConverted :: Maybe Integer
-$sel:bytesConverted:ImportInstanceVolumeDetailItem' :: ImportInstanceVolumeDetailItem -&gt; Maybe Integer
-</span><a href="#local-6989586621681079694"><span class="hs-identifier hs-var hs-var">bytesConverted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681079694"><span class="hs-identifier hs-var">bytesConverted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681079693"><span class="annot"><span class="annottext">s :: ImportInstanceVolumeDetailItem
-</span><a href="#local-6989586621681079693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681079692"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681079692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem
-</span><a href="#local-6989586621681079693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytesConverted:ImportInstanceVolumeDetailItem' :: Maybe Integer
-</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3AbytesConverted%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">bytesConverted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681079692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The status information or errors related to the disk image.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_statusMessage"><span class="hs-identifier hs-type">importInstanceVolumeDetailItem_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="importInstanceVolumeDetailItem_statusMessage"><span class="annot"><span class="annottext">importInstanceVolumeDetailItem_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ImportInstanceVolumeDetailItem
--&gt; f ImportInstanceVolumeDetailItem
-</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_statusMessage"><span class="hs-identifier hs-var hs-var">importInstanceVolumeDetailItem_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstanceVolumeDetailItem -&gt; Maybe Text)
--&gt; (ImportInstanceVolumeDetailItem
-    -&gt; Maybe Text -&gt; ImportInstanceVolumeDetailItem)
--&gt; Lens
-     ImportInstanceVolumeDetailItem
-     ImportInstanceVolumeDetailItem
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681079690"><span class="annot"><span class="annottext">Maybe Text
-statusMessage :: Maybe Text
-$sel:statusMessage:ImportInstanceVolumeDetailItem' :: ImportInstanceVolumeDetailItem -&gt; Maybe Text
-</span><a href="#local-6989586621681079690"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681079690"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681079689"><span class="annot"><span class="annottext">s :: ImportInstanceVolumeDetailItem
-</span><a href="#local-6989586621681079689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681079688"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681079688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem
-</span><a href="#local-6989586621681079689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:ImportInstanceVolumeDetailItem' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3AstatusMessage%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681079688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The status of the import of this particular disk image.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_status"><span class="hs-identifier hs-type">importInstanceVolumeDetailItem_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="importInstanceVolumeDetailItem_status"><span class="annot"><span class="annottext">importInstanceVolumeDetailItem_status :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-85"></span><span class="hs-comment">-- | The status of the import of this particular disk image.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_status"><span class="hs-identifier hs-type">importInstanceVolumeDetailItem_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="importInstanceVolumeDetailItem_status"><span class="annot"><span class="annottext">importInstanceVolumeDetailItem_status :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ImportInstanceVolumeDetailItem
 -&gt; f ImportInstanceVolumeDetailItem
 </span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_status"><span class="hs-identifier hs-var hs-var">importInstanceVolumeDetailItem_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstanceVolumeDetailItem -&gt; Maybe Text)
@@ -255,16 +205,66 @@ $sel:statusMessage:ImportInstanceVolumeDetailItem' :: ImportInstanceVolumeDetail
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681079686"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681114044"><span class="annot"><span class="annottext">Maybe Text
 status :: Maybe Text
 $sel:status:ImportInstanceVolumeDetailItem' :: ImportInstanceVolumeDetailItem -&gt; Maybe Text
-</span><a href="#local-6989586621681079686"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681079686"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681079685"><span class="annot"><span class="annottext">s :: ImportInstanceVolumeDetailItem
-</span><a href="#local-6989586621681079685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681079684"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681079684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem
-</span><a href="#local-6989586621681079685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ImportInstanceVolumeDetailItem' :: Maybe Text
+</span><a href="#local-6989586621681114044"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681114044"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681114043"><span class="annot"><span class="annottext">s :: ImportInstanceVolumeDetailItem
+</span><a href="#local-6989586621681114043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681114042"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681114042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem
+</span><a href="#local-6989586621681114043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ImportInstanceVolumeDetailItem' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3Astatus%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681079684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681114042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The number of bytes converted so far.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_bytesConverted"><span class="hs-identifier hs-type">importInstanceVolumeDetailItem_bytesConverted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="importInstanceVolumeDetailItem_bytesConverted"><span class="annot"><span class="annottext">importInstanceVolumeDetailItem_bytesConverted :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; ImportInstanceVolumeDetailItem
+-&gt; f ImportInstanceVolumeDetailItem
+</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_bytesConverted"><span class="hs-identifier hs-var hs-var">importInstanceVolumeDetailItem_bytesConverted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstanceVolumeDetailItem -&gt; Maybe Integer)
+-&gt; (ImportInstanceVolumeDetailItem
+    -&gt; Maybe Integer -&gt; ImportInstanceVolumeDetailItem)
+-&gt; Lens
+     ImportInstanceVolumeDetailItem
+     ImportInstanceVolumeDetailItem
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681114040"><span class="annot"><span class="annottext">Maybe Integer
+bytesConverted :: Maybe Integer
+$sel:bytesConverted:ImportInstanceVolumeDetailItem' :: ImportInstanceVolumeDetailItem -&gt; Maybe Integer
+</span><a href="#local-6989586621681114040"><span class="hs-identifier hs-var hs-var">bytesConverted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681114040"><span class="hs-identifier hs-var">bytesConverted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681114039"><span class="annot"><span class="annottext">s :: ImportInstanceVolumeDetailItem
+</span><a href="#local-6989586621681114039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681114038"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681114038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem
+</span><a href="#local-6989586621681114039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytesConverted:ImportInstanceVolumeDetailItem' :: Maybe Integer
+</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3AbytesConverted%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">bytesConverted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681114038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The image.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_image"><span class="hs-identifier hs-type">importInstanceVolumeDetailItem_image</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDescription.html#DiskImageDescription"><span class="hs-identifier hs-type">DiskImageDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="importInstanceVolumeDetailItem_image"><span class="annot"><span class="annottext">importInstanceVolumeDetailItem_image :: (Maybe DiskImageDescription -&gt; f (Maybe DiskImageDescription))
+-&gt; ImportInstanceVolumeDetailItem
+-&gt; f ImportInstanceVolumeDetailItem
+</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_image"><span class="hs-identifier hs-var hs-var">importInstanceVolumeDetailItem_image</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstanceVolumeDetailItem -&gt; Maybe DiskImageDescription)
+-&gt; (ImportInstanceVolumeDetailItem
+    -&gt; Maybe DiskImageDescription -&gt; ImportInstanceVolumeDetailItem)
+-&gt; Lens
+     ImportInstanceVolumeDetailItem
+     ImportInstanceVolumeDetailItem
+     (Maybe DiskImageDescription)
+     (Maybe DiskImageDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681114036"><span class="annot"><span class="annottext">Maybe DiskImageDescription
+image :: Maybe DiskImageDescription
+$sel:image:ImportInstanceVolumeDetailItem' :: ImportInstanceVolumeDetailItem -&gt; Maybe DiskImageDescription
+</span><a href="#local-6989586621681114036"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageDescription
+</span><a href="#local-6989586621681114036"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681114035"><span class="annot"><span class="annottext">s :: ImportInstanceVolumeDetailItem
+</span><a href="#local-6989586621681114035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681114034"><span class="annot"><span class="annottext">Maybe DiskImageDescription
+</span><a href="#local-6989586621681114034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem
+</span><a href="#local-6989586621681114035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:ImportInstanceVolumeDetailItem' :: Maybe DiskImageDescription
+</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3Aimage%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageDescription
+</span><a href="#local-6989586621681114034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The volume.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_volume"><span class="hs-identifier hs-type">importInstanceVolumeDetailItem_volume</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageVolumeDescription.html#DiskImageVolumeDescription"><span class="hs-identifier hs-type">DiskImageVolumeDescription</span></a></span><span class="hs-special">)</span><span>
@@ -283,45 +283,20 @@ $sel:status:ImportInstanceVolumeDetailItem' :: ImportInstanceVolumeDetailItem -&
      (Maybe DiskImageVolumeDescription)
      (Maybe DiskImageVolumeDescription)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681079682"><span class="annot"><span class="annottext">Maybe DiskImageVolumeDescription
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681114032"><span class="annot"><span class="annottext">Maybe DiskImageVolumeDescription
 volume :: Maybe DiskImageVolumeDescription
 $sel:volume:ImportInstanceVolumeDetailItem' :: ImportInstanceVolumeDetailItem -&gt; Maybe DiskImageVolumeDescription
-</span><a href="#local-6989586621681079682"><span class="hs-identifier hs-var hs-var">volume</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageVolumeDescription
-</span><a href="#local-6989586621681079682"><span class="hs-identifier hs-var">volume</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681079681"><span class="annot"><span class="annottext">s :: ImportInstanceVolumeDetailItem
-</span><a href="#local-6989586621681079681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681079680"><span class="annot"><span class="annottext">Maybe DiskImageVolumeDescription
-</span><a href="#local-6989586621681079680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem
-</span><a href="#local-6989586621681079681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volume:ImportInstanceVolumeDetailItem' :: Maybe DiskImageVolumeDescription
+</span><a href="#local-6989586621681114032"><span class="hs-identifier hs-var hs-var">volume</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageVolumeDescription
+</span><a href="#local-6989586621681114032"><span class="hs-identifier hs-var">volume</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681114031"><span class="annot"><span class="annottext">s :: ImportInstanceVolumeDetailItem
+</span><a href="#local-6989586621681114031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681114030"><span class="annot"><span class="annottext">Maybe DiskImageVolumeDescription
+</span><a href="#local-6989586621681114030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem
+</span><a href="#local-6989586621681114031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volume:ImportInstanceVolumeDetailItem' :: Maybe DiskImageVolumeDescription
 </span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3Avolume%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">volume</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageVolumeDescription
-</span><a href="#local-6989586621681079680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681114030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The image.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_image"><span class="hs-identifier hs-type">importInstanceVolumeDetailItem_image</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDescription.html#DiskImageDescription"><span class="hs-identifier hs-type">DiskImageDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="importInstanceVolumeDetailItem_image"><span class="annot"><span class="annottext">importInstanceVolumeDetailItem_image :: (Maybe DiskImageDescription -&gt; f (Maybe DiskImageDescription))
--&gt; ImportInstanceVolumeDetailItem
--&gt; f ImportInstanceVolumeDetailItem
-</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_image"><span class="hs-identifier hs-var hs-var">importInstanceVolumeDetailItem_image</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstanceVolumeDetailItem -&gt; Maybe DiskImageDescription)
--&gt; (ImportInstanceVolumeDetailItem
-    -&gt; Maybe DiskImageDescription -&gt; ImportInstanceVolumeDetailItem)
--&gt; Lens
-     ImportInstanceVolumeDetailItem
-     ImportInstanceVolumeDetailItem
-     (Maybe DiskImageDescription)
-     (Maybe DiskImageDescription)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681079678"><span class="annot"><span class="annottext">Maybe DiskImageDescription
-image :: Maybe DiskImageDescription
-$sel:image:ImportInstanceVolumeDetailItem' :: ImportInstanceVolumeDetailItem -&gt; Maybe DiskImageDescription
-</span><a href="#local-6989586621681079678"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageDescription
-</span><a href="#local-6989586621681079678"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681079677"><span class="annot"><span class="annottext">s :: ImportInstanceVolumeDetailItem
-</span><a href="#local-6989586621681079677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681079676"><span class="annot"><span class="annottext">Maybe DiskImageDescription
-</span><a href="#local-6989586621681079676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem
-</span><a href="#local-6989586621681079677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:ImportInstanceVolumeDetailItem' :: Maybe DiskImageDescription
-</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3Aimage%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageDescription
-</span><a href="#local-6989586621681079676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The Availability Zone where the resulting instance will reside.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_availabilityZone"><span class="hs-identifier hs-type">importInstanceVolumeDetailItem_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="importInstanceVolumeDetailItem_availabilityZone"><span class="annot"><span class="annottext">importInstanceVolumeDetailItem_availabilityZone :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-101"></span><span class="hs-comment">-- | The Availability Zone where the resulting instance will reside.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_availabilityZone"><span class="hs-identifier hs-type">importInstanceVolumeDetailItem_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="importInstanceVolumeDetailItem_availabilityZone"><span class="annot"><span class="annottext">importInstanceVolumeDetailItem_availabilityZone :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ImportInstanceVolumeDetailItem
 -&gt; f ImportInstanceVolumeDetailItem
 </span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_availabilityZone"><span class="hs-identifier hs-var hs-var">importInstanceVolumeDetailItem_availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstanceVolumeDetailItem -&gt; Maybe Text)
@@ -333,16 +308,41 @@ $sel:image:ImportInstanceVolumeDetailItem' :: ImportInstanceVolumeDetailItem -&g
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681079674"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681114028"><span class="annot"><span class="annottext">Maybe Text
 availabilityZone :: Maybe Text
 $sel:availabilityZone:ImportInstanceVolumeDetailItem' :: ImportInstanceVolumeDetailItem -&gt; Maybe Text
-</span><a href="#local-6989586621681079674"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681079674"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681079673"><span class="annot"><span class="annottext">s :: ImportInstanceVolumeDetailItem
-</span><a href="#local-6989586621681079673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681079672"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681079672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem
-</span><a href="#local-6989586621681079673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:ImportInstanceVolumeDetailItem' :: Maybe Text
+</span><a href="#local-6989586621681114028"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681114028"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681114027"><span class="annot"><span class="annottext">s :: ImportInstanceVolumeDetailItem
+</span><a href="#local-6989586621681114027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681114026"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681114026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem
+</span><a href="#local-6989586621681114027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:ImportInstanceVolumeDetailItem' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3AavailabilityZone%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681079672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681114026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The status information or errors related to the disk image.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_statusMessage"><span class="hs-identifier hs-type">importInstanceVolumeDetailItem_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="importInstanceVolumeDetailItem_statusMessage"><span class="annot"><span class="annottext">importInstanceVolumeDetailItem_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportInstanceVolumeDetailItem
+-&gt; f ImportInstanceVolumeDetailItem
+</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_statusMessage"><span class="hs-identifier hs-var hs-var">importInstanceVolumeDetailItem_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportInstanceVolumeDetailItem -&gt; Maybe Text)
+-&gt; (ImportInstanceVolumeDetailItem
+    -&gt; Maybe Text -&gt; ImportInstanceVolumeDetailItem)
+-&gt; Lens
+     ImportInstanceVolumeDetailItem
+     ImportInstanceVolumeDetailItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681114024"><span class="annot"><span class="annottext">Maybe Text
+statusMessage :: Maybe Text
+$sel:statusMessage:ImportInstanceVolumeDetailItem' :: ImportInstanceVolumeDetailItem -&gt; Maybe Text
+</span><a href="#local-6989586621681114024"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681114024"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681114023"><span class="annot"><span class="annottext">s :: ImportInstanceVolumeDetailItem
+</span><a href="#local-6989586621681114023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681114022"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681114022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem
+</span><a href="#local-6989586621681114023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:ImportInstanceVolumeDetailItem' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3AstatusMessage%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681114022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | A description of the task.</span><span>
 </span><span id="line-110"></span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#importInstanceVolumeDetailItem_description"><span class="hs-identifier hs-type">importInstanceVolumeDetailItem_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -358,156 +358,156 @@ $sel:availabilityZone:ImportInstanceVolumeDetailItem' :: ImportInstanceVolumeDet
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681079670"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681114020"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:ImportInstanceVolumeDetailItem' :: ImportInstanceVolumeDetailItem -&gt; Maybe Text
-</span><a href="#local-6989586621681079670"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681079670"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681079669"><span class="annot"><span class="annottext">s :: ImportInstanceVolumeDetailItem
-</span><a href="#local-6989586621681079669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681079668"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681079668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem
-</span><a href="#local-6989586621681079669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ImportInstanceVolumeDetailItem' :: Maybe Text
+</span><a href="#local-6989586621681114020"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681114020"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681114019"><span class="annot"><span class="annottext">s :: ImportInstanceVolumeDetailItem
+</span><a href="#local-6989586621681114019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681114018"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681114018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportInstanceVolumeDetailItem
+</span><a href="#local-6989586621681114019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ImportInstanceVolumeDetailItem' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#%24sel%3Adescription%3AImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681079668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681114018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621681079665"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ImportInstanceVolumeDetailItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681079663"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681079663"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">Maybe Integer
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe DiskImageVolumeDescription
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621681114015"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ImportInstanceVolumeDetailItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681114013"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681114013"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Integer
 -&gt; Maybe DiskImageDescription
+-&gt; Maybe DiskImageVolumeDescription
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; ImportInstanceVolumeDetailItem
 </span><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem%27"><span class="hs-identifier hs-var">ImportInstanceVolumeDetailItem'</span></a></span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Integer
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe DiskImageVolumeDescription
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Integer
  -&gt; Maybe DiskImageDescription
+ -&gt; Maybe DiskImageVolumeDescription
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; ImportInstanceVolumeDetailItem)
--&gt; Either String (Maybe Integer)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe DiskImageVolumeDescription
+     (Maybe Integer
       -&gt; Maybe DiskImageDescription
+      -&gt; Maybe DiskImageVolumeDescription
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; ImportInstanceVolumeDetailItem)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681079663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;bytesConverted&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe DiskImageVolumeDescription
-   -&gt; Maybe DiskImageDescription
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; ImportInstanceVolumeDetailItem)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe DiskImageVolumeDescription
-      -&gt; Maybe DiskImageDescription
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; ImportInstanceVolumeDetailItem)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681079663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;statusMessage&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe DiskImageVolumeDescription
-   -&gt; Maybe DiskImageDescription
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; ImportInstanceVolumeDetailItem)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe DiskImageVolumeDescription
-      -&gt; Maybe DiskImageDescription
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; ImportInstanceVolumeDetailItem)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681079663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681114013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Integer
+   -&gt; Maybe DiskImageDescription
+   -&gt; Maybe DiskImageVolumeDescription
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ImportInstanceVolumeDetailItem)
+-&gt; Either String (Maybe Integer)
+-&gt; Either
+     String
+     (Maybe DiskImageDescription
+      -&gt; Maybe DiskImageVolumeDescription
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ImportInstanceVolumeDetailItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681114013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bytesConverted&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe DiskImageDescription
+   -&gt; Maybe DiskImageVolumeDescription
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ImportInstanceVolumeDetailItem)
+-&gt; Either String (Maybe DiskImageDescription)
+-&gt; Either
+     String
+     (Maybe DiskImageVolumeDescription
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ImportInstanceVolumeDetailItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681114013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DiskImageDescription)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;image&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe DiskImageVolumeDescription
-   -&gt; Maybe DiskImageDescription
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; ImportInstanceVolumeDetailItem)
 -&gt; Either String (Maybe DiskImageVolumeDescription)
 -&gt; Either
      String
-     (Maybe DiskImageDescription
+     (Maybe Text
       -&gt; Maybe Text -&gt; Maybe Text -&gt; ImportInstanceVolumeDetailItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681079663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DiskImageVolumeDescription)
+</span><a href="#local-6989586621681114013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DiskImageVolumeDescription)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;volume&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe DiskImageDescription
+  (Maybe Text
    -&gt; Maybe Text -&gt; Maybe Text -&gt; ImportInstanceVolumeDetailItem)
--&gt; Either String (Maybe DiskImageDescription)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String (Maybe Text -&gt; Maybe Text -&gt; ImportInstanceVolumeDetailItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681079663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DiskImageDescription)
+</span><a href="#local-6989586621681114013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;image&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;availabilityZone&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either
   String (Maybe Text -&gt; Maybe Text -&gt; ImportInstanceVolumeDetailItem)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; ImportInstanceVolumeDetailItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681079663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681114013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;availabilityZone&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;statusMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ImportInstanceVolumeDetailItem)
 -&gt; Either String (Maybe Text)
 -&gt; Either String ImportInstanceVolumeDetailItem
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681079663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681114013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621681079657"><span id="local-6989586621681079659"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621681114007"><span id="local-6989586621681114009"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span></span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621681079654"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621681114004"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem.html#ImportInstanceVolumeDetailItem"><span class="hs-identifier hs-type">ImportInstanceVolumeDetailItem</span></a></span></span><span>
 </span><span id="line-131"></span></pre></body></html>

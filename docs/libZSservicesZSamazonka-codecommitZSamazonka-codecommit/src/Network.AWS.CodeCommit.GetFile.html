@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newGetFile' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679364874"><span id="local-6989586621679364875"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFile"><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-var">GetFile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFile%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile%27"><span class="hs-identifier hs-var">GetFile'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679365174"><span id="local-6989586621679365175"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFile"><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-var">GetFile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFile%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile%27"><span class="hs-identifier hs-var">GetFile'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The fully quaified reference that identifies the commit that contains</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- the file. For example, you can specify a full commit ID, a tag, a branch</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- name, or a reference such as refs\/heads\/master. If none is provided,</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AfilePath%3AGetFile%27"><span class="annot"><span class="annottext">GetFile -&gt; Text
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AfilePath%3AGetFile%27"><span class="hs-identifier hs-var hs-var">filePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364866"><span id="local-6989586621679364868"><span class="annot"><span class="annottext">GetFile -&gt; GetFile -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365166"><span id="local-6989586621679365168"><span class="annot"><span class="annottext">GetFile -&gt; GetFile -&gt; Bool
 (GetFile -&gt; GetFile -&gt; Bool)
 -&gt; (GetFile -&gt; GetFile -&gt; Bool) -&gt; Eq GetFile
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetFile -&gt; GetFile -&gt; Bool
 == :: GetFile -&gt; GetFile -&gt; Bool
 $c== :: GetFile -&gt; GetFile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364857"><span id="local-6989586621679364859"><span id="local-6989586621679364861"><span id="local-6989586621679364863"><span class="annot"><span class="annottext">ReadPrec [GetFile]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365157"><span id="local-6989586621679365159"><span id="local-6989586621679365161"><span id="local-6989586621679365163"><span class="annot"><span class="annottext">ReadPrec [GetFile]
 ReadPrec GetFile
 Int -&gt; ReadS GetFile
 ReadS [GetFile]
@@ -99,7 +99,7 @@ readList :: ReadS [GetFile]
 $creadList :: ReadS [GetFile]
 readsPrec :: Int -&gt; ReadS GetFile
 $creadsPrec :: Int -&gt; ReadS GetFile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364850"><span id="local-6989586621679364852"><span id="local-6989586621679364854"><span class="annot"><span class="annottext">Int -&gt; GetFile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365150"><span id="local-6989586621679365152"><span id="local-6989586621679365154"><span class="annot"><span class="annottext">Int -&gt; GetFile -&gt; ShowS
 [GetFile] -&gt; ShowS
 GetFile -&gt; String
 (Int -&gt; GetFile -&gt; ShowS)
@@ -147,9 +147,9 @@ $cfrom :: forall x. GetFile -&gt; Rep GetFile x
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span><span>
 </span><span id="line-97"></span><span id="newGetFile"><span class="annot"><span class="annottext">newGetFile :: Text -&gt; Text -&gt; GetFile
-</span><a href="Network.AWS.CodeCommit.GetFile.html#newGetFile"><span class="hs-identifier hs-var hs-var">newGetFile</span></a></span></span><span> </span><span id="local-6989586621679364845"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364845"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span id="local-6989586621679364844"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364844"><span class="hs-identifier hs-var">pFilePath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.GetFile.html#newGetFile"><span class="hs-identifier hs-var hs-var">newGetFile</span></a></span></span><span> </span><span id="local-6989586621679365145"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365145"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span id="local-6989586621679365144"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365144"><span class="hs-identifier hs-var">pFilePath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">GetFile' :: Maybe Text -&gt; Text -&gt; Text -&gt; GetFile
 </span><a href="Network.AWS.CodeCommit.GetFile.html#GetFile%27"><span class="hs-identifier hs-type">GetFile'</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:commitSpecifier:GetFile' :: Maybe Text
@@ -158,10 +158,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:GetFile' :: Text
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3ArepositoryName%3AGetFile%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364845"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365145"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:filePath:GetFile' :: Text
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AfilePath%3AGetFile%27"><span class="hs-identifier hs-var">filePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364844"><span class="hs-identifier hs-var">pFilePath_</span></a></span><span>
+</span><a href="#local-6989586621679365144"><span class="hs-identifier hs-var">pFilePath_</span></a></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The fully quaified reference that identifies the commit that contains</span><span>
@@ -174,16 +174,16 @@ forall a. Maybe a
 -&gt; (GetFile -&gt; Maybe Text -&gt; GetFile)
 -&gt; Lens GetFile GetFile (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile%27"><span class="hs-identifier hs-type">GetFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364841"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile%27"><span class="hs-identifier hs-type">GetFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365141"><span class="annot"><span class="annottext">Maybe Text
 commitSpecifier :: Maybe Text
 $sel:commitSpecifier:GetFile' :: GetFile -&gt; Maybe Text
-</span><a href="#local-6989586621679364841"><span class="hs-identifier hs-var hs-var">commitSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364841"><span class="hs-identifier hs-var">commitSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364840"><span class="annot"><span class="annottext">s :: GetFile
-</span><a href="#local-6989586621679364840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile%27"><span class="hs-identifier hs-type">GetFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364839"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFile
-</span><a href="#local-6989586621679364840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitSpecifier:GetFile' :: Maybe Text
+</span><a href="#local-6989586621679365141"><span class="hs-identifier hs-var hs-var">commitSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365141"><span class="hs-identifier hs-var">commitSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365140"><span class="annot"><span class="annottext">s :: GetFile
+</span><a href="#local-6989586621679365140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile%27"><span class="hs-identifier hs-type">GetFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365139"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFile
+</span><a href="#local-6989586621679365140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitSpecifier:GetFile' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AcommitSpecifier%3AGetFile%27"><span class="hs-identifier hs-var">commitSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The name of the repository that contains the file.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#getFile_repositoryName"><span class="hs-identifier hs-type">getFile_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -191,16 +191,16 @@ $sel:commitSpecifier:GetFile' :: GetFile -&gt; Maybe Text
 </span><a href="Network.AWS.CodeCommit.GetFile.html#getFile_repositoryName"><span class="hs-identifier hs-var hs-var">getFile_repositoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFile -&gt; Text)
 -&gt; (GetFile -&gt; Text -&gt; GetFile) -&gt; Lens GetFile GetFile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile%27"><span class="hs-identifier hs-type">GetFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364838"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile%27"><span class="hs-identifier hs-type">GetFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365138"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:GetFile' :: GetFile -&gt; Text
-</span><a href="#local-6989586621679364838"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364838"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364837"><span class="annot"><span class="annottext">s :: GetFile
-</span><a href="#local-6989586621679364837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile%27"><span class="hs-identifier hs-type">GetFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364836"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFile
-</span><a href="#local-6989586621679364837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetFile' :: Text
+</span><a href="#local-6989586621679365138"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365138"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365137"><span class="annot"><span class="annottext">s :: GetFile
+</span><a href="#local-6989586621679365137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile%27"><span class="hs-identifier hs-type">GetFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365136"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFile
+</span><a href="#local-6989586621679365137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetFile' :: Text
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3ArepositoryName%3AGetFile%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The fully qualified path to the file, including the full name and</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- extension of the file. For example, \/examples\/file.md is the fully</span><span>
@@ -210,25 +210,25 @@ $sel:repositoryName:GetFile' :: GetFile -&gt; Text
 </span><a href="Network.AWS.CodeCommit.GetFile.html#getFile_filePath"><span class="hs-identifier hs-var hs-var">getFile_filePath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFile -&gt; Text)
 -&gt; (GetFile -&gt; Text -&gt; GetFile) -&gt; Lens GetFile GetFile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile%27"><span class="hs-identifier hs-type">GetFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364835"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile%27"><span class="hs-identifier hs-type">GetFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365135"><span class="annot"><span class="annottext">Text
 filePath :: Text
 $sel:filePath:GetFile' :: GetFile -&gt; Text
-</span><a href="#local-6989586621679364835"><span class="hs-identifier hs-var hs-var">filePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364835"><span class="hs-identifier hs-var">filePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364834"><span class="annot"><span class="annottext">s :: GetFile
-</span><a href="#local-6989586621679364834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile%27"><span class="hs-identifier hs-type">GetFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364833"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFile
-</span><a href="#local-6989586621679364834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filePath:GetFile' :: Text
+</span><a href="#local-6989586621679365135"><span class="hs-identifier hs-var hs-var">filePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365135"><span class="hs-identifier hs-var">filePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365134"><span class="annot"><span class="annottext">s :: GetFile
+</span><a href="#local-6989586621679365134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile%27"><span class="hs-identifier hs-type">GetFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365133"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFile
+</span><a href="#local-6989586621679365134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filePath:GetFile' :: Text
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AfilePath%3AGetFile%27"><span class="hs-identifier hs-var">filePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679364829"><span class="annot"><span class="annottext">request :: GetFile -&gt; Request GetFile
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679365129"><span class="annot"><span class="annottext">request :: GetFile -&gt; Request GetFile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetFile -&gt; Request GetFile
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679364825"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679365125"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetFile
 -&gt; ClientResponse ClientBody
@@ -252,10 +252,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679364822"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364822"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679364821"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679364821"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679364820"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364820"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365122"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365122"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679365121"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679365121"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679365120"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365120"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Int
 -&gt; Text
 -&gt; Text
@@ -289,7 +289,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364822"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365122"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Text
@@ -310,7 +310,7 @@ forall a. Enum a =&gt; a -&gt; Int
       -&gt; GetFileResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679365120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;commitId&quot;</span></span><span class="hs-special">)</span><span>
@@ -328,7 +328,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
      (Text -&gt; FileModeTypeEnum -&gt; Integer -&gt; Base64 -&gt; GetFileResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679365120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;blobId&quot;</span></span><span class="hs-special">)</span><span>
@@ -340,7 +340,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
      String (FileModeTypeEnum -&gt; Integer -&gt; Base64 -&gt; GetFileResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679365120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filePath&quot;</span></span><span class="hs-special">)</span><span>
@@ -350,7 +350,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String (Integer -&gt; Base64 -&gt; GetFileResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String FileModeTypeEnum
+</span><a href="#local-6989586621679365120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String FileModeTypeEnum
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fileMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -359,7 +359,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String (Base64 -&gt; GetFileResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Integer
+</span><a href="#local-6989586621679365120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fileSize&quot;</span></span><span class="hs-special">)</span><span>
@@ -367,18 +367,18 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String Base64 -&gt; Either String GetFileResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Base64
+</span><a href="#local-6989586621679365120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Base64
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fileContent&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364812"><span id="local-6989586621679364814"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365112"><span id="local-6989586621679365114"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365109"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679364805"><span class="annot"><span class="annottext">toHeaders :: GetFile -&gt; ResponseHeaders
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679365105"><span class="annot"><span class="annottext">toHeaders :: GetFile -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetFile -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -405,9 +405,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364795"><span id="local-6989586621679364797"><span id="local-6989586621679364799"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679364793"><span class="annot"><span class="annottext">toJSON :: GetFile -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile%27"><span class="hs-identifier hs-type">GetFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364789"><span id="local-6989586621679364790"><span id="local-6989586621679364791"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365095"><span id="local-6989586621679365097"><span id="local-6989586621679365099"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679365093"><span class="annot"><span class="annottext">toJSON :: GetFile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile%27"><span class="hs-identifier hs-type">GetFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365089"><span id="local-6989586621679365090"><span id="local-6989586621679365091"><span class="annot"><span class="annottext">Maybe Text
 Text
 filePath :: Text
 repositoryName :: Text
@@ -415,7 +415,7 @@ commitSpecifier :: Maybe Text
 $sel:filePath:GetFile' :: GetFile -&gt; Text
 $sel:repositoryName:GetFile' :: GetFile -&gt; Text
 $sel:commitSpecifier:GetFile' :: GetFile -&gt; Maybe Text
-</span><a href="#local-6989586621679364789"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679365089"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -428,7 +428,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364791"><span class="hs-identifier hs-var">commitSpecifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365091"><span class="hs-identifier hs-var">commitSpecifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -436,26 +436,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364790"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365090"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filePath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364789"><span class="hs-identifier hs-var">filePath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365089"><span class="hs-identifier hs-var">filePath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679364783"><span class="annot"><span class="annottext">toPath :: GetFile -&gt; ByteString
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679365083"><span class="annot"><span class="annottext">toPath :: GetFile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetFile -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFile"><span class="hs-identifier hs-type">GetFile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679364779"><span class="annot"><span class="annottext">toQuery :: GetFile -&gt; QueryString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679365079"><span class="annot"><span class="annottext">toQuery :: GetFile -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetFile -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -463,7 +463,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | /See:/ 'newGetFileResponse' smart constructor.</span><span>
-</span><span id="line-175"></span><span id="local-6989586621679364776"><span id="local-6989586621679364777"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFileResponse"><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-var">GetFileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFileResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-var">GetFileResponse'</span></a></span></span><span>
+</span><span id="line-175"></span><span id="local-6989586621679365076"><span id="local-6989586621679365077"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFileResponse"><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-var">GetFileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFileResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-var">GetFileResponse'</span></a></span></span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-177"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetFileResponse%27"><span class="annot"><span class="annottext">GetFileResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AhttpStatus%3AGetFileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -494,7 +494,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-197"></span><span>    </span><span id="%24sel%3AfileContent%3AGetFileResponse%27"><span class="annot"><span class="annottext">GetFileResponse -&gt; Base64
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AfileContent%3AGetFileResponse%27"><span class="hs-identifier hs-var hs-var">fileContent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span>
 </span><span id="line-198"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364765"><span id="local-6989586621679364767"><span class="annot"><span class="annottext">GetFileResponse -&gt; GetFileResponse -&gt; Bool
+</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365065"><span id="local-6989586621679365067"><span class="annot"><span class="annottext">GetFileResponse -&gt; GetFileResponse -&gt; Bool
 (GetFileResponse -&gt; GetFileResponse -&gt; Bool)
 -&gt; (GetFileResponse -&gt; GetFileResponse -&gt; Bool)
 -&gt; Eq GetFileResponse
@@ -503,7 +503,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetFileResponse -&gt; GetFileResponse -&gt; Bool
 == :: GetFileResponse -&gt; GetFileResponse -&gt; Bool
 $c== :: GetFileResponse -&gt; GetFileResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364757"><span id="local-6989586621679364759"><span id="local-6989586621679364761"><span id="local-6989586621679364763"><span class="annot"><span class="annottext">ReadPrec [GetFileResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365057"><span id="local-6989586621679365059"><span id="local-6989586621679365061"><span id="local-6989586621679365063"><span class="annot"><span class="annottext">ReadPrec [GetFileResponse]
 ReadPrec GetFileResponse
 Int -&gt; ReadS GetFileResponse
 ReadS [GetFileResponse]
@@ -523,7 +523,7 @@ readList :: ReadS [GetFileResponse]
 $creadList :: ReadS [GetFileResponse]
 readsPrec :: Int -&gt; ReadS GetFileResponse
 $creadsPrec :: Int -&gt; ReadS GetFileResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364751"><span id="local-6989586621679364753"><span id="local-6989586621679364755"><span class="annot"><span class="annottext">Int -&gt; GetFileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365051"><span id="local-6989586621679365053"><span id="local-6989586621679365055"><span class="annot"><span class="annottext">Int -&gt; GetFileResponse -&gt; ShowS
 [GetFileResponse] -&gt; ShowS
 GetFileResponse -&gt; String
 (Int -&gt; GetFileResponse -&gt; ShowS)
@@ -607,20 +607,20 @@ $cfrom :: forall x. GetFileResponse -&gt; Rep GetFileResponse x
 -&gt; ByteString
 -&gt; GetFileResponse
 </span><a href="Network.AWS.CodeCommit.GetFile.html#newGetFileResponse"><span class="hs-identifier hs-var hs-var">newGetFileResponse</span></a></span></span><span>
-</span><span id="line-251"></span><span>  </span><span id="local-6989586621679364748"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364748"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-252"></span><span>  </span><span id="local-6989586621679364747"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364747"><span class="hs-identifier hs-var">pCommitId_</span></a></span></span><span>
-</span><span id="line-253"></span><span>  </span><span id="local-6989586621679364746"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364746"><span class="hs-identifier hs-var">pBlobId_</span></a></span></span><span>
-</span><span id="line-254"></span><span>  </span><span id="local-6989586621679364745"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364745"><span class="hs-identifier hs-var">pFilePath_</span></a></span></span><span>
-</span><span id="line-255"></span><span>  </span><span id="local-6989586621679364744"><span class="annot"><span class="annottext">FileModeTypeEnum
-</span><a href="#local-6989586621679364744"><span class="hs-identifier hs-var">pFileMode_</span></a></span></span><span>
-</span><span id="line-256"></span><span>  </span><span id="local-6989586621679364743"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679364743"><span class="hs-identifier hs-var">pFileSize_</span></a></span></span><span>
-</span><span id="line-257"></span><span>  </span><span id="local-6989586621679364742"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679364742"><span class="hs-identifier hs-var">pFileContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679365048"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365048"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679365047"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365047"><span class="hs-identifier hs-var">pCommitId_</span></a></span></span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679365046"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365046"><span class="hs-identifier hs-var">pBlobId_</span></a></span></span><span>
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679365045"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365045"><span class="hs-identifier hs-var">pFilePath_</span></a></span></span><span>
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679365044"><span class="annot"><span class="annottext">FileModeTypeEnum
+</span><a href="#local-6989586621679365044"><span class="hs-identifier hs-var">pFileMode_</span></a></span></span><span>
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679365043"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679365043"><span class="hs-identifier hs-var">pFileSize_</span></a></span></span><span>
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621679365042"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679365042"><span class="hs-identifier hs-var">pFileContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-258"></span><span>    </span><span class="annot"><span class="annottext">GetFileResponse' :: Int
 -&gt; Text
 -&gt; Text
@@ -632,22 +632,22 @@ $cfrom :: forall x. GetFileResponse -&gt; Rep GetFileResponse x
 </span><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span>
 </span><span id="line-259"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetFileResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AhttpStatus%3AGetFileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364748"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365048"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-260"></span><span>        </span><span class="annot"><span class="annottext">$sel:commitId:GetFileResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AcommitId%3AGetFileResponse%27"><span class="hs-identifier hs-var">commitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364747"><span class="hs-identifier hs-var">pCommitId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365047"><span class="hs-identifier hs-var">pCommitId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-261"></span><span>        </span><span class="annot"><span class="annottext">$sel:blobId:GetFileResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AblobId%3AGetFileResponse%27"><span class="hs-identifier hs-var">blobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364746"><span class="hs-identifier hs-var">pBlobId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365046"><span class="hs-identifier hs-var">pBlobId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-262"></span><span>        </span><span class="annot"><span class="annottext">$sel:filePath:GetFileResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AfilePath%3AGetFileResponse%27"><span class="hs-identifier hs-var">filePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364745"><span class="hs-identifier hs-var">pFilePath_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365045"><span class="hs-identifier hs-var">pFilePath_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">$sel:fileMode:GetFileResponse' :: FileModeTypeEnum
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AfileMode%3AGetFileResponse%27"><span class="hs-identifier hs-var">fileMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FileModeTypeEnum
-</span><a href="#local-6989586621679364744"><span class="hs-identifier hs-var">pFileMode_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365044"><span class="hs-identifier hs-var">pFileMode_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">$sel:fileSize:GetFileResponse' :: Integer
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AfileSize%3AGetFileResponse%27"><span class="hs-identifier hs-var">fileSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679364743"><span class="hs-identifier hs-var">pFileSize_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365043"><span class="hs-identifier hs-var">pFileSize_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">$sel:fileContent:GetFileResponse' :: Base64
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AfileContent%3AGetFileResponse%27"><span class="hs-identifier hs-var">fileContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
 -&gt; Tagged Base64 (Identity Base64)
@@ -657,7 +657,7 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679364742"><span class="hs-identifier hs-var">pFileContent_</span></a></span><span>
+</span><a href="#local-6989586621679365042"><span class="hs-identifier hs-var">pFileContent_</span></a></span><span>
 </span><span id="line-266"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-267"></span><span>
 </span><span id="line-268"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -667,16 +667,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (GetFileResponse -&gt; Int -&gt; GetFileResponse)
 -&gt; Lens GetFileResponse GetFileResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364739"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365039"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetFileResponse' :: GetFileResponse -&gt; Int
-</span><a href="#local-6989586621679364739"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364739"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364738"><span class="annot"><span class="annottext">s :: GetFileResponse
-</span><a href="#local-6989586621679364738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364737"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFileResponse
-</span><a href="#local-6989586621679364738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetFileResponse' :: Int
+</span><a href="#local-6989586621679365039"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365039"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365038"><span class="annot"><span class="annottext">s :: GetFileResponse
+</span><a href="#local-6989586621679365038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365037"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFileResponse
+</span><a href="#local-6989586621679365038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetFileResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AhttpStatus%3AGetFileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-271"></span><span>
 </span><span id="line-272"></span><span class="hs-comment">-- | The full commit ID of the commit that contains the content returned by</span><span>
 </span><span id="line-273"></span><span class="hs-comment">-- GetFile.</span><span>
@@ -686,16 +686,16 @@ $sel:httpStatus:GetFileResponse' :: GetFileResponse -&gt; Int
 -&gt; (GetFileResponse -&gt; Text -&gt; GetFileResponse)
 -&gt; Lens GetFileResponse GetFileResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364736"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365036"><span class="annot"><span class="annottext">Text
 commitId :: Text
 $sel:commitId:GetFileResponse' :: GetFileResponse -&gt; Text
-</span><a href="#local-6989586621679364736"><span class="hs-identifier hs-var hs-var">commitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364736"><span class="hs-identifier hs-var">commitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364735"><span class="annot"><span class="annottext">s :: GetFileResponse
-</span><a href="#local-6989586621679364735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364734"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFileResponse
-</span><a href="#local-6989586621679364735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitId:GetFileResponse' :: Text
+</span><a href="#local-6989586621679365036"><span class="hs-identifier hs-var hs-var">commitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365036"><span class="hs-identifier hs-var">commitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365035"><span class="annot"><span class="annottext">s :: GetFileResponse
+</span><a href="#local-6989586621679365035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365034"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFileResponse
+</span><a href="#local-6989586621679365035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitId:GetFileResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AcommitId%3AGetFileResponse%27"><span class="hs-identifier hs-var">commitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-276"></span><span>
 </span><span id="line-277"></span><span class="hs-comment">-- | The blob ID of the object that represents the file content.</span><span>
 </span><span id="line-278"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#getFileResponse_blobId"><span class="hs-identifier hs-type">getFileResponse_blobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -704,16 +704,16 @@ $sel:commitId:GetFileResponse' :: GetFileResponse -&gt; Text
 -&gt; (GetFileResponse -&gt; Text -&gt; GetFileResponse)
 -&gt; Lens GetFileResponse GetFileResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364733"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365033"><span class="annot"><span class="annottext">Text
 blobId :: Text
 $sel:blobId:GetFileResponse' :: GetFileResponse -&gt; Text
-</span><a href="#local-6989586621679364733"><span class="hs-identifier hs-var hs-var">blobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364733"><span class="hs-identifier hs-var">blobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364732"><span class="annot"><span class="annottext">s :: GetFileResponse
-</span><a href="#local-6989586621679364732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364731"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFileResponse
-</span><a href="#local-6989586621679364732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blobId:GetFileResponse' :: Text
+</span><a href="#local-6989586621679365033"><span class="hs-identifier hs-var hs-var">blobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365033"><span class="hs-identifier hs-var">blobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365032"><span class="annot"><span class="annottext">s :: GetFileResponse
+</span><a href="#local-6989586621679365032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365031"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFileResponse
+</span><a href="#local-6989586621679365032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blobId:GetFileResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AblobId%3AGetFileResponse%27"><span class="hs-identifier hs-var">blobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>
 </span><span id="line-281"></span><span class="hs-comment">-- | The fully qualified path to the specified file. Returns the name and</span><span>
 </span><span id="line-282"></span><span class="hs-comment">-- extension of the file.</span><span>
@@ -723,16 +723,16 @@ $sel:blobId:GetFileResponse' :: GetFileResponse -&gt; Text
 -&gt; (GetFileResponse -&gt; Text -&gt; GetFileResponse)
 -&gt; Lens GetFileResponse GetFileResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364730"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365030"><span class="annot"><span class="annottext">Text
 filePath :: Text
 $sel:filePath:GetFileResponse' :: GetFileResponse -&gt; Text
-</span><a href="#local-6989586621679364730"><span class="hs-identifier hs-var hs-var">filePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364730"><span class="hs-identifier hs-var">filePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364729"><span class="annot"><span class="annottext">s :: GetFileResponse
-</span><a href="#local-6989586621679364729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364728"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFileResponse
-</span><a href="#local-6989586621679364729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filePath:GetFileResponse' :: Text
+</span><a href="#local-6989586621679365030"><span class="hs-identifier hs-var hs-var">filePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365030"><span class="hs-identifier hs-var">filePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365029"><span class="annot"><span class="annottext">s :: GetFileResponse
+</span><a href="#local-6989586621679365029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365028"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFileResponse
+</span><a href="#local-6989586621679365029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filePath:GetFileResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AfilePath%3AGetFileResponse%27"><span class="hs-identifier hs-var">filePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-285"></span><span>
 </span><span id="line-286"></span><span class="hs-comment">-- | The extrapolated file mode permissions of the blob. Valid values include</span><span>
 </span><span id="line-287"></span><span class="hs-comment">-- strings such as EXECUTABLE and not numeric values.</span><span>
@@ -748,16 +748,16 @@ $sel:filePath:GetFileResponse' :: GetFileResponse -&gt; Text
 -&gt; Lens
      GetFileResponse GetFileResponse FileModeTypeEnum FileModeTypeEnum
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364727"><span class="annot"><span class="annottext">FileModeTypeEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365027"><span class="annot"><span class="annottext">FileModeTypeEnum
 fileMode :: FileModeTypeEnum
 $sel:fileMode:GetFileResponse' :: GetFileResponse -&gt; FileModeTypeEnum
-</span><a href="#local-6989586621679364727"><span class="hs-identifier hs-var hs-var">fileMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileModeTypeEnum
-</span><a href="#local-6989586621679364727"><span class="hs-identifier hs-var">fileMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364726"><span class="annot"><span class="annottext">s :: GetFileResponse
-</span><a href="#local-6989586621679364726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364725"><span class="annot"><span class="annottext">FileModeTypeEnum
-</span><a href="#local-6989586621679364725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFileResponse
-</span><a href="#local-6989586621679364726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileMode:GetFileResponse' :: FileModeTypeEnum
+</span><a href="#local-6989586621679365027"><span class="hs-identifier hs-var hs-var">fileMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileModeTypeEnum
+</span><a href="#local-6989586621679365027"><span class="hs-identifier hs-var">fileMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365026"><span class="annot"><span class="annottext">s :: GetFileResponse
+</span><a href="#local-6989586621679365026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365025"><span class="annot"><span class="annottext">FileModeTypeEnum
+</span><a href="#local-6989586621679365025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFileResponse
+</span><a href="#local-6989586621679365026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileMode:GetFileResponse' :: FileModeTypeEnum
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AfileMode%3AGetFileResponse%27"><span class="hs-identifier hs-var">fileMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FileModeTypeEnum
-</span><a href="#local-6989586621679364725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-294"></span><span>
 </span><span id="line-295"></span><span class="hs-comment">-- | The size of the contents of the file, in bytes.</span><span>
 </span><span id="line-296"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#getFileResponse_fileSize"><span class="hs-identifier hs-type">getFileResponse_fileSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
@@ -766,16 +766,16 @@ $sel:fileMode:GetFileResponse' :: GetFileResponse -&gt; FileModeTypeEnum
 -&gt; (GetFileResponse -&gt; Integer -&gt; GetFileResponse)
 -&gt; Lens GetFileResponse GetFileResponse Integer Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364724"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365024"><span class="annot"><span class="annottext">Integer
 fileSize :: Integer
 $sel:fileSize:GetFileResponse' :: GetFileResponse -&gt; Integer
-</span><a href="#local-6989586621679364724"><span class="hs-identifier hs-var hs-var">fileSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679364724"><span class="hs-identifier hs-var">fileSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364723"><span class="annot"><span class="annottext">s :: GetFileResponse
-</span><a href="#local-6989586621679364723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364722"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679364722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFileResponse
-</span><a href="#local-6989586621679364723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSize:GetFileResponse' :: Integer
+</span><a href="#local-6989586621679365024"><span class="hs-identifier hs-var hs-var">fileSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679365024"><span class="hs-identifier hs-var">fileSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365023"><span class="annot"><span class="annottext">s :: GetFileResponse
+</span><a href="#local-6989586621679365023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365022"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679365022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFileResponse
+</span><a href="#local-6989586621679365023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSize:GetFileResponse' :: Integer
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AfileSize%3AGetFileResponse%27"><span class="hs-identifier hs-var">fileSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679364722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-298"></span><span>
 </span><span id="line-299"></span><span class="hs-comment">-- | The base-64 encoded binary data object that represents the content of</span><span>
 </span><span id="line-300"></span><span class="hs-comment">-- the file.--</span><span>
@@ -790,16 +790,16 @@ $sel:fileSize:GetFileResponse' :: GetFileResponse -&gt; Integer
 -&gt; (GetFileResponse -&gt; Base64 -&gt; GetFileResponse)
 -&gt; Lens GetFileResponse GetFileResponse Base64 Base64
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364721"><span class="annot"><span class="annottext">Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365021"><span class="annot"><span class="annottext">Base64
 fileContent :: Base64
 $sel:fileContent:GetFileResponse' :: GetFileResponse -&gt; Base64
-</span><a href="#local-6989586621679364721"><span class="hs-identifier hs-var hs-var">fileContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679364721"><span class="hs-identifier hs-var">fileContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364720"><span class="annot"><span class="annottext">s :: GetFileResponse
-</span><a href="#local-6989586621679364720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364719"><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679364719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFileResponse
-</span><a href="#local-6989586621679364720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileContent:GetFileResponse' :: Base64
+</span><a href="#local-6989586621679365021"><span class="hs-identifier hs-var hs-var">fileContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679365021"><span class="hs-identifier hs-var">fileContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365020"><span class="annot"><span class="annottext">s :: GetFileResponse
+</span><a href="#local-6989586621679365020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse%27"><span class="hs-identifier hs-type">GetFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365019"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679365019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFileResponse
+</span><a href="#local-6989586621679365020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileContent:GetFileResponse' :: Base64
 </span><a href="Network.AWS.CodeCommit.GetFile.html#%24sel%3AfileContent%3AGetFileResponse%27"><span class="hs-identifier hs-var">fileContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679364719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; GetFileResponse -&gt; f GetFileResponse)
+</span><a href="#local-6989586621679365019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; GetFileResponse -&gt; f GetFileResponse)
 -&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
 -&gt; (ByteString -&gt; f ByteString)
 -&gt; GetFileResponse
@@ -809,5 +809,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 Iso' Base64 ByteString
 </span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
 </span><span id="line-307"></span><span>
-</span><span id="line-308"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364716"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365016"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFile.html#GetFileResponse"><span class="hs-identifier hs-type">GetFileResponse</span></a></span></span><span>
 </span><span id="line-309"></span></pre></body></html>

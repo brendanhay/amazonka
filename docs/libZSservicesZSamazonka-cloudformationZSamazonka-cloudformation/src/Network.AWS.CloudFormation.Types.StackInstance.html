@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span class="hs-comment">-- stack status.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newStackInstance' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679422469"><span id="local-6989586621679422470"></span></span><span class="hs-keyword">data</span><span> </span><span id="StackInstance"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-var">StackInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackInstance%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-var">StackInstance'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679422876"><span id="local-6989586621679422877"></span></span><span class="hs-keyword">data</span><span> </span><span id="StackInstance"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-var">StackInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackInstance%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-var">StackInstance'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the stack instance, in terms of its synchronization with</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- its associated stack set.</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -61,62 +61,62 @@
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- -   @CURRENT@: The stack is currently up to date with the stack set.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3Astatus%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe StackInstanceStatus
 </span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3Astatus%3AStackInstance%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstanceStatus.html#StackInstanceStatus"><span class="hs-identifier hs-type">StackInstanceStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | A list of parameters from the stack set template whose values have been</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- overridden in this stack instance.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AparameterOverrides%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe [Parameter]
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AparameterOverrides%3AStackInstance%27"><span class="hs-identifier hs-var hs-var">parameterOverrides</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The ID of the stack instance.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3AstackId%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstackId%3AStackInstance%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The detailed status of the stack instance.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AstackInstanceStatus%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe StackInstanceComprehensiveStatus
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstackInstanceStatus%3AStackInstance%27"><span class="hs-identifier hs-var hs-var">stackInstanceStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstanceComprehensiveStatus.html#StackInstanceComprehensiveStatus"><span class="hs-identifier hs-type">StackInstanceComprehensiveStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | [Service-managed permissions] The organization root ID or organizational</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- unit (OU) IDs that you specified for</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets&gt;.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AorganizationalUnitId%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AorganizationalUnitId%3AStackInstance%27"><span class="hs-identifier hs-var hs-var">organizationalUnitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Most recent time when CloudFormation performed a drift detection</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- operation on the stack instance. This value will be @NULL@ for any stack</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- instance on which drift detection has not yet been performed.</span><span>
-</span><span id="line-77"></span><span>    </span><span id="%24sel%3AlastDriftCheckTimestamp%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe ISO8601
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Most recent time when CloudFormation performed a drift detection</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- operation on the stack instance. This value will be @NULL@ for any stack</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- instance on which drift detection has not yet been performed.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AlastDriftCheckTimestamp%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe ISO8601
 </span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AlastDriftCheckTimestamp%3AStackInstance%27"><span class="hs-identifier hs-var hs-var">lastDriftCheckTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The name or unique ID of the stack set that the stack instance is</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- associated with.</span><span>
-</span><span id="line-80"></span><span>    </span><span id="%24sel%3AstackSetId%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstackSetId%3AStackInstance%27"><span class="hs-identifier hs-var hs-var">stackSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Status of the stack instance\'s actual configuration compared to the</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- expected template and parameter configuration of the stack set to which</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- it belongs.</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- -   @DRIFTED@: The stack differs from the expected template and</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     parameter configuration of the stack set to which it belongs. A</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     stack instance is considered to have drifted if one or more of the</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">--     resources in the associated stack have drifted.</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- -   @NOT_CHECKED@: CloudFormation has not checked if the stack instance</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">--     differs from its expected stack set configuration.</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   @IN_SYNC@: The stack instance\'s actual configuration matches its</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     expected stack set configuration.</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- -   @UNKNOWN@: This value is reserved for future use.</span><span>
-</span><span id="line-97"></span><span>    </span><span id="%24sel%3AdriftStatus%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe StackDriftStatus
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AdriftStatus%3AStackInstance%27"><span class="hs-identifier hs-var hs-var">driftStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus"><span class="hs-identifier hs-type">StackDriftStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | [Self-managed permissions] The name of the Amazon Web Services account</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- that the stack instance is associated with.</span><span>
-</span><span id="line-100"></span><span>    </span><span id="%24sel%3Aaccount%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe Text
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | [Self-managed permissions] The name of the Amazon Web Services account</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- that the stack instance is associated with.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Aaccount%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3Aaccount%3AStackInstance%27"><span class="hs-identifier hs-var hs-var">account</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon Web Services Region that the stack instance is</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- associated with.</span><span>
-</span><span id="line-103"></span><span>    </span><span id="%24sel%3Aregion%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe Text
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Status of the stack instance\'s actual configuration compared to the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- expected template and parameter configuration of the stack set to which</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- it belongs.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   @DRIFTED@: The stack differs from the expected template and</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     parameter configuration of the stack set to which it belongs. A</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     stack instance is considered to have drifted if one or more of the</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     resources in the associated stack have drifted.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   @NOT_CHECKED@: CloudFormation has not checked if the stack instance</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     differs from its expected stack set configuration.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- -   @IN_SYNC@: The stack instance\'s actual configuration matches its</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     expected stack set configuration.</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- -   @UNKNOWN@: This value is reserved for future use.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AdriftStatus%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe StackDriftStatus
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AdriftStatus%3AStackInstance%27"><span class="hs-identifier hs-var hs-var">driftStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus"><span class="hs-identifier hs-type">StackDriftStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | [Service-managed permissions] The organization root ID or organizational</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- unit (OU) IDs that you specified for</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets&gt;.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AorganizationalUnitId%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AorganizationalUnitId%3AStackInstance%27"><span class="hs-identifier hs-var hs-var">organizationalUnitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon Web Services Region that the stack instance is</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- associated with.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3Aregion%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3Aregion%3AStackInstance%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | The explanation for the specific status code that is assigned to this</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- stack instance.</span><span>
-</span><span id="line-106"></span><span>    </span><span id="%24sel%3AstatusReason%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstatusReason%3AStackInstance%27"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The explanation for the specific status code that is assigned to this</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- stack instance.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AstatusReason%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstatusReason%3AStackInstance%27"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The ID of the stack instance.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AstackId%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstackId%3AStackInstance%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The detailed status of the stack instance.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AstackInstanceStatus%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe StackInstanceComprehensiveStatus
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstackInstanceStatus%3AStackInstance%27"><span class="hs-identifier hs-var hs-var">stackInstanceStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstanceComprehensiveStatus.html#StackInstanceComprehensiveStatus"><span class="hs-identifier hs-type">StackInstanceComprehensiveStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | A list of parameters from the stack set template whose values have been</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- overridden in this stack instance.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AparameterOverrides%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe [Parameter]
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AparameterOverrides%3AStackInstance%27"><span class="hs-identifier hs-var hs-var">parameterOverrides</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | The name or unique ID of the stack set that the stack instance is</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- associated with.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AstackSetId%3AStackInstance%27"><span class="annot"><span class="annottext">StackInstance -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstackSetId%3AStackInstance%27"><span class="hs-identifier hs-var hs-var">stackSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679422453"><span id="local-6989586621679422455"><span class="annot"><span class="annottext">StackInstance -&gt; StackInstance -&gt; Bool
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679422860"><span id="local-6989586621679422862"><span class="annot"><span class="annottext">StackInstance -&gt; StackInstance -&gt; Bool
 (StackInstance -&gt; StackInstance -&gt; Bool)
 -&gt; (StackInstance -&gt; StackInstance -&gt; Bool) -&gt; Eq StackInstance
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -124,7 +124,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StackInstance -&gt; StackInstance -&gt; Bool
 == :: StackInstance -&gt; StackInstance -&gt; Bool
 $c== :: StackInstance -&gt; StackInstance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422444"><span id="local-6989586621679422446"><span id="local-6989586621679422448"><span id="local-6989586621679422450"><span class="annot"><span class="annottext">ReadPrec [StackInstance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422851"><span id="local-6989586621679422853"><span id="local-6989586621679422855"><span id="local-6989586621679422857"><span class="annot"><span class="annottext">ReadPrec [StackInstance]
 ReadPrec StackInstance
 Int -&gt; ReadS StackInstance
 ReadS [StackInstance]
@@ -144,7 +144,7 @@ readList :: ReadS [StackInstance]
 $creadList :: ReadS [StackInstance]
 readsPrec :: Int -&gt; ReadS StackInstance
 $creadsPrec :: Int -&gt; ReadS StackInstance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422437"><span id="local-6989586621679422439"><span id="local-6989586621679422441"><span class="annot"><span class="annottext">Int -&gt; StackInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422844"><span id="local-6989586621679422846"><span id="local-6989586621679422848"><span class="annot"><span class="annottext">Int -&gt; StackInstance -&gt; ShowS
 [StackInstance] -&gt; ShowS
 StackInstance -&gt; String
 (Int -&gt; StackInstance -&gt; ShowS)
@@ -200,63 +200,63 @@ $cfrom :: forall x. StackInstance -&gt; Rep StackInstance x
 </span><span id="line-137"></span><span class="hs-comment">--</span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- -   @CURRENT@: The stack is currently up to date with the stack set.</span><span>
 </span><span id="line-139"></span><span class="hs-comment">--</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- 'parameterOverrides', 'stackInstance_parameterOverrides' - A list of parameters from the stack set template whose values have been</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- overridden in this stack instance.</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- 'stackId', 'stackInstance_stackId' - The ID of the stack instance.</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- 'stackInstanceStatus', 'stackInstance_stackInstanceStatus' - The detailed status of the stack instance.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'lastDriftCheckTimestamp', 'stackInstance_lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- operation on the stack instance. This value will be @NULL@ for any stack</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- instance on which drift detection has not yet been performed.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'account', 'stackInstance_account' - [Self-managed permissions] The name of the Amazon Web Services account</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- that the stack instance is associated with.</span><span>
 </span><span id="line-146"></span><span class="hs-comment">--</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- 'organizationalUnitId', 'stackInstance_organizationalUnitId' - [Service-managed permissions] The organization root ID or organizational</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- unit (OU) IDs that you specified for</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets&gt;.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'driftStatus', 'stackInstance_driftStatus' - Status of the stack instance\'s actual configuration compared to the</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- expected template and parameter configuration of the stack set to which</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- it belongs.</span><span>
 </span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- 'lastDriftCheckTimestamp', 'stackInstance_lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- operation on the stack instance. This value will be @NULL@ for any stack</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- instance on which drift detection has not yet been performed.</span><span>
-</span><span id="line-154"></span><span class="hs-comment">--</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- 'stackSetId', 'stackInstance_stackSetId' - The name or unique ID of the stack set that the stack instance is</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- associated with.</span><span>
-</span><span id="line-157"></span><span class="hs-comment">--</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- 'driftStatus', 'stackInstance_driftStatus' - Status of the stack instance\'s actual configuration compared to the</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- expected template and parameter configuration of the stack set to which</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- it belongs.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   @DRIFTED@: The stack differs from the expected template and</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--     parameter configuration of the stack set to which it belongs. A</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--     stack instance is considered to have drifted if one or more of the</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--     resources in the associated stack have drifted.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   @NOT_CHECKED@: CloudFormation has not checked if the stack instance</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--     differs from its expected stack set configuration.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- -   @IN_SYNC@: The stack instance\'s actual configuration matches its</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--     expected stack set configuration.</span><span>
 </span><span id="line-161"></span><span class="hs-comment">--</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- -   @DRIFTED@: The stack differs from the expected template and</span><span>
-</span><span id="line-163"></span><span class="hs-comment">--     parameter configuration of the stack set to which it belongs. A</span><span>
-</span><span id="line-164"></span><span class="hs-comment">--     stack instance is considered to have drifted if one or more of the</span><span>
-</span><span id="line-165"></span><span class="hs-comment">--     resources in the associated stack have drifted.</span><span>
-</span><span id="line-166"></span><span class="hs-comment">--</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- -   @NOT_CHECKED@: CloudFormation has not checked if the stack instance</span><span>
-</span><span id="line-168"></span><span class="hs-comment">--     differs from its expected stack set configuration.</span><span>
-</span><span id="line-169"></span><span class="hs-comment">--</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- -   @IN_SYNC@: The stack instance\'s actual configuration matches its</span><span>
-</span><span id="line-171"></span><span class="hs-comment">--     expected stack set configuration.</span><span>
-</span><span id="line-172"></span><span class="hs-comment">--</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- -   @UNKNOWN@: This value is reserved for future use.</span><span>
-</span><span id="line-174"></span><span class="hs-comment">--</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- 'account', 'stackInstance_account' - [Self-managed permissions] The name of the Amazon Web Services account</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- that the stack instance is associated with.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   @UNKNOWN@: This value is reserved for future use.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'organizationalUnitId', 'stackInstance_organizationalUnitId' - [Service-managed permissions] The organization root ID or organizational</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- unit (OU) IDs that you specified for</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets&gt;.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'region', 'stackInstance_region' - The name of the Amazon Web Services Region that the stack instance is</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- associated with.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'statusReason', 'stackInstance_statusReason' - The explanation for the specific status code that is assigned to this</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- stack instance.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'stackId', 'stackInstance_stackId' - The ID of the stack instance.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'stackInstanceStatus', 'stackInstance_stackInstanceStatus' - The detailed status of the stack instance.</span><span>
 </span><span id="line-177"></span><span class="hs-comment">--</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- 'region', 'stackInstance_region' - The name of the Amazon Web Services Region that the stack instance is</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- associated with.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'parameterOverrides', 'stackInstance_parameterOverrides' - A list of parameters from the stack set template whose values have been</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- overridden in this stack instance.</span><span>
 </span><span id="line-180"></span><span class="hs-comment">--</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- 'statusReason', 'stackInstance_statusReason' - The explanation for the specific status code that is assigned to this</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- stack instance.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'stackSetId', 'stackInstance_stackSetId' - The name or unique ID of the stack set that the stack instance is</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- associated with.</span><span>
 </span><span id="line-183"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#newStackInstance"><span class="hs-identifier hs-type">newStackInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span>
 </span><span id="line-185"></span><span id="newStackInstance"><span class="annot"><span class="annottext">newStackInstance :: StackInstance
 </span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#newStackInstance"><span class="hs-identifier hs-var hs-var">newStackInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>  </span><span class="annot"><span class="annottext">StackInstance' :: Maybe StackInstanceStatus
--&gt; Maybe [Parameter]
--&gt; Maybe Text
--&gt; Maybe StackInstanceComprehensiveStatus
--&gt; Maybe Text
 -&gt; Maybe ISO8601
 -&gt; Maybe Text
 -&gt; Maybe StackDriftStatus
 -&gt; Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe StackInstanceComprehensiveStatus
+-&gt; Maybe [Parameter]
 -&gt; Maybe Text
 -&gt; StackInstance
 </span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span>
@@ -264,44 +264,44 @@ $cfrom :: forall x. StackInstance -&gt; Rep StackInstance x
 </span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3Astatus%3AStackInstance%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackInstanceStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameterOverrides:StackInstance' :: Maybe [Parameter]
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AparameterOverrides%3AStackInstance%27"><span class="hs-identifier hs-var">parameterOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastDriftCheckTimestamp:StackInstance' :: Maybe ISO8601
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AlastDriftCheckTimestamp%3AStackInstance%27"><span class="hs-identifier hs-var">lastDriftCheckTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackId:StackInstance' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstackId%3AStackInstance%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:account:StackInstance' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3Aaccount%3AStackInstance%27"><span class="hs-identifier hs-var">account</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackInstanceStatus:StackInstance' :: Maybe StackInstanceComprehensiveStatus
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstackInstanceStatus%3AStackInstance%27"><span class="hs-identifier hs-var">stackInstanceStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackInstanceComprehensiveStatus
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:driftStatus:StackInstance' :: Maybe StackDriftStatus
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AdriftStatus%3AStackInstance%27"><span class="hs-identifier hs-var">driftStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackDriftStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationalUnitId:StackInstance' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AorganizationalUnitId%3AStackInstance%27"><span class="hs-identifier hs-var">organizationalUnitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastDriftCheckTimestamp:StackInstance' :: Maybe ISO8601
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AlastDriftCheckTimestamp%3AStackInstance%27"><span class="hs-identifier hs-var">lastDriftCheckTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackSetId:StackInstance' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstackSetId%3AStackInstance%27"><span class="hs-identifier hs-var">stackSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:driftStatus:StackInstance' :: Maybe StackDriftStatus
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AdriftStatus%3AStackInstance%27"><span class="hs-identifier hs-var">driftStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackDriftStatus
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:account:StackInstance' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3Aaccount%3AStackInstance%27"><span class="hs-identifier hs-var">account</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:region:StackInstance' :: Maybe Text
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:region:StackInstance' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3Aregion%3AStackInstance%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusReason:StackInstance' :: Maybe Text
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusReason:StackInstance' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstatusReason%3AStackInstance%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackId:StackInstance' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstackId%3AStackInstance%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackInstanceStatus:StackInstance' :: Maybe StackInstanceComprehensiveStatus
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstackInstanceStatus%3AStackInstance%27"><span class="hs-identifier hs-var">stackInstanceStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackInstanceComprehensiveStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameterOverrides:StackInstance' :: Maybe [Parameter]
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AparameterOverrides%3AStackInstance%27"><span class="hs-identifier hs-var">parameterOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackSetId:StackInstance' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstackSetId%3AStackInstance%27"><span class="hs-identifier hs-var">stackSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-198"></span><span>    </span><span class="hs-special">}</span><span>
@@ -338,37 +338,232 @@ forall a. Maybe a
      (Maybe StackInstanceStatus)
      (Maybe StackInstanceStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422428"><span class="annot"><span class="annottext">Maybe StackInstanceStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422835"><span class="annot"><span class="annottext">Maybe StackInstanceStatus
 status :: Maybe StackInstanceStatus
 $sel:status:StackInstance' :: StackInstance -&gt; Maybe StackInstanceStatus
-</span><a href="#local-6989586621679422428"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackInstanceStatus
-</span><a href="#local-6989586621679422428"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422427"><span class="annot"><span class="annottext">s :: StackInstance
-</span><a href="#local-6989586621679422427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422426"><span class="annot"><span class="annottext">Maybe StackInstanceStatus
-</span><a href="#local-6989586621679422426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
-</span><a href="#local-6989586621679422427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:StackInstance' :: Maybe StackInstanceStatus
+</span><a href="#local-6989586621679422835"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackInstanceStatus
+</span><a href="#local-6989586621679422835"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422834"><span class="annot"><span class="annottext">s :: StackInstance
+</span><a href="#local-6989586621679422834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422833"><span class="annot"><span class="annottext">Maybe StackInstanceStatus
+</span><a href="#local-6989586621679422833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
+</span><a href="#local-6989586621679422834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:StackInstance' :: Maybe StackInstanceStatus
 </span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3Astatus%3AStackInstance%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackInstanceStatus
-</span><a href="#local-6989586621679422426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- | A list of parameters from the stack set template whose values have been</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- overridden in this stack instance.</span><span>
-</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_parameterOverrides"><span class="hs-identifier hs-type">stackInstance_parameterOverrides</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-227"></span><span id="stackInstance_parameterOverrides"><span class="annot"><span class="annottext">stackInstance_parameterOverrides :: (Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+</span><span id="line-224"></span><span class="hs-comment">-- | Most recent time when CloudFormation performed a drift detection</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- operation on the stack instance. This value will be @NULL@ for any stack</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- instance on which drift detection has not yet been performed.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_lastDriftCheckTimestamp"><span class="hs-identifier hs-type">stackInstance_lastDriftCheckTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="stackInstance_lastDriftCheckTimestamp"><span class="annot"><span class="annottext">stackInstance_lastDriftCheckTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; StackInstance -&gt; f StackInstance
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_lastDriftCheckTimestamp"><span class="hs-identifier hs-var hs-var">stackInstance_lastDriftCheckTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstance -&gt; Maybe ISO8601)
+-&gt; (StackInstance -&gt; Maybe ISO8601 -&gt; StackInstance)
+-&gt; Lens StackInstance StackInstance (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422831"><span class="annot"><span class="annottext">Maybe ISO8601
+lastDriftCheckTimestamp :: Maybe ISO8601
+$sel:lastDriftCheckTimestamp:StackInstance' :: StackInstance -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679422831"><span class="hs-identifier hs-var hs-var">lastDriftCheckTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679422831"><span class="hs-identifier hs-var">lastDriftCheckTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422830"><span class="annot"><span class="annottext">s :: StackInstance
+</span><a href="#local-6989586621679422830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422829"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679422829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
+</span><a href="#local-6989586621679422830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastDriftCheckTimestamp:StackInstance' :: Maybe ISO8601
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AlastDriftCheckTimestamp%3AStackInstance%27"><span class="hs-identifier hs-var">lastDriftCheckTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679422829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; StackInstance -&gt; f StackInstance)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; StackInstance
+-&gt; f StackInstance
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | [Self-managed permissions] The name of the Amazon Web Services account</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- that the stack instance is associated with.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_account"><span class="hs-identifier hs-type">stackInstance_account</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="stackInstance_account"><span class="annot"><span class="annottext">stackInstance_account :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackInstance -&gt; f StackInstance
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_account"><span class="hs-identifier hs-var hs-var">stackInstance_account</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstance -&gt; Maybe Text)
+-&gt; (StackInstance -&gt; Maybe Text -&gt; StackInstance)
+-&gt; Lens StackInstance StackInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422824"><span class="annot"><span class="annottext">Maybe Text
+account :: Maybe Text
+$sel:account:StackInstance' :: StackInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679422824"><span class="hs-identifier hs-var hs-var">account</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422824"><span class="hs-identifier hs-var">account</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422823"><span class="annot"><span class="annottext">s :: StackInstance
+</span><a href="#local-6989586621679422823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422822"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
+</span><a href="#local-6989586621679422823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:account:StackInstance' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3Aaccount%3AStackInstance%27"><span class="hs-identifier hs-var">account</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | Status of the stack instance\'s actual configuration compared to the</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- expected template and parameter configuration of the stack set to which</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- it belongs.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- -   @DRIFTED@: The stack differs from the expected template and</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--     parameter configuration of the stack set to which it belongs. A</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     stack instance is considered to have drifted if one or more of the</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--     resources in the associated stack have drifted.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- -   @NOT_CHECKED@: CloudFormation has not checked if the stack instance</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--     differs from its expected stack set configuration.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- -   @IN_SYNC@: The stack instance\'s actual configuration matches its</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--     expected stack set configuration.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- -   @UNKNOWN@: This value is reserved for future use.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_driftStatus"><span class="hs-identifier hs-type">stackInstance_driftStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus"><span class="hs-identifier hs-type">StackDriftStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="stackInstance_driftStatus"><span class="annot"><span class="annottext">stackInstance_driftStatus :: (Maybe StackDriftStatus -&gt; f (Maybe StackDriftStatus))
+-&gt; StackInstance -&gt; f StackInstance
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_driftStatus"><span class="hs-identifier hs-var hs-var">stackInstance_driftStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstance -&gt; Maybe StackDriftStatus)
+-&gt; (StackInstance -&gt; Maybe StackDriftStatus -&gt; StackInstance)
+-&gt; Lens
+     StackInstance
+     StackInstance
+     (Maybe StackDriftStatus)
+     (Maybe StackDriftStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422820"><span class="annot"><span class="annottext">Maybe StackDriftStatus
+driftStatus :: Maybe StackDriftStatus
+$sel:driftStatus:StackInstance' :: StackInstance -&gt; Maybe StackDriftStatus
+</span><a href="#local-6989586621679422820"><span class="hs-identifier hs-var hs-var">driftStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackDriftStatus
+</span><a href="#local-6989586621679422820"><span class="hs-identifier hs-var">driftStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422819"><span class="annot"><span class="annottext">s :: StackInstance
+</span><a href="#local-6989586621679422819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422818"><span class="annot"><span class="annottext">Maybe StackDriftStatus
+</span><a href="#local-6989586621679422818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
+</span><a href="#local-6989586621679422819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:driftStatus:StackInstance' :: Maybe StackDriftStatus
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AdriftStatus%3AStackInstance%27"><span class="hs-identifier hs-var">driftStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackDriftStatus
+</span><a href="#local-6989586621679422818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | [Service-managed permissions] The organization root ID or organizational</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- unit (OU) IDs that you specified for</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets&gt;.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_organizationalUnitId"><span class="hs-identifier hs-type">stackInstance_organizationalUnitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="stackInstance_organizationalUnitId"><span class="annot"><span class="annottext">stackInstance_organizationalUnitId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackInstance -&gt; f StackInstance
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_organizationalUnitId"><span class="hs-identifier hs-var hs-var">stackInstance_organizationalUnitId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstance -&gt; Maybe Text)
+-&gt; (StackInstance -&gt; Maybe Text -&gt; StackInstance)
+-&gt; Lens StackInstance StackInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422816"><span class="annot"><span class="annottext">Maybe Text
+organizationalUnitId :: Maybe Text
+$sel:organizationalUnitId:StackInstance' :: StackInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679422816"><span class="hs-identifier hs-var hs-var">organizationalUnitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422816"><span class="hs-identifier hs-var">organizationalUnitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422815"><span class="annot"><span class="annottext">s :: StackInstance
+</span><a href="#local-6989586621679422815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422814"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
+</span><a href="#local-6989586621679422815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationalUnitId:StackInstance' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AorganizationalUnitId%3AStackInstance%27"><span class="hs-identifier hs-var">organizationalUnitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The name of the Amazon Web Services Region that the stack instance is</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- associated with.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_region"><span class="hs-identifier hs-type">stackInstance_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="stackInstance_region"><span class="annot"><span class="annottext">stackInstance_region :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackInstance -&gt; f StackInstance
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_region"><span class="hs-identifier hs-var hs-var">stackInstance_region</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstance -&gt; Maybe Text)
+-&gt; (StackInstance -&gt; Maybe Text -&gt; StackInstance)
+-&gt; Lens StackInstance StackInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422812"><span class="annot"><span class="annottext">Maybe Text
+region :: Maybe Text
+$sel:region:StackInstance' :: StackInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679422812"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422812"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422811"><span class="annot"><span class="annottext">s :: StackInstance
+</span><a href="#local-6989586621679422811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422810"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
+</span><a href="#local-6989586621679422811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:StackInstance' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3Aregion%3AStackInstance%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | The explanation for the specific status code that is assigned to this</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- stack instance.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_statusReason"><span class="hs-identifier hs-type">stackInstance_statusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span id="stackInstance_statusReason"><span class="annot"><span class="annottext">stackInstance_statusReason :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackInstance -&gt; f StackInstance
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_statusReason"><span class="hs-identifier hs-var hs-var">stackInstance_statusReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstance -&gt; Maybe Text)
+-&gt; (StackInstance -&gt; Maybe Text -&gt; StackInstance)
+-&gt; Lens StackInstance StackInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422808"><span class="annot"><span class="annottext">Maybe Text
+statusReason :: Maybe Text
+$sel:statusReason:StackInstance' :: StackInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679422808"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422808"><span class="hs-identifier hs-var">statusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422807"><span class="annot"><span class="annottext">s :: StackInstance
+</span><a href="#local-6989586621679422807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422806"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
+</span><a href="#local-6989586621679422807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReason:StackInstance' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstatusReason%3AStackInstance%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | The ID of the stack instance.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_stackId"><span class="hs-identifier hs-type">stackInstance_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span id="stackInstance_stackId"><span class="annot"><span class="annottext">stackInstance_stackId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackInstance -&gt; f StackInstance
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_stackId"><span class="hs-identifier hs-var hs-var">stackInstance_stackId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstance -&gt; Maybe Text)
+-&gt; (StackInstance -&gt; Maybe Text -&gt; StackInstance)
+-&gt; Lens StackInstance StackInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422804"><span class="annot"><span class="annottext">Maybe Text
+stackId :: Maybe Text
+$sel:stackId:StackInstance' :: StackInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679422804"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422804"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422803"><span class="annot"><span class="annottext">s :: StackInstance
+</span><a href="#local-6989586621679422803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422802"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
+</span><a href="#local-6989586621679422803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:StackInstance' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstackId%3AStackInstance%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | The detailed status of the stack instance.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_stackInstanceStatus"><span class="hs-identifier hs-type">stackInstance_stackInstanceStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstanceComprehensiveStatus.html#StackInstanceComprehensiveStatus"><span class="hs-identifier hs-type">StackInstanceComprehensiveStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span id="stackInstance_stackInstanceStatus"><span class="annot"><span class="annottext">stackInstance_stackInstanceStatus :: (Maybe StackInstanceComprehensiveStatus
+ -&gt; f (Maybe StackInstanceComprehensiveStatus))
+-&gt; StackInstance -&gt; f StackInstance
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_stackInstanceStatus"><span class="hs-identifier hs-var hs-var">stackInstance_stackInstanceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstance -&gt; Maybe StackInstanceComprehensiveStatus)
+-&gt; (StackInstance
+    -&gt; Maybe StackInstanceComprehensiveStatus -&gt; StackInstance)
+-&gt; Lens
+     StackInstance
+     StackInstance
+     (Maybe StackInstanceComprehensiveStatus)
+     (Maybe StackInstanceComprehensiveStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422800"><span class="annot"><span class="annottext">Maybe StackInstanceComprehensiveStatus
+stackInstanceStatus :: Maybe StackInstanceComprehensiveStatus
+$sel:stackInstanceStatus:StackInstance' :: StackInstance -&gt; Maybe StackInstanceComprehensiveStatus
+</span><a href="#local-6989586621679422800"><span class="hs-identifier hs-var hs-var">stackInstanceStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackInstanceComprehensiveStatus
+</span><a href="#local-6989586621679422800"><span class="hs-identifier hs-var">stackInstanceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422799"><span class="annot"><span class="annottext">s :: StackInstance
+</span><a href="#local-6989586621679422799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422798"><span class="annot"><span class="annottext">Maybe StackInstanceComprehensiveStatus
+</span><a href="#local-6989586621679422798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
+</span><a href="#local-6989586621679422799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackInstanceStatus:StackInstance' :: Maybe StackInstanceComprehensiveStatus
+</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstackInstanceStatus%3AStackInstance%27"><span class="hs-identifier hs-var">stackInstanceStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackInstanceComprehensiveStatus
+</span><a href="#local-6989586621679422798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | A list of parameters from the stack set template whose values have been</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- overridden in this stack instance.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_parameterOverrides"><span class="hs-identifier hs-type">stackInstance_parameterOverrides</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span id="stackInstance_parameterOverrides"><span class="annot"><span class="annottext">stackInstance_parameterOverrides :: (Maybe [Parameter] -&gt; f (Maybe [Parameter]))
 -&gt; StackInstance -&gt; f StackInstance
 </span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_parameterOverrides"><span class="hs-identifier hs-var hs-var">stackInstance_parameterOverrides</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstance -&gt; Maybe [Parameter])
 -&gt; (StackInstance -&gt; Maybe [Parameter] -&gt; StackInstance)
 -&gt; Lens
      StackInstance StackInstance (Maybe [Parameter]) (Maybe [Parameter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422424"><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422796"><span class="annot"><span class="annottext">Maybe [Parameter]
 parameterOverrides :: Maybe [Parameter]
 $sel:parameterOverrides:StackInstance' :: StackInstance -&gt; Maybe [Parameter]
-</span><a href="#local-6989586621679422424"><span class="hs-identifier hs-var hs-var">parameterOverrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
-</span><a href="#local-6989586621679422424"><span class="hs-identifier hs-var">parameterOverrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422423"><span class="annot"><span class="annottext">s :: StackInstance
-</span><a href="#local-6989586621679422423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422422"><span class="annot"><span class="annottext">Maybe [Parameter]
-</span><a href="#local-6989586621679422422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
-</span><a href="#local-6989586621679422423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterOverrides:StackInstance' :: Maybe [Parameter]
+</span><a href="#local-6989586621679422796"><span class="hs-identifier hs-var hs-var">parameterOverrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><a href="#local-6989586621679422796"><span class="hs-identifier hs-var">parameterOverrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422795"><span class="annot"><span class="annottext">s :: StackInstance
+</span><a href="#local-6989586621679422795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422794"><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><a href="#local-6989586621679422794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
+</span><a href="#local-6989586621679422795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterOverrides:StackInstance' :: Maybe [Parameter]
 </span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AparameterOverrides%3AStackInstance%27"><span class="hs-identifier hs-var">parameterOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
-</span><a href="#local-6989586621679422422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+</span><a href="#local-6989586621679422794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Parameter] -&gt; f (Maybe [Parameter]))
  -&gt; StackInstance -&gt; f StackInstance)
 -&gt; ((Maybe [Parameter] -&gt; f (Maybe [Parameter]))
     -&gt; Maybe [Parameter] -&gt; f (Maybe [Parameter]))
@@ -386,310 +581,285 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Parameter] [Parameter] [Parameter] [Parameter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- | The ID of the stack instance.</span><span>
-</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_stackId"><span class="hs-identifier hs-type">stackInstance_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-231"></span><span id="stackInstance_stackId"><span class="annot"><span class="annottext">stackInstance_stackId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackInstance -&gt; f StackInstance
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_stackId"><span class="hs-identifier hs-var hs-var">stackInstance_stackId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstance -&gt; Maybe Text)
--&gt; (StackInstance -&gt; Maybe Text -&gt; StackInstance)
--&gt; Lens StackInstance StackInstance (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422417"><span class="annot"><span class="annottext">Maybe Text
-stackId :: Maybe Text
-$sel:stackId:StackInstance' :: StackInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679422417"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422417"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422416"><span class="annot"><span class="annottext">s :: StackInstance
-</span><a href="#local-6989586621679422416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422415"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
-</span><a href="#local-6989586621679422416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:StackInstance' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstackId%3AStackInstance%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- | The detailed status of the stack instance.</span><span>
-</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_stackInstanceStatus"><span class="hs-identifier hs-type">stackInstance_stackInstanceStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstanceComprehensiveStatus.html#StackInstanceComprehensiveStatus"><span class="hs-identifier hs-type">StackInstanceComprehensiveStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-235"></span><span id="stackInstance_stackInstanceStatus"><span class="annot"><span class="annottext">stackInstance_stackInstanceStatus :: (Maybe StackInstanceComprehensiveStatus
- -&gt; f (Maybe StackInstanceComprehensiveStatus))
--&gt; StackInstance -&gt; f StackInstance
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_stackInstanceStatus"><span class="hs-identifier hs-var hs-var">stackInstance_stackInstanceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstance -&gt; Maybe StackInstanceComprehensiveStatus)
--&gt; (StackInstance
-    -&gt; Maybe StackInstanceComprehensiveStatus -&gt; StackInstance)
--&gt; Lens
-     StackInstance
-     StackInstance
-     (Maybe StackInstanceComprehensiveStatus)
-     (Maybe StackInstanceComprehensiveStatus)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422413"><span class="annot"><span class="annottext">Maybe StackInstanceComprehensiveStatus
-stackInstanceStatus :: Maybe StackInstanceComprehensiveStatus
-$sel:stackInstanceStatus:StackInstance' :: StackInstance -&gt; Maybe StackInstanceComprehensiveStatus
-</span><a href="#local-6989586621679422413"><span class="hs-identifier hs-var hs-var">stackInstanceStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackInstanceComprehensiveStatus
-</span><a href="#local-6989586621679422413"><span class="hs-identifier hs-var">stackInstanceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422412"><span class="annot"><span class="annottext">s :: StackInstance
-</span><a href="#local-6989586621679422412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422411"><span class="annot"><span class="annottext">Maybe StackInstanceComprehensiveStatus
-</span><a href="#local-6989586621679422411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
-</span><a href="#local-6989586621679422412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackInstanceStatus:StackInstance' :: Maybe StackInstanceComprehensiveStatus
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstackInstanceStatus%3AStackInstance%27"><span class="hs-identifier hs-var">stackInstanceStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackInstanceComprehensiveStatus
-</span><a href="#local-6989586621679422411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-236"></span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- | [Service-managed permissions] The organization root ID or organizational</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- unit (OU) IDs that you specified for</span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets&gt;.</span><span>
-</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_organizationalUnitId"><span class="hs-identifier hs-type">stackInstance_organizationalUnitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-241"></span><span id="stackInstance_organizationalUnitId"><span class="annot"><span class="annottext">stackInstance_organizationalUnitId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackInstance -&gt; f StackInstance
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_organizationalUnitId"><span class="hs-identifier hs-var hs-var">stackInstance_organizationalUnitId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstance -&gt; Maybe Text)
--&gt; (StackInstance -&gt; Maybe Text -&gt; StackInstance)
--&gt; Lens StackInstance StackInstance (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422409"><span class="annot"><span class="annottext">Maybe Text
-organizationalUnitId :: Maybe Text
-$sel:organizationalUnitId:StackInstance' :: StackInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679422409"><span class="hs-identifier hs-var hs-var">organizationalUnitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422409"><span class="hs-identifier hs-var">organizationalUnitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422408"><span class="annot"><span class="annottext">s :: StackInstance
-</span><a href="#local-6989586621679422408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422407"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
-</span><a href="#local-6989586621679422408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationalUnitId:StackInstance' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AorganizationalUnitId%3AStackInstance%27"><span class="hs-identifier hs-var">organizationalUnitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-242"></span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- | Most recent time when CloudFormation performed a drift detection</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- operation on the stack instance. This value will be @NULL@ for any stack</span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- instance on which drift detection has not yet been performed.</span><span>
-</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_lastDriftCheckTimestamp"><span class="hs-identifier hs-type">stackInstance_lastDriftCheckTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-247"></span><span id="stackInstance_lastDriftCheckTimestamp"><span class="annot"><span class="annottext">stackInstance_lastDriftCheckTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; StackInstance -&gt; f StackInstance
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_lastDriftCheckTimestamp"><span class="hs-identifier hs-var hs-var">stackInstance_lastDriftCheckTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstance -&gt; Maybe ISO8601)
--&gt; (StackInstance -&gt; Maybe ISO8601 -&gt; StackInstance)
--&gt; Lens StackInstance StackInstance (Maybe ISO8601) (Maybe ISO8601)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422405"><span class="annot"><span class="annottext">Maybe ISO8601
-lastDriftCheckTimestamp :: Maybe ISO8601
-$sel:lastDriftCheckTimestamp:StackInstance' :: StackInstance -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679422405"><span class="hs-identifier hs-var hs-var">lastDriftCheckTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679422405"><span class="hs-identifier hs-var">lastDriftCheckTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422404"><span class="annot"><span class="annottext">s :: StackInstance
-</span><a href="#local-6989586621679422404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422403"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679422403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
-</span><a href="#local-6989586621679422404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastDriftCheckTimestamp:StackInstance' :: Maybe ISO8601
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AlastDriftCheckTimestamp%3AStackInstance%27"><span class="hs-identifier hs-var">lastDriftCheckTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679422403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
- -&gt; StackInstance -&gt; f StackInstance)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; StackInstance
--&gt; f StackInstance
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
--&gt; Iso
-     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- | The name or unique ID of the stack set that the stack instance is</span><span>
-</span><span id="line-250"></span><span class="hs-comment">-- associated with.</span><span>
-</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_stackSetId"><span class="hs-identifier hs-type">stackInstance_stackSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-252"></span><span id="stackInstance_stackSetId"><span class="annot"><span class="annottext">stackInstance_stackSetId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackInstance -&gt; f StackInstance
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | The name or unique ID of the stack set that the stack instance is</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- associated with.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_stackSetId"><span class="hs-identifier hs-type">stackInstance_stackSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="stackInstance_stackSetId"><span class="annot"><span class="annottext">stackInstance_stackSetId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackInstance -&gt; f StackInstance
 </span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_stackSetId"><span class="hs-identifier hs-var hs-var">stackInstance_stackSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstance -&gt; Maybe Text)
 -&gt; (StackInstance -&gt; Maybe Text -&gt; StackInstance)
 -&gt; Lens StackInstance StackInstance (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422400"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422791"><span class="annot"><span class="annottext">Maybe Text
 stackSetId :: Maybe Text
 $sel:stackSetId:StackInstance' :: StackInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679422400"><span class="hs-identifier hs-var hs-var">stackSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422400"><span class="hs-identifier hs-var">stackSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422399"><span class="annot"><span class="annottext">s :: StackInstance
-</span><a href="#local-6989586621679422399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422398"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
-</span><a href="#local-6989586621679422399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackSetId:StackInstance' :: Maybe Text
+</span><a href="#local-6989586621679422791"><span class="hs-identifier hs-var hs-var">stackSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422791"><span class="hs-identifier hs-var">stackSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422790"><span class="annot"><span class="annottext">s :: StackInstance
+</span><a href="#local-6989586621679422790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422789"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
+</span><a href="#local-6989586621679422790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackSetId:StackInstance' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstackSetId%3AStackInstance%27"><span class="hs-identifier hs-var">stackSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-253"></span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- | Status of the stack instance\'s actual configuration compared to the</span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- expected template and parameter configuration of the stack set to which</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- it belongs.</span><span>
-</span><span id="line-257"></span><span class="hs-comment">--</span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- -   @DRIFTED@: The stack differs from the expected template and</span><span>
-</span><span id="line-259"></span><span class="hs-comment">--     parameter configuration of the stack set to which it belongs. A</span><span>
-</span><span id="line-260"></span><span class="hs-comment">--     stack instance is considered to have drifted if one or more of the</span><span>
-</span><span id="line-261"></span><span class="hs-comment">--     resources in the associated stack have drifted.</span><span>
-</span><span id="line-262"></span><span class="hs-comment">--</span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- -   @NOT_CHECKED@: CloudFormation has not checked if the stack instance</span><span>
-</span><span id="line-264"></span><span class="hs-comment">--     differs from its expected stack set configuration.</span><span>
-</span><span id="line-265"></span><span class="hs-comment">--</span><span>
-</span><span id="line-266"></span><span class="hs-comment">-- -   @IN_SYNC@: The stack instance\'s actual configuration matches its</span><span>
-</span><span id="line-267"></span><span class="hs-comment">--     expected stack set configuration.</span><span>
-</span><span id="line-268"></span><span class="hs-comment">--</span><span>
-</span><span id="line-269"></span><span class="hs-comment">-- -   @UNKNOWN@: This value is reserved for future use.</span><span>
-</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_driftStatus"><span class="hs-identifier hs-type">stackInstance_driftStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus"><span class="hs-identifier hs-type">StackDriftStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-271"></span><span id="stackInstance_driftStatus"><span class="annot"><span class="annottext">stackInstance_driftStatus :: (Maybe StackDriftStatus -&gt; f (Maybe StackDriftStatus))
--&gt; StackInstance -&gt; f StackInstance
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_driftStatus"><span class="hs-identifier hs-var hs-var">stackInstance_driftStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstance -&gt; Maybe StackDriftStatus)
--&gt; (StackInstance -&gt; Maybe StackDriftStatus -&gt; StackInstance)
--&gt; Lens
-     StackInstance
-     StackInstance
-     (Maybe StackDriftStatus)
-     (Maybe StackDriftStatus)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422396"><span class="annot"><span class="annottext">Maybe StackDriftStatus
-driftStatus :: Maybe StackDriftStatus
-$sel:driftStatus:StackInstance' :: StackInstance -&gt; Maybe StackDriftStatus
-</span><a href="#local-6989586621679422396"><span class="hs-identifier hs-var hs-var">driftStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackDriftStatus
-</span><a href="#local-6989586621679422396"><span class="hs-identifier hs-var">driftStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422395"><span class="annot"><span class="annottext">s :: StackInstance
-</span><a href="#local-6989586621679422395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422394"><span class="annot"><span class="annottext">Maybe StackDriftStatus
-</span><a href="#local-6989586621679422394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
-</span><a href="#local-6989586621679422395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:driftStatus:StackInstance' :: Maybe StackDriftStatus
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AdriftStatus%3AStackInstance%27"><span class="hs-identifier hs-var">driftStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackDriftStatus
-</span><a href="#local-6989586621679422394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-272"></span><span>
-</span><span id="line-273"></span><span class="hs-comment">-- | [Self-managed permissions] The name of the Amazon Web Services account</span><span>
-</span><span id="line-274"></span><span class="hs-comment">-- that the stack instance is associated with.</span><span>
-</span><span id="line-275"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_account"><span class="hs-identifier hs-type">stackInstance_account</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-276"></span><span id="stackInstance_account"><span class="annot"><span class="annottext">stackInstance_account :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackInstance -&gt; f StackInstance
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_account"><span class="hs-identifier hs-var hs-var">stackInstance_account</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstance -&gt; Maybe Text)
--&gt; (StackInstance -&gt; Maybe Text -&gt; StackInstance)
--&gt; Lens StackInstance StackInstance (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422392"><span class="annot"><span class="annottext">Maybe Text
-account :: Maybe Text
-$sel:account:StackInstance' :: StackInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679422392"><span class="hs-identifier hs-var hs-var">account</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422392"><span class="hs-identifier hs-var">account</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422391"><span class="annot"><span class="annottext">s :: StackInstance
-</span><a href="#local-6989586621679422391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422390"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
-</span><a href="#local-6989586621679422391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:account:StackInstance' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3Aaccount%3AStackInstance%27"><span class="hs-identifier hs-var">account</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-277"></span><span>
-</span><span id="line-278"></span><span class="hs-comment">-- | The name of the Amazon Web Services Region that the stack instance is</span><span>
-</span><span id="line-279"></span><span class="hs-comment">-- associated with.</span><span>
-</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_region"><span class="hs-identifier hs-type">stackInstance_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-281"></span><span id="stackInstance_region"><span class="annot"><span class="annottext">stackInstance_region :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackInstance -&gt; f StackInstance
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_region"><span class="hs-identifier hs-var hs-var">stackInstance_region</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstance -&gt; Maybe Text)
--&gt; (StackInstance -&gt; Maybe Text -&gt; StackInstance)
--&gt; Lens StackInstance StackInstance (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422388"><span class="annot"><span class="annottext">Maybe Text
-region :: Maybe Text
-$sel:region:StackInstance' :: StackInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679422388"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422388"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422387"><span class="annot"><span class="annottext">s :: StackInstance
-</span><a href="#local-6989586621679422387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422386"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
-</span><a href="#local-6989586621679422387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:StackInstance' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3Aregion%3AStackInstance%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-282"></span><span>
-</span><span id="line-283"></span><span class="hs-comment">-- | The explanation for the specific status code that is assigned to this</span><span>
-</span><span id="line-284"></span><span class="hs-comment">-- stack instance.</span><span>
-</span><span id="line-285"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_statusReason"><span class="hs-identifier hs-type">stackInstance_statusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-286"></span><span id="stackInstance_statusReason"><span class="annot"><span class="annottext">stackInstance_statusReason :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StackInstance -&gt; f StackInstance
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#stackInstance_statusReason"><span class="hs-identifier hs-var hs-var">stackInstance_statusReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackInstance -&gt; Maybe Text)
--&gt; (StackInstance -&gt; Maybe Text -&gt; StackInstance)
--&gt; Lens StackInstance StackInstance (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422384"><span class="annot"><span class="annottext">Maybe Text
-statusReason :: Maybe Text
-$sel:statusReason:StackInstance' :: StackInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679422384"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422384"><span class="hs-identifier hs-var">statusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422383"><span class="annot"><span class="annottext">s :: StackInstance
-</span><a href="#local-6989586621679422383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-type">StackInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422382"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackInstance
-</span><a href="#local-6989586621679422383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReason:StackInstance' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#%24sel%3AstatusReason%3AStackInstance%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-287"></span><span>
 </span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-289"></span><span>  </span><span id="local-6989586621679422379"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StackInstance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679422377"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679422377"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-289"></span><span>  </span><span id="local-6989586621679422786"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StackInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679422784"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679422784"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-290"></span><span>    </span><span class="annot"><span class="annottext">Maybe StackInstanceStatus
--&gt; Maybe [Parameter]
--&gt; Maybe Text
--&gt; Maybe StackInstanceComprehensiveStatus
--&gt; Maybe Text
 -&gt; Maybe ISO8601
 -&gt; Maybe Text
 -&gt; Maybe StackDriftStatus
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe StackInstanceComprehensiveStatus
+-&gt; Maybe [Parameter]
+-&gt; Maybe Text
 -&gt; StackInstance
 </span><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance%27"><span class="hs-identifier hs-var">StackInstance'</span></a></span><span>
 </span><span id="line-291"></span><span>      </span><span class="annot"><span class="annottext">(Maybe StackInstanceStatus
- -&gt; Maybe [Parameter]
- -&gt; Maybe Text
- -&gt; Maybe StackInstanceComprehensiveStatus
- -&gt; Maybe Text
  -&gt; Maybe ISO8601
  -&gt; Maybe Text
  -&gt; Maybe StackDriftStatus
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe StackInstanceComprehensiveStatus
+ -&gt; Maybe [Parameter]
+ -&gt; Maybe Text
  -&gt; StackInstance)
 -&gt; Either String (Maybe StackInstanceStatus)
 -&gt; Either
      String
-     (Maybe [Parameter]
-      -&gt; Maybe Text
-      -&gt; Maybe StackInstanceComprehensiveStatus
-      -&gt; Maybe Text
-      -&gt; Maybe ISO8601
+     (Maybe ISO8601
       -&gt; Maybe Text
       -&gt; Maybe StackDriftStatus
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe StackInstanceComprehensiveStatus
+      -&gt; Maybe [Parameter]
+      -&gt; Maybe Text
       -&gt; StackInstance)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679422377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StackInstanceStatus)
+</span><a href="#local-6989586621679422784"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StackInstanceStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe [Parameter]
-   -&gt; Maybe Text
-   -&gt; Maybe StackInstanceComprehensiveStatus
-   -&gt; Maybe Text
-   -&gt; Maybe ISO8601
+  (Maybe ISO8601
    -&gt; Maybe Text
    -&gt; Maybe StackDriftStatus
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe StackInstanceComprehensiveStatus
+   -&gt; Maybe [Parameter]
+   -&gt; Maybe Text
    -&gt; StackInstance)
--&gt; Either String (Maybe [Parameter])
+-&gt; Either String (Maybe ISO8601)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe StackInstanceComprehensiveStatus
-      -&gt; Maybe Text
-      -&gt; Maybe ISO8601
-      -&gt; Maybe Text
       -&gt; Maybe StackDriftStatus
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe StackInstanceComprehensiveStatus
+      -&gt; Maybe [Parameter]
+      -&gt; Maybe Text
       -&gt; StackInstance)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679422784"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastDriftCheckTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe StackDriftStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe StackInstanceComprehensiveStatus
+   -&gt; Maybe [Parameter]
+   -&gt; Maybe Text
+   -&gt; StackInstance)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe StackDriftStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe StackInstanceComprehensiveStatus
+      -&gt; Maybe [Parameter]
+      -&gt; Maybe Text
+      -&gt; StackInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679422784"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Account&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe StackDriftStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe StackInstanceComprehensiveStatus
+   -&gt; Maybe [Parameter]
+   -&gt; Maybe Text
+   -&gt; StackInstance)
+-&gt; Either String (Maybe StackDriftStatus)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe StackInstanceComprehensiveStatus
+      -&gt; Maybe [Parameter]
+      -&gt; Maybe Text
+      -&gt; StackInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679422784"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StackDriftStatus)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DriftStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe StackInstanceComprehensiveStatus
+   -&gt; Maybe [Parameter]
+   -&gt; Maybe Text
+   -&gt; StackInstance)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe StackInstanceComprehensiveStatus
+      -&gt; Maybe [Parameter]
+      -&gt; Maybe Text
+      -&gt; StackInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679422784"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrganizationalUnitId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe StackInstanceComprehensiveStatus
+   -&gt; Maybe [Parameter]
+   -&gt; Maybe Text
+   -&gt; StackInstance)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe StackInstanceComprehensiveStatus
+      -&gt; Maybe [Parameter]
+      -&gt; Maybe Text
+      -&gt; StackInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679422784"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Region&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe StackInstanceComprehensiveStatus
+   -&gt; Maybe [Parameter]
+   -&gt; Maybe Text
+   -&gt; StackInstance)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe StackInstanceComprehensiveStatus
+      -&gt; Maybe [Parameter]
+      -&gt; Maybe Text
+      -&gt; StackInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679422784"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe StackInstanceComprehensiveStatus
+   -&gt; Maybe [Parameter]
+   -&gt; Maybe Text
+   -&gt; StackInstance)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe StackInstanceComprehensiveStatus
+      -&gt; Maybe [Parameter] -&gt; Maybe Text -&gt; StackInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679422784"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StackId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe StackInstanceComprehensiveStatus
+   -&gt; Maybe [Parameter] -&gt; Maybe Text -&gt; StackInstance)
+-&gt; Either String (Maybe StackInstanceComprehensiveStatus)
+-&gt; Either String (Maybe [Parameter] -&gt; Maybe Text -&gt; StackInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679422784"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe StackInstanceComprehensiveStatus)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StackInstanceStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Parameter] -&gt; Maybe Text -&gt; StackInstance)
+-&gt; Either String (Maybe [Parameter])
+-&gt; Either String (Maybe Text -&gt; StackInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679422377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679422784"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ParameterOverrides&quot;</span></span><span>
-</span><span id="line-293"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-301"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-294"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-302"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Parameter]))
 -&gt; Either String (Maybe [Parameter])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -702,177 +872,17 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-295"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-296"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe StackInstanceComprehensiveStatus
-   -&gt; Maybe Text
-   -&gt; Maybe ISO8601
-   -&gt; Maybe Text
-   -&gt; Maybe StackDriftStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; StackInstance)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe StackInstanceComprehensiveStatus
-      -&gt; Maybe Text
-      -&gt; Maybe ISO8601
-      -&gt; Maybe Text
-      -&gt; Maybe StackDriftStatus
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; StackInstance)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679422377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StackId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-297"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe StackInstanceComprehensiveStatus
-   -&gt; Maybe Text
-   -&gt; Maybe ISO8601
-   -&gt; Maybe Text
-   -&gt; Maybe StackDriftStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; StackInstance)
--&gt; Either String (Maybe StackInstanceComprehensiveStatus)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe ISO8601
-      -&gt; Maybe Text
-      -&gt; Maybe StackDriftStatus
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; StackInstance)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679422377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
--&gt; Text -&gt; Either String (Maybe StackInstanceComprehensiveStatus)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StackInstanceStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-298"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe ISO8601
-   -&gt; Maybe Text
-   -&gt; Maybe StackDriftStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; StackInstance)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe ISO8601
-      -&gt; Maybe Text
-      -&gt; Maybe StackDriftStatus
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; StackInstance)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679422377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OrganizationalUnitId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-299"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ISO8601
-   -&gt; Maybe Text
-   -&gt; Maybe StackDriftStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; StackInstance)
--&gt; Either String (Maybe ISO8601)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe StackDriftStatus
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; StackInstance)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679422377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastDriftCheckTimestamp&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-300"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe StackDriftStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; StackInstance)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe StackDriftStatus
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; StackInstance)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679422377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StackSetId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-301"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe StackDriftStatus
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; StackInstance)
--&gt; Either String (Maybe StackDriftStatus)
--&gt; Either
-     String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; StackInstance)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679422377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StackDriftStatus)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DriftStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-302"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; StackInstance)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; StackInstance)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679422377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Account&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-303"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; StackInstance)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Text -&gt; StackInstance)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679422377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Region&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-304"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; StackInstance)
 -&gt; Either String (Maybe Text) -&gt; Either String StackInstance
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679422377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679422784"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StatusReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;StackSetId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-305"></span><span>
-</span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679422368"><span id="local-6989586621679422370"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span></span></span><span>
+</span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679422775"><span id="local-6989586621679422777"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span></span></span><span>
 </span><span id="line-307"></span><span>
-</span><span id="line-308"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679422365"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679422772"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackInstance.html#StackInstance"><span class="hs-identifier hs-type">StackInstance</span></a></span></span><span>
 </span><span id="line-309"></span></pre></body></html>

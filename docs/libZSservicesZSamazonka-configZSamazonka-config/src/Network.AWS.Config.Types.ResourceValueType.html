@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679407829"><span id="local-6989586621679407830"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceValueType"><span class="annot"><a href="Network.AWS.Config.Types.ResourceValueType.html#ResourceValueType"><span class="hs-identifier hs-var">ResourceValueType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceValueType%27"><span class="annot"><a href="Network.AWS.Config.Types.ResourceValueType.html#ResourceValueType%27"><span class="hs-identifier hs-var">ResourceValueType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679408434"><span id="local-6989586621679408435"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceValueType"><span class="annot"><a href="Network.AWS.Config.Types.ResourceValueType.html#ResourceValueType"><span class="hs-identifier hs-var">ResourceValueType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceValueType%27"><span class="annot"><a href="Network.AWS.Config.Types.ResourceValueType.html#ResourceValueType%27"><span class="hs-identifier hs-var">ResourceValueType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResourceValueType"><span class="annot"><span class="annottext">ResourceValueType -&gt; Text
 </span><a href="Network.AWS.Config.Types.ResourceValueType.html#fromResourceValueType"><span class="hs-identifier hs-var hs-var">fromResourceValueType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679407821"><span id="local-6989586621679407823"><span id="local-6989586621679407825"><span class="annot"><span class="annottext">Int -&gt; ResourceValueType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679408426"><span id="local-6989586621679408428"><span id="local-6989586621679408430"><span class="annot"><span class="annottext">Int -&gt; ResourceValueType -&gt; ShowS
 [ResourceValueType] -&gt; ShowS
 ResourceValueType -&gt; String
 (Int -&gt; ResourceValueType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: ResourceValueType -&gt; String
 showsPrec :: Int -&gt; ResourceValueType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ResourceValueType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679407812"><span id="local-6989586621679407814"><span id="local-6989586621679407816"><span id="local-6989586621679407818"><span class="annot"><span class="annottext">ReadPrec [ResourceValueType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679408417"><span id="local-6989586621679408419"><span id="local-6989586621679408421"><span id="local-6989586621679408423"><span class="annot"><span class="annottext">ReadPrec [ResourceValueType]
 ReadPrec ResourceValueType
 Int -&gt; ReadS ResourceValueType
 ReadS [ResourceValueType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [ResourceValueType]
 readsPrec :: Int -&gt; ReadS ResourceValueType
 $creadsPrec :: Int -&gt; ReadS ResourceValueType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679407807"><span id="local-6989586621679407809"><span class="annot"><span class="annottext">ResourceValueType -&gt; ResourceValueType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679408412"><span id="local-6989586621679408414"><span class="annot"><span class="annottext">ResourceValueType -&gt; ResourceValueType -&gt; Bool
 (ResourceValueType -&gt; ResourceValueType -&gt; Bool)
 -&gt; (ResourceValueType -&gt; ResourceValueType -&gt; Bool)
 -&gt; Eq ResourceValueType
@@ -81,7 +81,7 @@ $c/= :: ResourceValueType -&gt; ResourceValueType -&gt; Bool
 == :: ResourceValueType -&gt; ResourceValueType -&gt; Bool
 $c== :: ResourceValueType -&gt; ResourceValueType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679407791"><span id="local-6989586621679407793"><span id="local-6989586621679407795"><span id="local-6989586621679407797"><span id="local-6989586621679407799"><span id="local-6989586621679407801"><span id="local-6989586621679407803"><span class="annot"><span class="annottext">Eq ResourceValueType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679408396"><span id="local-6989586621679408398"><span id="local-6989586621679408400"><span id="local-6989586621679408402"><span id="local-6989586621679408404"><span id="local-6989586621679408406"><span id="local-6989586621679408408"><span class="annot"><span class="annottext">Eq ResourceValueType
 Eq ResourceValueType
 -&gt; (ResourceValueType -&gt; ResourceValueType -&gt; Ordering)
 -&gt; (ResourceValueType -&gt; ResourceValueType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ResourceValueType -&gt; Rep ResourceValueType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679407783"><span id="local-6989586621679407785"><span class="annot"><span class="annottext">Int -&gt; ResourceValueType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679408388"><span id="local-6989586621679408390"><span class="annot"><span class="annottext">Int -&gt; ResourceValueType -&gt; Int
 ResourceValueType -&gt; Int
 (Int -&gt; ResourceValueType -&gt; Int)
 -&gt; (ResourceValueType -&gt; Int) -&gt; Hashable ResourceValueType
@@ -142,51 +142,51 @@ $chash :: ResourceValueType -&gt; Int
 hashWithSalt :: Int -&gt; ResourceValueType -&gt; Int
 $chashWithSalt :: Int -&gt; ResourceValueType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679407780"><span class="annot"><span class="annottext">ResourceValueType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679408385"><span class="annot"><span class="annottext">ResourceValueType -&gt; ()
 (ResourceValueType -&gt; ()) -&gt; NFData ResourceValueType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ResourceValueType -&gt; ()
 $crnf :: ResourceValueType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679407777"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceValueType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679408382"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceValueType
 (Text -&gt; Either String ResourceValueType)
 -&gt; FromText ResourceValueType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ResourceValueType
 $cfromText :: Text -&gt; Either String ResourceValueType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679407774"><span class="annot"><span class="annottext">ResourceValueType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679408379"><span class="annot"><span class="annottext">ResourceValueType -&gt; Text
 (ResourceValueType -&gt; Text) -&gt; ToText ResourceValueType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ResourceValueType -&gt; Text
 $ctoText :: ResourceValueType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679407771"><span class="annot"><span class="annottext">ResourceValueType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679408376"><span class="annot"><span class="annottext">ResourceValueType -&gt; ByteString
 (ResourceValueType -&gt; ByteString) -&gt; ToByteString ResourceValueType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ResourceValueType -&gt; ByteString
 $ctoBS :: ResourceValueType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679407768"><span class="annot"><span class="annottext">ResourceValueType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679408373"><span class="annot"><span class="annottext">ResourceValueType -&gt; ByteStringBuilder
 (ResourceValueType -&gt; ByteStringBuilder) -&gt; ToLog ResourceValueType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ResourceValueType -&gt; ByteStringBuilder
 $cbuild :: ResourceValueType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679407765"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceValueType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679408370"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceValueType -&gt; [Header]
 (HeaderName -&gt; ResourceValueType -&gt; [Header])
 -&gt; ToHeader ResourceValueType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ResourceValueType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ResourceValueType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679407762"><span class="annot"><span class="annottext">ResourceValueType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679408367"><span class="annot"><span class="annottext">ResourceValueType -&gt; QueryString
 (ResourceValueType -&gt; QueryString) -&gt; ToQuery ResourceValueType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ResourceValueType -&gt; QueryString
 $ctoQuery :: ResourceValueType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679407757"><span id="local-6989586621679407759"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceValueType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679408362"><span id="local-6989586621679408364"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceValueType]
 Value -&gt; Parser ResourceValueType
 (Value -&gt; Parser ResourceValueType)
 -&gt; (Value -&gt; Parser [ResourceValueType])
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [ResourceValueType]
 parseJSON :: Value -&gt; Parser ResourceValueType
 $cparseJSON :: Value -&gt; Parser ResourceValueType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679407752"><span id="local-6989586621679407754"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceValueType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679408357"><span id="local-6989586621679408359"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceValueType]
 FromJSONKeyFunction ResourceValueType
 FromJSONKeyFunction ResourceValueType
 -&gt; FromJSONKeyFunction [ResourceValueType]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ResourceValueType]
 fromJSONKey :: FromJSONKeyFunction ResourceValueType
 $cfromJSONKey :: FromJSONKeyFunction ResourceValueType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679407743"><span id="local-6989586621679407745"><span id="local-6989586621679407747"><span id="local-6989586621679407749"><span class="annot"><span class="annottext">[ResourceValueType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679408348"><span id="local-6989586621679408350"><span id="local-6989586621679408352"><span id="local-6989586621679408354"><span class="annot"><span class="annottext">[ResourceValueType] -&gt; Encoding
 [ResourceValueType] -&gt; Value
 ResourceValueType -&gt; Encoding
 ResourceValueType -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: ResourceValueType -&gt; Encoding
 toJSON :: ResourceValueType -&gt; Value
 $ctoJSON :: ResourceValueType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679407738"><span id="local-6989586621679407740"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceValueType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679408343"><span id="local-6989586621679408345"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceValueType]
 ToJSONKeyFunction ResourceValueType
 ToJSONKeyFunction ResourceValueType
 -&gt; ToJSONKeyFunction [ResourceValueType]
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ResourceValueType]
 toJSONKey :: ToJSONKeyFunction ResourceValueType
 $ctoJSONKey :: ToJSONKeyFunction ResourceValueType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679407735"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceValueType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679408340"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceValueType
 ([Node] -&gt; Either String ResourceValueType)
 -&gt; FromXML ResourceValueType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ResourceValueType
 $cparseXML :: [Node] -&gt; Either String ResourceValueType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679407732"><span class="annot"><span class="annottext">ResourceValueType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679408337"><span class="annot"><span class="annottext">ResourceValueType -&gt; XML
 (ResourceValueType -&gt; XML) -&gt; ToXML ResourceValueType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ResourceValueType -&gt; XML

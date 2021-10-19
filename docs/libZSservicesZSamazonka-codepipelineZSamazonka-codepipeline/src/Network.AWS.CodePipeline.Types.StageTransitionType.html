@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679282435"><span id="local-6989586621679282436"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StageTransitionType"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageTransitionType.html#StageTransitionType"><span class="hs-identifier hs-var">StageTransitionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StageTransitionType%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageTransitionType.html#StageTransitionType%27"><span class="hs-identifier hs-var">StageTransitionType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679282645"><span id="local-6989586621679282646"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StageTransitionType"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageTransitionType.html#StageTransitionType"><span class="hs-identifier hs-var">StageTransitionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StageTransitionType%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StageTransitionType.html#StageTransitionType%27"><span class="hs-identifier hs-var">StageTransitionType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStageTransitionType"><span class="annot"><span class="annottext">StageTransitionType -&gt; Text
 </span><a href="Network.AWS.CodePipeline.Types.StageTransitionType.html#fromStageTransitionType"><span class="hs-identifier hs-var hs-var">fromStageTransitionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679282427"><span id="local-6989586621679282429"><span id="local-6989586621679282431"><span class="annot"><span class="annottext">Int -&gt; StageTransitionType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679282637"><span id="local-6989586621679282639"><span id="local-6989586621679282641"><span class="annot"><span class="annottext">Int -&gt; StageTransitionType -&gt; ShowS
 [StageTransitionType] -&gt; ShowS
 StageTransitionType -&gt; String
 (Int -&gt; StageTransitionType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: StageTransitionType -&gt; String
 showsPrec :: Int -&gt; StageTransitionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; StageTransitionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679282418"><span id="local-6989586621679282420"><span id="local-6989586621679282422"><span id="local-6989586621679282424"><span class="annot"><span class="annottext">ReadPrec [StageTransitionType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679282628"><span id="local-6989586621679282630"><span id="local-6989586621679282632"><span id="local-6989586621679282634"><span class="annot"><span class="annottext">ReadPrec [StageTransitionType]
 ReadPrec StageTransitionType
 Int -&gt; ReadS StageTransitionType
 ReadS [StageTransitionType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [StageTransitionType]
 readsPrec :: Int -&gt; ReadS StageTransitionType
 $creadsPrec :: Int -&gt; ReadS StageTransitionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679282413"><span id="local-6989586621679282415"><span class="annot"><span class="annottext">StageTransitionType -&gt; StageTransitionType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679282623"><span id="local-6989586621679282625"><span class="annot"><span class="annottext">StageTransitionType -&gt; StageTransitionType -&gt; Bool
 (StageTransitionType -&gt; StageTransitionType -&gt; Bool)
 -&gt; (StageTransitionType -&gt; StageTransitionType -&gt; Bool)
 -&gt; Eq StageTransitionType
@@ -82,7 +82,7 @@ $c/= :: StageTransitionType -&gt; StageTransitionType -&gt; Bool
 == :: StageTransitionType -&gt; StageTransitionType -&gt; Bool
 $c== :: StageTransitionType -&gt; StageTransitionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679282397"><span id="local-6989586621679282399"><span id="local-6989586621679282401"><span id="local-6989586621679282403"><span id="local-6989586621679282405"><span id="local-6989586621679282407"><span id="local-6989586621679282409"><span class="annot"><span class="annottext">Eq StageTransitionType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679282607"><span id="local-6989586621679282609"><span id="local-6989586621679282611"><span id="local-6989586621679282613"><span id="local-6989586621679282615"><span id="local-6989586621679282617"><span id="local-6989586621679282619"><span class="annot"><span class="annottext">Eq StageTransitionType
 Eq StageTransitionType
 -&gt; (StageTransitionType -&gt; StageTransitionType -&gt; Ordering)
 -&gt; (StageTransitionType -&gt; StageTransitionType -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. StageTransitionType -&gt; Rep StageTransitionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679282389"><span id="local-6989586621679282391"><span class="annot"><span class="annottext">Int -&gt; StageTransitionType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679282599"><span id="local-6989586621679282601"><span class="annot"><span class="annottext">Int -&gt; StageTransitionType -&gt; Int
 StageTransitionType -&gt; Int
 (Int -&gt; StageTransitionType -&gt; Int)
 -&gt; (StageTransitionType -&gt; Int) -&gt; Hashable StageTransitionType
@@ -145,53 +145,53 @@ $chash :: StageTransitionType -&gt; Int
 hashWithSalt :: Int -&gt; StageTransitionType -&gt; Int
 $chashWithSalt :: Int -&gt; StageTransitionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679282386"><span class="annot"><span class="annottext">StageTransitionType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679282596"><span class="annot"><span class="annottext">StageTransitionType -&gt; ()
 (StageTransitionType -&gt; ()) -&gt; NFData StageTransitionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StageTransitionType -&gt; ()
 $crnf :: StageTransitionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679282383"><span class="annot"><span class="annottext">Text -&gt; Either String StageTransitionType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679282593"><span class="annot"><span class="annottext">Text -&gt; Either String StageTransitionType
 (Text -&gt; Either String StageTransitionType)
 -&gt; FromText StageTransitionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StageTransitionType
 $cfromText :: Text -&gt; Either String StageTransitionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679282380"><span class="annot"><span class="annottext">StageTransitionType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679282590"><span class="annot"><span class="annottext">StageTransitionType -&gt; Text
 (StageTransitionType -&gt; Text) -&gt; ToText StageTransitionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StageTransitionType -&gt; Text
 $ctoText :: StageTransitionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679282377"><span class="annot"><span class="annottext">StageTransitionType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679282587"><span class="annot"><span class="annottext">StageTransitionType -&gt; ByteString
 (StageTransitionType -&gt; ByteString)
 -&gt; ToByteString StageTransitionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StageTransitionType -&gt; ByteString
 $ctoBS :: StageTransitionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679282374"><span class="annot"><span class="annottext">StageTransitionType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679282584"><span class="annot"><span class="annottext">StageTransitionType -&gt; ByteStringBuilder
 (StageTransitionType -&gt; ByteStringBuilder)
 -&gt; ToLog StageTransitionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StageTransitionType -&gt; ByteStringBuilder
 $cbuild :: StageTransitionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679282371"><span class="annot"><span class="annottext">HeaderName -&gt; StageTransitionType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679282581"><span class="annot"><span class="annottext">HeaderName -&gt; StageTransitionType -&gt; [Header]
 (HeaderName -&gt; StageTransitionType -&gt; [Header])
 -&gt; ToHeader StageTransitionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StageTransitionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StageTransitionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679282368"><span class="annot"><span class="annottext">StageTransitionType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679282578"><span class="annot"><span class="annottext">StageTransitionType -&gt; QueryString
 (StageTransitionType -&gt; QueryString) -&gt; ToQuery StageTransitionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StageTransitionType -&gt; QueryString
 $ctoQuery :: StageTransitionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679282363"><span id="local-6989586621679282365"><span class="annot"><span class="annottext">Value -&gt; Parser [StageTransitionType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679282573"><span id="local-6989586621679282575"><span class="annot"><span class="annottext">Value -&gt; Parser [StageTransitionType]
 Value -&gt; Parser StageTransitionType
 (Value -&gt; Parser StageTransitionType)
 -&gt; (Value -&gt; Parser [StageTransitionType])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [StageTransitionType]
 parseJSON :: Value -&gt; Parser StageTransitionType
 $cparseJSON :: Value -&gt; Parser StageTransitionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679282358"><span id="local-6989586621679282360"><span class="annot"><span class="annottext">FromJSONKeyFunction [StageTransitionType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679282568"><span id="local-6989586621679282570"><span class="annot"><span class="annottext">FromJSONKeyFunction [StageTransitionType]
 FromJSONKeyFunction StageTransitionType
 FromJSONKeyFunction StageTransitionType
 -&gt; FromJSONKeyFunction [StageTransitionType]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StageTransitionType]
 fromJSONKey :: FromJSONKeyFunction StageTransitionType
 $cfromJSONKey :: FromJSONKeyFunction StageTransitionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679282349"><span id="local-6989586621679282351"><span id="local-6989586621679282353"><span id="local-6989586621679282355"><span class="annot"><span class="annottext">[StageTransitionType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679282559"><span id="local-6989586621679282561"><span id="local-6989586621679282563"><span id="local-6989586621679282565"><span class="annot"><span class="annottext">[StageTransitionType] -&gt; Encoding
 [StageTransitionType] -&gt; Value
 StageTransitionType -&gt; Encoding
 StageTransitionType -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: StageTransitionType -&gt; Encoding
 toJSON :: StageTransitionType -&gt; Value
 $ctoJSON :: StageTransitionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679282344"><span id="local-6989586621679282346"><span class="annot"><span class="annottext">ToJSONKeyFunction [StageTransitionType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679282554"><span id="local-6989586621679282556"><span class="annot"><span class="annottext">ToJSONKeyFunction [StageTransitionType]
 ToJSONKeyFunction StageTransitionType
 ToJSONKeyFunction StageTransitionType
 -&gt; ToJSONKeyFunction [StageTransitionType]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StageTransitionType]
 toJSONKey :: ToJSONKeyFunction StageTransitionType
 $ctoJSONKey :: ToJSONKeyFunction StageTransitionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679282341"><span class="annot"><span class="annottext">[Node] -&gt; Either String StageTransitionType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679282551"><span class="annot"><span class="annottext">[Node] -&gt; Either String StageTransitionType
 ([Node] -&gt; Either String StageTransitionType)
 -&gt; FromXML StageTransitionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StageTransitionType
 $cparseXML :: [Node] -&gt; Either String StageTransitionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679282338"><span class="annot"><span class="annottext">StageTransitionType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679282548"><span class="annot"><span class="annottext">StageTransitionType -&gt; XML
 (StageTransitionType -&gt; XML) -&gt; ToXML StageTransitionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StageTransitionType -&gt; XML

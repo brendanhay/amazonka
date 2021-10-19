@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679205901"><span id="local-6989586621679205902"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApprovalModel"><span class="annot"><a href="Network.AWS.Budgets.Types.ApprovalModel.html#ApprovalModel"><span class="hs-identifier hs-var">ApprovalModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApprovalModel%27"><span class="annot"><a href="Network.AWS.Budgets.Types.ApprovalModel.html#ApprovalModel%27"><span class="hs-identifier hs-var">ApprovalModel'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679205997"><span id="local-6989586621679205998"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApprovalModel"><span class="annot"><a href="Network.AWS.Budgets.Types.ApprovalModel.html#ApprovalModel"><span class="hs-identifier hs-var">ApprovalModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApprovalModel%27"><span class="annot"><a href="Network.AWS.Budgets.Types.ApprovalModel.html#ApprovalModel%27"><span class="hs-identifier hs-var">ApprovalModel'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromApprovalModel"><span class="annot"><span class="annottext">ApprovalModel -&gt; Text
 </span><a href="Network.AWS.Budgets.Types.ApprovalModel.html#fromApprovalModel"><span class="hs-identifier hs-var hs-var">fromApprovalModel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679205893"><span id="local-6989586621679205895"><span id="local-6989586621679205897"><span class="annot"><span class="annottext">Int -&gt; ApprovalModel -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679205989"><span id="local-6989586621679205991"><span id="local-6989586621679205993"><span class="annot"><span class="annottext">Int -&gt; ApprovalModel -&gt; ShowS
 [ApprovalModel] -&gt; ShowS
 ApprovalModel -&gt; String
 (Int -&gt; ApprovalModel -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ApprovalModel -&gt; String
 showsPrec :: Int -&gt; ApprovalModel -&gt; ShowS
 $cshowsPrec :: Int -&gt; ApprovalModel -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679205884"><span id="local-6989586621679205886"><span id="local-6989586621679205888"><span id="local-6989586621679205890"><span class="annot"><span class="annottext">ReadPrec [ApprovalModel]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679205980"><span id="local-6989586621679205982"><span id="local-6989586621679205984"><span id="local-6989586621679205986"><span class="annot"><span class="annottext">ReadPrec [ApprovalModel]
 ReadPrec ApprovalModel
 Int -&gt; ReadS ApprovalModel
 ReadS [ApprovalModel]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ApprovalModel]
 readsPrec :: Int -&gt; ReadS ApprovalModel
 $creadsPrec :: Int -&gt; ReadS ApprovalModel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679205879"><span id="local-6989586621679205881"><span class="annot"><span class="annottext">ApprovalModel -&gt; ApprovalModel -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679205975"><span id="local-6989586621679205977"><span class="annot"><span class="annottext">ApprovalModel -&gt; ApprovalModel -&gt; Bool
 (ApprovalModel -&gt; ApprovalModel -&gt; Bool)
 -&gt; (ApprovalModel -&gt; ApprovalModel -&gt; Bool) -&gt; Eq ApprovalModel
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: ApprovalModel -&gt; ApprovalModel -&gt; Bool
 == :: ApprovalModel -&gt; ApprovalModel -&gt; Bool
 $c== :: ApprovalModel -&gt; ApprovalModel -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679205863"><span id="local-6989586621679205865"><span id="local-6989586621679205867"><span id="local-6989586621679205869"><span id="local-6989586621679205871"><span id="local-6989586621679205873"><span id="local-6989586621679205875"><span class="annot"><span class="annottext">Eq ApprovalModel
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679205959"><span id="local-6989586621679205961"><span id="local-6989586621679205963"><span id="local-6989586621679205965"><span id="local-6989586621679205967"><span id="local-6989586621679205969"><span id="local-6989586621679205971"><span class="annot"><span class="annottext">Eq ApprovalModel
 Eq ApprovalModel
 -&gt; (ApprovalModel -&gt; ApprovalModel -&gt; Ordering)
 -&gt; (ApprovalModel -&gt; ApprovalModel -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ApprovalModel -&gt; Rep ApprovalModel x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679205855"><span id="local-6989586621679205857"><span class="annot"><span class="annottext">Int -&gt; ApprovalModel -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679205951"><span id="local-6989586621679205953"><span class="annot"><span class="annottext">Int -&gt; ApprovalModel -&gt; Int
 ApprovalModel -&gt; Int
 (Int -&gt; ApprovalModel -&gt; Int)
 -&gt; (ApprovalModel -&gt; Int) -&gt; Hashable ApprovalModel
@@ -142,49 +142,49 @@ $chash :: ApprovalModel -&gt; Int
 hashWithSalt :: Int -&gt; ApprovalModel -&gt; Int
 $chashWithSalt :: Int -&gt; ApprovalModel -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679205852"><span class="annot"><span class="annottext">ApprovalModel -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679205948"><span class="annot"><span class="annottext">ApprovalModel -&gt; ()
 (ApprovalModel -&gt; ()) -&gt; NFData ApprovalModel
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ApprovalModel -&gt; ()
 $crnf :: ApprovalModel -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679205849"><span class="annot"><span class="annottext">Text -&gt; Either String ApprovalModel
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679205945"><span class="annot"><span class="annottext">Text -&gt; Either String ApprovalModel
 (Text -&gt; Either String ApprovalModel) -&gt; FromText ApprovalModel
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ApprovalModel
 $cfromText :: Text -&gt; Either String ApprovalModel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679205846"><span class="annot"><span class="annottext">ApprovalModel -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679205942"><span class="annot"><span class="annottext">ApprovalModel -&gt; Text
 (ApprovalModel -&gt; Text) -&gt; ToText ApprovalModel
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ApprovalModel -&gt; Text
 $ctoText :: ApprovalModel -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679205843"><span class="annot"><span class="annottext">ApprovalModel -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679205939"><span class="annot"><span class="annottext">ApprovalModel -&gt; ByteString
 (ApprovalModel -&gt; ByteString) -&gt; ToByteString ApprovalModel
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ApprovalModel -&gt; ByteString
 $ctoBS :: ApprovalModel -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679205840"><span class="annot"><span class="annottext">ApprovalModel -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679205936"><span class="annot"><span class="annottext">ApprovalModel -&gt; ByteStringBuilder
 (ApprovalModel -&gt; ByteStringBuilder) -&gt; ToLog ApprovalModel
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ApprovalModel -&gt; ByteStringBuilder
 $cbuild :: ApprovalModel -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679205837"><span class="annot"><span class="annottext">HeaderName -&gt; ApprovalModel -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679205933"><span class="annot"><span class="annottext">HeaderName -&gt; ApprovalModel -&gt; [Header]
 (HeaderName -&gt; ApprovalModel -&gt; [Header]) -&gt; ToHeader ApprovalModel
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ApprovalModel -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ApprovalModel -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679205834"><span class="annot"><span class="annottext">ApprovalModel -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679205930"><span class="annot"><span class="annottext">ApprovalModel -&gt; QueryString
 (ApprovalModel -&gt; QueryString) -&gt; ToQuery ApprovalModel
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ApprovalModel -&gt; QueryString
 $ctoQuery :: ApprovalModel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679205829"><span id="local-6989586621679205831"><span class="annot"><span class="annottext">Value -&gt; Parser [ApprovalModel]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679205925"><span id="local-6989586621679205927"><span class="annot"><span class="annottext">Value -&gt; Parser [ApprovalModel]
 Value -&gt; Parser ApprovalModel
 (Value -&gt; Parser ApprovalModel)
 -&gt; (Value -&gt; Parser [ApprovalModel]) -&gt; FromJSON ApprovalModel
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [ApprovalModel]
 parseJSON :: Value -&gt; Parser ApprovalModel
 $cparseJSON :: Value -&gt; Parser ApprovalModel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679205824"><span id="local-6989586621679205826"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApprovalModel]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679205920"><span id="local-6989586621679205922"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApprovalModel]
 FromJSONKeyFunction ApprovalModel
 FromJSONKeyFunction ApprovalModel
 -&gt; FromJSONKeyFunction [ApprovalModel] -&gt; FromJSONKey ApprovalModel
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ApprovalModel]
 fromJSONKey :: FromJSONKeyFunction ApprovalModel
 $cfromJSONKey :: FromJSONKeyFunction ApprovalModel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679205815"><span id="local-6989586621679205817"><span id="local-6989586621679205819"><span id="local-6989586621679205821"><span class="annot"><span class="annottext">[ApprovalModel] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679205911"><span id="local-6989586621679205913"><span id="local-6989586621679205915"><span id="local-6989586621679205917"><span class="annot"><span class="annottext">[ApprovalModel] -&gt; Encoding
 [ApprovalModel] -&gt; Value
 ApprovalModel -&gt; Encoding
 ApprovalModel -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: ApprovalModel -&gt; Encoding
 toJSON :: ApprovalModel -&gt; Value
 $ctoJSON :: ApprovalModel -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679205810"><span id="local-6989586621679205812"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApprovalModel]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679205906"><span id="local-6989586621679205908"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApprovalModel]
 ToJSONKeyFunction ApprovalModel
 ToJSONKeyFunction ApprovalModel
 -&gt; ToJSONKeyFunction [ApprovalModel] -&gt; ToJSONKey ApprovalModel
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ApprovalModel]
 toJSONKey :: ToJSONKeyFunction ApprovalModel
 $ctoJSONKey :: ToJSONKeyFunction ApprovalModel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679205807"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApprovalModel
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679205903"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApprovalModel
 ([Node] -&gt; Either String ApprovalModel) -&gt; FromXML ApprovalModel
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ApprovalModel
 $cparseXML :: [Node] -&gt; Either String ApprovalModel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679205804"><span class="annot"><span class="annottext">ApprovalModel -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679205900"><span class="annot"><span class="annottext">ApprovalModel -&gt; XML
 (ApprovalModel -&gt; XML) -&gt; ToXML ApprovalModel
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ApprovalModel -&gt; XML

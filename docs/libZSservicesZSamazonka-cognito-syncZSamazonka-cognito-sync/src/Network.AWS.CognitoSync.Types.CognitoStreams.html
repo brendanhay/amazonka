@@ -27,26 +27,26 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Configuration options for configure Cognito streams.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCognitoStreams' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679175241"><span id="local-6989586621679175242"></span></span><span class="hs-keyword">data</span><span> </span><span id="CognitoStreams"><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-var">CognitoStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CognitoStreams%27"><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams%27"><span class="hs-identifier hs-var">CognitoStreams'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the role Amazon Cognito can assume in order to publish to the</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- stream. This role must grant access to Amazon Cognito (cognito-sync) to</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- invoke PutRecord on your Cognito stream.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AroleArn%3ACognitoStreams%27"><span class="annot"><span class="annottext">CognitoStreams -&gt; Maybe Text
-</span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#%24sel%3AroleArn%3ACognitoStreams%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the Cognito stream to receive updates. This stream must be</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- in the developers account and in the same region as the identity pool.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AstreamName%3ACognitoStreams%27"><span class="annot"><span class="annottext">CognitoStreams -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679175281"><span id="local-6989586621679175282"></span></span><span class="hs-keyword">data</span><span> </span><span id="CognitoStreams"><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-var">CognitoStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CognitoStreams%27"><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams%27"><span class="hs-identifier hs-var">CognitoStreams'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Status of the Cognito streams. Valid values are:</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- ENABLED - Streaming of updates to identity pool is enabled.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- DISABLED - Streaming of updates to identity pool is disabled. Bulk</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- publish will also fail if StreamingStatus is DISABLED.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AstreamingStatus%3ACognitoStreams%27"><span class="annot"><span class="annottext">CognitoStreams -&gt; Maybe StreamingStatus
+</span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#%24sel%3AstreamingStatus%3ACognitoStreams%27"><span class="hs-identifier hs-var hs-var">streamingStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.StreamingStatus.html#StreamingStatus"><span class="hs-identifier hs-type">StreamingStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the Cognito stream to receive updates. This stream must be</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- in the developers account and in the same region as the identity pool.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AstreamName%3ACognitoStreams%27"><span class="annot"><span class="annottext">CognitoStreams -&gt; Maybe Text
 </span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#%24sel%3AstreamName%3ACognitoStreams%27"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Status of the Cognito streams. Valid values are:</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- ENABLED - Streaming of updates to identity pool is enabled.</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- DISABLED - Streaming of updates to identity pool is disabled. Bulk</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- publish will also fail if StreamingStatus is DISABLED.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AstreamingStatus%3ACognitoStreams%27"><span class="annot"><span class="annottext">CognitoStreams -&gt; Maybe StreamingStatus
-</span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#%24sel%3AstreamingStatus%3ACognitoStreams%27"><span class="hs-identifier hs-var hs-var">streamingStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.StreamingStatus.html#StreamingStatus"><span class="hs-identifier hs-type">StreamingStatus</span></a></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The ARN of the role Amazon Cognito can assume in order to publish to the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- stream. This role must grant access to Amazon Cognito (cognito-sync) to</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- invoke PutRecord on your Cognito stream.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AroleArn%3ACognitoStreams%27"><span class="annot"><span class="annottext">CognitoStreams -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#%24sel%3AroleArn%3ACognitoStreams%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175233"><span id="local-6989586621679175235"><span class="annot"><span class="annottext">CognitoStreams -&gt; CognitoStreams -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175273"><span id="local-6989586621679175275"><span class="annot"><span class="annottext">CognitoStreams -&gt; CognitoStreams -&gt; Bool
 (CognitoStreams -&gt; CognitoStreams -&gt; Bool)
 -&gt; (CognitoStreams -&gt; CognitoStreams -&gt; Bool) -&gt; Eq CognitoStreams
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CognitoStreams -&gt; CognitoStreams -&gt; Bool
 == :: CognitoStreams -&gt; CognitoStreams -&gt; Bool
 $c== :: CognitoStreams -&gt; CognitoStreams -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175224"><span id="local-6989586621679175226"><span id="local-6989586621679175228"><span id="local-6989586621679175230"><span class="annot"><span class="annottext">ReadPrec [CognitoStreams]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175264"><span id="local-6989586621679175266"><span id="local-6989586621679175268"><span id="local-6989586621679175270"><span class="annot"><span class="annottext">ReadPrec [CognitoStreams]
 ReadPrec CognitoStreams
 Int -&gt; ReadS CognitoStreams
 ReadS [CognitoStreams]
@@ -74,7 +74,7 @@ readList :: ReadS [CognitoStreams]
 $creadList :: ReadS [CognitoStreams]
 readsPrec :: Int -&gt; ReadS CognitoStreams
 $creadsPrec :: Int -&gt; ReadS CognitoStreams
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175217"><span id="local-6989586621679175219"><span id="local-6989586621679175221"><span class="annot"><span class="annottext">Int -&gt; CognitoStreams -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175257"><span id="local-6989586621679175259"><span id="local-6989586621679175261"><span class="annot"><span class="annottext">Int -&gt; CognitoStreams -&gt; ShowS
 [CognitoStreams] -&gt; ShowS
 CognitoStreams -&gt; String
 (Int -&gt; CognitoStreams -&gt; ShowS)
@@ -108,88 +108,47 @@ $cfrom :: forall x. CognitoStreams -&gt; Rep CognitoStreams x
 </span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'roleArn', 'cognitoStreams_roleArn' - The ARN of the role Amazon Cognito can assume in order to publish to the</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- stream. This role must grant access to Amazon Cognito (cognito-sync) to</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- invoke PutRecord on your Cognito stream.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'streamingStatus', 'cognitoStreams_streamingStatus' - Status of the Cognito streams. Valid values are:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- ENABLED - Streaming of updates to identity pool is enabled.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'streamName', 'cognitoStreams_streamName' - The name of the Cognito stream to receive updates. This stream must be</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- in the developers account and in the same region as the identity pool.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- DISABLED - Streaming of updates to identity pool is disabled. Bulk</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- publish will also fail if StreamingStatus is DISABLED.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'streamingStatus', 'cognitoStreams_streamingStatus' - Status of the Cognito streams. Valid values are:</span><span>
-</span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- ENABLED - Streaming of updates to identity pool is enabled.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- DISABLED - Streaming of updates to identity pool is disabled. Bulk</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- publish will also fail if StreamingStatus is DISABLED.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'streamName', 'cognitoStreams_streamName' - The name of the Cognito stream to receive updates. This stream must be</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- in the developers account and in the same region as the identity pool.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'roleArn', 'cognitoStreams_roleArn' - The ARN of the role Amazon Cognito can assume in order to publish to the</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- stream. This role must grant access to Amazon Cognito (cognito-sync) to</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- invoke PutRecord on your Cognito stream.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#newCognitoStreams"><span class="hs-identifier hs-type">newCognitoStreams</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span><span>
 </span><span id="line-71"></span><span id="newCognitoStreams"><span class="annot"><span class="annottext">newCognitoStreams :: CognitoStreams
 </span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#newCognitoStreams"><span class="hs-identifier hs-var hs-var">newCognitoStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">CognitoStreams' :: Maybe Text -&gt; Maybe Text -&gt; Maybe StreamingStatus -&gt; CognitoStreams
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">CognitoStreams' :: Maybe StreamingStatus -&gt; Maybe Text -&gt; Maybe Text -&gt; CognitoStreams
 </span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams%27"><span class="hs-identifier hs-type">CognitoStreams'</span></a></span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleArn:CognitoStreams' :: Maybe Text
-</span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#%24sel%3AroleArn%3ACognitoStreams%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamingStatus:CognitoStreams' :: Maybe StreamingStatus
+</span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#%24sel%3AstreamingStatus%3ACognitoStreams%27"><span class="hs-identifier hs-var">streamingStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamingStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamName:CognitoStreams' :: Maybe Text
 </span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#%24sel%3AstreamName%3ACognitoStreams%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamingStatus:CognitoStreams' :: Maybe StreamingStatus
-</span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#%24sel%3AstreamingStatus%3ACognitoStreams%27"><span class="hs-identifier hs-var">streamingStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamingStatus
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:CognitoStreams' :: Maybe Text
+</span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#%24sel%3AroleArn%3ACognitoStreams%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The ARN of the role Amazon Cognito can assume in order to publish to the</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- stream. This role must grant access to Amazon Cognito (cognito-sync) to</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- invoke PutRecord on your Cognito stream.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#cognitoStreams_roleArn"><span class="hs-identifier hs-type">cognitoStreams_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="cognitoStreams_roleArn"><span class="annot"><span class="annottext">cognitoStreams_roleArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CognitoStreams -&gt; f CognitoStreams
-</span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#cognitoStreams_roleArn"><span class="hs-identifier hs-var hs-var">cognitoStreams_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CognitoStreams -&gt; Maybe Text)
--&gt; (CognitoStreams -&gt; Maybe Text -&gt; CognitoStreams)
--&gt; Lens CognitoStreams CognitoStreams (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams%27"><span class="hs-identifier hs-type">CognitoStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175208"><span class="annot"><span class="annottext">Maybe Text
-roleArn :: Maybe Text
-$sel:roleArn:CognitoStreams' :: CognitoStreams -&gt; Maybe Text
-</span><a href="#local-6989586621679175208"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175208"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175207"><span class="annot"><span class="annottext">s :: CognitoStreams
-</span><a href="#local-6989586621679175207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams%27"><span class="hs-identifier hs-type">CognitoStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175206"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoStreams
-</span><a href="#local-6989586621679175207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CognitoStreams' :: Maybe Text
-</span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#%24sel%3AroleArn%3ACognitoStreams%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The name of the Cognito stream to receive updates. This stream must be</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- in the developers account and in the same region as the identity pool.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#cognitoStreams_streamName"><span class="hs-identifier hs-type">cognitoStreams_streamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="cognitoStreams_streamName"><span class="annot"><span class="annottext">cognitoStreams_streamName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CognitoStreams -&gt; f CognitoStreams
-</span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#cognitoStreams_streamName"><span class="hs-identifier hs-var hs-var">cognitoStreams_streamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CognitoStreams -&gt; Maybe Text)
--&gt; (CognitoStreams -&gt; Maybe Text -&gt; CognitoStreams)
--&gt; Lens CognitoStreams CognitoStreams (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams%27"><span class="hs-identifier hs-type">CognitoStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175204"><span class="annot"><span class="annottext">Maybe Text
-streamName :: Maybe Text
-$sel:streamName:CognitoStreams' :: CognitoStreams -&gt; Maybe Text
-</span><a href="#local-6989586621679175204"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175204"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175203"><span class="annot"><span class="annottext">s :: CognitoStreams
-</span><a href="#local-6989586621679175203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams%27"><span class="hs-identifier hs-type">CognitoStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175202"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoStreams
-</span><a href="#local-6989586621679175203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:CognitoStreams' :: Maybe Text
-</span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#%24sel%3AstreamName%3ACognitoStreams%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | Status of the Cognito streams. Valid values are:</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- ENABLED - Streaming of updates to identity pool is enabled.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- DISABLED - Streaming of updates to identity pool is disabled. Bulk</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- publish will also fail if StreamingStatus is DISABLED.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#cognitoStreams_streamingStatus"><span class="hs-identifier hs-type">cognitoStreams_streamingStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.StreamingStatus.html#StreamingStatus"><span class="hs-identifier hs-type">StreamingStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="cognitoStreams_streamingStatus"><span class="annot"><span class="annottext">cognitoStreams_streamingStatus :: (Maybe StreamingStatus -&gt; f (Maybe StreamingStatus))
+</span><span id="line-78"></span><span class="hs-comment">-- | Status of the Cognito streams. Valid values are:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- ENABLED - Streaming of updates to identity pool is enabled.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- DISABLED - Streaming of updates to identity pool is disabled. Bulk</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- publish will also fail if StreamingStatus is DISABLED.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#cognitoStreams_streamingStatus"><span class="hs-identifier hs-type">cognitoStreams_streamingStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.StreamingStatus.html#StreamingStatus"><span class="hs-identifier hs-type">StreamingStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="cognitoStreams_streamingStatus"><span class="annot"><span class="annottext">cognitoStreams_streamingStatus :: (Maybe StreamingStatus -&gt; f (Maybe StreamingStatus))
 -&gt; CognitoStreams -&gt; f CognitoStreams
 </span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#cognitoStreams_streamingStatus"><span class="hs-identifier hs-var hs-var">cognitoStreams_streamingStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CognitoStreams -&gt; Maybe StreamingStatus)
 -&gt; (CognitoStreams -&gt; Maybe StreamingStatus -&gt; CognitoStreams)
@@ -199,19 +158,60 @@ $sel:streamName:CognitoStreams' :: CognitoStreams -&gt; Maybe Text
      (Maybe StreamingStatus)
      (Maybe StreamingStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams%27"><span class="hs-identifier hs-type">CognitoStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175200"><span class="annot"><span class="annottext">Maybe StreamingStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams%27"><span class="hs-identifier hs-type">CognitoStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175248"><span class="annot"><span class="annottext">Maybe StreamingStatus
 streamingStatus :: Maybe StreamingStatus
 $sel:streamingStatus:CognitoStreams' :: CognitoStreams -&gt; Maybe StreamingStatus
-</span><a href="#local-6989586621679175200"><span class="hs-identifier hs-var hs-var">streamingStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StreamingStatus
-</span><a href="#local-6989586621679175200"><span class="hs-identifier hs-var">streamingStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175199"><span class="annot"><span class="annottext">s :: CognitoStreams
-</span><a href="#local-6989586621679175199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams%27"><span class="hs-identifier hs-type">CognitoStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175198"><span class="annot"><span class="annottext">Maybe StreamingStatus
-</span><a href="#local-6989586621679175198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoStreams
-</span><a href="#local-6989586621679175199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamingStatus:CognitoStreams' :: Maybe StreamingStatus
+</span><a href="#local-6989586621679175248"><span class="hs-identifier hs-var hs-var">streamingStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StreamingStatus
+</span><a href="#local-6989586621679175248"><span class="hs-identifier hs-var">streamingStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175247"><span class="annot"><span class="annottext">s :: CognitoStreams
+</span><a href="#local-6989586621679175247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams%27"><span class="hs-identifier hs-type">CognitoStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175246"><span class="annot"><span class="annottext">Maybe StreamingStatus
+</span><a href="#local-6989586621679175246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoStreams
+</span><a href="#local-6989586621679175247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamingStatus:CognitoStreams' :: Maybe StreamingStatus
 </span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#%24sel%3AstreamingStatus%3ACognitoStreams%27"><span class="hs-identifier hs-var">streamingStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamingStatus
-</span><a href="#local-6989586621679175198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The name of the Cognito stream to receive updates. This stream must be</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- in the developers account and in the same region as the identity pool.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#cognitoStreams_streamName"><span class="hs-identifier hs-type">cognitoStreams_streamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="cognitoStreams_streamName"><span class="annot"><span class="annottext">cognitoStreams_streamName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CognitoStreams -&gt; f CognitoStreams
+</span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#cognitoStreams_streamName"><span class="hs-identifier hs-var hs-var">cognitoStreams_streamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CognitoStreams -&gt; Maybe Text)
+-&gt; (CognitoStreams -&gt; Maybe Text -&gt; CognitoStreams)
+-&gt; Lens CognitoStreams CognitoStreams (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams%27"><span class="hs-identifier hs-type">CognitoStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175244"><span class="annot"><span class="annottext">Maybe Text
+streamName :: Maybe Text
+$sel:streamName:CognitoStreams' :: CognitoStreams -&gt; Maybe Text
+</span><a href="#local-6989586621679175244"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175244"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175243"><span class="annot"><span class="annottext">s :: CognitoStreams
+</span><a href="#local-6989586621679175243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams%27"><span class="hs-identifier hs-type">CognitoStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175242"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoStreams
+</span><a href="#local-6989586621679175243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:CognitoStreams' :: Maybe Text
+</span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#%24sel%3AstreamName%3ACognitoStreams%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The ARN of the role Amazon Cognito can assume in order to publish to the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- stream. This role must grant access to Amazon Cognito (cognito-sync) to</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- invoke PutRecord on your Cognito stream.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#cognitoStreams_roleArn"><span class="hs-identifier hs-type">cognitoStreams_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="cognitoStreams_roleArn"><span class="annot"><span class="annottext">cognitoStreams_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CognitoStreams -&gt; f CognitoStreams
+</span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#cognitoStreams_roleArn"><span class="hs-identifier hs-var hs-var">cognitoStreams_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CognitoStreams -&gt; Maybe Text)
+-&gt; (CognitoStreams -&gt; Maybe Text -&gt; CognitoStreams)
+-&gt; Lens CognitoStreams CognitoStreams (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams%27"><span class="hs-identifier hs-type">CognitoStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175240"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:CognitoStreams' :: CognitoStreams -&gt; Maybe Text
+</span><a href="#local-6989586621679175240"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175240"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175239"><span class="annot"><span class="annottext">s :: CognitoStreams
+</span><a href="#local-6989586621679175239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams%27"><span class="hs-identifier hs-type">CognitoStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175238"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoStreams
+</span><a href="#local-6989586621679175239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CognitoStreams' :: Maybe Text
+</span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#%24sel%3AroleArn%3ACognitoStreams%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175195"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679175193"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CognitoStreams
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175235"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679175233"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CognitoStreams
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CognitoStreams)
@@ -221,81 +221,80 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CognitoStreams&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175190"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175190"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe StreamingStatus -&gt; CognitoStreams
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175230"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175230"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe StreamingStatus -&gt; Maybe Text -&gt; Maybe Text -&gt; CognitoStreams
 </span><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams%27"><span class="hs-identifier hs-var">CognitoStreams'</span></a></span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text -&gt; Maybe StreamingStatus -&gt; CognitoStreams)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe StreamingStatus -&gt; CognitoStreams)
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe StreamingStatus
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; CognitoStreams)
+-&gt; Parser (Maybe StreamingStatus)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; CognitoStreams)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe StreamingStatus -&gt; CognitoStreams)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe StreamingStatus -&gt; CognitoStreams)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StreamName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe StreamingStatus -&gt; CognitoStreams)
--&gt; Parser (Maybe StreamingStatus) -&gt; Parser CognitoStreams
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StreamingStatus)
+</span><a href="#local-6989586621679175230"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StreamingStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamingStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; CognitoStreams)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; CognitoStreams)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175230"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StreamName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; CognitoStreams)
+-&gt; Parser (Maybe Text) -&gt; Parser CognitoStreams
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175230"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175184"><span id="local-6989586621679175186"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175224"><span id="local-6989586621679175226"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175181"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175221"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175173"><span id="local-6989586621679175175"><span id="local-6989586621679175177"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679175171"><span class="annot"><span class="annottext">toJSON :: CognitoStreams -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams%27"><span class="hs-identifier hs-type">CognitoStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175167"><span id="local-6989586621679175168"><span id="local-6989586621679175169"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175213"><span id="local-6989586621679175215"><span id="local-6989586621679175217"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams"><span class="hs-identifier hs-type">CognitoStreams</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679175211"><span class="annot"><span class="annottext">toJSON :: CognitoStreams -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.CognitoStreams.html#CognitoStreams%27"><span class="hs-identifier hs-type">CognitoStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175207"><span id="local-6989586621679175208"><span id="local-6989586621679175209"><span class="annot"><span class="annottext">Maybe Text
 Maybe StreamingStatus
-streamingStatus :: Maybe StreamingStatus
-streamName :: Maybe Text
 roleArn :: Maybe Text
-$sel:streamingStatus:CognitoStreams' :: CognitoStreams -&gt; Maybe StreamingStatus
-$sel:streamName:CognitoStreams' :: CognitoStreams -&gt; Maybe Text
+streamName :: Maybe Text
+streamingStatus :: Maybe StreamingStatus
 $sel:roleArn:CognitoStreams' :: CognitoStreams -&gt; Maybe Text
-</span><a href="#local-6989586621679175167"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:streamName:CognitoStreams' :: CognitoStreams -&gt; Maybe Text
+$sel:streamingStatus:CognitoStreams' :: CognitoStreams -&gt; Maybe StreamingStatus
+</span><a href="#local-6989586621679175207"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-117"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;StreamingStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StreamingStatus -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">(StreamingStatus -&gt; Pair) -&gt; Maybe StreamingStatus -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175169"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StreamingStatus
+</span><a href="#local-6989586621679175209"><span class="hs-identifier hs-var">streamingStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175168"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StreamingStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StreamingStatus -&gt; Pair
+</span><a href="#local-6989586621679175208"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">(StreamingStatus -&gt; Pair) -&gt; Maybe StreamingStatus -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StreamingStatus
-</span><a href="#local-6989586621679175167"><span class="hs-identifier hs-var">streamingStatus</span></a></span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175207"><span class="hs-identifier hs-var">roleArn</span></a></span><span>
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span></pre></body></html>

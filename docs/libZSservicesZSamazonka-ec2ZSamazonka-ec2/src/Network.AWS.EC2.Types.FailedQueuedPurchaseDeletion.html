@@ -28,16 +28,16 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a Reserved Instance whose queued purchase was not deleted.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newFailedQueuedPurchaseDeletion' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681071865"><span id="local-6989586621681071866"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailedQueuedPurchaseDeletion"><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion"><span class="hs-identifier hs-var">FailedQueuedPurchaseDeletion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailedQueuedPurchaseDeletion%27"><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-var">FailedQueuedPurchaseDeletion'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Reserved Instance.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AreservedInstancesId%3AFailedQueuedPurchaseDeletion%27"><span class="annot"><span class="annottext">FailedQueuedPurchaseDeletion -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#%24sel%3AreservedInstancesId%3AFailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-var hs-var">reservedInstancesId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The error.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aerror%3AFailedQueuedPurchaseDeletion%27"><span class="annot"><span class="annottext">FailedQueuedPurchaseDeletion
+</span><span id="line-31"></span><span id="local-6989586621681105892"><span id="local-6989586621681105893"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailedQueuedPurchaseDeletion"><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion"><span class="hs-identifier hs-var">FailedQueuedPurchaseDeletion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailedQueuedPurchaseDeletion%27"><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-var">FailedQueuedPurchaseDeletion'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aerror%3AFailedQueuedPurchaseDeletion%27"><span class="annot"><span class="annottext">FailedQueuedPurchaseDeletion
 -&gt; Maybe DeleteQueuedReservedInstancesError
-</span><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#%24sel%3Aerror%3AFailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteQueuedReservedInstancesError.html#DeleteQueuedReservedInstancesError"><span class="hs-identifier hs-type">DeleteQueuedReservedInstancesError</span></a></span><span>
+</span><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#%24sel%3Aerror%3AFailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteQueuedReservedInstancesError.html#DeleteQueuedReservedInstancesError"><span class="hs-identifier hs-type">DeleteQueuedReservedInstancesError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the Reserved Instance.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AreservedInstancesId%3AFailedQueuedPurchaseDeletion%27"><span class="annot"><span class="annottext">FailedQueuedPurchaseDeletion -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#%24sel%3AreservedInstancesId%3AFailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-var hs-var">reservedInstancesId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681071858"><span id="local-6989586621681071860"><span class="annot"><span class="annottext">FailedQueuedPurchaseDeletion
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681105885"><span id="local-6989586621681105887"><span class="annot"><span class="annottext">FailedQueuedPurchaseDeletion
 -&gt; FailedQueuedPurchaseDeletion -&gt; Bool
 (FailedQueuedPurchaseDeletion
  -&gt; FailedQueuedPurchaseDeletion -&gt; Bool)
@@ -53,7 +53,7 @@ $c/= :: FailedQueuedPurchaseDeletion
 -&gt; FailedQueuedPurchaseDeletion -&gt; Bool
 $c== :: FailedQueuedPurchaseDeletion
 -&gt; FailedQueuedPurchaseDeletion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681071849"><span id="local-6989586621681071851"><span id="local-6989586621681071853"><span id="local-6989586621681071855"><span class="annot"><span class="annottext">ReadPrec [FailedQueuedPurchaseDeletion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681105876"><span id="local-6989586621681105878"><span id="local-6989586621681105880"><span id="local-6989586621681105882"><span class="annot"><span class="annottext">ReadPrec [FailedQueuedPurchaseDeletion]
 ReadPrec FailedQueuedPurchaseDeletion
 Int -&gt; ReadS FailedQueuedPurchaseDeletion
 ReadS [FailedQueuedPurchaseDeletion]
@@ -73,7 +73,7 @@ readList :: ReadS [FailedQueuedPurchaseDeletion]
 $creadList :: ReadS [FailedQueuedPurchaseDeletion]
 readsPrec :: Int -&gt; ReadS FailedQueuedPurchaseDeletion
 $creadsPrec :: Int -&gt; ReadS FailedQueuedPurchaseDeletion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681071842"><span id="local-6989586621681071844"><span id="local-6989586621681071846"><span class="annot"><span class="annottext">Int -&gt; FailedQueuedPurchaseDeletion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681105869"><span id="local-6989586621681105871"><span id="local-6989586621681105873"><span class="annot"><span class="annottext">Int -&gt; FailedQueuedPurchaseDeletion -&gt; ShowS
 [FailedQueuedPurchaseDeletion] -&gt; ShowS
 FailedQueuedPurchaseDeletion -&gt; String
 (Int -&gt; FailedQueuedPurchaseDeletion -&gt; ShowS)
@@ -113,55 +113,30 @@ FailedQueuedPurchaseDeletion -&gt; Rep FailedQueuedPurchaseDeletion x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'reservedInstancesId', 'failedQueuedPurchaseDeletion_reservedInstancesId' - The ID of the Reserved Instance.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'error', 'failedQueuedPurchaseDeletion_error' - The error.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'error', 'failedQueuedPurchaseDeletion_error' - The error.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'reservedInstancesId', 'failedQueuedPurchaseDeletion_reservedInstancesId' - The ID of the Reserved Instance.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#newFailedQueuedPurchaseDeletion"><span class="hs-identifier hs-type">newFailedQueuedPurchaseDeletion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion</span></a></span><span>
 </span><span id="line-52"></span><span id="newFailedQueuedPurchaseDeletion"><span class="annot"><span class="annottext">newFailedQueuedPurchaseDeletion :: FailedQueuedPurchaseDeletion
 </span><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#newFailedQueuedPurchaseDeletion"><span class="hs-identifier hs-var hs-var">newFailedQueuedPurchaseDeletion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">FailedQueuedPurchaseDeletion' :: Maybe Text
--&gt; Maybe DeleteQueuedReservedInstancesError
--&gt; FailedQueuedPurchaseDeletion
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">FailedQueuedPurchaseDeletion' :: Maybe DeleteQueuedReservedInstancesError
+-&gt; Maybe Text -&gt; FailedQueuedPurchaseDeletion
 </span><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reservedInstancesId:FailedQueuedPurchaseDeletion' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#%24sel%3AreservedInstancesId%3AFailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-var">reservedInstancesId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:error:FailedQueuedPurchaseDeletion' :: Maybe DeleteQueuedReservedInstancesError
+</span><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#%24sel%3Aerror%3AFailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe DeleteQueuedReservedInstancesError
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:error:FailedQueuedPurchaseDeletion' :: Maybe DeleteQueuedReservedInstancesError
-</span><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#%24sel%3Aerror%3AFailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeleteQueuedReservedInstancesError
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:reservedInstancesId:FailedQueuedPurchaseDeletion' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#%24sel%3AreservedInstancesId%3AFailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-var">reservedInstancesId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | The ID of the Reserved Instance.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#failedQueuedPurchaseDeletion_reservedInstancesId"><span class="hs-identifier hs-type">failedQueuedPurchaseDeletion_reservedInstancesId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="failedQueuedPurchaseDeletion_reservedInstancesId"><span class="annot"><span class="annottext">failedQueuedPurchaseDeletion_reservedInstancesId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; FailedQueuedPurchaseDeletion -&gt; f FailedQueuedPurchaseDeletion
-</span><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#failedQueuedPurchaseDeletion_reservedInstancesId"><span class="hs-identifier hs-var hs-var">failedQueuedPurchaseDeletion_reservedInstancesId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FailedQueuedPurchaseDeletion -&gt; Maybe Text)
--&gt; (FailedQueuedPurchaseDeletion
-    -&gt; Maybe Text -&gt; FailedQueuedPurchaseDeletion)
--&gt; Lens
-     FailedQueuedPurchaseDeletion
-     FailedQueuedPurchaseDeletion
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681071833"><span class="annot"><span class="annottext">Maybe Text
-reservedInstancesId :: Maybe Text
-$sel:reservedInstancesId:FailedQueuedPurchaseDeletion' :: FailedQueuedPurchaseDeletion -&gt; Maybe Text
-</span><a href="#local-6989586621681071833"><span class="hs-identifier hs-var hs-var">reservedInstancesId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681071833"><span class="hs-identifier hs-var">reservedInstancesId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681071832"><span class="annot"><span class="annottext">s :: FailedQueuedPurchaseDeletion
-</span><a href="#local-6989586621681071832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681071831"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681071831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedQueuedPurchaseDeletion
-</span><a href="#local-6989586621681071832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedInstancesId:FailedQueuedPurchaseDeletion' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#%24sel%3AreservedInstancesId%3AFailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-var">reservedInstancesId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681071831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The error.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#failedQueuedPurchaseDeletion_error"><span class="hs-identifier hs-type">failedQueuedPurchaseDeletion_error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteQueuedReservedInstancesError.html#DeleteQueuedReservedInstancesError"><span class="hs-identifier hs-type">DeleteQueuedReservedInstancesError</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="failedQueuedPurchaseDeletion_error"><span class="annot"><span class="annottext">failedQueuedPurchaseDeletion_error :: (Maybe DeleteQueuedReservedInstancesError
+</span><span id="line-59"></span><span class="hs-comment">-- | The error.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#failedQueuedPurchaseDeletion_error"><span class="hs-identifier hs-type">failedQueuedPurchaseDeletion_error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteQueuedReservedInstancesError.html#DeleteQueuedReservedInstancesError"><span class="hs-identifier hs-type">DeleteQueuedReservedInstancesError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="failedQueuedPurchaseDeletion_error"><span class="annot"><span class="annottext">failedQueuedPurchaseDeletion_error :: (Maybe DeleteQueuedReservedInstancesError
  -&gt; f (Maybe DeleteQueuedReservedInstancesError))
 -&gt; FailedQueuedPurchaseDeletion -&gt; f FailedQueuedPurchaseDeletion
 </span><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#failedQueuedPurchaseDeletion_error"><span class="hs-identifier hs-var hs-var">failedQueuedPurchaseDeletion_error</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FailedQueuedPurchaseDeletion
@@ -175,57 +150,73 @@ $sel:reservedInstancesId:FailedQueuedPurchaseDeletion' :: FailedQueuedPurchaseDe
      (Maybe DeleteQueuedReservedInstancesError)
      (Maybe DeleteQueuedReservedInstancesError)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681071829"><span class="annot"><span class="annottext">Maybe DeleteQueuedReservedInstancesError
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681105860"><span class="annot"><span class="annottext">Maybe DeleteQueuedReservedInstancesError
 error :: Maybe DeleteQueuedReservedInstancesError
 $sel:error:FailedQueuedPurchaseDeletion' :: FailedQueuedPurchaseDeletion
 -&gt; Maybe DeleteQueuedReservedInstancesError
-</span><a href="#local-6989586621681071829"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeleteQueuedReservedInstancesError
-</span><a href="#local-6989586621681071829"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681071828"><span class="annot"><span class="annottext">s :: FailedQueuedPurchaseDeletion
-</span><a href="#local-6989586621681071828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681071827"><span class="annot"><span class="annottext">Maybe DeleteQueuedReservedInstancesError
-</span><a href="#local-6989586621681071827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedQueuedPurchaseDeletion
-</span><a href="#local-6989586621681071828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:FailedQueuedPurchaseDeletion' :: Maybe DeleteQueuedReservedInstancesError
+</span><a href="#local-6989586621681105860"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeleteQueuedReservedInstancesError
+</span><a href="#local-6989586621681105860"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681105859"><span class="annot"><span class="annottext">s :: FailedQueuedPurchaseDeletion
+</span><a href="#local-6989586621681105859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681105858"><span class="annot"><span class="annottext">Maybe DeleteQueuedReservedInstancesError
+</span><a href="#local-6989586621681105858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedQueuedPurchaseDeletion
+</span><a href="#local-6989586621681105859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:FailedQueuedPurchaseDeletion' :: Maybe DeleteQueuedReservedInstancesError
 </span><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#%24sel%3Aerror%3AFailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeleteQueuedReservedInstancesError
-</span><a href="#local-6989586621681071827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681105858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The ID of the Reserved Instance.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#failedQueuedPurchaseDeletion_reservedInstancesId"><span class="hs-identifier hs-type">failedQueuedPurchaseDeletion_reservedInstancesId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="failedQueuedPurchaseDeletion_reservedInstancesId"><span class="annot"><span class="annottext">failedQueuedPurchaseDeletion_reservedInstancesId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FailedQueuedPurchaseDeletion -&gt; f FailedQueuedPurchaseDeletion
+</span><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#failedQueuedPurchaseDeletion_reservedInstancesId"><span class="hs-identifier hs-var hs-var">failedQueuedPurchaseDeletion_reservedInstancesId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FailedQueuedPurchaseDeletion -&gt; Maybe Text)
+-&gt; (FailedQueuedPurchaseDeletion
+    -&gt; Maybe Text -&gt; FailedQueuedPurchaseDeletion)
+-&gt; Lens
+     FailedQueuedPurchaseDeletion
+     FailedQueuedPurchaseDeletion
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681105856"><span class="annot"><span class="annottext">Maybe Text
+reservedInstancesId :: Maybe Text
+$sel:reservedInstancesId:FailedQueuedPurchaseDeletion' :: FailedQueuedPurchaseDeletion -&gt; Maybe Text
+</span><a href="#local-6989586621681105856"><span class="hs-identifier hs-var hs-var">reservedInstancesId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681105856"><span class="hs-identifier hs-var">reservedInstancesId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681105855"><span class="annot"><span class="annottext">s :: FailedQueuedPurchaseDeletion
+</span><a href="#local-6989586621681105855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681105854"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681105854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedQueuedPurchaseDeletion
+</span><a href="#local-6989586621681105855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedInstancesId:FailedQueuedPurchaseDeletion' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#%24sel%3AreservedInstancesId%3AFailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-var">reservedInstancesId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681105854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621681071824"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FailedQueuedPurchaseDeletion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681071822"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681071822"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe DeleteQueuedReservedInstancesError
--&gt; FailedQueuedPurchaseDeletion
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621681105851"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FailedQueuedPurchaseDeletion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681105849"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681105849"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe DeleteQueuedReservedInstancesError
+-&gt; Maybe Text -&gt; FailedQueuedPurchaseDeletion
 </span><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion%27"><span class="hs-identifier hs-var">FailedQueuedPurchaseDeletion'</span></a></span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe DeleteQueuedReservedInstancesError
- -&gt; FailedQueuedPurchaseDeletion)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe DeleteQueuedReservedInstancesError
-      -&gt; FailedQueuedPurchaseDeletion)
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe DeleteQueuedReservedInstancesError
+ -&gt; Maybe Text -&gt; FailedQueuedPurchaseDeletion)
+-&gt; Either String (Maybe DeleteQueuedReservedInstancesError)
+-&gt; Either String (Maybe Text -&gt; FailedQueuedPurchaseDeletion)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681071822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;reservedInstancesId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe DeleteQueuedReservedInstancesError
-   -&gt; FailedQueuedPurchaseDeletion)
--&gt; Either String (Maybe DeleteQueuedReservedInstancesError)
--&gt; Either String FailedQueuedPurchaseDeletion
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681071822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681105849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe DeleteQueuedReservedInstancesError)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;error&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; FailedQueuedPurchaseDeletion)
+-&gt; Either String (Maybe Text)
+-&gt; Either String FailedQueuedPurchaseDeletion
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681105849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reservedInstancesId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621681071816"><span id="local-6989586621681071818"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621681105843"><span id="local-6989586621681105845"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681071813"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681105840"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion.html#FailedQueuedPurchaseDeletion"><span class="hs-identifier hs-type">FailedQueuedPurchaseDeletion</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679163677"><span id="local-6989586621679163678"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MethodName"><span class="annot"><a href="Network.AWS.MediaStore.Types.MethodName.html#MethodName"><span class="hs-identifier hs-var">MethodName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MethodName%27"><span class="annot"><a href="Network.AWS.MediaStore.Types.MethodName.html#MethodName%27"><span class="hs-identifier hs-var">MethodName'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679163734"><span id="local-6989586621679163735"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MethodName"><span class="annot"><a href="Network.AWS.MediaStore.Types.MethodName.html#MethodName"><span class="hs-identifier hs-var">MethodName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MethodName%27"><span class="annot"><a href="Network.AWS.MediaStore.Types.MethodName.html#MethodName%27"><span class="hs-identifier hs-var">MethodName'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMethodName"><span class="annot"><span class="annottext">MethodName -&gt; Text
 </span><a href="Network.AWS.MediaStore.Types.MethodName.html#fromMethodName"><span class="hs-identifier hs-var hs-var">fromMethodName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679163669"><span id="local-6989586621679163671"><span id="local-6989586621679163673"><span class="annot"><span class="annottext">Int -&gt; MethodName -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679163726"><span id="local-6989586621679163728"><span id="local-6989586621679163730"><span class="annot"><span class="annottext">Int -&gt; MethodName -&gt; ShowS
 [MethodName] -&gt; ShowS
 MethodName -&gt; String
 (Int -&gt; MethodName -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: MethodName -&gt; String
 showsPrec :: Int -&gt; MethodName -&gt; ShowS
 $cshowsPrec :: Int -&gt; MethodName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679163660"><span id="local-6989586621679163662"><span id="local-6989586621679163664"><span id="local-6989586621679163666"><span class="annot"><span class="annottext">ReadPrec [MethodName]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679163717"><span id="local-6989586621679163719"><span id="local-6989586621679163721"><span id="local-6989586621679163723"><span class="annot"><span class="annottext">ReadPrec [MethodName]
 ReadPrec MethodName
 Int -&gt; ReadS MethodName
 ReadS [MethodName]
@@ -74,7 +74,7 @@ $creadList :: ReadS [MethodName]
 readsPrec :: Int -&gt; ReadS MethodName
 $creadsPrec :: Int -&gt; ReadS MethodName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679163655"><span id="local-6989586621679163657"><span class="annot"><span class="annottext">MethodName -&gt; MethodName -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679163712"><span id="local-6989586621679163714"><span class="annot"><span class="annottext">MethodName -&gt; MethodName -&gt; Bool
 (MethodName -&gt; MethodName -&gt; Bool)
 -&gt; (MethodName -&gt; MethodName -&gt; Bool) -&gt; Eq MethodName
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: MethodName -&gt; MethodName -&gt; Bool
 == :: MethodName -&gt; MethodName -&gt; Bool
 $c== :: MethodName -&gt; MethodName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679163639"><span id="local-6989586621679163641"><span id="local-6989586621679163643"><span id="local-6989586621679163645"><span id="local-6989586621679163647"><span id="local-6989586621679163649"><span id="local-6989586621679163651"><span class="annot"><span class="annottext">Eq MethodName
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679163696"><span id="local-6989586621679163698"><span id="local-6989586621679163700"><span id="local-6989586621679163702"><span id="local-6989586621679163704"><span id="local-6989586621679163706"><span id="local-6989586621679163708"><span class="annot"><span class="annottext">Eq MethodName
 Eq MethodName
 -&gt; (MethodName -&gt; MethodName -&gt; Ordering)
 -&gt; (MethodName -&gt; MethodName -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. MethodName -&gt; Rep MethodName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679163631"><span id="local-6989586621679163633"><span class="annot"><span class="annottext">Int -&gt; MethodName -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679163688"><span id="local-6989586621679163690"><span class="annot"><span class="annottext">Int -&gt; MethodName -&gt; Int
 MethodName -&gt; Int
 (Int -&gt; MethodName -&gt; Int)
 -&gt; (MethodName -&gt; Int) -&gt; Hashable MethodName
@@ -143,49 +143,49 @@ $chash :: MethodName -&gt; Int
 hashWithSalt :: Int -&gt; MethodName -&gt; Int
 $chashWithSalt :: Int -&gt; MethodName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679163628"><span class="annot"><span class="annottext">MethodName -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679163685"><span class="annot"><span class="annottext">MethodName -&gt; ()
 (MethodName -&gt; ()) -&gt; NFData MethodName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MethodName -&gt; ()
 $crnf :: MethodName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679163625"><span class="annot"><span class="annottext">Text -&gt; Either String MethodName
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679163682"><span class="annot"><span class="annottext">Text -&gt; Either String MethodName
 (Text -&gt; Either String MethodName) -&gt; FromText MethodName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MethodName
 $cfromText :: Text -&gt; Either String MethodName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679163622"><span class="annot"><span class="annottext">MethodName -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679163679"><span class="annot"><span class="annottext">MethodName -&gt; Text
 (MethodName -&gt; Text) -&gt; ToText MethodName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MethodName -&gt; Text
 $ctoText :: MethodName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679163619"><span class="annot"><span class="annottext">MethodName -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679163676"><span class="annot"><span class="annottext">MethodName -&gt; ByteString
 (MethodName -&gt; ByteString) -&gt; ToByteString MethodName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MethodName -&gt; ByteString
 $ctoBS :: MethodName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679163616"><span class="annot"><span class="annottext">MethodName -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679163673"><span class="annot"><span class="annottext">MethodName -&gt; ByteStringBuilder
 (MethodName -&gt; ByteStringBuilder) -&gt; ToLog MethodName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MethodName -&gt; ByteStringBuilder
 $cbuild :: MethodName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679163613"><span class="annot"><span class="annottext">HeaderName -&gt; MethodName -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679163670"><span class="annot"><span class="annottext">HeaderName -&gt; MethodName -&gt; [Header]
 (HeaderName -&gt; MethodName -&gt; [Header]) -&gt; ToHeader MethodName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MethodName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MethodName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679163610"><span class="annot"><span class="annottext">MethodName -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679163667"><span class="annot"><span class="annottext">MethodName -&gt; QueryString
 (MethodName -&gt; QueryString) -&gt; ToQuery MethodName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MethodName -&gt; QueryString
 $ctoQuery :: MethodName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679163605"><span id="local-6989586621679163607"><span class="annot"><span class="annottext">Value -&gt; Parser [MethodName]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679163662"><span id="local-6989586621679163664"><span class="annot"><span class="annottext">Value -&gt; Parser [MethodName]
 Value -&gt; Parser MethodName
 (Value -&gt; Parser MethodName)
 -&gt; (Value -&gt; Parser [MethodName]) -&gt; FromJSON MethodName
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [MethodName]
 parseJSON :: Value -&gt; Parser MethodName
 $cparseJSON :: Value -&gt; Parser MethodName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679163600"><span id="local-6989586621679163602"><span class="annot"><span class="annottext">FromJSONKeyFunction [MethodName]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679163657"><span id="local-6989586621679163659"><span class="annot"><span class="annottext">FromJSONKeyFunction [MethodName]
 FromJSONKeyFunction MethodName
 FromJSONKeyFunction MethodName
 -&gt; FromJSONKeyFunction [MethodName] -&gt; FromJSONKey MethodName
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MethodName]
 fromJSONKey :: FromJSONKeyFunction MethodName
 $cfromJSONKey :: FromJSONKeyFunction MethodName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679163591"><span id="local-6989586621679163593"><span id="local-6989586621679163595"><span id="local-6989586621679163597"><span class="annot"><span class="annottext">[MethodName] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679163648"><span id="local-6989586621679163650"><span id="local-6989586621679163652"><span id="local-6989586621679163654"><span class="annot"><span class="annottext">[MethodName] -&gt; Encoding
 [MethodName] -&gt; Value
 MethodName -&gt; Encoding
 MethodName -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: MethodName -&gt; Encoding
 toJSON :: MethodName -&gt; Value
 $ctoJSON :: MethodName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679163586"><span id="local-6989586621679163588"><span class="annot"><span class="annottext">ToJSONKeyFunction [MethodName]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679163643"><span id="local-6989586621679163645"><span class="annot"><span class="annottext">ToJSONKeyFunction [MethodName]
 ToJSONKeyFunction MethodName
 ToJSONKeyFunction MethodName
 -&gt; ToJSONKeyFunction [MethodName] -&gt; ToJSONKey MethodName
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MethodName]
 toJSONKey :: ToJSONKeyFunction MethodName
 $ctoJSONKey :: ToJSONKeyFunction MethodName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679163583"><span class="annot"><span class="annottext">[Node] -&gt; Either String MethodName
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679163640"><span class="annot"><span class="annottext">[Node] -&gt; Either String MethodName
 ([Node] -&gt; Either String MethodName) -&gt; FromXML MethodName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MethodName
 $cparseXML :: [Node] -&gt; Either String MethodName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679163580"><span class="annot"><span class="annottext">MethodName -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679163637"><span class="annot"><span class="annottext">MethodName -&gt; XML
 (MethodName -&gt; XML) -&gt; ToXML MethodName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MethodName -&gt; XML

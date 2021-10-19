@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Specifies a batch of events to process.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEventsRequest' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679609961"><span id="local-6989586621679609962"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventsRequest"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#EventsRequest"><span class="hs-identifier hs-var">EventsRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventsRequest%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#EventsRequest%27"><span class="hs-identifier hs-var">EventsRequest'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679610448"><span id="local-6989586621679610449"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventsRequest"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#EventsRequest"><span class="hs-identifier hs-var">EventsRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventsRequest%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#EventsRequest%27"><span class="hs-identifier hs-var">EventsRequest'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The batch of events to process. For each item in a batch, the endpoint</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- ID acts as a key that has an EventsBatch object as its value.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AbatchItem%3AEventsRequest%27"><span class="annot"><span class="annottext">EventsRequest -&gt; HashMap Text EventsBatch
 </span><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#%24sel%3AbatchItem%3AEventsRequest%27"><span class="hs-identifier hs-var hs-var">batchItem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsBatch.html#EventsBatch"><span class="hs-identifier hs-type">EventsBatch</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679609955"><span id="local-6989586621679609957"><span class="annot"><span class="annottext">EventsRequest -&gt; EventsRequest -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679610442"><span id="local-6989586621679610444"><span class="annot"><span class="annottext">EventsRequest -&gt; EventsRequest -&gt; Bool
 (EventsRequest -&gt; EventsRequest -&gt; Bool)
 -&gt; (EventsRequest -&gt; EventsRequest -&gt; Bool) -&gt; Eq EventsRequest
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EventsRequest -&gt; EventsRequest -&gt; Bool
 == :: EventsRequest -&gt; EventsRequest -&gt; Bool
 $c== :: EventsRequest -&gt; EventsRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609946"><span id="local-6989586621679609948"><span id="local-6989586621679609950"><span id="local-6989586621679609952"><span class="annot"><span class="annottext">ReadPrec [EventsRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610433"><span id="local-6989586621679610435"><span id="local-6989586621679610437"><span id="local-6989586621679610439"><span class="annot"><span class="annottext">ReadPrec [EventsRequest]
 ReadPrec EventsRequest
 Int -&gt; ReadS EventsRequest
 ReadS [EventsRequest]
@@ -61,7 +61,7 @@ readList :: ReadS [EventsRequest]
 $creadList :: ReadS [EventsRequest]
 readsPrec :: Int -&gt; ReadS EventsRequest
 $creadsPrec :: Int -&gt; ReadS EventsRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609939"><span id="local-6989586621679609941"><span id="local-6989586621679609943"><span class="annot"><span class="annottext">Int -&gt; EventsRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610426"><span id="local-6989586621679610428"><span id="local-6989586621679610430"><span class="annot"><span class="annottext">Int -&gt; EventsRequest -&gt; ShowS
 [EventsRequest] -&gt; ShowS
 EventsRequest -&gt; String
 (Int -&gt; EventsRequest -&gt; ShowS)
@@ -120,16 +120,16 @@ forall a. Monoid a =&gt; a
      (HashMap Text EventsBatch)
      (HashMap Text EventsBatch)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#EventsRequest%27"><span class="hs-identifier hs-type">EventsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609930"><span class="annot"><span class="annottext">HashMap Text EventsBatch
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#EventsRequest%27"><span class="hs-identifier hs-type">EventsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610417"><span class="annot"><span class="annottext">HashMap Text EventsBatch
 batchItem :: HashMap Text EventsBatch
 $sel:batchItem:EventsRequest' :: EventsRequest -&gt; HashMap Text EventsBatch
-</span><a href="#local-6989586621679609930"><span class="hs-identifier hs-var hs-var">batchItem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text EventsBatch
-</span><a href="#local-6989586621679609930"><span class="hs-identifier hs-var">batchItem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609929"><span class="annot"><span class="annottext">s :: EventsRequest
-</span><a href="#local-6989586621679609929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#EventsRequest%27"><span class="hs-identifier hs-type">EventsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609928"><span class="annot"><span class="annottext">HashMap Text EventsBatch
-</span><a href="#local-6989586621679609928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventsRequest
-</span><a href="#local-6989586621679609929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchItem:EventsRequest' :: HashMap Text EventsBatch
+</span><a href="#local-6989586621679610417"><span class="hs-identifier hs-var hs-var">batchItem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text EventsBatch
+</span><a href="#local-6989586621679610417"><span class="hs-identifier hs-var">batchItem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610416"><span class="annot"><span class="annottext">s :: EventsRequest
+</span><a href="#local-6989586621679610416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#EventsRequest%27"><span class="hs-identifier hs-type">EventsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610415"><span class="annot"><span class="annottext">HashMap Text EventsBatch
+</span><a href="#local-6989586621679610415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventsRequest
+</span><a href="#local-6989586621679610416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchItem:EventsRequest' :: HashMap Text EventsBatch
 </span><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#%24sel%3AbatchItem%3AEventsRequest%27"><span class="hs-identifier hs-var">batchItem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text EventsBatch
-</span><a href="#local-6989586621679609928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#EventsRequest"><span class="hs-identifier hs-type">EventsRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text EventsBatch -&gt; f (HashMap Text EventsBatch))
+</span><a href="#local-6989586621679610415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#EventsRequest"><span class="hs-identifier hs-type">EventsRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text EventsBatch -&gt; f (HashMap Text EventsBatch))
  -&gt; EventsRequest -&gt; f EventsRequest)
 -&gt; ((HashMap Text EventsBatch -&gt; f (HashMap Text EventsBatch))
     -&gt; HashMap Text EventsBatch -&gt; f (HashMap Text EventsBatch))
@@ -139,19 +139,19 @@ $sel:batchItem:EventsRequest' :: EventsRequest -&gt; HashMap Text EventsBatch
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text EventsBatch -&gt; f (HashMap Text EventsBatch))
 -&gt; HashMap Text EventsBatch -&gt; f (HashMap Text EventsBatch)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609922"><span id="local-6989586621679609924"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#EventsRequest"><span class="hs-identifier hs-type">EventsRequest</span></a></span></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610409"><span id="local-6989586621679610411"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#EventsRequest"><span class="hs-identifier hs-type">EventsRequest</span></a></span></span></span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#EventsRequest"><span class="hs-identifier hs-type">EventsRequest</span></a></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610406"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#EventsRequest"><span class="hs-identifier hs-type">EventsRequest</span></a></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609911"><span id="local-6989586621679609913"><span id="local-6989586621679609915"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#EventsRequest"><span class="hs-identifier hs-type">EventsRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679609909"><span class="annot"><span class="annottext">toJSON :: EventsRequest -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#EventsRequest%27"><span class="hs-identifier hs-type">EventsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609907"><span class="annot"><span class="annottext">HashMap Text EventsBatch
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610398"><span id="local-6989586621679610400"><span id="local-6989586621679610402"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#EventsRequest"><span class="hs-identifier hs-type">EventsRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679610396"><span class="annot"><span class="annottext">toJSON :: EventsRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventsRequest.html#EventsRequest%27"><span class="hs-identifier hs-type">EventsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610394"><span class="annot"><span class="annottext">HashMap Text EventsBatch
 batchItem :: HashMap Text EventsBatch
 $sel:batchItem:EventsRequest' :: EventsRequest -&gt; HashMap Text EventsBatch
-</span><a href="#local-6989586621679609907"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679610394"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -163,6 +163,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;BatchItem&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text EventsBatch -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text EventsBatch
-</span><a href="#local-6989586621679609907"><span class="hs-identifier hs-var">batchItem</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679610394"><span class="hs-identifier hs-var">batchItem</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span></pre></body></html>

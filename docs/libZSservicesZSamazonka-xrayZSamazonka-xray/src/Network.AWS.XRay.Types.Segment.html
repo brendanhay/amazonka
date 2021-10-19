@@ -34,15 +34,15 @@
 </span><span id="line-34"></span><span class="hs-comment">-- in the /Amazon Web Services X-Ray Developer Guide/.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newSegment' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679255276"><span id="local-6989586621679255277"></span></span><span class="hs-keyword">data</span><span> </span><span id="Segment"><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment"><span class="hs-identifier hs-var">Segment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Segment%27"><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment%27"><span class="hs-identifier hs-var">Segment'</span></a></span></span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The segment\'s ID.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aid%3ASegment%27"><span class="annot"><span class="annottext">Segment -&gt; Maybe Text
-</span><a href="Network.AWS.XRay.Types.Segment.html#%24sel%3Aid%3ASegment%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The segment document.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Adocument%3ASegment%27"><span class="annot"><span class="annottext">Segment -&gt; Maybe Text
-</span><a href="Network.AWS.XRay.Types.Segment.html#%24sel%3Adocument%3ASegment%27"><span class="hs-identifier hs-var hs-var">document</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679255558"><span id="local-6989586621679255559"></span></span><span class="hs-keyword">data</span><span> </span><span id="Segment"><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment"><span class="hs-identifier hs-var">Segment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Segment%27"><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment%27"><span class="hs-identifier hs-var">Segment'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The segment document.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Adocument%3ASegment%27"><span class="annot"><span class="annottext">Segment -&gt; Maybe Text
+</span><a href="Network.AWS.XRay.Types.Segment.html#%24sel%3Adocument%3ASegment%27"><span class="hs-identifier hs-var hs-var">document</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The segment\'s ID.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aid%3ASegment%27"><span class="annot"><span class="annottext">Segment -&gt; Maybe Text
+</span><a href="Network.AWS.XRay.Types.Segment.html#%24sel%3Aid%3ASegment%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255269"><span id="local-6989586621679255271"><span class="annot"><span class="annottext">Segment -&gt; Segment -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255551"><span id="local-6989586621679255553"><span class="annot"><span class="annottext">Segment -&gt; Segment -&gt; Bool
 (Segment -&gt; Segment -&gt; Bool)
 -&gt; (Segment -&gt; Segment -&gt; Bool) -&gt; Eq Segment
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Segment -&gt; Segment -&gt; Bool
 == :: Segment -&gt; Segment -&gt; Bool
 $c== :: Segment -&gt; Segment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255260"><span id="local-6989586621679255262"><span id="local-6989586621679255264"><span id="local-6989586621679255266"><span class="annot"><span class="annottext">ReadPrec [Segment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255542"><span id="local-6989586621679255544"><span id="local-6989586621679255546"><span id="local-6989586621679255548"><span class="annot"><span class="annottext">ReadPrec [Segment]
 ReadPrec Segment
 Int -&gt; ReadS Segment
 ReadS [Segment]
@@ -70,7 +70,7 @@ readList :: ReadS [Segment]
 $creadList :: ReadS [Segment]
 readsPrec :: Int -&gt; ReadS Segment
 $creadsPrec :: Int -&gt; ReadS Segment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255253"><span id="local-6989586621679255255"><span id="local-6989586621679255257"><span class="annot"><span class="annottext">Int -&gt; Segment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255535"><span id="local-6989586621679255537"><span id="local-6989586621679255539"><span class="annot"><span class="annottext">Int -&gt; Segment -&gt; ShowS
 [Segment] -&gt; ShowS
 Segment -&gt; String
 (Int -&gt; Segment -&gt; ShowS)
@@ -101,92 +101,92 @@ $cfrom :: forall x. Segment -&gt; Rep Segment x
 </span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'id', 'segment_id' - The segment\'s ID.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'document', 'segment_document' - The segment document.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'document', 'segment_document' - The segment document.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'id', 'segment_id' - The segment\'s ID.</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#newSegment"><span class="hs-identifier hs-type">newSegment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span><span>
 </span><span id="line-58"></span><span id="newSegment"><span class="annot"><span class="annottext">newSegment :: Segment
 </span><a href="Network.AWS.XRay.Types.Segment.html#newSegment"><span class="hs-identifier hs-var hs-var">newSegment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">Segment' :: Maybe Text -&gt; Maybe Text -&gt; Segment
 </span><a href="Network.AWS.XRay.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:Segment' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.Segment.html#%24sel%3Aid%3ASegment%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:document:Segment' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.Segment.html#%24sel%3Adocument%3ASegment%27"><span class="hs-identifier hs-var">document</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:document:Segment' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.Segment.html#%24sel%3Adocument%3ASegment%27"><span class="hs-identifier hs-var">document</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Segment' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.Segment.html#%24sel%3Aid%3ASegment%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | The segment\'s ID.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#segment_id"><span class="hs-identifier hs-type">segment_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="segment_id"><span class="annot"><span class="annottext">segment_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Segment -&gt; f Segment
-</span><a href="Network.AWS.XRay.Types.Segment.html#segment_id"><span class="hs-identifier hs-var hs-var">segment_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Segment -&gt; Maybe Text)
--&gt; (Segment -&gt; Maybe Text -&gt; Segment)
--&gt; Lens Segment Segment (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255244"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:Segment' :: Segment -&gt; Maybe Text
-</span><a href="#local-6989586621679255244"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255244"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255243"><span class="annot"><span class="annottext">s :: Segment
-</span><a href="#local-6989586621679255243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255242"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Segment
-</span><a href="#local-6989586621679255243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Segment' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.Segment.html#%24sel%3Aid%3ASegment%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | The segment document.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#segment_document"><span class="hs-identifier hs-type">segment_document</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="segment_document"><span class="annot"><span class="annottext">segment_document :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Segment -&gt; f Segment
+</span><span id="line-64"></span><span class="hs-comment">-- | The segment document.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#segment_document"><span class="hs-identifier hs-type">segment_document</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="segment_document"><span class="annot"><span class="annottext">segment_document :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Segment -&gt; f Segment
 </span><a href="Network.AWS.XRay.Types.Segment.html#segment_document"><span class="hs-identifier hs-var hs-var">segment_document</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Segment -&gt; Maybe Text)
 -&gt; (Segment -&gt; Maybe Text -&gt; Segment)
 -&gt; Lens Segment Segment (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255240"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255526"><span class="annot"><span class="annottext">Maybe Text
 document :: Maybe Text
 $sel:document:Segment' :: Segment -&gt; Maybe Text
-</span><a href="#local-6989586621679255240"><span class="hs-identifier hs-var hs-var">document</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255240"><span class="hs-identifier hs-var">document</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255239"><span class="annot"><span class="annottext">s :: Segment
-</span><a href="#local-6989586621679255239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255238"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Segment
-</span><a href="#local-6989586621679255239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:document:Segment' :: Maybe Text
+</span><a href="#local-6989586621679255526"><span class="hs-identifier hs-var hs-var">document</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255526"><span class="hs-identifier hs-var">document</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255525"><span class="annot"><span class="annottext">s :: Segment
+</span><a href="#local-6989586621679255525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255524"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Segment
+</span><a href="#local-6989586621679255525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:document:Segment' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.Segment.html#%24sel%3Adocument%3ASegment%27"><span class="hs-identifier hs-var">document</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The segment\'s ID.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#segment_id"><span class="hs-identifier hs-type">segment_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="segment_id"><span class="annot"><span class="annottext">segment_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Segment -&gt; f Segment
+</span><a href="Network.AWS.XRay.Types.Segment.html#segment_id"><span class="hs-identifier hs-var hs-var">segment_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Segment -&gt; Maybe Text)
+-&gt; (Segment -&gt; Maybe Text -&gt; Segment)
+-&gt; Lens Segment Segment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255522"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:Segment' :: Segment -&gt; Maybe Text
+</span><a href="#local-6989586621679255522"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255522"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255521"><span class="annot"><span class="annottext">s :: Segment
+</span><a href="#local-6989586621679255521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment%27"><span class="hs-identifier hs-type">Segment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255520"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Segment
+</span><a href="#local-6989586621679255521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Segment' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.Segment.html#%24sel%3Aid%3ASegment%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255235"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679255233"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Segment
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255517"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679255515"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Segment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Segment) -&gt; Value -&gt; Parser Segment
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Segment&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255230"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255230"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255512"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255512"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Segment
 </span><a href="Network.AWS.XRay.Types.Segment.html#Segment%27"><span class="hs-identifier hs-var">Segment'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Segment)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Segment)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255230"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679255512"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Document&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Segment)
 -&gt; Parser (Maybe Text) -&gt; Parser Segment
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255230"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679255512"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Document&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255224"><span id="local-6989586621679255226"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255506"><span id="local-6989586621679255508"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255221"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

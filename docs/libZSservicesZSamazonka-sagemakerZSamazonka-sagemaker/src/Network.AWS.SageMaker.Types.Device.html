@@ -26,18 +26,18 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information of a particular device.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDevice' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680300235"><span id="local-6989586621680300236"></span></span><span class="hs-keyword">data</span><span> </span><span id="Device"><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-var">Device</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Device%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device%27"><span class="hs-identifier hs-var">Device'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amazon Web Services Internet of Things (IoT) object name.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AiotThingName%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Device.html#%24sel%3AiotThingName%3ADevice%27"><span class="hs-identifier hs-var hs-var">iotThingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Description of the device.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Adescription%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Maybe Text
+</span><span id="line-29"></span><span id="local-6989586621680301608"><span id="local-6989586621680301609"></span></span><span class="hs-keyword">data</span><span> </span><span id="Device"><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-var">Device</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Device%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device%27"><span class="hs-identifier hs-var">Device'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Description of the device.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Adescription%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.Device.html#%24sel%3Adescription%3ADevice%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Amazon Web Services Internet of Things (IoT) object name.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AiotThingName%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Device.html#%24sel%3AiotThingName%3ADevice%27"><span class="hs-identifier hs-var hs-var">iotThingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the device.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AdeviceName%3ADevice%27"><span class="annot"><span class="annottext">Device -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.Device.html#%24sel%3AdeviceName%3ADevice%27"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680300227"><span id="local-6989586621680300229"><span class="annot"><span class="annottext">Device -&gt; Device -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680301600"><span id="local-6989586621680301602"><span class="annot"><span class="annottext">Device -&gt; Device -&gt; Bool
 (Device -&gt; Device -&gt; Bool)
 -&gt; (Device -&gt; Device -&gt; Bool) -&gt; Eq Device
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Device -&gt; Device -&gt; Bool
 == :: Device -&gt; Device -&gt; Bool
 $c== :: Device -&gt; Device -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680300218"><span id="local-6989586621680300220"><span id="local-6989586621680300222"><span id="local-6989586621680300224"><span class="annot"><span class="annottext">ReadPrec [Device]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680301591"><span id="local-6989586621680301593"><span id="local-6989586621680301595"><span id="local-6989586621680301597"><span class="annot"><span class="annottext">ReadPrec [Device]
 ReadPrec Device
 Int -&gt; ReadS Device
 ReadS [Device]
@@ -65,7 +65,7 @@ readList :: ReadS [Device]
 $creadList :: ReadS [Device]
 readsPrec :: Int -&gt; ReadS Device
 $creadsPrec :: Int -&gt; ReadS Device
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680300211"><span id="local-6989586621680300213"><span id="local-6989586621680300215"><span class="annot"><span class="annottext">Int -&gt; Device -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680301584"><span id="local-6989586621680301586"><span id="local-6989586621680301588"><span class="annot"><span class="annottext">Int -&gt; Device -&gt; ShowS
 [Device] -&gt; ShowS
 Device -&gt; String
 (Int -&gt; Device -&gt; ShowS)
@@ -96,9 +96,9 @@ $cfrom :: forall x. Device -&gt; Rep Device x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'iotThingName', 'device_iotThingName' - Amazon Web Services Internet of Things (IoT) object name.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'description', 'device_description' - Description of the device.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'description', 'device_description' - Description of the device.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'iotThingName', 'device_iotThingName' - Amazon Web Services Internet of Things (IoT) object name.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- 'deviceName', 'device_deviceName' - The name of the device.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#newDevice"><span class="hs-identifier hs-type">newDevice</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -106,58 +106,58 @@ $cfrom :: forall x. Device -&gt; Rep Device x
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span>
 </span><span id="line-56"></span><span id="newDevice"><span class="annot"><span class="annottext">newDevice :: Text -&gt; Device
-</span><a href="Network.AWS.SageMaker.Types.Device.html#newDevice"><span class="hs-identifier hs-var hs-var">newDevice</span></a></span></span><span> </span><span id="local-6989586621680300205"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300205"><span class="hs-identifier hs-var">pDeviceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.Device.html#newDevice"><span class="hs-identifier hs-var hs-var">newDevice</span></a></span></span><span> </span><span id="local-6989586621680301578"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680301578"><span class="hs-identifier hs-var">pDeviceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">Device' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Device
 </span><a href="Network.AWS.SageMaker.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:iotThingName:Device' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Device.html#%24sel%3AiotThingName%3ADevice%27"><span class="hs-identifier hs-var">iotThingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:Device' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Device.html#%24sel%3Adescription%3ADevice%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Device' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Device.html#%24sel%3Adescription%3ADevice%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:iotThingName:Device' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Device.html#%24sel%3AiotThingName%3ADevice%27"><span class="hs-identifier hs-var">iotThingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceName:Device' :: Text
 </span><a href="Network.AWS.SageMaker.Types.Device.html#%24sel%3AdeviceName%3ADevice%27"><span class="hs-identifier hs-var">deviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300205"><span class="hs-identifier hs-var">pDeviceName_</span></a></span><span>
+</span><a href="#local-6989586621680301578"><span class="hs-identifier hs-var">pDeviceName_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | Amazon Web Services Internet of Things (IoT) object name.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#device_iotThingName"><span class="hs-identifier hs-type">device_iotThingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="device_iotThingName"><span class="annot"><span class="annottext">device_iotThingName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Device -&gt; f Device
-</span><a href="Network.AWS.SageMaker.Types.Device.html#device_iotThingName"><span class="hs-identifier hs-var hs-var">device_iotThingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Device -&gt; Maybe Text)
--&gt; (Device -&gt; Maybe Text -&gt; Device)
--&gt; Lens Device Device (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300201"><span class="annot"><span class="annottext">Maybe Text
-iotThingName :: Maybe Text
-$sel:iotThingName:Device' :: Device -&gt; Maybe Text
-</span><a href="#local-6989586621680300201"><span class="hs-identifier hs-var hs-var">iotThingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680300201"><span class="hs-identifier hs-var">iotThingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300200"><span class="annot"><span class="annottext">s :: Device
-</span><a href="#local-6989586621680300200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300199"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680300199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
-</span><a href="#local-6989586621680300200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotThingName:Device' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Device.html#%24sel%3AiotThingName%3ADevice%27"><span class="hs-identifier hs-var">iotThingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680300199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | Description of the device.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#device_description"><span class="hs-identifier hs-type">device_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="device_description"><span class="annot"><span class="annottext">device_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Device -&gt; f Device
+</span><span id="line-63"></span><span class="hs-comment">-- | Description of the device.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#device_description"><span class="hs-identifier hs-type">device_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="device_description"><span class="annot"><span class="annottext">device_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Device -&gt; f Device
 </span><a href="Network.AWS.SageMaker.Types.Device.html#device_description"><span class="hs-identifier hs-var hs-var">device_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Device -&gt; Maybe Text)
 -&gt; (Device -&gt; Maybe Text -&gt; Device)
 -&gt; Lens Device Device (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300197"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680301574"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:Device' :: Device -&gt; Maybe Text
-</span><a href="#local-6989586621680300197"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680300197"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300196"><span class="annot"><span class="annottext">s :: Device
-</span><a href="#local-6989586621680300196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300195"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680300195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
-</span><a href="#local-6989586621680300196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Device' :: Maybe Text
+</span><a href="#local-6989586621680301574"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680301574"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680301573"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621680301573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680301572"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680301572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621680301573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Device' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.Device.html#%24sel%3Adescription%3ADevice%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680300195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680301572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | Amazon Web Services Internet of Things (IoT) object name.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#device_iotThingName"><span class="hs-identifier hs-type">device_iotThingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="device_iotThingName"><span class="annot"><span class="annottext">device_iotThingName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Device -&gt; f Device
+</span><a href="Network.AWS.SageMaker.Types.Device.html#device_iotThingName"><span class="hs-identifier hs-var hs-var">device_iotThingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Device -&gt; Maybe Text)
+-&gt; (Device -&gt; Maybe Text -&gt; Device)
+-&gt; Lens Device Device (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680301570"><span class="annot"><span class="annottext">Maybe Text
+iotThingName :: Maybe Text
+$sel:iotThingName:Device' :: Device -&gt; Maybe Text
+</span><a href="#local-6989586621680301570"><span class="hs-identifier hs-var hs-var">iotThingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680301570"><span class="hs-identifier hs-var">iotThingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680301569"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621680301569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680301568"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680301568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621680301569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotThingName:Device' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Device.html#%24sel%3AiotThingName%3ADevice%27"><span class="hs-identifier hs-var">iotThingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680301568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The name of the device.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#device_deviceName"><span class="hs-identifier hs-type">device_deviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -165,58 +165,58 @@ $sel:description:Device' :: Device -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.Device.html#device_deviceName"><span class="hs-identifier hs-var hs-var">device_deviceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Device -&gt; Text)
 -&gt; (Device -&gt; Text -&gt; Device) -&gt; Lens Device Device Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300193"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680301566"><span class="annot"><span class="annottext">Text
 deviceName :: Text
 $sel:deviceName:Device' :: Device -&gt; Text
-</span><a href="#local-6989586621680300193"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300193"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300192"><span class="annot"><span class="annottext">s :: Device
-</span><a href="#local-6989586621680300192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300191"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
-</span><a href="#local-6989586621680300192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceName:Device' :: Text
+</span><a href="#local-6989586621680301566"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680301566"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680301565"><span class="annot"><span class="annottext">s :: Device
+</span><a href="#local-6989586621680301565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680301564"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680301564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Device
+</span><a href="#local-6989586621680301565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceName:Device' :: Text
 </span><a href="Network.AWS.SageMaker.Types.Device.html#%24sel%3AdeviceName%3ADevice%27"><span class="hs-identifier hs-var">deviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680301564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300187"><span id="local-6989586621680300189"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680301560"><span id="local-6989586621680301562"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300184"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680301557"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300176"><span id="local-6989586621680300178"><span id="local-6989586621680300180"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621680300174"><span class="annot"><span class="annottext">toJSON :: Device -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300170"><span id="local-6989586621680300171"><span id="local-6989586621680300172"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680301549"><span id="local-6989586621680301551"><span id="local-6989586621680301553"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621680301547"><span class="annot"><span class="annottext">toJSON :: Device -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device%27"><span class="hs-identifier hs-type">Device'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680301543"><span id="local-6989586621680301544"><span id="local-6989586621680301545"><span class="annot"><span class="annottext">Maybe Text
 Text
 deviceName :: Text
-description :: Maybe Text
 iotThingName :: Maybe Text
+description :: Maybe Text
 $sel:deviceName:Device' :: Device -&gt; Text
-$sel:description:Device' :: Device -&gt; Maybe Text
 $sel:iotThingName:Device' :: Device -&gt; Maybe Text
-</span><a href="#local-6989586621680300170"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:description:Device' :: Device -&gt; Maybe Text
+</span><a href="#local-6989586621680301543"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-83"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IotThingName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680300172"><span class="hs-identifier hs-var">iotThingName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680300171"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680301545"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IotThingName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680301544"><span class="hs-identifier hs-var">iotThingName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300170"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680301543"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span></pre></body></html>

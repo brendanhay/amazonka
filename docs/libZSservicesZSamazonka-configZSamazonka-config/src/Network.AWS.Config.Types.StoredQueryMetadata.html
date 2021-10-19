@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Returns details of a specific query.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newStoredQueryMetadata' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679409847"><span id="local-6989586621679409848"></span></span><span class="hs-keyword">data</span><span> </span><span id="StoredQueryMetadata"><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-var">StoredQueryMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StoredQueryMetadata%27"><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-var">StoredQueryMetadata'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679410458"><span id="local-6989586621679410459"></span></span><span class="hs-keyword">data</span><span> </span><span id="StoredQueryMetadata"><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-var">StoredQueryMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StoredQueryMetadata%27"><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-var">StoredQueryMetadata'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique description for the query.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Adescription%3AStoredQueryMetadata%27"><span class="annot"><span class="annottext">StoredQueryMetadata -&gt; Maybe Text
 </span><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#%24sel%3Adescription%3AStoredQueryMetadata%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AqueryName%3AStoredQueryMetadata%27"><span class="annot"><span class="annottext">StoredQueryMetadata -&gt; Text
 </span><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#%24sel%3AqueryName%3AStoredQueryMetadata%27"><span class="hs-identifier hs-var hs-var">queryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409838"><span id="local-6989586621679409840"><span class="annot"><span class="annottext">StoredQueryMetadata -&gt; StoredQueryMetadata -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679410449"><span id="local-6989586621679410451"><span class="annot"><span class="annottext">StoredQueryMetadata -&gt; StoredQueryMetadata -&gt; Bool
 (StoredQueryMetadata -&gt; StoredQueryMetadata -&gt; Bool)
 -&gt; (StoredQueryMetadata -&gt; StoredQueryMetadata -&gt; Bool)
 -&gt; Eq StoredQueryMetadata
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StoredQueryMetadata -&gt; StoredQueryMetadata -&gt; Bool
 == :: StoredQueryMetadata -&gt; StoredQueryMetadata -&gt; Bool
 $c== :: StoredQueryMetadata -&gt; StoredQueryMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409829"><span id="local-6989586621679409831"><span id="local-6989586621679409833"><span id="local-6989586621679409835"><span class="annot"><span class="annottext">ReadPrec [StoredQueryMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410440"><span id="local-6989586621679410442"><span id="local-6989586621679410444"><span id="local-6989586621679410446"><span class="annot"><span class="annottext">ReadPrec [StoredQueryMetadata]
 ReadPrec StoredQueryMetadata
 Int -&gt; ReadS StoredQueryMetadata
 ReadS [StoredQueryMetadata]
@@ -70,7 +70,7 @@ readList :: ReadS [StoredQueryMetadata]
 $creadList :: ReadS [StoredQueryMetadata]
 readsPrec :: Int -&gt; ReadS StoredQueryMetadata
 $creadsPrec :: Int -&gt; ReadS StoredQueryMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409822"><span id="local-6989586621679409824"><span id="local-6989586621679409826"><span class="annot"><span class="annottext">Int -&gt; StoredQueryMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410433"><span id="local-6989586621679410435"><span id="local-6989586621679410437"><span class="annot"><span class="annottext">Int -&gt; StoredQueryMetadata -&gt; ShowS
 [StoredQueryMetadata] -&gt; ShowS
 StoredQueryMetadata -&gt; String
 (Int -&gt; StoredQueryMetadata -&gt; ShowS)
@@ -122,12 +122,12 @@ $cfrom :: forall x. StoredQueryMetadata -&gt; Rep StoredQueryMetadata x
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-type">StoredQueryMetadata</span></a></span><span>
 </span><span id="line-66"></span><span id="newStoredQueryMetadata"><span class="annot"><span class="annottext">newStoredQueryMetadata :: Text -&gt; Text -&gt; Text -&gt; StoredQueryMetadata
 </span><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#newStoredQueryMetadata"><span class="hs-identifier hs-var hs-var">newStoredQueryMetadata</span></a></span></span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679409816"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409816"><span class="hs-identifier hs-var">pQueryId_</span></a></span></span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679409815"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409815"><span class="hs-identifier hs-var">pQueryArn_</span></a></span></span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679409814"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409814"><span class="hs-identifier hs-var">pQueryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679410427"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410427"><span class="hs-identifier hs-var">pQueryId_</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679410426"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410426"><span class="hs-identifier hs-var">pQueryArn_</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679410425"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410425"><span class="hs-identifier hs-var">pQueryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">StoredQueryMetadata' :: Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; StoredQueryMetadata
 </span><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-type">StoredQueryMetadata'</span></a></span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:StoredQueryMetadata' :: Maybe Text
@@ -136,13 +136,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">$sel:queryId:StoredQueryMetadata' :: Text
 </span><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#%24sel%3AqueryId%3AStoredQueryMetadata%27"><span class="hs-identifier hs-var">queryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409816"><span class="hs-identifier hs-var">pQueryId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679410427"><span class="hs-identifier hs-var">pQueryId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">$sel:queryArn:StoredQueryMetadata' :: Text
 </span><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#%24sel%3AqueryArn%3AStoredQueryMetadata%27"><span class="hs-identifier hs-var">queryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409815"><span class="hs-identifier hs-var">pQueryArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679410426"><span class="hs-identifier hs-var">pQueryArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">$sel:queryName:StoredQueryMetadata' :: Text
 </span><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#%24sel%3AqueryName%3AStoredQueryMetadata%27"><span class="hs-identifier hs-var">queryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409814"><span class="hs-identifier hs-var">pQueryName_</span></a></span><span>
+</span><a href="#local-6989586621679410425"><span class="hs-identifier hs-var">pQueryName_</span></a></span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | A unique description for the query.</span><span>
@@ -154,16 +154,16 @@ forall a. Maybe a
 -&gt; Lens
      StoredQueryMetadata StoredQueryMetadata (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-type">StoredQueryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409810"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-type">StoredQueryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410421"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:StoredQueryMetadata' :: StoredQueryMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679409810"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409810"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409809"><span class="annot"><span class="annottext">s :: StoredQueryMetadata
-</span><a href="#local-6989586621679409809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-type">StoredQueryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409808"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoredQueryMetadata
-</span><a href="#local-6989586621679409809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:StoredQueryMetadata' :: Maybe Text
+</span><a href="#local-6989586621679410421"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410421"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410420"><span class="annot"><span class="annottext">s :: StoredQueryMetadata
+</span><a href="#local-6989586621679410420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-type">StoredQueryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410419"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoredQueryMetadata
+</span><a href="#local-6989586621679410420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:StoredQueryMetadata' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#%24sel%3Adescription%3AStoredQueryMetadata%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-type">StoredQueryMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679410419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-type">StoredQueryMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The ID of the query.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#storedQueryMetadata_queryId"><span class="hs-identifier hs-type">storedQueryMetadata_queryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-type">StoredQueryMetadata</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -172,16 +172,16 @@ $sel:description:StoredQueryMetadata' :: StoredQueryMetadata -&gt; Maybe Text
 -&gt; (StoredQueryMetadata -&gt; Text -&gt; StoredQueryMetadata)
 -&gt; Lens StoredQueryMetadata StoredQueryMetadata Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-type">StoredQueryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409806"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-type">StoredQueryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410417"><span class="annot"><span class="annottext">Text
 queryId :: Text
 $sel:queryId:StoredQueryMetadata' :: StoredQueryMetadata -&gt; Text
-</span><a href="#local-6989586621679409806"><span class="hs-identifier hs-var hs-var">queryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409806"><span class="hs-identifier hs-var">queryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409805"><span class="annot"><span class="annottext">s :: StoredQueryMetadata
-</span><a href="#local-6989586621679409805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-type">StoredQueryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409804"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoredQueryMetadata
-</span><a href="#local-6989586621679409805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryId:StoredQueryMetadata' :: Text
+</span><a href="#local-6989586621679410417"><span class="hs-identifier hs-var hs-var">queryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410417"><span class="hs-identifier hs-var">queryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410416"><span class="annot"><span class="annottext">s :: StoredQueryMetadata
+</span><a href="#local-6989586621679410416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-type">StoredQueryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410415"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoredQueryMetadata
+</span><a href="#local-6989586621679410416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryId:StoredQueryMetadata' :: Text
 </span><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#%24sel%3AqueryId%3AStoredQueryMetadata%27"><span class="hs-identifier hs-var">queryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-type">StoredQueryMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679410415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-type">StoredQueryMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | Amazon Resource Name (ARN) of the query. For example,</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- arn:partition:service:region:account-id:resource-type\/resource-name\/resource-id.</span><span>
@@ -191,16 +191,16 @@ $sel:queryId:StoredQueryMetadata' :: StoredQueryMetadata -&gt; Text
 -&gt; (StoredQueryMetadata -&gt; Text -&gt; StoredQueryMetadata)
 -&gt; Lens StoredQueryMetadata StoredQueryMetadata Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-type">StoredQueryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409802"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-type">StoredQueryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410413"><span class="annot"><span class="annottext">Text
 queryArn :: Text
 $sel:queryArn:StoredQueryMetadata' :: StoredQueryMetadata -&gt; Text
-</span><a href="#local-6989586621679409802"><span class="hs-identifier hs-var hs-var">queryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409802"><span class="hs-identifier hs-var">queryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409801"><span class="annot"><span class="annottext">s :: StoredQueryMetadata
-</span><a href="#local-6989586621679409801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-type">StoredQueryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409800"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoredQueryMetadata
-</span><a href="#local-6989586621679409801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryArn:StoredQueryMetadata' :: Text
+</span><a href="#local-6989586621679410413"><span class="hs-identifier hs-var hs-var">queryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410413"><span class="hs-identifier hs-var">queryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410412"><span class="annot"><span class="annottext">s :: StoredQueryMetadata
+</span><a href="#local-6989586621679410412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-type">StoredQueryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410411"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoredQueryMetadata
+</span><a href="#local-6989586621679410412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryArn:StoredQueryMetadata' :: Text
 </span><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#%24sel%3AqueryArn%3AStoredQueryMetadata%27"><span class="hs-identifier hs-var">queryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-type">StoredQueryMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679410411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-type">StoredQueryMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The name of the query.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#storedQueryMetadata_queryName"><span class="hs-identifier hs-type">storedQueryMetadata_queryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-type">StoredQueryMetadata</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -209,19 +209,19 @@ $sel:queryArn:StoredQueryMetadata' :: StoredQueryMetadata -&gt; Text
 -&gt; (StoredQueryMetadata -&gt; Text -&gt; StoredQueryMetadata)
 -&gt; Lens StoredQueryMetadata StoredQueryMetadata Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-type">StoredQueryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409798"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-type">StoredQueryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410409"><span class="annot"><span class="annottext">Text
 queryName :: Text
 $sel:queryName:StoredQueryMetadata' :: StoredQueryMetadata -&gt; Text
-</span><a href="#local-6989586621679409798"><span class="hs-identifier hs-var hs-var">queryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409798"><span class="hs-identifier hs-var">queryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409797"><span class="annot"><span class="annottext">s :: StoredQueryMetadata
-</span><a href="#local-6989586621679409797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-type">StoredQueryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409796"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoredQueryMetadata
-</span><a href="#local-6989586621679409797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryName:StoredQueryMetadata' :: Text
+</span><a href="#local-6989586621679410409"><span class="hs-identifier hs-var hs-var">queryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410409"><span class="hs-identifier hs-var">queryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410408"><span class="annot"><span class="annottext">s :: StoredQueryMetadata
+</span><a href="#local-6989586621679410408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-type">StoredQueryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410407"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoredQueryMetadata
+</span><a href="#local-6989586621679410408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryName:StoredQueryMetadata' :: Text
 </span><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#%24sel%3AqueryName%3AStoredQueryMetadata%27"><span class="hs-identifier hs-var">queryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-type">StoredQueryMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679410407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-type">StoredQueryMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409793"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-type">StoredQueryMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679409791"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StoredQueryMetadata
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410404"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-type">StoredQueryMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679410402"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StoredQueryMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StoredQueryMetadata)
@@ -231,8 +231,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StoredQueryMetadata&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679409788"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679409788"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679410399"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679410399"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; StoredQueryMetadata
 </span><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata%27"><span class="hs-identifier hs-var">StoredQueryMetadata'</span></a></span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; StoredQueryMetadata)
@@ -240,7 +240,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; StoredQueryMetadata)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679409788"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679410399"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
@@ -248,7 +248,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; StoredQueryMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679409788"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679410399"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QueryId&quot;</span></span><span class="hs-special">)</span><span>
@@ -256,7 +256,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; StoredQueryMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679409788"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679410399"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QueryArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -264,13 +264,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser StoredQueryMetadata
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679409788"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679410399"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QueryName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409781"><span id="local-6989586621679409783"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-type">StoredQueryMetadata</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410392"><span id="local-6989586621679410394"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-type">StoredQueryMetadata</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409778"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-type">StoredQueryMetadata</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410389"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQueryMetadata.html#StoredQueryMetadata"><span class="hs-identifier hs-type">StoredQueryMetadata</span></a></span></span><span>
 </span><span id="line-109"></span></pre></body></html>

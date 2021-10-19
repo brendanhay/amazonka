@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679302385"><span id="local-6989586621679302386"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PositionalConstraint"><span class="annot"><a href="Network.AWS.WAF.Types.PositionalConstraint.html#PositionalConstraint"><span class="hs-identifier hs-var">PositionalConstraint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PositionalConstraint%27"><span class="annot"><a href="Network.AWS.WAF.Types.PositionalConstraint.html#PositionalConstraint%27"><span class="hs-identifier hs-var">PositionalConstraint'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679302619"><span id="local-6989586621679302620"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PositionalConstraint"><span class="annot"><a href="Network.AWS.WAF.Types.PositionalConstraint.html#PositionalConstraint"><span class="hs-identifier hs-var">PositionalConstraint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PositionalConstraint%27"><span class="annot"><a href="Network.AWS.WAF.Types.PositionalConstraint.html#PositionalConstraint%27"><span class="hs-identifier hs-var">PositionalConstraint'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPositionalConstraint"><span class="annot"><span class="annottext">PositionalConstraint -&gt; Text
 </span><a href="Network.AWS.WAF.Types.PositionalConstraint.html#fromPositionalConstraint"><span class="hs-identifier hs-var hs-var">fromPositionalConstraint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679302377"><span id="local-6989586621679302379"><span id="local-6989586621679302381"><span class="annot"><span class="annottext">Int -&gt; PositionalConstraint -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679302611"><span id="local-6989586621679302613"><span id="local-6989586621679302615"><span class="annot"><span class="annottext">Int -&gt; PositionalConstraint -&gt; ShowS
 [PositionalConstraint] -&gt; ShowS
 PositionalConstraint -&gt; String
 (Int -&gt; PositionalConstraint -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: PositionalConstraint -&gt; String
 showsPrec :: Int -&gt; PositionalConstraint -&gt; ShowS
 $cshowsPrec :: Int -&gt; PositionalConstraint -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679302368"><span id="local-6989586621679302370"><span id="local-6989586621679302372"><span id="local-6989586621679302374"><span class="annot"><span class="annottext">ReadPrec [PositionalConstraint]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679302602"><span id="local-6989586621679302604"><span id="local-6989586621679302606"><span id="local-6989586621679302608"><span class="annot"><span class="annottext">ReadPrec [PositionalConstraint]
 ReadPrec PositionalConstraint
 Int -&gt; ReadS PositionalConstraint
 ReadS [PositionalConstraint]
@@ -75,7 +75,7 @@ $creadList :: ReadS [PositionalConstraint]
 readsPrec :: Int -&gt; ReadS PositionalConstraint
 $creadsPrec :: Int -&gt; ReadS PositionalConstraint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679302363"><span id="local-6989586621679302365"><span class="annot"><span class="annottext">PositionalConstraint -&gt; PositionalConstraint -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679302597"><span id="local-6989586621679302599"><span class="annot"><span class="annottext">PositionalConstraint -&gt; PositionalConstraint -&gt; Bool
 (PositionalConstraint -&gt; PositionalConstraint -&gt; Bool)
 -&gt; (PositionalConstraint -&gt; PositionalConstraint -&gt; Bool)
 -&gt; Eq PositionalConstraint
@@ -85,7 +85,7 @@ $c/= :: PositionalConstraint -&gt; PositionalConstraint -&gt; Bool
 == :: PositionalConstraint -&gt; PositionalConstraint -&gt; Bool
 $c== :: PositionalConstraint -&gt; PositionalConstraint -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679302347"><span id="local-6989586621679302349"><span id="local-6989586621679302351"><span id="local-6989586621679302353"><span id="local-6989586621679302355"><span id="local-6989586621679302357"><span id="local-6989586621679302359"><span class="annot"><span class="annottext">Eq PositionalConstraint
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679302581"><span id="local-6989586621679302583"><span id="local-6989586621679302585"><span id="local-6989586621679302587"><span id="local-6989586621679302589"><span id="local-6989586621679302591"><span id="local-6989586621679302593"><span class="annot"><span class="annottext">Eq PositionalConstraint
 Eq PositionalConstraint
 -&gt; (PositionalConstraint -&gt; PositionalConstraint -&gt; Ordering)
 -&gt; (PositionalConstraint -&gt; PositionalConstraint -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. PositionalConstraint -&gt; Rep PositionalConstraint x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679302339"><span id="local-6989586621679302341"><span class="annot"><span class="annottext">Int -&gt; PositionalConstraint -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679302573"><span id="local-6989586621679302575"><span class="annot"><span class="annottext">Int -&gt; PositionalConstraint -&gt; Int
 PositionalConstraint -&gt; Int
 (Int -&gt; PositionalConstraint -&gt; Int)
 -&gt; (PositionalConstraint -&gt; Int) -&gt; Hashable PositionalConstraint
@@ -153,54 +153,54 @@ $chash :: PositionalConstraint -&gt; Int
 hashWithSalt :: Int -&gt; PositionalConstraint -&gt; Int
 $chashWithSalt :: Int -&gt; PositionalConstraint -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679302336"><span class="annot"><span class="annottext">PositionalConstraint -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679302570"><span class="annot"><span class="annottext">PositionalConstraint -&gt; ()
 (PositionalConstraint -&gt; ()) -&gt; NFData PositionalConstraint
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PositionalConstraint -&gt; ()
 $crnf :: PositionalConstraint -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679302333"><span class="annot"><span class="annottext">Text -&gt; Either String PositionalConstraint
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679302567"><span class="annot"><span class="annottext">Text -&gt; Either String PositionalConstraint
 (Text -&gt; Either String PositionalConstraint)
 -&gt; FromText PositionalConstraint
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PositionalConstraint
 $cfromText :: Text -&gt; Either String PositionalConstraint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679302330"><span class="annot"><span class="annottext">PositionalConstraint -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679302564"><span class="annot"><span class="annottext">PositionalConstraint -&gt; Text
 (PositionalConstraint -&gt; Text) -&gt; ToText PositionalConstraint
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PositionalConstraint -&gt; Text
 $ctoText :: PositionalConstraint -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679302327"><span class="annot"><span class="annottext">PositionalConstraint -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679302561"><span class="annot"><span class="annottext">PositionalConstraint -&gt; ByteString
 (PositionalConstraint -&gt; ByteString)
 -&gt; ToByteString PositionalConstraint
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PositionalConstraint -&gt; ByteString
 $ctoBS :: PositionalConstraint -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679302324"><span class="annot"><span class="annottext">PositionalConstraint -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679302558"><span class="annot"><span class="annottext">PositionalConstraint -&gt; ByteStringBuilder
 (PositionalConstraint -&gt; ByteStringBuilder)
 -&gt; ToLog PositionalConstraint
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PositionalConstraint -&gt; ByteStringBuilder
 $cbuild :: PositionalConstraint -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679302321"><span class="annot"><span class="annottext">HeaderName -&gt; PositionalConstraint -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679302555"><span class="annot"><span class="annottext">HeaderName -&gt; PositionalConstraint -&gt; [Header]
 (HeaderName -&gt; PositionalConstraint -&gt; [Header])
 -&gt; ToHeader PositionalConstraint
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PositionalConstraint -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PositionalConstraint -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679302318"><span class="annot"><span class="annottext">PositionalConstraint -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679302552"><span class="annot"><span class="annottext">PositionalConstraint -&gt; QueryString
 (PositionalConstraint -&gt; QueryString)
 -&gt; ToQuery PositionalConstraint
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PositionalConstraint -&gt; QueryString
 $ctoQuery :: PositionalConstraint -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679302313"><span id="local-6989586621679302315"><span class="annot"><span class="annottext">Value -&gt; Parser [PositionalConstraint]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679302547"><span id="local-6989586621679302549"><span class="annot"><span class="annottext">Value -&gt; Parser [PositionalConstraint]
 Value -&gt; Parser PositionalConstraint
 (Value -&gt; Parser PositionalConstraint)
 -&gt; (Value -&gt; Parser [PositionalConstraint])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [PositionalConstraint]
 parseJSON :: Value -&gt; Parser PositionalConstraint
 $cparseJSON :: Value -&gt; Parser PositionalConstraint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679302308"><span id="local-6989586621679302310"><span class="annot"><span class="annottext">FromJSONKeyFunction [PositionalConstraint]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679302542"><span id="local-6989586621679302544"><span class="annot"><span class="annottext">FromJSONKeyFunction [PositionalConstraint]
 FromJSONKeyFunction PositionalConstraint
 FromJSONKeyFunction PositionalConstraint
 -&gt; FromJSONKeyFunction [PositionalConstraint]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PositionalConstraint]
 fromJSONKey :: FromJSONKeyFunction PositionalConstraint
 $cfromJSONKey :: FromJSONKeyFunction PositionalConstraint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679302299"><span id="local-6989586621679302301"><span id="local-6989586621679302303"><span id="local-6989586621679302305"><span class="annot"><span class="annottext">[PositionalConstraint] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679302533"><span id="local-6989586621679302535"><span id="local-6989586621679302537"><span id="local-6989586621679302539"><span class="annot"><span class="annottext">[PositionalConstraint] -&gt; Encoding
 [PositionalConstraint] -&gt; Value
 PositionalConstraint -&gt; Encoding
 PositionalConstraint -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: PositionalConstraint -&gt; Encoding
 toJSON :: PositionalConstraint -&gt; Value
 $ctoJSON :: PositionalConstraint -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679302294"><span id="local-6989586621679302296"><span class="annot"><span class="annottext">ToJSONKeyFunction [PositionalConstraint]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679302528"><span id="local-6989586621679302530"><span class="annot"><span class="annottext">ToJSONKeyFunction [PositionalConstraint]
 ToJSONKeyFunction PositionalConstraint
 ToJSONKeyFunction PositionalConstraint
 -&gt; ToJSONKeyFunction [PositionalConstraint]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PositionalConstraint]
 toJSONKey :: ToJSONKeyFunction PositionalConstraint
 $ctoJSONKey :: ToJSONKeyFunction PositionalConstraint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679302291"><span class="annot"><span class="annottext">[Node] -&gt; Either String PositionalConstraint
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679302525"><span class="annot"><span class="annottext">[Node] -&gt; Either String PositionalConstraint
 ([Node] -&gt; Either String PositionalConstraint)
 -&gt; FromXML PositionalConstraint
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PositionalConstraint
 $cparseXML :: [Node] -&gt; Either String PositionalConstraint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679302288"><span class="annot"><span class="annottext">PositionalConstraint -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679302522"><span class="annot"><span class="annottext">PositionalConstraint -&gt; XML
 (PositionalConstraint -&gt; XML) -&gt; ToXML PositionalConstraint
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PositionalConstraint -&gt; XML

@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains logging configuration information for an extension.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLoggingConfig' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679416886"><span id="local-6989586621679416887"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoggingConfig"><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-var">LoggingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoggingConfig%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-var">LoggingConfig'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679417286"><span id="local-6989586621679417287"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoggingConfig"><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-var">LoggingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoggingConfig%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-var">LoggingConfig'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the role that CloudFormation should assume when sending log</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- entries to CloudWatch logs.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AlogRoleArn%3ALoggingConfig%27"><span class="annot"><span class="annottext">LoggingConfig -&gt; Text
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AlogGroupName%3ALoggingConfig%27"><span class="annot"><span class="annottext">LoggingConfig -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#%24sel%3AlogGroupName%3ALoggingConfig%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416879"><span id="local-6989586621679416881"><span class="annot"><span class="annottext">LoggingConfig -&gt; LoggingConfig -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417279"><span id="local-6989586621679417281"><span class="annot"><span class="annottext">LoggingConfig -&gt; LoggingConfig -&gt; Bool
 (LoggingConfig -&gt; LoggingConfig -&gt; Bool)
 -&gt; (LoggingConfig -&gt; LoggingConfig -&gt; Bool) -&gt; Eq LoggingConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LoggingConfig -&gt; LoggingConfig -&gt; Bool
 == :: LoggingConfig -&gt; LoggingConfig -&gt; Bool
 $c== :: LoggingConfig -&gt; LoggingConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416870"><span id="local-6989586621679416872"><span id="local-6989586621679416874"><span id="local-6989586621679416876"><span class="annot"><span class="annottext">ReadPrec [LoggingConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417270"><span id="local-6989586621679417272"><span id="local-6989586621679417274"><span id="local-6989586621679417276"><span class="annot"><span class="annottext">ReadPrec [LoggingConfig]
 ReadPrec LoggingConfig
 Int -&gt; ReadS LoggingConfig
 ReadS [LoggingConfig]
@@ -64,7 +64,7 @@ readList :: ReadS [LoggingConfig]
 $creadList :: ReadS [LoggingConfig]
 readsPrec :: Int -&gt; ReadS LoggingConfig
 $creadsPrec :: Int -&gt; ReadS LoggingConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416863"><span id="local-6989586621679416865"><span id="local-6989586621679416867"><span class="annot"><span class="annottext">Int -&gt; LoggingConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417263"><span id="local-6989586621679417265"><span id="local-6989586621679417267"><span class="annot"><span class="annottext">Int -&gt; LoggingConfig -&gt; ShowS
 [LoggingConfig] -&gt; ShowS
 LoggingConfig -&gt; String
 (Int -&gt; LoggingConfig -&gt; ShowS)
@@ -110,17 +110,17 @@ $cfrom :: forall x. LoggingConfig -&gt; Rep LoggingConfig x
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span>
 </span><span id="line-58"></span><span id="newLoggingConfig"><span class="annot"><span class="annottext">newLoggingConfig :: Text -&gt; Text -&gt; LoggingConfig
-</span><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#newLoggingConfig"><span class="hs-identifier hs-var hs-var">newLoggingConfig</span></a></span></span><span> </span><span id="local-6989586621679416857"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416857"><span class="hs-identifier hs-var">pLogRoleArn_</span></a></span></span><span> </span><span id="local-6989586621679416856"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416856"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#newLoggingConfig"><span class="hs-identifier hs-var hs-var">newLoggingConfig</span></a></span></span><span> </span><span id="local-6989586621679417257"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417257"><span class="hs-identifier hs-var">pLogRoleArn_</span></a></span></span><span> </span><span id="local-6989586621679417256"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417256"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">LoggingConfig' :: Text -&gt; Text -&gt; LoggingConfig
 </span><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logRoleArn:LoggingConfig' :: Text
 </span><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#%24sel%3AlogRoleArn%3ALoggingConfig%27"><span class="hs-identifier hs-var">logRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416857"><span class="hs-identifier hs-var">pLogRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679417257"><span class="hs-identifier hs-var">pLogRoleArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:logGroupName:LoggingConfig' :: Text
 </span><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#%24sel%3AlogGroupName%3ALoggingConfig%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416856"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679417256"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The ARN of the role that CloudFormation should assume when sending log</span><span>
@@ -131,16 +131,16 @@ $cfrom :: forall x. LoggingConfig -&gt; Rep LoggingConfig x
 -&gt; (LoggingConfig -&gt; Text -&gt; LoggingConfig)
 -&gt; Lens LoggingConfig LoggingConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416852"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417252"><span class="annot"><span class="annottext">Text
 logRoleArn :: Text
 $sel:logRoleArn:LoggingConfig' :: LoggingConfig -&gt; Text
-</span><a href="#local-6989586621679416852"><span class="hs-identifier hs-var hs-var">logRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416852"><span class="hs-identifier hs-var">logRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416851"><span class="annot"><span class="annottext">s :: LoggingConfig
-</span><a href="#local-6989586621679416851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416850"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfig
-</span><a href="#local-6989586621679416851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logRoleArn:LoggingConfig' :: Text
+</span><a href="#local-6989586621679417252"><span class="hs-identifier hs-var hs-var">logRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417252"><span class="hs-identifier hs-var">logRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417251"><span class="annot"><span class="annottext">s :: LoggingConfig
+</span><a href="#local-6989586621679417251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417250"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfig
+</span><a href="#local-6989586621679417251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logRoleArn:LoggingConfig' :: Text
 </span><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#%24sel%3AlogRoleArn%3ALoggingConfig%27"><span class="hs-identifier hs-var">logRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679417250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The Amazon CloudWatch log group to which CloudFormation sends error</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- logging information when invoking the extension\'s handlers.</span><span>
@@ -150,28 +150,28 @@ $sel:logRoleArn:LoggingConfig' :: LoggingConfig -&gt; Text
 -&gt; (LoggingConfig -&gt; Text -&gt; LoggingConfig)
 -&gt; Lens LoggingConfig LoggingConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416848"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417248"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 $sel:logGroupName:LoggingConfig' :: LoggingConfig -&gt; Text
-</span><a href="#local-6989586621679416848"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416848"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416847"><span class="annot"><span class="annottext">s :: LoggingConfig
-</span><a href="#local-6989586621679416847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416846"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfig
-</span><a href="#local-6989586621679416847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:LoggingConfig' :: Text
+</span><a href="#local-6989586621679417248"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417248"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417247"><span class="annot"><span class="annottext">s :: LoggingConfig
+</span><a href="#local-6989586621679417247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417246"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfig
+</span><a href="#local-6989586621679417247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:LoggingConfig' :: Text
 </span><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#%24sel%3AlogGroupName%3ALoggingConfig%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679417246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679416843"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LoggingConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679416841"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416841"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679417243"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LoggingConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679417241"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679417241"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; LoggingConfig
 </span><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-var">LoggingConfig'</span></a></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; LoggingConfig)
 -&gt; Either String Text -&gt; Either String (Text -&gt; LoggingConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416841"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679417241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LogRoleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -179,23 +179,23 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String LoggingConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416841"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679417241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LogGroupName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416835"><span id="local-6989586621679416837"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417235"><span id="local-6989586621679417237"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416832"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417232"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679416828"><span class="annot"><span class="annottext">toQuery :: LoggingConfig -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416825"><span id="local-6989586621679416826"><span class="annot"><span class="annottext">Text
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679417228"><span class="annot"><span class="annottext">toQuery :: LoggingConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig%27"><span class="hs-identifier hs-type">LoggingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417225"><span id="local-6989586621679417226"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 logRoleArn :: Text
 $sel:logGroupName:LoggingConfig' :: LoggingConfig -&gt; Text
 $sel:logRoleArn:LoggingConfig' :: LoggingConfig -&gt; Text
-</span><a href="#local-6989586621679416825"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679417225"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -203,11 +203,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;LogRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416826"><span class="hs-identifier hs-var">logRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679417226"><span class="hs-identifier hs-var">logRoleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;LogGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416825"><span class="hs-identifier hs-var">logGroupName</span></a></span><span>
+</span><a href="#local-6989586621679417225"><span class="hs-identifier hs-var">logGroupName</span></a></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span></pre></body></html>

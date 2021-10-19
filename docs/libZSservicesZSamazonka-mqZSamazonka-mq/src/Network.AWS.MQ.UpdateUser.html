@@ -28,8 +28,8 @@
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#updateUser_groups"><span class="hs-identifier">updateUser_groups</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#updateUser_password"><span class="hs-identifier">updateUser_password</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#updateUser_consoleAccess"><span class="hs-identifier">updateUser_consoleAccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#updateUser_consoleAccess"><span class="hs-identifier">updateUser_consoleAccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#updateUser_password"><span class="hs-identifier">updateUser_password</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#updateUser_username"><span class="hs-identifier">updateUser_username</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#updateUser_brokerId"><span class="hs-identifier">updateUser_brokerId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
@@ -52,21 +52,21 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | Updates the information for an ActiveMQ user.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newUpdateUser' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679231028"><span id="local-6989586621679231029"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUser"><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-var">UpdateUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUser%27"><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-var">UpdateUser'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679231214"><span id="local-6989586621679231215"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUser"><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-var">UpdateUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUser%27"><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-var">UpdateUser'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- value can contain only alphanumeric characters, dashes, periods,</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- underscores, and tildes (- . _ ~). This value must be 2-100 characters</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- long.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3Agroups%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Maybe [Text]
 </span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3Agroups%3AUpdateUser%27"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The password of the user. This value must be at least 12 characters</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- long, must contain at least 4 unique characters, and must not contain</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- commas, colons, or equal signs (,:=).</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3Apassword%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Maybe Text
-</span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3Apassword%3AUpdateUser%27"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AconsoleAccess%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Maybe Bool
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AconsoleAccess%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Maybe Bool
 </span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3AconsoleAccess%3AUpdateUser%27"><span class="hs-identifier hs-var hs-var">consoleAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The password of the user. This value must be at least 12 characters</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- long, must contain at least 4 unique characters, and must not contain</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- commas, colons, or equal signs (,:=).</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Apassword%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Maybe Text
+</span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3Apassword%3AUpdateUser%27"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The username of the ActiveMQ user. This value can contain only</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- alphanumeric characters, dashes, periods, underscores, and tildes (- . _</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- ~). This value must be 2-100 characters long.</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AbrokerId%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Text
 </span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3AbrokerId%3AUpdateUser%27"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231018"><span id="local-6989586621679231020"><span class="annot"><span class="annottext">UpdateUser -&gt; UpdateUser -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231204"><span id="local-6989586621679231206"><span class="annot"><span class="annottext">UpdateUser -&gt; UpdateUser -&gt; Bool
 (UpdateUser -&gt; UpdateUser -&gt; Bool)
 -&gt; (UpdateUser -&gt; UpdateUser -&gt; Bool) -&gt; Eq UpdateUser
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateUser -&gt; UpdateUser -&gt; Bool
 == :: UpdateUser -&gt; UpdateUser -&gt; Bool
 $c== :: UpdateUser -&gt; UpdateUser -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231009"><span id="local-6989586621679231011"><span id="local-6989586621679231013"><span id="local-6989586621679231015"><span class="annot"><span class="annottext">ReadPrec [UpdateUser]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231195"><span id="local-6989586621679231197"><span id="local-6989586621679231199"><span id="local-6989586621679231201"><span class="annot"><span class="annottext">ReadPrec [UpdateUser]
 ReadPrec UpdateUser
 Int -&gt; ReadS UpdateUser
 ReadS [UpdateUser]
@@ -104,7 +104,7 @@ readList :: ReadS [UpdateUser]
 $creadList :: ReadS [UpdateUser]
 readsPrec :: Int -&gt; ReadS UpdateUser
 $creadsPrec :: Int -&gt; ReadS UpdateUser
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231002"><span id="local-6989586621679231004"><span id="local-6989586621679231006"><span class="annot"><span class="annottext">Int -&gt; UpdateUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231188"><span id="local-6989586621679231190"><span id="local-6989586621679231192"><span class="annot"><span class="annottext">Int -&gt; UpdateUser -&gt; ShowS
 [UpdateUser] -&gt; ShowS
 UpdateUser -&gt; String
 (Int -&gt; UpdateUser -&gt; ShowS)
@@ -142,11 +142,11 @@ $cfrom :: forall x. UpdateUser -&gt; Rep UpdateUser x
 </span><span id="line-86"></span><span class="hs-comment">-- underscores, and tildes (- . _ ~). This value must be 2-100 characters</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- long.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'password', 'updateUser_password' - The password of the user. This value must be at least 12 characters</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- long, must contain at least 4 unique characters, and must not contain</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- commas, colons, or equal signs (,:=).</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'consoleAccess', 'updateUser_consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'consoleAccess', 'updateUser_consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'password', 'updateUser_password' - The password of the user. This value must be at least 12 characters</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- long, must contain at least 4 unique characters, and must not contain</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- commas, colons, or equal signs (,:=).</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- 'username', 'updateUser_username' - The username of the ActiveMQ user. This value can contain only</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- alphanumeric characters, dashes, periods, underscores, and tildes (- . _</span><span>
@@ -160,30 +160,30 @@ $cfrom :: forall x. UpdateUser -&gt; Rep UpdateUser x
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span>
 </span><span id="line-106"></span><span id="newUpdateUser"><span class="annot"><span class="annottext">newUpdateUser :: Text -&gt; Text -&gt; UpdateUser
-</span><a href="Network.AWS.MQ.UpdateUser.html#newUpdateUser"><span class="hs-identifier hs-var hs-var">newUpdateUser</span></a></span></span><span> </span><span id="local-6989586621679230997"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230997"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span id="local-6989586621679230996"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230996"><span class="hs-identifier hs-var">pBrokerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.UpdateUser.html#newUpdateUser"><span class="hs-identifier hs-var hs-var">newUpdateUser</span></a></span></span><span> </span><span id="local-6989586621679231183"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231183"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span id="local-6989586621679231182"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231182"><span class="hs-identifier hs-var">pBrokerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">UpdateUser' :: Maybe [Text]
--&gt; Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; Text -&gt; UpdateUser
+-&gt; Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; UpdateUser
 </span><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groups:UpdateUser' :: Maybe [Text]
 </span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3Agroups%3AUpdateUser%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:password:UpdateUser' :: Maybe Text
-</span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3Apassword%3AUpdateUser%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:consoleAccess:UpdateUser' :: Maybe Bool
+</span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3AconsoleAccess%3AUpdateUser%27"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:consoleAccess:UpdateUser' :: Maybe Bool
-</span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3AconsoleAccess%3AUpdateUser%27"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:password:UpdateUser' :: Maybe Text
+</span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3Apassword%3AUpdateUser%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:UpdateUser' :: Text
 </span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3Ausername%3AUpdateUser%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230997"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679231183"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:brokerId:UpdateUser' :: Text
 </span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3AbrokerId%3AUpdateUser%27"><span class="hs-identifier hs-var">brokerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230996"><span class="hs-identifier hs-var">pBrokerId_</span></a></span><span>
+</span><a href="#local-6989586621679231182"><span class="hs-identifier hs-var">pBrokerId_</span></a></span><span>
 </span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This</span><span>
@@ -196,16 +196,16 @@ forall a. Maybe a
 -&gt; (UpdateUser -&gt; Maybe [Text] -&gt; UpdateUser)
 -&gt; Lens UpdateUser UpdateUser (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230993"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231179"><span class="annot"><span class="annottext">Maybe [Text]
 groups :: Maybe [Text]
 $sel:groups:UpdateUser' :: UpdateUser -&gt; Maybe [Text]
-</span><a href="#local-6989586621679230993"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679230993"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230992"><span class="annot"><span class="annottext">s :: UpdateUser
-</span><a href="#local-6989586621679230992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230991"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679230991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
-</span><a href="#local-6989586621679230992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:UpdateUser' :: Maybe [Text]
+</span><a href="#local-6989586621679231179"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679231179"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231178"><span class="annot"><span class="annottext">s :: UpdateUser
+</span><a href="#local-6989586621679231178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231177"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679231177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
+</span><a href="#local-6989586621679231178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:UpdateUser' :: Maybe [Text]
 </span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3Agroups%3AUpdateUser%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679230991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; UpdateUser -&gt; f UpdateUser)
+</span><a href="#local-6989586621679231177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; UpdateUser -&gt; f UpdateUser)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -218,46 +218,46 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | The password of the user. This value must be at least 12 characters</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- long, must contain at least 4 unique characters, and must not contain</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- commas, colons, or equal signs (,:=).</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#updateUser_password"><span class="hs-identifier hs-type">updateUser_password</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="updateUser_password"><span class="annot"><span class="annottext">updateUser_password :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateUser -&gt; f UpdateUser
-</span><a href="Network.AWS.MQ.UpdateUser.html#updateUser_password"><span class="hs-identifier hs-var hs-var">updateUser_password</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUser -&gt; Maybe Text)
--&gt; (UpdateUser -&gt; Maybe Text -&gt; UpdateUser)
--&gt; Lens UpdateUser UpdateUser (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230987"><span class="annot"><span class="annottext">Maybe Text
-password :: Maybe Text
-$sel:password:UpdateUser' :: UpdateUser -&gt; Maybe Text
-</span><a href="#local-6989586621679230987"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230987"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230986"><span class="annot"><span class="annottext">s :: UpdateUser
-</span><a href="#local-6989586621679230986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230985"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
-</span><a href="#local-6989586621679230986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:UpdateUser' :: Maybe Text
-</span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3Apassword%3AUpdateUser%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#updateUser_consoleAccess"><span class="hs-identifier hs-type">updateUser_consoleAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="updateUser_consoleAccess"><span class="annot"><span class="annottext">updateUser_consoleAccess :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpdateUser -&gt; f UpdateUser
+</span><span id="line-122"></span><span class="hs-comment">-- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#updateUser_consoleAccess"><span class="hs-identifier hs-type">updateUser_consoleAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="updateUser_consoleAccess"><span class="annot"><span class="annottext">updateUser_consoleAccess :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpdateUser -&gt; f UpdateUser
 </span><a href="Network.AWS.MQ.UpdateUser.html#updateUser_consoleAccess"><span class="hs-identifier hs-var hs-var">updateUser_consoleAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUser -&gt; Maybe Bool)
 -&gt; (UpdateUser -&gt; Maybe Bool -&gt; UpdateUser)
 -&gt; Lens UpdateUser UpdateUser (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230984"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231173"><span class="annot"><span class="annottext">Maybe Bool
 consoleAccess :: Maybe Bool
 $sel:consoleAccess:UpdateUser' :: UpdateUser -&gt; Maybe Bool
-</span><a href="#local-6989586621679230984"><span class="hs-identifier hs-var hs-var">consoleAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679230984"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230983"><span class="annot"><span class="annottext">s :: UpdateUser
-</span><a href="#local-6989586621679230983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230982"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679230982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
-</span><a href="#local-6989586621679230983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consoleAccess:UpdateUser' :: Maybe Bool
+</span><a href="#local-6989586621679231173"><span class="hs-identifier hs-var hs-var">consoleAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679231173"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231172"><span class="annot"><span class="annottext">s :: UpdateUser
+</span><a href="#local-6989586621679231172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231171"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679231171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
+</span><a href="#local-6989586621679231172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consoleAccess:UpdateUser' :: Maybe Bool
 </span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3AconsoleAccess%3AUpdateUser%27"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679230982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The password of the user. This value must be at least 12 characters</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- long, must contain at least 4 unique characters, and must not contain</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- commas, colons, or equal signs (,:=).</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#updateUser_password"><span class="hs-identifier hs-type">updateUser_password</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="updateUser_password"><span class="annot"><span class="annottext">updateUser_password :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateUser -&gt; f UpdateUser
+</span><a href="Network.AWS.MQ.UpdateUser.html#updateUser_password"><span class="hs-identifier hs-var hs-var">updateUser_password</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUser -&gt; Maybe Text)
+-&gt; (UpdateUser -&gt; Maybe Text -&gt; UpdateUser)
+-&gt; Lens UpdateUser UpdateUser (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231170"><span class="annot"><span class="annottext">Maybe Text
+password :: Maybe Text
+$sel:password:UpdateUser' :: UpdateUser -&gt; Maybe Text
+</span><a href="#local-6989586621679231170"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231170"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231169"><span class="annot"><span class="annottext">s :: UpdateUser
+</span><a href="#local-6989586621679231169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231168"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
+</span><a href="#local-6989586621679231169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:UpdateUser' :: Maybe Text
+</span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3Apassword%3AUpdateUser%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | The username of the ActiveMQ user. This value can contain only</span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- alphanumeric characters, dashes, periods, underscores, and tildes (- . _</span><span>
@@ -268,16 +268,16 @@ $sel:consoleAccess:UpdateUser' :: UpdateUser -&gt; Maybe Bool
 -&gt; (UpdateUser -&gt; Text -&gt; UpdateUser)
 -&gt; Lens UpdateUser UpdateUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230981"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231167"><span class="annot"><span class="annottext">Text
 username :: Text
 $sel:username:UpdateUser' :: UpdateUser -&gt; Text
-</span><a href="#local-6989586621679230981"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230981"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230980"><span class="annot"><span class="annottext">s :: UpdateUser
-</span><a href="#local-6989586621679230980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230979"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
-</span><a href="#local-6989586621679230980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:UpdateUser' :: Text
+</span><a href="#local-6989586621679231167"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231167"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231166"><span class="annot"><span class="annottext">s :: UpdateUser
+</span><a href="#local-6989586621679231166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231165"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
+</span><a href="#local-6989586621679231166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:UpdateUser' :: Text
 </span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3Ausername%3AUpdateUser%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The unique ID that Amazon MQ generates for the broker.</span><span>
 </span><span id="line-139"></span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#updateUser_brokerId"><span class="hs-identifier hs-type">updateUser_brokerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -286,25 +286,25 @@ $sel:username:UpdateUser' :: UpdateUser -&gt; Text
 -&gt; (UpdateUser -&gt; Text -&gt; UpdateUser)
 -&gt; Lens UpdateUser UpdateUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230978"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231164"><span class="annot"><span class="annottext">Text
 brokerId :: Text
 $sel:brokerId:UpdateUser' :: UpdateUser -&gt; Text
-</span><a href="#local-6989586621679230978"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230978"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230977"><span class="annot"><span class="annottext">s :: UpdateUser
-</span><a href="#local-6989586621679230977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230976"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
-</span><a href="#local-6989586621679230977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:UpdateUser' :: Text
+</span><a href="#local-6989586621679231164"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231164"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231163"><span class="annot"><span class="annottext">s :: UpdateUser
+</span><a href="#local-6989586621679231163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231162"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
+</span><a href="#local-6989586621679231163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:UpdateUser' :: Text
 </span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3AbrokerId%3AUpdateUser%27"><span class="hs-identifier hs-var">brokerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679230972"><span class="annot"><span class="annottext">request :: UpdateUser -&gt; Request UpdateUser
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679231158"><span class="annot"><span class="annottext">request :: UpdateUser -&gt; Request UpdateUser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateUser -&gt; Request UpdateUser
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MQ.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679230968"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679231154"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateUser
 -&gt; ClientResponse ClientBody
@@ -326,10 +326,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679230965"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230965"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679230964"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679230964"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679230963"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679230963"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679231151"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231151"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679231150"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679231150"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679231149"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679231149"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateUserResponse
 </span><a href="Network.AWS.MQ.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-var">UpdateUserResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateUserResponse)
@@ -340,15 +340,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230965"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231151"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230956"><span id="local-6989586621679230958"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231142"><span id="local-6989586621679231144"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span></span></span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230953"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231139"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679230949"><span class="annot"><span class="annottext">toHeaders :: UpdateUser -&gt; ResponseHeaders
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679231135"><span class="annot"><span class="annottext">toHeaders :: UpdateUser -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateUser -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -367,23 +367,23 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230939"><span id="local-6989586621679230941"><span id="local-6989586621679230943"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679230937"><span class="annot"><span class="annottext">toJSON :: UpdateUser -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230931"><span id="local-6989586621679230932"><span id="local-6989586621679230933"><span id="local-6989586621679230934"><span id="local-6989586621679230935"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231125"><span id="local-6989586621679231127"><span id="local-6989586621679231129"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679231123"><span class="annot"><span class="annottext">toJSON :: UpdateUser -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231117"><span id="local-6989586621679231118"><span id="local-6989586621679231119"><span id="local-6989586621679231120"><span id="local-6989586621679231121"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe Text
 Text
 brokerId :: Text
 username :: Text
-consoleAccess :: Maybe Bool
 password :: Maybe Text
+consoleAccess :: Maybe Bool
 groups :: Maybe [Text]
 $sel:brokerId:UpdateUser' :: UpdateUser -&gt; Text
 $sel:username:UpdateUser' :: UpdateUser -&gt; Text
-$sel:consoleAccess:UpdateUser' :: UpdateUser -&gt; Maybe Bool
 $sel:password:UpdateUser' :: UpdateUser -&gt; Maybe Text
+$sel:consoleAccess:UpdateUser' :: UpdateUser -&gt; Maybe Bool
 $sel:groups:UpdateUser' :: UpdateUser -&gt; Maybe [Text]
-</span><a href="#local-6989586621679230931"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679231117"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -395,41 +395,41 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679230935"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679231121"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;password&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230934"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;consoleAccess&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679230933"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span>
+</span><a href="#local-6989586621679231120"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;password&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231119"><span class="hs-identifier hs-var">password</span></a></span><span>
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679230925"><span class="annot"><span class="annottext">toPath :: UpdateUser -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230919"><span id="local-6989586621679230920"><span id="local-6989586621679230921"><span id="local-6989586621679230922"><span id="local-6989586621679230923"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679231111"><span class="annot"><span class="annottext">toPath :: UpdateUser -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231105"><span id="local-6989586621679231106"><span id="local-6989586621679231107"><span id="local-6989586621679231108"><span id="local-6989586621679231109"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe Text
 Text
 brokerId :: Text
 username :: Text
-consoleAccess :: Maybe Bool
 password :: Maybe Text
+consoleAccess :: Maybe Bool
 groups :: Maybe [Text]
 $sel:brokerId:UpdateUser' :: UpdateUser -&gt; Text
 $sel:username:UpdateUser' :: UpdateUser -&gt; Text
-$sel:consoleAccess:UpdateUser' :: UpdateUser -&gt; Maybe Bool
 $sel:password:UpdateUser' :: UpdateUser -&gt; Maybe Text
+$sel:consoleAccess:UpdateUser' :: UpdateUser -&gt; Maybe Bool
 $sel:groups:UpdateUser' :: UpdateUser -&gt; Maybe [Text]
-</span><a href="#local-6989586621679230919"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679231105"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -438,17 +438,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230919"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679231105"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/users/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230920"><span class="hs-identifier hs-var">username</span></a></span><span>
+</span><a href="#local-6989586621679231106"><span class="hs-identifier hs-var">username</span></a></span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679230915"><span class="annot"><span class="annottext">toQuery :: UpdateUser -&gt; QueryString
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679231101"><span class="annot"><span class="annottext">toQuery :: UpdateUser -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateUser -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -456,12 +456,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | /See:/ 'newUpdateUserResponse' smart constructor.</span><span>
-</span><span id="line-190"></span><span id="local-6989586621679230912"><span id="local-6989586621679230913"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUserResponse"><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-var">UpdateUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUserResponse%27"><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-var">UpdateUserResponse'</span></a></span></span><span>
+</span><span id="line-190"></span><span id="local-6989586621679231098"><span id="local-6989586621679231099"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUserResponse"><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-var">UpdateUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUserResponse%27"><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-var">UpdateUserResponse'</span></a></span></span><span>
 </span><span id="line-191"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-192"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateUserResponse%27"><span class="annot"><span class="annottext">UpdateUserResponse -&gt; Int
 </span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3AhttpStatus%3AUpdateUserResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230907"><span id="local-6989586621679230909"><span class="annot"><span class="annottext">UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231093"><span id="local-6989586621679231095"><span class="annot"><span class="annottext">UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool
 (UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool)
 -&gt; (UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool)
 -&gt; Eq UpdateUserResponse
@@ -470,7 +470,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool
 == :: UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool
 $c== :: UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230899"><span id="local-6989586621679230901"><span id="local-6989586621679230903"><span id="local-6989586621679230905"><span class="annot"><span class="annottext">ReadPrec [UpdateUserResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231085"><span id="local-6989586621679231087"><span id="local-6989586621679231089"><span id="local-6989586621679231091"><span class="annot"><span class="annottext">ReadPrec [UpdateUserResponse]
 ReadPrec UpdateUserResponse
 Int -&gt; ReadS UpdateUserResponse
 ReadS [UpdateUserResponse]
@@ -490,7 +490,7 @@ readList :: ReadS [UpdateUserResponse]
 $creadList :: ReadS [UpdateUserResponse]
 readsPrec :: Int -&gt; ReadS UpdateUserResponse
 $creadsPrec :: Int -&gt; ReadS UpdateUserResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230893"><span id="local-6989586621679230895"><span id="local-6989586621679230897"><span class="annot"><span class="annottext">Int -&gt; UpdateUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231079"><span id="local-6989586621679231081"><span id="local-6989586621679231083"><span class="annot"><span class="annottext">Int -&gt; UpdateUserResponse -&gt; ShowS
 [UpdateUserResponse] -&gt; ShowS
 UpdateUserResponse -&gt; String
 (Int -&gt; UpdateUserResponse -&gt; ShowS)
@@ -530,12 +530,12 @@ $cfrom :: forall x. UpdateUserResponse -&gt; Rep UpdateUserResponse x
 </span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span><span>
 </span><span id="line-209"></span><span id="newUpdateUserResponse"><span class="annot"><span class="annottext">newUpdateUserResponse :: Int -&gt; UpdateUserResponse
-</span><a href="Network.AWS.MQ.UpdateUser.html#newUpdateUserResponse"><span class="hs-identifier hs-var hs-var">newUpdateUserResponse</span></a></span></span><span> </span><span id="local-6989586621679230890"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230890"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.UpdateUser.html#newUpdateUserResponse"><span class="hs-identifier hs-var hs-var">newUpdateUserResponse</span></a></span></span><span> </span><span id="local-6989586621679231076"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231076"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="annottext">UpdateUserResponse' :: Int -&gt; UpdateUserResponse
 </span><a href="Network.AWS.MQ.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-type">UpdateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateUserResponse' :: Int
 </span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3AhttpStatus%3AUpdateUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230890"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679231076"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-213"></span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#updateUserResponse_httpStatus"><span class="hs-identifier hs-type">updateUserResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -544,16 +544,16 @@ $cfrom :: forall x. UpdateUserResponse -&gt; Rep UpdateUserResponse x
 -&gt; (UpdateUserResponse -&gt; Int -&gt; UpdateUserResponse)
 -&gt; Lens UpdateUserResponse UpdateUserResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-type">UpdateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230889"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-type">UpdateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231075"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateUserResponse' :: UpdateUserResponse -&gt; Int
-</span><a href="#local-6989586621679230889"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230889"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230888"><span class="annot"><span class="annottext">s :: UpdateUserResponse
-</span><a href="#local-6989586621679230888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-type">UpdateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230887"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserResponse
-</span><a href="#local-6989586621679230888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateUserResponse' :: Int
+</span><a href="#local-6989586621679231075"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231075"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231074"><span class="annot"><span class="annottext">s :: UpdateUserResponse
+</span><a href="#local-6989586621679231074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-type">UpdateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231073"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserResponse
+</span><a href="#local-6989586621679231074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateUserResponse' :: Int
 </span><a href="Network.AWS.MQ.UpdateUser.html#%24sel%3AhttpStatus%3AUpdateUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230885"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231071"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span></span><span>
 </span><span id="line-217"></span></pre></body></html>

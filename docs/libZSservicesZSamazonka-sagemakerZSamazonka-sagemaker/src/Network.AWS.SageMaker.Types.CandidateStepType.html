@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621680294742"><span id="local-6989586621680294743"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CandidateStepType"><span class="annot"><a href="Network.AWS.SageMaker.Types.CandidateStepType.html#CandidateStepType"><span class="hs-identifier hs-var">CandidateStepType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CandidateStepType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CandidateStepType.html#CandidateStepType%27"><span class="hs-identifier hs-var">CandidateStepType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621680296104"><span id="local-6989586621680296105"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CandidateStepType"><span class="annot"><a href="Network.AWS.SageMaker.Types.CandidateStepType.html#CandidateStepType"><span class="hs-identifier hs-var">CandidateStepType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CandidateStepType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CandidateStepType.html#CandidateStepType%27"><span class="hs-identifier hs-var">CandidateStepType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCandidateStepType"><span class="annot"><span class="annottext">CandidateStepType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.CandidateStepType.html#fromCandidateStepType"><span class="hs-identifier hs-var hs-var">fromCandidateStepType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680294734"><span id="local-6989586621680294736"><span id="local-6989586621680294738"><span class="annot"><span class="annottext">Int -&gt; CandidateStepType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680296096"><span id="local-6989586621680296098"><span id="local-6989586621680296100"><span class="annot"><span class="annottext">Int -&gt; CandidateStepType -&gt; ShowS
 [CandidateStepType] -&gt; ShowS
 CandidateStepType -&gt; String
 (Int -&gt; CandidateStepType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: CandidateStepType -&gt; String
 showsPrec :: Int -&gt; CandidateStepType -&gt; ShowS
 $cshowsPrec :: Int -&gt; CandidateStepType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680294725"><span id="local-6989586621680294727"><span id="local-6989586621680294729"><span id="local-6989586621680294731"><span class="annot"><span class="annottext">ReadPrec [CandidateStepType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680296087"><span id="local-6989586621680296089"><span id="local-6989586621680296091"><span id="local-6989586621680296093"><span class="annot"><span class="annottext">ReadPrec [CandidateStepType]
 ReadPrec CandidateStepType
 Int -&gt; ReadS CandidateStepType
 ReadS [CandidateStepType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [CandidateStepType]
 readsPrec :: Int -&gt; ReadS CandidateStepType
 $creadsPrec :: Int -&gt; ReadS CandidateStepType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680294720"><span id="local-6989586621680294722"><span class="annot"><span class="annottext">CandidateStepType -&gt; CandidateStepType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680296082"><span id="local-6989586621680296084"><span class="annot"><span class="annottext">CandidateStepType -&gt; CandidateStepType -&gt; Bool
 (CandidateStepType -&gt; CandidateStepType -&gt; Bool)
 -&gt; (CandidateStepType -&gt; CandidateStepType -&gt; Bool)
 -&gt; Eq CandidateStepType
@@ -83,7 +83,7 @@ $c/= :: CandidateStepType -&gt; CandidateStepType -&gt; Bool
 == :: CandidateStepType -&gt; CandidateStepType -&gt; Bool
 $c== :: CandidateStepType -&gt; CandidateStepType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680294704"><span id="local-6989586621680294706"><span id="local-6989586621680294708"><span id="local-6989586621680294710"><span id="local-6989586621680294712"><span id="local-6989586621680294714"><span id="local-6989586621680294716"><span class="annot"><span class="annottext">Eq CandidateStepType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680296066"><span id="local-6989586621680296068"><span id="local-6989586621680296070"><span id="local-6989586621680296072"><span id="local-6989586621680296074"><span id="local-6989586621680296076"><span id="local-6989586621680296078"><span class="annot"><span class="annottext">Eq CandidateStepType
 Eq CandidateStepType
 -&gt; (CandidateStepType -&gt; CandidateStepType -&gt; Ordering)
 -&gt; (CandidateStepType -&gt; CandidateStepType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. CandidateStepType -&gt; Rep CandidateStepType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680294696"><span id="local-6989586621680294698"><span class="annot"><span class="annottext">Int -&gt; CandidateStepType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680296058"><span id="local-6989586621680296060"><span class="annot"><span class="annottext">Int -&gt; CandidateStepType -&gt; Int
 CandidateStepType -&gt; Int
 (Int -&gt; CandidateStepType -&gt; Int)
 -&gt; (CandidateStepType -&gt; Int) -&gt; Hashable CandidateStepType
@@ -144,51 +144,51 @@ $chash :: CandidateStepType -&gt; Int
 hashWithSalt :: Int -&gt; CandidateStepType -&gt; Int
 $chashWithSalt :: Int -&gt; CandidateStepType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680294693"><span class="annot"><span class="annottext">CandidateStepType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680296055"><span class="annot"><span class="annottext">CandidateStepType -&gt; ()
 (CandidateStepType -&gt; ()) -&gt; NFData CandidateStepType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CandidateStepType -&gt; ()
 $crnf :: CandidateStepType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680294690"><span class="annot"><span class="annottext">Text -&gt; Either String CandidateStepType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680296052"><span class="annot"><span class="annottext">Text -&gt; Either String CandidateStepType
 (Text -&gt; Either String CandidateStepType)
 -&gt; FromText CandidateStepType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CandidateStepType
 $cfromText :: Text -&gt; Either String CandidateStepType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680294687"><span class="annot"><span class="annottext">CandidateStepType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680296049"><span class="annot"><span class="annottext">CandidateStepType -&gt; Text
 (CandidateStepType -&gt; Text) -&gt; ToText CandidateStepType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CandidateStepType -&gt; Text
 $ctoText :: CandidateStepType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680294684"><span class="annot"><span class="annottext">CandidateStepType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680296046"><span class="annot"><span class="annottext">CandidateStepType -&gt; ByteString
 (CandidateStepType -&gt; ByteString) -&gt; ToByteString CandidateStepType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CandidateStepType -&gt; ByteString
 $ctoBS :: CandidateStepType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680294681"><span class="annot"><span class="annottext">CandidateStepType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680296043"><span class="annot"><span class="annottext">CandidateStepType -&gt; ByteStringBuilder
 (CandidateStepType -&gt; ByteStringBuilder) -&gt; ToLog CandidateStepType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CandidateStepType -&gt; ByteStringBuilder
 $cbuild :: CandidateStepType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680294678"><span class="annot"><span class="annottext">HeaderName -&gt; CandidateStepType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680296040"><span class="annot"><span class="annottext">HeaderName -&gt; CandidateStepType -&gt; [Header]
 (HeaderName -&gt; CandidateStepType -&gt; [Header])
 -&gt; ToHeader CandidateStepType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CandidateStepType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CandidateStepType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680294675"><span class="annot"><span class="annottext">CandidateStepType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680296037"><span class="annot"><span class="annottext">CandidateStepType -&gt; QueryString
 (CandidateStepType -&gt; QueryString) -&gt; ToQuery CandidateStepType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CandidateStepType -&gt; QueryString
 $ctoQuery :: CandidateStepType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680294670"><span id="local-6989586621680294672"><span class="annot"><span class="annottext">Value -&gt; Parser [CandidateStepType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680296032"><span id="local-6989586621680296034"><span class="annot"><span class="annottext">Value -&gt; Parser [CandidateStepType]
 Value -&gt; Parser CandidateStepType
 (Value -&gt; Parser CandidateStepType)
 -&gt; (Value -&gt; Parser [CandidateStepType])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [CandidateStepType]
 parseJSON :: Value -&gt; Parser CandidateStepType
 $cparseJSON :: Value -&gt; Parser CandidateStepType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680294665"><span id="local-6989586621680294667"><span class="annot"><span class="annottext">FromJSONKeyFunction [CandidateStepType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680296027"><span id="local-6989586621680296029"><span class="annot"><span class="annottext">FromJSONKeyFunction [CandidateStepType]
 FromJSONKeyFunction CandidateStepType
 FromJSONKeyFunction CandidateStepType
 -&gt; FromJSONKeyFunction [CandidateStepType]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CandidateStepType]
 fromJSONKey :: FromJSONKeyFunction CandidateStepType
 $cfromJSONKey :: FromJSONKeyFunction CandidateStepType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680294656"><span id="local-6989586621680294658"><span id="local-6989586621680294660"><span id="local-6989586621680294662"><span class="annot"><span class="annottext">[CandidateStepType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680296018"><span id="local-6989586621680296020"><span id="local-6989586621680296022"><span id="local-6989586621680296024"><span class="annot"><span class="annottext">[CandidateStepType] -&gt; Encoding
 [CandidateStepType] -&gt; Value
 CandidateStepType -&gt; Encoding
 CandidateStepType -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: CandidateStepType -&gt; Encoding
 toJSON :: CandidateStepType -&gt; Value
 $ctoJSON :: CandidateStepType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680294651"><span id="local-6989586621680294653"><span class="annot"><span class="annottext">ToJSONKeyFunction [CandidateStepType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680296013"><span id="local-6989586621680296015"><span class="annot"><span class="annottext">ToJSONKeyFunction [CandidateStepType]
 ToJSONKeyFunction CandidateStepType
 ToJSONKeyFunction CandidateStepType
 -&gt; ToJSONKeyFunction [CandidateStepType]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CandidateStepType]
 toJSONKey :: ToJSONKeyFunction CandidateStepType
 $ctoJSONKey :: ToJSONKeyFunction CandidateStepType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680294648"><span class="annot"><span class="annottext">[Node] -&gt; Either String CandidateStepType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680296010"><span class="annot"><span class="annottext">[Node] -&gt; Either String CandidateStepType
 ([Node] -&gt; Either String CandidateStepType)
 -&gt; FromXML CandidateStepType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CandidateStepType
 $cparseXML :: [Node] -&gt; Either String CandidateStepType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680294645"><span class="annot"><span class="annottext">CandidateStepType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680296007"><span class="annot"><span class="annottext">CandidateStepType -&gt; XML
 (CandidateStepType -&gt; XML) -&gt; ToXML CandidateStepType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CandidateStepType -&gt; XML

@@ -48,13 +48,13 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteInvitations' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679311890"><span id="local-6989586621679311891"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInvitations"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations"><span class="hs-identifier hs-var">DeleteInvitations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInvitations%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations%27"><span class="hs-identifier hs-var">DeleteInvitations'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679312225"><span id="local-6989586621679312226"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInvitations"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations"><span class="hs-identifier hs-var">DeleteInvitations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInvitations%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations%27"><span class="hs-identifier hs-var">DeleteInvitations'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of account IDs of the AWS accounts that sent invitations to the</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- current member account that you want to delete invitations from.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AaccountIds%3ADeleteInvitations%27"><span class="annot"><span class="annottext">DeleteInvitations -&gt; NonEmpty Text
 </span><a href="Network.AWS.GuardDuty.DeleteInvitations.html#%24sel%3AaccountIds%3ADeleteInvitations%27"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311884"><span id="local-6989586621679311886"><span class="annot"><span class="annottext">DeleteInvitations -&gt; DeleteInvitations -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312219"><span id="local-6989586621679312221"><span class="annot"><span class="annottext">DeleteInvitations -&gt; DeleteInvitations -&gt; Bool
 (DeleteInvitations -&gt; DeleteInvitations -&gt; Bool)
 -&gt; (DeleteInvitations -&gt; DeleteInvitations -&gt; Bool)
 -&gt; Eq DeleteInvitations
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteInvitations -&gt; DeleteInvitations -&gt; Bool
 == :: DeleteInvitations -&gt; DeleteInvitations -&gt; Bool
 $c== :: DeleteInvitations -&gt; DeleteInvitations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311875"><span id="local-6989586621679311877"><span id="local-6989586621679311879"><span id="local-6989586621679311881"><span class="annot"><span class="annottext">ReadPrec [DeleteInvitations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312210"><span id="local-6989586621679312212"><span id="local-6989586621679312214"><span id="local-6989586621679312216"><span class="annot"><span class="annottext">ReadPrec [DeleteInvitations]
 ReadPrec DeleteInvitations
 Int -&gt; ReadS DeleteInvitations
 ReadS [DeleteInvitations]
@@ -83,7 +83,7 @@ readList :: ReadS [DeleteInvitations]
 $creadList :: ReadS [DeleteInvitations]
 readsPrec :: Int -&gt; ReadS DeleteInvitations
 $creadsPrec :: Int -&gt; ReadS DeleteInvitations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311868"><span id="local-6989586621679311870"><span id="local-6989586621679311872"><span class="annot"><span class="annottext">Int -&gt; DeleteInvitations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312203"><span id="local-6989586621679312205"><span id="local-6989586621679312207"><span class="annot"><span class="annottext">Int -&gt; DeleteInvitations -&gt; ShowS
 [DeleteInvitations] -&gt; ShowS
 DeleteInvitations -&gt; String
 (Int -&gt; DeleteInvitations -&gt; ShowS)
@@ -124,21 +124,21 @@ $cfrom :: forall x. DeleteInvitations -&gt; Rep DeleteInvitations x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations"><span class="hs-identifier hs-type">DeleteInvitations</span></a></span><span>
 </span><span id="line-72"></span><span id="newDeleteInvitations"><span class="annot"><span class="annottext">newDeleteInvitations :: NonEmpty Text -&gt; DeleteInvitations
-</span><a href="Network.AWS.GuardDuty.DeleteInvitations.html#newDeleteInvitations"><span class="hs-identifier hs-var hs-var">newDeleteInvitations</span></a></span></span><span> </span><span id="local-6989586621679311863"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679311863"><span class="hs-identifier hs-var">pAccountIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.DeleteInvitations.html#newDeleteInvitations"><span class="hs-identifier hs-var hs-var">newDeleteInvitations</span></a></span></span><span> </span><span id="local-6989586621679312198"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679312198"><span class="hs-identifier hs-var">pAccountIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeleteInvitations' :: NonEmpty Text -&gt; DeleteInvitations
 </span><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations%27"><span class="hs-identifier hs-type">DeleteInvitations'</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountIds:DeleteInvitations' :: NonEmpty Text
 </span><a href="Network.AWS.GuardDuty.DeleteInvitations.html#%24sel%3AaccountIds%3ADeleteInvitations%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679311863"><span class="hs-identifier hs-var">pAccountIds_</span></a></span><span>
+</span><a href="#local-6989586621679312198"><span class="hs-identifier hs-var">pAccountIds_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | A list of account IDs of the AWS accounts that sent invitations to the</span><span>
@@ -151,16 +151,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      DeleteInvitations DeleteInvitations (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations%27"><span class="hs-identifier hs-type">DeleteInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311858"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations%27"><span class="hs-identifier hs-type">DeleteInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312193"><span class="annot"><span class="annottext">NonEmpty Text
 accountIds :: NonEmpty Text
 $sel:accountIds:DeleteInvitations' :: DeleteInvitations -&gt; NonEmpty Text
-</span><a href="#local-6989586621679311858"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679311858"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311857"><span class="annot"><span class="annottext">s :: DeleteInvitations
-</span><a href="#local-6989586621679311857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations%27"><span class="hs-identifier hs-type">DeleteInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311856"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679311856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInvitations
-</span><a href="#local-6989586621679311857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:DeleteInvitations' :: NonEmpty Text
+</span><a href="#local-6989586621679312193"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679312193"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312192"><span class="annot"><span class="annottext">s :: DeleteInvitations
+</span><a href="#local-6989586621679312192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations%27"><span class="hs-identifier hs-type">DeleteInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312191"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679312191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInvitations
+</span><a href="#local-6989586621679312192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:DeleteInvitations' :: NonEmpty Text
 </span><a href="Network.AWS.GuardDuty.DeleteInvitations.html#%24sel%3AaccountIds%3ADeleteInvitations%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679311856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations"><span class="hs-identifier hs-type">DeleteInvitations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679312191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations"><span class="hs-identifier hs-type">DeleteInvitations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; DeleteInvitations -&gt; f DeleteInvitations)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -170,19 +170,19 @@ $sel:accountIds:DeleteInvitations' :: DeleteInvitations -&gt; NonEmpty Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations"><span class="hs-identifier hs-type">DeleteInvitations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations"><span class="hs-identifier hs-type">DeleteInvitations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse"><span class="hs-identifier hs-type">DeleteInvitationsResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679311851"><span class="annot"><span class="annottext">request :: DeleteInvitations -&gt; Request DeleteInvitations
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679312186"><span class="annot"><span class="annottext">request :: DeleteInvitations -&gt; Request DeleteInvitations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteInvitations -&gt; Request DeleteInvitations
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679311847"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679312182"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteInvitations
 -&gt; ClientResponse ClientBody
@@ -208,10 +208,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311844"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311844"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311843"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679311843"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311842"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311842"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312179"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312179"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312178"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312178"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312177"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312177"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; [UnprocessedAccount] -&gt; DeleteInvitationsResponse
 </span><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse%27"><span class="hs-identifier hs-var">DeleteInvitationsResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; [UnprocessedAccount] -&gt; DeleteInvitationsResponse)
@@ -224,13 +224,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311844"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312179"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either String ([UnprocessedAccount] -&gt; DeleteInvitationsResponse)
 -&gt; Either String [UnprocessedAccount]
 -&gt; Either String DeleteInvitationsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311842"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [UnprocessedAccount])
+</span><a href="#local-6989586621679312177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [UnprocessedAccount])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;unprocessedAccounts&quot;</span></span><span>
@@ -243,12 +243,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-95"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311833"><span id="local-6989586621679311835"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations"><span class="hs-identifier hs-type">DeleteInvitations</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312168"><span id="local-6989586621679312170"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations"><span class="hs-identifier hs-type">DeleteInvitations</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations"><span class="hs-identifier hs-type">DeleteInvitations</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312165"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations"><span class="hs-identifier hs-type">DeleteInvitations</span></a></span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations"><span class="hs-identifier hs-type">DeleteInvitations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679311826"><span class="annot"><span class="annottext">toHeaders :: DeleteInvitations -&gt; ResponseHeaders
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679312161"><span class="annot"><span class="annottext">toHeaders :: DeleteInvitations -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteInvitations -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -267,12 +267,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311816"><span id="local-6989586621679311818"><span id="local-6989586621679311820"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations"><span class="hs-identifier hs-type">DeleteInvitations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679311814"><span class="annot"><span class="annottext">toJSON :: DeleteInvitations -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations%27"><span class="hs-identifier hs-type">DeleteInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311812"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312151"><span id="local-6989586621679312153"><span id="local-6989586621679312155"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations"><span class="hs-identifier hs-type">DeleteInvitations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679312149"><span class="annot"><span class="annottext">toJSON :: DeleteInvitations -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations%27"><span class="hs-identifier hs-type">DeleteInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312147"><span class="annot"><span class="annottext">NonEmpty Text
 accountIds :: NonEmpty Text
 $sel:accountIds:DeleteInvitations' :: DeleteInvitations -&gt; NonEmpty Text
-</span><a href="#local-6989586621679311812"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679312147"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -284,18 +284,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;accountIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679311812"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679312147"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations"><span class="hs-identifier hs-type">DeleteInvitations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679311806"><span class="annot"><span class="annottext">toPath :: DeleteInvitations -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679312141"><span class="annot"><span class="annottext">toPath :: DeleteInvitations -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteInvitations -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/invitation/delete&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitations"><span class="hs-identifier hs-type">DeleteInvitations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679311802"><span class="annot"><span class="annottext">toQuery :: DeleteInvitations -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679312137"><span class="annot"><span class="annottext">toQuery :: DeleteInvitations -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteInvitations -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -303,7 +303,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newDeleteInvitationsResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679311799"><span id="local-6989586621679311800"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInvitationsResponse"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse"><span class="hs-identifier hs-var">DeleteInvitationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInvitationsResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse%27"><span class="hs-identifier hs-var">DeleteInvitationsResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679312134"><span id="local-6989586621679312135"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInvitationsResponse"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse"><span class="hs-identifier hs-var">DeleteInvitationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInvitationsResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse%27"><span class="hs-identifier hs-var">DeleteInvitationsResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteInvitationsResponse%27"><span class="annot"><span class="annottext">DeleteInvitationsResponse -&gt; Int
 </span><a href="Network.AWS.GuardDuty.DeleteInvitations.html#%24sel%3AhttpStatus%3ADeleteInvitationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -312,7 +312,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AunprocessedAccounts%3ADeleteInvitationsResponse%27"><span class="annot"><span class="annottext">DeleteInvitationsResponse -&gt; [UnprocessedAccount]
 </span><a href="Network.AWS.GuardDuty.DeleteInvitations.html#%24sel%3AunprocessedAccounts%3ADeleteInvitationsResponse%27"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311793"><span id="local-6989586621679311795"><span class="annot"><span class="annottext">DeleteInvitationsResponse -&gt; DeleteInvitationsResponse -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312128"><span id="local-6989586621679312130"><span class="annot"><span class="annottext">DeleteInvitationsResponse -&gt; DeleteInvitationsResponse -&gt; Bool
 (DeleteInvitationsResponse -&gt; DeleteInvitationsResponse -&gt; Bool)
 -&gt; (DeleteInvitationsResponse -&gt; DeleteInvitationsResponse -&gt; Bool)
 -&gt; Eq DeleteInvitationsResponse
@@ -321,7 +321,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteInvitationsResponse -&gt; DeleteInvitationsResponse -&gt; Bool
 == :: DeleteInvitationsResponse -&gt; DeleteInvitationsResponse -&gt; Bool
 $c== :: DeleteInvitationsResponse -&gt; DeleteInvitationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311785"><span id="local-6989586621679311787"><span id="local-6989586621679311789"><span id="local-6989586621679311791"><span class="annot"><span class="annottext">ReadPrec [DeleteInvitationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312120"><span id="local-6989586621679312122"><span id="local-6989586621679312124"><span id="local-6989586621679312126"><span class="annot"><span class="annottext">ReadPrec [DeleteInvitationsResponse]
 ReadPrec DeleteInvitationsResponse
 Int -&gt; ReadS DeleteInvitationsResponse
 ReadS [DeleteInvitationsResponse]
@@ -341,7 +341,7 @@ readList :: ReadS [DeleteInvitationsResponse]
 $creadList :: ReadS [DeleteInvitationsResponse]
 readsPrec :: Int -&gt; ReadS DeleteInvitationsResponse
 $creadsPrec :: Int -&gt; ReadS DeleteInvitationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311779"><span id="local-6989586621679311781"><span id="local-6989586621679311783"><span class="annot"><span class="annottext">Int -&gt; DeleteInvitationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312114"><span id="local-6989586621679312116"><span id="local-6989586621679312118"><span class="annot"><span class="annottext">Int -&gt; DeleteInvitationsResponse -&gt; ShowS
 [DeleteInvitationsResponse] -&gt; ShowS
 DeleteInvitationsResponse -&gt; String
 (Int -&gt; DeleteInvitationsResponse -&gt; ShowS)
@@ -390,14 +390,14 @@ DeleteInvitationsResponse -&gt; Rep DeleteInvitationsResponse x
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse"><span class="hs-identifier hs-type">DeleteInvitationsResponse</span></a></span><span>
 </span><span id="line-152"></span><span id="newDeleteInvitationsResponse"><span class="annot"><span class="annottext">newDeleteInvitationsResponse :: Int -&gt; DeleteInvitationsResponse
-</span><a href="Network.AWS.GuardDuty.DeleteInvitations.html#newDeleteInvitationsResponse"><span class="hs-identifier hs-var hs-var">newDeleteInvitationsResponse</span></a></span></span><span> </span><span id="local-6989586621679311776"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311776"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.DeleteInvitations.html#newDeleteInvitationsResponse"><span class="hs-identifier hs-var hs-var">newDeleteInvitationsResponse</span></a></span></span><span> </span><span id="local-6989586621679312111"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312111"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">DeleteInvitationsResponse' :: Int -&gt; [UnprocessedAccount] -&gt; DeleteInvitationsResponse
 </span><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse%27"><span class="hs-identifier hs-type">DeleteInvitationsResponse'</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteInvitationsResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.DeleteInvitations.html#%24sel%3AhttpStatus%3ADeleteInvitationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311776"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312111"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:DeleteInvitationsResponse' :: [UnprocessedAccount]
 </span><a href="Network.AWS.GuardDuty.DeleteInvitations.html#%24sel%3AunprocessedAccounts%3ADeleteInvitationsResponse%27"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
 forall a. Monoid a =&gt; a
@@ -412,16 +412,16 @@ forall a. Monoid a =&gt; a
 -&gt; (DeleteInvitationsResponse -&gt; Int -&gt; DeleteInvitationsResponse)
 -&gt; Lens DeleteInvitationsResponse DeleteInvitationsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse%27"><span class="hs-identifier hs-type">DeleteInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311775"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse%27"><span class="hs-identifier hs-type">DeleteInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312110"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteInvitationsResponse' :: DeleteInvitationsResponse -&gt; Int
-</span><a href="#local-6989586621679311775"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311775"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311774"><span class="annot"><span class="annottext">s :: DeleteInvitationsResponse
-</span><a href="#local-6989586621679311774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse%27"><span class="hs-identifier hs-type">DeleteInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311773"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInvitationsResponse
-</span><a href="#local-6989586621679311774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteInvitationsResponse' :: Int
+</span><a href="#local-6989586621679312110"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312110"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312109"><span class="annot"><span class="annottext">s :: DeleteInvitationsResponse
+</span><a href="#local-6989586621679312109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse%27"><span class="hs-identifier hs-type">DeleteInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312108"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInvitationsResponse
+</span><a href="#local-6989586621679312109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteInvitationsResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.DeleteInvitations.html#%24sel%3AhttpStatus%3ADeleteInvitationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse"><span class="hs-identifier hs-type">DeleteInvitationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse"><span class="hs-identifier hs-type">DeleteInvitationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | A list of objects that contain the unprocessed account and a result</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- string that explains why it was unprocessed.</span><span>
@@ -437,16 +437,16 @@ $sel:httpStatus:DeleteInvitationsResponse' :: DeleteInvitationsResponse -&gt; In
      [UnprocessedAccount]
      [UnprocessedAccount]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse%27"><span class="hs-identifier hs-type">DeleteInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311772"><span class="annot"><span class="annottext">[UnprocessedAccount]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse%27"><span class="hs-identifier hs-type">DeleteInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312107"><span class="annot"><span class="annottext">[UnprocessedAccount]
 unprocessedAccounts :: [UnprocessedAccount]
 $sel:unprocessedAccounts:DeleteInvitationsResponse' :: DeleteInvitationsResponse -&gt; [UnprocessedAccount]
-</span><a href="#local-6989586621679311772"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
-</span><a href="#local-6989586621679311772"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311771"><span class="annot"><span class="annottext">s :: DeleteInvitationsResponse
-</span><a href="#local-6989586621679311771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse%27"><span class="hs-identifier hs-type">DeleteInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311770"><span class="annot"><span class="annottext">[UnprocessedAccount]
-</span><a href="#local-6989586621679311770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInvitationsResponse
-</span><a href="#local-6989586621679311771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:DeleteInvitationsResponse' :: [UnprocessedAccount]
+</span><a href="#local-6989586621679312107"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
+</span><a href="#local-6989586621679312107"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312106"><span class="annot"><span class="annottext">s :: DeleteInvitationsResponse
+</span><a href="#local-6989586621679312106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse%27"><span class="hs-identifier hs-type">DeleteInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312105"><span class="annot"><span class="annottext">[UnprocessedAccount]
+</span><a href="#local-6989586621679312105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInvitationsResponse
+</span><a href="#local-6989586621679312106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:DeleteInvitationsResponse' :: [UnprocessedAccount]
 </span><a href="Network.AWS.GuardDuty.DeleteInvitations.html#%24sel%3AunprocessedAccounts%3ADeleteInvitationsResponse%27"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
-</span><a href="#local-6989586621679311770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse"><span class="hs-identifier hs-type">DeleteInvitationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([UnprocessedAccount] -&gt; f [UnprocessedAccount])
+</span><a href="#local-6989586621679312105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse"><span class="hs-identifier hs-type">DeleteInvitationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([UnprocessedAccount] -&gt; f [UnprocessedAccount])
  -&gt; DeleteInvitationsResponse -&gt; f DeleteInvitationsResponse)
 -&gt; (([UnprocessedAccount] -&gt; f [UnprocessedAccount])
     -&gt; [UnprocessedAccount] -&gt; f [UnprocessedAccount])
@@ -456,8 +456,8 @@ $sel:unprocessedAccounts:DeleteInvitationsResponse' :: DeleteInvitationsResponse
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([UnprocessedAccount] -&gt; f [UnprocessedAccount])
 -&gt; [UnprocessedAccount] -&gt; f [UnprocessedAccount]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311768"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse"><span class="hs-identifier hs-type">DeleteInvitationsResponse</span></a></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312103"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteInvitations.html#DeleteInvitationsResponse"><span class="hs-identifier hs-type">DeleteInvitationsResponse</span></a></span></span><span>
 </span><span id="line-169"></span></pre></body></html>

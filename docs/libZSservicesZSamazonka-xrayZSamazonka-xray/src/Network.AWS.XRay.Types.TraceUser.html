@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about a user recorded in segment documents.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTraceUser' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679257138"><span id="local-6989586621679257139"></span></span><span class="hs-keyword">data</span><span> </span><span id="TraceUser"><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser"><span class="hs-identifier hs-var">TraceUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TraceUser%27"><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser%27"><span class="hs-identifier hs-var">TraceUser'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679257432"><span id="local-6989586621679257433"></span></span><span class="hs-keyword">data</span><span> </span><span id="TraceUser"><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser"><span class="hs-identifier hs-var">TraceUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TraceUser%27"><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser%27"><span class="hs-identifier hs-var">TraceUser'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Services that the user\'s request hit.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AserviceIds%3ATraceUser%27"><span class="annot"><span class="annottext">TraceUser -&gt; Maybe [ServiceId]
 </span><a href="Network.AWS.XRay.Types.TraceUser.html#%24sel%3AserviceIds%3ATraceUser%27"><span class="hs-identifier hs-var hs-var">serviceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.ServiceId.html#ServiceId"><span class="hs-identifier hs-type">ServiceId</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AuserName%3ATraceUser%27"><span class="annot"><span class="annottext">TraceUser -&gt; Maybe Text
 </span><a href="Network.AWS.XRay.Types.TraceUser.html#%24sel%3AuserName%3ATraceUser%27"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257131"><span id="local-6989586621679257133"><span class="annot"><span class="annottext">TraceUser -&gt; TraceUser -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257425"><span id="local-6989586621679257427"><span class="annot"><span class="annottext">TraceUser -&gt; TraceUser -&gt; Bool
 (TraceUser -&gt; TraceUser -&gt; Bool)
 -&gt; (TraceUser -&gt; TraceUser -&gt; Bool) -&gt; Eq TraceUser
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TraceUser -&gt; TraceUser -&gt; Bool
 == :: TraceUser -&gt; TraceUser -&gt; Bool
 $c== :: TraceUser -&gt; TraceUser -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257122"><span id="local-6989586621679257124"><span id="local-6989586621679257126"><span id="local-6989586621679257128"><span class="annot"><span class="annottext">ReadPrec [TraceUser]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257416"><span id="local-6989586621679257418"><span id="local-6989586621679257420"><span id="local-6989586621679257422"><span class="annot"><span class="annottext">ReadPrec [TraceUser]
 ReadPrec TraceUser
 Int -&gt; ReadS TraceUser
 ReadS [TraceUser]
@@ -63,7 +63,7 @@ readList :: ReadS [TraceUser]
 $creadList :: ReadS [TraceUser]
 readsPrec :: Int -&gt; ReadS TraceUser
 $creadsPrec :: Int -&gt; ReadS TraceUser
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257115"><span id="local-6989586621679257117"><span id="local-6989586621679257119"><span class="annot"><span class="annottext">Int -&gt; TraceUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257409"><span id="local-6989586621679257411"><span id="local-6989586621679257413"><span class="annot"><span class="annottext">Int -&gt; TraceUser -&gt; ShowS
 [TraceUser] -&gt; ShowS
 TraceUser -&gt; String
 (Int -&gt; TraceUser -&gt; ShowS)
@@ -123,16 +123,16 @@ forall a. Maybe a
 -&gt; (TraceUser -&gt; Maybe [ServiceId] -&gt; TraceUser)
 -&gt; Lens TraceUser TraceUser (Maybe [ServiceId]) (Maybe [ServiceId])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser%27"><span class="hs-identifier hs-type">TraceUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257106"><span class="annot"><span class="annottext">Maybe [ServiceId]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser%27"><span class="hs-identifier hs-type">TraceUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257400"><span class="annot"><span class="annottext">Maybe [ServiceId]
 serviceIds :: Maybe [ServiceId]
 $sel:serviceIds:TraceUser' :: TraceUser -&gt; Maybe [ServiceId]
-</span><a href="#local-6989586621679257106"><span class="hs-identifier hs-var hs-var">serviceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServiceId]
-</span><a href="#local-6989586621679257106"><span class="hs-identifier hs-var">serviceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257105"><span class="annot"><span class="annottext">s :: TraceUser
-</span><a href="#local-6989586621679257105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser%27"><span class="hs-identifier hs-type">TraceUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257104"><span class="annot"><span class="annottext">Maybe [ServiceId]
-</span><a href="#local-6989586621679257104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceUser
-</span><a href="#local-6989586621679257105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceIds:TraceUser' :: Maybe [ServiceId]
+</span><a href="#local-6989586621679257400"><span class="hs-identifier hs-var hs-var">serviceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServiceId]
+</span><a href="#local-6989586621679257400"><span class="hs-identifier hs-var">serviceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257399"><span class="annot"><span class="annottext">s :: TraceUser
+</span><a href="#local-6989586621679257399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser%27"><span class="hs-identifier hs-type">TraceUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257398"><span class="annot"><span class="annottext">Maybe [ServiceId]
+</span><a href="#local-6989586621679257398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceUser
+</span><a href="#local-6989586621679257399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceIds:TraceUser' :: Maybe [ServiceId]
 </span><a href="Network.AWS.XRay.Types.TraceUser.html#%24sel%3AserviceIds%3ATraceUser%27"><span class="hs-identifier hs-var">serviceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ServiceId]
-</span><a href="#local-6989586621679257104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser"><span class="hs-identifier hs-type">TraceUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServiceId] -&gt; f (Maybe [ServiceId]))
+</span><a href="#local-6989586621679257398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser"><span class="hs-identifier hs-type">TraceUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServiceId] -&gt; f (Maybe [ServiceId]))
  -&gt; TraceUser -&gt; f TraceUser)
 -&gt; ((Maybe [ServiceId] -&gt; f (Maybe [ServiceId]))
     -&gt; Maybe [ServiceId] -&gt; f (Maybe [ServiceId]))
@@ -150,8 +150,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ServiceId] [ServiceId] [ServiceId] [ServiceId]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The user\'s name.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#traceUser_userName"><span class="hs-identifier hs-type">traceUser_userName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser"><span class="hs-identifier hs-type">TraceUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -160,34 +160,34 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (TraceUser -&gt; Maybe Text -&gt; TraceUser)
 -&gt; Lens TraceUser TraceUser (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser%27"><span class="hs-identifier hs-type">TraceUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257099"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser%27"><span class="hs-identifier hs-type">TraceUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257393"><span class="annot"><span class="annottext">Maybe Text
 userName :: Maybe Text
 $sel:userName:TraceUser' :: TraceUser -&gt; Maybe Text
-</span><a href="#local-6989586621679257099"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257099"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257098"><span class="annot"><span class="annottext">s :: TraceUser
-</span><a href="#local-6989586621679257098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser%27"><span class="hs-identifier hs-type">TraceUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257097"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceUser
-</span><a href="#local-6989586621679257098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:TraceUser' :: Maybe Text
+</span><a href="#local-6989586621679257393"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257393"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257392"><span class="annot"><span class="annottext">s :: TraceUser
+</span><a href="#local-6989586621679257392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser%27"><span class="hs-identifier hs-type">TraceUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257391"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TraceUser
+</span><a href="#local-6989586621679257392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:TraceUser' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.TraceUser.html#%24sel%3AuserName%3ATraceUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser"><span class="hs-identifier hs-type">TraceUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679257391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser"><span class="hs-identifier hs-type">TraceUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257094"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser"><span class="hs-identifier hs-type">TraceUser</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679257092"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TraceUser
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257388"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser"><span class="hs-identifier hs-type">TraceUser</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679257386"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TraceUser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser TraceUser) -&gt; Value -&gt; Parser TraceUser
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TraceUser&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257089"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257089"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257383"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257383"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ServiceId] -&gt; Maybe Text -&gt; TraceUser
 </span><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser%27"><span class="hs-identifier hs-var">TraceUser'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ServiceId] -&gt; Maybe Text -&gt; TraceUser)
 -&gt; Parser (Maybe [ServiceId]) -&gt; Parser (Maybe Text -&gt; TraceUser)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ServiceId]))
+</span><a href="#local-6989586621679257383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ServiceId]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ServiceId]))
@@ -200,13 +200,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser TraceUser
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679257383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257082"><span id="local-6989586621679257084"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser"><span class="hs-identifier hs-type">TraceUser</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257376"><span id="local-6989586621679257378"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser"><span class="hs-identifier hs-type">TraceUser</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257079"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser"><span class="hs-identifier hs-type">TraceUser</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257373"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.TraceUser.html#TraceUser"><span class="hs-identifier hs-type">TraceUser</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

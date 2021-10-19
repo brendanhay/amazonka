@@ -35,10 +35,10 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679367397"><span id="local-6989586621679367398"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Feature"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Feature.html#Feature"><span class="hs-identifier hs-var">Feature</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Feature%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Feature.html#Feature%27"><span class="hs-identifier hs-var">Feature'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromFeature"><span class="annot"><span class="annottext">Feature -&gt; Text
+</span><span id="line-38"></span><span id="local-6989586621679367711"><span id="local-6989586621679367712"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Feature"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Feature.html#Feature"><span class="hs-identifier hs-var">Feature</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Feature%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Feature.html#Feature%27"><span class="hs-identifier hs-var">Feature'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromFeature"><span class="annot"><span class="annottext">Feature -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Feature.html#fromFeature"><span class="hs-identifier hs-var hs-var">fromFeature</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367389"><span id="local-6989586621679367391"><span id="local-6989586621679367393"><span class="annot"><span class="annottext">Int -&gt; Feature -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367703"><span id="local-6989586621679367705"><span id="local-6989586621679367707"><span class="annot"><span class="annottext">Int -&gt; Feature -&gt; ShowS
 [Feature] -&gt; ShowS
 Feature -&gt; String
 (Int -&gt; Feature -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: Feature -&gt; String
 showsPrec :: Int -&gt; Feature -&gt; ShowS
 $cshowsPrec :: Int -&gt; Feature -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679367380"><span id="local-6989586621679367382"><span id="local-6989586621679367384"><span id="local-6989586621679367386"><span class="annot"><span class="annottext">ReadPrec [Feature]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679367694"><span id="local-6989586621679367696"><span id="local-6989586621679367698"><span id="local-6989586621679367700"><span class="annot"><span class="annottext">ReadPrec [Feature]
 ReadPrec Feature
 Int -&gt; ReadS Feature
 ReadS [Feature]
@@ -73,7 +73,7 @@ $creadList :: ReadS [Feature]
 readsPrec :: Int -&gt; ReadS Feature
 $creadsPrec :: Int -&gt; ReadS Feature
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679367375"><span id="local-6989586621679367377"><span class="annot"><span class="annottext">Feature -&gt; Feature -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679367689"><span id="local-6989586621679367691"><span class="annot"><span class="annottext">Feature -&gt; Feature -&gt; Bool
 (Feature -&gt; Feature -&gt; Bool)
 -&gt; (Feature -&gt; Feature -&gt; Bool) -&gt; Eq Feature
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: Feature -&gt; Feature -&gt; Bool
 == :: Feature -&gt; Feature -&gt; Bool
 $c== :: Feature -&gt; Feature -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679367359"><span id="local-6989586621679367361"><span id="local-6989586621679367363"><span id="local-6989586621679367365"><span id="local-6989586621679367367"><span id="local-6989586621679367369"><span id="local-6989586621679367371"><span class="annot"><span class="annottext">Eq Feature
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679367673"><span id="local-6989586621679367675"><span id="local-6989586621679367677"><span id="local-6989586621679367679"><span id="local-6989586621679367681"><span id="local-6989586621679367683"><span id="local-6989586621679367685"><span class="annot"><span class="annottext">Eq Feature
 Eq Feature
 -&gt; (Feature -&gt; Feature -&gt; Ordering)
 -&gt; (Feature -&gt; Feature -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. Feature -&gt; Rep Feature x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367351"><span id="local-6989586621679367353"><span class="annot"><span class="annottext">Int -&gt; Feature -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367665"><span id="local-6989586621679367667"><span class="annot"><span class="annottext">Int -&gt; Feature -&gt; Int
 Feature -&gt; Int
 (Int -&gt; Feature -&gt; Int) -&gt; (Feature -&gt; Int) -&gt; Hashable Feature
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -141,49 +141,49 @@ $chash :: Feature -&gt; Int
 hashWithSalt :: Int -&gt; Feature -&gt; Int
 $chashWithSalt :: Int -&gt; Feature -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679367348"><span class="annot"><span class="annottext">Feature -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679367662"><span class="annot"><span class="annottext">Feature -&gt; ()
 (Feature -&gt; ()) -&gt; NFData Feature
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Feature -&gt; ()
 $crnf :: Feature -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679367345"><span class="annot"><span class="annottext">Text -&gt; Either String Feature
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679367659"><span class="annot"><span class="annottext">Text -&gt; Either String Feature
 (Text -&gt; Either String Feature) -&gt; FromText Feature
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Feature
 $cfromText :: Text -&gt; Either String Feature
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679367342"><span class="annot"><span class="annottext">Feature -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679367656"><span class="annot"><span class="annottext">Feature -&gt; Text
 (Feature -&gt; Text) -&gt; ToText Feature
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Feature -&gt; Text
 $ctoText :: Feature -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679367339"><span class="annot"><span class="annottext">Feature -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679367653"><span class="annot"><span class="annottext">Feature -&gt; ByteString
 (Feature -&gt; ByteString) -&gt; ToByteString Feature
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Feature -&gt; ByteString
 $ctoBS :: Feature -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679367336"><span class="annot"><span class="annottext">Feature -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679367650"><span class="annot"><span class="annottext">Feature -&gt; ByteStringBuilder
 (Feature -&gt; ByteStringBuilder) -&gt; ToLog Feature
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Feature -&gt; ByteStringBuilder
 $cbuild :: Feature -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679367333"><span class="annot"><span class="annottext">HeaderName -&gt; Feature -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679367647"><span class="annot"><span class="annottext">HeaderName -&gt; Feature -&gt; [Header]
 (HeaderName -&gt; Feature -&gt; [Header]) -&gt; ToHeader Feature
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Feature -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Feature -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679367330"><span class="annot"><span class="annottext">Feature -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679367644"><span class="annot"><span class="annottext">Feature -&gt; QueryString
 (Feature -&gt; QueryString) -&gt; ToQuery Feature
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Feature -&gt; QueryString
 $ctoQuery :: Feature -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679367325"><span id="local-6989586621679367327"><span class="annot"><span class="annottext">Value -&gt; Parser [Feature]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679367639"><span id="local-6989586621679367641"><span class="annot"><span class="annottext">Value -&gt; Parser [Feature]
 Value -&gt; Parser Feature
 (Value -&gt; Parser Feature)
 -&gt; (Value -&gt; Parser [Feature]) -&gt; FromJSON Feature
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [Feature]
 parseJSON :: Value -&gt; Parser Feature
 $cparseJSON :: Value -&gt; Parser Feature
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679367320"><span id="local-6989586621679367322"><span class="annot"><span class="annottext">FromJSONKeyFunction [Feature]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679367634"><span id="local-6989586621679367636"><span class="annot"><span class="annottext">FromJSONKeyFunction [Feature]
 FromJSONKeyFunction Feature
 FromJSONKeyFunction Feature
 -&gt; FromJSONKeyFunction [Feature] -&gt; FromJSONKey Feature
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Feature]
 fromJSONKey :: FromJSONKeyFunction Feature
 $cfromJSONKey :: FromJSONKeyFunction Feature
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679367311"><span id="local-6989586621679367313"><span id="local-6989586621679367315"><span id="local-6989586621679367317"><span class="annot"><span class="annottext">[Feature] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679367625"><span id="local-6989586621679367627"><span id="local-6989586621679367629"><span id="local-6989586621679367631"><span class="annot"><span class="annottext">[Feature] -&gt; Encoding
 [Feature] -&gt; Value
 Feature -&gt; Encoding
 Feature -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: Feature -&gt; Encoding
 toJSON :: Feature -&gt; Value
 $ctoJSON :: Feature -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679367306"><span id="local-6989586621679367308"><span class="annot"><span class="annottext">ToJSONKeyFunction [Feature]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679367620"><span id="local-6989586621679367622"><span class="annot"><span class="annottext">ToJSONKeyFunction [Feature]
 ToJSONKeyFunction Feature
 ToJSONKeyFunction Feature
 -&gt; ToJSONKeyFunction [Feature] -&gt; ToJSONKey Feature
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Feature]
 toJSONKey :: ToJSONKeyFunction Feature
 $ctoJSONKey :: ToJSONKeyFunction Feature
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679367303"><span class="annot"><span class="annottext">[Node] -&gt; Either String Feature
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679367617"><span class="annot"><span class="annottext">[Node] -&gt; Either String Feature
 ([Node] -&gt; Either String Feature) -&gt; FromXML Feature
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Feature
 $cparseXML :: [Node] -&gt; Either String Feature
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679367300"><span class="annot"><span class="annottext">Feature -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679367614"><span class="annot"><span class="annottext">Feature -&gt; XML
 (Feature -&gt; XML) -&gt; ToXML Feature
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Feature -&gt; XML

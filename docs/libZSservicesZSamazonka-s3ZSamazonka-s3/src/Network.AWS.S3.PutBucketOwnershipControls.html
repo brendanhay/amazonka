@@ -39,8 +39,8 @@
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#newPutBucketOwnershipControls"><span class="hs-identifier">newPutBucketOwnershipControls</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#putBucketOwnershipControls_expectedBucketOwner"><span class="hs-identifier">putBucketOwnershipControls_expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#putBucketOwnershipControls_contentMD5"><span class="hs-identifier">putBucketOwnershipControls_contentMD5</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#putBucketOwnershipControls_contentMD5"><span class="hs-identifier">putBucketOwnershipControls_contentMD5</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#putBucketOwnershipControls_expectedBucketOwner"><span class="hs-identifier">putBucketOwnershipControls_expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#putBucketOwnershipControls_bucket"><span class="hs-identifier">putBucketOwnershipControls_bucket</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#putBucketOwnershipControls_ownershipControls"><span class="hs-identifier">putBucketOwnershipControls_ownershipControls</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>
@@ -58,19 +58,19 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newPutBucketOwnershipControls' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679564841"><span id="local-6989586621679564842"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketOwnershipControls"><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-var">PutBucketOwnershipControls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketOwnershipControls%27"><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-var">PutBucketOwnershipControls'</span></a></span></span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AexpectedBucketOwner%3APutBucketOwnershipControls%27"><span class="annot"><span class="annottext">PutBucketOwnershipControls -&gt; Maybe Text
-</span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#%24sel%3AexpectedBucketOwner%3APutBucketOwnershipControls%27"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The MD5 hash of the @OwnershipControls@ request body.</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- For requests made using the Amazon Web Services Command Line Interface</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- (CLI) or Amazon Web Services SDKs, this field is calculated</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- automatically.</span><span>
-</span><span id="line-71"></span><span>    </span><span id="%24sel%3AcontentMD5%3APutBucketOwnershipControls%27"><span class="annot"><span class="annottext">PutBucketOwnershipControls -&gt; Maybe Text
+</span><span id="line-61"></span><span id="local-6989586621679565578"><span id="local-6989586621679565579"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketOwnershipControls"><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-var">PutBucketOwnershipControls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketOwnershipControls%27"><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-var">PutBucketOwnershipControls'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The MD5 hash of the @OwnershipControls@ request body.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- For requests made using the Amazon Web Services Command Line Interface</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- (CLI) or Amazon Web Services SDKs, this field is calculated</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- automatically.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AcontentMD5%3APutBucketOwnershipControls%27"><span class="annot"><span class="annottext">PutBucketOwnershipControls -&gt; Maybe Text
 </span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#%24sel%3AcontentMD5%3APutBucketOwnershipControls%27"><span class="hs-identifier hs-var hs-var">contentMD5</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AexpectedBucketOwner%3APutBucketOwnershipControls%27"><span class="annot"><span class="annottext">PutBucketOwnershipControls -&gt; Maybe Text
+</span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#%24sel%3AexpectedBucketOwner%3APutBucketOwnershipControls%27"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon S3 bucket whose @OwnershipControls@ you want to</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- set.</span><span>
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3Abucket%3APutBucketOwnershipControls%27"><span class="annot"><span class="annottext">PutBucketOwnershipControls -&gt; BucketName
@@ -80,7 +80,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3AownershipControls%3APutBucketOwnershipControls%27"><span class="annot"><span class="annottext">PutBucketOwnershipControls -&gt; OwnershipControls
 </span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#%24sel%3AownershipControls%3APutBucketOwnershipControls%27"><span class="hs-identifier hs-var hs-var">ownershipControls</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.OwnershipControls.html#OwnershipControls"><span class="hs-identifier hs-type">OwnershipControls</span></a></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679564832"><span id="local-6989586621679564834"><span class="annot"><span class="annottext">PutBucketOwnershipControls -&gt; PutBucketOwnershipControls -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679565569"><span id="local-6989586621679565571"><span class="annot"><span class="annottext">PutBucketOwnershipControls -&gt; PutBucketOwnershipControls -&gt; Bool
 (PutBucketOwnershipControls -&gt; PutBucketOwnershipControls -&gt; Bool)
 -&gt; (PutBucketOwnershipControls
     -&gt; PutBucketOwnershipControls -&gt; Bool)
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutBucketOwnershipControls -&gt; PutBucketOwnershipControls -&gt; Bool
 == :: PutBucketOwnershipControls -&gt; PutBucketOwnershipControls -&gt; Bool
 $c== :: PutBucketOwnershipControls -&gt; PutBucketOwnershipControls -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679564823"><span id="local-6989586621679564825"><span id="local-6989586621679564827"><span id="local-6989586621679564829"><span class="annot"><span class="annottext">ReadPrec [PutBucketOwnershipControls]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679565560"><span id="local-6989586621679565562"><span id="local-6989586621679565564"><span id="local-6989586621679565566"><span class="annot"><span class="annottext">ReadPrec [PutBucketOwnershipControls]
 ReadPrec PutBucketOwnershipControls
 Int -&gt; ReadS PutBucketOwnershipControls
 ReadS [PutBucketOwnershipControls]
@@ -110,7 +110,7 @@ readList :: ReadS [PutBucketOwnershipControls]
 $creadList :: ReadS [PutBucketOwnershipControls]
 readsPrec :: Int -&gt; ReadS PutBucketOwnershipControls
 $creadsPrec :: Int -&gt; ReadS PutBucketOwnershipControls
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679564816"><span id="local-6989586621679564818"><span id="local-6989586621679564820"><span class="annot"><span class="annottext">Int -&gt; PutBucketOwnershipControls -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679565553"><span id="local-6989586621679565555"><span id="local-6989586621679565557"><span class="annot"><span class="annottext">Int -&gt; PutBucketOwnershipControls -&gt; ShowS
 [PutBucketOwnershipControls] -&gt; ShowS
 PutBucketOwnershipControls -&gt; String
 (Int -&gt; PutBucketOwnershipControls -&gt; ShowS)
@@ -150,15 +150,15 @@ PutBucketOwnershipControls -&gt; Rep PutBucketOwnershipControls x
 </span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'expectedBucketOwner', 'putBucketOwnershipControls_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'contentMD5', 'putBucketOwnershipControls_contentMD5' - The MD5 hash of the @OwnershipControls@ request body.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'contentMD5', 'putBucketOwnershipControls_contentMD5' - The MD5 hash of the @OwnershipControls@ request body.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- For requests made using the Amazon Web Services Command Line Interface</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- (CLI) or Amazon Web Services SDKs, this field is calculated</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- automatically.</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- For requests made using the Amazon Web Services Command Line Interface</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- (CLI) or Amazon Web Services SDKs, this field is calculated</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- automatically.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'expectedBucketOwner', 'putBucketOwnershipControls_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- 'bucket', 'putBucketOwnershipControls_bucket' - The name of the Amazon S3 bucket whose @OwnershipControls@ you want to</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- set.</span><span>
@@ -173,66 +173,40 @@ PutBucketOwnershipControls -&gt; Rep PutBucketOwnershipControls x
 </span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span>
 </span><span id="line-110"></span><span id="newPutBucketOwnershipControls"><span class="annot"><span class="annottext">newPutBucketOwnershipControls :: BucketName -&gt; OwnershipControls -&gt; PutBucketOwnershipControls
 </span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#newPutBucketOwnershipControls"><span class="hs-identifier hs-var hs-var">newPutBucketOwnershipControls</span></a></span></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679564811"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679564811"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679564810"><span class="annot"><span class="annottext">OwnershipControls
-</span><a href="#local-6989586621679564810"><span class="hs-identifier hs-var">pOwnershipControls_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679565548"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679565548"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679565547"><span class="annot"><span class="annottext">OwnershipControls
+</span><a href="#local-6989586621679565547"><span class="hs-identifier hs-var">pOwnershipControls_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">PutBucketOwnershipControls' :: Maybe Text
 -&gt; Maybe Text
 -&gt; BucketName
 -&gt; OwnershipControls
 -&gt; PutBucketOwnershipControls
 </span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketOwnershipControls' :: Maybe Text
-</span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#%24sel%3AexpectedBucketOwner%3APutBucketOwnershipControls%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:contentMD5:PutBucketOwnershipControls' :: Maybe Text
+</span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#%24sel%3AcontentMD5%3APutBucketOwnershipControls%27"><span class="hs-identifier hs-var">contentMD5</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:contentMD5:PutBucketOwnershipControls' :: Maybe Text
-</span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#%24sel%3AcontentMD5%3APutBucketOwnershipControls%27"><span class="hs-identifier hs-var">contentMD5</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketOwnershipControls' :: Maybe Text
+</span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#%24sel%3AexpectedBucketOwner%3APutBucketOwnershipControls%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:bucket:PutBucketOwnershipControls' :: BucketName
 </span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#%24sel%3Abucket%3APutBucketOwnershipControls%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679564811"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679565548"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:ownershipControls:PutBucketOwnershipControls' :: OwnershipControls
 </span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#%24sel%3AownershipControls%3APutBucketOwnershipControls%27"><span class="hs-identifier hs-var">ownershipControls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OwnershipControls
-</span><a href="#local-6989586621679564810"><span class="hs-identifier hs-var">pOwnershipControls_</span></a></span><span>
+</span><a href="#local-6989586621679565547"><span class="hs-identifier hs-var">pOwnershipControls_</span></a></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#putBucketOwnershipControls_expectedBucketOwner"><span class="hs-identifier hs-type">putBucketOwnershipControls_expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="putBucketOwnershipControls_expectedBucketOwner"><span class="annot"><span class="annottext">putBucketOwnershipControls_expectedBucketOwner :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PutBucketOwnershipControls -&gt; f PutBucketOwnershipControls
-</span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#putBucketOwnershipControls_expectedBucketOwner"><span class="hs-identifier hs-var hs-var">putBucketOwnershipControls_expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketOwnershipControls -&gt; Maybe Text)
--&gt; (PutBucketOwnershipControls
-    -&gt; Maybe Text -&gt; PutBucketOwnershipControls)
--&gt; Lens
-     PutBucketOwnershipControls
-     PutBucketOwnershipControls
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679564807"><span class="annot"><span class="annottext">Maybe Text
-expectedBucketOwner :: Maybe Text
-$sel:expectedBucketOwner:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; Maybe Text
-</span><a href="#local-6989586621679564807"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679564807"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679564806"><span class="annot"><span class="annottext">s :: PutBucketOwnershipControls
-</span><a href="#local-6989586621679564806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679564805"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679564805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketOwnershipControls
-</span><a href="#local-6989586621679564806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketOwnershipControls' :: Maybe Text
-</span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#%24sel%3AexpectedBucketOwner%3APutBucketOwnershipControls%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679564805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | The MD5 hash of the @OwnershipControls@ request body.</span><span>
-</span><span id="line-128"></span><span class="hs-comment">--</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- For requests made using the Amazon Web Services Command Line Interface</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- (CLI) or Amazon Web Services SDKs, this field is calculated</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- automatically.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#putBucketOwnershipControls_contentMD5"><span class="hs-identifier hs-type">putBucketOwnershipControls_contentMD5</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="putBucketOwnershipControls_contentMD5"><span class="annot"><span class="annottext">putBucketOwnershipControls_contentMD5 :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-121"></span><span class="hs-comment">-- | The MD5 hash of the @OwnershipControls@ request body.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- For requests made using the Amazon Web Services Command Line Interface</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- (CLI) or Amazon Web Services SDKs, this field is calculated</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- automatically.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#putBucketOwnershipControls_contentMD5"><span class="hs-identifier hs-type">putBucketOwnershipControls_contentMD5</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="putBucketOwnershipControls_contentMD5"><span class="annot"><span class="annottext">putBucketOwnershipControls_contentMD5 :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PutBucketOwnershipControls -&gt; f PutBucketOwnershipControls
 </span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#putBucketOwnershipControls_contentMD5"><span class="hs-identifier hs-var hs-var">putBucketOwnershipControls_contentMD5</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketOwnershipControls -&gt; Maybe Text)
 -&gt; (PutBucketOwnershipControls
@@ -243,16 +217,42 @@ $sel:expectedBucketOwner:PutBucketOwnershipControls' :: PutBucketOwnershipContro
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679564804"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565544"><span class="annot"><span class="annottext">Maybe Text
 contentMD5 :: Maybe Text
 $sel:contentMD5:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; Maybe Text
-</span><a href="#local-6989586621679564804"><span class="hs-identifier hs-var hs-var">contentMD5</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679564804"><span class="hs-identifier hs-var">contentMD5</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679564803"><span class="annot"><span class="annottext">s :: PutBucketOwnershipControls
-</span><a href="#local-6989586621679564803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679564802"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679564802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketOwnershipControls
-</span><a href="#local-6989586621679564803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentMD5:PutBucketOwnershipControls' :: Maybe Text
+</span><a href="#local-6989586621679565544"><span class="hs-identifier hs-var hs-var">contentMD5</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565544"><span class="hs-identifier hs-var">contentMD5</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565543"><span class="annot"><span class="annottext">s :: PutBucketOwnershipControls
+</span><a href="#local-6989586621679565543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565542"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketOwnershipControls
+</span><a href="#local-6989586621679565543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentMD5:PutBucketOwnershipControls' :: Maybe Text
 </span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#%24sel%3AcontentMD5%3APutBucketOwnershipControls%27"><span class="hs-identifier hs-var">contentMD5</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679564802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679565542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#putBucketOwnershipControls_expectedBucketOwner"><span class="hs-identifier hs-type">putBucketOwnershipControls_expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="putBucketOwnershipControls_expectedBucketOwner"><span class="annot"><span class="annottext">putBucketOwnershipControls_expectedBucketOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutBucketOwnershipControls -&gt; f PutBucketOwnershipControls
+</span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#putBucketOwnershipControls_expectedBucketOwner"><span class="hs-identifier hs-var hs-var">putBucketOwnershipControls_expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutBucketOwnershipControls -&gt; Maybe Text)
+-&gt; (PutBucketOwnershipControls
+    -&gt; Maybe Text -&gt; PutBucketOwnershipControls)
+-&gt; Lens
+     PutBucketOwnershipControls
+     PutBucketOwnershipControls
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565541"><span class="annot"><span class="annottext">Maybe Text
+expectedBucketOwner :: Maybe Text
+$sel:expectedBucketOwner:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; Maybe Text
+</span><a href="#local-6989586621679565541"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565541"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565540"><span class="annot"><span class="annottext">s :: PutBucketOwnershipControls
+</span><a href="#local-6989586621679565540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565539"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketOwnershipControls
+</span><a href="#local-6989586621679565540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketOwnershipControls' :: Maybe Text
+</span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#%24sel%3AexpectedBucketOwner%3APutBucketOwnershipControls%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket whose @OwnershipControls@ you want to</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- set.</span><span>
@@ -268,16 +268,16 @@ $sel:contentMD5:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; 
      BucketName
      BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679564801"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565538"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; BucketName
-</span><a href="#local-6989586621679564801"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679564801"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679564800"><span class="annot"><span class="annottext">s :: PutBucketOwnershipControls
-</span><a href="#local-6989586621679564800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679564799"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679564799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketOwnershipControls
-</span><a href="#local-6989586621679564800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:PutBucketOwnershipControls' :: BucketName
+</span><a href="#local-6989586621679565538"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679565538"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565537"><span class="annot"><span class="annottext">s :: PutBucketOwnershipControls
+</span><a href="#local-6989586621679565537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565536"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679565536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketOwnershipControls
+</span><a href="#local-6989586621679565537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:PutBucketOwnershipControls' :: BucketName
 </span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#%24sel%3Abucket%3APutBucketOwnershipControls%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679564799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679565536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | The @OwnershipControls@ (BucketOwnerPreferred or ObjectWriter) that you</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- want to apply to this Amazon S3 bucket.</span><span>
@@ -293,35 +293,47 @@ $sel:bucket:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; Buck
      OwnershipControls
      OwnershipControls
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679564798"><span class="annot"><span class="annottext">OwnershipControls
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565535"><span class="annot"><span class="annottext">OwnershipControls
 ownershipControls :: OwnershipControls
 $sel:ownershipControls:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; OwnershipControls
-</span><a href="#local-6989586621679564798"><span class="hs-identifier hs-var hs-var">ownershipControls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OwnershipControls
-</span><a href="#local-6989586621679564798"><span class="hs-identifier hs-var">ownershipControls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679564797"><span class="annot"><span class="annottext">s :: PutBucketOwnershipControls
-</span><a href="#local-6989586621679564797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679564796"><span class="annot"><span class="annottext">OwnershipControls
-</span><a href="#local-6989586621679564796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketOwnershipControls
-</span><a href="#local-6989586621679564797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownershipControls:PutBucketOwnershipControls' :: OwnershipControls
+</span><a href="#local-6989586621679565535"><span class="hs-identifier hs-var hs-var">ownershipControls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OwnershipControls
+</span><a href="#local-6989586621679565535"><span class="hs-identifier hs-var">ownershipControls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565534"><span class="annot"><span class="annottext">s :: PutBucketOwnershipControls
+</span><a href="#local-6989586621679565534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565533"><span class="annot"><span class="annottext">OwnershipControls
+</span><a href="#local-6989586621679565533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketOwnershipControls
+</span><a href="#local-6989586621679565534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownershipControls:PutBucketOwnershipControls' :: OwnershipControls
 </span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#%24sel%3AownershipControls%3APutBucketOwnershipControls%27"><span class="hs-identifier hs-var">ownershipControls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OwnershipControls
-</span><a href="#local-6989586621679564796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679565533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-147"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControlsResponse"><span class="hs-identifier hs-type">PutBucketOwnershipControlsResponse</span></a></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679564792"><span class="annot"><span class="annottext">request :: PutBucketOwnershipControls -&gt; Request PutBucketOwnershipControls
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679565529"><span class="annot"><span class="annottext">request :: PutBucketOwnershipControls -&gt; Request PutBucketOwnershipControls
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">Request PutBucketOwnershipControls
+-&gt; Request PutBucketOwnershipControls
+forall a. Request a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.s3vhost</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">(Request PutBucketOwnershipControls
+ -&gt; Request PutBucketOwnershipControls)
+-&gt; (PutBucketOwnershipControls
+    -&gt; Request PutBucketOwnershipControls)
+-&gt; PutBucketOwnershipControls
+-&gt; Request PutBucketOwnershipControls
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; PutBucketOwnershipControls -&gt; Request PutBucketOwnershipControls
 forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putXML</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679564788"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679565523"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutBucketOwnershipControls
 -&gt; ClientResponse ClientBody
 -&gt; m (Either
         Error (ClientResponse (AWSResponse PutBucketOwnershipControls)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse PutBucketOwnershipControls
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse PutBucketOwnershipControls
 -&gt; Logger
 -&gt; Service
 -&gt; Proxy PutBucketOwnershipControls
@@ -337,104 +349,104 @@ AWSResponse a
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
-</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse PutBucketOwnershipControls
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse PutBucketOwnershipControls
 PutBucketOwnershipControlsResponse
 </span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-var">PutBucketOwnershipControlsResponse'</span></a></span><span>
-</span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679564781"><span id="local-6989586621679564783"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span></span></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679564778"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679565516"><span id="local-6989586621679565518"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679564774"><span class="annot"><span class="annottext">toElement :: PutBucketOwnershipControls -&gt; Element
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679564769"><span id="local-6989586621679564770"><span id="local-6989586621679564771"><span id="local-6989586621679564772"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679565513"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679565509"><span class="annot"><span class="annottext">toElement :: PutBucketOwnershipControls -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565504"><span id="local-6989586621679565505"><span id="local-6989586621679565506"><span id="local-6989586621679565507"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 OwnershipControls
 ownershipControls :: OwnershipControls
 bucket :: BucketName
-contentMD5 :: Maybe Text
 expectedBucketOwner :: Maybe Text
+contentMD5 :: Maybe Text
 $sel:ownershipControls:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; OwnershipControls
 $sel:bucket:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; BucketName
-$sel:contentMD5:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; Maybe Text
 $sel:expectedBucketOwner:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; Maybe Text
-</span><a href="#local-6989586621679564769"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; OwnershipControls -&gt; Element
+$sel:contentMD5:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; Maybe Text
+</span><a href="#local-6989586621679565504"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; OwnershipControls -&gt; Element
 forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
 </span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
-</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">Name
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;{http://s3.amazonaws.com/doc/2006-03-01/}OwnershipControls&quot;</span></span><span>
-</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">OwnershipControls
-</span><a href="#local-6989586621679564769"><span class="hs-identifier hs-var">ownershipControls</span></a></span><span>
-</span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679564765"><span class="annot"><span class="annottext">toHeaders :: PutBucketOwnershipControls -&gt; [Header]
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679564760"><span id="local-6989586621679564761"><span id="local-6989586621679564762"><span id="local-6989586621679564763"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">OwnershipControls
+</span><a href="#local-6989586621679565504"><span class="hs-identifier hs-var">ownershipControls</span></a></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679565500"><span class="annot"><span class="annottext">toHeaders :: PutBucketOwnershipControls -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565495"><span id="local-6989586621679565496"><span id="local-6989586621679565497"><span id="local-6989586621679565498"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 OwnershipControls
 ownershipControls :: OwnershipControls
 bucket :: BucketName
-contentMD5 :: Maybe Text
 expectedBucketOwner :: Maybe Text
+contentMD5 :: Maybe Text
 $sel:ownershipControls:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; OwnershipControls
 $sel:bucket:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; BucketName
-$sel:contentMD5:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; Maybe Text
 $sel:expectedBucketOwner:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; Maybe Text
-</span><a href="#local-6989586621679564760"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+$sel:contentMD5:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; Maybe Text
+</span><a href="#local-6989586621679565495"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-167"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
-</span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
-</span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
-forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
-</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679564763"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-169"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-MD5&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679564762"><span class="hs-identifier hs-var">contentMD5</span></a></span><span>
-</span><span id="line-170"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679564756"><span class="annot"><span class="annottext">toPath :: PutBucketOwnershipControls -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679564751"><span id="local-6989586621679564752"><span id="local-6989586621679564753"><span id="local-6989586621679564754"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565498"><span class="hs-identifier hs-var">contentMD5</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679565497"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679565491"><span class="annot"><span class="annottext">toPath :: PutBucketOwnershipControls -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls%27"><span class="hs-identifier hs-type">PutBucketOwnershipControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565486"><span id="local-6989586621679565487"><span id="local-6989586621679565488"><span id="local-6989586621679565489"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 OwnershipControls
 ownershipControls :: OwnershipControls
 bucket :: BucketName
-contentMD5 :: Maybe Text
 expectedBucketOwner :: Maybe Text
+contentMD5 :: Maybe Text
 $sel:ownershipControls:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; OwnershipControls
 $sel:bucket:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; BucketName
-$sel:contentMD5:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; Maybe Text
 $sel:expectedBucketOwner:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; Maybe Text
-</span><a href="#local-6989586621679564751"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+$sel:contentMD5:PutBucketOwnershipControls' :: PutBucketOwnershipControls -&gt; Maybe Text
+</span><a href="#local-6989586621679565486"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679564752"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
-</span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679564747"><span class="annot"><span class="annottext">toQuery :: PutBucketOwnershipControls -&gt; QueryString
+</span><a href="#local-6989586621679565487"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControls"><span class="hs-identifier hs-type">PutBucketOwnershipControls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679565482"><span class="annot"><span class="annottext">toQuery :: PutBucketOwnershipControls -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; PutBucketOwnershipControls -&gt; QueryString
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; PutBucketOwnershipControls -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
-</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">QueryString
 </span><span class="hs-string">&quot;ownershipControls&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newPutBucketOwnershipControlsResponse' smart constructor.</span><span>
-</span><span id="line-182"></span><span id="local-6989586621679564743"><span id="local-6989586621679564744"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketOwnershipControlsResponse"><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControlsResponse"><span class="hs-identifier hs-var">PutBucketOwnershipControlsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketOwnershipControlsResponse%27"><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-var">PutBucketOwnershipControlsResponse'</span></a></span></span><span>
-</span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span>
-</span><span id="line-184"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679564739"><span id="local-6989586621679564741"><span class="annot"><span class="annottext">PutBucketOwnershipControlsResponse
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newPutBucketOwnershipControlsResponse' smart constructor.</span><span>
+</span><span id="line-184"></span><span id="local-6989586621679565478"><span id="local-6989586621679565479"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketOwnershipControlsResponse"><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControlsResponse"><span class="hs-identifier hs-var">PutBucketOwnershipControlsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketOwnershipControlsResponse%27"><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-var">PutBucketOwnershipControlsResponse'</span></a></span></span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679565474"><span id="local-6989586621679565476"><span class="annot"><span class="annottext">PutBucketOwnershipControlsResponse
 -&gt; PutBucketOwnershipControlsResponse -&gt; Bool
 (PutBucketOwnershipControlsResponse
  -&gt; PutBucketOwnershipControlsResponse -&gt; Bool)
@@ -450,7 +462,7 @@ $c/= :: PutBucketOwnershipControlsResponse
 -&gt; PutBucketOwnershipControlsResponse -&gt; Bool
 $c== :: PutBucketOwnershipControlsResponse
 -&gt; PutBucketOwnershipControlsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679564731"><span id="local-6989586621679564733"><span id="local-6989586621679564735"><span id="local-6989586621679564737"><span class="annot"><span class="annottext">ReadPrec [PutBucketOwnershipControlsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679565466"><span id="local-6989586621679565468"><span id="local-6989586621679565470"><span id="local-6989586621679565472"><span class="annot"><span class="annottext">ReadPrec [PutBucketOwnershipControlsResponse]
 ReadPrec PutBucketOwnershipControlsResponse
 Int -&gt; ReadS PutBucketOwnershipControlsResponse
 ReadS [PutBucketOwnershipControlsResponse]
@@ -470,7 +482,7 @@ readList :: ReadS [PutBucketOwnershipControlsResponse]
 $creadList :: ReadS [PutBucketOwnershipControlsResponse]
 readsPrec :: Int -&gt; ReadS PutBucketOwnershipControlsResponse
 $creadsPrec :: Int -&gt; ReadS PutBucketOwnershipControlsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679564725"><span id="local-6989586621679564727"><span id="local-6989586621679564729"><span class="annot"><span class="annottext">Int -&gt; PutBucketOwnershipControlsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679565460"><span id="local-6989586621679565462"><span id="local-6989586621679565464"><span class="annot"><span class="annottext">Int -&gt; PutBucketOwnershipControlsResponse -&gt; ShowS
 [PutBucketOwnershipControlsResponse] -&gt; ShowS
 PutBucketOwnershipControlsResponse -&gt; String
 (Int -&gt; PutBucketOwnershipControlsResponse -&gt; ShowS)
@@ -507,19 +519,19 @@ $cfrom :: forall x.
 PutBucketOwnershipControlsResponse
 -&gt; Rep PutBucketOwnershipControlsResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- Create a value of 'PutBucketOwnershipControlsResponse' with all optional fields omitted.</span><span>
-</span><span id="line-189"></span><span class="hs-comment">--</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#newPutBucketOwnershipControlsResponse"><span class="hs-identifier hs-type">newPutBucketOwnershipControlsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControlsResponse"><span class="hs-identifier hs-type">PutBucketOwnershipControlsResponse</span></a></span><span>
-</span><span id="line-193"></span><span id="newPutBucketOwnershipControlsResponse"><span class="annot"><span class="annottext">newPutBucketOwnershipControlsResponse :: PutBucketOwnershipControlsResponse
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Create a value of 'PutBucketOwnershipControlsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#newPutBucketOwnershipControlsResponse"><span class="hs-identifier hs-type">newPutBucketOwnershipControlsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControlsResponse"><span class="hs-identifier hs-type">PutBucketOwnershipControlsResponse</span></a></span><span>
+</span><span id="line-195"></span><span id="newPutBucketOwnershipControlsResponse"><span class="annot"><span class="annottext">newPutBucketOwnershipControlsResponse :: PutBucketOwnershipControlsResponse
 </span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#newPutBucketOwnershipControlsResponse"><span class="hs-identifier hs-var hs-var">newPutBucketOwnershipControlsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">PutBucketOwnershipControlsResponse
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">PutBucketOwnershipControlsResponse
 </span><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControlsResponse%27"><span class="hs-identifier hs-var">PutBucketOwnershipControlsResponse'</span></a></span><span>
-</span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679564721"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControlsResponse"><span class="hs-identifier hs-type">PutBucketOwnershipControlsResponse</span></a></span></span><span>
-</span><span id="line-199"></span></pre></body></html>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679565456"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketOwnershipControls.html#PutBucketOwnershipControlsResponse"><span class="hs-identifier hs-type">PutBucketOwnershipControlsResponse</span></a></span></span><span>
+</span><span id="line-201"></span></pre></body></html>

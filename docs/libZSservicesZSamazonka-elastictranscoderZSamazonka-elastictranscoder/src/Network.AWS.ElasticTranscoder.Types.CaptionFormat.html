@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Elastic Transcoder returns an error.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCaptionFormat' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679210335"><span id="local-6989586621679210336"></span></span><span class="hs-keyword">data</span><span> </span><span id="CaptionFormat"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-var">CaptionFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptionFormat%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat%27"><span class="hs-identifier hs-var">CaptionFormat'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679210450"><span id="local-6989586621679210451"></span></span><span class="hs-keyword">data</span><span> </span><span id="CaptionFormat"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-var">CaptionFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptionFormat%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat%27"><span class="hs-identifier hs-var">CaptionFormat'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The prefix for caption filenames, in the form</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- /description/-@{language}@, where:</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -82,7 +82,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3Aencryption%3ACaptionFormat%27"><span class="annot"><span class="annottext">CaptionFormat -&gt; Maybe Encryption
 </span><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#%24sel%3Aencryption%3ACaptionFormat%27"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210327"><span id="local-6989586621679210329"><span class="annot"><span class="annottext">CaptionFormat -&gt; CaptionFormat -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210442"><span id="local-6989586621679210444"><span class="annot"><span class="annottext">CaptionFormat -&gt; CaptionFormat -&gt; Bool
 (CaptionFormat -&gt; CaptionFormat -&gt; Bool)
 -&gt; (CaptionFormat -&gt; CaptionFormat -&gt; Bool) -&gt; Eq CaptionFormat
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CaptionFormat -&gt; CaptionFormat -&gt; Bool
 == :: CaptionFormat -&gt; CaptionFormat -&gt; Bool
 $c== :: CaptionFormat -&gt; CaptionFormat -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210318"><span id="local-6989586621679210320"><span id="local-6989586621679210322"><span id="local-6989586621679210324"><span class="annot"><span class="annottext">ReadPrec [CaptionFormat]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210433"><span id="local-6989586621679210435"><span id="local-6989586621679210437"><span id="local-6989586621679210439"><span class="annot"><span class="annottext">ReadPrec [CaptionFormat]
 ReadPrec CaptionFormat
 Int -&gt; ReadS CaptionFormat
 ReadS [CaptionFormat]
@@ -110,7 +110,7 @@ readList :: ReadS [CaptionFormat]
 $creadList :: ReadS [CaptionFormat]
 readsPrec :: Int -&gt; ReadS CaptionFormat
 $creadsPrec :: Int -&gt; ReadS CaptionFormat
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210311"><span id="local-6989586621679210313"><span id="local-6989586621679210315"><span class="annot"><span class="annottext">Int -&gt; CaptionFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210426"><span id="local-6989586621679210428"><span id="local-6989586621679210430"><span class="annot"><span class="annottext">Int -&gt; CaptionFormat -&gt; ShowS
 [CaptionFormat] -&gt; ShowS
 CaptionFormat -&gt; String
 (Int -&gt; CaptionFormat -&gt; ShowS)
@@ -236,16 +236,16 @@ forall a. Maybe a
 -&gt; (CaptionFormat -&gt; Maybe Text -&gt; CaptionFormat)
 -&gt; Lens CaptionFormat CaptionFormat (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat%27"><span class="hs-identifier hs-type">CaptionFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210302"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat%27"><span class="hs-identifier hs-type">CaptionFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210417"><span class="annot"><span class="annottext">Maybe Text
 pattern' :: Maybe Text
 $sel:pattern':CaptionFormat' :: CaptionFormat -&gt; Maybe Text
-</span><a href="#local-6989586621679210302"><span class="hs-identifier hs-var hs-var">pattern'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210302"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210301"><span class="annot"><span class="annottext">s :: CaptionFormat
-</span><a href="#local-6989586621679210301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat%27"><span class="hs-identifier hs-type">CaptionFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210300"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionFormat
-</span><a href="#local-6989586621679210301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pattern':CaptionFormat' :: Maybe Text
+</span><a href="#local-6989586621679210417"><span class="hs-identifier hs-var hs-var">pattern'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210417"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210416"><span class="annot"><span class="annottext">s :: CaptionFormat
+</span><a href="#local-6989586621679210416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat%27"><span class="hs-identifier hs-type">CaptionFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210415"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionFormat
+</span><a href="#local-6989586621679210416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pattern':CaptionFormat' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#%24sel%3Apattern%27%3ACaptionFormat%27"><span class="hs-identifier hs-var">pattern'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-type">CaptionFormat</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-type">CaptionFormat</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | The format you specify determines whether Elastic Transcoder generates</span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- an embedded or sidecar caption for this output.</span><span>
@@ -279,16 +279,16 @@ $sel:pattern':CaptionFormat' :: CaptionFormat -&gt; Maybe Text
 -&gt; (CaptionFormat -&gt; Maybe Text -&gt; CaptionFormat)
 -&gt; Lens CaptionFormat CaptionFormat (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat%27"><span class="hs-identifier hs-type">CaptionFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210298"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat%27"><span class="hs-identifier hs-type">CaptionFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210413"><span class="annot"><span class="annottext">Maybe Text
 format :: Maybe Text
 $sel:format:CaptionFormat' :: CaptionFormat -&gt; Maybe Text
-</span><a href="#local-6989586621679210298"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210298"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210297"><span class="annot"><span class="annottext">s :: CaptionFormat
-</span><a href="#local-6989586621679210297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat%27"><span class="hs-identifier hs-type">CaptionFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210296"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionFormat
-</span><a href="#local-6989586621679210297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:CaptionFormat' :: Maybe Text
+</span><a href="#local-6989586621679210413"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210413"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210412"><span class="annot"><span class="annottext">s :: CaptionFormat
+</span><a href="#local-6989586621679210412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat%27"><span class="hs-identifier hs-type">CaptionFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210411"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionFormat
+</span><a href="#local-6989586621679210412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:CaptionFormat' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#%24sel%3Aformat%3ACaptionFormat%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-type">CaptionFormat</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-type">CaptionFormat</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | The encryption settings, if any, that you want Elastic Transcoder to</span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- apply to your caption formats.</span><span>
@@ -300,19 +300,19 @@ $sel:format:CaptionFormat' :: CaptionFormat -&gt; Maybe Text
 -&gt; Lens
      CaptionFormat CaptionFormat (Maybe Encryption) (Maybe Encryption)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat%27"><span class="hs-identifier hs-type">CaptionFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210294"><span class="annot"><span class="annottext">Maybe Encryption
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat%27"><span class="hs-identifier hs-type">CaptionFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210409"><span class="annot"><span class="annottext">Maybe Encryption
 encryption :: Maybe Encryption
 $sel:encryption:CaptionFormat' :: CaptionFormat -&gt; Maybe Encryption
-</span><a href="#local-6989586621679210294"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
-</span><a href="#local-6989586621679210294"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210293"><span class="annot"><span class="annottext">s :: CaptionFormat
-</span><a href="#local-6989586621679210293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat%27"><span class="hs-identifier hs-type">CaptionFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210292"><span class="annot"><span class="annottext">Maybe Encryption
-</span><a href="#local-6989586621679210292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionFormat
-</span><a href="#local-6989586621679210293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:CaptionFormat' :: Maybe Encryption
+</span><a href="#local-6989586621679210409"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
+</span><a href="#local-6989586621679210409"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210408"><span class="annot"><span class="annottext">s :: CaptionFormat
+</span><a href="#local-6989586621679210408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat%27"><span class="hs-identifier hs-type">CaptionFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210407"><span class="annot"><span class="annottext">Maybe Encryption
+</span><a href="#local-6989586621679210407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionFormat
+</span><a href="#local-6989586621679210408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:CaptionFormat' :: Maybe Encryption
 </span><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#%24sel%3Aencryption%3ACaptionFormat%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
-</span><a href="#local-6989586621679210292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-type">CaptionFormat</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-type">CaptionFormat</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210289"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-type">CaptionFormat</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-205"></span><span>  </span><span id="local-6989586621679210287"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CaptionFormat
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210404"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-type">CaptionFormat</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679210402"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CaptionFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CaptionFormat)
@@ -322,8 +322,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CaptionFormat&quot;</span></span><span>
-</span><span id="line-208"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210284"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210284"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-208"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210399"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210399"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-209"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Encryption -&gt; CaptionFormat
 </span><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat%27"><span class="hs-identifier hs-var">CaptionFormat'</span></a></span><span>
 </span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Encryption -&gt; CaptionFormat)
@@ -331,7 +331,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Encryption -&gt; CaptionFormat)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210284"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210399"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Pattern&quot;</span></span><span class="hs-special">)</span><span>
@@ -340,7 +340,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Encryption -&gt; CaptionFormat)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210284"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210399"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Format&quot;</span></span><span class="hs-special">)</span><span>
@@ -348,19 +348,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Encryption) -&gt; Parser CaptionFormat
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210284"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Encryption)
+</span><a href="#local-6989586621679210399"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Encryption)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Encryption&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210278"><span id="local-6989586621679210280"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-type">CaptionFormat</span></a></span></span></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210393"><span id="local-6989586621679210395"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-type">CaptionFormat</span></a></span></span></span><span>
 </span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210275"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-type">CaptionFormat</span></a></span></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210390"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-type">CaptionFormat</span></a></span></span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210267"><span id="local-6989586621679210269"><span id="local-6989586621679210271"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-type">CaptionFormat</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-220"></span><span>  </span><span id="local-6989586621679210265"><span class="annot"><span class="annottext">toJSON :: CaptionFormat -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat%27"><span class="hs-identifier hs-type">CaptionFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210261"><span id="local-6989586621679210262"><span id="local-6989586621679210263"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210382"><span id="local-6989586621679210384"><span id="local-6989586621679210386"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-type">CaptionFormat</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679210380"><span class="annot"><span class="annottext">toJSON :: CaptionFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat%27"><span class="hs-identifier hs-type">CaptionFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210376"><span id="local-6989586621679210377"><span id="local-6989586621679210378"><span class="annot"><span class="annottext">Maybe Text
 Maybe Encryption
 encryption :: Maybe Encryption
 format :: Maybe Text
@@ -368,7 +368,7 @@ pattern' :: Maybe Text
 $sel:encryption:CaptionFormat' :: CaptionFormat -&gt; Maybe Encryption
 $sel:format:CaptionFormat' :: CaptionFormat -&gt; Maybe Text
 $sel:pattern':CaptionFormat' :: CaptionFormat -&gt; Maybe Text
-</span><a href="#local-6989586621679210261"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679210376"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-222"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -380,21 +380,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210263"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210378"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Format&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210262"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210377"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Encryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Encryption -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Encryption -&gt; Pair) -&gt; Maybe Encryption -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
-</span><a href="#local-6989586621679210261"><span class="hs-identifier hs-var">encryption</span></a></span><span>
+</span><a href="#local-6989586621679210376"><span class="hs-identifier hs-var">encryption</span></a></span><span>
 </span><span id="line-226"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-227"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span></pre></body></html>

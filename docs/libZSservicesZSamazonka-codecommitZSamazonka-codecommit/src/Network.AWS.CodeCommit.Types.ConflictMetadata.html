@@ -31,47 +31,47 @@
 </span><span id="line-31"></span><span class="hs-comment">-- | Information about the metadata for a conflict in a merge operation.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newConflictMetadata' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679350483"><span id="local-6989586621679350484"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConflictMetadata"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-var">ConflictMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConflictMetadata%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-var">ConflictMetadata'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether an add, modify, or delete operation caused the conflict between</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the source and destination of the merge.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AmergeOperations%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe MergeOperations
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AmergeOperations%3AConflictMetadata%27"><span class="hs-identifier hs-var hs-var">mergeOperations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations"><span class="hs-identifier hs-type">MergeOperations</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The path of the file that contains conflicts.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AfilePath%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfilePath%3AConflictMetadata%27"><span class="hs-identifier hs-var hs-var">filePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A boolean value (true or false) indicating whether the file is binary or</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- textual in the source, destination, and base of the merge.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AisBinaryFile%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe IsBinaryFile
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AisBinaryFile%3AConflictMetadata%27"><span class="hs-identifier hs-var hs-var">isBinaryFile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.IsBinaryFile.html#IsBinaryFile"><span class="hs-identifier hs-type">IsBinaryFile</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A boolean value (true or false) indicating whether there are conflicts</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- between the branches in the object type of a file, folder, or submodule.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AobjectTypeConflict%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe Bool
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AobjectTypeConflict%3AConflictMetadata%27"><span class="hs-identifier hs-var hs-var">objectTypeConflict</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A boolean value indicating whether there are conflicts in the file mode</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- of a file.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AfileModeConflict%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe Bool
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfileModeConflict%3AConflictMetadata%27"><span class="hs-identifier hs-var hs-var">fileModeConflict</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The number of conflicts, including both hunk conflicts and metadata</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- conflicts.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AnumberOfConflicts%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe Int
+</span><span id="line-34"></span><span id="local-6989586621679350754"><span id="local-6989586621679350755"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConflictMetadata"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-var">ConflictMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConflictMetadata%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-var">ConflictMetadata'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of conflicts, including both hunk conflicts and metadata</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- conflicts.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AnumberOfConflicts%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe Int
 </span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AnumberOfConflicts%3AConflictMetadata%27"><span class="hs-identifier hs-var hs-var">numberOfConflicts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | A boolean value indicating whether there are conflicts in the content of</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- a file.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcontentConflict%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe Bool
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A boolean value indicating whether there are conflicts in the content of</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- a file.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcontentConflict%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe Bool
 </span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AcontentConflict%3AConflictMetadata%27"><span class="hs-identifier hs-var hs-var">contentConflict</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The file modes of the file in the source, destination, and base of the</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- merge.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3AfileModes%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe FileModes
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfileModes%3AConflictMetadata%27"><span class="hs-identifier hs-var hs-var">fileModes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.FileModes.html#FileModes"><span class="hs-identifier hs-type">FileModes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The file sizes of the file in the source, destination, and base of the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- merge.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AfileSizes%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe FileSizes
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfileSizes%3AConflictMetadata%27"><span class="hs-identifier hs-var hs-var">fileSizes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.FileSizes.html#FileSizes"><span class="hs-identifier hs-type">FileSizes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The path of the file that contains conflicts.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AfilePath%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfilePath%3AConflictMetadata%27"><span class="hs-identifier hs-var hs-var">filePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A boolean value (true or false) indicating whether the file is binary or</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- textual in the source, destination, and base of the merge.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AisBinaryFile%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe IsBinaryFile
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AisBinaryFile%3AConflictMetadata%27"><span class="hs-identifier hs-var hs-var">isBinaryFile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.IsBinaryFile.html#IsBinaryFile"><span class="hs-identifier hs-type">IsBinaryFile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | A boolean value indicating whether there are conflicts in the file mode</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- of a file.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AfileModeConflict%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe Bool
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfileModeConflict%3AConflictMetadata%27"><span class="hs-identifier hs-var hs-var">fileModeConflict</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | A boolean value (true or false) indicating whether there are conflicts</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- between the branches in the object type of a file, folder, or submodule.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AobjectTypeConflict%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe Bool
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AobjectTypeConflict%3AConflictMetadata%27"><span class="hs-identifier hs-var hs-var">objectTypeConflict</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Whether an add, modify, or delete operation caused the conflict between</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- the source and destination of the merge.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AmergeOperations%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe MergeOperations
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AmergeOperations%3AConflictMetadata%27"><span class="hs-identifier hs-var hs-var">mergeOperations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations"><span class="hs-identifier hs-type">MergeOperations</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Information about any object type conflicts in a merge operation.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AobjectTypes%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe ObjectTypes
 </span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AobjectTypes%3AConflictMetadata%27"><span class="hs-identifier hs-var hs-var">objectTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes"><span class="hs-identifier hs-type">ObjectTypes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The file sizes of the file in the source, destination, and base of the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The file modes of the file in the source, destination, and base of the</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- merge.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AfileSizes%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe FileSizes
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfileSizes%3AConflictMetadata%27"><span class="hs-identifier hs-var hs-var">fileSizes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.FileSizes.html#FileSizes"><span class="hs-identifier hs-type">FileSizes</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AfileModes%3AConflictMetadata%27"><span class="annot"><span class="annottext">ConflictMetadata -&gt; Maybe FileModes
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfileModes%3AConflictMetadata%27"><span class="hs-identifier hs-var hs-var">fileModes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.FileModes.html#FileModes"><span class="hs-identifier hs-type">FileModes</span></a></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350468"><span id="local-6989586621679350470"><span class="annot"><span class="annottext">ConflictMetadata -&gt; ConflictMetadata -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350739"><span id="local-6989586621679350741"><span class="annot"><span class="annottext">ConflictMetadata -&gt; ConflictMetadata -&gt; Bool
 (ConflictMetadata -&gt; ConflictMetadata -&gt; Bool)
 -&gt; (ConflictMetadata -&gt; ConflictMetadata -&gt; Bool)
 -&gt; Eq ConflictMetadata
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConflictMetadata -&gt; ConflictMetadata -&gt; Bool
 == :: ConflictMetadata -&gt; ConflictMetadata -&gt; Bool
 $c== :: ConflictMetadata -&gt; ConflictMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350459"><span id="local-6989586621679350461"><span id="local-6989586621679350463"><span id="local-6989586621679350465"><span class="annot"><span class="annottext">ReadPrec [ConflictMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350730"><span id="local-6989586621679350732"><span id="local-6989586621679350734"><span id="local-6989586621679350736"><span class="annot"><span class="annottext">ReadPrec [ConflictMetadata]
 ReadPrec ConflictMetadata
 Int -&gt; ReadS ConflictMetadata
 ReadS [ConflictMetadata]
@@ -100,7 +100,7 @@ readList :: ReadS [ConflictMetadata]
 $creadList :: ReadS [ConflictMetadata]
 readsPrec :: Int -&gt; ReadS ConflictMetadata
 $creadsPrec :: Int -&gt; ReadS ConflictMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350452"><span id="local-6989586621679350454"><span id="local-6989586621679350456"><span class="annot"><span class="annottext">Int -&gt; ConflictMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350723"><span id="local-6989586621679350725"><span id="local-6989586621679350727"><span class="annot"><span class="annottext">Int -&gt; ConflictMetadata -&gt; ShowS
 [ConflictMetadata] -&gt; ShowS
 ConflictMetadata -&gt; String
 (Int -&gt; ConflictMetadata -&gt; ShowS)
@@ -134,139 +134,179 @@ $cfrom :: forall x. ConflictMetadata -&gt; Rep ConflictMetadata x
 </span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'mergeOperations', 'conflictMetadata_mergeOperations' - Whether an add, modify, or delete operation caused the conflict between</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- the source and destination of the merge.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'numberOfConflicts', 'conflictMetadata_numberOfConflicts' - The number of conflicts, including both hunk conflicts and metadata</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- conflicts.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'filePath', 'conflictMetadata_filePath' - The path of the file that contains conflicts.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'isBinaryFile', 'conflictMetadata_isBinaryFile' - A boolean value (true or false) indicating whether the file is binary or</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- textual in the source, destination, and base of the merge.</span><span>
-</span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'objectTypeConflict', 'conflictMetadata_objectTypeConflict' - A boolean value (true or false) indicating whether there are conflicts</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- between the branches in the object type of a file, folder, or submodule.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'contentConflict', 'conflictMetadata_contentConflict' - A boolean value indicating whether there are conflicts in the content of</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- a file.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'fileSizes', 'conflictMetadata_fileSizes' - The file sizes of the file in the source, destination, and base of the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- merge.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'filePath', 'conflictMetadata_filePath' - The path of the file that contains conflicts.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'fileModeConflict', 'conflictMetadata_fileModeConflict' - A boolean value indicating whether there are conflicts in the file mode</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- of a file.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'isBinaryFile', 'conflictMetadata_isBinaryFile' - A boolean value (true or false) indicating whether the file is binary or</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- textual in the source, destination, and base of the merge.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'numberOfConflicts', 'conflictMetadata_numberOfConflicts' - The number of conflicts, including both hunk conflicts and metadata</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- conflicts.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'fileModeConflict', 'conflictMetadata_fileModeConflict' - A boolean value indicating whether there are conflicts in the file mode</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- of a file.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'contentConflict', 'conflictMetadata_contentConflict' - A boolean value indicating whether there are conflicts in the content of</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- a file.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'objectTypeConflict', 'conflictMetadata_objectTypeConflict' - A boolean value (true or false) indicating whether there are conflicts</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- between the branches in the object type of a file, folder, or submodule.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'fileModes', 'conflictMetadata_fileModes' - The file modes of the file in the source, destination, and base of the</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- merge.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'mergeOperations', 'conflictMetadata_mergeOperations' - Whether an add, modify, or delete operation caused the conflict between</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- the source and destination of the merge.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- 'objectTypes', 'conflictMetadata_objectTypes' - Information about any object type conflicts in a merge operation.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'fileSizes', 'conflictMetadata_fileSizes' - The file sizes of the file in the source, destination, and base of the</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'fileModes', 'conflictMetadata_fileModes' - The file modes of the file in the source, destination, and base of the</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- merge.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#newConflictMetadata"><span class="hs-identifier hs-type">newConflictMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span>
 </span><span id="line-103"></span><span id="newConflictMetadata"><span class="annot"><span class="annottext">newConflictMetadata :: ConflictMetadata
 </span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#newConflictMetadata"><span class="hs-identifier hs-var hs-var">newConflictMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">ConflictMetadata' :: Maybe MergeOperations
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">ConflictMetadata' :: Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe FileSizes
 -&gt; Maybe Text
 -&gt; Maybe IsBinaryFile
 -&gt; Maybe Bool
 -&gt; Maybe Bool
--&gt; Maybe Int
--&gt; Maybe Bool
--&gt; Maybe FileModes
+-&gt; Maybe MergeOperations
 -&gt; Maybe ObjectTypes
--&gt; Maybe FileSizes
+-&gt; Maybe FileModes
 -&gt; ConflictMetadata
 </span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mergeOperations:ConflictMetadata' :: Maybe MergeOperations
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AmergeOperations%3AConflictMetadata%27"><span class="hs-identifier hs-var">mergeOperations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Maybe MergeOperations
+</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:numberOfConflicts:ConflictMetadata' :: Maybe Int
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AnumberOfConflicts%3AConflictMetadata%27"><span class="hs-identifier hs-var">numberOfConflicts</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:filePath:ConflictMetadata' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfilePath%3AConflictMetadata%27"><span class="hs-identifier hs-var">filePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:isBinaryFile:ConflictMetadata' :: Maybe IsBinaryFile
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AisBinaryFile%3AConflictMetadata%27"><span class="hs-identifier hs-var">isBinaryFile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IsBinaryFile
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:objectTypeConflict:ConflictMetadata' :: Maybe Bool
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AobjectTypeConflict%3AConflictMetadata%27"><span class="hs-identifier hs-var">objectTypeConflict</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileModeConflict:ConflictMetadata' :: Maybe Bool
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfileModeConflict%3AConflictMetadata%27"><span class="hs-identifier hs-var">fileModeConflict</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:numberOfConflicts:ConflictMetadata' :: Maybe Int
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AnumberOfConflicts%3AConflictMetadata%27"><span class="hs-identifier hs-var">numberOfConflicts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentConflict:ConflictMetadata' :: Maybe Bool
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentConflict:ConflictMetadata' :: Maybe Bool
 </span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AcontentConflict%3AConflictMetadata%27"><span class="hs-identifier hs-var">contentConflict</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileModes:ConflictMetadata' :: Maybe FileModes
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfileModes%3AConflictMetadata%27"><span class="hs-identifier hs-var">fileModes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileModes
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileSizes:ConflictMetadata' :: Maybe FileSizes
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfileSizes%3AConflictMetadata%27"><span class="hs-identifier hs-var">fileSizes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileSizes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:filePath:ConflictMetadata' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfilePath%3AConflictMetadata%27"><span class="hs-identifier hs-var">filePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:isBinaryFile:ConflictMetadata' :: Maybe IsBinaryFile
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AisBinaryFile%3AConflictMetadata%27"><span class="hs-identifier hs-var">isBinaryFile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IsBinaryFile
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileModeConflict:ConflictMetadata' :: Maybe Bool
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfileModeConflict%3AConflictMetadata%27"><span class="hs-identifier hs-var">fileModeConflict</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:objectTypeConflict:ConflictMetadata' :: Maybe Bool
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AobjectTypeConflict%3AConflictMetadata%27"><span class="hs-identifier hs-var">objectTypeConflict</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:mergeOperations:ConflictMetadata' :: Maybe MergeOperations
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AmergeOperations%3AConflictMetadata%27"><span class="hs-identifier hs-var">mergeOperations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MergeOperations
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:objectTypes:ConflictMetadata' :: Maybe ObjectTypes
 </span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AobjectTypes%3AConflictMetadata%27"><span class="hs-identifier hs-var">objectTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectTypes
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileSizes:ConflictMetadata' :: Maybe FileSizes
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfileSizes%3AConflictMetadata%27"><span class="hs-identifier hs-var">fileSizes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileSizes
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileModes:ConflictMetadata' :: Maybe FileModes
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfileModes%3AConflictMetadata%27"><span class="hs-identifier hs-var">fileModes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileModes
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | Whether an add, modify, or delete operation caused the conflict between</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- the source and destination of the merge.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_mergeOperations"><span class="hs-identifier hs-type">conflictMetadata_mergeOperations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations"><span class="hs-identifier hs-type">MergeOperations</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="conflictMetadata_mergeOperations"><span class="annot"><span class="annottext">conflictMetadata_mergeOperations :: (Maybe MergeOperations -&gt; f (Maybe MergeOperations))
+</span><span id="line-118"></span><span class="hs-comment">-- | The number of conflicts, including both hunk conflicts and metadata</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- conflicts.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_numberOfConflicts"><span class="hs-identifier hs-type">conflictMetadata_numberOfConflicts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="conflictMetadata_numberOfConflicts"><span class="annot"><span class="annottext">conflictMetadata_numberOfConflicts :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; ConflictMetadata -&gt; f ConflictMetadata
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_mergeOperations"><span class="hs-identifier hs-var hs-var">conflictMetadata_mergeOperations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictMetadata -&gt; Maybe MergeOperations)
--&gt; (ConflictMetadata -&gt; Maybe MergeOperations -&gt; ConflictMetadata)
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_numberOfConflicts"><span class="hs-identifier hs-var hs-var">conflictMetadata_numberOfConflicts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictMetadata -&gt; Maybe Int)
+-&gt; (ConflictMetadata -&gt; Maybe Int -&gt; ConflictMetadata)
+-&gt; Lens ConflictMetadata ConflictMetadata (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350714"><span class="annot"><span class="annottext">Maybe Int
+numberOfConflicts :: Maybe Int
+$sel:numberOfConflicts:ConflictMetadata' :: ConflictMetadata -&gt; Maybe Int
+</span><a href="#local-6989586621679350714"><span class="hs-identifier hs-var hs-var">numberOfConflicts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679350714"><span class="hs-identifier hs-var">numberOfConflicts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350713"><span class="annot"><span class="annottext">s :: ConflictMetadata
+</span><a href="#local-6989586621679350713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350712"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679350712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
+</span><a href="#local-6989586621679350713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfConflicts:ConflictMetadata' :: Maybe Int
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AnumberOfConflicts%3AConflictMetadata%27"><span class="hs-identifier hs-var">numberOfConflicts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679350712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | A boolean value indicating whether there are conflicts in the content of</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- a file.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_contentConflict"><span class="hs-identifier hs-type">conflictMetadata_contentConflict</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="conflictMetadata_contentConflict"><span class="annot"><span class="annottext">conflictMetadata_contentConflict :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ConflictMetadata -&gt; f ConflictMetadata
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_contentConflict"><span class="hs-identifier hs-var hs-var">conflictMetadata_contentConflict</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictMetadata -&gt; Maybe Bool)
+-&gt; (ConflictMetadata -&gt; Maybe Bool -&gt; ConflictMetadata)
+-&gt; Lens ConflictMetadata ConflictMetadata (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350710"><span class="annot"><span class="annottext">Maybe Bool
+contentConflict :: Maybe Bool
+$sel:contentConflict:ConflictMetadata' :: ConflictMetadata -&gt; Maybe Bool
+</span><a href="#local-6989586621679350710"><span class="hs-identifier hs-var hs-var">contentConflict</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679350710"><span class="hs-identifier hs-var">contentConflict</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350709"><span class="annot"><span class="annottext">s :: ConflictMetadata
+</span><a href="#local-6989586621679350709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350708"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679350708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
+</span><a href="#local-6989586621679350709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentConflict:ConflictMetadata' :: Maybe Bool
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AcontentConflict%3AConflictMetadata%27"><span class="hs-identifier hs-var">contentConflict</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679350708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The file sizes of the file in the source, destination, and base of the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- merge.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_fileSizes"><span class="hs-identifier hs-type">conflictMetadata_fileSizes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.FileSizes.html#FileSizes"><span class="hs-identifier hs-type">FileSizes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="conflictMetadata_fileSizes"><span class="annot"><span class="annottext">conflictMetadata_fileSizes :: (Maybe FileSizes -&gt; f (Maybe FileSizes))
+-&gt; ConflictMetadata -&gt; f ConflictMetadata
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_fileSizes"><span class="hs-identifier hs-var hs-var">conflictMetadata_fileSizes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictMetadata -&gt; Maybe FileSizes)
+-&gt; (ConflictMetadata -&gt; Maybe FileSizes -&gt; ConflictMetadata)
 -&gt; Lens
      ConflictMetadata
      ConflictMetadata
-     (Maybe MergeOperations)
-     (Maybe MergeOperations)
+     (Maybe FileSizes)
+     (Maybe FileSizes)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350443"><span class="annot"><span class="annottext">Maybe MergeOperations
-mergeOperations :: Maybe MergeOperations
-$sel:mergeOperations:ConflictMetadata' :: ConflictMetadata -&gt; Maybe MergeOperations
-</span><a href="#local-6989586621679350443"><span class="hs-identifier hs-var hs-var">mergeOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MergeOperations
-</span><a href="#local-6989586621679350443"><span class="hs-identifier hs-var">mergeOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350442"><span class="annot"><span class="annottext">s :: ConflictMetadata
-</span><a href="#local-6989586621679350442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350441"><span class="annot"><span class="annottext">Maybe MergeOperations
-</span><a href="#local-6989586621679350441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
-</span><a href="#local-6989586621679350442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergeOperations:ConflictMetadata' :: Maybe MergeOperations
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AmergeOperations%3AConflictMetadata%27"><span class="hs-identifier hs-var">mergeOperations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MergeOperations
-</span><a href="#local-6989586621679350441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The path of the file that contains conflicts.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_filePath"><span class="hs-identifier hs-type">conflictMetadata_filePath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="conflictMetadata_filePath"><span class="annot"><span class="annottext">conflictMetadata_filePath :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350706"><span class="annot"><span class="annottext">Maybe FileSizes
+fileSizes :: Maybe FileSizes
+$sel:fileSizes:ConflictMetadata' :: ConflictMetadata -&gt; Maybe FileSizes
+</span><a href="#local-6989586621679350706"><span class="hs-identifier hs-var hs-var">fileSizes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileSizes
+</span><a href="#local-6989586621679350706"><span class="hs-identifier hs-var">fileSizes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350705"><span class="annot"><span class="annottext">s :: ConflictMetadata
+</span><a href="#local-6989586621679350705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350704"><span class="annot"><span class="annottext">Maybe FileSizes
+</span><a href="#local-6989586621679350704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
+</span><a href="#local-6989586621679350705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSizes:ConflictMetadata' :: Maybe FileSizes
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfileSizes%3AConflictMetadata%27"><span class="hs-identifier hs-var">fileSizes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileSizes
+</span><a href="#local-6989586621679350704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The path of the file that contains conflicts.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_filePath"><span class="hs-identifier hs-type">conflictMetadata_filePath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="conflictMetadata_filePath"><span class="annot"><span class="annottext">conflictMetadata_filePath :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ConflictMetadata -&gt; f ConflictMetadata
 </span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_filePath"><span class="hs-identifier hs-var hs-var">conflictMetadata_filePath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictMetadata -&gt; Maybe Text)
 -&gt; (ConflictMetadata -&gt; Maybe Text -&gt; ConflictMetadata)
 -&gt; Lens ConflictMetadata ConflictMetadata (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350439"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350702"><span class="annot"><span class="annottext">Maybe Text
 filePath :: Maybe Text
 $sel:filePath:ConflictMetadata' :: ConflictMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679350439"><span class="hs-identifier hs-var hs-var">filePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350439"><span class="hs-identifier hs-var">filePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350438"><span class="annot"><span class="annottext">s :: ConflictMetadata
-</span><a href="#local-6989586621679350438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350437"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
-</span><a href="#local-6989586621679350438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filePath:ConflictMetadata' :: Maybe Text
+</span><a href="#local-6989586621679350702"><span class="hs-identifier hs-var hs-var">filePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350702"><span class="hs-identifier hs-var">filePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350701"><span class="annot"><span class="annottext">s :: ConflictMetadata
+</span><a href="#local-6989586621679350701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350700"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
+</span><a href="#local-6989586621679350701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filePath:ConflictMetadata' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfilePath%3AConflictMetadata%27"><span class="hs-identifier hs-var">filePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | A boolean value (true or false) indicating whether the file is binary or</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- textual in the source, destination, and base of the merge.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_isBinaryFile"><span class="hs-identifier hs-type">conflictMetadata_isBinaryFile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.IsBinaryFile.html#IsBinaryFile"><span class="hs-identifier hs-type">IsBinaryFile</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="conflictMetadata_isBinaryFile"><span class="annot"><span class="annottext">conflictMetadata_isBinaryFile :: (Maybe IsBinaryFile -&gt; f (Maybe IsBinaryFile))
+</span><a href="#local-6989586621679350700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | A boolean value (true or false) indicating whether the file is binary or</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- textual in the source, destination, and base of the merge.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_isBinaryFile"><span class="hs-identifier hs-type">conflictMetadata_isBinaryFile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.IsBinaryFile.html#IsBinaryFile"><span class="hs-identifier hs-type">IsBinaryFile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="conflictMetadata_isBinaryFile"><span class="annot"><span class="annottext">conflictMetadata_isBinaryFile :: (Maybe IsBinaryFile -&gt; f (Maybe IsBinaryFile))
 -&gt; ConflictMetadata -&gt; f ConflictMetadata
 </span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_isBinaryFile"><span class="hs-identifier hs-var hs-var">conflictMetadata_isBinaryFile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictMetadata -&gt; Maybe IsBinaryFile)
 -&gt; (ConflictMetadata -&gt; Maybe IsBinaryFile -&gt; ConflictMetadata)
@@ -276,120 +316,80 @@ $sel:filePath:ConflictMetadata' :: ConflictMetadata -&gt; Maybe Text
      (Maybe IsBinaryFile)
      (Maybe IsBinaryFile)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350435"><span class="annot"><span class="annottext">Maybe IsBinaryFile
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350698"><span class="annot"><span class="annottext">Maybe IsBinaryFile
 isBinaryFile :: Maybe IsBinaryFile
 $sel:isBinaryFile:ConflictMetadata' :: ConflictMetadata -&gt; Maybe IsBinaryFile
-</span><a href="#local-6989586621679350435"><span class="hs-identifier hs-var hs-var">isBinaryFile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IsBinaryFile
-</span><a href="#local-6989586621679350435"><span class="hs-identifier hs-var">isBinaryFile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350434"><span class="annot"><span class="annottext">s :: ConflictMetadata
-</span><a href="#local-6989586621679350434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350433"><span class="annot"><span class="annottext">Maybe IsBinaryFile
-</span><a href="#local-6989586621679350433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
-</span><a href="#local-6989586621679350434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isBinaryFile:ConflictMetadata' :: Maybe IsBinaryFile
+</span><a href="#local-6989586621679350698"><span class="hs-identifier hs-var hs-var">isBinaryFile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IsBinaryFile
+</span><a href="#local-6989586621679350698"><span class="hs-identifier hs-var">isBinaryFile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350697"><span class="annot"><span class="annottext">s :: ConflictMetadata
+</span><a href="#local-6989586621679350697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350696"><span class="annot"><span class="annottext">Maybe IsBinaryFile
+</span><a href="#local-6989586621679350696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
+</span><a href="#local-6989586621679350697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isBinaryFile:ConflictMetadata' :: Maybe IsBinaryFile
 </span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AisBinaryFile%3AConflictMetadata%27"><span class="hs-identifier hs-var">isBinaryFile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IsBinaryFile
-</span><a href="#local-6989586621679350433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | A boolean value (true or false) indicating whether there are conflicts</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- between the branches in the object type of a file, folder, or submodule.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_objectTypeConflict"><span class="hs-identifier hs-type">conflictMetadata_objectTypeConflict</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="conflictMetadata_objectTypeConflict"><span class="annot"><span class="annottext">conflictMetadata_objectTypeConflict :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ConflictMetadata -&gt; f ConflictMetadata
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_objectTypeConflict"><span class="hs-identifier hs-var hs-var">conflictMetadata_objectTypeConflict</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictMetadata -&gt; Maybe Bool)
--&gt; (ConflictMetadata -&gt; Maybe Bool -&gt; ConflictMetadata)
--&gt; Lens ConflictMetadata ConflictMetadata (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350431"><span class="annot"><span class="annottext">Maybe Bool
-objectTypeConflict :: Maybe Bool
-$sel:objectTypeConflict:ConflictMetadata' :: ConflictMetadata -&gt; Maybe Bool
-</span><a href="#local-6989586621679350431"><span class="hs-identifier hs-var hs-var">objectTypeConflict</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679350431"><span class="hs-identifier hs-var">objectTypeConflict</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350430"><span class="annot"><span class="annottext">s :: ConflictMetadata
-</span><a href="#local-6989586621679350430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350429"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679350429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
-</span><a href="#local-6989586621679350430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectTypeConflict:ConflictMetadata' :: Maybe Bool
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AobjectTypeConflict%3AConflictMetadata%27"><span class="hs-identifier hs-var">objectTypeConflict</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679350429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | A boolean value indicating whether there are conflicts in the file mode</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- of a file.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_fileModeConflict"><span class="hs-identifier hs-type">conflictMetadata_fileModeConflict</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="conflictMetadata_fileModeConflict"><span class="annot"><span class="annottext">conflictMetadata_fileModeConflict :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><a href="#local-6989586621679350696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | A boolean value indicating whether there are conflicts in the file mode</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- of a file.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_fileModeConflict"><span class="hs-identifier hs-type">conflictMetadata_fileModeConflict</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="conflictMetadata_fileModeConflict"><span class="annot"><span class="annottext">conflictMetadata_fileModeConflict :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; ConflictMetadata -&gt; f ConflictMetadata
 </span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_fileModeConflict"><span class="hs-identifier hs-var hs-var">conflictMetadata_fileModeConflict</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictMetadata -&gt; Maybe Bool)
 -&gt; (ConflictMetadata -&gt; Maybe Bool -&gt; ConflictMetadata)
 -&gt; Lens ConflictMetadata ConflictMetadata (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350427"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350694"><span class="annot"><span class="annottext">Maybe Bool
 fileModeConflict :: Maybe Bool
 $sel:fileModeConflict:ConflictMetadata' :: ConflictMetadata -&gt; Maybe Bool
-</span><a href="#local-6989586621679350427"><span class="hs-identifier hs-var hs-var">fileModeConflict</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679350427"><span class="hs-identifier hs-var">fileModeConflict</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350426"><span class="annot"><span class="annottext">s :: ConflictMetadata
-</span><a href="#local-6989586621679350426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350425"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679350425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
-</span><a href="#local-6989586621679350426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileModeConflict:ConflictMetadata' :: Maybe Bool
+</span><a href="#local-6989586621679350694"><span class="hs-identifier hs-var hs-var">fileModeConflict</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679350694"><span class="hs-identifier hs-var">fileModeConflict</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350693"><span class="annot"><span class="annottext">s :: ConflictMetadata
+</span><a href="#local-6989586621679350693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350692"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679350692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
+</span><a href="#local-6989586621679350693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileModeConflict:ConflictMetadata' :: Maybe Bool
 </span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfileModeConflict%3AConflictMetadata%27"><span class="hs-identifier hs-var">fileModeConflict</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679350425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | The number of conflicts, including both hunk conflicts and metadata</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- conflicts.</span><span>
-</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_numberOfConflicts"><span class="hs-identifier hs-type">conflictMetadata_numberOfConflicts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span id="conflictMetadata_numberOfConflicts"><span class="annot"><span class="annottext">conflictMetadata_numberOfConflicts :: (Maybe Int -&gt; f (Maybe Int))
--&gt; ConflictMetadata -&gt; f ConflictMetadata
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_numberOfConflicts"><span class="hs-identifier hs-var hs-var">conflictMetadata_numberOfConflicts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictMetadata -&gt; Maybe Int)
--&gt; (ConflictMetadata -&gt; Maybe Int -&gt; ConflictMetadata)
--&gt; Lens ConflictMetadata ConflictMetadata (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350423"><span class="annot"><span class="annottext">Maybe Int
-numberOfConflicts :: Maybe Int
-$sel:numberOfConflicts:ConflictMetadata' :: ConflictMetadata -&gt; Maybe Int
-</span><a href="#local-6989586621679350423"><span class="hs-identifier hs-var hs-var">numberOfConflicts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679350423"><span class="hs-identifier hs-var">numberOfConflicts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350422"><span class="annot"><span class="annottext">s :: ConflictMetadata
-</span><a href="#local-6989586621679350422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350421"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679350421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
-</span><a href="#local-6989586621679350422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfConflicts:ConflictMetadata' :: Maybe Int
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AnumberOfConflicts%3AConflictMetadata%27"><span class="hs-identifier hs-var">numberOfConflicts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679350421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- | A boolean value indicating whether there are conflicts in the content of</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- a file.</span><span>
-</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_contentConflict"><span class="hs-identifier hs-type">conflictMetadata_contentConflict</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span id="conflictMetadata_contentConflict"><span class="annot"><span class="annottext">conflictMetadata_contentConflict :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-147"></span><span class="hs-comment">-- | A boolean value (true or false) indicating whether there are conflicts</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- between the branches in the object type of a file, folder, or submodule.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_objectTypeConflict"><span class="hs-identifier hs-type">conflictMetadata_objectTypeConflict</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="conflictMetadata_objectTypeConflict"><span class="annot"><span class="annottext">conflictMetadata_objectTypeConflict :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; ConflictMetadata -&gt; f ConflictMetadata
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_contentConflict"><span class="hs-identifier hs-var hs-var">conflictMetadata_contentConflict</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictMetadata -&gt; Maybe Bool)
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_objectTypeConflict"><span class="hs-identifier hs-var hs-var">conflictMetadata_objectTypeConflict</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictMetadata -&gt; Maybe Bool)
 -&gt; (ConflictMetadata -&gt; Maybe Bool -&gt; ConflictMetadata)
 -&gt; Lens ConflictMetadata ConflictMetadata (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350419"><span class="annot"><span class="annottext">Maybe Bool
-contentConflict :: Maybe Bool
-$sel:contentConflict:ConflictMetadata' :: ConflictMetadata -&gt; Maybe Bool
-</span><a href="#local-6989586621679350419"><span class="hs-identifier hs-var hs-var">contentConflict</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679350419"><span class="hs-identifier hs-var">contentConflict</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350418"><span class="annot"><span class="annottext">s :: ConflictMetadata
-</span><a href="#local-6989586621679350418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350417"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679350417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
-</span><a href="#local-6989586621679350418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentConflict:ConflictMetadata' :: Maybe Bool
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AcontentConflict%3AConflictMetadata%27"><span class="hs-identifier hs-var">contentConflict</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679350417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350690"><span class="annot"><span class="annottext">Maybe Bool
+objectTypeConflict :: Maybe Bool
+$sel:objectTypeConflict:ConflictMetadata' :: ConflictMetadata -&gt; Maybe Bool
+</span><a href="#local-6989586621679350690"><span class="hs-identifier hs-var hs-var">objectTypeConflict</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679350690"><span class="hs-identifier hs-var">objectTypeConflict</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350689"><span class="annot"><span class="annottext">s :: ConflictMetadata
+</span><a href="#local-6989586621679350689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350688"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679350688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
+</span><a href="#local-6989586621679350689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectTypeConflict:ConflictMetadata' :: Maybe Bool
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AobjectTypeConflict%3AConflictMetadata%27"><span class="hs-identifier hs-var">objectTypeConflict</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679350688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- | The file modes of the file in the source, destination, and base of the</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- merge.</span><span>
-</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_fileModes"><span class="hs-identifier hs-type">conflictMetadata_fileModes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.FileModes.html#FileModes"><span class="hs-identifier hs-type">FileModes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span id="conflictMetadata_fileModes"><span class="annot"><span class="annottext">conflictMetadata_fileModes :: (Maybe FileModes -&gt; f (Maybe FileModes))
+</span><span id="line-152"></span><span class="hs-comment">-- | Whether an add, modify, or delete operation caused the conflict between</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- the source and destination of the merge.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_mergeOperations"><span class="hs-identifier hs-type">conflictMetadata_mergeOperations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations"><span class="hs-identifier hs-type">MergeOperations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="conflictMetadata_mergeOperations"><span class="annot"><span class="annottext">conflictMetadata_mergeOperations :: (Maybe MergeOperations -&gt; f (Maybe MergeOperations))
 -&gt; ConflictMetadata -&gt; f ConflictMetadata
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_fileModes"><span class="hs-identifier hs-var hs-var">conflictMetadata_fileModes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictMetadata -&gt; Maybe FileModes)
--&gt; (ConflictMetadata -&gt; Maybe FileModes -&gt; ConflictMetadata)
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_mergeOperations"><span class="hs-identifier hs-var hs-var">conflictMetadata_mergeOperations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictMetadata -&gt; Maybe MergeOperations)
+-&gt; (ConflictMetadata -&gt; Maybe MergeOperations -&gt; ConflictMetadata)
 -&gt; Lens
      ConflictMetadata
      ConflictMetadata
-     (Maybe FileModes)
-     (Maybe FileModes)
+     (Maybe MergeOperations)
+     (Maybe MergeOperations)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350415"><span class="annot"><span class="annottext">Maybe FileModes
-fileModes :: Maybe FileModes
-$sel:fileModes:ConflictMetadata' :: ConflictMetadata -&gt; Maybe FileModes
-</span><a href="#local-6989586621679350415"><span class="hs-identifier hs-var hs-var">fileModes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileModes
-</span><a href="#local-6989586621679350415"><span class="hs-identifier hs-var">fileModes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350414"><span class="annot"><span class="annottext">s :: ConflictMetadata
-</span><a href="#local-6989586621679350414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350413"><span class="annot"><span class="annottext">Maybe FileModes
-</span><a href="#local-6989586621679350413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
-</span><a href="#local-6989586621679350414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileModes:ConflictMetadata' :: Maybe FileModes
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfileModes%3AConflictMetadata%27"><span class="hs-identifier hs-var">fileModes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileModes
-</span><a href="#local-6989586621679350413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350686"><span class="annot"><span class="annottext">Maybe MergeOperations
+mergeOperations :: Maybe MergeOperations
+$sel:mergeOperations:ConflictMetadata' :: ConflictMetadata -&gt; Maybe MergeOperations
+</span><a href="#local-6989586621679350686"><span class="hs-identifier hs-var hs-var">mergeOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MergeOperations
+</span><a href="#local-6989586621679350686"><span class="hs-identifier hs-var">mergeOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350685"><span class="annot"><span class="annottext">s :: ConflictMetadata
+</span><a href="#local-6989586621679350685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350684"><span class="annot"><span class="annottext">Maybe MergeOperations
+</span><a href="#local-6989586621679350684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
+</span><a href="#local-6989586621679350685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergeOperations:ConflictMetadata' :: Maybe MergeOperations
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AmergeOperations%3AConflictMetadata%27"><span class="hs-identifier hs-var">mergeOperations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MergeOperations
+</span><a href="#local-6989586621679350684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | Information about any object type conflicts in a merge operation.</span><span>
 </span><span id="line-158"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_objectTypes"><span class="hs-identifier hs-type">conflictMetadata_objectTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypes.html#ObjectTypes"><span class="hs-identifier hs-type">ObjectTypes</span></a></span><span class="hs-special">)</span><span>
@@ -403,43 +403,43 @@ $sel:fileModes:ConflictMetadata' :: ConflictMetadata -&gt; Maybe FileModes
      (Maybe ObjectTypes)
      (Maybe ObjectTypes)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350411"><span class="annot"><span class="annottext">Maybe ObjectTypes
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350682"><span class="annot"><span class="annottext">Maybe ObjectTypes
 objectTypes :: Maybe ObjectTypes
 $sel:objectTypes:ConflictMetadata' :: ConflictMetadata -&gt; Maybe ObjectTypes
-</span><a href="#local-6989586621679350411"><span class="hs-identifier hs-var hs-var">objectTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectTypes
-</span><a href="#local-6989586621679350411"><span class="hs-identifier hs-var">objectTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350410"><span class="annot"><span class="annottext">s :: ConflictMetadata
-</span><a href="#local-6989586621679350410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350409"><span class="annot"><span class="annottext">Maybe ObjectTypes
-</span><a href="#local-6989586621679350409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
-</span><a href="#local-6989586621679350410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectTypes:ConflictMetadata' :: Maybe ObjectTypes
+</span><a href="#local-6989586621679350682"><span class="hs-identifier hs-var hs-var">objectTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectTypes
+</span><a href="#local-6989586621679350682"><span class="hs-identifier hs-var">objectTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350681"><span class="annot"><span class="annottext">s :: ConflictMetadata
+</span><a href="#local-6989586621679350681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350680"><span class="annot"><span class="annottext">Maybe ObjectTypes
+</span><a href="#local-6989586621679350680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
+</span><a href="#local-6989586621679350681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectTypes:ConflictMetadata' :: Maybe ObjectTypes
 </span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AobjectTypes%3AConflictMetadata%27"><span class="hs-identifier hs-var">objectTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectTypes
-</span><a href="#local-6989586621679350409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- | The file sizes of the file in the source, destination, and base of the</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The file modes of the file in the source, destination, and base of the</span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- merge.</span><span>
-</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_fileSizes"><span class="hs-identifier hs-type">conflictMetadata_fileSizes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.FileSizes.html#FileSizes"><span class="hs-identifier hs-type">FileSizes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span id="conflictMetadata_fileSizes"><span class="annot"><span class="annottext">conflictMetadata_fileSizes :: (Maybe FileSizes -&gt; f (Maybe FileSizes))
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_fileModes"><span class="hs-identifier hs-type">conflictMetadata_fileModes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.FileModes.html#FileModes"><span class="hs-identifier hs-type">FileModes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="conflictMetadata_fileModes"><span class="annot"><span class="annottext">conflictMetadata_fileModes :: (Maybe FileModes -&gt; f (Maybe FileModes))
 -&gt; ConflictMetadata -&gt; f ConflictMetadata
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_fileSizes"><span class="hs-identifier hs-var hs-var">conflictMetadata_fileSizes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictMetadata -&gt; Maybe FileSizes)
--&gt; (ConflictMetadata -&gt; Maybe FileSizes -&gt; ConflictMetadata)
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#conflictMetadata_fileModes"><span class="hs-identifier hs-var hs-var">conflictMetadata_fileModes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictMetadata -&gt; Maybe FileModes)
+-&gt; (ConflictMetadata -&gt; Maybe FileModes -&gt; ConflictMetadata)
 -&gt; Lens
      ConflictMetadata
      ConflictMetadata
-     (Maybe FileSizes)
-     (Maybe FileSizes)
+     (Maybe FileModes)
+     (Maybe FileModes)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350407"><span class="annot"><span class="annottext">Maybe FileSizes
-fileSizes :: Maybe FileSizes
-$sel:fileSizes:ConflictMetadata' :: ConflictMetadata -&gt; Maybe FileSizes
-</span><a href="#local-6989586621679350407"><span class="hs-identifier hs-var hs-var">fileSizes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileSizes
-</span><a href="#local-6989586621679350407"><span class="hs-identifier hs-var">fileSizes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350406"><span class="annot"><span class="annottext">s :: ConflictMetadata
-</span><a href="#local-6989586621679350406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350405"><span class="annot"><span class="annottext">Maybe FileSizes
-</span><a href="#local-6989586621679350405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
-</span><a href="#local-6989586621679350406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSizes:ConflictMetadata' :: Maybe FileSizes
-</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfileSizes%3AConflictMetadata%27"><span class="hs-identifier hs-var">fileSizes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileSizes
-</span><a href="#local-6989586621679350405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350678"><span class="annot"><span class="annottext">Maybe FileModes
+fileModes :: Maybe FileModes
+$sel:fileModes:ConflictMetadata' :: ConflictMetadata -&gt; Maybe FileModes
+</span><a href="#local-6989586621679350678"><span class="hs-identifier hs-var hs-var">fileModes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileModes
+</span><a href="#local-6989586621679350678"><span class="hs-identifier hs-var">fileModes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350677"><span class="annot"><span class="annottext">s :: ConflictMetadata
+</span><a href="#local-6989586621679350677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-type">ConflictMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350676"><span class="annot"><span class="annottext">Maybe FileModes
+</span><a href="#local-6989586621679350676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictMetadata
+</span><a href="#local-6989586621679350677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileModes:ConflictMetadata' :: Maybe FileModes
+</span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#%24sel%3AfileModes%3AConflictMetadata%27"><span class="hs-identifier hs-var">fileModes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileModes
+</span><a href="#local-6989586621679350676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350402"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679350400"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConflictMetadata
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350673"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679350671"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConflictMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ConflictMetadata)
@@ -449,217 +449,217 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ConflictMetadata&quot;</span></span><span>
-</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350397"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350397"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Maybe MergeOperations
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350668"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350668"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe FileSizes
 -&gt; Maybe Text
 -&gt; Maybe IsBinaryFile
 -&gt; Maybe Bool
 -&gt; Maybe Bool
--&gt; Maybe Int
--&gt; Maybe Bool
--&gt; Maybe FileModes
+-&gt; Maybe MergeOperations
 -&gt; Maybe ObjectTypes
--&gt; Maybe FileSizes
+-&gt; Maybe FileModes
 -&gt; ConflictMetadata
 </span><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata%27"><span class="hs-identifier hs-var">ConflictMetadata'</span></a></span><span>
-</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MergeOperations
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Bool
+ -&gt; Maybe FileSizes
  -&gt; Maybe Text
  -&gt; Maybe IsBinaryFile
  -&gt; Maybe Bool
  -&gt; Maybe Bool
- -&gt; Maybe Int
- -&gt; Maybe Bool
- -&gt; Maybe FileModes
+ -&gt; Maybe MergeOperations
  -&gt; Maybe ObjectTypes
- -&gt; Maybe FileSizes
+ -&gt; Maybe FileModes
  -&gt; ConflictMetadata)
--&gt; Parser (Maybe MergeOperations)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe FileSizes
+      -&gt; Maybe Text
+      -&gt; Maybe IsBinaryFile
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe MergeOperations
+      -&gt; Maybe ObjectTypes
+      -&gt; Maybe FileModes
+      -&gt; ConflictMetadata)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;numberOfConflicts&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe FileSizes
+   -&gt; Maybe Text
+   -&gt; Maybe IsBinaryFile
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe MergeOperations
+   -&gt; Maybe ObjectTypes
+   -&gt; Maybe FileModes
+   -&gt; ConflictMetadata)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe FileSizes
+      -&gt; Maybe Text
+      -&gt; Maybe IsBinaryFile
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe MergeOperations
+      -&gt; Maybe ObjectTypes
+      -&gt; Maybe FileModes
+      -&gt; ConflictMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;contentConflict&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FileSizes
+   -&gt; Maybe Text
+   -&gt; Maybe IsBinaryFile
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe MergeOperations
+   -&gt; Maybe ObjectTypes
+   -&gt; Maybe FileModes
+   -&gt; ConflictMetadata)
+-&gt; Parser (Maybe FileSizes)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe IsBinaryFile
       -&gt; Maybe Bool
       -&gt; Maybe Bool
-      -&gt; Maybe Int
-      -&gt; Maybe Bool
-      -&gt; Maybe FileModes
+      -&gt; Maybe MergeOperations
       -&gt; Maybe ObjectTypes
-      -&gt; Maybe FileSizes
+      -&gt; Maybe FileModes
       -&gt; ConflictMetadata)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MergeOperations)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FileSizes)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;mergeOperations&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;fileSizes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe IsBinaryFile
    -&gt; Maybe Bool
    -&gt; Maybe Bool
-   -&gt; Maybe Int
-   -&gt; Maybe Bool
-   -&gt; Maybe FileModes
+   -&gt; Maybe MergeOperations
    -&gt; Maybe ObjectTypes
-   -&gt; Maybe FileSizes
+   -&gt; Maybe FileModes
    -&gt; ConflictMetadata)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe IsBinaryFile
       -&gt; Maybe Bool
       -&gt; Maybe Bool
-      -&gt; Maybe Int
-      -&gt; Maybe Bool
-      -&gt; Maybe FileModes
+      -&gt; Maybe MergeOperations
       -&gt; Maybe ObjectTypes
-      -&gt; Maybe FileSizes
+      -&gt; Maybe FileModes
       -&gt; ConflictMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679350668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filePath&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe IsBinaryFile
    -&gt; Maybe Bool
    -&gt; Maybe Bool
-   -&gt; Maybe Int
-   -&gt; Maybe Bool
-   -&gt; Maybe FileModes
+   -&gt; Maybe MergeOperations
    -&gt; Maybe ObjectTypes
-   -&gt; Maybe FileSizes
+   -&gt; Maybe FileModes
    -&gt; ConflictMetadata)
 -&gt; Parser (Maybe IsBinaryFile)
 -&gt; Parser
      (Maybe Bool
       -&gt; Maybe Bool
-      -&gt; Maybe Int
-      -&gt; Maybe Bool
-      -&gt; Maybe FileModes
+      -&gt; Maybe MergeOperations
       -&gt; Maybe ObjectTypes
-      -&gt; Maybe FileSizes
+      -&gt; Maybe FileModes
       -&gt; ConflictMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IsBinaryFile)
+</span><a href="#local-6989586621679350668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IsBinaryFile)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;isBinaryFile&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Bool
    -&gt; Maybe Bool
-   -&gt; Maybe Int
-   -&gt; Maybe Bool
-   -&gt; Maybe FileModes
+   -&gt; Maybe MergeOperations
    -&gt; Maybe ObjectTypes
-   -&gt; Maybe FileSizes
+   -&gt; Maybe FileModes
    -&gt; ConflictMetadata)
 -&gt; Parser (Maybe Bool)
 -&gt; Parser
      (Maybe Bool
-      -&gt; Maybe Int
-      -&gt; Maybe Bool
-      -&gt; Maybe FileModes
+      -&gt; Maybe MergeOperations
       -&gt; Maybe ObjectTypes
-      -&gt; Maybe FileSizes
+      -&gt; Maybe FileModes
       -&gt; ConflictMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;objectTypeConflict&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Bool
-   -&gt; Maybe Int
-   -&gt; Maybe Bool
-   -&gt; Maybe FileModes
-   -&gt; Maybe ObjectTypes
-   -&gt; Maybe FileSizes
-   -&gt; ConflictMetadata)
--&gt; Parser (Maybe Bool)
--&gt; Parser
-     (Maybe Int
-      -&gt; Maybe Bool
-      -&gt; Maybe FileModes
-      -&gt; Maybe ObjectTypes
-      -&gt; Maybe FileSizes
-      -&gt; ConflictMetadata)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679350668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fileModeConflict&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Int
-   -&gt; Maybe Bool
-   -&gt; Maybe FileModes
-   -&gt; Maybe ObjectTypes
-   -&gt; Maybe FileSizes
-   -&gt; ConflictMetadata)
--&gt; Parser (Maybe Int)
--&gt; Parser
-     (Maybe Bool
-      -&gt; Maybe FileModes
-      -&gt; Maybe ObjectTypes
-      -&gt; Maybe FileSizes
-      -&gt; ConflictMetadata)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;numberOfConflicts&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Bool
-   -&gt; Maybe FileModes
+   -&gt; Maybe MergeOperations
    -&gt; Maybe ObjectTypes
-   -&gt; Maybe FileSizes
+   -&gt; Maybe FileModes
    -&gt; ConflictMetadata)
 -&gt; Parser (Maybe Bool)
 -&gt; Parser
-     (Maybe FileModes
-      -&gt; Maybe ObjectTypes -&gt; Maybe FileSizes -&gt; ConflictMetadata)
+     (Maybe MergeOperations
+      -&gt; Maybe ObjectTypes -&gt; Maybe FileModes -&gt; ConflictMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679350668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;contentConflict&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;objectTypeConflict&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe FileModes
-   -&gt; Maybe ObjectTypes -&gt; Maybe FileSizes -&gt; ConflictMetadata)
--&gt; Parser (Maybe FileModes)
+  (Maybe MergeOperations
+   -&gt; Maybe ObjectTypes -&gt; Maybe FileModes -&gt; ConflictMetadata)
+-&gt; Parser (Maybe MergeOperations)
 -&gt; Parser
-     (Maybe ObjectTypes -&gt; Maybe FileSizes -&gt; ConflictMetadata)
+     (Maybe ObjectTypes -&gt; Maybe FileModes -&gt; ConflictMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FileModes)
+</span><a href="#local-6989586621679350668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MergeOperations)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;fileModes&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ObjectTypes -&gt; Maybe FileSizes -&gt; ConflictMetadata)
+</span><span class="hs-string">&quot;mergeOperations&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ObjectTypes -&gt; Maybe FileModes -&gt; ConflictMetadata)
 -&gt; Parser (Maybe ObjectTypes)
--&gt; Parser (Maybe FileSizes -&gt; ConflictMetadata)
+-&gt; Parser (Maybe FileModes -&gt; ConflictMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ObjectTypes)
+</span><a href="#local-6989586621679350668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ObjectTypes)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;objectTypes&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe FileSizes -&gt; ConflictMetadata)
--&gt; Parser (Maybe FileSizes) -&gt; Parser ConflictMetadata
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe FileModes -&gt; ConflictMetadata)
+-&gt; Parser (Maybe FileModes) -&gt; Parser ConflictMetadata
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FileSizes)
+</span><a href="#local-6989586621679350668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FileModes)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;fileSizes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;fileModes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350391"><span id="local-6989586621679350393"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350662"><span id="local-6989586621679350664"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span></span></span><span>
 </span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350388"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350659"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span></span><span>
 </span><span id="line-187"></span></pre></body></html>

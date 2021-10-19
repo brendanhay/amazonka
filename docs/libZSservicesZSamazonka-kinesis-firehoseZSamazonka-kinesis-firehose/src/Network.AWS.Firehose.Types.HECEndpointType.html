@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679256782"><span id="local-6989586621679256783"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HECEndpointType"><span class="annot"><a href="Network.AWS.Firehose.Types.HECEndpointType.html#HECEndpointType"><span class="hs-identifier hs-var">HECEndpointType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HECEndpointType%27"><span class="annot"><a href="Network.AWS.Firehose.Types.HECEndpointType.html#HECEndpointType%27"><span class="hs-identifier hs-var">HECEndpointType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679271004"><span id="local-6989586621679271005"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HECEndpointType"><span class="annot"><a href="Network.AWS.Firehose.Types.HECEndpointType.html#HECEndpointType"><span class="hs-identifier hs-var">HECEndpointType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HECEndpointType%27"><span class="annot"><a href="Network.AWS.Firehose.Types.HECEndpointType.html#HECEndpointType%27"><span class="hs-identifier hs-var">HECEndpointType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHECEndpointType"><span class="annot"><span class="annottext">HECEndpointType -&gt; Text
 </span><a href="Network.AWS.Firehose.Types.HECEndpointType.html#fromHECEndpointType"><span class="hs-identifier hs-var hs-var">fromHECEndpointType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679256774"><span id="local-6989586621679256776"><span id="local-6989586621679256778"><span class="annot"><span class="annottext">Int -&gt; HECEndpointType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270996"><span id="local-6989586621679270998"><span id="local-6989586621679271000"><span class="annot"><span class="annottext">Int -&gt; HECEndpointType -&gt; ShowS
 [HECEndpointType] -&gt; ShowS
 HECEndpointType -&gt; String
 (Int -&gt; HECEndpointType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: HECEndpointType -&gt; String
 showsPrec :: Int -&gt; HECEndpointType -&gt; ShowS
 $cshowsPrec :: Int -&gt; HECEndpointType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679256765"><span id="local-6989586621679256767"><span id="local-6989586621679256769"><span id="local-6989586621679256771"><span class="annot"><span class="annottext">ReadPrec [HECEndpointType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679270987"><span id="local-6989586621679270989"><span id="local-6989586621679270991"><span id="local-6989586621679270993"><span class="annot"><span class="annottext">ReadPrec [HECEndpointType]
 ReadPrec HECEndpointType
 Int -&gt; ReadS HECEndpointType
 ReadS [HECEndpointType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [HECEndpointType]
 readsPrec :: Int -&gt; ReadS HECEndpointType
 $creadsPrec :: Int -&gt; ReadS HECEndpointType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679256760"><span id="local-6989586621679256762"><span class="annot"><span class="annottext">HECEndpointType -&gt; HECEndpointType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679270982"><span id="local-6989586621679270984"><span class="annot"><span class="annottext">HECEndpointType -&gt; HECEndpointType -&gt; Bool
 (HECEndpointType -&gt; HECEndpointType -&gt; Bool)
 -&gt; (HECEndpointType -&gt; HECEndpointType -&gt; Bool)
 -&gt; Eq HECEndpointType
@@ -82,7 +82,7 @@ $c/= :: HECEndpointType -&gt; HECEndpointType -&gt; Bool
 == :: HECEndpointType -&gt; HECEndpointType -&gt; Bool
 $c== :: HECEndpointType -&gt; HECEndpointType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679256744"><span id="local-6989586621679256746"><span id="local-6989586621679256748"><span id="local-6989586621679256750"><span id="local-6989586621679256752"><span id="local-6989586621679256754"><span id="local-6989586621679256756"><span class="annot"><span class="annottext">Eq HECEndpointType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679270966"><span id="local-6989586621679270968"><span id="local-6989586621679270970"><span id="local-6989586621679270972"><span id="local-6989586621679270974"><span id="local-6989586621679270976"><span id="local-6989586621679270978"><span class="annot"><span class="annottext">Eq HECEndpointType
 Eq HECEndpointType
 -&gt; (HECEndpointType -&gt; HECEndpointType -&gt; Ordering)
 -&gt; (HECEndpointType -&gt; HECEndpointType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. HECEndpointType -&gt; Rep HECEndpointType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679256736"><span id="local-6989586621679256738"><span class="annot"><span class="annottext">Int -&gt; HECEndpointType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270958"><span id="local-6989586621679270960"><span class="annot"><span class="annottext">Int -&gt; HECEndpointType -&gt; Int
 HECEndpointType -&gt; Int
 (Int -&gt; HECEndpointType -&gt; Int)
 -&gt; (HECEndpointType -&gt; Int) -&gt; Hashable HECEndpointType
@@ -143,50 +143,50 @@ $chash :: HECEndpointType -&gt; Int
 hashWithSalt :: Int -&gt; HECEndpointType -&gt; Int
 $chashWithSalt :: Int -&gt; HECEndpointType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679256733"><span class="annot"><span class="annottext">HECEndpointType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679270955"><span class="annot"><span class="annottext">HECEndpointType -&gt; ()
 (HECEndpointType -&gt; ()) -&gt; NFData HECEndpointType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HECEndpointType -&gt; ()
 $crnf :: HECEndpointType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679256730"><span class="annot"><span class="annottext">Text -&gt; Either String HECEndpointType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679270952"><span class="annot"><span class="annottext">Text -&gt; Either String HECEndpointType
 (Text -&gt; Either String HECEndpointType) -&gt; FromText HECEndpointType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HECEndpointType
 $cfromText :: Text -&gt; Either String HECEndpointType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679256727"><span class="annot"><span class="annottext">HECEndpointType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679270949"><span class="annot"><span class="annottext">HECEndpointType -&gt; Text
 (HECEndpointType -&gt; Text) -&gt; ToText HECEndpointType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HECEndpointType -&gt; Text
 $ctoText :: HECEndpointType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679256724"><span class="annot"><span class="annottext">HECEndpointType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679270946"><span class="annot"><span class="annottext">HECEndpointType -&gt; ByteString
 (HECEndpointType -&gt; ByteString) -&gt; ToByteString HECEndpointType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HECEndpointType -&gt; ByteString
 $ctoBS :: HECEndpointType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679256721"><span class="annot"><span class="annottext">HECEndpointType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679270943"><span class="annot"><span class="annottext">HECEndpointType -&gt; ByteStringBuilder
 (HECEndpointType -&gt; ByteStringBuilder) -&gt; ToLog HECEndpointType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HECEndpointType -&gt; ByteStringBuilder
 $cbuild :: HECEndpointType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679256718"><span class="annot"><span class="annottext">HeaderName -&gt; HECEndpointType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679270940"><span class="annot"><span class="annottext">HeaderName -&gt; HECEndpointType -&gt; [Header]
 (HeaderName -&gt; HECEndpointType -&gt; [Header])
 -&gt; ToHeader HECEndpointType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HECEndpointType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HECEndpointType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679256715"><span class="annot"><span class="annottext">HECEndpointType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679270937"><span class="annot"><span class="annottext">HECEndpointType -&gt; QueryString
 (HECEndpointType -&gt; QueryString) -&gt; ToQuery HECEndpointType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HECEndpointType -&gt; QueryString
 $ctoQuery :: HECEndpointType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679256710"><span id="local-6989586621679256712"><span class="annot"><span class="annottext">Value -&gt; Parser [HECEndpointType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679270932"><span id="local-6989586621679270934"><span class="annot"><span class="annottext">Value -&gt; Parser [HECEndpointType]
 Value -&gt; Parser HECEndpointType
 (Value -&gt; Parser HECEndpointType)
 -&gt; (Value -&gt; Parser [HECEndpointType]) -&gt; FromJSON HECEndpointType
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [HECEndpointType]
 parseJSON :: Value -&gt; Parser HECEndpointType
 $cparseJSON :: Value -&gt; Parser HECEndpointType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679256705"><span id="local-6989586621679256707"><span class="annot"><span class="annottext">FromJSONKeyFunction [HECEndpointType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679270927"><span id="local-6989586621679270929"><span class="annot"><span class="annottext">FromJSONKeyFunction [HECEndpointType]
 FromJSONKeyFunction HECEndpointType
 FromJSONKeyFunction HECEndpointType
 -&gt; FromJSONKeyFunction [HECEndpointType]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HECEndpointType]
 fromJSONKey :: FromJSONKeyFunction HECEndpointType
 $cfromJSONKey :: FromJSONKeyFunction HECEndpointType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679256696"><span id="local-6989586621679256698"><span id="local-6989586621679256700"><span id="local-6989586621679256702"><span class="annot"><span class="annottext">[HECEndpointType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679270918"><span id="local-6989586621679270920"><span id="local-6989586621679270922"><span id="local-6989586621679270924"><span class="annot"><span class="annottext">[HECEndpointType] -&gt; Encoding
 [HECEndpointType] -&gt; Value
 HECEndpointType -&gt; Encoding
 HECEndpointType -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: HECEndpointType -&gt; Encoding
 toJSON :: HECEndpointType -&gt; Value
 $ctoJSON :: HECEndpointType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679256691"><span id="local-6989586621679256693"><span class="annot"><span class="annottext">ToJSONKeyFunction [HECEndpointType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679270913"><span id="local-6989586621679270915"><span class="annot"><span class="annottext">ToJSONKeyFunction [HECEndpointType]
 ToJSONKeyFunction HECEndpointType
 ToJSONKeyFunction HECEndpointType
 -&gt; ToJSONKeyFunction [HECEndpointType] -&gt; ToJSONKey HECEndpointType
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HECEndpointType]
 toJSONKey :: ToJSONKeyFunction HECEndpointType
 $ctoJSONKey :: ToJSONKeyFunction HECEndpointType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679256688"><span class="annot"><span class="annottext">[Node] -&gt; Either String HECEndpointType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679270910"><span class="annot"><span class="annottext">[Node] -&gt; Either String HECEndpointType
 ([Node] -&gt; Either String HECEndpointType)
 -&gt; FromXML HECEndpointType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HECEndpointType
 $cparseXML :: [Node] -&gt; Either String HECEndpointType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679256685"><span class="annot"><span class="annottext">HECEndpointType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679270907"><span class="annot"><span class="annottext">HECEndpointType -&gt; XML
 (HECEndpointType -&gt; XML) -&gt; ToXML HECEndpointType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HECEndpointType -&gt; XML

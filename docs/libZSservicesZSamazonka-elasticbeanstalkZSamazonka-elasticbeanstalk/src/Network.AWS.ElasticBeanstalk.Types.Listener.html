@@ -26,15 +26,15 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes the properties of a Listener for the LoadBalancer.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newListener' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679302844"><span id="local-6989586621679302845"></span></span><span class="hs-keyword">data</span><span> </span><span id="Listener"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-var">Listener</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Listener%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener%27"><span class="hs-identifier hs-var">Listener'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The port that is used by the Listener.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aport%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe Int
-</span><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#%24sel%3Aport%3AListener%27"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The protocol that is used by the Listener.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aprotocol%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#%24sel%3Aprotocol%3AListener%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679303123"><span id="local-6989586621679303124"></span></span><span class="hs-keyword">data</span><span> </span><span id="Listener"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-var">Listener</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Listener%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener%27"><span class="hs-identifier hs-var">Listener'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The protocol that is used by the Listener.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aprotocol%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#%24sel%3Aprotocol%3AListener%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The port that is used by the Listener.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aport%3AListener%27"><span class="annot"><span class="annottext">Listener -&gt; Maybe Int
+</span><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#%24sel%3Aport%3AListener%27"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302837"><span id="local-6989586621679302839"><span class="annot"><span class="annottext">Listener -&gt; Listener -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303116"><span id="local-6989586621679303118"><span class="annot"><span class="annottext">Listener -&gt; Listener -&gt; Bool
 (Listener -&gt; Listener -&gt; Bool)
 -&gt; (Listener -&gt; Listener -&gt; Bool) -&gt; Eq Listener
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Listener -&gt; Listener -&gt; Bool
 == :: Listener -&gt; Listener -&gt; Bool
 $c== :: Listener -&gt; Listener -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302828"><span id="local-6989586621679302830"><span id="local-6989586621679302832"><span id="local-6989586621679302834"><span class="annot"><span class="annottext">ReadPrec [Listener]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303107"><span id="local-6989586621679303109"><span id="local-6989586621679303111"><span id="local-6989586621679303113"><span class="annot"><span class="annottext">ReadPrec [Listener]
 ReadPrec Listener
 Int -&gt; ReadS Listener
 ReadS [Listener]
@@ -62,7 +62,7 @@ readList :: ReadS [Listener]
 $creadList :: ReadS [Listener]
 readsPrec :: Int -&gt; ReadS Listener
 $creadsPrec :: Int -&gt; ReadS Listener
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302821"><span id="local-6989586621679302823"><span id="local-6989586621679302825"><span class="annot"><span class="annottext">Int -&gt; Listener -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303100"><span id="local-6989586621679303102"><span id="local-6989586621679303104"><span class="annot"><span class="annottext">Int -&gt; Listener -&gt; ShowS
 [Listener] -&gt; ShowS
 Listener -&gt; String
 (Int -&gt; Listener -&gt; ShowS)
@@ -93,86 +93,86 @@ $cfrom :: forall x. Listener -&gt; Rep Listener x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'port', 'listener_port' - The port that is used by the Listener.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'protocol', 'listener_protocol' - The protocol that is used by the Listener.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'protocol', 'listener_protocol' - The protocol that is used by the Listener.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'port', 'listener_port' - The port that is used by the Listener.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#newListener"><span class="hs-identifier hs-type">newListener</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span>
 </span><span id="line-50"></span><span id="newListener"><span class="annot"><span class="annottext">newListener :: Listener
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#newListener"><span class="hs-identifier hs-var hs-var">newListener</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">Listener' :: Maybe Int -&gt; Maybe Text -&gt; Listener
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">Listener' :: Maybe Text -&gt; Maybe Int -&gt; Listener
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:port:Listener' :: Maybe Int
-</span><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#%24sel%3Aport%3AListener%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:protocol:Listener' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#%24sel%3Aprotocol%3AListener%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:Listener' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#%24sel%3Aprotocol%3AListener%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:port:Listener' :: Maybe Int
+</span><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#%24sel%3Aport%3AListener%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- | The port that is used by the Listener.</span><span>
-</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#listener_port"><span class="hs-identifier hs-type">listener_port</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-58"></span><span id="listener_port"><span class="annot"><span class="annottext">listener_port :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Listener -&gt; f Listener
-</span><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#listener_port"><span class="hs-identifier hs-var hs-var">listener_port</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe Int)
--&gt; (Listener -&gt; Maybe Int -&gt; Listener)
--&gt; Lens Listener Listener (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302812"><span class="annot"><span class="annottext">Maybe Int
-port :: Maybe Int
-$sel:port:Listener' :: Listener -&gt; Maybe Int
-</span><a href="#local-6989586621679302812"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679302812"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302811"><span class="annot"><span class="annottext">s :: Listener
-</span><a href="#local-6989586621679302811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302810"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679302810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
-</span><a href="#local-6989586621679302811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:Listener' :: Maybe Int
-</span><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#%24sel%3Aport%3AListener%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679302810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | The protocol that is used by the Listener.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#listener_protocol"><span class="hs-identifier hs-type">listener_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="listener_protocol"><span class="annot"><span class="annottext">listener_protocol :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Listener -&gt; f Listener
+</span><span id="line-56"></span><span class="hs-comment">-- | The protocol that is used by the Listener.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#listener_protocol"><span class="hs-identifier hs-type">listener_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="listener_protocol"><span class="annot"><span class="annottext">listener_protocol :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Listener -&gt; f Listener
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#listener_protocol"><span class="hs-identifier hs-var hs-var">listener_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe Text)
 -&gt; (Listener -&gt; Maybe Text -&gt; Listener)
 -&gt; Lens Listener Listener (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302808"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303091"><span class="annot"><span class="annottext">Maybe Text
 protocol :: Maybe Text
 $sel:protocol:Listener' :: Listener -&gt; Maybe Text
-</span><a href="#local-6989586621679302808"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302808"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302807"><span class="annot"><span class="annottext">s :: Listener
-</span><a href="#local-6989586621679302807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302806"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
-</span><a href="#local-6989586621679302807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:Listener' :: Maybe Text
+</span><a href="#local-6989586621679303091"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303091"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303090"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679303090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303089"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679303090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:Listener' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#%24sel%3Aprotocol%3AListener%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The port that is used by the Listener.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#listener_port"><span class="hs-identifier hs-type">listener_port</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="listener_port"><span class="annot"><span class="annottext">listener_port :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Listener -&gt; f Listener
+</span><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#listener_port"><span class="hs-identifier hs-var hs-var">listener_port</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Listener -&gt; Maybe Int)
+-&gt; (Listener -&gt; Maybe Int -&gt; Listener)
+-&gt; Lens Listener Listener (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303087"><span class="annot"><span class="annottext">Maybe Int
+port :: Maybe Int
+$sel:port:Listener' :: Listener -&gt; Maybe Int
+</span><a href="#local-6989586621679303087"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679303087"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303086"><span class="annot"><span class="annottext">s :: Listener
+</span><a href="#local-6989586621679303086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener%27"><span class="hs-identifier hs-type">Listener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303085"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679303085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Listener
+</span><a href="#local-6989586621679303086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:Listener' :: Maybe Int
+</span><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#%24sel%3Aport%3AListener%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679303085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679302803"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Listener
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679302801"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302801"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Text -&gt; Listener
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679303082"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Listener
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679303080"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679303080"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Int -&gt; Listener
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener%27"><span class="hs-identifier hs-var">Listener'</span></a></span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Text -&gt; Listener)
--&gt; Either String (Maybe Int)
--&gt; Either String (Maybe Text -&gt; Listener)
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Int -&gt; Listener)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Int -&gt; Listener)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Port&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Listener)
--&gt; Either String (Maybe Text) -&gt; Either String Listener
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679303080"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Protocol&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; Listener)
+-&gt; Either String (Maybe Int) -&gt; Either String Listener
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679303080"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Port&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302795"><span id="local-6989586621679302797"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303074"><span id="local-6989586621679303076"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302792"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303071"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span></span><span>
 </span><span id="line-73"></span></pre></body></html>

@@ -28,45 +28,45 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | An object representing an Fargate profile.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newFargateProfile' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679265732"><span id="local-6989586621679265733"></span></span><span class="hs-keyword">data</span><span> </span><span id="FargateProfile"><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-var">FargateProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FargateProfile%27"><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-var">FargateProfile'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the Fargate profile.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astatus%3AFargateProfile%27"><span class="annot"><span class="annottext">FargateProfile -&gt; Maybe FargateProfileStatus
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Astatus%3AFargateProfile%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileStatus.html#FargateProfileStatus"><span class="hs-identifier hs-type">FargateProfileStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the Fargate profile.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AfargateProfileName%3AFargateProfile%27"><span class="annot"><span class="annottext">FargateProfile -&gt; Maybe Text
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AfargateProfileName%3AFargateProfile%27"><span class="hs-identifier hs-var hs-var">fargateProfileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pod execution role to use for pods</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- that match the selectors in the Fargate profile. For more information,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- see</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html Pod Execution Role&gt;</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- in the /Amazon EKS User Guide/.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3ApodExecutionRoleArn%3AFargateProfile%27"><span class="annot"><span class="annottext">FargateProfile -&gt; Maybe Text
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3ApodExecutionRoleArn%3AFargateProfile%27"><span class="hs-identifier hs-var hs-var">podExecutionRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Unix epoch timestamp in seconds for when the Fargate profile was</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- created.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcreatedAt%3AFargateProfile%27"><span class="annot"><span class="annottext">FargateProfile -&gt; Maybe POSIX
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AcreatedAt%3AFargateProfile%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The full Amazon Resource Name (ARN) of the Fargate profile.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AfargateProfileArn%3AFargateProfile%27"><span class="annot"><span class="annottext">FargateProfile -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621679265986"><span id="local-6989586621679265987"></span></span><span class="hs-keyword">data</span><span> </span><span id="FargateProfile"><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-var">FargateProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FargateProfile%27"><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-var">FargateProfile'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The full Amazon Resource Name (ARN) of the Fargate profile.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AfargateProfileArn%3AFargateProfile%27"><span class="annot"><span class="annottext">FargateProfile -&gt; Maybe Text
 </span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AfargateProfileArn%3AFargateProfile%27"><span class="hs-identifier hs-var hs-var">fargateProfileArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The metadata applied to the Fargate profile to assist with</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- categorization and organization. Each tag consists of a key and an</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- optional value, both of which you define. Fargate profile tags do not</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- propagate to any other resources associated with the Fargate profile,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- such as the pods that are scheduled with it.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3Atags%3AFargateProfile%27"><span class="annot"><span class="annottext">FargateProfile -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Atags%3AFargateProfile%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The selectors to match for pods to use this Fargate profile.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3Aselectors%3AFargateProfile%27"><span class="annot"><span class="annottext">FargateProfile -&gt; Maybe [FargateProfileSelector]
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Aselectors%3AFargateProfile%27"><span class="hs-identifier hs-var hs-var">selectors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The IDs of subnets to launch pods into.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3Asubnets%3AFargateProfile%27"><span class="annot"><span class="annottext">FargateProfile -&gt; Maybe [Text]
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The current status of the Fargate profile.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astatus%3AFargateProfile%27"><span class="annot"><span class="annottext">FargateProfile -&gt; Maybe FargateProfileStatus
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Astatus%3AFargateProfile%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileStatus.html#FargateProfileStatus"><span class="hs-identifier hs-type">FargateProfileStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Unix epoch timestamp in seconds for when the Fargate profile was</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcreatedAt%3AFargateProfile%27"><span class="annot"><span class="annottext">FargateProfile -&gt; Maybe POSIX
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AcreatedAt%3AFargateProfile%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The IDs of subnets to launch pods into.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Asubnets%3AFargateProfile%27"><span class="annot"><span class="annottext">FargateProfile -&gt; Maybe [Text]
 </span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Asubnets%3AFargateProfile%27"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon EKS cluster that the Fargate profile belongs to.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AclusterName%3AFargateProfile%27"><span class="annot"><span class="annottext">FargateProfile -&gt; Maybe Text
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AclusterName%3AFargateProfile%27"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon EKS cluster that the Fargate profile belongs to.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AclusterName%3AFargateProfile%27"><span class="annot"><span class="annottext">FargateProfile -&gt; Maybe Text
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AclusterName%3AFargateProfile%27"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pod execution role to use for pods</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- that match the selectors in the Fargate profile. For more information,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- see</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html Pod Execution Role&gt;</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- in the /Amazon EKS User Guide/.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3ApodExecutionRoleArn%3AFargateProfile%27"><span class="annot"><span class="annottext">FargateProfile -&gt; Maybe Text
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3ApodExecutionRoleArn%3AFargateProfile%27"><span class="hs-identifier hs-var hs-var">podExecutionRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The name of the Fargate profile.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AfargateProfileName%3AFargateProfile%27"><span class="annot"><span class="annottext">FargateProfile -&gt; Maybe Text
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AfargateProfileName%3AFargateProfile%27"><span class="hs-identifier hs-var hs-var">fargateProfileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The selectors to match for pods to use this Fargate profile.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aselectors%3AFargateProfile%27"><span class="annot"><span class="annottext">FargateProfile -&gt; Maybe [FargateProfileSelector]
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Aselectors%3AFargateProfile%27"><span class="hs-identifier hs-var hs-var">selectors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The metadata applied to the Fargate profile to assist with</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- categorization and organization. Each tag consists of a key and an</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- optional value, both of which you define. Fargate profile tags do not</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- propagate to any other resources associated with the Fargate profile,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- such as the pods that are scheduled with it.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Atags%3AFargateProfile%27"><span class="annot"><span class="annottext">FargateProfile -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Atags%3AFargateProfile%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265718"><span id="local-6989586621679265720"><span class="annot"><span class="annottext">FargateProfile -&gt; FargateProfile -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265972"><span id="local-6989586621679265974"><span class="annot"><span class="annottext">FargateProfile -&gt; FargateProfile -&gt; Bool
 (FargateProfile -&gt; FargateProfile -&gt; Bool)
 -&gt; (FargateProfile -&gt; FargateProfile -&gt; Bool) -&gt; Eq FargateProfile
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FargateProfile -&gt; FargateProfile -&gt; Bool
 == :: FargateProfile -&gt; FargateProfile -&gt; Bool
 $c== :: FargateProfile -&gt; FargateProfile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265709"><span id="local-6989586621679265711"><span id="local-6989586621679265713"><span id="local-6989586621679265715"><span class="annot"><span class="annottext">ReadPrec [FargateProfile]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265963"><span id="local-6989586621679265965"><span id="local-6989586621679265967"><span id="local-6989586621679265969"><span class="annot"><span class="annottext">ReadPrec [FargateProfile]
 ReadPrec FargateProfile
 Int -&gt; ReadS FargateProfile
 ReadS [FargateProfile]
@@ -94,7 +94,7 @@ readList :: ReadS [FargateProfile]
 $creadList :: ReadS [FargateProfile]
 readsPrec :: Int -&gt; ReadS FargateProfile
 $creadsPrec :: Int -&gt; ReadS FargateProfile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265702"><span id="local-6989586621679265704"><span id="local-6989586621679265706"><span class="annot"><span class="annottext">Int -&gt; FargateProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265956"><span id="local-6989586621679265958"><span id="local-6989586621679265960"><span class="annot"><span class="annottext">Int -&gt; FargateProfile -&gt; ShowS
 [FargateProfile] -&gt; ShowS
 FargateProfile -&gt; String
 (Int -&gt; FargateProfile -&gt; ShowS)
@@ -128,88 +128,108 @@ $cfrom :: forall x. FargateProfile -&gt; Rep FargateProfile x
 </span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'status', 'fargateProfile_status' - The current status of the Fargate profile.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'fargateProfileArn', 'fargateProfile_fargateProfileArn' - The full Amazon Resource Name (ARN) of the Fargate profile.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'fargateProfileName', 'fargateProfile_fargateProfileName' - The name of the Fargate profile.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'status', 'fargateProfile_status' - The current status of the Fargate profile.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'podExecutionRoleArn', 'fargateProfile_podExecutionRoleArn' - The Amazon Resource Name (ARN) of the pod execution role to use for pods</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- that match the selectors in the Fargate profile. For more information,</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- see</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html Pod Execution Role&gt;</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- in the /Amazon EKS User Guide/.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'createdAt', 'fargateProfile_createdAt' - The Unix epoch timestamp in seconds for when the Fargate profile was</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- created.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'fargateProfileArn', 'fargateProfile_fargateProfileArn' - The full Amazon Resource Name (ARN) of the Fargate profile.</span><span>
-</span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'tags', 'fargateProfile_tags' - The metadata applied to the Fargate profile to assist with</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- categorization and organization. Each tag consists of a key and an</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- optional value, both of which you define. Fargate profile tags do not</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- propagate to any other resources associated with the Fargate profile,</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- such as the pods that are scheduled with it.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'createdAt', 'fargateProfile_createdAt' - The Unix epoch timestamp in seconds for when the Fargate profile was</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'subnets', 'fargateProfile_subnets' - The IDs of subnets to launch pods into.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'clusterName', 'fargateProfile_clusterName' - The name of the Amazon EKS cluster that the Fargate profile belongs to.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'podExecutionRoleArn', 'fargateProfile_podExecutionRoleArn' - The Amazon Resource Name (ARN) of the pod execution role to use for pods</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- that match the selectors in the Fargate profile. For more information,</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html Pod Execution Role&gt;</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- in the /Amazon EKS User Guide/.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'fargateProfileName', 'fargateProfile_fargateProfileName' - The name of the Fargate profile.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'selectors', 'fargateProfile_selectors' - The selectors to match for pods to use this Fargate profile.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'selectors', 'fargateProfile_selectors' - The selectors to match for pods to use this Fargate profile.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'subnets', 'fargateProfile_subnets' - The IDs of subnets to launch pods into.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'clusterName', 'fargateProfile_clusterName' - The name of the Amazon EKS cluster that the Fargate profile belongs to.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'tags', 'fargateProfile_tags' - The metadata applied to the Fargate profile to assist with</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- categorization and organization. Each tag consists of a key and an</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- optional value, both of which you define. Fargate profile tags do not</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- propagate to any other resources associated with the Fargate profile,</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- such as the pods that are scheduled with it.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#newFargateProfile"><span class="hs-identifier hs-type">newFargateProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span>
 </span><span id="line-98"></span><span id="newFargateProfile"><span class="annot"><span class="annottext">newFargateProfile :: FargateProfile
 </span><a href="Network.AWS.EKS.Types.FargateProfile.html#newFargateProfile"><span class="hs-identifier hs-var hs-var">newFargateProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">FargateProfile' :: Maybe FargateProfileStatus
--&gt; Maybe Text
--&gt; Maybe Text
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">FargateProfile' :: Maybe Text
+-&gt; Maybe FargateProfileStatus
 -&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe (HashMap Text Text)
--&gt; Maybe [FargateProfileSelector]
 -&gt; Maybe [Text]
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [FargateProfileSelector]
+-&gt; Maybe (HashMap Text Text)
 -&gt; FargateProfile
 </span><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:FargateProfile' :: Maybe FargateProfileStatus
+</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fargateProfileArn:FargateProfile' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AfargateProfileArn%3AFargateProfile%27"><span class="hs-identifier hs-var">fargateProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:FargateProfile' :: Maybe FargateProfileStatus
 </span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Astatus%3AFargateProfile%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FargateProfileStatus
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:fargateProfileName:FargateProfile' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AfargateProfileName%3AFargateProfile%27"><span class="hs-identifier hs-var">fargateProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:podExecutionRoleArn:FargateProfile' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3ApodExecutionRoleArn%3AFargateProfile%27"><span class="hs-identifier hs-var">podExecutionRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:FargateProfile' :: Maybe POSIX
 </span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AcreatedAt%3AFargateProfile%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:fargateProfileArn:FargateProfile' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AfargateProfileArn%3AFargateProfile%27"><span class="hs-identifier hs-var">fargateProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:FargateProfile' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Atags%3AFargateProfile%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:selectors:FargateProfile' :: Maybe [FargateProfileSelector]
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Aselectors%3AFargateProfile%27"><span class="hs-identifier hs-var">selectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FargateProfileSelector]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnets:FargateProfile' :: Maybe [Text]
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnets:FargateProfile' :: Maybe [Text]
 </span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Asubnets%3AFargateProfile%27"><span class="hs-identifier hs-var">subnets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterName:FargateProfile' :: Maybe Text
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterName:FargateProfile' :: Maybe Text
 </span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AclusterName%3AFargateProfile%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:podExecutionRoleArn:FargateProfile' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3ApodExecutionRoleArn%3AFargateProfile%27"><span class="hs-identifier hs-var">podExecutionRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:fargateProfileName:FargateProfile' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AfargateProfileName%3AFargateProfile%27"><span class="hs-identifier hs-var">fargateProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:selectors:FargateProfile' :: Maybe [FargateProfileSelector]
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Aselectors%3AFargateProfile%27"><span class="hs-identifier hs-var">selectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FargateProfileSelector]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:FargateProfile' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Atags%3AFargateProfile%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The current status of the Fargate profile.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_status"><span class="hs-identifier hs-type">fargateProfile_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileStatus.html#FargateProfileStatus"><span class="hs-identifier hs-type">FargateProfileStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="fargateProfile_status"><span class="annot"><span class="annottext">fargateProfile_status :: (Maybe FargateProfileStatus -&gt; f (Maybe FargateProfileStatus))
+</span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The full Amazon Resource Name (ARN) of the Fargate profile.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_fargateProfileArn"><span class="hs-identifier hs-type">fargateProfile_fargateProfileArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="fargateProfile_fargateProfileArn"><span class="annot"><span class="annottext">fargateProfile_fargateProfileArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FargateProfile -&gt; f FargateProfile
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_fargateProfileArn"><span class="hs-identifier hs-var hs-var">fargateProfile_fargateProfileArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FargateProfile -&gt; Maybe Text)
+-&gt; (FargateProfile -&gt; Maybe Text -&gt; FargateProfile)
+-&gt; Lens FargateProfile FargateProfile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265947"><span class="annot"><span class="annottext">Maybe Text
+fargateProfileArn :: Maybe Text
+$sel:fargateProfileArn:FargateProfile' :: FargateProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679265947"><span class="hs-identifier hs-var hs-var">fargateProfileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265947"><span class="hs-identifier hs-var">fargateProfileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265946"><span class="annot"><span class="annottext">s :: FargateProfile
+</span><a href="#local-6989586621679265946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265945"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfile
+</span><a href="#local-6989586621679265946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fargateProfileArn:FargateProfile' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AfargateProfileArn%3AFargateProfile%27"><span class="hs-identifier hs-var">fargateProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The current status of the Fargate profile.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_status"><span class="hs-identifier hs-type">fargateProfile_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileStatus.html#FargateProfileStatus"><span class="hs-identifier hs-type">FargateProfileStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="fargateProfile_status"><span class="annot"><span class="annottext">fargateProfile_status :: (Maybe FargateProfileStatus -&gt; f (Maybe FargateProfileStatus))
 -&gt; FargateProfile -&gt; f FargateProfile
 </span><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_status"><span class="hs-identifier hs-var hs-var">fargateProfile_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FargateProfile -&gt; Maybe FargateProfileStatus)
 -&gt; (FargateProfile -&gt; Maybe FargateProfileStatus -&gt; FargateProfile)
@@ -219,78 +239,36 @@ forall a. Maybe a
      (Maybe FargateProfileStatus)
      (Maybe FargateProfileStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265693"><span class="annot"><span class="annottext">Maybe FargateProfileStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265943"><span class="annot"><span class="annottext">Maybe FargateProfileStatus
 status :: Maybe FargateProfileStatus
 $sel:status:FargateProfile' :: FargateProfile -&gt; Maybe FargateProfileStatus
-</span><a href="#local-6989586621679265693"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FargateProfileStatus
-</span><a href="#local-6989586621679265693"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265692"><span class="annot"><span class="annottext">s :: FargateProfile
-</span><a href="#local-6989586621679265692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265691"><span class="annot"><span class="annottext">Maybe FargateProfileStatus
-</span><a href="#local-6989586621679265691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfile
-</span><a href="#local-6989586621679265692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:FargateProfile' :: Maybe FargateProfileStatus
+</span><a href="#local-6989586621679265943"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FargateProfileStatus
+</span><a href="#local-6989586621679265943"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265942"><span class="annot"><span class="annottext">s :: FargateProfile
+</span><a href="#local-6989586621679265942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265941"><span class="annot"><span class="annottext">Maybe FargateProfileStatus
+</span><a href="#local-6989586621679265941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfile
+</span><a href="#local-6989586621679265942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:FargateProfile' :: Maybe FargateProfileStatus
 </span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Astatus%3AFargateProfile%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FargateProfileStatus
-</span><a href="#local-6989586621679265691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The name of the Fargate profile.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_fargateProfileName"><span class="hs-identifier hs-type">fargateProfile_fargateProfileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="fargateProfile_fargateProfileName"><span class="annot"><span class="annottext">fargateProfile_fargateProfileName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; FargateProfile -&gt; f FargateProfile
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_fargateProfileName"><span class="hs-identifier hs-var hs-var">fargateProfile_fargateProfileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FargateProfile -&gt; Maybe Text)
--&gt; (FargateProfile -&gt; Maybe Text -&gt; FargateProfile)
--&gt; Lens FargateProfile FargateProfile (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265689"><span class="annot"><span class="annottext">Maybe Text
-fargateProfileName :: Maybe Text
-$sel:fargateProfileName:FargateProfile' :: FargateProfile -&gt; Maybe Text
-</span><a href="#local-6989586621679265689"><span class="hs-identifier hs-var hs-var">fargateProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265689"><span class="hs-identifier hs-var">fargateProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265688"><span class="annot"><span class="annottext">s :: FargateProfile
-</span><a href="#local-6989586621679265688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265687"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfile
-</span><a href="#local-6989586621679265688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fargateProfileName:FargateProfile' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AfargateProfileName%3AFargateProfile%27"><span class="hs-identifier hs-var">fargateProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pod execution role to use for pods</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- that match the selectors in the Fargate profile. For more information,</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- see</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html Pod Execution Role&gt;</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- in the /Amazon EKS User Guide/.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_podExecutionRoleArn"><span class="hs-identifier hs-type">fargateProfile_podExecutionRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="fargateProfile_podExecutionRoleArn"><span class="annot"><span class="annottext">fargateProfile_podExecutionRoleArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; FargateProfile -&gt; f FargateProfile
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_podExecutionRoleArn"><span class="hs-identifier hs-var hs-var">fargateProfile_podExecutionRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FargateProfile -&gt; Maybe Text)
--&gt; (FargateProfile -&gt; Maybe Text -&gt; FargateProfile)
--&gt; Lens FargateProfile FargateProfile (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265685"><span class="annot"><span class="annottext">Maybe Text
-podExecutionRoleArn :: Maybe Text
-$sel:podExecutionRoleArn:FargateProfile' :: FargateProfile -&gt; Maybe Text
-</span><a href="#local-6989586621679265685"><span class="hs-identifier hs-var hs-var">podExecutionRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265685"><span class="hs-identifier hs-var">podExecutionRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265684"><span class="annot"><span class="annottext">s :: FargateProfile
-</span><a href="#local-6989586621679265684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265683"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfile
-</span><a href="#local-6989586621679265684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:podExecutionRoleArn:FargateProfile' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3ApodExecutionRoleArn%3AFargateProfile%27"><span class="hs-identifier hs-var">podExecutionRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | The Unix epoch timestamp in seconds for when the Fargate profile was</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- created.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_createdAt"><span class="hs-identifier hs-type">fargateProfile_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="fargateProfile_createdAt"><span class="annot"><span class="annottext">fargateProfile_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679265941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The Unix epoch timestamp in seconds for when the Fargate profile was</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_createdAt"><span class="hs-identifier hs-type">fargateProfile_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="fargateProfile_createdAt"><span class="annot"><span class="annottext">fargateProfile_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; FargateProfile -&gt; f FargateProfile
 </span><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_createdAt"><span class="hs-identifier hs-var hs-var">fargateProfile_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FargateProfile -&gt; Maybe POSIX)
 -&gt; (FargateProfile -&gt; Maybe POSIX -&gt; FargateProfile)
 -&gt; Lens FargateProfile FargateProfile (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265681"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265939"><span class="annot"><span class="annottext">Maybe POSIX
 createdAt :: Maybe POSIX
 $sel:createdAt:FargateProfile' :: FargateProfile -&gt; Maybe POSIX
-</span><a href="#local-6989586621679265681"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679265681"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265680"><span class="annot"><span class="annottext">s :: FargateProfile
-</span><a href="#local-6989586621679265680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265679"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679265679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfile
-</span><a href="#local-6989586621679265680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:FargateProfile' :: Maybe POSIX
+</span><a href="#local-6989586621679265939"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679265939"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265938"><span class="annot"><span class="annottext">s :: FargateProfile
+</span><a href="#local-6989586621679265938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265937"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679265937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfile
+</span><a href="#local-6989586621679265938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:FargateProfile' :: Maybe POSIX
 </span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AcreatedAt%3AFargateProfile%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679265679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679265937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; FargateProfile -&gt; f FargateProfile)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -306,83 +284,105 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | The full Amazon Resource Name (ARN) of the Fargate profile.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_fargateProfileArn"><span class="hs-identifier hs-type">fargateProfile_fargateProfileArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="fargateProfile_fargateProfileArn"><span class="annot"><span class="annottext">fargateProfile_fargateProfileArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The IDs of subnets to launch pods into.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_subnets"><span class="hs-identifier hs-type">fargateProfile_subnets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="fargateProfile_subnets"><span class="annot"><span class="annottext">fargateProfile_subnets :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; FargateProfile -&gt; f FargateProfile
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_fargateProfileArn"><span class="hs-identifier hs-var hs-var">fargateProfile_fargateProfileArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FargateProfile -&gt; Maybe Text)
--&gt; (FargateProfile -&gt; Maybe Text -&gt; FargateProfile)
--&gt; Lens FargateProfile FargateProfile (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_subnets"><span class="hs-identifier hs-var hs-var">fargateProfile_subnets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FargateProfile -&gt; Maybe [Text])
+-&gt; (FargateProfile -&gt; Maybe [Text] -&gt; FargateProfile)
+-&gt; Lens FargateProfile FargateProfile (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265674"><span class="annot"><span class="annottext">Maybe Text
-fargateProfileArn :: Maybe Text
-$sel:fargateProfileArn:FargateProfile' :: FargateProfile -&gt; Maybe Text
-</span><a href="#local-6989586621679265674"><span class="hs-identifier hs-var hs-var">fargateProfileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265674"><span class="hs-identifier hs-var">fargateProfileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265673"><span class="annot"><span class="annottext">s :: FargateProfile
-</span><a href="#local-6989586621679265673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265672"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfile
-</span><a href="#local-6989586621679265673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fargateProfileArn:FargateProfile' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AfargateProfileArn%3AFargateProfile%27"><span class="hs-identifier hs-var">fargateProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | The metadata applied to the Fargate profile to assist with</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- categorization and organization. Each tag consists of a key and an</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- optional value, both of which you define. Fargate profile tags do not</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- propagate to any other resources associated with the Fargate profile,</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- such as the pods that are scheduled with it.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_tags"><span class="hs-identifier hs-type">fargateProfile_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="fargateProfile_tags"><span class="annot"><span class="annottext">fargateProfile_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
--&gt; FargateProfile -&gt; f FargateProfile
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_tags"><span class="hs-identifier hs-var hs-var">fargateProfile_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FargateProfile -&gt; Maybe (HashMap Text Text))
--&gt; (FargateProfile -&gt; Maybe (HashMap Text Text) -&gt; FargateProfile)
--&gt; Lens
-     FargateProfile
-     FargateProfile
-     (Maybe (HashMap Text Text))
-     (Maybe (HashMap Text Text))
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265670"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-tags :: Maybe (HashMap Text Text)
-$sel:tags:FargateProfile' :: FargateProfile -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679265670"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679265670"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265669"><span class="annot"><span class="annottext">s :: FargateProfile
-</span><a href="#local-6989586621679265669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265668"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679265668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfile
-</span><a href="#local-6989586621679265669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:FargateProfile' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Atags%3AFargateProfile%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679265668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265932"><span class="annot"><span class="annottext">Maybe [Text]
+subnets :: Maybe [Text]
+$sel:subnets:FargateProfile' :: FargateProfile -&gt; Maybe [Text]
+</span><a href="#local-6989586621679265932"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679265932"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265931"><span class="annot"><span class="annottext">s :: FargateProfile
+</span><a href="#local-6989586621679265931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265930"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679265930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfile
+</span><a href="#local-6989586621679265931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnets:FargateProfile' :: Maybe [Text]
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Asubnets%3AFargateProfile%27"><span class="hs-identifier hs-var">subnets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679265930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; FargateProfile -&gt; f FargateProfile)
--&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
-    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
--&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; FargateProfile
 -&gt; f FargateProfile
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
--&gt; Iso
-     (Maybe (HashMap Text Text))
-     (Maybe (HashMap Text Text))
-     (Maybe (HashMap Text Text))
-     (Maybe (HashMap Text Text))
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
 forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | The selectors to match for pods to use this Fargate profile.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_selectors"><span class="hs-identifier hs-type">fargateProfile_selectors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="fargateProfile_selectors"><span class="annot"><span class="annottext">fargateProfile_selectors :: (Maybe [FargateProfileSelector]
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The name of the Amazon EKS cluster that the Fargate profile belongs to.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_clusterName"><span class="hs-identifier hs-type">fargateProfile_clusterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="fargateProfile_clusterName"><span class="annot"><span class="annottext">fargateProfile_clusterName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FargateProfile -&gt; f FargateProfile
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_clusterName"><span class="hs-identifier hs-var hs-var">fargateProfile_clusterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FargateProfile -&gt; Maybe Text)
+-&gt; (FargateProfile -&gt; Maybe Text -&gt; FargateProfile)
+-&gt; Lens FargateProfile FargateProfile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265927"><span class="annot"><span class="annottext">Maybe Text
+clusterName :: Maybe Text
+$sel:clusterName:FargateProfile' :: FargateProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679265927"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265927"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265926"><span class="annot"><span class="annottext">s :: FargateProfile
+</span><a href="#local-6989586621679265926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265925"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfile
+</span><a href="#local-6989586621679265926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:FargateProfile' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AclusterName%3AFargateProfile%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pod execution role to use for pods</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- that match the selectors in the Fargate profile. For more information,</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html Pod Execution Role&gt;</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- in the /Amazon EKS User Guide/.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_podExecutionRoleArn"><span class="hs-identifier hs-type">fargateProfile_podExecutionRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="fargateProfile_podExecutionRoleArn"><span class="annot"><span class="annottext">fargateProfile_podExecutionRoleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FargateProfile -&gt; f FargateProfile
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_podExecutionRoleArn"><span class="hs-identifier hs-var hs-var">fargateProfile_podExecutionRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FargateProfile -&gt; Maybe Text)
+-&gt; (FargateProfile -&gt; Maybe Text -&gt; FargateProfile)
+-&gt; Lens FargateProfile FargateProfile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265923"><span class="annot"><span class="annottext">Maybe Text
+podExecutionRoleArn :: Maybe Text
+$sel:podExecutionRoleArn:FargateProfile' :: FargateProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679265923"><span class="hs-identifier hs-var hs-var">podExecutionRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265923"><span class="hs-identifier hs-var">podExecutionRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265922"><span class="annot"><span class="annottext">s :: FargateProfile
+</span><a href="#local-6989586621679265922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265921"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfile
+</span><a href="#local-6989586621679265922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:podExecutionRoleArn:FargateProfile' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3ApodExecutionRoleArn%3AFargateProfile%27"><span class="hs-identifier hs-var">podExecutionRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The name of the Fargate profile.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_fargateProfileName"><span class="hs-identifier hs-type">fargateProfile_fargateProfileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="fargateProfile_fargateProfileName"><span class="annot"><span class="annottext">fargateProfile_fargateProfileName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FargateProfile -&gt; f FargateProfile
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_fargateProfileName"><span class="hs-identifier hs-var hs-var">fargateProfile_fargateProfileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FargateProfile -&gt; Maybe Text)
+-&gt; (FargateProfile -&gt; Maybe Text -&gt; FargateProfile)
+-&gt; Lens FargateProfile FargateProfile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265919"><span class="annot"><span class="annottext">Maybe Text
+fargateProfileName :: Maybe Text
+$sel:fargateProfileName:FargateProfile' :: FargateProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679265919"><span class="hs-identifier hs-var hs-var">fargateProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265919"><span class="hs-identifier hs-var">fargateProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265918"><span class="annot"><span class="annottext">s :: FargateProfile
+</span><a href="#local-6989586621679265918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265917"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfile
+</span><a href="#local-6989586621679265918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fargateProfileName:FargateProfile' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AfargateProfileName%3AFargateProfile%27"><span class="hs-identifier hs-var">fargateProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The selectors to match for pods to use this Fargate profile.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_selectors"><span class="hs-identifier hs-type">fargateProfile_selectors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="fargateProfile_selectors"><span class="annot"><span class="annottext">fargateProfile_selectors :: (Maybe [FargateProfileSelector]
  -&gt; f (Maybe [FargateProfileSelector]))
 -&gt; FargateProfile -&gt; f FargateProfile
 </span><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_selectors"><span class="hs-identifier hs-var hs-var">fargateProfile_selectors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FargateProfile -&gt; Maybe [FargateProfileSelector])
@@ -394,16 +394,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [FargateProfileSelector])
      (Maybe [FargateProfileSelector])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265665"><span class="annot"><span class="annottext">Maybe [FargateProfileSelector]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265915"><span class="annot"><span class="annottext">Maybe [FargateProfileSelector]
 selectors :: Maybe [FargateProfileSelector]
 $sel:selectors:FargateProfile' :: FargateProfile -&gt; Maybe [FargateProfileSelector]
-</span><a href="#local-6989586621679265665"><span class="hs-identifier hs-var hs-var">selectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FargateProfileSelector]
-</span><a href="#local-6989586621679265665"><span class="hs-identifier hs-var">selectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265664"><span class="annot"><span class="annottext">s :: FargateProfile
-</span><a href="#local-6989586621679265664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265663"><span class="annot"><span class="annottext">Maybe [FargateProfileSelector]
-</span><a href="#local-6989586621679265663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfile
-</span><a href="#local-6989586621679265664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectors:FargateProfile' :: Maybe [FargateProfileSelector]
+</span><a href="#local-6989586621679265915"><span class="hs-identifier hs-var hs-var">selectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FargateProfileSelector]
+</span><a href="#local-6989586621679265915"><span class="hs-identifier hs-var">selectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265914"><span class="annot"><span class="annottext">s :: FargateProfile
+</span><a href="#local-6989586621679265914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265913"><span class="annot"><span class="annottext">Maybe [FargateProfileSelector]
+</span><a href="#local-6989586621679265913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfile
+</span><a href="#local-6989586621679265914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectors:FargateProfile' :: Maybe [FargateProfileSelector]
 </span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Aselectors%3AFargateProfile%27"><span class="hs-identifier hs-var">selectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FargateProfileSelector]
-</span><a href="#local-6989586621679265663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FargateProfileSelector]
+</span><a href="#local-6989586621679265913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FargateProfileSelector]
   -&gt; f (Maybe [FargateProfileSelector]))
  -&gt; FargateProfile -&gt; f FargateProfile)
 -&gt; ((Maybe [FargateProfileSelector]
@@ -433,234 +433,252 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [FargateProfileSelector]
   [FargateProfileSelector]
   [FargateProfileSelector]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- | The IDs of subnets to launch pods into.</span><span>
-</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_subnets"><span class="hs-identifier hs-type">fargateProfile_subnets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span id="fargateProfile_subnets"><span class="annot"><span class="annottext">fargateProfile_subnets :: (Maybe [Text] -&gt; f (Maybe [Text]))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The metadata applied to the Fargate profile to assist with</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- categorization and organization. Each tag consists of a key and an</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- optional value, both of which you define. Fargate profile tags do not</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- propagate to any other resources associated with the Fargate profile,</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- such as the pods that are scheduled with it.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_tags"><span class="hs-identifier hs-type">fargateProfile_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="fargateProfile_tags"><span class="annot"><span class="annottext">fargateProfile_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; FargateProfile -&gt; f FargateProfile
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_subnets"><span class="hs-identifier hs-var hs-var">fargateProfile_subnets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FargateProfile -&gt; Maybe [Text])
--&gt; (FargateProfile -&gt; Maybe [Text] -&gt; FargateProfile)
--&gt; Lens FargateProfile FargateProfile (Maybe [Text]) (Maybe [Text])
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_tags"><span class="hs-identifier hs-var hs-var">fargateProfile_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FargateProfile -&gt; Maybe (HashMap Text Text))
+-&gt; (FargateProfile -&gt; Maybe (HashMap Text Text) -&gt; FargateProfile)
+-&gt; Lens
+     FargateProfile
+     FargateProfile
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265661"><span class="annot"><span class="annottext">Maybe [Text]
-subnets :: Maybe [Text]
-$sel:subnets:FargateProfile' :: FargateProfile -&gt; Maybe [Text]
-</span><a href="#local-6989586621679265661"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679265661"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265660"><span class="annot"><span class="annottext">s :: FargateProfile
-</span><a href="#local-6989586621679265660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265659"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679265659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfile
-</span><a href="#local-6989586621679265660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnets:FargateProfile' :: Maybe [Text]
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Asubnets%3AFargateProfile%27"><span class="hs-identifier hs-var">subnets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679265659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265911"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:FargateProfile' :: FargateProfile -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679265911"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679265911"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265910"><span class="annot"><span class="annottext">s :: FargateProfile
+</span><a href="#local-6989586621679265910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265909"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679265909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfile
+</span><a href="#local-6989586621679265910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:FargateProfile' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3Atags%3AFargateProfile%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679265909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; FargateProfile -&gt; f FargateProfile)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; FargateProfile
 -&gt; f FargateProfile
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
 forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- | The name of the Amazon EKS cluster that the Fargate profile belongs to.</span><span>
-</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_clusterName"><span class="hs-identifier hs-type">fargateProfile_clusterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span id="fargateProfile_clusterName"><span class="annot"><span class="annottext">fargateProfile_clusterName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; FargateProfile -&gt; f FargateProfile
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#fargateProfile_clusterName"><span class="hs-identifier hs-var hs-var">fargateProfile_clusterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FargateProfile -&gt; Maybe Text)
--&gt; (FargateProfile -&gt; Maybe Text -&gt; FargateProfile)
--&gt; Lens FargateProfile FargateProfile (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265657"><span class="annot"><span class="annottext">Maybe Text
-clusterName :: Maybe Text
-$sel:clusterName:FargateProfile' :: FargateProfile -&gt; Maybe Text
-</span><a href="#local-6989586621679265657"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265657"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265656"><span class="annot"><span class="annottext">s :: FargateProfile
-</span><a href="#local-6989586621679265656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-type">FargateProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265655"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfile
-</span><a href="#local-6989586621679265656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:FargateProfile' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.FargateProfile.html#%24sel%3AclusterName%3AFargateProfile%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265652"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679265650"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FargateProfile
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265906"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679265904"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FargateProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FargateProfile)
 -&gt; Value
 -&gt; Parser FargateProfile
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FargateProfile&quot;</span></span><span>
-</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265647"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265647"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">Maybe FargateProfileStatus
--&gt; Maybe Text
--&gt; Maybe Text
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265901"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265901"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe FargateProfileStatus
 -&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe (HashMap Text Text)
--&gt; Maybe [FargateProfileSelector]
 -&gt; Maybe [Text]
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [FargateProfileSelector]
+-&gt; Maybe (HashMap Text Text)
 -&gt; FargateProfile
 </span><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile%27"><span class="hs-identifier hs-var">FargateProfile'</span></a></span><span>
-</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FargateProfileStatus
- -&gt; Maybe Text
- -&gt; Maybe Text
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe FargateProfileStatus
  -&gt; Maybe POSIX
- -&gt; Maybe Text
- -&gt; Maybe (HashMap Text Text)
- -&gt; Maybe [FargateProfileSelector]
  -&gt; Maybe [Text]
  -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [FargateProfileSelector]
+ -&gt; Maybe (HashMap Text Text)
  -&gt; FargateProfile)
--&gt; Parser (Maybe FargateProfileStatus)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
+     (Maybe FargateProfileStatus
       -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe (HashMap Text Text)
-      -&gt; Maybe [FargateProfileSelector]
       -&gt; Maybe [Text]
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [FargateProfileSelector]
+      -&gt; Maybe (HashMap Text Text)
       -&gt; FargateProfile)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265647"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FargateProfileStatus)
+</span><a href="#local-6989586621679265901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fargateProfileArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FargateProfileStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [FargateProfileSelector]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; FargateProfile)
+-&gt; Parser (Maybe FargateProfileStatus)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [FargateProfileSelector]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; FargateProfile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FargateProfileStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe (HashMap Text Text)
-   -&gt; Maybe [FargateProfileSelector]
-   -&gt; Maybe [Text]
-   -&gt; Maybe Text
-   -&gt; FargateProfile)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe (HashMap Text Text)
-      -&gt; Maybe [FargateProfileSelector]
-      -&gt; Maybe [Text]
-      -&gt; Maybe Text
-      -&gt; FargateProfile)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265647"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;fargateProfileName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe (HashMap Text Text)
-   -&gt; Maybe [FargateProfileSelector]
-   -&gt; Maybe [Text]
-   -&gt; Maybe Text
-   -&gt; FargateProfile)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe (HashMap Text Text)
-      -&gt; Maybe [FargateProfileSelector]
-      -&gt; Maybe [Text]
-      -&gt; Maybe Text
-      -&gt; FargateProfile)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265647"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;podExecutionRoleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe (HashMap Text Text)
-   -&gt; Maybe [FargateProfileSelector]
    -&gt; Maybe [Text]
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [FargateProfileSelector]
+   -&gt; Maybe (HashMap Text Text)
    -&gt; FargateProfile)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe (HashMap Text Text)
-      -&gt; Maybe [FargateProfileSelector]
-      -&gt; Maybe [Text]
+     (Maybe [Text]
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [FargateProfileSelector]
+      -&gt; Maybe (HashMap Text Text)
       -&gt; FargateProfile)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265647"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679265901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe (HashMap Text Text)
-   -&gt; Maybe [FargateProfileSelector]
-   -&gt; Maybe [Text]
+  (Maybe [Text]
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [FargateProfileSelector]
+   -&gt; Maybe (HashMap Text Text)
    -&gt; FargateProfile)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Text])
 -&gt; Parser
-     (Maybe (HashMap Text Text)
-      -&gt; Maybe [FargateProfileSelector]
-      -&gt; Maybe [Text]
+     (Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [FargateProfileSelector]
+      -&gt; Maybe (HashMap Text Text)
       -&gt; FargateProfile)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265647"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679265901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;fargateProfileArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (HashMap Text Text)
-   -&gt; Maybe [FargateProfileSelector]
-   -&gt; Maybe [Text]
-   -&gt; Maybe Text
-   -&gt; FargateProfile)
--&gt; Parser (Maybe (HashMap Text Text))
--&gt; Parser
-     (Maybe [FargateProfileSelector]
-      -&gt; Maybe [Text] -&gt; Maybe Text -&gt; FargateProfile)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265647"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
--&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+</span><span class="hs-string">&quot;subnets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [FargateProfileSelector]
-   -&gt; Maybe [Text] -&gt; Maybe Text -&gt; FargateProfile)
--&gt; Parser (Maybe [FargateProfileSelector])
--&gt; Parser (Maybe [Text] -&gt; Maybe Text -&gt; FargateProfile)
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [FargateProfileSelector]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; FargateProfile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [FargateProfileSelector]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; FargateProfile)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265647"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [FargateProfileSelector]))
+</span><a href="#local-6989586621679265901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clusterName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [FargateProfileSelector]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; FargateProfile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [FargateProfileSelector]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; FargateProfile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;podExecutionRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [FargateProfileSelector]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; FargateProfile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [FargateProfileSelector]
+      -&gt; Maybe (HashMap Text Text) -&gt; FargateProfile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fargateProfileName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [FargateProfileSelector]
+   -&gt; Maybe (HashMap Text Text) -&gt; FargateProfile)
+-&gt; Parser (Maybe [FargateProfileSelector])
+-&gt; Parser (Maybe (HashMap Text Text) -&gt; FargateProfile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [FargateProfileSelector]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;selectors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [FargateProfileSelector]))
@@ -670,30 +688,22 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FargateProfileSelector]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe Text -&gt; FargateProfile)
--&gt; Parser (Maybe [Text]) -&gt; Parser (Maybe Text -&gt; FargateProfile)
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text) -&gt; FargateProfile)
+-&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser FargateProfile
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265647"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679265901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;subnets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
--&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; FargateProfile)
--&gt; Parser (Maybe Text) -&gt; Parser FargateProfile
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265647"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;clusterName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265640"><span id="local-6989586621679265642"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span></span></span><span>
-</span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265637"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span></span><span>
-</span><span id="line-176"></span></pre></body></html>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265894"><span id="local-6989586621679265896"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265891"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfile.html#FargateProfile"><span class="hs-identifier hs-type">FargateProfile</span></a></span></span><span>
+</span><span id="line-177"></span></pre></body></html>

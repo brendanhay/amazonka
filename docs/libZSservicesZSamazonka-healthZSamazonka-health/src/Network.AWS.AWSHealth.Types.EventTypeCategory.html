@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679187085"><span id="local-6989586621679187086"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EventTypeCategory"><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventTypeCategory.html#EventTypeCategory"><span class="hs-identifier hs-var">EventTypeCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventTypeCategory%27"><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventTypeCategory.html#EventTypeCategory%27"><span class="hs-identifier hs-var">EventTypeCategory'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679187298"><span id="local-6989586621679187299"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EventTypeCategory"><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventTypeCategory.html#EventTypeCategory"><span class="hs-identifier hs-var">EventTypeCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventTypeCategory%27"><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventTypeCategory.html#EventTypeCategory%27"><span class="hs-identifier hs-var">EventTypeCategory'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEventTypeCategory"><span class="annot"><span class="annottext">EventTypeCategory -&gt; Text
 </span><a href="Network.AWS.AWSHealth.Types.EventTypeCategory.html#fromEventTypeCategory"><span class="hs-identifier hs-var hs-var">fromEventTypeCategory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679187077"><span id="local-6989586621679187079"><span id="local-6989586621679187081"><span class="annot"><span class="annottext">Int -&gt; EventTypeCategory -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679187290"><span id="local-6989586621679187292"><span id="local-6989586621679187294"><span class="annot"><span class="annottext">Int -&gt; EventTypeCategory -&gt; ShowS
 [EventTypeCategory] -&gt; ShowS
 EventTypeCategory -&gt; String
 (Int -&gt; EventTypeCategory -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: EventTypeCategory -&gt; String
 showsPrec :: Int -&gt; EventTypeCategory -&gt; ShowS
 $cshowsPrec :: Int -&gt; EventTypeCategory -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679187068"><span id="local-6989586621679187070"><span id="local-6989586621679187072"><span id="local-6989586621679187074"><span class="annot"><span class="annottext">ReadPrec [EventTypeCategory]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679187281"><span id="local-6989586621679187283"><span id="local-6989586621679187285"><span id="local-6989586621679187287"><span class="annot"><span class="annottext">ReadPrec [EventTypeCategory]
 ReadPrec EventTypeCategory
 Int -&gt; ReadS EventTypeCategory
 ReadS [EventTypeCategory]
@@ -74,7 +74,7 @@ $creadList :: ReadS [EventTypeCategory]
 readsPrec :: Int -&gt; ReadS EventTypeCategory
 $creadsPrec :: Int -&gt; ReadS EventTypeCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679187063"><span id="local-6989586621679187065"><span class="annot"><span class="annottext">EventTypeCategory -&gt; EventTypeCategory -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679187276"><span id="local-6989586621679187278"><span class="annot"><span class="annottext">EventTypeCategory -&gt; EventTypeCategory -&gt; Bool
 (EventTypeCategory -&gt; EventTypeCategory -&gt; Bool)
 -&gt; (EventTypeCategory -&gt; EventTypeCategory -&gt; Bool)
 -&gt; Eq EventTypeCategory
@@ -84,7 +84,7 @@ $c/= :: EventTypeCategory -&gt; EventTypeCategory -&gt; Bool
 == :: EventTypeCategory -&gt; EventTypeCategory -&gt; Bool
 $c== :: EventTypeCategory -&gt; EventTypeCategory -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679187047"><span id="local-6989586621679187049"><span id="local-6989586621679187051"><span id="local-6989586621679187053"><span id="local-6989586621679187055"><span id="local-6989586621679187057"><span id="local-6989586621679187059"><span class="annot"><span class="annottext">Eq EventTypeCategory
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679187260"><span id="local-6989586621679187262"><span id="local-6989586621679187264"><span id="local-6989586621679187266"><span id="local-6989586621679187268"><span id="local-6989586621679187270"><span id="local-6989586621679187272"><span class="annot"><span class="annottext">Eq EventTypeCategory
 Eq EventTypeCategory
 -&gt; (EventTypeCategory -&gt; EventTypeCategory -&gt; Ordering)
 -&gt; (EventTypeCategory -&gt; EventTypeCategory -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. EventTypeCategory -&gt; Rep EventTypeCategory x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679187039"><span id="local-6989586621679187041"><span class="annot"><span class="annottext">Int -&gt; EventTypeCategory -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679187252"><span id="local-6989586621679187254"><span class="annot"><span class="annottext">Int -&gt; EventTypeCategory -&gt; Int
 EventTypeCategory -&gt; Int
 (Int -&gt; EventTypeCategory -&gt; Int)
 -&gt; (EventTypeCategory -&gt; Int) -&gt; Hashable EventTypeCategory
@@ -145,51 +145,51 @@ $chash :: EventTypeCategory -&gt; Int
 hashWithSalt :: Int -&gt; EventTypeCategory -&gt; Int
 $chashWithSalt :: Int -&gt; EventTypeCategory -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679187036"><span class="annot"><span class="annottext">EventTypeCategory -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679187249"><span class="annot"><span class="annottext">EventTypeCategory -&gt; ()
 (EventTypeCategory -&gt; ()) -&gt; NFData EventTypeCategory
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EventTypeCategory -&gt; ()
 $crnf :: EventTypeCategory -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679187033"><span class="annot"><span class="annottext">Text -&gt; Either String EventTypeCategory
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679187246"><span class="annot"><span class="annottext">Text -&gt; Either String EventTypeCategory
 (Text -&gt; Either String EventTypeCategory)
 -&gt; FromText EventTypeCategory
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EventTypeCategory
 $cfromText :: Text -&gt; Either String EventTypeCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679187030"><span class="annot"><span class="annottext">EventTypeCategory -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679187243"><span class="annot"><span class="annottext">EventTypeCategory -&gt; Text
 (EventTypeCategory -&gt; Text) -&gt; ToText EventTypeCategory
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EventTypeCategory -&gt; Text
 $ctoText :: EventTypeCategory -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679187027"><span class="annot"><span class="annottext">EventTypeCategory -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679187240"><span class="annot"><span class="annottext">EventTypeCategory -&gt; ByteString
 (EventTypeCategory -&gt; ByteString) -&gt; ToByteString EventTypeCategory
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EventTypeCategory -&gt; ByteString
 $ctoBS :: EventTypeCategory -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679187024"><span class="annot"><span class="annottext">EventTypeCategory -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679187237"><span class="annot"><span class="annottext">EventTypeCategory -&gt; ByteStringBuilder
 (EventTypeCategory -&gt; ByteStringBuilder) -&gt; ToLog EventTypeCategory
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EventTypeCategory -&gt; ByteStringBuilder
 $cbuild :: EventTypeCategory -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679187021"><span class="annot"><span class="annottext">HeaderName -&gt; EventTypeCategory -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679187234"><span class="annot"><span class="annottext">HeaderName -&gt; EventTypeCategory -&gt; [Header]
 (HeaderName -&gt; EventTypeCategory -&gt; [Header])
 -&gt; ToHeader EventTypeCategory
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EventTypeCategory -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EventTypeCategory -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679187018"><span class="annot"><span class="annottext">EventTypeCategory -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679187231"><span class="annot"><span class="annottext">EventTypeCategory -&gt; QueryString
 (EventTypeCategory -&gt; QueryString) -&gt; ToQuery EventTypeCategory
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EventTypeCategory -&gt; QueryString
 $ctoQuery :: EventTypeCategory -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679187013"><span id="local-6989586621679187015"><span class="annot"><span class="annottext">Value -&gt; Parser [EventTypeCategory]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679187226"><span id="local-6989586621679187228"><span class="annot"><span class="annottext">Value -&gt; Parser [EventTypeCategory]
 Value -&gt; Parser EventTypeCategory
 (Value -&gt; Parser EventTypeCategory)
 -&gt; (Value -&gt; Parser [EventTypeCategory])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [EventTypeCategory]
 parseJSON :: Value -&gt; Parser EventTypeCategory
 $cparseJSON :: Value -&gt; Parser EventTypeCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679187008"><span id="local-6989586621679187010"><span class="annot"><span class="annottext">FromJSONKeyFunction [EventTypeCategory]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679187221"><span id="local-6989586621679187223"><span class="annot"><span class="annottext">FromJSONKeyFunction [EventTypeCategory]
 FromJSONKeyFunction EventTypeCategory
 FromJSONKeyFunction EventTypeCategory
 -&gt; FromJSONKeyFunction [EventTypeCategory]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EventTypeCategory]
 fromJSONKey :: FromJSONKeyFunction EventTypeCategory
 $cfromJSONKey :: FromJSONKeyFunction EventTypeCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679186999"><span id="local-6989586621679187001"><span id="local-6989586621679187003"><span id="local-6989586621679187005"><span class="annot"><span class="annottext">[EventTypeCategory] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679187212"><span id="local-6989586621679187214"><span id="local-6989586621679187216"><span id="local-6989586621679187218"><span class="annot"><span class="annottext">[EventTypeCategory] -&gt; Encoding
 [EventTypeCategory] -&gt; Value
 EventTypeCategory -&gt; Encoding
 EventTypeCategory -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: EventTypeCategory -&gt; Encoding
 toJSON :: EventTypeCategory -&gt; Value
 $ctoJSON :: EventTypeCategory -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679186994"><span id="local-6989586621679186996"><span class="annot"><span class="annottext">ToJSONKeyFunction [EventTypeCategory]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679187207"><span id="local-6989586621679187209"><span class="annot"><span class="annottext">ToJSONKeyFunction [EventTypeCategory]
 ToJSONKeyFunction EventTypeCategory
 ToJSONKeyFunction EventTypeCategory
 -&gt; ToJSONKeyFunction [EventTypeCategory]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EventTypeCategory]
 toJSONKey :: ToJSONKeyFunction EventTypeCategory
 $ctoJSONKey :: ToJSONKeyFunction EventTypeCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679186991"><span class="annot"><span class="annottext">[Node] -&gt; Either String EventTypeCategory
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679187204"><span class="annot"><span class="annottext">[Node] -&gt; Either String EventTypeCategory
 ([Node] -&gt; Either String EventTypeCategory)
 -&gt; FromXML EventTypeCategory
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EventTypeCategory
 $cparseXML :: [Node] -&gt; Either String EventTypeCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679186988"><span class="annot"><span class="annottext">EventTypeCategory -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679187201"><span class="annot"><span class="annottext">EventTypeCategory -&gt; XML
 (EventTypeCategory -&gt; XML) -&gt; ToXML EventTypeCategory
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EventTypeCategory -&gt; XML

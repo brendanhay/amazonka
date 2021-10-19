@@ -36,8 +36,8 @@
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_nextToken"><span class="hs-identifier">getAggregateComplianceDetailsByConfigRule_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_complianceType"><span class="hs-identifier">getAggregateComplianceDetailsByConfigRule_complianceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_limit"><span class="hs-identifier">getAggregateComplianceDetailsByConfigRule_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_limit"><span class="hs-identifier">getAggregateComplianceDetailsByConfigRule_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_complianceType"><span class="hs-identifier">getAggregateComplianceDetailsByConfigRule_complianceType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_configurationAggregatorName"><span class="hs-identifier">getAggregateComplianceDetailsByConfigRule_configurationAggregatorName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_configRuleName"><span class="hs-identifier">getAggregateComplianceDetailsByConfigRule_configRuleName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_accountId"><span class="hs-identifier">getAggregateComplianceDetailsByConfigRule_accountId</span></a></span><span class="hs-special">,</span><span>
@@ -62,23 +62,23 @@
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newGetAggregateComplianceDetailsByConfigRule' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679421844"><span id="local-6989586621679421845"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAggregateComplianceDetailsByConfigRule"><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-var">GetAggregateComplianceDetailsByConfigRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAggregateComplianceDetailsByConfigRule%27"><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var">GetAggregateComplianceDetailsByConfigRule'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679422491"><span id="local-6989586621679422492"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAggregateComplianceDetailsByConfigRule"><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-var">GetAggregateComplianceDetailsByConfigRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAggregateComplianceDetailsByConfigRule%27"><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var">GetAggregateComplianceDetailsByConfigRule'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AnextToken%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule -&gt; Maybe Text
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AnextToken%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The resource compliance status.</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- For the @GetAggregateComplianceDetailsByConfigRuleRequest@ data type,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- Config supports only the @COMPLIANT@ and @NON_COMPLIANT@. Config does</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ values.</span><span>
-</span><span id="line-74"></span><span>    </span><span id="%24sel%3AcomplianceType%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule -&gt; Maybe ComplianceType
-</span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AcomplianceType%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ComplianceType.html#ComplianceType"><span class="hs-identifier hs-type">ComplianceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The maximum number of evaluation results returned on each page. The</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- default is 50. You cannot specify a number greater than 100. If you</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- specify 0, Config uses the default.</span><span>
-</span><span id="line-78"></span><span>    </span><span id="%24sel%3Alimit%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule -&gt; Maybe Natural
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The maximum number of evaluation results returned on each page. The</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- default is 50. You cannot specify a number greater than 100. If you</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- specify 0, Config uses the default.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Alimit%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule -&gt; Maybe Natural
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3Alimit%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The resource compliance status.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- For the @GetAggregateComplianceDetailsByConfigRuleRequest@ data type,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- Config supports only the @COMPLIANT@ and @NON_COMPLIANT@. Config does</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ values.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AcomplianceType%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule -&gt; Maybe ComplianceType
+</span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AcomplianceType%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ComplianceType.html#ComplianceType"><span class="hs-identifier hs-type">ComplianceType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The name of the configuration aggregator.</span><span>
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AconfigurationAggregatorName%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule -&gt; Text
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AconfigurationAggregatorName%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var hs-var">configurationAggregatorName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -92,7 +92,7 @@
 </span><span id="line-86"></span><span>    </span><span id="%24sel%3AawsRegion%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule -&gt; Text
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AawsRegion%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679421832"><span id="local-6989586621679421834"><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679422479"><span id="local-6989586621679422481"><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
 -&gt; GetAggregateComplianceDetailsByConfigRule -&gt; Bool
 (GetAggregateComplianceDetailsByConfigRule
  -&gt; GetAggregateComplianceDetailsByConfigRule -&gt; Bool)
@@ -108,7 +108,7 @@ $c/= :: GetAggregateComplianceDetailsByConfigRule
 -&gt; GetAggregateComplianceDetailsByConfigRule -&gt; Bool
 $c== :: GetAggregateComplianceDetailsByConfigRule
 -&gt; GetAggregateComplianceDetailsByConfigRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421823"><span id="local-6989586621679421825"><span id="local-6989586621679421827"><span id="local-6989586621679421829"><span class="annot"><span class="annottext">ReadPrec [GetAggregateComplianceDetailsByConfigRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422470"><span id="local-6989586621679422472"><span id="local-6989586621679422474"><span id="local-6989586621679422476"><span class="annot"><span class="annottext">ReadPrec [GetAggregateComplianceDetailsByConfigRule]
 ReadPrec GetAggregateComplianceDetailsByConfigRule
 Int -&gt; ReadS GetAggregateComplianceDetailsByConfigRule
 ReadS [GetAggregateComplianceDetailsByConfigRule]
@@ -128,7 +128,7 @@ readList :: ReadS [GetAggregateComplianceDetailsByConfigRule]
 $creadList :: ReadS [GetAggregateComplianceDetailsByConfigRule]
 readsPrec :: Int -&gt; ReadS GetAggregateComplianceDetailsByConfigRule
 $creadsPrec :: Int -&gt; ReadS GetAggregateComplianceDetailsByConfigRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421816"><span id="local-6989586621679421818"><span id="local-6989586621679421820"><span class="annot"><span class="annottext">Int -&gt; GetAggregateComplianceDetailsByConfigRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422463"><span id="local-6989586621679422465"><span id="local-6989586621679422467"><span class="annot"><span class="annottext">Int -&gt; GetAggregateComplianceDetailsByConfigRule -&gt; ShowS
 [GetAggregateComplianceDetailsByConfigRule] -&gt; ShowS
 GetAggregateComplianceDetailsByConfigRule -&gt; String
 (Int -&gt; GetAggregateComplianceDetailsByConfigRule -&gt; ShowS)
@@ -177,15 +177,15 @@ GetAggregateComplianceDetailsByConfigRule
 </span><span id="line-98"></span><span class="hs-comment">-- 'nextToken', 'getAggregateComplianceDetailsByConfigRule_nextToken' - The @nextToken@ string returned on a previous page that you use to get</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'complianceType', 'getAggregateComplianceDetailsByConfigRule_complianceType' - The resource compliance status.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- For the @GetAggregateComplianceDetailsByConfigRuleRequest@ data type,</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- Config supports only the @COMPLIANT@ and @NON_COMPLIANT@. Config does</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ values.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'limit', 'getAggregateComplianceDetailsByConfigRule_limit' - The maximum number of evaluation results returned on each page. The</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- default is 50. You cannot specify a number greater than 100. If you</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- specify 0, Config uses the default.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'complianceType', 'getAggregateComplianceDetailsByConfigRule_complianceType' - The resource compliance status.</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'limit', 'getAggregateComplianceDetailsByConfigRule_limit' - The maximum number of evaluation results returned on each page. The</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- default is 50. You cannot specify a number greater than 100. If you</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- specify 0, Config uses the default.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- For the @GetAggregateComplianceDetailsByConfigRuleRequest@ data type,</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Config supports only the @COMPLIANT@ and @NON_COMPLIANT@. Config does</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ values.</span><span>
 </span><span id="line-110"></span><span class="hs-comment">--</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- 'configurationAggregatorName', 'getAggregateComplianceDetailsByConfigRule_configurationAggregatorName' - The name of the configuration aggregator.</span><span>
 </span><span id="line-112"></span><span class="hs-comment">--</span><span>
@@ -210,17 +210,17 @@ GetAggregateComplianceDetailsByConfigRule
 -&gt; Text
 -&gt; GetAggregateComplianceDetailsByConfigRule
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#newGetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-var hs-var">newGetAggregateComplianceDetailsByConfigRule</span></a></span></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679421811"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421811"><span class="hs-identifier hs-var">pConfigurationAggregatorName_</span></a></span></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679421810"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421810"><span class="hs-identifier hs-var">pConfigRuleName_</span></a></span></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679421809"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421809"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679421808"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421808"><span class="hs-identifier hs-var">pAwsRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679422458"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422458"><span class="hs-identifier hs-var">pConfigurationAggregatorName_</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679422457"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422457"><span class="hs-identifier hs-var">pConfigRuleName_</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679422456"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422456"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679422455"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422455"><span class="hs-identifier hs-var">pAwsRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule' :: Maybe Text
--&gt; Maybe ComplianceType
 -&gt; Maybe Natural
+-&gt; Maybe ComplianceType
 -&gt; Text
 -&gt; Text
 -&gt; Text
@@ -232,28 +232,28 @@ GetAggregateComplianceDetailsByConfigRule
 </span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:complianceType:GetAggregateComplianceDetailsByConfigRule' :: Maybe ComplianceType
-</span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AcomplianceType%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceType
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:limit:GetAggregateComplianceDetailsByConfigRule' :: Maybe Natural
+</span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3Alimit%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:limit:GetAggregateComplianceDetailsByConfigRule' :: Maybe Natural
-</span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3Alimit%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:complianceType:GetAggregateComplianceDetailsByConfigRule' :: Maybe ComplianceType
+</span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AcomplianceType%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:configurationAggregatorName:GetAggregateComplianceDetailsByConfigRule' :: Text
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AconfigurationAggregatorName%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var">configurationAggregatorName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421811"><span class="hs-identifier hs-var">pConfigurationAggregatorName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422458"><span class="hs-identifier hs-var">pConfigurationAggregatorName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:configRuleName:GetAggregateComplianceDetailsByConfigRule' :: Text
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AconfigRuleName%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var">configRuleName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421810"><span class="hs-identifier hs-var">pConfigRuleName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422457"><span class="hs-identifier hs-var">pConfigRuleName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:accountId:GetAggregateComplianceDetailsByConfigRule' :: Text
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AaccountId%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421809"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422456"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:awsRegion:GetAggregateComplianceDetailsByConfigRule' :: Text
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AawsRegion%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421808"><span class="hs-identifier hs-var">pAwsRegion_</span></a></span><span>
+</span><a href="#local-6989586621679422455"><span class="hs-identifier hs-var">pAwsRegion_</span></a></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
@@ -271,24 +271,51 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421806"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422453"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplianceDetailsByConfigRule -&gt; Maybe Text
-</span><a href="#local-6989586621679421806"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679421806"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421805"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRule
-</span><a href="#local-6989586621679421805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421804"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679421804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
-</span><a href="#local-6989586621679421805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetAggregateComplianceDetailsByConfigRule' :: Maybe Text
+</span><a href="#local-6989586621679422453"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422453"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422452"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRule
+</span><a href="#local-6989586621679422452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422451"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
+</span><a href="#local-6989586621679422452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetAggregateComplianceDetailsByConfigRule' :: Maybe Text
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AnextToken%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679421804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- | The resource compliance status.</span><span>
-</span><span id="line-152"></span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- For the @GetAggregateComplianceDetailsByConfigRuleRequest@ data type,</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- Config supports only the @COMPLIANT@ and @NON_COMPLIANT@. Config does</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ values.</span><span>
-</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_complianceType"><span class="hs-identifier hs-type">getAggregateComplianceDetailsByConfigRule_complianceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ComplianceType.html#ComplianceType"><span class="hs-identifier hs-type">ComplianceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span id="getAggregateComplianceDetailsByConfigRule_complianceType"><span class="annot"><span class="annottext">getAggregateComplianceDetailsByConfigRule_complianceType :: (Maybe ComplianceType -&gt; f (Maybe ComplianceType))
+</span><span id="line-151"></span><span class="hs-comment">-- | The maximum number of evaluation results returned on each page. The</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- default is 50. You cannot specify a number greater than 100. If you</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- specify 0, Config uses the default.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_limit"><span class="hs-identifier hs-type">getAggregateComplianceDetailsByConfigRule_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="getAggregateComplianceDetailsByConfigRule_limit"><span class="annot"><span class="annottext">getAggregateComplianceDetailsByConfigRule_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetAggregateComplianceDetailsByConfigRule
+-&gt; f GetAggregateComplianceDetailsByConfigRule
+</span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_limit"><span class="hs-identifier hs-var hs-var">getAggregateComplianceDetailsByConfigRule_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAggregateComplianceDetailsByConfigRule -&gt; Maybe Natural)
+-&gt; (GetAggregateComplianceDetailsByConfigRule
+    -&gt; Maybe Natural -&gt; GetAggregateComplianceDetailsByConfigRule)
+-&gt; Lens
+     GetAggregateComplianceDetailsByConfigRule
+     GetAggregateComplianceDetailsByConfigRule
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422450"><span class="annot"><span class="annottext">Maybe Natural
+limit :: Maybe Natural
+$sel:limit:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplianceDetailsByConfigRule -&gt; Maybe Natural
+</span><a href="#local-6989586621679422450"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679422450"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422449"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRule
+</span><a href="#local-6989586621679422449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422448"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679422448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
+</span><a href="#local-6989586621679422449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:GetAggregateComplianceDetailsByConfigRule' :: Maybe Natural
+</span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3Alimit%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679422448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The resource compliance status.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- For the @GetAggregateComplianceDetailsByConfigRuleRequest@ data type,</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Config supports only the @COMPLIANT@ and @NON_COMPLIANT@. Config does</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ values.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_complianceType"><span class="hs-identifier hs-type">getAggregateComplianceDetailsByConfigRule_complianceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ComplianceType.html#ComplianceType"><span class="hs-identifier hs-type">ComplianceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="getAggregateComplianceDetailsByConfigRule_complianceType"><span class="annot"><span class="annottext">getAggregateComplianceDetailsByConfigRule_complianceType :: (Maybe ComplianceType -&gt; f (Maybe ComplianceType))
 -&gt; GetAggregateComplianceDetailsByConfigRule
 -&gt; f GetAggregateComplianceDetailsByConfigRule
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_complianceType"><span class="hs-identifier hs-var hs-var">getAggregateComplianceDetailsByConfigRule_complianceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAggregateComplianceDetailsByConfigRule -&gt; Maybe ComplianceType)
@@ -301,43 +328,16 @@ $sel:nextToken:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplia
      (Maybe ComplianceType)
      (Maybe ComplianceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421803"><span class="annot"><span class="annottext">Maybe ComplianceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422447"><span class="annot"><span class="annottext">Maybe ComplianceType
 complianceType :: Maybe ComplianceType
 $sel:complianceType:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplianceDetailsByConfigRule -&gt; Maybe ComplianceType
-</span><a href="#local-6989586621679421803"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceType
-</span><a href="#local-6989586621679421803"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421802"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRule
-</span><a href="#local-6989586621679421802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421801"><span class="annot"><span class="annottext">Maybe ComplianceType
-</span><a href="#local-6989586621679421801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
-</span><a href="#local-6989586621679421802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceType:GetAggregateComplianceDetailsByConfigRule' :: Maybe ComplianceType
+</span><a href="#local-6989586621679422447"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceType
+</span><a href="#local-6989586621679422447"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422446"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRule
+</span><a href="#local-6989586621679422446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422445"><span class="annot"><span class="annottext">Maybe ComplianceType
+</span><a href="#local-6989586621679422445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
+</span><a href="#local-6989586621679422446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceType:GetAggregateComplianceDetailsByConfigRule' :: Maybe ComplianceType
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AcomplianceType%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceType
-</span><a href="#local-6989586621679421801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- | The maximum number of evaluation results returned on each page. The</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- default is 50. You cannot specify a number greater than 100. If you</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- specify 0, Config uses the default.</span><span>
-</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_limit"><span class="hs-identifier hs-type">getAggregateComplianceDetailsByConfigRule_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span id="getAggregateComplianceDetailsByConfigRule_limit"><span class="annot"><span class="annottext">getAggregateComplianceDetailsByConfigRule_limit :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; GetAggregateComplianceDetailsByConfigRule
--&gt; f GetAggregateComplianceDetailsByConfigRule
-</span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_limit"><span class="hs-identifier hs-var hs-var">getAggregateComplianceDetailsByConfigRule_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAggregateComplianceDetailsByConfigRule -&gt; Maybe Natural)
--&gt; (GetAggregateComplianceDetailsByConfigRule
-    -&gt; Maybe Natural -&gt; GetAggregateComplianceDetailsByConfigRule)
--&gt; Lens
-     GetAggregateComplianceDetailsByConfigRule
-     GetAggregateComplianceDetailsByConfigRule
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421800"><span class="annot"><span class="annottext">Maybe Natural
-limit :: Maybe Natural
-$sel:limit:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplianceDetailsByConfigRule -&gt; Maybe Natural
-</span><a href="#local-6989586621679421800"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679421800"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421799"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRule
-</span><a href="#local-6989586621679421799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421798"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679421798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
-</span><a href="#local-6989586621679421799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:GetAggregateComplianceDetailsByConfigRule' :: Maybe Natural
-</span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3Alimit%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679421798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The name of the configuration aggregator.</span><span>
 </span><span id="line-166"></span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_configurationAggregatorName"><span class="hs-identifier hs-type">getAggregateComplianceDetailsByConfigRule_configurationAggregatorName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -353,16 +353,16 @@ $sel:limit:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplianceD
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421797"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422444"><span class="annot"><span class="annottext">Text
 configurationAggregatorName :: Text
 $sel:configurationAggregatorName:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplianceDetailsByConfigRule -&gt; Text
-</span><a href="#local-6989586621679421797"><span class="hs-identifier hs-var hs-var">configurationAggregatorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421797"><span class="hs-identifier hs-var">configurationAggregatorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421796"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRule
-</span><a href="#local-6989586621679421796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421795"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
-</span><a href="#local-6989586621679421796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationAggregatorName:GetAggregateComplianceDetailsByConfigRule' :: Text
+</span><a href="#local-6989586621679422444"><span class="hs-identifier hs-var hs-var">configurationAggregatorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422444"><span class="hs-identifier hs-var">configurationAggregatorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422443"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRule
+</span><a href="#local-6989586621679422443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422442"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
+</span><a href="#local-6989586621679422443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationAggregatorName:GetAggregateComplianceDetailsByConfigRule' :: Text
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AconfigurationAggregatorName%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var">configurationAggregatorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The name of the Config rule for which you want compliance information.</span><span>
 </span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_configRuleName"><span class="hs-identifier hs-type">getAggregateComplianceDetailsByConfigRule_configRuleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -378,16 +378,16 @@ $sel:configurationAggregatorName:GetAggregateComplianceDetailsByConfigRule' :: G
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421794"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422441"><span class="annot"><span class="annottext">Text
 configRuleName :: Text
 $sel:configRuleName:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplianceDetailsByConfigRule -&gt; Text
-</span><a href="#local-6989586621679421794"><span class="hs-identifier hs-var hs-var">configRuleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421794"><span class="hs-identifier hs-var">configRuleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421793"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRule
-</span><a href="#local-6989586621679421793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421792"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
-</span><a href="#local-6989586621679421793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRuleName:GetAggregateComplianceDetailsByConfigRule' :: Text
+</span><a href="#local-6989586621679422441"><span class="hs-identifier hs-var hs-var">configRuleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422441"><span class="hs-identifier hs-var">configRuleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422440"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRule
+</span><a href="#local-6989586621679422440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422439"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
+</span><a href="#local-6989586621679422440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRuleName:GetAggregateComplianceDetailsByConfigRule' :: Text
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AconfigRuleName%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var">configRuleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The 12-digit account ID of the source account.</span><span>
 </span><span id="line-174"></span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_accountId"><span class="hs-identifier hs-type">getAggregateComplianceDetailsByConfigRule_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -403,16 +403,16 @@ $sel:configRuleName:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateCo
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421791"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422438"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplianceDetailsByConfigRule -&gt; Text
-</span><a href="#local-6989586621679421791"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421791"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421790"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRule
-</span><a href="#local-6989586621679421790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421789"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
-</span><a href="#local-6989586621679421790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:GetAggregateComplianceDetailsByConfigRule' :: Text
+</span><a href="#local-6989586621679422438"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422438"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422437"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRule
+</span><a href="#local-6989586621679422437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422436"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
+</span><a href="#local-6989586621679422437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:GetAggregateComplianceDetailsByConfigRule' :: Text
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AaccountId%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The source region from where the data is aggregated.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRule_awsRegion"><span class="hs-identifier hs-type">getAggregateComplianceDetailsByConfigRule_awsRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -428,33 +428,33 @@ $sel:accountId:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplia
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421788"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422435"><span class="annot"><span class="annottext">Text
 awsRegion :: Text
 $sel:awsRegion:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplianceDetailsByConfigRule -&gt; Text
-</span><a href="#local-6989586621679421788"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421788"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421787"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRule
-</span><a href="#local-6989586621679421787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421786"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
-</span><a href="#local-6989586621679421787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegion:GetAggregateComplianceDetailsByConfigRule' :: Text
+</span><a href="#local-6989586621679422435"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422435"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422434"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRule
+</span><a href="#local-6989586621679422434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422433"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
+</span><a href="#local-6989586621679422434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegion:GetAggregateComplianceDetailsByConfigRule' :: Text
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AawsRegion%3AGetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
 </span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679421782"><span class="annot"><span class="annottext">page :: GetAggregateComplianceDetailsByConfigRule
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679422429"><span class="annot"><span class="annottext">page :: GetAggregateComplianceDetailsByConfigRule
 -&gt; AWSResponse GetAggregateComplianceDetailsByConfigRule
 -&gt; Maybe GetAggregateComplianceDetailsByConfigRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679421780"><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
-</span><a href="#local-6989586621679421780"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679421779"><span class="annot"><span class="annottext">AWSResponse GetAggregateComplianceDetailsByConfigRule
-</span><a href="#local-6989586621679421779"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679422427"><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
+</span><a href="#local-6989586621679422427"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679422426"><span class="annot"><span class="annottext">AWSResponse GetAggregateComplianceDetailsByConfigRule
+</span><a href="#local-6989586621679422426"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-187"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetAggregateComplianceDetailsByConfigRule
 GetAggregateComplianceDetailsByConfigRuleResponse
-</span><a href="#local-6989586621679421779"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679422426"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRuleResponse
 -&gt; Getting
      (First Text) GetAggregateComplianceDetailsByConfigRuleResponse Text
@@ -489,7 +489,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-193"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetAggregateComplianceDetailsByConfigRule
 GetAggregateComplianceDetailsByConfigRuleResponse
-</span><a href="#local-6989586621679421779"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679422426"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRuleResponse
 -&gt; Getting
      (First [AggregateEvaluationResult])
@@ -554,7 +554,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
-</span><a href="#local-6989586621679421780"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679422427"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-201"></span><span>          </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRule
 -&gt; (GetAggregateComplianceDetailsByConfigRule
     -&gt; GetAggregateComplianceDetailsByConfigRule)
@@ -578,7 +578,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetAggregateComplianceDetailsByConfigRule
 GetAggregateComplianceDetailsByConfigRuleResponse
-</span><a href="#local-6989586621679421779"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679422426"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRuleResponse
 -&gt; Getting
      (First Text) GetAggregateComplianceDetailsByConfigRuleResponse Text
@@ -613,7 +613,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-211"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
 </span><span id="line-212"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse</span></a></span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679421769"><span class="annot"><span class="annottext">request :: GetAggregateComplianceDetailsByConfigRule
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679422416"><span class="annot"><span class="annottext">request :: GetAggregateComplianceDetailsByConfigRule
 -&gt; Request GetAggregateComplianceDetailsByConfigRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetAggregateComplianceDetailsByConfigRule
@@ -621,7 +621,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679421765"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679422412"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetAggregateComplianceDetailsByConfigRule
 -&gt; ClientResponse ClientBody
@@ -652,10 +652,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-217"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679421762"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421762"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679421761"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679421761"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679421760"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679421760"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679422409"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679422409"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679422408"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679422408"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679422407"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679422407"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-218"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [AggregateEvaluationResult]
 -&gt; Int
@@ -672,7 +672,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; GetAggregateComplianceDetailsByConfigRuleResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679421760"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679422407"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -685,7 +685,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String (Int -&gt; GetAggregateComplianceDetailsByConfigRuleResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679421760"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679422407"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [AggregateEvaluationResult]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -709,22 +709,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421762"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422409"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621679421751"><span id="local-6989586621679421753"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679422398"><span id="local-6989586621679422400"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-228"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span></span></span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-231"></span><span>  </span><span id="local-6989586621679421748"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679422395"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-232"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span></span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-235"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-236"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span>
 </span><span id="line-237"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-238"></span><span>  </span><span id="local-6989586621679421744"><span class="annot"><span class="annottext">toHeaders :: GetAggregateComplianceDetailsByConfigRule -&gt; ResponseHeaders
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679422391"><span class="annot"><span class="annottext">toHeaders :: GetAggregateComplianceDetailsByConfigRule -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-239"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; GetAggregateComplianceDetailsByConfigRule -&gt; ResponseHeaders
@@ -753,11 +753,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-250"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-253"></span><span>  </span><span id="local-6989586621679421734"><span id="local-6989586621679421736"><span id="local-6989586621679421738"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679422381"><span id="local-6989586621679422383"><span id="local-6989586621679422385"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-254"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span></span></span></span><span>
 </span><span id="line-255"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-256"></span><span>  </span><span id="local-6989586621679421732"><span class="annot"><span class="annottext">toJSON :: GetAggregateComplianceDetailsByConfigRule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421724"><span id="local-6989586621679421725"><span id="local-6989586621679421726"><span id="local-6989586621679421727"><span id="local-6989586621679421728"><span id="local-6989586621679421729"><span id="local-6989586621679421730"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679422379"><span class="annot"><span class="annottext">toJSON :: GetAggregateComplianceDetailsByConfigRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422371"><span id="local-6989586621679422372"><span id="local-6989586621679422373"><span id="local-6989586621679422374"><span id="local-6989586621679422375"><span id="local-6989586621679422376"><span id="local-6989586621679422377"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe ComplianceType
 Text
@@ -765,17 +765,17 @@ awsRegion :: Text
 accountId :: Text
 configRuleName :: Text
 configurationAggregatorName :: Text
-limit :: Maybe Natural
 complianceType :: Maybe ComplianceType
+limit :: Maybe Natural
 nextToken :: Maybe Text
 $sel:awsRegion:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplianceDetailsByConfigRule -&gt; Text
 $sel:accountId:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplianceDetailsByConfigRule -&gt; Text
 $sel:configRuleName:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplianceDetailsByConfigRule -&gt; Text
 $sel:configurationAggregatorName:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplianceDetailsByConfigRule -&gt; Text
-$sel:limit:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplianceDetailsByConfigRule -&gt; Maybe Natural
 $sel:complianceType:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplianceDetailsByConfigRule -&gt; Maybe ComplianceType
+$sel:limit:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplianceDetailsByConfigRule -&gt; Maybe Natural
 $sel:nextToken:GetAggregateComplianceDetailsByConfigRule' :: GetAggregateComplianceDetailsByConfigRule -&gt; Maybe Text
-</span><a href="#local-6989586621679421724"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679422371"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-257"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-258"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -787,22 +787,22 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679421730"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422377"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ComplianceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComplianceType -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-261"></span><span>              </span><span class="annot"><span class="annottext">(ComplianceType -&gt; Pair) -&gt; Maybe ComplianceType -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceType
-</span><a href="#local-6989586621679421729"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-262"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679421728"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422376"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComplianceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComplianceType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>              </span><span class="annot"><span class="annottext">(ComplianceType -&gt; Pair) -&gt; Maybe ComplianceType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceType
+</span><a href="#local-6989586621679422375"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -811,7 +811,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-265"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421727"><span class="hs-identifier hs-var">configurationAggregatorName</span></a></span><span>
+</span><a href="#local-6989586621679422374"><span class="hs-identifier hs-var">configurationAggregatorName</span></a></span><span>
 </span><span id="line-266"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -820,21 +820,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ConfigRuleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421726"><span class="hs-identifier hs-var">configRuleName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422373"><span class="hs-identifier hs-var">configRuleName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421725"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422372"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AwsRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421724"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422371"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-271"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-272"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
@@ -842,7 +842,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-275"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-276"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span>
 </span><span id="line-277"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-278"></span><span>  </span><span id="local-6989586621679421718"><span class="annot"><span class="annottext">toPath :: GetAggregateComplianceDetailsByConfigRule -&gt; ByteString
+</span><span id="line-278"></span><span>  </span><span id="local-6989586621679422365"><span class="annot"><span class="annottext">toPath :: GetAggregateComplianceDetailsByConfigRule -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
 -&gt; GetAggregateComplianceDetailsByConfigRule -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -853,7 +853,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-281"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-282"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRule"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRule</span></a></span><span>
 </span><span id="line-283"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-284"></span><span>  </span><span id="local-6989586621679421714"><span class="annot"><span class="annottext">toQuery :: GetAggregateComplianceDetailsByConfigRule -&gt; QueryString
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621679422361"><span class="annot"><span class="annottext">toQuery :: GetAggregateComplianceDetailsByConfigRule -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString
 -&gt; GetAggregateComplianceDetailsByConfigRule -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -862,7 +862,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-285"></span><span>
 </span><span id="line-286"></span><span class="hs-comment">-- | /See:/ 'newGetAggregateComplianceDetailsByConfigRuleResponse' smart constructor.</span><span>
-</span><span id="line-287"></span><span id="local-6989586621679421711"><span id="local-6989586621679421712"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAggregateComplianceDetailsByConfigRuleResponse"><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse"><span class="hs-identifier hs-var">GetAggregateComplianceDetailsByConfigRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-var">GetAggregateComplianceDetailsByConfigRuleResponse'</span></a></span></span><span>
+</span><span id="line-287"></span><span id="local-6989586621679422358"><span id="local-6989586621679422359"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAggregateComplianceDetailsByConfigRuleResponse"><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse"><span class="hs-identifier hs-var">GetAggregateComplianceDetailsByConfigRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-var">GetAggregateComplianceDetailsByConfigRuleResponse'</span></a></span></span><span>
 </span><span id="line-288"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
 </span><span id="line-289"></span><span>    </span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
 </span><span id="line-290"></span><span>    </span><span id="%24sel%3AnextToken%3AGetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRuleResponse -&gt; Maybe Text
@@ -875,7 +875,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-294"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRuleResponse -&gt; Int
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AhttpStatus%3AGetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-295"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-296"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679421704"><span id="local-6989586621679421706"><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRuleResponse
+</span><span id="line-296"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679422351"><span id="local-6989586621679422353"><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRuleResponse
 -&gt; GetAggregateComplianceDetailsByConfigRuleResponse -&gt; Bool
 (GetAggregateComplianceDetailsByConfigRuleResponse
  -&gt; GetAggregateComplianceDetailsByConfigRuleResponse -&gt; Bool)
@@ -891,7 +891,7 @@ $c/= :: GetAggregateComplianceDetailsByConfigRuleResponse
 -&gt; GetAggregateComplianceDetailsByConfigRuleResponse -&gt; Bool
 $c== :: GetAggregateComplianceDetailsByConfigRuleResponse
 -&gt; GetAggregateComplianceDetailsByConfigRuleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421696"><span id="local-6989586621679421698"><span id="local-6989586621679421700"><span id="local-6989586621679421702"><span class="annot"><span class="annottext">ReadPrec [GetAggregateComplianceDetailsByConfigRuleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422343"><span id="local-6989586621679422345"><span id="local-6989586621679422347"><span id="local-6989586621679422349"><span class="annot"><span class="annottext">ReadPrec [GetAggregateComplianceDetailsByConfigRuleResponse]
 ReadPrec GetAggregateComplianceDetailsByConfigRuleResponse
 Int -&gt; ReadS GetAggregateComplianceDetailsByConfigRuleResponse
 ReadS [GetAggregateComplianceDetailsByConfigRuleResponse]
@@ -911,7 +911,7 @@ readList :: ReadS [GetAggregateComplianceDetailsByConfigRuleResponse]
 $creadList :: ReadS [GetAggregateComplianceDetailsByConfigRuleResponse]
 readsPrec :: Int -&gt; ReadS GetAggregateComplianceDetailsByConfigRuleResponse
 $creadsPrec :: Int -&gt; ReadS GetAggregateComplianceDetailsByConfigRuleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421690"><span id="local-6989586621679421692"><span id="local-6989586621679421694"><span class="annot"><span class="annottext">Int -&gt; GetAggregateComplianceDetailsByConfigRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422337"><span id="local-6989586621679422339"><span id="local-6989586621679422341"><span class="annot"><span class="annottext">Int -&gt; GetAggregateComplianceDetailsByConfigRuleResponse -&gt; ShowS
 [GetAggregateComplianceDetailsByConfigRuleResponse] -&gt; ShowS
 GetAggregateComplianceDetailsByConfigRuleResponse -&gt; String
 (Int -&gt; GetAggregateComplianceDetailsByConfigRuleResponse -&gt; ShowS)
@@ -969,8 +969,8 @@ GetAggregateComplianceDetailsByConfigRuleResponse
 </span><span id="line-315"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse</span></a></span><span>
 </span><span id="line-316"></span><span id="newGetAggregateComplianceDetailsByConfigRuleResponse"><span class="annot"><span class="annottext">newGetAggregateComplianceDetailsByConfigRuleResponse :: Int -&gt; GetAggregateComplianceDetailsByConfigRuleResponse
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#newGetAggregateComplianceDetailsByConfigRuleResponse"><span class="hs-identifier hs-var hs-var">newGetAggregateComplianceDetailsByConfigRuleResponse</span></a></span></span><span>
-</span><span id="line-317"></span><span>  </span><span id="local-6989586621679421687"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421687"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-317"></span><span>  </span><span id="local-6989586621679422334"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679422334"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-318"></span><span>    </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRuleResponse' :: Maybe Text
 -&gt; Maybe [AggregateEvaluationResult]
 -&gt; Int
@@ -989,7 +989,7 @@ forall a. Maybe a
 </span><span id="line-323"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAggregateComplianceDetailsByConfigRuleResponse' :: Int
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AhttpStatus%3AGetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-324"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421687"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679422334"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-325"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-326"></span><span>
 </span><span id="line-327"></span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
@@ -1004,16 +1004,16 @@ forall a. Maybe a
 -&gt; Lens'
      GetAggregateComplianceDetailsByConfigRuleResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421686"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422333"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetAggregateComplianceDetailsByConfigRuleResponse' :: GetAggregateComplianceDetailsByConfigRuleResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679421686"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679421686"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421685"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRuleResponse
-</span><a href="#local-6989586621679421685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421684"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679421684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRuleResponse
-</span><a href="#local-6989586621679421685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetAggregateComplianceDetailsByConfigRuleResponse' :: Maybe Text
+</span><a href="#local-6989586621679422333"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422333"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422332"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRuleResponse
+</span><a href="#local-6989586621679422332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422331"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRuleResponse
+</span><a href="#local-6989586621679422332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetAggregateComplianceDetailsByConfigRuleResponse' :: Maybe Text
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AnextToken%3AGetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679421684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-331"></span><span>
 </span><span id="line-332"></span><span class="hs-comment">-- | Returns an AggregateEvaluationResults object.</span><span>
 </span><span id="line-333"></span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRuleResponse_aggregateEvaluationResults"><span class="hs-identifier hs-type">getAggregateComplianceDetailsByConfigRuleResponse_aggregateEvaluationResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -1030,17 +1030,17 @@ $sel:nextToken:GetAggregateComplianceDetailsByConfigRuleResponse' :: GetAggregat
      GetAggregateComplianceDetailsByConfigRuleResponse
      (Maybe [AggregateEvaluationResult])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421683"><span class="annot"><span class="annottext">Maybe [AggregateEvaluationResult]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422330"><span class="annot"><span class="annottext">Maybe [AggregateEvaluationResult]
 aggregateEvaluationResults :: Maybe [AggregateEvaluationResult]
 $sel:aggregateEvaluationResults:GetAggregateComplianceDetailsByConfigRuleResponse' :: GetAggregateComplianceDetailsByConfigRuleResponse
 -&gt; Maybe [AggregateEvaluationResult]
-</span><a href="#local-6989586621679421683"><span class="hs-identifier hs-var hs-var">aggregateEvaluationResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AggregateEvaluationResult]
-</span><a href="#local-6989586621679421683"><span class="hs-identifier hs-var">aggregateEvaluationResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421682"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRuleResponse
-</span><a href="#local-6989586621679421682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421681"><span class="annot"><span class="annottext">Maybe [AggregateEvaluationResult]
-</span><a href="#local-6989586621679421681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRuleResponse
-</span><a href="#local-6989586621679421682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregateEvaluationResults:GetAggregateComplianceDetailsByConfigRuleResponse' :: Maybe [AggregateEvaluationResult]
+</span><a href="#local-6989586621679422330"><span class="hs-identifier hs-var hs-var">aggregateEvaluationResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AggregateEvaluationResult]
+</span><a href="#local-6989586621679422330"><span class="hs-identifier hs-var">aggregateEvaluationResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422329"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRuleResponse
+</span><a href="#local-6989586621679422329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422328"><span class="annot"><span class="annottext">Maybe [AggregateEvaluationResult]
+</span><a href="#local-6989586621679422328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRuleResponse
+</span><a href="#local-6989586621679422329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregateEvaluationResults:GetAggregateComplianceDetailsByConfigRuleResponse' :: Maybe [AggregateEvaluationResult]
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AaggregateEvaluationResults%3AGetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-var">aggregateEvaluationResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AggregateEvaluationResult]
-</span><a href="#local-6989586621679421681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AggregateEvaluationResult]
+</span><a href="#local-6989586621679422328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AggregateEvaluationResult]
   -&gt; f (Maybe [AggregateEvaluationResult]))
  -&gt; GetAggregateComplianceDetailsByConfigRuleResponse
  -&gt; f GetAggregateComplianceDetailsByConfigRuleResponse)
@@ -1071,8 +1071,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AggregateEvaluationResult]
   [AggregateEvaluationResult]
   [AggregateEvaluationResult]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-335"></span><span>
 </span><span id="line-336"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-337"></span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#getAggregateComplianceDetailsByConfigRuleResponse_httpStatus"><span class="hs-identifier hs-type">getAggregateComplianceDetailsByConfigRuleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1088,18 +1088,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421678"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422325"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetAggregateComplianceDetailsByConfigRuleResponse' :: GetAggregateComplianceDetailsByConfigRuleResponse -&gt; Int
-</span><a href="#local-6989586621679421678"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421678"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421677"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRuleResponse
-</span><a href="#local-6989586621679421677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421676"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRuleResponse
-</span><a href="#local-6989586621679421677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAggregateComplianceDetailsByConfigRuleResponse' :: Int
+</span><a href="#local-6989586621679422325"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679422325"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422324"><span class="annot"><span class="annottext">s :: GetAggregateComplianceDetailsByConfigRuleResponse
+</span><a href="#local-6989586621679422324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422323"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679422323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAggregateComplianceDetailsByConfigRuleResponse
+</span><a href="#local-6989586621679422324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAggregateComplianceDetailsByConfigRuleResponse' :: Int
 </span><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#%24sel%3AhttpStatus%3AGetAggregateComplianceDetailsByConfigRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-339"></span><span>
 </span><span id="line-340"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-341"></span><span>  </span><span id="local-6989586621679421674"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-341"></span><span>  </span><span id="local-6989586621679422321"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-342"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule.html#GetAggregateComplianceDetailsByConfigRuleResponse"><span class="hs-identifier hs-type">GetAggregateComplianceDetailsByConfigRuleResponse</span></a></span></span><span>
 </span><span id="line-343"></span></pre></body></html>

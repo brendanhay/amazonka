@@ -51,13 +51,13 @@
 </span><span id="line-51"></span><span class="hs-comment">-- | DescribeNFSFileSharesInput</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newDescribeNFSFileShares' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679381397"><span id="local-6989586621679381398"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNFSFileShares"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares"><span class="hs-identifier hs-var">DescribeNFSFileShares</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNFSFileShares%27"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares%27"><span class="hs-identifier hs-var">DescribeNFSFileShares'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679385939"><span id="local-6989586621679385940"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNFSFileShares"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares"><span class="hs-identifier hs-var">DescribeNFSFileShares</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNFSFileShares%27"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares%27"><span class="hs-identifier hs-var">DescribeNFSFileShares'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array containing the Amazon Resource Name (ARN) of each file share to</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- be described.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AfileShareARNList%3ADescribeNFSFileShares%27"><span class="annot"><span class="annottext">DescribeNFSFileShares -&gt; NonEmpty Text
 </span><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#%24sel%3AfileShareARNList%3ADescribeNFSFileShares%27"><span class="hs-identifier hs-var hs-var">fileShareARNList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381391"><span id="local-6989586621679381393"><span class="annot"><span class="annottext">DescribeNFSFileShares -&gt; DescribeNFSFileShares -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385933"><span id="local-6989586621679385935"><span class="annot"><span class="annottext">DescribeNFSFileShares -&gt; DescribeNFSFileShares -&gt; Bool
 (DescribeNFSFileShares -&gt; DescribeNFSFileShares -&gt; Bool)
 -&gt; (DescribeNFSFileShares -&gt; DescribeNFSFileShares -&gt; Bool)
 -&gt; Eq DescribeNFSFileShares
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeNFSFileShares -&gt; DescribeNFSFileShares -&gt; Bool
 == :: DescribeNFSFileShares -&gt; DescribeNFSFileShares -&gt; Bool
 $c== :: DescribeNFSFileShares -&gt; DescribeNFSFileShares -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381382"><span id="local-6989586621679381384"><span id="local-6989586621679381386"><span id="local-6989586621679381388"><span class="annot"><span class="annottext">ReadPrec [DescribeNFSFileShares]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385924"><span id="local-6989586621679385926"><span id="local-6989586621679385928"><span id="local-6989586621679385930"><span class="annot"><span class="annottext">ReadPrec [DescribeNFSFileShares]
 ReadPrec DescribeNFSFileShares
 Int -&gt; ReadS DescribeNFSFileShares
 ReadS [DescribeNFSFileShares]
@@ -86,7 +86,7 @@ readList :: ReadS [DescribeNFSFileShares]
 $creadList :: ReadS [DescribeNFSFileShares]
 readsPrec :: Int -&gt; ReadS DescribeNFSFileShares
 $creadsPrec :: Int -&gt; ReadS DescribeNFSFileShares
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381375"><span id="local-6989586621679381377"><span id="local-6989586621679381379"><span class="annot"><span class="annottext">Int -&gt; DescribeNFSFileShares -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385917"><span id="local-6989586621679385919"><span id="local-6989586621679385921"><span class="annot"><span class="annottext">Int -&gt; DescribeNFSFileShares -&gt; ShowS
 [DescribeNFSFileShares] -&gt; ShowS
 DescribeNFSFileShares -&gt; String
 (Int -&gt; DescribeNFSFileShares -&gt; ShowS)
@@ -127,21 +127,21 @@ $cfrom :: forall x. DescribeNFSFileShares -&gt; Rep DescribeNFSFileShares x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares"><span class="hs-identifier hs-type">DescribeNFSFileShares</span></a></span><span>
 </span><span id="line-75"></span><span id="newDescribeNFSFileShares"><span class="annot"><span class="annottext">newDescribeNFSFileShares :: NonEmpty Text -&gt; DescribeNFSFileShares
-</span><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#newDescribeNFSFileShares"><span class="hs-identifier hs-var hs-var">newDescribeNFSFileShares</span></a></span></span><span> </span><span id="local-6989586621679381370"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679381370"><span class="hs-identifier hs-var">pFileShareARNList_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#newDescribeNFSFileShares"><span class="hs-identifier hs-var hs-var">newDescribeNFSFileShares</span></a></span></span><span> </span><span id="local-6989586621679385912"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679385912"><span class="hs-identifier hs-var">pFileShareARNList_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DescribeNFSFileShares' :: NonEmpty Text -&gt; DescribeNFSFileShares
 </span><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares%27"><span class="hs-identifier hs-type">DescribeNFSFileShares'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fileShareARNList:DescribeNFSFileShares' :: NonEmpty Text
 </span><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#%24sel%3AfileShareARNList%3ADescribeNFSFileShares%27"><span class="hs-identifier hs-var">fileShareARNList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679381370"><span class="hs-identifier hs-var">pFileShareARNList_</span></a></span><span>
+</span><a href="#local-6989586621679385912"><span class="hs-identifier hs-var">pFileShareARNList_</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | An array containing the Amazon Resource Name (ARN) of each file share to</span><span>
@@ -158,16 +158,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares%27"><span class="hs-identifier hs-type">DescribeNFSFileShares'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381365"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares%27"><span class="hs-identifier hs-type">DescribeNFSFileShares'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385907"><span class="annot"><span class="annottext">NonEmpty Text
 fileShareARNList :: NonEmpty Text
 $sel:fileShareARNList:DescribeNFSFileShares' :: DescribeNFSFileShares -&gt; NonEmpty Text
-</span><a href="#local-6989586621679381365"><span class="hs-identifier hs-var hs-var">fileShareARNList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679381365"><span class="hs-identifier hs-var">fileShareARNList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381364"><span class="annot"><span class="annottext">s :: DescribeNFSFileShares
-</span><a href="#local-6989586621679381364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares%27"><span class="hs-identifier hs-type">DescribeNFSFileShares'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381363"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679381363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNFSFileShares
-</span><a href="#local-6989586621679381364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileShareARNList:DescribeNFSFileShares' :: NonEmpty Text
+</span><a href="#local-6989586621679385907"><span class="hs-identifier hs-var hs-var">fileShareARNList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679385907"><span class="hs-identifier hs-var">fileShareARNList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385906"><span class="annot"><span class="annottext">s :: DescribeNFSFileShares
+</span><a href="#local-6989586621679385906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares%27"><span class="hs-identifier hs-type">DescribeNFSFileShares'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385905"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679385905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNFSFileShares
+</span><a href="#local-6989586621679385906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileShareARNList:DescribeNFSFileShares' :: NonEmpty Text
 </span><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#%24sel%3AfileShareARNList%3ADescribeNFSFileShares%27"><span class="hs-identifier hs-var">fileShareARNList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679381363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares"><span class="hs-identifier hs-type">DescribeNFSFileShares</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679385905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares"><span class="hs-identifier hs-type">DescribeNFSFileShares</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; DescribeNFSFileShares -&gt; f DescribeNFSFileShares)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -177,19 +177,19 @@ $sel:fileShareARNList:DescribeNFSFileShares' :: DescribeNFSFileShares -&gt; NonE
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares"><span class="hs-identifier hs-type">DescribeNFSFileShares</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares"><span class="hs-identifier hs-type">DescribeNFSFileShares</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse"><span class="hs-identifier hs-type">DescribeNFSFileSharesResponse</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679381358"><span class="annot"><span class="annottext">request :: DescribeNFSFileShares -&gt; Request DescribeNFSFileShares
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679385900"><span class="annot"><span class="annottext">request :: DescribeNFSFileShares -&gt; Request DescribeNFSFileShares
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeNFSFileShares -&gt; Request DescribeNFSFileShares
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679381354"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679385896"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeNFSFileShares
 -&gt; ClientResponse ClientBody
@@ -215,10 +215,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381351"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381351"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679381350"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679381350"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679381349"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381349"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385893"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385893"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385892"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679385892"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385891"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679385891"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe [NFSFileShareInfo] -&gt; Int -&gt; DescribeNFSFileSharesResponse
 </span><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse%27"><span class="hs-identifier hs-var">DescribeNFSFileSharesResponse'</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [NFSFileShareInfo] -&gt; Int -&gt; DescribeNFSFileSharesResponse)
@@ -226,7 +226,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeNFSFileSharesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381349"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [NFSFileShareInfo]))
+</span><a href="#local-6989586621679385891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [NFSFileShareInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NFSFileShareInfoList&quot;</span></span><span>
@@ -246,15 +246,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381351"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385893"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381340"><span id="local-6989586621679381342"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares"><span class="hs-identifier hs-type">DescribeNFSFileShares</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385882"><span id="local-6989586621679385884"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares"><span class="hs-identifier hs-type">DescribeNFSFileShares</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381337"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares"><span class="hs-identifier hs-type">DescribeNFSFileShares</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385879"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares"><span class="hs-identifier hs-type">DescribeNFSFileShares</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares"><span class="hs-identifier hs-type">DescribeNFSFileShares</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679381333"><span class="annot"><span class="annottext">toHeaders :: DescribeNFSFileShares -&gt; ResponseHeaders
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679385875"><span class="annot"><span class="annottext">toHeaders :: DescribeNFSFileShares -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeNFSFileShares -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -281,12 +281,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381323"><span id="local-6989586621679381325"><span id="local-6989586621679381327"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares"><span class="hs-identifier hs-type">DescribeNFSFileShares</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679381321"><span class="annot"><span class="annottext">toJSON :: DescribeNFSFileShares -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares%27"><span class="hs-identifier hs-type">DescribeNFSFileShares'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381319"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385865"><span id="local-6989586621679385867"><span id="local-6989586621679385869"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares"><span class="hs-identifier hs-type">DescribeNFSFileShares</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679385863"><span class="annot"><span class="annottext">toJSON :: DescribeNFSFileShares -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares%27"><span class="hs-identifier hs-type">DescribeNFSFileShares'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385861"><span class="annot"><span class="annottext">NonEmpty Text
 fileShareARNList :: NonEmpty Text
 $sel:fileShareARNList:DescribeNFSFileShares' :: DescribeNFSFileShares -&gt; NonEmpty Text
-</span><a href="#local-6989586621679381319"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679385861"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -299,19 +299,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;FileShareARNList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679381319"><span class="hs-identifier hs-var">fileShareARNList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385861"><span class="hs-identifier hs-var">fileShareARNList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares"><span class="hs-identifier hs-type">DescribeNFSFileShares</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679381313"><span class="annot"><span class="annottext">toPath :: DescribeNFSFileShares -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679385855"><span class="annot"><span class="annottext">toPath :: DescribeNFSFileShares -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeNFSFileShares -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileShares"><span class="hs-identifier hs-type">DescribeNFSFileShares</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679381309"><span class="annot"><span class="annottext">toQuery :: DescribeNFSFileShares -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679385851"><span class="annot"><span class="annottext">toQuery :: DescribeNFSFileShares -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeNFSFileShares -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -321,7 +321,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-135"></span><span class="hs-comment">-- | DescribeNFSFileSharesOutput</span><span>
 </span><span id="line-136"></span><span class="hs-comment">--</span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- /See:/ 'newDescribeNFSFileSharesResponse' smart constructor.</span><span>
-</span><span id="line-138"></span><span id="local-6989586621679381306"><span id="local-6989586621679381307"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNFSFileSharesResponse"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse"><span class="hs-identifier hs-var">DescribeNFSFileSharesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNFSFileSharesResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse%27"><span class="hs-identifier hs-var">DescribeNFSFileSharesResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span id="local-6989586621679385848"><span id="local-6989586621679385849"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNFSFileSharesResponse"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse"><span class="hs-identifier hs-var">DescribeNFSFileSharesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNFSFileSharesResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse%27"><span class="hs-identifier hs-var">DescribeNFSFileSharesResponse'</span></a></span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array containing a description for each requested file share.</span><span>
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3AnFSFileShareInfoList%3ADescribeNFSFileSharesResponse%27"><span class="annot"><span class="annottext">DescribeNFSFileSharesResponse -&gt; Maybe [NFSFileShareInfo]
 </span><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#%24sel%3AnFSFileShareInfoList%3ADescribeNFSFileSharesResponse%27"><span class="hs-identifier hs-var hs-var">nFSFileShareInfoList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.NFSFileShareInfo.html#NFSFileShareInfo"><span class="hs-identifier hs-type">NFSFileShareInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -329,7 +329,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeNFSFileSharesResponse%27"><span class="annot"><span class="annottext">DescribeNFSFileSharesResponse -&gt; Int
 </span><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#%24sel%3AhttpStatus%3ADescribeNFSFileSharesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381300"><span id="local-6989586621679381302"><span class="annot"><span class="annottext">DescribeNFSFileSharesResponse
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385842"><span id="local-6989586621679385844"><span class="annot"><span class="annottext">DescribeNFSFileSharesResponse
 -&gt; DescribeNFSFileSharesResponse -&gt; Bool
 (DescribeNFSFileSharesResponse
  -&gt; DescribeNFSFileSharesResponse -&gt; Bool)
@@ -345,7 +345,7 @@ $c/= :: DescribeNFSFileSharesResponse
 -&gt; DescribeNFSFileSharesResponse -&gt; Bool
 $c== :: DescribeNFSFileSharesResponse
 -&gt; DescribeNFSFileSharesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381292"><span id="local-6989586621679381294"><span id="local-6989586621679381296"><span id="local-6989586621679381298"><span class="annot"><span class="annottext">ReadPrec [DescribeNFSFileSharesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385834"><span id="local-6989586621679385836"><span id="local-6989586621679385838"><span id="local-6989586621679385840"><span class="annot"><span class="annottext">ReadPrec [DescribeNFSFileSharesResponse]
 ReadPrec DescribeNFSFileSharesResponse
 Int -&gt; ReadS DescribeNFSFileSharesResponse
 ReadS [DescribeNFSFileSharesResponse]
@@ -365,7 +365,7 @@ readList :: ReadS [DescribeNFSFileSharesResponse]
 $creadList :: ReadS [DescribeNFSFileSharesResponse]
 readsPrec :: Int -&gt; ReadS DescribeNFSFileSharesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeNFSFileSharesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381286"><span id="local-6989586621679381288"><span id="local-6989586621679381290"><span class="annot"><span class="annottext">Int -&gt; DescribeNFSFileSharesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385828"><span id="local-6989586621679385830"><span id="local-6989586621679385832"><span class="annot"><span class="annottext">Int -&gt; DescribeNFSFileSharesResponse -&gt; ShowS
 [DescribeNFSFileSharesResponse] -&gt; ShowS
 DescribeNFSFileSharesResponse -&gt; String
 (Int -&gt; DescribeNFSFileSharesResponse -&gt; ShowS)
@@ -419,8 +419,8 @@ DescribeNFSFileSharesResponse
 </span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse"><span class="hs-identifier hs-type">DescribeNFSFileSharesResponse</span></a></span><span>
 </span><span id="line-161"></span><span id="newDescribeNFSFileSharesResponse"><span class="annot"><span class="annottext">newDescribeNFSFileSharesResponse :: Int -&gt; DescribeNFSFileSharesResponse
-</span><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#newDescribeNFSFileSharesResponse"><span class="hs-identifier hs-var hs-var">newDescribeNFSFileSharesResponse</span></a></span></span><span> </span><span id="local-6989586621679381283"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381283"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#newDescribeNFSFileSharesResponse"><span class="hs-identifier hs-var hs-var">newDescribeNFSFileSharesResponse</span></a></span></span><span> </span><span id="local-6989586621679385825"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385825"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">DescribeNFSFileSharesResponse' :: Maybe [NFSFileShareInfo] -&gt; Int -&gt; DescribeNFSFileSharesResponse
 </span><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse%27"><span class="hs-identifier hs-type">DescribeNFSFileSharesResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nFSFileShareInfoList:DescribeNFSFileSharesResponse' :: Maybe [NFSFileShareInfo]
@@ -430,7 +430,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeNFSFileSharesResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#%24sel%3AhttpStatus%3ADescribeNFSFileSharesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381283"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679385825"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | An array containing a description for each requested file share.</span><span>
@@ -446,16 +446,16 @@ forall a. Maybe a
      (Maybe [NFSFileShareInfo])
      (Maybe [NFSFileShareInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse%27"><span class="hs-identifier hs-type">DescribeNFSFileSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381282"><span class="annot"><span class="annottext">Maybe [NFSFileShareInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse%27"><span class="hs-identifier hs-type">DescribeNFSFileSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385824"><span class="annot"><span class="annottext">Maybe [NFSFileShareInfo]
 nFSFileShareInfoList :: Maybe [NFSFileShareInfo]
 $sel:nFSFileShareInfoList:DescribeNFSFileSharesResponse' :: DescribeNFSFileSharesResponse -&gt; Maybe [NFSFileShareInfo]
-</span><a href="#local-6989586621679381282"><span class="hs-identifier hs-var hs-var">nFSFileShareInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NFSFileShareInfo]
-</span><a href="#local-6989586621679381282"><span class="hs-identifier hs-var">nFSFileShareInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381281"><span class="annot"><span class="annottext">s :: DescribeNFSFileSharesResponse
-</span><a href="#local-6989586621679381281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse%27"><span class="hs-identifier hs-type">DescribeNFSFileSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381280"><span class="annot"><span class="annottext">Maybe [NFSFileShareInfo]
-</span><a href="#local-6989586621679381280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNFSFileSharesResponse
-</span><a href="#local-6989586621679381281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nFSFileShareInfoList:DescribeNFSFileSharesResponse' :: Maybe [NFSFileShareInfo]
+</span><a href="#local-6989586621679385824"><span class="hs-identifier hs-var hs-var">nFSFileShareInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NFSFileShareInfo]
+</span><a href="#local-6989586621679385824"><span class="hs-identifier hs-var">nFSFileShareInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385823"><span class="annot"><span class="annottext">s :: DescribeNFSFileSharesResponse
+</span><a href="#local-6989586621679385823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse%27"><span class="hs-identifier hs-type">DescribeNFSFileSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385822"><span class="annot"><span class="annottext">Maybe [NFSFileShareInfo]
+</span><a href="#local-6989586621679385822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNFSFileSharesResponse
+</span><a href="#local-6989586621679385823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nFSFileShareInfoList:DescribeNFSFileSharesResponse' :: Maybe [NFSFileShareInfo]
 </span><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#%24sel%3AnFSFileShareInfoList%3ADescribeNFSFileSharesResponse%27"><span class="hs-identifier hs-var">nFSFileShareInfoList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NFSFileShareInfo]
-</span><a href="#local-6989586621679381280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse"><span class="hs-identifier hs-type">DescribeNFSFileSharesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NFSFileShareInfo] -&gt; f (Maybe [NFSFileShareInfo]))
+</span><a href="#local-6989586621679385822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse"><span class="hs-identifier hs-type">DescribeNFSFileSharesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NFSFileShareInfo] -&gt; f (Maybe [NFSFileShareInfo]))
  -&gt; DescribeNFSFileSharesResponse
  -&gt; f DescribeNFSFileSharesResponse)
 -&gt; ((Maybe [NFSFileShareInfo] -&gt; f (Maybe [NFSFileShareInfo]))
@@ -482,8 +482,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [NFSFileShareInfo]
   [NFSFileShareInfo]
   [NFSFileShareInfo]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-173"></span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#describeNFSFileSharesResponse_httpStatus"><span class="hs-identifier hs-type">describeNFSFileSharesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse"><span class="hs-identifier hs-type">DescribeNFSFileSharesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -495,16 +495,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      DescribeNFSFileSharesResponse DescribeNFSFileSharesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse%27"><span class="hs-identifier hs-type">DescribeNFSFileSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381278"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse%27"><span class="hs-identifier hs-type">DescribeNFSFileSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385820"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeNFSFileSharesResponse' :: DescribeNFSFileSharesResponse -&gt; Int
-</span><a href="#local-6989586621679381278"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381278"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381277"><span class="annot"><span class="annottext">s :: DescribeNFSFileSharesResponse
-</span><a href="#local-6989586621679381277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse%27"><span class="hs-identifier hs-type">DescribeNFSFileSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381276"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNFSFileSharesResponse
-</span><a href="#local-6989586621679381277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeNFSFileSharesResponse' :: Int
+</span><a href="#local-6989586621679385820"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385820"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385819"><span class="annot"><span class="annottext">s :: DescribeNFSFileSharesResponse
+</span><a href="#local-6989586621679385819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse%27"><span class="hs-identifier hs-type">DescribeNFSFileSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385818"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNFSFileSharesResponse
+</span><a href="#local-6989586621679385819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeNFSFileSharesResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#%24sel%3AhttpStatus%3ADescribeNFSFileSharesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse"><span class="hs-identifier hs-type">DescribeNFSFileSharesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse"><span class="hs-identifier hs-type">DescribeNFSFileSharesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381274"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse"><span class="hs-identifier hs-type">DescribeNFSFileSharesResponse</span></a></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385816"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeNFSFileShares.html#DescribeNFSFileSharesResponse"><span class="hs-identifier hs-type">DescribeNFSFileSharesResponse</span></a></span></span><span>
 </span><span id="line-177"></span></pre></body></html>

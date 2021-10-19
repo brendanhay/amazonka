@@ -3,7 +3,7 @@
  For more information, see
  <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html">Working with GPUs on Amazon ECS</a>
  or
- <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-eia.html">Working with Amazon Elastic Inference on Amazon ECS</a>
+ <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html">Working with Amazon Elastic Inference on Amazon ECS</a>
  in the <em>Amazon Elastic Container Service Developer Guide</em></p><p><em>See:</em> <code><a href="Network-AWS-ECS-Types-ResourceRequirement.html#v:newResourceRequirement" title="Network.AWS.ECS.Types.ResourceRequirement">newResourceRequirement</a></code> smart constructor.</p></div><div class="subs constructors"><p class="caption">Constructors</p><table><tr><td class="src"><a id="v:ResourceRequirement-39-" class="def">ResourceRequirement'</a></td><td class="doc empty">&nbsp;</td></tr><tr><td colspan="2"><div class="subs fields"><p class="caption">Fields</p><ul><li><dfn class="src"><a id="v:value" class="def">value</a> :: <a href="../text-1.2.4.1/Data-Text.html#t:Text" title="Data.Text">Text</a></dfn><div class="doc"><p>The value for the specified resource type.</p><p>If the <code>GPU</code> type is used, the value is the number of physical <code>GPUs</code>
  the Amazon ECS container agent will reserve for the container. The
  number of GPUs reserved for all containers in a task should not exceed

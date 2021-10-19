@@ -28,28 +28,28 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a route in a route table.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRoute' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679250010"><span id="local-6989586621679250011"></span></span><span class="hs-keyword">data</span><span> </span><span id="Route"><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-var">Route</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Route%27"><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-var">Route'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of destination for the route.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AdestinationType%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe DestinationType
-</span><a href="Network.AWS.FMS.Types.Route.html#%24sel%3AdestinationType%3ARoute%27"><span class="hs-identifier hs-var hs-var">destinationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DestinationType.html#DestinationType"><span class="hs-identifier hs-type">DestinationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679250255"><span id="local-6989586621679250256"></span></span><span class="hs-keyword">data</span><span> </span><span id="Route"><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-var">Route</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Route%27"><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-var">Route'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The destination of the route.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Adestination%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.Route.html#%24sel%3Adestination%3ARoute%27"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The type of target for the route.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AtargetType%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe TargetType
 </span><a href="Network.AWS.FMS.Types.Route.html#%24sel%3AtargetType%3ARoute%27"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.TargetType.html#TargetType"><span class="hs-identifier hs-type">TargetType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The destination of the route.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Adestination%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
-</span><a href="Network.AWS.FMS.Types.Route.html#%24sel%3Adestination%3ARoute%27"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The type of destination for the route.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdestinationType%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe DestinationType
+</span><a href="Network.AWS.FMS.Types.Route.html#%24sel%3AdestinationType%3ARoute%27"><span class="hs-identifier hs-var hs-var">destinationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DestinationType.html#DestinationType"><span class="hs-identifier hs-type">DestinationType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The route\'s target.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Atarget%3ARoute%27"><span class="annot"><span class="annottext">Route -&gt; Maybe Text
 </span><a href="Network.AWS.FMS.Types.Route.html#%24sel%3Atarget%3ARoute%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250001"><span id="local-6989586621679250003"><span class="annot"><span class="annottext">Route -&gt; Route -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250246"><span id="local-6989586621679250248"><span class="annot"><span class="annottext">Route -&gt; Route -&gt; Bool
 (Route -&gt; Route -&gt; Bool) -&gt; (Route -&gt; Route -&gt; Bool) -&gt; Eq Route
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Route -&gt; Route -&gt; Bool
 $c/= :: Route -&gt; Route -&gt; Bool
 == :: Route -&gt; Route -&gt; Bool
 $c== :: Route -&gt; Route -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249992"><span id="local-6989586621679249994"><span id="local-6989586621679249996"><span id="local-6989586621679249998"><span class="annot"><span class="annottext">ReadPrec [Route]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250237"><span id="local-6989586621679250239"><span id="local-6989586621679250241"><span id="local-6989586621679250243"><span class="annot"><span class="annottext">ReadPrec [Route]
 ReadPrec Route
 Int -&gt; ReadS Route
 ReadS [Route]
@@ -69,7 +69,7 @@ readList :: ReadS [Route]
 $creadList :: ReadS [Route]
 readsPrec :: Int -&gt; ReadS Route
 $creadsPrec :: Int -&gt; ReadS Route
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249985"><span id="local-6989586621679249987"><span id="local-6989586621679249989"><span class="annot"><span class="annottext">Int -&gt; Route -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250230"><span id="local-6989586621679250232"><span id="local-6989586621679250234"><span class="annot"><span class="annottext">Int -&gt; Route -&gt; ShowS
 [Route] -&gt; ShowS
 Route -&gt; String
 (Int -&gt; Route -&gt; ShowS)
@@ -100,30 +100,30 @@ $cfrom :: forall x. Route -&gt; Rep Route x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'destinationType', 'route_destinationType' - The type of destination for the route.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'destination', 'route_destination' - The destination of the route.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- 'targetType', 'route_targetType' - The type of target for the route.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'destination', 'route_destination' - The destination of the route.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'destinationType', 'route_destinationType' - The type of destination for the route.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- 'target', 'route_target' - The route\'s target.</span><span>
 </span><span id="line-58"></span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#newRoute"><span class="hs-identifier hs-type">newRoute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span>
 </span><span id="line-60"></span><span id="newRoute"><span class="annot"><span class="annottext">newRoute :: Route
 </span><a href="Network.AWS.FMS.Types.Route.html#newRoute"><span class="hs-identifier hs-var hs-var">newRoute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">Route' :: Maybe DestinationType
--&gt; Maybe TargetType -&gt; Maybe Text -&gt; Maybe Text -&gt; Route
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">Route' :: Maybe Text
+-&gt; Maybe TargetType -&gt; Maybe DestinationType -&gt; Maybe Text -&gt; Route
 </span><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destinationType:Route' :: Maybe DestinationType
-</span><a href="Network.AWS.FMS.Types.Route.html#%24sel%3AdestinationType%3ARoute%27"><span class="hs-identifier hs-var">destinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationType
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destination:Route' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.Route.html#%24sel%3Adestination%3ARoute%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetType:Route' :: Maybe TargetType
 </span><a href="Network.AWS.FMS.Types.Route.html#%24sel%3AtargetType%3ARoute%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:destination:Route' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.Route.html#%24sel%3Adestination%3ARoute%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationType:Route' :: Maybe DestinationType
+</span><a href="Network.AWS.FMS.Types.Route.html#%24sel%3AdestinationType%3ARoute%27"><span class="hs-identifier hs-var">destinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:target:Route' :: Maybe Text
@@ -132,24 +132,23 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | The type of destination for the route.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#route_destinationType"><span class="hs-identifier hs-type">route_destinationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DestinationType.html#DestinationType"><span class="hs-identifier hs-type">DestinationType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="route_destinationType"><span class="annot"><span class="annottext">route_destinationType :: (Maybe DestinationType -&gt; f (Maybe DestinationType))
--&gt; Route -&gt; f Route
-</span><a href="Network.AWS.FMS.Types.Route.html#route_destinationType"><span class="hs-identifier hs-var hs-var">route_destinationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe DestinationType)
--&gt; (Route -&gt; Maybe DestinationType -&gt; Route)
--&gt; Lens Route Route (Maybe DestinationType) (Maybe DestinationType)
+</span><span id="line-68"></span><span class="hs-comment">-- | The destination of the route.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#route_destination"><span class="hs-identifier hs-type">route_destination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="route_destination"><span class="annot"><span class="annottext">route_destination :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
+</span><a href="Network.AWS.FMS.Types.Route.html#route_destination"><span class="hs-identifier hs-var hs-var">route_destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
+-&gt; (Route -&gt; Maybe Text -&gt; Route)
+-&gt; Lens Route Route (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249976"><span class="annot"><span class="annottext">Maybe DestinationType
-destinationType :: Maybe DestinationType
-$sel:destinationType:Route' :: Route -&gt; Maybe DestinationType
-</span><a href="#local-6989586621679249976"><span class="hs-identifier hs-var hs-var">destinationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationType
-</span><a href="#local-6989586621679249976"><span class="hs-identifier hs-var">destinationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249975"><span class="annot"><span class="annottext">s :: Route
-</span><a href="#local-6989586621679249975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249974"><span class="annot"><span class="annottext">Maybe DestinationType
-</span><a href="#local-6989586621679249974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
-</span><a href="#local-6989586621679249975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationType:Route' :: Maybe DestinationType
-</span><a href="Network.AWS.FMS.Types.Route.html#%24sel%3AdestinationType%3ARoute%27"><span class="hs-identifier hs-var">destinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationType
-</span><a href="#local-6989586621679249974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250221"><span class="annot"><span class="annottext">Maybe Text
+destination :: Maybe Text
+$sel:destination:Route' :: Route -&gt; Maybe Text
+</span><a href="#local-6989586621679250221"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250221"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250220"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621679250220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250219"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621679250220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:Route' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.Route.html#%24sel%3Adestination%3ARoute%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The type of target for the route.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#route_targetType"><span class="hs-identifier hs-type">route_targetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.TargetType.html#TargetType"><span class="hs-identifier hs-type">TargetType</span></a></span><span class="hs-special">)</span><span>
@@ -158,34 +157,35 @@ $sel:destinationType:Route' :: Route -&gt; Maybe DestinationType
 -&gt; (Route -&gt; Maybe TargetType -&gt; Route)
 -&gt; Lens Route Route (Maybe TargetType) (Maybe TargetType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249972"><span class="annot"><span class="annottext">Maybe TargetType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250217"><span class="annot"><span class="annottext">Maybe TargetType
 targetType :: Maybe TargetType
 $sel:targetType:Route' :: Route -&gt; Maybe TargetType
-</span><a href="#local-6989586621679249972"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TargetType
-</span><a href="#local-6989586621679249972"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249971"><span class="annot"><span class="annottext">s :: Route
-</span><a href="#local-6989586621679249971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249970"><span class="annot"><span class="annottext">Maybe TargetType
-</span><a href="#local-6989586621679249970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
-</span><a href="#local-6989586621679249971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetType:Route' :: Maybe TargetType
+</span><a href="#local-6989586621679250217"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TargetType
+</span><a href="#local-6989586621679250217"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250216"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621679250216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250215"><span class="annot"><span class="annottext">Maybe TargetType
+</span><a href="#local-6989586621679250215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621679250216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetType:Route' :: Maybe TargetType
 </span><a href="Network.AWS.FMS.Types.Route.html#%24sel%3AtargetType%3ARoute%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetType
-</span><a href="#local-6989586621679249970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | The destination of the route.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#route_destination"><span class="hs-identifier hs-type">route_destination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="route_destination"><span class="annot"><span class="annottext">route_destination :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Route -&gt; f Route
-</span><a href="Network.AWS.FMS.Types.Route.html#route_destination"><span class="hs-identifier hs-var hs-var">route_destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe Text)
--&gt; (Route -&gt; Maybe Text -&gt; Route)
--&gt; Lens Route Route (Maybe Text) (Maybe Text)
+</span><span id="line-76"></span><span class="hs-comment">-- | The type of destination for the route.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#route_destinationType"><span class="hs-identifier hs-type">route_destinationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DestinationType.html#DestinationType"><span class="hs-identifier hs-type">DestinationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="route_destinationType"><span class="annot"><span class="annottext">route_destinationType :: (Maybe DestinationType -&gt; f (Maybe DestinationType))
+-&gt; Route -&gt; f Route
+</span><a href="Network.AWS.FMS.Types.Route.html#route_destinationType"><span class="hs-identifier hs-var hs-var">route_destinationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Route -&gt; Maybe DestinationType)
+-&gt; (Route -&gt; Maybe DestinationType -&gt; Route)
+-&gt; Lens Route Route (Maybe DestinationType) (Maybe DestinationType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249968"><span class="annot"><span class="annottext">Maybe Text
-destination :: Maybe Text
-$sel:destination:Route' :: Route -&gt; Maybe Text
-</span><a href="#local-6989586621679249968"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249968"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249967"><span class="annot"><span class="annottext">s :: Route
-</span><a href="#local-6989586621679249967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249966"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
-</span><a href="#local-6989586621679249967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:Route' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.Route.html#%24sel%3Adestination%3ARoute%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250213"><span class="annot"><span class="annottext">Maybe DestinationType
+destinationType :: Maybe DestinationType
+$sel:destinationType:Route' :: Route -&gt; Maybe DestinationType
+</span><a href="#local-6989586621679250213"><span class="hs-identifier hs-var hs-var">destinationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationType
+</span><a href="#local-6989586621679250213"><span class="hs-identifier hs-var">destinationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250212"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621679250212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250211"><span class="annot"><span class="annottext">Maybe DestinationType
+</span><a href="#local-6989586621679250211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621679250212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationType:Route' :: Maybe DestinationType
+</span><a href="Network.AWS.FMS.Types.Route.html#%24sel%3AdestinationType%3ARoute%27"><span class="hs-identifier hs-var">destinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationType
+</span><a href="#local-6989586621679250211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The route\'s target.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#route_target"><span class="hs-identifier hs-type">route_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -194,67 +194,72 @@ $sel:destination:Route' :: Route -&gt; Maybe Text
 -&gt; (Route -&gt; Maybe Text -&gt; Route)
 -&gt; Lens Route Route (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249964"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250209"><span class="annot"><span class="annottext">Maybe Text
 target :: Maybe Text
 $sel:target:Route' :: Route -&gt; Maybe Text
-</span><a href="#local-6989586621679249964"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249964"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249963"><span class="annot"><span class="annottext">s :: Route
-</span><a href="#local-6989586621679249963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249962"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
-</span><a href="#local-6989586621679249963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:Route' :: Maybe Text
+</span><a href="#local-6989586621679250209"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250209"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250208"><span class="annot"><span class="annottext">s :: Route
+</span><a href="#local-6989586621679250208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-type">Route'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250207"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Route
+</span><a href="#local-6989586621679250208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:Route' :: Maybe Text
 </span><a href="Network.AWS.FMS.Types.Route.html#%24sel%3Atarget%3ARoute%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249959"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679249957"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Route
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250204"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679250202"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Route
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Route) -&gt; Value -&gt; Parser Route
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Route&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249954"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249954"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe DestinationType
--&gt; Maybe TargetType -&gt; Maybe Text -&gt; Maybe Text -&gt; Route
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250199"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250199"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe TargetType -&gt; Maybe DestinationType -&gt; Maybe Text -&gt; Route
 </span><a href="Network.AWS.FMS.Types.Route.html#Route%27"><span class="hs-identifier hs-var">Route'</span></a></span><span>
-</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DestinationType
- -&gt; Maybe TargetType -&gt; Maybe Text -&gt; Maybe Text -&gt; Route)
--&gt; Parser (Maybe DestinationType)
--&gt; Parser (Maybe TargetType -&gt; Maybe Text -&gt; Maybe Text -&gt; Route)
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe TargetType
+ -&gt; Maybe DestinationType
+ -&gt; Maybe Text
+ -&gt; Route)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe TargetType -&gt; Maybe DestinationType -&gt; Maybe Text -&gt; Route)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DestinationType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DestinationType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TargetType -&gt; Maybe Text -&gt; Maybe Text -&gt; Route)
--&gt; Parser (Maybe TargetType)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Route)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TargetType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TargetType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Route)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Route)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679250199"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Destination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TargetType -&gt; Maybe DestinationType -&gt; Maybe Text -&gt; Route)
+-&gt; Parser (Maybe TargetType)
+-&gt; Parser (Maybe DestinationType -&gt; Maybe Text -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250199"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TargetType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DestinationType -&gt; Maybe Text -&gt; Route)
+-&gt; Parser (Maybe DestinationType) -&gt; Parser (Maybe Text -&gt; Route)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250199"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DestinationType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DestinationType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Route) -&gt; Parser (Maybe Text) -&gt; Parser Route
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679250199"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Target&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249948"><span id="local-6989586621679249950"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250193"><span id="local-6989586621679250195"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249945"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250190"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span></span><span>
 </span><span id="line-99"></span></pre></body></html>

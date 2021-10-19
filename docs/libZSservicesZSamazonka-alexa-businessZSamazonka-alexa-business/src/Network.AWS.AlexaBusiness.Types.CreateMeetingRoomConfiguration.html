@@ -29,24 +29,24 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Creates meeting room settings of a room profile.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCreateMeetingRoomConfiguration' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679367066"><span id="local-6989586621679367067"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateMeetingRoomConfiguration"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-var">CreateMeetingRoomConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateMeetingRoomConfiguration%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var">CreateMeetingRoomConfiguration'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether room utilization metrics are enabled or not.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AroomUtilizationMetricsEnabled%3ACreateMeetingRoomConfiguration%27"><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration -&gt; Maybe Bool
-</span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3AroomUtilizationMetricsEnabled%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var hs-var">roomUtilizationMetricsEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AendOfMeetingReminder%3ACreateMeetingRoomConfiguration%27"><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration -&gt; Maybe CreateEndOfMeetingReminder
-</span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3AendOfMeetingReminder%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var hs-var">endOfMeetingReminder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateEndOfMeetingReminder.html#CreateEndOfMeetingReminder"><span class="hs-identifier hs-type">CreateEndOfMeetingReminder</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Settings to automatically book a room for a configured duration if it\'s</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- free when joining a meeting with Alexa.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AinstantBooking%3ACreateMeetingRoomConfiguration%27"><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration -&gt; Maybe CreateInstantBooking
+</span><span id="line-32"></span><span id="local-6989586621679367380"><span id="local-6989586621679367381"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateMeetingRoomConfiguration"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-var">CreateMeetingRoomConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateMeetingRoomConfiguration%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var">CreateMeetingRoomConfiguration'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Settings to automatically book a room for a configured duration if it\'s</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- free when joining a meeting with Alexa.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AinstantBooking%3ACreateMeetingRoomConfiguration%27"><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration -&gt; Maybe CreateInstantBooking
 </span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3AinstantBooking%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var hs-var">instantBooking</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateInstantBooking.html#CreateInstantBooking"><span class="hs-identifier hs-type">CreateInstantBooking</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Settings for requiring a check in when a room is reserved. Alexa can</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- cancel a room reservation if it\'s not checked into to make the room</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- available for others. Users can check in by joining the meeting with</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Alexa or an AVS device, or by saying &#8220;Alexa, check in.&#8221;</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3ArequireCheckIn%3ACreateMeetingRoomConfiguration%27"><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration -&gt; Maybe CreateRequireCheckIn
-</span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3ArequireCheckIn%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var hs-var">requireCheckIn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateRequireCheckIn.html#CreateRequireCheckIn"><span class="hs-identifier hs-type">CreateRequireCheckIn</span></a></span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AendOfMeetingReminder%3ACreateMeetingRoomConfiguration%27"><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration -&gt; Maybe CreateEndOfMeetingReminder
+</span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3AendOfMeetingReminder%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var hs-var">endOfMeetingReminder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateEndOfMeetingReminder.html#CreateEndOfMeetingReminder"><span class="hs-identifier hs-type">CreateEndOfMeetingReminder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Settings for requiring a check in when a room is reserved. Alexa can</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- cancel a room reservation if it\'s not checked into to make the room</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- available for others. Users can check in by joining the meeting with</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Alexa or an AVS device, or by saying &#8220;Alexa, check in.&#8221;</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3ArequireCheckIn%3ACreateMeetingRoomConfiguration%27"><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration -&gt; Maybe CreateRequireCheckIn
+</span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3ArequireCheckIn%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var hs-var">requireCheckIn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateRequireCheckIn.html#CreateRequireCheckIn"><span class="hs-identifier hs-type">CreateRequireCheckIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Whether room utilization metrics are enabled or not.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AroomUtilizationMetricsEnabled%3ACreateMeetingRoomConfiguration%27"><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration -&gt; Maybe Bool
+</span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3AroomUtilizationMetricsEnabled%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var hs-var">roomUtilizationMetricsEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367057"><span id="local-6989586621679367059"><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367371"><span id="local-6989586621679367373"><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration
 -&gt; CreateMeetingRoomConfiguration -&gt; Bool
 (CreateMeetingRoomConfiguration
  -&gt; CreateMeetingRoomConfiguration -&gt; Bool)
@@ -62,7 +62,7 @@ $c/= :: CreateMeetingRoomConfiguration
 -&gt; CreateMeetingRoomConfiguration -&gt; Bool
 $c== :: CreateMeetingRoomConfiguration
 -&gt; CreateMeetingRoomConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367048"><span id="local-6989586621679367050"><span id="local-6989586621679367052"><span id="local-6989586621679367054"><span class="annot"><span class="annottext">ReadPrec [CreateMeetingRoomConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367362"><span id="local-6989586621679367364"><span id="local-6989586621679367366"><span id="local-6989586621679367368"><span class="annot"><span class="annottext">ReadPrec [CreateMeetingRoomConfiguration]
 ReadPrec CreateMeetingRoomConfiguration
 Int -&gt; ReadS CreateMeetingRoomConfiguration
 ReadS [CreateMeetingRoomConfiguration]
@@ -82,7 +82,7 @@ readList :: ReadS [CreateMeetingRoomConfiguration]
 $creadList :: ReadS [CreateMeetingRoomConfiguration]
 readsPrec :: Int -&gt; ReadS CreateMeetingRoomConfiguration
 $creadsPrec :: Int -&gt; ReadS CreateMeetingRoomConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367041"><span id="local-6989586621679367043"><span id="local-6989586621679367045"><span class="annot"><span class="annottext">Int -&gt; CreateMeetingRoomConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367355"><span id="local-6989586621679367357"><span id="local-6989586621679367359"><span class="annot"><span class="annottext">Int -&gt; CreateMeetingRoomConfiguration -&gt; ShowS
 [CreateMeetingRoomConfiguration] -&gt; ShowS
 CreateMeetingRoomConfiguration -&gt; String
 (Int -&gt; CreateMeetingRoomConfiguration -&gt; ShowS)
@@ -128,74 +128,76 @@ CreateMeetingRoomConfiguration
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'roomUtilizationMetricsEnabled', 'createMeetingRoomConfiguration_roomUtilizationMetricsEnabled' - Whether room utilization metrics are enabled or not.</span><span>
-</span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'endOfMeetingReminder', 'createMeetingRoomConfiguration_endOfMeetingReminder' - Undocumented member.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'instantBooking', 'createMeetingRoomConfiguration_instantBooking' - Settings to automatically book a room for a configured duration if it\'s</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- free when joining a meeting with Alexa.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'requireCheckIn', 'createMeetingRoomConfiguration_requireCheckIn' - Settings for requiring a check in when a room is reserved. Alexa can</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- cancel a room reservation if it\'s not checked into to make the room</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- available for others. Users can check in by joining the meeting with</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- Alexa or an AVS device, or by saying &#8220;Alexa, check in.&#8221;</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'instantBooking', 'createMeetingRoomConfiguration_instantBooking' - Settings to automatically book a room for a configured duration if it\'s</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- free when joining a meeting with Alexa.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'endOfMeetingReminder', 'createMeetingRoomConfiguration_endOfMeetingReminder' - Undocumented member.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'requireCheckIn', 'createMeetingRoomConfiguration_requireCheckIn' - Settings for requiring a check in when a room is reserved. Alexa can</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- cancel a room reservation if it\'s not checked into to make the room</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- available for others. Users can check in by joining the meeting with</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Alexa or an AVS device, or by saying &#8220;Alexa, check in.&#8221;</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'roomUtilizationMetricsEnabled', 'createMeetingRoomConfiguration_roomUtilizationMetricsEnabled' - Whether room utilization metrics are enabled or not.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#newCreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">newCreateMeetingRoomConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span><span>
 </span><span id="line-68"></span><span id="newCreateMeetingRoomConfiguration"><span class="annot"><span class="annottext">newCreateMeetingRoomConfiguration :: CreateMeetingRoomConfiguration
 </span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#newCreateMeetingRoomConfiguration"><span class="hs-identifier hs-var hs-var">newCreateMeetingRoomConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration' :: Maybe Bool
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration' :: Maybe CreateInstantBooking
 -&gt; Maybe CreateEndOfMeetingReminder
--&gt; Maybe CreateInstantBooking
 -&gt; Maybe CreateRequireCheckIn
+-&gt; Maybe Bool
 -&gt; CreateMeetingRoomConfiguration
 </span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roomUtilizationMetricsEnabled:CreateMeetingRoomConfiguration' :: Maybe Bool
-</span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3AroomUtilizationMetricsEnabled%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var">roomUtilizationMetricsEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instantBooking:CreateMeetingRoomConfiguration' :: Maybe CreateInstantBooking
+</span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3AinstantBooking%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var">instantBooking</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe CreateInstantBooking
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:endOfMeetingReminder:CreateMeetingRoomConfiguration' :: Maybe CreateEndOfMeetingReminder
 </span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3AendOfMeetingReminder%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var">endOfMeetingReminder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CreateEndOfMeetingReminder
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:instantBooking:CreateMeetingRoomConfiguration' :: Maybe CreateInstantBooking
-</span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3AinstantBooking%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var">instantBooking</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CreateInstantBooking
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:requireCheckIn:CreateMeetingRoomConfiguration' :: Maybe CreateRequireCheckIn
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:requireCheckIn:CreateMeetingRoomConfiguration' :: Maybe CreateRequireCheckIn
 </span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3ArequireCheckIn%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var">requireCheckIn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CreateRequireCheckIn
 forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:roomUtilizationMetricsEnabled:CreateMeetingRoomConfiguration' :: Maybe Bool
+</span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3AroomUtilizationMetricsEnabled%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var">roomUtilizationMetricsEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | Whether room utilization metrics are enabled or not.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#createMeetingRoomConfiguration_roomUtilizationMetricsEnabled"><span class="hs-identifier hs-type">createMeetingRoomConfiguration_roomUtilizationMetricsEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="createMeetingRoomConfiguration_roomUtilizationMetricsEnabled"><span class="annot"><span class="annottext">createMeetingRoomConfiguration_roomUtilizationMetricsEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | Settings to automatically book a room for a configured duration if it\'s</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- free when joining a meeting with Alexa.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#createMeetingRoomConfiguration_instantBooking"><span class="hs-identifier hs-type">createMeetingRoomConfiguration_instantBooking</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateInstantBooking.html#CreateInstantBooking"><span class="hs-identifier hs-type">CreateInstantBooking</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="createMeetingRoomConfiguration_instantBooking"><span class="annot"><span class="annottext">createMeetingRoomConfiguration_instantBooking :: (Maybe CreateInstantBooking -&gt; f (Maybe CreateInstantBooking))
 -&gt; CreateMeetingRoomConfiguration
 -&gt; f CreateMeetingRoomConfiguration
-</span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#createMeetingRoomConfiguration_roomUtilizationMetricsEnabled"><span class="hs-identifier hs-var hs-var">createMeetingRoomConfiguration_roomUtilizationMetricsEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMeetingRoomConfiguration -&gt; Maybe Bool)
+</span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#createMeetingRoomConfiguration_instantBooking"><span class="hs-identifier hs-var hs-var">createMeetingRoomConfiguration_instantBooking</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMeetingRoomConfiguration -&gt; Maybe CreateInstantBooking)
 -&gt; (CreateMeetingRoomConfiguration
-    -&gt; Maybe Bool -&gt; CreateMeetingRoomConfiguration)
+    -&gt; Maybe CreateInstantBooking -&gt; CreateMeetingRoomConfiguration)
 -&gt; Lens
      CreateMeetingRoomConfiguration
      CreateMeetingRoomConfiguration
-     (Maybe Bool)
-     (Maybe Bool)
+     (Maybe CreateInstantBooking)
+     (Maybe CreateInstantBooking)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367032"><span class="annot"><span class="annottext">Maybe Bool
-roomUtilizationMetricsEnabled :: Maybe Bool
-$sel:roomUtilizationMetricsEnabled:CreateMeetingRoomConfiguration' :: CreateMeetingRoomConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679367032"><span class="hs-identifier hs-var hs-var">roomUtilizationMetricsEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679367032"><span class="hs-identifier hs-var">roomUtilizationMetricsEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367031"><span class="annot"><span class="annottext">s :: CreateMeetingRoomConfiguration
-</span><a href="#local-6989586621679367031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367030"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679367030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration
-</span><a href="#local-6989586621679367031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomUtilizationMetricsEnabled:CreateMeetingRoomConfiguration' :: Maybe Bool
-</span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3AroomUtilizationMetricsEnabled%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var">roomUtilizationMetricsEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679367030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#createMeetingRoomConfiguration_endOfMeetingReminder"><span class="hs-identifier hs-type">createMeetingRoomConfiguration_endOfMeetingReminder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateEndOfMeetingReminder.html#CreateEndOfMeetingReminder"><span class="hs-identifier hs-type">CreateEndOfMeetingReminder</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="createMeetingRoomConfiguration_endOfMeetingReminder"><span class="annot"><span class="annottext">createMeetingRoomConfiguration_endOfMeetingReminder :: (Maybe CreateEndOfMeetingReminder
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367346"><span class="annot"><span class="annottext">Maybe CreateInstantBooking
+instantBooking :: Maybe CreateInstantBooking
+$sel:instantBooking:CreateMeetingRoomConfiguration' :: CreateMeetingRoomConfiguration -&gt; Maybe CreateInstantBooking
+</span><a href="#local-6989586621679367346"><span class="hs-identifier hs-var hs-var">instantBooking</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CreateInstantBooking
+</span><a href="#local-6989586621679367346"><span class="hs-identifier hs-var">instantBooking</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367345"><span class="annot"><span class="annottext">s :: CreateMeetingRoomConfiguration
+</span><a href="#local-6989586621679367345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367344"><span class="annot"><span class="annottext">Maybe CreateInstantBooking
+</span><a href="#local-6989586621679367344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration
+</span><a href="#local-6989586621679367345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instantBooking:CreateMeetingRoomConfiguration' :: Maybe CreateInstantBooking
+</span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3AinstantBooking%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var">instantBooking</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CreateInstantBooking
+</span><a href="#local-6989586621679367344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#createMeetingRoomConfiguration_endOfMeetingReminder"><span class="hs-identifier hs-type">createMeetingRoomConfiguration_endOfMeetingReminder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateEndOfMeetingReminder.html#CreateEndOfMeetingReminder"><span class="hs-identifier hs-type">CreateEndOfMeetingReminder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="createMeetingRoomConfiguration_endOfMeetingReminder"><span class="annot"><span class="annottext">createMeetingRoomConfiguration_endOfMeetingReminder :: (Maybe CreateEndOfMeetingReminder
  -&gt; f (Maybe CreateEndOfMeetingReminder))
 -&gt; CreateMeetingRoomConfiguration
 -&gt; f CreateMeetingRoomConfiguration
@@ -210,49 +212,23 @@ $sel:roomUtilizationMetricsEnabled:CreateMeetingRoomConfiguration' :: CreateMeet
      (Maybe CreateEndOfMeetingReminder)
      (Maybe CreateEndOfMeetingReminder)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367028"><span class="annot"><span class="annottext">Maybe CreateEndOfMeetingReminder
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367342"><span class="annot"><span class="annottext">Maybe CreateEndOfMeetingReminder
 endOfMeetingReminder :: Maybe CreateEndOfMeetingReminder
 $sel:endOfMeetingReminder:CreateMeetingRoomConfiguration' :: CreateMeetingRoomConfiguration -&gt; Maybe CreateEndOfMeetingReminder
-</span><a href="#local-6989586621679367028"><span class="hs-identifier hs-var hs-var">endOfMeetingReminder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CreateEndOfMeetingReminder
-</span><a href="#local-6989586621679367028"><span class="hs-identifier hs-var">endOfMeetingReminder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367027"><span class="annot"><span class="annottext">s :: CreateMeetingRoomConfiguration
-</span><a href="#local-6989586621679367027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367026"><span class="annot"><span class="annottext">Maybe CreateEndOfMeetingReminder
-</span><a href="#local-6989586621679367026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration
-</span><a href="#local-6989586621679367027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endOfMeetingReminder:CreateMeetingRoomConfiguration' :: Maybe CreateEndOfMeetingReminder
+</span><a href="#local-6989586621679367342"><span class="hs-identifier hs-var hs-var">endOfMeetingReminder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CreateEndOfMeetingReminder
+</span><a href="#local-6989586621679367342"><span class="hs-identifier hs-var">endOfMeetingReminder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367341"><span class="annot"><span class="annottext">s :: CreateMeetingRoomConfiguration
+</span><a href="#local-6989586621679367341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367340"><span class="annot"><span class="annottext">Maybe CreateEndOfMeetingReminder
+</span><a href="#local-6989586621679367340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration
+</span><a href="#local-6989586621679367341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endOfMeetingReminder:CreateMeetingRoomConfiguration' :: Maybe CreateEndOfMeetingReminder
 </span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3AendOfMeetingReminder%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var">endOfMeetingReminder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CreateEndOfMeetingReminder
-</span><a href="#local-6989586621679367026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | Settings to automatically book a room for a configured duration if it\'s</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- free when joining a meeting with Alexa.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#createMeetingRoomConfiguration_instantBooking"><span class="hs-identifier hs-type">createMeetingRoomConfiguration_instantBooking</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateInstantBooking.html#CreateInstantBooking"><span class="hs-identifier hs-type">CreateInstantBooking</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="createMeetingRoomConfiguration_instantBooking"><span class="annot"><span class="annottext">createMeetingRoomConfiguration_instantBooking :: (Maybe CreateInstantBooking -&gt; f (Maybe CreateInstantBooking))
--&gt; CreateMeetingRoomConfiguration
--&gt; f CreateMeetingRoomConfiguration
-</span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#createMeetingRoomConfiguration_instantBooking"><span class="hs-identifier hs-var hs-var">createMeetingRoomConfiguration_instantBooking</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMeetingRoomConfiguration -&gt; Maybe CreateInstantBooking)
--&gt; (CreateMeetingRoomConfiguration
-    -&gt; Maybe CreateInstantBooking -&gt; CreateMeetingRoomConfiguration)
--&gt; Lens
-     CreateMeetingRoomConfiguration
-     CreateMeetingRoomConfiguration
-     (Maybe CreateInstantBooking)
-     (Maybe CreateInstantBooking)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367024"><span class="annot"><span class="annottext">Maybe CreateInstantBooking
-instantBooking :: Maybe CreateInstantBooking
-$sel:instantBooking:CreateMeetingRoomConfiguration' :: CreateMeetingRoomConfiguration -&gt; Maybe CreateInstantBooking
-</span><a href="#local-6989586621679367024"><span class="hs-identifier hs-var hs-var">instantBooking</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CreateInstantBooking
-</span><a href="#local-6989586621679367024"><span class="hs-identifier hs-var">instantBooking</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367023"><span class="annot"><span class="annottext">s :: CreateMeetingRoomConfiguration
-</span><a href="#local-6989586621679367023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367022"><span class="annot"><span class="annottext">Maybe CreateInstantBooking
-</span><a href="#local-6989586621679367022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration
-</span><a href="#local-6989586621679367023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instantBooking:CreateMeetingRoomConfiguration' :: Maybe CreateInstantBooking
-</span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3AinstantBooking%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var">instantBooking</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CreateInstantBooking
-</span><a href="#local-6989586621679367022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | Settings for requiring a check in when a room is reserved. Alexa can</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- cancel a room reservation if it\'s not checked into to make the room</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- available for others. Users can check in by joining the meeting with</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- Alexa or an AVS device, or by saying &#8220;Alexa, check in.&#8221;</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#createMeetingRoomConfiguration_requireCheckIn"><span class="hs-identifier hs-type">createMeetingRoomConfiguration_requireCheckIn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateRequireCheckIn.html#CreateRequireCheckIn"><span class="hs-identifier hs-type">CreateRequireCheckIn</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="createMeetingRoomConfiguration_requireCheckIn"><span class="annot"><span class="annottext">createMeetingRoomConfiguration_requireCheckIn :: (Maybe CreateRequireCheckIn -&gt; f (Maybe CreateRequireCheckIn))
+</span><a href="#local-6989586621679367340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Settings for requiring a check in when a room is reserved. Alexa can</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- cancel a room reservation if it\'s not checked into to make the room</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- available for others. Users can check in by joining the meeting with</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Alexa or an AVS device, or by saying &#8220;Alexa, check in.&#8221;</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#createMeetingRoomConfiguration_requireCheckIn"><span class="hs-identifier hs-type">createMeetingRoomConfiguration_requireCheckIn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateRequireCheckIn.html#CreateRequireCheckIn"><span class="hs-identifier hs-type">CreateRequireCheckIn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="createMeetingRoomConfiguration_requireCheckIn"><span class="annot"><span class="annottext">createMeetingRoomConfiguration_requireCheckIn :: (Maybe CreateRequireCheckIn -&gt; f (Maybe CreateRequireCheckIn))
 -&gt; CreateMeetingRoomConfiguration
 -&gt; f CreateMeetingRoomConfiguration
 </span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#createMeetingRoomConfiguration_requireCheckIn"><span class="hs-identifier hs-var hs-var">createMeetingRoomConfiguration_requireCheckIn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMeetingRoomConfiguration -&gt; Maybe CreateRequireCheckIn)
@@ -264,80 +240,105 @@ $sel:instantBooking:CreateMeetingRoomConfiguration' :: CreateMeetingRoomConfigur
      (Maybe CreateRequireCheckIn)
      (Maybe CreateRequireCheckIn)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367020"><span class="annot"><span class="annottext">Maybe CreateRequireCheckIn
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367338"><span class="annot"><span class="annottext">Maybe CreateRequireCheckIn
 requireCheckIn :: Maybe CreateRequireCheckIn
 $sel:requireCheckIn:CreateMeetingRoomConfiguration' :: CreateMeetingRoomConfiguration -&gt; Maybe CreateRequireCheckIn
-</span><a href="#local-6989586621679367020"><span class="hs-identifier hs-var hs-var">requireCheckIn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CreateRequireCheckIn
-</span><a href="#local-6989586621679367020"><span class="hs-identifier hs-var">requireCheckIn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367019"><span class="annot"><span class="annottext">s :: CreateMeetingRoomConfiguration
-</span><a href="#local-6989586621679367019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367018"><span class="annot"><span class="annottext">Maybe CreateRequireCheckIn
-</span><a href="#local-6989586621679367018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration
-</span><a href="#local-6989586621679367019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requireCheckIn:CreateMeetingRoomConfiguration' :: Maybe CreateRequireCheckIn
+</span><a href="#local-6989586621679367338"><span class="hs-identifier hs-var hs-var">requireCheckIn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CreateRequireCheckIn
+</span><a href="#local-6989586621679367338"><span class="hs-identifier hs-var">requireCheckIn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367337"><span class="annot"><span class="annottext">s :: CreateMeetingRoomConfiguration
+</span><a href="#local-6989586621679367337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367336"><span class="annot"><span class="annottext">Maybe CreateRequireCheckIn
+</span><a href="#local-6989586621679367336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration
+</span><a href="#local-6989586621679367337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requireCheckIn:CreateMeetingRoomConfiguration' :: Maybe CreateRequireCheckIn
 </span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3ArequireCheckIn%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var">requireCheckIn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CreateRequireCheckIn
-</span><a href="#local-6989586621679367018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679367014"><span id="local-6989586621679367016"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
-</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span></span></span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679367011"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span></span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367003"><span id="local-6989586621679367005"><span id="local-6989586621679367007"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679367001"><span class="annot"><span class="annottext">toJSON :: CreateMeetingRoomConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366996"><span id="local-6989586621679366997"><span id="local-6989586621679366998"><span id="local-6989586621679366999"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679367336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Whether room utilization metrics are enabled or not.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#createMeetingRoomConfiguration_roomUtilizationMetricsEnabled"><span class="hs-identifier hs-type">createMeetingRoomConfiguration_roomUtilizationMetricsEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="createMeetingRoomConfiguration_roomUtilizationMetricsEnabled"><span class="annot"><span class="annottext">createMeetingRoomConfiguration_roomUtilizationMetricsEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateMeetingRoomConfiguration
+-&gt; f CreateMeetingRoomConfiguration
+</span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#createMeetingRoomConfiguration_roomUtilizationMetricsEnabled"><span class="hs-identifier hs-var hs-var">createMeetingRoomConfiguration_roomUtilizationMetricsEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMeetingRoomConfiguration -&gt; Maybe Bool)
+-&gt; (CreateMeetingRoomConfiguration
+    -&gt; Maybe Bool -&gt; CreateMeetingRoomConfiguration)
+-&gt; Lens
+     CreateMeetingRoomConfiguration
+     CreateMeetingRoomConfiguration
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367334"><span class="annot"><span class="annottext">Maybe Bool
+roomUtilizationMetricsEnabled :: Maybe Bool
+$sel:roomUtilizationMetricsEnabled:CreateMeetingRoomConfiguration' :: CreateMeetingRoomConfiguration -&gt; Maybe Bool
+</span><a href="#local-6989586621679367334"><span class="hs-identifier hs-var hs-var">roomUtilizationMetricsEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679367334"><span class="hs-identifier hs-var">roomUtilizationMetricsEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367333"><span class="annot"><span class="annottext">s :: CreateMeetingRoomConfiguration
+</span><a href="#local-6989586621679367333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367332"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679367332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMeetingRoomConfiguration
+</span><a href="#local-6989586621679367333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomUtilizationMetricsEnabled:CreateMeetingRoomConfiguration' :: Maybe Bool
+</span><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#%24sel%3AroomUtilizationMetricsEnabled%3ACreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-var">roomUtilizationMetricsEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679367332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679367328"><span id="local-6989586621679367330"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679367325"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367317"><span id="local-6989586621679367319"><span id="local-6989586621679367321"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679367315"><span class="annot"><span class="annottext">toJSON :: CreateMeetingRoomConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration.html#CreateMeetingRoomConfiguration%27"><span class="hs-identifier hs-type">CreateMeetingRoomConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367310"><span id="local-6989586621679367311"><span id="local-6989586621679367312"><span id="local-6989586621679367313"><span class="annot"><span class="annottext">Maybe Bool
 Maybe CreateInstantBooking
 Maybe CreateRequireCheckIn
 Maybe CreateEndOfMeetingReminder
-requireCheckIn :: Maybe CreateRequireCheckIn
-instantBooking :: Maybe CreateInstantBooking
-endOfMeetingReminder :: Maybe CreateEndOfMeetingReminder
 roomUtilizationMetricsEnabled :: Maybe Bool
-$sel:requireCheckIn:CreateMeetingRoomConfiguration' :: CreateMeetingRoomConfiguration -&gt; Maybe CreateRequireCheckIn
-$sel:instantBooking:CreateMeetingRoomConfiguration' :: CreateMeetingRoomConfiguration -&gt; Maybe CreateInstantBooking
-$sel:endOfMeetingReminder:CreateMeetingRoomConfiguration' :: CreateMeetingRoomConfiguration -&gt; Maybe CreateEndOfMeetingReminder
+requireCheckIn :: Maybe CreateRequireCheckIn
+endOfMeetingReminder :: Maybe CreateEndOfMeetingReminder
+instantBooking :: Maybe CreateInstantBooking
 $sel:roomUtilizationMetricsEnabled:CreateMeetingRoomConfiguration' :: CreateMeetingRoomConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679366996"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:requireCheckIn:CreateMeetingRoomConfiguration' :: CreateMeetingRoomConfiguration -&gt; Maybe CreateRequireCheckIn
+$sel:endOfMeetingReminder:CreateMeetingRoomConfiguration' :: CreateMeetingRoomConfiguration -&gt; Maybe CreateEndOfMeetingReminder
+$sel:instantBooking:CreateMeetingRoomConfiguration' :: CreateMeetingRoomConfiguration -&gt; Maybe CreateInstantBooking
+</span><a href="#local-6989586621679367310"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RoomUtilizationMetricsEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679366999"><span class="hs-identifier hs-var">roomUtilizationMetricsEnabled</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EndOfMeetingReminder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CreateEndOfMeetingReminder -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">(CreateEndOfMeetingReminder -&gt; Pair)
--&gt; Maybe CreateEndOfMeetingReminder -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CreateEndOfMeetingReminder
-</span><a href="#local-6989586621679366998"><span class="hs-identifier hs-var">endOfMeetingReminder</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstantBooking&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CreateInstantBooking -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">(CreateInstantBooking -&gt; Pair)
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">(CreateInstantBooking -&gt; Pair)
 -&gt; Maybe CreateInstantBooking -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CreateInstantBooking
-</span><a href="#local-6989586621679366997"><span class="hs-identifier hs-var">instantBooking</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367313"><span class="hs-identifier hs-var">instantBooking</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndOfMeetingReminder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CreateEndOfMeetingReminder -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(CreateEndOfMeetingReminder -&gt; Pair)
+-&gt; Maybe CreateEndOfMeetingReminder -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CreateEndOfMeetingReminder
+</span><a href="#local-6989586621679367312"><span class="hs-identifier hs-var">endOfMeetingReminder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RequireCheckIn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CreateRequireCheckIn -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">(CreateRequireCheckIn -&gt; Pair)
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">(CreateRequireCheckIn -&gt; Pair)
 -&gt; Maybe CreateRequireCheckIn -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CreateRequireCheckIn
-</span><a href="#local-6989586621679366996"><span class="hs-identifier hs-var">requireCheckIn</span></a></span><span>
-</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span></pre></body></html>
+</span><a href="#local-6989586621679367311"><span class="hs-identifier hs-var">requireCheckIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoomUtilizationMetricsEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679367310"><span class="hs-identifier hs-var">roomUtilizationMetricsEnabled</span></a></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span></pre></body></html>

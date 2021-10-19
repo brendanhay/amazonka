@@ -33,8 +33,8 @@
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#newModifyInstanceCreditSpecification"><span class="hs-identifier">newModifyInstanceCreditSpecification</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecification_dryRun"><span class="hs-identifier">modifyInstanceCreditSpecification_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecification_clientToken"><span class="hs-identifier">modifyInstanceCreditSpecification_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecification_clientToken"><span class="hs-identifier">modifyInstanceCreditSpecification_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecification_dryRun"><span class="hs-identifier">modifyInstanceCreditSpecification_dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecification_instanceCreditSpecifications"><span class="hs-identifier">modifyInstanceCreditSpecification_instanceCreditSpecifications</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -42,8 +42,8 @@
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#newModifyInstanceCreditSpecificationResponse"><span class="hs-identifier">newModifyInstanceCreditSpecificationResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications"><span class="hs-identifier">modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications"><span class="hs-identifier">modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications"><span class="hs-identifier">modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications"><span class="hs-identifier">modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecificationResponse_httpStatus"><span class="hs-identifier">modifyInstanceCreditSpecificationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span class="hs-keyword">where</span><span>
@@ -56,24 +56,24 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newModifyInstanceCreditSpecification' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621681184487"><span id="local-6989586621681184488"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyInstanceCreditSpecification"><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-var">ModifyInstanceCreditSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyInstanceCreditSpecification%27"><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-var">ModifyInstanceCreditSpecification'</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AdryRun%3AModifyInstanceCreditSpecification%27"><span class="annot"><span class="annottext">ModifyInstanceCreditSpecification -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AdryRun%3AModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | A unique, case-sensitive token that you provide to ensure idempotency of</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- your modification request. For more information, see</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency&gt;.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AclientToken%3AModifyInstanceCreditSpecification%27"><span class="annot"><span class="annottext">ModifyInstanceCreditSpecification -&gt; Maybe Text
+</span><span id="line-59"></span><span id="local-6989586621681219882"><span id="local-6989586621681219883"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyInstanceCreditSpecification"><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-var">ModifyInstanceCreditSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyInstanceCreditSpecification%27"><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-var">ModifyInstanceCreditSpecification'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique, case-sensitive token that you provide to ensure idempotency of</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- your modification request. For more information, see</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency&gt;.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AclientToken%3AModifyInstanceCreditSpecification%27"><span class="annot"><span class="annottext">ModifyInstanceCreditSpecification -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AclientToken%3AModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AdryRun%3AModifyInstanceCreditSpecification%27"><span class="annot"><span class="annottext">ModifyInstanceCreditSpecification -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AdryRun%3AModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Information about the credit option for CPU usage.</span><span>
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AinstanceCreditSpecifications%3AModifyInstanceCreditSpecification%27"><span class="annot"><span class="annottext">ModifyInstanceCreditSpecification
 -&gt; [InstanceCreditSpecificationRequest]
 </span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AinstanceCreditSpecifications%3AModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-var hs-var">instanceCreditSpecifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCreditSpecificationRequest.html#InstanceCreditSpecificationRequest"><span class="hs-identifier hs-type">InstanceCreditSpecificationRequest</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681184479"><span id="local-6989586621681184481"><span class="annot"><span class="annottext">ModifyInstanceCreditSpecification
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681219874"><span id="local-6989586621681219876"><span class="annot"><span class="annottext">ModifyInstanceCreditSpecification
 -&gt; ModifyInstanceCreditSpecification -&gt; Bool
 (ModifyInstanceCreditSpecification
  -&gt; ModifyInstanceCreditSpecification -&gt; Bool)
@@ -89,7 +89,7 @@ $c/= :: ModifyInstanceCreditSpecification
 -&gt; ModifyInstanceCreditSpecification -&gt; Bool
 $c== :: ModifyInstanceCreditSpecification
 -&gt; ModifyInstanceCreditSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681184470"><span id="local-6989586621681184472"><span id="local-6989586621681184474"><span id="local-6989586621681184476"><span class="annot"><span class="annottext">ReadPrec [ModifyInstanceCreditSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681219865"><span id="local-6989586621681219867"><span id="local-6989586621681219869"><span id="local-6989586621681219871"><span class="annot"><span class="annottext">ReadPrec [ModifyInstanceCreditSpecification]
 ReadPrec ModifyInstanceCreditSpecification
 Int -&gt; ReadS ModifyInstanceCreditSpecification
 ReadS [ModifyInstanceCreditSpecification]
@@ -109,7 +109,7 @@ readList :: ReadS [ModifyInstanceCreditSpecification]
 $creadList :: ReadS [ModifyInstanceCreditSpecification]
 readsPrec :: Int -&gt; ReadS ModifyInstanceCreditSpecification
 $creadsPrec :: Int -&gt; ReadS ModifyInstanceCreditSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681184463"><span id="local-6989586621681184465"><span id="local-6989586621681184467"><span class="annot"><span class="annottext">Int -&gt; ModifyInstanceCreditSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681219858"><span id="local-6989586621681219860"><span id="local-6989586621681219862"><span class="annot"><span class="annottext">Int -&gt; ModifyInstanceCreditSpecification -&gt; ShowS
 [ModifyInstanceCreditSpecification] -&gt; ShowS
 ModifyInstanceCreditSpecification -&gt; String
 (Int -&gt; ModifyInstanceCreditSpecification -&gt; ShowS)
@@ -155,32 +155,32 @@ ModifyInstanceCreditSpecification
 </span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'dryRun', 'modifyInstanceCreditSpecification_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'clientToken', 'modifyInstanceCreditSpecification_clientToken' - A unique, case-sensitive token that you provide to ensure idempotency of</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- your modification request. For more information, see</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency&gt;.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'clientToken', 'modifyInstanceCreditSpecification_clientToken' - A unique, case-sensitive token that you provide to ensure idempotency of</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- your modification request. For more information, see</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency&gt;.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'dryRun', 'modifyInstanceCreditSpecification_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- 'instanceCreditSpecifications', 'modifyInstanceCreditSpecification_instanceCreditSpecifications' - Information about the credit option for CPU usage.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#newModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">newModifyInstanceCreditSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification</span></a></span><span>
 </span><span id="line-94"></span><span id="newModifyInstanceCreditSpecification"><span class="annot"><span class="annottext">newModifyInstanceCreditSpecification :: ModifyInstanceCreditSpecification
 </span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#newModifyInstanceCreditSpecification"><span class="hs-identifier hs-var hs-var">newModifyInstanceCreditSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">ModifyInstanceCreditSpecification' :: Maybe Bool
--&gt; Maybe Text
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">ModifyInstanceCreditSpecification' :: Maybe Text
+-&gt; Maybe Bool
 -&gt; [InstanceCreditSpecificationRequest]
 -&gt; ModifyInstanceCreditSpecification
 </span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification'</span></a></span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:ModifyInstanceCreditSpecification' :: Maybe Bool
-</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AdryRun%3AModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:ModifyInstanceCreditSpecification' :: Maybe Text
+</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AclientToken%3AModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientToken:ModifyInstanceCreditSpecification' :: Maybe Text
-</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AclientToken%3AModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:ModifyInstanceCreditSpecification' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AdryRun%3AModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceCreditSpecifications:ModifyInstanceCreditSpecification' :: [InstanceCreditSpecificationRequest]
@@ -190,39 +190,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecification_dryRun"><span class="hs-identifier hs-type">modifyInstanceCreditSpecification_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="modifyInstanceCreditSpecification_dryRun"><span class="annot"><span class="annottext">modifyInstanceCreditSpecification_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ModifyInstanceCreditSpecification
--&gt; f ModifyInstanceCreditSpecification
-</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecification_dryRun"><span class="hs-identifier hs-var hs-var">modifyInstanceCreditSpecification_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyInstanceCreditSpecification -&gt; Maybe Bool)
--&gt; (ModifyInstanceCreditSpecification
-    -&gt; Maybe Bool -&gt; ModifyInstanceCreditSpecification)
--&gt; Lens
-     ModifyInstanceCreditSpecification
-     ModifyInstanceCreditSpecification
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681184456"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:ModifyInstanceCreditSpecification' :: ModifyInstanceCreditSpecification -&gt; Maybe Bool
-</span><a href="#local-6989586621681184456"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681184456"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681184455"><span class="annot"><span class="annottext">s :: ModifyInstanceCreditSpecification
-</span><a href="#local-6989586621681184455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681184454"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681184454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyInstanceCreditSpecification
-</span><a href="#local-6989586621681184455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ModifyInstanceCreditSpecification' :: Maybe Bool
-</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AdryRun%3AModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681184454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | A unique, case-sensitive token that you provide to ensure idempotency of</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- your modification request. For more information, see</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency&gt;.</span><span>
-</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecification_clientToken"><span class="hs-identifier hs-type">modifyInstanceCreditSpecification_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span id="modifyInstanceCreditSpecification_clientToken"><span class="annot"><span class="annottext">modifyInstanceCreditSpecification_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-103"></span><span class="hs-comment">-- | A unique, case-sensitive token that you provide to ensure idempotency of</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- your modification request. For more information, see</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency&gt;.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecification_clientToken"><span class="hs-identifier hs-type">modifyInstanceCreditSpecification_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="modifyInstanceCreditSpecification_clientToken"><span class="annot"><span class="annottext">modifyInstanceCreditSpecification_clientToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ModifyInstanceCreditSpecification
 -&gt; f ModifyInstanceCreditSpecification
 </span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecification_clientToken"><span class="hs-identifier hs-var hs-var">modifyInstanceCreditSpecification_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyInstanceCreditSpecification -&gt; Maybe Text)
@@ -234,16 +206,44 @@ $sel:dryRun:ModifyInstanceCreditSpecification' :: ModifyInstanceCreditSpecificat
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681184453"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681219851"><span class="annot"><span class="annottext">Maybe Text
 clientToken :: Maybe Text
 $sel:clientToken:ModifyInstanceCreditSpecification' :: ModifyInstanceCreditSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621681184453"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681184453"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681184452"><span class="annot"><span class="annottext">s :: ModifyInstanceCreditSpecification
-</span><a href="#local-6989586621681184452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681184451"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681184451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyInstanceCreditSpecification
-</span><a href="#local-6989586621681184452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:ModifyInstanceCreditSpecification' :: Maybe Text
+</span><a href="#local-6989586621681219851"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681219851"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681219850"><span class="annot"><span class="annottext">s :: ModifyInstanceCreditSpecification
+</span><a href="#local-6989586621681219850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681219849"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681219849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyInstanceCreditSpecification
+</span><a href="#local-6989586621681219850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:ModifyInstanceCreditSpecification' :: Maybe Text
 </span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AclientToken%3AModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681184451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681219849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecification_dryRun"><span class="hs-identifier hs-type">modifyInstanceCreditSpecification_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="modifyInstanceCreditSpecification_dryRun"><span class="annot"><span class="annottext">modifyInstanceCreditSpecification_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ModifyInstanceCreditSpecification
+-&gt; f ModifyInstanceCreditSpecification
+</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecification_dryRun"><span class="hs-identifier hs-var hs-var">modifyInstanceCreditSpecification_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyInstanceCreditSpecification -&gt; Maybe Bool)
+-&gt; (ModifyInstanceCreditSpecification
+    -&gt; Maybe Bool -&gt; ModifyInstanceCreditSpecification)
+-&gt; Lens
+     ModifyInstanceCreditSpecification
+     ModifyInstanceCreditSpecification
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681219848"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:ModifyInstanceCreditSpecification' :: ModifyInstanceCreditSpecification -&gt; Maybe Bool
+</span><a href="#local-6989586621681219848"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681219848"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681219847"><span class="annot"><span class="annottext">s :: ModifyInstanceCreditSpecification
+</span><a href="#local-6989586621681219847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681219846"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681219846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyInstanceCreditSpecification
+</span><a href="#local-6989586621681219847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ModifyInstanceCreditSpecification' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AdryRun%3AModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681219846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | Information about the credit option for CPU usage.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecification_instanceCreditSpecifications"><span class="hs-identifier hs-type">modifyInstanceCreditSpecification_instanceCreditSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCreditSpecificationRequest.html#InstanceCreditSpecificationRequest"><span class="hs-identifier hs-type">InstanceCreditSpecificationRequest</span></a></span><span class="hs-special">]</span><span>
@@ -262,17 +262,17 @@ $sel:clientToken:ModifyInstanceCreditSpecification' :: ModifyInstanceCreditSpeci
      [InstanceCreditSpecificationRequest]
      [InstanceCreditSpecificationRequest]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681184450"><span class="annot"><span class="annottext">[InstanceCreditSpecificationRequest]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681219845"><span class="annot"><span class="annottext">[InstanceCreditSpecificationRequest]
 instanceCreditSpecifications :: [InstanceCreditSpecificationRequest]
 $sel:instanceCreditSpecifications:ModifyInstanceCreditSpecification' :: ModifyInstanceCreditSpecification
 -&gt; [InstanceCreditSpecificationRequest]
-</span><a href="#local-6989586621681184450"><span class="hs-identifier hs-var hs-var">instanceCreditSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[InstanceCreditSpecificationRequest]
-</span><a href="#local-6989586621681184450"><span class="hs-identifier hs-var">instanceCreditSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681184449"><span class="annot"><span class="annottext">s :: ModifyInstanceCreditSpecification
-</span><a href="#local-6989586621681184449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681184448"><span class="annot"><span class="annottext">[InstanceCreditSpecificationRequest]
-</span><a href="#local-6989586621681184448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyInstanceCreditSpecification
-</span><a href="#local-6989586621681184449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCreditSpecifications:ModifyInstanceCreditSpecification' :: [InstanceCreditSpecificationRequest]
+</span><a href="#local-6989586621681219845"><span class="hs-identifier hs-var hs-var">instanceCreditSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[InstanceCreditSpecificationRequest]
+</span><a href="#local-6989586621681219845"><span class="hs-identifier hs-var">instanceCreditSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681219844"><span class="annot"><span class="annottext">s :: ModifyInstanceCreditSpecification
+</span><a href="#local-6989586621681219844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681219843"><span class="annot"><span class="annottext">[InstanceCreditSpecificationRequest]
+</span><a href="#local-6989586621681219843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyInstanceCreditSpecification
+</span><a href="#local-6989586621681219844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCreditSpecifications:ModifyInstanceCreditSpecification' :: [InstanceCreditSpecificationRequest]
 </span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AinstanceCreditSpecifications%3AModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-var">instanceCreditSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[InstanceCreditSpecificationRequest]
-</span><a href="#local-6989586621681184448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([InstanceCreditSpecificationRequest]
+</span><a href="#local-6989586621681219843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([InstanceCreditSpecificationRequest]
   -&gt; f [InstanceCreditSpecificationRequest])
  -&gt; ModifyInstanceCreditSpecification
  -&gt; f ModifyInstanceCreditSpecification)
@@ -289,8 +289,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
  -&gt; f [InstanceCreditSpecificationRequest])
 -&gt; [InstanceCreditSpecificationRequest]
 -&gt; f [InstanceCreditSpecificationRequest]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -299,7 +299,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 </span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621681184442"><span class="annot"><span class="annottext">request :: ModifyInstanceCreditSpecification
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621681219837"><span class="annot"><span class="annottext">request :: ModifyInstanceCreditSpecification
 -&gt; Request ModifyInstanceCreditSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ModifyInstanceCreditSpecification
@@ -307,7 +307,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621681184438"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621681219833"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyInstanceCreditSpecification
 -&gt; ClientResponse ClientBody
@@ -335,79 +335,38 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681184435"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681184435"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681184434"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681184434"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681184433"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681184433"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SuccessfulInstanceCreditSpecificationItem]
--&gt; Maybe [UnsuccessfulInstanceCreditSpecificationItem]
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681219830"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681219830"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681219829"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681219829"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681219828"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681219828"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulInstanceCreditSpecificationItem]
+-&gt; Maybe [SuccessfulInstanceCreditSpecificationItem]
 -&gt; Int
 -&gt; ModifyInstanceCreditSpecificationResponse
 </span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-var">ModifyInstanceCreditSpecificationResponse'</span></a></span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [SuccessfulInstanceCreditSpecificationItem]
- -&gt; Maybe [UnsuccessfulInstanceCreditSpecificationItem]
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [UnsuccessfulInstanceCreditSpecificationItem]
+ -&gt; Maybe [SuccessfulInstanceCreditSpecificationItem]
  -&gt; Int
  -&gt; ModifyInstanceCreditSpecificationResponse)
 -&gt; Either
-     String (Maybe [SuccessfulInstanceCreditSpecificationItem])
+     String (Maybe [UnsuccessfulInstanceCreditSpecificationItem])
 -&gt; Either
      String
-     (Maybe [UnsuccessfulInstanceCreditSpecificationItem]
+     (Maybe [SuccessfulInstanceCreditSpecificationItem]
       -&gt; Int -&gt; ModifyInstanceCreditSpecificationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681184433"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><a href="#local-6989586621681219828"><span class="hs-identifier hs-var">x</span></a></span><span>
 </span><span id="line-133"></span><span>                            </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;successfulInstanceCreditSpecificationSet&quot;</span></span><span>
+</span><span class="hs-string">&quot;unsuccessfulInstanceCreditSpecificationSet&quot;</span></span><span>
 </span><span id="line-134"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
--&gt; ([Node]
-    -&gt; Either
-         String (Maybe [SuccessfulInstanceCreditSpecificationItem]))
--&gt; Either
-     String (Maybe [SuccessfulInstanceCreditSpecificationItem])
-forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
-</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node]
- -&gt; Either String [SuccessfulInstanceCreditSpecificationItem])
--&gt; [Node]
--&gt; Either
-     String (Maybe [SuccessfulInstanceCreditSpecificationItem])
-forall (f :: * -&gt; *) a b.
-Applicative f =&gt;
-([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
-</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
--&gt; [Node]
--&gt; Either String [SuccessfulInstanceCreditSpecificationItem]
-forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
-</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [UnsuccessfulInstanceCreditSpecificationItem]
-   -&gt; Int -&gt; ModifyInstanceCreditSpecificationResponse)
--&gt; Either
-     String (Maybe [UnsuccessfulInstanceCreditSpecificationItem])
--&gt; Either String (Int -&gt; ModifyInstanceCreditSpecificationResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681184433"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-138"></span><span>                              </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;unsuccessfulInstanceCreditSpecificationSet&quot;</span></span><span>
-</span><span id="line-139"></span><span>                              </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
-forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
-</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-140"></span><span>                              </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node]
     -&gt; Either
          String (Maybe [UnsuccessfulInstanceCreditSpecificationItem]))
@@ -428,6 +387,47 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [SuccessfulInstanceCreditSpecificationItem]
+   -&gt; Int -&gt; ModifyInstanceCreditSpecificationResponse)
+-&gt; Either
+     String (Maybe [SuccessfulInstanceCreditSpecificationItem])
+-&gt; Either String (Int -&gt; ModifyInstanceCreditSpecificationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681219828"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-138"></span><span>                              </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;successfulInstanceCreditSpecificationSet&quot;</span></span><span>
+</span><span id="line-139"></span><span>                              </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-140"></span><span>                              </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node]
+    -&gt; Either
+         String (Maybe [SuccessfulInstanceCreditSpecificationItem]))
+-&gt; Either
+     String (Maybe [SuccessfulInstanceCreditSpecificationItem])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node]
+ -&gt; Either String [SuccessfulInstanceCreditSpecificationItem])
+-&gt; [Node]
+-&gt; Either
+     String (Maybe [SuccessfulInstanceCreditSpecificationItem])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+-&gt; [Node]
+-&gt; Either String [SuccessfulInstanceCreditSpecificationItem]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>                          </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; ModifyInstanceCreditSpecificationResponse)
 -&gt; Either String Int
@@ -438,22 +438,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681184435"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681219830"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621681184422"><span id="local-6989586621681184424"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621681219817"><span id="local-6989586621681219819"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification</span></a></span></span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621681184419"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621681219814"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification</span></a></span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification</span></a></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621681184415"><span class="annot"><span class="annottext">toHeaders :: ModifyInstanceCreditSpecification -&gt; ResponseHeaders
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621681219810"><span class="annot"><span class="annottext">toHeaders :: ModifyInstanceCreditSpecification -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; ModifyInstanceCreditSpecification -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -465,7 +465,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification</span></a></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621681184410"><span class="annot"><span class="annottext">toPath :: ModifyInstanceCreditSpecification -&gt; ByteString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621681219805"><span class="annot"><span class="annottext">toPath :: ModifyInstanceCreditSpecification -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyInstanceCreditSpecification -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -475,18 +475,18 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification</span></a></span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621681184406"><span class="annot"><span class="annottext">toQuery :: ModifyInstanceCreditSpecification -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681184402"><span id="local-6989586621681184403"><span id="local-6989586621681184404"><span class="annot"><span class="annottext">[InstanceCreditSpecificationRequest]
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621681219801"><span class="annot"><span class="annottext">toQuery :: ModifyInstanceCreditSpecification -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecification%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681219797"><span id="local-6989586621681219798"><span id="local-6989586621681219799"><span class="annot"><span class="annottext">[InstanceCreditSpecificationRequest]
 Maybe Bool
 Maybe Text
 instanceCreditSpecifications :: [InstanceCreditSpecificationRequest]
-clientToken :: Maybe Text
 dryRun :: Maybe Bool
+clientToken :: Maybe Text
 $sel:instanceCreditSpecifications:ModifyInstanceCreditSpecification' :: ModifyInstanceCreditSpecification
 -&gt; [InstanceCreditSpecificationRequest]
-$sel:clientToken:ModifyInstanceCreditSpecification' :: ModifyInstanceCreditSpecification -&gt; Maybe Text
 $sel:dryRun:ModifyInstanceCreditSpecification' :: ModifyInstanceCreditSpecification -&gt; Maybe Bool
-</span><a href="#local-6989586621681184402"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:clientToken:ModifyInstanceCreditSpecification' :: ModifyInstanceCreditSpecification -&gt; Maybe Text
+</span><a href="#local-6989586621681219797"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -505,15 +505,15 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681184404"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681184403"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681219799"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681219798"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; [InstanceCreditSpecificationRequest] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
@@ -522,26 +522,26 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;InstanceCreditSpecification&quot;</span></span><span>
 </span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">[InstanceCreditSpecificationRequest]
-</span><a href="#local-6989586621681184402"><span class="hs-identifier hs-var">instanceCreditSpecifications</span></a></span><span>
+</span><a href="#local-6989586621681219797"><span class="hs-identifier hs-var">instanceCreditSpecifications</span></a></span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | /See:/ 'newModifyInstanceCreditSpecificationResponse' smart constructor.</span><span>
-</span><span id="line-185"></span><span id="local-6989586621681184398"><span id="local-6989586621681184399"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyInstanceCreditSpecificationResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse"><span class="hs-identifier hs-var">ModifyInstanceCreditSpecificationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyInstanceCreditSpecificationResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-var">ModifyInstanceCreditSpecificationResponse'</span></a></span></span><span>
+</span><span id="line-185"></span><span id="local-6989586621681219793"><span id="local-6989586621681219794"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyInstanceCreditSpecificationResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse"><span class="hs-identifier hs-var">ModifyInstanceCreditSpecificationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyInstanceCreditSpecificationResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-var">ModifyInstanceCreditSpecificationResponse'</span></a></span></span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the instances whose credit option for CPU usage was</span><span>
-</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- successfully modified.</span><span>
-</span><span id="line-188"></span><span>    </span><span id="%24sel%3AsuccessfulInstanceCreditSpecifications%3AModifyInstanceCreditSpecificationResponse%27"><span class="annot"><span class="annottext">ModifyInstanceCreditSpecificationResponse
--&gt; Maybe [SuccessfulInstanceCreditSpecificationItem]
-</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AsuccessfulInstanceCreditSpecifications%3AModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-var hs-var">successfulInstanceCreditSpecifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.SuccessfulInstanceCreditSpecificationItem.html#SuccessfulInstanceCreditSpecificationItem"><span class="hs-identifier hs-type">SuccessfulInstanceCreditSpecificationItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | Information about the instances whose credit option for CPU usage was</span><span>
-</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- not modified.</span><span>
-</span><span id="line-191"></span><span>    </span><span id="%24sel%3AunsuccessfulInstanceCreditSpecifications%3AModifyInstanceCreditSpecificationResponse%27"><span class="annot"><span class="annottext">ModifyInstanceCreditSpecificationResponse
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- not modified.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3AunsuccessfulInstanceCreditSpecifications%3AModifyInstanceCreditSpecificationResponse%27"><span class="annot"><span class="annottext">ModifyInstanceCreditSpecificationResponse
 -&gt; Maybe [UnsuccessfulInstanceCreditSpecificationItem]
 </span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AunsuccessfulInstanceCreditSpecifications%3AModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-var hs-var">unsuccessfulInstanceCreditSpecifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem"><span class="hs-identifier hs-type">UnsuccessfulInstanceCreditSpecificationItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | Information about the instances whose credit option for CPU usage was</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- successfully modified.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AsuccessfulInstanceCreditSpecifications%3AModifyInstanceCreditSpecificationResponse%27"><span class="annot"><span class="annottext">ModifyInstanceCreditSpecificationResponse
+-&gt; Maybe [SuccessfulInstanceCreditSpecificationItem]
+</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AsuccessfulInstanceCreditSpecifications%3AModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-var hs-var">successfulInstanceCreditSpecifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.SuccessfulInstanceCreditSpecificationItem.html#SuccessfulInstanceCreditSpecificationItem"><span class="hs-identifier hs-type">SuccessfulInstanceCreditSpecificationItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-193"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyInstanceCreditSpecificationResponse%27"><span class="annot"><span class="annottext">ModifyInstanceCreditSpecificationResponse -&gt; Int
 </span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AhttpStatus%3AModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681184391"><span id="local-6989586621681184393"><span class="annot"><span class="annottext">ModifyInstanceCreditSpecificationResponse
+</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681219786"><span id="local-6989586621681219788"><span class="annot"><span class="annottext">ModifyInstanceCreditSpecificationResponse
 -&gt; ModifyInstanceCreditSpecificationResponse -&gt; Bool
 (ModifyInstanceCreditSpecificationResponse
  -&gt; ModifyInstanceCreditSpecificationResponse -&gt; Bool)
@@ -557,7 +557,7 @@ $c/= :: ModifyInstanceCreditSpecificationResponse
 -&gt; ModifyInstanceCreditSpecificationResponse -&gt; Bool
 $c== :: ModifyInstanceCreditSpecificationResponse
 -&gt; ModifyInstanceCreditSpecificationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681184383"><span id="local-6989586621681184385"><span id="local-6989586621681184387"><span id="local-6989586621681184389"><span class="annot"><span class="annottext">ReadPrec [ModifyInstanceCreditSpecificationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681219778"><span id="local-6989586621681219780"><span id="local-6989586621681219782"><span id="local-6989586621681219784"><span class="annot"><span class="annottext">ReadPrec [ModifyInstanceCreditSpecificationResponse]
 ReadPrec ModifyInstanceCreditSpecificationResponse
 Int -&gt; ReadS ModifyInstanceCreditSpecificationResponse
 ReadS [ModifyInstanceCreditSpecificationResponse]
@@ -577,7 +577,7 @@ readList :: ReadS [ModifyInstanceCreditSpecificationResponse]
 $creadList :: ReadS [ModifyInstanceCreditSpecificationResponse]
 readsPrec :: Int -&gt; ReadS ModifyInstanceCreditSpecificationResponse
 $creadsPrec :: Int -&gt; ReadS ModifyInstanceCreditSpecificationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681184377"><span id="local-6989586621681184379"><span id="local-6989586621681184381"><span class="annot"><span class="annottext">Int -&gt; ModifyInstanceCreditSpecificationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681219772"><span id="local-6989586621681219774"><span id="local-6989586621681219776"><span class="annot"><span class="annottext">Int -&gt; ModifyInstanceCreditSpecificationResponse -&gt; ShowS
 [ModifyInstanceCreditSpecificationResponse] -&gt; ShowS
 ModifyInstanceCreditSpecificationResponse -&gt; String
 (Int -&gt; ModifyInstanceCreditSpecificationResponse -&gt; ShowS)
@@ -623,11 +623,11 @@ ModifyInstanceCreditSpecificationResponse
 </span><span id="line-202"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-204"></span><span class="hs-comment">--</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- 'successfulInstanceCreditSpecifications', 'modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications' - Information about the instances whose credit option for CPU usage was</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- successfully modified.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'unsuccessfulInstanceCreditSpecifications', 'modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications' - Information about the instances whose credit option for CPU usage was</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- not modified.</span><span>
 </span><span id="line-207"></span><span class="hs-comment">--</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- 'unsuccessfulInstanceCreditSpecifications', 'modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications' - Information about the instances whose credit option for CPU usage was</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- not modified.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'successfulInstanceCreditSpecifications', 'modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications' - Information about the instances whose credit option for CPU usage was</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- successfully modified.</span><span>
 </span><span id="line-210"></span><span class="hs-comment">--</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- 'httpStatus', 'modifyInstanceCreditSpecificationResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-212"></span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#newModifyInstanceCreditSpecificationResponse"><span class="hs-identifier hs-type">newModifyInstanceCreditSpecificationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -636,94 +636,32 @@ ModifyInstanceCreditSpecificationResponse
 </span><span id="line-215"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse</span></a></span><span>
 </span><span id="line-216"></span><span id="newModifyInstanceCreditSpecificationResponse"><span class="annot"><span class="annottext">newModifyInstanceCreditSpecificationResponse :: Int -&gt; ModifyInstanceCreditSpecificationResponse
 </span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#newModifyInstanceCreditSpecificationResponse"><span class="hs-identifier hs-var hs-var">newModifyInstanceCreditSpecificationResponse</span></a></span></span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621681184374"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681184374"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">ModifyInstanceCreditSpecificationResponse' :: Maybe [SuccessfulInstanceCreditSpecificationItem]
--&gt; Maybe [UnsuccessfulInstanceCreditSpecificationItem]
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621681219769"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681219769"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">ModifyInstanceCreditSpecificationResponse' :: Maybe [UnsuccessfulInstanceCreditSpecificationItem]
+-&gt; Maybe [SuccessfulInstanceCreditSpecificationItem]
 -&gt; Int
 -&gt; ModifyInstanceCreditSpecificationResponse
 </span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse'</span></a></span><span>
-</span><span id="line-219"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:successfulInstanceCreditSpecifications:ModifyInstanceCreditSpecificationResponse' :: Maybe [SuccessfulInstanceCreditSpecificationItem]
-</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AsuccessfulInstanceCreditSpecifications%3AModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-var">successfulInstanceCreditSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-220"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SuccessfulInstanceCreditSpecificationItem]
+</span><span id="line-219"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:unsuccessfulInstanceCreditSpecifications:ModifyInstanceCreditSpecificationResponse' :: Maybe [UnsuccessfulInstanceCreditSpecificationItem]
+</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AunsuccessfulInstanceCreditSpecifications%3AModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-var">unsuccessfulInstanceCreditSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulInstanceCreditSpecificationItem]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">$sel:unsuccessfulInstanceCreditSpecifications:ModifyInstanceCreditSpecificationResponse' :: Maybe [UnsuccessfulInstanceCreditSpecificationItem]
-</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AunsuccessfulInstanceCreditSpecifications%3AModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-var">unsuccessfulInstanceCreditSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulInstanceCreditSpecificationItem]
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">$sel:successfulInstanceCreditSpecifications:ModifyInstanceCreditSpecificationResponse' :: Maybe [SuccessfulInstanceCreditSpecificationItem]
+</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AsuccessfulInstanceCreditSpecifications%3AModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-var">successfulInstanceCreditSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SuccessfulInstanceCreditSpecificationItem]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyInstanceCreditSpecificationResponse' :: Int
 </span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AhttpStatus%3AModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681184374"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681219769"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-224"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | Information about the instances whose credit option for CPU usage was</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- successfully modified.</span><span>
-</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications"><span class="hs-identifier hs-type">modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.SuccessfulInstanceCreditSpecificationItem.html#SuccessfulInstanceCreditSpecificationItem"><span class="hs-identifier hs-type">SuccessfulInstanceCreditSpecificationItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-229"></span><span id="modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications"><span class="annot"><span class="annottext">modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications :: (Maybe [SuccessfulInstanceCreditSpecificationItem]
- -&gt; f (Maybe [SuccessfulInstanceCreditSpecificationItem]))
--&gt; ModifyInstanceCreditSpecificationResponse
--&gt; f ModifyInstanceCreditSpecificationResponse
-</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications"><span class="hs-identifier hs-var hs-var">modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyInstanceCreditSpecificationResponse
- -&gt; Maybe [SuccessfulInstanceCreditSpecificationItem])
--&gt; (ModifyInstanceCreditSpecificationResponse
-    -&gt; Maybe [SuccessfulInstanceCreditSpecificationItem]
-    -&gt; ModifyInstanceCreditSpecificationResponse)
--&gt; Lens
-     ModifyInstanceCreditSpecificationResponse
-     ModifyInstanceCreditSpecificationResponse
-     (Maybe [SuccessfulInstanceCreditSpecificationItem])
-     (Maybe [SuccessfulInstanceCreditSpecificationItem])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681184373"><span class="annot"><span class="annottext">Maybe [SuccessfulInstanceCreditSpecificationItem]
-successfulInstanceCreditSpecifications :: Maybe [SuccessfulInstanceCreditSpecificationItem]
-$sel:successfulInstanceCreditSpecifications:ModifyInstanceCreditSpecificationResponse' :: ModifyInstanceCreditSpecificationResponse
--&gt; Maybe [SuccessfulInstanceCreditSpecificationItem]
-</span><a href="#local-6989586621681184373"><span class="hs-identifier hs-var hs-var">successfulInstanceCreditSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SuccessfulInstanceCreditSpecificationItem]
-</span><a href="#local-6989586621681184373"><span class="hs-identifier hs-var">successfulInstanceCreditSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681184372"><span class="annot"><span class="annottext">s :: ModifyInstanceCreditSpecificationResponse
-</span><a href="#local-6989586621681184372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681184371"><span class="annot"><span class="annottext">Maybe [SuccessfulInstanceCreditSpecificationItem]
-</span><a href="#local-6989586621681184371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyInstanceCreditSpecificationResponse
-</span><a href="#local-6989586621681184372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successfulInstanceCreditSpecifications:ModifyInstanceCreditSpecificationResponse' :: Maybe [SuccessfulInstanceCreditSpecificationItem]
-</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AsuccessfulInstanceCreditSpecifications%3AModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-var">successfulInstanceCreditSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SuccessfulInstanceCreditSpecificationItem]
-</span><a href="#local-6989586621681184371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SuccessfulInstanceCreditSpecificationItem]
-  -&gt; f (Maybe [SuccessfulInstanceCreditSpecificationItem]))
- -&gt; ModifyInstanceCreditSpecificationResponse
- -&gt; f ModifyInstanceCreditSpecificationResponse)
--&gt; ((Maybe [SuccessfulInstanceCreditSpecificationItem]
-     -&gt; f (Maybe [SuccessfulInstanceCreditSpecificationItem]))
-    -&gt; Maybe [SuccessfulInstanceCreditSpecificationItem]
-    -&gt; f (Maybe [SuccessfulInstanceCreditSpecificationItem]))
--&gt; (Maybe [SuccessfulInstanceCreditSpecificationItem]
-    -&gt; f (Maybe [SuccessfulInstanceCreditSpecificationItem]))
--&gt; ModifyInstanceCreditSpecificationResponse
--&gt; f ModifyInstanceCreditSpecificationResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [SuccessfulInstanceCreditSpecificationItem]
-  [SuccessfulInstanceCreditSpecificationItem]
-  [SuccessfulInstanceCreditSpecificationItem]
-  [SuccessfulInstanceCreditSpecificationItem]
--&gt; Iso
-     (Maybe [SuccessfulInstanceCreditSpecificationItem])
-     (Maybe [SuccessfulInstanceCreditSpecificationItem])
-     (Maybe [SuccessfulInstanceCreditSpecificationItem])
-     (Maybe [SuccessfulInstanceCreditSpecificationItem])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [SuccessfulInstanceCreditSpecificationItem]
-  [SuccessfulInstanceCreditSpecificationItem]
-  [SuccessfulInstanceCreditSpecificationItem]
-  [SuccessfulInstanceCreditSpecificationItem]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- | Information about the instances whose credit option for CPU usage was</span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- not modified.</span><span>
-</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications"><span class="hs-identifier hs-type">modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem"><span class="hs-identifier hs-type">UnsuccessfulInstanceCreditSpecificationItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-234"></span><span id="modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications"><span class="annot"><span class="annottext">modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications :: (Maybe [UnsuccessfulInstanceCreditSpecificationItem]
+</span><span id="line-227"></span><span class="hs-comment">-- not modified.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications"><span class="hs-identifier hs-type">modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem.html#UnsuccessfulInstanceCreditSpecificationItem"><span class="hs-identifier hs-type">UnsuccessfulInstanceCreditSpecificationItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications"><span class="annot"><span class="annottext">modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications :: (Maybe [UnsuccessfulInstanceCreditSpecificationItem]
  -&gt; f (Maybe [UnsuccessfulInstanceCreditSpecificationItem]))
 -&gt; ModifyInstanceCreditSpecificationResponse
 -&gt; f ModifyInstanceCreditSpecificationResponse
@@ -738,17 +676,17 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [UnsuccessfulInstanceCreditSpecificationItem])
      (Maybe [UnsuccessfulInstanceCreditSpecificationItem])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681184369"><span class="annot"><span class="annottext">Maybe [UnsuccessfulInstanceCreditSpecificationItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681219768"><span class="annot"><span class="annottext">Maybe [UnsuccessfulInstanceCreditSpecificationItem]
 unsuccessfulInstanceCreditSpecifications :: Maybe [UnsuccessfulInstanceCreditSpecificationItem]
 $sel:unsuccessfulInstanceCreditSpecifications:ModifyInstanceCreditSpecificationResponse' :: ModifyInstanceCreditSpecificationResponse
 -&gt; Maybe [UnsuccessfulInstanceCreditSpecificationItem]
-</span><a href="#local-6989586621681184369"><span class="hs-identifier hs-var hs-var">unsuccessfulInstanceCreditSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulInstanceCreditSpecificationItem]
-</span><a href="#local-6989586621681184369"><span class="hs-identifier hs-var">unsuccessfulInstanceCreditSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681184368"><span class="annot"><span class="annottext">s :: ModifyInstanceCreditSpecificationResponse
-</span><a href="#local-6989586621681184368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681184367"><span class="annot"><span class="annottext">Maybe [UnsuccessfulInstanceCreditSpecificationItem]
-</span><a href="#local-6989586621681184367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyInstanceCreditSpecificationResponse
-</span><a href="#local-6989586621681184368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unsuccessfulInstanceCreditSpecifications:ModifyInstanceCreditSpecificationResponse' :: Maybe [UnsuccessfulInstanceCreditSpecificationItem]
+</span><a href="#local-6989586621681219768"><span class="hs-identifier hs-var hs-var">unsuccessfulInstanceCreditSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulInstanceCreditSpecificationItem]
+</span><a href="#local-6989586621681219768"><span class="hs-identifier hs-var">unsuccessfulInstanceCreditSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681219767"><span class="annot"><span class="annottext">s :: ModifyInstanceCreditSpecificationResponse
+</span><a href="#local-6989586621681219767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681219766"><span class="annot"><span class="annottext">Maybe [UnsuccessfulInstanceCreditSpecificationItem]
+</span><a href="#local-6989586621681219766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyInstanceCreditSpecificationResponse
+</span><a href="#local-6989586621681219767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unsuccessfulInstanceCreditSpecifications:ModifyInstanceCreditSpecificationResponse' :: Maybe [UnsuccessfulInstanceCreditSpecificationItem]
 </span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AunsuccessfulInstanceCreditSpecifications%3AModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-var">unsuccessfulInstanceCreditSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulInstanceCreditSpecificationItem]
-</span><a href="#local-6989586621681184367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UnsuccessfulInstanceCreditSpecificationItem]
+</span><a href="#local-6989586621681219766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UnsuccessfulInstanceCreditSpecificationItem]
   -&gt; f (Maybe [UnsuccessfulInstanceCreditSpecificationItem]))
  -&gt; ModifyInstanceCreditSpecificationResponse
  -&gt; f ModifyInstanceCreditSpecificationResponse)
@@ -779,8 +717,70 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [UnsuccessfulInstanceCreditSpecificationItem]
   [UnsuccessfulInstanceCreditSpecificationItem]
   [UnsuccessfulInstanceCreditSpecificationItem]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | Information about the instances whose credit option for CPU usage was</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- successfully modified.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications"><span class="hs-identifier hs-type">modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.SuccessfulInstanceCreditSpecificationItem.html#SuccessfulInstanceCreditSpecificationItem"><span class="hs-identifier hs-type">SuccessfulInstanceCreditSpecificationItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications"><span class="annot"><span class="annottext">modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications :: (Maybe [SuccessfulInstanceCreditSpecificationItem]
+ -&gt; f (Maybe [SuccessfulInstanceCreditSpecificationItem]))
+-&gt; ModifyInstanceCreditSpecificationResponse
+-&gt; f ModifyInstanceCreditSpecificationResponse
+</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications"><span class="hs-identifier hs-var hs-var">modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyInstanceCreditSpecificationResponse
+ -&gt; Maybe [SuccessfulInstanceCreditSpecificationItem])
+-&gt; (ModifyInstanceCreditSpecificationResponse
+    -&gt; Maybe [SuccessfulInstanceCreditSpecificationItem]
+    -&gt; ModifyInstanceCreditSpecificationResponse)
+-&gt; Lens
+     ModifyInstanceCreditSpecificationResponse
+     ModifyInstanceCreditSpecificationResponse
+     (Maybe [SuccessfulInstanceCreditSpecificationItem])
+     (Maybe [SuccessfulInstanceCreditSpecificationItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681219764"><span class="annot"><span class="annottext">Maybe [SuccessfulInstanceCreditSpecificationItem]
+successfulInstanceCreditSpecifications :: Maybe [SuccessfulInstanceCreditSpecificationItem]
+$sel:successfulInstanceCreditSpecifications:ModifyInstanceCreditSpecificationResponse' :: ModifyInstanceCreditSpecificationResponse
+-&gt; Maybe [SuccessfulInstanceCreditSpecificationItem]
+</span><a href="#local-6989586621681219764"><span class="hs-identifier hs-var hs-var">successfulInstanceCreditSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SuccessfulInstanceCreditSpecificationItem]
+</span><a href="#local-6989586621681219764"><span class="hs-identifier hs-var">successfulInstanceCreditSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681219763"><span class="annot"><span class="annottext">s :: ModifyInstanceCreditSpecificationResponse
+</span><a href="#local-6989586621681219763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681219762"><span class="annot"><span class="annottext">Maybe [SuccessfulInstanceCreditSpecificationItem]
+</span><a href="#local-6989586621681219762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyInstanceCreditSpecificationResponse
+</span><a href="#local-6989586621681219763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successfulInstanceCreditSpecifications:ModifyInstanceCreditSpecificationResponse' :: Maybe [SuccessfulInstanceCreditSpecificationItem]
+</span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AsuccessfulInstanceCreditSpecifications%3AModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-var">successfulInstanceCreditSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SuccessfulInstanceCreditSpecificationItem]
+</span><a href="#local-6989586621681219762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SuccessfulInstanceCreditSpecificationItem]
+  -&gt; f (Maybe [SuccessfulInstanceCreditSpecificationItem]))
+ -&gt; ModifyInstanceCreditSpecificationResponse
+ -&gt; f ModifyInstanceCreditSpecificationResponse)
+-&gt; ((Maybe [SuccessfulInstanceCreditSpecificationItem]
+     -&gt; f (Maybe [SuccessfulInstanceCreditSpecificationItem]))
+    -&gt; Maybe [SuccessfulInstanceCreditSpecificationItem]
+    -&gt; f (Maybe [SuccessfulInstanceCreditSpecificationItem]))
+-&gt; (Maybe [SuccessfulInstanceCreditSpecificationItem]
+    -&gt; f (Maybe [SuccessfulInstanceCreditSpecificationItem]))
+-&gt; ModifyInstanceCreditSpecificationResponse
+-&gt; f ModifyInstanceCreditSpecificationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SuccessfulInstanceCreditSpecificationItem]
+  [SuccessfulInstanceCreditSpecificationItem]
+  [SuccessfulInstanceCreditSpecificationItem]
+  [SuccessfulInstanceCreditSpecificationItem]
+-&gt; Iso
+     (Maybe [SuccessfulInstanceCreditSpecificationItem])
+     (Maybe [SuccessfulInstanceCreditSpecificationItem])
+     (Maybe [SuccessfulInstanceCreditSpecificationItem])
+     (Maybe [SuccessfulInstanceCreditSpecificationItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SuccessfulInstanceCreditSpecificationItem]
+  [SuccessfulInstanceCreditSpecificationItem]
+  [SuccessfulInstanceCreditSpecificationItem]
+  [SuccessfulInstanceCreditSpecificationItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-237"></span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#modifyInstanceCreditSpecificationResponse_httpStatus"><span class="hs-identifier hs-type">modifyInstanceCreditSpecificationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -796,18 +796,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681184366"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681219761"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ModifyInstanceCreditSpecificationResponse' :: ModifyInstanceCreditSpecificationResponse -&gt; Int
-</span><a href="#local-6989586621681184366"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681184366"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681184365"><span class="annot"><span class="annottext">s :: ModifyInstanceCreditSpecificationResponse
-</span><a href="#local-6989586621681184365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681184364"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681184364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyInstanceCreditSpecificationResponse
-</span><a href="#local-6989586621681184365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyInstanceCreditSpecificationResponse' :: Int
+</span><a href="#local-6989586621681219761"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681219761"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681219760"><span class="annot"><span class="annottext">s :: ModifyInstanceCreditSpecificationResponse
+</span><a href="#local-6989586621681219760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681219759"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681219759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyInstanceCreditSpecificationResponse
+</span><a href="#local-6989586621681219760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyInstanceCreditSpecificationResponse' :: Int
 </span><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#%24sel%3AhttpStatus%3AModifyInstanceCreditSpecificationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681184364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681219759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-241"></span><span>  </span><span id="local-6989586621681184362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621681219757"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-242"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyInstanceCreditSpecification.html#ModifyInstanceCreditSpecificationResponse"><span class="hs-identifier hs-type">ModifyInstanceCreditSpecificationResponse</span></a></span></span><span>
 </span><span id="line-243"></span></pre></body></html>

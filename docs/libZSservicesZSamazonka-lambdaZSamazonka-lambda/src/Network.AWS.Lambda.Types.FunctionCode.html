@@ -28,30 +28,30 @@
 </span><span id="line-28"></span><span class="hs-comment">-- specify the URI of a container image.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newFunctionCode' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679290540"><span id="local-6989586621679290541"></span></span><span class="hs-keyword">data</span><span> </span><span id="FunctionCode"><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-var">FunctionCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FunctionCode%27"><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-var">FunctionCode'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | URI of a</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html container image&gt;</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- in the Amazon ECR registry.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AimageUri%3AFunctionCode%27"><span class="annot"><span class="annottext">FunctionCode -&gt; Maybe Text
-</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3AimageUri%3AFunctionCode%27"><span class="hs-identifier hs-var hs-var">imageUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | An Amazon S3 bucket in the same Amazon Web Services Region as your</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- function. The bucket can be in a different Amazon Web Services account.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3As3Bucket%3AFunctionCode%27"><span class="annot"><span class="annottext">FunctionCode -&gt; Maybe Text
-</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3As3Bucket%3AFunctionCode%27"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The base64-encoded contents of the deployment package. Amazon Web</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Services SDK and Amazon Web Services CLI clients handle the encoding for</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- you.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AzipFile%3AFunctionCode%27"><span class="annot"><span class="annottext">FunctionCode -&gt; Maybe (Sensitive Base64)
-</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3AzipFile%3AFunctionCode%27"><span class="hs-identifier hs-var hs-var">zipFile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 key of the deployment package.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3As3Key%3AFunctionCode%27"><span class="annot"><span class="annottext">FunctionCode -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621679295382"><span id="local-6989586621679295383"></span></span><span class="hs-keyword">data</span><span> </span><span id="FunctionCode"><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-var">FunctionCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FunctionCode%27"><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-var">FunctionCode'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For versioned objects, the version of the deployment package object to</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- use.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3As3ObjectVersion%3AFunctionCode%27"><span class="annot"><span class="annottext">FunctionCode -&gt; Maybe Text
+</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3As3ObjectVersion%3AFunctionCode%27"><span class="hs-identifier hs-var hs-var">s3ObjectVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 key of the deployment package.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3As3Key%3AFunctionCode%27"><span class="annot"><span class="annottext">FunctionCode -&gt; Maybe Text
 </span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3As3Key%3AFunctionCode%27"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | For versioned objects, the version of the deployment package object to</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- use.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3As3ObjectVersion%3AFunctionCode%27"><span class="annot"><span class="annottext">FunctionCode -&gt; Maybe Text
-</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3As3ObjectVersion%3AFunctionCode%27"><span class="hs-identifier hs-var hs-var">s3ObjectVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The base64-encoded contents of the deployment package. Amazon Web</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Services SDK and Amazon Web Services CLI clients handle the encoding for</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- you.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AzipFile%3AFunctionCode%27"><span class="annot"><span class="annottext">FunctionCode -&gt; Maybe (Sensitive Base64)
+</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3AzipFile%3AFunctionCode%27"><span class="hs-identifier hs-var hs-var">zipFile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | URI of a</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html container image&gt;</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- in the Amazon ECR registry.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AimageUri%3AFunctionCode%27"><span class="annot"><span class="annottext">FunctionCode -&gt; Maybe Text
+</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3AimageUri%3AFunctionCode%27"><span class="hs-identifier hs-var hs-var">imageUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | An Amazon S3 bucket in the same Amazon Web Services Region as your</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- function. The bucket can be in a different Amazon Web Services account.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3As3Bucket%3AFunctionCode%27"><span class="annot"><span class="annottext">FunctionCode -&gt; Maybe Text
+</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3As3Bucket%3AFunctionCode%27"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290530"><span id="local-6989586621679290532"><span class="annot"><span class="annottext">FunctionCode -&gt; FunctionCode -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295372"><span id="local-6989586621679295374"><span class="annot"><span class="annottext">FunctionCode -&gt; FunctionCode -&gt; Bool
 (FunctionCode -&gt; FunctionCode -&gt; Bool)
 -&gt; (FunctionCode -&gt; FunctionCode -&gt; Bool) -&gt; Eq FunctionCode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FunctionCode -&gt; FunctionCode -&gt; Bool
 == :: FunctionCode -&gt; FunctionCode -&gt; Bool
 $c== :: FunctionCode -&gt; FunctionCode -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290523"><span id="local-6989586621679290525"><span id="local-6989586621679290527"><span class="annot"><span class="annottext">Int -&gt; FunctionCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295365"><span id="local-6989586621679295367"><span id="local-6989586621679295369"><span class="annot"><span class="annottext">Int -&gt; FunctionCode -&gt; ShowS
 [FunctionCode] -&gt; ShowS
 FunctionCode -&gt; String
 (Int -&gt; FunctionCode -&gt; ShowS)
@@ -93,25 +93,25 @@ $cfrom :: forall x. FunctionCode -&gt; Rep FunctionCode x
 </span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'imageUri', 'functionCode_imageUri' - URI of a</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html container image&gt;</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- in the Amazon ECR registry.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 's3Bucket', 'functionCode_s3Bucket' - An Amazon S3 bucket in the same Amazon Web Services Region as your</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- function. The bucket can be in a different Amazon Web Services account.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'zipFile', 'functionCode_zipFile' - The base64-encoded contents of the deployment package. Amazon Web</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- Services SDK and Amazon Web Services CLI clients handle the encoding for</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- you.--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
-</span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 's3Key', 'functionCode_s3Key' - The Amazon S3 key of the deployment package.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 's3ObjectVersion', 'functionCode_s3ObjectVersion' - For versioned objects, the version of the deployment package object to</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- use.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 's3Key', 'functionCode_s3Key' - The Amazon S3 key of the deployment package.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'zipFile', 'functionCode_zipFile' - The base64-encoded contents of the deployment package. Amazon Web</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Services SDK and Amazon Web Services CLI clients handle the encoding for</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- you.--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'imageUri', 'functionCode_imageUri' - URI of a</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html container image&gt;</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- in the Amazon ECR registry.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 's3ObjectVersion', 'functionCode_s3ObjectVersion' - For versioned objects, the version of the deployment package object to</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- use.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 's3Bucket', 'functionCode_s3Bucket' - An Amazon S3 bucket in the same Amazon Web Services Region as your</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- function. The bucket can be in a different Amazon Web Services account.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#newFunctionCode"><span class="hs-identifier hs-type">newFunctionCode</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span>
 </span><span id="line-80"></span><span id="newFunctionCode"><span class="annot"><span class="annottext">newFunctionCode :: FunctionCode
@@ -123,76 +123,74 @@ $cfrom :: forall x. FunctionCode -&gt; Rep FunctionCode x
 -&gt; Maybe Text
 -&gt; FunctionCode
 </span><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:imageUri:FunctionCode' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3AimageUri%3AFunctionCode%27"><span class="hs-identifier hs-var">imageUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3ObjectVersion:FunctionCode' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3As3ObjectVersion%3AFunctionCode%27"><span class="hs-identifier hs-var">s3ObjectVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Bucket:FunctionCode' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3As3Bucket%3AFunctionCode%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Key:FunctionCode' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3As3Key%3AFunctionCode%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:zipFile:FunctionCode' :: Maybe (Sensitive Base64)
 </span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3AzipFile%3AFunctionCode%27"><span class="hs-identifier hs-var">zipFile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Key:FunctionCode' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3As3Key%3AFunctionCode%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageUri:FunctionCode' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3AimageUri%3AFunctionCode%27"><span class="hs-identifier hs-var">imageUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3ObjectVersion:FunctionCode' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3As3ObjectVersion%3AFunctionCode%27"><span class="hs-identifier hs-var">s3ObjectVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Bucket:FunctionCode' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3As3Bucket%3AFunctionCode%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | URI of a</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html container image&gt;</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- in the Amazon ECR registry.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_imageUri"><span class="hs-identifier hs-type">functionCode_imageUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="functionCode_imageUri"><span class="annot"><span class="annottext">functionCode_imageUri :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FunctionCode -&gt; f FunctionCode
-</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_imageUri"><span class="hs-identifier hs-var hs-var">functionCode_imageUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FunctionCode -&gt; Maybe Text)
+</span><span id="line-89"></span><span class="hs-comment">-- | For versioned objects, the version of the deployment package object to</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- use.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_s3ObjectVersion"><span class="hs-identifier hs-type">functionCode_s3ObjectVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="functionCode_s3ObjectVersion"><span class="annot"><span class="annottext">functionCode_s3ObjectVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FunctionCode -&gt; f FunctionCode
+</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_s3ObjectVersion"><span class="hs-identifier hs-var hs-var">functionCode_s3ObjectVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FunctionCode -&gt; Maybe Text)
 -&gt; (FunctionCode -&gt; Maybe Text -&gt; FunctionCode)
 -&gt; Lens FunctionCode FunctionCode (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290514"><span class="annot"><span class="annottext">Maybe Text
-imageUri :: Maybe Text
-$sel:imageUri:FunctionCode' :: FunctionCode -&gt; Maybe Text
-</span><a href="#local-6989586621679290514"><span class="hs-identifier hs-var hs-var">imageUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290514"><span class="hs-identifier hs-var">imageUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290513"><span class="annot"><span class="annottext">s :: FunctionCode
-</span><a href="#local-6989586621679290513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290512"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionCode
-</span><a href="#local-6989586621679290513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageUri:FunctionCode' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3AimageUri%3AFunctionCode%27"><span class="hs-identifier hs-var">imageUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | An Amazon S3 bucket in the same Amazon Web Services Region as your</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- function. The bucket can be in a different Amazon Web Services account.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_s3Bucket"><span class="hs-identifier hs-type">functionCode_s3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="functionCode_s3Bucket"><span class="annot"><span class="annottext">functionCode_s3Bucket :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FunctionCode -&gt; f FunctionCode
-</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_s3Bucket"><span class="hs-identifier hs-var hs-var">functionCode_s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FunctionCode -&gt; Maybe Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295356"><span class="annot"><span class="annottext">Maybe Text
+s3ObjectVersion :: Maybe Text
+$sel:s3ObjectVersion:FunctionCode' :: FunctionCode -&gt; Maybe Text
+</span><a href="#local-6989586621679295356"><span class="hs-identifier hs-var hs-var">s3ObjectVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295356"><span class="hs-identifier hs-var">s3ObjectVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295355"><span class="annot"><span class="annottext">s :: FunctionCode
+</span><a href="#local-6989586621679295355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295354"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionCode
+</span><a href="#local-6989586621679295355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3ObjectVersion:FunctionCode' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3As3ObjectVersion%3AFunctionCode%27"><span class="hs-identifier hs-var">s3ObjectVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The Amazon S3 key of the deployment package.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_s3Key"><span class="hs-identifier hs-type">functionCode_s3Key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="functionCode_s3Key"><span class="annot"><span class="annottext">functionCode_s3Key :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FunctionCode -&gt; f FunctionCode
+</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_s3Key"><span class="hs-identifier hs-var hs-var">functionCode_s3Key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FunctionCode -&gt; Maybe Text)
 -&gt; (FunctionCode -&gt; Maybe Text -&gt; FunctionCode)
 -&gt; Lens FunctionCode FunctionCode (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290510"><span class="annot"><span class="annottext">Maybe Text
-s3Bucket :: Maybe Text
-$sel:s3Bucket:FunctionCode' :: FunctionCode -&gt; Maybe Text
-</span><a href="#local-6989586621679290510"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290510"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290509"><span class="annot"><span class="annottext">s :: FunctionCode
-</span><a href="#local-6989586621679290509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290508"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionCode
-</span><a href="#local-6989586621679290509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:FunctionCode' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3As3Bucket%3AFunctionCode%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The base64-encoded contents of the deployment package. Amazon Web</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- Services SDK and Amazon Web Services CLI clients handle the encoding for</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- you.--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_zipFile"><span class="hs-identifier hs-type">functionCode_zipFile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="functionCode_zipFile"><span class="annot"><span class="annottext">functionCode_zipFile :: (Maybe ByteString -&gt; f (Maybe ByteString))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295352"><span class="annot"><span class="annottext">Maybe Text
+s3Key :: Maybe Text
+$sel:s3Key:FunctionCode' :: FunctionCode -&gt; Maybe Text
+</span><a href="#local-6989586621679295352"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295352"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295351"><span class="annot"><span class="annottext">s :: FunctionCode
+</span><a href="#local-6989586621679295351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295350"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionCode
+</span><a href="#local-6989586621679295351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Key:FunctionCode' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3As3Key%3AFunctionCode%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The base64-encoded contents of the deployment package. Amazon Web</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Services SDK and Amazon Web Services CLI clients handle the encoding for</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- you.--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_zipFile"><span class="hs-identifier hs-type">functionCode_zipFile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="functionCode_zipFile"><span class="annot"><span class="annottext">functionCode_zipFile :: (Maybe ByteString -&gt; f (Maybe ByteString))
 -&gt; FunctionCode -&gt; f FunctionCode
 </span><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_zipFile"><span class="hs-identifier hs-var hs-var">functionCode_zipFile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FunctionCode -&gt; Maybe (Sensitive Base64))
 -&gt; (FunctionCode -&gt; Maybe (Sensitive Base64) -&gt; FunctionCode)
@@ -202,16 +200,16 @@ $sel:s3Bucket:FunctionCode' :: FunctionCode -&gt; Maybe Text
      (Maybe (Sensitive Base64))
      (Maybe (Sensitive Base64))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290506"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295348"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
 zipFile :: Maybe (Sensitive Base64)
 $sel:zipFile:FunctionCode' :: FunctionCode -&gt; Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679290506"><span class="hs-identifier hs-var hs-var">zipFile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679290506"><span class="hs-identifier hs-var">zipFile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290505"><span class="annot"><span class="annottext">s :: FunctionCode
-</span><a href="#local-6989586621679290505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290504"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679290504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionCode
-</span><a href="#local-6989586621679290505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:zipFile:FunctionCode' :: Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679295348"><span class="hs-identifier hs-var hs-var">zipFile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679295348"><span class="hs-identifier hs-var">zipFile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295347"><span class="annot"><span class="annottext">s :: FunctionCode
+</span><a href="#local-6989586621679295347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295346"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679295346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionCode
+</span><a href="#local-6989586621679295347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:zipFile:FunctionCode' :: Maybe (Sensitive Base64)
 </span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3AzipFile%3AFunctionCode%27"><span class="hs-identifier hs-var">zipFile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679290504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
+</span><a href="#local-6989586621679295346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
  -&gt; FunctionCode -&gt; f FunctionCode)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
@@ -250,105 +248,107 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 -&gt; Exchange ByteString ByteString Base64 (Identity Base64)
 Iso' Base64 ByteString
 </span><span class="hs-identifier hs-var">Core._Base64</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The Amazon S3 key of the deployment package.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_s3Key"><span class="hs-identifier hs-type">functionCode_s3Key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="functionCode_s3Key"><span class="annot"><span class="annottext">functionCode_s3Key :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FunctionCode -&gt; f FunctionCode
-</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_s3Key"><span class="hs-identifier hs-var hs-var">functionCode_s3Key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FunctionCode -&gt; Maybe Text)
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | URI of a</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html container image&gt;</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- in the Amazon ECR registry.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_imageUri"><span class="hs-identifier hs-type">functionCode_imageUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="functionCode_imageUri"><span class="annot"><span class="annottext">functionCode_imageUri :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FunctionCode -&gt; f FunctionCode
+</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_imageUri"><span class="hs-identifier hs-var hs-var">functionCode_imageUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FunctionCode -&gt; Maybe Text)
 -&gt; (FunctionCode -&gt; Maybe Text -&gt; FunctionCode)
 -&gt; Lens FunctionCode FunctionCode (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290498"><span class="annot"><span class="annottext">Maybe Text
-s3Key :: Maybe Text
-$sel:s3Key:FunctionCode' :: FunctionCode -&gt; Maybe Text
-</span><a href="#local-6989586621679290498"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290498"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290497"><span class="annot"><span class="annottext">s :: FunctionCode
-</span><a href="#local-6989586621679290497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290496"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionCode
-</span><a href="#local-6989586621679290497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Key:FunctionCode' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3As3Key%3AFunctionCode%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295340"><span class="annot"><span class="annottext">Maybe Text
+imageUri :: Maybe Text
+$sel:imageUri:FunctionCode' :: FunctionCode -&gt; Maybe Text
+</span><a href="#local-6989586621679295340"><span class="hs-identifier hs-var hs-var">imageUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295340"><span class="hs-identifier hs-var">imageUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295339"><span class="annot"><span class="annottext">s :: FunctionCode
+</span><a href="#local-6989586621679295339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295338"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionCode
+</span><a href="#local-6989586621679295339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageUri:FunctionCode' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3AimageUri%3AFunctionCode%27"><span class="hs-identifier hs-var">imageUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | For versioned objects, the version of the deployment package object to</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- use.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_s3ObjectVersion"><span class="hs-identifier hs-type">functionCode_s3ObjectVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="functionCode_s3ObjectVersion"><span class="annot"><span class="annottext">functionCode_s3ObjectVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FunctionCode -&gt; f FunctionCode
-</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_s3ObjectVersion"><span class="hs-identifier hs-var hs-var">functionCode_s3ObjectVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FunctionCode -&gt; Maybe Text)
+</span><span id="line-114"></span><span class="hs-comment">-- | An Amazon S3 bucket in the same Amazon Web Services Region as your</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- function. The bucket can be in a different Amazon Web Services account.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_s3Bucket"><span class="hs-identifier hs-type">functionCode_s3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="functionCode_s3Bucket"><span class="annot"><span class="annottext">functionCode_s3Bucket :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FunctionCode -&gt; f FunctionCode
+</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#functionCode_s3Bucket"><span class="hs-identifier hs-var hs-var">functionCode_s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FunctionCode -&gt; Maybe Text)
 -&gt; (FunctionCode -&gt; Maybe Text -&gt; FunctionCode)
 -&gt; Lens FunctionCode FunctionCode (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290494"><span class="annot"><span class="annottext">Maybe Text
-s3ObjectVersion :: Maybe Text
-$sel:s3ObjectVersion:FunctionCode' :: FunctionCode -&gt; Maybe Text
-</span><a href="#local-6989586621679290494"><span class="hs-identifier hs-var hs-var">s3ObjectVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290494"><span class="hs-identifier hs-var">s3ObjectVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290493"><span class="annot"><span class="annottext">s :: FunctionCode
-</span><a href="#local-6989586621679290493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290492"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionCode
-</span><a href="#local-6989586621679290493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3ObjectVersion:FunctionCode' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3As3ObjectVersion%3AFunctionCode%27"><span class="hs-identifier hs-var">s3ObjectVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295336"><span class="annot"><span class="annottext">Maybe Text
+s3Bucket :: Maybe Text
+$sel:s3Bucket:FunctionCode' :: FunctionCode -&gt; Maybe Text
+</span><a href="#local-6989586621679295336"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295336"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295335"><span class="annot"><span class="annottext">s :: FunctionCode
+</span><a href="#local-6989586621679295335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295334"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionCode
+</span><a href="#local-6989586621679295335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:FunctionCode' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.FunctionCode.html#%24sel%3As3Bucket%3AFunctionCode%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290488"><span id="local-6989586621679290490"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295330"><span id="local-6989586621679295332"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290485"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295327"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290477"><span id="local-6989586621679290479"><span id="local-6989586621679290481"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679290475"><span class="annot"><span class="annottext">toJSON :: FunctionCode -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290469"><span id="local-6989586621679290470"><span id="local-6989586621679290471"><span id="local-6989586621679290472"><span id="local-6989586621679290473"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295319"><span id="local-6989586621679295321"><span id="local-6989586621679295323"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode"><span class="hs-identifier hs-type">FunctionCode</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679295317"><span class="annot"><span class="annottext">toJSON :: FunctionCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionCode.html#FunctionCode%27"><span class="hs-identifier hs-type">FunctionCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295311"><span id="local-6989586621679295312"><span id="local-6989586621679295313"><span id="local-6989586621679295314"><span id="local-6989586621679295315"><span class="annot"><span class="annottext">Maybe Text
 Maybe (Sensitive Base64)
-s3ObjectVersion :: Maybe Text
-s3Key :: Maybe Text
-zipFile :: Maybe (Sensitive Base64)
 s3Bucket :: Maybe Text
 imageUri :: Maybe Text
-$sel:s3ObjectVersion:FunctionCode' :: FunctionCode -&gt; Maybe Text
-$sel:s3Key:FunctionCode' :: FunctionCode -&gt; Maybe Text
-$sel:zipFile:FunctionCode' :: FunctionCode -&gt; Maybe (Sensitive Base64)
+zipFile :: Maybe (Sensitive Base64)
+s3Key :: Maybe Text
+s3ObjectVersion :: Maybe Text
 $sel:s3Bucket:FunctionCode' :: FunctionCode -&gt; Maybe Text
 $sel:imageUri:FunctionCode' :: FunctionCode -&gt; Maybe Text
-</span><a href="#local-6989586621679290469"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:zipFile:FunctionCode' :: FunctionCode -&gt; Maybe (Sensitive Base64)
+$sel:s3Key:FunctionCode' :: FunctionCode -&gt; Maybe Text
+$sel:s3ObjectVersion:FunctionCode' :: FunctionCode -&gt; Maybe Text
+</span><a href="#local-6989586621679295311"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ImageUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;S3ObjectVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290473"><span class="hs-identifier hs-var">imageUri</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-128"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;S3Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290472"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679295315"><span class="hs-identifier hs-var">s3ObjectVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295314"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ZipFile&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Base64 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Base64 -&gt; Pair)
 -&gt; Maybe (Sensitive Base64) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679290471"><span class="hs-identifier hs-var">zipFile</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-130"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;S3Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><a href="#local-6989586621679295313"><span class="hs-identifier hs-var">zipFile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImageUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290470"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;S3ObjectVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><a href="#local-6989586621679295312"><span class="hs-identifier hs-var">imageUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290469"><span class="hs-identifier hs-var">s3ObjectVersion</span></a></span><span>
+</span><a href="#local-6989586621679295311"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span></pre></body></html>

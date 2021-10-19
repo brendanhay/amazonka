@@ -28,28 +28,28 @@
 </span><span id="line-28"></span><span class="hs-comment">-- URL provided by a call to CreateTestGridUrl.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTestGridSession' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679369041"><span id="local-6989586621679369042"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestGridSession"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-var">TestGridSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestGridSession%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-var">TestGridSession'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679369288"><span id="local-6989586621679369289"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestGridSession"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-var">TestGridSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestGridSession%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-var">TestGridSession'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the session.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Astatus%3ATestGridSession%27"><span class="annot"><span class="annottext">TestGridSession -&gt; Maybe TestGridSessionStatus
 </span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3Astatus%3ATestGridSession%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSessionStatus.html#TestGridSessionStatus"><span class="hs-identifier hs-type">TestGridSessionStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ARN of the session.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aarn%3ATestGridSession%27"><span class="annot"><span class="annottext">TestGridSession -&gt; Maybe Text
 </span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3Aarn%3ATestGridSession%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A JSON object of options and parameters passed to the Selenium</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- WebDriver.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AseleniumProperties%3ATestGridSession%27"><span class="annot"><span class="annottext">TestGridSession -&gt; Maybe Text
-</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3AseleniumProperties%3ATestGridSession%27"><span class="hs-identifier hs-var hs-var">seleniumProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The time the session ended.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aended%3ATestGridSession%27"><span class="annot"><span class="annottext">TestGridSession -&gt; Maybe POSIX
-</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3Aended%3ATestGridSession%27"><span class="hs-identifier hs-var hs-var">ended</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The number of billed minutes that were used for this session.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AbillingMinutes%3ATestGridSession%27"><span class="annot"><span class="annottext">TestGridSession -&gt; Maybe Double
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The time that the session was started.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Acreated%3ATestGridSession%27"><span class="annot"><span class="annottext">TestGridSession -&gt; Maybe POSIX
+</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3Acreated%3ATestGridSession%27"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The number of billed minutes that were used for this session.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AbillingMinutes%3ATestGridSession%27"><span class="annot"><span class="annottext">TestGridSession -&gt; Maybe Double
 </span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3AbillingMinutes%3ATestGridSession%27"><span class="hs-identifier hs-var hs-var">billingMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The time that the session was started.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3Acreated%3ATestGridSession%27"><span class="annot"><span class="annottext">TestGridSession -&gt; Maybe POSIX
-</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3Acreated%3ATestGridSession%27"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The time the session ended.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aended%3ATestGridSession%27"><span class="annot"><span class="annottext">TestGridSession -&gt; Maybe POSIX
+</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3Aended%3ATestGridSession%27"><span class="hs-identifier hs-var hs-var">ended</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A JSON object of options and parameters passed to the Selenium</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- WebDriver.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AseleniumProperties%3ATestGridSession%27"><span class="annot"><span class="annottext">TestGridSession -&gt; Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3AseleniumProperties%3ATestGridSession%27"><span class="hs-identifier hs-var hs-var">seleniumProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369030"><span id="local-6989586621679369032"><span class="annot"><span class="annottext">TestGridSession -&gt; TestGridSession -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369277"><span id="local-6989586621679369279"><span class="annot"><span class="annottext">TestGridSession -&gt; TestGridSession -&gt; Bool
 (TestGridSession -&gt; TestGridSession -&gt; Bool)
 -&gt; (TestGridSession -&gt; TestGridSession -&gt; Bool)
 -&gt; Eq TestGridSession
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TestGridSession -&gt; TestGridSession -&gt; Bool
 == :: TestGridSession -&gt; TestGridSession -&gt; Bool
 $c== :: TestGridSession -&gt; TestGridSession -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369021"><span id="local-6989586621679369023"><span id="local-6989586621679369025"><span id="local-6989586621679369027"><span class="annot"><span class="annottext">ReadPrec [TestGridSession]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369268"><span id="local-6989586621679369270"><span id="local-6989586621679369272"><span id="local-6989586621679369274"><span class="annot"><span class="annottext">ReadPrec [TestGridSession]
 ReadPrec TestGridSession
 Int -&gt; ReadS TestGridSession
 ReadS [TestGridSession]
@@ -78,7 +78,7 @@ readList :: ReadS [TestGridSession]
 $creadList :: ReadS [TestGridSession]
 readsPrec :: Int -&gt; ReadS TestGridSession
 $creadsPrec :: Int -&gt; ReadS TestGridSession
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369014"><span id="local-6989586621679369016"><span id="local-6989586621679369018"><span class="annot"><span class="annottext">Int -&gt; TestGridSession -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369261"><span id="local-6989586621679369263"><span id="local-6989586621679369265"><span class="annot"><span class="annottext">Int -&gt; TestGridSession -&gt; ShowS
 [TestGridSession] -&gt; ShowS
 TestGridSession -&gt; String
 (Int -&gt; TestGridSession -&gt; ShowS)
@@ -116,24 +116,24 @@ $cfrom :: forall x. TestGridSession -&gt; Rep TestGridSession x
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- 'arn', 'testGridSession_arn' - The ARN of the session.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'seleniumProperties', 'testGridSession_seleniumProperties' - A JSON object of options and parameters passed to the Selenium</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- WebDriver.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'ended', 'testGridSession_ended' - The time the session ended.</span><span>
-</span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'billingMinutes', 'testGridSession_billingMinutes' - The number of billed minutes that were used for this session.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'created', 'testGridSession_created' - The time that the session was started.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'created', 'testGridSession_created' - The time that the session was started.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'billingMinutes', 'testGridSession_billingMinutes' - The number of billed minutes that were used for this session.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'ended', 'testGridSession_ended' - The time the session ended.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'seleniumProperties', 'testGridSession_seleniumProperties' - A JSON object of options and parameters passed to the Selenium</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- WebDriver.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#newTestGridSession"><span class="hs-identifier hs-type">newTestGridSession</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span>
 </span><span id="line-70"></span><span id="newTestGridSession"><span class="annot"><span class="annottext">newTestGridSession :: TestGridSession
 </span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#newTestGridSession"><span class="hs-identifier hs-var hs-var">newTestGridSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">TestGridSession' :: Maybe TestGridSessionStatus
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; Maybe Double
 -&gt; Maybe POSIX
+-&gt; Maybe Text
 -&gt; TestGridSession
 </span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:TestGridSession' :: Maybe TestGridSessionStatus
@@ -144,20 +144,20 @@ forall a. Maybe a
 </span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3Aarn%3ATestGridSession%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:seleniumProperties:TestGridSession' :: Maybe Text
-</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3AseleniumProperties%3ATestGridSession%27"><span class="hs-identifier hs-var">seleniumProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:created:TestGridSession' :: Maybe POSIX
+</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3Acreated%3ATestGridSession%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:ended:TestGridSession' :: Maybe POSIX
-</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3Aended%3ATestGridSession%27"><span class="hs-identifier hs-var">ended</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:billingMinutes:TestGridSession' :: Maybe Double
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:billingMinutes:TestGridSession' :: Maybe Double
 </span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3AbillingMinutes%3ATestGridSession%27"><span class="hs-identifier hs-var">billingMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:created:TestGridSession' :: Maybe POSIX
-</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3Acreated%3ATestGridSession%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:ended:TestGridSession' :: Maybe POSIX
+</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3Aended%3ATestGridSession%27"><span class="hs-identifier hs-var">ended</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:seleniumProperties:TestGridSession' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3AseleniumProperties%3ATestGridSession%27"><span class="hs-identifier hs-var">seleniumProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
@@ -175,16 +175,16 @@ forall a. Maybe a
      (Maybe TestGridSessionStatus)
      (Maybe TestGridSessionStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369005"><span class="annot"><span class="annottext">Maybe TestGridSessionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369252"><span class="annot"><span class="annottext">Maybe TestGridSessionStatus
 status :: Maybe TestGridSessionStatus
 $sel:status:TestGridSession' :: TestGridSession -&gt; Maybe TestGridSessionStatus
-</span><a href="#local-6989586621679369005"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TestGridSessionStatus
-</span><a href="#local-6989586621679369005"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369004"><span class="annot"><span class="annottext">s :: TestGridSession
-</span><a href="#local-6989586621679369004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369003"><span class="annot"><span class="annottext">Maybe TestGridSessionStatus
-</span><a href="#local-6989586621679369003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestGridSession
-</span><a href="#local-6989586621679369004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:TestGridSession' :: Maybe TestGridSessionStatus
+</span><a href="#local-6989586621679369252"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TestGridSessionStatus
+</span><a href="#local-6989586621679369252"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369251"><span class="annot"><span class="annottext">s :: TestGridSession
+</span><a href="#local-6989586621679369251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369250"><span class="annot"><span class="annottext">Maybe TestGridSessionStatus
+</span><a href="#local-6989586621679369250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestGridSession
+</span><a href="#local-6989586621679369251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:TestGridSession' :: Maybe TestGridSessionStatus
 </span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3Astatus%3ATestGridSession%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TestGridSessionStatus
-</span><a href="#local-6989586621679369003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The ARN of the session.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#testGridSession_arn"><span class="hs-identifier hs-type">testGridSession_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -194,55 +194,35 @@ $sel:status:TestGridSession' :: TestGridSession -&gt; Maybe TestGridSessionStatu
 -&gt; (TestGridSession -&gt; Maybe Text -&gt; TestGridSession)
 -&gt; Lens TestGridSession TestGridSession (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369001"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369248"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:TestGridSession' :: TestGridSession -&gt; Maybe Text
-</span><a href="#local-6989586621679369001"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679369001"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369000"><span class="annot"><span class="annottext">s :: TestGridSession
-</span><a href="#local-6989586621679369000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368999"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestGridSession
-</span><a href="#local-6989586621679369000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:TestGridSession' :: Maybe Text
+</span><a href="#local-6989586621679369248"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369248"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369247"><span class="annot"><span class="annottext">s :: TestGridSession
+</span><a href="#local-6989586621679369247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369246"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestGridSession
+</span><a href="#local-6989586621679369247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:TestGridSession' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3Aarn%3ATestGridSession%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | A JSON object of options and parameters passed to the Selenium</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- WebDriver.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#testGridSession_seleniumProperties"><span class="hs-identifier hs-type">testGridSession_seleniumProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="testGridSession_seleniumProperties"><span class="annot"><span class="annottext">testGridSession_seleniumProperties :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-88"></span><span class="hs-comment">-- | The time that the session was started.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#testGridSession_created"><span class="hs-identifier hs-type">testGridSession_created</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="testGridSession_created"><span class="annot"><span class="annottext">testGridSession_created :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; TestGridSession -&gt; f TestGridSession
-</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#testGridSession_seleniumProperties"><span class="hs-identifier hs-var hs-var">testGridSession_seleniumProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestGridSession -&gt; Maybe Text)
--&gt; (TestGridSession -&gt; Maybe Text -&gt; TestGridSession)
--&gt; Lens TestGridSession TestGridSession (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368997"><span class="annot"><span class="annottext">Maybe Text
-seleniumProperties :: Maybe Text
-$sel:seleniumProperties:TestGridSession' :: TestGridSession -&gt; Maybe Text
-</span><a href="#local-6989586621679368997"><span class="hs-identifier hs-var hs-var">seleniumProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368997"><span class="hs-identifier hs-var">seleniumProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368996"><span class="annot"><span class="annottext">s :: TestGridSession
-</span><a href="#local-6989586621679368996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368995"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestGridSession
-</span><a href="#local-6989586621679368996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:seleniumProperties:TestGridSession' :: Maybe Text
-</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3AseleniumProperties%3ATestGridSession%27"><span class="hs-identifier hs-var">seleniumProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The time the session ended.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#testGridSession_ended"><span class="hs-identifier hs-type">testGridSession_ended</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="testGridSession_ended"><span class="annot"><span class="annottext">testGridSession_ended :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; TestGridSession -&gt; f TestGridSession
-</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#testGridSession_ended"><span class="hs-identifier hs-var hs-var">testGridSession_ended</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestGridSession -&gt; Maybe POSIX)
+</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#testGridSession_created"><span class="hs-identifier hs-var hs-var">testGridSession_created</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestGridSession -&gt; Maybe POSIX)
 -&gt; (TestGridSession -&gt; Maybe POSIX -&gt; TestGridSession)
 -&gt; Lens TestGridSession TestGridSession (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368993"><span class="annot"><span class="annottext">Maybe POSIX
-ended :: Maybe POSIX
-$sel:ended:TestGridSession' :: TestGridSession -&gt; Maybe POSIX
-</span><a href="#local-6989586621679368993"><span class="hs-identifier hs-var hs-var">ended</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679368993"><span class="hs-identifier hs-var">ended</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368992"><span class="annot"><span class="annottext">s :: TestGridSession
-</span><a href="#local-6989586621679368992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368991"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679368991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestGridSession
-</span><a href="#local-6989586621679368992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ended:TestGridSession' :: Maybe POSIX
-</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3Aended%3ATestGridSession%27"><span class="hs-identifier hs-var">ended</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679368991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369244"><span class="annot"><span class="annottext">Maybe POSIX
+created :: Maybe POSIX
+$sel:created:TestGridSession' :: TestGridSession -&gt; Maybe POSIX
+</span><a href="#local-6989586621679369244"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369244"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369243"><span class="annot"><span class="annottext">s :: TestGridSession
+</span><a href="#local-6989586621679369243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369242"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestGridSession
+</span><a href="#local-6989586621679369243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:TestGridSession' :: Maybe POSIX
+</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3Acreated%3ATestGridSession%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; TestGridSession -&gt; f TestGridSession)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -258,45 +238,45 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The number of billed minutes that were used for this session.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#testGridSession_billingMinutes"><span class="hs-identifier hs-type">testGridSession_billingMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="testGridSession_billingMinutes"><span class="annot"><span class="annottext">testGridSession_billingMinutes :: (Maybe Double -&gt; f (Maybe Double))
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The number of billed minutes that were used for this session.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#testGridSession_billingMinutes"><span class="hs-identifier hs-type">testGridSession_billingMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="testGridSession_billingMinutes"><span class="annot"><span class="annottext">testGridSession_billingMinutes :: (Maybe Double -&gt; f (Maybe Double))
 -&gt; TestGridSession -&gt; f TestGridSession
 </span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#testGridSession_billingMinutes"><span class="hs-identifier hs-var hs-var">testGridSession_billingMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestGridSession -&gt; Maybe Double)
 -&gt; (TestGridSession -&gt; Maybe Double -&gt; TestGridSession)
 -&gt; Lens
      TestGridSession TestGridSession (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368986"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369237"><span class="annot"><span class="annottext">Maybe Double
 billingMinutes :: Maybe Double
 $sel:billingMinutes:TestGridSession' :: TestGridSession -&gt; Maybe Double
-</span><a href="#local-6989586621679368986"><span class="hs-identifier hs-var hs-var">billingMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679368986"><span class="hs-identifier hs-var">billingMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368985"><span class="annot"><span class="annottext">s :: TestGridSession
-</span><a href="#local-6989586621679368985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368984"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679368984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestGridSession
-</span><a href="#local-6989586621679368985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingMinutes:TestGridSession' :: Maybe Double
+</span><a href="#local-6989586621679369237"><span class="hs-identifier hs-var hs-var">billingMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679369237"><span class="hs-identifier hs-var">billingMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369236"><span class="annot"><span class="annottext">s :: TestGridSession
+</span><a href="#local-6989586621679369236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369235"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679369235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestGridSession
+</span><a href="#local-6989586621679369236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingMinutes:TestGridSession' :: Maybe Double
 </span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3AbillingMinutes%3ATestGridSession%27"><span class="hs-identifier hs-var">billingMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679368984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The time that the session was started.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#testGridSession_created"><span class="hs-identifier hs-type">testGridSession_created</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="testGridSession_created"><span class="annot"><span class="annottext">testGridSession_created :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679369235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The time the session ended.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#testGridSession_ended"><span class="hs-identifier hs-type">testGridSession_ended</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="testGridSession_ended"><span class="annot"><span class="annottext">testGridSession_ended :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; TestGridSession -&gt; f TestGridSession
-</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#testGridSession_created"><span class="hs-identifier hs-var hs-var">testGridSession_created</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestGridSession -&gt; Maybe POSIX)
+</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#testGridSession_ended"><span class="hs-identifier hs-var hs-var">testGridSession_ended</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestGridSession -&gt; Maybe POSIX)
 -&gt; (TestGridSession -&gt; Maybe POSIX -&gt; TestGridSession)
 -&gt; Lens TestGridSession TestGridSession (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368982"><span class="annot"><span class="annottext">Maybe POSIX
-created :: Maybe POSIX
-$sel:created:TestGridSession' :: TestGridSession -&gt; Maybe POSIX
-</span><a href="#local-6989586621679368982"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679368982"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368981"><span class="annot"><span class="annottext">s :: TestGridSession
-</span><a href="#local-6989586621679368981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368980"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679368980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestGridSession
-</span><a href="#local-6989586621679368981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:TestGridSession' :: Maybe POSIX
-</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3Acreated%3ATestGridSession%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679368980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369233"><span class="annot"><span class="annottext">Maybe POSIX
+ended :: Maybe POSIX
+$sel:ended:TestGridSession' :: TestGridSession -&gt; Maybe POSIX
+</span><a href="#local-6989586621679369233"><span class="hs-identifier hs-var hs-var">ended</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369233"><span class="hs-identifier hs-var">ended</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369232"><span class="annot"><span class="annottext">s :: TestGridSession
+</span><a href="#local-6989586621679369232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369231"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestGridSession
+</span><a href="#local-6989586621679369232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ended:TestGridSession' :: Maybe POSIX
+</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3Aended%3ATestGridSession%27"><span class="hs-identifier hs-var">ended</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; TestGridSession -&gt; f TestGridSession)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -312,9 +292,29 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | A JSON object of options and parameters passed to the Selenium</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- WebDriver.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#testGridSession_seleniumProperties"><span class="hs-identifier hs-type">testGridSession_seleniumProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="testGridSession_seleniumProperties"><span class="annot"><span class="annottext">testGridSession_seleniumProperties :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TestGridSession -&gt; f TestGridSession
+</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#testGridSession_seleniumProperties"><span class="hs-identifier hs-var hs-var">testGridSession_seleniumProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestGridSession -&gt; Maybe Text)
+-&gt; (TestGridSession -&gt; Maybe Text -&gt; TestGridSession)
+-&gt; Lens TestGridSession TestGridSession (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369229"><span class="annot"><span class="annottext">Maybe Text
+seleniumProperties :: Maybe Text
+$sel:seleniumProperties:TestGridSession' :: TestGridSession -&gt; Maybe Text
+</span><a href="#local-6989586621679369229"><span class="hs-identifier hs-var hs-var">seleniumProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369229"><span class="hs-identifier hs-var">seleniumProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369228"><span class="annot"><span class="annottext">s :: TestGridSession
+</span><a href="#local-6989586621679369228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-type">TestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369227"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestGridSession
+</span><a href="#local-6989586621679369228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:seleniumProperties:TestGridSession' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#%24sel%3AseleniumProperties%3ATestGridSession%27"><span class="hs-identifier hs-var">seleniumProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368977"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679368975"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TestGridSession
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369224"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679369222"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TestGridSession
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TestGridSession)
@@ -324,95 +324,95 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TestGridSession&quot;</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368972"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368972"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369219"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369219"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe TestGridSessionStatus
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; Maybe Double
 -&gt; Maybe POSIX
+-&gt; Maybe Text
 -&gt; TestGridSession
 </span><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession%27"><span class="hs-identifier hs-var">TestGridSession'</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TestGridSessionStatus
  -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe POSIX
  -&gt; Maybe Double
  -&gt; Maybe POSIX
+ -&gt; Maybe Text
  -&gt; TestGridSession)
 -&gt; Parser (Maybe TestGridSessionStatus)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; Maybe Double
       -&gt; Maybe POSIX
+      -&gt; Maybe Text
       -&gt; TestGridSession)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368972"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TestGridSessionStatus)
+</span><a href="#local-6989586621679369219"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TestGridSessionStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; Maybe Double
    -&gt; Maybe POSIX
+   -&gt; Maybe Text
    -&gt; TestGridSession)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe POSIX -&gt; Maybe Double -&gt; Maybe POSIX -&gt; TestGridSession)
+     (Maybe POSIX
+      -&gt; Maybe Double -&gt; Maybe POSIX -&gt; Maybe Text -&gt; TestGridSession)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368972"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679369219"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe POSIX -&gt; Maybe Double -&gt; Maybe POSIX -&gt; TestGridSession)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe POSIX -&gt; Maybe Double -&gt; Maybe POSIX -&gt; TestGridSession)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368972"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;seleniumProperties&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX -&gt; Maybe Double -&gt; Maybe POSIX -&gt; TestGridSession)
+  (Maybe POSIX
+   -&gt; Maybe Double -&gt; Maybe POSIX -&gt; Maybe Text -&gt; TestGridSession)
 -&gt; Parser (Maybe POSIX)
--&gt; Parser (Maybe Double -&gt; Maybe POSIX -&gt; TestGridSession)
+-&gt; Parser
+     (Maybe Double -&gt; Maybe POSIX -&gt; Maybe Text -&gt; TestGridSession)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368972"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ended&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Maybe POSIX -&gt; TestGridSession)
--&gt; Parser (Maybe Double) -&gt; Parser (Maybe POSIX -&gt; TestGridSession)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368972"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;billingMinutes&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; TestGridSession)
--&gt; Parser (Maybe POSIX) -&gt; Parser TestGridSession
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368972"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679369219"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;created&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double -&gt; Maybe POSIX -&gt; Maybe Text -&gt; TestGridSession)
+-&gt; Parser (Maybe Double)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; TestGridSession)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369219"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;billingMinutes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; TestGridSession)
+-&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Text -&gt; TestGridSession)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369219"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ended&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; TestGridSession)
+-&gt; Parser (Maybe Text) -&gt; Parser TestGridSession
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369219"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;seleniumProperties&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368966"><span id="local-6989586621679368968"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369213"><span id="local-6989586621679369215"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368963"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369210"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span></span><span>
 </span><span id="line-122"></span></pre></body></html>

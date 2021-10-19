@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679790085"><span id="local-6989586621679790086"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModelStatus"><span class="annot"><a href="Network.AWS.IoT.Types.ModelStatus.html#ModelStatus"><span class="hs-identifier hs-var">ModelStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelStatus%27"><span class="annot"><a href="Network.AWS.IoT.Types.ModelStatus.html#ModelStatus%27"><span class="hs-identifier hs-var">ModelStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679790944"><span id="local-6989586621679790945"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModelStatus"><span class="annot"><a href="Network.AWS.IoT.Types.ModelStatus.html#ModelStatus"><span class="hs-identifier hs-var">ModelStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelStatus%27"><span class="annot"><a href="Network.AWS.IoT.Types.ModelStatus.html#ModelStatus%27"><span class="hs-identifier hs-var">ModelStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromModelStatus"><span class="annot"><span class="annottext">ModelStatus -&gt; Text
 </span><a href="Network.AWS.IoT.Types.ModelStatus.html#fromModelStatus"><span class="hs-identifier hs-var hs-var">fromModelStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679790077"><span id="local-6989586621679790079"><span id="local-6989586621679790081"><span class="annot"><span class="annottext">Int -&gt; ModelStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679790936"><span id="local-6989586621679790938"><span id="local-6989586621679790940"><span class="annot"><span class="annottext">Int -&gt; ModelStatus -&gt; ShowS
 [ModelStatus] -&gt; ShowS
 ModelStatus -&gt; String
 (Int -&gt; ModelStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ModelStatus -&gt; String
 showsPrec :: Int -&gt; ModelStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ModelStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679790068"><span id="local-6989586621679790070"><span id="local-6989586621679790072"><span id="local-6989586621679790074"><span class="annot"><span class="annottext">ReadPrec [ModelStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679790927"><span id="local-6989586621679790929"><span id="local-6989586621679790931"><span id="local-6989586621679790933"><span class="annot"><span class="annottext">ReadPrec [ModelStatus]
 ReadPrec ModelStatus
 Int -&gt; ReadS ModelStatus
 ReadS [ModelStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ModelStatus]
 readsPrec :: Int -&gt; ReadS ModelStatus
 $creadsPrec :: Int -&gt; ReadS ModelStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679790063"><span id="local-6989586621679790065"><span class="annot"><span class="annottext">ModelStatus -&gt; ModelStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679790922"><span id="local-6989586621679790924"><span class="annot"><span class="annottext">ModelStatus -&gt; ModelStatus -&gt; Bool
 (ModelStatus -&gt; ModelStatus -&gt; Bool)
 -&gt; (ModelStatus -&gt; ModelStatus -&gt; Bool) -&gt; Eq ModelStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: ModelStatus -&gt; ModelStatus -&gt; Bool
 == :: ModelStatus -&gt; ModelStatus -&gt; Bool
 $c== :: ModelStatus -&gt; ModelStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679790047"><span id="local-6989586621679790049"><span id="local-6989586621679790051"><span id="local-6989586621679790053"><span id="local-6989586621679790055"><span id="local-6989586621679790057"><span id="local-6989586621679790059"><span class="annot"><span class="annottext">Eq ModelStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679790906"><span id="local-6989586621679790908"><span id="local-6989586621679790910"><span id="local-6989586621679790912"><span id="local-6989586621679790914"><span id="local-6989586621679790916"><span id="local-6989586621679790918"><span class="annot"><span class="annottext">Eq ModelStatus
 Eq ModelStatus
 -&gt; (ModelStatus -&gt; ModelStatus -&gt; Ordering)
 -&gt; (ModelStatus -&gt; ModelStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ModelStatus -&gt; Rep ModelStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679790039"><span id="local-6989586621679790041"><span class="annot"><span class="annottext">Int -&gt; ModelStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679790898"><span id="local-6989586621679790900"><span class="annot"><span class="annottext">Int -&gt; ModelStatus -&gt; Int
 ModelStatus -&gt; Int
 (Int -&gt; ModelStatus -&gt; Int)
 -&gt; (ModelStatus -&gt; Int) -&gt; Hashable ModelStatus
@@ -143,49 +143,49 @@ $chash :: ModelStatus -&gt; Int
 hashWithSalt :: Int -&gt; ModelStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ModelStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679790036"><span class="annot"><span class="annottext">ModelStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679790895"><span class="annot"><span class="annottext">ModelStatus -&gt; ()
 (ModelStatus -&gt; ()) -&gt; NFData ModelStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ModelStatus -&gt; ()
 $crnf :: ModelStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679790033"><span class="annot"><span class="annottext">Text -&gt; Either String ModelStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679790892"><span class="annot"><span class="annottext">Text -&gt; Either String ModelStatus
 (Text -&gt; Either String ModelStatus) -&gt; FromText ModelStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ModelStatus
 $cfromText :: Text -&gt; Either String ModelStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679790030"><span class="annot"><span class="annottext">ModelStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679790889"><span class="annot"><span class="annottext">ModelStatus -&gt; Text
 (ModelStatus -&gt; Text) -&gt; ToText ModelStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ModelStatus -&gt; Text
 $ctoText :: ModelStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679790027"><span class="annot"><span class="annottext">ModelStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679790886"><span class="annot"><span class="annottext">ModelStatus -&gt; ByteString
 (ModelStatus -&gt; ByteString) -&gt; ToByteString ModelStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ModelStatus -&gt; ByteString
 $ctoBS :: ModelStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679790024"><span class="annot"><span class="annottext">ModelStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679790883"><span class="annot"><span class="annottext">ModelStatus -&gt; ByteStringBuilder
 (ModelStatus -&gt; ByteStringBuilder) -&gt; ToLog ModelStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ModelStatus -&gt; ByteStringBuilder
 $cbuild :: ModelStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679790021"><span class="annot"><span class="annottext">HeaderName -&gt; ModelStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679790880"><span class="annot"><span class="annottext">HeaderName -&gt; ModelStatus -&gt; [Header]
 (HeaderName -&gt; ModelStatus -&gt; [Header]) -&gt; ToHeader ModelStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ModelStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ModelStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679790018"><span class="annot"><span class="annottext">ModelStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679790877"><span class="annot"><span class="annottext">ModelStatus -&gt; QueryString
 (ModelStatus -&gt; QueryString) -&gt; ToQuery ModelStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ModelStatus -&gt; QueryString
 $ctoQuery :: ModelStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679790013"><span id="local-6989586621679790015"><span class="annot"><span class="annottext">Value -&gt; Parser [ModelStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679790872"><span id="local-6989586621679790874"><span class="annot"><span class="annottext">Value -&gt; Parser [ModelStatus]
 Value -&gt; Parser ModelStatus
 (Value -&gt; Parser ModelStatus)
 -&gt; (Value -&gt; Parser [ModelStatus]) -&gt; FromJSON ModelStatus
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [ModelStatus]
 parseJSON :: Value -&gt; Parser ModelStatus
 $cparseJSON :: Value -&gt; Parser ModelStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679790008"><span id="local-6989586621679790010"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModelStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679790867"><span id="local-6989586621679790869"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModelStatus]
 FromJSONKeyFunction ModelStatus
 FromJSONKeyFunction ModelStatus
 -&gt; FromJSONKeyFunction [ModelStatus] -&gt; FromJSONKey ModelStatus
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ModelStatus]
 fromJSONKey :: FromJSONKeyFunction ModelStatus
 $cfromJSONKey :: FromJSONKeyFunction ModelStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679789999"><span id="local-6989586621679790001"><span id="local-6989586621679790003"><span id="local-6989586621679790005"><span class="annot"><span class="annottext">[ModelStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679790858"><span id="local-6989586621679790860"><span id="local-6989586621679790862"><span id="local-6989586621679790864"><span class="annot"><span class="annottext">[ModelStatus] -&gt; Encoding
 [ModelStatus] -&gt; Value
 ModelStatus -&gt; Encoding
 ModelStatus -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: ModelStatus -&gt; Encoding
 toJSON :: ModelStatus -&gt; Value
 $ctoJSON :: ModelStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679789994"><span id="local-6989586621679789996"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModelStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679790853"><span id="local-6989586621679790855"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModelStatus]
 ToJSONKeyFunction ModelStatus
 ToJSONKeyFunction ModelStatus
 -&gt; ToJSONKeyFunction [ModelStatus] -&gt; ToJSONKey ModelStatus
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ModelStatus]
 toJSONKey :: ToJSONKeyFunction ModelStatus
 $ctoJSONKey :: ToJSONKeyFunction ModelStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679789991"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModelStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679790850"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModelStatus
 ([Node] -&gt; Either String ModelStatus) -&gt; FromXML ModelStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ModelStatus
 $cparseXML :: [Node] -&gt; Either String ModelStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679789988"><span class="annot"><span class="annottext">ModelStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679790847"><span class="annot"><span class="annottext">ModelStatus -&gt; XML
 (ModelStatus -&gt; XML) -&gt; ToXML ModelStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ModelStatus -&gt; XML

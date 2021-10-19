@@ -41,10 +41,10 @@
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_status"><span class="hs-identifier">getSchemaByDefinitionResponse_status</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_schemaArn"><span class="hs-identifier">getSchemaByDefinitionResponse_schemaArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_schemaVersionId"><span class="hs-identifier">getSchemaByDefinitionResponse_schemaVersionId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_dataFormat"><span class="hs-identifier">getSchemaByDefinitionResponse_dataFormat</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_createdTime"><span class="hs-identifier">getSchemaByDefinitionResponse_createdTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_createdTime"><span class="hs-identifier">getSchemaByDefinitionResponse_createdTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_dataFormat"><span class="hs-identifier">getSchemaByDefinitionResponse_dataFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_schemaVersionId"><span class="hs-identifier">getSchemaByDefinitionResponse_schemaVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_schemaArn"><span class="hs-identifier">getSchemaByDefinitionResponse_schemaArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_httpStatus"><span class="hs-identifier">getSchemaByDefinitionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span class="hs-keyword">where</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newGetSchemaByDefinition' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679721608"><span id="local-6989586621679721609"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSchemaByDefinition"><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-var">GetSchemaByDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSchemaByDefinition%27"><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition%27"><span class="hs-identifier hs-var">GetSchemaByDefinition'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679723370"><span id="local-6989586621679723371"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSchemaByDefinition"><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-var">GetSchemaByDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSchemaByDefinition%27"><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition%27"><span class="hs-identifier hs-var">GetSchemaByDefinition'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This is a wrapper structure to contain schema identity fields. The</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- structure contains:</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -72,7 +72,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AschemaDefinition%3AGetSchemaByDefinition%27"><span class="annot"><span class="annottext">GetSchemaByDefinition -&gt; Text
 </span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AschemaDefinition%3AGetSchemaByDefinition%27"><span class="hs-identifier hs-var hs-var">schemaDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679721601"><span id="local-6989586621679721603"><span class="annot"><span class="annottext">GetSchemaByDefinition -&gt; GetSchemaByDefinition -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679723363"><span id="local-6989586621679723365"><span class="annot"><span class="annottext">GetSchemaByDefinition -&gt; GetSchemaByDefinition -&gt; Bool
 (GetSchemaByDefinition -&gt; GetSchemaByDefinition -&gt; Bool)
 -&gt; (GetSchemaByDefinition -&gt; GetSchemaByDefinition -&gt; Bool)
 -&gt; Eq GetSchemaByDefinition
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetSchemaByDefinition -&gt; GetSchemaByDefinition -&gt; Bool
 == :: GetSchemaByDefinition -&gt; GetSchemaByDefinition -&gt; Bool
 $c== :: GetSchemaByDefinition -&gt; GetSchemaByDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721592"><span id="local-6989586621679721594"><span id="local-6989586621679721596"><span id="local-6989586621679721598"><span class="annot"><span class="annottext">ReadPrec [GetSchemaByDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679723354"><span id="local-6989586621679723356"><span id="local-6989586621679723358"><span id="local-6989586621679723360"><span class="annot"><span class="annottext">ReadPrec [GetSchemaByDefinition]
 ReadPrec GetSchemaByDefinition
 Int -&gt; ReadS GetSchemaByDefinition
 ReadS [GetSchemaByDefinition]
@@ -101,7 +101,7 @@ readList :: ReadS [GetSchemaByDefinition]
 $creadList :: ReadS [GetSchemaByDefinition]
 readsPrec :: Int -&gt; ReadS GetSchemaByDefinition
 $creadsPrec :: Int -&gt; ReadS GetSchemaByDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721585"><span id="local-6989586621679721587"><span id="local-6989586621679721589"><span class="annot"><span class="annottext">Int -&gt; GetSchemaByDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679723347"><span id="local-6989586621679723349"><span id="local-6989586621679723351"><span class="annot"><span class="annottext">Int -&gt; GetSchemaByDefinition -&gt; ShowS
 [GetSchemaByDefinition] -&gt; ShowS
 GetSchemaByDefinition -&gt; String
 (Int -&gt; GetSchemaByDefinition -&gt; ShowS)
@@ -153,18 +153,18 @@ $cfrom :: forall x. GetSchemaByDefinition -&gt; Rep GetSchemaByDefinition x
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-type">GetSchemaByDefinition</span></a></span><span>
 </span><span id="line-99"></span><span id="newGetSchemaByDefinition"><span class="annot"><span class="annottext">newGetSchemaByDefinition :: SchemaId -&gt; Text -&gt; GetSchemaByDefinition
 </span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#newGetSchemaByDefinition"><span class="hs-identifier hs-var hs-var">newGetSchemaByDefinition</span></a></span></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679721580"><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679721580"><span class="hs-identifier hs-var">pSchemaId_</span></a></span></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679721579"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721579"><span class="hs-identifier hs-var">pSchemaDefinition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679723342"><span class="annot"><span class="annottext">SchemaId
+</span><a href="#local-6989586621679723342"><span class="hs-identifier hs-var">pSchemaId_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679723341"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679723341"><span class="hs-identifier hs-var">pSchemaDefinition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">GetSchemaByDefinition' :: SchemaId -&gt; Text -&gt; GetSchemaByDefinition
 </span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition%27"><span class="hs-identifier hs-type">GetSchemaByDefinition'</span></a></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:schemaId:GetSchemaByDefinition' :: SchemaId
 </span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AschemaId%3AGetSchemaByDefinition%27"><span class="hs-identifier hs-var">schemaId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679721580"><span class="hs-identifier hs-var">pSchemaId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679723342"><span class="hs-identifier hs-var">pSchemaId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:schemaDefinition:GetSchemaByDefinition' :: Text
 </span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AschemaDefinition%3AGetSchemaByDefinition%27"><span class="hs-identifier hs-var">schemaDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721579"><span class="hs-identifier hs-var">pSchemaDefinition_</span></a></span><span>
+</span><a href="#local-6989586621679723341"><span class="hs-identifier hs-var">pSchemaDefinition_</span></a></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | This is a wrapper structure to contain schema identity fields. The</span><span>
@@ -183,16 +183,16 @@ $cfrom :: forall x. GetSchemaByDefinition -&gt; Rep GetSchemaByDefinition x
 -&gt; Lens
      GetSchemaByDefinition GetSchemaByDefinition SchemaId SchemaId
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition%27"><span class="hs-identifier hs-type">GetSchemaByDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721576"><span class="annot"><span class="annottext">SchemaId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition%27"><span class="hs-identifier hs-type">GetSchemaByDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679723338"><span class="annot"><span class="annottext">SchemaId
 schemaId :: SchemaId
 $sel:schemaId:GetSchemaByDefinition' :: GetSchemaByDefinition -&gt; SchemaId
-</span><a href="#local-6989586621679721576"><span class="hs-identifier hs-var hs-var">schemaId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679721576"><span class="hs-identifier hs-var">schemaId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721575"><span class="annot"><span class="annottext">s :: GetSchemaByDefinition
-</span><a href="#local-6989586621679721575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition%27"><span class="hs-identifier hs-type">GetSchemaByDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721574"><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679721574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaByDefinition
-</span><a href="#local-6989586621679721575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaId:GetSchemaByDefinition' :: SchemaId
+</span><a href="#local-6989586621679723338"><span class="hs-identifier hs-var hs-var">schemaId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaId
+</span><a href="#local-6989586621679723338"><span class="hs-identifier hs-var">schemaId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679723337"><span class="annot"><span class="annottext">s :: GetSchemaByDefinition
+</span><a href="#local-6989586621679723337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition%27"><span class="hs-identifier hs-type">GetSchemaByDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679723336"><span class="annot"><span class="annottext">SchemaId
+</span><a href="#local-6989586621679723336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaByDefinition
+</span><a href="#local-6989586621679723337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaId:GetSchemaByDefinition' :: SchemaId
 </span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AschemaId%3AGetSchemaByDefinition%27"><span class="hs-identifier hs-var">schemaId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679721574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-type">GetSchemaByDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679723336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-type">GetSchemaByDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The definition of the schema for which schema details are required.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinition_schemaDefinition"><span class="hs-identifier hs-type">getSchemaByDefinition_schemaDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-type">GetSchemaByDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -202,27 +202,27 @@ $sel:schemaId:GetSchemaByDefinition' :: GetSchemaByDefinition -&gt; SchemaId
 -&gt; (GetSchemaByDefinition -&gt; Text -&gt; GetSchemaByDefinition)
 -&gt; Lens GetSchemaByDefinition GetSchemaByDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition%27"><span class="hs-identifier hs-type">GetSchemaByDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721573"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition%27"><span class="hs-identifier hs-type">GetSchemaByDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679723335"><span class="annot"><span class="annottext">Text
 schemaDefinition :: Text
 $sel:schemaDefinition:GetSchemaByDefinition' :: GetSchemaByDefinition -&gt; Text
-</span><a href="#local-6989586621679721573"><span class="hs-identifier hs-var hs-var">schemaDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721573"><span class="hs-identifier hs-var">schemaDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721572"><span class="annot"><span class="annottext">s :: GetSchemaByDefinition
-</span><a href="#local-6989586621679721572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition%27"><span class="hs-identifier hs-type">GetSchemaByDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721571"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaByDefinition
-</span><a href="#local-6989586621679721572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaDefinition:GetSchemaByDefinition' :: Text
+</span><a href="#local-6989586621679723335"><span class="hs-identifier hs-var hs-var">schemaDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679723335"><span class="hs-identifier hs-var">schemaDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679723334"><span class="annot"><span class="annottext">s :: GetSchemaByDefinition
+</span><a href="#local-6989586621679723334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition%27"><span class="hs-identifier hs-type">GetSchemaByDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679723333"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679723333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaByDefinition
+</span><a href="#local-6989586621679723334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaDefinition:GetSchemaByDefinition' :: Text
 </span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AschemaDefinition%3AGetSchemaByDefinition%27"><span class="hs-identifier hs-var">schemaDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-type">GetSchemaByDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679723333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-type">GetSchemaByDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-type">GetSchemaByDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-type">GetSchemaByDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679721567"><span class="annot"><span class="annottext">request :: GetSchemaByDefinition -&gt; Request GetSchemaByDefinition
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679723329"><span class="annot"><span class="annottext">request :: GetSchemaByDefinition -&gt; Request GetSchemaByDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetSchemaByDefinition -&gt; Request GetSchemaByDefinition
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679721563"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679723325"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetSchemaByDefinition
 -&gt; ClientResponse ClientBody
@@ -248,22 +248,22 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679721560"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721560"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679721559"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679721559"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679721558"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679721558"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679723322"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679723322"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679723321"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679723321"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679723320"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679723320"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe SchemaVersionStatus
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe DataFormat
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Int
 -&gt; GetSchemaByDefinitionResponse
 </span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">GetSchemaByDefinitionResponse'</span></a></span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SchemaVersionStatus
  -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe DataFormat
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Int
  -&gt; GetSchemaByDefinitionResponse)
@@ -271,43 +271,22 @@ MonadResource m =&gt;
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe DataFormat
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Int
       -&gt; GetSchemaByDefinitionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679721558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SchemaVersionStatus)
+</span><a href="#local-6989586621679723320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SchemaVersionStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe DataFormat
    -&gt; Maybe Text
-   -&gt; Int
-   -&gt; GetSchemaByDefinitionResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe DataFormat
-      -&gt; Maybe Text
-      -&gt; Int
-      -&gt; GetSchemaByDefinitionResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679721558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SchemaArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe DataFormat
    -&gt; Maybe Text
    -&gt; Int
    -&gt; GetSchemaByDefinitionResponse)
@@ -315,35 +294,54 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either
      String
      (Maybe DataFormat
-      -&gt; Maybe Text -&gt; Int -&gt; GetSchemaByDefinitionResponse)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetSchemaByDefinitionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679721558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679723320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SchemaVersionId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe DataFormat
-   -&gt; Maybe Text -&gt; Int -&gt; GetSchemaByDefinitionResponse)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetSchemaByDefinitionResponse)
 -&gt; Either String (Maybe DataFormat)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetSchemaByDefinitionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679723320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DataFormat)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataFormat&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetSchemaByDefinitionResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String (Maybe Text -&gt; Int -&gt; GetSchemaByDefinitionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679721558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DataFormat)
+</span><a href="#local-6989586621679723320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DataFormat&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SchemaVersionId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetSchemaByDefinitionResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; GetSchemaByDefinitionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679721558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679723320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SchemaArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetSchemaByDefinitionResponse)
 -&gt; Either String Int -&gt; Either String GetSchemaByDefinitionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -352,15 +350,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721560"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679723322"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721550"><span id="local-6989586621679721552"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-type">GetSchemaByDefinition</span></a></span></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679723312"><span id="local-6989586621679723314"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-type">GetSchemaByDefinition</span></a></span></span></span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721547"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-type">GetSchemaByDefinition</span></a></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679723309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-type">GetSchemaByDefinition</span></a></span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-type">GetSchemaByDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679721543"><span class="annot"><span class="annottext">toHeaders :: GetSchemaByDefinition -&gt; ResponseHeaders
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679723305"><span class="annot"><span class="annottext">toHeaders :: GetSchemaByDefinition -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetSchemaByDefinition -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -387,15 +385,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721533"><span id="local-6989586621679721535"><span id="local-6989586621679721537"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-type">GetSchemaByDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679721531"><span class="annot"><span class="annottext">toJSON :: GetSchemaByDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition%27"><span class="hs-identifier hs-type">GetSchemaByDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721528"><span id="local-6989586621679721529"><span class="annot"><span class="annottext">Text
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679723295"><span id="local-6989586621679723297"><span id="local-6989586621679723299"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-type">GetSchemaByDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679723293"><span class="annot"><span class="annottext">toJSON :: GetSchemaByDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition%27"><span class="hs-identifier hs-type">GetSchemaByDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679723290"><span id="local-6989586621679723291"><span class="annot"><span class="annottext">Text
 SchemaId
 schemaDefinition :: Text
 schemaId :: SchemaId
 $sel:schemaDefinition:GetSchemaByDefinition' :: GetSchemaByDefinition -&gt; Text
 $sel:schemaId:GetSchemaByDefinition' :: GetSchemaByDefinition -&gt; SchemaId
-</span><a href="#local-6989586621679721528"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679723290"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -407,7 +405,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SchemaId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SchemaId -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679721529"><span class="hs-identifier hs-var">schemaId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679723291"><span class="hs-identifier hs-var">schemaId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -415,19 +413,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SchemaDefinition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721528"><span class="hs-identifier hs-var">schemaDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679723290"><span class="hs-identifier hs-var">schemaDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-type">GetSchemaByDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679721522"><span class="annot"><span class="annottext">toPath :: GetSchemaByDefinition -&gt; ByteString
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679723284"><span class="annot"><span class="annottext">toPath :: GetSchemaByDefinition -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetSchemaByDefinition -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinition"><span class="hs-identifier hs-type">GetSchemaByDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679721518"><span class="annot"><span class="annottext">toQuery :: GetSchemaByDefinition -&gt; QueryString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679723280"><span class="annot"><span class="annottext">toQuery :: GetSchemaByDefinition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetSchemaByDefinition -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -435,28 +433,28 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | /See:/ 'newGetSchemaByDefinitionResponse' smart constructor.</span><span>
-</span><span id="line-175"></span><span id="local-6989586621679721515"><span id="local-6989586621679721516"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSchemaByDefinitionResponse"><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-var">GetSchemaByDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSchemaByDefinitionResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">GetSchemaByDefinitionResponse'</span></a></span></span><span>
+</span><span id="line-175"></span><span id="local-6989586621679723277"><span id="local-6989586621679723278"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSchemaByDefinitionResponse"><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-var">GetSchemaByDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSchemaByDefinitionResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">GetSchemaByDefinitionResponse'</span></a></span></span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the schema version.</span><span>
 </span><span id="line-177"></span><span>    </span><span id="%24sel%3Astatus%3AGetSchemaByDefinitionResponse%27"><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse -&gt; Maybe SchemaVersionStatus
 </span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3Astatus%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaVersionStatus.html#SchemaVersionStatus"><span class="hs-identifier hs-type">SchemaVersionStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the schema.</span><span>
-</span><span id="line-179"></span><span>    </span><span id="%24sel%3AschemaArn%3AGetSchemaByDefinitionResponse%27"><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AschemaArn%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | The schema ID of the schema version.</span><span>
-</span><span id="line-181"></span><span>    </span><span id="%24sel%3AschemaVersionId%3AGetSchemaByDefinitionResponse%27"><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AschemaVersionId%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">schemaVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The data format of the schema definition. Currently only @AVRO@ and</span><span>
-</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- @JSON@ are supported.</span><span>
-</span><span id="line-184"></span><span>    </span><span id="%24sel%3AdataFormat%3AGetSchemaByDefinitionResponse%27"><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse -&gt; Maybe DataFormat
-</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AdataFormat%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">dataFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataFormat.html#DataFormat"><span class="hs-identifier hs-type">DataFormat</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The date and time the schema was created.</span><span>
-</span><span id="line-186"></span><span>    </span><span id="%24sel%3AcreatedTime%3AGetSchemaByDefinitionResponse%27"><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse -&gt; Maybe Text
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | The date and time the schema was created.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AcreatedTime%3AGetSchemaByDefinitionResponse%27"><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AcreatedTime%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | The data format of the schema definition. Currently only @AVRO@ and</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- @JSON@ are supported.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3AdataFormat%3AGetSchemaByDefinitionResponse%27"><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse -&gt; Maybe DataFormat
+</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AdataFormat%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">dataFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataFormat.html#DataFormat"><span class="hs-identifier hs-type">DataFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- | The schema ID of the schema version.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AschemaVersionId%3AGetSchemaByDefinitionResponse%27"><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AschemaVersionId%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">schemaVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the schema.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3AschemaArn%3AGetSchemaByDefinitionResponse%27"><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AschemaArn%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-188"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetSchemaByDefinitionResponse%27"><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse -&gt; Int
 </span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AhttpStatus%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679721505"><span id="local-6989586621679721507"><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679723267"><span id="local-6989586621679723269"><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse
 -&gt; GetSchemaByDefinitionResponse -&gt; Bool
 (GetSchemaByDefinitionResponse
  -&gt; GetSchemaByDefinitionResponse -&gt; Bool)
@@ -472,7 +470,7 @@ $c/= :: GetSchemaByDefinitionResponse
 -&gt; GetSchemaByDefinitionResponse -&gt; Bool
 $c== :: GetSchemaByDefinitionResponse
 -&gt; GetSchemaByDefinitionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721497"><span id="local-6989586621679721499"><span id="local-6989586621679721501"><span id="local-6989586621679721503"><span class="annot"><span class="annottext">ReadPrec [GetSchemaByDefinitionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679723259"><span id="local-6989586621679723261"><span id="local-6989586621679723263"><span id="local-6989586621679723265"><span class="annot"><span class="annottext">ReadPrec [GetSchemaByDefinitionResponse]
 ReadPrec GetSchemaByDefinitionResponse
 Int -&gt; ReadS GetSchemaByDefinitionResponse
 ReadS [GetSchemaByDefinitionResponse]
@@ -492,7 +490,7 @@ readList :: ReadS [GetSchemaByDefinitionResponse]
 $creadList :: ReadS [GetSchemaByDefinitionResponse]
 readsPrec :: Int -&gt; ReadS GetSchemaByDefinitionResponse
 $creadsPrec :: Int -&gt; ReadS GetSchemaByDefinitionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721491"><span id="local-6989586621679721493"><span id="local-6989586621679721495"><span class="annot"><span class="annottext">Int -&gt; GetSchemaByDefinitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679723253"><span id="local-6989586621679723255"><span id="local-6989586621679723257"><span class="annot"><span class="annottext">Int -&gt; GetSchemaByDefinitionResponse -&gt; ShowS
 [GetSchemaByDefinitionResponse] -&gt; ShowS
 GetSchemaByDefinitionResponse -&gt; String
 (Int -&gt; GetSchemaByDefinitionResponse -&gt; ShowS)
@@ -540,14 +538,14 @@ GetSchemaByDefinitionResponse
 </span><span id="line-199"></span><span class="hs-comment">--</span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- 'status', 'getSchemaByDefinitionResponse_status' - The status of the schema version.</span><span>
 </span><span id="line-201"></span><span class="hs-comment">--</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- 'schemaArn', 'getSchemaByDefinitionResponse_schemaArn' - The Amazon Resource Name (ARN) of the schema.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'createdTime', 'getSchemaByDefinitionResponse_createdTime' - The date and time the schema was created.</span><span>
 </span><span id="line-203"></span><span class="hs-comment">--</span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- 'schemaVersionId', 'getSchemaByDefinitionResponse_schemaVersionId' - The schema ID of the schema version.</span><span>
-</span><span id="line-205"></span><span class="hs-comment">--</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- 'dataFormat', 'getSchemaByDefinitionResponse_dataFormat' - The data format of the schema definition. Currently only @AVRO@ and</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- @JSON@ are supported.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'dataFormat', 'getSchemaByDefinitionResponse_dataFormat' - The data format of the schema definition. Currently only @AVRO@ and</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- @JSON@ are supported.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'schemaVersionId', 'getSchemaByDefinitionResponse_schemaVersionId' - The schema ID of the schema version.</span><span>
 </span><span id="line-208"></span><span class="hs-comment">--</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- 'createdTime', 'getSchemaByDefinitionResponse_createdTime' - The date and time the schema was created.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'schemaArn', 'getSchemaByDefinitionResponse_schemaArn' - The Amazon Resource Name (ARN) of the schema.</span><span>
 </span><span id="line-210"></span><span class="hs-comment">--</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- 'httpStatus', 'getSchemaByDefinitionResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-212"></span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#newGetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">newGetSchemaByDefinitionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -555,12 +553,12 @@ GetSchemaByDefinitionResponse
 </span><span id="line-214"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span>
 </span><span id="line-216"></span><span id="newGetSchemaByDefinitionResponse"><span class="annot"><span class="annottext">newGetSchemaByDefinitionResponse :: Int -&gt; GetSchemaByDefinitionResponse
-</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#newGetSchemaByDefinitionResponse"><span class="hs-identifier hs-var hs-var">newGetSchemaByDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679721488"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721488"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#newGetSchemaByDefinitionResponse"><span class="hs-identifier hs-var hs-var">newGetSchemaByDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679723250"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679723250"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse' :: Maybe SchemaVersionStatus
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe DataFormat
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Int
 -&gt; GetSchemaByDefinitionResponse
@@ -570,25 +568,25 @@ GetSchemaByDefinitionResponse
 </span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">Maybe SchemaVersionStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaArn:GetSchemaByDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AschemaArn%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTime:GetSchemaByDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AcreatedTime%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaVersionId:GetSchemaByDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AschemaVersionId%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">schemaVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataFormat:GetSchemaByDefinitionResponse' :: Maybe DataFormat
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataFormat:GetSchemaByDefinitionResponse' :: Maybe DataFormat
 </span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AdataFormat%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">dataFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataFormat
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTime:GetSchemaByDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AcreatedTime%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaVersionId:GetSchemaByDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AschemaVersionId%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">schemaVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaArn:GetSchemaByDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AschemaArn%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetSchemaByDefinitionResponse' :: Int
 </span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AhttpStatus%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721488"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679723250"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-225"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | The status of the schema version.</span><span>
@@ -604,93 +602,20 @@ forall a. Maybe a
      (Maybe SchemaVersionStatus)
      (Maybe SchemaVersionStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721487"><span class="annot"><span class="annottext">Maybe SchemaVersionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679723249"><span class="annot"><span class="annottext">Maybe SchemaVersionStatus
 status :: Maybe SchemaVersionStatus
 $sel:status:GetSchemaByDefinitionResponse' :: GetSchemaByDefinitionResponse -&gt; Maybe SchemaVersionStatus
-</span><a href="#local-6989586621679721487"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaVersionStatus
-</span><a href="#local-6989586621679721487"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721486"><span class="annot"><span class="annottext">s :: GetSchemaByDefinitionResponse
-</span><a href="#local-6989586621679721486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721485"><span class="annot"><span class="annottext">Maybe SchemaVersionStatus
-</span><a href="#local-6989586621679721485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse
-</span><a href="#local-6989586621679721486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetSchemaByDefinitionResponse' :: Maybe SchemaVersionStatus
+</span><a href="#local-6989586621679723249"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaVersionStatus
+</span><a href="#local-6989586621679723249"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679723248"><span class="annot"><span class="annottext">s :: GetSchemaByDefinitionResponse
+</span><a href="#local-6989586621679723248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679723247"><span class="annot"><span class="annottext">Maybe SchemaVersionStatus
+</span><a href="#local-6989586621679723247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse
+</span><a href="#local-6989586621679723248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetSchemaByDefinitionResponse' :: Maybe SchemaVersionStatus
 </span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3Astatus%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaVersionStatus
-</span><a href="#local-6989586621679721485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679723247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the schema.</span><span>
-</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_schemaArn"><span class="hs-identifier hs-type">getSchemaByDefinitionResponse_schemaArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-233"></span><span id="getSchemaByDefinitionResponse_schemaArn"><span class="annot"><span class="annottext">getSchemaByDefinitionResponse_schemaArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetSchemaByDefinitionResponse -&gt; f GetSchemaByDefinitionResponse
-</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_schemaArn"><span class="hs-identifier hs-var hs-var">getSchemaByDefinitionResponse_schemaArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSchemaByDefinitionResponse -&gt; Maybe Text)
--&gt; (GetSchemaByDefinitionResponse
-    -&gt; Maybe Text -&gt; GetSchemaByDefinitionResponse)
--&gt; Lens
-     GetSchemaByDefinitionResponse
-     GetSchemaByDefinitionResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721484"><span class="annot"><span class="annottext">Maybe Text
-schemaArn :: Maybe Text
-$sel:schemaArn:GetSchemaByDefinitionResponse' :: GetSchemaByDefinitionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679721484"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721484"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721483"><span class="annot"><span class="annottext">s :: GetSchemaByDefinitionResponse
-</span><a href="#local-6989586621679721483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721482"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse
-</span><a href="#local-6989586621679721483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:GetSchemaByDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AschemaArn%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- | The schema ID of the schema version.</span><span>
-</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_schemaVersionId"><span class="hs-identifier hs-type">getSchemaByDefinitionResponse_schemaVersionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-237"></span><span id="getSchemaByDefinitionResponse_schemaVersionId"><span class="annot"><span class="annottext">getSchemaByDefinitionResponse_schemaVersionId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetSchemaByDefinitionResponse -&gt; f GetSchemaByDefinitionResponse
-</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_schemaVersionId"><span class="hs-identifier hs-var hs-var">getSchemaByDefinitionResponse_schemaVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSchemaByDefinitionResponse -&gt; Maybe Text)
--&gt; (GetSchemaByDefinitionResponse
-    -&gt; Maybe Text -&gt; GetSchemaByDefinitionResponse)
--&gt; Lens
-     GetSchemaByDefinitionResponse
-     GetSchemaByDefinitionResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721481"><span class="annot"><span class="annottext">Maybe Text
-schemaVersionId :: Maybe Text
-$sel:schemaVersionId:GetSchemaByDefinitionResponse' :: GetSchemaByDefinitionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679721481"><span class="hs-identifier hs-var hs-var">schemaVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721481"><span class="hs-identifier hs-var">schemaVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721480"><span class="annot"><span class="annottext">s :: GetSchemaByDefinitionResponse
-</span><a href="#local-6989586621679721480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721479"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse
-</span><a href="#local-6989586621679721480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaVersionId:GetSchemaByDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AschemaVersionId%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">schemaVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-238"></span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- | The data format of the schema definition. Currently only @AVRO@ and</span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- @JSON@ are supported.</span><span>
-</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_dataFormat"><span class="hs-identifier hs-type">getSchemaByDefinitionResponse_dataFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataFormat.html#DataFormat"><span class="hs-identifier hs-type">DataFormat</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-242"></span><span id="getSchemaByDefinitionResponse_dataFormat"><span class="annot"><span class="annottext">getSchemaByDefinitionResponse_dataFormat :: (Maybe DataFormat -&gt; f (Maybe DataFormat))
--&gt; GetSchemaByDefinitionResponse -&gt; f GetSchemaByDefinitionResponse
-</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_dataFormat"><span class="hs-identifier hs-var hs-var">getSchemaByDefinitionResponse_dataFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSchemaByDefinitionResponse -&gt; Maybe DataFormat)
--&gt; (GetSchemaByDefinitionResponse
-    -&gt; Maybe DataFormat -&gt; GetSchemaByDefinitionResponse)
--&gt; Lens
-     GetSchemaByDefinitionResponse
-     GetSchemaByDefinitionResponse
-     (Maybe DataFormat)
-     (Maybe DataFormat)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721478"><span class="annot"><span class="annottext">Maybe DataFormat
-dataFormat :: Maybe DataFormat
-$sel:dataFormat:GetSchemaByDefinitionResponse' :: GetSchemaByDefinitionResponse -&gt; Maybe DataFormat
-</span><a href="#local-6989586621679721478"><span class="hs-identifier hs-var hs-var">dataFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataFormat
-</span><a href="#local-6989586621679721478"><span class="hs-identifier hs-var">dataFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721477"><span class="annot"><span class="annottext">s :: GetSchemaByDefinitionResponse
-</span><a href="#local-6989586621679721477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721476"><span class="annot"><span class="annottext">Maybe DataFormat
-</span><a href="#local-6989586621679721476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse
-</span><a href="#local-6989586621679721477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataFormat:GetSchemaByDefinitionResponse' :: Maybe DataFormat
-</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AdataFormat%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">dataFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataFormat
-</span><a href="#local-6989586621679721476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-243"></span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- | The date and time the schema was created.</span><span>
-</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_createdTime"><span class="hs-identifier hs-type">getSchemaByDefinitionResponse_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-246"></span><span id="getSchemaByDefinitionResponse_createdTime"><span class="annot"><span class="annottext">getSchemaByDefinitionResponse_createdTime :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-231"></span><span class="hs-comment">-- | The date and time the schema was created.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_createdTime"><span class="hs-identifier hs-type">getSchemaByDefinitionResponse_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="getSchemaByDefinitionResponse_createdTime"><span class="annot"><span class="annottext">getSchemaByDefinitionResponse_createdTime :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetSchemaByDefinitionResponse -&gt; f GetSchemaByDefinitionResponse
 </span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_createdTime"><span class="hs-identifier hs-var hs-var">getSchemaByDefinitionResponse_createdTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSchemaByDefinitionResponse -&gt; Maybe Text)
 -&gt; (GetSchemaByDefinitionResponse
@@ -701,16 +626,89 @@ $sel:dataFormat:GetSchemaByDefinitionResponse' :: GetSchemaByDefinitionResponse 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721475"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679723246"><span class="annot"><span class="annottext">Maybe Text
 createdTime :: Maybe Text
 $sel:createdTime:GetSchemaByDefinitionResponse' :: GetSchemaByDefinitionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679721475"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721475"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721474"><span class="annot"><span class="annottext">s :: GetSchemaByDefinitionResponse
-</span><a href="#local-6989586621679721474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721473"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse
-</span><a href="#local-6989586621679721474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:GetSchemaByDefinitionResponse' :: Maybe Text
+</span><a href="#local-6989586621679723246"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723246"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679723245"><span class="annot"><span class="annottext">s :: GetSchemaByDefinitionResponse
+</span><a href="#local-6989586621679723245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679723244"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse
+</span><a href="#local-6989586621679723245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:GetSchemaByDefinitionResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AcreatedTime%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679723244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The data format of the schema definition. Currently only @AVRO@ and</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- @JSON@ are supported.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_dataFormat"><span class="hs-identifier hs-type">getSchemaByDefinitionResponse_dataFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataFormat.html#DataFormat"><span class="hs-identifier hs-type">DataFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="getSchemaByDefinitionResponse_dataFormat"><span class="annot"><span class="annottext">getSchemaByDefinitionResponse_dataFormat :: (Maybe DataFormat -&gt; f (Maybe DataFormat))
+-&gt; GetSchemaByDefinitionResponse -&gt; f GetSchemaByDefinitionResponse
+</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_dataFormat"><span class="hs-identifier hs-var hs-var">getSchemaByDefinitionResponse_dataFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSchemaByDefinitionResponse -&gt; Maybe DataFormat)
+-&gt; (GetSchemaByDefinitionResponse
+    -&gt; Maybe DataFormat -&gt; GetSchemaByDefinitionResponse)
+-&gt; Lens
+     GetSchemaByDefinitionResponse
+     GetSchemaByDefinitionResponse
+     (Maybe DataFormat)
+     (Maybe DataFormat)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679723243"><span class="annot"><span class="annottext">Maybe DataFormat
+dataFormat :: Maybe DataFormat
+$sel:dataFormat:GetSchemaByDefinitionResponse' :: GetSchemaByDefinitionResponse -&gt; Maybe DataFormat
+</span><a href="#local-6989586621679723243"><span class="hs-identifier hs-var hs-var">dataFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataFormat
+</span><a href="#local-6989586621679723243"><span class="hs-identifier hs-var">dataFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679723242"><span class="annot"><span class="annottext">s :: GetSchemaByDefinitionResponse
+</span><a href="#local-6989586621679723242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679723241"><span class="annot"><span class="annottext">Maybe DataFormat
+</span><a href="#local-6989586621679723241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse
+</span><a href="#local-6989586621679723242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataFormat:GetSchemaByDefinitionResponse' :: Maybe DataFormat
+</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AdataFormat%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">dataFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataFormat
+</span><a href="#local-6989586621679723241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The schema ID of the schema version.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_schemaVersionId"><span class="hs-identifier hs-type">getSchemaByDefinitionResponse_schemaVersionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="getSchemaByDefinitionResponse_schemaVersionId"><span class="annot"><span class="annottext">getSchemaByDefinitionResponse_schemaVersionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSchemaByDefinitionResponse -&gt; f GetSchemaByDefinitionResponse
+</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_schemaVersionId"><span class="hs-identifier hs-var hs-var">getSchemaByDefinitionResponse_schemaVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSchemaByDefinitionResponse -&gt; Maybe Text)
+-&gt; (GetSchemaByDefinitionResponse
+    -&gt; Maybe Text -&gt; GetSchemaByDefinitionResponse)
+-&gt; Lens
+     GetSchemaByDefinitionResponse
+     GetSchemaByDefinitionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679723240"><span class="annot"><span class="annottext">Maybe Text
+schemaVersionId :: Maybe Text
+$sel:schemaVersionId:GetSchemaByDefinitionResponse' :: GetSchemaByDefinitionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679723240"><span class="hs-identifier hs-var hs-var">schemaVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723240"><span class="hs-identifier hs-var">schemaVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679723239"><span class="annot"><span class="annottext">s :: GetSchemaByDefinitionResponse
+</span><a href="#local-6989586621679723239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679723238"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse
+</span><a href="#local-6989586621679723239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaVersionId:GetSchemaByDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AschemaVersionId%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">schemaVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the schema.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_schemaArn"><span class="hs-identifier hs-type">getSchemaByDefinitionResponse_schemaArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="getSchemaByDefinitionResponse_schemaArn"><span class="annot"><span class="annottext">getSchemaByDefinitionResponse_schemaArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSchemaByDefinitionResponse -&gt; f GetSchemaByDefinitionResponse
+</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_schemaArn"><span class="hs-identifier hs-var hs-var">getSchemaByDefinitionResponse_schemaArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSchemaByDefinitionResponse -&gt; Maybe Text)
+-&gt; (GetSchemaByDefinitionResponse
+    -&gt; Maybe Text -&gt; GetSchemaByDefinitionResponse)
+-&gt; Lens
+     GetSchemaByDefinitionResponse
+     GetSchemaByDefinitionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679723237"><span class="annot"><span class="annottext">Maybe Text
+schemaArn :: Maybe Text
+$sel:schemaArn:GetSchemaByDefinitionResponse' :: GetSchemaByDefinitionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679723237"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723237"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679723236"><span class="annot"><span class="annottext">s :: GetSchemaByDefinitionResponse
+</span><a href="#local-6989586621679723236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679723235"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse
+</span><a href="#local-6989586621679723236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:GetSchemaByDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AschemaArn%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679723235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-249"></span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#getSchemaByDefinitionResponse_httpStatus"><span class="hs-identifier hs-type">getSchemaByDefinitionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -722,16 +720,16 @@ $sel:createdTime:GetSchemaByDefinitionResponse' :: GetSchemaByDefinitionResponse
 -&gt; Lens
      GetSchemaByDefinitionResponse GetSchemaByDefinitionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721472"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679723234"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetSchemaByDefinitionResponse' :: GetSchemaByDefinitionResponse -&gt; Int
-</span><a href="#local-6989586621679721472"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721472"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721471"><span class="annot"><span class="annottext">s :: GetSchemaByDefinitionResponse
-</span><a href="#local-6989586621679721471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721470"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse
-</span><a href="#local-6989586621679721471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSchemaByDefinitionResponse' :: Int
+</span><a href="#local-6989586621679723234"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679723234"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679723233"><span class="annot"><span class="annottext">s :: GetSchemaByDefinitionResponse
+</span><a href="#local-6989586621679723233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679723232"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679723232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSchemaByDefinitionResponse
+</span><a href="#local-6989586621679723233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSchemaByDefinitionResponse' :: Int
 </span><a href="Network.AWS.Glue.GetSchemaByDefinition.html#%24sel%3AhttpStatus%3AGetSchemaByDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679723232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
-</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721468"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679723230"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSchemaByDefinition.html#GetSchemaByDefinitionResponse"><span class="hs-identifier hs-type">GetSchemaByDefinitionResponse</span></a></span></span><span>
 </span><span id="line-253"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- resource name, the source account, and source region.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAggregateResourceIdentifier' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679407675"><span id="local-6989586621679407676"></span></span><span class="hs-keyword">data</span><span> </span><span id="AggregateResourceIdentifier"><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-var">AggregateResourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregateResourceIdentifier%27"><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-var">AggregateResourceIdentifier'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679408280"><span id="local-6989586621679408281"></span></span><span class="hs-keyword">data</span><span> </span><span id="AggregateResourceIdentifier"><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-var">AggregateResourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregateResourceIdentifier%27"><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-var">AggregateResourceIdentifier'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Amazon Web Services resource.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AresourceName%3AAggregateResourceIdentifier%27"><span class="annot"><span class="annottext">AggregateResourceIdentifier -&gt; Maybe Text
 </span><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#%24sel%3AresourceName%3AAggregateResourceIdentifier%27"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AresourceType%3AAggregateResourceIdentifier%27"><span class="annot"><span class="annottext">AggregateResourceIdentifier -&gt; ResourceType
 </span><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#%24sel%3AresourceType%3AAggregateResourceIdentifier%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679407665"><span id="local-6989586621679407667"><span class="annot"><span class="annottext">AggregateResourceIdentifier -&gt; AggregateResourceIdentifier -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679408270"><span id="local-6989586621679408272"><span class="annot"><span class="annottext">AggregateResourceIdentifier -&gt; AggregateResourceIdentifier -&gt; Bool
 (AggregateResourceIdentifier
  -&gt; AggregateResourceIdentifier -&gt; Bool)
 -&gt; (AggregateResourceIdentifier
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AggregateResourceIdentifier -&gt; AggregateResourceIdentifier -&gt; Bool
 == :: AggregateResourceIdentifier -&gt; AggregateResourceIdentifier -&gt; Bool
 $c== :: AggregateResourceIdentifier -&gt; AggregateResourceIdentifier -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407656"><span id="local-6989586621679407658"><span id="local-6989586621679407660"><span id="local-6989586621679407662"><span class="annot"><span class="annottext">ReadPrec [AggregateResourceIdentifier]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408261"><span id="local-6989586621679408263"><span id="local-6989586621679408265"><span id="local-6989586621679408267"><span class="annot"><span class="annottext">ReadPrec [AggregateResourceIdentifier]
 ReadPrec AggregateResourceIdentifier
 Int -&gt; ReadS AggregateResourceIdentifier
 ReadS [AggregateResourceIdentifier]
@@ -77,7 +77,7 @@ readList :: ReadS [AggregateResourceIdentifier]
 $creadList :: ReadS [AggregateResourceIdentifier]
 readsPrec :: Int -&gt; ReadS AggregateResourceIdentifier
 $creadsPrec :: Int -&gt; ReadS AggregateResourceIdentifier
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407649"><span id="local-6989586621679407651"><span id="local-6989586621679407653"><span class="annot"><span class="annottext">Int -&gt; AggregateResourceIdentifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408254"><span id="local-6989586621679408256"><span id="local-6989586621679408258"><span class="annot"><span class="annottext">Int -&gt; AggregateResourceIdentifier -&gt; ShowS
 [AggregateResourceIdentifier] -&gt; ShowS
 AggregateResourceIdentifier -&gt; String
 (Int -&gt; AggregateResourceIdentifier -&gt; ShowS)
@@ -138,14 +138,14 @@ AggregateResourceIdentifier -&gt; Rep AggregateResourceIdentifier x
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span><span>
 </span><span id="line-73"></span><span id="newAggregateResourceIdentifier"><span class="annot"><span class="annottext">newAggregateResourceIdentifier :: Text -&gt; Text -&gt; Text -&gt; ResourceType -&gt; AggregateResourceIdentifier
 </span><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#newAggregateResourceIdentifier"><span class="hs-identifier hs-var hs-var">newAggregateResourceIdentifier</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679407643"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679407643"><span class="hs-identifier hs-var">pSourceAccountId_</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679407642"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679407642"><span class="hs-identifier hs-var">pSourceRegion_</span></a></span></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679407641"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679407641"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679407640"><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621679407640"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679408248"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408248"><span class="hs-identifier hs-var">pSourceAccountId_</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679408247"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408247"><span class="hs-identifier hs-var">pSourceRegion_</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679408246"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408246"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679408245"><span class="annot"><span class="annottext">ResourceType
+</span><a href="#local-6989586621679408245"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">AggregateResourceIdentifier' :: Maybe Text
 -&gt; Text
 -&gt; Text
@@ -160,16 +160,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceAccountId:AggregateResourceIdentifier' :: Text
 </span><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#%24sel%3AsourceAccountId%3AAggregateResourceIdentifier%27"><span class="hs-identifier hs-var">sourceAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679407643"><span class="hs-identifier hs-var">pSourceAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679408248"><span class="hs-identifier hs-var">pSourceAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceRegion:AggregateResourceIdentifier' :: Text
 </span><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#%24sel%3AsourceRegion%3AAggregateResourceIdentifier%27"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679407642"><span class="hs-identifier hs-var">pSourceRegion_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679408247"><span class="hs-identifier hs-var">pSourceRegion_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceId:AggregateResourceIdentifier' :: Text
 </span><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#%24sel%3AresourceId%3AAggregateResourceIdentifier%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679407641"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679408246"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceType:AggregateResourceIdentifier' :: ResourceType
 </span><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#%24sel%3AresourceType%3AAggregateResourceIdentifier%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621679407640"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span>
+</span><a href="#local-6989586621679408245"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The name of the Amazon Web Services resource.</span><span>
@@ -185,16 +185,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407636"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408241"><span class="annot"><span class="annottext">Maybe Text
 resourceName :: Maybe Text
 $sel:resourceName:AggregateResourceIdentifier' :: AggregateResourceIdentifier -&gt; Maybe Text
-</span><a href="#local-6989586621679407636"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679407636"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407635"><span class="annot"><span class="annottext">s :: AggregateResourceIdentifier
-</span><a href="#local-6989586621679407635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407634"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679407634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateResourceIdentifier
-</span><a href="#local-6989586621679407635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:AggregateResourceIdentifier' :: Maybe Text
+</span><a href="#local-6989586621679408241"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408241"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408240"><span class="annot"><span class="annottext">s :: AggregateResourceIdentifier
+</span><a href="#local-6989586621679408240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408239"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateResourceIdentifier
+</span><a href="#local-6989586621679408240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:AggregateResourceIdentifier' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#%24sel%3AresourceName%3AAggregateResourceIdentifier%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679407634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The 12-digit account ID of the source account.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#aggregateResourceIdentifier_sourceAccountId"><span class="hs-identifier hs-type">aggregateResourceIdentifier_sourceAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -206,16 +206,16 @@ $sel:resourceName:AggregateResourceIdentifier' :: AggregateResourceIdentifier -&
 -&gt; Lens
      AggregateResourceIdentifier AggregateResourceIdentifier Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407632"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408237"><span class="annot"><span class="annottext">Text
 sourceAccountId :: Text
 $sel:sourceAccountId:AggregateResourceIdentifier' :: AggregateResourceIdentifier -&gt; Text
-</span><a href="#local-6989586621679407632"><span class="hs-identifier hs-var hs-var">sourceAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679407632"><span class="hs-identifier hs-var">sourceAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407631"><span class="annot"><span class="annottext">s :: AggregateResourceIdentifier
-</span><a href="#local-6989586621679407631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407630"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679407630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateResourceIdentifier
-</span><a href="#local-6989586621679407631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceAccountId:AggregateResourceIdentifier' :: Text
+</span><a href="#local-6989586621679408237"><span class="hs-identifier hs-var hs-var">sourceAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408237"><span class="hs-identifier hs-var">sourceAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408236"><span class="annot"><span class="annottext">s :: AggregateResourceIdentifier
+</span><a href="#local-6989586621679408236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408235"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateResourceIdentifier
+</span><a href="#local-6989586621679408236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceAccountId:AggregateResourceIdentifier' :: Text
 </span><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#%24sel%3AsourceAccountId%3AAggregateResourceIdentifier%27"><span class="hs-identifier hs-var">sourceAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679407630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The source region where data is aggregated.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#aggregateResourceIdentifier_sourceRegion"><span class="hs-identifier hs-type">aggregateResourceIdentifier_sourceRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -227,16 +227,16 @@ $sel:sourceAccountId:AggregateResourceIdentifier' :: AggregateResourceIdentifier
 -&gt; Lens
      AggregateResourceIdentifier AggregateResourceIdentifier Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407628"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408233"><span class="annot"><span class="annottext">Text
 sourceRegion :: Text
 $sel:sourceRegion:AggregateResourceIdentifier' :: AggregateResourceIdentifier -&gt; Text
-</span><a href="#local-6989586621679407628"><span class="hs-identifier hs-var hs-var">sourceRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679407628"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407627"><span class="annot"><span class="annottext">s :: AggregateResourceIdentifier
-</span><a href="#local-6989586621679407627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407626"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679407626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateResourceIdentifier
-</span><a href="#local-6989586621679407627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceRegion:AggregateResourceIdentifier' :: Text
+</span><a href="#local-6989586621679408233"><span class="hs-identifier hs-var hs-var">sourceRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408233"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408232"><span class="annot"><span class="annottext">s :: AggregateResourceIdentifier
+</span><a href="#local-6989586621679408232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408231"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateResourceIdentifier
+</span><a href="#local-6989586621679408232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceRegion:AggregateResourceIdentifier' :: Text
 </span><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#%24sel%3AsourceRegion%3AAggregateResourceIdentifier%27"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679407626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The ID of the Amazon Web Services resource.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#aggregateResourceIdentifier_resourceId"><span class="hs-identifier hs-type">aggregateResourceIdentifier_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -248,16 +248,16 @@ $sel:sourceRegion:AggregateResourceIdentifier' :: AggregateResourceIdentifier -&
 -&gt; Lens
      AggregateResourceIdentifier AggregateResourceIdentifier Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407624"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408229"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:AggregateResourceIdentifier' :: AggregateResourceIdentifier -&gt; Text
-</span><a href="#local-6989586621679407624"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679407624"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407623"><span class="annot"><span class="annottext">s :: AggregateResourceIdentifier
-</span><a href="#local-6989586621679407623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407622"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679407622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateResourceIdentifier
-</span><a href="#local-6989586621679407623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:AggregateResourceIdentifier' :: Text
+</span><a href="#local-6989586621679408229"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408229"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408228"><span class="annot"><span class="annottext">s :: AggregateResourceIdentifier
+</span><a href="#local-6989586621679408228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408227"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateResourceIdentifier
+</span><a href="#local-6989586621679408228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:AggregateResourceIdentifier' :: Text
 </span><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#%24sel%3AresourceId%3AAggregateResourceIdentifier%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679407622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The type of the Amazon Web Services resource.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#aggregateResourceIdentifier_resourceType"><span class="hs-identifier hs-type">aggregateResourceIdentifier_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span>
@@ -272,19 +272,19 @@ $sel:resourceId:AggregateResourceIdentifier' :: AggregateResourceIdentifier -&gt
      ResourceType
      ResourceType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407620"><span class="annot"><span class="annottext">ResourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408225"><span class="annot"><span class="annottext">ResourceType
 resourceType :: ResourceType
 $sel:resourceType:AggregateResourceIdentifier' :: AggregateResourceIdentifier -&gt; ResourceType
-</span><a href="#local-6989586621679407620"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621679407620"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407619"><span class="annot"><span class="annottext">s :: AggregateResourceIdentifier
-</span><a href="#local-6989586621679407619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407618"><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621679407618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateResourceIdentifier
-</span><a href="#local-6989586621679407619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:AggregateResourceIdentifier' :: ResourceType
+</span><a href="#local-6989586621679408225"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceType
+</span><a href="#local-6989586621679408225"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408224"><span class="annot"><span class="annottext">s :: AggregateResourceIdentifier
+</span><a href="#local-6989586621679408224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408223"><span class="annot"><span class="annottext">ResourceType
+</span><a href="#local-6989586621679408223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateResourceIdentifier
+</span><a href="#local-6989586621679408224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:AggregateResourceIdentifier' :: ResourceType
 </span><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#%24sel%3AresourceType%3AAggregateResourceIdentifier%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621679407618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407615"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679407613"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AggregateResourceIdentifier
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408220"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679408218"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AggregateResourceIdentifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AggregateResourceIdentifier)
@@ -294,8 +294,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AggregateResourceIdentifier&quot;</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679407610"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679407610"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679408215"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408215"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Text
 -&gt; Text
@@ -315,7 +315,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Text -&gt; Text -&gt; ResourceType -&gt; AggregateResourceIdentifier)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679407610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679408215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceName&quot;</span></span><span class="hs-special">)</span><span>
@@ -327,7 +327,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Text -&gt; Text -&gt; ResourceType -&gt; AggregateResourceIdentifier)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679407610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679408215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceAccountId&quot;</span></span><span class="hs-special">)</span><span>
@@ -337,7 +337,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Text -&gt; ResourceType -&gt; AggregateResourceIdentifier)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679407610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679408215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceRegion&quot;</span></span><span class="hs-special">)</span><span>
@@ -346,7 +346,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (ResourceType -&gt; AggregateResourceIdentifier)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679407610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679408215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span class="hs-special">)</span><span>
@@ -354,19 +354,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ResourceType -&gt; Parser AggregateResourceIdentifier
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679407610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceType
+</span><a href="#local-6989586621679408215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407603"><span id="local-6989586621679407605"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408208"><span id="local-6989586621679408210"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407600"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408205"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407592"><span id="local-6989586621679407594"><span id="local-6989586621679407596"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679407590"><span class="annot"><span class="annottext">toJSON :: AggregateResourceIdentifier -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407584"><span id="local-6989586621679407585"><span id="local-6989586621679407586"><span id="local-6989586621679407587"><span id="local-6989586621679407588"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408197"><span id="local-6989586621679408199"><span id="local-6989586621679408201"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679408195"><span class="annot"><span class="annottext">toJSON :: AggregateResourceIdentifier -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier%27"><span class="hs-identifier hs-type">AggregateResourceIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408189"><span id="local-6989586621679408190"><span id="local-6989586621679408191"><span id="local-6989586621679408192"><span id="local-6989586621679408193"><span class="annot"><span class="annottext">Maybe Text
 Text
 ResourceType
 resourceType :: ResourceType
@@ -379,7 +379,7 @@ $sel:resourceId:AggregateResourceIdentifier' :: AggregateResourceIdentifier -&gt
 $sel:sourceRegion:AggregateResourceIdentifier' :: AggregateResourceIdentifier -&gt; Text
 $sel:sourceAccountId:AggregateResourceIdentifier' :: AggregateResourceIdentifier -&gt; Text
 $sel:resourceName:AggregateResourceIdentifier' :: AggregateResourceIdentifier -&gt; Maybe Text
-</span><a href="#local-6989586621679407584"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679408189"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -391,7 +391,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679407588"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679408193"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -399,28 +399,28 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SourceAccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679407587"><span class="hs-identifier hs-var">sourceAccountId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679408192"><span class="hs-identifier hs-var">sourceAccountId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679407586"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679408191"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679407585"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679408190"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621679407584"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408189"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span></pre></body></html>

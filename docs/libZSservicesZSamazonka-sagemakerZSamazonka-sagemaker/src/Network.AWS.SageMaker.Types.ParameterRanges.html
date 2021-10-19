@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span class="hs-comment">-- parameter range counts against this limit.</span><span>
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newParameterRanges' smart constructor.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621680326353"><span id="local-6989586621680326354"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParameterRanges"><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-var">ParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParameterRanges%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-var">ParameterRanges'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621680327750"><span id="local-6989586621680327751"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParameterRanges"><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-var">ParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParameterRanges%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-var">ParameterRanges'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The array of CategoricalParameterRange objects that specify ranges of</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- categorical hyperparameters that a hyperparameter tuning job searches.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AcategoricalParameterRanges%3AParameterRanges%27"><span class="annot"><span class="annottext">ParameterRanges -&gt; Maybe [CategoricalParameterRange]
@@ -52,7 +52,7 @@
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3AcontinuousParameterRanges%3AParameterRanges%27"><span class="annot"><span class="annottext">ParameterRanges -&gt; Maybe [ContinuousParameterRange]
 </span><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#%24sel%3AcontinuousParameterRanges%3AParameterRanges%27"><span class="hs-identifier hs-var hs-var">continuousParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRange.html#ContinuousParameterRange"><span class="hs-identifier hs-type">ContinuousParameterRange</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680326345"><span id="local-6989586621680326347"><span class="annot"><span class="annottext">ParameterRanges -&gt; ParameterRanges -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680327742"><span id="local-6989586621680327744"><span class="annot"><span class="annottext">ParameterRanges -&gt; ParameterRanges -&gt; Bool
 (ParameterRanges -&gt; ParameterRanges -&gt; Bool)
 -&gt; (ParameterRanges -&gt; ParameterRanges -&gt; Bool)
 -&gt; Eq ParameterRanges
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ParameterRanges -&gt; ParameterRanges -&gt; Bool
 == :: ParameterRanges -&gt; ParameterRanges -&gt; Bool
 $c== :: ParameterRanges -&gt; ParameterRanges -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680326336"><span id="local-6989586621680326338"><span id="local-6989586621680326340"><span id="local-6989586621680326342"><span class="annot"><span class="annottext">ReadPrec [ParameterRanges]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680327733"><span id="local-6989586621680327735"><span id="local-6989586621680327737"><span id="local-6989586621680327739"><span class="annot"><span class="annottext">ReadPrec [ParameterRanges]
 ReadPrec ParameterRanges
 Int -&gt; ReadS ParameterRanges
 ReadS [ParameterRanges]
@@ -81,7 +81,7 @@ readList :: ReadS [ParameterRanges]
 $creadList :: ReadS [ParameterRanges]
 readsPrec :: Int -&gt; ReadS ParameterRanges
 $creadsPrec :: Int -&gt; ReadS ParameterRanges
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680326329"><span id="local-6989586621680326331"><span id="local-6989586621680326333"><span class="annot"><span class="annottext">Int -&gt; ParameterRanges -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680327726"><span id="local-6989586621680327728"><span id="local-6989586621680327730"><span class="annot"><span class="annottext">Int -&gt; ParameterRanges -&gt; ShowS
 [ParameterRanges] -&gt; ShowS
 ParameterRanges -&gt; String
 (Int -&gt; ParameterRanges -&gt; ShowS)
@@ -162,16 +162,16 @@ forall a. Maybe a
      (Maybe [CategoricalParameterRange])
      (Maybe [CategoricalParameterRange])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680326320"><span class="annot"><span class="annottext">Maybe [CategoricalParameterRange]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680327717"><span class="annot"><span class="annottext">Maybe [CategoricalParameterRange]
 categoricalParameterRanges :: Maybe [CategoricalParameterRange]
 $sel:categoricalParameterRanges:ParameterRanges' :: ParameterRanges -&gt; Maybe [CategoricalParameterRange]
-</span><a href="#local-6989586621680326320"><span class="hs-identifier hs-var hs-var">categoricalParameterRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CategoricalParameterRange]
-</span><a href="#local-6989586621680326320"><span class="hs-identifier hs-var">categoricalParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680326319"><span class="annot"><span class="annottext">s :: ParameterRanges
-</span><a href="#local-6989586621680326319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680326318"><span class="annot"><span class="annottext">Maybe [CategoricalParameterRange]
-</span><a href="#local-6989586621680326318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterRanges
-</span><a href="#local-6989586621680326319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:categoricalParameterRanges:ParameterRanges' :: Maybe [CategoricalParameterRange]
+</span><a href="#local-6989586621680327717"><span class="hs-identifier hs-var hs-var">categoricalParameterRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CategoricalParameterRange]
+</span><a href="#local-6989586621680327717"><span class="hs-identifier hs-var">categoricalParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680327716"><span class="annot"><span class="annottext">s :: ParameterRanges
+</span><a href="#local-6989586621680327716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680327715"><span class="annot"><span class="annottext">Maybe [CategoricalParameterRange]
+</span><a href="#local-6989586621680327715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterRanges
+</span><a href="#local-6989586621680327716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:categoricalParameterRanges:ParameterRanges' :: Maybe [CategoricalParameterRange]
 </span><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#%24sel%3AcategoricalParameterRanges%3AParameterRanges%27"><span class="hs-identifier hs-var">categoricalParameterRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CategoricalParameterRange]
-</span><a href="#local-6989586621680326318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CategoricalParameterRange]
+</span><a href="#local-6989586621680327715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CategoricalParameterRange]
   -&gt; f (Maybe [CategoricalParameterRange]))
  -&gt; ParameterRanges -&gt; f ParameterRanges)
 -&gt; ((Maybe [CategoricalParameterRange]
@@ -201,8 +201,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [CategoricalParameterRange]
   [CategoricalParameterRange]
   [CategoricalParameterRange]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The array of IntegerParameterRange objects that specify ranges of</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- integer hyperparameters that a hyperparameter tuning job searches.</span><span>
@@ -219,16 +219,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [IntegerParameterRange])
      (Maybe [IntegerParameterRange])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680326313"><span class="annot"><span class="annottext">Maybe [IntegerParameterRange]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680327710"><span class="annot"><span class="annottext">Maybe [IntegerParameterRange]
 integerParameterRanges :: Maybe [IntegerParameterRange]
 $sel:integerParameterRanges:ParameterRanges' :: ParameterRanges -&gt; Maybe [IntegerParameterRange]
-</span><a href="#local-6989586621680326313"><span class="hs-identifier hs-var hs-var">integerParameterRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IntegerParameterRange]
-</span><a href="#local-6989586621680326313"><span class="hs-identifier hs-var">integerParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680326312"><span class="annot"><span class="annottext">s :: ParameterRanges
-</span><a href="#local-6989586621680326312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680326311"><span class="annot"><span class="annottext">Maybe [IntegerParameterRange]
-</span><a href="#local-6989586621680326311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterRanges
-</span><a href="#local-6989586621680326312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integerParameterRanges:ParameterRanges' :: Maybe [IntegerParameterRange]
+</span><a href="#local-6989586621680327710"><span class="hs-identifier hs-var hs-var">integerParameterRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IntegerParameterRange]
+</span><a href="#local-6989586621680327710"><span class="hs-identifier hs-var">integerParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680327709"><span class="annot"><span class="annottext">s :: ParameterRanges
+</span><a href="#local-6989586621680327709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680327708"><span class="annot"><span class="annottext">Maybe [IntegerParameterRange]
+</span><a href="#local-6989586621680327708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterRanges
+</span><a href="#local-6989586621680327709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integerParameterRanges:ParameterRanges' :: Maybe [IntegerParameterRange]
 </span><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#%24sel%3AintegerParameterRanges%3AParameterRanges%27"><span class="hs-identifier hs-var">integerParameterRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IntegerParameterRange]
-</span><a href="#local-6989586621680326311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IntegerParameterRange]
+</span><a href="#local-6989586621680327708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IntegerParameterRange]
   -&gt; f (Maybe [IntegerParameterRange]))
  -&gt; ParameterRanges -&gt; f ParameterRanges)
 -&gt; ((Maybe [IntegerParameterRange]
@@ -258,8 +258,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [IntegerParameterRange]
   [IntegerParameterRange]
   [IntegerParameterRange]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The array of ContinuousParameterRange objects that specify ranges of</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- continuous hyperparameters that a hyperparameter tuning job searches.</span><span>
@@ -276,16 +276,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [ContinuousParameterRange])
      (Maybe [ContinuousParameterRange])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680326309"><span class="annot"><span class="annottext">Maybe [ContinuousParameterRange]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680327706"><span class="annot"><span class="annottext">Maybe [ContinuousParameterRange]
 continuousParameterRanges :: Maybe [ContinuousParameterRange]
 $sel:continuousParameterRanges:ParameterRanges' :: ParameterRanges -&gt; Maybe [ContinuousParameterRange]
-</span><a href="#local-6989586621680326309"><span class="hs-identifier hs-var hs-var">continuousParameterRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContinuousParameterRange]
-</span><a href="#local-6989586621680326309"><span class="hs-identifier hs-var">continuousParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680326308"><span class="annot"><span class="annottext">s :: ParameterRanges
-</span><a href="#local-6989586621680326308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680326307"><span class="annot"><span class="annottext">Maybe [ContinuousParameterRange]
-</span><a href="#local-6989586621680326307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterRanges
-</span><a href="#local-6989586621680326308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continuousParameterRanges:ParameterRanges' :: Maybe [ContinuousParameterRange]
+</span><a href="#local-6989586621680327706"><span class="hs-identifier hs-var hs-var">continuousParameterRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContinuousParameterRange]
+</span><a href="#local-6989586621680327706"><span class="hs-identifier hs-var">continuousParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680327705"><span class="annot"><span class="annottext">s :: ParameterRanges
+</span><a href="#local-6989586621680327705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680327704"><span class="annot"><span class="annottext">Maybe [ContinuousParameterRange]
+</span><a href="#local-6989586621680327704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterRanges
+</span><a href="#local-6989586621680327705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continuousParameterRanges:ParameterRanges' :: Maybe [ContinuousParameterRange]
 </span><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#%24sel%3AcontinuousParameterRanges%3AParameterRanges%27"><span class="hs-identifier hs-var">continuousParameterRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContinuousParameterRange]
-</span><a href="#local-6989586621680326307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContinuousParameterRange]
+</span><a href="#local-6989586621680327704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContinuousParameterRange]
   -&gt; f (Maybe [ContinuousParameterRange]))
  -&gt; ParameterRanges -&gt; f ParameterRanges)
 -&gt; ((Maybe [ContinuousParameterRange]
@@ -315,11 +315,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ContinuousParameterRange]
   [ContinuousParameterRange]
   [ContinuousParameterRange]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680326304"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621680326302"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ParameterRanges
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680327701"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621680327699"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ParameterRanges
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ParameterRanges)
@@ -329,8 +329,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ParameterRanges&quot;</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680326299"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680326299"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680327696"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680327696"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe [CategoricalParameterRange]
 -&gt; Maybe [IntegerParameterRange]
 -&gt; Maybe [ContinuousParameterRange]
@@ -346,7 +346,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe [ContinuousParameterRange] -&gt; ParameterRanges)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680326299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680327696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [CategoricalParameterRange]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -366,7 +366,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [ContinuousParameterRange] -&gt; ParameterRanges)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680326299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [IntegerParameterRange]))
+</span><a href="#local-6989586621680327696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [IntegerParameterRange]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IntegerParameterRanges&quot;</span></span><span>
@@ -383,7 +383,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser ParameterRanges
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680326299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ContinuousParameterRange]))
+</span><a href="#local-6989586621680327696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ContinuousParameterRange]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContinuousParameterRanges&quot;</span></span><span>
@@ -397,13 +397,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-109"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680326292"><span id="local-6989586621680326294"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680327689"><span id="local-6989586621680327691"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680326289"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680327686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680326281"><span id="local-6989586621680326283"><span id="local-6989586621680326285"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621680326279"><span class="annot"><span class="annottext">toJSON :: ParameterRanges -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680326275"><span id="local-6989586621680326276"><span id="local-6989586621680326277"><span class="annot"><span class="annottext">Maybe [CategoricalParameterRange]
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680327678"><span id="local-6989586621680327680"><span id="local-6989586621680327682"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621680327676"><span class="annot"><span class="annottext">toJSON :: ParameterRanges -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges%27"><span class="hs-identifier hs-type">ParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680327672"><span id="local-6989586621680327673"><span id="local-6989586621680327674"><span class="annot"><span class="annottext">Maybe [CategoricalParameterRange]
 Maybe [ContinuousParameterRange]
 Maybe [IntegerParameterRange]
 continuousParameterRanges :: Maybe [ContinuousParameterRange]
@@ -412,7 +412,7 @@ categoricalParameterRanges :: Maybe [CategoricalParameterRange]
 $sel:continuousParameterRanges:ParameterRanges' :: ParameterRanges -&gt; Maybe [ContinuousParameterRange]
 $sel:integerParameterRanges:ParameterRanges' :: ParameterRanges -&gt; Maybe [IntegerParameterRange]
 $sel:categoricalParameterRanges:ParameterRanges' :: ParameterRanges -&gt; Maybe [CategoricalParameterRange]
-</span><a href="#local-6989586621680326275"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680327672"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -426,7 +426,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [CategoricalParameterRange] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CategoricalParameterRange]
-</span><a href="#local-6989586621680326277"><span class="hs-identifier hs-var">categoricalParameterRanges</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680327674"><span class="hs-identifier hs-var">categoricalParameterRanges</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IntegerParameterRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [IntegerParameterRange] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -435,7 +435,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [IntegerParameterRange] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [IntegerParameterRange]
-</span><a href="#local-6989586621680326276"><span class="hs-identifier hs-var">integerParameterRanges</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680327673"><span class="hs-identifier hs-var">integerParameterRanges</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContinuousParameterRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ContinuousParameterRange] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -444,7 +444,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [ContinuousParameterRange] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ContinuousParameterRange]
-</span><a href="#local-6989586621680326275"><span class="hs-identifier hs-var">continuousParameterRanges</span></a></span><span>
+</span><a href="#local-6989586621680327672"><span class="hs-identifier hs-var">continuousParameterRanges</span></a></span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span></pre></body></html>

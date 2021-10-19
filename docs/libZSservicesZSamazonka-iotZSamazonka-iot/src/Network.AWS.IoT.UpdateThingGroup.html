@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newUpdateThingGroup' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679861971"><span id="local-6989586621679861972"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateThingGroup"><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-var">UpdateThingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateThingGroup%27"><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-var">UpdateThingGroup'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679862992"><span id="local-6989586621679862993"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateThingGroup"><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-var">UpdateThingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateThingGroup%27"><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-var">UpdateThingGroup'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The expected version of the thing group. If this does not match the</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- version of the thing group being updated, the update will fail.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AexpectedVersion%3AUpdateThingGroup%27"><span class="annot"><span class="annottext">UpdateThingGroup -&gt; Maybe Integer
@@ -65,7 +65,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AthingGroupProperties%3AUpdateThingGroup%27"><span class="annot"><span class="annottext">UpdateThingGroup -&gt; ThingGroupProperties
 </span><a href="Network.AWS.IoT.UpdateThingGroup.html#%24sel%3AthingGroupProperties%3AUpdateThingGroup%27"><span class="hs-identifier hs-var hs-var">thingGroupProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingGroupProperties.html#ThingGroupProperties"><span class="hs-identifier hs-type">ThingGroupProperties</span></a></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679861963"><span id="local-6989586621679861965"><span class="annot"><span class="annottext">UpdateThingGroup -&gt; UpdateThingGroup -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679862984"><span id="local-6989586621679862986"><span class="annot"><span class="annottext">UpdateThingGroup -&gt; UpdateThingGroup -&gt; Bool
 (UpdateThingGroup -&gt; UpdateThingGroup -&gt; Bool)
 -&gt; (UpdateThingGroup -&gt; UpdateThingGroup -&gt; Bool)
 -&gt; Eq UpdateThingGroup
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateThingGroup -&gt; UpdateThingGroup -&gt; Bool
 == :: UpdateThingGroup -&gt; UpdateThingGroup -&gt; Bool
 $c== :: UpdateThingGroup -&gt; UpdateThingGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679861954"><span id="local-6989586621679861956"><span id="local-6989586621679861958"><span id="local-6989586621679861960"><span class="annot"><span class="annottext">ReadPrec [UpdateThingGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679862975"><span id="local-6989586621679862977"><span id="local-6989586621679862979"><span id="local-6989586621679862981"><span class="annot"><span class="annottext">ReadPrec [UpdateThingGroup]
 ReadPrec UpdateThingGroup
 Int -&gt; ReadS UpdateThingGroup
 ReadS [UpdateThingGroup]
@@ -94,7 +94,7 @@ readList :: ReadS [UpdateThingGroup]
 $creadList :: ReadS [UpdateThingGroup]
 readsPrec :: Int -&gt; ReadS UpdateThingGroup
 $creadsPrec :: Int -&gt; ReadS UpdateThingGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679861947"><span id="local-6989586621679861949"><span id="local-6989586621679861951"><span class="annot"><span class="annottext">Int -&gt; UpdateThingGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679862968"><span id="local-6989586621679862970"><span id="local-6989586621679862972"><span class="annot"><span class="annottext">Int -&gt; UpdateThingGroup -&gt; ShowS
 [UpdateThingGroup] -&gt; ShowS
 UpdateThingGroup -&gt; String
 (Int -&gt; UpdateThingGroup -&gt; ShowS)
@@ -142,10 +142,10 @@ $cfrom :: forall x. UpdateThingGroup -&gt; Rep UpdateThingGroup x
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span><span>
 </span><span id="line-87"></span><span id="newUpdateThingGroup"><span class="annot"><span class="annottext">newUpdateThingGroup :: Text -&gt; ThingGroupProperties -&gt; UpdateThingGroup
 </span><a href="Network.AWS.IoT.UpdateThingGroup.html#newUpdateThingGroup"><span class="hs-identifier hs-var hs-var">newUpdateThingGroup</span></a></span></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679861942"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679861942"><span class="hs-identifier hs-var">pThingGroupName_</span></a></span></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679861941"><span class="annot"><span class="annottext">ThingGroupProperties
-</span><a href="#local-6989586621679861941"><span class="hs-identifier hs-var">pThingGroupProperties_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679862963"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679862963"><span class="hs-identifier hs-var">pThingGroupName_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679862962"><span class="annot"><span class="annottext">ThingGroupProperties
+</span><a href="#local-6989586621679862962"><span class="hs-identifier hs-var">pThingGroupProperties_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">UpdateThingGroup' :: Maybe Integer -&gt; Text -&gt; ThingGroupProperties -&gt; UpdateThingGroup
 </span><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-type">UpdateThingGroup'</span></a></span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedVersion:UpdateThingGroup' :: Maybe Integer
@@ -155,10 +155,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:thingGroupName:UpdateThingGroup' :: Text
 </span><a href="Network.AWS.IoT.UpdateThingGroup.html#%24sel%3AthingGroupName%3AUpdateThingGroup%27"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679861942"><span class="hs-identifier hs-var">pThingGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679862963"><span class="hs-identifier hs-var">pThingGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:thingGroupProperties:UpdateThingGroup' :: ThingGroupProperties
 </span><a href="Network.AWS.IoT.UpdateThingGroup.html#%24sel%3AthingGroupProperties%3AUpdateThingGroup%27"><span class="hs-identifier hs-var">thingGroupProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ThingGroupProperties
-</span><a href="#local-6989586621679861941"><span class="hs-identifier hs-var">pThingGroupProperties_</span></a></span><span>
+</span><a href="#local-6989586621679862962"><span class="hs-identifier hs-var">pThingGroupProperties_</span></a></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The expected version of the thing group. If this does not match the</span><span>
@@ -171,16 +171,16 @@ forall a. Maybe a
 -&gt; Lens
      UpdateThingGroup UpdateThingGroup (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-type">UpdateThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861938"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-type">UpdateThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679862959"><span class="annot"><span class="annottext">Maybe Integer
 expectedVersion :: Maybe Integer
 $sel:expectedVersion:UpdateThingGroup' :: UpdateThingGroup -&gt; Maybe Integer
-</span><a href="#local-6989586621679861938"><span class="hs-identifier hs-var hs-var">expectedVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679861938"><span class="hs-identifier hs-var">expectedVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861937"><span class="annot"><span class="annottext">s :: UpdateThingGroup
-</span><a href="#local-6989586621679861937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-type">UpdateThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861936"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679861936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingGroup
-</span><a href="#local-6989586621679861937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedVersion:UpdateThingGroup' :: Maybe Integer
+</span><a href="#local-6989586621679862959"><span class="hs-identifier hs-var hs-var">expectedVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679862959"><span class="hs-identifier hs-var">expectedVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679862958"><span class="annot"><span class="annottext">s :: UpdateThingGroup
+</span><a href="#local-6989586621679862958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-type">UpdateThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679862957"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679862957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingGroup
+</span><a href="#local-6989586621679862958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedVersion:UpdateThingGroup' :: Maybe Integer
 </span><a href="Network.AWS.IoT.UpdateThingGroup.html#%24sel%3AexpectedVersion%3AUpdateThingGroup%27"><span class="hs-identifier hs-var">expectedVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679861936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679862957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The thing group to update.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#updateThingGroup_thingGroupName"><span class="hs-identifier hs-type">updateThingGroup_thingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -189,16 +189,16 @@ $sel:expectedVersion:UpdateThingGroup' :: UpdateThingGroup -&gt; Maybe Integer
 -&gt; (UpdateThingGroup -&gt; Text -&gt; UpdateThingGroup)
 -&gt; Lens UpdateThingGroup UpdateThingGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-type">UpdateThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861935"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-type">UpdateThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679862956"><span class="annot"><span class="annottext">Text
 thingGroupName :: Text
 $sel:thingGroupName:UpdateThingGroup' :: UpdateThingGroup -&gt; Text
-</span><a href="#local-6989586621679861935"><span class="hs-identifier hs-var hs-var">thingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679861935"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861934"><span class="annot"><span class="annottext">s :: UpdateThingGroup
-</span><a href="#local-6989586621679861934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-type">UpdateThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861933"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679861933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingGroup
-</span><a href="#local-6989586621679861934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingGroupName:UpdateThingGroup' :: Text
+</span><a href="#local-6989586621679862956"><span class="hs-identifier hs-var hs-var">thingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679862956"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679862955"><span class="annot"><span class="annottext">s :: UpdateThingGroup
+</span><a href="#local-6989586621679862955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-type">UpdateThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679862954"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679862954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingGroup
+</span><a href="#local-6989586621679862955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingGroupName:UpdateThingGroup' :: Text
 </span><a href="Network.AWS.IoT.UpdateThingGroup.html#%24sel%3AthingGroupName%3AUpdateThingGroup%27"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679861933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679862954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The thing group properties.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#updateThingGroup_thingGroupProperties"><span class="hs-identifier hs-type">updateThingGroup_thingGroupProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingGroupProperties.html#ThingGroupProperties"><span class="hs-identifier hs-type">ThingGroupProperties</span></a></span><span>
@@ -212,27 +212,27 @@ $sel:thingGroupName:UpdateThingGroup' :: UpdateThingGroup -&gt; Text
      ThingGroupProperties
      ThingGroupProperties
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-type">UpdateThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861932"><span class="annot"><span class="annottext">ThingGroupProperties
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-type">UpdateThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679862953"><span class="annot"><span class="annottext">ThingGroupProperties
 thingGroupProperties :: ThingGroupProperties
 $sel:thingGroupProperties:UpdateThingGroup' :: UpdateThingGroup -&gt; ThingGroupProperties
-</span><a href="#local-6989586621679861932"><span class="hs-identifier hs-var hs-var">thingGroupProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingGroupProperties
-</span><a href="#local-6989586621679861932"><span class="hs-identifier hs-var">thingGroupProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861931"><span class="annot"><span class="annottext">s :: UpdateThingGroup
-</span><a href="#local-6989586621679861931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-type">UpdateThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861930"><span class="annot"><span class="annottext">ThingGroupProperties
-</span><a href="#local-6989586621679861930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingGroup
-</span><a href="#local-6989586621679861931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingGroupProperties:UpdateThingGroup' :: ThingGroupProperties
+</span><a href="#local-6989586621679862953"><span class="hs-identifier hs-var hs-var">thingGroupProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingGroupProperties
+</span><a href="#local-6989586621679862953"><span class="hs-identifier hs-var">thingGroupProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679862952"><span class="annot"><span class="annottext">s :: UpdateThingGroup
+</span><a href="#local-6989586621679862952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-type">UpdateThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679862951"><span class="annot"><span class="annottext">ThingGroupProperties
+</span><a href="#local-6989586621679862951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingGroup
+</span><a href="#local-6989586621679862952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingGroupProperties:UpdateThingGroup' :: ThingGroupProperties
 </span><a href="Network.AWS.IoT.UpdateThingGroup.html#%24sel%3AthingGroupProperties%3AUpdateThingGroup%27"><span class="hs-identifier hs-var">thingGroupProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ThingGroupProperties
-</span><a href="#local-6989586621679861930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679862951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse"><span class="hs-identifier hs-type">UpdateThingGroupResponse</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679861926"><span class="annot"><span class="annottext">request :: UpdateThingGroup -&gt; Request UpdateThingGroup
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679862947"><span class="annot"><span class="annottext">request :: UpdateThingGroup -&gt; Request UpdateThingGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateThingGroup -&gt; Request UpdateThingGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679861922"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679862943"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateThingGroup
 -&gt; ClientResponse ClientBody
@@ -256,10 +256,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679861919"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679861919"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679861918"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679861918"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679861917"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679861917"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679862940"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679862940"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679862939"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679862939"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679862938"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679862938"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer -&gt; Int -&gt; UpdateThingGroupResponse
 </span><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse%27"><span class="hs-identifier hs-var">UpdateThingGroupResponse'</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer -&gt; Int -&gt; UpdateThingGroupResponse)
@@ -267,7 +267,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateThingGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679861917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679862938"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
@@ -279,24 +279,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679861919"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679862940"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679861909"><span id="local-6989586621679861911"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679862930"><span id="local-6989586621679862932"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679861906"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679862927"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679861902"><span class="annot"><span class="annottext">toHeaders :: UpdateThingGroup -&gt; ResponseHeaders
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679862923"><span class="annot"><span class="annottext">toHeaders :: UpdateThingGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateThingGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679861893"><span id="local-6989586621679861895"><span id="local-6989586621679861897"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679861891"><span class="annot"><span class="annottext">toJSON :: UpdateThingGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-type">UpdateThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861887"><span id="local-6989586621679861888"><span id="local-6989586621679861889"><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679862914"><span id="local-6989586621679862916"><span id="local-6989586621679862918"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679862912"><span class="annot"><span class="annottext">toJSON :: UpdateThingGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-type">UpdateThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679862908"><span id="local-6989586621679862909"><span id="local-6989586621679862910"><span class="annot"><span class="annottext">Maybe Integer
 Text
 ThingGroupProperties
 thingGroupProperties :: ThingGroupProperties
@@ -305,7 +305,7 @@ expectedVersion :: Maybe Integer
 $sel:thingGroupProperties:UpdateThingGroup' :: UpdateThingGroup -&gt; ThingGroupProperties
 $sel:thingGroupName:UpdateThingGroup' :: UpdateThingGroup -&gt; Text
 $sel:expectedVersion:UpdateThingGroup' :: UpdateThingGroup -&gt; Maybe Integer
-</span><a href="#local-6989586621679861887"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679862908"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -318,7 +318,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679861889"><span class="hs-identifier hs-var">expectedVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679862910"><span class="hs-identifier hs-var">expectedVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -327,14 +327,14 @@ forall a. a -&gt; Maybe a
 </span><span id="line-138"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ThingGroupProperties -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ThingGroupProperties
-</span><a href="#local-6989586621679861887"><span class="hs-identifier hs-var">thingGroupProperties</span></a></span><span>
+</span><a href="#local-6989586621679862908"><span class="hs-identifier hs-var">thingGroupProperties</span></a></span><span>
 </span><span id="line-139"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679861881"><span class="annot"><span class="annottext">toPath :: UpdateThingGroup -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-type">UpdateThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861877"><span id="local-6989586621679861878"><span id="local-6989586621679861879"><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679862902"><span class="annot"><span class="annottext">toPath :: UpdateThingGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup%27"><span class="hs-identifier hs-type">UpdateThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679862898"><span id="local-6989586621679862899"><span id="local-6989586621679862900"><span class="annot"><span class="annottext">Maybe Integer
 Text
 ThingGroupProperties
 thingGroupProperties :: ThingGroupProperties
@@ -343,7 +343,7 @@ expectedVersion :: Maybe Integer
 $sel:thingGroupProperties:UpdateThingGroup' :: UpdateThingGroup -&gt; ThingGroupProperties
 $sel:thingGroupName:UpdateThingGroup' :: UpdateThingGroup -&gt; Text
 $sel:expectedVersion:UpdateThingGroup' :: UpdateThingGroup -&gt; Maybe Integer
-</span><a href="#local-6989586621679861877"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679862898"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -351,10 +351,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/thing-groups/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679861878"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679862899"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroup"><span class="hs-identifier hs-type">UpdateThingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679861873"><span class="annot"><span class="annottext">toQuery :: UpdateThingGroup -&gt; QueryString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679862894"><span class="annot"><span class="annottext">toQuery :: UpdateThingGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateThingGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -362,7 +362,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newUpdateThingGroupResponse' smart constructor.</span><span>
-</span><span id="line-152"></span><span id="local-6989586621679861870"><span id="local-6989586621679861871"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateThingGroupResponse"><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse"><span class="hs-identifier hs-var">UpdateThingGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateThingGroupResponse%27"><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse%27"><span class="hs-identifier hs-var">UpdateThingGroupResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span id="local-6989586621679862891"><span id="local-6989586621679862892"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateThingGroupResponse"><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse"><span class="hs-identifier hs-var">UpdateThingGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateThingGroupResponse%27"><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse%27"><span class="hs-identifier hs-var">UpdateThingGroupResponse'</span></a></span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the updated thing group.</span><span>
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3Aversion%3AUpdateThingGroupResponse%27"><span class="annot"><span class="annottext">UpdateThingGroupResponse -&gt; Maybe Integer
 </span><a href="Network.AWS.IoT.UpdateThingGroup.html#%24sel%3Aversion%3AUpdateThingGroupResponse%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
@@ -370,7 +370,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateThingGroupResponse%27"><span class="annot"><span class="annottext">UpdateThingGroupResponse -&gt; Int
 </span><a href="Network.AWS.IoT.UpdateThingGroup.html#%24sel%3AhttpStatus%3AUpdateThingGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679861864"><span id="local-6989586621679861866"><span class="annot"><span class="annottext">UpdateThingGroupResponse -&gt; UpdateThingGroupResponse -&gt; Bool
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679862885"><span id="local-6989586621679862887"><span class="annot"><span class="annottext">UpdateThingGroupResponse -&gt; UpdateThingGroupResponse -&gt; Bool
 (UpdateThingGroupResponse -&gt; UpdateThingGroupResponse -&gt; Bool)
 -&gt; (UpdateThingGroupResponse -&gt; UpdateThingGroupResponse -&gt; Bool)
 -&gt; Eq UpdateThingGroupResponse
@@ -379,7 +379,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateThingGroupResponse -&gt; UpdateThingGroupResponse -&gt; Bool
 == :: UpdateThingGroupResponse -&gt; UpdateThingGroupResponse -&gt; Bool
 $c== :: UpdateThingGroupResponse -&gt; UpdateThingGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679861856"><span id="local-6989586621679861858"><span id="local-6989586621679861860"><span id="local-6989586621679861862"><span class="annot"><span class="annottext">ReadPrec [UpdateThingGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679862877"><span id="local-6989586621679862879"><span id="local-6989586621679862881"><span id="local-6989586621679862883"><span class="annot"><span class="annottext">ReadPrec [UpdateThingGroupResponse]
 ReadPrec UpdateThingGroupResponse
 Int -&gt; ReadS UpdateThingGroupResponse
 ReadS [UpdateThingGroupResponse]
@@ -399,7 +399,7 @@ readList :: ReadS [UpdateThingGroupResponse]
 $creadList :: ReadS [UpdateThingGroupResponse]
 readsPrec :: Int -&gt; ReadS UpdateThingGroupResponse
 $creadsPrec :: Int -&gt; ReadS UpdateThingGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679861850"><span id="local-6989586621679861852"><span id="local-6989586621679861854"><span class="annot"><span class="annottext">Int -&gt; UpdateThingGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679862871"><span id="local-6989586621679862873"><span id="local-6989586621679862875"><span class="annot"><span class="annottext">Int -&gt; UpdateThingGroupResponse -&gt; ShowS
 [UpdateThingGroupResponse] -&gt; ShowS
 UpdateThingGroupResponse -&gt; String
 (Int -&gt; UpdateThingGroupResponse -&gt; ShowS)
@@ -447,8 +447,8 @@ UpdateThingGroupResponse -&gt; Rep UpdateThingGroupResponse x
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse"><span class="hs-identifier hs-type">UpdateThingGroupResponse</span></a></span><span>
 </span><span id="line-175"></span><span id="newUpdateThingGroupResponse"><span class="annot"><span class="annottext">newUpdateThingGroupResponse :: Int -&gt; UpdateThingGroupResponse
-</span><a href="Network.AWS.IoT.UpdateThingGroup.html#newUpdateThingGroupResponse"><span class="hs-identifier hs-var hs-var">newUpdateThingGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679861847"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679861847"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.UpdateThingGroup.html#newUpdateThingGroupResponse"><span class="hs-identifier hs-var hs-var">newUpdateThingGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679862868"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679862868"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">UpdateThingGroupResponse' :: Maybe Integer -&gt; Int -&gt; UpdateThingGroupResponse
 </span><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse%27"><span class="hs-identifier hs-type">UpdateThingGroupResponse'</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:version:UpdateThingGroupResponse' :: Maybe Integer
@@ -458,7 +458,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateThingGroupResponse' :: Int
 </span><a href="Network.AWS.IoT.UpdateThingGroup.html#%24sel%3AhttpStatus%3AUpdateThingGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679861847"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679862868"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | The version of the updated thing group.</span><span>
@@ -474,16 +474,16 @@ forall a. Maybe a
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse%27"><span class="hs-identifier hs-type">UpdateThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861846"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse%27"><span class="hs-identifier hs-type">UpdateThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679862867"><span class="annot"><span class="annottext">Maybe Integer
 version :: Maybe Integer
 $sel:version:UpdateThingGroupResponse' :: UpdateThingGroupResponse -&gt; Maybe Integer
-</span><a href="#local-6989586621679861846"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679861846"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861845"><span class="annot"><span class="annottext">s :: UpdateThingGroupResponse
-</span><a href="#local-6989586621679861845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse%27"><span class="hs-identifier hs-type">UpdateThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861844"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679861844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingGroupResponse
-</span><a href="#local-6989586621679861845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:UpdateThingGroupResponse' :: Maybe Integer
+</span><a href="#local-6989586621679862867"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679862867"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679862866"><span class="annot"><span class="annottext">s :: UpdateThingGroupResponse
+</span><a href="#local-6989586621679862866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse%27"><span class="hs-identifier hs-type">UpdateThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679862865"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679862865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingGroupResponse
+</span><a href="#local-6989586621679862866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:UpdateThingGroupResponse' :: Maybe Integer
 </span><a href="Network.AWS.IoT.UpdateThingGroup.html#%24sel%3Aversion%3AUpdateThingGroupResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679861844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse"><span class="hs-identifier hs-type">UpdateThingGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679862865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse"><span class="hs-identifier hs-type">UpdateThingGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-187"></span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#updateThingGroupResponse_httpStatus"><span class="hs-identifier hs-type">updateThingGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse"><span class="hs-identifier hs-type">UpdateThingGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -493,16 +493,16 @@ $sel:version:UpdateThingGroupResponse' :: UpdateThingGroupResponse -&gt; Maybe I
 -&gt; (UpdateThingGroupResponse -&gt; Int -&gt; UpdateThingGroupResponse)
 -&gt; Lens UpdateThingGroupResponse UpdateThingGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse%27"><span class="hs-identifier hs-type">UpdateThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861843"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse%27"><span class="hs-identifier hs-type">UpdateThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679862864"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateThingGroupResponse' :: UpdateThingGroupResponse -&gt; Int
-</span><a href="#local-6989586621679861843"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679861843"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861842"><span class="annot"><span class="annottext">s :: UpdateThingGroupResponse
-</span><a href="#local-6989586621679861842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse%27"><span class="hs-identifier hs-type">UpdateThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861841"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679861841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingGroupResponse
-</span><a href="#local-6989586621679861842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateThingGroupResponse' :: Int
+</span><a href="#local-6989586621679862864"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679862864"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679862863"><span class="annot"><span class="annottext">s :: UpdateThingGroupResponse
+</span><a href="#local-6989586621679862863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse%27"><span class="hs-identifier hs-type">UpdateThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679862862"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679862862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingGroupResponse
+</span><a href="#local-6989586621679862863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateThingGroupResponse' :: Int
 </span><a href="Network.AWS.IoT.UpdateThingGroup.html#%24sel%3AhttpStatus%3AUpdateThingGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679861841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse"><span class="hs-identifier hs-type">UpdateThingGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679862862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse"><span class="hs-identifier hs-type">UpdateThingGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679861839"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse"><span class="hs-identifier hs-type">UpdateThingGroupResponse</span></a></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679862860"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateThingGroup.html#UpdateThingGroupResponse"><span class="hs-identifier hs-type">UpdateThingGroupResponse</span></a></span></span><span>
 </span><span id="line-191"></span></pre></body></html>

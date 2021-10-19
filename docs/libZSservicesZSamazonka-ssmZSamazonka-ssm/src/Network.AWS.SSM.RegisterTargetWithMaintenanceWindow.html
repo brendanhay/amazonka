@@ -27,10 +27,10 @@
 </span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#newRegisterTargetWithMaintenanceWindow"><span class="hs-identifier">newRegisterTargetWithMaintenanceWindow</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_name"><span class="hs-identifier">registerTargetWithMaintenanceWindow_name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_description"><span class="hs-identifier">registerTargetWithMaintenanceWindow_description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_ownerInformation"><span class="hs-identifier">registerTargetWithMaintenanceWindow_ownerInformation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_clientToken"><span class="hs-identifier">registerTargetWithMaintenanceWindow_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_clientToken"><span class="hs-identifier">registerTargetWithMaintenanceWindow_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_ownerInformation"><span class="hs-identifier">registerTargetWithMaintenanceWindow_ownerInformation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_name"><span class="hs-identifier">registerTargetWithMaintenanceWindow_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_description"><span class="hs-identifier">registerTargetWithMaintenanceWindow_description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_windowId"><span class="hs-identifier">registerTargetWithMaintenanceWindow_windowId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_resourceType"><span class="hs-identifier">registerTargetWithMaintenanceWindow_resourceType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_targets"><span class="hs-identifier">registerTargetWithMaintenanceWindow_targets</span></a></span><span class="hs-special">,</span><span>
@@ -53,21 +53,21 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newRegisterTargetWithMaintenanceWindow' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679825651"><span id="local-6989586621679825652"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterTargetWithMaintenanceWindow"><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-var">RegisterTargetWithMaintenanceWindow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterTargetWithMaintenanceWindow%27"><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">RegisterTargetWithMaintenanceWindow'</span></a></span></span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional name for the target.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aname%3ARegisterTargetWithMaintenanceWindow%27"><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3Aname%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | An optional description for the target.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3Adescription%3ARegisterTargetWithMaintenanceWindow%27"><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3Adescription%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | User-provided value that will be included in any Amazon CloudWatch</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Events events raised while running tasks for these targets in this</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- maintenance window.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AownerInformation%3ARegisterTargetWithMaintenanceWindow%27"><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AownerInformation%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var hs-var">ownerInformation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | User-provided idempotency token.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AclientToken%3ARegisterTargetWithMaintenanceWindow%27"><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow -&gt; Maybe Text
+</span><span id="line-56"></span><span id="local-6989586621679827400"><span id="local-6989586621679827401"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterTargetWithMaintenanceWindow"><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-var">RegisterTargetWithMaintenanceWindow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterTargetWithMaintenanceWindow%27"><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">RegisterTargetWithMaintenanceWindow'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | User-provided idempotency token.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AclientToken%3ARegisterTargetWithMaintenanceWindow%27"><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AclientToken%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | User-provided value that will be included in any Amazon CloudWatch</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Events events raised while running tasks for these targets in this</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- maintenance window.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AownerInformation%3ARegisterTargetWithMaintenanceWindow%27"><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AownerInformation%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var hs-var">ownerInformation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | An optional name for the target.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aname%3ARegisterTargetWithMaintenanceWindow%27"><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3Aname%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | An optional description for the target.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Adescription%3ARegisterTargetWithMaintenanceWindow%27"><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3Adescription%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The ID of the maintenance window the target should be registered with.</span><span>
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AwindowId%3ARegisterTargetWithMaintenanceWindow%27"><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow -&gt; Text
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AwindowId%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var hs-var">windowId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -118,7 +118,7 @@
 </span><span id="line-111"></span><span>    </span><span id="%24sel%3Atargets%3ARegisterTargetWithMaintenanceWindow%27"><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow -&gt; [Target]
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3Atargets%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679825639"><span id="local-6989586621679825641"><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827388"><span id="local-6989586621679827390"><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow
 -&gt; RegisterTargetWithMaintenanceWindow -&gt; Bool
 (RegisterTargetWithMaintenanceWindow
  -&gt; RegisterTargetWithMaintenanceWindow -&gt; Bool)
@@ -134,7 +134,7 @@ $c/= :: RegisterTargetWithMaintenanceWindow
 -&gt; RegisterTargetWithMaintenanceWindow -&gt; Bool
 $c== :: RegisterTargetWithMaintenanceWindow
 -&gt; RegisterTargetWithMaintenanceWindow -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679825632"><span id="local-6989586621679825634"><span id="local-6989586621679825636"><span class="annot"><span class="annottext">Int -&gt; RegisterTargetWithMaintenanceWindow -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827381"><span id="local-6989586621679827383"><span id="local-6989586621679827385"><span class="annot"><span class="annottext">Int -&gt; RegisterTargetWithMaintenanceWindow -&gt; ShowS
 [RegisterTargetWithMaintenanceWindow] -&gt; ShowS
 RegisterTargetWithMaintenanceWindow -&gt; String
 (Int -&gt; RegisterTargetWithMaintenanceWindow -&gt; ShowS)
@@ -180,15 +180,15 @@ RegisterTargetWithMaintenanceWindow
 </span><span id="line-120"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-122"></span><span class="hs-comment">--</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- 'name', 'registerTargetWithMaintenanceWindow_name' - An optional name for the target.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'clientToken', 'registerTargetWithMaintenanceWindow_clientToken' - User-provided idempotency token.</span><span>
 </span><span id="line-124"></span><span class="hs-comment">--</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- 'description', 'registerTargetWithMaintenanceWindow_description' - An optional description for the target.</span><span>
-</span><span id="line-126"></span><span class="hs-comment">--</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- 'ownerInformation', 'registerTargetWithMaintenanceWindow_ownerInformation' - User-provided value that will be included in any Amazon CloudWatch</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- Events events raised while running tasks for these targets in this</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- maintenance window.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'ownerInformation', 'registerTargetWithMaintenanceWindow_ownerInformation' - User-provided value that will be included in any Amazon CloudWatch</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Events events raised while running tasks for these targets in this</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- maintenance window.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'name', 'registerTargetWithMaintenanceWindow_name' - An optional name for the target.</span><span>
 </span><span id="line-130"></span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- 'clientToken', 'registerTargetWithMaintenanceWindow_clientToken' - User-provided idempotency token.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'description', 'registerTargetWithMaintenanceWindow_description' - An optional description for the target.</span><span>
 </span><span id="line-132"></span><span class="hs-comment">--</span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- 'windowId', 'registerTargetWithMaintenanceWindow_windowId' - The ID of the maintenance window the target should be registered with.</span><span>
 </span><span id="line-134"></span><span class="hs-comment">--</span><span>
@@ -244,168 +244,51 @@ RegisterTargetWithMaintenanceWindow
 -&gt; MaintenanceWindowResourceType
 -&gt; RegisterTargetWithMaintenanceWindow
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#newRegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-var hs-var">newRegisterTargetWithMaintenanceWindow</span></a></span></span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679825627"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679825627"><span class="hs-identifier hs-var">pWindowId_</span></a></span></span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679825626"><span class="annot"><span class="annottext">MaintenanceWindowResourceType
-</span><a href="#local-6989586621679825626"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679827376"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679827376"><span class="hs-identifier hs-var">pWindowId_</span></a></span></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679827375"><span class="annot"><span class="annottext">MaintenanceWindowResourceType
+</span><a href="#local-6989586621679827375"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow' :: Maybe Text
 -&gt; Maybe (Sensitive Text)
--&gt; Maybe (Sensitive Text)
 -&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
 -&gt; Text
 -&gt; MaintenanceWindowResourceType
 -&gt; [Target]
 -&gt; RegisterTargetWithMaintenanceWindow
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span>
-</span><span id="line-187"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:RegisterTargetWithMaintenanceWindow' :: Maybe Text
-</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3Aname%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:RegisterTargetWithMaintenanceWindow' :: Maybe Text
+</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AclientToken%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:RegisterTargetWithMaintenanceWindow' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3Adescription%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">$sel:ownerInformation:RegisterTargetWithMaintenanceWindow' :: Maybe (Sensitive Text)
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">$sel:ownerInformation:RegisterTargetWithMaintenanceWindow' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AownerInformation%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">ownerInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientToken:RegisterTargetWithMaintenanceWindow' :: Maybe Text
-</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AclientToken%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:RegisterTargetWithMaintenanceWindow' :: Maybe Text
+</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3Aname%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:RegisterTargetWithMaintenanceWindow' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3Adescription%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">$sel:windowId:RegisterTargetWithMaintenanceWindow' :: Text
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AwindowId%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">windowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679825627"><span class="hs-identifier hs-var">pWindowId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679827376"><span class="hs-identifier hs-var">pWindowId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceType:RegisterTargetWithMaintenanceWindow' :: MaintenanceWindowResourceType
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AresourceType%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowResourceType
-</span><a href="#local-6989586621679825626"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679827375"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">$sel:targets:RegisterTargetWithMaintenanceWindow' :: [Target]
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3Atargets%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Target]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-195"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- | An optional name for the target.</span><span>
-</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_name"><span class="hs-identifier hs-type">registerTargetWithMaintenanceWindow_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-199"></span><span id="registerTargetWithMaintenanceWindow_name"><span class="annot"><span class="annottext">registerTargetWithMaintenanceWindow_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RegisterTargetWithMaintenanceWindow
--&gt; f RegisterTargetWithMaintenanceWindow
-</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_name"><span class="hs-identifier hs-var hs-var">registerTargetWithMaintenanceWindow_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterTargetWithMaintenanceWindow -&gt; Maybe Text)
--&gt; (RegisterTargetWithMaintenanceWindow
-    -&gt; Maybe Text -&gt; RegisterTargetWithMaintenanceWindow)
--&gt; Lens
-     RegisterTargetWithMaintenanceWindow
-     RegisterTargetWithMaintenanceWindow
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825623"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow -&gt; Maybe Text
-</span><a href="#local-6989586621679825623"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679825623"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825622"><span class="annot"><span class="annottext">s :: RegisterTargetWithMaintenanceWindow
-</span><a href="#local-6989586621679825622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825621"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679825621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow
-</span><a href="#local-6989586621679825622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RegisterTargetWithMaintenanceWindow' :: Maybe Text
-</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3Aname%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679825621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-200"></span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- | An optional description for the target.</span><span>
-</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_description"><span class="hs-identifier hs-type">registerTargetWithMaintenanceWindow_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-203"></span><span id="registerTargetWithMaintenanceWindow_description"><span class="annot"><span class="annottext">registerTargetWithMaintenanceWindow_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RegisterTargetWithMaintenanceWindow
--&gt; f RegisterTargetWithMaintenanceWindow
-</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_description"><span class="hs-identifier hs-var hs-var">registerTargetWithMaintenanceWindow_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterTargetWithMaintenanceWindow -&gt; Maybe (Sensitive Text))
--&gt; (RegisterTargetWithMaintenanceWindow
-    -&gt; Maybe (Sensitive Text) -&gt; RegisterTargetWithMaintenanceWindow)
--&gt; Lens
-     RegisterTargetWithMaintenanceWindow
-     RegisterTargetWithMaintenanceWindow
-     (Maybe (Sensitive Text))
-     (Maybe (Sensitive Text))
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825620"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-description :: Maybe (Sensitive Text)
-$sel:description:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679825620"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679825620"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825619"><span class="annot"><span class="annottext">s :: RegisterTargetWithMaintenanceWindow
-</span><a href="#local-6989586621679825619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825618"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679825618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow
-</span><a href="#local-6989586621679825619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:RegisterTargetWithMaintenanceWindow' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3Adescription%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679825618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
- -&gt; RegisterTargetWithMaintenanceWindow
- -&gt; f RegisterTargetWithMaintenanceWindow)
--&gt; ((Maybe Text -&gt; f (Maybe Text))
-    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
--&gt; (Maybe Text -&gt; f (Maybe Text))
--&gt; RegisterTargetWithMaintenanceWindow
--&gt; f RegisterTargetWithMaintenanceWindow
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
--&gt; Iso
-     (Maybe (Sensitive Text))
-     (Maybe (Sensitive Text))
-     (Maybe Text)
-     (Maybe Text)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
-forall a. Iso' (Sensitive a) a
-</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- | User-provided value that will be included in any Amazon CloudWatch</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- Events events raised while running tasks for these targets in this</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- maintenance window.</span><span>
-</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_ownerInformation"><span class="hs-identifier hs-type">registerTargetWithMaintenanceWindow_ownerInformation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span id="registerTargetWithMaintenanceWindow_ownerInformation"><span class="annot"><span class="annottext">registerTargetWithMaintenanceWindow_ownerInformation :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RegisterTargetWithMaintenanceWindow
--&gt; f RegisterTargetWithMaintenanceWindow
-</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_ownerInformation"><span class="hs-identifier hs-var hs-var">registerTargetWithMaintenanceWindow_ownerInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterTargetWithMaintenanceWindow -&gt; Maybe (Sensitive Text))
--&gt; (RegisterTargetWithMaintenanceWindow
-    -&gt; Maybe (Sensitive Text) -&gt; RegisterTargetWithMaintenanceWindow)
--&gt; Lens
-     RegisterTargetWithMaintenanceWindow
-     RegisterTargetWithMaintenanceWindow
-     (Maybe (Sensitive Text))
-     (Maybe (Sensitive Text))
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825614"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-ownerInformation :: Maybe (Sensitive Text)
-$sel:ownerInformation:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679825614"><span class="hs-identifier hs-var hs-var">ownerInformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679825614"><span class="hs-identifier hs-var">ownerInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825613"><span class="annot"><span class="annottext">s :: RegisterTargetWithMaintenanceWindow
-</span><a href="#local-6989586621679825613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825612"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679825612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow
-</span><a href="#local-6989586621679825613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerInformation:RegisterTargetWithMaintenanceWindow' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AownerInformation%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">ownerInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679825612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
- -&gt; RegisterTargetWithMaintenanceWindow
- -&gt; f RegisterTargetWithMaintenanceWindow)
--&gt; ((Maybe Text -&gt; f (Maybe Text))
-    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
--&gt; (Maybe Text -&gt; f (Maybe Text))
--&gt; RegisterTargetWithMaintenanceWindow
--&gt; f RegisterTargetWithMaintenanceWindow
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
--&gt; Iso
-     (Maybe (Sensitive Text))
-     (Maybe (Sensitive Text))
-     (Maybe Text)
-     (Maybe Text)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
-forall a. Iso' (Sensitive a) a
-</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- | User-provided idempotency token.</span><span>
-</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_clientToken"><span class="hs-identifier hs-type">registerTargetWithMaintenanceWindow_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-213"></span><span id="registerTargetWithMaintenanceWindow_clientToken"><span class="annot"><span class="annottext">registerTargetWithMaintenanceWindow_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-197"></span><span class="hs-comment">-- | User-provided idempotency token.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_clientToken"><span class="hs-identifier hs-type">registerTargetWithMaintenanceWindow_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="registerTargetWithMaintenanceWindow_clientToken"><span class="annot"><span class="annottext">registerTargetWithMaintenanceWindow_clientToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; RegisterTargetWithMaintenanceWindow
 -&gt; f RegisterTargetWithMaintenanceWindow
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_clientToken"><span class="hs-identifier hs-var hs-var">registerTargetWithMaintenanceWindow_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterTargetWithMaintenanceWindow -&gt; Maybe Text)
@@ -417,16 +300,133 @@ forall a. Iso' (Sensitive a) a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825611"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827372"><span class="annot"><span class="annottext">Maybe Text
 clientToken :: Maybe Text
 $sel:clientToken:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow -&gt; Maybe Text
-</span><a href="#local-6989586621679825611"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679825611"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825610"><span class="annot"><span class="annottext">s :: RegisterTargetWithMaintenanceWindow
-</span><a href="#local-6989586621679825610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825609"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679825609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow
-</span><a href="#local-6989586621679825610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:RegisterTargetWithMaintenanceWindow' :: Maybe Text
+</span><a href="#local-6989586621679827372"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827372"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827371"><span class="annot"><span class="annottext">s :: RegisterTargetWithMaintenanceWindow
+</span><a href="#local-6989586621679827371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827370"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow
+</span><a href="#local-6989586621679827371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:RegisterTargetWithMaintenanceWindow' :: Maybe Text
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AclientToken%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679825609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | User-provided value that will be included in any Amazon CloudWatch</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Events events raised while running tasks for these targets in this</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- maintenance window.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_ownerInformation"><span class="hs-identifier hs-type">registerTargetWithMaintenanceWindow_ownerInformation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="registerTargetWithMaintenanceWindow_ownerInformation"><span class="annot"><span class="annottext">registerTargetWithMaintenanceWindow_ownerInformation :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterTargetWithMaintenanceWindow
+-&gt; f RegisterTargetWithMaintenanceWindow
+</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_ownerInformation"><span class="hs-identifier hs-var hs-var">registerTargetWithMaintenanceWindow_ownerInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterTargetWithMaintenanceWindow -&gt; Maybe (Sensitive Text))
+-&gt; (RegisterTargetWithMaintenanceWindow
+    -&gt; Maybe (Sensitive Text) -&gt; RegisterTargetWithMaintenanceWindow)
+-&gt; Lens
+     RegisterTargetWithMaintenanceWindow
+     RegisterTargetWithMaintenanceWindow
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827369"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+ownerInformation :: Maybe (Sensitive Text)
+$sel:ownerInformation:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679827369"><span class="hs-identifier hs-var hs-var">ownerInformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679827369"><span class="hs-identifier hs-var">ownerInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827368"><span class="annot"><span class="annottext">s :: RegisterTargetWithMaintenanceWindow
+</span><a href="#local-6989586621679827368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827367"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679827367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow
+</span><a href="#local-6989586621679827368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerInformation:RegisterTargetWithMaintenanceWindow' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AownerInformation%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">ownerInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679827367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; RegisterTargetWithMaintenanceWindow
+ -&gt; f RegisterTargetWithMaintenanceWindow)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterTargetWithMaintenanceWindow
+-&gt; f RegisterTargetWithMaintenanceWindow
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | An optional name for the target.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_name"><span class="hs-identifier hs-type">registerTargetWithMaintenanceWindow_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="registerTargetWithMaintenanceWindow_name"><span class="annot"><span class="annottext">registerTargetWithMaintenanceWindow_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterTargetWithMaintenanceWindow
+-&gt; f RegisterTargetWithMaintenanceWindow
+</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_name"><span class="hs-identifier hs-var hs-var">registerTargetWithMaintenanceWindow_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterTargetWithMaintenanceWindow -&gt; Maybe Text)
+-&gt; (RegisterTargetWithMaintenanceWindow
+    -&gt; Maybe Text -&gt; RegisterTargetWithMaintenanceWindow)
+-&gt; Lens
+     RegisterTargetWithMaintenanceWindow
+     RegisterTargetWithMaintenanceWindow
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827363"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow -&gt; Maybe Text
+</span><a href="#local-6989586621679827363"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827363"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827362"><span class="annot"><span class="annottext">s :: RegisterTargetWithMaintenanceWindow
+</span><a href="#local-6989586621679827362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827361"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow
+</span><a href="#local-6989586621679827362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RegisterTargetWithMaintenanceWindow' :: Maybe Text
+</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3Aname%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | An optional description for the target.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_description"><span class="hs-identifier hs-type">registerTargetWithMaintenanceWindow_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="registerTargetWithMaintenanceWindow_description"><span class="annot"><span class="annottext">registerTargetWithMaintenanceWindow_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterTargetWithMaintenanceWindow
+-&gt; f RegisterTargetWithMaintenanceWindow
+</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_description"><span class="hs-identifier hs-var hs-var">registerTargetWithMaintenanceWindow_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterTargetWithMaintenanceWindow -&gt; Maybe (Sensitive Text))
+-&gt; (RegisterTargetWithMaintenanceWindow
+    -&gt; Maybe (Sensitive Text) -&gt; RegisterTargetWithMaintenanceWindow)
+-&gt; Lens
+     RegisterTargetWithMaintenanceWindow
+     RegisterTargetWithMaintenanceWindow
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827360"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+description :: Maybe (Sensitive Text)
+$sel:description:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679827360"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679827360"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827359"><span class="annot"><span class="annottext">s :: RegisterTargetWithMaintenanceWindow
+</span><a href="#local-6989586621679827359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827358"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679827358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow
+</span><a href="#local-6989586621679827359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:RegisterTargetWithMaintenanceWindow' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3Adescription%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679827358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; RegisterTargetWithMaintenanceWindow
+ -&gt; f RegisterTargetWithMaintenanceWindow)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterTargetWithMaintenanceWindow
+-&gt; f RegisterTargetWithMaintenanceWindow
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | The ID of the maintenance window the target should be registered with.</span><span>
 </span><span id="line-216"></span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_windowId"><span class="hs-identifier hs-type">registerTargetWithMaintenanceWindow_windowId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -442,16 +442,16 @@ $sel:clientToken:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaint
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825608"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827357"><span class="annot"><span class="annottext">Text
 windowId :: Text
 $sel:windowId:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow -&gt; Text
-</span><a href="#local-6989586621679825608"><span class="hs-identifier hs-var hs-var">windowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679825608"><span class="hs-identifier hs-var">windowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825607"><span class="annot"><span class="annottext">s :: RegisterTargetWithMaintenanceWindow
-</span><a href="#local-6989586621679825607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825606"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679825606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow
-</span><a href="#local-6989586621679825607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:windowId:RegisterTargetWithMaintenanceWindow' :: Text
+</span><a href="#local-6989586621679827357"><span class="hs-identifier hs-var hs-var">windowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679827357"><span class="hs-identifier hs-var">windowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827356"><span class="annot"><span class="annottext">s :: RegisterTargetWithMaintenanceWindow
+</span><a href="#local-6989586621679827356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827355"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679827355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow
+</span><a href="#local-6989586621679827356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:windowId:RegisterTargetWithMaintenanceWindow' :: Text
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AwindowId%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">windowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679825606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The type of target being registered with the maintenance window.</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindow_resourceType"><span class="hs-identifier hs-type">registerTargetWithMaintenanceWindow_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowResourceType.html#MaintenanceWindowResourceType"><span class="hs-identifier hs-type">MaintenanceWindowResourceType</span></a></span><span>
@@ -469,17 +469,17 @@ $sel:windowId:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintena
      MaintenanceWindowResourceType
      MaintenanceWindowResourceType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825605"><span class="annot"><span class="annottext">MaintenanceWindowResourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827354"><span class="annot"><span class="annottext">MaintenanceWindowResourceType
 resourceType :: MaintenanceWindowResourceType
 $sel:resourceType:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow
 -&gt; MaintenanceWindowResourceType
-</span><a href="#local-6989586621679825605"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowResourceType
-</span><a href="#local-6989586621679825605"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825604"><span class="annot"><span class="annottext">s :: RegisterTargetWithMaintenanceWindow
-</span><a href="#local-6989586621679825604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825603"><span class="annot"><span class="annottext">MaintenanceWindowResourceType
-</span><a href="#local-6989586621679825603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow
-</span><a href="#local-6989586621679825604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:RegisterTargetWithMaintenanceWindow' :: MaintenanceWindowResourceType
+</span><a href="#local-6989586621679827354"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowResourceType
+</span><a href="#local-6989586621679827354"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827353"><span class="annot"><span class="annottext">s :: RegisterTargetWithMaintenanceWindow
+</span><a href="#local-6989586621679827353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827352"><span class="annot"><span class="annottext">MaintenanceWindowResourceType
+</span><a href="#local-6989586621679827352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow
+</span><a href="#local-6989586621679827353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:RegisterTargetWithMaintenanceWindow' :: MaintenanceWindowResourceType
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AresourceType%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowResourceType
-</span><a href="#local-6989586621679825603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | The targets to register with the maintenance window. In other words, the</span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- instances to run commands on when the maintenance window runs.</span><span>
@@ -534,16 +534,16 @@ $sel:resourceType:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMain
      [Target]
      [Target]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825602"><span class="annot"><span class="annottext">[Target]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827351"><span class="annot"><span class="annottext">[Target]
 targets :: [Target]
 $sel:targets:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow -&gt; [Target]
-</span><a href="#local-6989586621679825602"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Target]
-</span><a href="#local-6989586621679825602"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825601"><span class="annot"><span class="annottext">s :: RegisterTargetWithMaintenanceWindow
-</span><a href="#local-6989586621679825601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825600"><span class="annot"><span class="annottext">[Target]
-</span><a href="#local-6989586621679825600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow
-</span><a href="#local-6989586621679825601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:RegisterTargetWithMaintenanceWindow' :: [Target]
+</span><a href="#local-6989586621679827351"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Target]
+</span><a href="#local-6989586621679827351"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827350"><span class="annot"><span class="annottext">s :: RegisterTargetWithMaintenanceWindow
+</span><a href="#local-6989586621679827350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827349"><span class="annot"><span class="annottext">[Target]
+</span><a href="#local-6989586621679827349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindow
+</span><a href="#local-6989586621679827350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:RegisterTargetWithMaintenanceWindow' :: [Target]
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3Atargets%3ARegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Target]
-</span><a href="#local-6989586621679825600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Target] -&gt; f [Target])
+</span><a href="#local-6989586621679827349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Target] -&gt; f [Target])
  -&gt; RegisterTargetWithMaintenanceWindow
  -&gt; f RegisterTargetWithMaintenanceWindow)
 -&gt; (([Target] -&gt; f [Target]) -&gt; [Target] -&gt; f [Target])
@@ -552,8 +552,8 @@ $sel:targets:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenan
 -&gt; f RegisterTargetWithMaintenanceWindow
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Target] -&gt; f [Target]) -&gt; [Target] -&gt; f [Target]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-265"></span><span>
 </span><span id="line-266"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-267"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -562,7 +562,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 </span><span id="line-270"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-271"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-272"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindowResponse</span></a></span><span>
-</span><span id="line-273"></span><span>  </span><span id="local-6989586621679825595"><span class="annot"><span class="annottext">request :: RegisterTargetWithMaintenanceWindow
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621679827344"><span class="annot"><span class="annottext">request :: RegisterTargetWithMaintenanceWindow
 -&gt; Request RegisterTargetWithMaintenanceWindow
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; RegisterTargetWithMaintenanceWindow
@@ -570,7 +570,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-274"></span><span>  </span><span id="local-6989586621679825591"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621679827340"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RegisterTargetWithMaintenanceWindow
 -&gt; ClientResponse ClientBody
@@ -598,10 +598,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-276"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679825588"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679825588"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679825587"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679825587"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679825586"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679825586"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679827337"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827337"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679827336"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679827336"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679827335"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679827335"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-277"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; RegisterTargetWithMaintenanceWindowResponse
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse%27"><span class="hs-identifier hs-var">RegisterTargetWithMaintenanceWindowResponse'</span></a></span><span>
 </span><span id="line-278"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; RegisterTargetWithMaintenanceWindowResponse)
@@ -610,7 +610,7 @@ MonadResource m =&gt;
      String (Int -&gt; RegisterTargetWithMaintenanceWindowResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679825586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679827335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WindowTargetId&quot;</span></span><span class="hs-special">)</span><span>
@@ -623,22 +623,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679825588"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827337"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-281"></span><span>
 </span><span id="line-282"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-283"></span><span>  </span><span id="local-6989586621679825578"><span id="local-6989586621679825580"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621679827327"><span id="local-6989586621679827329"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-284"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span></span></span><span>
 </span><span id="line-285"></span><span>
 </span><span id="line-286"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-287"></span><span>  </span><span id="local-6989586621679825575"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-287"></span><span>  </span><span id="local-6989586621679827324"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-288"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span></span><span>
 </span><span id="line-289"></span><span>
 </span><span id="line-290"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-291"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-292"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span>
 </span><span id="line-293"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-294"></span><span>  </span><span id="local-6989586621679825571"><span class="annot"><span class="annottext">toHeaders :: RegisterTargetWithMaintenanceWindow -&gt; ResponseHeaders
+</span><span id="line-294"></span><span>  </span><span id="local-6989586621679827320"><span class="annot"><span class="annottext">toHeaders :: RegisterTargetWithMaintenanceWindow -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-295"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; RegisterTargetWithMaintenanceWindow -&gt; ResponseHeaders
@@ -667,11 +667,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-306"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-307"></span><span>
 </span><span id="line-308"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-309"></span><span>  </span><span id="local-6989586621679825561"><span id="local-6989586621679825563"><span id="local-6989586621679825565"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-309"></span><span>  </span><span id="local-6989586621679827310"><span id="local-6989586621679827312"><span id="local-6989586621679827314"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-310"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span></span></span></span><span>
 </span><span id="line-311"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-312"></span><span>  </span><span id="local-6989586621679825559"><span class="annot"><span class="annottext">toJSON :: RegisterTargetWithMaintenanceWindow -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825551"><span id="local-6989586621679825552"><span id="local-6989586621679825553"><span id="local-6989586621679825554"><span id="local-6989586621679825555"><span id="local-6989586621679825556"><span id="local-6989586621679825557"><span class="annot"><span class="annottext">[Target]
+</span><span id="line-312"></span><span>  </span><span id="local-6989586621679827308"><span class="annot"><span class="annottext">toJSON :: RegisterTargetWithMaintenanceWindow -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827300"><span id="local-6989586621679827301"><span id="local-6989586621679827302"><span id="local-6989586621679827303"><span id="local-6989586621679827304"><span id="local-6989586621679827305"><span id="local-6989586621679827306"><span class="annot"><span class="annottext">[Target]
 Maybe Text
 Maybe (Sensitive Text)
 Text
@@ -679,74 +679,74 @@ MaintenanceWindowResourceType
 targets :: [Target]
 resourceType :: MaintenanceWindowResourceType
 windowId :: Text
-clientToken :: Maybe Text
-ownerInformation :: Maybe (Sensitive Text)
 description :: Maybe (Sensitive Text)
 name :: Maybe Text
+ownerInformation :: Maybe (Sensitive Text)
+clientToken :: Maybe Text
 $sel:targets:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow -&gt; [Target]
 $sel:resourceType:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow
 -&gt; MaintenanceWindowResourceType
 $sel:windowId:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow -&gt; Text
-$sel:clientToken:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow -&gt; Maybe Text
-$sel:ownerInformation:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow -&gt; Maybe (Sensitive Text)
 $sel:description:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow -&gt; Maybe (Sensitive Text)
 $sel:name:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow -&gt; Maybe Text
-</span><a href="#local-6989586621679825551"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:ownerInformation:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow -&gt; Maybe (Sensitive Text)
+$sel:clientToken:RegisterTargetWithMaintenanceWindow' :: RegisterTargetWithMaintenanceWindow -&gt; Maybe Text
+</span><a href="#local-6989586621679827300"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-313"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-314"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-315"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679825557"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-316"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679825556"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-317"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OwnerInformation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-318"></span><span>              </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679825555"><span class="hs-identifier hs-var">ownerInformation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-319"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679825554"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679827306"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OwnerInformation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>              </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679827305"><span class="hs-identifier hs-var">ownerInformation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-318"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827304"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679827303"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-320"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WindowId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679825553"><span class="hs-identifier hs-var">windowId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679827302"><span class="hs-identifier hs-var">windowId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-321"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MaintenanceWindowResourceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowResourceType
-</span><a href="#local-6989586621679825552"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679827301"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-322"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Targets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Target] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Target]
-</span><a href="#local-6989586621679825551"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827300"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-323"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-324"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-325"></span><span>
@@ -754,7 +754,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-327"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-328"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span>
 </span><span id="line-329"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-330"></span><span>  </span><span id="local-6989586621679825545"><span class="annot"><span class="annottext">toPath :: RegisterTargetWithMaintenanceWindow -&gt; ByteString
+</span><span id="line-330"></span><span>  </span><span id="local-6989586621679827294"><span class="annot"><span class="annottext">toPath :: RegisterTargetWithMaintenanceWindow -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RegisterTargetWithMaintenanceWindow -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -764,7 +764,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-333"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-334"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindow"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindow</span></a></span><span>
 </span><span id="line-335"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-336"></span><span>  </span><span id="local-6989586621679825541"><span class="annot"><span class="annottext">toQuery :: RegisterTargetWithMaintenanceWindow -&gt; QueryString
+</span><span id="line-336"></span><span>  </span><span id="local-6989586621679827290"><span class="annot"><span class="annottext">toQuery :: RegisterTargetWithMaintenanceWindow -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RegisterTargetWithMaintenanceWindow -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -772,7 +772,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-337"></span><span>
 </span><span id="line-338"></span><span class="hs-comment">-- | /See:/ 'newRegisterTargetWithMaintenanceWindowResponse' smart constructor.</span><span>
-</span><span id="line-339"></span><span id="local-6989586621679825538"><span id="local-6989586621679825539"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterTargetWithMaintenanceWindowResponse"><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse"><span class="hs-identifier hs-var">RegisterTargetWithMaintenanceWindowResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterTargetWithMaintenanceWindowResponse%27"><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse%27"><span class="hs-identifier hs-var">RegisterTargetWithMaintenanceWindowResponse'</span></a></span></span><span>
+</span><span id="line-339"></span><span id="local-6989586621679827287"><span id="local-6989586621679827288"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterTargetWithMaintenanceWindowResponse"><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse"><span class="hs-identifier hs-var">RegisterTargetWithMaintenanceWindowResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterTargetWithMaintenanceWindowResponse%27"><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse%27"><span class="hs-identifier hs-var">RegisterTargetWithMaintenanceWindowResponse'</span></a></span></span><span>
 </span><span id="line-340"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the target definition in this maintenance window.</span><span>
 </span><span id="line-341"></span><span>    </span><span id="%24sel%3AwindowTargetId%3ARegisterTargetWithMaintenanceWindowResponse%27"><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindowResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AwindowTargetId%3ARegisterTargetWithMaintenanceWindowResponse%27"><span class="hs-identifier hs-var hs-var">windowTargetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -780,7 +780,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-343"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARegisterTargetWithMaintenanceWindowResponse%27"><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindowResponse -&gt; Int
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AhttpStatus%3ARegisterTargetWithMaintenanceWindowResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-344"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-345"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679825532"><span id="local-6989586621679825534"><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindowResponse
+</span><span id="line-345"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827281"><span id="local-6989586621679827283"><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindowResponse
 -&gt; RegisterTargetWithMaintenanceWindowResponse -&gt; Bool
 (RegisterTargetWithMaintenanceWindowResponse
  -&gt; RegisterTargetWithMaintenanceWindowResponse -&gt; Bool)
@@ -796,7 +796,7 @@ $c/= :: RegisterTargetWithMaintenanceWindowResponse
 -&gt; RegisterTargetWithMaintenanceWindowResponse -&gt; Bool
 $c== :: RegisterTargetWithMaintenanceWindowResponse
 -&gt; RegisterTargetWithMaintenanceWindowResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679825524"><span id="local-6989586621679825526"><span id="local-6989586621679825528"><span id="local-6989586621679825530"><span class="annot"><span class="annottext">ReadPrec [RegisterTargetWithMaintenanceWindowResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827273"><span id="local-6989586621679827275"><span id="local-6989586621679827277"><span id="local-6989586621679827279"><span class="annot"><span class="annottext">ReadPrec [RegisterTargetWithMaintenanceWindowResponse]
 ReadPrec RegisterTargetWithMaintenanceWindowResponse
 Int -&gt; ReadS RegisterTargetWithMaintenanceWindowResponse
 ReadS [RegisterTargetWithMaintenanceWindowResponse]
@@ -816,7 +816,7 @@ readList :: ReadS [RegisterTargetWithMaintenanceWindowResponse]
 $creadList :: ReadS [RegisterTargetWithMaintenanceWindowResponse]
 readsPrec :: Int -&gt; ReadS RegisterTargetWithMaintenanceWindowResponse
 $creadsPrec :: Int -&gt; ReadS RegisterTargetWithMaintenanceWindowResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679825517"><span id="local-6989586621679825519"><span id="local-6989586621679825521"><span class="annot"><span class="annottext">Int -&gt; RegisterTargetWithMaintenanceWindowResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827266"><span id="local-6989586621679827268"><span id="local-6989586621679827270"><span class="annot"><span class="annottext">Int -&gt; RegisterTargetWithMaintenanceWindowResponse -&gt; ShowS
 [RegisterTargetWithMaintenanceWindowResponse] -&gt; ShowS
 RegisterTargetWithMaintenanceWindowResponse -&gt; String
 (Int -&gt; RegisterTargetWithMaintenanceWindowResponse -&gt; ShowS)
@@ -871,8 +871,8 @@ RegisterTargetWithMaintenanceWindowResponse
 </span><span id="line-361"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindowResponse</span></a></span><span>
 </span><span id="line-362"></span><span id="newRegisterTargetWithMaintenanceWindowResponse"><span class="annot"><span class="annottext">newRegisterTargetWithMaintenanceWindowResponse :: Int -&gt; RegisterTargetWithMaintenanceWindowResponse
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#newRegisterTargetWithMaintenanceWindowResponse"><span class="hs-identifier hs-var hs-var">newRegisterTargetWithMaintenanceWindowResponse</span></a></span></span><span>
-</span><span id="line-363"></span><span>  </span><span id="local-6989586621679825514"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679825514"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-363"></span><span>  </span><span id="local-6989586621679827263"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827263"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-364"></span><span>    </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindowResponse' :: Maybe Text -&gt; Int -&gt; RegisterTargetWithMaintenanceWindowResponse
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindowResponse'</span></a></span><span>
 </span><span id="line-365"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:windowTargetId:RegisterTargetWithMaintenanceWindowResponse' :: Maybe Text
@@ -882,7 +882,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-367"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterTargetWithMaintenanceWindowResponse' :: Int
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AhttpStatus%3ARegisterTargetWithMaintenanceWindowResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679825514"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679827263"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-368"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-369"></span><span>
 </span><span id="line-370"></span><span class="hs-comment">-- | The ID of the target definition in this maintenance window.</span><span>
@@ -899,16 +899,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825513"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827262"><span class="annot"><span class="annottext">Maybe Text
 windowTargetId :: Maybe Text
 $sel:windowTargetId:RegisterTargetWithMaintenanceWindowResponse' :: RegisterTargetWithMaintenanceWindowResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679825513"><span class="hs-identifier hs-var hs-var">windowTargetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679825513"><span class="hs-identifier hs-var">windowTargetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825512"><span class="annot"><span class="annottext">s :: RegisterTargetWithMaintenanceWindowResponse
-</span><a href="#local-6989586621679825512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825511"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679825511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindowResponse
-</span><a href="#local-6989586621679825512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:windowTargetId:RegisterTargetWithMaintenanceWindowResponse' :: Maybe Text
+</span><a href="#local-6989586621679827262"><span class="hs-identifier hs-var hs-var">windowTargetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827262"><span class="hs-identifier hs-var">windowTargetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827261"><span class="annot"><span class="annottext">s :: RegisterTargetWithMaintenanceWindowResponse
+</span><a href="#local-6989586621679827261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827260"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindowResponse
+</span><a href="#local-6989586621679827261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:windowTargetId:RegisterTargetWithMaintenanceWindowResponse' :: Maybe Text
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AwindowTargetId%3ARegisterTargetWithMaintenanceWindowResponse%27"><span class="hs-identifier hs-var">windowTargetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679825511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindowResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindowResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-373"></span><span>
 </span><span id="line-374"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-375"></span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#registerTargetWithMaintenanceWindowResponse_httpStatus"><span class="hs-identifier hs-type">registerTargetWithMaintenanceWindowResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindowResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -924,18 +924,18 @@ $sel:windowTargetId:RegisterTargetWithMaintenanceWindowResponse' :: RegisterTarg
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825510"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827259"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RegisterTargetWithMaintenanceWindowResponse' :: RegisterTargetWithMaintenanceWindowResponse -&gt; Int
-</span><a href="#local-6989586621679825510"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679825510"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825509"><span class="annot"><span class="annottext">s :: RegisterTargetWithMaintenanceWindowResponse
-</span><a href="#local-6989586621679825509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825508"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679825508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindowResponse
-</span><a href="#local-6989586621679825509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterTargetWithMaintenanceWindowResponse' :: Int
+</span><a href="#local-6989586621679827259"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827259"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827258"><span class="annot"><span class="annottext">s :: RegisterTargetWithMaintenanceWindowResponse
+</span><a href="#local-6989586621679827258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse%27"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827257"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTargetWithMaintenanceWindowResponse
+</span><a href="#local-6989586621679827258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterTargetWithMaintenanceWindowResponse' :: Int
 </span><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#%24sel%3AhttpStatus%3ARegisterTargetWithMaintenanceWindowResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679825508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindowResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindowResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-377"></span><span>
 </span><span id="line-378"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-379"></span><span>  </span><span id="local-6989586621679825506"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-379"></span><span>  </span><span id="local-6989586621679827255"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-380"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.RegisterTargetWithMaintenanceWindow.html#RegisterTargetWithMaintenanceWindowResponse"><span class="hs-identifier hs-type">RegisterTargetWithMaintenanceWindowResponse</span></a></span></span><span>
 </span><span id="line-381"></span></pre></body></html>

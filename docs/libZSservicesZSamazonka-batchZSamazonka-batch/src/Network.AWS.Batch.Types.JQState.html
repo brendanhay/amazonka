@@ -29,10 +29,10 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679260402"><span id="local-6989586621679260403"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JQState"><span class="annot"><a href="Network.AWS.Batch.Types.JQState.html#JQState"><span class="hs-identifier hs-var">JQState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JQState%27"><span class="annot"><a href="Network.AWS.Batch.Types.JQState.html#JQState%27"><span class="hs-identifier hs-var">JQState'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromJQState"><span class="annot"><span class="annottext">JQState -&gt; Text
+</span><span id="line-32"></span><span id="local-6989586621679260683"><span id="local-6989586621679260684"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JQState"><span class="annot"><a href="Network.AWS.Batch.Types.JQState.html#JQState"><span class="hs-identifier hs-var">JQState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JQState%27"><span class="annot"><a href="Network.AWS.Batch.Types.JQState.html#JQState%27"><span class="hs-identifier hs-var">JQState'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromJQState"><span class="annot"><span class="annottext">JQState -&gt; Text
 </span><a href="Network.AWS.Batch.Types.JQState.html#fromJQState"><span class="hs-identifier hs-var hs-var">fromJQState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679260394"><span id="local-6989586621679260396"><span id="local-6989586621679260398"><span class="annot"><span class="annottext">Int -&gt; JQState -&gt; ShowS
+</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679260675"><span id="local-6989586621679260677"><span id="local-6989586621679260679"><span class="annot"><span class="annottext">Int -&gt; JQState -&gt; ShowS
 [JQState] -&gt; ShowS
 JQState -&gt; String
 (Int -&gt; JQState -&gt; ShowS)
@@ -46,7 +46,7 @@ $cshow :: JQState -&gt; String
 showsPrec :: Int -&gt; JQState -&gt; ShowS
 $cshowsPrec :: Int -&gt; JQState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>      </span><span id="local-6989586621679260385"><span id="local-6989586621679260387"><span id="local-6989586621679260389"><span id="local-6989586621679260391"><span class="annot"><span class="annottext">ReadPrec [JQState]
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679260666"><span id="local-6989586621679260668"><span id="local-6989586621679260670"><span id="local-6989586621679260672"><span class="annot"><span class="annottext">ReadPrec [JQState]
 ReadPrec JQState
 Int -&gt; ReadS JQState
 ReadS [JQState]
@@ -67,7 +67,7 @@ $creadList :: ReadS [JQState]
 readsPrec :: Int -&gt; ReadS JQState
 $creadsPrec :: Int -&gt; ReadS JQState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>      </span><span id="local-6989586621679260380"><span id="local-6989586621679260382"><span class="annot"><span class="annottext">JQState -&gt; JQState -&gt; Bool
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679260661"><span id="local-6989586621679260663"><span class="annot"><span class="annottext">JQState -&gt; JQState -&gt; Bool
 (JQState -&gt; JQState -&gt; Bool)
 -&gt; (JQState -&gt; JQState -&gt; Bool) -&gt; Eq JQState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ $c/= :: JQState -&gt; JQState -&gt; Bool
 == :: JQState -&gt; JQState -&gt; Bool
 $c== :: JQState -&gt; JQState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679260364"><span id="local-6989586621679260366"><span id="local-6989586621679260368"><span id="local-6989586621679260370"><span id="local-6989586621679260372"><span id="local-6989586621679260374"><span id="local-6989586621679260376"><span class="annot"><span class="annottext">Eq JQState
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679260645"><span id="local-6989586621679260647"><span id="local-6989586621679260649"><span id="local-6989586621679260651"><span id="local-6989586621679260653"><span id="local-6989586621679260655"><span id="local-6989586621679260657"><span class="annot"><span class="annottext">Eq JQState
 Eq JQState
 -&gt; (JQState -&gt; JQState -&gt; Ordering)
 -&gt; (JQState -&gt; JQState -&gt; Bool)
@@ -126,7 +126,7 @@ $cfrom :: forall x. JQState -&gt; Rep JQState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679260356"><span id="local-6989586621679260358"><span class="annot"><span class="annottext">Int -&gt; JQState -&gt; Int
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679260637"><span id="local-6989586621679260639"><span class="annot"><span class="annottext">Int -&gt; JQState -&gt; Int
 JQState -&gt; Int
 (Int -&gt; JQState -&gt; Int) -&gt; (JQState -&gt; Int) -&gt; Hashable JQState
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -135,49 +135,49 @@ $chash :: JQState -&gt; Int
 hashWithSalt :: Int -&gt; JQState -&gt; Int
 $chashWithSalt :: Int -&gt; JQState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679260353"><span class="annot"><span class="annottext">JQState -&gt; ()
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679260634"><span class="annot"><span class="annottext">JQState -&gt; ()
 (JQState -&gt; ()) -&gt; NFData JQState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: JQState -&gt; ()
 $crnf :: JQState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679260350"><span class="annot"><span class="annottext">Text -&gt; Either String JQState
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679260631"><span class="annot"><span class="annottext">Text -&gt; Either String JQState
 (Text -&gt; Either String JQState) -&gt; FromText JQState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String JQState
 $cfromText :: Text -&gt; Either String JQState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679260347"><span class="annot"><span class="annottext">JQState -&gt; Text
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679260628"><span class="annot"><span class="annottext">JQState -&gt; Text
 (JQState -&gt; Text) -&gt; ToText JQState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: JQState -&gt; Text
 $ctoText :: JQState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679260344"><span class="annot"><span class="annottext">JQState -&gt; ByteString
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679260625"><span class="annot"><span class="annottext">JQState -&gt; ByteString
 (JQState -&gt; ByteString) -&gt; ToByteString JQState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: JQState -&gt; ByteString
 $ctoBS :: JQState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679260341"><span class="annot"><span class="annottext">JQState -&gt; ByteStringBuilder
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679260622"><span class="annot"><span class="annottext">JQState -&gt; ByteStringBuilder
 (JQState -&gt; ByteStringBuilder) -&gt; ToLog JQState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: JQState -&gt; ByteStringBuilder
 $cbuild :: JQState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679260338"><span class="annot"><span class="annottext">HeaderName -&gt; JQState -&gt; [Header]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679260619"><span class="annot"><span class="annottext">HeaderName -&gt; JQState -&gt; [Header]
 (HeaderName -&gt; JQState -&gt; [Header]) -&gt; ToHeader JQState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; JQState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; JQState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679260335"><span class="annot"><span class="annottext">JQState -&gt; QueryString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679260616"><span class="annot"><span class="annottext">JQState -&gt; QueryString
 (JQState -&gt; QueryString) -&gt; ToQuery JQState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: JQState -&gt; QueryString
 $ctoQuery :: JQState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679260330"><span id="local-6989586621679260332"><span class="annot"><span class="annottext">Value -&gt; Parser [JQState]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679260611"><span id="local-6989586621679260613"><span class="annot"><span class="annottext">Value -&gt; Parser [JQState]
 Value -&gt; Parser JQState
 (Value -&gt; Parser JQState)
 -&gt; (Value -&gt; Parser [JQState]) -&gt; FromJSON JQState
@@ -188,7 +188,7 @@ $cparseJSONList :: Value -&gt; Parser [JQState]
 parseJSON :: Value -&gt; Parser JQState
 $cparseJSON :: Value -&gt; Parser JQState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679260325"><span id="local-6989586621679260327"><span class="annot"><span class="annottext">FromJSONKeyFunction [JQState]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679260606"><span id="local-6989586621679260608"><span class="annot"><span class="annottext">FromJSONKeyFunction [JQState]
 FromJSONKeyFunction JQState
 FromJSONKeyFunction JQState
 -&gt; FromJSONKeyFunction [JQState] -&gt; FromJSONKey JQState
@@ -199,7 +199,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [JQState]
 fromJSONKey :: FromJSONKeyFunction JQState
 $cfromJSONKey :: FromJSONKeyFunction JQState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679260316"><span id="local-6989586621679260318"><span id="local-6989586621679260320"><span id="local-6989586621679260322"><span class="annot"><span class="annottext">[JQState] -&gt; Encoding
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679260597"><span id="local-6989586621679260599"><span id="local-6989586621679260601"><span id="local-6989586621679260603"><span class="annot"><span class="annottext">[JQState] -&gt; Encoding
 [JQState] -&gt; Value
 JQState -&gt; Encoding
 JQState -&gt; Value
@@ -223,7 +223,7 @@ $ctoEncoding :: JQState -&gt; Encoding
 toJSON :: JQState -&gt; Value
 $ctoJSON :: JQState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679260311"><span id="local-6989586621679260313"><span class="annot"><span class="annottext">ToJSONKeyFunction [JQState]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679260592"><span id="local-6989586621679260594"><span class="annot"><span class="annottext">ToJSONKeyFunction [JQState]
 ToJSONKeyFunction JQState
 ToJSONKeyFunction JQState
 -&gt; ToJSONKeyFunction [JQState] -&gt; ToJSONKey JQState
@@ -234,13 +234,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [JQState]
 toJSONKey :: ToJSONKeyFunction JQState
 $ctoJSONKey :: ToJSONKeyFunction JQState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679260308"><span class="annot"><span class="annottext">[Node] -&gt; Either String JQState
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679260589"><span class="annot"><span class="annottext">[Node] -&gt; Either String JQState
 ([Node] -&gt; Either String JQState) -&gt; FromXML JQState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String JQState
 $cparseXML :: [Node] -&gt; Either String JQState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679260305"><span class="annot"><span class="annottext">JQState -&gt; XML
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679260586"><span class="annot"><span class="annottext">JQState -&gt; XML
 (JQState -&gt; XML) -&gt; ToXML JQState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: JQState -&gt; XML

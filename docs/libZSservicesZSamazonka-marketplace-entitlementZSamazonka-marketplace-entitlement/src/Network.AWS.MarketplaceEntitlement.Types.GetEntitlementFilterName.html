@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679139521"><span id="local-6989586621679139522"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GetEntitlementFilterName"><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.html#GetEntitlementFilterName"><span class="hs-identifier hs-var">GetEntitlementFilterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEntitlementFilterName%27"><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.html#GetEntitlementFilterName%27"><span class="hs-identifier hs-var">GetEntitlementFilterName'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679139530"><span id="local-6989586621679139531"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GetEntitlementFilterName"><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.html#GetEntitlementFilterName"><span class="hs-identifier hs-var">GetEntitlementFilterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEntitlementFilterName%27"><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.html#GetEntitlementFilterName%27"><span class="hs-identifier hs-var">GetEntitlementFilterName'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGetEntitlementFilterName"><span class="annot"><span class="annottext">GetEntitlementFilterName -&gt; Text
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName.html#fromGetEntitlementFilterName"><span class="hs-identifier hs-var hs-var">fromGetEntitlementFilterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679139513"><span id="local-6989586621679139515"><span id="local-6989586621679139517"><span class="annot"><span class="annottext">Int -&gt; GetEntitlementFilterName -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679139522"><span id="local-6989586621679139524"><span id="local-6989586621679139526"><span class="annot"><span class="annottext">Int -&gt; GetEntitlementFilterName -&gt; ShowS
 [GetEntitlementFilterName] -&gt; ShowS
 GetEntitlementFilterName -&gt; String
 (Int -&gt; GetEntitlementFilterName -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: GetEntitlementFilterName -&gt; String
 showsPrec :: Int -&gt; GetEntitlementFilterName -&gt; ShowS
 $cshowsPrec :: Int -&gt; GetEntitlementFilterName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679139504"><span id="local-6989586621679139506"><span id="local-6989586621679139508"><span id="local-6989586621679139510"><span class="annot"><span class="annottext">ReadPrec [GetEntitlementFilterName]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679139513"><span id="local-6989586621679139515"><span id="local-6989586621679139517"><span id="local-6989586621679139519"><span class="annot"><span class="annottext">ReadPrec [GetEntitlementFilterName]
 ReadPrec GetEntitlementFilterName
 Int -&gt; ReadS GetEntitlementFilterName
 ReadS [GetEntitlementFilterName]
@@ -72,7 +72,7 @@ $creadList :: ReadS [GetEntitlementFilterName]
 readsPrec :: Int -&gt; ReadS GetEntitlementFilterName
 $creadsPrec :: Int -&gt; ReadS GetEntitlementFilterName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679139499"><span id="local-6989586621679139501"><span class="annot"><span class="annottext">GetEntitlementFilterName -&gt; GetEntitlementFilterName -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679139508"><span id="local-6989586621679139510"><span class="annot"><span class="annottext">GetEntitlementFilterName -&gt; GetEntitlementFilterName -&gt; Bool
 (GetEntitlementFilterName -&gt; GetEntitlementFilterName -&gt; Bool)
 -&gt; (GetEntitlementFilterName -&gt; GetEntitlementFilterName -&gt; Bool)
 -&gt; Eq GetEntitlementFilterName
@@ -82,7 +82,7 @@ $c/= :: GetEntitlementFilterName -&gt; GetEntitlementFilterName -&gt; Bool
 == :: GetEntitlementFilterName -&gt; GetEntitlementFilterName -&gt; Bool
 $c== :: GetEntitlementFilterName -&gt; GetEntitlementFilterName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679139483"><span id="local-6989586621679139485"><span id="local-6989586621679139487"><span id="local-6989586621679139489"><span id="local-6989586621679139491"><span id="local-6989586621679139493"><span id="local-6989586621679139495"><span class="annot"><span class="annottext">Eq GetEntitlementFilterName
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679139492"><span id="local-6989586621679139494"><span id="local-6989586621679139496"><span id="local-6989586621679139498"><span id="local-6989586621679139500"><span id="local-6989586621679139502"><span id="local-6989586621679139504"><span class="annot"><span class="annottext">Eq GetEntitlementFilterName
 Eq GetEntitlementFilterName
 -&gt; (GetEntitlementFilterName
     -&gt; GetEntitlementFilterName -&gt; Ordering)
@@ -147,7 +147,7 @@ GetEntitlementFilterName -&gt; Rep GetEntitlementFilterName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679139475"><span id="local-6989586621679139477"><span class="annot"><span class="annottext">Int -&gt; GetEntitlementFilterName -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679139484"><span id="local-6989586621679139486"><span class="annot"><span class="annottext">Int -&gt; GetEntitlementFilterName -&gt; Int
 GetEntitlementFilterName -&gt; Int
 (Int -&gt; GetEntitlementFilterName -&gt; Int)
 -&gt; (GetEntitlementFilterName -&gt; Int)
@@ -158,55 +158,55 @@ $chash :: GetEntitlementFilterName -&gt; Int
 hashWithSalt :: Int -&gt; GetEntitlementFilterName -&gt; Int
 $chashWithSalt :: Int -&gt; GetEntitlementFilterName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679139472"><span class="annot"><span class="annottext">GetEntitlementFilterName -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679139481"><span class="annot"><span class="annottext">GetEntitlementFilterName -&gt; ()
 (GetEntitlementFilterName -&gt; ()) -&gt; NFData GetEntitlementFilterName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: GetEntitlementFilterName -&gt; ()
 $crnf :: GetEntitlementFilterName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679139469"><span class="annot"><span class="annottext">Text -&gt; Either String GetEntitlementFilterName
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679139478"><span class="annot"><span class="annottext">Text -&gt; Either String GetEntitlementFilterName
 (Text -&gt; Either String GetEntitlementFilterName)
 -&gt; FromText GetEntitlementFilterName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String GetEntitlementFilterName
 $cfromText :: Text -&gt; Either String GetEntitlementFilterName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679139466"><span class="annot"><span class="annottext">GetEntitlementFilterName -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679139475"><span class="annot"><span class="annottext">GetEntitlementFilterName -&gt; Text
 (GetEntitlementFilterName -&gt; Text)
 -&gt; ToText GetEntitlementFilterName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: GetEntitlementFilterName -&gt; Text
 $ctoText :: GetEntitlementFilterName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679139463"><span class="annot"><span class="annottext">GetEntitlementFilterName -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679139472"><span class="annot"><span class="annottext">GetEntitlementFilterName -&gt; ByteString
 (GetEntitlementFilterName -&gt; ByteString)
 -&gt; ToByteString GetEntitlementFilterName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: GetEntitlementFilterName -&gt; ByteString
 $ctoBS :: GetEntitlementFilterName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679139460"><span class="annot"><span class="annottext">GetEntitlementFilterName -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679139469"><span class="annot"><span class="annottext">GetEntitlementFilterName -&gt; ByteStringBuilder
 (GetEntitlementFilterName -&gt; ByteStringBuilder)
 -&gt; ToLog GetEntitlementFilterName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: GetEntitlementFilterName -&gt; ByteStringBuilder
 $cbuild :: GetEntitlementFilterName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679139457"><span class="annot"><span class="annottext">HeaderName -&gt; GetEntitlementFilterName -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679139466"><span class="annot"><span class="annottext">HeaderName -&gt; GetEntitlementFilterName -&gt; [Header]
 (HeaderName -&gt; GetEntitlementFilterName -&gt; [Header])
 -&gt; ToHeader GetEntitlementFilterName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; GetEntitlementFilterName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; GetEntitlementFilterName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679139454"><span class="annot"><span class="annottext">GetEntitlementFilterName -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679139463"><span class="annot"><span class="annottext">GetEntitlementFilterName -&gt; QueryString
 (GetEntitlementFilterName -&gt; QueryString)
 -&gt; ToQuery GetEntitlementFilterName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: GetEntitlementFilterName -&gt; QueryString
 $ctoQuery :: GetEntitlementFilterName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679139449"><span id="local-6989586621679139451"><span class="annot"><span class="annottext">Value -&gt; Parser [GetEntitlementFilterName]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679139458"><span id="local-6989586621679139460"><span class="annot"><span class="annottext">Value -&gt; Parser [GetEntitlementFilterName]
 Value -&gt; Parser GetEntitlementFilterName
 (Value -&gt; Parser GetEntitlementFilterName)
 -&gt; (Value -&gt; Parser [GetEntitlementFilterName])
@@ -218,7 +218,7 @@ $cparseJSONList :: Value -&gt; Parser [GetEntitlementFilterName]
 parseJSON :: Value -&gt; Parser GetEntitlementFilterName
 $cparseJSON :: Value -&gt; Parser GetEntitlementFilterName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679139444"><span id="local-6989586621679139446"><span class="annot"><span class="annottext">FromJSONKeyFunction [GetEntitlementFilterName]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679139453"><span id="local-6989586621679139455"><span class="annot"><span class="annottext">FromJSONKeyFunction [GetEntitlementFilterName]
 FromJSONKeyFunction GetEntitlementFilterName
 FromJSONKeyFunction GetEntitlementFilterName
 -&gt; FromJSONKeyFunction [GetEntitlementFilterName]
@@ -230,7 +230,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [GetEntitlementFilterName]
 fromJSONKey :: FromJSONKeyFunction GetEntitlementFilterName
 $cfromJSONKey :: FromJSONKeyFunction GetEntitlementFilterName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679139435"><span id="local-6989586621679139437"><span id="local-6989586621679139439"><span id="local-6989586621679139441"><span class="annot"><span class="annottext">[GetEntitlementFilterName] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679139444"><span id="local-6989586621679139446"><span id="local-6989586621679139448"><span id="local-6989586621679139450"><span class="annot"><span class="annottext">[GetEntitlementFilterName] -&gt; Encoding
 [GetEntitlementFilterName] -&gt; Value
 GetEntitlementFilterName -&gt; Encoding
 GetEntitlementFilterName -&gt; Value
@@ -254,7 +254,7 @@ $ctoEncoding :: GetEntitlementFilterName -&gt; Encoding
 toJSON :: GetEntitlementFilterName -&gt; Value
 $ctoJSON :: GetEntitlementFilterName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679139430"><span id="local-6989586621679139432"><span class="annot"><span class="annottext">ToJSONKeyFunction [GetEntitlementFilterName]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679139439"><span id="local-6989586621679139441"><span class="annot"><span class="annottext">ToJSONKeyFunction [GetEntitlementFilterName]
 ToJSONKeyFunction GetEntitlementFilterName
 ToJSONKeyFunction GetEntitlementFilterName
 -&gt; ToJSONKeyFunction [GetEntitlementFilterName]
@@ -266,14 +266,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [GetEntitlementFilterName]
 toJSONKey :: ToJSONKeyFunction GetEntitlementFilterName
 $ctoJSONKey :: ToJSONKeyFunction GetEntitlementFilterName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679139427"><span class="annot"><span class="annottext">[Node] -&gt; Either String GetEntitlementFilterName
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679139436"><span class="annot"><span class="annottext">[Node] -&gt; Either String GetEntitlementFilterName
 ([Node] -&gt; Either String GetEntitlementFilterName)
 -&gt; FromXML GetEntitlementFilterName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String GetEntitlementFilterName
 $cparseXML :: [Node] -&gt; Either String GetEntitlementFilterName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679139424"><span class="annot"><span class="annottext">GetEntitlementFilterName -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679139433"><span class="annot"><span class="annottext">GetEntitlementFilterName -&gt; XML
 (GetEntitlementFilterName -&gt; XML) -&gt; ToXML GetEntitlementFilterName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: GetEntitlementFilterName -&gt; XML

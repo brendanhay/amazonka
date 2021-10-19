@@ -31,18 +31,18 @@
 </span><span id="line-31"></span><span class="hs-comment">-- function ( @dialogCodeHook@ and @fulfillmentActivity@ on an intent).</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newResponseCard' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679174242"><span id="local-6989586621679174243"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResponseCard"><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-var">ResponseCard</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResponseCard%27"><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard%27"><span class="hs-identifier hs-var">ResponseCard'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The content type of the response.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcontentType%3AResponseCard%27"><span class="annot"><span class="annottext">ResponseCard -&gt; Maybe ContentType
-</span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#%24sel%3AcontentType%3AResponseCard%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ContentType.html#ContentType"><span class="hs-identifier hs-type">ContentType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | An array of attachment objects representing options.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AgenericAttachments%3AResponseCard%27"><span class="annot"><span class="annottext">ResponseCard -&gt; Maybe [GenericAttachment]
+</span><span id="line-34"></span><span id="local-6989586621679174318"><span id="local-6989586621679174319"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResponseCard"><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-var">ResponseCard</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResponseCard%27"><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard%27"><span class="hs-identifier hs-var">ResponseCard'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of attachment objects representing options.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AgenericAttachments%3AResponseCard%27"><span class="annot"><span class="annottext">ResponseCard -&gt; Maybe [GenericAttachment]
 </span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#%24sel%3AgenericAttachments%3AResponseCard%27"><span class="hs-identifier hs-var hs-var">genericAttachments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The version of the response card format.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aversion%3AResponseCard%27"><span class="annot"><span class="annottext">ResponseCard -&gt; Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#%24sel%3Aversion%3AResponseCard%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The version of the response card format.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aversion%3AResponseCard%27"><span class="annot"><span class="annottext">ResponseCard -&gt; Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#%24sel%3Aversion%3AResponseCard%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The content type of the response.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcontentType%3AResponseCard%27"><span class="annot"><span class="annottext">ResponseCard -&gt; Maybe ContentType
+</span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#%24sel%3AcontentType%3AResponseCard%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ContentType.html#ContentType"><span class="hs-identifier hs-type">ContentType</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174234"><span id="local-6989586621679174236"><span class="annot"><span class="annottext">ResponseCard -&gt; ResponseCard -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174310"><span id="local-6989586621679174312"><span class="annot"><span class="annottext">ResponseCard -&gt; ResponseCard -&gt; Bool
 (ResponseCard -&gt; ResponseCard -&gt; Bool)
 -&gt; (ResponseCard -&gt; ResponseCard -&gt; Bool) -&gt; Eq ResponseCard
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResponseCard -&gt; ResponseCard -&gt; Bool
 == :: ResponseCard -&gt; ResponseCard -&gt; Bool
 $c== :: ResponseCard -&gt; ResponseCard -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174225"><span id="local-6989586621679174227"><span id="local-6989586621679174229"><span id="local-6989586621679174231"><span class="annot"><span class="annottext">ReadPrec [ResponseCard]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174301"><span id="local-6989586621679174303"><span id="local-6989586621679174305"><span id="local-6989586621679174307"><span class="annot"><span class="annottext">ReadPrec [ResponseCard]
 ReadPrec ResponseCard
 Int -&gt; ReadS ResponseCard
 ReadS [ResponseCard]
@@ -70,7 +70,7 @@ readList :: ReadS [ResponseCard]
 $creadList :: ReadS [ResponseCard]
 readsPrec :: Int -&gt; ReadS ResponseCard
 $creadsPrec :: Int -&gt; ReadS ResponseCard
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174218"><span id="local-6989586621679174220"><span id="local-6989586621679174222"><span class="annot"><span class="annottext">Int -&gt; ResponseCard -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174294"><span id="local-6989586621679174296"><span id="local-6989586621679174298"><span class="annot"><span class="annottext">Int -&gt; ResponseCard -&gt; ShowS
 [ResponseCard] -&gt; ShowS
 ResponseCard -&gt; String
 (Int -&gt; ResponseCard -&gt; ShowS)
@@ -104,55 +104,35 @@ $cfrom :: forall x. ResponseCard -&gt; Rep ResponseCard x
 </span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'contentType', 'responseCard_contentType' - The content type of the response.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'genericAttachments', 'responseCard_genericAttachments' - An array of attachment objects representing options.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'genericAttachments', 'responseCard_genericAttachments' - An array of attachment objects representing options.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'version', 'responseCard_version' - The version of the response card format.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'version', 'responseCard_version' - The version of the response card format.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'contentType', 'responseCard_contentType' - The content type of the response.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#newResponseCard"><span class="hs-identifier hs-type">newResponseCard</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span><span>
 </span><span id="line-59"></span><span id="newResponseCard"><span class="annot"><span class="annottext">newResponseCard :: ResponseCard
 </span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#newResponseCard"><span class="hs-identifier hs-var hs-var">newResponseCard</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">ResponseCard' :: Maybe ContentType
--&gt; Maybe [GenericAttachment] -&gt; Maybe Text -&gt; ResponseCard
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">ResponseCard' :: Maybe [GenericAttachment]
+-&gt; Maybe Text -&gt; Maybe ContentType -&gt; ResponseCard
 </span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard%27"><span class="hs-identifier hs-type">ResponseCard'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:contentType:ResponseCard' :: Maybe ContentType
-</span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#%24sel%3AcontentType%3AResponseCard%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContentType
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:genericAttachments:ResponseCard' :: Maybe [GenericAttachment]
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:genericAttachments:ResponseCard' :: Maybe [GenericAttachment]
 </span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#%24sel%3AgenericAttachments%3AResponseCard%27"><span class="hs-identifier hs-var">genericAttachments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GenericAttachment]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:ResponseCard' :: Maybe Text
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:ResponseCard' :: Maybe Text
 </span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#%24sel%3Aversion%3AResponseCard%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentType:ResponseCard' :: Maybe ContentType
+</span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#%24sel%3AcontentType%3AResponseCard%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContentType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | The content type of the response.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#responseCard_contentType"><span class="hs-identifier hs-type">responseCard_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ContentType.html#ContentType"><span class="hs-identifier hs-type">ContentType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="responseCard_contentType"><span class="annot"><span class="annottext">responseCard_contentType :: (Maybe ContentType -&gt; f (Maybe ContentType))
--&gt; ResponseCard -&gt; f ResponseCard
-</span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#responseCard_contentType"><span class="hs-identifier hs-var hs-var">responseCard_contentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResponseCard -&gt; Maybe ContentType)
--&gt; (ResponseCard -&gt; Maybe ContentType -&gt; ResponseCard)
--&gt; Lens
-     ResponseCard ResponseCard (Maybe ContentType) (Maybe ContentType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard%27"><span class="hs-identifier hs-type">ResponseCard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174209"><span class="annot"><span class="annottext">Maybe ContentType
-contentType :: Maybe ContentType
-$sel:contentType:ResponseCard' :: ResponseCard -&gt; Maybe ContentType
-</span><a href="#local-6989586621679174209"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContentType
-</span><a href="#local-6989586621679174209"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174208"><span class="annot"><span class="annottext">s :: ResponseCard
-</span><a href="#local-6989586621679174208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard%27"><span class="hs-identifier hs-type">ResponseCard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174207"><span class="annot"><span class="annottext">Maybe ContentType
-</span><a href="#local-6989586621679174207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseCard
-</span><a href="#local-6989586621679174208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:ResponseCard' :: Maybe ContentType
-</span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#%24sel%3AcontentType%3AResponseCard%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContentType
-</span><a href="#local-6989586621679174207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | An array of attachment objects representing options.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#responseCard_genericAttachments"><span class="hs-identifier hs-type">responseCard_genericAttachments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="responseCard_genericAttachments"><span class="annot"><span class="annottext">responseCard_genericAttachments :: (Maybe [GenericAttachment] -&gt; f (Maybe [GenericAttachment]))
+</span><span id="line-66"></span><span class="hs-comment">-- | An array of attachment objects representing options.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#responseCard_genericAttachments"><span class="hs-identifier hs-type">responseCard_genericAttachments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.GenericAttachment.html#GenericAttachment"><span class="hs-identifier hs-type">GenericAttachment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="responseCard_genericAttachments"><span class="annot"><span class="annottext">responseCard_genericAttachments :: (Maybe [GenericAttachment] -&gt; f (Maybe [GenericAttachment]))
 -&gt; ResponseCard -&gt; f ResponseCard
 </span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#responseCard_genericAttachments"><span class="hs-identifier hs-var hs-var">responseCard_genericAttachments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResponseCard -&gt; Maybe [GenericAttachment])
 -&gt; (ResponseCard -&gt; Maybe [GenericAttachment] -&gt; ResponseCard)
@@ -162,16 +142,16 @@ $sel:contentType:ResponseCard' :: ResponseCard -&gt; Maybe ContentType
      (Maybe [GenericAttachment])
      (Maybe [GenericAttachment])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard%27"><span class="hs-identifier hs-type">ResponseCard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174205"><span class="annot"><span class="annottext">Maybe [GenericAttachment]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard%27"><span class="hs-identifier hs-type">ResponseCard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174285"><span class="annot"><span class="annottext">Maybe [GenericAttachment]
 genericAttachments :: Maybe [GenericAttachment]
 $sel:genericAttachments:ResponseCard' :: ResponseCard -&gt; Maybe [GenericAttachment]
-</span><a href="#local-6989586621679174205"><span class="hs-identifier hs-var hs-var">genericAttachments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GenericAttachment]
-</span><a href="#local-6989586621679174205"><span class="hs-identifier hs-var">genericAttachments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174204"><span class="annot"><span class="annottext">s :: ResponseCard
-</span><a href="#local-6989586621679174204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard%27"><span class="hs-identifier hs-type">ResponseCard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174203"><span class="annot"><span class="annottext">Maybe [GenericAttachment]
-</span><a href="#local-6989586621679174203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseCard
-</span><a href="#local-6989586621679174204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:genericAttachments:ResponseCard' :: Maybe [GenericAttachment]
+</span><a href="#local-6989586621679174285"><span class="hs-identifier hs-var hs-var">genericAttachments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GenericAttachment]
+</span><a href="#local-6989586621679174285"><span class="hs-identifier hs-var">genericAttachments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174284"><span class="annot"><span class="annottext">s :: ResponseCard
+</span><a href="#local-6989586621679174284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard%27"><span class="hs-identifier hs-type">ResponseCard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174283"><span class="annot"><span class="annottext">Maybe [GenericAttachment]
+</span><a href="#local-6989586621679174283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseCard
+</span><a href="#local-6989586621679174284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:genericAttachments:ResponseCard' :: Maybe [GenericAttachment]
 </span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#%24sel%3AgenericAttachments%3AResponseCard%27"><span class="hs-identifier hs-var">genericAttachments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GenericAttachment]
-</span><a href="#local-6989586621679174203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GenericAttachment] -&gt; f (Maybe [GenericAttachment]))
+</span><a href="#local-6989586621679174283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GenericAttachment] -&gt; f (Maybe [GenericAttachment]))
  -&gt; ResponseCard -&gt; f ResponseCard)
 -&gt; ((Maybe [GenericAttachment] -&gt; f (Maybe [GenericAttachment]))
     -&gt; Maybe [GenericAttachment] -&gt; f (Maybe [GenericAttachment]))
@@ -197,29 +177,49 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [GenericAttachment]
   [GenericAttachment]
   [GenericAttachment]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | The version of the response card format.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#responseCard_version"><span class="hs-identifier hs-type">responseCard_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="responseCard_version"><span class="annot"><span class="annottext">responseCard_version :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ResponseCard -&gt; f ResponseCard
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The version of the response card format.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#responseCard_version"><span class="hs-identifier hs-type">responseCard_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="responseCard_version"><span class="annot"><span class="annottext">responseCard_version :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ResponseCard -&gt; f ResponseCard
 </span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#responseCard_version"><span class="hs-identifier hs-var hs-var">responseCard_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResponseCard -&gt; Maybe Text)
 -&gt; (ResponseCard -&gt; Maybe Text -&gt; ResponseCard)
 -&gt; Lens ResponseCard ResponseCard (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard%27"><span class="hs-identifier hs-type">ResponseCard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174198"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard%27"><span class="hs-identifier hs-type">ResponseCard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174278"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 $sel:version:ResponseCard' :: ResponseCard -&gt; Maybe Text
-</span><a href="#local-6989586621679174198"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174198"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174197"><span class="annot"><span class="annottext">s :: ResponseCard
-</span><a href="#local-6989586621679174197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard%27"><span class="hs-identifier hs-type">ResponseCard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174196"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseCard
-</span><a href="#local-6989586621679174197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:ResponseCard' :: Maybe Text
+</span><a href="#local-6989586621679174278"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174278"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174277"><span class="annot"><span class="annottext">s :: ResponseCard
+</span><a href="#local-6989586621679174277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard%27"><span class="hs-identifier hs-type">ResponseCard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174276"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseCard
+</span><a href="#local-6989586621679174277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:ResponseCard' :: Maybe Text
 </span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#%24sel%3Aversion%3AResponseCard%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The content type of the response.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#responseCard_contentType"><span class="hs-identifier hs-type">responseCard_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ContentType.html#ContentType"><span class="hs-identifier hs-type">ContentType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="responseCard_contentType"><span class="annot"><span class="annottext">responseCard_contentType :: (Maybe ContentType -&gt; f (Maybe ContentType))
+-&gt; ResponseCard -&gt; f ResponseCard
+</span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#responseCard_contentType"><span class="hs-identifier hs-var hs-var">responseCard_contentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResponseCard -&gt; Maybe ContentType)
+-&gt; (ResponseCard -&gt; Maybe ContentType -&gt; ResponseCard)
+-&gt; Lens
+     ResponseCard ResponseCard (Maybe ContentType) (Maybe ContentType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard%27"><span class="hs-identifier hs-type">ResponseCard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174274"><span class="annot"><span class="annottext">Maybe ContentType
+contentType :: Maybe ContentType
+$sel:contentType:ResponseCard' :: ResponseCard -&gt; Maybe ContentType
+</span><a href="#local-6989586621679174274"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContentType
+</span><a href="#local-6989586621679174274"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174273"><span class="annot"><span class="annottext">s :: ResponseCard
+</span><a href="#local-6989586621679174273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard%27"><span class="hs-identifier hs-type">ResponseCard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174272"><span class="annot"><span class="annottext">Maybe ContentType
+</span><a href="#local-6989586621679174272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseCard
+</span><a href="#local-6989586621679174273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:ResponseCard' :: Maybe ContentType
+</span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#%24sel%3AcontentType%3AResponseCard%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContentType
+</span><a href="#local-6989586621679174272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174193"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679174191"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResponseCard
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174269"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679174267"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResponseCard
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResponseCard) -&gt; Value -&gt; Parser ResponseCard
@@ -227,48 +227,48 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResponseCard&quot;</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174188"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174188"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe ContentType
--&gt; Maybe [GenericAttachment] -&gt; Maybe Text -&gt; ResponseCard
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174264"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174264"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe [GenericAttachment]
+-&gt; Maybe Text -&gt; Maybe ContentType -&gt; ResponseCard
 </span><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard%27"><span class="hs-identifier hs-var">ResponseCard'</span></a></span><span>
-</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ContentType
- -&gt; Maybe [GenericAttachment] -&gt; Maybe Text -&gt; ResponseCard)
--&gt; Parser (Maybe ContentType)
--&gt; Parser (Maybe [GenericAttachment] -&gt; Maybe Text -&gt; ResponseCard)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContentType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;contentType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [GenericAttachment] -&gt; Maybe Text -&gt; ResponseCard)
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [GenericAttachment]
+ -&gt; Maybe Text -&gt; Maybe ContentType -&gt; ResponseCard)
 -&gt; Parser (Maybe [GenericAttachment])
--&gt; Parser (Maybe Text -&gt; ResponseCard)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [GenericAttachment]))
+-&gt; Parser (Maybe Text -&gt; Maybe ContentType -&gt; ResponseCard)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [GenericAttachment]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;genericAttachments&quot;</span></span><span>
-</span><span id="line-86"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [GenericAttachment]))
+</span><span id="line-85"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [GenericAttachment]))
 -&gt; Maybe [GenericAttachment] -&gt; Parser (Maybe [GenericAttachment])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GenericAttachment]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-87"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ResponseCard)
--&gt; Parser (Maybe Text) -&gt; Parser ResponseCard
+</span><span id="line-86"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe ContentType -&gt; ResponseCard)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ContentType -&gt; ResponseCard)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679174264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ContentType -&gt; ResponseCard)
+-&gt; Parser (Maybe ContentType) -&gt; Parser ResponseCard
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContentType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;contentType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174181"><span id="local-6989586621679174183"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174257"><span id="local-6989586621679174259"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174178"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174254"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ResponseCard.html#ResponseCard"><span class="hs-identifier hs-type">ResponseCard</span></a></span></span><span>
 </span><span id="line-94"></span></pre></body></html>

@@ -36,9 +36,9 @@
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#newDescribeStreamConsumer"><span class="hs-identifier">newDescribeStreamConsumer</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_consumerName"><span class="hs-identifier">describeStreamConsumer_consumerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_consumerARN"><span class="hs-identifier">describeStreamConsumer_consumerARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_streamARN"><span class="hs-identifier">describeStreamConsumer_streamARN</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_consumerARN"><span class="hs-identifier">describeStreamConsumer_consumerARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_consumerName"><span class="hs-identifier">describeStreamConsumer_consumerName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier">DescribeStreamConsumerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -58,21 +58,21 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDescribeStreamConsumer' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679204269"><span id="local-6989586621679204270"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStreamConsumer"><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-var">DescribeStreamConsumer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStreamConsumer%27"><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-var">DescribeStreamConsumer'</span></a></span></span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name that you gave to the consumer.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AconsumerName%3ADescribeStreamConsumer%27"><span class="annot"><span class="annottext">DescribeStreamConsumer -&gt; Maybe Text
-</span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerName%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var hs-var">consumerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ARN of the Kinesis data stream that the consumer is registered with.</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3AstreamARN%3ADescribeStreamConsumer%27"><span class="annot"><span class="annottext">DescribeStreamConsumer -&gt; Maybe Text
+</span><span id="line-61"></span><span id="local-6989586621679204388"><span id="local-6989586621679204389"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStreamConsumer"><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-var">DescribeStreamConsumer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStreamConsumer%27"><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-var">DescribeStreamConsumer'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN returned by Kinesis Data Streams when you registered the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- consumer.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AconsumerARN%3ADescribeStreamConsumer%27"><span class="annot"><span class="annottext">DescribeStreamConsumer -&gt; Maybe Text
+</span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerARN%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var hs-var">consumerARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The ARN of the Kinesis data stream that the consumer is registered with.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AstreamARN%3ADescribeStreamConsumer%27"><span class="annot"><span class="annottext">DescribeStreamConsumer -&gt; Maybe Text
 </span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AstreamARN%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The ARN returned by Kinesis Data Streams when you registered the</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- consumer.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AconsumerARN%3ADescribeStreamConsumer%27"><span class="annot"><span class="annottext">DescribeStreamConsumer -&gt; Maybe Text
-</span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerARN%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var hs-var">consumerARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The name that you gave to the consumer.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AconsumerName%3ADescribeStreamConsumer%27"><span class="annot"><span class="annottext">DescribeStreamConsumer -&gt; Maybe Text
+</span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerName%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var hs-var">consumerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204261"><span id="local-6989586621679204263"><span class="annot"><span class="annottext">DescribeStreamConsumer -&gt; DescribeStreamConsumer -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204380"><span id="local-6989586621679204382"><span class="annot"><span class="annottext">DescribeStreamConsumer -&gt; DescribeStreamConsumer -&gt; Bool
 (DescribeStreamConsumer -&gt; DescribeStreamConsumer -&gt; Bool)
 -&gt; (DescribeStreamConsumer -&gt; DescribeStreamConsumer -&gt; Bool)
 -&gt; Eq DescribeStreamConsumer
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeStreamConsumer -&gt; DescribeStreamConsumer -&gt; Bool
 == :: DescribeStreamConsumer -&gt; DescribeStreamConsumer -&gt; Bool
 $c== :: DescribeStreamConsumer -&gt; DescribeStreamConsumer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204252"><span id="local-6989586621679204254"><span id="local-6989586621679204256"><span id="local-6989586621679204258"><span class="annot"><span class="annottext">ReadPrec [DescribeStreamConsumer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204371"><span id="local-6989586621679204373"><span id="local-6989586621679204375"><span id="local-6989586621679204377"><span class="annot"><span class="annottext">ReadPrec [DescribeStreamConsumer]
 ReadPrec DescribeStreamConsumer
 Int -&gt; ReadS DescribeStreamConsumer
 ReadS [DescribeStreamConsumer]
@@ -101,7 +101,7 @@ readList :: ReadS [DescribeStreamConsumer]
 $creadList :: ReadS [DescribeStreamConsumer]
 readsPrec :: Int -&gt; ReadS DescribeStreamConsumer
 $creadsPrec :: Int -&gt; ReadS DescribeStreamConsumer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204245"><span id="local-6989586621679204247"><span id="local-6989586621679204249"><span class="annot"><span class="annottext">Int -&gt; DescribeStreamConsumer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204364"><span id="local-6989586621679204366"><span id="local-6989586621679204368"><span class="annot"><span class="annottext">Int -&gt; DescribeStreamConsumer -&gt; ShowS
 [DescribeStreamConsumer] -&gt; ShowS
 DescribeStreamConsumer -&gt; String
 (Int -&gt; DescribeStreamConsumer -&gt; ShowS)
@@ -136,22 +136,22 @@ $cfrom :: forall x. DescribeStreamConsumer -&gt; Rep DescribeStreamConsumer x
 </span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'consumerName', 'describeStreamConsumer_consumerName' - The name that you gave to the consumer.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'streamARN', 'describeStreamConsumer_streamARN' - The ARN of the Kinesis data stream that the consumer is registered with.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'consumerARN', 'describeStreamConsumer_consumerARN' - The ARN returned by Kinesis Data Streams when you registered the</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- consumer.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'consumerARN', 'describeStreamConsumer_consumerARN' - The ARN returned by Kinesis Data Streams when you registered the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- consumer.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'streamARN', 'describeStreamConsumer_streamARN' - The ARN of the Kinesis data stream that the consumer is registered with.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'consumerName', 'describeStreamConsumer_consumerName' - The name that you gave to the consumer.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#newDescribeStreamConsumer"><span class="hs-identifier hs-type">newDescribeStreamConsumer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span>
 </span><span id="line-92"></span><span id="newDescribeStreamConsumer"><span class="annot"><span class="annottext">newDescribeStreamConsumer :: DescribeStreamConsumer
 </span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#newDescribeStreamConsumer"><span class="hs-identifier hs-var hs-var">newDescribeStreamConsumer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">DescribeStreamConsumer' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DescribeStreamConsumer
 </span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:consumerName:DescribeStreamConsumer' :: Maybe Text
-</span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerName%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var">consumerName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:consumerARN:DescribeStreamConsumer' :: Maybe Text
+</span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerARN%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var">consumerARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
@@ -159,64 +159,16 @@ forall a. Maybe a
 </span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AstreamARN%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:consumerARN:DescribeStreamConsumer' :: Maybe Text
-</span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerARN%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var">consumerARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:consumerName:DescribeStreamConsumer' :: Maybe Text
+</span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerName%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var">consumerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The name that you gave to the consumer.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_consumerName"><span class="hs-identifier hs-type">describeStreamConsumer_consumerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="describeStreamConsumer_consumerName"><span class="annot"><span class="annottext">describeStreamConsumer_consumerName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeStreamConsumer -&gt; f DescribeStreamConsumer
-</span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_consumerName"><span class="hs-identifier hs-var hs-var">describeStreamConsumer_consumerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStreamConsumer -&gt; Maybe Text)
--&gt; (DescribeStreamConsumer -&gt; Maybe Text -&gt; DescribeStreamConsumer)
--&gt; Lens
-     DescribeStreamConsumer
-     DescribeStreamConsumer
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204238"><span class="annot"><span class="annottext">Maybe Text
-consumerName :: Maybe Text
-$sel:consumerName:DescribeStreamConsumer' :: DescribeStreamConsumer -&gt; Maybe Text
-</span><a href="#local-6989586621679204238"><span class="hs-identifier hs-var hs-var">consumerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679204238"><span class="hs-identifier hs-var">consumerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204237"><span class="annot"><span class="annottext">s :: DescribeStreamConsumer
-</span><a href="#local-6989586621679204237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204236"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679204236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamConsumer
-</span><a href="#local-6989586621679204237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerName:DescribeStreamConsumer' :: Maybe Text
-</span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerName%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var">consumerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679204236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | The ARN of the Kinesis data stream that the consumer is registered with.</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_streamARN"><span class="hs-identifier hs-type">describeStreamConsumer_streamARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="describeStreamConsumer_streamARN"><span class="annot"><span class="annottext">describeStreamConsumer_streamARN :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeStreamConsumer -&gt; f DescribeStreamConsumer
-</span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_streamARN"><span class="hs-identifier hs-var hs-var">describeStreamConsumer_streamARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStreamConsumer -&gt; Maybe Text)
--&gt; (DescribeStreamConsumer -&gt; Maybe Text -&gt; DescribeStreamConsumer)
--&gt; Lens
-     DescribeStreamConsumer
-     DescribeStreamConsumer
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204235"><span class="annot"><span class="annottext">Maybe Text
-streamARN :: Maybe Text
-$sel:streamARN:DescribeStreamConsumer' :: DescribeStreamConsumer -&gt; Maybe Text
-</span><a href="#local-6989586621679204235"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679204235"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204234"><span class="annot"><span class="annottext">s :: DescribeStreamConsumer
-</span><a href="#local-6989586621679204234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204233"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679204233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamConsumer
-</span><a href="#local-6989586621679204234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamARN:DescribeStreamConsumer' :: Maybe Text
-</span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AstreamARN%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679204233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The ARN returned by Kinesis Data Streams when you registered the</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- consumer.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_consumerARN"><span class="hs-identifier hs-type">describeStreamConsumer_consumerARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="describeStreamConsumer_consumerARN"><span class="annot"><span class="annottext">describeStreamConsumer_consumerARN :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-100"></span><span class="hs-comment">-- | The ARN returned by Kinesis Data Streams when you registered the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- consumer.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_consumerARN"><span class="hs-identifier hs-type">describeStreamConsumer_consumerARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="describeStreamConsumer_consumerARN"><span class="annot"><span class="annottext">describeStreamConsumer_consumerARN :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeStreamConsumer -&gt; f DescribeStreamConsumer
 </span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_consumerARN"><span class="hs-identifier hs-var hs-var">describeStreamConsumer_consumerARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStreamConsumer -&gt; Maybe Text)
 -&gt; (DescribeStreamConsumer -&gt; Maybe Text -&gt; DescribeStreamConsumer)
@@ -226,27 +178,75 @@ $sel:streamARN:DescribeStreamConsumer' :: DescribeStreamConsumer -&gt; Maybe Tex
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204232"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204357"><span class="annot"><span class="annottext">Maybe Text
 consumerARN :: Maybe Text
 $sel:consumerARN:DescribeStreamConsumer' :: DescribeStreamConsumer -&gt; Maybe Text
-</span><a href="#local-6989586621679204232"><span class="hs-identifier hs-var hs-var">consumerARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679204232"><span class="hs-identifier hs-var">consumerARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204231"><span class="annot"><span class="annottext">s :: DescribeStreamConsumer
-</span><a href="#local-6989586621679204231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204230"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679204230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamConsumer
-</span><a href="#local-6989586621679204231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerARN:DescribeStreamConsumer' :: Maybe Text
+</span><a href="#local-6989586621679204357"><span class="hs-identifier hs-var hs-var">consumerARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204357"><span class="hs-identifier hs-var">consumerARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204356"><span class="annot"><span class="annottext">s :: DescribeStreamConsumer
+</span><a href="#local-6989586621679204356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204355"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamConsumer
+</span><a href="#local-6989586621679204356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerARN:DescribeStreamConsumer' :: Maybe Text
 </span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerARN%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var">consumerARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679204230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The ARN of the Kinesis data stream that the consumer is registered with.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_streamARN"><span class="hs-identifier hs-type">describeStreamConsumer_streamARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="describeStreamConsumer_streamARN"><span class="annot"><span class="annottext">describeStreamConsumer_streamARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeStreamConsumer -&gt; f DescribeStreamConsumer
+</span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_streamARN"><span class="hs-identifier hs-var hs-var">describeStreamConsumer_streamARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStreamConsumer -&gt; Maybe Text)
+-&gt; (DescribeStreamConsumer -&gt; Maybe Text -&gt; DescribeStreamConsumer)
+-&gt; Lens
+     DescribeStreamConsumer
+     DescribeStreamConsumer
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204354"><span class="annot"><span class="annottext">Maybe Text
+streamARN :: Maybe Text
+$sel:streamARN:DescribeStreamConsumer' :: DescribeStreamConsumer -&gt; Maybe Text
+</span><a href="#local-6989586621679204354"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204354"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204353"><span class="annot"><span class="annottext">s :: DescribeStreamConsumer
+</span><a href="#local-6989586621679204353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204352"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamConsumer
+</span><a href="#local-6989586621679204353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamARN:DescribeStreamConsumer' :: Maybe Text
+</span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AstreamARN%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The name that you gave to the consumer.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_consumerName"><span class="hs-identifier hs-type">describeStreamConsumer_consumerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="describeStreamConsumer_consumerName"><span class="annot"><span class="annottext">describeStreamConsumer_consumerName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeStreamConsumer -&gt; f DescribeStreamConsumer
+</span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#describeStreamConsumer_consumerName"><span class="hs-identifier hs-var hs-var">describeStreamConsumer_consumerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStreamConsumer -&gt; Maybe Text)
+-&gt; (DescribeStreamConsumer -&gt; Maybe Text -&gt; DescribeStreamConsumer)
+-&gt; Lens
+     DescribeStreamConsumer
+     DescribeStreamConsumer
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204351"><span class="annot"><span class="annottext">Maybe Text
+consumerName :: Maybe Text
+$sel:consumerName:DescribeStreamConsumer' :: DescribeStreamConsumer -&gt; Maybe Text
+</span><a href="#local-6989586621679204351"><span class="hs-identifier hs-var hs-var">consumerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204351"><span class="hs-identifier hs-var">consumerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204350"><span class="annot"><span class="annottext">s :: DescribeStreamConsumer
+</span><a href="#local-6989586621679204350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204349"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamConsumer
+</span><a href="#local-6989586621679204350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerName:DescribeStreamConsumer' :: Maybe Text
+</span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerName%3ADescribeStreamConsumer%27"><span class="hs-identifier hs-var">consumerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679204226"><span class="annot"><span class="annottext">request :: DescribeStreamConsumer -&gt; Request DescribeStreamConsumer
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679204345"><span class="annot"><span class="annottext">request :: DescribeStreamConsumer -&gt; Request DescribeStreamConsumer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeStreamConsumer -&gt; Request DescribeStreamConsumer
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Kinesis.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679204222"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679204341"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeStreamConsumer
 -&gt; ClientResponse ClientBody
@@ -272,10 +272,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679204219"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204219"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679204218"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679204218"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679204217"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679204217"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679204338"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204338"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679204337"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679204337"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679204336"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204336"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ConsumerDescription -&gt; DescribeStreamConsumerResponse
 </span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-var">DescribeStreamConsumerResponse'</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ConsumerDescription -&gt; DescribeStreamConsumerResponse)
@@ -288,25 +288,25 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204219"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204338"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (ConsumerDescription -&gt; DescribeStreamConsumerResponse)
 -&gt; Either String ConsumerDescription
 -&gt; Either String DescribeStreamConsumerResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679204217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String ConsumerDescription
+</span><a href="#local-6989586621679204336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String ConsumerDescription
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConsumerDescription&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204209"><span id="local-6989586621679204211"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204328"><span id="local-6989586621679204330"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204206"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204325"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679204202"><span class="annot"><span class="annottext">toHeaders :: DescribeStreamConsumer -&gt; ResponseHeaders
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679204321"><span class="annot"><span class="annottext">toHeaders :: DescribeStreamConsumer -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeStreamConsumer -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -333,54 +333,54 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204192"><span id="local-6989586621679204194"><span id="local-6989586621679204196"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679204190"><span class="annot"><span class="annottext">toJSON :: DescribeStreamConsumer -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204186"><span id="local-6989586621679204187"><span id="local-6989586621679204188"><span class="annot"><span class="annottext">Maybe Text
-consumerARN :: Maybe Text
-streamARN :: Maybe Text
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204311"><span id="local-6989586621679204313"><span id="local-6989586621679204315"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679204309"><span class="annot"><span class="annottext">toJSON :: DescribeStreamConsumer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer%27"><span class="hs-identifier hs-type">DescribeStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204305"><span id="local-6989586621679204306"><span id="local-6989586621679204307"><span class="annot"><span class="annottext">Maybe Text
 consumerName :: Maybe Text
-$sel:consumerARN:DescribeStreamConsumer' :: DescribeStreamConsumer -&gt; Maybe Text
-$sel:streamARN:DescribeStreamConsumer' :: DescribeStreamConsumer -&gt; Maybe Text
+streamARN :: Maybe Text
+consumerARN :: Maybe Text
 $sel:consumerName:DescribeStreamConsumer' :: DescribeStreamConsumer -&gt; Maybe Text
-</span><a href="#local-6989586621679204186"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:streamARN:DescribeStreamConsumer' :: DescribeStreamConsumer -&gt; Maybe Text
+$sel:consumerARN:DescribeStreamConsumer' :: DescribeStreamConsumer -&gt; Maybe Text
+</span><a href="#local-6989586621679204305"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ConsumerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;ConsumerARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679204188"><span class="hs-identifier hs-var">consumerName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679204307"><span class="hs-identifier hs-var">consumerARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679204187"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679204306"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ConsumerARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;ConsumerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679204186"><span class="hs-identifier hs-var">consumerARN</span></a></span><span>
+</span><a href="#local-6989586621679204305"><span class="hs-identifier hs-var">consumerName</span></a></span><span>
 </span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679204180"><span class="annot"><span class="annottext">toPath :: DescribeStreamConsumer -&gt; ByteString
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679204299"><span class="annot"><span class="annottext">toPath :: DescribeStreamConsumer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeStreamConsumer -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumer"><span class="hs-identifier hs-type">DescribeStreamConsumer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679204176"><span class="annot"><span class="annottext">toQuery :: DescribeStreamConsumer -&gt; QueryString
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679204295"><span class="annot"><span class="annottext">toQuery :: DescribeStreamConsumer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeStreamConsumer -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -388,7 +388,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | /See:/ 'newDescribeStreamConsumerResponse' smart constructor.</span><span>
-</span><span id="line-164"></span><span id="local-6989586621679204173"><span id="local-6989586621679204174"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStreamConsumerResponse"><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier hs-var">DescribeStreamConsumerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStreamConsumerResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-var">DescribeStreamConsumerResponse'</span></a></span></span><span>
+</span><span id="line-164"></span><span id="local-6989586621679204292"><span id="local-6989586621679204293"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStreamConsumerResponse"><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier hs-var">DescribeStreamConsumerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStreamConsumerResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-var">DescribeStreamConsumerResponse'</span></a></span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeStreamConsumerResponse%27"><span class="annot"><span class="annottext">DescribeStreamConsumerResponse -&gt; Int
 </span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AhttpStatus%3ADescribeStreamConsumerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -396,7 +396,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3AconsumerDescription%3ADescribeStreamConsumerResponse%27"><span class="annot"><span class="annottext">DescribeStreamConsumerResponse -&gt; ConsumerDescription
 </span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerDescription%3ADescribeStreamConsumerResponse%27"><span class="hs-identifier hs-var hs-var">consumerDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ConsumerDescription.html#ConsumerDescription"><span class="hs-identifier hs-type">ConsumerDescription</span></a></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204167"><span id="local-6989586621679204169"><span class="annot"><span class="annottext">DescribeStreamConsumerResponse
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204286"><span id="local-6989586621679204288"><span class="annot"><span class="annottext">DescribeStreamConsumerResponse
 -&gt; DescribeStreamConsumerResponse -&gt; Bool
 (DescribeStreamConsumerResponse
  -&gt; DescribeStreamConsumerResponse -&gt; Bool)
@@ -412,7 +412,7 @@ $c/= :: DescribeStreamConsumerResponse
 -&gt; DescribeStreamConsumerResponse -&gt; Bool
 $c== :: DescribeStreamConsumerResponse
 -&gt; DescribeStreamConsumerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204159"><span id="local-6989586621679204161"><span id="local-6989586621679204163"><span id="local-6989586621679204165"><span class="annot"><span class="annottext">ReadPrec [DescribeStreamConsumerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204278"><span id="local-6989586621679204280"><span id="local-6989586621679204282"><span id="local-6989586621679204284"><span class="annot"><span class="annottext">ReadPrec [DescribeStreamConsumerResponse]
 ReadPrec DescribeStreamConsumerResponse
 Int -&gt; ReadS DescribeStreamConsumerResponse
 ReadS [DescribeStreamConsumerResponse]
@@ -432,7 +432,7 @@ readList :: ReadS [DescribeStreamConsumerResponse]
 $creadList :: ReadS [DescribeStreamConsumerResponse]
 readsPrec :: Int -&gt; ReadS DescribeStreamConsumerResponse
 $creadsPrec :: Int -&gt; ReadS DescribeStreamConsumerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204153"><span id="local-6989586621679204155"><span id="local-6989586621679204157"><span class="annot"><span class="annottext">Int -&gt; DescribeStreamConsumerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204272"><span id="local-6989586621679204274"><span id="local-6989586621679204276"><span class="annot"><span class="annottext">Int -&gt; DescribeStreamConsumerResponse -&gt; ShowS
 [DescribeStreamConsumerResponse] -&gt; ShowS
 DescribeStreamConsumerResponse -&gt; String
 (Int -&gt; DescribeStreamConsumerResponse -&gt; ShowS)
@@ -489,19 +489,19 @@ DescribeStreamConsumerResponse
 </span><span id="line-188"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse</span></a></span><span>
 </span><span id="line-189"></span><span id="newDescribeStreamConsumerResponse"><span class="annot"><span class="annottext">newDescribeStreamConsumerResponse :: Int -&gt; ConsumerDescription -&gt; DescribeStreamConsumerResponse
 </span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#newDescribeStreamConsumerResponse"><span class="hs-identifier hs-var hs-var">newDescribeStreamConsumerResponse</span></a></span></span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679204150"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204150"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679204149"><span class="annot"><span class="annottext">ConsumerDescription
-</span><a href="#local-6989586621679204149"><span class="hs-identifier hs-var">pConsumerDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679204269"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204269"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679204268"><span class="annot"><span class="annottext">ConsumerDescription
+</span><a href="#local-6989586621679204268"><span class="hs-identifier hs-var">pConsumerDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">DescribeStreamConsumerResponse' :: Int -&gt; ConsumerDescription -&gt; DescribeStreamConsumerResponse
 </span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse'</span></a></span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStreamConsumerResponse' :: Int
 </span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AhttpStatus%3ADescribeStreamConsumerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-194"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204150"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679204269"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">$sel:consumerDescription:DescribeStreamConsumerResponse' :: ConsumerDescription
 </span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerDescription%3ADescribeStreamConsumerResponse%27"><span class="hs-identifier hs-var">consumerDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConsumerDescription
-</span><a href="#local-6989586621679204149"><span class="hs-identifier hs-var">pConsumerDescription_</span></a></span><span>
+</span><a href="#local-6989586621679204268"><span class="hs-identifier hs-var">pConsumerDescription_</span></a></span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -518,16 +518,16 @@ DescribeStreamConsumerResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204148"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204267"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeStreamConsumerResponse' :: DescribeStreamConsumerResponse -&gt; Int
-</span><a href="#local-6989586621679204148"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204148"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204147"><span class="annot"><span class="annottext">s :: DescribeStreamConsumerResponse
-</span><a href="#local-6989586621679204147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204146"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamConsumerResponse
-</span><a href="#local-6989586621679204147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStreamConsumerResponse' :: Int
+</span><a href="#local-6989586621679204267"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204267"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204266"><span class="annot"><span class="annottext">s :: DescribeStreamConsumerResponse
+</span><a href="#local-6989586621679204266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204265"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamConsumerResponse
+</span><a href="#local-6989586621679204266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStreamConsumerResponse' :: Int
 </span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AhttpStatus%3ADescribeStreamConsumerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | An object that represents the details of the consumer.</span><span>
 </span><span id="line-203"></span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#describeStreamConsumerResponse_consumerDescription"><span class="hs-identifier hs-type">describeStreamConsumerResponse_consumerDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ConsumerDescription.html#ConsumerDescription"><span class="hs-identifier hs-type">ConsumerDescription</span></a></span><span>
@@ -543,18 +543,18 @@ $sel:httpStatus:DescribeStreamConsumerResponse' :: DescribeStreamConsumerRespons
      ConsumerDescription
      ConsumerDescription
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204145"><span class="annot"><span class="annottext">ConsumerDescription
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204264"><span class="annot"><span class="annottext">ConsumerDescription
 consumerDescription :: ConsumerDescription
 $sel:consumerDescription:DescribeStreamConsumerResponse' :: DescribeStreamConsumerResponse -&gt; ConsumerDescription
-</span><a href="#local-6989586621679204145"><span class="hs-identifier hs-var hs-var">consumerDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConsumerDescription
-</span><a href="#local-6989586621679204145"><span class="hs-identifier hs-var">consumerDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204144"><span class="annot"><span class="annottext">s :: DescribeStreamConsumerResponse
-</span><a href="#local-6989586621679204144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204143"><span class="annot"><span class="annottext">ConsumerDescription
-</span><a href="#local-6989586621679204143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamConsumerResponse
-</span><a href="#local-6989586621679204144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerDescription:DescribeStreamConsumerResponse' :: ConsumerDescription
+</span><a href="#local-6989586621679204264"><span class="hs-identifier hs-var hs-var">consumerDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConsumerDescription
+</span><a href="#local-6989586621679204264"><span class="hs-identifier hs-var">consumerDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204263"><span class="annot"><span class="annottext">s :: DescribeStreamConsumerResponse
+</span><a href="#local-6989586621679204263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse%27"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204262"><span class="annot"><span class="annottext">ConsumerDescription
+</span><a href="#local-6989586621679204262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamConsumerResponse
+</span><a href="#local-6989586621679204263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerDescription:DescribeStreamConsumerResponse' :: ConsumerDescription
 </span><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#%24sel%3AconsumerDescription%3ADescribeStreamConsumerResponse%27"><span class="hs-identifier hs-var">consumerDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConsumerDescription
-</span><a href="#local-6989586621679204143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-207"></span><span>  </span><span id="local-6989586621679204141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679204260"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-208"></span><span>    </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamConsumer.html#DescribeStreamConsumerResponse"><span class="hs-identifier hs-type">DescribeStreamConsumerResponse</span></a></span></span><span>
 </span><span id="line-209"></span></pre></body></html>

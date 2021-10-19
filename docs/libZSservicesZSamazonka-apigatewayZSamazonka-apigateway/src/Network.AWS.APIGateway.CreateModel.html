@@ -39,10 +39,10 @@
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#model_schema"><span class="hs-identifier">model_schema</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#model_contentType"><span class="hs-identifier">model_contentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#model_name"><span class="hs-identifier">model_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#model_id"><span class="hs-identifier">model_id</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#model_name"><span class="hs-identifier">model_name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#model_description"><span class="hs-identifier">model_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#model_description"><span class="hs-identifier">model_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#model_contentType"><span class="hs-identifier">model_contentType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span class="hs-keyword">where</span><span>
 </span><span id="line-48"></span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-comment">-- | Request to add a new Model to an existing RestApi resource.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newCreateModel' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679391253"><span id="local-6989586621679391254"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateModel"><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-var">CreateModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateModel%27"><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-var">CreateModel'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679391813"><span id="local-6989586621679391814"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateModel"><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-var">CreateModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateModel%27"><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-var">CreateModel'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The schema for the model. For @application\/json@ models, this should be</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/draft-zyp-json-schema-04 JSON schema draft 4&gt;</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- model.</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AcontentType%3ACreateModel%27"><span class="annot"><span class="annottext">CreateModel -&gt; Text
 </span><a href="Network.AWS.APIGateway.CreateModel.html#%24sel%3AcontentType%3ACreateModel%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391243"><span id="local-6989586621679391245"><span class="annot"><span class="annottext">CreateModel -&gt; CreateModel -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391803"><span id="local-6989586621679391805"><span class="annot"><span class="annottext">CreateModel -&gt; CreateModel -&gt; Bool
 (CreateModel -&gt; CreateModel -&gt; Bool)
 -&gt; (CreateModel -&gt; CreateModel -&gt; Bool) -&gt; Eq CreateModel
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateModel -&gt; CreateModel -&gt; Bool
 == :: CreateModel -&gt; CreateModel -&gt; Bool
 $c== :: CreateModel -&gt; CreateModel -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391234"><span id="local-6989586621679391236"><span id="local-6989586621679391238"><span id="local-6989586621679391240"><span class="annot"><span class="annottext">ReadPrec [CreateModel]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391794"><span id="local-6989586621679391796"><span id="local-6989586621679391798"><span id="local-6989586621679391800"><span class="annot"><span class="annottext">ReadPrec [CreateModel]
 ReadPrec CreateModel
 Int -&gt; ReadS CreateModel
 ReadS [CreateModel]
@@ -103,7 +103,7 @@ readList :: ReadS [CreateModel]
 $creadList :: ReadS [CreateModel]
 readsPrec :: Int -&gt; ReadS CreateModel
 $creadsPrec :: Int -&gt; ReadS CreateModel
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391227"><span id="local-6989586621679391229"><span id="local-6989586621679391231"><span class="annot"><span class="annottext">Int -&gt; CreateModel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391787"><span id="local-6989586621679391789"><span id="local-6989586621679391791"><span class="annot"><span class="annottext">Int -&gt; CreateModel -&gt; ShowS
 [CreateModel] -&gt; ShowS
 CreateModel -&gt; String
 (Int -&gt; CreateModel -&gt; ShowS)
@@ -157,10 +157,10 @@ $cfrom :: forall x. CreateModel -&gt; Rep CreateModel x
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span>
 </span><span id="line-102"></span><span id="newCreateModel"><span class="annot"><span class="annottext">newCreateModel :: Text -&gt; Text -&gt; Text -&gt; CreateModel
-</span><a href="Network.AWS.APIGateway.CreateModel.html#newCreateModel"><span class="hs-identifier hs-var hs-var">newCreateModel</span></a></span></span><span> </span><span id="local-6989586621679391222"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391222"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679391221"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391221"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679391220"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391220"><span class="hs-identifier hs-var">pContentType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.CreateModel.html#newCreateModel"><span class="hs-identifier hs-var hs-var">newCreateModel</span></a></span></span><span> </span><span id="local-6989586621679391782"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391782"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679391781"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391781"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679391780"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391780"><span class="hs-identifier hs-var">pContentType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">CreateModel' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateModel
 </span><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:schema:CreateModel' :: Maybe Text
@@ -173,13 +173,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:restApiId:CreateModel' :: Text
 </span><a href="Network.AWS.APIGateway.CreateModel.html#%24sel%3ArestApiId%3ACreateModel%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391222"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679391782"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateModel' :: Text
 </span><a href="Network.AWS.APIGateway.CreateModel.html#%24sel%3Aname%3ACreateModel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391221"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679391781"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentType:CreateModel' :: Text
 </span><a href="Network.AWS.APIGateway.CreateModel.html#%24sel%3AcontentType%3ACreateModel%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391220"><span class="hs-identifier hs-var">pContentType_</span></a></span><span>
+</span><a href="#local-6989586621679391780"><span class="hs-identifier hs-var">pContentType_</span></a></span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The schema for the model. For @application\/json@ models, this should be</span><span>
@@ -191,16 +191,16 @@ forall a. Maybe a
 -&gt; (CreateModel -&gt; Maybe Text -&gt; CreateModel)
 -&gt; Lens CreateModel CreateModel (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391217"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391777"><span class="annot"><span class="annottext">Maybe Text
 schema :: Maybe Text
 $sel:schema:CreateModel' :: CreateModel -&gt; Maybe Text
-</span><a href="#local-6989586621679391217"><span class="hs-identifier hs-var hs-var">schema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679391217"><span class="hs-identifier hs-var">schema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391216"><span class="annot"><span class="annottext">s :: CreateModel
-</span><a href="#local-6989586621679391216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391215"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679391215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
-</span><a href="#local-6989586621679391216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schema:CreateModel' :: Maybe Text
+</span><a href="#local-6989586621679391777"><span class="hs-identifier hs-var hs-var">schema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391777"><span class="hs-identifier hs-var">schema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391776"><span class="annot"><span class="annottext">s :: CreateModel
+</span><a href="#local-6989586621679391776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391775"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
+</span><a href="#local-6989586621679391776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schema:CreateModel' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.CreateModel.html#%24sel%3Aschema%3ACreateModel%27"><span class="hs-identifier hs-var">schema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679391215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The description of the model.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#createModel_description"><span class="hs-identifier hs-type">createModel_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -209,16 +209,16 @@ $sel:schema:CreateModel' :: CreateModel -&gt; Maybe Text
 -&gt; (CreateModel -&gt; Maybe Text -&gt; CreateModel)
 -&gt; Lens CreateModel CreateModel (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391214"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391774"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:CreateModel' :: CreateModel -&gt; Maybe Text
-</span><a href="#local-6989586621679391214"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679391214"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391213"><span class="annot"><span class="annottext">s :: CreateModel
-</span><a href="#local-6989586621679391213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391212"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679391212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
-</span><a href="#local-6989586621679391213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateModel' :: Maybe Text
+</span><a href="#local-6989586621679391774"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391774"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391773"><span class="annot"><span class="annottext">s :: CreateModel
+</span><a href="#local-6989586621679391773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391772"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
+</span><a href="#local-6989586621679391773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateModel' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.CreateModel.html#%24sel%3Adescription%3ACreateModel%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679391212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | [Required] The RestApi identifier under which the Model will be created.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#createModel_restApiId"><span class="hs-identifier hs-type">createModel_restApiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -227,16 +227,16 @@ $sel:description:CreateModel' :: CreateModel -&gt; Maybe Text
 -&gt; (CreateModel -&gt; Text -&gt; CreateModel)
 -&gt; Lens CreateModel CreateModel Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391211"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391771"><span class="annot"><span class="annottext">Text
 restApiId :: Text
 $sel:restApiId:CreateModel' :: CreateModel -&gt; Text
-</span><a href="#local-6989586621679391211"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391211"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391210"><span class="annot"><span class="annottext">s :: CreateModel
-</span><a href="#local-6989586621679391210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391209"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
-</span><a href="#local-6989586621679391210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:CreateModel' :: Text
+</span><a href="#local-6989586621679391771"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391771"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391770"><span class="annot"><span class="annottext">s :: CreateModel
+</span><a href="#local-6989586621679391770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391769"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
+</span><a href="#local-6989586621679391770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:CreateModel' :: Text
 </span><a href="Network.AWS.APIGateway.CreateModel.html#%24sel%3ArestApiId%3ACreateModel%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | [Required] The name of the model. Must be alphanumeric.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#createModel_name"><span class="hs-identifier hs-type">createModel_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -245,16 +245,16 @@ $sel:restApiId:CreateModel' :: CreateModel -&gt; Text
 -&gt; (CreateModel -&gt; Text -&gt; CreateModel)
 -&gt; Lens CreateModel CreateModel Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391208"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391768"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreateModel' :: CreateModel -&gt; Text
-</span><a href="#local-6989586621679391208"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391208"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391207"><span class="annot"><span class="annottext">s :: CreateModel
-</span><a href="#local-6989586621679391207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391206"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
-</span><a href="#local-6989586621679391207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateModel' :: Text
+</span><a href="#local-6989586621679391768"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391768"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391767"><span class="annot"><span class="annottext">s :: CreateModel
+</span><a href="#local-6989586621679391767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391766"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
+</span><a href="#local-6989586621679391767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateModel' :: Text
 </span><a href="Network.AWS.APIGateway.CreateModel.html#%24sel%3Aname%3ACreateModel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | [Required] The content-type for the model.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#createModel_contentType"><span class="hs-identifier hs-type">createModel_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -263,25 +263,25 @@ $sel:name:CreateModel' :: CreateModel -&gt; Text
 -&gt; (CreateModel -&gt; Text -&gt; CreateModel)
 -&gt; Lens CreateModel CreateModel Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391205"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391765"><span class="annot"><span class="annottext">Text
 contentType :: Text
 $sel:contentType:CreateModel' :: CreateModel -&gt; Text
-</span><a href="#local-6989586621679391205"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391205"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391204"><span class="annot"><span class="annottext">s :: CreateModel
-</span><a href="#local-6989586621679391204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391203"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
-</span><a href="#local-6989586621679391204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:CreateModel' :: Text
+</span><a href="#local-6989586621679391765"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391765"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391764"><span class="annot"><span class="annottext">s :: CreateModel
+</span><a href="#local-6989586621679391764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391763"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
+</span><a href="#local-6989586621679391764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:CreateModel' :: Text
 </span><a href="Network.AWS.APIGateway.CreateModel.html#%24sel%3AcontentType%3ACreateModel%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Model.html#Model"><span class="hs-identifier hs-type">Model</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679391199"><span class="annot"><span class="annottext">request :: CreateModel -&gt; Request CreateModel
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679391759"><span class="annot"><span class="annottext">request :: CreateModel -&gt; Request CreateModel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateModel -&gt; Request CreateModel
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679391195"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679391755"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateModel
 -&gt; ClientResponse ClientBody
@@ -305,20 +305,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391192"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391192"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391191"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679391191"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391190"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391190"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Model
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391752"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391752"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391751"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679391751"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391750"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391750"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Model
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391190"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391750"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391185"><span id="local-6989586621679391187"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391745"><span id="local-6989586621679391747"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391182"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391742"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679391178"><span class="annot"><span class="annottext">toHeaders :: CreateModel -&gt; ResponseHeaders
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679391738"><span class="annot"><span class="annottext">toHeaders :: CreateModel -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateModel -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -335,9 +335,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391168"><span id="local-6989586621679391170"><span id="local-6989586621679391172"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679391166"><span class="annot"><span class="annottext">toJSON :: CreateModel -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391160"><span id="local-6989586621679391161"><span id="local-6989586621679391162"><span id="local-6989586621679391163"><span id="local-6989586621679391164"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391728"><span id="local-6989586621679391730"><span id="local-6989586621679391732"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679391726"><span class="annot"><span class="annottext">toJSON :: CreateModel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391720"><span id="local-6989586621679391721"><span id="local-6989586621679391722"><span id="local-6989586621679391723"><span id="local-6989586621679391724"><span class="annot"><span class="annottext">Maybe Text
 Text
 contentType :: Text
 name :: Text
@@ -349,7 +349,7 @@ $sel:name:CreateModel' :: CreateModel -&gt; Text
 $sel:restApiId:CreateModel' :: CreateModel -&gt; Text
 $sel:description:CreateModel' :: CreateModel -&gt; Maybe Text
 $sel:schema:CreateModel' :: CreateModel -&gt; Maybe Text
-</span><a href="#local-6989586621679391160"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679391720"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -361,34 +361,34 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679391164"><span class="hs-identifier hs-var">schema</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679391724"><span class="hs-identifier hs-var">schema</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679391163"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679391723"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391161"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679391721"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;contentType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391160"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391720"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679391153"><span class="annot"><span class="annottext">toPath :: CreateModel -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391147"><span id="local-6989586621679391148"><span id="local-6989586621679391149"><span id="local-6989586621679391150"><span id="local-6989586621679391151"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679391713"><span class="annot"><span class="annottext">toPath :: CreateModel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391707"><span id="local-6989586621679391708"><span id="local-6989586621679391709"><span id="local-6989586621679391710"><span id="local-6989586621679391711"><span class="annot"><span class="annottext">Maybe Text
 Text
 contentType :: Text
 name :: Text
@@ -400,7 +400,7 @@ $sel:name:CreateModel' :: CreateModel -&gt; Text
 $sel:restApiId:CreateModel' :: CreateModel -&gt; Text
 $sel:description:CreateModel' :: CreateModel -&gt; Maybe Text
 $sel:schema:CreateModel' :: CreateModel -&gt; Maybe Text
-</span><a href="#local-6989586621679391147"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679391707"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -408,11 +408,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/restapis/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391149"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679391709"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/models&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679391143"><span class="annot"><span class="annottext">toQuery :: CreateModel -&gt; QueryString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679391703"><span class="annot"><span class="annottext">toQuery :: CreateModel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateModel -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

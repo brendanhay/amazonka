@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- child OUs.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newOrganizationalUnit' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679238393"><span id="local-6989586621679238394"></span></span><span class="hs-keyword">data</span><span> </span><span id="OrganizationalUnit"><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-var">OrganizationalUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationalUnit%27"><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit%27"><span class="hs-identifier hs-var">OrganizationalUnit'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679238516"><span id="local-6989586621679238517"></span></span><span class="hs-keyword">data</span><span> </span><span id="OrganizationalUnit"><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-var">OrganizationalUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationalUnit%27"><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit%27"><span class="hs-identifier hs-var">OrganizationalUnit'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of this OU.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- For more information about ARNs in Organizations, see</span><span>
@@ -37,24 +37,24 @@
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- in the /AWS Service Authorization Reference/.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Aarn%3AOrganizationalUnit%27"><span class="annot"><span class="annottext">OrganizationalUnit -&gt; Maybe Text
 </span><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#%24sel%3Aarn%3AOrganizationalUnit%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The unique identifier (ID) associated with this OU.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The friendly name of this OU.</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; for an</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- organizational unit ID string requires \&quot;ou-\&quot; followed by from 4 to 32</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- lowercase letters or digits (the ID of the root that contains the OU).</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- This string is followed by a second \&quot;-\&quot; dash and from 8 to 32</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- additional lowercase letters or digits.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aid%3AOrganizationalUnit%27"><span class="annot"><span class="annottext">OrganizationalUnit -&gt; Maybe Text
-</span><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#%24sel%3Aid%3AOrganizationalUnit%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The friendly name of this OU.</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; that is used to</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- validate this parameter is a string of any of the characters in the</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- ASCII character range.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3AOrganizationalUnit%27"><span class="annot"><span class="annottext">OrganizationalUnit -&gt; Maybe Text
-</span><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#%24sel%3Aname%3AOrganizationalUnit%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; that is used to</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- validate this parameter is a string of any of the characters in the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- ASCII character range.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aname%3AOrganizationalUnit%27"><span class="annot"><span class="annottext">OrganizationalUnit -&gt; Maybe Text
+</span><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#%24sel%3Aname%3AOrganizationalUnit%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The unique identifier (ID) associated with this OU.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; for an</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- organizational unit ID string requires \&quot;ou-\&quot; followed by from 4 to 32</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- lowercase letters or digits (the ID of the root that contains the OU).</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- This string is followed by a second \&quot;-\&quot; dash and from 8 to 32</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- additional lowercase letters or digits.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aid%3AOrganizationalUnit%27"><span class="annot"><span class="annottext">OrganizationalUnit -&gt; Maybe Text
+</span><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#%24sel%3Aid%3AOrganizationalUnit%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238385"><span id="local-6989586621679238387"><span class="annot"><span class="annottext">OrganizationalUnit -&gt; OrganizationalUnit -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238508"><span id="local-6989586621679238510"><span class="annot"><span class="annottext">OrganizationalUnit -&gt; OrganizationalUnit -&gt; Bool
 (OrganizationalUnit -&gt; OrganizationalUnit -&gt; Bool)
 -&gt; (OrganizationalUnit -&gt; OrganizationalUnit -&gt; Bool)
 -&gt; Eq OrganizationalUnit
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OrganizationalUnit -&gt; OrganizationalUnit -&gt; Bool
 == :: OrganizationalUnit -&gt; OrganizationalUnit -&gt; Bool
 $c== :: OrganizationalUnit -&gt; OrganizationalUnit -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238376"><span id="local-6989586621679238378"><span id="local-6989586621679238380"><span id="local-6989586621679238382"><span class="annot"><span class="annottext">ReadPrec [OrganizationalUnit]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238499"><span id="local-6989586621679238501"><span id="local-6989586621679238503"><span id="local-6989586621679238505"><span class="annot"><span class="annottext">ReadPrec [OrganizationalUnit]
 ReadPrec OrganizationalUnit
 Int -&gt; ReadS OrganizationalUnit
 ReadS [OrganizationalUnit]
@@ -83,7 +83,7 @@ readList :: ReadS [OrganizationalUnit]
 $creadList :: ReadS [OrganizationalUnit]
 readsPrec :: Int -&gt; ReadS OrganizationalUnit
 $creadsPrec :: Int -&gt; ReadS OrganizationalUnit
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238369"><span id="local-6989586621679238371"><span id="local-6989586621679238373"><span class="annot"><span class="annottext">Int -&gt; OrganizationalUnit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238492"><span id="local-6989586621679238494"><span id="local-6989586621679238496"><span class="annot"><span class="annottext">Int -&gt; OrganizationalUnit -&gt; ShowS
 [OrganizationalUnit] -&gt; ShowS
 OrganizationalUnit -&gt; String
 (Int -&gt; OrganizationalUnit -&gt; ShowS)
@@ -123,19 +123,19 @@ $cfrom :: forall x. OrganizationalUnit -&gt; Rep OrganizationalUnit x
 </span><span id="line-67"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations&gt;</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- in the /AWS Service Authorization Reference/.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'id', 'organizationalUnit_id' - The unique identifier (ID) associated with this OU.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'name', 'organizationalUnit_name' - The friendly name of this OU.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; for an</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- organizational unit ID string requires \&quot;ou-\&quot; followed by from 4 to 32</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- lowercase letters or digits (the ID of the root that contains the OU).</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- This string is followed by a second \&quot;-\&quot; dash and from 8 to 32</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- additional lowercase letters or digits.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; that is used to</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- validate this parameter is a string of any of the characters in the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- ASCII character range.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'id', 'organizationalUnit_id' - The unique identifier (ID) associated with this OU.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'name', 'organizationalUnit_name' - The friendly name of this OU.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; that is used to</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- validate this parameter is a string of any of the characters in the</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- ASCII character range.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; for an</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- organizational unit ID string requires \&quot;ou-\&quot; followed by from 4 to 32</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- lowercase letters or digits (the ID of the root that contains the OU).</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- This string is followed by a second \&quot;-\&quot; dash and from 8 to 32</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- additional lowercase letters or digits.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#newOrganizationalUnit"><span class="hs-identifier hs-type">newOrganizationalUnit</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-type">OrganizationalUnit</span></a></span><span>
 </span><span id="line-85"></span><span id="newOrganizationalUnit"><span class="annot"><span class="annottext">newOrganizationalUnit :: OrganizationalUnit
@@ -146,12 +146,12 @@ $cfrom :: forall x. OrganizationalUnit -&gt; Rep OrganizationalUnit x
 </span><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#%24sel%3Aarn%3AOrganizationalUnit%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:OrganizationalUnit' :: Maybe Text
-</span><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#%24sel%3Aid%3AOrganizationalUnit%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:OrganizationalUnit' :: Maybe Text
+</span><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#%24sel%3Aname%3AOrganizationalUnit%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:OrganizationalUnit' :: Maybe Text
-</span><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#%24sel%3Aname%3AOrganizationalUnit%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:OrganizationalUnit' :: Maybe Text
+</span><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#%24sel%3Aid%3AOrganizationalUnit%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
@@ -169,69 +169,69 @@ forall a. Maybe a
 -&gt; Lens
      OrganizationalUnit OrganizationalUnit (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit%27"><span class="hs-identifier hs-type">OrganizationalUnit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238360"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit%27"><span class="hs-identifier hs-type">OrganizationalUnit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238483"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:OrganizationalUnit' :: OrganizationalUnit -&gt; Maybe Text
-</span><a href="#local-6989586621679238360"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238360"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238359"><span class="annot"><span class="annottext">s :: OrganizationalUnit
-</span><a href="#local-6989586621679238359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit%27"><span class="hs-identifier hs-type">OrganizationalUnit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238358"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationalUnit
-</span><a href="#local-6989586621679238359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:OrganizationalUnit' :: Maybe Text
+</span><a href="#local-6989586621679238483"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238483"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238482"><span class="annot"><span class="annottext">s :: OrganizationalUnit
+</span><a href="#local-6989586621679238482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit%27"><span class="hs-identifier hs-type">OrganizationalUnit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238481"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationalUnit
+</span><a href="#local-6989586621679238482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:OrganizationalUnit' :: Maybe Text
 </span><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#%24sel%3Aarn%3AOrganizationalUnit%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-type">OrganizationalUnit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679238481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-type">OrganizationalUnit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The unique identifier (ID) associated with this OU.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The friendly name of this OU.</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; for an</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- organizational unit ID string requires \&quot;ou-\&quot; followed by from 4 to 32</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- lowercase letters or digits (the ID of the root that contains the OU).</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- This string is followed by a second \&quot;-\&quot; dash and from 8 to 32</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- additional lowercase letters or digits.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#organizationalUnit_id"><span class="hs-identifier hs-type">organizationalUnit_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-type">OrganizationalUnit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="organizationalUnit_id"><span class="annot"><span class="annottext">organizationalUnit_id :: (Maybe Text -&gt; f (Maybe Text))
--&gt; OrganizationalUnit -&gt; f OrganizationalUnit
-</span><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#organizationalUnit_id"><span class="hs-identifier hs-var hs-var">organizationalUnit_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationalUnit -&gt; Maybe Text)
--&gt; (OrganizationalUnit -&gt; Maybe Text -&gt; OrganizationalUnit)
--&gt; Lens
-     OrganizationalUnit OrganizationalUnit (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit%27"><span class="hs-identifier hs-type">OrganizationalUnit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238356"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:OrganizationalUnit' :: OrganizationalUnit -&gt; Maybe Text
-</span><a href="#local-6989586621679238356"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238356"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238355"><span class="annot"><span class="annottext">s :: OrganizationalUnit
-</span><a href="#local-6989586621679238355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit%27"><span class="hs-identifier hs-type">OrganizationalUnit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238354"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationalUnit
-</span><a href="#local-6989586621679238355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:OrganizationalUnit' :: Maybe Text
-</span><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#%24sel%3Aid%3AOrganizationalUnit%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-type">OrganizationalUnit</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The friendly name of this OU.</span><span>
-</span><span id="line-111"></span><span class="hs-comment">--</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; that is used to</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- validate this parameter is a string of any of the characters in the</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- ASCII character range.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#organizationalUnit_name"><span class="hs-identifier hs-type">organizationalUnit_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-type">OrganizationalUnit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="organizationalUnit_name"><span class="annot"><span class="annottext">organizationalUnit_name :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-102"></span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; that is used to</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- validate this parameter is a string of any of the characters in the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- ASCII character range.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#organizationalUnit_name"><span class="hs-identifier hs-type">organizationalUnit_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-type">OrganizationalUnit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="organizationalUnit_name"><span class="annot"><span class="annottext">organizationalUnit_name :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; OrganizationalUnit -&gt; f OrganizationalUnit
 </span><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#organizationalUnit_name"><span class="hs-identifier hs-var hs-var">organizationalUnit_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationalUnit -&gt; Maybe Text)
 -&gt; (OrganizationalUnit -&gt; Maybe Text -&gt; OrganizationalUnit)
 -&gt; Lens
      OrganizationalUnit OrganizationalUnit (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit%27"><span class="hs-identifier hs-type">OrganizationalUnit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238352"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit%27"><span class="hs-identifier hs-type">OrganizationalUnit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238479"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:OrganizationalUnit' :: OrganizationalUnit -&gt; Maybe Text
-</span><a href="#local-6989586621679238352"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238352"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238351"><span class="annot"><span class="annottext">s :: OrganizationalUnit
-</span><a href="#local-6989586621679238351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit%27"><span class="hs-identifier hs-type">OrganizationalUnit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238350"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationalUnit
-</span><a href="#local-6989586621679238351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:OrganizationalUnit' :: Maybe Text
+</span><a href="#local-6989586621679238479"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238479"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238478"><span class="annot"><span class="annottext">s :: OrganizationalUnit
+</span><a href="#local-6989586621679238478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit%27"><span class="hs-identifier hs-type">OrganizationalUnit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238477"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationalUnit
+</span><a href="#local-6989586621679238478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:OrganizationalUnit' :: Maybe Text
 </span><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#%24sel%3Aname%3AOrganizationalUnit%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679238350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-type">OrganizationalUnit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679238477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-type">OrganizationalUnit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The unique identifier (ID) associated with this OU.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; for an</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- organizational unit ID string requires \&quot;ou-\&quot; followed by from 4 to 32</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- lowercase letters or digits (the ID of the root that contains the OU).</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- This string is followed by a second \&quot;-\&quot; dash and from 8 to 32</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- additional lowercase letters or digits.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#organizationalUnit_id"><span class="hs-identifier hs-type">organizationalUnit_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-type">OrganizationalUnit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="organizationalUnit_id"><span class="annot"><span class="annottext">organizationalUnit_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; OrganizationalUnit -&gt; f OrganizationalUnit
+</span><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#organizationalUnit_id"><span class="hs-identifier hs-var hs-var">organizationalUnit_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationalUnit -&gt; Maybe Text)
+-&gt; (OrganizationalUnit -&gt; Maybe Text -&gt; OrganizationalUnit)
+-&gt; Lens
+     OrganizationalUnit OrganizationalUnit (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit%27"><span class="hs-identifier hs-type">OrganizationalUnit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238475"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:OrganizationalUnit' :: OrganizationalUnit -&gt; Maybe Text
+</span><a href="#local-6989586621679238475"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238475"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238474"><span class="annot"><span class="annottext">s :: OrganizationalUnit
+</span><a href="#local-6989586621679238474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit%27"><span class="hs-identifier hs-type">OrganizationalUnit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238473"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationalUnit
+</span><a href="#local-6989586621679238474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:OrganizationalUnit' :: Maybe Text
+</span><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#%24sel%3Aid%3AOrganizationalUnit%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-type">OrganizationalUnit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238347"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-type">OrganizationalUnit</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679238345"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OrganizationalUnit
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238470"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-type">OrganizationalUnit</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679238468"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OrganizationalUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OrganizationalUnit)
@@ -241,8 +241,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OrganizationalUnit&quot;</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679238342"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238342"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679238465"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238465"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; OrganizationalUnit
 </span><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit%27"><span class="hs-identifier hs-var">OrganizationalUnit'</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; OrganizationalUnit)
@@ -250,7 +250,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; OrganizationalUnit)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238342"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679238465"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
@@ -258,21 +258,21 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; OrganizationalUnit)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238342"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679238465"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; OrganizationalUnit)
 -&gt; Parser (Maybe Text) -&gt; Parser OrganizationalUnit
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238342"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679238465"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238336"><span id="local-6989586621679238338"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-type">OrganizationalUnit</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238459"><span id="local-6989586621679238461"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-type">OrganizationalUnit</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238333"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-type">OrganizationalUnit</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238456"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-type">OrganizationalUnit</span></a></span></span><span>
 </span><span id="line-132"></span></pre></body></html>

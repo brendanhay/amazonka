@@ -42,8 +42,8 @@
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#newListApprovedOriginsResponse"><span class="hs-identifier">newListApprovedOriginsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#listApprovedOriginsResponse_origins"><span class="hs-identifier">listApprovedOriginsResponse_origins</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#listApprovedOriginsResponse_nextToken"><span class="hs-identifier">listApprovedOriginsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#listApprovedOriginsResponse_nextToken"><span class="hs-identifier">listApprovedOriginsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#listApprovedOriginsResponse_origins"><span class="hs-identifier">listApprovedOriginsResponse_origins</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#listApprovedOriginsResponse_httpStatus"><span class="hs-identifier">listApprovedOriginsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span class="hs-keyword">where</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListApprovedOrigins' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679417009"><span id="local-6989586621679417010"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApprovedOrigins"><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-var">ListApprovedOrigins</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApprovedOrigins%27"><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-var">ListApprovedOrigins'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679417324"><span id="local-6989586621679417325"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApprovedOrigins"><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-var">ListApprovedOrigins</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApprovedOrigins%27"><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-var">ListApprovedOrigins'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results. Use the value returned in the</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- previous response in the next request to retrieve the next set of</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- results.</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AinstanceId%3AListApprovedOrigins%27"><span class="annot"><span class="annottext">ListApprovedOrigins -&gt; Text
 </span><a href="Network.AWS.Connect.ListApprovedOrigins.html#%24sel%3AinstanceId%3AListApprovedOrigins%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417001"><span id="local-6989586621679417003"><span class="annot"><span class="annottext">ListApprovedOrigins -&gt; ListApprovedOrigins -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417316"><span id="local-6989586621679417318"><span class="annot"><span class="annottext">ListApprovedOrigins -&gt; ListApprovedOrigins -&gt; Bool
 (ListApprovedOrigins -&gt; ListApprovedOrigins -&gt; Bool)
 -&gt; (ListApprovedOrigins -&gt; ListApprovedOrigins -&gt; Bool)
 -&gt; Eq ListApprovedOrigins
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListApprovedOrigins -&gt; ListApprovedOrigins -&gt; Bool
 == :: ListApprovedOrigins -&gt; ListApprovedOrigins -&gt; Bool
 $c== :: ListApprovedOrigins -&gt; ListApprovedOrigins -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416992"><span id="local-6989586621679416994"><span id="local-6989586621679416996"><span id="local-6989586621679416998"><span class="annot"><span class="annottext">ReadPrec [ListApprovedOrigins]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417307"><span id="local-6989586621679417309"><span id="local-6989586621679417311"><span id="local-6989586621679417313"><span class="annot"><span class="annottext">ReadPrec [ListApprovedOrigins]
 ReadPrec ListApprovedOrigins
 Int -&gt; ReadS ListApprovedOrigins
 ReadS [ListApprovedOrigins]
@@ -99,7 +99,7 @@ readList :: ReadS [ListApprovedOrigins]
 $creadList :: ReadS [ListApprovedOrigins]
 readsPrec :: Int -&gt; ReadS ListApprovedOrigins
 $creadsPrec :: Int -&gt; ReadS ListApprovedOrigins
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416985"><span id="local-6989586621679416987"><span id="local-6989586621679416989"><span class="annot"><span class="annottext">Int -&gt; ListApprovedOrigins -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417300"><span id="local-6989586621679417302"><span id="local-6989586621679417304"><span class="annot"><span class="annottext">Int -&gt; ListApprovedOrigins -&gt; ShowS
 [ListApprovedOrigins] -&gt; ShowS
 ListApprovedOrigins -&gt; String
 (Int -&gt; ListApprovedOrigins -&gt; ShowS)
@@ -146,8 +146,8 @@ $cfrom :: forall x. ListApprovedOrigins -&gt; Rep ListApprovedOrigins x
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-type">ListApprovedOrigins</span></a></span><span>
 </span><span id="line-92"></span><span id="newListApprovedOrigins"><span class="annot"><span class="annottext">newListApprovedOrigins :: Text -&gt; ListApprovedOrigins
-</span><a href="Network.AWS.Connect.ListApprovedOrigins.html#newListApprovedOrigins"><span class="hs-identifier hs-var hs-var">newListApprovedOrigins</span></a></span></span><span> </span><span id="local-6989586621679416980"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416980"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.ListApprovedOrigins.html#newListApprovedOrigins"><span class="hs-identifier hs-var hs-var">newListApprovedOrigins</span></a></span></span><span> </span><span id="local-6989586621679417295"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417295"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">ListApprovedOrigins' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListApprovedOrigins
 </span><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-type">ListApprovedOrigins'</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListApprovedOrigins' :: Maybe Text
@@ -160,7 +160,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:ListApprovedOrigins' :: Text
 </span><a href="Network.AWS.Connect.ListApprovedOrigins.html#%24sel%3AinstanceId%3AListApprovedOrigins%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416980"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><a href="#local-6989586621679417295"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The token for the next set of results. Use the value returned in the</span><span>
@@ -174,16 +174,16 @@ forall a. Maybe a
 -&gt; Lens
      ListApprovedOrigins ListApprovedOrigins (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-type">ListApprovedOrigins'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416978"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-type">ListApprovedOrigins'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417293"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListApprovedOrigins' :: ListApprovedOrigins -&gt; Maybe Text
-</span><a href="#local-6989586621679416978"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416978"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416977"><span class="annot"><span class="annottext">s :: ListApprovedOrigins
-</span><a href="#local-6989586621679416977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-type">ListApprovedOrigins'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416976"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApprovedOrigins
-</span><a href="#local-6989586621679416977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApprovedOrigins' :: Maybe Text
+</span><a href="#local-6989586621679417293"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417293"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417292"><span class="annot"><span class="annottext">s :: ListApprovedOrigins
+</span><a href="#local-6989586621679417292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-type">ListApprovedOrigins'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417291"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApprovedOrigins
+</span><a href="#local-6989586621679417292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApprovedOrigins' :: Maybe Text
 </span><a href="Network.AWS.Connect.ListApprovedOrigins.html#%24sel%3AnextToken%3AListApprovedOrigins%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-type">ListApprovedOrigins</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679417291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-type">ListApprovedOrigins</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The maximum number of results to return per page.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#listApprovedOrigins_maxResults"><span class="hs-identifier hs-type">listApprovedOrigins_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-type">ListApprovedOrigins</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -197,16 +197,16 @@ $sel:nextToken:ListApprovedOrigins' :: ListApprovedOrigins -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-type">ListApprovedOrigins'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416975"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-type">ListApprovedOrigins'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417290"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListApprovedOrigins' :: ListApprovedOrigins -&gt; Maybe Natural
-</span><a href="#local-6989586621679416975"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679416975"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416974"><span class="annot"><span class="annottext">s :: ListApprovedOrigins
-</span><a href="#local-6989586621679416974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-type">ListApprovedOrigins'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416973"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679416973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApprovedOrigins
-</span><a href="#local-6989586621679416974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListApprovedOrigins' :: Maybe Natural
+</span><a href="#local-6989586621679417290"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679417290"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417289"><span class="annot"><span class="annottext">s :: ListApprovedOrigins
+</span><a href="#local-6989586621679417289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-type">ListApprovedOrigins'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417288"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679417288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApprovedOrigins
+</span><a href="#local-6989586621679417289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListApprovedOrigins' :: Maybe Natural
 </span><a href="Network.AWS.Connect.ListApprovedOrigins.html#%24sel%3AmaxResults%3AListApprovedOrigins%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679416973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-type">ListApprovedOrigins</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679417288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-type">ListApprovedOrigins</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
@@ -216,29 +216,29 @@ $sel:maxResults:ListApprovedOrigins' :: ListApprovedOrigins -&gt; Maybe Natural
 -&gt; (ListApprovedOrigins -&gt; Text -&gt; ListApprovedOrigins)
 -&gt; Lens ListApprovedOrigins ListApprovedOrigins Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-type">ListApprovedOrigins'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416972"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-type">ListApprovedOrigins'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417287"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:ListApprovedOrigins' :: ListApprovedOrigins -&gt; Text
-</span><a href="#local-6989586621679416972"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416972"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416971"><span class="annot"><span class="annottext">s :: ListApprovedOrigins
-</span><a href="#local-6989586621679416971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-type">ListApprovedOrigins'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416970"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApprovedOrigins
-</span><a href="#local-6989586621679416971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:ListApprovedOrigins' :: Text
+</span><a href="#local-6989586621679417287"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417287"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417286"><span class="annot"><span class="annottext">s :: ListApprovedOrigins
+</span><a href="#local-6989586621679417286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-type">ListApprovedOrigins'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417285"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679417285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApprovedOrigins
+</span><a href="#local-6989586621679417286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:ListApprovedOrigins' :: Text
 </span><a href="Network.AWS.Connect.ListApprovedOrigins.html#%24sel%3AinstanceId%3AListApprovedOrigins%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-type">ListApprovedOrigins</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679417285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-type">ListApprovedOrigins</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-type">ListApprovedOrigins</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679416966"><span class="annot"><span class="annottext">page :: ListApprovedOrigins
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679417281"><span class="annot"><span class="annottext">page :: ListApprovedOrigins
 -&gt; AWSResponse ListApprovedOrigins -&gt; Maybe ListApprovedOrigins
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679416964"><span class="annot"><span class="annottext">ListApprovedOrigins
-</span><a href="#local-6989586621679416964"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679416963"><span class="annot"><span class="annottext">AWSResponse ListApprovedOrigins
-</span><a href="#local-6989586621679416963"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679417279"><span class="annot"><span class="annottext">ListApprovedOrigins
+</span><a href="#local-6989586621679417279"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679417278"><span class="annot"><span class="annottext">AWSResponse ListApprovedOrigins
+</span><a href="#local-6989586621679417278"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-117"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApprovedOrigins
 ListApprovedOriginsResponse
-</span><a href="#local-6989586621679416963"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679417278"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">ListApprovedOriginsResponse
 -&gt; Getting (First Text) ListApprovedOriginsResponse Text
 -&gt; Maybe Text
@@ -268,7 +268,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-123"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApprovedOrigins
 ListApprovedOriginsResponse
-</span><a href="#local-6989586621679416963"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679417278"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">ListApprovedOriginsResponse
 -&gt; Getting (First [Text]) ListApprovedOriginsResponse [Text]
 -&gt; Maybe [Text]
@@ -302,7 +302,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">ListApprovedOrigins
-</span><a href="#local-6989586621679416964"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679417279"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">ListApprovedOrigins
 -&gt; (ListApprovedOrigins -&gt; ListApprovedOrigins)
 -&gt; ListApprovedOrigins
@@ -318,7 +318,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApprovedOrigins
 ListApprovedOriginsResponse
-</span><a href="#local-6989586621679416963"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679417278"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">ListApprovedOriginsResponse
 -&gt; Getting (First Text) ListApprovedOriginsResponse Text
 -&gt; Maybe Text
@@ -344,12 +344,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-137"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-138"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-type">ListApprovedOrigins</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse"><span class="hs-identifier hs-type">ListApprovedOriginsResponse</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679416953"><span class="annot"><span class="annottext">request :: ListApprovedOrigins -&gt; Request ListApprovedOrigins
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679417268"><span class="annot"><span class="annottext">request :: ListApprovedOrigins -&gt; Request ListApprovedOrigins
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListApprovedOrigins -&gt; Request ListApprovedOrigins
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679416949"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679417264"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListApprovedOrigins
 -&gt; ClientResponse ClientBody
@@ -375,18 +375,28 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679416946"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416946"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679416945"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679416945"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679416944"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679416944"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListApprovedOriginsResponse
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679417261"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417261"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679417260"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679417260"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679417259"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679417259"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListApprovedOriginsResponse
 </span><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse%27"><span class="hs-identifier hs-var">ListApprovedOriginsResponse'</span></a></span><span>
-</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListApprovedOriginsResponse)
--&gt; Either String (Maybe [Text])
--&gt; Either String (Maybe Text -&gt; Int -&gt; ListApprovedOriginsResponse)
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListApprovedOriginsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [Text] -&gt; Int -&gt; ListApprovedOriginsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679416944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679417259"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Text] -&gt; Int -&gt; ListApprovedOriginsResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Int -&gt; ListApprovedOriginsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679417259"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Origins&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -395,15 +405,6 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListApprovedOriginsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; ListApprovedOriginsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679416944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListApprovedOriginsResponse)
 -&gt; Either String Int -&gt; Either String ListApprovedOriginsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -412,15 +413,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416946"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679417261"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416935"><span id="local-6989586621679416937"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-type">ListApprovedOrigins</span></a></span></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417250"><span id="local-6989586621679417252"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-type">ListApprovedOrigins</span></a></span></span></span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416932"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-type">ListApprovedOrigins</span></a></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417247"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-type">ListApprovedOrigins</span></a></span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-type">ListApprovedOrigins</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679416928"><span class="annot"><span class="annottext">toHeaders :: ListApprovedOrigins -&gt; ResponseHeaders
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679417243"><span class="annot"><span class="annottext">toHeaders :: ListApprovedOrigins -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListApprovedOrigins -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -440,8 +441,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-type">ListApprovedOrigins</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679416922"><span class="annot"><span class="annottext">toPath :: ListApprovedOrigins -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-type">ListApprovedOrigins'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416918"><span id="local-6989586621679416919"><span id="local-6989586621679416920"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679417237"><span class="annot"><span class="annottext">toPath :: ListApprovedOrigins -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-type">ListApprovedOrigins'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417233"><span id="local-6989586621679417234"><span id="local-6989586621679417235"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 instanceId :: Text
@@ -450,7 +451,7 @@ nextToken :: Maybe Text
 $sel:instanceId:ListApprovedOrigins' :: ListApprovedOrigins -&gt; Text
 $sel:maxResults:ListApprovedOrigins' :: ListApprovedOrigins -&gt; Maybe Natural
 $sel:nextToken:ListApprovedOrigins' :: ListApprovedOrigins -&gt; Maybe Text
-</span><a href="#local-6989586621679416918"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679417233"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -459,14 +460,14 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416918"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679417233"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/approved-origins&quot;</span></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins"><span class="hs-identifier hs-type">ListApprovedOrigins</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679416914"><span class="annot"><span class="annottext">toQuery :: ListApprovedOrigins -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-type">ListApprovedOrigins'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416910"><span id="local-6989586621679416911"><span id="local-6989586621679416912"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679417229"><span class="annot"><span class="annottext">toQuery :: ListApprovedOrigins -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOrigins%27"><span class="hs-identifier hs-type">ListApprovedOrigins'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417225"><span id="local-6989586621679417226"><span id="local-6989586621679417227"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 instanceId :: Text
@@ -475,7 +476,7 @@ nextToken :: Maybe Text
 $sel:instanceId:ListApprovedOrigins' :: ListApprovedOrigins -&gt; Text
 $sel:maxResults:ListApprovedOrigins' :: ListApprovedOrigins -&gt; Maybe Natural
 $sel:nextToken:ListApprovedOrigins' :: ListApprovedOrigins -&gt; Maybe Text
-</span><a href="#local-6989586621679416910"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679417225"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -483,28 +484,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416912"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679417227"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679416911"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679417226"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | /See:/ 'newListApprovedOriginsResponse' smart constructor.</span><span>
-</span><span id="line-181"></span><span id="local-6989586621679416907"><span id="local-6989586621679416908"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApprovedOriginsResponse"><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse"><span class="hs-identifier hs-var">ListApprovedOriginsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApprovedOriginsResponse%27"><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse%27"><span class="hs-identifier hs-var">ListApprovedOriginsResponse'</span></a></span></span><span>
-</span><span id="line-182"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The approved origins.</span><span>
-</span><span id="line-183"></span><span>    </span><span id="%24sel%3Aorigins%3AListApprovedOriginsResponse%27"><span class="annot"><span class="annottext">ListApprovedOriginsResponse -&gt; Maybe [Text]
-</span><a href="Network.AWS.Connect.ListApprovedOrigins.html#%24sel%3Aorigins%3AListApprovedOriginsResponse%27"><span class="hs-identifier hs-var hs-var">origins</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
-</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-186"></span><span>    </span><span id="%24sel%3AnextToken%3AListApprovedOriginsResponse%27"><span class="annot"><span class="annottext">ListApprovedOriginsResponse -&gt; Maybe Text
+</span><span id="line-181"></span><span id="local-6989586621679417222"><span id="local-6989586621679417223"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApprovedOriginsResponse"><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse"><span class="hs-identifier hs-var">ListApprovedOriginsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApprovedOriginsResponse%27"><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse%27"><span class="hs-identifier hs-var">ListApprovedOriginsResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AnextToken%3AListApprovedOriginsResponse%27"><span class="annot"><span class="annottext">ListApprovedOriginsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Connect.ListApprovedOrigins.html#%24sel%3AnextToken%3AListApprovedOriginsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The approved origins.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3Aorigins%3AListApprovedOriginsResponse%27"><span class="annot"><span class="annottext">ListApprovedOriginsResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.Connect.ListApprovedOrigins.html#%24sel%3Aorigins%3AListApprovedOriginsResponse%27"><span class="hs-identifier hs-var hs-var">origins</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-188"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListApprovedOriginsResponse%27"><span class="annot"><span class="annottext">ListApprovedOriginsResponse -&gt; Int
 </span><a href="Network.AWS.Connect.ListApprovedOrigins.html#%24sel%3AhttpStatus%3AListApprovedOriginsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416900"><span id="local-6989586621679416902"><span class="annot"><span class="annottext">ListApprovedOriginsResponse -&gt; ListApprovedOriginsResponse -&gt; Bool
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417215"><span id="local-6989586621679417217"><span class="annot"><span class="annottext">ListApprovedOriginsResponse -&gt; ListApprovedOriginsResponse -&gt; Bool
 (ListApprovedOriginsResponse
  -&gt; ListApprovedOriginsResponse -&gt; Bool)
 -&gt; (ListApprovedOriginsResponse
@@ -515,7 +516,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListApprovedOriginsResponse -&gt; ListApprovedOriginsResponse -&gt; Bool
 == :: ListApprovedOriginsResponse -&gt; ListApprovedOriginsResponse -&gt; Bool
 $c== :: ListApprovedOriginsResponse -&gt; ListApprovedOriginsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416892"><span id="local-6989586621679416894"><span id="local-6989586621679416896"><span id="local-6989586621679416898"><span class="annot"><span class="annottext">ReadPrec [ListApprovedOriginsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417207"><span id="local-6989586621679417209"><span id="local-6989586621679417211"><span id="local-6989586621679417213"><span class="annot"><span class="annottext">ReadPrec [ListApprovedOriginsResponse]
 ReadPrec ListApprovedOriginsResponse
 Int -&gt; ReadS ListApprovedOriginsResponse
 ReadS [ListApprovedOriginsResponse]
@@ -535,7 +536,7 @@ readList :: ReadS [ListApprovedOriginsResponse]
 $creadList :: ReadS [ListApprovedOriginsResponse]
 readsPrec :: Int -&gt; ReadS ListApprovedOriginsResponse
 $creadsPrec :: Int -&gt; ReadS ListApprovedOriginsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416886"><span id="local-6989586621679416888"><span id="local-6989586621679416890"><span class="annot"><span class="annottext">Int -&gt; ListApprovedOriginsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417201"><span id="local-6989586621679417203"><span id="local-6989586621679417205"><span class="annot"><span class="annottext">Int -&gt; ListApprovedOriginsResponse -&gt; ShowS
 [ListApprovedOriginsResponse] -&gt; ShowS
 ListApprovedOriginsResponse -&gt; String
 (Int -&gt; ListApprovedOriginsResponse -&gt; ShowS)
@@ -575,10 +576,10 @@ ListApprovedOriginsResponse -&gt; Rep ListApprovedOriginsResponse x
 </span><span id="line-197"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-199"></span><span class="hs-comment">--</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- 'origins', 'listApprovedOriginsResponse_origins' - The approved origins.</span><span>
-</span><span id="line-201"></span><span class="hs-comment">--</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- 'nextToken', 'listApprovedOriginsResponse_nextToken' - If there are additional results, this is the token for the next set of</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'nextToken', 'listApprovedOriginsResponse_nextToken' - If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'origins', 'listApprovedOriginsResponse_origins' - The approved origins.</span><span>
 </span><span id="line-204"></span><span class="hs-comment">--</span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- 'httpStatus', 'listApprovedOriginsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-206"></span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#newListApprovedOriginsResponse"><span class="hs-identifier hs-type">newListApprovedOriginsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -586,43 +587,64 @@ ListApprovedOriginsResponse -&gt; Rep ListApprovedOriginsResponse x
 </span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-209"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse"><span class="hs-identifier hs-type">ListApprovedOriginsResponse</span></a></span><span>
 </span><span id="line-210"></span><span id="newListApprovedOriginsResponse"><span class="annot"><span class="annottext">newListApprovedOriginsResponse :: Int -&gt; ListApprovedOriginsResponse
-</span><a href="Network.AWS.Connect.ListApprovedOrigins.html#newListApprovedOriginsResponse"><span class="hs-identifier hs-var hs-var">newListApprovedOriginsResponse</span></a></span></span><span> </span><span id="local-6989586621679416883"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416883"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-211"></span><span>  </span><span class="annot"><span class="annottext">ListApprovedOriginsResponse' :: Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListApprovedOriginsResponse
+</span><a href="Network.AWS.Connect.ListApprovedOrigins.html#newListApprovedOriginsResponse"><span class="hs-identifier hs-var hs-var">newListApprovedOriginsResponse</span></a></span></span><span> </span><span id="local-6989586621679417198"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417198"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><span class="annottext">ListApprovedOriginsResponse' :: Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListApprovedOriginsResponse
 </span><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse%27"><span class="hs-identifier hs-type">ListApprovedOriginsResponse'</span></a></span><span>
-</span><span id="line-212"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:origins:ListApprovedOriginsResponse' :: Maybe [Text]
-</span><a href="Network.AWS.Connect.ListApprovedOrigins.html#%24sel%3Aorigins%3AListApprovedOriginsResponse%27"><span class="hs-identifier hs-var">origins</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-212"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListApprovedOriginsResponse' :: Maybe Text
+</span><a href="Network.AWS.Connect.ListApprovedOrigins.html#%24sel%3AnextToken%3AListApprovedOriginsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListApprovedOriginsResponse' :: Maybe Text
-</span><a href="Network.AWS.Connect.ListApprovedOrigins.html#%24sel%3AnextToken%3AListApprovedOriginsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:origins:ListApprovedOriginsResponse' :: Maybe [Text]
+</span><a href="Network.AWS.Connect.ListApprovedOrigins.html#%24sel%3Aorigins%3AListApprovedOriginsResponse%27"><span class="hs-identifier hs-var">origins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListApprovedOriginsResponse' :: Int
 </span><a href="Network.AWS.Connect.ListApprovedOrigins.html#%24sel%3AhttpStatus%3AListApprovedOriginsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416883"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679417198"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-216"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- | The approved origins.</span><span>
-</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#listApprovedOriginsResponse_origins"><span class="hs-identifier hs-type">listApprovedOriginsResponse_origins</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse"><span class="hs-identifier hs-type">ListApprovedOriginsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-220"></span><span id="listApprovedOriginsResponse_origins"><span class="annot"><span class="annottext">listApprovedOriginsResponse_origins :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-218"></span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#listApprovedOriginsResponse_nextToken"><span class="hs-identifier hs-type">listApprovedOriginsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse"><span class="hs-identifier hs-type">ListApprovedOriginsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="listApprovedOriginsResponse_nextToken"><span class="annot"><span class="annottext">listApprovedOriginsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListApprovedOriginsResponse -&gt; f ListApprovedOriginsResponse
+</span><a href="Network.AWS.Connect.ListApprovedOrigins.html#listApprovedOriginsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listApprovedOriginsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApprovedOriginsResponse -&gt; Maybe Text)
+-&gt; (ListApprovedOriginsResponse
+    -&gt; Maybe Text -&gt; ListApprovedOriginsResponse)
+-&gt; Lens' ListApprovedOriginsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse%27"><span class="hs-identifier hs-type">ListApprovedOriginsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417197"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListApprovedOriginsResponse' :: ListApprovedOriginsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679417197"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417197"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417196"><span class="annot"><span class="annottext">s :: ListApprovedOriginsResponse
+</span><a href="#local-6989586621679417196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse%27"><span class="hs-identifier hs-type">ListApprovedOriginsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417195"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApprovedOriginsResponse
+</span><a href="#local-6989586621679417196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApprovedOriginsResponse' :: Maybe Text
+</span><a href="Network.AWS.Connect.ListApprovedOrigins.html#%24sel%3AnextToken%3AListApprovedOriginsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse"><span class="hs-identifier hs-type">ListApprovedOriginsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The approved origins.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#listApprovedOriginsResponse_origins"><span class="hs-identifier hs-type">listApprovedOriginsResponse_origins</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse"><span class="hs-identifier hs-type">ListApprovedOriginsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="listApprovedOriginsResponse_origins"><span class="annot"><span class="annottext">listApprovedOriginsResponse_origins :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; ListApprovedOriginsResponse -&gt; f ListApprovedOriginsResponse
 </span><a href="Network.AWS.Connect.ListApprovedOrigins.html#listApprovedOriginsResponse_origins"><span class="hs-identifier hs-var hs-var">listApprovedOriginsResponse_origins</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApprovedOriginsResponse -&gt; Maybe [Text])
 -&gt; (ListApprovedOriginsResponse
     -&gt; Maybe [Text] -&gt; ListApprovedOriginsResponse)
 -&gt; Lens' ListApprovedOriginsResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse%27"><span class="hs-identifier hs-type">ListApprovedOriginsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416882"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse%27"><span class="hs-identifier hs-type">ListApprovedOriginsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417194"><span class="annot"><span class="annottext">Maybe [Text]
 origins :: Maybe [Text]
 $sel:origins:ListApprovedOriginsResponse' :: ListApprovedOriginsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679416882"><span class="hs-identifier hs-var hs-var">origins</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679416882"><span class="hs-identifier hs-var">origins</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416881"><span class="annot"><span class="annottext">s :: ListApprovedOriginsResponse
-</span><a href="#local-6989586621679416881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse%27"><span class="hs-identifier hs-type">ListApprovedOriginsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416880"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679416880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApprovedOriginsResponse
-</span><a href="#local-6989586621679416881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:origins:ListApprovedOriginsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679417194"><span class="hs-identifier hs-var hs-var">origins</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679417194"><span class="hs-identifier hs-var">origins</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417193"><span class="annot"><span class="annottext">s :: ListApprovedOriginsResponse
+</span><a href="#local-6989586621679417193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse%27"><span class="hs-identifier hs-type">ListApprovedOriginsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417192"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679417192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApprovedOriginsResponse
+</span><a href="#local-6989586621679417193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:origins:ListApprovedOriginsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.Connect.ListApprovedOrigins.html#%24sel%3Aorigins%3AListApprovedOriginsResponse%27"><span class="hs-identifier hs-var">origins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679416880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse"><span class="hs-identifier hs-type">ListApprovedOriginsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679417192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse"><span class="hs-identifier hs-type">ListApprovedOriginsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListApprovedOriginsResponse -&gt; f ListApprovedOriginsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -636,29 +658,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#listApprovedOriginsResponse_nextToken"><span class="hs-identifier hs-type">listApprovedOriginsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse"><span class="hs-identifier hs-type">ListApprovedOriginsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-225"></span><span id="listApprovedOriginsResponse_nextToken"><span class="annot"><span class="annottext">listApprovedOriginsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListApprovedOriginsResponse -&gt; f ListApprovedOriginsResponse
-</span><a href="Network.AWS.Connect.ListApprovedOrigins.html#listApprovedOriginsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listApprovedOriginsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApprovedOriginsResponse -&gt; Maybe Text)
--&gt; (ListApprovedOriginsResponse
-    -&gt; Maybe Text -&gt; ListApprovedOriginsResponse)
--&gt; Lens' ListApprovedOriginsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse%27"><span class="hs-identifier hs-type">ListApprovedOriginsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416877"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListApprovedOriginsResponse' :: ListApprovedOriginsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679416877"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416877"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416876"><span class="annot"><span class="annottext">s :: ListApprovedOriginsResponse
-</span><a href="#local-6989586621679416876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse%27"><span class="hs-identifier hs-type">ListApprovedOriginsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416875"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApprovedOriginsResponse
-</span><a href="#local-6989586621679416876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApprovedOriginsResponse' :: Maybe Text
-</span><a href="Network.AWS.Connect.ListApprovedOrigins.html#%24sel%3AnextToken%3AListApprovedOriginsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse"><span class="hs-identifier hs-type">ListApprovedOriginsResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-228"></span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#listApprovedOriginsResponse_httpStatus"><span class="hs-identifier hs-type">listApprovedOriginsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse"><span class="hs-identifier hs-type">ListApprovedOriginsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -670,16 +671,16 @@ $sel:nextToken:ListApprovedOriginsResponse' :: ListApprovedOriginsResponse -&gt;
 -&gt; Lens
      ListApprovedOriginsResponse ListApprovedOriginsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse%27"><span class="hs-identifier hs-type">ListApprovedOriginsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416874"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse%27"><span class="hs-identifier hs-type">ListApprovedOriginsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417189"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListApprovedOriginsResponse' :: ListApprovedOriginsResponse -&gt; Int
-</span><a href="#local-6989586621679416874"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416874"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416873"><span class="annot"><span class="annottext">s :: ListApprovedOriginsResponse
-</span><a href="#local-6989586621679416873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse%27"><span class="hs-identifier hs-type">ListApprovedOriginsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416872"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApprovedOriginsResponse
-</span><a href="#local-6989586621679416873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListApprovedOriginsResponse' :: Int
+</span><a href="#local-6989586621679417189"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417189"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417188"><span class="annot"><span class="annottext">s :: ListApprovedOriginsResponse
+</span><a href="#local-6989586621679417188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse%27"><span class="hs-identifier hs-type">ListApprovedOriginsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417187"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679417187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApprovedOriginsResponse
+</span><a href="#local-6989586621679417188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListApprovedOriginsResponse' :: Int
 </span><a href="Network.AWS.Connect.ListApprovedOrigins.html#%24sel%3AhttpStatus%3AListApprovedOriginsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse"><span class="hs-identifier hs-type">ListApprovedOriginsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679417187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse"><span class="hs-identifier hs-type">ListApprovedOriginsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416870"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse"><span class="hs-identifier hs-type">ListApprovedOriginsResponse</span></a></span></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417185"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListApprovedOrigins.html#ListApprovedOriginsResponse"><span class="hs-identifier hs-type">ListApprovedOriginsResponse</span></a></span></span><span>
 </span><span id="line-232"></span></pre></body></html>

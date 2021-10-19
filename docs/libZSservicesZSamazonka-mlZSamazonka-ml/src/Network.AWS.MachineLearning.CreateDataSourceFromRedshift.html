@@ -63,8 +63,8 @@
 </span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#newCreateDataSourceFromRedshift"><span class="hs-identifier">newCreateDataSourceFromRedshift</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#createDataSourceFromRedshift_computeStatistics"><span class="hs-identifier">createDataSourceFromRedshift_computeStatistics</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#createDataSourceFromRedshift_dataSourceName"><span class="hs-identifier">createDataSourceFromRedshift_dataSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#createDataSourceFromRedshift_dataSourceName"><span class="hs-identifier">createDataSourceFromRedshift_dataSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#createDataSourceFromRedshift_computeStatistics"><span class="hs-identifier">createDataSourceFromRedshift_computeStatistics</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#createDataSourceFromRedshift_dataSourceId"><span class="hs-identifier">createDataSourceFromRedshift_dataSourceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#createDataSourceFromRedshift_dataSpec"><span class="hs-identifier">createDataSourceFromRedshift_dataSpec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#createDataSourceFromRedshift_roleARN"><span class="hs-identifier">createDataSourceFromRedshift_roleARN</span></a></span><span class="hs-special">,</span><span>
@@ -87,17 +87,17 @@
 </span><span id="line-87"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | /See:/ 'newCreateDataSourceFromRedshift' smart constructor.</span><span>
-</span><span id="line-90"></span><span id="local-6989586621679259756"><span id="local-6989586621679259757"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDataSourceFromRedshift"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-var">CreateDataSourceFromRedshift</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDataSourceFromRedshift%27"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var">CreateDataSourceFromRedshift'</span></a></span></span><span>
-</span><span id="line-91"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The compute statistics for a @DataSource@. The statistics are generated</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- be set to @true@ if the @DataSource@ needs to be used for @MLModel@</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- training.</span><span>
-</span><span id="line-96"></span><span>    </span><span id="%24sel%3AcomputeStatistics%3ACreateDataSourceFromRedshift%27"><span class="annot"><span class="annottext">CreateDataSourceFromRedshift -&gt; Maybe Bool
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var hs-var">computeStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | A user-supplied name or description of the @DataSource@.</span><span>
-</span><span id="line-98"></span><span>    </span><span id="%24sel%3AdataSourceName%3ACreateDataSourceFromRedshift%27"><span class="annot"><span class="annottext">CreateDataSourceFromRedshift -&gt; Maybe Text
+</span><span id="line-90"></span><span id="local-6989586621679259852"><span id="local-6989586621679259853"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDataSourceFromRedshift"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-var">CreateDataSourceFromRedshift</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDataSourceFromRedshift%27"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var">CreateDataSourceFromRedshift'</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A user-supplied name or description of the @DataSource@.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AdataSourceName%3ACreateDataSourceFromRedshift%27"><span class="annot"><span class="annottext">CreateDataSourceFromRedshift -&gt; Maybe Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AdataSourceName%3ACreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var hs-var">dataSourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The compute statistics for a @DataSource@. The statistics are generated</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- be set to @true@ if the @DataSource@ needs to be used for @MLModel@</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- training.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AcomputeStatistics%3ACreateDataSourceFromRedshift%27"><span class="annot"><span class="annottext">CreateDataSourceFromRedshift -&gt; Maybe Bool
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var hs-var">computeStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the @DataSource@.</span><span>
 </span><span id="line-100"></span><span>    </span><span id="%24sel%3AdataSourceId%3ACreateDataSourceFromRedshift%27"><span class="annot"><span class="annottext">CreateDataSourceFromRedshift -&gt; Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AdataSourceId%3ACreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -145,7 +145,7 @@
 </span><span id="line-141"></span><span>    </span><span id="%24sel%3AroleARN%3ACreateDataSourceFromRedshift%27"><span class="annot"><span class="annottext">CreateDataSourceFromRedshift -&gt; Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AroleARN%3ACreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259746"><span id="local-6989586621679259748"><span class="annot"><span class="annottext">CreateDataSourceFromRedshift
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259842"><span id="local-6989586621679259844"><span class="annot"><span class="annottext">CreateDataSourceFromRedshift
 -&gt; CreateDataSourceFromRedshift -&gt; Bool
 (CreateDataSourceFromRedshift
  -&gt; CreateDataSourceFromRedshift -&gt; Bool)
@@ -161,7 +161,7 @@ $c/= :: CreateDataSourceFromRedshift
 -&gt; CreateDataSourceFromRedshift -&gt; Bool
 $c== :: CreateDataSourceFromRedshift
 -&gt; CreateDataSourceFromRedshift -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259737"><span id="local-6989586621679259739"><span id="local-6989586621679259741"><span id="local-6989586621679259743"><span class="annot"><span class="annottext">ReadPrec [CreateDataSourceFromRedshift]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259833"><span id="local-6989586621679259835"><span id="local-6989586621679259837"><span id="local-6989586621679259839"><span class="annot"><span class="annottext">ReadPrec [CreateDataSourceFromRedshift]
 ReadPrec CreateDataSourceFromRedshift
 Int -&gt; ReadS CreateDataSourceFromRedshift
 ReadS [CreateDataSourceFromRedshift]
@@ -181,7 +181,7 @@ readList :: ReadS [CreateDataSourceFromRedshift]
 $creadList :: ReadS [CreateDataSourceFromRedshift]
 readsPrec :: Int -&gt; ReadS CreateDataSourceFromRedshift
 $creadsPrec :: Int -&gt; ReadS CreateDataSourceFromRedshift
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259730"><span id="local-6989586621679259732"><span id="local-6989586621679259734"><span class="annot"><span class="annottext">Int -&gt; CreateDataSourceFromRedshift -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259826"><span id="local-6989586621679259828"><span id="local-6989586621679259830"><span class="annot"><span class="annottext">Int -&gt; CreateDataSourceFromRedshift -&gt; ShowS
 [CreateDataSourceFromRedshift] -&gt; ShowS
 CreateDataSourceFromRedshift -&gt; String
 (Int -&gt; CreateDataSourceFromRedshift -&gt; ShowS)
@@ -221,13 +221,13 @@ CreateDataSourceFromRedshift -&gt; Rep CreateDataSourceFromRedshift x
 </span><span id="line-150"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-152"></span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- 'computeStatistics', 'createDataSourceFromRedshift_computeStatistics' - The compute statistics for a @DataSource@. The statistics are generated</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- be set to @true@ if the @DataSource@ needs to be used for @MLModel@</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- training.</span><span>
-</span><span id="line-158"></span><span class="hs-comment">--</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- 'dataSourceName', 'createDataSourceFromRedshift_dataSourceName' - A user-supplied name or description of the @DataSource@.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'dataSourceName', 'createDataSourceFromRedshift_dataSourceName' - A user-supplied name or description of the @DataSource@.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'computeStatistics', 'createDataSourceFromRedshift_computeStatistics' - The compute statistics for a @DataSource@. The statistics are generated</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- be set to @true@ if the @DataSource@ needs to be used for @MLModel@</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- training.</span><span>
 </span><span id="line-160"></span><span class="hs-comment">--</span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- 'dataSourceId', 'createDataSourceFromRedshift_dataSourceId' - A user-supplied ID that uniquely identifies the @DataSource@.</span><span>
 </span><span id="line-162"></span><span class="hs-comment">--</span><span>
@@ -281,70 +281,42 @@ CreateDataSourceFromRedshift -&gt; Rep CreateDataSourceFromRedshift x
 </span><span id="line-210"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span>
 </span><span id="line-211"></span><span id="newCreateDataSourceFromRedshift"><span class="annot"><span class="annottext">newCreateDataSourceFromRedshift :: Text -&gt; RedshiftDataSpec -&gt; Text -&gt; CreateDataSourceFromRedshift
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#newCreateDataSourceFromRedshift"><span class="hs-identifier hs-var hs-var">newCreateDataSourceFromRedshift</span></a></span></span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621679259725"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259725"><span class="hs-identifier hs-var">pDataSourceId_</span></a></span></span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679259724"><span class="annot"><span class="annottext">RedshiftDataSpec
-</span><a href="#local-6989586621679259724"><span class="hs-identifier hs-var">pDataSpec_</span></a></span></span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679259723"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259723"><span class="hs-identifier hs-var">pRoleARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">CreateDataSourceFromRedshift' :: Maybe Bool
--&gt; Maybe Text
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679259821"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259821"><span class="hs-identifier hs-var">pDataSourceId_</span></a></span></span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679259820"><span class="annot"><span class="annottext">RedshiftDataSpec
+</span><a href="#local-6989586621679259820"><span class="hs-identifier hs-var">pDataSpec_</span></a></span></span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679259819"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259819"><span class="hs-identifier hs-var">pRoleARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">CreateDataSourceFromRedshift' :: Maybe Text
+-&gt; Maybe Bool
 -&gt; Text
 -&gt; RedshiftDataSpec
 -&gt; Text
 -&gt; CreateDataSourceFromRedshift
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span>
-</span><span id="line-216"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:computeStatistics:CreateDataSourceFromRedshift' :: Maybe Bool
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-216"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataSourceName:CreateDataSourceFromRedshift' :: Maybe Text
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AdataSourceName%3ACreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSourceName:CreateDataSourceFromRedshift' :: Maybe Text
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AdataSourceName%3ACreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:computeStatistics:CreateDataSourceFromRedshift' :: Maybe Bool
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromRedshift' :: Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AdataSourceId%3ACreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259725"><span class="hs-identifier hs-var">pDataSourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259821"><span class="hs-identifier hs-var">pDataSourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSpec:CreateDataSourceFromRedshift' :: RedshiftDataSpec
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AdataSpec%3ACreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var">dataSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RedshiftDataSpec
-</span><a href="#local-6989586621679259724"><span class="hs-identifier hs-var">pDataSpec_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259820"><span class="hs-identifier hs-var">pDataSpec_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleARN:CreateDataSourceFromRedshift' :: Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AroleARN%3ACreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259723"><span class="hs-identifier hs-var">pRoleARN_</span></a></span><span>
+</span><a href="#local-6989586621679259819"><span class="hs-identifier hs-var">pRoleARN_</span></a></span><span>
 </span><span id="line-222"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- | The compute statistics for a @DataSource@. The statistics are generated</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- be set to @true@ if the @DataSource@ needs to be used for @MLModel@</span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- training.</span><span>
-</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#createDataSourceFromRedshift_computeStatistics"><span class="hs-identifier hs-type">createDataSourceFromRedshift_computeStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-230"></span><span id="createDataSourceFromRedshift_computeStatistics"><span class="annot"><span class="annottext">createDataSourceFromRedshift_computeStatistics :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; CreateDataSourceFromRedshift -&gt; f CreateDataSourceFromRedshift
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#createDataSourceFromRedshift_computeStatistics"><span class="hs-identifier hs-var hs-var">createDataSourceFromRedshift_computeStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataSourceFromRedshift -&gt; Maybe Bool)
--&gt; (CreateDataSourceFromRedshift
-    -&gt; Maybe Bool -&gt; CreateDataSourceFromRedshift)
--&gt; Lens
-     CreateDataSourceFromRedshift
-     CreateDataSourceFromRedshift
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259720"><span class="annot"><span class="annottext">Maybe Bool
-computeStatistics :: Maybe Bool
-$sel:computeStatistics:CreateDataSourceFromRedshift' :: CreateDataSourceFromRedshift -&gt; Maybe Bool
-</span><a href="#local-6989586621679259720"><span class="hs-identifier hs-var hs-var">computeStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259720"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259719"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRedshift
-</span><a href="#local-6989586621679259719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259718"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRedshift
-</span><a href="#local-6989586621679259719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeStatistics:CreateDataSourceFromRedshift' :: Maybe Bool
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-231"></span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- | A user-supplied name or description of the @DataSource@.</span><span>
-</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#createDataSourceFromRedshift_dataSourceName"><span class="hs-identifier hs-type">createDataSourceFromRedshift_dataSourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-234"></span><span id="createDataSourceFromRedshift_dataSourceName"><span class="annot"><span class="annottext">createDataSourceFromRedshift_dataSourceName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-224"></span><span class="hs-comment">-- | A user-supplied name or description of the @DataSource@.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#createDataSourceFromRedshift_dataSourceName"><span class="hs-identifier hs-type">createDataSourceFromRedshift_dataSourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="createDataSourceFromRedshift_dataSourceName"><span class="annot"><span class="annottext">createDataSourceFromRedshift_dataSourceName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CreateDataSourceFromRedshift -&gt; f CreateDataSourceFromRedshift
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#createDataSourceFromRedshift_dataSourceName"><span class="hs-identifier hs-var hs-var">createDataSourceFromRedshift_dataSourceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataSourceFromRedshift -&gt; Maybe Text)
 -&gt; (CreateDataSourceFromRedshift
@@ -355,16 +327,44 @@ $sel:computeStatistics:CreateDataSourceFromRedshift' :: CreateDataSourceFromReds
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259717"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259816"><span class="annot"><span class="annottext">Maybe Text
 dataSourceName :: Maybe Text
 $sel:dataSourceName:CreateDataSourceFromRedshift' :: CreateDataSourceFromRedshift -&gt; Maybe Text
-</span><a href="#local-6989586621679259717"><span class="hs-identifier hs-var hs-var">dataSourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259717"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259716"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRedshift
-</span><a href="#local-6989586621679259716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259715"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRedshift
-</span><a href="#local-6989586621679259716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceName:CreateDataSourceFromRedshift' :: Maybe Text
+</span><a href="#local-6989586621679259816"><span class="hs-identifier hs-var hs-var">dataSourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259816"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259815"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRedshift
+</span><a href="#local-6989586621679259815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259814"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRedshift
+</span><a href="#local-6989586621679259815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceName:CreateDataSourceFromRedshift' :: Maybe Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AdataSourceName%3ACreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The compute statistics for a @DataSource@. The statistics are generated</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- be set to @true@ if the @DataSource@ needs to be used for @MLModel@</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- training.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#createDataSourceFromRedshift_computeStatistics"><span class="hs-identifier hs-type">createDataSourceFromRedshift_computeStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="createDataSourceFromRedshift_computeStatistics"><span class="annot"><span class="annottext">createDataSourceFromRedshift_computeStatistics :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateDataSourceFromRedshift -&gt; f CreateDataSourceFromRedshift
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#createDataSourceFromRedshift_computeStatistics"><span class="hs-identifier hs-var hs-var">createDataSourceFromRedshift_computeStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataSourceFromRedshift -&gt; Maybe Bool)
+-&gt; (CreateDataSourceFromRedshift
+    -&gt; Maybe Bool -&gt; CreateDataSourceFromRedshift)
+-&gt; Lens
+     CreateDataSourceFromRedshift
+     CreateDataSourceFromRedshift
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259813"><span class="annot"><span class="annottext">Maybe Bool
+computeStatistics :: Maybe Bool
+$sel:computeStatistics:CreateDataSourceFromRedshift' :: CreateDataSourceFromRedshift -&gt; Maybe Bool
+</span><a href="#local-6989586621679259813"><span class="hs-identifier hs-var hs-var">computeStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679259813"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259812"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRedshift
+</span><a href="#local-6989586621679259812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259811"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679259811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRedshift
+</span><a href="#local-6989586621679259812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeStatistics:CreateDataSourceFromRedshift' :: Maybe Bool
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679259811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the @DataSource@.</span><span>
 </span><span id="line-237"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#createDataSourceFromRedshift_dataSourceId"><span class="hs-identifier hs-type">createDataSourceFromRedshift_dataSourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -376,16 +376,16 @@ $sel:dataSourceName:CreateDataSourceFromRedshift' :: CreateDataSourceFromRedshif
 -&gt; Lens
      CreateDataSourceFromRedshift CreateDataSourceFromRedshift Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259714"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259810"><span class="annot"><span class="annottext">Text
 dataSourceId :: Text
 $sel:dataSourceId:CreateDataSourceFromRedshift' :: CreateDataSourceFromRedshift -&gt; Text
-</span><a href="#local-6989586621679259714"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259714"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259713"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRedshift
-</span><a href="#local-6989586621679259713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259712"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRedshift
-</span><a href="#local-6989586621679259713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromRedshift' :: Text
+</span><a href="#local-6989586621679259810"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259810"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259809"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRedshift
+</span><a href="#local-6989586621679259809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259808"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRedshift
+</span><a href="#local-6989586621679259809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromRedshift' :: Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AdataSourceId%3ACreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- | The data specification of an Amazon Redshift @DataSource@:</span><span>
 </span><span id="line-241"></span><span class="hs-comment">--</span><span>
@@ -430,16 +430,16 @@ $sel:dataSourceId:CreateDataSourceFromRedshift' :: CreateDataSourceFromRedshift 
      RedshiftDataSpec
      RedshiftDataSpec
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259711"><span class="annot"><span class="annottext">RedshiftDataSpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259807"><span class="annot"><span class="annottext">RedshiftDataSpec
 dataSpec :: RedshiftDataSpec
 $sel:dataSpec:CreateDataSourceFromRedshift' :: CreateDataSourceFromRedshift -&gt; RedshiftDataSpec
-</span><a href="#local-6989586621679259711"><span class="hs-identifier hs-var hs-var">dataSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDataSpec
-</span><a href="#local-6989586621679259711"><span class="hs-identifier hs-var">dataSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259710"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRedshift
-</span><a href="#local-6989586621679259710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259709"><span class="annot"><span class="annottext">RedshiftDataSpec
-</span><a href="#local-6989586621679259709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRedshift
-</span><a href="#local-6989586621679259710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSpec:CreateDataSourceFromRedshift' :: RedshiftDataSpec
+</span><a href="#local-6989586621679259807"><span class="hs-identifier hs-var hs-var">dataSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedshiftDataSpec
+</span><a href="#local-6989586621679259807"><span class="hs-identifier hs-var">dataSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259806"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRedshift
+</span><a href="#local-6989586621679259806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259805"><span class="annot"><span class="annottext">RedshiftDataSpec
+</span><a href="#local-6989586621679259805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRedshift
+</span><a href="#local-6989586621679259806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSpec:CreateDataSourceFromRedshift' :: RedshiftDataSpec
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AdataSpec%3ACreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var">dataSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RedshiftDataSpec
-</span><a href="#local-6989586621679259709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-comment">-- | A fully specified role Amazon Resource Name (ARN). Amazon ML assumes the</span><span>
 </span><span id="line-275"></span><span class="hs-comment">-- role on behalf of the user to create the following:</span><span>
@@ -458,22 +458,22 @@ $sel:dataSpec:CreateDataSourceFromRedshift' :: CreateDataSourceFromRedshift -&gt
 -&gt; Lens
      CreateDataSourceFromRedshift CreateDataSourceFromRedshift Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259708"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259804"><span class="annot"><span class="annottext">Text
 roleARN :: Text
 $sel:roleARN:CreateDataSourceFromRedshift' :: CreateDataSourceFromRedshift -&gt; Text
-</span><a href="#local-6989586621679259708"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259708"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259707"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRedshift
-</span><a href="#local-6989586621679259707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259706"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRedshift
-</span><a href="#local-6989586621679259707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:CreateDataSourceFromRedshift' :: Text
+</span><a href="#local-6989586621679259804"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259804"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259803"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRedshift
+</span><a href="#local-6989586621679259803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259802"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRedshift
+</span><a href="#local-6989586621679259803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:CreateDataSourceFromRedshift' :: Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AroleARN%3ACreateDataSourceFromRedshift%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
 </span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-286"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-287"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-288"></span><span>      </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse"><span class="hs-identifier hs-type">CreateDataSourceFromRedshiftResponse</span></a></span><span>
-</span><span id="line-289"></span><span>  </span><span id="local-6989586621679259702"><span class="annot"><span class="annottext">request :: CreateDataSourceFromRedshift
+</span><span id="line-289"></span><span>  </span><span id="local-6989586621679259798"><span class="annot"><span class="annottext">request :: CreateDataSourceFromRedshift
 -&gt; Request CreateDataSourceFromRedshift
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CreateDataSourceFromRedshift
@@ -481,7 +481,7 @@ $sel:roleARN:CreateDataSourceFromRedshift' :: CreateDataSourceFromRedshift -&gt;
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MachineLearning.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-290"></span><span>  </span><span id="local-6989586621679259698"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-290"></span><span>  </span><span id="local-6989586621679259794"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateDataSourceFromRedshift
 -&gt; ClientResponse ClientBody
@@ -507,10 +507,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-292"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259695"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259695"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259694"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679259694"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259693"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259693"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-292"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259791"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259791"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259790"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679259790"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259789"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259789"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-293"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateDataSourceFromRedshiftResponse
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse%27"><span class="hs-identifier hs-var">CreateDataSourceFromRedshiftResponse'</span></a></span><span>
 </span><span id="line-294"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateDataSourceFromRedshiftResponse)
@@ -518,7 +518,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateDataSourceFromRedshiftResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259693"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679259789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataSourceId&quot;</span></span><span class="hs-special">)</span><span>
@@ -531,17 +531,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259695"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259791"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-296"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-297"></span><span>
 </span><span id="line-298"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-299"></span><span>  </span><span id="local-6989586621679259685"><span id="local-6989586621679259687"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-299"></span><span>  </span><span id="local-6989586621679259781"><span id="local-6989586621679259783"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-300"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span></span></span><span>
 </span><span id="line-301"></span><span>
-</span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259682"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span></span><span>
+</span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259778"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span></span><span>
 </span><span id="line-303"></span><span>
 </span><span id="line-304"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-305"></span><span>  </span><span id="local-6989586621679259678"><span class="annot"><span class="annottext">toHeaders :: CreateDataSourceFromRedshift -&gt; ResponseHeaders
+</span><span id="line-305"></span><span>  </span><span id="local-6989586621679259774"><span class="annot"><span class="annottext">toHeaders :: CreateDataSourceFromRedshift -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-306"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDataSourceFromRedshift -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -568,77 +568,77 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-316"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-317"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-318"></span><span>
-</span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259668"><span id="local-6989586621679259670"><span id="local-6989586621679259672"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-320"></span><span>  </span><span id="local-6989586621679259666"><span class="annot"><span class="annottext">toJSON :: CreateDataSourceFromRedshift -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259660"><span id="local-6989586621679259661"><span id="local-6989586621679259662"><span id="local-6989586621679259663"><span id="local-6989586621679259664"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259764"><span id="local-6989586621679259766"><span id="local-6989586621679259768"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-320"></span><span>  </span><span id="local-6989586621679259762"><span class="annot"><span class="annottext">toJSON :: CreateDataSourceFromRedshift -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259756"><span id="local-6989586621679259757"><span id="local-6989586621679259758"><span id="local-6989586621679259759"><span id="local-6989586621679259760"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 RedshiftDataSpec
 roleARN :: Text
 dataSpec :: RedshiftDataSpec
 dataSourceId :: Text
-dataSourceName :: Maybe Text
 computeStatistics :: Maybe Bool
+dataSourceName :: Maybe Text
 $sel:roleARN:CreateDataSourceFromRedshift' :: CreateDataSourceFromRedshift -&gt; Text
 $sel:dataSpec:CreateDataSourceFromRedshift' :: CreateDataSourceFromRedshift -&gt; RedshiftDataSpec
 $sel:dataSourceId:CreateDataSourceFromRedshift' :: CreateDataSourceFromRedshift -&gt; Text
-$sel:dataSourceName:CreateDataSourceFromRedshift' :: CreateDataSourceFromRedshift -&gt; Maybe Text
 $sel:computeStatistics:CreateDataSourceFromRedshift' :: CreateDataSourceFromRedshift -&gt; Maybe Bool
-</span><a href="#local-6989586621679259660"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:dataSourceName:CreateDataSourceFromRedshift' :: CreateDataSourceFromRedshift -&gt; Maybe Text
+</span><a href="#local-6989586621679259756"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-321"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-322"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-323"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ComputeStatistics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-324"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259664"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-325"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataSourceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-326"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span id="line-324"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259663"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259760"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComputeStatistics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679259759"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-327"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataSourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259662"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259758"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-328"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataSpec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RedshiftDataSpec -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RedshiftDataSpec
-</span><a href="#local-6989586621679259661"><span class="hs-identifier hs-var">dataSpec</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259757"><span class="hs-identifier hs-var">dataSpec</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-329"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259660"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259756"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-330"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-331"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-332"></span><span>
 </span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-334"></span><span>  </span><span id="local-6989586621679259654"><span class="annot"><span class="annottext">toPath :: CreateDataSourceFromRedshift -&gt; ByteString
+</span><span id="line-334"></span><span>  </span><span id="local-6989586621679259750"><span class="annot"><span class="annottext">toPath :: CreateDataSourceFromRedshift -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDataSourceFromRedshift -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-335"></span><span>
 </span><span id="line-336"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshift"><span class="hs-identifier hs-type">CreateDataSourceFromRedshift</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-337"></span><span>  </span><span id="local-6989586621679259650"><span class="annot"><span class="annottext">toQuery :: CreateDataSourceFromRedshift -&gt; QueryString
+</span><span id="line-337"></span><span>  </span><span id="local-6989586621679259746"><span class="annot"><span class="annottext">toQuery :: CreateDataSourceFromRedshift -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDataSourceFromRedshift -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -653,7 +653,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-344"></span><span class="hs-comment">-- checking the @Status@ parameter.</span><span>
 </span><span id="line-345"></span><span class="hs-comment">--</span><span>
 </span><span id="line-346"></span><span class="hs-comment">-- /See:/ 'newCreateDataSourceFromRedshiftResponse' smart constructor.</span><span>
-</span><span id="line-347"></span><span id="local-6989586621679259647"><span id="local-6989586621679259648"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDataSourceFromRedshiftResponse"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse"><span class="hs-identifier hs-var">CreateDataSourceFromRedshiftResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDataSourceFromRedshiftResponse%27"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse%27"><span class="hs-identifier hs-var">CreateDataSourceFromRedshiftResponse'</span></a></span></span><span>
+</span><span id="line-347"></span><span id="local-6989586621679259743"><span id="local-6989586621679259744"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDataSourceFromRedshiftResponse"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse"><span class="hs-identifier hs-var">CreateDataSourceFromRedshiftResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDataSourceFromRedshiftResponse%27"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse%27"><span class="hs-identifier hs-var">CreateDataSourceFromRedshiftResponse'</span></a></span></span><span>
 </span><span id="line-348"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the datasource. This value</span><span>
 </span><span id="line-349"></span><span>    </span><span class="hs-comment">-- should be identical to the value of the @DataSourceID@ in the request.</span><span>
 </span><span id="line-350"></span><span>    </span><span id="%24sel%3AdataSourceId%3ACreateDataSourceFromRedshiftResponse%27"><span class="annot"><span class="annottext">CreateDataSourceFromRedshiftResponse -&gt; Maybe Text
@@ -662,7 +662,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-352"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDataSourceFromRedshiftResponse%27"><span class="annot"><span class="annottext">CreateDataSourceFromRedshiftResponse -&gt; Int
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AhttpStatus%3ACreateDataSourceFromRedshiftResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-353"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-354"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259641"><span id="local-6989586621679259643"><span class="annot"><span class="annottext">CreateDataSourceFromRedshiftResponse
+</span><span id="line-354"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259737"><span id="local-6989586621679259739"><span class="annot"><span class="annottext">CreateDataSourceFromRedshiftResponse
 -&gt; CreateDataSourceFromRedshiftResponse -&gt; Bool
 (CreateDataSourceFromRedshiftResponse
  -&gt; CreateDataSourceFromRedshiftResponse -&gt; Bool)
@@ -678,7 +678,7 @@ $c/= :: CreateDataSourceFromRedshiftResponse
 -&gt; CreateDataSourceFromRedshiftResponse -&gt; Bool
 $c== :: CreateDataSourceFromRedshiftResponse
 -&gt; CreateDataSourceFromRedshiftResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259633"><span id="local-6989586621679259635"><span id="local-6989586621679259637"><span id="local-6989586621679259639"><span class="annot"><span class="annottext">ReadPrec [CreateDataSourceFromRedshiftResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259729"><span id="local-6989586621679259731"><span id="local-6989586621679259733"><span id="local-6989586621679259735"><span class="annot"><span class="annottext">ReadPrec [CreateDataSourceFromRedshiftResponse]
 ReadPrec CreateDataSourceFromRedshiftResponse
 Int -&gt; ReadS CreateDataSourceFromRedshiftResponse
 ReadS [CreateDataSourceFromRedshiftResponse]
@@ -698,7 +698,7 @@ readList :: ReadS [CreateDataSourceFromRedshiftResponse]
 $creadList :: ReadS [CreateDataSourceFromRedshiftResponse]
 readsPrec :: Int -&gt; ReadS CreateDataSourceFromRedshiftResponse
 $creadsPrec :: Int -&gt; ReadS CreateDataSourceFromRedshiftResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259627"><span id="local-6989586621679259629"><span id="local-6989586621679259631"><span class="annot"><span class="annottext">Int -&gt; CreateDataSourceFromRedshiftResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259723"><span id="local-6989586621679259725"><span id="local-6989586621679259727"><span class="annot"><span class="annottext">Int -&gt; CreateDataSourceFromRedshiftResponse -&gt; ShowS
 [CreateDataSourceFromRedshiftResponse] -&gt; ShowS
 CreateDataSourceFromRedshiftResponse -&gt; String
 (Int -&gt; CreateDataSourceFromRedshiftResponse -&gt; ShowS)
@@ -753,8 +753,8 @@ CreateDataSourceFromRedshiftResponse
 </span><span id="line-370"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-371"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse"><span class="hs-identifier hs-type">CreateDataSourceFromRedshiftResponse</span></a></span><span>
 </span><span id="line-372"></span><span id="newCreateDataSourceFromRedshiftResponse"><span class="annot"><span class="annottext">newCreateDataSourceFromRedshiftResponse :: Int -&gt; CreateDataSourceFromRedshiftResponse
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#newCreateDataSourceFromRedshiftResponse"><span class="hs-identifier hs-var hs-var">newCreateDataSourceFromRedshiftResponse</span></a></span></span><span> </span><span id="local-6989586621679259624"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259624"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#newCreateDataSourceFromRedshiftResponse"><span class="hs-identifier hs-var hs-var">newCreateDataSourceFromRedshiftResponse</span></a></span></span><span> </span><span id="local-6989586621679259720"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259720"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-373"></span><span>  </span><span class="annot"><span class="annottext">CreateDataSourceFromRedshiftResponse' :: Maybe Text -&gt; Int -&gt; CreateDataSourceFromRedshiftResponse
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshiftResponse'</span></a></span><span>
 </span><span id="line-374"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromRedshiftResponse' :: Maybe Text
@@ -764,7 +764,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-376"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDataSourceFromRedshiftResponse' :: Int
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AhttpStatus%3ACreateDataSourceFromRedshiftResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259624"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679259720"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-377"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-378"></span><span>
 </span><span id="line-379"></span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the datasource. This value</span><span>
@@ -782,16 +782,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshiftResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259623"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshiftResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259719"><span class="annot"><span class="annottext">Maybe Text
 dataSourceId :: Maybe Text
 $sel:dataSourceId:CreateDataSourceFromRedshiftResponse' :: CreateDataSourceFromRedshiftResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679259623"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259623"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259622"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRedshiftResponse
-</span><a href="#local-6989586621679259622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshiftResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259621"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRedshiftResponse
-</span><a href="#local-6989586621679259622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromRedshiftResponse' :: Maybe Text
+</span><a href="#local-6989586621679259719"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259719"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259718"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRedshiftResponse
+</span><a href="#local-6989586621679259718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshiftResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259717"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRedshiftResponse
+</span><a href="#local-6989586621679259718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromRedshiftResponse' :: Maybe Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AdataSourceId%3ACreateDataSourceFromRedshiftResponse%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse"><span class="hs-identifier hs-type">CreateDataSourceFromRedshiftResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse"><span class="hs-identifier hs-type">CreateDataSourceFromRedshiftResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-383"></span><span>
 </span><span id="line-384"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-385"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#createDataSourceFromRedshiftResponse_httpStatus"><span class="hs-identifier hs-type">createDataSourceFromRedshiftResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse"><span class="hs-identifier hs-type">CreateDataSourceFromRedshiftResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -807,18 +807,18 @@ $sel:dataSourceId:CreateDataSourceFromRedshiftResponse' :: CreateDataSourceFromR
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshiftResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259620"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshiftResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259716"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateDataSourceFromRedshiftResponse' :: CreateDataSourceFromRedshiftResponse -&gt; Int
-</span><a href="#local-6989586621679259620"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259620"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259619"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRedshiftResponse
-</span><a href="#local-6989586621679259619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshiftResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259618"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRedshiftResponse
-</span><a href="#local-6989586621679259619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDataSourceFromRedshiftResponse' :: Int
+</span><a href="#local-6989586621679259716"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259716"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259715"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRedshiftResponse
+</span><a href="#local-6989586621679259715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromRedshiftResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259714"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRedshiftResponse
+</span><a href="#local-6989586621679259715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDataSourceFromRedshiftResponse' :: Int
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#%24sel%3AhttpStatus%3ACreateDataSourceFromRedshiftResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse"><span class="hs-identifier hs-type">CreateDataSourceFromRedshiftResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse"><span class="hs-identifier hs-type">CreateDataSourceFromRedshiftResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-387"></span><span>
 </span><span id="line-388"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-389"></span><span>  </span><span id="local-6989586621679259616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-389"></span><span>  </span><span id="local-6989586621679259712"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-390"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRedshift.html#CreateDataSourceFromRedshiftResponse"><span class="hs-identifier hs-type">CreateDataSourceFromRedshiftResponse</span></a></span></span><span>
 </span><span id="line-391"></span></pre></body></html>

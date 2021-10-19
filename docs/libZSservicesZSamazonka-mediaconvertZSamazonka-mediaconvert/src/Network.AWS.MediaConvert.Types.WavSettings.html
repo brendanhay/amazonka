@@ -28,27 +28,27 @@
 </span><span id="line-28"></span><span class="hs-comment">-- to the value WAV.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newWavSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680010447"><span id="local-6989586621680010448"></span></span><span class="hs-keyword">data</span><span> </span><span id="WavSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-var">WavSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WavSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-var">WavSettings'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The service defaults to using RIFF for WAV outputs. If your output audio</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- is likely to exceed 4 GB in file size, or if you otherwise need the</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- extended support of the RF64 format, set your output WAV file format to</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- RF64.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aformat%3AWavSettings%27"><span class="annot"><span class="annottext">WavSettings -&gt; Maybe WavFormat
-</span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#%24sel%3Aformat%3AWavSettings%27"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavFormat.html#WavFormat"><span class="hs-identifier hs-type">WavFormat</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Specify the number of channels in this output audio track. Valid values</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- to 64.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Achannels%3AWavSettings%27"><span class="annot"><span class="annottext">WavSettings -&gt; Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#%24sel%3Achannels%3AWavSettings%27"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Specify Bit depth (BitDepth), in bits per sample, to choose the encoding</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- quality for this audio track.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AbitDepth%3AWavSettings%27"><span class="annot"><span class="annottext">WavSettings -&gt; Maybe Natural
+</span><span id="line-31"></span><span id="local-6989586621680015381"><span id="local-6989586621680015382"></span></span><span class="hs-keyword">data</span><span> </span><span id="WavSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-var">WavSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WavSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-var">WavSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify Bit depth (BitDepth), in bits per sample, to choose the encoding</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- quality for this audio track.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AbitDepth%3AWavSettings%27"><span class="annot"><span class="annottext">WavSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#%24sel%3AbitDepth%3AWavSettings%27"><span class="hs-identifier hs-var hs-var">bitDepth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Specify the number of channels in this output audio track. Valid values</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- to 64.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Achannels%3AWavSettings%27"><span class="annot"><span class="annottext">WavSettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#%24sel%3Achannels%3AWavSettings%27"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The service defaults to using RIFF for WAV outputs. If your output audio</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- is likely to exceed 4 GB in file size, or if you otherwise need the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- extended support of the RF64 format, set your output WAV file format to</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- RF64.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aformat%3AWavSettings%27"><span class="annot"><span class="annottext">WavSettings -&gt; Maybe WavFormat
+</span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#%24sel%3Aformat%3AWavSettings%27"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavFormat.html#WavFormat"><span class="hs-identifier hs-type">WavFormat</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Sample rate in Hz.</span><span>
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AsampleRate%3AWavSettings%27"><span class="annot"><span class="annottext">WavSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#%24sel%3AsampleRate%3AWavSettings%27"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680010438"><span id="local-6989586621680010440"><span class="annot"><span class="annottext">WavSettings -&gt; WavSettings -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680015372"><span id="local-6989586621680015374"><span class="annot"><span class="annottext">WavSettings -&gt; WavSettings -&gt; Bool
 (WavSettings -&gt; WavSettings -&gt; Bool)
 -&gt; (WavSettings -&gt; WavSettings -&gt; Bool) -&gt; Eq WavSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WavSettings -&gt; WavSettings -&gt; Bool
 == :: WavSettings -&gt; WavSettings -&gt; Bool
 $c== :: WavSettings -&gt; WavSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680010429"><span id="local-6989586621680010431"><span id="local-6989586621680010433"><span id="local-6989586621680010435"><span class="annot"><span class="annottext">ReadPrec [WavSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680015363"><span id="local-6989586621680015365"><span id="local-6989586621680015367"><span id="local-6989586621680015369"><span class="annot"><span class="annottext">ReadPrec [WavSettings]
 ReadPrec WavSettings
 Int -&gt; ReadS WavSettings
 ReadS [WavSettings]
@@ -76,7 +76,7 @@ readList :: ReadS [WavSettings]
 $creadList :: ReadS [WavSettings]
 readsPrec :: Int -&gt; ReadS WavSettings
 $creadsPrec :: Int -&gt; ReadS WavSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680010422"><span id="local-6989586621680010424"><span id="local-6989586621680010426"><span class="annot"><span class="annottext">Int -&gt; WavSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680015356"><span id="local-6989586621680015358"><span id="local-6989586621680015360"><span class="annot"><span class="annottext">Int -&gt; WavSettings -&gt; ShowS
 [WavSettings] -&gt; ShowS
 WavSettings -&gt; String
 (Int -&gt; WavSettings -&gt; ShowS)
@@ -110,36 +110,36 @@ $cfrom :: forall x. WavSettings -&gt; Rep WavSettings x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'format', 'wavSettings_format' - The service defaults to using RIFF for WAV outputs. If your output audio</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- is likely to exceed 4 GB in file size, or if you otherwise need the</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- extended support of the RF64 format, set your output WAV file format to</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- RF64.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'channels', 'wavSettings_channels' - Specify the number of channels in this output audio track. Valid values</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- to 64.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'bitDepth', 'wavSettings_bitDepth' - Specify Bit depth (BitDepth), in bits per sample, to choose the encoding</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- quality for this audio track.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'bitDepth', 'wavSettings_bitDepth' - Specify Bit depth (BitDepth), in bits per sample, to choose the encoding</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- quality for this audio track.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'channels', 'wavSettings_channels' - Specify the number of channels in this output audio track. Valid values</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- to 64.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'format', 'wavSettings_format' - The service defaults to using RIFF for WAV outputs. If your output audio</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- is likely to exceed 4 GB in file size, or if you otherwise need the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- extended support of the RF64 format, set your output WAV file format to</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- RF64.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- 'sampleRate', 'wavSettings_sampleRate' - Sample rate in Hz.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#newWavSettings"><span class="hs-identifier hs-type">newWavSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span><span>
 </span><span id="line-72"></span><span id="newWavSettings"><span class="annot"><span class="annottext">newWavSettings :: WavSettings
 </span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#newWavSettings"><span class="hs-identifier hs-var hs-var">newWavSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">WavSettings' :: Maybe WavFormat
--&gt; Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; WavSettings
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">WavSettings' :: Maybe Natural
+-&gt; Maybe Natural -&gt; Maybe WavFormat -&gt; Maybe Natural -&gt; WavSettings
 </span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:format:WavSettings' :: Maybe WavFormat
-</span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#%24sel%3Aformat%3AWavSettings%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WavFormat
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bitDepth:WavSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#%24sel%3AbitDepth%3AWavSettings%27"><span class="hs-identifier hs-var">bitDepth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:channels:WavSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#%24sel%3Achannels%3AWavSettings%27"><span class="hs-identifier hs-var">channels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:bitDepth:WavSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#%24sel%3AbitDepth%3AWavSettings%27"><span class="hs-identifier hs-var">bitDepth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:format:WavSettings' :: Maybe WavFormat
+</span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#%24sel%3Aformat%3AWavSettings%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WavFormat
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:sampleRate:WavSettings' :: Maybe Natural
@@ -148,68 +148,68 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The service defaults to using RIFF for WAV outputs. If your output audio</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- is likely to exceed 4 GB in file size, or if you otherwise need the</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- extended support of the RF64 format, set your output WAV file format to</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- RF64.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#wavSettings_format"><span class="hs-identifier hs-type">wavSettings_format</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavFormat.html#WavFormat"><span class="hs-identifier hs-type">WavFormat</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="wavSettings_format"><span class="annot"><span class="annottext">wavSettings_format :: (Maybe WavFormat -&gt; f (Maybe WavFormat))
--&gt; WavSettings -&gt; f WavSettings
-</span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#wavSettings_format"><span class="hs-identifier hs-var hs-var">wavSettings_format</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WavSettings -&gt; Maybe WavFormat)
--&gt; (WavSettings -&gt; Maybe WavFormat -&gt; WavSettings)
--&gt; Lens WavSettings WavSettings (Maybe WavFormat) (Maybe WavFormat)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680010413"><span class="annot"><span class="annottext">Maybe WavFormat
-format :: Maybe WavFormat
-$sel:format:WavSettings' :: WavSettings -&gt; Maybe WavFormat
-</span><a href="#local-6989586621680010413"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WavFormat
-</span><a href="#local-6989586621680010413"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680010412"><span class="annot"><span class="annottext">s :: WavSettings
-</span><a href="#local-6989586621680010412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680010411"><span class="annot"><span class="annottext">Maybe WavFormat
-</span><a href="#local-6989586621680010411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WavSettings
-</span><a href="#local-6989586621680010412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:WavSettings' :: Maybe WavFormat
-</span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#%24sel%3Aformat%3AWavSettings%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WavFormat
-</span><a href="#local-6989586621680010411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | Specify the number of channels in this output audio track. Valid values</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- to 64.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#wavSettings_channels"><span class="hs-identifier hs-type">wavSettings_channels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="wavSettings_channels"><span class="annot"><span class="annottext">wavSettings_channels :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; WavSettings -&gt; f WavSettings
-</span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#wavSettings_channels"><span class="hs-identifier hs-var hs-var">wavSettings_channels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WavSettings -&gt; Maybe Natural)
--&gt; (WavSettings -&gt; Maybe Natural -&gt; WavSettings)
--&gt; Lens WavSettings WavSettings (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680010409"><span class="annot"><span class="annottext">Maybe Natural
-channels :: Maybe Natural
-$sel:channels:WavSettings' :: WavSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621680010409"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680010409"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680010408"><span class="annot"><span class="annottext">s :: WavSettings
-</span><a href="#local-6989586621680010408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680010407"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680010407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WavSettings
-</span><a href="#local-6989586621680010408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channels:WavSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#%24sel%3Achannels%3AWavSettings%27"><span class="hs-identifier hs-var">channels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680010407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | Specify Bit depth (BitDepth), in bits per sample, to choose the encoding</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- quality for this audio track.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#wavSettings_bitDepth"><span class="hs-identifier hs-type">wavSettings_bitDepth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="wavSettings_bitDepth"><span class="annot"><span class="annottext">wavSettings_bitDepth :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-80"></span><span class="hs-comment">-- | Specify Bit depth (BitDepth), in bits per sample, to choose the encoding</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- quality for this audio track.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#wavSettings_bitDepth"><span class="hs-identifier hs-type">wavSettings_bitDepth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="wavSettings_bitDepth"><span class="annot"><span class="annottext">wavSettings_bitDepth :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; WavSettings -&gt; f WavSettings
 </span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#wavSettings_bitDepth"><span class="hs-identifier hs-var hs-var">wavSettings_bitDepth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WavSettings -&gt; Maybe Natural)
 -&gt; (WavSettings -&gt; Maybe Natural -&gt; WavSettings)
 -&gt; Lens WavSettings WavSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680010405"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680015347"><span class="annot"><span class="annottext">Maybe Natural
 bitDepth :: Maybe Natural
 $sel:bitDepth:WavSettings' :: WavSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621680010405"><span class="hs-identifier hs-var hs-var">bitDepth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680010405"><span class="hs-identifier hs-var">bitDepth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680010404"><span class="annot"><span class="annottext">s :: WavSettings
-</span><a href="#local-6989586621680010404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680010403"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680010403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WavSettings
-</span><a href="#local-6989586621680010404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitDepth:WavSettings' :: Maybe Natural
+</span><a href="#local-6989586621680015347"><span class="hs-identifier hs-var hs-var">bitDepth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680015347"><span class="hs-identifier hs-var">bitDepth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680015346"><span class="annot"><span class="annottext">s :: WavSettings
+</span><a href="#local-6989586621680015346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680015345"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680015345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WavSettings
+</span><a href="#local-6989586621680015346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitDepth:WavSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#%24sel%3AbitDepth%3AWavSettings%27"><span class="hs-identifier hs-var">bitDepth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680010403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680015345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Specify the number of channels in this output audio track. Valid values</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- to 64.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#wavSettings_channels"><span class="hs-identifier hs-type">wavSettings_channels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="wavSettings_channels"><span class="annot"><span class="annottext">wavSettings_channels :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; WavSettings -&gt; f WavSettings
+</span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#wavSettings_channels"><span class="hs-identifier hs-var hs-var">wavSettings_channels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WavSettings -&gt; Maybe Natural)
+-&gt; (WavSettings -&gt; Maybe Natural -&gt; WavSettings)
+-&gt; Lens WavSettings WavSettings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680015343"><span class="annot"><span class="annottext">Maybe Natural
+channels :: Maybe Natural
+$sel:channels:WavSettings' :: WavSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621680015343"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680015343"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680015342"><span class="annot"><span class="annottext">s :: WavSettings
+</span><a href="#local-6989586621680015342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680015341"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680015341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WavSettings
+</span><a href="#local-6989586621680015342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channels:WavSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#%24sel%3Achannels%3AWavSettings%27"><span class="hs-identifier hs-var">channels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680015341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The service defaults to using RIFF for WAV outputs. If your output audio</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- is likely to exceed 4 GB in file size, or if you otherwise need the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- extended support of the RF64 format, set your output WAV file format to</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- RF64.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#wavSettings_format"><span class="hs-identifier hs-type">wavSettings_format</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavFormat.html#WavFormat"><span class="hs-identifier hs-type">WavFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="wavSettings_format"><span class="annot"><span class="annottext">wavSettings_format :: (Maybe WavFormat -&gt; f (Maybe WavFormat))
+-&gt; WavSettings -&gt; f WavSettings
+</span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#wavSettings_format"><span class="hs-identifier hs-var hs-var">wavSettings_format</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WavSettings -&gt; Maybe WavFormat)
+-&gt; (WavSettings -&gt; Maybe WavFormat -&gt; WavSettings)
+-&gt; Lens WavSettings WavSettings (Maybe WavFormat) (Maybe WavFormat)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680015339"><span class="annot"><span class="annottext">Maybe WavFormat
+format :: Maybe WavFormat
+$sel:format:WavSettings' :: WavSettings -&gt; Maybe WavFormat
+</span><a href="#local-6989586621680015339"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WavFormat
+</span><a href="#local-6989586621680015339"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680015338"><span class="annot"><span class="annottext">s :: WavSettings
+</span><a href="#local-6989586621680015338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680015337"><span class="annot"><span class="annottext">Maybe WavFormat
+</span><a href="#local-6989586621680015337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WavSettings
+</span><a href="#local-6989586621680015338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:WavSettings' :: Maybe WavFormat
+</span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#%24sel%3Aformat%3AWavSettings%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WavFormat
+</span><a href="#local-6989586621680015337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | Sample rate in Hz.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#wavSettings_sampleRate"><span class="hs-identifier hs-type">wavSettings_sampleRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -219,19 +219,19 @@ $sel:bitDepth:WavSettings' :: WavSettings -&gt; Maybe Natural
 -&gt; (WavSettings -&gt; Maybe Natural -&gt; WavSettings)
 -&gt; Lens WavSettings WavSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680010401"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680015335"><span class="annot"><span class="annottext">Maybe Natural
 sampleRate :: Maybe Natural
 $sel:sampleRate:WavSettings' :: WavSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621680010401"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680010401"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680010400"><span class="annot"><span class="annottext">s :: WavSettings
-</span><a href="#local-6989586621680010400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680010399"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680010399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WavSettings
-</span><a href="#local-6989586621680010400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRate:WavSettings' :: Maybe Natural
+</span><a href="#local-6989586621680015335"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680015335"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680015334"><span class="annot"><span class="annottext">s :: WavSettings
+</span><a href="#local-6989586621680015334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680015333"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680015333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WavSettings
+</span><a href="#local-6989586621680015334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRate:WavSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#%24sel%3AsampleRate%3AWavSettings%27"><span class="hs-identifier hs-var">sampleRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680010399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680015333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680010396"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621680010394"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WavSettings
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680015330"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621680015328"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WavSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser WavSettings) -&gt; Value -&gt; Parser WavSettings
@@ -239,100 +239,104 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WavSettings&quot;</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680010391"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680010391"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe WavFormat
--&gt; Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; WavSettings
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680015325"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680015325"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe Natural -&gt; Maybe WavFormat -&gt; Maybe Natural -&gt; WavSettings
 </span><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-var">WavSettings'</span></a></span><span>
-</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe WavFormat
- -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; WavSettings)
--&gt; Parser (Maybe WavFormat)
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe WavFormat
+ -&gt; Maybe Natural
+ -&gt; WavSettings)
+-&gt; Parser (Maybe Natural)
 -&gt; Parser
-     (Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; WavSettings)
+     (Maybe Natural -&gt; Maybe WavFormat -&gt; Maybe Natural -&gt; WavSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680010391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WavFormat)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;format&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; WavSettings)
--&gt; Parser (Maybe Natural)
--&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; WavSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680010391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;channels&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Natural -&gt; WavSettings)
--&gt; Parser (Maybe Natural) -&gt; Parser (Maybe Natural -&gt; WavSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680010391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680015325"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bitDepth&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural -&gt; Maybe WavFormat -&gt; Maybe Natural -&gt; WavSettings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe WavFormat -&gt; Maybe Natural -&gt; WavSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680015325"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;channels&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe WavFormat -&gt; Maybe Natural -&gt; WavSettings)
+-&gt; Parser (Maybe WavFormat)
+-&gt; Parser (Maybe Natural -&gt; WavSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680015325"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WavFormat)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;format&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; WavSettings)
 -&gt; Parser (Maybe Natural) -&gt; Parser WavSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680010391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680015325"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sampleRate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680010385"><span id="local-6989586621680010387"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680015319"><span id="local-6989586621680015321"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680010382"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680015316"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680010374"><span id="local-6989586621680010376"><span id="local-6989586621680010378"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621680010372"><span class="annot"><span class="annottext">toJSON :: WavSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680010367"><span id="local-6989586621680010368"><span id="local-6989586621680010369"><span id="local-6989586621680010370"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680015308"><span id="local-6989586621680015310"><span id="local-6989586621680015312"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings"><span class="hs-identifier hs-type">WavSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621680015306"><span class="annot"><span class="annottext">toJSON :: WavSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavSettings.html#WavSettings%27"><span class="hs-identifier hs-type">WavSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680015301"><span id="local-6989586621680015302"><span id="local-6989586621680015303"><span id="local-6989586621680015304"><span class="annot"><span class="annottext">Maybe Natural
 Maybe WavFormat
 sampleRate :: Maybe Natural
-bitDepth :: Maybe Natural
-channels :: Maybe Natural
 format :: Maybe WavFormat
+channels :: Maybe Natural
+bitDepth :: Maybe Natural
 $sel:sampleRate:WavSettings' :: WavSettings -&gt; Maybe Natural
-$sel:bitDepth:WavSettings' :: WavSettings -&gt; Maybe Natural
-$sel:channels:WavSettings' :: WavSettings -&gt; Maybe Natural
 $sel:format:WavSettings' :: WavSettings -&gt; Maybe WavFormat
-</span><a href="#local-6989586621680010367"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:channels:WavSettings' :: WavSettings -&gt; Maybe Natural
+$sel:bitDepth:WavSettings' :: WavSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621680015301"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;format&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WavFormat -&gt; Pair
+</span><span class="hs-string">&quot;bitDepth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(WavFormat -&gt; Pair) -&gt; Maybe WavFormat -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WavFormat
-</span><a href="#local-6989586621680010370"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680015304"><span class="hs-identifier hs-var">bitDepth</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;channels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680010369"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680015303"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;bitDepth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+</span><span class="hs-string">&quot;format&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WavFormat -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(WavFormat -&gt; Pair) -&gt; Maybe WavFormat -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680010368"><span class="hs-identifier hs-var">bitDepth</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WavFormat
+</span><a href="#local-6989586621680015302"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sampleRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680010367"><span class="hs-identifier hs-var">sampleRate</span></a></span><span>
+</span><a href="#local-6989586621680015301"><span class="hs-identifier hs-var">sampleRate</span></a></span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span></pre></body></html>

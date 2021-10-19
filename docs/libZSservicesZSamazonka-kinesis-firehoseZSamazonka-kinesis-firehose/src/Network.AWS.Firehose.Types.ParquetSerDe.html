@@ -30,29 +30,29 @@
 </span><span id="line-30"></span><span class="hs-comment">-- &lt;https://parquet.apache.org/documentation/latest/ Apache Parquet&gt;.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newParquetSerDe' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679260170"><span id="local-6989586621679260171"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParquetSerDe"><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-var">ParquetSerDe</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParquetSerDe%27"><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-var">ParquetSerDe'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Parquet page size. Column chunks are divided into pages. A page is</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- conceptually an indivisible unit (in terms of compression and encoding).</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- The minimum value is 64 KiB and the default is 1 MiB.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3ApageSizeBytes%3AParquetSerDe%27"><span class="annot"><span class="annottext">ParquetSerDe -&gt; Maybe Natural
-</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3ApageSizeBytes%3AParquetSerDe%27"><span class="hs-identifier hs-var hs-var">pageSizeBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Indicates whether to enable dictionary compression.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AenableDictionaryCompression%3AParquetSerDe%27"><span class="annot"><span class="annottext">ParquetSerDe -&gt; Maybe Bool
-</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3AenableDictionaryCompression%3AParquetSerDe%27"><span class="hs-identifier hs-var hs-var">enableDictionaryCompression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The maximum amount of padding to apply. This is useful if you intend to</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- copy the data from Amazon S3 to HDFS before querying. The default is 0.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AmaxPaddingBytes%3AParquetSerDe%27"><span class="annot"><span class="annottext">ParquetSerDe -&gt; Maybe Natural
-</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3AmaxPaddingBytes%3AParquetSerDe%27"><span class="hs-identifier hs-var hs-var">maxPaddingBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The compression code to use over data blocks. The possible values are</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- @UNCOMPRESSED@, @SNAPPY@, and @GZIP@, with the default being @SNAPPY@.</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Use @SNAPPY@ for higher decompression speed. Use @GZIP@ if the</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- compression ratio is more important than speed.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Acompression%3AParquetSerDe%27"><span class="annot"><span class="annottext">ParquetSerDe -&gt; Maybe ParquetCompression
-</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3Acompression%3AParquetSerDe%27"><span class="hs-identifier hs-var hs-var">compression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetCompression.html#ParquetCompression"><span class="hs-identifier hs-type">ParquetCompression</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Indicates the version of row format to output. The possible values are</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- @V1@ and @V2@. The default is @V1@.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AwriterVersion%3AParquetSerDe%27"><span class="annot"><span class="annottext">ParquetSerDe -&gt; Maybe ParquetWriterVersion
+</span><span id="line-33"></span><span id="local-6989586621679274396"><span id="local-6989586621679274397"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParquetSerDe"><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-var">ParquetSerDe</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParquetSerDe%27"><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-var">ParquetSerDe'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates the version of row format to output. The possible values are</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- @V1@ and @V2@. The default is @V1@.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AwriterVersion%3AParquetSerDe%27"><span class="annot"><span class="annottext">ParquetSerDe -&gt; Maybe ParquetWriterVersion
 </span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3AwriterVersion%3AParquetSerDe%27"><span class="hs-identifier hs-var hs-var">writerVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetWriterVersion.html#ParquetWriterVersion"><span class="hs-identifier hs-type">ParquetWriterVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The compression code to use over data blocks. The possible values are</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @UNCOMPRESSED@, @SNAPPY@, and @GZIP@, with the default being @SNAPPY@.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Use @SNAPPY@ for higher decompression speed. Use @GZIP@ if the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- compression ratio is more important than speed.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Acompression%3AParquetSerDe%27"><span class="annot"><span class="annottext">ParquetSerDe -&gt; Maybe ParquetCompression
+</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3Acompression%3AParquetSerDe%27"><span class="hs-identifier hs-var hs-var">compression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetCompression.html#ParquetCompression"><span class="hs-identifier hs-type">ParquetCompression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The maximum amount of padding to apply. This is useful if you intend to</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- copy the data from Amazon S3 to HDFS before querying. The default is 0.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AmaxPaddingBytes%3AParquetSerDe%27"><span class="annot"><span class="annottext">ParquetSerDe -&gt; Maybe Natural
+</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3AmaxPaddingBytes%3AParquetSerDe%27"><span class="hs-identifier hs-var hs-var">maxPaddingBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Indicates whether to enable dictionary compression.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AenableDictionaryCompression%3AParquetSerDe%27"><span class="annot"><span class="annottext">ParquetSerDe -&gt; Maybe Bool
+</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3AenableDictionaryCompression%3AParquetSerDe%27"><span class="hs-identifier hs-var hs-var">enableDictionaryCompression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The Parquet page size. Column chunks are divided into pages. A page is</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- conceptually an indivisible unit (in terms of compression and encoding).</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- The minimum value is 64 KiB and the default is 1 MiB.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3ApageSizeBytes%3AParquetSerDe%27"><span class="annot"><span class="annottext">ParquetSerDe -&gt; Maybe Natural
+</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3ApageSizeBytes%3AParquetSerDe%27"><span class="hs-identifier hs-var hs-var">pageSizeBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The Hadoop Distributed File System (HDFS) block size. This is useful if</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- you intend to copy the data from Amazon S3 to HDFS before querying. The</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AblockSizeBytes%3AParquetSerDe%27"><span class="annot"><span class="annottext">ParquetSerDe -&gt; Maybe Natural
 </span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3AblockSizeBytes%3AParquetSerDe%27"><span class="hs-identifier hs-var hs-var">blockSizeBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260159"><span id="local-6989586621679260161"><span class="annot"><span class="annottext">ParquetSerDe -&gt; ParquetSerDe -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274385"><span id="local-6989586621679274387"><span class="annot"><span class="annottext">ParquetSerDe -&gt; ParquetSerDe -&gt; Bool
 (ParquetSerDe -&gt; ParquetSerDe -&gt; Bool)
 -&gt; (ParquetSerDe -&gt; ParquetSerDe -&gt; Bool) -&gt; Eq ParquetSerDe
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ParquetSerDe -&gt; ParquetSerDe -&gt; Bool
 == :: ParquetSerDe -&gt; ParquetSerDe -&gt; Bool
 $c== :: ParquetSerDe -&gt; ParquetSerDe -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260150"><span id="local-6989586621679260152"><span id="local-6989586621679260154"><span id="local-6989586621679260156"><span class="annot"><span class="annottext">ReadPrec [ParquetSerDe]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274376"><span id="local-6989586621679274378"><span id="local-6989586621679274380"><span id="local-6989586621679274382"><span class="annot"><span class="annottext">ReadPrec [ParquetSerDe]
 ReadPrec ParquetSerDe
 Int -&gt; ReadS ParquetSerDe
 ReadS [ParquetSerDe]
@@ -88,7 +88,7 @@ readList :: ReadS [ParquetSerDe]
 $creadList :: ReadS [ParquetSerDe]
 readsPrec :: Int -&gt; ReadS ParquetSerDe
 $creadsPrec :: Int -&gt; ReadS ParquetSerDe
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260143"><span id="local-6989586621679260145"><span id="local-6989586621679260147"><span class="annot"><span class="annottext">Int -&gt; ParquetSerDe -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274369"><span id="local-6989586621679274371"><span id="local-6989586621679274373"><span class="annot"><span class="annottext">Int -&gt; ParquetSerDe -&gt; ShowS
 [ParquetSerDe] -&gt; ShowS
 ParquetSerDe -&gt; String
 (Int -&gt; ParquetSerDe -&gt; ShowS)
@@ -122,22 +122,22 @@ $cfrom :: forall x. ParquetSerDe -&gt; Rep ParquetSerDe x
 </span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'pageSizeBytes', 'parquetSerDe_pageSizeBytes' - The Parquet page size. Column chunks are divided into pages. A page is</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- conceptually an indivisible unit (in terms of compression and encoding).</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- The minimum value is 64 KiB and the default is 1 MiB.</span><span>
-</span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'enableDictionaryCompression', 'parquetSerDe_enableDictionaryCompression' - Indicates whether to enable dictionary compression.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'maxPaddingBytes', 'parquetSerDe_maxPaddingBytes' - The maximum amount of padding to apply. This is useful if you intend to</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- copy the data from Amazon S3 to HDFS before querying. The default is 0.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'compression', 'parquetSerDe_compression' - The compression code to use over data blocks. The possible values are</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- @UNCOMPRESSED@, @SNAPPY@, and @GZIP@, with the default being @SNAPPY@.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- Use @SNAPPY@ for higher decompression speed. Use @GZIP@ if the</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- compression ratio is more important than speed.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'writerVersion', 'parquetSerDe_writerVersion' - Indicates the version of row format to output. The possible values are</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- @V1@ and @V2@. The default is @V1@.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'writerVersion', 'parquetSerDe_writerVersion' - Indicates the version of row format to output. The possible values are</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- @V1@ and @V2@. The default is @V1@.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'compression', 'parquetSerDe_compression' - The compression code to use over data blocks. The possible values are</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- @UNCOMPRESSED@, @SNAPPY@, and @GZIP@, with the default being @SNAPPY@.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use @SNAPPY@ for higher decompression speed. Use @GZIP@ if the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- compression ratio is more important than speed.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'maxPaddingBytes', 'parquetSerDe_maxPaddingBytes' - The maximum amount of padding to apply. This is useful if you intend to</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- copy the data from Amazon S3 to HDFS before querying. The default is 0.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'enableDictionaryCompression', 'parquetSerDe_enableDictionaryCompression' - Indicates whether to enable dictionary compression.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'pageSizeBytes', 'parquetSerDe_pageSizeBytes' - The Parquet page size. Column chunks are divided into pages. A page is</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- conceptually an indivisible unit (in terms of compression and encoding).</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The minimum value is 64 KiB and the default is 1 MiB.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- 'blockSizeBytes', 'parquetSerDe_blockSizeBytes' - The Hadoop Distributed File System (HDFS) block size. This is useful if</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- you intend to copy the data from Amazon S3 to HDFS before querying. The</span><span>
@@ -147,32 +147,32 @@ $cfrom :: forall x. ParquetSerDe -&gt; Rep ParquetSerDe x
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span>
 </span><span id="line-90"></span><span id="newParquetSerDe"><span class="annot"><span class="annottext">newParquetSerDe :: ParquetSerDe
 </span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#newParquetSerDe"><span class="hs-identifier hs-var hs-var">newParquetSerDe</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">ParquetSerDe' :: Maybe Natural
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">ParquetSerDe' :: Maybe ParquetWriterVersion
+-&gt; Maybe ParquetCompression
+-&gt; Maybe Natural
 -&gt; Maybe Bool
 -&gt; Maybe Natural
--&gt; Maybe ParquetCompression
--&gt; Maybe ParquetWriterVersion
 -&gt; Maybe Natural
 -&gt; ParquetSerDe
 </span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pageSizeBytes:ParquetSerDe' :: Maybe Natural
-</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3ApageSizeBytes%3AParquetSerDe%27"><span class="hs-identifier hs-var">pageSizeBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:writerVersion:ParquetSerDe' :: Maybe ParquetWriterVersion
+</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3AwriterVersion%3AParquetSerDe%27"><span class="hs-identifier hs-var">writerVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetWriterVersion
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableDictionaryCompression:ParquetSerDe' :: Maybe Bool
-</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3AenableDictionaryCompression%3AParquetSerDe%27"><span class="hs-identifier hs-var">enableDictionaryCompression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:compression:ParquetSerDe' :: Maybe ParquetCompression
+</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3Acompression%3AParquetSerDe%27"><span class="hs-identifier hs-var">compression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetCompression
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxPaddingBytes:ParquetSerDe' :: Maybe Natural
 </span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3AmaxPaddingBytes%3AParquetSerDe%27"><span class="hs-identifier hs-var">maxPaddingBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:compression:ParquetSerDe' :: Maybe ParquetCompression
-</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3Acompression%3AParquetSerDe%27"><span class="hs-identifier hs-var">compression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetCompression
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableDictionaryCompression:ParquetSerDe' :: Maybe Bool
+</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3AenableDictionaryCompression%3AParquetSerDe%27"><span class="hs-identifier hs-var">enableDictionaryCompression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:writerVersion:ParquetSerDe' :: Maybe ParquetWriterVersion
-</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3AwriterVersion%3AParquetSerDe%27"><span class="hs-identifier hs-var">writerVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetWriterVersion
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageSizeBytes:ParquetSerDe' :: Maybe Natural
+</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3ApageSizeBytes%3AParquetSerDe%27"><span class="hs-identifier hs-var">pageSizeBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:blockSizeBytes:ParquetSerDe' :: Maybe Natural
@@ -181,95 +181,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The Parquet page size. Column chunks are divided into pages. A page is</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- conceptually an indivisible unit (in terms of compression and encoding).</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- The minimum value is 64 KiB and the default is 1 MiB.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_pageSizeBytes"><span class="hs-identifier hs-type">parquetSerDe_pageSizeBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="parquetSerDe_pageSizeBytes"><span class="annot"><span class="annottext">parquetSerDe_pageSizeBytes :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ParquetSerDe -&gt; f ParquetSerDe
-</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_pageSizeBytes"><span class="hs-identifier hs-var hs-var">parquetSerDe_pageSizeBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParquetSerDe -&gt; Maybe Natural)
--&gt; (ParquetSerDe -&gt; Maybe Natural -&gt; ParquetSerDe)
--&gt; Lens ParquetSerDe ParquetSerDe (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260134"><span class="annot"><span class="annottext">Maybe Natural
-pageSizeBytes :: Maybe Natural
-$sel:pageSizeBytes:ParquetSerDe' :: ParquetSerDe -&gt; Maybe Natural
-</span><a href="#local-6989586621679260134"><span class="hs-identifier hs-var hs-var">pageSizeBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679260134"><span class="hs-identifier hs-var">pageSizeBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260133"><span class="annot"><span class="annottext">s :: ParquetSerDe
-</span><a href="#local-6989586621679260133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260132"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679260132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParquetSerDe
-</span><a href="#local-6989586621679260133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSizeBytes:ParquetSerDe' :: Maybe Natural
-</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3ApageSizeBytes%3AParquetSerDe%27"><span class="hs-identifier hs-var">pageSizeBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679260132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | Indicates whether to enable dictionary compression.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_enableDictionaryCompression"><span class="hs-identifier hs-type">parquetSerDe_enableDictionaryCompression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="parquetSerDe_enableDictionaryCompression"><span class="annot"><span class="annottext">parquetSerDe_enableDictionaryCompression :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; ParquetSerDe -&gt; f ParquetSerDe
-</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_enableDictionaryCompression"><span class="hs-identifier hs-var hs-var">parquetSerDe_enableDictionaryCompression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParquetSerDe -&gt; Maybe Bool)
--&gt; (ParquetSerDe -&gt; Maybe Bool -&gt; ParquetSerDe)
--&gt; Lens ParquetSerDe ParquetSerDe (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260130"><span class="annot"><span class="annottext">Maybe Bool
-enableDictionaryCompression :: Maybe Bool
-$sel:enableDictionaryCompression:ParquetSerDe' :: ParquetSerDe -&gt; Maybe Bool
-</span><a href="#local-6989586621679260130"><span class="hs-identifier hs-var hs-var">enableDictionaryCompression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679260130"><span class="hs-identifier hs-var">enableDictionaryCompression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260129"><span class="annot"><span class="annottext">s :: ParquetSerDe
-</span><a href="#local-6989586621679260129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260128"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679260128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParquetSerDe
-</span><a href="#local-6989586621679260129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableDictionaryCompression:ParquetSerDe' :: Maybe Bool
-</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3AenableDictionaryCompression%3AParquetSerDe%27"><span class="hs-identifier hs-var">enableDictionaryCompression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679260128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The maximum amount of padding to apply. This is useful if you intend to</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- copy the data from Amazon S3 to HDFS before querying. The default is 0.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_maxPaddingBytes"><span class="hs-identifier hs-type">parquetSerDe_maxPaddingBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="parquetSerDe_maxPaddingBytes"><span class="annot"><span class="annottext">parquetSerDe_maxPaddingBytes :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ParquetSerDe -&gt; f ParquetSerDe
-</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_maxPaddingBytes"><span class="hs-identifier hs-var hs-var">parquetSerDe_maxPaddingBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParquetSerDe -&gt; Maybe Natural)
--&gt; (ParquetSerDe -&gt; Maybe Natural -&gt; ParquetSerDe)
--&gt; Lens ParquetSerDe ParquetSerDe (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260126"><span class="annot"><span class="annottext">Maybe Natural
-maxPaddingBytes :: Maybe Natural
-$sel:maxPaddingBytes:ParquetSerDe' :: ParquetSerDe -&gt; Maybe Natural
-</span><a href="#local-6989586621679260126"><span class="hs-identifier hs-var hs-var">maxPaddingBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679260126"><span class="hs-identifier hs-var">maxPaddingBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260125"><span class="annot"><span class="annottext">s :: ParquetSerDe
-</span><a href="#local-6989586621679260125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260124"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679260124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParquetSerDe
-</span><a href="#local-6989586621679260125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxPaddingBytes:ParquetSerDe' :: Maybe Natural
-</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3AmaxPaddingBytes%3AParquetSerDe%27"><span class="hs-identifier hs-var">maxPaddingBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679260124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The compression code to use over data blocks. The possible values are</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- @UNCOMPRESSED@, @SNAPPY@, and @GZIP@, with the default being @SNAPPY@.</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- Use @SNAPPY@ for higher decompression speed. Use @GZIP@ if the</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- compression ratio is more important than speed.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_compression"><span class="hs-identifier hs-type">parquetSerDe_compression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetCompression.html#ParquetCompression"><span class="hs-identifier hs-type">ParquetCompression</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="parquetSerDe_compression"><span class="annot"><span class="annottext">parquetSerDe_compression :: (Maybe ParquetCompression -&gt; f (Maybe ParquetCompression))
--&gt; ParquetSerDe -&gt; f ParquetSerDe
-</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_compression"><span class="hs-identifier hs-var hs-var">parquetSerDe_compression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParquetSerDe -&gt; Maybe ParquetCompression)
--&gt; (ParquetSerDe -&gt; Maybe ParquetCompression -&gt; ParquetSerDe)
--&gt; Lens
-     ParquetSerDe
-     ParquetSerDe
-     (Maybe ParquetCompression)
-     (Maybe ParquetCompression)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260122"><span class="annot"><span class="annottext">Maybe ParquetCompression
-compression :: Maybe ParquetCompression
-$sel:compression:ParquetSerDe' :: ParquetSerDe -&gt; Maybe ParquetCompression
-</span><a href="#local-6989586621679260122"><span class="hs-identifier hs-var hs-var">compression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetCompression
-</span><a href="#local-6989586621679260122"><span class="hs-identifier hs-var">compression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260121"><span class="annot"><span class="annottext">s :: ParquetSerDe
-</span><a href="#local-6989586621679260121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260120"><span class="annot"><span class="annottext">Maybe ParquetCompression
-</span><a href="#local-6989586621679260120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParquetSerDe
-</span><a href="#local-6989586621679260121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compression:ParquetSerDe' :: Maybe ParquetCompression
-</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3Acompression%3AParquetSerDe%27"><span class="hs-identifier hs-var">compression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetCompression
-</span><a href="#local-6989586621679260120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | Indicates the version of row format to output. The possible values are</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- @V1@ and @V2@. The default is @V1@.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_writerVersion"><span class="hs-identifier hs-type">parquetSerDe_writerVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetWriterVersion.html#ParquetWriterVersion"><span class="hs-identifier hs-type">ParquetWriterVersion</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="parquetSerDe_writerVersion"><span class="annot"><span class="annottext">parquetSerDe_writerVersion :: (Maybe ParquetWriterVersion -&gt; f (Maybe ParquetWriterVersion))
+</span><span id="line-100"></span><span class="hs-comment">-- | Indicates the version of row format to output. The possible values are</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- @V1@ and @V2@. The default is @V1@.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_writerVersion"><span class="hs-identifier hs-type">parquetSerDe_writerVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetWriterVersion.html#ParquetWriterVersion"><span class="hs-identifier hs-type">ParquetWriterVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="parquetSerDe_writerVersion"><span class="annot"><span class="annottext">parquetSerDe_writerVersion :: (Maybe ParquetWriterVersion -&gt; f (Maybe ParquetWriterVersion))
 -&gt; ParquetSerDe -&gt; f ParquetSerDe
 </span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_writerVersion"><span class="hs-identifier hs-var hs-var">parquetSerDe_writerVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParquetSerDe -&gt; Maybe ParquetWriterVersion)
 -&gt; (ParquetSerDe -&gt; Maybe ParquetWriterVersion -&gt; ParquetSerDe)
@@ -279,16 +194,101 @@ $sel:compression:ParquetSerDe' :: ParquetSerDe -&gt; Maybe ParquetCompression
      (Maybe ParquetWriterVersion)
      (Maybe ParquetWriterVersion)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260118"><span class="annot"><span class="annottext">Maybe ParquetWriterVersion
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274360"><span class="annot"><span class="annottext">Maybe ParquetWriterVersion
 writerVersion :: Maybe ParquetWriterVersion
 $sel:writerVersion:ParquetSerDe' :: ParquetSerDe -&gt; Maybe ParquetWriterVersion
-</span><a href="#local-6989586621679260118"><span class="hs-identifier hs-var hs-var">writerVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetWriterVersion
-</span><a href="#local-6989586621679260118"><span class="hs-identifier hs-var">writerVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260117"><span class="annot"><span class="annottext">s :: ParquetSerDe
-</span><a href="#local-6989586621679260117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260116"><span class="annot"><span class="annottext">Maybe ParquetWriterVersion
-</span><a href="#local-6989586621679260116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParquetSerDe
-</span><a href="#local-6989586621679260117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:writerVersion:ParquetSerDe' :: Maybe ParquetWriterVersion
+</span><a href="#local-6989586621679274360"><span class="hs-identifier hs-var hs-var">writerVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetWriterVersion
+</span><a href="#local-6989586621679274360"><span class="hs-identifier hs-var">writerVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274359"><span class="annot"><span class="annottext">s :: ParquetSerDe
+</span><a href="#local-6989586621679274359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274358"><span class="annot"><span class="annottext">Maybe ParquetWriterVersion
+</span><a href="#local-6989586621679274358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParquetSerDe
+</span><a href="#local-6989586621679274359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:writerVersion:ParquetSerDe' :: Maybe ParquetWriterVersion
 </span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3AwriterVersion%3AParquetSerDe%27"><span class="hs-identifier hs-var">writerVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetWriterVersion
-</span><a href="#local-6989586621679260116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The compression code to use over data blocks. The possible values are</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- @UNCOMPRESSED@, @SNAPPY@, and @GZIP@, with the default being @SNAPPY@.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Use @SNAPPY@ for higher decompression speed. Use @GZIP@ if the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- compression ratio is more important than speed.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_compression"><span class="hs-identifier hs-type">parquetSerDe_compression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetCompression.html#ParquetCompression"><span class="hs-identifier hs-type">ParquetCompression</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="parquetSerDe_compression"><span class="annot"><span class="annottext">parquetSerDe_compression :: (Maybe ParquetCompression -&gt; f (Maybe ParquetCompression))
+-&gt; ParquetSerDe -&gt; f ParquetSerDe
+</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_compression"><span class="hs-identifier hs-var hs-var">parquetSerDe_compression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParquetSerDe -&gt; Maybe ParquetCompression)
+-&gt; (ParquetSerDe -&gt; Maybe ParquetCompression -&gt; ParquetSerDe)
+-&gt; Lens
+     ParquetSerDe
+     ParquetSerDe
+     (Maybe ParquetCompression)
+     (Maybe ParquetCompression)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274356"><span class="annot"><span class="annottext">Maybe ParquetCompression
+compression :: Maybe ParquetCompression
+$sel:compression:ParquetSerDe' :: ParquetSerDe -&gt; Maybe ParquetCompression
+</span><a href="#local-6989586621679274356"><span class="hs-identifier hs-var hs-var">compression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetCompression
+</span><a href="#local-6989586621679274356"><span class="hs-identifier hs-var">compression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274355"><span class="annot"><span class="annottext">s :: ParquetSerDe
+</span><a href="#local-6989586621679274355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274354"><span class="annot"><span class="annottext">Maybe ParquetCompression
+</span><a href="#local-6989586621679274354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParquetSerDe
+</span><a href="#local-6989586621679274355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compression:ParquetSerDe' :: Maybe ParquetCompression
+</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3Acompression%3AParquetSerDe%27"><span class="hs-identifier hs-var">compression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetCompression
+</span><a href="#local-6989586621679274354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The maximum amount of padding to apply. This is useful if you intend to</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- copy the data from Amazon S3 to HDFS before querying. The default is 0.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_maxPaddingBytes"><span class="hs-identifier hs-type">parquetSerDe_maxPaddingBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="parquetSerDe_maxPaddingBytes"><span class="annot"><span class="annottext">parquetSerDe_maxPaddingBytes :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ParquetSerDe -&gt; f ParquetSerDe
+</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_maxPaddingBytes"><span class="hs-identifier hs-var hs-var">parquetSerDe_maxPaddingBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParquetSerDe -&gt; Maybe Natural)
+-&gt; (ParquetSerDe -&gt; Maybe Natural -&gt; ParquetSerDe)
+-&gt; Lens ParquetSerDe ParquetSerDe (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274352"><span class="annot"><span class="annottext">Maybe Natural
+maxPaddingBytes :: Maybe Natural
+$sel:maxPaddingBytes:ParquetSerDe' :: ParquetSerDe -&gt; Maybe Natural
+</span><a href="#local-6989586621679274352"><span class="hs-identifier hs-var hs-var">maxPaddingBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274352"><span class="hs-identifier hs-var">maxPaddingBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274351"><span class="annot"><span class="annottext">s :: ParquetSerDe
+</span><a href="#local-6989586621679274351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274350"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParquetSerDe
+</span><a href="#local-6989586621679274351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxPaddingBytes:ParquetSerDe' :: Maybe Natural
+</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3AmaxPaddingBytes%3AParquetSerDe%27"><span class="hs-identifier hs-var">maxPaddingBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Indicates whether to enable dictionary compression.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_enableDictionaryCompression"><span class="hs-identifier hs-type">parquetSerDe_enableDictionaryCompression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="parquetSerDe_enableDictionaryCompression"><span class="annot"><span class="annottext">parquetSerDe_enableDictionaryCompression :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; ParquetSerDe -&gt; f ParquetSerDe
+</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_enableDictionaryCompression"><span class="hs-identifier hs-var hs-var">parquetSerDe_enableDictionaryCompression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParquetSerDe -&gt; Maybe Bool)
+-&gt; (ParquetSerDe -&gt; Maybe Bool -&gt; ParquetSerDe)
+-&gt; Lens ParquetSerDe ParquetSerDe (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274348"><span class="annot"><span class="annottext">Maybe Bool
+enableDictionaryCompression :: Maybe Bool
+$sel:enableDictionaryCompression:ParquetSerDe' :: ParquetSerDe -&gt; Maybe Bool
+</span><a href="#local-6989586621679274348"><span class="hs-identifier hs-var hs-var">enableDictionaryCompression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274348"><span class="hs-identifier hs-var">enableDictionaryCompression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274347"><span class="annot"><span class="annottext">s :: ParquetSerDe
+</span><a href="#local-6989586621679274347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274346"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParquetSerDe
+</span><a href="#local-6989586621679274347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableDictionaryCompression:ParquetSerDe' :: Maybe Bool
+</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3AenableDictionaryCompression%3AParquetSerDe%27"><span class="hs-identifier hs-var">enableDictionaryCompression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The Parquet page size. Column chunks are divided into pages. A page is</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- conceptually an indivisible unit (in terms of compression and encoding).</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- The minimum value is 64 KiB and the default is 1 MiB.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_pageSizeBytes"><span class="hs-identifier hs-type">parquetSerDe_pageSizeBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="parquetSerDe_pageSizeBytes"><span class="annot"><span class="annottext">parquetSerDe_pageSizeBytes :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ParquetSerDe -&gt; f ParquetSerDe
+</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#parquetSerDe_pageSizeBytes"><span class="hs-identifier hs-var hs-var">parquetSerDe_pageSizeBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParquetSerDe -&gt; Maybe Natural)
+-&gt; (ParquetSerDe -&gt; Maybe Natural -&gt; ParquetSerDe)
+-&gt; Lens ParquetSerDe ParquetSerDe (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274344"><span class="annot"><span class="annottext">Maybe Natural
+pageSizeBytes :: Maybe Natural
+$sel:pageSizeBytes:ParquetSerDe' :: ParquetSerDe -&gt; Maybe Natural
+</span><a href="#local-6989586621679274344"><span class="hs-identifier hs-var hs-var">pageSizeBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274344"><span class="hs-identifier hs-var">pageSizeBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274343"><span class="annot"><span class="annottext">s :: ParquetSerDe
+</span><a href="#local-6989586621679274343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274342"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParquetSerDe
+</span><a href="#local-6989586621679274343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSizeBytes:ParquetSerDe' :: Maybe Natural
+</span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3ApageSizeBytes%3AParquetSerDe%27"><span class="hs-identifier hs-var">pageSizeBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The Hadoop Distributed File System (HDFS) block size. This is useful if</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- you intend to copy the data from Amazon S3 to HDFS before querying. The</span><span>
@@ -301,19 +301,19 @@ $sel:writerVersion:ParquetSerDe' :: ParquetSerDe -&gt; Maybe ParquetWriterVersio
 -&gt; (ParquetSerDe -&gt; Maybe Natural -&gt; ParquetSerDe)
 -&gt; Lens ParquetSerDe ParquetSerDe (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260114"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274340"><span class="annot"><span class="annottext">Maybe Natural
 blockSizeBytes :: Maybe Natural
 $sel:blockSizeBytes:ParquetSerDe' :: ParquetSerDe -&gt; Maybe Natural
-</span><a href="#local-6989586621679260114"><span class="hs-identifier hs-var hs-var">blockSizeBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679260114"><span class="hs-identifier hs-var">blockSizeBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260113"><span class="annot"><span class="annottext">s :: ParquetSerDe
-</span><a href="#local-6989586621679260113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260112"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679260112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParquetSerDe
-</span><a href="#local-6989586621679260113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockSizeBytes:ParquetSerDe' :: Maybe Natural
+</span><a href="#local-6989586621679274340"><span class="hs-identifier hs-var hs-var">blockSizeBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274340"><span class="hs-identifier hs-var">blockSizeBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274339"><span class="annot"><span class="annottext">s :: ParquetSerDe
+</span><a href="#local-6989586621679274339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274338"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParquetSerDe
+</span><a href="#local-6989586621679274339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockSizeBytes:ParquetSerDe' :: Maybe Natural
 </span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#%24sel%3AblockSizeBytes%3AParquetSerDe%27"><span class="hs-identifier hs-var">blockSizeBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679260112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260109"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679260107"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ParquetSerDe
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274335"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679274333"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ParquetSerDe
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ParquetSerDe) -&gt; Value -&gt; Parser ParquetSerDe
@@ -321,172 +321,161 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ParquetSerDe&quot;</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260104"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260104"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274330"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274330"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe ParquetWriterVersion
+-&gt; Maybe ParquetCompression
+-&gt; Maybe Natural
 -&gt; Maybe Bool
 -&gt; Maybe Natural
--&gt; Maybe ParquetCompression
--&gt; Maybe ParquetWriterVersion
 -&gt; Maybe Natural
 -&gt; ParquetSerDe
 </span><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-var">ParquetSerDe'</span></a></span><span>
-</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ParquetWriterVersion
+ -&gt; Maybe ParquetCompression
+ -&gt; Maybe Natural
  -&gt; Maybe Bool
  -&gt; Maybe Natural
- -&gt; Maybe ParquetCompression
- -&gt; Maybe ParquetWriterVersion
  -&gt; Maybe Natural
  -&gt; ParquetSerDe)
--&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe ParquetWriterVersion)
 -&gt; Parser
-     (Maybe Bool
+     (Maybe ParquetCompression
       -&gt; Maybe Natural
-      -&gt; Maybe ParquetCompression
-      -&gt; Maybe ParquetWriterVersion
+      -&gt; Maybe Bool
+      -&gt; Maybe Natural
       -&gt; Maybe Natural
       -&gt; ParquetSerDe)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679274330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ParquetWriterVersion)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PageSizeBytes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;WriterVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Bool
+  (Maybe ParquetCompression
    -&gt; Maybe Natural
-   -&gt; Maybe ParquetCompression
-   -&gt; Maybe ParquetWriterVersion
+   -&gt; Maybe Bool
+   -&gt; Maybe Natural
    -&gt; Maybe Natural
    -&gt; ParquetSerDe)
--&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe ParquetCompression)
 -&gt; Parser
      (Maybe Natural
-      -&gt; Maybe ParquetCompression
-      -&gt; Maybe ParquetWriterVersion
-      -&gt; Maybe Natural
-      -&gt; ParquetSerDe)
+      -&gt; Maybe Bool -&gt; Maybe Natural -&gt; Maybe Natural -&gt; ParquetSerDe)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679274330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ParquetCompression)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EnableDictionaryCompression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Compression&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Natural
-   -&gt; Maybe ParquetCompression
-   -&gt; Maybe ParquetWriterVersion
-   -&gt; Maybe Natural
-   -&gt; ParquetSerDe)
+   -&gt; Maybe Bool -&gt; Maybe Natural -&gt; Maybe Natural -&gt; ParquetSerDe)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser
-     (Maybe ParquetCompression
-      -&gt; Maybe ParquetWriterVersion -&gt; Maybe Natural -&gt; ParquetSerDe)
+     (Maybe Bool -&gt; Maybe Natural -&gt; Maybe Natural -&gt; ParquetSerDe)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679274330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxPaddingBytes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ParquetCompression
-   -&gt; Maybe ParquetWriterVersion -&gt; Maybe Natural -&gt; ParquetSerDe)
--&gt; Parser (Maybe ParquetCompression)
--&gt; Parser
-     (Maybe ParquetWriterVersion -&gt; Maybe Natural -&gt; ParquetSerDe)
+  (Maybe Bool -&gt; Maybe Natural -&gt; Maybe Natural -&gt; ParquetSerDe)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; ParquetSerDe)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ParquetCompression)
+</span><a href="#local-6989586621679274330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Compression&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ParquetWriterVersion -&gt; Maybe Natural -&gt; ParquetSerDe)
--&gt; Parser (Maybe ParquetWriterVersion)
--&gt; Parser (Maybe Natural -&gt; ParquetSerDe)
+</span><span class="hs-string">&quot;EnableDictionaryCompression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Natural -&gt; ParquetSerDe)
+-&gt; Parser (Maybe Natural) -&gt; Parser (Maybe Natural -&gt; ParquetSerDe)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ParquetWriterVersion)
+</span><a href="#local-6989586621679274330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;WriterVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;PageSizeBytes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; ParquetSerDe)
 -&gt; Parser (Maybe Natural) -&gt; Parser ParquetSerDe
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679274330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BlockSizeBytes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260098"><span id="local-6989586621679260100"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274324"><span id="local-6989586621679274326"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span></span></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274321"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span></span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260087"><span id="local-6989586621679260089"><span id="local-6989586621679260091"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679260085"><span class="annot"><span class="annottext">toJSON :: ParquetSerDe -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260078"><span id="local-6989586621679260079"><span id="local-6989586621679260080"><span id="local-6989586621679260081"><span id="local-6989586621679260082"><span id="local-6989586621679260083"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274313"><span id="local-6989586621679274315"><span id="local-6989586621679274317"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679274311"><span class="annot"><span class="annottext">toJSON :: ParquetSerDe -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe%27"><span class="hs-identifier hs-type">ParquetSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274304"><span id="local-6989586621679274305"><span id="local-6989586621679274306"><span id="local-6989586621679274307"><span id="local-6989586621679274308"><span id="local-6989586621679274309"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe ParquetCompression
 Maybe ParquetWriterVersion
 blockSizeBytes :: Maybe Natural
-writerVersion :: Maybe ParquetWriterVersion
-compression :: Maybe ParquetCompression
-maxPaddingBytes :: Maybe Natural
-enableDictionaryCompression :: Maybe Bool
 pageSizeBytes :: Maybe Natural
+enableDictionaryCompression :: Maybe Bool
+maxPaddingBytes :: Maybe Natural
+compression :: Maybe ParquetCompression
+writerVersion :: Maybe ParquetWriterVersion
 $sel:blockSizeBytes:ParquetSerDe' :: ParquetSerDe -&gt; Maybe Natural
-$sel:writerVersion:ParquetSerDe' :: ParquetSerDe -&gt; Maybe ParquetWriterVersion
-$sel:compression:ParquetSerDe' :: ParquetSerDe -&gt; Maybe ParquetCompression
-$sel:maxPaddingBytes:ParquetSerDe' :: ParquetSerDe -&gt; Maybe Natural
-$sel:enableDictionaryCompression:ParquetSerDe' :: ParquetSerDe -&gt; Maybe Bool
 $sel:pageSizeBytes:ParquetSerDe' :: ParquetSerDe -&gt; Maybe Natural
-</span><a href="#local-6989586621679260078"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:enableDictionaryCompression:ParquetSerDe' :: ParquetSerDe -&gt; Maybe Bool
+$sel:maxPaddingBytes:ParquetSerDe' :: ParquetSerDe -&gt; Maybe Natural
+$sel:compression:ParquetSerDe' :: ParquetSerDe -&gt; Maybe ParquetCompression
+$sel:writerVersion:ParquetSerDe' :: ParquetSerDe -&gt; Maybe ParquetWriterVersion
+</span><a href="#local-6989586621679274304"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-156"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PageSizeBytes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679260083"><span class="hs-identifier hs-var">pageSizeBytes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EnableDictionaryCompression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679260082"><span class="hs-identifier hs-var">enableDictionaryCompression</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxPaddingBytes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679260081"><span class="hs-identifier hs-var">maxPaddingBytes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Compression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ParquetCompression -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ParquetCompression -&gt; Pair)
--&gt; Maybe ParquetCompression -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ParquetCompression
-</span><a href="#local-6989586621679260080"><span class="hs-identifier hs-var">compression</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WriterVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ParquetWriterVersion -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ParquetWriterVersion -&gt; Pair)
 -&gt; Maybe ParquetWriterVersion -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ParquetWriterVersion
-</span><a href="#local-6989586621679260079"><span class="hs-identifier hs-var">writerVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274309"><span class="hs-identifier hs-var">writerVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Compression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ParquetCompression -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ParquetCompression -&gt; Pair)
+-&gt; Maybe ParquetCompression -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ParquetCompression
+</span><a href="#local-6989586621679274308"><span class="hs-identifier hs-var">compression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxPaddingBytes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274307"><span class="hs-identifier hs-var">maxPaddingBytes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnableDictionaryCompression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274306"><span class="hs-identifier hs-var">enableDictionaryCompression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PageSizeBytes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274305"><span class="hs-identifier hs-var">pageSizeBytes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BlockSizeBytes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -494,7 +483,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679260078"><span class="hs-identifier hs-var">blockSizeBytes</span></a></span><span>
+</span><a href="#local-6989586621679274304"><span class="hs-identifier hs-var">blockSizeBytes</span></a></span><span>
 </span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span></pre></body></html>

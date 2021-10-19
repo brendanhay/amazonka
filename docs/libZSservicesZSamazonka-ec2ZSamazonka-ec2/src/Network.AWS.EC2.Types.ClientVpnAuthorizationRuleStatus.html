@@ -28,16 +28,16 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the state of an authorization rule.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newClientVpnAuthorizationRuleStatus' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681060472"><span id="local-6989586621681060473"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClientVpnAuthorizationRuleStatus"><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus"><span class="hs-identifier hs-var">ClientVpnAuthorizationRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientVpnAuthorizationRuleStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-var">ClientVpnAuthorizationRuleStatus'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A message about the status of the authorization rule, if applicable.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Amessage%3AClientVpnAuthorizationRuleStatus%27"><span class="annot"><span class="annottext">ClientVpnAuthorizationRuleStatus -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#%24sel%3Amessage%3AClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The state of the authorization rule.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Acode%3AClientVpnAuthorizationRuleStatus%27"><span class="annot"><span class="annottext">ClientVpnAuthorizationRuleStatus
+</span><span id="line-31"></span><span id="local-6989586621681094045"><span id="local-6989586621681094046"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClientVpnAuthorizationRuleStatus"><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus"><span class="hs-identifier hs-var">ClientVpnAuthorizationRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientVpnAuthorizationRuleStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-var">ClientVpnAuthorizationRuleStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the authorization rule.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Acode%3AClientVpnAuthorizationRuleStatus%27"><span class="annot"><span class="annottext">ClientVpnAuthorizationRuleStatus
 -&gt; Maybe ClientVpnAuthorizationRuleStatusCode
-</span><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#%24sel%3Acode%3AClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatusCode.html#ClientVpnAuthorizationRuleStatusCode"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatusCode</span></a></span><span>
+</span><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#%24sel%3Acode%3AClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatusCode.html#ClientVpnAuthorizationRuleStatusCode"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatusCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A message about the status of the authorization rule, if applicable.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Amessage%3AClientVpnAuthorizationRuleStatus%27"><span class="annot"><span class="annottext">ClientVpnAuthorizationRuleStatus -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#%24sel%3Amessage%3AClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681060465"><span id="local-6989586621681060467"><span class="annot"><span class="annottext">ClientVpnAuthorizationRuleStatus
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681094038"><span id="local-6989586621681094040"><span class="annot"><span class="annottext">ClientVpnAuthorizationRuleStatus
 -&gt; ClientVpnAuthorizationRuleStatus -&gt; Bool
 (ClientVpnAuthorizationRuleStatus
  -&gt; ClientVpnAuthorizationRuleStatus -&gt; Bool)
@@ -53,7 +53,7 @@ $c/= :: ClientVpnAuthorizationRuleStatus
 -&gt; ClientVpnAuthorizationRuleStatus -&gt; Bool
 $c== :: ClientVpnAuthorizationRuleStatus
 -&gt; ClientVpnAuthorizationRuleStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681060456"><span id="local-6989586621681060458"><span id="local-6989586621681060460"><span id="local-6989586621681060462"><span class="annot"><span class="annottext">ReadPrec [ClientVpnAuthorizationRuleStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681094029"><span id="local-6989586621681094031"><span id="local-6989586621681094033"><span id="local-6989586621681094035"><span class="annot"><span class="annottext">ReadPrec [ClientVpnAuthorizationRuleStatus]
 ReadPrec ClientVpnAuthorizationRuleStatus
 Int -&gt; ReadS ClientVpnAuthorizationRuleStatus
 ReadS [ClientVpnAuthorizationRuleStatus]
@@ -73,7 +73,7 @@ readList :: ReadS [ClientVpnAuthorizationRuleStatus]
 $creadList :: ReadS [ClientVpnAuthorizationRuleStatus]
 readsPrec :: Int -&gt; ReadS ClientVpnAuthorizationRuleStatus
 $creadsPrec :: Int -&gt; ReadS ClientVpnAuthorizationRuleStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681060449"><span id="local-6989586621681060451"><span id="local-6989586621681060453"><span class="annot"><span class="annottext">Int -&gt; ClientVpnAuthorizationRuleStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681094022"><span id="local-6989586621681094024"><span id="local-6989586621681094026"><span class="annot"><span class="annottext">Int -&gt; ClientVpnAuthorizationRuleStatus -&gt; ShowS
 [ClientVpnAuthorizationRuleStatus] -&gt; ShowS
 ClientVpnAuthorizationRuleStatus -&gt; String
 (Int -&gt; ClientVpnAuthorizationRuleStatus -&gt; ShowS)
@@ -119,56 +119,30 @@ ClientVpnAuthorizationRuleStatus
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'message', 'clientVpnAuthorizationRuleStatus_message' - A message about the status of the authorization rule, if applicable.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'code', 'clientVpnAuthorizationRuleStatus_code' - The state of the authorization rule.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'code', 'clientVpnAuthorizationRuleStatus_code' - The state of the authorization rule.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'message', 'clientVpnAuthorizationRuleStatus_message' - A message about the status of the authorization rule, if applicable.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#newClientVpnAuthorizationRuleStatus"><span class="hs-identifier hs-type">newClientVpnAuthorizationRuleStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus</span></a></span><span>
 </span><span id="line-52"></span><span id="newClientVpnAuthorizationRuleStatus"><span class="annot"><span class="annottext">newClientVpnAuthorizationRuleStatus :: ClientVpnAuthorizationRuleStatus
 </span><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#newClientVpnAuthorizationRuleStatus"><span class="hs-identifier hs-var hs-var">newClientVpnAuthorizationRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">ClientVpnAuthorizationRuleStatus' :: Maybe Text
--&gt; Maybe ClientVpnAuthorizationRuleStatusCode
--&gt; ClientVpnAuthorizationRuleStatus
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">ClientVpnAuthorizationRuleStatus' :: Maybe ClientVpnAuthorizationRuleStatusCode
+-&gt; Maybe Text -&gt; ClientVpnAuthorizationRuleStatus
 </span><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:ClientVpnAuthorizationRuleStatus' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#%24sel%3Amessage%3AClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:code:ClientVpnAuthorizationRuleStatus' :: Maybe ClientVpnAuthorizationRuleStatusCode
+</span><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#%24sel%3Acode%3AClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe ClientVpnAuthorizationRuleStatusCode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:ClientVpnAuthorizationRuleStatus' :: Maybe ClientVpnAuthorizationRuleStatusCode
-</span><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#%24sel%3Acode%3AClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClientVpnAuthorizationRuleStatusCode
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:ClientVpnAuthorizationRuleStatus' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#%24sel%3Amessage%3AClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | A message about the status of the authorization rule, if applicable.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#clientVpnAuthorizationRuleStatus_message"><span class="hs-identifier hs-type">clientVpnAuthorizationRuleStatus_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="clientVpnAuthorizationRuleStatus_message"><span class="annot"><span class="annottext">clientVpnAuthorizationRuleStatus_message :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ClientVpnAuthorizationRuleStatus
--&gt; f ClientVpnAuthorizationRuleStatus
-</span><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#clientVpnAuthorizationRuleStatus_message"><span class="hs-identifier hs-var hs-var">clientVpnAuthorizationRuleStatus_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientVpnAuthorizationRuleStatus -&gt; Maybe Text)
--&gt; (ClientVpnAuthorizationRuleStatus
-    -&gt; Maybe Text -&gt; ClientVpnAuthorizationRuleStatus)
--&gt; Lens
-     ClientVpnAuthorizationRuleStatus
-     ClientVpnAuthorizationRuleStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681060440"><span class="annot"><span class="annottext">Maybe Text
-message :: Maybe Text
-$sel:message:ClientVpnAuthorizationRuleStatus' :: ClientVpnAuthorizationRuleStatus -&gt; Maybe Text
-</span><a href="#local-6989586621681060440"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681060440"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681060439"><span class="annot"><span class="annottext">s :: ClientVpnAuthorizationRuleStatus
-</span><a href="#local-6989586621681060439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681060438"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681060438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientVpnAuthorizationRuleStatus
-</span><a href="#local-6989586621681060439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ClientVpnAuthorizationRuleStatus' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#%24sel%3Amessage%3AClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681060438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The state of the authorization rule.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#clientVpnAuthorizationRuleStatus_code"><span class="hs-identifier hs-type">clientVpnAuthorizationRuleStatus_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatusCode.html#ClientVpnAuthorizationRuleStatusCode"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatusCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="clientVpnAuthorizationRuleStatus_code"><span class="annot"><span class="annottext">clientVpnAuthorizationRuleStatus_code :: (Maybe ClientVpnAuthorizationRuleStatusCode
+</span><span id="line-59"></span><span class="hs-comment">-- | The state of the authorization rule.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#clientVpnAuthorizationRuleStatus_code"><span class="hs-identifier hs-type">clientVpnAuthorizationRuleStatus_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatusCode.html#ClientVpnAuthorizationRuleStatusCode"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatusCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="clientVpnAuthorizationRuleStatus_code"><span class="annot"><span class="annottext">clientVpnAuthorizationRuleStatus_code :: (Maybe ClientVpnAuthorizationRuleStatusCode
  -&gt; f (Maybe ClientVpnAuthorizationRuleStatusCode))
 -&gt; ClientVpnAuthorizationRuleStatus
 -&gt; f ClientVpnAuthorizationRuleStatus
@@ -183,63 +157,80 @@ $sel:message:ClientVpnAuthorizationRuleStatus' :: ClientVpnAuthorizationRuleStat
      (Maybe ClientVpnAuthorizationRuleStatusCode)
      (Maybe ClientVpnAuthorizationRuleStatusCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681060436"><span class="annot"><span class="annottext">Maybe ClientVpnAuthorizationRuleStatusCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681094013"><span class="annot"><span class="annottext">Maybe ClientVpnAuthorizationRuleStatusCode
 code :: Maybe ClientVpnAuthorizationRuleStatusCode
 $sel:code:ClientVpnAuthorizationRuleStatus' :: ClientVpnAuthorizationRuleStatus
 -&gt; Maybe ClientVpnAuthorizationRuleStatusCode
-</span><a href="#local-6989586621681060436"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClientVpnAuthorizationRuleStatusCode
-</span><a href="#local-6989586621681060436"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681060435"><span class="annot"><span class="annottext">s :: ClientVpnAuthorizationRuleStatus
-</span><a href="#local-6989586621681060435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681060434"><span class="annot"><span class="annottext">Maybe ClientVpnAuthorizationRuleStatusCode
-</span><a href="#local-6989586621681060434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientVpnAuthorizationRuleStatus
-</span><a href="#local-6989586621681060435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:ClientVpnAuthorizationRuleStatus' :: Maybe ClientVpnAuthorizationRuleStatusCode
+</span><a href="#local-6989586621681094013"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClientVpnAuthorizationRuleStatusCode
+</span><a href="#local-6989586621681094013"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681094012"><span class="annot"><span class="annottext">s :: ClientVpnAuthorizationRuleStatus
+</span><a href="#local-6989586621681094012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681094011"><span class="annot"><span class="annottext">Maybe ClientVpnAuthorizationRuleStatusCode
+</span><a href="#local-6989586621681094011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientVpnAuthorizationRuleStatus
+</span><a href="#local-6989586621681094012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:ClientVpnAuthorizationRuleStatus' :: Maybe ClientVpnAuthorizationRuleStatusCode
 </span><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#%24sel%3Acode%3AClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClientVpnAuthorizationRuleStatusCode
-</span><a href="#local-6989586621681060434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681094011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | A message about the status of the authorization rule, if applicable.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#clientVpnAuthorizationRuleStatus_message"><span class="hs-identifier hs-type">clientVpnAuthorizationRuleStatus_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="clientVpnAuthorizationRuleStatus_message"><span class="annot"><span class="annottext">clientVpnAuthorizationRuleStatus_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClientVpnAuthorizationRuleStatus
+-&gt; f ClientVpnAuthorizationRuleStatus
+</span><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#clientVpnAuthorizationRuleStatus_message"><span class="hs-identifier hs-var hs-var">clientVpnAuthorizationRuleStatus_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientVpnAuthorizationRuleStatus -&gt; Maybe Text)
+-&gt; (ClientVpnAuthorizationRuleStatus
+    -&gt; Maybe Text -&gt; ClientVpnAuthorizationRuleStatus)
+-&gt; Lens
+     ClientVpnAuthorizationRuleStatus
+     ClientVpnAuthorizationRuleStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681094009"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:ClientVpnAuthorizationRuleStatus' :: ClientVpnAuthorizationRuleStatus -&gt; Maybe Text
+</span><a href="#local-6989586621681094009"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681094009"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681094008"><span class="annot"><span class="annottext">s :: ClientVpnAuthorizationRuleStatus
+</span><a href="#local-6989586621681094008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681094007"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681094007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientVpnAuthorizationRuleStatus
+</span><a href="#local-6989586621681094008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ClientVpnAuthorizationRuleStatus' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#%24sel%3Amessage%3AClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681094007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus</span></a></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621681060431"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ClientVpnAuthorizationRuleStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681060429"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681060429"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe ClientVpnAuthorizationRuleStatusCode
--&gt; ClientVpnAuthorizationRuleStatus
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621681094004"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ClientVpnAuthorizationRuleStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681094002"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681094002"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">Maybe ClientVpnAuthorizationRuleStatusCode
+-&gt; Maybe Text -&gt; ClientVpnAuthorizationRuleStatus
 </span><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus%27"><span class="hs-identifier hs-var">ClientVpnAuthorizationRuleStatus'</span></a></span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe ClientVpnAuthorizationRuleStatusCode
- -&gt; ClientVpnAuthorizationRuleStatus)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe ClientVpnAuthorizationRuleStatusCode
-      -&gt; ClientVpnAuthorizationRuleStatus)
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ClientVpnAuthorizationRuleStatusCode
+ -&gt; Maybe Text -&gt; ClientVpnAuthorizationRuleStatus)
+-&gt; Either String (Maybe ClientVpnAuthorizationRuleStatusCode)
+-&gt; Either String (Maybe Text -&gt; ClientVpnAuthorizationRuleStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681060429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ClientVpnAuthorizationRuleStatusCode
-   -&gt; ClientVpnAuthorizationRuleStatus)
--&gt; Either String (Maybe ClientVpnAuthorizationRuleStatusCode)
--&gt; Either String ClientVpnAuthorizationRuleStatus
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681060429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681094002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text
 -&gt; Either String (Maybe ClientVpnAuthorizationRuleStatusCode)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ClientVpnAuthorizationRuleStatus)
+-&gt; Either String (Maybe Text)
+-&gt; Either String ClientVpnAuthorizationRuleStatus
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681094002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621681060423"><span id="local-6989586621681060425"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621681093996"><span id="local-6989586621681093998"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621681060420"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621681093993"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus.html#ClientVpnAuthorizationRuleStatus"><span class="hs-identifier hs-type">ClientVpnAuthorizationRuleStatus</span></a></span></span><span>
 </span><span id="line-83"></span></pre></body></html>

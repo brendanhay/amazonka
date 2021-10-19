@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- using the policies.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAutomaticTapeCreationPolicyInfo' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679366282"><span id="local-6989586621679366283"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutomaticTapeCreationPolicyInfo"><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo"><span class="hs-identifier hs-var">AutomaticTapeCreationPolicyInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutomaticTapeCreationPolicyInfo%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo%27"><span class="hs-identifier hs-var">AutomaticTapeCreationPolicyInfo'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679370538"><span id="local-6989586621679370539"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutomaticTapeCreationPolicyInfo"><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo"><span class="hs-identifier hs-var">AutomaticTapeCreationPolicyInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutomaticTapeCreationPolicyInfo%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo%27"><span class="hs-identifier hs-var">AutomaticTapeCreationPolicyInfo'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AgatewayARN%3AAutomaticTapeCreationPolicyInfo%27"><span class="annot"><span class="annottext">AutomaticTapeCreationPolicyInfo -&gt; Maybe Text
 </span><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#%24sel%3AgatewayARN%3AAutomaticTapeCreationPolicyInfo%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | An automatic tape creation policy consists of a list of automatic tape</span><span>
@@ -39,7 +39,7 @@
 -&gt; Maybe (NonEmpty AutomaticTapeCreationRule)
 </span><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#%24sel%3AautomaticTapeCreationRules%3AAutomaticTapeCreationPolicyInfo%27"><span class="hs-identifier hs-var hs-var">automaticTapeCreationRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule.html#AutomaticTapeCreationRule"><span class="hs-identifier hs-type">AutomaticTapeCreationRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366275"><span id="local-6989586621679366277"><span class="annot"><span class="annottext">AutomaticTapeCreationPolicyInfo
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370531"><span id="local-6989586621679370533"><span class="annot"><span class="annottext">AutomaticTapeCreationPolicyInfo
 -&gt; AutomaticTapeCreationPolicyInfo -&gt; Bool
 (AutomaticTapeCreationPolicyInfo
  -&gt; AutomaticTapeCreationPolicyInfo -&gt; Bool)
@@ -55,7 +55,7 @@ $c/= :: AutomaticTapeCreationPolicyInfo
 -&gt; AutomaticTapeCreationPolicyInfo -&gt; Bool
 $c== :: AutomaticTapeCreationPolicyInfo
 -&gt; AutomaticTapeCreationPolicyInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366266"><span id="local-6989586621679366268"><span id="local-6989586621679366270"><span id="local-6989586621679366272"><span class="annot"><span class="annottext">ReadPrec [AutomaticTapeCreationPolicyInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370522"><span id="local-6989586621679370524"><span id="local-6989586621679370526"><span id="local-6989586621679370528"><span class="annot"><span class="annottext">ReadPrec [AutomaticTapeCreationPolicyInfo]
 ReadPrec AutomaticTapeCreationPolicyInfo
 Int -&gt; ReadS AutomaticTapeCreationPolicyInfo
 ReadS [AutomaticTapeCreationPolicyInfo]
@@ -75,7 +75,7 @@ readList :: ReadS [AutomaticTapeCreationPolicyInfo]
 $creadList :: ReadS [AutomaticTapeCreationPolicyInfo]
 readsPrec :: Int -&gt; ReadS AutomaticTapeCreationPolicyInfo
 $creadsPrec :: Int -&gt; ReadS AutomaticTapeCreationPolicyInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366259"><span id="local-6989586621679366261"><span id="local-6989586621679366263"><span class="annot"><span class="annottext">Int -&gt; AutomaticTapeCreationPolicyInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370515"><span id="local-6989586621679370517"><span id="local-6989586621679370519"><span class="annot"><span class="annottext">Int -&gt; AutomaticTapeCreationPolicyInfo -&gt; ShowS
 [AutomaticTapeCreationPolicyInfo] -&gt; ShowS
 AutomaticTapeCreationPolicyInfo -&gt; String
 (Int -&gt; AutomaticTapeCreationPolicyInfo -&gt; ShowS)
@@ -160,16 +160,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo%27"><span class="hs-identifier hs-type">AutomaticTapeCreationPolicyInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366250"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo%27"><span class="hs-identifier hs-type">AutomaticTapeCreationPolicyInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370506"><span class="annot"><span class="annottext">Maybe Text
 gatewayARN :: Maybe Text
 $sel:gatewayARN:AutomaticTapeCreationPolicyInfo' :: AutomaticTapeCreationPolicyInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679366250"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679366250"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366249"><span class="annot"><span class="annottext">s :: AutomaticTapeCreationPolicyInfo
-</span><a href="#local-6989586621679366249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo%27"><span class="hs-identifier hs-type">AutomaticTapeCreationPolicyInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366248"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679366248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticTapeCreationPolicyInfo
-</span><a href="#local-6989586621679366249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:AutomaticTapeCreationPolicyInfo' :: Maybe Text
+</span><a href="#local-6989586621679370506"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370506"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370505"><span class="annot"><span class="annottext">s :: AutomaticTapeCreationPolicyInfo
+</span><a href="#local-6989586621679370505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo%27"><span class="hs-identifier hs-type">AutomaticTapeCreationPolicyInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370504"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticTapeCreationPolicyInfo
+</span><a href="#local-6989586621679370505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:AutomaticTapeCreationPolicyInfo' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#%24sel%3AgatewayARN%3AAutomaticTapeCreationPolicyInfo%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679366248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo"><span class="hs-identifier hs-type">AutomaticTapeCreationPolicyInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo"><span class="hs-identifier hs-type">AutomaticTapeCreationPolicyInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | An automatic tape creation policy consists of a list of automatic tape</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- creation rules. This returns the rules that determine when and how to</span><span>
@@ -190,17 +190,17 @@ $sel:gatewayARN:AutomaticTapeCreationPolicyInfo' :: AutomaticTapeCreationPolicyI
      (Maybe (NonEmpty AutomaticTapeCreationRule))
      (Maybe (NonEmpty AutomaticTapeCreationRule))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo%27"><span class="hs-identifier hs-type">AutomaticTapeCreationPolicyInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366246"><span class="annot"><span class="annottext">Maybe (NonEmpty AutomaticTapeCreationRule)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo%27"><span class="hs-identifier hs-type">AutomaticTapeCreationPolicyInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370502"><span class="annot"><span class="annottext">Maybe (NonEmpty AutomaticTapeCreationRule)
 automaticTapeCreationRules :: Maybe (NonEmpty AutomaticTapeCreationRule)
 $sel:automaticTapeCreationRules:AutomaticTapeCreationPolicyInfo' :: AutomaticTapeCreationPolicyInfo
 -&gt; Maybe (NonEmpty AutomaticTapeCreationRule)
-</span><a href="#local-6989586621679366246"><span class="hs-identifier hs-var hs-var">automaticTapeCreationRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AutomaticTapeCreationRule)
-</span><a href="#local-6989586621679366246"><span class="hs-identifier hs-var">automaticTapeCreationRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366245"><span class="annot"><span class="annottext">s :: AutomaticTapeCreationPolicyInfo
-</span><a href="#local-6989586621679366245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo%27"><span class="hs-identifier hs-type">AutomaticTapeCreationPolicyInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366244"><span class="annot"><span class="annottext">Maybe (NonEmpty AutomaticTapeCreationRule)
-</span><a href="#local-6989586621679366244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticTapeCreationPolicyInfo
-</span><a href="#local-6989586621679366245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:automaticTapeCreationRules:AutomaticTapeCreationPolicyInfo' :: Maybe (NonEmpty AutomaticTapeCreationRule)
+</span><a href="#local-6989586621679370502"><span class="hs-identifier hs-var hs-var">automaticTapeCreationRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AutomaticTapeCreationRule)
+</span><a href="#local-6989586621679370502"><span class="hs-identifier hs-var">automaticTapeCreationRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370501"><span class="annot"><span class="annottext">s :: AutomaticTapeCreationPolicyInfo
+</span><a href="#local-6989586621679370501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo%27"><span class="hs-identifier hs-type">AutomaticTapeCreationPolicyInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370500"><span class="annot"><span class="annottext">Maybe (NonEmpty AutomaticTapeCreationRule)
+</span><a href="#local-6989586621679370500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticTapeCreationPolicyInfo
+</span><a href="#local-6989586621679370501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:automaticTapeCreationRules:AutomaticTapeCreationPolicyInfo' :: Maybe (NonEmpty AutomaticTapeCreationRule)
 </span><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#%24sel%3AautomaticTapeCreationRules%3AAutomaticTapeCreationPolicyInfo%27"><span class="hs-identifier hs-var">automaticTapeCreationRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AutomaticTapeCreationRule)
-</span><a href="#local-6989586621679366244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo"><span class="hs-identifier hs-type">AutomaticTapeCreationPolicyInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty AutomaticTapeCreationRule)
+</span><a href="#local-6989586621679370500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo"><span class="hs-identifier hs-type">AutomaticTapeCreationPolicyInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty AutomaticTapeCreationRule)
   -&gt; f (Maybe (NonEmpty AutomaticTapeCreationRule)))
  -&gt; AutomaticTapeCreationPolicyInfo
  -&gt; f AutomaticTapeCreationPolicyInfo)
@@ -231,14 +231,14 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty AutomaticTapeCreationRule)
   (NonEmpty AutomaticTapeCreationRule)
   (NonEmpty AutomaticTapeCreationRule)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679366238"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679370494"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo"><span class="hs-identifier hs-type">AutomaticTapeCreationPolicyInfo</span></a></span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679366236"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutomaticTapeCreationPolicyInfo
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679370492"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutomaticTapeCreationPolicyInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AutomaticTapeCreationPolicyInfo)
@@ -248,8 +248,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AutomaticTapeCreationPolicyInfo&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679366233"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366233"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370489"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370489"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe (NonEmpty AutomaticTapeCreationRule)
 -&gt; AutomaticTapeCreationPolicyInfo
@@ -263,7 +263,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; AutomaticTapeCreationPolicyInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679370489"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -274,7 +274,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser AutomaticTapeCreationPolicyInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370489"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (NonEmpty AutomaticTapeCreationRule))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -282,10 +282,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679366227"><span id="local-6989586621679366229"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679370483"><span id="local-6989586621679370485"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo"><span class="hs-identifier hs-type">AutomaticTapeCreationPolicyInfo</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679366224"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679370480"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo.html#AutomaticTapeCreationPolicyInfo"><span class="hs-identifier hs-type">AutomaticTapeCreationPolicyInfo</span></a></span></span><span>
 </span><span id="line-94"></span></pre></body></html>

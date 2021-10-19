@@ -37,81 +37,81 @@
 </span><span id="line-37"></span><span class="hs-comment">-- of the following conditions: @http-header@ and @query-string@.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newRuleCondition' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679250033"><span id="local-6989586621679250034"></span></span><span class="hs-keyword">data</span><span> </span><span id="RuleCondition"><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-var">RuleCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuleCondition%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-var">RuleCondition'</span></a></span></span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information for a path pattern condition. Specify only when @Field@ is</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- @path-pattern@.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3ApathPatternConfig%3ARuleCondition%27"><span class="annot"><span class="annottext">RuleCondition -&gt; Maybe PathPatternConditionConfig
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3ApathPatternConfig%3ARuleCondition%27"><span class="hs-identifier hs-var hs-var">pathPatternConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.PathPatternConditionConfig.html#PathPatternConditionConfig"><span class="hs-identifier hs-type">PathPatternConditionConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Information for an HTTP method condition. Specify only when @Field@ is</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @http-request-method@.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AhttpRequestMethodConfig%3ARuleCondition%27"><span class="annot"><span class="annottext">RuleCondition -&gt; Maybe HttpRequestMethodConditionConfig
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AhttpRequestMethodConfig%3ARuleCondition%27"><span class="hs-identifier hs-var hs-var">httpRequestMethodConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpRequestMethodConditionConfig.html#HttpRequestMethodConditionConfig"><span class="hs-identifier hs-type">HttpRequestMethodConditionConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The condition value. Specify only when @Field@ is @host-header@ or</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- @path-pattern@. Alternatively, to specify multiple host names or</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- multiple path patterns, use @HostHeaderConfig@ or @PathPatternConfig@.</span><span>
+</span><span id="line-40"></span><span id="local-6989586621679252739"><span id="local-6989586621679252740"></span></span><span class="hs-keyword">data</span><span> </span><span id="RuleCondition"><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-var">RuleCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuleCondition%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-var">RuleCondition'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The field in the HTTP request. The following are the possible values:</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   @http-header@</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   @http-request-method@</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   @host-header@</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- -   @path-pattern@</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- If @Field@ is @host-header@ and you are not using @HostHeaderConfig@,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- you can specify a single host name (for example, my.example.com) in</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- @Values@. A host name is case insensitive, can be up to 128 characters</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- in length, and can contain any of the following characters.</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   A-Z, a-z, 0-9</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   - .</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   * (matches 0 or more characters)</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   ? (matches exactly 1 character)</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- If @Field@ is @path-pattern@ and you are not using @PathPatternConfig@,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- you can specify a single path pattern (for example, \/img\/*) in</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- @Values@. A path pattern is case-sensitive, can be up to 128 characters</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- in length, and can contain any of the following characters.</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   A-Z, a-z, 0-9</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   _ - . $ \/ ~ \&quot; \' \@ : +</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   &amp; (using &amp;amp;)</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   * (matches 0 or more characters)</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   ? (matches exactly 1 character)</span><span>
-</span><span id="line-78"></span><span>    </span><span id="%24sel%3Avalues%3ARuleCondition%27"><span class="annot"><span class="annottext">RuleCondition -&gt; Maybe [Text]
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3Avalues%3ARuleCondition%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | Information for a source IP condition. Specify only when @Field@ is</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- @source-ip@.</span><span>
-</span><span id="line-81"></span><span>    </span><span id="%24sel%3AsourceIpConfig%3ARuleCondition%27"><span class="annot"><span class="annottext">RuleCondition -&gt; Maybe SourceIpConditionConfig
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AsourceIpConfig%3ARuleCondition%27"><span class="hs-identifier hs-var hs-var">sourceIpConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.SourceIpConditionConfig.html#SourceIpConditionConfig"><span class="hs-identifier hs-type">SourceIpConditionConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | Information for an HTTP header condition. Specify only when @Field@ is</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- @http-header@.</span><span>
-</span><span id="line-84"></span><span>    </span><span id="%24sel%3AhttpHeaderConfig%3ARuleCondition%27"><span class="annot"><span class="annottext">RuleCondition -&gt; Maybe HttpHeaderConditionConfig
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   @query-string@</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   @source-ip@</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Afield%3ARuleCondition%27"><span class="annot"><span class="annottext">RuleCondition -&gt; Maybe Text
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3Afield%3ARuleCondition%27"><span class="hs-identifier hs-var hs-var">field</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Information for an HTTP header condition. Specify only when @Field@ is</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- @http-header@.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AhttpHeaderConfig%3ARuleCondition%27"><span class="annot"><span class="annottext">RuleCondition -&gt; Maybe HttpHeaderConditionConfig
 </span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AhttpHeaderConfig%3ARuleCondition%27"><span class="hs-identifier hs-var hs-var">httpHeaderConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | Information for a host header condition. Specify only when @Field@ is</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- @host-header@.</span><span>
-</span><span id="line-87"></span><span>    </span><span id="%24sel%3AhostHeaderConfig%3ARuleCondition%27"><span class="annot"><span class="annottext">RuleCondition -&gt; Maybe HostHeaderConditionConfig
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Information for a host header condition. Specify only when @Field@ is</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @host-header@.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AhostHeaderConfig%3ARuleCondition%27"><span class="annot"><span class="annottext">RuleCondition -&gt; Maybe HostHeaderConditionConfig
 </span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AhostHeaderConfig%3ARuleCondition%27"><span class="hs-identifier hs-var hs-var">hostHeaderConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig"><span class="hs-identifier hs-type">HostHeaderConditionConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | Information for a query string condition. Specify only when @Field@ is</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- @query-string@.</span><span>
-</span><span id="line-90"></span><span>    </span><span id="%24sel%3AqueryStringConfig%3ARuleCondition%27"><span class="annot"><span class="annottext">RuleCondition -&gt; Maybe QueryStringConditionConfig
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AqueryStringConfig%3ARuleCondition%27"><span class="hs-identifier hs-var hs-var">queryStringConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.QueryStringConditionConfig.html#QueryStringConditionConfig"><span class="hs-identifier hs-type">QueryStringConditionConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The field in the HTTP request. The following are the possible values:</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   @http-header@</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- -   @http-request-method@</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- -   @host-header@</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- -   @path-pattern@</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- -   @query-string@</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- -   @source-ip@</span><span>
-</span><span id="line-104"></span><span>    </span><span id="%24sel%3Afield%3ARuleCondition%27"><span class="annot"><span class="annottext">RuleCondition -&gt; Maybe Text
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3Afield%3ARuleCondition%27"><span class="hs-identifier hs-var hs-var">field</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The condition value. Specify only when @Field@ is @host-header@ or</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @path-pattern@. Alternatively, to specify multiple host names or</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- multiple path patterns, use @HostHeaderConfig@ or @PathPatternConfig@.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- If @Field@ is @host-header@ and you are not using @HostHeaderConfig@,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- you can specify a single host name (for example, my.example.com) in</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @Values@. A host name is case insensitive, can be up to 128 characters</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- in length, and can contain any of the following characters.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   A-Z, a-z, 0-9</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   - .</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   * (matches 0 or more characters)</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   ? (matches exactly 1 character)</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- If @Field@ is @path-pattern@ and you are not using @PathPatternConfig@,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- you can specify a single path pattern (for example, \/img\/*) in</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- @Values@. A path pattern is case-sensitive, can be up to 128 characters</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- in length, and can contain any of the following characters.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   A-Z, a-z, 0-9</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- -   _ - . $ \/ ~ \&quot; \' \@ : +</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- -   &amp; (using &amp;amp;)</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   * (matches 0 or more characters)</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   ? (matches exactly 1 character)</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3Avalues%3ARuleCondition%27"><span class="annot"><span class="annottext">RuleCondition -&gt; Maybe [Text]
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3Avalues%3ARuleCondition%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | Information for a source IP condition. Specify only when @Field@ is</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- @source-ip@.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AsourceIpConfig%3ARuleCondition%27"><span class="annot"><span class="annottext">RuleCondition -&gt; Maybe SourceIpConditionConfig
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AsourceIpConfig%3ARuleCondition%27"><span class="hs-identifier hs-var hs-var">sourceIpConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.SourceIpConditionConfig.html#SourceIpConditionConfig"><span class="hs-identifier hs-type">SourceIpConditionConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | Information for an HTTP method condition. Specify only when @Field@ is</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- @http-request-method@.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AhttpRequestMethodConfig%3ARuleCondition%27"><span class="annot"><span class="annottext">RuleCondition -&gt; Maybe HttpRequestMethodConditionConfig
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AhttpRequestMethodConfig%3ARuleCondition%27"><span class="hs-identifier hs-var hs-var">httpRequestMethodConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpRequestMethodConditionConfig.html#HttpRequestMethodConditionConfig"><span class="hs-identifier hs-type">HttpRequestMethodConditionConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | Information for a path pattern condition. Specify only when @Field@ is</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- @path-pattern@.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3ApathPatternConfig%3ARuleCondition%27"><span class="annot"><span class="annottext">RuleCondition -&gt; Maybe PathPatternConditionConfig
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3ApathPatternConfig%3ARuleCondition%27"><span class="hs-identifier hs-var hs-var">pathPatternConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.PathPatternConditionConfig.html#PathPatternConditionConfig"><span class="hs-identifier hs-type">PathPatternConditionConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | Information for a query string condition. Specify only when @Field@ is</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- @query-string@.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AqueryStringConfig%3ARuleCondition%27"><span class="annot"><span class="annottext">RuleCondition -&gt; Maybe QueryStringConditionConfig
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AqueryStringConfig%3ARuleCondition%27"><span class="hs-identifier hs-var hs-var">queryStringConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.QueryStringConditionConfig.html#QueryStringConditionConfig"><span class="hs-identifier hs-type">QueryStringConditionConfig</span></a></span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250020"><span id="local-6989586621679250022"><span class="annot"><span class="annottext">RuleCondition -&gt; RuleCondition -&gt; Bool
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252726"><span id="local-6989586621679252728"><span class="annot"><span class="annottext">RuleCondition -&gt; RuleCondition -&gt; Bool
 (RuleCondition -&gt; RuleCondition -&gt; Bool)
 -&gt; (RuleCondition -&gt; RuleCondition -&gt; Bool) -&gt; Eq RuleCondition
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -119,7 +119,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RuleCondition -&gt; RuleCondition -&gt; Bool
 == :: RuleCondition -&gt; RuleCondition -&gt; Bool
 $c== :: RuleCondition -&gt; RuleCondition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250011"><span id="local-6989586621679250013"><span id="local-6989586621679250015"><span id="local-6989586621679250017"><span class="annot"><span class="annottext">ReadPrec [RuleCondition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252717"><span id="local-6989586621679252719"><span id="local-6989586621679252721"><span id="local-6989586621679252723"><span class="annot"><span class="annottext">ReadPrec [RuleCondition]
 ReadPrec RuleCondition
 Int -&gt; ReadS RuleCondition
 ReadS [RuleCondition]
@@ -139,7 +139,7 @@ readList :: ReadS [RuleCondition]
 $creadList :: ReadS [RuleCondition]
 readsPrec :: Int -&gt; ReadS RuleCondition
 $creadsPrec :: Int -&gt; ReadS RuleCondition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250004"><span id="local-6989586621679250006"><span id="local-6989586621679250008"><span class="annot"><span class="annottext">Int -&gt; RuleCondition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252710"><span id="local-6989586621679252712"><span id="local-6989586621679252714"><span class="annot"><span class="annottext">Int -&gt; RuleCondition -&gt; ShowS
 [RuleCondition] -&gt; ShowS
 RuleCondition -&gt; String
 (Int -&gt; RuleCondition -&gt; ShowS)
@@ -173,217 +173,247 @@ $cfrom :: forall x. RuleCondition -&gt; Rep RuleCondition x
 </span><span id="line-113"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-115"></span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- 'pathPatternConfig', 'ruleCondition_pathPatternConfig' - Information for a path pattern condition. Specify only when @Field@ is</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- @path-pattern@.</span><span>
-</span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- 'httpRequestMethodConfig', 'ruleCondition_httpRequestMethodConfig' - Information for an HTTP method condition. Specify only when @Field@ is</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- @http-request-method@.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'field', 'ruleCondition_field' - The field in the HTTP request. The following are the possible values:</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   @http-header@</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- -   @http-request-method@</span><span>
 </span><span id="line-121"></span><span class="hs-comment">--</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- 'values', 'ruleCondition_values' - The condition value. Specify only when @Field@ is @host-header@ or</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- @path-pattern@. Alternatively, to specify multiple host names or</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- multiple path patterns, use @HostHeaderConfig@ or @PathPatternConfig@.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   @host-header@</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -   @path-pattern@</span><span>
 </span><span id="line-125"></span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- If @Field@ is @host-header@ and you are not using @HostHeaderConfig@,</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- you can specify a single host name (for example, my.example.com) in</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- @Values@. A host name is case insensitive, can be up to 128 characters</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- in length, and can contain any of the following characters.</span><span>
-</span><span id="line-130"></span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- -   A-Z, a-z, 0-9</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   @query-string@</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   @source-ip@</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'httpHeaderConfig', 'ruleCondition_httpHeaderConfig' - Information for an HTTP header condition. Specify only when @Field@ is</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- @http-header@.</span><span>
 </span><span id="line-132"></span><span class="hs-comment">--</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- -   - .</span><span>
-</span><span id="line-134"></span><span class="hs-comment">--</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- -   * (matches 0 or more characters)</span><span>
-</span><span id="line-136"></span><span class="hs-comment">--</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- -   ? (matches exactly 1 character)</span><span>
-</span><span id="line-138"></span><span class="hs-comment">--</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- If @Field@ is @path-pattern@ and you are not using @PathPatternConfig@,</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- you can specify a single path pattern (for example, \/img\/*) in</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- @Values@. A path pattern is case-sensitive, can be up to 128 characters</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- in length, and can contain any of the following characters.</span><span>
-</span><span id="line-143"></span><span class="hs-comment">--</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- -   A-Z, a-z, 0-9</span><span>
-</span><span id="line-145"></span><span class="hs-comment">--</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- -   _ - . $ \/ ~ \&quot; \' \@ : +</span><span>
-</span><span id="line-147"></span><span class="hs-comment">--</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- -   &amp; (using &amp;amp;)</span><span>
-</span><span id="line-149"></span><span class="hs-comment">--</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- -   * (matches 0 or more characters)</span><span>
-</span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- -   ? (matches exactly 1 character)</span><span>
-</span><span id="line-153"></span><span class="hs-comment">--</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- 'sourceIpConfig', 'ruleCondition_sourceIpConfig' - Information for a source IP condition. Specify only when @Field@ is</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- @source-ip@.</span><span>
-</span><span id="line-156"></span><span class="hs-comment">--</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- 'httpHeaderConfig', 'ruleCondition_httpHeaderConfig' - Information for an HTTP header condition. Specify only when @Field@ is</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- @http-header@.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'hostHeaderConfig', 'ruleCondition_hostHeaderConfig' - Information for a host header condition. Specify only when @Field@ is</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- @host-header@.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'values', 'ruleCondition_values' - The condition value. Specify only when @Field@ is @host-header@ or</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- @path-pattern@. Alternatively, to specify multiple host names or</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- multiple path patterns, use @HostHeaderConfig@ or @PathPatternConfig@.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- If @Field@ is @host-header@ and you are not using @HostHeaderConfig@,</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- you can specify a single host name (for example, my.example.com) in</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- @Values@. A host name is case insensitive, can be up to 128 characters</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- in length, and can contain any of the following characters.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- -   A-Z, a-z, 0-9</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- -   - .</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- -   * (matches 0 or more characters)</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   ? (matches exactly 1 character)</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- If @Field@ is @path-pattern@ and you are not using @PathPatternConfig@,</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- you can specify a single path pattern (for example, \/img\/*) in</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- @Values@. A path pattern is case-sensitive, can be up to 128 characters</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- in length, and can contain any of the following characters.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- -   A-Z, a-z, 0-9</span><span>
 </span><span id="line-159"></span><span class="hs-comment">--</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- 'hostHeaderConfig', 'ruleCondition_hostHeaderConfig' - Information for a host header condition. Specify only when @Field@ is</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- @host-header@.</span><span>
-</span><span id="line-162"></span><span class="hs-comment">--</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- 'queryStringConfig', 'ruleCondition_queryStringConfig' - Information for a query string condition. Specify only when @Field@ is</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- @query-string@.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- -   _ - . $ \/ ~ \&quot; \' \@ : +</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   &amp; (using &amp;amp;)</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- -   * (matches 0 or more characters)</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- 'field', 'ruleCondition_field' - The field in the HTTP request. The following are the possible values:</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- -   ? (matches exactly 1 character)</span><span>
 </span><span id="line-167"></span><span class="hs-comment">--</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- -   @http-header@</span><span>
-</span><span id="line-169"></span><span class="hs-comment">--</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- -   @http-request-method@</span><span>
-</span><span id="line-171"></span><span class="hs-comment">--</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- -   @host-header@</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'sourceIpConfig', 'ruleCondition_sourceIpConfig' - Information for a source IP condition. Specify only when @Field@ is</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- @source-ip@.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'httpRequestMethodConfig', 'ruleCondition_httpRequestMethodConfig' - Information for an HTTP method condition. Specify only when @Field@ is</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- @http-request-method@.</span><span>
 </span><span id="line-173"></span><span class="hs-comment">--</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- -   @path-pattern@</span><span>
-</span><span id="line-175"></span><span class="hs-comment">--</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- -   @query-string@</span><span>
-</span><span id="line-177"></span><span class="hs-comment">--</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- -   @source-ip@</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'pathPatternConfig', 'ruleCondition_pathPatternConfig' - Information for a path pattern condition. Specify only when @Field@ is</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- @path-pattern@.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'queryStringConfig', 'ruleCondition_queryStringConfig' - Information for a query string condition. Specify only when @Field@ is</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- @query-string@.</span><span>
 </span><span id="line-179"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#newRuleCondition"><span class="hs-identifier hs-type">newRuleCondition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-180"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span>
 </span><span id="line-181"></span><span id="newRuleCondition"><span class="annot"><span class="annottext">newRuleCondition :: RuleCondition
 </span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#newRuleCondition"><span class="hs-identifier hs-var hs-var">newRuleCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-182"></span><span>  </span><span class="annot"><span class="annottext">RuleCondition' :: Maybe PathPatternConditionConfig
--&gt; Maybe HttpRequestMethodConditionConfig
--&gt; Maybe [Text]
--&gt; Maybe SourceIpConditionConfig
+</span><span id="line-182"></span><span>  </span><span class="annot"><span class="annottext">RuleCondition' :: Maybe Text
 -&gt; Maybe HttpHeaderConditionConfig
 -&gt; Maybe HostHeaderConditionConfig
+-&gt; Maybe [Text]
+-&gt; Maybe SourceIpConditionConfig
+-&gt; Maybe HttpRequestMethodConditionConfig
+-&gt; Maybe PathPatternConditionConfig
 -&gt; Maybe QueryStringConditionConfig
--&gt; Maybe Text
 -&gt; RuleCondition
 </span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span>
-</span><span id="line-183"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pathPatternConfig:RuleCondition' :: Maybe PathPatternConditionConfig
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3ApathPatternConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">pathPatternConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PathPatternConditionConfig
+</span><span id="line-183"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:field:RuleCondition' :: Maybe Text
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3Afield%3ARuleCondition%27"><span class="hs-identifier hs-var">field</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpRequestMethodConfig:RuleCondition' :: Maybe HttpRequestMethodConditionConfig
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AhttpRequestMethodConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">httpRequestMethodConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpRequestMethodConditionConfig
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:RuleCondition' :: Maybe [Text]
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3Avalues%3ARuleCondition%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceIpConfig:RuleCondition' :: Maybe SourceIpConditionConfig
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AsourceIpConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceIpConditionConfig
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpHeaderConfig:RuleCondition' :: Maybe HttpHeaderConditionConfig
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpHeaderConfig:RuleCondition' :: Maybe HttpHeaderConditionConfig
 </span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AhttpHeaderConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">httpHeaderConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpHeaderConditionConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:hostHeaderConfig:RuleCondition' :: Maybe HostHeaderConditionConfig
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:hostHeaderConfig:RuleCondition' :: Maybe HostHeaderConditionConfig
 </span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AhostHeaderConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">hostHeaderConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HostHeaderConditionConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryStringConfig:RuleCondition' :: Maybe QueryStringConditionConfig
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AqueryStringConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">queryStringConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStringConditionConfig
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:RuleCondition' :: Maybe [Text]
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3Avalues%3ARuleCondition%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:field:RuleCondition' :: Maybe Text
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3Afield%3ARuleCondition%27"><span class="hs-identifier hs-var">field</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceIpConfig:RuleCondition' :: Maybe SourceIpConditionConfig
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AsourceIpConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceIpConditionConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpRequestMethodConfig:RuleCondition' :: Maybe HttpRequestMethodConditionConfig
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AhttpRequestMethodConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">httpRequestMethodConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpRequestMethodConditionConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:pathPatternConfig:RuleCondition' :: Maybe PathPatternConditionConfig
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3ApathPatternConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">pathPatternConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PathPatternConditionConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryStringConfig:RuleCondition' :: Maybe QueryStringConditionConfig
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AqueryStringConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">queryStringConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStringConditionConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- | Information for a path pattern condition. Specify only when @Field@ is</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- @path-pattern@.</span><span>
-</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_pathPatternConfig"><span class="hs-identifier hs-type">ruleCondition_pathPatternConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.PathPatternConditionConfig.html#PathPatternConditionConfig"><span class="hs-identifier hs-type">PathPatternConditionConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span id="ruleCondition_pathPatternConfig"><span class="annot"><span class="annottext">ruleCondition_pathPatternConfig :: (Maybe PathPatternConditionConfig
- -&gt; f (Maybe PathPatternConditionConfig))
+</span><span id="line-193"></span><span class="hs-comment">-- | The field in the HTTP request. The following are the possible values:</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- -   @http-header@</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- -   @http-request-method@</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- -   @host-header@</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- -   @path-pattern@</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- -   @query-string@</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- -   @source-ip@</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_field"><span class="hs-identifier hs-type">ruleCondition_field</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="ruleCondition_field"><span class="annot"><span class="annottext">ruleCondition_field :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RuleCondition -&gt; f RuleCondition
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_field"><span class="hs-identifier hs-var hs-var">ruleCondition_field</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleCondition -&gt; Maybe Text)
+-&gt; (RuleCondition -&gt; Maybe Text -&gt; RuleCondition)
+-&gt; Lens RuleCondition RuleCondition (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252701"><span class="annot"><span class="annottext">Maybe Text
+field :: Maybe Text
+$sel:field:RuleCondition' :: RuleCondition -&gt; Maybe Text
+</span><a href="#local-6989586621679252701"><span class="hs-identifier hs-var hs-var">field</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252701"><span class="hs-identifier hs-var">field</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252700"><span class="annot"><span class="annottext">s :: RuleCondition
+</span><a href="#local-6989586621679252700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252699"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleCondition
+</span><a href="#local-6989586621679252700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:field:RuleCondition' :: Maybe Text
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3Afield%3ARuleCondition%27"><span class="hs-identifier hs-var">field</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | Information for an HTTP header condition. Specify only when @Field@ is</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- @http-header@.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_httpHeaderConfig"><span class="hs-identifier hs-type">ruleCondition_httpHeaderConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="ruleCondition_httpHeaderConfig"><span class="annot"><span class="annottext">ruleCondition_httpHeaderConfig :: (Maybe HttpHeaderConditionConfig
+ -&gt; f (Maybe HttpHeaderConditionConfig))
 -&gt; RuleCondition -&gt; f RuleCondition
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_pathPatternConfig"><span class="hs-identifier hs-var hs-var">ruleCondition_pathPatternConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleCondition -&gt; Maybe PathPatternConditionConfig)
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_httpHeaderConfig"><span class="hs-identifier hs-var hs-var">ruleCondition_httpHeaderConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleCondition -&gt; Maybe HttpHeaderConditionConfig)
 -&gt; (RuleCondition
-    -&gt; Maybe PathPatternConditionConfig -&gt; RuleCondition)
+    -&gt; Maybe HttpHeaderConditionConfig -&gt; RuleCondition)
 -&gt; Lens
      RuleCondition
      RuleCondition
-     (Maybe PathPatternConditionConfig)
-     (Maybe PathPatternConditionConfig)
+     (Maybe HttpHeaderConditionConfig)
+     (Maybe HttpHeaderConditionConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249995"><span class="annot"><span class="annottext">Maybe PathPatternConditionConfig
-pathPatternConfig :: Maybe PathPatternConditionConfig
-$sel:pathPatternConfig:RuleCondition' :: RuleCondition -&gt; Maybe PathPatternConditionConfig
-</span><a href="#local-6989586621679249995"><span class="hs-identifier hs-var hs-var">pathPatternConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PathPatternConditionConfig
-</span><a href="#local-6989586621679249995"><span class="hs-identifier hs-var">pathPatternConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249994"><span class="annot"><span class="annottext">s :: RuleCondition
-</span><a href="#local-6989586621679249994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249993"><span class="annot"><span class="annottext">Maybe PathPatternConditionConfig
-</span><a href="#local-6989586621679249993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleCondition
-</span><a href="#local-6989586621679249994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pathPatternConfig:RuleCondition' :: Maybe PathPatternConditionConfig
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3ApathPatternConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">pathPatternConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PathPatternConditionConfig
-</span><a href="#local-6989586621679249993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- | Information for an HTTP method condition. Specify only when @Field@ is</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- @http-request-method@.</span><span>
-</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_httpRequestMethodConfig"><span class="hs-identifier hs-type">ruleCondition_httpRequestMethodConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpRequestMethodConditionConfig.html#HttpRequestMethodConditionConfig"><span class="hs-identifier hs-type">HttpRequestMethodConditionConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-201"></span><span id="ruleCondition_httpRequestMethodConfig"><span class="annot"><span class="annottext">ruleCondition_httpRequestMethodConfig :: (Maybe HttpRequestMethodConditionConfig
- -&gt; f (Maybe HttpRequestMethodConditionConfig))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252697"><span class="annot"><span class="annottext">Maybe HttpHeaderConditionConfig
+httpHeaderConfig :: Maybe HttpHeaderConditionConfig
+$sel:httpHeaderConfig:RuleCondition' :: RuleCondition -&gt; Maybe HttpHeaderConditionConfig
+</span><a href="#local-6989586621679252697"><span class="hs-identifier hs-var hs-var">httpHeaderConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpHeaderConditionConfig
+</span><a href="#local-6989586621679252697"><span class="hs-identifier hs-var">httpHeaderConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252696"><span class="annot"><span class="annottext">s :: RuleCondition
+</span><a href="#local-6989586621679252696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252695"><span class="annot"><span class="annottext">Maybe HttpHeaderConditionConfig
+</span><a href="#local-6989586621679252695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleCondition
+</span><a href="#local-6989586621679252696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpHeaderConfig:RuleCondition' :: Maybe HttpHeaderConditionConfig
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AhttpHeaderConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">httpHeaderConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpHeaderConditionConfig
+</span><a href="#local-6989586621679252695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | Information for a host header condition. Specify only when @Field@ is</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- @host-header@.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_hostHeaderConfig"><span class="hs-identifier hs-type">ruleCondition_hostHeaderConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig"><span class="hs-identifier hs-type">HostHeaderConditionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="ruleCondition_hostHeaderConfig"><span class="annot"><span class="annottext">ruleCondition_hostHeaderConfig :: (Maybe HostHeaderConditionConfig
+ -&gt; f (Maybe HostHeaderConditionConfig))
 -&gt; RuleCondition -&gt; f RuleCondition
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_httpRequestMethodConfig"><span class="hs-identifier hs-var hs-var">ruleCondition_httpRequestMethodConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleCondition -&gt; Maybe HttpRequestMethodConditionConfig)
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_hostHeaderConfig"><span class="hs-identifier hs-var hs-var">ruleCondition_hostHeaderConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleCondition -&gt; Maybe HostHeaderConditionConfig)
 -&gt; (RuleCondition
-    -&gt; Maybe HttpRequestMethodConditionConfig -&gt; RuleCondition)
+    -&gt; Maybe HostHeaderConditionConfig -&gt; RuleCondition)
 -&gt; Lens
      RuleCondition
      RuleCondition
-     (Maybe HttpRequestMethodConditionConfig)
-     (Maybe HttpRequestMethodConditionConfig)
+     (Maybe HostHeaderConditionConfig)
+     (Maybe HostHeaderConditionConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249991"><span class="annot"><span class="annottext">Maybe HttpRequestMethodConditionConfig
-httpRequestMethodConfig :: Maybe HttpRequestMethodConditionConfig
-$sel:httpRequestMethodConfig:RuleCondition' :: RuleCondition -&gt; Maybe HttpRequestMethodConditionConfig
-</span><a href="#local-6989586621679249991"><span class="hs-identifier hs-var hs-var">httpRequestMethodConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpRequestMethodConditionConfig
-</span><a href="#local-6989586621679249991"><span class="hs-identifier hs-var">httpRequestMethodConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249990"><span class="annot"><span class="annottext">s :: RuleCondition
-</span><a href="#local-6989586621679249990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249989"><span class="annot"><span class="annottext">Maybe HttpRequestMethodConditionConfig
-</span><a href="#local-6989586621679249989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleCondition
-</span><a href="#local-6989586621679249990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpRequestMethodConfig:RuleCondition' :: Maybe HttpRequestMethodConditionConfig
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AhttpRequestMethodConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">httpRequestMethodConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpRequestMethodConditionConfig
-</span><a href="#local-6989586621679249989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- | The condition value. Specify only when @Field@ is @host-header@ or</span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- @path-pattern@. Alternatively, to specify multiple host names or</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- multiple path patterns, use @HostHeaderConfig@ or @PathPatternConfig@.</span><span>
-</span><span id="line-206"></span><span class="hs-comment">--</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- If @Field@ is @host-header@ and you are not using @HostHeaderConfig@,</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- you can specify a single host name (for example, my.example.com) in</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- @Values@. A host name is case insensitive, can be up to 128 characters</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- in length, and can contain any of the following characters.</span><span>
-</span><span id="line-211"></span><span class="hs-comment">--</span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- -   A-Z, a-z, 0-9</span><span>
-</span><span id="line-213"></span><span class="hs-comment">--</span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- -   - .</span><span>
-</span><span id="line-215"></span><span class="hs-comment">--</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- -   * (matches 0 or more characters)</span><span>
-</span><span id="line-217"></span><span class="hs-comment">--</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- -   ? (matches exactly 1 character)</span><span>
-</span><span id="line-219"></span><span class="hs-comment">--</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- If @Field@ is @path-pattern@ and you are not using @PathPatternConfig@,</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- you can specify a single path pattern (for example, \/img\/*) in</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- @Values@. A path pattern is case-sensitive, can be up to 128 characters</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- in length, and can contain any of the following characters.</span><span>
-</span><span id="line-224"></span><span class="hs-comment">--</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- -   A-Z, a-z, 0-9</span><span>
-</span><span id="line-226"></span><span class="hs-comment">--</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- -   _ - . $ \/ ~ \&quot; \' \@ : +</span><span>
-</span><span id="line-228"></span><span class="hs-comment">--</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- -   &amp; (using &amp;amp;)</span><span>
-</span><span id="line-230"></span><span class="hs-comment">--</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- -   * (matches 0 or more characters)</span><span>
-</span><span id="line-232"></span><span class="hs-comment">--</span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- -   ? (matches exactly 1 character)</span><span>
-</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_values"><span class="hs-identifier hs-type">ruleCondition_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-235"></span><span id="ruleCondition_values"><span class="annot"><span class="annottext">ruleCondition_values :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252693"><span class="annot"><span class="annottext">Maybe HostHeaderConditionConfig
+hostHeaderConfig :: Maybe HostHeaderConditionConfig
+$sel:hostHeaderConfig:RuleCondition' :: RuleCondition -&gt; Maybe HostHeaderConditionConfig
+</span><a href="#local-6989586621679252693"><span class="hs-identifier hs-var hs-var">hostHeaderConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HostHeaderConditionConfig
+</span><a href="#local-6989586621679252693"><span class="hs-identifier hs-var">hostHeaderConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252692"><span class="annot"><span class="annottext">s :: RuleCondition
+</span><a href="#local-6989586621679252692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252691"><span class="annot"><span class="annottext">Maybe HostHeaderConditionConfig
+</span><a href="#local-6989586621679252691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleCondition
+</span><a href="#local-6989586621679252692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostHeaderConfig:RuleCondition' :: Maybe HostHeaderConditionConfig
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AhostHeaderConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">hostHeaderConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HostHeaderConditionConfig
+</span><a href="#local-6989586621679252691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The condition value. Specify only when @Field@ is @host-header@ or</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- @path-pattern@. Alternatively, to specify multiple host names or</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- multiple path patterns, use @HostHeaderConfig@ or @PathPatternConfig@.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- If @Field@ is @host-header@ and you are not using @HostHeaderConfig@,</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- you can specify a single host name (for example, my.example.com) in</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- @Values@. A host name is case insensitive, can be up to 128 characters</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- in length, and can contain any of the following characters.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- -   A-Z, a-z, 0-9</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- -   - .</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- -   * (matches 0 or more characters)</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- -   ? (matches exactly 1 character)</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- If @Field@ is @path-pattern@ and you are not using @PathPatternConfig@,</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- you can specify a single path pattern (for example, \/img\/*) in</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- @Values@. A path pattern is case-sensitive, can be up to 128 characters</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- in length, and can contain any of the following characters.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- -   A-Z, a-z, 0-9</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- -   _ - . $ \/ ~ \&quot; \' \@ : +</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- -   &amp; (using &amp;amp;)</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- -   * (matches 0 or more characters)</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- -   ? (matches exactly 1 character)</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_values"><span class="hs-identifier hs-type">ruleCondition_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span id="ruleCondition_values"><span class="annot"><span class="annottext">ruleCondition_values :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; RuleCondition -&gt; f RuleCondition
 </span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_values"><span class="hs-identifier hs-var hs-var">ruleCondition_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleCondition -&gt; Maybe [Text])
 -&gt; (RuleCondition -&gt; Maybe [Text] -&gt; RuleCondition)
 -&gt; Lens RuleCondition RuleCondition (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249987"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252689"><span class="annot"><span class="annottext">Maybe [Text]
 values :: Maybe [Text]
 $sel:values:RuleCondition' :: RuleCondition -&gt; Maybe [Text]
-</span><a href="#local-6989586621679249987"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249987"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249986"><span class="annot"><span class="annottext">s :: RuleCondition
-</span><a href="#local-6989586621679249986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249985"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleCondition
-</span><a href="#local-6989586621679249986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:RuleCondition' :: Maybe [Text]
+</span><a href="#local-6989586621679252689"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679252689"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252688"><span class="annot"><span class="annottext">s :: RuleCondition
+</span><a href="#local-6989586621679252688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252687"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679252687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleCondition
+</span><a href="#local-6989586621679252688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:RuleCondition' :: Maybe [Text]
 </span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3Avalues%3ARuleCondition%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679252687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; RuleCondition -&gt; f RuleCondition)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -397,13 +427,13 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-236"></span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- | Information for a source IP condition. Specify only when @Field@ is</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- @source-ip@.</span><span>
-</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_sourceIpConfig"><span class="hs-identifier hs-type">ruleCondition_sourceIpConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.SourceIpConditionConfig.html#SourceIpConditionConfig"><span class="hs-identifier hs-type">SourceIpConditionConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-240"></span><span id="ruleCondition_sourceIpConfig"><span class="annot"><span class="annottext">ruleCondition_sourceIpConfig :: (Maybe SourceIpConditionConfig
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | Information for a source IP condition. Specify only when @Field@ is</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- @source-ip@.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_sourceIpConfig"><span class="hs-identifier hs-type">ruleCondition_sourceIpConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.SourceIpConditionConfig.html#SourceIpConditionConfig"><span class="hs-identifier hs-type">SourceIpConditionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="ruleCondition_sourceIpConfig"><span class="annot"><span class="annottext">ruleCondition_sourceIpConfig :: (Maybe SourceIpConditionConfig
  -&gt; f (Maybe SourceIpConditionConfig))
 -&gt; RuleCondition -&gt; f RuleCondition
 </span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_sourceIpConfig"><span class="hs-identifier hs-var hs-var">ruleCondition_sourceIpConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleCondition -&gt; Maybe SourceIpConditionConfig)
@@ -415,73 +445,73 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe SourceIpConditionConfig)
      (Maybe SourceIpConditionConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249980"><span class="annot"><span class="annottext">Maybe SourceIpConditionConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252682"><span class="annot"><span class="annottext">Maybe SourceIpConditionConfig
 sourceIpConfig :: Maybe SourceIpConditionConfig
 $sel:sourceIpConfig:RuleCondition' :: RuleCondition -&gt; Maybe SourceIpConditionConfig
-</span><a href="#local-6989586621679249980"><span class="hs-identifier hs-var hs-var">sourceIpConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceIpConditionConfig
-</span><a href="#local-6989586621679249980"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249979"><span class="annot"><span class="annottext">s :: RuleCondition
-</span><a href="#local-6989586621679249979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249978"><span class="annot"><span class="annottext">Maybe SourceIpConditionConfig
-</span><a href="#local-6989586621679249978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleCondition
-</span><a href="#local-6989586621679249979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIpConfig:RuleCondition' :: Maybe SourceIpConditionConfig
+</span><a href="#local-6989586621679252682"><span class="hs-identifier hs-var hs-var">sourceIpConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceIpConditionConfig
+</span><a href="#local-6989586621679252682"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252681"><span class="annot"><span class="annottext">s :: RuleCondition
+</span><a href="#local-6989586621679252681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252680"><span class="annot"><span class="annottext">Maybe SourceIpConditionConfig
+</span><a href="#local-6989586621679252680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleCondition
+</span><a href="#local-6989586621679252681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIpConfig:RuleCondition' :: Maybe SourceIpConditionConfig
 </span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AsourceIpConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceIpConditionConfig
-</span><a href="#local-6989586621679249978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- | Information for an HTTP header condition. Specify only when @Field@ is</span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- @http-header@.</span><span>
-</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_httpHeaderConfig"><span class="hs-identifier hs-type">ruleCondition_httpHeaderConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-245"></span><span id="ruleCondition_httpHeaderConfig"><span class="annot"><span class="annottext">ruleCondition_httpHeaderConfig :: (Maybe HttpHeaderConditionConfig
- -&gt; f (Maybe HttpHeaderConditionConfig))
+</span><a href="#local-6989586621679252680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | Information for an HTTP method condition. Specify only when @Field@ is</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- @http-request-method@.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_httpRequestMethodConfig"><span class="hs-identifier hs-type">ruleCondition_httpRequestMethodConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpRequestMethodConditionConfig.html#HttpRequestMethodConditionConfig"><span class="hs-identifier hs-type">HttpRequestMethodConditionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="ruleCondition_httpRequestMethodConfig"><span class="annot"><span class="annottext">ruleCondition_httpRequestMethodConfig :: (Maybe HttpRequestMethodConditionConfig
+ -&gt; f (Maybe HttpRequestMethodConditionConfig))
 -&gt; RuleCondition -&gt; f RuleCondition
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_httpHeaderConfig"><span class="hs-identifier hs-var hs-var">ruleCondition_httpHeaderConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleCondition -&gt; Maybe HttpHeaderConditionConfig)
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_httpRequestMethodConfig"><span class="hs-identifier hs-var hs-var">ruleCondition_httpRequestMethodConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleCondition -&gt; Maybe HttpRequestMethodConditionConfig)
 -&gt; (RuleCondition
-    -&gt; Maybe HttpHeaderConditionConfig -&gt; RuleCondition)
+    -&gt; Maybe HttpRequestMethodConditionConfig -&gt; RuleCondition)
 -&gt; Lens
      RuleCondition
      RuleCondition
-     (Maybe HttpHeaderConditionConfig)
-     (Maybe HttpHeaderConditionConfig)
+     (Maybe HttpRequestMethodConditionConfig)
+     (Maybe HttpRequestMethodConditionConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249976"><span class="annot"><span class="annottext">Maybe HttpHeaderConditionConfig
-httpHeaderConfig :: Maybe HttpHeaderConditionConfig
-$sel:httpHeaderConfig:RuleCondition' :: RuleCondition -&gt; Maybe HttpHeaderConditionConfig
-</span><a href="#local-6989586621679249976"><span class="hs-identifier hs-var hs-var">httpHeaderConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpHeaderConditionConfig
-</span><a href="#local-6989586621679249976"><span class="hs-identifier hs-var">httpHeaderConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249975"><span class="annot"><span class="annottext">s :: RuleCondition
-</span><a href="#local-6989586621679249975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249974"><span class="annot"><span class="annottext">Maybe HttpHeaderConditionConfig
-</span><a href="#local-6989586621679249974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleCondition
-</span><a href="#local-6989586621679249975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpHeaderConfig:RuleCondition' :: Maybe HttpHeaderConditionConfig
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AhttpHeaderConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">httpHeaderConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpHeaderConditionConfig
-</span><a href="#local-6989586621679249974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-246"></span><span>
-</span><span id="line-247"></span><span class="hs-comment">-- | Information for a host header condition. Specify only when @Field@ is</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- @host-header@.</span><span>
-</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_hostHeaderConfig"><span class="hs-identifier hs-type">ruleCondition_hostHeaderConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig"><span class="hs-identifier hs-type">HostHeaderConditionConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-250"></span><span id="ruleCondition_hostHeaderConfig"><span class="annot"><span class="annottext">ruleCondition_hostHeaderConfig :: (Maybe HostHeaderConditionConfig
- -&gt; f (Maybe HostHeaderConditionConfig))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252678"><span class="annot"><span class="annottext">Maybe HttpRequestMethodConditionConfig
+httpRequestMethodConfig :: Maybe HttpRequestMethodConditionConfig
+$sel:httpRequestMethodConfig:RuleCondition' :: RuleCondition -&gt; Maybe HttpRequestMethodConditionConfig
+</span><a href="#local-6989586621679252678"><span class="hs-identifier hs-var hs-var">httpRequestMethodConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpRequestMethodConditionConfig
+</span><a href="#local-6989586621679252678"><span class="hs-identifier hs-var">httpRequestMethodConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252677"><span class="annot"><span class="annottext">s :: RuleCondition
+</span><a href="#local-6989586621679252677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252676"><span class="annot"><span class="annottext">Maybe HttpRequestMethodConditionConfig
+</span><a href="#local-6989586621679252676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleCondition
+</span><a href="#local-6989586621679252677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpRequestMethodConfig:RuleCondition' :: Maybe HttpRequestMethodConditionConfig
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AhttpRequestMethodConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">httpRequestMethodConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpRequestMethodConditionConfig
+</span><a href="#local-6989586621679252676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | Information for a path pattern condition. Specify only when @Field@ is</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- @path-pattern@.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_pathPatternConfig"><span class="hs-identifier hs-type">ruleCondition_pathPatternConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.PathPatternConditionConfig.html#PathPatternConditionConfig"><span class="hs-identifier hs-type">PathPatternConditionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span id="ruleCondition_pathPatternConfig"><span class="annot"><span class="annottext">ruleCondition_pathPatternConfig :: (Maybe PathPatternConditionConfig
+ -&gt; f (Maybe PathPatternConditionConfig))
 -&gt; RuleCondition -&gt; f RuleCondition
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_hostHeaderConfig"><span class="hs-identifier hs-var hs-var">ruleCondition_hostHeaderConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleCondition -&gt; Maybe HostHeaderConditionConfig)
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_pathPatternConfig"><span class="hs-identifier hs-var hs-var">ruleCondition_pathPatternConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleCondition -&gt; Maybe PathPatternConditionConfig)
 -&gt; (RuleCondition
-    -&gt; Maybe HostHeaderConditionConfig -&gt; RuleCondition)
+    -&gt; Maybe PathPatternConditionConfig -&gt; RuleCondition)
 -&gt; Lens
      RuleCondition
      RuleCondition
-     (Maybe HostHeaderConditionConfig)
-     (Maybe HostHeaderConditionConfig)
+     (Maybe PathPatternConditionConfig)
+     (Maybe PathPatternConditionConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249972"><span class="annot"><span class="annottext">Maybe HostHeaderConditionConfig
-hostHeaderConfig :: Maybe HostHeaderConditionConfig
-$sel:hostHeaderConfig:RuleCondition' :: RuleCondition -&gt; Maybe HostHeaderConditionConfig
-</span><a href="#local-6989586621679249972"><span class="hs-identifier hs-var hs-var">hostHeaderConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HostHeaderConditionConfig
-</span><a href="#local-6989586621679249972"><span class="hs-identifier hs-var">hostHeaderConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249971"><span class="annot"><span class="annottext">s :: RuleCondition
-</span><a href="#local-6989586621679249971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249970"><span class="annot"><span class="annottext">Maybe HostHeaderConditionConfig
-</span><a href="#local-6989586621679249970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleCondition
-</span><a href="#local-6989586621679249971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostHeaderConfig:RuleCondition' :: Maybe HostHeaderConditionConfig
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AhostHeaderConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">hostHeaderConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HostHeaderConditionConfig
-</span><a href="#local-6989586621679249970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-251"></span><span>
-</span><span id="line-252"></span><span class="hs-comment">-- | Information for a query string condition. Specify only when @Field@ is</span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- @query-string@.</span><span>
-</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_queryStringConfig"><span class="hs-identifier hs-type">ruleCondition_queryStringConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.QueryStringConditionConfig.html#QueryStringConditionConfig"><span class="hs-identifier hs-type">QueryStringConditionConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-255"></span><span id="ruleCondition_queryStringConfig"><span class="annot"><span class="annottext">ruleCondition_queryStringConfig :: (Maybe QueryStringConditionConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252674"><span class="annot"><span class="annottext">Maybe PathPatternConditionConfig
+pathPatternConfig :: Maybe PathPatternConditionConfig
+$sel:pathPatternConfig:RuleCondition' :: RuleCondition -&gt; Maybe PathPatternConditionConfig
+</span><a href="#local-6989586621679252674"><span class="hs-identifier hs-var hs-var">pathPatternConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PathPatternConditionConfig
+</span><a href="#local-6989586621679252674"><span class="hs-identifier hs-var">pathPatternConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252673"><span class="annot"><span class="annottext">s :: RuleCondition
+</span><a href="#local-6989586621679252673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252672"><span class="annot"><span class="annottext">Maybe PathPatternConditionConfig
+</span><a href="#local-6989586621679252672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleCondition
+</span><a href="#local-6989586621679252673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pathPatternConfig:RuleCondition' :: Maybe PathPatternConditionConfig
+</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3ApathPatternConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">pathPatternConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PathPatternConditionConfig
+</span><a href="#local-6989586621679252672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | Information for a query string condition. Specify only when @Field@ is</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- @query-string@.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_queryStringConfig"><span class="hs-identifier hs-type">ruleCondition_queryStringConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.QueryStringConditionConfig.html#QueryStringConditionConfig"><span class="hs-identifier hs-type">QueryStringConditionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span id="ruleCondition_queryStringConfig"><span class="annot"><span class="annottext">ruleCondition_queryStringConfig :: (Maybe QueryStringConditionConfig
  -&gt; f (Maybe QueryStringConditionConfig))
 -&gt; RuleCondition -&gt; f RuleCondition
 </span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_queryStringConfig"><span class="hs-identifier hs-var hs-var">ruleCondition_queryStringConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleCondition -&gt; Maybe QueryStringConditionConfig)
@@ -493,135 +523,126 @@ $sel:hostHeaderConfig:RuleCondition' :: RuleCondition -&gt; Maybe HostHeaderCond
      (Maybe QueryStringConditionConfig)
      (Maybe QueryStringConditionConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249968"><span class="annot"><span class="annottext">Maybe QueryStringConditionConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252670"><span class="annot"><span class="annottext">Maybe QueryStringConditionConfig
 queryStringConfig :: Maybe QueryStringConditionConfig
 $sel:queryStringConfig:RuleCondition' :: RuleCondition -&gt; Maybe QueryStringConditionConfig
-</span><a href="#local-6989586621679249968"><span class="hs-identifier hs-var hs-var">queryStringConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStringConditionConfig
-</span><a href="#local-6989586621679249968"><span class="hs-identifier hs-var">queryStringConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249967"><span class="annot"><span class="annottext">s :: RuleCondition
-</span><a href="#local-6989586621679249967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249966"><span class="annot"><span class="annottext">Maybe QueryStringConditionConfig
-</span><a href="#local-6989586621679249966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleCondition
-</span><a href="#local-6989586621679249967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryStringConfig:RuleCondition' :: Maybe QueryStringConditionConfig
+</span><a href="#local-6989586621679252670"><span class="hs-identifier hs-var hs-var">queryStringConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStringConditionConfig
+</span><a href="#local-6989586621679252670"><span class="hs-identifier hs-var">queryStringConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252669"><span class="annot"><span class="annottext">s :: RuleCondition
+</span><a href="#local-6989586621679252669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252668"><span class="annot"><span class="annottext">Maybe QueryStringConditionConfig
+</span><a href="#local-6989586621679252668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleCondition
+</span><a href="#local-6989586621679252669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryStringConfig:RuleCondition' :: Maybe QueryStringConditionConfig
 </span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3AqueryStringConfig%3ARuleCondition%27"><span class="hs-identifier hs-var">queryStringConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStringConditionConfig
-</span><a href="#local-6989586621679249966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-256"></span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- | The field in the HTTP request. The following are the possible values:</span><span>
-</span><span id="line-258"></span><span class="hs-comment">--</span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- -   @http-header@</span><span>
-</span><span id="line-260"></span><span class="hs-comment">--</span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- -   @http-request-method@</span><span>
-</span><span id="line-262"></span><span class="hs-comment">--</span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- -   @host-header@</span><span>
-</span><span id="line-264"></span><span class="hs-comment">--</span><span>
-</span><span id="line-265"></span><span class="hs-comment">-- -   @path-pattern@</span><span>
-</span><span id="line-266"></span><span class="hs-comment">--</span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- -   @query-string@</span><span>
-</span><span id="line-268"></span><span class="hs-comment">--</span><span>
-</span><span id="line-269"></span><span class="hs-comment">-- -   @source-ip@</span><span>
-</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_field"><span class="hs-identifier hs-type">ruleCondition_field</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-271"></span><span id="ruleCondition_field"><span class="annot"><span class="annottext">ruleCondition_field :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RuleCondition -&gt; f RuleCondition
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#ruleCondition_field"><span class="hs-identifier hs-var hs-var">ruleCondition_field</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleCondition -&gt; Maybe Text)
--&gt; (RuleCondition -&gt; Maybe Text -&gt; RuleCondition)
--&gt; Lens RuleCondition RuleCondition (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249964"><span class="annot"><span class="annottext">Maybe Text
-field :: Maybe Text
-$sel:field:RuleCondition' :: RuleCondition -&gt; Maybe Text
-</span><a href="#local-6989586621679249964"><span class="hs-identifier hs-var hs-var">field</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249964"><span class="hs-identifier hs-var">field</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249963"><span class="annot"><span class="annottext">s :: RuleCondition
-</span><a href="#local-6989586621679249963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249962"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleCondition
-</span><a href="#local-6989586621679249963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:field:RuleCondition' :: Maybe Text
-</span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#%24sel%3Afield%3ARuleCondition%27"><span class="hs-identifier hs-var">field</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-272"></span><span>
 </span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-274"></span><span>  </span><span id="local-6989586621679249959"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RuleCondition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679249957"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679249957"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-275"></span><span>    </span><span class="annot"><span class="annottext">Maybe PathPatternConditionConfig
--&gt; Maybe HttpRequestMethodConditionConfig
--&gt; Maybe [Text]
--&gt; Maybe SourceIpConditionConfig
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621679252665"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RuleCondition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679252663"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679252663"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe HttpHeaderConditionConfig
 -&gt; Maybe HostHeaderConditionConfig
+-&gt; Maybe [Text]
+-&gt; Maybe SourceIpConditionConfig
+-&gt; Maybe HttpRequestMethodConditionConfig
+-&gt; Maybe PathPatternConditionConfig
 -&gt; Maybe QueryStringConditionConfig
--&gt; Maybe Text
 -&gt; RuleCondition
 </span><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-var">RuleCondition'</span></a></span><span>
-</span><span id="line-276"></span><span>      </span><span class="annot"><span class="annottext">(Maybe PathPatternConditionConfig
- -&gt; Maybe HttpRequestMethodConditionConfig
- -&gt; Maybe [Text]
- -&gt; Maybe SourceIpConditionConfig
+</span><span id="line-276"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe HttpHeaderConditionConfig
  -&gt; Maybe HostHeaderConditionConfig
+ -&gt; Maybe [Text]
+ -&gt; Maybe SourceIpConditionConfig
+ -&gt; Maybe HttpRequestMethodConditionConfig
+ -&gt; Maybe PathPatternConditionConfig
  -&gt; Maybe QueryStringConditionConfig
- -&gt; Maybe Text
  -&gt; RuleCondition)
--&gt; Either String (Maybe PathPatternConditionConfig)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe HttpRequestMethodConditionConfig
+     (Maybe HttpHeaderConditionConfig
+      -&gt; Maybe HostHeaderConditionConfig
       -&gt; Maybe [Text]
       -&gt; Maybe SourceIpConditionConfig
-      -&gt; Maybe HttpHeaderConditionConfig
-      -&gt; Maybe HostHeaderConditionConfig
+      -&gt; Maybe HttpRequestMethodConditionConfig
+      -&gt; Maybe PathPatternConditionConfig
       -&gt; Maybe QueryStringConditionConfig
-      -&gt; Maybe Text
       -&gt; RuleCondition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679249957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PathPatternConditionConfig)
+</span><a href="#local-6989586621679252663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PathPatternConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Field&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-277"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe HttpRequestMethodConditionConfig
+  (Maybe HttpHeaderConditionConfig
+   -&gt; Maybe HostHeaderConditionConfig
    -&gt; Maybe [Text]
    -&gt; Maybe SourceIpConditionConfig
-   -&gt; Maybe HttpHeaderConditionConfig
-   -&gt; Maybe HostHeaderConditionConfig
+   -&gt; Maybe HttpRequestMethodConditionConfig
+   -&gt; Maybe PathPatternConditionConfig
    -&gt; Maybe QueryStringConditionConfig
-   -&gt; Maybe Text
    -&gt; RuleCondition)
--&gt; Either String (Maybe HttpRequestMethodConditionConfig)
+-&gt; Either String (Maybe HttpHeaderConditionConfig)
+-&gt; Either
+     String
+     (Maybe HostHeaderConditionConfig
+      -&gt; Maybe [Text]
+      -&gt; Maybe SourceIpConditionConfig
+      -&gt; Maybe HttpRequestMethodConditionConfig
+      -&gt; Maybe PathPatternConditionConfig
+      -&gt; Maybe QueryStringConditionConfig
+      -&gt; RuleCondition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679252663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe HttpHeaderConditionConfig)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HttpHeaderConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe HostHeaderConditionConfig
+   -&gt; Maybe [Text]
+   -&gt; Maybe SourceIpConditionConfig
+   -&gt; Maybe HttpRequestMethodConditionConfig
+   -&gt; Maybe PathPatternConditionConfig
+   -&gt; Maybe QueryStringConditionConfig
+   -&gt; RuleCondition)
+-&gt; Either String (Maybe HostHeaderConditionConfig)
 -&gt; Either
      String
      (Maybe [Text]
       -&gt; Maybe SourceIpConditionConfig
-      -&gt; Maybe HttpHeaderConditionConfig
-      -&gt; Maybe HostHeaderConditionConfig
+      -&gt; Maybe HttpRequestMethodConditionConfig
+      -&gt; Maybe PathPatternConditionConfig
       -&gt; Maybe QueryStringConditionConfig
-      -&gt; Maybe Text
       -&gt; RuleCondition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679249957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
--&gt; Text -&gt; Either String (Maybe HttpRequestMethodConditionConfig)
+</span><a href="#local-6989586621679252663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe HostHeaderConditionConfig)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;HttpRequestMethodConfig&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-278"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;HostHeaderConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe [Text]
    -&gt; Maybe SourceIpConditionConfig
-   -&gt; Maybe HttpHeaderConditionConfig
-   -&gt; Maybe HostHeaderConditionConfig
+   -&gt; Maybe HttpRequestMethodConditionConfig
+   -&gt; Maybe PathPatternConditionConfig
    -&gt; Maybe QueryStringConditionConfig
-   -&gt; Maybe Text
    -&gt; RuleCondition)
 -&gt; Either String (Maybe [Text])
 -&gt; Either
      String
      (Maybe SourceIpConditionConfig
-      -&gt; Maybe HttpHeaderConditionConfig
-      -&gt; Maybe HostHeaderConditionConfig
+      -&gt; Maybe HttpRequestMethodConditionConfig
+      -&gt; Maybe PathPatternConditionConfig
       -&gt; Maybe QueryStringConditionConfig
-      -&gt; Maybe Text
       -&gt; RuleCondition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679249957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679252663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -629,7 +650,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-279"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-280"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Text]))
 -&gt; Either String (Maybe [Text])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -642,88 +663,75 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-280"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-281"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-281"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe SourceIpConditionConfig
-   -&gt; Maybe HttpHeaderConditionConfig
-   -&gt; Maybe HostHeaderConditionConfig
+   -&gt; Maybe HttpRequestMethodConditionConfig
+   -&gt; Maybe PathPatternConditionConfig
    -&gt; Maybe QueryStringConditionConfig
-   -&gt; Maybe Text
    -&gt; RuleCondition)
 -&gt; Either String (Maybe SourceIpConditionConfig)
 -&gt; Either
      String
-     (Maybe HttpHeaderConditionConfig
-      -&gt; Maybe HostHeaderConditionConfig
+     (Maybe HttpRequestMethodConditionConfig
+      -&gt; Maybe PathPatternConditionConfig
       -&gt; Maybe QueryStringConditionConfig
-      -&gt; Maybe Text
       -&gt; RuleCondition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679249957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SourceIpConditionConfig)
+</span><a href="#local-6989586621679252663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SourceIpConditionConfig)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceIpConfig&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-282"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe HttpHeaderConditionConfig
-   -&gt; Maybe HostHeaderConditionConfig
-   -&gt; Maybe QueryStringConditionConfig
-   -&gt; Maybe Text
-   -&gt; RuleCondition)
--&gt; Either String (Maybe HttpHeaderConditionConfig)
--&gt; Either
-     String
-     (Maybe HostHeaderConditionConfig
-      -&gt; Maybe QueryStringConditionConfig -&gt; Maybe Text -&gt; RuleCondition)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679249957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe HttpHeaderConditionConfig)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;HttpHeaderConfig&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe HostHeaderConditionConfig
-   -&gt; Maybe QueryStringConditionConfig -&gt; Maybe Text -&gt; RuleCondition)
--&gt; Either String (Maybe HostHeaderConditionConfig)
+  (Maybe HttpRequestMethodConditionConfig
+   -&gt; Maybe PathPatternConditionConfig
+   -&gt; Maybe QueryStringConditionConfig
+   -&gt; RuleCondition)
+-&gt; Either String (Maybe HttpRequestMethodConditionConfig)
 -&gt; Either
      String
-     (Maybe QueryStringConditionConfig -&gt; Maybe Text -&gt; RuleCondition)
+     (Maybe PathPatternConditionConfig
+      -&gt; Maybe QueryStringConditionConfig -&gt; RuleCondition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679249957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe HostHeaderConditionConfig)
+</span><a href="#local-6989586621679252663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe HttpRequestMethodConditionConfig)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;HostHeaderConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;HttpRequestMethodConfig&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe QueryStringConditionConfig -&gt; Maybe Text -&gt; RuleCondition)
--&gt; Either String (Maybe QueryStringConditionConfig)
--&gt; Either String (Maybe Text -&gt; RuleCondition)
+  (Maybe PathPatternConditionConfig
+   -&gt; Maybe QueryStringConditionConfig -&gt; RuleCondition)
+-&gt; Either String (Maybe PathPatternConditionConfig)
+-&gt; Either
+     String (Maybe QueryStringConditionConfig -&gt; RuleCondition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679249957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe QueryStringConditionConfig)
+</span><a href="#local-6989586621679252663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PathPatternConditionConfig)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PathPatternConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe QueryStringConditionConfig -&gt; RuleCondition)
+-&gt; Either String (Maybe QueryStringConditionConfig)
+-&gt; Either String RuleCondition
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679252663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe QueryStringConditionConfig)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QueryStringConfig&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; RuleCondition)
--&gt; Either String (Maybe Text) -&gt; Either String RuleCondition
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679249957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Field&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-286"></span><span>
-</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249948"><span id="local-6989586621679249950"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span></span></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252654"><span id="local-6989586621679252656"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span></span></span><span>
 </span><span id="line-288"></span><span>
-</span><span id="line-289"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249945"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span></span><span>
+</span><span id="line-289"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252651"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span></span><span>
 </span><span id="line-290"></span><span>
 </span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition"><span class="hs-identifier hs-type">RuleCondition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-292"></span><span>  </span><span id="local-6989586621679249941"><span class="annot"><span class="annottext">toQuery :: RuleCondition -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249932"><span id="local-6989586621679249933"><span id="local-6989586621679249934"><span id="local-6989586621679249935"><span id="local-6989586621679249936"><span id="local-6989586621679249937"><span id="local-6989586621679249938"><span id="local-6989586621679249939"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-292"></span><span>  </span><span id="local-6989586621679252647"><span class="annot"><span class="annottext">toQuery :: RuleCondition -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.RuleCondition.html#RuleCondition%27"><span class="hs-identifier hs-type">RuleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252638"><span id="local-6989586621679252639"><span id="local-6989586621679252640"><span id="local-6989586621679252641"><span id="local-6989586621679252642"><span id="local-6989586621679252643"><span id="local-6989586621679252644"><span id="local-6989586621679252645"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 Maybe HostHeaderConditionConfig
 Maybe HttpHeaderConditionConfig
@@ -731,37 +739,41 @@ Maybe HttpRequestMethodConditionConfig
 Maybe PathPatternConditionConfig
 Maybe QueryStringConditionConfig
 Maybe SourceIpConditionConfig
-field :: Maybe Text
 queryStringConfig :: Maybe QueryStringConditionConfig
-hostHeaderConfig :: Maybe HostHeaderConditionConfig
-httpHeaderConfig :: Maybe HttpHeaderConditionConfig
+pathPatternConfig :: Maybe PathPatternConditionConfig
+httpRequestMethodConfig :: Maybe HttpRequestMethodConditionConfig
 sourceIpConfig :: Maybe SourceIpConditionConfig
 values :: Maybe [Text]
-httpRequestMethodConfig :: Maybe HttpRequestMethodConditionConfig
-pathPatternConfig :: Maybe PathPatternConditionConfig
-$sel:field:RuleCondition' :: RuleCondition -&gt; Maybe Text
+hostHeaderConfig :: Maybe HostHeaderConditionConfig
+httpHeaderConfig :: Maybe HttpHeaderConditionConfig
+field :: Maybe Text
 $sel:queryStringConfig:RuleCondition' :: RuleCondition -&gt; Maybe QueryStringConditionConfig
-$sel:hostHeaderConfig:RuleCondition' :: RuleCondition -&gt; Maybe HostHeaderConditionConfig
-$sel:httpHeaderConfig:RuleCondition' :: RuleCondition -&gt; Maybe HttpHeaderConditionConfig
+$sel:pathPatternConfig:RuleCondition' :: RuleCondition -&gt; Maybe PathPatternConditionConfig
+$sel:httpRequestMethodConfig:RuleCondition' :: RuleCondition -&gt; Maybe HttpRequestMethodConditionConfig
 $sel:sourceIpConfig:RuleCondition' :: RuleCondition -&gt; Maybe SourceIpConditionConfig
 $sel:values:RuleCondition' :: RuleCondition -&gt; Maybe [Text]
-$sel:httpRequestMethodConfig:RuleCondition' :: RuleCondition -&gt; Maybe HttpRequestMethodConditionConfig
-$sel:pathPatternConfig:RuleCondition' :: RuleCondition -&gt; Maybe PathPatternConditionConfig
-</span><a href="#local-6989586621679249932"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:hostHeaderConfig:RuleCondition' :: RuleCondition -&gt; Maybe HostHeaderConditionConfig
+$sel:httpHeaderConfig:RuleCondition' :: RuleCondition -&gt; Maybe HttpHeaderConditionConfig
+$sel:field:RuleCondition' :: RuleCondition -&gt; Maybe Text
+</span><a href="#local-6989586621679252638"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-293"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-294"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;PathPatternConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe PathPatternConditionConfig -&gt; QueryString
+</span><span class="hs-string">&quot;Field&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PathPatternConditionConfig
-</span><a href="#local-6989586621679249939"><span class="hs-identifier hs-var">pathPatternConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252645"><span class="hs-identifier hs-var">field</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-295"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;HttpRequestMethodConfig&quot;</span></span><span>
-</span><span id="line-296"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe HttpRequestMethodConditionConfig -&gt; QueryString
+</span><span class="hs-string">&quot;HttpHeaderConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe HttpHeaderConditionConfig -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpRequestMethodConditionConfig
-</span><a href="#local-6989586621679249938"><span class="hs-identifier hs-var">httpRequestMethodConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpHeaderConditionConfig
+</span><a href="#local-6989586621679252644"><span class="hs-identifier hs-var">httpHeaderConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;HostHeaderConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe HostHeaderConditionConfig -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe HostHeaderConditionConfig
+</span><a href="#local-6989586621679252643"><span class="hs-identifier hs-var">hostHeaderConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-297"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Values&quot;</span></span><span>
 </span><span id="line-298"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -777,31 +789,27 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249937"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252642"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-300"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SourceIpConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe SourceIpConditionConfig -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe SourceIpConditionConfig
-</span><a href="#local-6989586621679249936"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252641"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-301"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;HttpHeaderConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe HttpHeaderConditionConfig -&gt; QueryString
+</span><span class="hs-string">&quot;HttpRequestMethodConfig&quot;</span></span><span>
+</span><span id="line-302"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe HttpRequestMethodConditionConfig -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpHeaderConditionConfig
-</span><a href="#local-6989586621679249935"><span class="hs-identifier hs-var">httpHeaderConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-302"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;HostHeaderConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe HostHeaderConditionConfig -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe HostHeaderConditionConfig
-</span><a href="#local-6989586621679249934"><span class="hs-identifier hs-var">hostHeaderConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpRequestMethodConditionConfig
+</span><a href="#local-6989586621679252640"><span class="hs-identifier hs-var">httpRequestMethodConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-303"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PathPatternConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe PathPatternConditionConfig -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PathPatternConditionConfig
+</span><a href="#local-6989586621679252639"><span class="hs-identifier hs-var">pathPatternConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;QueryStringConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe QueryStringConditionConfig -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryStringConditionConfig
-</span><a href="#local-6989586621679249933"><span class="hs-identifier hs-var">queryStringConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-304"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Field&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249932"><span class="hs-identifier hs-var">field</span></a></span><span>
+</span><a href="#local-6989586621679252638"><span class="hs-identifier hs-var">queryStringConfig</span></a></span><span>
 </span><span id="line-305"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-306"></span></pre></body></html>

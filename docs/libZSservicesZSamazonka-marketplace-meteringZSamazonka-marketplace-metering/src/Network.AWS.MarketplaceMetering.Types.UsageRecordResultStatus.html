@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679145634"><span id="local-6989586621679145635"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UsageRecordResultStatus"><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecordResultStatus.html#UsageRecordResultStatus"><span class="hs-identifier hs-var">UsageRecordResultStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageRecordResultStatus%27"><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecordResultStatus.html#UsageRecordResultStatus%27"><span class="hs-identifier hs-var">UsageRecordResultStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679145662"><span id="local-6989586621679145663"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UsageRecordResultStatus"><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecordResultStatus.html#UsageRecordResultStatus"><span class="hs-identifier hs-var">UsageRecordResultStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageRecordResultStatus%27"><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecordResultStatus.html#UsageRecordResultStatus%27"><span class="hs-identifier hs-var">UsageRecordResultStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUsageRecordResultStatus"><span class="annot"><span class="annottext">UsageRecordResultStatus -&gt; Text
 </span><a href="Network.AWS.MarketplaceMetering.Types.UsageRecordResultStatus.html#fromUsageRecordResultStatus"><span class="hs-identifier hs-var hs-var">fromUsageRecordResultStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679145626"><span id="local-6989586621679145628"><span id="local-6989586621679145630"><span class="annot"><span class="annottext">Int -&gt; UsageRecordResultStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679145654"><span id="local-6989586621679145656"><span id="local-6989586621679145658"><span class="annot"><span class="annottext">Int -&gt; UsageRecordResultStatus -&gt; ShowS
 [UsageRecordResultStatus] -&gt; ShowS
 UsageRecordResultStatus -&gt; String
 (Int -&gt; UsageRecordResultStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: UsageRecordResultStatus -&gt; String
 showsPrec :: Int -&gt; UsageRecordResultStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; UsageRecordResultStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679145617"><span id="local-6989586621679145619"><span id="local-6989586621679145621"><span id="local-6989586621679145623"><span class="annot"><span class="annottext">ReadPrec [UsageRecordResultStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679145645"><span id="local-6989586621679145647"><span id="local-6989586621679145649"><span id="local-6989586621679145651"><span class="annot"><span class="annottext">ReadPrec [UsageRecordResultStatus]
 ReadPrec UsageRecordResultStatus
 Int -&gt; ReadS UsageRecordResultStatus
 ReadS [UsageRecordResultStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [UsageRecordResultStatus]
 readsPrec :: Int -&gt; ReadS UsageRecordResultStatus
 $creadsPrec :: Int -&gt; ReadS UsageRecordResultStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679145612"><span id="local-6989586621679145614"><span class="annot"><span class="annottext">UsageRecordResultStatus -&gt; UsageRecordResultStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679145640"><span id="local-6989586621679145642"><span class="annot"><span class="annottext">UsageRecordResultStatus -&gt; UsageRecordResultStatus -&gt; Bool
 (UsageRecordResultStatus -&gt; UsageRecordResultStatus -&gt; Bool)
 -&gt; (UsageRecordResultStatus -&gt; UsageRecordResultStatus -&gt; Bool)
 -&gt; Eq UsageRecordResultStatus
@@ -83,7 +83,7 @@ $c/= :: UsageRecordResultStatus -&gt; UsageRecordResultStatus -&gt; Bool
 == :: UsageRecordResultStatus -&gt; UsageRecordResultStatus -&gt; Bool
 $c== :: UsageRecordResultStatus -&gt; UsageRecordResultStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679145596"><span id="local-6989586621679145598"><span id="local-6989586621679145600"><span id="local-6989586621679145602"><span id="local-6989586621679145604"><span id="local-6989586621679145606"><span id="local-6989586621679145608"><span class="annot"><span class="annottext">Eq UsageRecordResultStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679145624"><span id="local-6989586621679145626"><span id="local-6989586621679145628"><span id="local-6989586621679145630"><span id="local-6989586621679145632"><span id="local-6989586621679145634"><span id="local-6989586621679145636"><span class="annot"><span class="annottext">Eq UsageRecordResultStatus
 Eq UsageRecordResultStatus
 -&gt; (UsageRecordResultStatus -&gt; UsageRecordResultStatus -&gt; Ordering)
 -&gt; (UsageRecordResultStatus -&gt; UsageRecordResultStatus -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. UsageRecordResultStatus -&gt; Rep UsageRecordResultStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679145588"><span id="local-6989586621679145590"><span class="annot"><span class="annottext">Int -&gt; UsageRecordResultStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679145616"><span id="local-6989586621679145618"><span class="annot"><span class="annottext">Int -&gt; UsageRecordResultStatus -&gt; Int
 UsageRecordResultStatus -&gt; Int
 (Int -&gt; UsageRecordResultStatus -&gt; Int)
 -&gt; (UsageRecordResultStatus -&gt; Int)
@@ -154,54 +154,54 @@ $chash :: UsageRecordResultStatus -&gt; Int
 hashWithSalt :: Int -&gt; UsageRecordResultStatus -&gt; Int
 $chashWithSalt :: Int -&gt; UsageRecordResultStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679145585"><span class="annot"><span class="annottext">UsageRecordResultStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679145613"><span class="annot"><span class="annottext">UsageRecordResultStatus -&gt; ()
 (UsageRecordResultStatus -&gt; ()) -&gt; NFData UsageRecordResultStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UsageRecordResultStatus -&gt; ()
 $crnf :: UsageRecordResultStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679145582"><span class="annot"><span class="annottext">Text -&gt; Either String UsageRecordResultStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679145610"><span class="annot"><span class="annottext">Text -&gt; Either String UsageRecordResultStatus
 (Text -&gt; Either String UsageRecordResultStatus)
 -&gt; FromText UsageRecordResultStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UsageRecordResultStatus
 $cfromText :: Text -&gt; Either String UsageRecordResultStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679145579"><span class="annot"><span class="annottext">UsageRecordResultStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679145607"><span class="annot"><span class="annottext">UsageRecordResultStatus -&gt; Text
 (UsageRecordResultStatus -&gt; Text) -&gt; ToText UsageRecordResultStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UsageRecordResultStatus -&gt; Text
 $ctoText :: UsageRecordResultStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679145576"><span class="annot"><span class="annottext">UsageRecordResultStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679145604"><span class="annot"><span class="annottext">UsageRecordResultStatus -&gt; ByteString
 (UsageRecordResultStatus -&gt; ByteString)
 -&gt; ToByteString UsageRecordResultStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UsageRecordResultStatus -&gt; ByteString
 $ctoBS :: UsageRecordResultStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679145573"><span class="annot"><span class="annottext">UsageRecordResultStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679145601"><span class="annot"><span class="annottext">UsageRecordResultStatus -&gt; ByteStringBuilder
 (UsageRecordResultStatus -&gt; ByteStringBuilder)
 -&gt; ToLog UsageRecordResultStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UsageRecordResultStatus -&gt; ByteStringBuilder
 $cbuild :: UsageRecordResultStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679145570"><span class="annot"><span class="annottext">HeaderName -&gt; UsageRecordResultStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679145598"><span class="annot"><span class="annottext">HeaderName -&gt; UsageRecordResultStatus -&gt; [Header]
 (HeaderName -&gt; UsageRecordResultStatus -&gt; [Header])
 -&gt; ToHeader UsageRecordResultStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UsageRecordResultStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UsageRecordResultStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679145567"><span class="annot"><span class="annottext">UsageRecordResultStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679145595"><span class="annot"><span class="annottext">UsageRecordResultStatus -&gt; QueryString
 (UsageRecordResultStatus -&gt; QueryString)
 -&gt; ToQuery UsageRecordResultStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UsageRecordResultStatus -&gt; QueryString
 $ctoQuery :: UsageRecordResultStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679145562"><span id="local-6989586621679145564"><span class="annot"><span class="annottext">Value -&gt; Parser [UsageRecordResultStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679145590"><span id="local-6989586621679145592"><span class="annot"><span class="annottext">Value -&gt; Parser [UsageRecordResultStatus]
 Value -&gt; Parser UsageRecordResultStatus
 (Value -&gt; Parser UsageRecordResultStatus)
 -&gt; (Value -&gt; Parser [UsageRecordResultStatus])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [UsageRecordResultStatus]
 parseJSON :: Value -&gt; Parser UsageRecordResultStatus
 $cparseJSON :: Value -&gt; Parser UsageRecordResultStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679145557"><span id="local-6989586621679145559"><span class="annot"><span class="annottext">FromJSONKeyFunction [UsageRecordResultStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679145585"><span id="local-6989586621679145587"><span class="annot"><span class="annottext">FromJSONKeyFunction [UsageRecordResultStatus]
 FromJSONKeyFunction UsageRecordResultStatus
 FromJSONKeyFunction UsageRecordResultStatus
 -&gt; FromJSONKeyFunction [UsageRecordResultStatus]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UsageRecordResultStatus]
 fromJSONKey :: FromJSONKeyFunction UsageRecordResultStatus
 $cfromJSONKey :: FromJSONKeyFunction UsageRecordResultStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679145548"><span id="local-6989586621679145550"><span id="local-6989586621679145552"><span id="local-6989586621679145554"><span class="annot"><span class="annottext">[UsageRecordResultStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679145576"><span id="local-6989586621679145578"><span id="local-6989586621679145580"><span id="local-6989586621679145582"><span class="annot"><span class="annottext">[UsageRecordResultStatus] -&gt; Encoding
 [UsageRecordResultStatus] -&gt; Value
 UsageRecordResultStatus -&gt; Encoding
 UsageRecordResultStatus -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: UsageRecordResultStatus -&gt; Encoding
 toJSON :: UsageRecordResultStatus -&gt; Value
 $ctoJSON :: UsageRecordResultStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679145543"><span id="local-6989586621679145545"><span class="annot"><span class="annottext">ToJSONKeyFunction [UsageRecordResultStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679145571"><span id="local-6989586621679145573"><span class="annot"><span class="annottext">ToJSONKeyFunction [UsageRecordResultStatus]
 ToJSONKeyFunction UsageRecordResultStatus
 ToJSONKeyFunction UsageRecordResultStatus
 -&gt; ToJSONKeyFunction [UsageRecordResultStatus]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UsageRecordResultStatus]
 toJSONKey :: ToJSONKeyFunction UsageRecordResultStatus
 $ctoJSONKey :: ToJSONKeyFunction UsageRecordResultStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679145540"><span class="annot"><span class="annottext">[Node] -&gt; Either String UsageRecordResultStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679145568"><span class="annot"><span class="annottext">[Node] -&gt; Either String UsageRecordResultStatus
 ([Node] -&gt; Either String UsageRecordResultStatus)
 -&gt; FromXML UsageRecordResultStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UsageRecordResultStatus
 $cparseXML :: [Node] -&gt; Either String UsageRecordResultStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679145537"><span class="annot"><span class="annottext">UsageRecordResultStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679145565"><span class="annot"><span class="annottext">UsageRecordResultStatus -&gt; XML
 (UsageRecordResultStatus -&gt; XML) -&gt; ToXML UsageRecordResultStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: UsageRecordResultStatus -&gt; XML

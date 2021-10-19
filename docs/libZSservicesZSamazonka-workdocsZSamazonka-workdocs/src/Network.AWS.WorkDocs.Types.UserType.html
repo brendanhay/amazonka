@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679265665"><span id="local-6989586621679265666"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UserType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserType.html#UserType"><span class="hs-identifier hs-var">UserType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserType.html#UserType%27"><span class="hs-identifier hs-var">UserType'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679265794"><span id="local-6989586621679265795"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UserType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserType.html#UserType"><span class="hs-identifier hs-var">UserType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserType.html#UserType%27"><span class="hs-identifier hs-var">UserType'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUserType"><span class="annot"><span class="annottext">UserType -&gt; Text
 </span><a href="Network.AWS.WorkDocs.Types.UserType.html#fromUserType"><span class="hs-identifier hs-var hs-var">fromUserType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679265657"><span id="local-6989586621679265659"><span id="local-6989586621679265661"><span class="annot"><span class="annottext">Int -&gt; UserType -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679265786"><span id="local-6989586621679265788"><span id="local-6989586621679265790"><span class="annot"><span class="annottext">Int -&gt; UserType -&gt; ShowS
 [UserType] -&gt; ShowS
 UserType -&gt; String
 (Int -&gt; UserType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: UserType -&gt; String
 showsPrec :: Int -&gt; UserType -&gt; ShowS
 $cshowsPrec :: Int -&gt; UserType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679265648"><span id="local-6989586621679265650"><span id="local-6989586621679265652"><span id="local-6989586621679265654"><span class="annot"><span class="annottext">ReadPrec [UserType]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679265777"><span id="local-6989586621679265779"><span id="local-6989586621679265781"><span id="local-6989586621679265783"><span class="annot"><span class="annottext">ReadPrec [UserType]
 ReadPrec UserType
 Int -&gt; ReadS UserType
 ReadS [UserType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [UserType]
 readsPrec :: Int -&gt; ReadS UserType
 $creadsPrec :: Int -&gt; ReadS UserType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679265643"><span id="local-6989586621679265645"><span class="annot"><span class="annottext">UserType -&gt; UserType -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679265772"><span id="local-6989586621679265774"><span class="annot"><span class="annottext">UserType -&gt; UserType -&gt; Bool
 (UserType -&gt; UserType -&gt; Bool)
 -&gt; (UserType -&gt; UserType -&gt; Bool) -&gt; Eq UserType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: UserType -&gt; UserType -&gt; Bool
 == :: UserType -&gt; UserType -&gt; Bool
 $c== :: UserType -&gt; UserType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679265627"><span id="local-6989586621679265629"><span id="local-6989586621679265631"><span id="local-6989586621679265633"><span id="local-6989586621679265635"><span id="local-6989586621679265637"><span id="local-6989586621679265639"><span class="annot"><span class="annottext">Eq UserType
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679265756"><span id="local-6989586621679265758"><span id="local-6989586621679265760"><span id="local-6989586621679265762"><span id="local-6989586621679265764"><span id="local-6989586621679265766"><span id="local-6989586621679265768"><span class="annot"><span class="annottext">Eq UserType
 Eq UserType
 -&gt; (UserType -&gt; UserType -&gt; Ordering)
 -&gt; (UserType -&gt; UserType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. UserType -&gt; Rep UserType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679265619"><span id="local-6989586621679265621"><span class="annot"><span class="annottext">Int -&gt; UserType -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679265748"><span id="local-6989586621679265750"><span class="annot"><span class="annottext">Int -&gt; UserType -&gt; Int
 UserType -&gt; Int
 (Int -&gt; UserType -&gt; Int) -&gt; (UserType -&gt; Int) -&gt; Hashable UserType
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -141,49 +141,49 @@ $chash :: UserType -&gt; Int
 hashWithSalt :: Int -&gt; UserType -&gt; Int
 $chashWithSalt :: Int -&gt; UserType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679265616"><span class="annot"><span class="annottext">UserType -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679265745"><span class="annot"><span class="annottext">UserType -&gt; ()
 (UserType -&gt; ()) -&gt; NFData UserType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UserType -&gt; ()
 $crnf :: UserType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679265613"><span class="annot"><span class="annottext">Text -&gt; Either String UserType
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679265742"><span class="annot"><span class="annottext">Text -&gt; Either String UserType
 (Text -&gt; Either String UserType) -&gt; FromText UserType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UserType
 $cfromText :: Text -&gt; Either String UserType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679265610"><span class="annot"><span class="annottext">UserType -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679265739"><span class="annot"><span class="annottext">UserType -&gt; Text
 (UserType -&gt; Text) -&gt; ToText UserType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UserType -&gt; Text
 $ctoText :: UserType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679265607"><span class="annot"><span class="annottext">UserType -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679265736"><span class="annot"><span class="annottext">UserType -&gt; ByteString
 (UserType -&gt; ByteString) -&gt; ToByteString UserType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UserType -&gt; ByteString
 $ctoBS :: UserType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679265604"><span class="annot"><span class="annottext">UserType -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679265733"><span class="annot"><span class="annottext">UserType -&gt; ByteStringBuilder
 (UserType -&gt; ByteStringBuilder) -&gt; ToLog UserType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UserType -&gt; ByteStringBuilder
 $cbuild :: UserType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679265601"><span class="annot"><span class="annottext">HeaderName -&gt; UserType -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679265730"><span class="annot"><span class="annottext">HeaderName -&gt; UserType -&gt; [Header]
 (HeaderName -&gt; UserType -&gt; [Header]) -&gt; ToHeader UserType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UserType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UserType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679265598"><span class="annot"><span class="annottext">UserType -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679265727"><span class="annot"><span class="annottext">UserType -&gt; QueryString
 (UserType -&gt; QueryString) -&gt; ToQuery UserType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UserType -&gt; QueryString
 $ctoQuery :: UserType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679265593"><span id="local-6989586621679265595"><span class="annot"><span class="annottext">Value -&gt; Parser [UserType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679265722"><span id="local-6989586621679265724"><span class="annot"><span class="annottext">Value -&gt; Parser [UserType]
 Value -&gt; Parser UserType
 (Value -&gt; Parser UserType)
 -&gt; (Value -&gt; Parser [UserType]) -&gt; FromJSON UserType
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [UserType]
 parseJSON :: Value -&gt; Parser UserType
 $cparseJSON :: Value -&gt; Parser UserType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679265588"><span id="local-6989586621679265590"><span class="annot"><span class="annottext">FromJSONKeyFunction [UserType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679265717"><span id="local-6989586621679265719"><span class="annot"><span class="annottext">FromJSONKeyFunction [UserType]
 FromJSONKeyFunction UserType
 FromJSONKeyFunction UserType
 -&gt; FromJSONKeyFunction [UserType] -&gt; FromJSONKey UserType
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UserType]
 fromJSONKey :: FromJSONKeyFunction UserType
 $cfromJSONKey :: FromJSONKeyFunction UserType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679265579"><span id="local-6989586621679265581"><span id="local-6989586621679265583"><span id="local-6989586621679265585"><span class="annot"><span class="annottext">[UserType] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679265708"><span id="local-6989586621679265710"><span id="local-6989586621679265712"><span id="local-6989586621679265714"><span class="annot"><span class="annottext">[UserType] -&gt; Encoding
 [UserType] -&gt; Value
 UserType -&gt; Encoding
 UserType -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: UserType -&gt; Encoding
 toJSON :: UserType -&gt; Value
 $ctoJSON :: UserType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679265574"><span id="local-6989586621679265576"><span class="annot"><span class="annottext">ToJSONKeyFunction [UserType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679265703"><span id="local-6989586621679265705"><span class="annot"><span class="annottext">ToJSONKeyFunction [UserType]
 ToJSONKeyFunction UserType
 ToJSONKeyFunction UserType
 -&gt; ToJSONKeyFunction [UserType] -&gt; ToJSONKey UserType
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UserType]
 toJSONKey :: ToJSONKeyFunction UserType
 $ctoJSONKey :: ToJSONKeyFunction UserType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679265571"><span class="annot"><span class="annottext">[Node] -&gt; Either String UserType
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679265700"><span class="annot"><span class="annottext">[Node] -&gt; Either String UserType
 ([Node] -&gt; Either String UserType) -&gt; FromXML UserType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UserType
 $cparseXML :: [Node] -&gt; Either String UserType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679265568"><span class="annot"><span class="annottext">UserType -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679265697"><span class="annot"><span class="annottext">UserType -&gt; XML
 (UserType -&gt; XML) -&gt; ToXML UserType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: UserType -&gt; XML

@@ -49,13 +49,13 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | Represents a request to the delete device pool operation.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newDeleteDevicePool' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679386722"><span id="local-6989586621679386723"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDevicePool"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool"><span class="hs-identifier hs-var">DeleteDevicePool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDevicePool%27"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool%27"><span class="hs-identifier hs-var">DeleteDevicePool'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679387003"><span id="local-6989586621679387004"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDevicePool"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool"><span class="hs-identifier hs-var">DeleteDevicePool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDevicePool%27"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool%27"><span class="hs-identifier hs-var">DeleteDevicePool'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the Amazon Resource Name (ARN) of the Device Farm device pool</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- to delete.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Aarn%3ADeleteDevicePool%27"><span class="annot"><span class="annottext">DeleteDevicePool -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#%24sel%3Aarn%3ADeleteDevicePool%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386716"><span id="local-6989586621679386718"><span class="annot"><span class="annottext">DeleteDevicePool -&gt; DeleteDevicePool -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386997"><span id="local-6989586621679386999"><span class="annot"><span class="annottext">DeleteDevicePool -&gt; DeleteDevicePool -&gt; Bool
 (DeleteDevicePool -&gt; DeleteDevicePool -&gt; Bool)
 -&gt; (DeleteDevicePool -&gt; DeleteDevicePool -&gt; Bool)
 -&gt; Eq DeleteDevicePool
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDevicePool -&gt; DeleteDevicePool -&gt; Bool
 == :: DeleteDevicePool -&gt; DeleteDevicePool -&gt; Bool
 $c== :: DeleteDevicePool -&gt; DeleteDevicePool -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386707"><span id="local-6989586621679386709"><span id="local-6989586621679386711"><span id="local-6989586621679386713"><span class="annot"><span class="annottext">ReadPrec [DeleteDevicePool]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386988"><span id="local-6989586621679386990"><span id="local-6989586621679386992"><span id="local-6989586621679386994"><span class="annot"><span class="annottext">ReadPrec [DeleteDevicePool]
 ReadPrec DeleteDevicePool
 Int -&gt; ReadS DeleteDevicePool
 ReadS [DeleteDevicePool]
@@ -84,7 +84,7 @@ readList :: ReadS [DeleteDevicePool]
 $creadList :: ReadS [DeleteDevicePool]
 readsPrec :: Int -&gt; ReadS DeleteDevicePool
 $creadsPrec :: Int -&gt; ReadS DeleteDevicePool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386700"><span id="local-6989586621679386702"><span id="local-6989586621679386704"><span class="annot"><span class="annottext">Int -&gt; DeleteDevicePool -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386981"><span id="local-6989586621679386983"><span id="local-6989586621679386985"><span class="annot"><span class="annottext">Int -&gt; DeleteDevicePool -&gt; ShowS
 [DeleteDevicePool] -&gt; ShowS
 DeleteDevicePool -&gt; String
 (Int -&gt; DeleteDevicePool -&gt; ShowS)
@@ -125,12 +125,12 @@ $cfrom :: forall x. DeleteDevicePool -&gt; Rep DeleteDevicePool x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool"><span class="hs-identifier hs-type">DeleteDevicePool</span></a></span><span>
 </span><span id="line-73"></span><span id="newDeleteDevicePool"><span class="annot"><span class="annottext">newDeleteDevicePool :: Text -&gt; DeleteDevicePool
-</span><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#newDeleteDevicePool"><span class="hs-identifier hs-var hs-var">newDeleteDevicePool</span></a></span></span><span> </span><span id="local-6989586621679386695"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386695"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#newDeleteDevicePool"><span class="hs-identifier hs-var hs-var">newDeleteDevicePool</span></a></span></span><span> </span><span id="local-6989586621679386976"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386976"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">DeleteDevicePool' :: Text -&gt; DeleteDevicePool
 </span><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool%27"><span class="hs-identifier hs-type">DeleteDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DeleteDevicePool' :: Text
 </span><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#%24sel%3Aarn%3ADeleteDevicePool%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386695"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679386976"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | Represents the Amazon Resource Name (ARN) of the Device Farm device pool</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- to delete.</span><span>
@@ -140,27 +140,27 @@ $cfrom :: forall x. DeleteDevicePool -&gt; Rep DeleteDevicePool x
 -&gt; (DeleteDevicePool -&gt; Text -&gt; DeleteDevicePool)
 -&gt; Lens DeleteDevicePool DeleteDevicePool Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool%27"><span class="hs-identifier hs-type">DeleteDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386692"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool%27"><span class="hs-identifier hs-type">DeleteDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386973"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:DeleteDevicePool' :: DeleteDevicePool -&gt; Text
-</span><a href="#local-6989586621679386692"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386692"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386691"><span class="annot"><span class="annottext">s :: DeleteDevicePool
-</span><a href="#local-6989586621679386691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool%27"><span class="hs-identifier hs-type">DeleteDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386690"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDevicePool
-</span><a href="#local-6989586621679386691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DeleteDevicePool' :: Text
+</span><a href="#local-6989586621679386973"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386973"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386972"><span class="annot"><span class="annottext">s :: DeleteDevicePool
+</span><a href="#local-6989586621679386972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool%27"><span class="hs-identifier hs-type">DeleteDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386971"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDevicePool
+</span><a href="#local-6989586621679386972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DeleteDevicePool' :: Text
 </span><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#%24sel%3Aarn%3ADeleteDevicePool%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool"><span class="hs-identifier hs-type">DeleteDevicePool</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool"><span class="hs-identifier hs-type">DeleteDevicePool</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool"><span class="hs-identifier hs-type">DeleteDevicePool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool"><span class="hs-identifier hs-type">DeleteDevicePool</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePoolResponse"><span class="hs-identifier hs-type">DeleteDevicePoolResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679386686"><span class="annot"><span class="annottext">request :: DeleteDevicePool -&gt; Request DeleteDevicePool
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679386967"><span class="annot"><span class="annottext">request :: DeleteDevicePool -&gt; Request DeleteDevicePool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDevicePool -&gt; Request DeleteDevicePool
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679386682"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679386963"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDevicePool
 -&gt; ClientResponse ClientBody
@@ -184,10 +184,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386679"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386679"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386678"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679386678"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386677"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679386677"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386960"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386960"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386959"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679386959"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386958"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679386958"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteDevicePoolResponse
 </span><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePoolResponse%27"><span class="hs-identifier hs-var">DeleteDevicePoolResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteDevicePoolResponse)
@@ -198,15 +198,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386679"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386960"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386670"><span id="local-6989586621679386672"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool"><span class="hs-identifier hs-type">DeleteDevicePool</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386951"><span id="local-6989586621679386953"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool"><span class="hs-identifier hs-type">DeleteDevicePool</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386667"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool"><span class="hs-identifier hs-type">DeleteDevicePool</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386948"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool"><span class="hs-identifier hs-type">DeleteDevicePool</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool"><span class="hs-identifier hs-type">DeleteDevicePool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679386663"><span class="annot"><span class="annottext">toHeaders :: DeleteDevicePool -&gt; ResponseHeaders
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679386944"><span class="annot"><span class="annottext">toHeaders :: DeleteDevicePool -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteDevicePool -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -233,12 +233,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386653"><span id="local-6989586621679386655"><span id="local-6989586621679386657"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool"><span class="hs-identifier hs-type">DeleteDevicePool</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679386651"><span class="annot"><span class="annottext">toJSON :: DeleteDevicePool -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool%27"><span class="hs-identifier hs-type">DeleteDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386649"><span class="annot"><span class="annottext">Text
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386934"><span id="local-6989586621679386936"><span id="local-6989586621679386938"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool"><span class="hs-identifier hs-type">DeleteDevicePool</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679386932"><span class="annot"><span class="annottext">toJSON :: DeleteDevicePool -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool%27"><span class="hs-identifier hs-type">DeleteDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386930"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:DeleteDevicePool' :: DeleteDevicePool -&gt; Text
-</span><a href="#local-6989586621679386649"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679386930"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -250,18 +250,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386649"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679386930"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool"><span class="hs-identifier hs-type">DeleteDevicePool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679386643"><span class="annot"><span class="annottext">toPath :: DeleteDevicePool -&gt; ByteString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679386924"><span class="annot"><span class="annottext">toPath :: DeleteDevicePool -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDevicePool -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePool"><span class="hs-identifier hs-type">DeleteDevicePool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679386639"><span class="annot"><span class="annottext">toQuery :: DeleteDevicePool -&gt; QueryString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679386920"><span class="annot"><span class="annottext">toQuery :: DeleteDevicePool -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteDevicePool -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -271,12 +271,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-125"></span><span class="hs-comment">-- | Represents the result of a delete device pool request.</span><span>
 </span><span id="line-126"></span><span class="hs-comment">--</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- /See:/ 'newDeleteDevicePoolResponse' smart constructor.</span><span>
-</span><span id="line-128"></span><span id="local-6989586621679386636"><span id="local-6989586621679386637"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDevicePoolResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePoolResponse"><span class="hs-identifier hs-var">DeleteDevicePoolResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDevicePoolResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePoolResponse%27"><span class="hs-identifier hs-var">DeleteDevicePoolResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span id="local-6989586621679386917"><span id="local-6989586621679386918"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDevicePoolResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePoolResponse"><span class="hs-identifier hs-var">DeleteDevicePoolResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDevicePoolResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePoolResponse%27"><span class="hs-identifier hs-var">DeleteDevicePoolResponse'</span></a></span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteDevicePoolResponse%27"><span class="annot"><span class="annottext">DeleteDevicePoolResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#%24sel%3AhttpStatus%3ADeleteDevicePoolResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386631"><span id="local-6989586621679386633"><span class="annot"><span class="annottext">DeleteDevicePoolResponse -&gt; DeleteDevicePoolResponse -&gt; Bool
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386912"><span id="local-6989586621679386914"><span class="annot"><span class="annottext">DeleteDevicePoolResponse -&gt; DeleteDevicePoolResponse -&gt; Bool
 (DeleteDevicePoolResponse -&gt; DeleteDevicePoolResponse -&gt; Bool)
 -&gt; (DeleteDevicePoolResponse -&gt; DeleteDevicePoolResponse -&gt; Bool)
 -&gt; Eq DeleteDevicePoolResponse
@@ -285,7 +285,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDevicePoolResponse -&gt; DeleteDevicePoolResponse -&gt; Bool
 == :: DeleteDevicePoolResponse -&gt; DeleteDevicePoolResponse -&gt; Bool
 $c== :: DeleteDevicePoolResponse -&gt; DeleteDevicePoolResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386623"><span id="local-6989586621679386625"><span id="local-6989586621679386627"><span id="local-6989586621679386629"><span class="annot"><span class="annottext">ReadPrec [DeleteDevicePoolResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386904"><span id="local-6989586621679386906"><span id="local-6989586621679386908"><span id="local-6989586621679386910"><span class="annot"><span class="annottext">ReadPrec [DeleteDevicePoolResponse]
 ReadPrec DeleteDevicePoolResponse
 Int -&gt; ReadS DeleteDevicePoolResponse
 ReadS [DeleteDevicePoolResponse]
@@ -305,7 +305,7 @@ readList :: ReadS [DeleteDevicePoolResponse]
 $creadList :: ReadS [DeleteDevicePoolResponse]
 readsPrec :: Int -&gt; ReadS DeleteDevicePoolResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDevicePoolResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386617"><span id="local-6989586621679386619"><span id="local-6989586621679386621"><span class="annot"><span class="annottext">Int -&gt; DeleteDevicePoolResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386898"><span id="local-6989586621679386900"><span id="local-6989586621679386902"><span class="annot"><span class="annottext">Int -&gt; DeleteDevicePoolResponse -&gt; ShowS
 [DeleteDevicePoolResponse] -&gt; ShowS
 DeleteDevicePoolResponse -&gt; String
 (Int -&gt; DeleteDevicePoolResponse -&gt; ShowS)
@@ -351,14 +351,14 @@ DeleteDevicePoolResponse -&gt; Rep DeleteDevicePoolResponse x
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePoolResponse"><span class="hs-identifier hs-type">DeleteDevicePoolResponse</span></a></span><span>
 </span><span id="line-147"></span><span id="newDeleteDevicePoolResponse"><span class="annot"><span class="annottext">newDeleteDevicePoolResponse :: Int -&gt; DeleteDevicePoolResponse
-</span><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#newDeleteDevicePoolResponse"><span class="hs-identifier hs-var hs-var">newDeleteDevicePoolResponse</span></a></span></span><span> </span><span id="local-6989586621679386614"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386614"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#newDeleteDevicePoolResponse"><span class="hs-identifier hs-var hs-var">newDeleteDevicePoolResponse</span></a></span></span><span> </span><span id="local-6989586621679386895"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386895"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">DeleteDevicePoolResponse' :: Int -&gt; DeleteDevicePoolResponse
 </span><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePoolResponse%27"><span class="hs-identifier hs-type">DeleteDevicePoolResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDevicePoolResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#%24sel%3AhttpStatus%3ADeleteDevicePoolResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386614"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679386895"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -369,16 +369,16 @@ DeleteDevicePoolResponse -&gt; Rep DeleteDevicePoolResponse x
 -&gt; (DeleteDevicePoolResponse -&gt; Int -&gt; DeleteDevicePoolResponse)
 -&gt; Lens DeleteDevicePoolResponse DeleteDevicePoolResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePoolResponse%27"><span class="hs-identifier hs-type">DeleteDevicePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386613"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePoolResponse%27"><span class="hs-identifier hs-type">DeleteDevicePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386894"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteDevicePoolResponse' :: DeleteDevicePoolResponse -&gt; Int
-</span><a href="#local-6989586621679386613"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386613"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386612"><span class="annot"><span class="annottext">s :: DeleteDevicePoolResponse
-</span><a href="#local-6989586621679386612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePoolResponse%27"><span class="hs-identifier hs-type">DeleteDevicePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386611"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDevicePoolResponse
-</span><a href="#local-6989586621679386612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDevicePoolResponse' :: Int
+</span><a href="#local-6989586621679386894"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386894"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386893"><span class="annot"><span class="annottext">s :: DeleteDevicePoolResponse
+</span><a href="#local-6989586621679386893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePoolResponse%27"><span class="hs-identifier hs-type">DeleteDevicePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386892"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDevicePoolResponse
+</span><a href="#local-6989586621679386893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDevicePoolResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#%24sel%3AhttpStatus%3ADeleteDevicePoolResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePoolResponse"><span class="hs-identifier hs-type">DeleteDevicePoolResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePoolResponse"><span class="hs-identifier hs-type">DeleteDevicePoolResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386609"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePoolResponse"><span class="hs-identifier hs-type">DeleteDevicePoolResponse</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386890"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteDevicePool.html#DeleteDevicePoolResponse"><span class="hs-identifier hs-type">DeleteDevicePoolResponse</span></a></span></span><span>
 </span><span id="line-158"></span></pre></body></html>

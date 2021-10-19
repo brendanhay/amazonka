@@ -28,26 +28,26 @@
 </span><span id="line-28"></span><span class="hs-comment">-- definition that is available with the service.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLastActiveDefinition' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679687785"><span id="local-6989586621679687786"></span></span><span class="hs-keyword">data</span><span> </span><span id="LastActiveDefinition"><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-var">LastActiveDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LastActiveDefinition%27"><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-var">LastActiveDefinition'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time the blueprint was last modified.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AlastModifiedOn%3ALastActiveDefinition%27"><span class="annot"><span class="annottext">LastActiveDefinition -&gt; Maybe POSIX
-</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AlastModifiedOn%3ALastActiveDefinition%27"><span class="hs-identifier hs-var hs-var">lastModifiedOn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Specifies a path in Amazon S3 where the blueprint is copied when you</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- create or update the blueprint.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AblueprintServiceLocation%3ALastActiveDefinition%27"><span class="annot"><span class="annottext">LastActiveDefinition -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AblueprintServiceLocation%3ALastActiveDefinition%27"><span class="hs-identifier hs-var hs-var">blueprintServiceLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A JSON string specifying the parameters for the blueprint.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AparameterSpec%3ALastActiveDefinition%27"><span class="annot"><span class="annottext">LastActiveDefinition -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621679689439"><span id="local-6989586621679689440"></span></span><span class="hs-keyword">data</span><span> </span><span id="LastActiveDefinition"><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-var">LastActiveDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LastActiveDefinition%27"><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-var">LastActiveDefinition'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A JSON string specifying the parameters for the blueprint.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AparameterSpec%3ALastActiveDefinition%27"><span class="annot"><span class="annottext">LastActiveDefinition -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AparameterSpec%3ALastActiveDefinition%27"><span class="hs-identifier hs-var hs-var">parameterSpec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The description of the blueprint.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Adescription%3ALastActiveDefinition%27"><span class="annot"><span class="annottext">LastActiveDefinition -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3Adescription%3ALastActiveDefinition%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Specifies a path in Amazon S3 where the blueprint is published by the</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Glue developer.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AblueprintLocation%3ALastActiveDefinition%27"><span class="annot"><span class="annottext">LastActiveDefinition -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AblueprintLocation%3ALastActiveDefinition%27"><span class="hs-identifier hs-var hs-var">blueprintLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Specifies a path in Amazon S3 where the blueprint is published by the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Glue developer.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AblueprintLocation%3ALastActiveDefinition%27"><span class="annot"><span class="annottext">LastActiveDefinition -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AblueprintLocation%3ALastActiveDefinition%27"><span class="hs-identifier hs-var hs-var">blueprintLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The date and time the blueprint was last modified.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlastModifiedOn%3ALastActiveDefinition%27"><span class="annot"><span class="annottext">LastActiveDefinition -&gt; Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AlastModifiedOn%3ALastActiveDefinition%27"><span class="hs-identifier hs-var hs-var">lastModifiedOn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Specifies a path in Amazon S3 where the blueprint is copied when you</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- create or update the blueprint.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AblueprintServiceLocation%3ALastActiveDefinition%27"><span class="annot"><span class="annottext">LastActiveDefinition -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AblueprintServiceLocation%3ALastActiveDefinition%27"><span class="hs-identifier hs-var hs-var">blueprintServiceLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The description of the blueprint.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Adescription%3ALastActiveDefinition%27"><span class="annot"><span class="annottext">LastActiveDefinition -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3Adescription%3ALastActiveDefinition%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679687775"><span id="local-6989586621679687777"><span class="annot"><span class="annottext">LastActiveDefinition -&gt; LastActiveDefinition -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679689429"><span id="local-6989586621679689431"><span class="annot"><span class="annottext">LastActiveDefinition -&gt; LastActiveDefinition -&gt; Bool
 (LastActiveDefinition -&gt; LastActiveDefinition -&gt; Bool)
 -&gt; (LastActiveDefinition -&gt; LastActiveDefinition -&gt; Bool)
 -&gt; Eq LastActiveDefinition
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LastActiveDefinition -&gt; LastActiveDefinition -&gt; Bool
 == :: LastActiveDefinition -&gt; LastActiveDefinition -&gt; Bool
 $c== :: LastActiveDefinition -&gt; LastActiveDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679687766"><span id="local-6989586621679687768"><span id="local-6989586621679687770"><span id="local-6989586621679687772"><span class="annot"><span class="annottext">ReadPrec [LastActiveDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679689420"><span id="local-6989586621679689422"><span id="local-6989586621679689424"><span id="local-6989586621679689426"><span class="annot"><span class="annottext">ReadPrec [LastActiveDefinition]
 ReadPrec LastActiveDefinition
 Int -&gt; ReadS LastActiveDefinition
 ReadS [LastActiveDefinition]
@@ -76,7 +76,7 @@ readList :: ReadS [LastActiveDefinition]
 $creadList :: ReadS [LastActiveDefinition]
 readsPrec :: Int -&gt; ReadS LastActiveDefinition
 $creadsPrec :: Int -&gt; ReadS LastActiveDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679687759"><span id="local-6989586621679687761"><span id="local-6989586621679687763"><span class="annot"><span class="annottext">Int -&gt; LastActiveDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679689413"><span id="local-6989586621679689415"><span id="local-6989586621679689417"><span class="annot"><span class="annottext">Int -&gt; LastActiveDefinition -&gt; ShowS
 [LastActiveDefinition] -&gt; ShowS
 LastActiveDefinition -&gt; String
 (Int -&gt; LastActiveDefinition -&gt; ShowS)
@@ -110,54 +110,95 @@ $cfrom :: forall x. LastActiveDefinition -&gt; Rep LastActiveDefinition x
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'lastModifiedOn', 'lastActiveDefinition_lastModifiedOn' - The date and time the blueprint was last modified.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'parameterSpec', 'lastActiveDefinition_parameterSpec' - A JSON string specifying the parameters for the blueprint.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'blueprintServiceLocation', 'lastActiveDefinition_blueprintServiceLocation' - Specifies a path in Amazon S3 where the blueprint is copied when you</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- create or update the blueprint.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'blueprintLocation', 'lastActiveDefinition_blueprintLocation' - Specifies a path in Amazon S3 where the blueprint is published by the</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Glue developer.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'parameterSpec', 'lastActiveDefinition_parameterSpec' - A JSON string specifying the parameters for the blueprint.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'lastModifiedOn', 'lastActiveDefinition_lastModifiedOn' - The date and time the blueprint was last modified.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'description', 'lastActiveDefinition_description' - The description of the blueprint.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'blueprintLocation', 'lastActiveDefinition_blueprintLocation' - Specifies a path in Amazon S3 where the blueprint is published by the</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- Glue developer.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'blueprintServiceLocation', 'lastActiveDefinition_blueprintServiceLocation' - Specifies a path in Amazon S3 where the blueprint is copied when you</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- create or update the blueprint.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'description', 'lastActiveDefinition_description' - The description of the blueprint.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#newLastActiveDefinition"><span class="hs-identifier hs-type">newLastActiveDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span>
 </span><span id="line-68"></span><span id="newLastActiveDefinition"><span class="annot"><span class="annottext">newLastActiveDefinition :: LastActiveDefinition
 </span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#newLastActiveDefinition"><span class="hs-identifier hs-var hs-var">newLastActiveDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">LastActiveDefinition' :: Maybe POSIX
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">LastActiveDefinition' :: Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; LastActiveDefinition
 </span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastModifiedOn:LastActiveDefinition' :: Maybe POSIX
-</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AlastModifiedOn%3ALastActiveDefinition%27"><span class="hs-identifier hs-var">lastModifiedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameterSpec:LastActiveDefinition' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AparameterSpec%3ALastActiveDefinition%27"><span class="hs-identifier hs-var">parameterSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:blueprintServiceLocation:LastActiveDefinition' :: Maybe Text
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:blueprintLocation:LastActiveDefinition' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AblueprintLocation%3ALastActiveDefinition%27"><span class="hs-identifier hs-var">blueprintLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedOn:LastActiveDefinition' :: Maybe POSIX
+</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AlastModifiedOn%3ALastActiveDefinition%27"><span class="hs-identifier hs-var">lastModifiedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:blueprintServiceLocation:LastActiveDefinition' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AblueprintServiceLocation%3ALastActiveDefinition%27"><span class="hs-identifier hs-var">blueprintServiceLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameterSpec:LastActiveDefinition' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AparameterSpec%3ALastActiveDefinition%27"><span class="hs-identifier hs-var">parameterSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:LastActiveDefinition' :: Maybe Text
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:LastActiveDefinition' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3Adescription%3ALastActiveDefinition%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:blueprintLocation:LastActiveDefinition' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AblueprintLocation%3ALastActiveDefinition%27"><span class="hs-identifier hs-var">blueprintLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The date and time the blueprint was last modified.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#lastActiveDefinition_lastModifiedOn"><span class="hs-identifier hs-type">lastActiveDefinition_lastModifiedOn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="lastActiveDefinition_lastModifiedOn"><span class="annot"><span class="annottext">lastActiveDefinition_lastModifiedOn :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-78"></span><span class="hs-comment">-- | A JSON string specifying the parameters for the blueprint.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#lastActiveDefinition_parameterSpec"><span class="hs-identifier hs-type">lastActiveDefinition_parameterSpec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="lastActiveDefinition_parameterSpec"><span class="annot"><span class="annottext">lastActiveDefinition_parameterSpec :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LastActiveDefinition -&gt; f LastActiveDefinition
+</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#lastActiveDefinition_parameterSpec"><span class="hs-identifier hs-var hs-var">lastActiveDefinition_parameterSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LastActiveDefinition -&gt; Maybe Text)
+-&gt; (LastActiveDefinition -&gt; Maybe Text -&gt; LastActiveDefinition)
+-&gt; Lens
+     LastActiveDefinition LastActiveDefinition (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689404"><span class="annot"><span class="annottext">Maybe Text
+parameterSpec :: Maybe Text
+$sel:parameterSpec:LastActiveDefinition' :: LastActiveDefinition -&gt; Maybe Text
+</span><a href="#local-6989586621679689404"><span class="hs-identifier hs-var hs-var">parameterSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679689404"><span class="hs-identifier hs-var">parameterSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689403"><span class="annot"><span class="annottext">s :: LastActiveDefinition
+</span><a href="#local-6989586621679689403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689402"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679689402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LastActiveDefinition
+</span><a href="#local-6989586621679689403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterSpec:LastActiveDefinition' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AparameterSpec%3ALastActiveDefinition%27"><span class="hs-identifier hs-var">parameterSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679689402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Specifies a path in Amazon S3 where the blueprint is published by the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Glue developer.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#lastActiveDefinition_blueprintLocation"><span class="hs-identifier hs-type">lastActiveDefinition_blueprintLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="lastActiveDefinition_blueprintLocation"><span class="annot"><span class="annottext">lastActiveDefinition_blueprintLocation :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LastActiveDefinition -&gt; f LastActiveDefinition
+</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#lastActiveDefinition_blueprintLocation"><span class="hs-identifier hs-var hs-var">lastActiveDefinition_blueprintLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LastActiveDefinition -&gt; Maybe Text)
+-&gt; (LastActiveDefinition -&gt; Maybe Text -&gt; LastActiveDefinition)
+-&gt; Lens
+     LastActiveDefinition LastActiveDefinition (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689400"><span class="annot"><span class="annottext">Maybe Text
+blueprintLocation :: Maybe Text
+$sel:blueprintLocation:LastActiveDefinition' :: LastActiveDefinition -&gt; Maybe Text
+</span><a href="#local-6989586621679689400"><span class="hs-identifier hs-var hs-var">blueprintLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679689400"><span class="hs-identifier hs-var">blueprintLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689399"><span class="annot"><span class="annottext">s :: LastActiveDefinition
+</span><a href="#local-6989586621679689399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689398"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679689398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LastActiveDefinition
+</span><a href="#local-6989586621679689399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprintLocation:LastActiveDefinition' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AblueprintLocation%3ALastActiveDefinition%27"><span class="hs-identifier hs-var">blueprintLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679689398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The date and time the blueprint was last modified.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#lastActiveDefinition_lastModifiedOn"><span class="hs-identifier hs-type">lastActiveDefinition_lastModifiedOn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="lastActiveDefinition_lastModifiedOn"><span class="annot"><span class="annottext">lastActiveDefinition_lastModifiedOn :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; LastActiveDefinition -&gt; f LastActiveDefinition
 </span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#lastActiveDefinition_lastModifiedOn"><span class="hs-identifier hs-var hs-var">lastActiveDefinition_lastModifiedOn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LastActiveDefinition -&gt; Maybe POSIX)
 -&gt; (LastActiveDefinition -&gt; Maybe POSIX -&gt; LastActiveDefinition)
@@ -167,16 +208,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687750"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689396"><span class="annot"><span class="annottext">Maybe POSIX
 lastModifiedOn :: Maybe POSIX
 $sel:lastModifiedOn:LastActiveDefinition' :: LastActiveDefinition -&gt; Maybe POSIX
-</span><a href="#local-6989586621679687750"><span class="hs-identifier hs-var hs-var">lastModifiedOn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679687750"><span class="hs-identifier hs-var">lastModifiedOn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687749"><span class="annot"><span class="annottext">s :: LastActiveDefinition
-</span><a href="#local-6989586621679687749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687748"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679687748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LastActiveDefinition
-</span><a href="#local-6989586621679687749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedOn:LastActiveDefinition' :: Maybe POSIX
+</span><a href="#local-6989586621679689396"><span class="hs-identifier hs-var hs-var">lastModifiedOn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679689396"><span class="hs-identifier hs-var">lastModifiedOn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689395"><span class="annot"><span class="annottext">s :: LastActiveDefinition
+</span><a href="#local-6989586621679689395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689394"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679689394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LastActiveDefinition
+</span><a href="#local-6989586621679689395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedOn:LastActiveDefinition' :: Maybe POSIX
 </span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AlastModifiedOn%3ALastActiveDefinition%27"><span class="hs-identifier hs-var">lastModifiedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679687748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679689394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; LastActiveDefinition -&gt; f LastActiveDefinition)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -192,91 +233,50 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | Specifies a path in Amazon S3 where the blueprint is copied when you</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- create or update the blueprint.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#lastActiveDefinition_blueprintServiceLocation"><span class="hs-identifier hs-type">lastActiveDefinition_blueprintServiceLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="lastActiveDefinition_blueprintServiceLocation"><span class="annot"><span class="annottext">lastActiveDefinition_blueprintServiceLocation :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Specifies a path in Amazon S3 where the blueprint is copied when you</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- create or update the blueprint.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#lastActiveDefinition_blueprintServiceLocation"><span class="hs-identifier hs-type">lastActiveDefinition_blueprintServiceLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="lastActiveDefinition_blueprintServiceLocation"><span class="annot"><span class="annottext">lastActiveDefinition_blueprintServiceLocation :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; LastActiveDefinition -&gt; f LastActiveDefinition
 </span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#lastActiveDefinition_blueprintServiceLocation"><span class="hs-identifier hs-var hs-var">lastActiveDefinition_blueprintServiceLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LastActiveDefinition -&gt; Maybe Text)
 -&gt; (LastActiveDefinition -&gt; Maybe Text -&gt; LastActiveDefinition)
 -&gt; Lens
      LastActiveDefinition LastActiveDefinition (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687743"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689389"><span class="annot"><span class="annottext">Maybe Text
 blueprintServiceLocation :: Maybe Text
 $sel:blueprintServiceLocation:LastActiveDefinition' :: LastActiveDefinition -&gt; Maybe Text
-</span><a href="#local-6989586621679687743"><span class="hs-identifier hs-var hs-var">blueprintServiceLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679687743"><span class="hs-identifier hs-var">blueprintServiceLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687742"><span class="annot"><span class="annottext">s :: LastActiveDefinition
-</span><a href="#local-6989586621679687742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687741"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679687741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LastActiveDefinition
-</span><a href="#local-6989586621679687742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprintServiceLocation:LastActiveDefinition' :: Maybe Text
+</span><a href="#local-6989586621679689389"><span class="hs-identifier hs-var hs-var">blueprintServiceLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679689389"><span class="hs-identifier hs-var">blueprintServiceLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689388"><span class="annot"><span class="annottext">s :: LastActiveDefinition
+</span><a href="#local-6989586621679689388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689387"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679689387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LastActiveDefinition
+</span><a href="#local-6989586621679689388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprintServiceLocation:LastActiveDefinition' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AblueprintServiceLocation%3ALastActiveDefinition%27"><span class="hs-identifier hs-var">blueprintServiceLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679687741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | A JSON string specifying the parameters for the blueprint.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#lastActiveDefinition_parameterSpec"><span class="hs-identifier hs-type">lastActiveDefinition_parameterSpec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="lastActiveDefinition_parameterSpec"><span class="annot"><span class="annottext">lastActiveDefinition_parameterSpec :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LastActiveDefinition -&gt; f LastActiveDefinition
-</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#lastActiveDefinition_parameterSpec"><span class="hs-identifier hs-var hs-var">lastActiveDefinition_parameterSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LastActiveDefinition -&gt; Maybe Text)
--&gt; (LastActiveDefinition -&gt; Maybe Text -&gt; LastActiveDefinition)
--&gt; Lens
-     LastActiveDefinition LastActiveDefinition (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687739"><span class="annot"><span class="annottext">Maybe Text
-parameterSpec :: Maybe Text
-$sel:parameterSpec:LastActiveDefinition' :: LastActiveDefinition -&gt; Maybe Text
-</span><a href="#local-6989586621679687739"><span class="hs-identifier hs-var hs-var">parameterSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679687739"><span class="hs-identifier hs-var">parameterSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687738"><span class="annot"><span class="annottext">s :: LastActiveDefinition
-</span><a href="#local-6989586621679687738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687737"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679687737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LastActiveDefinition
-</span><a href="#local-6989586621679687738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterSpec:LastActiveDefinition' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AparameterSpec%3ALastActiveDefinition%27"><span class="hs-identifier hs-var">parameterSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679687737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The description of the blueprint.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#lastActiveDefinition_description"><span class="hs-identifier hs-type">lastActiveDefinition_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="lastActiveDefinition_description"><span class="annot"><span class="annottext">lastActiveDefinition_description :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679689387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The description of the blueprint.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#lastActiveDefinition_description"><span class="hs-identifier hs-type">lastActiveDefinition_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="lastActiveDefinition_description"><span class="annot"><span class="annottext">lastActiveDefinition_description :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; LastActiveDefinition -&gt; f LastActiveDefinition
 </span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#lastActiveDefinition_description"><span class="hs-identifier hs-var hs-var">lastActiveDefinition_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LastActiveDefinition -&gt; Maybe Text)
 -&gt; (LastActiveDefinition -&gt; Maybe Text -&gt; LastActiveDefinition)
 -&gt; Lens
      LastActiveDefinition LastActiveDefinition (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687735"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689385"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:LastActiveDefinition' :: LastActiveDefinition -&gt; Maybe Text
-</span><a href="#local-6989586621679687735"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679687735"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687734"><span class="annot"><span class="annottext">s :: LastActiveDefinition
-</span><a href="#local-6989586621679687734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687733"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679687733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LastActiveDefinition
-</span><a href="#local-6989586621679687734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:LastActiveDefinition' :: Maybe Text
+</span><a href="#local-6989586621679689385"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679689385"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689384"><span class="annot"><span class="annottext">s :: LastActiveDefinition
+</span><a href="#local-6989586621679689384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689383"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679689383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LastActiveDefinition
+</span><a href="#local-6989586621679689384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:LastActiveDefinition' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3Adescription%3ALastActiveDefinition%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679687733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | Specifies a path in Amazon S3 where the blueprint is published by the</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- Glue developer.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#lastActiveDefinition_blueprintLocation"><span class="hs-identifier hs-type">lastActiveDefinition_blueprintLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="lastActiveDefinition_blueprintLocation"><span class="annot"><span class="annottext">lastActiveDefinition_blueprintLocation :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LastActiveDefinition -&gt; f LastActiveDefinition
-</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#lastActiveDefinition_blueprintLocation"><span class="hs-identifier hs-var hs-var">lastActiveDefinition_blueprintLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LastActiveDefinition -&gt; Maybe Text)
--&gt; (LastActiveDefinition -&gt; Maybe Text -&gt; LastActiveDefinition)
--&gt; Lens
-     LastActiveDefinition LastActiveDefinition (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679687731"><span class="annot"><span class="annottext">Maybe Text
-blueprintLocation :: Maybe Text
-$sel:blueprintLocation:LastActiveDefinition' :: LastActiveDefinition -&gt; Maybe Text
-</span><a href="#local-6989586621679687731"><span class="hs-identifier hs-var hs-var">blueprintLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679687731"><span class="hs-identifier hs-var">blueprintLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679687730"><span class="annot"><span class="annottext">s :: LastActiveDefinition
-</span><a href="#local-6989586621679687730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-type">LastActiveDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679687729"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679687729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LastActiveDefinition
-</span><a href="#local-6989586621679687730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprintLocation:LastActiveDefinition' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#%24sel%3AblueprintLocation%3ALastActiveDefinition%27"><span class="hs-identifier hs-var">blueprintLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679687729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679689383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679687726"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679687724"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LastActiveDefinition
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679689380"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679689378"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LastActiveDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LastActiveDefinition)
@@ -286,73 +286,73 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LastActiveDefinition&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679687721"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679687721"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679689375"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679689375"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; LastActiveDefinition
 </span><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition%27"><span class="hs-identifier hs-var">LastActiveDefinition'</span></a></span><span>
-</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; LastActiveDefinition)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; LastActiveDefinition)
+      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; LastActiveDefinition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679687721"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastModifiedOn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; LastActiveDefinition)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; LastActiveDefinition)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679687721"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BlueprintServiceLocation&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; LastActiveDefinition)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; LastActiveDefinition)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679687721"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679689375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ParameterSpec&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; LastActiveDefinition)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; LastActiveDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679689375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BlueprintLocation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; LastActiveDefinition)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; LastActiveDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679689375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedOn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; LastActiveDefinition)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; LastActiveDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679687721"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679689375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;BlueprintServiceLocation&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; LastActiveDefinition)
 -&gt; Parser (Maybe Text) -&gt; Parser LastActiveDefinition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679687721"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679689375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BlueprintLocation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679687715"><span id="local-6989586621679687717"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679689369"><span id="local-6989586621679689371"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679687712"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679689366"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LastActiveDefinition.html#LastActiveDefinition"><span class="hs-identifier hs-type">LastActiveDefinition</span></a></span></span><span>
 </span><span id="line-116"></span></pre></body></html>

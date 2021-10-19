@@ -29,21 +29,21 @@
 </span><span id="line-29"></span><span class="hs-comment">-- updating a node group, you can specify any or none of the properties.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newNodegroupScalingConfig' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679267319"><span id="local-6989586621679267320"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodegroupScalingConfig"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-var">NodegroupScalingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodegroupScalingConfig%27"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig%27"><span class="hs-identifier hs-var">NodegroupScalingConfig'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The minimum number of nodes that the managed node group can scale in to.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AminSize%3ANodegroupScalingConfig%27"><span class="annot"><span class="annottext">NodegroupScalingConfig -&gt; Maybe Natural
-</span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#%24sel%3AminSize%3ANodegroupScalingConfig%27"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The current number of nodes that the managed node group should maintain.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AdesiredSize%3ANodegroupScalingConfig%27"><span class="annot"><span class="annottext">NodegroupScalingConfig -&gt; Maybe Natural
+</span><span id="line-32"></span><span id="local-6989586621679267580"><span id="local-6989586621679267581"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodegroupScalingConfig"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-var">NodegroupScalingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodegroupScalingConfig%27"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig%27"><span class="hs-identifier hs-var">NodegroupScalingConfig'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current number of nodes that the managed node group should maintain.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdesiredSize%3ANodegroupScalingConfig%27"><span class="annot"><span class="annottext">NodegroupScalingConfig -&gt; Maybe Natural
 </span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#%24sel%3AdesiredSize%3ANodegroupScalingConfig%27"><span class="hs-identifier hs-var hs-var">desiredSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The maximum number of nodes that the managed node group can scale out</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- to. For information about the maximum number that you can specify, see</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html Amazon EKS service quotas&gt;</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- in the /Amazon EKS User Guide/.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AmaxSize%3ANodegroupScalingConfig%27"><span class="annot"><span class="annottext">NodegroupScalingConfig -&gt; Maybe Natural
-</span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#%24sel%3AmaxSize%3ANodegroupScalingConfig%27"><span class="hs-identifier hs-var hs-var">maxSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The maximum number of nodes that the managed node group can scale out</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- to. For information about the maximum number that you can specify, see</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html Amazon EKS service quotas&gt;</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- in the /Amazon EKS User Guide/.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AmaxSize%3ANodegroupScalingConfig%27"><span class="annot"><span class="annottext">NodegroupScalingConfig -&gt; Maybe Natural
+</span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#%24sel%3AmaxSize%3ANodegroupScalingConfig%27"><span class="hs-identifier hs-var hs-var">maxSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The minimum number of nodes that the managed node group can scale in to.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AminSize%3ANodegroupScalingConfig%27"><span class="annot"><span class="annottext">NodegroupScalingConfig -&gt; Maybe Natural
+</span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#%24sel%3AminSize%3ANodegroupScalingConfig%27"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267311"><span id="local-6989586621679267313"><span class="annot"><span class="annottext">NodegroupScalingConfig -&gt; NodegroupScalingConfig -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267572"><span id="local-6989586621679267574"><span class="annot"><span class="annottext">NodegroupScalingConfig -&gt; NodegroupScalingConfig -&gt; Bool
 (NodegroupScalingConfig -&gt; NodegroupScalingConfig -&gt; Bool)
 -&gt; (NodegroupScalingConfig -&gt; NodegroupScalingConfig -&gt; Bool)
 -&gt; Eq NodegroupScalingConfig
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NodegroupScalingConfig -&gt; NodegroupScalingConfig -&gt; Bool
 == :: NodegroupScalingConfig -&gt; NodegroupScalingConfig -&gt; Bool
 $c== :: NodegroupScalingConfig -&gt; NodegroupScalingConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267302"><span id="local-6989586621679267304"><span id="local-6989586621679267306"><span id="local-6989586621679267308"><span class="annot"><span class="annottext">ReadPrec [NodegroupScalingConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267563"><span id="local-6989586621679267565"><span id="local-6989586621679267567"><span id="local-6989586621679267569"><span class="annot"><span class="annottext">ReadPrec [NodegroupScalingConfig]
 ReadPrec NodegroupScalingConfig
 Int -&gt; ReadS NodegroupScalingConfig
 ReadS [NodegroupScalingConfig]
@@ -72,7 +72,7 @@ readList :: ReadS [NodegroupScalingConfig]
 $creadList :: ReadS [NodegroupScalingConfig]
 readsPrec :: Int -&gt; ReadS NodegroupScalingConfig
 $creadsPrec :: Int -&gt; ReadS NodegroupScalingConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267295"><span id="local-6989586621679267297"><span id="local-6989586621679267299"><span class="annot"><span class="annottext">Int -&gt; NodegroupScalingConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267556"><span id="local-6989586621679267558"><span id="local-6989586621679267560"><span class="annot"><span class="annottext">Int -&gt; NodegroupScalingConfig -&gt; ShowS
 [NodegroupScalingConfig] -&gt; ShowS
 NodegroupScalingConfig -&gt; String
 (Int -&gt; NodegroupScalingConfig -&gt; ShowS)
@@ -107,14 +107,14 @@ $cfrom :: forall x. NodegroupScalingConfig -&gt; Rep NodegroupScalingConfig x
 </span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'minSize', 'nodegroupScalingConfig_minSize' - The minimum number of nodes that the managed node group can scale in to.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'desiredSize', 'nodegroupScalingConfig_desiredSize' - The current number of nodes that the managed node group should maintain.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'desiredSize', 'nodegroupScalingConfig_desiredSize' - The current number of nodes that the managed node group should maintain.</span><span>
-</span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'maxSize', 'nodegroupScalingConfig_maxSize' - The maximum number of nodes that the managed node group can scale out</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- to. For information about the maximum number that you can specify, see</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html Amazon EKS service quotas&gt;</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- in the /Amazon EKS User Guide/.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'maxSize', 'nodegroupScalingConfig_maxSize' - The maximum number of nodes that the managed node group can scale out</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- to. For information about the maximum number that you can specify, see</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html Amazon EKS service quotas&gt;</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- in the /Amazon EKS User Guide/.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'minSize', 'nodegroupScalingConfig_minSize' - The minimum number of nodes that the managed node group can scale in to.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#newNodegroupScalingConfig"><span class="hs-identifier hs-type">newNodegroupScalingConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span><span>
 </span><span id="line-63"></span><span id="newNodegroupScalingConfig"><span class="annot"><span class="annottext">newNodegroupScalingConfig :: NodegroupScalingConfig
@@ -122,47 +122,24 @@ $cfrom :: forall x. NodegroupScalingConfig -&gt; Rep NodegroupScalingConfig x
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">NodegroupScalingConfig' :: Maybe Natural
 -&gt; Maybe Natural -&gt; Maybe Natural -&gt; NodegroupScalingConfig
 </span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig%27"><span class="hs-identifier hs-type">NodegroupScalingConfig'</span></a></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:minSize:NodegroupScalingConfig' :: Maybe Natural
-</span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#%24sel%3AminSize%3ANodegroupScalingConfig%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:desiredSize:NodegroupScalingConfig' :: Maybe Natural
-</span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#%24sel%3AdesiredSize%3ANodegroupScalingConfig%27"><span class="hs-identifier hs-var">desiredSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:desiredSize:NodegroupScalingConfig' :: Maybe Natural
+</span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#%24sel%3AdesiredSize%3ANodegroupScalingConfig%27"><span class="hs-identifier hs-var">desiredSize</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxSize:NodegroupScalingConfig' :: Maybe Natural
 </span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#%24sel%3AmaxSize%3ANodegroupScalingConfig%27"><span class="hs-identifier hs-var">maxSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | The minimum number of nodes that the managed node group can scale in to.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#nodegroupScalingConfig_minSize"><span class="hs-identifier hs-type">nodegroupScalingConfig_minSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="nodegroupScalingConfig_minSize"><span class="annot"><span class="annottext">nodegroupScalingConfig_minSize :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; NodegroupScalingConfig -&gt; f NodegroupScalingConfig
-</span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#nodegroupScalingConfig_minSize"><span class="hs-identifier hs-var hs-var">nodegroupScalingConfig_minSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodegroupScalingConfig -&gt; Maybe Natural)
--&gt; (NodegroupScalingConfig
-    -&gt; Maybe Natural -&gt; NodegroupScalingConfig)
--&gt; Lens
-     NodegroupScalingConfig
-     NodegroupScalingConfig
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig%27"><span class="hs-identifier hs-type">NodegroupScalingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267286"><span class="annot"><span class="annottext">Maybe Natural
-minSize :: Maybe Natural
-$sel:minSize:NodegroupScalingConfig' :: NodegroupScalingConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621679267286"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267286"><span class="hs-identifier hs-var">minSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267285"><span class="annot"><span class="annottext">s :: NodegroupScalingConfig
-</span><a href="#local-6989586621679267285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig%27"><span class="hs-identifier hs-type">NodegroupScalingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267284"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodegroupScalingConfig
-</span><a href="#local-6989586621679267285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minSize:NodegroupScalingConfig' :: Maybe Natural
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:minSize:NodegroupScalingConfig' :: Maybe Natural
 </span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#%24sel%3AminSize%3ANodegroupScalingConfig%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | The current number of nodes that the managed node group should maintain.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#nodegroupScalingConfig_desiredSize"><span class="hs-identifier hs-type">nodegroupScalingConfig_desiredSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="nodegroupScalingConfig_desiredSize"><span class="annot"><span class="annottext">nodegroupScalingConfig_desiredSize :: (Maybe Natural -&gt; f (Maybe Natural))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The current number of nodes that the managed node group should maintain.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#nodegroupScalingConfig_desiredSize"><span class="hs-identifier hs-type">nodegroupScalingConfig_desiredSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="nodegroupScalingConfig_desiredSize"><span class="annot"><span class="annottext">nodegroupScalingConfig_desiredSize :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; NodegroupScalingConfig -&gt; f NodegroupScalingConfig
 </span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#nodegroupScalingConfig_desiredSize"><span class="hs-identifier hs-var hs-var">nodegroupScalingConfig_desiredSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodegroupScalingConfig -&gt; Maybe Natural)
 -&gt; (NodegroupScalingConfig
@@ -173,23 +150,23 @@ $sel:minSize:NodegroupScalingConfig' :: NodegroupScalingConfig -&gt; Maybe Natur
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig%27"><span class="hs-identifier hs-type">NodegroupScalingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267282"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig%27"><span class="hs-identifier hs-type">NodegroupScalingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267547"><span class="annot"><span class="annottext">Maybe Natural
 desiredSize :: Maybe Natural
 $sel:desiredSize:NodegroupScalingConfig' :: NodegroupScalingConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621679267282"><span class="hs-identifier hs-var hs-var">desiredSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267282"><span class="hs-identifier hs-var">desiredSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267281"><span class="annot"><span class="annottext">s :: NodegroupScalingConfig
-</span><a href="#local-6989586621679267281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig%27"><span class="hs-identifier hs-type">NodegroupScalingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267280"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodegroupScalingConfig
-</span><a href="#local-6989586621679267281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredSize:NodegroupScalingConfig' :: Maybe Natural
+</span><a href="#local-6989586621679267547"><span class="hs-identifier hs-var hs-var">desiredSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679267547"><span class="hs-identifier hs-var">desiredSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267546"><span class="annot"><span class="annottext">s :: NodegroupScalingConfig
+</span><a href="#local-6989586621679267546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig%27"><span class="hs-identifier hs-type">NodegroupScalingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267545"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679267545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodegroupScalingConfig
+</span><a href="#local-6989586621679267546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredSize:NodegroupScalingConfig' :: Maybe Natural
 </span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#%24sel%3AdesiredSize%3ANodegroupScalingConfig%27"><span class="hs-identifier hs-var">desiredSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The maximum number of nodes that the managed node group can scale out</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- to. For information about the maximum number that you can specify, see</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html Amazon EKS service quotas&gt;</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- in the /Amazon EKS User Guide/.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#nodegroupScalingConfig_maxSize"><span class="hs-identifier hs-type">nodegroupScalingConfig_maxSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="nodegroupScalingConfig_maxSize"><span class="annot"><span class="annottext">nodegroupScalingConfig_maxSize :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><a href="#local-6989586621679267545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The maximum number of nodes that the managed node group can scale out</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- to. For information about the maximum number that you can specify, see</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html Amazon EKS service quotas&gt;</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- in the /Amazon EKS User Guide/.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#nodegroupScalingConfig_maxSize"><span class="hs-identifier hs-type">nodegroupScalingConfig_maxSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="nodegroupScalingConfig_maxSize"><span class="annot"><span class="annottext">nodegroupScalingConfig_maxSize :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; NodegroupScalingConfig -&gt; f NodegroupScalingConfig
 </span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#nodegroupScalingConfig_maxSize"><span class="hs-identifier hs-var hs-var">nodegroupScalingConfig_maxSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodegroupScalingConfig -&gt; Maybe Natural)
 -&gt; (NodegroupScalingConfig
@@ -200,103 +177,127 @@ $sel:desiredSize:NodegroupScalingConfig' :: NodegroupScalingConfig -&gt; Maybe N
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig%27"><span class="hs-identifier hs-type">NodegroupScalingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267278"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig%27"><span class="hs-identifier hs-type">NodegroupScalingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267543"><span class="annot"><span class="annottext">Maybe Natural
 maxSize :: Maybe Natural
 $sel:maxSize:NodegroupScalingConfig' :: NodegroupScalingConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621679267278"><span class="hs-identifier hs-var hs-var">maxSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267278"><span class="hs-identifier hs-var">maxSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267277"><span class="annot"><span class="annottext">s :: NodegroupScalingConfig
-</span><a href="#local-6989586621679267277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig%27"><span class="hs-identifier hs-type">NodegroupScalingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267276"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodegroupScalingConfig
-</span><a href="#local-6989586621679267277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSize:NodegroupScalingConfig' :: Maybe Natural
+</span><a href="#local-6989586621679267543"><span class="hs-identifier hs-var hs-var">maxSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679267543"><span class="hs-identifier hs-var">maxSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267542"><span class="annot"><span class="annottext">s :: NodegroupScalingConfig
+</span><a href="#local-6989586621679267542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig%27"><span class="hs-identifier hs-type">NodegroupScalingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267541"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679267541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodegroupScalingConfig
+</span><a href="#local-6989586621679267542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSize:NodegroupScalingConfig' :: Maybe Natural
 </span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#%24sel%3AmaxSize%3ANodegroupScalingConfig%27"><span class="hs-identifier hs-var">maxSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267273"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679267271"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NodegroupScalingConfig
+</span><a href="#local-6989586621679267541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The minimum number of nodes that the managed node group can scale in to.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#nodegroupScalingConfig_minSize"><span class="hs-identifier hs-type">nodegroupScalingConfig_minSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="nodegroupScalingConfig_minSize"><span class="annot"><span class="annottext">nodegroupScalingConfig_minSize :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; NodegroupScalingConfig -&gt; f NodegroupScalingConfig
+</span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#nodegroupScalingConfig_minSize"><span class="hs-identifier hs-var hs-var">nodegroupScalingConfig_minSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodegroupScalingConfig -&gt; Maybe Natural)
+-&gt; (NodegroupScalingConfig
+    -&gt; Maybe Natural -&gt; NodegroupScalingConfig)
+-&gt; Lens
+     NodegroupScalingConfig
+     NodegroupScalingConfig
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig%27"><span class="hs-identifier hs-type">NodegroupScalingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267539"><span class="annot"><span class="annottext">Maybe Natural
+minSize :: Maybe Natural
+$sel:minSize:NodegroupScalingConfig' :: NodegroupScalingConfig -&gt; Maybe Natural
+</span><a href="#local-6989586621679267539"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679267539"><span class="hs-identifier hs-var">minSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267538"><span class="annot"><span class="annottext">s :: NodegroupScalingConfig
+</span><a href="#local-6989586621679267538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig%27"><span class="hs-identifier hs-type">NodegroupScalingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267537"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679267537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodegroupScalingConfig
+</span><a href="#local-6989586621679267538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minSize:NodegroupScalingConfig' :: Maybe Natural
+</span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#%24sel%3AminSize%3ANodegroupScalingConfig%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679267537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267534"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679267532"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NodegroupScalingConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser NodegroupScalingConfig)
 -&gt; Value
 -&gt; Parser NodegroupScalingConfig
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;NodegroupScalingConfig&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679267268"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267268"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679267529"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267529"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Natural -&gt; Maybe Natural -&gt; NodegroupScalingConfig
 </span><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig%27"><span class="hs-identifier hs-var">NodegroupScalingConfig'</span></a></span><span>
-</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
  -&gt; Maybe Natural -&gt; Maybe Natural -&gt; NodegroupScalingConfig)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser
      (Maybe Natural -&gt; Maybe Natural -&gt; NodegroupScalingConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679267529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;minSize&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Natural -&gt; NodegroupScalingConfig)
+</span><span class="hs-string">&quot;desiredSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Natural -&gt; NodegroupScalingConfig)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser (Maybe Natural -&gt; NodegroupScalingConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;desiredSize&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; NodegroupScalingConfig)
--&gt; Parser (Maybe Natural) -&gt; Parser NodegroupScalingConfig
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679267529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxSize&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267262"><span id="local-6989586621679267264"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span></span></span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span></span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267251"><span id="local-6989586621679267253"><span id="local-6989586621679267255"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679267249"><span class="annot"><span class="annottext">toJSON :: NodegroupScalingConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig%27"><span class="hs-identifier hs-type">NodegroupScalingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267245"><span id="local-6989586621679267246"><span id="local-6989586621679267247"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; NodegroupScalingConfig)
+-&gt; Parser (Maybe Natural) -&gt; Parser NodegroupScalingConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;minSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267523"><span id="local-6989586621679267525"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267520"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267512"><span id="local-6989586621679267514"><span id="local-6989586621679267516"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig"><span class="hs-identifier hs-type">NodegroupScalingConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679267510"><span class="annot"><span class="annottext">toJSON :: NodegroupScalingConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupScalingConfig.html#NodegroupScalingConfig%27"><span class="hs-identifier hs-type">NodegroupScalingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267506"><span id="local-6989586621679267507"><span id="local-6989586621679267508"><span class="annot"><span class="annottext">Maybe Natural
+minSize :: Maybe Natural
 maxSize :: Maybe Natural
 desiredSize :: Maybe Natural
-minSize :: Maybe Natural
+$sel:minSize:NodegroupScalingConfig' :: NodegroupScalingConfig -&gt; Maybe Natural
 $sel:maxSize:NodegroupScalingConfig' :: NodegroupScalingConfig -&gt; Maybe Natural
 $sel:desiredSize:NodegroupScalingConfig' :: NodegroupScalingConfig -&gt; Maybe Natural
-$sel:minSize:NodegroupScalingConfig' :: NodegroupScalingConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621679267245"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><a href="#local-6989586621679267506"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-104"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;minSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267247"><span class="hs-identifier hs-var">minSize</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;desiredSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267246"><span class="hs-identifier hs-var">desiredSize</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679267508"><span class="hs-identifier hs-var">desiredSize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267245"><span class="hs-identifier hs-var">maxSize</span></a></span><span>
-</span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span></pre></body></html>
+</span><a href="#local-6989586621679267507"><span class="hs-identifier hs-var">maxSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;minSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679267506"><span class="hs-identifier hs-var">minSize</span></a></span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span></pre></body></html>

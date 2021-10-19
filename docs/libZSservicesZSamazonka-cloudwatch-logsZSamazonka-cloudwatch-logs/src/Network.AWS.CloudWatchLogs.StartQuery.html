@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newStartQuery' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679224614"><span id="local-6989586621679224615"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartQuery"><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-var">StartQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartQuery%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-var">StartQuery'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679224758"><span id="local-6989586621679224759"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartQuery"><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-var">StartQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartQuery%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-var">StartQuery'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of log groups to be queried. You can include up to 20 log</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- groups.</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -95,7 +95,7 @@
 </span><span id="line-90"></span><span>    </span><span id="%24sel%3AqueryString%3AStartQuery%27"><span class="annot"><span class="annottext">StartQuery -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#%24sel%3AqueryString%3AStartQuery%27"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224603"><span id="local-6989586621679224605"><span class="annot"><span class="annottext">StartQuery -&gt; StartQuery -&gt; Bool
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224747"><span id="local-6989586621679224749"><span class="annot"><span class="annottext">StartQuery -&gt; StartQuery -&gt; Bool
 (StartQuery -&gt; StartQuery -&gt; Bool)
 -&gt; (StartQuery -&gt; StartQuery -&gt; Bool) -&gt; Eq StartQuery
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -103,7 +103,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartQuery -&gt; StartQuery -&gt; Bool
 == :: StartQuery -&gt; StartQuery -&gt; Bool
 $c== :: StartQuery -&gt; StartQuery -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224594"><span id="local-6989586621679224596"><span id="local-6989586621679224598"><span id="local-6989586621679224600"><span class="annot"><span class="annottext">ReadPrec [StartQuery]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224738"><span id="local-6989586621679224740"><span id="local-6989586621679224742"><span id="local-6989586621679224744"><span class="annot"><span class="annottext">ReadPrec [StartQuery]
 ReadPrec StartQuery
 Int -&gt; ReadS StartQuery
 ReadS [StartQuery]
@@ -123,7 +123,7 @@ readList :: ReadS [StartQuery]
 $creadList :: ReadS [StartQuery]
 readsPrec :: Int -&gt; ReadS StartQuery
 $creadsPrec :: Int -&gt; ReadS StartQuery
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224587"><span id="local-6989586621679224589"><span id="local-6989586621679224591"><span class="annot"><span class="annottext">Int -&gt; StartQuery -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224731"><span id="local-6989586621679224733"><span id="local-6989586621679224735"><span class="annot"><span class="annottext">Int -&gt; StartQuery -&gt; ShowS
 [StartQuery] -&gt; ShowS
 StartQuery -&gt; String
 (Int -&gt; StartQuery -&gt; ShowS)
@@ -190,10 +190,10 @@ $cfrom :: forall x. StartQuery -&gt; Rep StartQuery x
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span><span>
 </span><span id="line-135"></span><span id="newStartQuery"><span class="annot"><span class="annottext">newStartQuery :: Natural -&gt; Natural -&gt; Text -&gt; StartQuery
-</span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#newStartQuery"><span class="hs-identifier hs-var hs-var">newStartQuery</span></a></span></span><span> </span><span id="local-6989586621679224582"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679224582"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span> </span><span id="local-6989586621679224581"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679224581"><span class="hs-identifier hs-var">pEndTime_</span></a></span></span><span> </span><span id="local-6989586621679224580"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224580"><span class="hs-identifier hs-var">pQueryString_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#newStartQuery"><span class="hs-identifier hs-var hs-var">newStartQuery</span></a></span></span><span> </span><span id="local-6989586621679224726"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679224726"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span> </span><span id="local-6989586621679224725"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679224725"><span class="hs-identifier hs-var">pEndTime_</span></a></span></span><span> </span><span id="local-6989586621679224724"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224724"><span class="hs-identifier hs-var">pQueryString_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">StartQuery' :: Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe Natural
@@ -216,13 +216,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:StartQuery' :: Natural
 </span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#%24sel%3AstartTime%3AStartQuery%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679224582"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224726"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:StartQuery' :: Natural
 </span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#%24sel%3AendTime%3AStartQuery%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679224581"><span class="hs-identifier hs-var">pEndTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224725"><span class="hs-identifier hs-var">pEndTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryString:StartQuery' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#%24sel%3AqueryString%3AStartQuery%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224580"><span class="hs-identifier hs-var">pQueryString_</span></a></span><span>
+</span><a href="#local-6989586621679224724"><span class="hs-identifier hs-var">pQueryString_</span></a></span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The list of log groups to be queried. You can include up to 20 log</span><span>
@@ -236,16 +236,16 @@ forall a. Maybe a
 -&gt; (StartQuery -&gt; Maybe [Text] -&gt; StartQuery)
 -&gt; Lens StartQuery StartQuery (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224577"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224721"><span class="annot"><span class="annottext">Maybe [Text]
 logGroupNames :: Maybe [Text]
 $sel:logGroupNames:StartQuery' :: StartQuery -&gt; Maybe [Text]
-</span><a href="#local-6989586621679224577"><span class="hs-identifier hs-var hs-var">logGroupNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679224577"><span class="hs-identifier hs-var">logGroupNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224576"><span class="annot"><span class="annottext">s :: StartQuery
-</span><a href="#local-6989586621679224576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224575"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679224575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQuery
-</span><a href="#local-6989586621679224576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupNames:StartQuery' :: Maybe [Text]
+</span><a href="#local-6989586621679224721"><span class="hs-identifier hs-var hs-var">logGroupNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679224721"><span class="hs-identifier hs-var">logGroupNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224720"><span class="annot"><span class="annottext">s :: StartQuery
+</span><a href="#local-6989586621679224720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224719"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679224719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQuery
+</span><a href="#local-6989586621679224720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupNames:StartQuery' :: Maybe [Text]
 </span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#%24sel%3AlogGroupNames%3AStartQuery%27"><span class="hs-identifier hs-var">logGroupNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679224575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; StartQuery -&gt; f StartQuery)
+</span><a href="#local-6989586621679224719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; StartQuery -&gt; f StartQuery)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -258,8 +258,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The log group on which to perform the query.</span><span>
 </span><span id="line-154"></span><span class="hs-comment">--</span><span>
@@ -271,16 +271,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (StartQuery -&gt; Maybe Text -&gt; StartQuery)
 -&gt; Lens StartQuery StartQuery (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224571"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224715"><span class="annot"><span class="annottext">Maybe Text
 logGroupName :: Maybe Text
 $sel:logGroupName:StartQuery' :: StartQuery -&gt; Maybe Text
-</span><a href="#local-6989586621679224571"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224571"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224570"><span class="annot"><span class="annottext">s :: StartQuery
-</span><a href="#local-6989586621679224570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224569"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQuery
-</span><a href="#local-6989586621679224570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:StartQuery' :: Maybe Text
+</span><a href="#local-6989586621679224715"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224715"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224714"><span class="annot"><span class="annottext">s :: StartQuery
+</span><a href="#local-6989586621679224714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224713"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQuery
+</span><a href="#local-6989586621679224714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:StartQuery' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#%24sel%3AlogGroupName%3AStartQuery%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The maximum number of log events to return in the query. If the query</span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- string uses the @fields@ command, only the specified fields and their</span><span>
@@ -291,16 +291,16 @@ $sel:logGroupName:StartQuery' :: StartQuery -&gt; Maybe Text
 -&gt; (StartQuery -&gt; Maybe Natural -&gt; StartQuery)
 -&gt; Lens StartQuery StartQuery (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224568"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224712"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:StartQuery' :: StartQuery -&gt; Maybe Natural
-</span><a href="#local-6989586621679224568"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679224568"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224567"><span class="annot"><span class="annottext">s :: StartQuery
-</span><a href="#local-6989586621679224567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224566"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679224566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQuery
-</span><a href="#local-6989586621679224567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:StartQuery' :: Maybe Natural
+</span><a href="#local-6989586621679224712"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679224712"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224711"><span class="annot"><span class="annottext">s :: StartQuery
+</span><a href="#local-6989586621679224711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224710"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679224710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQuery
+</span><a href="#local-6989586621679224711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:StartQuery' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#%24sel%3Alimit%3AStartQuery%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679224566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The beginning of the time range to query. The range is inclusive, so the</span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- specified start time is included in the query. Specified as epoch time,</span><span>
@@ -311,16 +311,16 @@ $sel:limit:StartQuery' :: StartQuery -&gt; Maybe Natural
 -&gt; (StartQuery -&gt; Natural -&gt; StartQuery)
 -&gt; Lens StartQuery StartQuery Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224565"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224709"><span class="annot"><span class="annottext">Natural
 startTime :: Natural
 $sel:startTime:StartQuery' :: StartQuery -&gt; Natural
-</span><a href="#local-6989586621679224565"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679224565"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224564"><span class="annot"><span class="annottext">s :: StartQuery
-</span><a href="#local-6989586621679224564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224563"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679224563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQuery
-</span><a href="#local-6989586621679224564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:StartQuery' :: Natural
+</span><a href="#local-6989586621679224709"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679224709"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224708"><span class="annot"><span class="annottext">s :: StartQuery
+</span><a href="#local-6989586621679224708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224707"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679224707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQuery
+</span><a href="#local-6989586621679224708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:StartQuery' :: Natural
 </span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#%24sel%3AstartTime%3AStartQuery%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679224563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The end of the time range to query. The range is inclusive, so the</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- specified end time is included in the query. Specified as epoch time,</span><span>
@@ -331,16 +331,16 @@ $sel:startTime:StartQuery' :: StartQuery -&gt; Natural
 -&gt; (StartQuery -&gt; Natural -&gt; StartQuery)
 -&gt; Lens StartQuery StartQuery Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224562"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224706"><span class="annot"><span class="annottext">Natural
 endTime :: Natural
 $sel:endTime:StartQuery' :: StartQuery -&gt; Natural
-</span><a href="#local-6989586621679224562"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679224562"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224561"><span class="annot"><span class="annottext">s :: StartQuery
-</span><a href="#local-6989586621679224561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224560"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679224560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQuery
-</span><a href="#local-6989586621679224561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:StartQuery' :: Natural
+</span><a href="#local-6989586621679224706"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679224706"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224705"><span class="annot"><span class="annottext">s :: StartQuery
+</span><a href="#local-6989586621679224705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224704"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679224704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQuery
+</span><a href="#local-6989586621679224705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:StartQuery' :: Natural
 </span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#%24sel%3AendTime%3AStartQuery%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679224560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The query string to use. For more information, see</span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax&gt;.</span><span>
@@ -350,25 +350,25 @@ $sel:endTime:StartQuery' :: StartQuery -&gt; Natural
 -&gt; (StartQuery -&gt; Text -&gt; StartQuery)
 -&gt; Lens StartQuery StartQuery Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224559"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224703"><span class="annot"><span class="annottext">Text
 queryString :: Text
 $sel:queryString:StartQuery' :: StartQuery -&gt; Text
-</span><a href="#local-6989586621679224559"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224559"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224558"><span class="annot"><span class="annottext">s :: StartQuery
-</span><a href="#local-6989586621679224558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224557"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQuery
-</span><a href="#local-6989586621679224558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryString:StartQuery' :: Text
+</span><a href="#local-6989586621679224703"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224703"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224702"><span class="annot"><span class="annottext">s :: StartQuery
+</span><a href="#local-6989586621679224702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224701"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQuery
+</span><a href="#local-6989586621679224702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryString:StartQuery' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#%24sel%3AqueryString%3AStartQuery%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse"><span class="hs-identifier hs-type">StartQueryResponse</span></a></span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679224553"><span class="annot"><span class="annottext">request :: StartQuery -&gt; Request StartQuery
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679224697"><span class="annot"><span class="annottext">request :: StartQuery -&gt; Request StartQuery
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartQuery -&gt; Request StartQuery
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679224549"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679224693"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartQuery
 -&gt; ClientResponse ClientBody
@@ -392,10 +392,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-188"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224546"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679224546"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679224545"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679224545"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679224544"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224544"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224690"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224690"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679224689"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679224689"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679224688"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224688"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-189"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; StartQueryResponse
 </span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse%27"><span class="hs-identifier hs-var">StartQueryResponse'</span></a></span><span>
 </span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; StartQueryResponse)
@@ -403,7 +403,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; StartQueryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224544"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679224688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;queryId&quot;</span></span><span class="hs-special">)</span><span>
@@ -415,15 +415,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679224546"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224690"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224536"><span id="local-6989586621679224538"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span></span></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224680"><span id="local-6989586621679224682"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span></span></span><span>
 </span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224533"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224677"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span></span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679224529"><span class="annot"><span class="annottext">toHeaders :: StartQuery -&gt; ResponseHeaders
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679224673"><span class="annot"><span class="annottext">toHeaders :: StartQuery -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartQuery -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -448,9 +448,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-208"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-209"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224519"><span id="local-6989586621679224521"><span id="local-6989586621679224523"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621679224517"><span class="annot"><span class="annottext">toJSON :: StartQuery -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224510"><span id="local-6989586621679224511"><span id="local-6989586621679224512"><span id="local-6989586621679224513"><span id="local-6989586621679224514"><span id="local-6989586621679224515"><span class="annot"><span class="annottext">Natural
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224663"><span id="local-6989586621679224665"><span id="local-6989586621679224667"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679224661"><span class="annot"><span class="annottext">toJSON :: StartQuery -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery%27"><span class="hs-identifier hs-type">StartQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224654"><span id="local-6989586621679224655"><span id="local-6989586621679224656"><span id="local-6989586621679224657"><span id="local-6989586621679224658"><span id="local-6989586621679224659"><span class="annot"><span class="annottext">Natural
 Maybe Natural
 Maybe [Text]
 Maybe Text
@@ -467,7 +467,7 @@ $sel:startTime:StartQuery' :: StartQuery -&gt; Natural
 $sel:limit:StartQuery' :: StartQuery -&gt; Maybe Natural
 $sel:logGroupName:StartQuery' :: StartQuery -&gt; Maybe Text
 $sel:logGroupNames:StartQuery' :: StartQuery -&gt; Maybe [Text]
-</span><a href="#local-6989586621679224510"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679224654"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -479,54 +479,54 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679224515"><span class="hs-identifier hs-var">logGroupNames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224659"><span class="hs-identifier hs-var">logGroupNames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224514"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224658"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679224513"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224657"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679224512"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224656"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;endTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679224511"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224655"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;queryString&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224510"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224654"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-222"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-225"></span><span>  </span><span id="local-6989586621679224504"><span class="annot"><span class="annottext">toPath :: StartQuery -&gt; ByteString
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679224648"><span class="annot"><span class="annottext">toPath :: StartQuery -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartQuery -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQuery"><span class="hs-identifier hs-type">StartQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621679224500"><span class="annot"><span class="annottext">toQuery :: StartQuery -&gt; QueryString
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679224644"><span class="annot"><span class="annottext">toQuery :: StartQuery -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartQuery -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -534,7 +534,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | /See:/ 'newStartQueryResponse' smart constructor.</span><span>
-</span><span id="line-231"></span><span id="local-6989586621679224497"><span id="local-6989586621679224498"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartQueryResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse"><span class="hs-identifier hs-var">StartQueryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartQueryResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse%27"><span class="hs-identifier hs-var">StartQueryResponse'</span></a></span></span><span>
+</span><span id="line-231"></span><span id="local-6989586621679224641"><span id="local-6989586621679224642"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartQueryResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse"><span class="hs-identifier hs-var">StartQueryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartQueryResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse%27"><span class="hs-identifier hs-var">StartQueryResponse'</span></a></span></span><span>
 </span><span id="line-232"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the query.</span><span>
 </span><span id="line-233"></span><span>    </span><span id="%24sel%3AqueryId%3AStartQueryResponse%27"><span class="annot"><span class="annottext">StartQueryResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#%24sel%3AqueryId%3AStartQueryResponse%27"><span class="hs-identifier hs-var hs-var">queryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -542,7 +542,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-235"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartQueryResponse%27"><span class="annot"><span class="annottext">StartQueryResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#%24sel%3AhttpStatus%3AStartQueryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-236"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-237"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224491"><span id="local-6989586621679224493"><span class="annot"><span class="annottext">StartQueryResponse -&gt; StartQueryResponse -&gt; Bool
+</span><span id="line-237"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224635"><span id="local-6989586621679224637"><span class="annot"><span class="annottext">StartQueryResponse -&gt; StartQueryResponse -&gt; Bool
 (StartQueryResponse -&gt; StartQueryResponse -&gt; Bool)
 -&gt; (StartQueryResponse -&gt; StartQueryResponse -&gt; Bool)
 -&gt; Eq StartQueryResponse
@@ -551,7 +551,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartQueryResponse -&gt; StartQueryResponse -&gt; Bool
 == :: StartQueryResponse -&gt; StartQueryResponse -&gt; Bool
 $c== :: StartQueryResponse -&gt; StartQueryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224483"><span id="local-6989586621679224485"><span id="local-6989586621679224487"><span id="local-6989586621679224489"><span class="annot"><span class="annottext">ReadPrec [StartQueryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224627"><span id="local-6989586621679224629"><span id="local-6989586621679224631"><span id="local-6989586621679224633"><span class="annot"><span class="annottext">ReadPrec [StartQueryResponse]
 ReadPrec StartQueryResponse
 Int -&gt; ReadS StartQueryResponse
 ReadS [StartQueryResponse]
@@ -571,7 +571,7 @@ readList :: ReadS [StartQueryResponse]
 $creadList :: ReadS [StartQueryResponse]
 readsPrec :: Int -&gt; ReadS StartQueryResponse
 $creadsPrec :: Int -&gt; ReadS StartQueryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224477"><span id="local-6989586621679224479"><span id="local-6989586621679224481"><span class="annot"><span class="annottext">Int -&gt; StartQueryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224621"><span id="local-6989586621679224623"><span id="local-6989586621679224625"><span class="annot"><span class="annottext">Int -&gt; StartQueryResponse -&gt; ShowS
 [StartQueryResponse] -&gt; ShowS
 StartQueryResponse -&gt; String
 (Int -&gt; StartQueryResponse -&gt; ShowS)
@@ -613,8 +613,8 @@ $cfrom :: forall x. StartQueryResponse -&gt; Rep StartQueryResponse x
 </span><span id="line-252"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-253"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse"><span class="hs-identifier hs-type">StartQueryResponse</span></a></span><span>
 </span><span id="line-254"></span><span id="newStartQueryResponse"><span class="annot"><span class="annottext">newStartQueryResponse :: Int -&gt; StartQueryResponse
-</span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#newStartQueryResponse"><span class="hs-identifier hs-var hs-var">newStartQueryResponse</span></a></span></span><span> </span><span id="local-6989586621679224474"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679224474"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#newStartQueryResponse"><span class="hs-identifier hs-var hs-var">newStartQueryResponse</span></a></span></span><span> </span><span id="local-6989586621679224618"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224618"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-255"></span><span>  </span><span class="annot"><span class="annottext">StartQueryResponse' :: Maybe Text -&gt; Int -&gt; StartQueryResponse
 </span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse%27"><span class="hs-identifier hs-type">StartQueryResponse'</span></a></span><span>
 </span><span id="line-256"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queryId:StartQueryResponse' :: Maybe Text
@@ -623,7 +623,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-257"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartQueryResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#%24sel%3AhttpStatus%3AStartQueryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679224474"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679224618"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-258"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-comment">-- | The unique ID of the query.</span><span>
@@ -635,16 +635,16 @@ forall a. Maybe a
 -&gt; Lens
      StartQueryResponse StartQueryResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse%27"><span class="hs-identifier hs-type">StartQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224473"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse%27"><span class="hs-identifier hs-type">StartQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224617"><span class="annot"><span class="annottext">Maybe Text
 queryId :: Maybe Text
 $sel:queryId:StartQueryResponse' :: StartQueryResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679224473"><span class="hs-identifier hs-var hs-var">queryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224473"><span class="hs-identifier hs-var">queryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224472"><span class="annot"><span class="annottext">s :: StartQueryResponse
-</span><a href="#local-6989586621679224472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse%27"><span class="hs-identifier hs-type">StartQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224471"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQueryResponse
-</span><a href="#local-6989586621679224472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryId:StartQueryResponse' :: Maybe Text
+</span><a href="#local-6989586621679224617"><span class="hs-identifier hs-var hs-var">queryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224617"><span class="hs-identifier hs-var">queryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224616"><span class="annot"><span class="annottext">s :: StartQueryResponse
+</span><a href="#local-6989586621679224616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse%27"><span class="hs-identifier hs-type">StartQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224615"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQueryResponse
+</span><a href="#local-6989586621679224616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryId:StartQueryResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#%24sel%3AqueryId%3AStartQueryResponse%27"><span class="hs-identifier hs-var">queryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse"><span class="hs-identifier hs-type">StartQueryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse"><span class="hs-identifier hs-type">StartQueryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-263"></span><span>
 </span><span id="line-264"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-265"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#startQueryResponse_httpStatus"><span class="hs-identifier hs-type">startQueryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse"><span class="hs-identifier hs-type">StartQueryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -653,16 +653,16 @@ $sel:queryId:StartQueryResponse' :: StartQueryResponse -&gt; Maybe Text
 -&gt; (StartQueryResponse -&gt; Int -&gt; StartQueryResponse)
 -&gt; Lens StartQueryResponse StartQueryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse%27"><span class="hs-identifier hs-type">StartQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224470"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse%27"><span class="hs-identifier hs-type">StartQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224614"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StartQueryResponse' :: StartQueryResponse -&gt; Int
-</span><a href="#local-6989586621679224470"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679224470"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224469"><span class="annot"><span class="annottext">s :: StartQueryResponse
-</span><a href="#local-6989586621679224469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse%27"><span class="hs-identifier hs-type">StartQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224468"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679224468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQueryResponse
-</span><a href="#local-6989586621679224469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartQueryResponse' :: Int
+</span><a href="#local-6989586621679224614"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224614"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224613"><span class="annot"><span class="annottext">s :: StartQueryResponse
+</span><a href="#local-6989586621679224613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse%27"><span class="hs-identifier hs-type">StartQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224612"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartQueryResponse
+</span><a href="#local-6989586621679224613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartQueryResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.StartQuery.html#%24sel%3AhttpStatus%3AStartQueryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679224468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse"><span class="hs-identifier hs-type">StartQueryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse"><span class="hs-identifier hs-type">StartQueryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-267"></span><span>
-</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224466"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse"><span class="hs-identifier hs-type">StartQueryResponse</span></a></span></span><span>
+</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224610"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.StartQuery.html#StartQueryResponse"><span class="hs-identifier hs-type">StartQueryResponse</span></a></span></span><span>
 </span><span id="line-269"></span></pre></body></html>

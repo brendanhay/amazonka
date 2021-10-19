@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621681146266"><span id="local-6989586621681146267"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VolumeModificationState"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeModificationState.html#VolumeModificationState"><span class="hs-identifier hs-var">VolumeModificationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VolumeModificationState%27"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeModificationState.html#VolumeModificationState%27"><span class="hs-identifier hs-var">VolumeModificationState'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681181432"><span id="local-6989586621681181433"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VolumeModificationState"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeModificationState.html#VolumeModificationState"><span class="hs-identifier hs-var">VolumeModificationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VolumeModificationState%27"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeModificationState.html#VolumeModificationState%27"><span class="hs-identifier hs-var">VolumeModificationState'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVolumeModificationState"><span class="annot"><span class="annottext">VolumeModificationState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.VolumeModificationState.html#fromVolumeModificationState"><span class="hs-identifier hs-var hs-var">fromVolumeModificationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681146258"><span id="local-6989586621681146260"><span id="local-6989586621681146262"><span class="annot"><span class="annottext">Int -&gt; VolumeModificationState -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681181424"><span id="local-6989586621681181426"><span id="local-6989586621681181428"><span class="annot"><span class="annottext">Int -&gt; VolumeModificationState -&gt; ShowS
 [VolumeModificationState] -&gt; ShowS
 VolumeModificationState -&gt; String
 (Int -&gt; VolumeModificationState -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: VolumeModificationState -&gt; String
 showsPrec :: Int -&gt; VolumeModificationState -&gt; ShowS
 $cshowsPrec :: Int -&gt; VolumeModificationState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681146249"><span id="local-6989586621681146251"><span id="local-6989586621681146253"><span id="local-6989586621681146255"><span class="annot"><span class="annottext">ReadPrec [VolumeModificationState]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681181415"><span id="local-6989586621681181417"><span id="local-6989586621681181419"><span id="local-6989586621681181421"><span class="annot"><span class="annottext">ReadPrec [VolumeModificationState]
 ReadPrec VolumeModificationState
 Int -&gt; ReadS VolumeModificationState
 ReadS [VolumeModificationState]
@@ -75,7 +75,7 @@ $creadList :: ReadS [VolumeModificationState]
 readsPrec :: Int -&gt; ReadS VolumeModificationState
 $creadsPrec :: Int -&gt; ReadS VolumeModificationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681146244"><span id="local-6989586621681146246"><span class="annot"><span class="annottext">VolumeModificationState -&gt; VolumeModificationState -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681181410"><span id="local-6989586621681181412"><span class="annot"><span class="annottext">VolumeModificationState -&gt; VolumeModificationState -&gt; Bool
 (VolumeModificationState -&gt; VolumeModificationState -&gt; Bool)
 -&gt; (VolumeModificationState -&gt; VolumeModificationState -&gt; Bool)
 -&gt; Eq VolumeModificationState
@@ -85,7 +85,7 @@ $c/= :: VolumeModificationState -&gt; VolumeModificationState -&gt; Bool
 == :: VolumeModificationState -&gt; VolumeModificationState -&gt; Bool
 $c== :: VolumeModificationState -&gt; VolumeModificationState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681146228"><span id="local-6989586621681146230"><span id="local-6989586621681146232"><span id="local-6989586621681146234"><span id="local-6989586621681146236"><span id="local-6989586621681146238"><span id="local-6989586621681146240"><span class="annot"><span class="annottext">Eq VolumeModificationState
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681181394"><span id="local-6989586621681181396"><span id="local-6989586621681181398"><span id="local-6989586621681181400"><span id="local-6989586621681181402"><span id="local-6989586621681181404"><span id="local-6989586621681181406"><span class="annot"><span class="annottext">Eq VolumeModificationState
 Eq VolumeModificationState
 -&gt; (VolumeModificationState -&gt; VolumeModificationState -&gt; Ordering)
 -&gt; (VolumeModificationState -&gt; VolumeModificationState -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. VolumeModificationState -&gt; Rep VolumeModificationState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681146220"><span id="local-6989586621681146222"><span class="annot"><span class="annottext">Int -&gt; VolumeModificationState -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681181386"><span id="local-6989586621681181388"><span class="annot"><span class="annottext">Int -&gt; VolumeModificationState -&gt; Int
 VolumeModificationState -&gt; Int
 (Int -&gt; VolumeModificationState -&gt; Int)
 -&gt; (VolumeModificationState -&gt; Int)
@@ -156,54 +156,54 @@ $chash :: VolumeModificationState -&gt; Int
 hashWithSalt :: Int -&gt; VolumeModificationState -&gt; Int
 $chashWithSalt :: Int -&gt; VolumeModificationState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681146217"><span class="annot"><span class="annottext">VolumeModificationState -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681181383"><span class="annot"><span class="annottext">VolumeModificationState -&gt; ()
 (VolumeModificationState -&gt; ()) -&gt; NFData VolumeModificationState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VolumeModificationState -&gt; ()
 $crnf :: VolumeModificationState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681146214"><span class="annot"><span class="annottext">Text -&gt; Either String VolumeModificationState
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681181380"><span class="annot"><span class="annottext">Text -&gt; Either String VolumeModificationState
 (Text -&gt; Either String VolumeModificationState)
 -&gt; FromText VolumeModificationState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VolumeModificationState
 $cfromText :: Text -&gt; Either String VolumeModificationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681146211"><span class="annot"><span class="annottext">VolumeModificationState -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681181377"><span class="annot"><span class="annottext">VolumeModificationState -&gt; Text
 (VolumeModificationState -&gt; Text) -&gt; ToText VolumeModificationState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VolumeModificationState -&gt; Text
 $ctoText :: VolumeModificationState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681146208"><span class="annot"><span class="annottext">VolumeModificationState -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681181374"><span class="annot"><span class="annottext">VolumeModificationState -&gt; ByteString
 (VolumeModificationState -&gt; ByteString)
 -&gt; ToByteString VolumeModificationState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VolumeModificationState -&gt; ByteString
 $ctoBS :: VolumeModificationState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681146205"><span class="annot"><span class="annottext">VolumeModificationState -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681181371"><span class="annot"><span class="annottext">VolumeModificationState -&gt; ByteStringBuilder
 (VolumeModificationState -&gt; ByteStringBuilder)
 -&gt; ToLog VolumeModificationState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VolumeModificationState -&gt; ByteStringBuilder
 $cbuild :: VolumeModificationState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681146202"><span class="annot"><span class="annottext">HeaderName -&gt; VolumeModificationState -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681181368"><span class="annot"><span class="annottext">HeaderName -&gt; VolumeModificationState -&gt; [Header]
 (HeaderName -&gt; VolumeModificationState -&gt; [Header])
 -&gt; ToHeader VolumeModificationState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VolumeModificationState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VolumeModificationState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681146199"><span class="annot"><span class="annottext">VolumeModificationState -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681181365"><span class="annot"><span class="annottext">VolumeModificationState -&gt; QueryString
 (VolumeModificationState -&gt; QueryString)
 -&gt; ToQuery VolumeModificationState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VolumeModificationState -&gt; QueryString
 $ctoQuery :: VolumeModificationState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681146194"><span id="local-6989586621681146196"><span class="annot"><span class="annottext">Value -&gt; Parser [VolumeModificationState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681181360"><span id="local-6989586621681181362"><span class="annot"><span class="annottext">Value -&gt; Parser [VolumeModificationState]
 Value -&gt; Parser VolumeModificationState
 (Value -&gt; Parser VolumeModificationState)
 -&gt; (Value -&gt; Parser [VolumeModificationState])
@@ -215,7 +215,7 @@ $cparseJSONList :: Value -&gt; Parser [VolumeModificationState]
 parseJSON :: Value -&gt; Parser VolumeModificationState
 $cparseJSON :: Value -&gt; Parser VolumeModificationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681146189"><span id="local-6989586621681146191"><span class="annot"><span class="annottext">FromJSONKeyFunction [VolumeModificationState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681181355"><span id="local-6989586621681181357"><span class="annot"><span class="annottext">FromJSONKeyFunction [VolumeModificationState]
 FromJSONKeyFunction VolumeModificationState
 FromJSONKeyFunction VolumeModificationState
 -&gt; FromJSONKeyFunction [VolumeModificationState]
@@ -227,7 +227,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VolumeModificationState]
 fromJSONKey :: FromJSONKeyFunction VolumeModificationState
 $cfromJSONKey :: FromJSONKeyFunction VolumeModificationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681146180"><span id="local-6989586621681146182"><span id="local-6989586621681146184"><span id="local-6989586621681146186"><span class="annot"><span class="annottext">[VolumeModificationState] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681181346"><span id="local-6989586621681181348"><span id="local-6989586621681181350"><span id="local-6989586621681181352"><span class="annot"><span class="annottext">[VolumeModificationState] -&gt; Encoding
 [VolumeModificationState] -&gt; Value
 VolumeModificationState -&gt; Encoding
 VolumeModificationState -&gt; Value
@@ -251,7 +251,7 @@ $ctoEncoding :: VolumeModificationState -&gt; Encoding
 toJSON :: VolumeModificationState -&gt; Value
 $ctoJSON :: VolumeModificationState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681146175"><span id="local-6989586621681146177"><span class="annot"><span class="annottext">ToJSONKeyFunction [VolumeModificationState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681181341"><span id="local-6989586621681181343"><span class="annot"><span class="annottext">ToJSONKeyFunction [VolumeModificationState]
 ToJSONKeyFunction VolumeModificationState
 ToJSONKeyFunction VolumeModificationState
 -&gt; ToJSONKeyFunction [VolumeModificationState]
@@ -263,14 +263,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VolumeModificationState]
 toJSONKey :: ToJSONKeyFunction VolumeModificationState
 $ctoJSONKey :: ToJSONKeyFunction VolumeModificationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681146172"><span class="annot"><span class="annottext">[Node] -&gt; Either String VolumeModificationState
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681181338"><span class="annot"><span class="annottext">[Node] -&gt; Either String VolumeModificationState
 ([Node] -&gt; Either String VolumeModificationState)
 -&gt; FromXML VolumeModificationState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VolumeModificationState
 $cparseXML :: [Node] -&gt; Either String VolumeModificationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681146169"><span class="annot"><span class="annottext">VolumeModificationState -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681181335"><span class="annot"><span class="annottext">VolumeModificationState -&gt; XML
 (VolumeModificationState -&gt; XML) -&gt; ToXML VolumeModificationState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: VolumeModificationState -&gt; XML

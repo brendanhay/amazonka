@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- scaling rules.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newScalingRule' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679379464"><span id="local-6989586621679379465"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScalingRule"><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-var">ScalingRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalingRule%27"><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-var">ScalingRule'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679379827"><span id="local-6989586621679379828"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScalingRule"><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-var">ScalingRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalingRule%27"><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-var">ScalingRule'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A friendly, more verbose description of the automatic scaling rule.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Adescription%3AScalingRule%27"><span class="annot"><span class="annottext">ScalingRule -&gt; Maybe Text
 </span><a href="Network.AWS.EMR.Types.ScalingRule.html#%24sel%3Adescription%3AScalingRule%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -48,7 +48,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3Atrigger%3AScalingRule%27"><span class="annot"><span class="annottext">ScalingRule -&gt; ScalingTrigger
 </span><a href="Network.AWS.EMR.Types.ScalingRule.html#%24sel%3Atrigger%3AScalingRule%27"><span class="hs-identifier hs-var hs-var">trigger</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingTrigger.html#ScalingTrigger"><span class="hs-identifier hs-type">ScalingTrigger</span></a></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379455"><span id="local-6989586621679379457"><span class="annot"><span class="annottext">ScalingRule -&gt; ScalingRule -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379818"><span id="local-6989586621679379820"><span class="annot"><span class="annottext">ScalingRule -&gt; ScalingRule -&gt; Bool
 (ScalingRule -&gt; ScalingRule -&gt; Bool)
 -&gt; (ScalingRule -&gt; ScalingRule -&gt; Bool) -&gt; Eq ScalingRule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ScalingRule -&gt; ScalingRule -&gt; Bool
 == :: ScalingRule -&gt; ScalingRule -&gt; Bool
 $c== :: ScalingRule -&gt; ScalingRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379446"><span id="local-6989586621679379448"><span id="local-6989586621679379450"><span id="local-6989586621679379452"><span class="annot"><span class="annottext">ReadPrec [ScalingRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379809"><span id="local-6989586621679379811"><span id="local-6989586621679379813"><span id="local-6989586621679379815"><span class="annot"><span class="annottext">ReadPrec [ScalingRule]
 ReadPrec ScalingRule
 Int -&gt; ReadS ScalingRule
 ReadS [ScalingRule]
@@ -76,7 +76,7 @@ readList :: ReadS [ScalingRule]
 $creadList :: ReadS [ScalingRule]
 readsPrec :: Int -&gt; ReadS ScalingRule
 $creadsPrec :: Int -&gt; ReadS ScalingRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379439"><span id="local-6989586621679379441"><span id="local-6989586621679379443"><span class="annot"><span class="annottext">Int -&gt; ScalingRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379802"><span id="local-6989586621679379804"><span id="local-6989586621679379806"><span class="annot"><span class="annottext">Int -&gt; ScalingRule -&gt; ShowS
 [ScalingRule] -&gt; ShowS
 ScalingRule -&gt; String
 (Int -&gt; ScalingRule -&gt; ShowS)
@@ -128,10 +128,10 @@ $cfrom :: forall x. ScalingRule -&gt; Rep ScalingRule x
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingTrigger.html#ScalingTrigger"><span class="hs-identifier hs-type">ScalingTrigger</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span><span>
 </span><span id="line-74"></span><span id="newScalingRule"><span class="annot"><span class="annottext">newScalingRule :: Text -&gt; ScalingAction -&gt; ScalingTrigger -&gt; ScalingRule
-</span><a href="Network.AWS.EMR.Types.ScalingRule.html#newScalingRule"><span class="hs-identifier hs-var hs-var">newScalingRule</span></a></span></span><span> </span><span id="local-6989586621679379433"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379433"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679379432"><span class="annot"><span class="annottext">ScalingAction
-</span><a href="#local-6989586621679379432"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span> </span><span id="local-6989586621679379431"><span class="annot"><span class="annottext">ScalingTrigger
-</span><a href="#local-6989586621679379431"><span class="hs-identifier hs-var">pTrigger_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.Types.ScalingRule.html#newScalingRule"><span class="hs-identifier hs-var hs-var">newScalingRule</span></a></span></span><span> </span><span id="local-6989586621679379796"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379796"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679379795"><span class="annot"><span class="annottext">ScalingAction
+</span><a href="#local-6989586621679379795"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span> </span><span id="local-6989586621679379794"><span class="annot"><span class="annottext">ScalingTrigger
+</span><a href="#local-6989586621679379794"><span class="hs-identifier hs-var">pTrigger_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">ScalingRule' :: Maybe Text
 -&gt; Text -&gt; ScalingAction -&gt; ScalingTrigger -&gt; ScalingRule
 </span><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span>
@@ -141,13 +141,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ScalingRule' :: Text
 </span><a href="Network.AWS.EMR.Types.ScalingRule.html#%24sel%3Aname%3AScalingRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379433"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379796"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:action:ScalingRule' :: ScalingAction
 </span><a href="Network.AWS.EMR.Types.ScalingRule.html#%24sel%3Aaction%3AScalingRule%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalingAction
-</span><a href="#local-6989586621679379432"><span class="hs-identifier hs-var">pAction_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379795"><span class="hs-identifier hs-var">pAction_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:trigger:ScalingRule' :: ScalingTrigger
 </span><a href="Network.AWS.EMR.Types.ScalingRule.html#%24sel%3Atrigger%3AScalingRule%27"><span class="hs-identifier hs-var">trigger</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalingTrigger
-</span><a href="#local-6989586621679379431"><span class="hs-identifier hs-var">pTrigger_</span></a></span><span>
+</span><a href="#local-6989586621679379794"><span class="hs-identifier hs-var">pTrigger_</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | A friendly, more verbose description of the automatic scaling rule.</span><span>
@@ -157,16 +157,16 @@ forall a. Maybe a
 -&gt; (ScalingRule -&gt; Maybe Text -&gt; ScalingRule)
 -&gt; Lens ScalingRule ScalingRule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379427"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379790"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:ScalingRule' :: ScalingRule -&gt; Maybe Text
-</span><a href="#local-6989586621679379427"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679379427"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379426"><span class="annot"><span class="annottext">s :: ScalingRule
-</span><a href="#local-6989586621679379426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379425"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679379425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingRule
-</span><a href="#local-6989586621679379426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ScalingRule' :: Maybe Text
+</span><a href="#local-6989586621679379790"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379790"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379789"><span class="annot"><span class="annottext">s :: ScalingRule
+</span><a href="#local-6989586621679379789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379788"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingRule
+</span><a href="#local-6989586621679379789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ScalingRule' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.ScalingRule.html#%24sel%3Adescription%3AScalingRule%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679379425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The name used to identify an automatic scaling rule. Rule names must be</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- unique within a scaling policy.</span><span>
@@ -176,16 +176,16 @@ $sel:description:ScalingRule' :: ScalingRule -&gt; Maybe Text
 -&gt; (ScalingRule -&gt; Text -&gt; ScalingRule)
 -&gt; Lens ScalingRule ScalingRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379423"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379786"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:ScalingRule' :: ScalingRule -&gt; Text
-</span><a href="#local-6989586621679379423"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379423"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379422"><span class="annot"><span class="annottext">s :: ScalingRule
-</span><a href="#local-6989586621679379422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379421"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingRule
-</span><a href="#local-6989586621679379422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ScalingRule' :: Text
+</span><a href="#local-6989586621679379786"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379786"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379785"><span class="annot"><span class="annottext">s :: ScalingRule
+</span><a href="#local-6989586621679379785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379784"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingRule
+</span><a href="#local-6989586621679379785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ScalingRule' :: Text
 </span><a href="Network.AWS.EMR.Types.ScalingRule.html#%24sel%3Aname%3AScalingRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The conditions that trigger an automatic scaling activity.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#scalingRule_action"><span class="hs-identifier hs-type">scalingRule_action</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingAction.html#ScalingAction"><span class="hs-identifier hs-type">ScalingAction</span></a></span><span>
@@ -194,16 +194,16 @@ $sel:name:ScalingRule' :: ScalingRule -&gt; Text
 -&gt; (ScalingRule -&gt; ScalingAction -&gt; ScalingRule)
 -&gt; Lens ScalingRule ScalingRule ScalingAction ScalingAction
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379419"><span class="annot"><span class="annottext">ScalingAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379782"><span class="annot"><span class="annottext">ScalingAction
 action :: ScalingAction
 $sel:action:ScalingRule' :: ScalingRule -&gt; ScalingAction
-</span><a href="#local-6989586621679379419"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingAction
-</span><a href="#local-6989586621679379419"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379418"><span class="annot"><span class="annottext">s :: ScalingRule
-</span><a href="#local-6989586621679379418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379417"><span class="annot"><span class="annottext">ScalingAction
-</span><a href="#local-6989586621679379417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingRule
-</span><a href="#local-6989586621679379418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:ScalingRule' :: ScalingAction
+</span><a href="#local-6989586621679379782"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingAction
+</span><a href="#local-6989586621679379782"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379781"><span class="annot"><span class="annottext">s :: ScalingRule
+</span><a href="#local-6989586621679379781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379780"><span class="annot"><span class="annottext">ScalingAction
+</span><a href="#local-6989586621679379780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingRule
+</span><a href="#local-6989586621679379781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:ScalingRule' :: ScalingAction
 </span><a href="Network.AWS.EMR.Types.ScalingRule.html#%24sel%3Aaction%3AScalingRule%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalingAction
-</span><a href="#local-6989586621679379417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The CloudWatch alarm definition that determines when automatic scaling</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- activity is triggered.</span><span>
@@ -214,19 +214,19 @@ $sel:action:ScalingRule' :: ScalingRule -&gt; ScalingAction
 -&gt; (ScalingRule -&gt; ScalingTrigger -&gt; ScalingRule)
 -&gt; Lens ScalingRule ScalingRule ScalingTrigger ScalingTrigger
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379415"><span class="annot"><span class="annottext">ScalingTrigger
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379778"><span class="annot"><span class="annottext">ScalingTrigger
 trigger :: ScalingTrigger
 $sel:trigger:ScalingRule' :: ScalingRule -&gt; ScalingTrigger
-</span><a href="#local-6989586621679379415"><span class="hs-identifier hs-var hs-var">trigger</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingTrigger
-</span><a href="#local-6989586621679379415"><span class="hs-identifier hs-var">trigger</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379414"><span class="annot"><span class="annottext">s :: ScalingRule
-</span><a href="#local-6989586621679379414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379413"><span class="annot"><span class="annottext">ScalingTrigger
-</span><a href="#local-6989586621679379413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingRule
-</span><a href="#local-6989586621679379414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trigger:ScalingRule' :: ScalingTrigger
+</span><a href="#local-6989586621679379778"><span class="hs-identifier hs-var hs-var">trigger</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingTrigger
+</span><a href="#local-6989586621679379778"><span class="hs-identifier hs-var">trigger</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379777"><span class="annot"><span class="annottext">s :: ScalingRule
+</span><a href="#local-6989586621679379777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379776"><span class="annot"><span class="annottext">ScalingTrigger
+</span><a href="#local-6989586621679379776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingRule
+</span><a href="#local-6989586621679379777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trigger:ScalingRule' :: ScalingTrigger
 </span><a href="Network.AWS.EMR.Types.ScalingRule.html#%24sel%3Atrigger%3AScalingRule%27"><span class="hs-identifier hs-var">trigger</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalingTrigger
-</span><a href="#local-6989586621679379413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379410"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679379408"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ScalingRule
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379773"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679379771"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ScalingRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ScalingRule) -&gt; Value -&gt; Parser ScalingRule
@@ -234,8 +234,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ScalingRule&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679379405"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679379405"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679379768"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379768"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Text -&gt; ScalingAction -&gt; ScalingTrigger -&gt; ScalingRule
 </span><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-var">ScalingRule'</span></a></span><span>
@@ -245,7 +245,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; ScalingAction -&gt; ScalingTrigger -&gt; ScalingRule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679379405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679379768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
@@ -254,7 +254,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (ScalingAction -&gt; ScalingTrigger -&gt; ScalingRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679379405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679379768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -262,7 +262,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ScalingAction -&gt; Parser (ScalingTrigger -&gt; ScalingRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679379405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ScalingAction
+</span><a href="#local-6989586621679379768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ScalingAction
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Action&quot;</span></span><span class="hs-special">)</span><span>
@@ -270,19 +270,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ScalingTrigger -&gt; Parser ScalingRule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679379405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ScalingTrigger
+</span><a href="#local-6989586621679379768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ScalingTrigger
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Trigger&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379398"><span id="local-6989586621679379400"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379761"><span id="local-6989586621679379763"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379395"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379387"><span id="local-6989586621679379389"><span id="local-6989586621679379391"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679379385"><span class="annot"><span class="annottext">toJSON :: ScalingRule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379380"><span id="local-6989586621679379381"><span id="local-6989586621679379382"><span id="local-6989586621679379383"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379750"><span id="local-6989586621679379752"><span id="local-6989586621679379754"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679379748"><span class="annot"><span class="annottext">toJSON :: ScalingRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule%27"><span class="hs-identifier hs-type">ScalingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379743"><span id="local-6989586621679379744"><span id="local-6989586621679379745"><span id="local-6989586621679379746"><span class="annot"><span class="annottext">Maybe Text
 Text
 ScalingAction
 ScalingTrigger
@@ -294,7 +294,7 @@ $sel:trigger:ScalingRule' :: ScalingRule -&gt; ScalingTrigger
 $sel:action:ScalingRule' :: ScalingRule -&gt; ScalingAction
 $sel:name:ScalingRule' :: ScalingRule -&gt; Text
 $sel:description:ScalingRule' :: ScalingRule -&gt; Maybe Text
-</span><a href="#local-6989586621679379380"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679379743"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -306,28 +306,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679379383"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379746"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379382"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379745"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Action&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ScalingAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ScalingAction
-</span><a href="#local-6989586621679379381"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379744"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Trigger&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ScalingTrigger -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ScalingTrigger
-</span><a href="#local-6989586621679379380"><span class="hs-identifier hs-var">trigger</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379743"><span class="hs-identifier hs-var">trigger</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span></pre></body></html>

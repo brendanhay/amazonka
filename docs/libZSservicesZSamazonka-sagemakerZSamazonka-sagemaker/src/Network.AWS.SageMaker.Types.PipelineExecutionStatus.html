@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621680327206"><span id="local-6989586621680327207"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PipelineExecutionStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStatus.html#PipelineExecutionStatus"><span class="hs-identifier hs-var">PipelineExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineExecutionStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStatus.html#PipelineExecutionStatus%27"><span class="hs-identifier hs-var">PipelineExecutionStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621680328606"><span id="local-6989586621680328607"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PipelineExecutionStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStatus.html#PipelineExecutionStatus"><span class="hs-identifier hs-var">PipelineExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineExecutionStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStatus.html#PipelineExecutionStatus%27"><span class="hs-identifier hs-var">PipelineExecutionStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPipelineExecutionStatus"><span class="annot"><span class="annottext">PipelineExecutionStatus -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStatus.html#fromPipelineExecutionStatus"><span class="hs-identifier hs-var hs-var">fromPipelineExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680327198"><span id="local-6989586621680327200"><span id="local-6989586621680327202"><span class="annot"><span class="annottext">Int -&gt; PipelineExecutionStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680328598"><span id="local-6989586621680328600"><span id="local-6989586621680328602"><span class="annot"><span class="annottext">Int -&gt; PipelineExecutionStatus -&gt; ShowS
 [PipelineExecutionStatus] -&gt; ShowS
 PipelineExecutionStatus -&gt; String
 (Int -&gt; PipelineExecutionStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: PipelineExecutionStatus -&gt; String
 showsPrec :: Int -&gt; PipelineExecutionStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; PipelineExecutionStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680327189"><span id="local-6989586621680327191"><span id="local-6989586621680327193"><span id="local-6989586621680327195"><span class="annot"><span class="annottext">ReadPrec [PipelineExecutionStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680328589"><span id="local-6989586621680328591"><span id="local-6989586621680328593"><span id="local-6989586621680328595"><span class="annot"><span class="annottext">ReadPrec [PipelineExecutionStatus]
 ReadPrec PipelineExecutionStatus
 Int -&gt; ReadS PipelineExecutionStatus
 ReadS [PipelineExecutionStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [PipelineExecutionStatus]
 readsPrec :: Int -&gt; ReadS PipelineExecutionStatus
 $creadsPrec :: Int -&gt; ReadS PipelineExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680327184"><span id="local-6989586621680327186"><span class="annot"><span class="annottext">PipelineExecutionStatus -&gt; PipelineExecutionStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680328584"><span id="local-6989586621680328586"><span class="annot"><span class="annottext">PipelineExecutionStatus -&gt; PipelineExecutionStatus -&gt; Bool
 (PipelineExecutionStatus -&gt; PipelineExecutionStatus -&gt; Bool)
 -&gt; (PipelineExecutionStatus -&gt; PipelineExecutionStatus -&gt; Bool)
 -&gt; Eq PipelineExecutionStatus
@@ -85,7 +85,7 @@ $c/= :: PipelineExecutionStatus -&gt; PipelineExecutionStatus -&gt; Bool
 == :: PipelineExecutionStatus -&gt; PipelineExecutionStatus -&gt; Bool
 $c== :: PipelineExecutionStatus -&gt; PipelineExecutionStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680327168"><span id="local-6989586621680327170"><span id="local-6989586621680327172"><span id="local-6989586621680327174"><span id="local-6989586621680327176"><span id="local-6989586621680327178"><span id="local-6989586621680327180"><span class="annot"><span class="annottext">Eq PipelineExecutionStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680328568"><span id="local-6989586621680328570"><span id="local-6989586621680328572"><span id="local-6989586621680328574"><span id="local-6989586621680328576"><span id="local-6989586621680328578"><span id="local-6989586621680328580"><span class="annot"><span class="annottext">Eq PipelineExecutionStatus
 Eq PipelineExecutionStatus
 -&gt; (PipelineExecutionStatus -&gt; PipelineExecutionStatus -&gt; Ordering)
 -&gt; (PipelineExecutionStatus -&gt; PipelineExecutionStatus -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. PipelineExecutionStatus -&gt; Rep PipelineExecutionStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680327160"><span id="local-6989586621680327162"><span class="annot"><span class="annottext">Int -&gt; PipelineExecutionStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680328560"><span id="local-6989586621680328562"><span class="annot"><span class="annottext">Int -&gt; PipelineExecutionStatus -&gt; Int
 PipelineExecutionStatus -&gt; Int
 (Int -&gt; PipelineExecutionStatus -&gt; Int)
 -&gt; (PipelineExecutionStatus -&gt; Int)
@@ -156,54 +156,54 @@ $chash :: PipelineExecutionStatus -&gt; Int
 hashWithSalt :: Int -&gt; PipelineExecutionStatus -&gt; Int
 $chashWithSalt :: Int -&gt; PipelineExecutionStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680327157"><span class="annot"><span class="annottext">PipelineExecutionStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680328557"><span class="annot"><span class="annottext">PipelineExecutionStatus -&gt; ()
 (PipelineExecutionStatus -&gt; ()) -&gt; NFData PipelineExecutionStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PipelineExecutionStatus -&gt; ()
 $crnf :: PipelineExecutionStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680327154"><span class="annot"><span class="annottext">Text -&gt; Either String PipelineExecutionStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680328554"><span class="annot"><span class="annottext">Text -&gt; Either String PipelineExecutionStatus
 (Text -&gt; Either String PipelineExecutionStatus)
 -&gt; FromText PipelineExecutionStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PipelineExecutionStatus
 $cfromText :: Text -&gt; Either String PipelineExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680327151"><span class="annot"><span class="annottext">PipelineExecutionStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680328551"><span class="annot"><span class="annottext">PipelineExecutionStatus -&gt; Text
 (PipelineExecutionStatus -&gt; Text) -&gt; ToText PipelineExecutionStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PipelineExecutionStatus -&gt; Text
 $ctoText :: PipelineExecutionStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680327148"><span class="annot"><span class="annottext">PipelineExecutionStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680328548"><span class="annot"><span class="annottext">PipelineExecutionStatus -&gt; ByteString
 (PipelineExecutionStatus -&gt; ByteString)
 -&gt; ToByteString PipelineExecutionStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PipelineExecutionStatus -&gt; ByteString
 $ctoBS :: PipelineExecutionStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680327145"><span class="annot"><span class="annottext">PipelineExecutionStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680328545"><span class="annot"><span class="annottext">PipelineExecutionStatus -&gt; ByteStringBuilder
 (PipelineExecutionStatus -&gt; ByteStringBuilder)
 -&gt; ToLog PipelineExecutionStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PipelineExecutionStatus -&gt; ByteStringBuilder
 $cbuild :: PipelineExecutionStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680327142"><span class="annot"><span class="annottext">HeaderName -&gt; PipelineExecutionStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680328542"><span class="annot"><span class="annottext">HeaderName -&gt; PipelineExecutionStatus -&gt; [Header]
 (HeaderName -&gt; PipelineExecutionStatus -&gt; [Header])
 -&gt; ToHeader PipelineExecutionStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PipelineExecutionStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PipelineExecutionStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680327139"><span class="annot"><span class="annottext">PipelineExecutionStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680328539"><span class="annot"><span class="annottext">PipelineExecutionStatus -&gt; QueryString
 (PipelineExecutionStatus -&gt; QueryString)
 -&gt; ToQuery PipelineExecutionStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PipelineExecutionStatus -&gt; QueryString
 $ctoQuery :: PipelineExecutionStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680327134"><span id="local-6989586621680327136"><span class="annot"><span class="annottext">Value -&gt; Parser [PipelineExecutionStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680328534"><span id="local-6989586621680328536"><span class="annot"><span class="annottext">Value -&gt; Parser [PipelineExecutionStatus]
 Value -&gt; Parser PipelineExecutionStatus
 (Value -&gt; Parser PipelineExecutionStatus)
 -&gt; (Value -&gt; Parser [PipelineExecutionStatus])
@@ -215,7 +215,7 @@ $cparseJSONList :: Value -&gt; Parser [PipelineExecutionStatus]
 parseJSON :: Value -&gt; Parser PipelineExecutionStatus
 $cparseJSON :: Value -&gt; Parser PipelineExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680327129"><span id="local-6989586621680327131"><span class="annot"><span class="annottext">FromJSONKeyFunction [PipelineExecutionStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680328529"><span id="local-6989586621680328531"><span class="annot"><span class="annottext">FromJSONKeyFunction [PipelineExecutionStatus]
 FromJSONKeyFunction PipelineExecutionStatus
 FromJSONKeyFunction PipelineExecutionStatus
 -&gt; FromJSONKeyFunction [PipelineExecutionStatus]
@@ -227,7 +227,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PipelineExecutionStatus]
 fromJSONKey :: FromJSONKeyFunction PipelineExecutionStatus
 $cfromJSONKey :: FromJSONKeyFunction PipelineExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680327120"><span id="local-6989586621680327122"><span id="local-6989586621680327124"><span id="local-6989586621680327126"><span class="annot"><span class="annottext">[PipelineExecutionStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680328520"><span id="local-6989586621680328522"><span id="local-6989586621680328524"><span id="local-6989586621680328526"><span class="annot"><span class="annottext">[PipelineExecutionStatus] -&gt; Encoding
 [PipelineExecutionStatus] -&gt; Value
 PipelineExecutionStatus -&gt; Encoding
 PipelineExecutionStatus -&gt; Value
@@ -251,7 +251,7 @@ $ctoEncoding :: PipelineExecutionStatus -&gt; Encoding
 toJSON :: PipelineExecutionStatus -&gt; Value
 $ctoJSON :: PipelineExecutionStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680327115"><span id="local-6989586621680327117"><span class="annot"><span class="annottext">ToJSONKeyFunction [PipelineExecutionStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680328515"><span id="local-6989586621680328517"><span class="annot"><span class="annottext">ToJSONKeyFunction [PipelineExecutionStatus]
 ToJSONKeyFunction PipelineExecutionStatus
 ToJSONKeyFunction PipelineExecutionStatus
 -&gt; ToJSONKeyFunction [PipelineExecutionStatus]
@@ -263,14 +263,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PipelineExecutionStatus]
 toJSONKey :: ToJSONKeyFunction PipelineExecutionStatus
 $ctoJSONKey :: ToJSONKeyFunction PipelineExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680327112"><span class="annot"><span class="annottext">[Node] -&gt; Either String PipelineExecutionStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680328512"><span class="annot"><span class="annottext">[Node] -&gt; Either String PipelineExecutionStatus
 ([Node] -&gt; Either String PipelineExecutionStatus)
 -&gt; FromXML PipelineExecutionStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PipelineExecutionStatus
 $cparseXML :: [Node] -&gt; Either String PipelineExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680327109"><span class="annot"><span class="annottext">PipelineExecutionStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680328509"><span class="annot"><span class="annottext">PipelineExecutionStatus -&gt; XML
 (PipelineExecutionStatus -&gt; XML) -&gt; ToXML PipelineExecutionStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PipelineExecutionStatus -&gt; XML

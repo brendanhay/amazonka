@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- list services for.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newServiceFilter' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679224610"><span id="local-6989586621679224611"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceFilter"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter"><span class="hs-identifier hs-var">ServiceFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceFilter%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter%27"><span class="hs-identifier hs-var">ServiceFilter'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679224750"><span id="local-6989586621679224751"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceFilter"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter"><span class="hs-identifier hs-var">ServiceFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceFilter%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter%27"><span class="hs-identifier hs-var">ServiceFilter'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The operator that you want to use to determine whether a service is</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- returned by @ListServices@. Valid values for @Condition@ include the</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- following:</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3Avalues%3AServiceFilter%27"><span class="annot"><span class="annottext">ServiceFilter -&gt; [Text]
 </span><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#%24sel%3Avalues%3AServiceFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224602"><span id="local-6989586621679224604"><span class="annot"><span class="annottext">ServiceFilter -&gt; ServiceFilter -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224742"><span id="local-6989586621679224744"><span class="annot"><span class="annottext">ServiceFilter -&gt; ServiceFilter -&gt; Bool
 (ServiceFilter -&gt; ServiceFilter -&gt; Bool)
 -&gt; (ServiceFilter -&gt; ServiceFilter -&gt; Bool) -&gt; Eq ServiceFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ServiceFilter -&gt; ServiceFilter -&gt; Bool
 == :: ServiceFilter -&gt; ServiceFilter -&gt; Bool
 $c== :: ServiceFilter -&gt; ServiceFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224593"><span id="local-6989586621679224595"><span id="local-6989586621679224597"><span id="local-6989586621679224599"><span class="annot"><span class="annottext">ReadPrec [ServiceFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224733"><span id="local-6989586621679224735"><span id="local-6989586621679224737"><span id="local-6989586621679224739"><span class="annot"><span class="annottext">ReadPrec [ServiceFilter]
 ReadPrec ServiceFilter
 Int -&gt; ReadS ServiceFilter
 ReadS [ServiceFilter]
@@ -80,7 +80,7 @@ readList :: ReadS [ServiceFilter]
 $creadList :: ReadS [ServiceFilter]
 readsPrec :: Int -&gt; ReadS ServiceFilter
 $creadsPrec :: Int -&gt; ReadS ServiceFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224586"><span id="local-6989586621679224588"><span id="local-6989586621679224590"><span class="annot"><span class="annottext">Int -&gt; ServiceFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224726"><span id="local-6989586621679224728"><span id="local-6989586621679224730"><span class="annot"><span class="annottext">Int -&gt; ServiceFilter -&gt; ShowS
 [ServiceFilter] -&gt; ShowS
 ServiceFilter -&gt; String
 (Int -&gt; ServiceFilter -&gt; ShowS)
@@ -136,8 +136,8 @@ $cfrom :: forall x. ServiceFilter -&gt; Rep ServiceFilter x
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilterName.html#ServiceFilterName"><span class="hs-identifier hs-type">ServiceFilterName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter"><span class="hs-identifier hs-type">ServiceFilter</span></a></span><span>
 </span><span id="line-83"></span><span id="newServiceFilter"><span class="annot"><span class="annottext">newServiceFilter :: ServiceFilterName -&gt; ServiceFilter
-</span><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#newServiceFilter"><span class="hs-identifier hs-var hs-var">newServiceFilter</span></a></span></span><span> </span><span id="local-6989586621679224580"><span class="annot"><span class="annottext">ServiceFilterName
-</span><a href="#local-6989586621679224580"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#newServiceFilter"><span class="hs-identifier hs-var hs-var">newServiceFilter</span></a></span></span><span> </span><span id="local-6989586621679224720"><span class="annot"><span class="annottext">ServiceFilterName
+</span><a href="#local-6989586621679224720"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">ServiceFilter' :: Maybe FilterCondition
 -&gt; ServiceFilterName -&gt; [Text] -&gt; ServiceFilter
 </span><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter%27"><span class="hs-identifier hs-type">ServiceFilter'</span></a></span><span>
@@ -147,7 +147,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ServiceFilter' :: ServiceFilterName
 </span><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#%24sel%3Aname%3AServiceFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceFilterName
-</span><a href="#local-6989586621679224580"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224720"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:ServiceFilter' :: [Text]
 </span><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#%24sel%3Avalues%3AServiceFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -177,16 +177,16 @@ forall a. Monoid a =&gt; a
      (Maybe FilterCondition)
      (Maybe FilterCondition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter%27"><span class="hs-identifier hs-type">ServiceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224576"><span class="annot"><span class="annottext">Maybe FilterCondition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter%27"><span class="hs-identifier hs-type">ServiceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224716"><span class="annot"><span class="annottext">Maybe FilterCondition
 condition :: Maybe FilterCondition
 $sel:condition:ServiceFilter' :: ServiceFilter -&gt; Maybe FilterCondition
-</span><a href="#local-6989586621679224576"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FilterCondition
-</span><a href="#local-6989586621679224576"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224575"><span class="annot"><span class="annottext">s :: ServiceFilter
-</span><a href="#local-6989586621679224575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter%27"><span class="hs-identifier hs-type">ServiceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224574"><span class="annot"><span class="annottext">Maybe FilterCondition
-</span><a href="#local-6989586621679224574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceFilter
-</span><a href="#local-6989586621679224575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:condition:ServiceFilter' :: Maybe FilterCondition
+</span><a href="#local-6989586621679224716"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FilterCondition
+</span><a href="#local-6989586621679224716"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224715"><span class="annot"><span class="annottext">s :: ServiceFilter
+</span><a href="#local-6989586621679224715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter%27"><span class="hs-identifier hs-type">ServiceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224714"><span class="annot"><span class="annottext">Maybe FilterCondition
+</span><a href="#local-6989586621679224714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceFilter
+</span><a href="#local-6989586621679224715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:condition:ServiceFilter' :: Maybe FilterCondition
 </span><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#%24sel%3Acondition%3AServiceFilter%27"><span class="hs-identifier hs-var">condition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FilterCondition
-</span><a href="#local-6989586621679224574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter"><span class="hs-identifier hs-type">ServiceFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter"><span class="hs-identifier hs-type">ServiceFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | Specify @NAMESPACE_ID@.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#serviceFilter_name"><span class="hs-identifier hs-type">serviceFilter_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter"><span class="hs-identifier hs-type">ServiceFilter</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilterName.html#ServiceFilterName"><span class="hs-identifier hs-type">ServiceFilterName</span></a></span><span>
@@ -197,16 +197,16 @@ $sel:condition:ServiceFilter' :: ServiceFilter -&gt; Maybe FilterCondition
 -&gt; Lens
      ServiceFilter ServiceFilter ServiceFilterName ServiceFilterName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter%27"><span class="hs-identifier hs-type">ServiceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224572"><span class="annot"><span class="annottext">ServiceFilterName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter%27"><span class="hs-identifier hs-type">ServiceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224712"><span class="annot"><span class="annottext">ServiceFilterName
 name :: ServiceFilterName
 $sel:name:ServiceFilter' :: ServiceFilter -&gt; ServiceFilterName
-</span><a href="#local-6989586621679224572"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceFilterName
-</span><a href="#local-6989586621679224572"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224571"><span class="annot"><span class="annottext">s :: ServiceFilter
-</span><a href="#local-6989586621679224571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter%27"><span class="hs-identifier hs-type">ServiceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224570"><span class="annot"><span class="annottext">ServiceFilterName
-</span><a href="#local-6989586621679224570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceFilter
-</span><a href="#local-6989586621679224571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ServiceFilter' :: ServiceFilterName
+</span><a href="#local-6989586621679224712"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceFilterName
+</span><a href="#local-6989586621679224712"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224711"><span class="annot"><span class="annottext">s :: ServiceFilter
+</span><a href="#local-6989586621679224711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter%27"><span class="hs-identifier hs-type">ServiceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224710"><span class="annot"><span class="annottext">ServiceFilterName
+</span><a href="#local-6989586621679224710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceFilter
+</span><a href="#local-6989586621679224711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ServiceFilter' :: ServiceFilterName
 </span><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#%24sel%3Aname%3AServiceFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceFilterName
-</span><a href="#local-6989586621679224570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter"><span class="hs-identifier hs-type">ServiceFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter"><span class="hs-identifier hs-type">ServiceFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The values that are applicable to the value that you specify for</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- @Condition@ to filter the list of services.</span><span>
@@ -216,32 +216,32 @@ $sel:name:ServiceFilter' :: ServiceFilter -&gt; ServiceFilterName
 -&gt; (ServiceFilter -&gt; [Text] -&gt; ServiceFilter)
 -&gt; Lens ServiceFilter ServiceFilter [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter%27"><span class="hs-identifier hs-type">ServiceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224568"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter%27"><span class="hs-identifier hs-type">ServiceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224708"><span class="annot"><span class="annottext">[Text]
 values :: [Text]
 $sel:values:ServiceFilter' :: ServiceFilter -&gt; [Text]
-</span><a href="#local-6989586621679224568"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679224568"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224567"><span class="annot"><span class="annottext">s :: ServiceFilter
-</span><a href="#local-6989586621679224567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter%27"><span class="hs-identifier hs-type">ServiceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224566"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679224566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceFilter
-</span><a href="#local-6989586621679224567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:ServiceFilter' :: [Text]
+</span><a href="#local-6989586621679224708"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679224708"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224707"><span class="annot"><span class="annottext">s :: ServiceFilter
+</span><a href="#local-6989586621679224707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter%27"><span class="hs-identifier hs-type">ServiceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224706"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679224706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceFilter
+</span><a href="#local-6989586621679224707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:ServiceFilter' :: [Text]
 </span><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#%24sel%3Avalues%3AServiceFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679224566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter"><span class="hs-identifier hs-type">ServiceFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; ServiceFilter -&gt; f ServiceFilter)
+</span><a href="#local-6989586621679224706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter"><span class="hs-identifier hs-type">ServiceFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; ServiceFilter -&gt; f ServiceFilter)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; ServiceFilter
 -&gt; f ServiceFilter
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224560"><span id="local-6989586621679224562"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter"><span class="hs-identifier hs-type">ServiceFilter</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224700"><span id="local-6989586621679224702"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter"><span class="hs-identifier hs-type">ServiceFilter</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224557"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter"><span class="hs-identifier hs-type">ServiceFilter</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224697"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter"><span class="hs-identifier hs-type">ServiceFilter</span></a></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224549"><span id="local-6989586621679224551"><span id="local-6989586621679224553"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter"><span class="hs-identifier hs-type">ServiceFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679224547"><span class="annot"><span class="annottext">toJSON :: ServiceFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter%27"><span class="hs-identifier hs-type">ServiceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224543"><span id="local-6989586621679224544"><span id="local-6989586621679224545"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224689"><span id="local-6989586621679224691"><span id="local-6989586621679224693"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter"><span class="hs-identifier hs-type">ServiceFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679224687"><span class="annot"><span class="annottext">toJSON :: ServiceFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceFilter.html#ServiceFilter%27"><span class="hs-identifier hs-type">ServiceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224683"><span id="local-6989586621679224684"><span id="local-6989586621679224685"><span class="annot"><span class="annottext">[Text]
 Maybe FilterCondition
 ServiceFilterName
 values :: [Text]
@@ -250,7 +250,7 @@ condition :: Maybe FilterCondition
 $sel:values:ServiceFilter' :: ServiceFilter -&gt; [Text]
 $sel:name:ServiceFilter' :: ServiceFilter -&gt; ServiceFilterName
 $sel:condition:ServiceFilter' :: ServiceFilter -&gt; Maybe FilterCondition
-</span><a href="#local-6989586621679224543"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679224683"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -262,21 +262,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FilterCondition -&gt; Pair) -&gt; Maybe FilterCondition -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FilterCondition
-</span><a href="#local-6989586621679224545"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224685"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ServiceFilterName -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ServiceFilterName
-</span><a href="#local-6989586621679224544"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224684"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679224543"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224683"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span></pre></body></html>

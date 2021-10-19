@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680345260"><span id="local-6989586621680345261"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TargetPlatformOs"><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatformOs.html#TargetPlatformOs"><span class="hs-identifier hs-var">TargetPlatformOs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetPlatformOs%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatformOs.html#TargetPlatformOs%27"><span class="hs-identifier hs-var">TargetPlatformOs'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680346680"><span id="local-6989586621680346681"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TargetPlatformOs"><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatformOs.html#TargetPlatformOs"><span class="hs-identifier hs-var">TargetPlatformOs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetPlatformOs%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatformOs.html#TargetPlatformOs%27"><span class="hs-identifier hs-var">TargetPlatformOs'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTargetPlatformOs"><span class="annot"><span class="annottext">TargetPlatformOs -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.TargetPlatformOs.html#fromTargetPlatformOs"><span class="hs-identifier hs-var hs-var">fromTargetPlatformOs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680345252"><span id="local-6989586621680345254"><span id="local-6989586621680345256"><span class="annot"><span class="annottext">Int -&gt; TargetPlatformOs -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680346672"><span id="local-6989586621680346674"><span id="local-6989586621680346676"><span class="annot"><span class="annottext">Int -&gt; TargetPlatformOs -&gt; ShowS
 [TargetPlatformOs] -&gt; ShowS
 TargetPlatformOs -&gt; String
 (Int -&gt; TargetPlatformOs -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: TargetPlatformOs -&gt; String
 showsPrec :: Int -&gt; TargetPlatformOs -&gt; ShowS
 $cshowsPrec :: Int -&gt; TargetPlatformOs -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680345243"><span id="local-6989586621680345245"><span id="local-6989586621680345247"><span id="local-6989586621680345249"><span class="annot"><span class="annottext">ReadPrec [TargetPlatformOs]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680346663"><span id="local-6989586621680346665"><span id="local-6989586621680346667"><span id="local-6989586621680346669"><span class="annot"><span class="annottext">ReadPrec [TargetPlatformOs]
 ReadPrec TargetPlatformOs
 Int -&gt; ReadS TargetPlatformOs
 ReadS [TargetPlatformOs]
@@ -72,7 +72,7 @@ $creadList :: ReadS [TargetPlatformOs]
 readsPrec :: Int -&gt; ReadS TargetPlatformOs
 $creadsPrec :: Int -&gt; ReadS TargetPlatformOs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680345238"><span id="local-6989586621680345240"><span class="annot"><span class="annottext">TargetPlatformOs -&gt; TargetPlatformOs -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680346658"><span id="local-6989586621680346660"><span class="annot"><span class="annottext">TargetPlatformOs -&gt; TargetPlatformOs -&gt; Bool
 (TargetPlatformOs -&gt; TargetPlatformOs -&gt; Bool)
 -&gt; (TargetPlatformOs -&gt; TargetPlatformOs -&gt; Bool)
 -&gt; Eq TargetPlatformOs
@@ -82,7 +82,7 @@ $c/= :: TargetPlatformOs -&gt; TargetPlatformOs -&gt; Bool
 == :: TargetPlatformOs -&gt; TargetPlatformOs -&gt; Bool
 $c== :: TargetPlatformOs -&gt; TargetPlatformOs -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680345222"><span id="local-6989586621680345224"><span id="local-6989586621680345226"><span id="local-6989586621680345228"><span id="local-6989586621680345230"><span id="local-6989586621680345232"><span id="local-6989586621680345234"><span class="annot"><span class="annottext">Eq TargetPlatformOs
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680346642"><span id="local-6989586621680346644"><span id="local-6989586621680346646"><span id="local-6989586621680346648"><span id="local-6989586621680346650"><span id="local-6989586621680346652"><span id="local-6989586621680346654"><span class="annot"><span class="annottext">Eq TargetPlatformOs
 Eq TargetPlatformOs
 -&gt; (TargetPlatformOs -&gt; TargetPlatformOs -&gt; Ordering)
 -&gt; (TargetPlatformOs -&gt; TargetPlatformOs -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. TargetPlatformOs -&gt; Rep TargetPlatformOs x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680345214"><span id="local-6989586621680345216"><span class="annot"><span class="annottext">Int -&gt; TargetPlatformOs -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680346634"><span id="local-6989586621680346636"><span class="annot"><span class="annottext">Int -&gt; TargetPlatformOs -&gt; Int
 TargetPlatformOs -&gt; Int
 (Int -&gt; TargetPlatformOs -&gt; Int)
 -&gt; (TargetPlatformOs -&gt; Int) -&gt; Hashable TargetPlatformOs
@@ -143,51 +143,51 @@ $chash :: TargetPlatformOs -&gt; Int
 hashWithSalt :: Int -&gt; TargetPlatformOs -&gt; Int
 $chashWithSalt :: Int -&gt; TargetPlatformOs -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680345211"><span class="annot"><span class="annottext">TargetPlatformOs -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680346631"><span class="annot"><span class="annottext">TargetPlatformOs -&gt; ()
 (TargetPlatformOs -&gt; ()) -&gt; NFData TargetPlatformOs
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TargetPlatformOs -&gt; ()
 $crnf :: TargetPlatformOs -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680345208"><span class="annot"><span class="annottext">Text -&gt; Either String TargetPlatformOs
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680346628"><span class="annot"><span class="annottext">Text -&gt; Either String TargetPlatformOs
 (Text -&gt; Either String TargetPlatformOs)
 -&gt; FromText TargetPlatformOs
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TargetPlatformOs
 $cfromText :: Text -&gt; Either String TargetPlatformOs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680345205"><span class="annot"><span class="annottext">TargetPlatformOs -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680346625"><span class="annot"><span class="annottext">TargetPlatformOs -&gt; Text
 (TargetPlatformOs -&gt; Text) -&gt; ToText TargetPlatformOs
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TargetPlatformOs -&gt; Text
 $ctoText :: TargetPlatformOs -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680345202"><span class="annot"><span class="annottext">TargetPlatformOs -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680346622"><span class="annot"><span class="annottext">TargetPlatformOs -&gt; ByteString
 (TargetPlatformOs -&gt; ByteString) -&gt; ToByteString TargetPlatformOs
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TargetPlatformOs -&gt; ByteString
 $ctoBS :: TargetPlatformOs -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680345199"><span class="annot"><span class="annottext">TargetPlatformOs -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680346619"><span class="annot"><span class="annottext">TargetPlatformOs -&gt; ByteStringBuilder
 (TargetPlatformOs -&gt; ByteStringBuilder) -&gt; ToLog TargetPlatformOs
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TargetPlatformOs -&gt; ByteStringBuilder
 $cbuild :: TargetPlatformOs -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680345196"><span class="annot"><span class="annottext">HeaderName -&gt; TargetPlatformOs -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680346616"><span class="annot"><span class="annottext">HeaderName -&gt; TargetPlatformOs -&gt; [Header]
 (HeaderName -&gt; TargetPlatformOs -&gt; [Header])
 -&gt; ToHeader TargetPlatformOs
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TargetPlatformOs -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TargetPlatformOs -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680345193"><span class="annot"><span class="annottext">TargetPlatformOs -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680346613"><span class="annot"><span class="annottext">TargetPlatformOs -&gt; QueryString
 (TargetPlatformOs -&gt; QueryString) -&gt; ToQuery TargetPlatformOs
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TargetPlatformOs -&gt; QueryString
 $ctoQuery :: TargetPlatformOs -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680345188"><span id="local-6989586621680345190"><span class="annot"><span class="annottext">Value -&gt; Parser [TargetPlatformOs]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680346608"><span id="local-6989586621680346610"><span class="annot"><span class="annottext">Value -&gt; Parser [TargetPlatformOs]
 Value -&gt; Parser TargetPlatformOs
 (Value -&gt; Parser TargetPlatformOs)
 -&gt; (Value -&gt; Parser [TargetPlatformOs])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [TargetPlatformOs]
 parseJSON :: Value -&gt; Parser TargetPlatformOs
 $cparseJSON :: Value -&gt; Parser TargetPlatformOs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680345183"><span id="local-6989586621680345185"><span class="annot"><span class="annottext">FromJSONKeyFunction [TargetPlatformOs]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680346603"><span id="local-6989586621680346605"><span class="annot"><span class="annottext">FromJSONKeyFunction [TargetPlatformOs]
 FromJSONKeyFunction TargetPlatformOs
 FromJSONKeyFunction TargetPlatformOs
 -&gt; FromJSONKeyFunction [TargetPlatformOs]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TargetPlatformOs]
 fromJSONKey :: FromJSONKeyFunction TargetPlatformOs
 $cfromJSONKey :: FromJSONKeyFunction TargetPlatformOs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680345174"><span id="local-6989586621680345176"><span id="local-6989586621680345178"><span id="local-6989586621680345180"><span class="annot"><span class="annottext">[TargetPlatformOs] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680346594"><span id="local-6989586621680346596"><span id="local-6989586621680346598"><span id="local-6989586621680346600"><span class="annot"><span class="annottext">[TargetPlatformOs] -&gt; Encoding
 [TargetPlatformOs] -&gt; Value
 TargetPlatformOs -&gt; Encoding
 TargetPlatformOs -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: TargetPlatformOs -&gt; Encoding
 toJSON :: TargetPlatformOs -&gt; Value
 $ctoJSON :: TargetPlatformOs -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680345169"><span id="local-6989586621680345171"><span class="annot"><span class="annottext">ToJSONKeyFunction [TargetPlatformOs]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680346589"><span id="local-6989586621680346591"><span class="annot"><span class="annottext">ToJSONKeyFunction [TargetPlatformOs]
 ToJSONKeyFunction TargetPlatformOs
 ToJSONKeyFunction TargetPlatformOs
 -&gt; ToJSONKeyFunction [TargetPlatformOs]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TargetPlatformOs]
 toJSONKey :: ToJSONKeyFunction TargetPlatformOs
 $ctoJSONKey :: ToJSONKeyFunction TargetPlatformOs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680345166"><span class="annot"><span class="annottext">[Node] -&gt; Either String TargetPlatformOs
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680346586"><span class="annot"><span class="annottext">[Node] -&gt; Either String TargetPlatformOs
 ([Node] -&gt; Either String TargetPlatformOs)
 -&gt; FromXML TargetPlatformOs
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TargetPlatformOs
 $cparseXML :: [Node] -&gt; Either String TargetPlatformOs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680345163"><span class="annot"><span class="annottext">TargetPlatformOs -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680346583"><span class="annot"><span class="annottext">TargetPlatformOs -&gt; XML
 (TargetPlatformOs -&gt; XML) -&gt; ToXML TargetPlatformOs
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TargetPlatformOs -&gt; XML

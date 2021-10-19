@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The contact\'s preference for being opted-in to or opted-out of a topic.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTopicPreference' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679332309"><span id="local-6989586621679332310"></span></span><span class="hs-keyword">data</span><span> </span><span id="TopicPreference"><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference"><span class="hs-identifier hs-var">TopicPreference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TopicPreference%27"><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference%27"><span class="hs-identifier hs-var">TopicPreference'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679334825"><span id="local-6989586621679334826"></span></span><span class="hs-keyword">data</span><span> </span><span id="TopicPreference"><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference"><span class="hs-identifier hs-var">TopicPreference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TopicPreference%27"><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference%27"><span class="hs-identifier hs-var">TopicPreference'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the topic.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AtopicName%3ATopicPreference%27"><span class="annot"><span class="annottext">TopicPreference -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.TopicPreference.html#%24sel%3AtopicName%3ATopicPreference%27"><span class="hs-identifier hs-var hs-var">topicName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AsubscriptionStatus%3ATopicPreference%27"><span class="annot"><span class="annottext">TopicPreference -&gt; SubscriptionStatus
 </span><a href="Network.AWS.SESv2.Types.TopicPreference.html#%24sel%3AsubscriptionStatus%3ATopicPreference%27"><span class="hs-identifier hs-var hs-var">subscriptionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SubscriptionStatus.html#SubscriptionStatus"><span class="hs-identifier hs-type">SubscriptionStatus</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332302"><span id="local-6989586621679332304"><span class="annot"><span class="annottext">TopicPreference -&gt; TopicPreference -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334818"><span id="local-6989586621679334820"><span class="annot"><span class="annottext">TopicPreference -&gt; TopicPreference -&gt; Bool
 (TopicPreference -&gt; TopicPreference -&gt; Bool)
 -&gt; (TopicPreference -&gt; TopicPreference -&gt; Bool)
 -&gt; Eq TopicPreference
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TopicPreference -&gt; TopicPreference -&gt; Bool
 == :: TopicPreference -&gt; TopicPreference -&gt; Bool
 $c== :: TopicPreference -&gt; TopicPreference -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332293"><span id="local-6989586621679332295"><span id="local-6989586621679332297"><span id="local-6989586621679332299"><span class="annot"><span class="annottext">ReadPrec [TopicPreference]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334809"><span id="local-6989586621679334811"><span id="local-6989586621679334813"><span id="local-6989586621679334815"><span class="annot"><span class="annottext">ReadPrec [TopicPreference]
 ReadPrec TopicPreference
 Int -&gt; ReadS TopicPreference
 ReadS [TopicPreference]
@@ -65,7 +65,7 @@ readList :: ReadS [TopicPreference]
 $creadList :: ReadS [TopicPreference]
 readsPrec :: Int -&gt; ReadS TopicPreference
 $creadsPrec :: Int -&gt; ReadS TopicPreference
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332286"><span id="local-6989586621679332288"><span id="local-6989586621679332290"><span class="annot"><span class="annottext">Int -&gt; TopicPreference -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334802"><span id="local-6989586621679334804"><span id="local-6989586621679334806"><span class="annot"><span class="annottext">Int -&gt; TopicPreference -&gt; ShowS
 [TopicPreference] -&gt; ShowS
 TopicPreference -&gt; String
 (Int -&gt; TopicPreference -&gt; ShowS)
@@ -110,17 +110,17 @@ $cfrom :: forall x. TopicPreference -&gt; Rep TopicPreference x
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.SubscriptionStatus.html#SubscriptionStatus"><span class="hs-identifier hs-type">SubscriptionStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference"><span class="hs-identifier hs-type">TopicPreference</span></a></span><span>
 </span><span id="line-57"></span><span id="newTopicPreference"><span class="annot"><span class="annottext">newTopicPreference :: Text -&gt; SubscriptionStatus -&gt; TopicPreference
-</span><a href="Network.AWS.SESv2.Types.TopicPreference.html#newTopicPreference"><span class="hs-identifier hs-var hs-var">newTopicPreference</span></a></span></span><span> </span><span id="local-6989586621679332280"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679332280"><span class="hs-identifier hs-var">pTopicName_</span></a></span></span><span> </span><span id="local-6989586621679332279"><span class="annot"><span class="annottext">SubscriptionStatus
-</span><a href="#local-6989586621679332279"><span class="hs-identifier hs-var">pSubscriptionStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.Types.TopicPreference.html#newTopicPreference"><span class="hs-identifier hs-var hs-var">newTopicPreference</span></a></span></span><span> </span><span id="local-6989586621679334796"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334796"><span class="hs-identifier hs-var">pTopicName_</span></a></span></span><span> </span><span id="local-6989586621679334795"><span class="annot"><span class="annottext">SubscriptionStatus
+</span><a href="#local-6989586621679334795"><span class="hs-identifier hs-var">pSubscriptionStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">TopicPreference' :: Text -&gt; SubscriptionStatus -&gt; TopicPreference
 </span><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference%27"><span class="hs-identifier hs-type">TopicPreference'</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:topicName:TopicPreference' :: Text
 </span><a href="Network.AWS.SESv2.Types.TopicPreference.html#%24sel%3AtopicName%3ATopicPreference%27"><span class="hs-identifier hs-var">topicName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679332280"><span class="hs-identifier hs-var">pTopicName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679334796"><span class="hs-identifier hs-var">pTopicName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:subscriptionStatus:TopicPreference' :: SubscriptionStatus
 </span><a href="Network.AWS.SESv2.Types.TopicPreference.html#%24sel%3AsubscriptionStatus%3ATopicPreference%27"><span class="hs-identifier hs-var">subscriptionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SubscriptionStatus
-</span><a href="#local-6989586621679332279"><span class="hs-identifier hs-var">pSubscriptionStatus_</span></a></span><span>
+</span><a href="#local-6989586621679334795"><span class="hs-identifier hs-var">pSubscriptionStatus_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The name of the topic.</span><span>
@@ -130,16 +130,16 @@ $cfrom :: forall x. TopicPreference -&gt; Rep TopicPreference x
 -&gt; (TopicPreference -&gt; Text -&gt; TopicPreference)
 -&gt; Lens TopicPreference TopicPreference Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference%27"><span class="hs-identifier hs-type">TopicPreference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332275"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference%27"><span class="hs-identifier hs-type">TopicPreference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334791"><span class="annot"><span class="annottext">Text
 topicName :: Text
 $sel:topicName:TopicPreference' :: TopicPreference -&gt; Text
-</span><a href="#local-6989586621679332275"><span class="hs-identifier hs-var hs-var">topicName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679332275"><span class="hs-identifier hs-var">topicName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332274"><span class="annot"><span class="annottext">s :: TopicPreference
-</span><a href="#local-6989586621679332274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference%27"><span class="hs-identifier hs-type">TopicPreference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332273"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679332273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicPreference
-</span><a href="#local-6989586621679332274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicName:TopicPreference' :: Text
+</span><a href="#local-6989586621679334791"><span class="hs-identifier hs-var hs-var">topicName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334791"><span class="hs-identifier hs-var">topicName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334790"><span class="annot"><span class="annottext">s :: TopicPreference
+</span><a href="#local-6989586621679334790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference%27"><span class="hs-identifier hs-type">TopicPreference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334789"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicPreference
+</span><a href="#local-6989586621679334790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicName:TopicPreference' :: Text
 </span><a href="Network.AWS.SESv2.Types.TopicPreference.html#%24sel%3AtopicName%3ATopicPreference%27"><span class="hs-identifier hs-var">topicName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679332273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference"><span class="hs-identifier hs-type">TopicPreference</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679334789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference"><span class="hs-identifier hs-type">TopicPreference</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The contact\'s subscription status to a topic which is either @OPT_IN@</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- or @OPT_OUT@.</span><span>
@@ -154,19 +154,19 @@ $sel:topicName:TopicPreference' :: TopicPreference -&gt; Text
      SubscriptionStatus
      SubscriptionStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference%27"><span class="hs-identifier hs-type">TopicPreference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332271"><span class="annot"><span class="annottext">SubscriptionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference%27"><span class="hs-identifier hs-type">TopicPreference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334787"><span class="annot"><span class="annottext">SubscriptionStatus
 subscriptionStatus :: SubscriptionStatus
 $sel:subscriptionStatus:TopicPreference' :: TopicPreference -&gt; SubscriptionStatus
-</span><a href="#local-6989586621679332271"><span class="hs-identifier hs-var hs-var">subscriptionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscriptionStatus
-</span><a href="#local-6989586621679332271"><span class="hs-identifier hs-var">subscriptionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332270"><span class="annot"><span class="annottext">s :: TopicPreference
-</span><a href="#local-6989586621679332270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference%27"><span class="hs-identifier hs-type">TopicPreference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332269"><span class="annot"><span class="annottext">SubscriptionStatus
-</span><a href="#local-6989586621679332269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicPreference
-</span><a href="#local-6989586621679332270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionStatus:TopicPreference' :: SubscriptionStatus
+</span><a href="#local-6989586621679334787"><span class="hs-identifier hs-var hs-var">subscriptionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscriptionStatus
+</span><a href="#local-6989586621679334787"><span class="hs-identifier hs-var">subscriptionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334786"><span class="annot"><span class="annottext">s :: TopicPreference
+</span><a href="#local-6989586621679334786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference%27"><span class="hs-identifier hs-type">TopicPreference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334785"><span class="annot"><span class="annottext">SubscriptionStatus
+</span><a href="#local-6989586621679334785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicPreference
+</span><a href="#local-6989586621679334786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionStatus:TopicPreference' :: SubscriptionStatus
 </span><a href="Network.AWS.SESv2.Types.TopicPreference.html#%24sel%3AsubscriptionStatus%3ATopicPreference%27"><span class="hs-identifier hs-var">subscriptionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SubscriptionStatus
-</span><a href="#local-6989586621679332269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference"><span class="hs-identifier hs-type">TopicPreference</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679334785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference"><span class="hs-identifier hs-type">TopicPreference</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332266"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference"><span class="hs-identifier hs-type">TopicPreference</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679332264"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TopicPreference
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334782"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference"><span class="hs-identifier hs-type">TopicPreference</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679334780"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TopicPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TopicPreference)
@@ -176,15 +176,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TopicPreference&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679332261"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332261"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679334777"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334777"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; SubscriptionStatus -&gt; TopicPreference
 </span><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference%27"><span class="hs-identifier hs-var">TopicPreference'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; SubscriptionStatus -&gt; TopicPreference)
 -&gt; Parser Text -&gt; Parser (SubscriptionStatus -&gt; TopicPreference)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679334777"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TopicName&quot;</span></span><span class="hs-special">)</span><span>
@@ -192,25 +192,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser SubscriptionStatus -&gt; Parser TopicPreference
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SubscriptionStatus
+</span><a href="#local-6989586621679334777"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SubscriptionStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubscriptionStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332255"><span id="local-6989586621679332257"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference"><span class="hs-identifier hs-type">TopicPreference</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334771"><span id="local-6989586621679334773"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference"><span class="hs-identifier hs-type">TopicPreference</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference"><span class="hs-identifier hs-type">TopicPreference</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334768"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference"><span class="hs-identifier hs-type">TopicPreference</span></a></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332244"><span id="local-6989586621679332246"><span id="local-6989586621679332248"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference"><span class="hs-identifier hs-type">TopicPreference</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679332242"><span class="annot"><span class="annottext">toJSON :: TopicPreference -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference%27"><span class="hs-identifier hs-type">TopicPreference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332239"><span id="local-6989586621679332240"><span class="annot"><span class="annottext">Text
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334760"><span id="local-6989586621679334762"><span id="local-6989586621679334764"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference"><span class="hs-identifier hs-type">TopicPreference</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679334758"><span class="annot"><span class="annottext">toJSON :: TopicPreference -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference%27"><span class="hs-identifier hs-type">TopicPreference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334755"><span id="local-6989586621679334756"><span class="annot"><span class="annottext">Text
 SubscriptionStatus
 subscriptionStatus :: SubscriptionStatus
 topicName :: Text
 $sel:subscriptionStatus:TopicPreference' :: TopicPreference -&gt; SubscriptionStatus
 $sel:topicName:TopicPreference' :: TopicPreference -&gt; Text
-</span><a href="#local-6989586621679332239"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679334755"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -222,7 +222,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TopicName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679332240"><span class="hs-identifier hs-var">topicName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679334756"><span class="hs-identifier hs-var">topicName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -230,7 +230,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SubscriptionStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SubscriptionStatus -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SubscriptionStatus
-</span><a href="#local-6989586621679332239"><span class="hs-identifier hs-var">subscriptionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679334755"><span class="hs-identifier hs-var">subscriptionStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span></pre></body></html>

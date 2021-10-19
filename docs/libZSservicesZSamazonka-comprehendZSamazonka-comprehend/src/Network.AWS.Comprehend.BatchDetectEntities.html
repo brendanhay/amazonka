@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newBatchDetectEntities' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679366622"><span id="local-6989586621679366623"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDetectEntities"><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities"><span class="hs-identifier hs-var">BatchDetectEntities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDetectEntities%27"><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities%27"><span class="hs-identifier hs-var">BatchDetectEntities'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679366947"><span id="local-6989586621679366948"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDetectEntities"><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities"><span class="hs-identifier hs-var">BatchDetectEntities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDetectEntities%27"><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities%27"><span class="hs-identifier hs-var">BatchDetectEntities'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list containing the text of the input documents. The list can contain</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- a maximum of 25 documents. Each document must contain fewer than 5,000</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- bytes of UTF-8 encoded characters.</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AlanguageCode%3ABatchDetectEntities%27"><span class="annot"><span class="annottext">BatchDetectEntities -&gt; LanguageCode
 </span><a href="Network.AWS.Comprehend.BatchDetectEntities.html#%24sel%3AlanguageCode%3ABatchDetectEntities%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366615"><span id="local-6989586621679366617"><span class="annot"><span class="annottext">BatchDetectEntities -&gt; BatchDetectEntities -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366940"><span id="local-6989586621679366942"><span class="annot"><span class="annottext">BatchDetectEntities -&gt; BatchDetectEntities -&gt; Bool
 (BatchDetectEntities -&gt; BatchDetectEntities -&gt; Bool)
 -&gt; (BatchDetectEntities -&gt; BatchDetectEntities -&gt; Bool)
 -&gt; Eq BatchDetectEntities
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchDetectEntities -&gt; BatchDetectEntities -&gt; Bool
 == :: BatchDetectEntities -&gt; BatchDetectEntities -&gt; Bool
 $c== :: BatchDetectEntities -&gt; BatchDetectEntities -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366608"><span id="local-6989586621679366610"><span id="local-6989586621679366612"><span class="annot"><span class="annottext">Int -&gt; BatchDetectEntities -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366933"><span id="local-6989586621679366935"><span id="local-6989586621679366937"><span class="annot"><span class="annottext">Int -&gt; BatchDetectEntities -&gt; ShowS
 [BatchDetectEntities] -&gt; ShowS
 BatchDetectEntities -&gt; String
 (Int -&gt; BatchDetectEntities -&gt; ShowS)
@@ -118,8 +118,8 @@ $cfrom :: forall x. BatchDetectEntities -&gt; Rep BatchDetectEntities x
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities"><span class="hs-identifier hs-type">BatchDetectEntities</span></a></span><span>
 </span><span id="line-85"></span><span id="newBatchDetectEntities"><span class="annot"><span class="annottext">newBatchDetectEntities :: LanguageCode -&gt; BatchDetectEntities
-</span><a href="Network.AWS.Comprehend.BatchDetectEntities.html#newBatchDetectEntities"><span class="hs-identifier hs-var hs-var">newBatchDetectEntities</span></a></span></span><span> </span><span id="local-6989586621679366603"><span class="annot"><span class="annottext">LanguageCode
-</span><a href="#local-6989586621679366603"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Comprehend.BatchDetectEntities.html#newBatchDetectEntities"><span class="hs-identifier hs-var hs-var">newBatchDetectEntities</span></a></span></span><span> </span><span id="local-6989586621679366928"><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679366928"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">BatchDetectEntities' :: Sensitive [Sensitive Text] -&gt; LanguageCode -&gt; BatchDetectEntities
 </span><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities%27"><span class="hs-identifier hs-type">BatchDetectEntities'</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:textList:BatchDetectEntities' :: Sensitive [Sensitive Text]
@@ -128,7 +128,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageCode:BatchDetectEntities' :: LanguageCode
 </span><a href="Network.AWS.Comprehend.BatchDetectEntities.html#%24sel%3AlanguageCode%3ABatchDetectEntities%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LanguageCode
-</span><a href="#local-6989586621679366603"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span><span>
+</span><a href="#local-6989586621679366928"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | A list containing the text of the input documents. The list can contain</span><span>
@@ -146,16 +146,16 @@ forall a. Monoid a =&gt; a
      (Sensitive [Sensitive Text])
      (Sensitive [Sensitive Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities%27"><span class="hs-identifier hs-type">BatchDetectEntities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366600"><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities%27"><span class="hs-identifier hs-type">BatchDetectEntities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366925"><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
 textList :: Sensitive [Sensitive Text]
 $sel:textList:BatchDetectEntities' :: BatchDetectEntities -&gt; Sensitive [Sensitive Text]
-</span><a href="#local-6989586621679366600"><span class="hs-identifier hs-var hs-var">textList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
-</span><a href="#local-6989586621679366600"><span class="hs-identifier hs-var">textList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366599"><span class="annot"><span class="annottext">s :: BatchDetectEntities
-</span><a href="#local-6989586621679366599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities%27"><span class="hs-identifier hs-type">BatchDetectEntities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366598"><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
-</span><a href="#local-6989586621679366598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectEntities
-</span><a href="#local-6989586621679366599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textList:BatchDetectEntities' :: Sensitive [Sensitive Text]
+</span><a href="#local-6989586621679366925"><span class="hs-identifier hs-var hs-var">textList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+</span><a href="#local-6989586621679366925"><span class="hs-identifier hs-var">textList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366924"><span class="annot"><span class="annottext">s :: BatchDetectEntities
+</span><a href="#local-6989586621679366924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities%27"><span class="hs-identifier hs-type">BatchDetectEntities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366923"><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+</span><a href="#local-6989586621679366923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectEntities
+</span><a href="#local-6989586621679366924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textList:BatchDetectEntities' :: Sensitive [Sensitive Text]
 </span><a href="Network.AWS.Comprehend.BatchDetectEntities.html#%24sel%3AtextList%3ABatchDetectEntities%27"><span class="hs-identifier hs-var">textList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
-</span><a href="#local-6989586621679366598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities"><span class="hs-identifier hs-type">BatchDetectEntities</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive [Sensitive Text] -&gt; f (Sensitive [Sensitive Text]))
+</span><a href="#local-6989586621679366923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities"><span class="hs-identifier hs-type">BatchDetectEntities</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive [Sensitive Text] -&gt; f (Sensitive [Sensitive Text]))
  -&gt; BatchDetectEntities -&gt; f BatchDetectEntities)
 -&gt; (([Text] -&gt; f [Text])
     -&gt; Sensitive [Sensitive Text] -&gt; f (Sensitive [Sensitive Text]))
@@ -174,8 +174,8 @@ forall a. Iso' (Sensitive a) a
 -&gt; f (Sensitive [Sensitive Text])
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Sensitive Text] -&gt; f [Sensitive Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The language of the input documents. You can specify any of the primary</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- languages supported by Amazon Comprehend. All documents must be in the</span><span>
@@ -188,27 +188,27 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      BatchDetectEntities BatchDetectEntities LanguageCode LanguageCode
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities%27"><span class="hs-identifier hs-type">BatchDetectEntities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366594"><span class="annot"><span class="annottext">LanguageCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities%27"><span class="hs-identifier hs-type">BatchDetectEntities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366919"><span class="annot"><span class="annottext">LanguageCode
 languageCode :: LanguageCode
 $sel:languageCode:BatchDetectEntities' :: BatchDetectEntities -&gt; LanguageCode
-</span><a href="#local-6989586621679366594"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LanguageCode
-</span><a href="#local-6989586621679366594"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366593"><span class="annot"><span class="annottext">s :: BatchDetectEntities
-</span><a href="#local-6989586621679366593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities%27"><span class="hs-identifier hs-type">BatchDetectEntities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366592"><span class="annot"><span class="annottext">LanguageCode
-</span><a href="#local-6989586621679366592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectEntities
-</span><a href="#local-6989586621679366593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:BatchDetectEntities' :: LanguageCode
+</span><a href="#local-6989586621679366919"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679366919"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366918"><span class="annot"><span class="annottext">s :: BatchDetectEntities
+</span><a href="#local-6989586621679366918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities%27"><span class="hs-identifier hs-type">BatchDetectEntities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366917"><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679366917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectEntities
+</span><a href="#local-6989586621679366918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:BatchDetectEntities' :: LanguageCode
 </span><a href="Network.AWS.Comprehend.BatchDetectEntities.html#%24sel%3AlanguageCode%3ABatchDetectEntities%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LanguageCode
-</span><a href="#local-6989586621679366592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities"><span class="hs-identifier hs-type">BatchDetectEntities</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679366917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities"><span class="hs-identifier hs-type">BatchDetectEntities</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities"><span class="hs-identifier hs-type">BatchDetectEntities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities"><span class="hs-identifier hs-type">BatchDetectEntities</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679366588"><span class="annot"><span class="annottext">request :: BatchDetectEntities -&gt; Request BatchDetectEntities
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679366913"><span class="annot"><span class="annottext">request :: BatchDetectEntities -&gt; Request BatchDetectEntities
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchDetectEntities -&gt; Request BatchDetectEntities
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Comprehend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679366584"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679366909"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchDetectEntities
 -&gt; ClientResponse ClientBody
@@ -234,10 +234,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679366581"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366581"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679366580"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679366580"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679366579"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366579"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679366906"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366906"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679366905"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679366905"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679366904"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679366904"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Int
 -&gt; [BatchDetectEntitiesItemResult]
 -&gt; [BatchItemError]
@@ -258,7 +258,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366581"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679366906"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   ([BatchDetectEntitiesItemResult]
@@ -267,7 +267,7 @@ forall a. Enum a =&gt; a -&gt; Int
 -&gt; Either String ([BatchItemError] -&gt; BatchDetectEntitiesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679366904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe [BatchDetectEntitiesItemResult])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -283,7 +283,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String BatchDetectEntitiesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [BatchItemError])
+</span><a href="#local-6989586621679366904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [BatchItemError])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [BatchItemError])
@@ -294,12 +294,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366570"><span id="local-6989586621679366572"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities"><span class="hs-identifier hs-type">BatchDetectEntities</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366895"><span id="local-6989586621679366897"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities"><span class="hs-identifier hs-type">BatchDetectEntities</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366567"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities"><span class="hs-identifier hs-type">BatchDetectEntities</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366892"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities"><span class="hs-identifier hs-type">BatchDetectEntities</span></a></span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities"><span class="hs-identifier hs-type">BatchDetectEntities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679366563"><span class="annot"><span class="annottext">toHeaders :: BatchDetectEntities -&gt; ResponseHeaders
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679366888"><span class="annot"><span class="annottext">toHeaders :: BatchDetectEntities -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchDetectEntities -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -326,15 +326,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366553"><span id="local-6989586621679366555"><span id="local-6989586621679366557"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities"><span class="hs-identifier hs-type">BatchDetectEntities</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679366551"><span class="annot"><span class="annottext">toJSON :: BatchDetectEntities -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities%27"><span class="hs-identifier hs-type">BatchDetectEntities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366548"><span id="local-6989586621679366549"><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366878"><span id="local-6989586621679366880"><span id="local-6989586621679366882"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities"><span class="hs-identifier hs-type">BatchDetectEntities</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679366876"><span class="annot"><span class="annottext">toJSON :: BatchDetectEntities -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities%27"><span class="hs-identifier hs-type">BatchDetectEntities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366873"><span id="local-6989586621679366874"><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
 LanguageCode
 languageCode :: LanguageCode
 textList :: Sensitive [Sensitive Text]
 $sel:languageCode:BatchDetectEntities' :: BatchDetectEntities -&gt; LanguageCode
 $sel:textList:BatchDetectEntities' :: BatchDetectEntities -&gt; Sensitive [Sensitive Text]
-</span><a href="#local-6989586621679366548"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679366873"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -346,26 +346,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TextList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive [Sensitive Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
-</span><a href="#local-6989586621679366549"><span class="hs-identifier hs-var">textList</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679366874"><span class="hs-identifier hs-var">textList</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LanguageCode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LanguageCode
-</span><a href="#local-6989586621679366548"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679366873"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities"><span class="hs-identifier hs-type">BatchDetectEntities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679366542"><span class="annot"><span class="annottext">toPath :: BatchDetectEntities -&gt; ByteString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679366867"><span class="annot"><span class="annottext">toPath :: BatchDetectEntities -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchDetectEntities -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntities"><span class="hs-identifier hs-type">BatchDetectEntities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679366538"><span class="annot"><span class="annottext">toQuery :: BatchDetectEntities -&gt; QueryString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679366863"><span class="annot"><span class="annottext">toQuery :: BatchDetectEntities -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchDetectEntities -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -373,7 +373,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newBatchDetectEntitiesResponse' smart constructor.</span><span>
-</span><span id="line-152"></span><span id="local-6989586621679366535"><span id="local-6989586621679366536"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDetectEntitiesResponse"><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse"><span class="hs-identifier hs-var">BatchDetectEntitiesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDetectEntitiesResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse%27"><span class="hs-identifier hs-var">BatchDetectEntitiesResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span id="local-6989586621679366860"><span id="local-6989586621679366861"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDetectEntitiesResponse"><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse"><span class="hs-identifier hs-var">BatchDetectEntitiesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDetectEntitiesResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse%27"><span class="hs-identifier hs-var">BatchDetectEntitiesResponse'</span></a></span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchDetectEntitiesResponse%27"><span class="annot"><span class="annottext">BatchDetectEntitiesResponse -&gt; Int
 </span><a href="Network.AWS.Comprehend.BatchDetectEntities.html#%24sel%3AhttpStatus%3ABatchDetectEntitiesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -390,7 +390,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-164"></span><span>    </span><span id="%24sel%3AerrorList%3ABatchDetectEntitiesResponse%27"><span class="annot"><span class="annottext">BatchDetectEntitiesResponse -&gt; [BatchItemError]
 </span><a href="Network.AWS.Comprehend.BatchDetectEntities.html#%24sel%3AerrorList%3ABatchDetectEntitiesResponse%27"><span class="hs-identifier hs-var hs-var">errorList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366528"><span id="local-6989586621679366530"><span class="annot"><span class="annottext">BatchDetectEntitiesResponse -&gt; BatchDetectEntitiesResponse -&gt; Bool
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366853"><span id="local-6989586621679366855"><span class="annot"><span class="annottext">BatchDetectEntitiesResponse -&gt; BatchDetectEntitiesResponse -&gt; Bool
 (BatchDetectEntitiesResponse
  -&gt; BatchDetectEntitiesResponse -&gt; Bool)
 -&gt; (BatchDetectEntitiesResponse
@@ -401,7 +401,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchDetectEntitiesResponse -&gt; BatchDetectEntitiesResponse -&gt; Bool
 == :: BatchDetectEntitiesResponse -&gt; BatchDetectEntitiesResponse -&gt; Bool
 $c== :: BatchDetectEntitiesResponse -&gt; BatchDetectEntitiesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366522"><span id="local-6989586621679366524"><span id="local-6989586621679366526"><span class="annot"><span class="annottext">Int -&gt; BatchDetectEntitiesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366847"><span id="local-6989586621679366849"><span id="local-6989586621679366851"><span class="annot"><span class="annottext">Int -&gt; BatchDetectEntitiesResponse -&gt; ShowS
 [BatchDetectEntitiesResponse] -&gt; ShowS
 BatchDetectEntitiesResponse -&gt; String
 (Int -&gt; BatchDetectEntitiesResponse -&gt; ShowS)
@@ -457,8 +457,8 @@ BatchDetectEntitiesResponse -&gt; Rep BatchDetectEntitiesResponse x
 </span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse</span></a></span><span>
 </span><span id="line-191"></span><span id="newBatchDetectEntitiesResponse"><span class="annot"><span class="annottext">newBatchDetectEntitiesResponse :: Int -&gt; BatchDetectEntitiesResponse
-</span><a href="Network.AWS.Comprehend.BatchDetectEntities.html#newBatchDetectEntitiesResponse"><span class="hs-identifier hs-var hs-var">newBatchDetectEntitiesResponse</span></a></span></span><span> </span><span id="local-6989586621679366519"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366519"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Comprehend.BatchDetectEntities.html#newBatchDetectEntitiesResponse"><span class="hs-identifier hs-var hs-var">newBatchDetectEntitiesResponse</span></a></span></span><span> </span><span id="local-6989586621679366844"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366844"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="annottext">BatchDetectEntitiesResponse' :: Int
 -&gt; [BatchDetectEntitiesItemResult]
 -&gt; [BatchItemError]
@@ -467,7 +467,7 @@ BatchDetectEntitiesResponse -&gt; Rep BatchDetectEntitiesResponse x
 </span><span id="line-193"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDetectEntitiesResponse' :: Int
 </span><a href="Network.AWS.Comprehend.BatchDetectEntities.html#%24sel%3AhttpStatus%3ABatchDetectEntitiesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366519"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679366844"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:resultList:BatchDetectEntitiesResponse' :: [BatchDetectEntitiesItemResult]
 </span><a href="Network.AWS.Comprehend.BatchDetectEntities.html#%24sel%3AresultList%3ABatchDetectEntitiesResponse%27"><span class="hs-identifier hs-var">resultList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchDetectEntitiesItemResult]
 forall a. Monoid a =&gt; a
@@ -488,16 +488,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      BatchDetectEntitiesResponse BatchDetectEntitiesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse%27"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366518"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse%27"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366843"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchDetectEntitiesResponse' :: BatchDetectEntitiesResponse -&gt; Int
-</span><a href="#local-6989586621679366518"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366518"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366517"><span class="annot"><span class="annottext">s :: BatchDetectEntitiesResponse
-</span><a href="#local-6989586621679366517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse%27"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366516"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectEntitiesResponse
-</span><a href="#local-6989586621679366517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDetectEntitiesResponse' :: Int
+</span><a href="#local-6989586621679366843"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366843"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366842"><span class="annot"><span class="annottext">s :: BatchDetectEntitiesResponse
+</span><a href="#local-6989586621679366842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse%27"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366841"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectEntitiesResponse
+</span><a href="#local-6989586621679366842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDetectEntitiesResponse' :: Int
 </span><a href="Network.AWS.Comprehend.BatchDetectEntities.html#%24sel%3AhttpStatus%3ABatchDetectEntitiesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679366841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | A list of objects containing the results of the operation. The results</span><span>
 </span><span id="line-204"></span><span class="hs-comment">-- are sorted in ascending order by the @Index@ field and match the order</span><span>
@@ -516,16 +516,16 @@ $sel:httpStatus:BatchDetectEntitiesResponse' :: BatchDetectEntitiesResponse -&gt
      [BatchDetectEntitiesItemResult]
      [BatchDetectEntitiesItemResult]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse%27"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366515"><span class="annot"><span class="annottext">[BatchDetectEntitiesItemResult]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse%27"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366840"><span class="annot"><span class="annottext">[BatchDetectEntitiesItemResult]
 resultList :: [BatchDetectEntitiesItemResult]
 $sel:resultList:BatchDetectEntitiesResponse' :: BatchDetectEntitiesResponse -&gt; [BatchDetectEntitiesItemResult]
-</span><a href="#local-6989586621679366515"><span class="hs-identifier hs-var hs-var">resultList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BatchDetectEntitiesItemResult]
-</span><a href="#local-6989586621679366515"><span class="hs-identifier hs-var">resultList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366514"><span class="annot"><span class="annottext">s :: BatchDetectEntitiesResponse
-</span><a href="#local-6989586621679366514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse%27"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366513"><span class="annot"><span class="annottext">[BatchDetectEntitiesItemResult]
-</span><a href="#local-6989586621679366513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectEntitiesResponse
-</span><a href="#local-6989586621679366514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultList:BatchDetectEntitiesResponse' :: [BatchDetectEntitiesItemResult]
+</span><a href="#local-6989586621679366840"><span class="hs-identifier hs-var hs-var">resultList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BatchDetectEntitiesItemResult]
+</span><a href="#local-6989586621679366840"><span class="hs-identifier hs-var">resultList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366839"><span class="annot"><span class="annottext">s :: BatchDetectEntitiesResponse
+</span><a href="#local-6989586621679366839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse%27"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366838"><span class="annot"><span class="annottext">[BatchDetectEntitiesItemResult]
+</span><a href="#local-6989586621679366838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectEntitiesResponse
+</span><a href="#local-6989586621679366839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultList:BatchDetectEntitiesResponse' :: [BatchDetectEntitiesItemResult]
 </span><a href="Network.AWS.Comprehend.BatchDetectEntities.html#%24sel%3AresultList%3ABatchDetectEntitiesResponse%27"><span class="hs-identifier hs-var">resultList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchDetectEntitiesItemResult]
-</span><a href="#local-6989586621679366513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BatchDetectEntitiesItemResult]
+</span><a href="#local-6989586621679366838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BatchDetectEntitiesItemResult]
   -&gt; f [BatchDetectEntitiesItemResult])
  -&gt; BatchDetectEntitiesResponse -&gt; f BatchDetectEntitiesResponse)
 -&gt; (([BatchDetectEntitiesItemResult]
@@ -541,8 +541,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
  -&gt; f [BatchDetectEntitiesItemResult])
 -&gt; [BatchDetectEntitiesItemResult]
 -&gt; f [BatchDetectEntitiesItemResult]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | A list containing one object for each document that contained an error.</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- The results are sorted in ascending order by the @Index@ field and match</span><span>
@@ -560,16 +560,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      [BatchItemError]
      [BatchItemError]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse%27"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366512"><span class="annot"><span class="annottext">[BatchItemError]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse%27"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366837"><span class="annot"><span class="annottext">[BatchItemError]
 errorList :: [BatchItemError]
 $sel:errorList:BatchDetectEntitiesResponse' :: BatchDetectEntitiesResponse -&gt; [BatchItemError]
-</span><a href="#local-6989586621679366512"><span class="hs-identifier hs-var hs-var">errorList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BatchItemError]
-</span><a href="#local-6989586621679366512"><span class="hs-identifier hs-var">errorList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366511"><span class="annot"><span class="annottext">s :: BatchDetectEntitiesResponse
-</span><a href="#local-6989586621679366511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse%27"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366510"><span class="annot"><span class="annottext">[BatchItemError]
-</span><a href="#local-6989586621679366510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectEntitiesResponse
-</span><a href="#local-6989586621679366511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorList:BatchDetectEntitiesResponse' :: [BatchItemError]
+</span><a href="#local-6989586621679366837"><span class="hs-identifier hs-var hs-var">errorList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BatchItemError]
+</span><a href="#local-6989586621679366837"><span class="hs-identifier hs-var">errorList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366836"><span class="annot"><span class="annottext">s :: BatchDetectEntitiesResponse
+</span><a href="#local-6989586621679366836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse%27"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366835"><span class="annot"><span class="annottext">[BatchItemError]
+</span><a href="#local-6989586621679366835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectEntitiesResponse
+</span><a href="#local-6989586621679366836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorList:BatchDetectEntitiesResponse' :: [BatchItemError]
 </span><a href="Network.AWS.Comprehend.BatchDetectEntities.html#%24sel%3AerrorList%3ABatchDetectEntitiesResponse%27"><span class="hs-identifier hs-var">errorList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchItemError]
-</span><a href="#local-6989586621679366510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BatchItemError] -&gt; f [BatchItemError])
+</span><a href="#local-6989586621679366835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BatchItemError] -&gt; f [BatchItemError])
  -&gt; BatchDetectEntitiesResponse -&gt; f BatchDetectEntitiesResponse)
 -&gt; (([BatchItemError] -&gt; f [BatchItemError])
     -&gt; [BatchItemError] -&gt; f [BatchItemError])
@@ -579,8 +579,8 @@ $sel:errorList:BatchDetectEntitiesResponse' :: BatchDetectEntitiesResponse -&gt;
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([BatchItemError] -&gt; f [BatchItemError])
 -&gt; [BatchItemError] -&gt; f [BatchItemError]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366508"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse</span></a></span></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366833"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectEntities.html#BatchDetectEntitiesResponse"><span class="hs-identifier hs-type">BatchDetectEntitiesResponse</span></a></span></span><span>
 </span><span id="line-218"></span></pre></body></html>

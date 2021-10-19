@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about a resource.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newResource' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679346557"><span id="local-6989586621679346558"></span></span><span class="hs-keyword">data</span><span> </span><span id="Resource"><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource"><span class="hs-identifier hs-var">Resource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Resource%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource%27"><span class="hs-identifier hs-var">Resource'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679346816"><span id="local-6989586621679346817"></span></span><span class="hs-keyword">data</span><span> </span><span id="Resource"><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource"><span class="hs-identifier hs-var">Resource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Resource%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource%27"><span class="hs-identifier hs-var">Resource'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A container of data for all resource types.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AresourceDataContainer%3AResource%27"><span class="annot"><span class="annottext">Resource -&gt; ResourceDataContainer
 </span><a href="Network.AWS.Greengrass.Types.Resource.html#%24sel%3AresourceDataContainer%3AResource%27"><span class="hs-identifier hs-var hs-var">resourceDataContainer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDataContainer.html#ResourceDataContainer"><span class="hs-identifier hs-type">ResourceDataContainer</span></a></span><span class="hs-special">,</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Aname%3AResource%27"><span class="annot"><span class="annottext">Resource -&gt; Text
 </span><a href="Network.AWS.Greengrass.Types.Resource.html#%24sel%3Aname%3AResource%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346549"><span id="local-6989586621679346551"><span class="annot"><span class="annottext">Resource -&gt; Resource -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346808"><span id="local-6989586621679346810"><span class="annot"><span class="annottext">Resource -&gt; Resource -&gt; Bool
 (Resource -&gt; Resource -&gt; Bool)
 -&gt; (Resource -&gt; Resource -&gt; Bool) -&gt; Eq Resource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Resource -&gt; Resource -&gt; Bool
 == :: Resource -&gt; Resource -&gt; Bool
 $c== :: Resource -&gt; Resource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346540"><span id="local-6989586621679346542"><span id="local-6989586621679346544"><span id="local-6989586621679346546"><span class="annot"><span class="annottext">ReadPrec [Resource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346799"><span id="local-6989586621679346801"><span id="local-6989586621679346803"><span id="local-6989586621679346805"><span class="annot"><span class="annottext">ReadPrec [Resource]
 ReadPrec Resource
 Int -&gt; ReadS Resource
 ReadS [Resource]
@@ -70,7 +70,7 @@ readList :: ReadS [Resource]
 $creadList :: ReadS [Resource]
 readsPrec :: Int -&gt; ReadS Resource
 $creadsPrec :: Int -&gt; ReadS Resource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346533"><span id="local-6989586621679346535"><span id="local-6989586621679346537"><span class="annot"><span class="annottext">Int -&gt; Resource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346792"><span id="local-6989586621679346794"><span id="local-6989586621679346796"><span class="annot"><span class="annottext">Int -&gt; Resource -&gt; ShowS
 [Resource] -&gt; ShowS
 Resource -&gt; String
 (Int -&gt; Resource -&gt; ShowS)
@@ -119,22 +119,22 @@ $cfrom :: forall x. Resource -&gt; Rep Resource x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span>
 </span><span id="line-69"></span><span id="newResource"><span class="annot"><span class="annottext">newResource :: ResourceDataContainer -&gt; Text -&gt; Text -&gt; Resource
-</span><a href="Network.AWS.Greengrass.Types.Resource.html#newResource"><span class="hs-identifier hs-var hs-var">newResource</span></a></span></span><span> </span><span id="local-6989586621679346527"><span class="annot"><span class="annottext">ResourceDataContainer
-</span><a href="#local-6989586621679346527"><span class="hs-identifier hs-var">pResourceDataContainer_</span></a></span></span><span> </span><span id="local-6989586621679346526"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346526"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679346525"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346525"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Greengrass.Types.Resource.html#newResource"><span class="hs-identifier hs-var hs-var">newResource</span></a></span></span><span> </span><span id="local-6989586621679346786"><span class="annot"><span class="annottext">ResourceDataContainer
+</span><a href="#local-6989586621679346786"><span class="hs-identifier hs-var">pResourceDataContainer_</span></a></span></span><span> </span><span id="local-6989586621679346785"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346785"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679346784"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346784"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">Resource' :: ResourceDataContainer -&gt; Text -&gt; Text -&gt; Resource
 </span><a href="Network.AWS.Greengrass.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceDataContainer:Resource' :: ResourceDataContainer
 </span><a href="Network.AWS.Greengrass.Types.Resource.html#%24sel%3AresourceDataContainer%3AResource%27"><span class="hs-identifier hs-var">resourceDataContainer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">ResourceDataContainer
-</span><a href="#local-6989586621679346527"><span class="hs-identifier hs-var">pResourceDataContainer_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679346786"><span class="hs-identifier hs-var">pResourceDataContainer_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Resource' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Resource.html#%24sel%3Aid%3AResource%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346526"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679346785"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Resource' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Resource.html#%24sel%3Aname%3AResource%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346525"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679346784"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | A container of data for all resource types.</span><span>
@@ -146,16 +146,16 @@ $cfrom :: forall x. Resource -&gt; Rep Resource x
 -&gt; Lens
      Resource Resource ResourceDataContainer ResourceDataContainer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346521"><span class="annot"><span class="annottext">ResourceDataContainer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346780"><span class="annot"><span class="annottext">ResourceDataContainer
 resourceDataContainer :: ResourceDataContainer
 $sel:resourceDataContainer:Resource' :: Resource -&gt; ResourceDataContainer
-</span><a href="#local-6989586621679346521"><span class="hs-identifier hs-var hs-var">resourceDataContainer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataContainer
-</span><a href="#local-6989586621679346521"><span class="hs-identifier hs-var">resourceDataContainer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346520"><span class="annot"><span class="annottext">s :: Resource
-</span><a href="#local-6989586621679346520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346519"><span class="annot"><span class="annottext">ResourceDataContainer
-</span><a href="#local-6989586621679346519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resource
-</span><a href="#local-6989586621679346520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceDataContainer:Resource' :: ResourceDataContainer
+</span><a href="#local-6989586621679346780"><span class="hs-identifier hs-var hs-var">resourceDataContainer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataContainer
+</span><a href="#local-6989586621679346780"><span class="hs-identifier hs-var">resourceDataContainer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346779"><span class="annot"><span class="annottext">s :: Resource
+</span><a href="#local-6989586621679346779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346778"><span class="annot"><span class="annottext">ResourceDataContainer
+</span><a href="#local-6989586621679346778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resource
+</span><a href="#local-6989586621679346779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceDataContainer:Resource' :: ResourceDataContainer
 </span><a href="Network.AWS.Greengrass.Types.Resource.html#%24sel%3AresourceDataContainer%3AResource%27"><span class="hs-identifier hs-var">resourceDataContainer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceDataContainer
-</span><a href="#local-6989586621679346519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The resource ID, used to refer to a resource in the Lambda function</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- configuration. Max length is 128 characters with pattern</span><span>
@@ -166,16 +166,16 @@ $sel:resourceDataContainer:Resource' :: Resource -&gt; ResourceDataContainer
 -&gt; (Resource -&gt; Text -&gt; Resource)
 -&gt; Lens Resource Resource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346517"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346776"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:Resource' :: Resource -&gt; Text
-</span><a href="#local-6989586621679346517"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346517"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346516"><span class="annot"><span class="annottext">s :: Resource
-</span><a href="#local-6989586621679346516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346515"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resource
-</span><a href="#local-6989586621679346516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Resource' :: Text
+</span><a href="#local-6989586621679346776"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346776"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346775"><span class="annot"><span class="annottext">s :: Resource
+</span><a href="#local-6989586621679346775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346774"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resource
+</span><a href="#local-6989586621679346775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Resource' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Resource.html#%24sel%3Aid%3AResource%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The descriptive resource name, which is displayed on the AWS IoT</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- Greengrass console. Max length 128 characters with pattern</span><span>
@@ -186,27 +186,27 @@ $sel:id:Resource' :: Resource -&gt; Text
 -&gt; (Resource -&gt; Text -&gt; Resource)
 -&gt; Lens Resource Resource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346513"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346772"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:Resource' :: Resource -&gt; Text
-</span><a href="#local-6989586621679346513"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346513"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346512"><span class="annot"><span class="annottext">s :: Resource
-</span><a href="#local-6989586621679346512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346511"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resource
-</span><a href="#local-6989586621679346512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Resource' :: Text
+</span><a href="#local-6989586621679346772"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346772"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346771"><span class="annot"><span class="annottext">s :: Resource
+</span><a href="#local-6989586621679346771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346770"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resource
+</span><a href="#local-6989586621679346771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Resource' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Resource.html#%24sel%3Aname%3AResource%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346508"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679346506"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Resource
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346767"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679346765"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Resource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Resource) -&gt; Value -&gt; Parser Resource
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Resource&quot;</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346503"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346503"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346762"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346762"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">ResourceDataContainer -&gt; Text -&gt; Text -&gt; Resource
 </span><a href="Network.AWS.Greengrass.Types.Resource.html#Resource%27"><span class="hs-identifier hs-var">Resource'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(ResourceDataContainer -&gt; Text -&gt; Text -&gt; Resource)
@@ -214,7 +214,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; Resource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceDataContainer
+</span><a href="#local-6989586621679346762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceDataContainer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceDataContainer&quot;</span></span><span class="hs-special">)</span><span>
@@ -222,26 +222,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; Resource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679346762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Resource) -&gt; Parser Text -&gt; Parser Resource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679346762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346497"><span id="local-6989586621679346499"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346756"><span id="local-6989586621679346758"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346494"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346753"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346486"><span id="local-6989586621679346488"><span id="local-6989586621679346490"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679346484"><span class="annot"><span class="annottext">toJSON :: Resource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346480"><span id="local-6989586621679346481"><span id="local-6989586621679346482"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346745"><span id="local-6989586621679346747"><span id="local-6989586621679346749"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679346743"><span class="annot"><span class="annottext">toJSON :: Resource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346739"><span id="local-6989586621679346740"><span id="local-6989586621679346741"><span class="annot"><span class="annottext">Text
 ResourceDataContainer
 name :: Text
 id :: Text
@@ -249,7 +249,7 @@ resourceDataContainer :: ResourceDataContainer
 $sel:name:Resource' :: Resource -&gt; Text
 $sel:id:Resource' :: Resource -&gt; Text
 $sel:resourceDataContainer:Resource' :: Resource -&gt; ResourceDataContainer
-</span><a href="#local-6989586621679346480"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679346739"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -263,7 +263,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-114"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ResourceDataContainer -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ResourceDataContainer
-</span><a href="#local-6989586621679346482"><span class="hs-identifier hs-var">resourceDataContainer</span></a></span><span>
+</span><a href="#local-6989586621679346741"><span class="hs-identifier hs-var">resourceDataContainer</span></a></span><span>
 </span><span id="line-115"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -271,14 +271,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346481"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679346740"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346480"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346739"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span></pre></body></html>

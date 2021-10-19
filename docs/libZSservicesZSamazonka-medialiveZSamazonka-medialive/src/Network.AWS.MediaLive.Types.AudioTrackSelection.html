@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Audio Track Selection</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAudioTrackSelection' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679860061"><span id="local-6989586621679860062"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioTrackSelection"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection"><span class="hs-identifier hs-var">AudioTrackSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioTrackSelection%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection%27"><span class="hs-identifier hs-var">AudioTrackSelection'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679866718"><span id="local-6989586621679866719"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioTrackSelection"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection"><span class="hs-identifier hs-var">AudioTrackSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioTrackSelection%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection%27"><span class="hs-identifier hs-var">AudioTrackSelection'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Selects one or more unique audio tracks from within a source.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Atracks%3AAudioTrackSelection%27"><span class="annot"><span class="annottext">AudioTrackSelection -&gt; [AudioTrack]
 </span><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#%24sel%3Atracks%3AAudioTrackSelection%27"><span class="hs-identifier hs-var hs-var">tracks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrack.html#AudioTrack"><span class="hs-identifier hs-type">AudioTrack</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679860055"><span id="local-6989586621679860057"><span class="annot"><span class="annottext">AudioTrackSelection -&gt; AudioTrackSelection -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679866712"><span id="local-6989586621679866714"><span class="annot"><span class="annottext">AudioTrackSelection -&gt; AudioTrackSelection -&gt; Bool
 (AudioTrackSelection -&gt; AudioTrackSelection -&gt; Bool)
 -&gt; (AudioTrackSelection -&gt; AudioTrackSelection -&gt; Bool)
 -&gt; Eq AudioTrackSelection
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AudioTrackSelection -&gt; AudioTrackSelection -&gt; Bool
 == :: AudioTrackSelection -&gt; AudioTrackSelection -&gt; Bool
 $c== :: AudioTrackSelection -&gt; AudioTrackSelection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679860046"><span id="local-6989586621679860048"><span id="local-6989586621679860050"><span id="local-6989586621679860052"><span class="annot"><span class="annottext">ReadPrec [AudioTrackSelection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679866703"><span id="local-6989586621679866705"><span id="local-6989586621679866707"><span id="local-6989586621679866709"><span class="annot"><span class="annottext">ReadPrec [AudioTrackSelection]
 ReadPrec AudioTrackSelection
 Int -&gt; ReadS AudioTrackSelection
 ReadS [AudioTrackSelection]
@@ -61,7 +61,7 @@ readList :: ReadS [AudioTrackSelection]
 $creadList :: ReadS [AudioTrackSelection]
 readsPrec :: Int -&gt; ReadS AudioTrackSelection
 $creadsPrec :: Int -&gt; ReadS AudioTrackSelection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679860039"><span id="local-6989586621679860041"><span id="local-6989586621679860043"><span class="annot"><span class="annottext">Int -&gt; AudioTrackSelection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679866696"><span id="local-6989586621679866698"><span id="local-6989586621679866700"><span class="annot"><span class="annottext">Int -&gt; AudioTrackSelection -&gt; ShowS
 [AudioTrackSelection] -&gt; ShowS
 AudioTrackSelection -&gt; String
 (Int -&gt; AudioTrackSelection -&gt; ShowS)
@@ -115,16 +115,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      AudioTrackSelection AudioTrackSelection [AudioTrack] [AudioTrack]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection%27"><span class="hs-identifier hs-type">AudioTrackSelection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860030"><span class="annot"><span class="annottext">[AudioTrack]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection%27"><span class="hs-identifier hs-type">AudioTrackSelection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679866687"><span class="annot"><span class="annottext">[AudioTrack]
 tracks :: [AudioTrack]
 $sel:tracks:AudioTrackSelection' :: AudioTrackSelection -&gt; [AudioTrack]
-</span><a href="#local-6989586621679860030"><span class="hs-identifier hs-var hs-var">tracks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AudioTrack]
-</span><a href="#local-6989586621679860030"><span class="hs-identifier hs-var">tracks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860029"><span class="annot"><span class="annottext">s :: AudioTrackSelection
-</span><a href="#local-6989586621679860029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection%27"><span class="hs-identifier hs-type">AudioTrackSelection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860028"><span class="annot"><span class="annottext">[AudioTrack]
-</span><a href="#local-6989586621679860028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioTrackSelection
-</span><a href="#local-6989586621679860029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tracks:AudioTrackSelection' :: [AudioTrack]
+</span><a href="#local-6989586621679866687"><span class="hs-identifier hs-var hs-var">tracks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AudioTrack]
+</span><a href="#local-6989586621679866687"><span class="hs-identifier hs-var">tracks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679866686"><span class="annot"><span class="annottext">s :: AudioTrackSelection
+</span><a href="#local-6989586621679866686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection%27"><span class="hs-identifier hs-type">AudioTrackSelection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679866685"><span class="annot"><span class="annottext">[AudioTrack]
+</span><a href="#local-6989586621679866685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioTrackSelection
+</span><a href="#local-6989586621679866686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tracks:AudioTrackSelection' :: [AudioTrack]
 </span><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#%24sel%3Atracks%3AAudioTrackSelection%27"><span class="hs-identifier hs-var">tracks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AudioTrack]
-</span><a href="#local-6989586621679860028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection"><span class="hs-identifier hs-type">AudioTrackSelection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AudioTrack] -&gt; f [AudioTrack])
+</span><a href="#local-6989586621679866685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection"><span class="hs-identifier hs-type">AudioTrackSelection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AudioTrack] -&gt; f [AudioTrack])
  -&gt; AudioTrackSelection -&gt; f AudioTrackSelection)
 -&gt; (([AudioTrack] -&gt; f [AudioTrack])
     -&gt; [AudioTrack] -&gt; f [AudioTrack])
@@ -133,11 +133,11 @@ $sel:tracks:AudioTrackSelection' :: AudioTrackSelection -&gt; [AudioTrack]
 -&gt; f AudioTrackSelection
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AudioTrack] -&gt; f [AudioTrack]) -&gt; [AudioTrack] -&gt; f [AudioTrack]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860023"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection"><span class="hs-identifier hs-type">AudioTrackSelection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679860021"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioTrackSelection
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679866680"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection"><span class="hs-identifier hs-type">AudioTrackSelection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679866678"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioTrackSelection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AudioTrackSelection)
@@ -147,15 +147,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AudioTrackSelection&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679860018"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679860018"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679866675"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679866675"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">[AudioTrack] -&gt; AudioTrackSelection
 </span><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection%27"><span class="hs-identifier hs-var">AudioTrackSelection'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">([AudioTrack] -&gt; AudioTrackSelection)
 -&gt; Parser [AudioTrack] -&gt; Parser AudioTrackSelection
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679860018"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [AudioTrack])
+</span><a href="#local-6989586621679866675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [AudioTrack])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tracks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [AudioTrack]) -&gt; [AudioTrack] -&gt; Parser [AudioTrack]
@@ -165,16 +165,16 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860011"><span id="local-6989586621679860013"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection"><span class="hs-identifier hs-type">AudioTrackSelection</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679866668"><span id="local-6989586621679866670"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection"><span class="hs-identifier hs-type">AudioTrackSelection</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860008"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection"><span class="hs-identifier hs-type">AudioTrackSelection</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679866665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection"><span class="hs-identifier hs-type">AudioTrackSelection</span></a></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860000"><span id="local-6989586621679860002"><span id="local-6989586621679860004"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection"><span class="hs-identifier hs-type">AudioTrackSelection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679859998"><span class="annot"><span class="annottext">toJSON :: AudioTrackSelection -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection%27"><span class="hs-identifier hs-type">AudioTrackSelection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859996"><span class="annot"><span class="annottext">[AudioTrack]
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679866657"><span id="local-6989586621679866659"><span id="local-6989586621679866661"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection"><span class="hs-identifier hs-type">AudioTrackSelection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679866655"><span class="annot"><span class="annottext">toJSON :: AudioTrackSelection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioTrackSelection.html#AudioTrackSelection%27"><span class="hs-identifier hs-type">AudioTrackSelection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679866653"><span class="annot"><span class="annottext">[AudioTrack]
 tracks :: [AudioTrack]
 $sel:tracks:AudioTrackSelection' :: AudioTrackSelection -&gt; [AudioTrack]
-</span><a href="#local-6989586621679859996"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679866653"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -186,6 +186,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;tracks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AudioTrack] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[AudioTrack]
-</span><a href="#local-6989586621679859996"><span class="hs-identifier hs-var">tracks</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679866653"><span class="hs-identifier hs-var">tracks</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span></pre></body></html>

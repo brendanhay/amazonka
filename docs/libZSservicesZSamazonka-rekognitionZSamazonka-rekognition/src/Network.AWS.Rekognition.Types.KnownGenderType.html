@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | A list of enum string of possible gender values that Celebrity returns.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679325141"><span id="local-6989586621679325142"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="KnownGenderType"><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGenderType.html#KnownGenderType"><span class="hs-identifier hs-var">KnownGenderType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KnownGenderType%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGenderType.html#KnownGenderType%27"><span class="hs-identifier hs-var">KnownGenderType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679325420"><span id="local-6989586621679325421"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="KnownGenderType"><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGenderType.html#KnownGenderType"><span class="hs-identifier hs-var">KnownGenderType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KnownGenderType%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGenderType.html#KnownGenderType%27"><span class="hs-identifier hs-var">KnownGenderType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromKnownGenderType"><span class="annot"><span class="annottext">KnownGenderType -&gt; Text
 </span><a href="Network.AWS.Rekognition.Types.KnownGenderType.html#fromKnownGenderType"><span class="hs-identifier hs-var hs-var">fromKnownGenderType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325133"><span id="local-6989586621679325135"><span id="local-6989586621679325137"><span class="annot"><span class="annottext">Int -&gt; KnownGenderType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325412"><span id="local-6989586621679325414"><span id="local-6989586621679325416"><span class="annot"><span class="annottext">Int -&gt; KnownGenderType -&gt; ShowS
 [KnownGenderType] -&gt; ShowS
 KnownGenderType -&gt; String
 (Int -&gt; KnownGenderType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: KnownGenderType -&gt; String
 showsPrec :: Int -&gt; KnownGenderType -&gt; ShowS
 $cshowsPrec :: Int -&gt; KnownGenderType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679325124"><span id="local-6989586621679325126"><span id="local-6989586621679325128"><span id="local-6989586621679325130"><span class="annot"><span class="annottext">ReadPrec [KnownGenderType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679325403"><span id="local-6989586621679325405"><span id="local-6989586621679325407"><span id="local-6989586621679325409"><span class="annot"><span class="annottext">ReadPrec [KnownGenderType]
 ReadPrec KnownGenderType
 Int -&gt; ReadS KnownGenderType
 ReadS [KnownGenderType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [KnownGenderType]
 readsPrec :: Int -&gt; ReadS KnownGenderType
 $creadsPrec :: Int -&gt; ReadS KnownGenderType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679325119"><span id="local-6989586621679325121"><span class="annot"><span class="annottext">KnownGenderType -&gt; KnownGenderType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679325398"><span id="local-6989586621679325400"><span class="annot"><span class="annottext">KnownGenderType -&gt; KnownGenderType -&gt; Bool
 (KnownGenderType -&gt; KnownGenderType -&gt; Bool)
 -&gt; (KnownGenderType -&gt; KnownGenderType -&gt; Bool)
 -&gt; Eq KnownGenderType
@@ -83,7 +83,7 @@ $c/= :: KnownGenderType -&gt; KnownGenderType -&gt; Bool
 == :: KnownGenderType -&gt; KnownGenderType -&gt; Bool
 $c== :: KnownGenderType -&gt; KnownGenderType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679325103"><span id="local-6989586621679325105"><span id="local-6989586621679325107"><span id="local-6989586621679325109"><span id="local-6989586621679325111"><span id="local-6989586621679325113"><span id="local-6989586621679325115"><span class="annot"><span class="annottext">Eq KnownGenderType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679325382"><span id="local-6989586621679325384"><span id="local-6989586621679325386"><span id="local-6989586621679325388"><span id="local-6989586621679325390"><span id="local-6989586621679325392"><span id="local-6989586621679325394"><span class="annot"><span class="annottext">Eq KnownGenderType
 Eq KnownGenderType
 -&gt; (KnownGenderType -&gt; KnownGenderType -&gt; Ordering)
 -&gt; (KnownGenderType -&gt; KnownGenderType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. KnownGenderType -&gt; Rep KnownGenderType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325095"><span id="local-6989586621679325097"><span class="annot"><span class="annottext">Int -&gt; KnownGenderType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325374"><span id="local-6989586621679325376"><span class="annot"><span class="annottext">Int -&gt; KnownGenderType -&gt; Int
 KnownGenderType -&gt; Int
 (Int -&gt; KnownGenderType -&gt; Int)
 -&gt; (KnownGenderType -&gt; Int) -&gt; Hashable KnownGenderType
@@ -144,50 +144,50 @@ $chash :: KnownGenderType -&gt; Int
 hashWithSalt :: Int -&gt; KnownGenderType -&gt; Int
 $chashWithSalt :: Int -&gt; KnownGenderType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679325092"><span class="annot"><span class="annottext">KnownGenderType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679325371"><span class="annot"><span class="annottext">KnownGenderType -&gt; ()
 (KnownGenderType -&gt; ()) -&gt; NFData KnownGenderType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: KnownGenderType -&gt; ()
 $crnf :: KnownGenderType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679325089"><span class="annot"><span class="annottext">Text -&gt; Either String KnownGenderType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679325368"><span class="annot"><span class="annottext">Text -&gt; Either String KnownGenderType
 (Text -&gt; Either String KnownGenderType) -&gt; FromText KnownGenderType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String KnownGenderType
 $cfromText :: Text -&gt; Either String KnownGenderType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679325086"><span class="annot"><span class="annottext">KnownGenderType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679325365"><span class="annot"><span class="annottext">KnownGenderType -&gt; Text
 (KnownGenderType -&gt; Text) -&gt; ToText KnownGenderType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: KnownGenderType -&gt; Text
 $ctoText :: KnownGenderType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679325083"><span class="annot"><span class="annottext">KnownGenderType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679325362"><span class="annot"><span class="annottext">KnownGenderType -&gt; ByteString
 (KnownGenderType -&gt; ByteString) -&gt; ToByteString KnownGenderType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: KnownGenderType -&gt; ByteString
 $ctoBS :: KnownGenderType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679325080"><span class="annot"><span class="annottext">KnownGenderType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679325359"><span class="annot"><span class="annottext">KnownGenderType -&gt; ByteStringBuilder
 (KnownGenderType -&gt; ByteStringBuilder) -&gt; ToLog KnownGenderType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: KnownGenderType -&gt; ByteStringBuilder
 $cbuild :: KnownGenderType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679325077"><span class="annot"><span class="annottext">HeaderName -&gt; KnownGenderType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679325356"><span class="annot"><span class="annottext">HeaderName -&gt; KnownGenderType -&gt; [Header]
 (HeaderName -&gt; KnownGenderType -&gt; [Header])
 -&gt; ToHeader KnownGenderType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; KnownGenderType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; KnownGenderType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679325074"><span class="annot"><span class="annottext">KnownGenderType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679325353"><span class="annot"><span class="annottext">KnownGenderType -&gt; QueryString
 (KnownGenderType -&gt; QueryString) -&gt; ToQuery KnownGenderType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: KnownGenderType -&gt; QueryString
 $ctoQuery :: KnownGenderType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679325069"><span id="local-6989586621679325071"><span class="annot"><span class="annottext">Value -&gt; Parser [KnownGenderType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679325348"><span id="local-6989586621679325350"><span class="annot"><span class="annottext">Value -&gt; Parser [KnownGenderType]
 Value -&gt; Parser KnownGenderType
 (Value -&gt; Parser KnownGenderType)
 -&gt; (Value -&gt; Parser [KnownGenderType]) -&gt; FromJSON KnownGenderType
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [KnownGenderType]
 parseJSON :: Value -&gt; Parser KnownGenderType
 $cparseJSON :: Value -&gt; Parser KnownGenderType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679325064"><span id="local-6989586621679325066"><span class="annot"><span class="annottext">FromJSONKeyFunction [KnownGenderType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679325343"><span id="local-6989586621679325345"><span class="annot"><span class="annottext">FromJSONKeyFunction [KnownGenderType]
 FromJSONKeyFunction KnownGenderType
 FromJSONKeyFunction KnownGenderType
 -&gt; FromJSONKeyFunction [KnownGenderType]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [KnownGenderType]
 fromJSONKey :: FromJSONKeyFunction KnownGenderType
 $cfromJSONKey :: FromJSONKeyFunction KnownGenderType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679325055"><span id="local-6989586621679325057"><span id="local-6989586621679325059"><span id="local-6989586621679325061"><span class="annot"><span class="annottext">[KnownGenderType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679325334"><span id="local-6989586621679325336"><span id="local-6989586621679325338"><span id="local-6989586621679325340"><span class="annot"><span class="annottext">[KnownGenderType] -&gt; Encoding
 [KnownGenderType] -&gt; Value
 KnownGenderType -&gt; Encoding
 KnownGenderType -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: KnownGenderType -&gt; Encoding
 toJSON :: KnownGenderType -&gt; Value
 $ctoJSON :: KnownGenderType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679325050"><span id="local-6989586621679325052"><span class="annot"><span class="annottext">ToJSONKeyFunction [KnownGenderType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679325329"><span id="local-6989586621679325331"><span class="annot"><span class="annottext">ToJSONKeyFunction [KnownGenderType]
 ToJSONKeyFunction KnownGenderType
 ToJSONKeyFunction KnownGenderType
 -&gt; ToJSONKeyFunction [KnownGenderType] -&gt; ToJSONKey KnownGenderType
@@ -245,14 +245,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [KnownGenderType]
 toJSONKey :: ToJSONKeyFunction KnownGenderType
 $ctoJSONKey :: ToJSONKeyFunction KnownGenderType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679325047"><span class="annot"><span class="annottext">[Node] -&gt; Either String KnownGenderType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679325326"><span class="annot"><span class="annottext">[Node] -&gt; Either String KnownGenderType
 ([Node] -&gt; Either String KnownGenderType)
 -&gt; FromXML KnownGenderType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String KnownGenderType
 $cparseXML :: [Node] -&gt; Either String KnownGenderType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679325044"><span class="annot"><span class="annottext">KnownGenderType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679325323"><span class="annot"><span class="annottext">KnownGenderType -&gt; XML
 (KnownGenderType -&gt; XML) -&gt; ToXML KnownGenderType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: KnownGenderType -&gt; XML

@@ -29,26 +29,26 @@
 </span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html GetSamplingTargets&gt;.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSamplingTargetDocument' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679255159"><span id="local-6989586621679255160"></span></span><span class="hs-keyword">data</span><span> </span><span id="SamplingTargetDocument"><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-var">SamplingTargetDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SamplingTargetDocument%27"><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-var">SamplingTargetDocument'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679255441"><span id="local-6989586621679255442"></span></span><span class="hs-keyword">data</span><span> </span><span id="SamplingTargetDocument"><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-var">SamplingTargetDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SamplingTargetDocument%27"><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-var">SamplingTargetDocument'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of requests per second that X-Ray allocated for this service.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AreservoirQuota%3ASamplingTargetDocument%27"><span class="annot"><span class="annottext">SamplingTargetDocument -&gt; Maybe Int
 </span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3AreservoirQuota%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var hs-var">reservoirQuota</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The percentage of matching requests to instrument, after the reservoir</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- is exhausted.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AfixedRate%3ASamplingTargetDocument%27"><span class="annot"><span class="annottext">SamplingTargetDocument -&gt; Maybe Double
-</span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3AfixedRate%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var hs-var">fixedRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the sampling rule.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AruleName%3ASamplingTargetDocument%27"><span class="annot"><span class="annottext">SamplingTargetDocument -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the sampling rule.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AruleName%3ASamplingTargetDocument%27"><span class="annot"><span class="annottext">SamplingTargetDocument -&gt; Maybe Text
 </span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3AruleName%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | When the reservoir quota expires.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AreservoirQuotaTTL%3ASamplingTargetDocument%27"><span class="annot"><span class="annottext">SamplingTargetDocument -&gt; Maybe POSIX
-</span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3AreservoirQuotaTTL%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var hs-var">reservoirQuotaTTL</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The number of seconds for the service to wait before getting sampling</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- targets again.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3Ainterval%3ASamplingTargetDocument%27"><span class="annot"><span class="annottext">SamplingTargetDocument -&gt; Maybe Int
-</span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3Ainterval%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var hs-var">interval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The percentage of matching requests to instrument, after the reservoir</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- is exhausted.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AfixedRate%3ASamplingTargetDocument%27"><span class="annot"><span class="annottext">SamplingTargetDocument -&gt; Maybe Double
+</span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3AfixedRate%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var hs-var">fixedRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The number of seconds for the service to wait before getting sampling</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- targets again.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Ainterval%3ASamplingTargetDocument%27"><span class="annot"><span class="annottext">SamplingTargetDocument -&gt; Maybe Int
+</span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3Ainterval%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var hs-var">interval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | When the reservoir quota expires.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AreservoirQuotaTTL%3ASamplingTargetDocument%27"><span class="annot"><span class="annottext">SamplingTargetDocument -&gt; Maybe POSIX
+</span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3AreservoirQuotaTTL%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var hs-var">reservoirQuotaTTL</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255149"><span id="local-6989586621679255151"><span class="annot"><span class="annottext">SamplingTargetDocument -&gt; SamplingTargetDocument -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255431"><span id="local-6989586621679255433"><span class="annot"><span class="annottext">SamplingTargetDocument -&gt; SamplingTargetDocument -&gt; Bool
 (SamplingTargetDocument -&gt; SamplingTargetDocument -&gt; Bool)
 -&gt; (SamplingTargetDocument -&gt; SamplingTargetDocument -&gt; Bool)
 -&gt; Eq SamplingTargetDocument
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SamplingTargetDocument -&gt; SamplingTargetDocument -&gt; Bool
 == :: SamplingTargetDocument -&gt; SamplingTargetDocument -&gt; Bool
 $c== :: SamplingTargetDocument -&gt; SamplingTargetDocument -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255140"><span id="local-6989586621679255142"><span id="local-6989586621679255144"><span id="local-6989586621679255146"><span class="annot"><span class="annottext">ReadPrec [SamplingTargetDocument]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255422"><span id="local-6989586621679255424"><span id="local-6989586621679255426"><span id="local-6989586621679255428"><span class="annot"><span class="annottext">ReadPrec [SamplingTargetDocument]
 ReadPrec SamplingTargetDocument
 Int -&gt; ReadS SamplingTargetDocument
 ReadS [SamplingTargetDocument]
@@ -77,7 +77,7 @@ readList :: ReadS [SamplingTargetDocument]
 $creadList :: ReadS [SamplingTargetDocument]
 readsPrec :: Int -&gt; ReadS SamplingTargetDocument
 $creadsPrec :: Int -&gt; ReadS SamplingTargetDocument
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255133"><span id="local-6989586621679255135"><span id="local-6989586621679255137"><span class="annot"><span class="annottext">Int -&gt; SamplingTargetDocument -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255415"><span id="local-6989586621679255417"><span id="local-6989586621679255419"><span class="annot"><span class="annottext">Int -&gt; SamplingTargetDocument -&gt; ShowS
 [SamplingTargetDocument] -&gt; ShowS
 SamplingTargetDocument -&gt; String
 (Int -&gt; SamplingTargetDocument -&gt; ShowS)
@@ -114,24 +114,24 @@ $cfrom :: forall x. SamplingTargetDocument -&gt; Rep SamplingTargetDocument x
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- 'reservoirQuota', 'samplingTargetDocument_reservoirQuota' - The number of requests per second that X-Ray allocated for this service.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'fixedRate', 'samplingTargetDocument_fixedRate' - The percentage of matching requests to instrument, after the reservoir</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- is exhausted.</span><span>
-</span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'ruleName', 'samplingTargetDocument_ruleName' - The name of the sampling rule.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'ruleName', 'samplingTargetDocument_ruleName' - The name of the sampling rule.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'fixedRate', 'samplingTargetDocument_fixedRate' - The percentage of matching requests to instrument, after the reservoir</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- is exhausted.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'reservoirQuotaTTL', 'samplingTargetDocument_reservoirQuotaTTL' - When the reservoir quota expires.</span><span>
-</span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'interval', 'samplingTargetDocument_interval' - The number of seconds for the service to wait before getting sampling</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- targets again.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'interval', 'samplingTargetDocument_interval' - The number of seconds for the service to wait before getting sampling</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- targets again.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'reservoirQuotaTTL', 'samplingTargetDocument_reservoirQuotaTTL' - When the reservoir quota expires.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#newSamplingTargetDocument"><span class="hs-identifier hs-type">newSamplingTargetDocument</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span>
 </span><span id="line-69"></span><span id="newSamplingTargetDocument"><span class="annot"><span class="annottext">newSamplingTargetDocument :: SamplingTargetDocument
 </span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#newSamplingTargetDocument"><span class="hs-identifier hs-var hs-var">newSamplingTargetDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">SamplingTargetDocument' :: Maybe Int
--&gt; Maybe Double
 -&gt; Maybe Text
--&gt; Maybe POSIX
+-&gt; Maybe Double
 -&gt; Maybe Int
+-&gt; Maybe POSIX
 -&gt; SamplingTargetDocument
 </span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reservoirQuota:SamplingTargetDocument' :: Maybe Int
@@ -139,20 +139,20 @@ $cfrom :: forall x. SamplingTargetDocument -&gt; Rep SamplingTargetDocument x
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:fixedRate:SamplingTargetDocument' :: Maybe Double
-</span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3AfixedRate%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var">fixedRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleName:SamplingTargetDocument' :: Maybe Text
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleName:SamplingTargetDocument' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3AruleName%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var">ruleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:reservoirQuotaTTL:SamplingTargetDocument' :: Maybe POSIX
-</span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3AreservoirQuotaTTL%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var">reservoirQuotaTTL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:fixedRate:SamplingTargetDocument' :: Maybe Double
+</span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3AfixedRate%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var">fixedRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:interval:SamplingTargetDocument' :: Maybe Int
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:interval:SamplingTargetDocument' :: Maybe Int
 </span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3Ainterval%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var">interval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:reservoirQuotaTTL:SamplingTargetDocument' :: Maybe POSIX
+</span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3AreservoirQuotaTTL%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var">reservoirQuotaTTL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
@@ -169,21 +169,44 @@ forall a. Maybe a
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255124"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255406"><span class="annot"><span class="annottext">Maybe Int
 reservoirQuota :: Maybe Int
 $sel:reservoirQuota:SamplingTargetDocument' :: SamplingTargetDocument -&gt; Maybe Int
-</span><a href="#local-6989586621679255124"><span class="hs-identifier hs-var hs-var">reservoirQuota</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679255124"><span class="hs-identifier hs-var">reservoirQuota</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255123"><span class="annot"><span class="annottext">s :: SamplingTargetDocument
-</span><a href="#local-6989586621679255123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255122"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679255122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingTargetDocument
-</span><a href="#local-6989586621679255123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservoirQuota:SamplingTargetDocument' :: Maybe Int
+</span><a href="#local-6989586621679255406"><span class="hs-identifier hs-var hs-var">reservoirQuota</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679255406"><span class="hs-identifier hs-var">reservoirQuota</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255405"><span class="annot"><span class="annottext">s :: SamplingTargetDocument
+</span><a href="#local-6989586621679255405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255404"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679255404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingTargetDocument
+</span><a href="#local-6989586621679255405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservoirQuota:SamplingTargetDocument' :: Maybe Int
 </span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3AreservoirQuota%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var">reservoirQuota</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679255122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | The percentage of matching requests to instrument, after the reservoir</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- is exhausted.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#samplingTargetDocument_fixedRate"><span class="hs-identifier hs-type">samplingTargetDocument_fixedRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="samplingTargetDocument_fixedRate"><span class="annot"><span class="annottext">samplingTargetDocument_fixedRate :: (Maybe Double -&gt; f (Maybe Double))
+</span><span id="line-83"></span><span class="hs-comment">-- | The name of the sampling rule.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#samplingTargetDocument_ruleName"><span class="hs-identifier hs-type">samplingTargetDocument_ruleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="samplingTargetDocument_ruleName"><span class="annot"><span class="annottext">samplingTargetDocument_ruleName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SamplingTargetDocument -&gt; f SamplingTargetDocument
+</span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#samplingTargetDocument_ruleName"><span class="hs-identifier hs-var hs-var">samplingTargetDocument_ruleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingTargetDocument -&gt; Maybe Text)
+-&gt; (SamplingTargetDocument -&gt; Maybe Text -&gt; SamplingTargetDocument)
+-&gt; Lens
+     SamplingTargetDocument
+     SamplingTargetDocument
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255402"><span class="annot"><span class="annottext">Maybe Text
+ruleName :: Maybe Text
+$sel:ruleName:SamplingTargetDocument' :: SamplingTargetDocument -&gt; Maybe Text
+</span><a href="#local-6989586621679255402"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255402"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255401"><span class="annot"><span class="annottext">s :: SamplingTargetDocument
+</span><a href="#local-6989586621679255401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255400"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingTargetDocument
+</span><a href="#local-6989586621679255401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleName:SamplingTargetDocument' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3AruleName%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var">ruleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The percentage of matching requests to instrument, after the reservoir</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- is exhausted.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#samplingTargetDocument_fixedRate"><span class="hs-identifier hs-type">samplingTargetDocument_fixedRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="samplingTargetDocument_fixedRate"><span class="annot"><span class="annottext">samplingTargetDocument_fixedRate :: (Maybe Double -&gt; f (Maybe Double))
 -&gt; SamplingTargetDocument -&gt; f SamplingTargetDocument
 </span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#samplingTargetDocument_fixedRate"><span class="hs-identifier hs-var hs-var">samplingTargetDocument_fixedRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingTargetDocument -&gt; Maybe Double)
 -&gt; (SamplingTargetDocument
@@ -194,43 +217,44 @@ $sel:reservoirQuota:SamplingTargetDocument' :: SamplingTargetDocument -&gt; Mayb
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255120"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255398"><span class="annot"><span class="annottext">Maybe Double
 fixedRate :: Maybe Double
 $sel:fixedRate:SamplingTargetDocument' :: SamplingTargetDocument -&gt; Maybe Double
-</span><a href="#local-6989586621679255120"><span class="hs-identifier hs-var hs-var">fixedRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679255120"><span class="hs-identifier hs-var">fixedRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255119"><span class="annot"><span class="annottext">s :: SamplingTargetDocument
-</span><a href="#local-6989586621679255119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255118"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679255118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingTargetDocument
-</span><a href="#local-6989586621679255119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fixedRate:SamplingTargetDocument' :: Maybe Double
+</span><a href="#local-6989586621679255398"><span class="hs-identifier hs-var hs-var">fixedRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679255398"><span class="hs-identifier hs-var">fixedRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255397"><span class="annot"><span class="annottext">s :: SamplingTargetDocument
+</span><a href="#local-6989586621679255397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255396"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679255396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingTargetDocument
+</span><a href="#local-6989586621679255397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fixedRate:SamplingTargetDocument' :: Maybe Double
 </span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3AfixedRate%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var">fixedRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679255118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The name of the sampling rule.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#samplingTargetDocument_ruleName"><span class="hs-identifier hs-type">samplingTargetDocument_ruleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="samplingTargetDocument_ruleName"><span class="annot"><span class="annottext">samplingTargetDocument_ruleName :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679255396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The number of seconds for the service to wait before getting sampling</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- targets again.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#samplingTargetDocument_interval"><span class="hs-identifier hs-type">samplingTargetDocument_interval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="samplingTargetDocument_interval"><span class="annot"><span class="annottext">samplingTargetDocument_interval :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; SamplingTargetDocument -&gt; f SamplingTargetDocument
-</span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#samplingTargetDocument_ruleName"><span class="hs-identifier hs-var hs-var">samplingTargetDocument_ruleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingTargetDocument -&gt; Maybe Text)
--&gt; (SamplingTargetDocument -&gt; Maybe Text -&gt; SamplingTargetDocument)
+</span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#samplingTargetDocument_interval"><span class="hs-identifier hs-var hs-var">samplingTargetDocument_interval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingTargetDocument -&gt; Maybe Int)
+-&gt; (SamplingTargetDocument -&gt; Maybe Int -&gt; SamplingTargetDocument)
 -&gt; Lens
      SamplingTargetDocument
      SamplingTargetDocument
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe Int)
+     (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255116"><span class="annot"><span class="annottext">Maybe Text
-ruleName :: Maybe Text
-$sel:ruleName:SamplingTargetDocument' :: SamplingTargetDocument -&gt; Maybe Text
-</span><a href="#local-6989586621679255116"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255116"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255115"><span class="annot"><span class="annottext">s :: SamplingTargetDocument
-</span><a href="#local-6989586621679255115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255114"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingTargetDocument
-</span><a href="#local-6989586621679255115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleName:SamplingTargetDocument' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3AruleName%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var">ruleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | When the reservoir quota expires.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#samplingTargetDocument_reservoirQuotaTTL"><span class="hs-identifier hs-type">samplingTargetDocument_reservoirQuotaTTL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="samplingTargetDocument_reservoirQuotaTTL"><span class="annot"><span class="annottext">samplingTargetDocument_reservoirQuotaTTL :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255394"><span class="annot"><span class="annottext">Maybe Int
+interval :: Maybe Int
+$sel:interval:SamplingTargetDocument' :: SamplingTargetDocument -&gt; Maybe Int
+</span><a href="#local-6989586621679255394"><span class="hs-identifier hs-var hs-var">interval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679255394"><span class="hs-identifier hs-var">interval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255393"><span class="annot"><span class="annottext">s :: SamplingTargetDocument
+</span><a href="#local-6989586621679255393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255392"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679255392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingTargetDocument
+</span><a href="#local-6989586621679255393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interval:SamplingTargetDocument' :: Maybe Int
+</span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3Ainterval%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var">interval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679255392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | When the reservoir quota expires.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#samplingTargetDocument_reservoirQuotaTTL"><span class="hs-identifier hs-type">samplingTargetDocument_reservoirQuotaTTL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="samplingTargetDocument_reservoirQuotaTTL"><span class="annot"><span class="annottext">samplingTargetDocument_reservoirQuotaTTL :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; SamplingTargetDocument -&gt; f SamplingTargetDocument
 </span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#samplingTargetDocument_reservoirQuotaTTL"><span class="hs-identifier hs-var hs-var">samplingTargetDocument_reservoirQuotaTTL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingTargetDocument -&gt; Maybe POSIX)
 -&gt; (SamplingTargetDocument
@@ -241,16 +265,16 @@ $sel:ruleName:SamplingTargetDocument' :: SamplingTargetDocument -&gt; Maybe Text
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255112"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255390"><span class="annot"><span class="annottext">Maybe POSIX
 reservoirQuotaTTL :: Maybe POSIX
 $sel:reservoirQuotaTTL:SamplingTargetDocument' :: SamplingTargetDocument -&gt; Maybe POSIX
-</span><a href="#local-6989586621679255112"><span class="hs-identifier hs-var hs-var">reservoirQuotaTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679255112"><span class="hs-identifier hs-var">reservoirQuotaTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255111"><span class="annot"><span class="annottext">s :: SamplingTargetDocument
-</span><a href="#local-6989586621679255111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255110"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679255110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingTargetDocument
-</span><a href="#local-6989586621679255111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservoirQuotaTTL:SamplingTargetDocument' :: Maybe POSIX
+</span><a href="#local-6989586621679255390"><span class="hs-identifier hs-var hs-var">reservoirQuotaTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679255390"><span class="hs-identifier hs-var">reservoirQuotaTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255389"><span class="annot"><span class="annottext">s :: SamplingTargetDocument
+</span><a href="#local-6989586621679255389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255388"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679255388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingTargetDocument
+</span><a href="#local-6989586621679255389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservoirQuotaTTL:SamplingTargetDocument' :: Maybe POSIX
 </span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3AreservoirQuotaTTL%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var">reservoirQuotaTTL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679255110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679255388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; SamplingTargetDocument -&gt; f SamplingTargetDocument)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -266,33 +290,9 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The number of seconds for the service to wait before getting sampling</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- targets again.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#samplingTargetDocument_interval"><span class="hs-identifier hs-type">samplingTargetDocument_interval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="samplingTargetDocument_interval"><span class="annot"><span class="annottext">samplingTargetDocument_interval :: (Maybe Int -&gt; f (Maybe Int))
--&gt; SamplingTargetDocument -&gt; f SamplingTargetDocument
-</span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#samplingTargetDocument_interval"><span class="hs-identifier hs-var hs-var">samplingTargetDocument_interval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingTargetDocument -&gt; Maybe Int)
--&gt; (SamplingTargetDocument -&gt; Maybe Int -&gt; SamplingTargetDocument)
--&gt; Lens
-     SamplingTargetDocument
-     SamplingTargetDocument
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255105"><span class="annot"><span class="annottext">Maybe Int
-interval :: Maybe Int
-$sel:interval:SamplingTargetDocument' :: SamplingTargetDocument -&gt; Maybe Int
-</span><a href="#local-6989586621679255105"><span class="hs-identifier hs-var hs-var">interval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679255105"><span class="hs-identifier hs-var">interval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255104"><span class="annot"><span class="annottext">s :: SamplingTargetDocument
-</span><a href="#local-6989586621679255104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-type">SamplingTargetDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255103"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679255103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingTargetDocument
-</span><a href="#local-6989586621679255104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interval:SamplingTargetDocument' :: Maybe Int
-</span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#%24sel%3Ainterval%3ASamplingTargetDocument%27"><span class="hs-identifier hs-var">interval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679255103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255100"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679255098"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SamplingTargetDocument
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255382"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679255380"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SamplingTargetDocument
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SamplingTargetDocument)
@@ -302,79 +302,81 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SamplingTargetDocument&quot;</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255095"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255095"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255377"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255377"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
--&gt; Maybe Double
 -&gt; Maybe Text
--&gt; Maybe POSIX
+-&gt; Maybe Double
 -&gt; Maybe Int
+-&gt; Maybe POSIX
 -&gt; SamplingTargetDocument
 </span><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument%27"><span class="hs-identifier hs-var">SamplingTargetDocument'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
- -&gt; Maybe Double
  -&gt; Maybe Text
- -&gt; Maybe POSIX
+ -&gt; Maybe Double
  -&gt; Maybe Int
+ -&gt; Maybe POSIX
  -&gt; SamplingTargetDocument)
 -&gt; Parser (Maybe Int)
 -&gt; Parser
-     (Maybe Double
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
+     (Maybe Text
+      -&gt; Maybe Double
       -&gt; Maybe Int
+      -&gt; Maybe POSIX
       -&gt; SamplingTargetDocument)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679255377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReservoirQuota&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Double
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
+  (Maybe Text
+   -&gt; Maybe Double
    -&gt; Maybe Int
+   -&gt; Maybe POSIX
    -&gt; SamplingTargetDocument)
--&gt; Parser (Maybe Double)
--&gt; Parser
-     (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Int -&gt; SamplingTargetDocument)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FixedRate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Int -&gt; SamplingTargetDocument)
 -&gt; Parser (Maybe Text)
--&gt; Parser (Maybe POSIX -&gt; Maybe Int -&gt; SamplingTargetDocument)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe Int -&gt; Maybe POSIX -&gt; SamplingTargetDocument)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679255377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RuleName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Int -&gt; SamplingTargetDocument)
--&gt; Parser (Maybe POSIX)
--&gt; Parser (Maybe Int -&gt; SamplingTargetDocument)
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe Int -&gt; Maybe POSIX -&gt; SamplingTargetDocument)
+-&gt; Parser (Maybe Double)
+-&gt; Parser (Maybe Int -&gt; Maybe POSIX -&gt; SamplingTargetDocument)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679255377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReservoirQuotaTTL&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; SamplingTargetDocument)
--&gt; Parser (Maybe Int) -&gt; Parser SamplingTargetDocument
+</span><span class="hs-string">&quot;FixedRate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe POSIX -&gt; SamplingTargetDocument)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe POSIX -&gt; SamplingTargetDocument)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679255377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Interval&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; SamplingTargetDocument)
+-&gt; Parser (Maybe POSIX) -&gt; Parser SamplingTargetDocument
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReservoirQuotaTTL&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255089"><span id="local-6989586621679255091"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255371"><span id="local-6989586621679255373"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255086"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255368"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingTargetDocument.html#SamplingTargetDocument"><span class="hs-identifier hs-type">SamplingTargetDocument</span></a></span></span><span>
 </span><span id="line-117"></span></pre></body></html>

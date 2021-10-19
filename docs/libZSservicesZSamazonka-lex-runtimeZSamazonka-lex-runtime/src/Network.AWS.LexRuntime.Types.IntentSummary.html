@@ -32,53 +32,53 @@
 </span><span id="line-32"></span><span class="hs-comment">-- state.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newIntentSummary' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679173639"><span id="local-6989586621679173640"></span></span><span class="hs-keyword">data</span><span> </span><span id="IntentSummary"><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-var">IntentSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IntentSummary%27"><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-var">IntentSummary'</span></a></span></span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the intent.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AintentName%3AIntentSummary%27"><span class="annot"><span class="annottext">IntentSummary -&gt; Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AintentName%3AIntentSummary%27"><span class="hs-identifier hs-var hs-var">intentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The fulfillment state of the intent. The possible values are:</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   @Failed@ - The Lambda function associated with the intent failed to</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">--     fulfill the intent.</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   @Fulfilled@ - The intent has fulfilled by the Lambda function</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     associated with the intent.</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   @ReadyForFulfillment@ - All of the information necessary for the</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     intent is present and the intent ready to be fulfilled by the client</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     application.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AfulfillmentState%3AIntentSummary%27"><span class="annot"><span class="annottext">IntentSummary -&gt; Maybe FulfillmentState
-</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AfulfillmentState%3AIntentSummary%27"><span class="hs-identifier hs-var hs-var">fulfillmentState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.FulfillmentState.html#FulfillmentState"><span class="hs-identifier hs-type">FulfillmentState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Map of the slots that have been gathered and their values.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aslots%3AIntentSummary%27"><span class="annot"><span class="annottext">IntentSummary -&gt; Maybe (Sensitive (HashMap Text Text))
-</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3Aslots%3AIntentSummary%27"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | A user-defined label that identifies a particular intent. You can use</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- this label to return to a previous intent.</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Use the @checkpointLabelFilter@ parameter of the @GetSessionRequest@</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- operation to filter the intents returned by the operation to those with</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- only the specified label.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AcheckpointLabel%3AIntentSummary%27"><span class="annot"><span class="annottext">IntentSummary -&gt; Maybe Text
+</span><span id="line-35"></span><span id="local-6989586621679173709"><span id="local-6989586621679173710"></span></span><span class="hs-keyword">data</span><span> </span><span id="IntentSummary"><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-var">IntentSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IntentSummary%27"><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-var">IntentSummary'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A user-defined label that identifies a particular intent. You can use</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- this label to return to a previous intent.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Use the @checkpointLabelFilter@ parameter of the @GetSessionRequest@</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- operation to filter the intents returned by the operation to those with</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- only the specified label.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcheckpointLabel%3AIntentSummary%27"><span class="annot"><span class="annottext">IntentSummary -&gt; Maybe Text
 </span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AcheckpointLabel%3AIntentSummary%27"><span class="hs-identifier hs-var hs-var">checkpointLabel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The next slot to elicit from the user. If there is not slot to elicit,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- the field is blank.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AslotToElicit%3AIntentSummary%27"><span class="annot"><span class="annottext">IntentSummary -&gt; Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AslotToElicit%3AIntentSummary%27"><span class="hs-identifier hs-var hs-var">slotToElicit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The status of the intent after the user responds to the confirmation</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- prompt. If the user confirms the intent, Amazon Lex sets this field to</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @Confirmed@. If the user denies the intent, Amazon Lex sets this value</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- to @Denied@. The possible values are:</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   @Confirmed@ - The user has responded \&quot;Yes\&quot; to the confirmation</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     prompt, confirming that the intent is complete and that it is ready</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     to be fulfilled.</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   @Denied@ - The user has responded \&quot;No\&quot; to the confirmation prompt.</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   @None@ - The user has never been prompted for confirmation; or, the</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     user was prompted but did not confirm or deny the prompt.</span><span>
-</span><span id="line-75"></span><span>    </span><span id="%24sel%3AconfirmationStatus%3AIntentSummary%27"><span class="annot"><span class="annottext">IntentSummary -&gt; Maybe ConfirmationStatus
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Map of the slots that have been gathered and their values.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aslots%3AIntentSummary%27"><span class="annot"><span class="annottext">IntentSummary -&gt; Maybe (Sensitive (HashMap Text Text))
+</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3Aslots%3AIntentSummary%27"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The name of the intent.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AintentName%3AIntentSummary%27"><span class="annot"><span class="annottext">IntentSummary -&gt; Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AintentName%3AIntentSummary%27"><span class="hs-identifier hs-var hs-var">intentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The fulfillment state of the intent. The possible values are:</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- -   @Failed@ - The Lambda function associated with the intent failed to</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     fulfill the intent.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- -   @Fulfilled@ - The intent has fulfilled by the Lambda function</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     associated with the intent.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   @ReadyForFulfillment@ - All of the information necessary for the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     intent is present and the intent ready to be fulfilled by the client</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     application.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AfulfillmentState%3AIntentSummary%27"><span class="annot"><span class="annottext">IntentSummary -&gt; Maybe FulfillmentState
+</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AfulfillmentState%3AIntentSummary%27"><span class="hs-identifier hs-var hs-var">fulfillmentState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.FulfillmentState.html#FulfillmentState"><span class="hs-identifier hs-type">FulfillmentState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The status of the intent after the user responds to the confirmation</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- prompt. If the user confirms the intent, Amazon Lex sets this field to</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- @Confirmed@. If the user denies the intent, Amazon Lex sets this value</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- to @Denied@. The possible values are:</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   @Confirmed@ - The user has responded \&quot;Yes\&quot; to the confirmation</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     prompt, confirming that the intent is complete and that it is ready</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     to be fulfilled.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   @Denied@ - The user has responded \&quot;No\&quot; to the confirmation prompt.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   @None@ - The user has never been prompted for confirmation; or, the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     user was prompted but did not confirm or deny the prompt.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AconfirmationStatus%3AIntentSummary%27"><span class="annot"><span class="annottext">IntentSummary -&gt; Maybe ConfirmationStatus
 </span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AconfirmationStatus%3AIntentSummary%27"><span class="hs-identifier hs-var hs-var">confirmationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ConfirmationStatus.html#ConfirmationStatus"><span class="hs-identifier hs-type">ConfirmationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The next slot to elicit from the user. If there is not slot to elicit,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- the field is blank.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AslotToElicit%3AIntentSummary%27"><span class="annot"><span class="annottext">IntentSummary -&gt; Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AslotToElicit%3AIntentSummary%27"><span class="hs-identifier hs-var hs-var">slotToElicit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The next action that the bot should take in its interaction with the</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- user. The possible values are:</span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -98,7 +98,7 @@
 </span><span id="line-92"></span><span>    </span><span id="%24sel%3AdialogActionType%3AIntentSummary%27"><span class="annot"><span class="annottext">IntentSummary -&gt; DialogActionType
 </span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AdialogActionType%3AIntentSummary%27"><span class="hs-identifier hs-var hs-var">dialogActionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogActionType.html#DialogActionType"><span class="hs-identifier hs-type">DialogActionType</span></a></span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679173627"><span id="local-6989586621679173629"><span class="annot"><span class="annottext">IntentSummary -&gt; IntentSummary -&gt; Bool
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679173697"><span id="local-6989586621679173699"><span class="annot"><span class="annottext">IntentSummary -&gt; IntentSummary -&gt; Bool
 (IntentSummary -&gt; IntentSummary -&gt; Bool)
 -&gt; (IntentSummary -&gt; IntentSummary -&gt; Bool) -&gt; Eq IntentSummary
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -106,7 +106,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IntentSummary -&gt; IntentSummary -&gt; Bool
 == :: IntentSummary -&gt; IntentSummary -&gt; Bool
 $c== :: IntentSummary -&gt; IntentSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173620"><span id="local-6989586621679173622"><span id="local-6989586621679173624"><span class="annot"><span class="annottext">Int -&gt; IntentSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173690"><span id="local-6989586621679173692"><span id="local-6989586621679173694"><span class="annot"><span class="annottext">Int -&gt; IntentSummary -&gt; ShowS
 [IntentSummary] -&gt; ShowS
 IntentSummary -&gt; String
 (Int -&gt; IntentSummary -&gt; ShowS)
@@ -140,45 +140,45 @@ $cfrom :: forall x. IntentSummary -&gt; Rep IntentSummary x
 </span><span id="line-101"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-103"></span><span class="hs-comment">--</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- 'intentName', 'intentSummary_intentName' - The name of the intent.</span><span>
-</span><span id="line-105"></span><span class="hs-comment">--</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- 'fulfillmentState', 'intentSummary_fulfillmentState' - The fulfillment state of the intent. The possible values are:</span><span>
-</span><span id="line-107"></span><span class="hs-comment">--</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- -   @Failed@ - The Lambda function associated with the intent failed to</span><span>
-</span><span id="line-109"></span><span class="hs-comment">--     fulfill the intent.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'checkpointLabel', 'intentSummary_checkpointLabel' - A user-defined label that identifies a particular intent. You can use</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- this label to return to a previous intent.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Use the @checkpointLabelFilter@ parameter of the @GetSessionRequest@</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- operation to filter the intents returned by the operation to those with</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- only the specified label.</span><span>
 </span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- -   @Fulfilled@ - The intent has fulfilled by the Lambda function</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--     associated with the intent.</span><span>
-</span><span id="line-113"></span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- -   @ReadyForFulfillment@ - All of the information necessary for the</span><span>
-</span><span id="line-115"></span><span class="hs-comment">--     intent is present and the intent ready to be fulfilled by the client</span><span>
-</span><span id="line-116"></span><span class="hs-comment">--     application.</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- 'slots', 'intentSummary_slots' - Map of the slots that have been gathered and their values.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'slots', 'intentSummary_slots' - Map of the slots that have been gathered and their values.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'intentName', 'intentSummary_intentName' - The name of the intent.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'fulfillmentState', 'intentSummary_fulfillmentState' - The fulfillment state of the intent. The possible values are:</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   @Failed@ - The Lambda function associated with the intent failed to</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--     fulfill the intent.</span><span>
 </span><span id="line-119"></span><span class="hs-comment">--</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- 'checkpointLabel', 'intentSummary_checkpointLabel' - A user-defined label that identifies a particular intent. You can use</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- this label to return to a previous intent.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- -   @Fulfilled@ - The intent has fulfilled by the Lambda function</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--     associated with the intent.</span><span>
 </span><span id="line-122"></span><span class="hs-comment">--</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- Use the @checkpointLabelFilter@ parameter of the @GetSessionRequest@</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- operation to filter the intents returned by the operation to those with</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- only the specified label.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- -   @ReadyForFulfillment@ - All of the information necessary for the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--     intent is present and the intent ready to be fulfilled by the client</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--     application.</span><span>
 </span><span id="line-126"></span><span class="hs-comment">--</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- 'slotToElicit', 'intentSummary_slotToElicit' - The next slot to elicit from the user. If there is not slot to elicit,</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- the field is blank.</span><span>
-</span><span id="line-129"></span><span class="hs-comment">--</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- 'confirmationStatus', 'intentSummary_confirmationStatus' - The status of the intent after the user responds to the confirmation</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- prompt. If the user confirms the intent, Amazon Lex sets this field to</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- @Confirmed@. If the user denies the intent, Amazon Lex sets this value</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- to @Denied@. The possible values are:</span><span>
-</span><span id="line-134"></span><span class="hs-comment">--</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- -   @Confirmed@ - The user has responded \&quot;Yes\&quot; to the confirmation</span><span>
-</span><span id="line-136"></span><span class="hs-comment">--     prompt, confirming that the intent is complete and that it is ready</span><span>
-</span><span id="line-137"></span><span class="hs-comment">--     to be fulfilled.</span><span>
-</span><span id="line-138"></span><span class="hs-comment">--</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- -   @Denied@ - The user has responded \&quot;No\&quot; to the confirmation prompt.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'confirmationStatus', 'intentSummary_confirmationStatus' - The status of the intent after the user responds to the confirmation</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- prompt. If the user confirms the intent, Amazon Lex sets this field to</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- @Confirmed@. If the user denies the intent, Amazon Lex sets this value</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- to @Denied@. The possible values are:</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- -   @Confirmed@ - The user has responded \&quot;Yes\&quot; to the confirmation</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--     prompt, confirming that the intent is complete and that it is ready</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--     to be fulfilled.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- -   @Denied@ - The user has responded \&quot;No\&quot; to the confirmation prompt.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   @None@ - The user has never been prompted for confirmation; or, the</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--     user was prompted but did not confirm or deny the prompt.</span><span>
 </span><span id="line-140"></span><span class="hs-comment">--</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- -   @None@ - The user has never been prompted for confirmation; or, the</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--     user was prompted but did not confirm or deny the prompt.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'slotToElicit', 'intentSummary_slotToElicit' - The next slot to elicit from the user. If there is not slot to elicit,</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- the field is blank.</span><span>
 </span><span id="line-143"></span><span class="hs-comment">--</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- 'dialogActionType', 'intentSummary_dialogActionType' - The next action that the bot should take in its interaction with the</span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- user. The possible values are:</span><span>
@@ -201,100 +201,72 @@ $cfrom :: forall x. IntentSummary -&gt; Rep IntentSummary x
 </span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogActionType.html#DialogActionType"><span class="hs-identifier hs-type">DialogActionType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span>
 </span><span id="line-164"></span><span id="newIntentSummary"><span class="annot"><span class="annottext">newIntentSummary :: DialogActionType -&gt; IntentSummary
-</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#newIntentSummary"><span class="hs-identifier hs-var hs-var">newIntentSummary</span></a></span></span><span> </span><span id="local-6989586621679173614"><span class="annot"><span class="annottext">DialogActionType
-</span><a href="#local-6989586621679173614"><span class="hs-identifier hs-var">pDialogActionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#newIntentSummary"><span class="hs-identifier hs-var hs-var">newIntentSummary</span></a></span></span><span> </span><span id="local-6989586621679173684"><span class="annot"><span class="annottext">DialogActionType
+</span><a href="#local-6989586621679173684"><span class="hs-identifier hs-var">pDialogActionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">IntentSummary' :: Maybe Text
--&gt; Maybe FulfillmentState
 -&gt; Maybe (Sensitive (HashMap Text Text))
 -&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe FulfillmentState
 -&gt; Maybe ConfirmationStatus
+-&gt; Maybe Text
 -&gt; DialogActionType
 -&gt; IntentSummary
 </span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span>
-</span><span id="line-166"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:intentName:IntentSummary' :: Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AintentName%3AIntentSummary%27"><span class="hs-identifier hs-var">intentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:fulfillmentState:IntentSummary' :: Maybe FulfillmentState
-</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AfulfillmentState%3AIntentSummary%27"><span class="hs-identifier hs-var">fulfillmentState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FulfillmentState
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:slots:IntentSummary' :: Maybe (Sensitive (HashMap Text Text))
-</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3Aslots%3AIntentSummary%27"><span class="hs-identifier hs-var">slots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:checkpointLabel:IntentSummary' :: Maybe Text
+</span><span id="line-166"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:checkpointLabel:IntentSummary' :: Maybe Text
 </span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AcheckpointLabel%3AIntentSummary%27"><span class="hs-identifier hs-var">checkpointLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:slotToElicit:IntentSummary' :: Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AslotToElicit%3AIntentSummary%27"><span class="hs-identifier hs-var">slotToElicit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:slots:IntentSummary' :: Maybe (Sensitive (HashMap Text Text))
+</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3Aslots%3AIntentSummary%27"><span class="hs-identifier hs-var">slots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:confirmationStatus:IntentSummary' :: Maybe ConfirmationStatus
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:intentName:IntentSummary' :: Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AintentName%3AIntentSummary%27"><span class="hs-identifier hs-var">intentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:fulfillmentState:IntentSummary' :: Maybe FulfillmentState
+</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AfulfillmentState%3AIntentSummary%27"><span class="hs-identifier hs-var">fulfillmentState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FulfillmentState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:confirmationStatus:IntentSummary' :: Maybe ConfirmationStatus
 </span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AconfirmationStatus%3AIntentSummary%27"><span class="hs-identifier hs-var">confirmationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfirmationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:slotToElicit:IntentSummary' :: Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AslotToElicit%3AIntentSummary%27"><span class="hs-identifier hs-var">slotToElicit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:dialogActionType:IntentSummary' :: DialogActionType
 </span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AdialogActionType%3AIntentSummary%27"><span class="hs-identifier hs-var">dialogActionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DialogActionType
-</span><a href="#local-6989586621679173614"><span class="hs-identifier hs-var">pDialogActionType_</span></a></span><span>
+</span><a href="#local-6989586621679173684"><span class="hs-identifier hs-var">pDialogActionType_</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- | The name of the intent.</span><span>
-</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_intentName"><span class="hs-identifier hs-type">intentSummary_intentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span id="intentSummary_intentName"><span class="annot"><span class="annottext">intentSummary_intentName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; IntentSummary -&gt; f IntentSummary
-</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_intentName"><span class="hs-identifier hs-var hs-var">intentSummary_intentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntentSummary -&gt; Maybe Text)
+</span><span id="line-175"></span><span class="hs-comment">-- | A user-defined label that identifies a particular intent. You can use</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- this label to return to a previous intent.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Use the @checkpointLabelFilter@ parameter of the @GetSessionRequest@</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- operation to filter the intents returned by the operation to those with</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- only the specified label.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_checkpointLabel"><span class="hs-identifier hs-type">intentSummary_checkpointLabel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="intentSummary_checkpointLabel"><span class="annot"><span class="annottext">intentSummary_checkpointLabel :: (Maybe Text -&gt; f (Maybe Text)) -&gt; IntentSummary -&gt; f IntentSummary
+</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_checkpointLabel"><span class="hs-identifier hs-var hs-var">intentSummary_checkpointLabel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntentSummary -&gt; Maybe Text)
 -&gt; (IntentSummary -&gt; Maybe Text -&gt; IntentSummary)
 -&gt; Lens IntentSummary IntentSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173610"><span class="annot"><span class="annottext">Maybe Text
-intentName :: Maybe Text
-$sel:intentName:IntentSummary' :: IntentSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679173610"><span class="hs-identifier hs-var hs-var">intentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173610"><span class="hs-identifier hs-var">intentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173609"><span class="annot"><span class="annottext">s :: IntentSummary
-</span><a href="#local-6989586621679173609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173608"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentSummary
-</span><a href="#local-6989586621679173609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intentName:IntentSummary' :: Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AintentName%3AIntentSummary%27"><span class="hs-identifier hs-var">intentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- | The fulfillment state of the intent. The possible values are:</span><span>
-</span><span id="line-180"></span><span class="hs-comment">--</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- -   @Failed@ - The Lambda function associated with the intent failed to</span><span>
-</span><span id="line-182"></span><span class="hs-comment">--     fulfill the intent.</span><span>
-</span><span id="line-183"></span><span class="hs-comment">--</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- -   @Fulfilled@ - The intent has fulfilled by the Lambda function</span><span>
-</span><span id="line-185"></span><span class="hs-comment">--     associated with the intent.</span><span>
-</span><span id="line-186"></span><span class="hs-comment">--</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- -   @ReadyForFulfillment@ - All of the information necessary for the</span><span>
-</span><span id="line-188"></span><span class="hs-comment">--     intent is present and the intent ready to be fulfilled by the client</span><span>
-</span><span id="line-189"></span><span class="hs-comment">--     application.</span><span>
-</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_fulfillmentState"><span class="hs-identifier hs-type">intentSummary_fulfillmentState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.FulfillmentState.html#FulfillmentState"><span class="hs-identifier hs-type">FulfillmentState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span id="intentSummary_fulfillmentState"><span class="annot"><span class="annottext">intentSummary_fulfillmentState :: (Maybe FulfillmentState -&gt; f (Maybe FulfillmentState))
--&gt; IntentSummary -&gt; f IntentSummary
-</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_fulfillmentState"><span class="hs-identifier hs-var hs-var">intentSummary_fulfillmentState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntentSummary -&gt; Maybe FulfillmentState)
--&gt; (IntentSummary -&gt; Maybe FulfillmentState -&gt; IntentSummary)
--&gt; Lens
-     IntentSummary
-     IntentSummary
-     (Maybe FulfillmentState)
-     (Maybe FulfillmentState)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173606"><span class="annot"><span class="annottext">Maybe FulfillmentState
-fulfillmentState :: Maybe FulfillmentState
-$sel:fulfillmentState:IntentSummary' :: IntentSummary -&gt; Maybe FulfillmentState
-</span><a href="#local-6989586621679173606"><span class="hs-identifier hs-var hs-var">fulfillmentState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FulfillmentState
-</span><a href="#local-6989586621679173606"><span class="hs-identifier hs-var">fulfillmentState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173605"><span class="annot"><span class="annottext">s :: IntentSummary
-</span><a href="#local-6989586621679173605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173604"><span class="annot"><span class="annottext">Maybe FulfillmentState
-</span><a href="#local-6989586621679173604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentSummary
-</span><a href="#local-6989586621679173605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fulfillmentState:IntentSummary' :: Maybe FulfillmentState
-</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AfulfillmentState%3AIntentSummary%27"><span class="hs-identifier hs-var">fulfillmentState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FulfillmentState
-</span><a href="#local-6989586621679173604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- | Map of the slots that have been gathered and their values.</span><span>
-</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_slots"><span class="hs-identifier hs-type">intentSummary_slots</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-195"></span><span id="intentSummary_slots"><span class="annot"><span class="annottext">intentSummary_slots :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173680"><span class="annot"><span class="annottext">Maybe Text
+checkpointLabel :: Maybe Text
+$sel:checkpointLabel:IntentSummary' :: IntentSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679173680"><span class="hs-identifier hs-var hs-var">checkpointLabel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173680"><span class="hs-identifier hs-var">checkpointLabel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173679"><span class="annot"><span class="annottext">s :: IntentSummary
+</span><a href="#local-6989586621679173679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173678"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentSummary
+</span><a href="#local-6989586621679173679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkpointLabel:IntentSummary' :: Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AcheckpointLabel%3AIntentSummary%27"><span class="hs-identifier hs-var">checkpointLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | Map of the slots that have been gathered and their values.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_slots"><span class="hs-identifier hs-type">intentSummary_slots</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="intentSummary_slots"><span class="annot"><span class="annottext">intentSummary_slots :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; IntentSummary -&gt; f IntentSummary
 </span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_slots"><span class="hs-identifier hs-var hs-var">intentSummary_slots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntentSummary -&gt; Maybe (Sensitive (HashMap Text Text)))
 -&gt; (IntentSummary
@@ -305,16 +277,16 @@ $sel:fulfillmentState:IntentSummary' :: IntentSummary -&gt; Maybe FulfillmentSta
      (Maybe (Sensitive (HashMap Text Text)))
      (Maybe (Sensitive (HashMap Text Text)))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173602"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173676"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
 slots :: Maybe (Sensitive (HashMap Text Text))
 $sel:slots:IntentSummary' :: IntentSummary -&gt; Maybe (Sensitive (HashMap Text Text))
-</span><a href="#local-6989586621679173602"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
-</span><a href="#local-6989586621679173602"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173601"><span class="annot"><span class="annottext">s :: IntentSummary
-</span><a href="#local-6989586621679173601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173600"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
-</span><a href="#local-6989586621679173600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentSummary
-</span><a href="#local-6989586621679173601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slots:IntentSummary' :: Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679173676"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679173676"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173675"><span class="annot"><span class="annottext">s :: IntentSummary
+</span><a href="#local-6989586621679173675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173674"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679173674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentSummary
+</span><a href="#local-6989586621679173675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slots:IntentSummary' :: Maybe (Sensitive (HashMap Text Text))
 </span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3Aslots%3AIntentSummary%27"><span class="hs-identifier hs-var">slots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
-</span><a href="#local-6989586621679173600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679173674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive (HashMap Text Text))
   -&gt; f (Maybe (Sensitive (HashMap Text Text))))
  -&gt; IntentSummary -&gt; f IntentSummary)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -374,66 +346,75 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
      (HashMap Text Text)
      (HashMap Text Text)
      (Identity (HashMap Text Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- | A user-defined label that identifies a particular intent. You can use</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- this label to return to a previous intent.</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The name of the intent.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_intentName"><span class="hs-identifier hs-type">intentSummary_intentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="intentSummary_intentName"><span class="annot"><span class="annottext">intentSummary_intentName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; IntentSummary -&gt; f IntentSummary
+</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_intentName"><span class="hs-identifier hs-var hs-var">intentSummary_intentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntentSummary -&gt; Maybe Text)
+-&gt; (IntentSummary -&gt; Maybe Text -&gt; IntentSummary)
+-&gt; Lens IntentSummary IntentSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173668"><span class="annot"><span class="annottext">Maybe Text
+intentName :: Maybe Text
+$sel:intentName:IntentSummary' :: IntentSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679173668"><span class="hs-identifier hs-var hs-var">intentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173668"><span class="hs-identifier hs-var">intentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173667"><span class="annot"><span class="annottext">s :: IntentSummary
+</span><a href="#local-6989586621679173667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173666"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentSummary
+</span><a href="#local-6989586621679173667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intentName:IntentSummary' :: Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AintentName%3AIntentSummary%27"><span class="hs-identifier hs-var">intentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The fulfillment state of the intent. The possible values are:</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- -   @Failed@ - The Lambda function associated with the intent failed to</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--     fulfill the intent.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- -   @Fulfilled@ - The intent has fulfilled by the Lambda function</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--     associated with the intent.</span><span>
 </span><span id="line-199"></span><span class="hs-comment">--</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- Use the @checkpointLabelFilter@ parameter of the @GetSessionRequest@</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- operation to filter the intents returned by the operation to those with</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- only the specified label.</span><span>
-</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_checkpointLabel"><span class="hs-identifier hs-type">intentSummary_checkpointLabel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-204"></span><span id="intentSummary_checkpointLabel"><span class="annot"><span class="annottext">intentSummary_checkpointLabel :: (Maybe Text -&gt; f (Maybe Text)) -&gt; IntentSummary -&gt; f IntentSummary
-</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_checkpointLabel"><span class="hs-identifier hs-var hs-var">intentSummary_checkpointLabel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntentSummary -&gt; Maybe Text)
--&gt; (IntentSummary -&gt; Maybe Text -&gt; IntentSummary)
--&gt; Lens IntentSummary IntentSummary (Maybe Text) (Maybe Text)
+</span><span id="line-200"></span><span class="hs-comment">-- -   @ReadyForFulfillment@ - All of the information necessary for the</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--     intent is present and the intent ready to be fulfilled by the client</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--     application.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_fulfillmentState"><span class="hs-identifier hs-type">intentSummary_fulfillmentState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.FulfillmentState.html#FulfillmentState"><span class="hs-identifier hs-type">FulfillmentState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="intentSummary_fulfillmentState"><span class="annot"><span class="annottext">intentSummary_fulfillmentState :: (Maybe FulfillmentState -&gt; f (Maybe FulfillmentState))
+-&gt; IntentSummary -&gt; f IntentSummary
+</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_fulfillmentState"><span class="hs-identifier hs-var hs-var">intentSummary_fulfillmentState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntentSummary -&gt; Maybe FulfillmentState)
+-&gt; (IntentSummary -&gt; Maybe FulfillmentState -&gt; IntentSummary)
+-&gt; Lens
+     IntentSummary
+     IntentSummary
+     (Maybe FulfillmentState)
+     (Maybe FulfillmentState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173594"><span class="annot"><span class="annottext">Maybe Text
-checkpointLabel :: Maybe Text
-$sel:checkpointLabel:IntentSummary' :: IntentSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679173594"><span class="hs-identifier hs-var hs-var">checkpointLabel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173594"><span class="hs-identifier hs-var">checkpointLabel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173593"><span class="annot"><span class="annottext">s :: IntentSummary
-</span><a href="#local-6989586621679173593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173592"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentSummary
-</span><a href="#local-6989586621679173593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkpointLabel:IntentSummary' :: Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AcheckpointLabel%3AIntentSummary%27"><span class="hs-identifier hs-var">checkpointLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173664"><span class="annot"><span class="annottext">Maybe FulfillmentState
+fulfillmentState :: Maybe FulfillmentState
+$sel:fulfillmentState:IntentSummary' :: IntentSummary -&gt; Maybe FulfillmentState
+</span><a href="#local-6989586621679173664"><span class="hs-identifier hs-var hs-var">fulfillmentState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FulfillmentState
+</span><a href="#local-6989586621679173664"><span class="hs-identifier hs-var">fulfillmentState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173663"><span class="annot"><span class="annottext">s :: IntentSummary
+</span><a href="#local-6989586621679173663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173662"><span class="annot"><span class="annottext">Maybe FulfillmentState
+</span><a href="#local-6989586621679173662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentSummary
+</span><a href="#local-6989586621679173663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fulfillmentState:IntentSummary' :: Maybe FulfillmentState
+</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AfulfillmentState%3AIntentSummary%27"><span class="hs-identifier hs-var">fulfillmentState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FulfillmentState
+</span><a href="#local-6989586621679173662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- | The next slot to elicit from the user. If there is not slot to elicit,</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- the field is blank.</span><span>
-</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_slotToElicit"><span class="hs-identifier hs-type">intentSummary_slotToElicit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span id="intentSummary_slotToElicit"><span class="annot"><span class="annottext">intentSummary_slotToElicit :: (Maybe Text -&gt; f (Maybe Text)) -&gt; IntentSummary -&gt; f IntentSummary
-</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_slotToElicit"><span class="hs-identifier hs-var hs-var">intentSummary_slotToElicit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntentSummary -&gt; Maybe Text)
--&gt; (IntentSummary -&gt; Maybe Text -&gt; IntentSummary)
--&gt; Lens IntentSummary IntentSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173590"><span class="annot"><span class="annottext">Maybe Text
-slotToElicit :: Maybe Text
-$sel:slotToElicit:IntentSummary' :: IntentSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679173590"><span class="hs-identifier hs-var hs-var">slotToElicit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173590"><span class="hs-identifier hs-var">slotToElicit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173589"><span class="annot"><span class="annottext">s :: IntentSummary
-</span><a href="#local-6989586621679173589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173588"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentSummary
-</span><a href="#local-6989586621679173589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slotToElicit:IntentSummary' :: Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AslotToElicit%3AIntentSummary%27"><span class="hs-identifier hs-var">slotToElicit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- | The status of the intent after the user responds to the confirmation</span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- prompt. If the user confirms the intent, Amazon Lex sets this field to</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- @Confirmed@. If the user denies the intent, Amazon Lex sets this value</span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- to @Denied@. The possible values are:</span><span>
-</span><span id="line-215"></span><span class="hs-comment">--</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- -   @Confirmed@ - The user has responded \&quot;Yes\&quot; to the confirmation</span><span>
-</span><span id="line-217"></span><span class="hs-comment">--     prompt, confirming that the intent is complete and that it is ready</span><span>
-</span><span id="line-218"></span><span class="hs-comment">--     to be fulfilled.</span><span>
-</span><span id="line-219"></span><span class="hs-comment">--</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- -   @Denied@ - The user has responded \&quot;No\&quot; to the confirmation prompt.</span><span>
-</span><span id="line-221"></span><span class="hs-comment">--</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- -   @None@ - The user has never been prompted for confirmation; or, the</span><span>
-</span><span id="line-223"></span><span class="hs-comment">--     user was prompted but did not confirm or deny the prompt.</span><span>
-</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_confirmationStatus"><span class="hs-identifier hs-type">intentSummary_confirmationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ConfirmationStatus.html#ConfirmationStatus"><span class="hs-identifier hs-type">ConfirmationStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-225"></span><span id="intentSummary_confirmationStatus"><span class="annot"><span class="annottext">intentSummary_confirmationStatus :: (Maybe ConfirmationStatus -&gt; f (Maybe ConfirmationStatus))
+</span><span id="line-206"></span><span class="hs-comment">-- | The status of the intent after the user responds to the confirmation</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- prompt. If the user confirms the intent, Amazon Lex sets this field to</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- @Confirmed@. If the user denies the intent, Amazon Lex sets this value</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- to @Denied@. The possible values are:</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- -   @Confirmed@ - The user has responded \&quot;Yes\&quot; to the confirmation</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--     prompt, confirming that the intent is complete and that it is ready</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--     to be fulfilled.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- -   @Denied@ - The user has responded \&quot;No\&quot; to the confirmation prompt.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- -   @None@ - The user has never been prompted for confirmation; or, the</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--     user was prompted but did not confirm or deny the prompt.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_confirmationStatus"><span class="hs-identifier hs-type">intentSummary_confirmationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ConfirmationStatus.html#ConfirmationStatus"><span class="hs-identifier hs-type">ConfirmationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="intentSummary_confirmationStatus"><span class="annot"><span class="annottext">intentSummary_confirmationStatus :: (Maybe ConfirmationStatus -&gt; f (Maybe ConfirmationStatus))
 -&gt; IntentSummary -&gt; f IntentSummary
 </span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_confirmationStatus"><span class="hs-identifier hs-var hs-var">intentSummary_confirmationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntentSummary -&gt; Maybe ConfirmationStatus)
 -&gt; (IntentSummary -&gt; Maybe ConfirmationStatus -&gt; IntentSummary)
@@ -443,16 +424,35 @@ $sel:slotToElicit:IntentSummary' :: IntentSummary -&gt; Maybe Text
      (Maybe ConfirmationStatus)
      (Maybe ConfirmationStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173586"><span class="annot"><span class="annottext">Maybe ConfirmationStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173660"><span class="annot"><span class="annottext">Maybe ConfirmationStatus
 confirmationStatus :: Maybe ConfirmationStatus
 $sel:confirmationStatus:IntentSummary' :: IntentSummary -&gt; Maybe ConfirmationStatus
-</span><a href="#local-6989586621679173586"><span class="hs-identifier hs-var hs-var">confirmationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfirmationStatus
-</span><a href="#local-6989586621679173586"><span class="hs-identifier hs-var">confirmationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173585"><span class="annot"><span class="annottext">s :: IntentSummary
-</span><a href="#local-6989586621679173585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173584"><span class="annot"><span class="annottext">Maybe ConfirmationStatus
-</span><a href="#local-6989586621679173584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentSummary
-</span><a href="#local-6989586621679173585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confirmationStatus:IntentSummary' :: Maybe ConfirmationStatus
+</span><a href="#local-6989586621679173660"><span class="hs-identifier hs-var hs-var">confirmationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfirmationStatus
+</span><a href="#local-6989586621679173660"><span class="hs-identifier hs-var">confirmationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173659"><span class="annot"><span class="annottext">s :: IntentSummary
+</span><a href="#local-6989586621679173659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173658"><span class="annot"><span class="annottext">Maybe ConfirmationStatus
+</span><a href="#local-6989586621679173658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentSummary
+</span><a href="#local-6989586621679173659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confirmationStatus:IntentSummary' :: Maybe ConfirmationStatus
 </span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AconfirmationStatus%3AIntentSummary%27"><span class="hs-identifier hs-var">confirmationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfirmationStatus
-</span><a href="#local-6989586621679173584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679173658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The next slot to elicit from the user. If there is not slot to elicit,</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- the field is blank.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_slotToElicit"><span class="hs-identifier hs-type">intentSummary_slotToElicit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="intentSummary_slotToElicit"><span class="annot"><span class="annottext">intentSummary_slotToElicit :: (Maybe Text -&gt; f (Maybe Text)) -&gt; IntentSummary -&gt; f IntentSummary
+</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#intentSummary_slotToElicit"><span class="hs-identifier hs-var hs-var">intentSummary_slotToElicit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntentSummary -&gt; Maybe Text)
+-&gt; (IntentSummary -&gt; Maybe Text -&gt; IntentSummary)
+-&gt; Lens IntentSummary IntentSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173656"><span class="annot"><span class="annottext">Maybe Text
+slotToElicit :: Maybe Text
+$sel:slotToElicit:IntentSummary' :: IntentSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679173656"><span class="hs-identifier hs-var hs-var">slotToElicit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173656"><span class="hs-identifier hs-var">slotToElicit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173655"><span class="annot"><span class="annottext">s :: IntentSummary
+</span><a href="#local-6989586621679173655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173654"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentSummary
+</span><a href="#local-6989586621679173655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slotToElicit:IntentSummary' :: Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AslotToElicit%3AIntentSummary%27"><span class="hs-identifier hs-var">slotToElicit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | The next action that the bot should take in its interaction with the</span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- user. The possible values are:</span><span>
@@ -478,19 +478,19 @@ $sel:confirmationStatus:IntentSummary' :: IntentSummary -&gt; Maybe Confirmation
 -&gt; Lens
      IntentSummary IntentSummary DialogActionType DialogActionType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173582"><span class="annot"><span class="annottext">DialogActionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173652"><span class="annot"><span class="annottext">DialogActionType
 dialogActionType :: DialogActionType
 $sel:dialogActionType:IntentSummary' :: IntentSummary -&gt; DialogActionType
-</span><a href="#local-6989586621679173582"><span class="hs-identifier hs-var hs-var">dialogActionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DialogActionType
-</span><a href="#local-6989586621679173582"><span class="hs-identifier hs-var">dialogActionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173581"><span class="annot"><span class="annottext">s :: IntentSummary
-</span><a href="#local-6989586621679173581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173580"><span class="annot"><span class="annottext">DialogActionType
-</span><a href="#local-6989586621679173580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentSummary
-</span><a href="#local-6989586621679173581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dialogActionType:IntentSummary' :: DialogActionType
+</span><a href="#local-6989586621679173652"><span class="hs-identifier hs-var hs-var">dialogActionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DialogActionType
+</span><a href="#local-6989586621679173652"><span class="hs-identifier hs-var">dialogActionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173651"><span class="annot"><span class="annottext">s :: IntentSummary
+</span><a href="#local-6989586621679173651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173650"><span class="annot"><span class="annottext">DialogActionType
+</span><a href="#local-6989586621679173650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentSummary
+</span><a href="#local-6989586621679173651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dialogActionType:IntentSummary' :: DialogActionType
 </span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#%24sel%3AdialogActionType%3AIntentSummary%27"><span class="hs-identifier hs-var">dialogActionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DialogActionType
-</span><a href="#local-6989586621679173580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679173650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>
-</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173577"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-247"></span><span>  </span><span id="local-6989586621679173575"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IntentSummary
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173647"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679173645"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IntentSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-248"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser IntentSummary)
@@ -500,79 +500,59 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;IntentSummary&quot;</span></span><span>
-</span><span id="line-250"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679173572"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173572"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679173642"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173642"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-251"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe FulfillmentState
 -&gt; Maybe (Sensitive (HashMap Text Text))
 -&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe FulfillmentState
 -&gt; Maybe ConfirmationStatus
+-&gt; Maybe Text
 -&gt; DialogActionType
 -&gt; IntentSummary
 </span><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-var">IntentSummary'</span></a></span><span>
 </span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe FulfillmentState
  -&gt; Maybe (Sensitive (HashMap Text Text))
  -&gt; Maybe Text
- -&gt; Maybe Text
+ -&gt; Maybe FulfillmentState
  -&gt; Maybe ConfirmationStatus
+ -&gt; Maybe Text
  -&gt; DialogActionType
  -&gt; IntentSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe FulfillmentState
-      -&gt; Maybe (Sensitive (HashMap Text Text))
+     (Maybe (Sensitive (HashMap Text Text))
       -&gt; Maybe Text
-      -&gt; Maybe Text
+      -&gt; Maybe FulfillmentState
       -&gt; Maybe ConfirmationStatus
+      -&gt; Maybe Text
       -&gt; DialogActionType
       -&gt; IntentSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679173642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;intentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;checkpointLabel&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe FulfillmentState
-   -&gt; Maybe (Sensitive (HashMap Text Text))
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ConfirmationStatus
-   -&gt; DialogActionType
-   -&gt; IntentSummary)
--&gt; Parser (Maybe FulfillmentState)
--&gt; Parser
-     (Maybe (Sensitive (HashMap Text Text))
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ConfirmationStatus
-      -&gt; DialogActionType
-      -&gt; IntentSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FulfillmentState)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;fulfillmentState&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe (Sensitive (HashMap Text Text))
    -&gt; Maybe Text
-   -&gt; Maybe Text
+   -&gt; Maybe FulfillmentState
    -&gt; Maybe ConfirmationStatus
+   -&gt; Maybe Text
    -&gt; DialogActionType
    -&gt; IntentSummary)
 -&gt; Parser (Maybe (Sensitive (HashMap Text Text)))
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
+      -&gt; Maybe FulfillmentState
       -&gt; Maybe ConfirmationStatus
+      -&gt; Maybe Text
       -&gt; DialogActionType
       -&gt; IntentSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (Sensitive (HashMap Text Text))))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -583,132 +563,150 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-255"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe Text
+   -&gt; Maybe FulfillmentState
    -&gt; Maybe ConfirmationStatus
+   -&gt; Maybe Text
    -&gt; DialogActionType
    -&gt; IntentSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe ConfirmationStatus -&gt; DialogActionType -&gt; IntentSummary)
+     (Maybe FulfillmentState
+      -&gt; Maybe ConfirmationStatus
+      -&gt; Maybe Text
+      -&gt; DialogActionType
+      -&gt; IntentSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679173642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;checkpointLabel&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe ConfirmationStatus -&gt; DialogActionType -&gt; IntentSummary)
--&gt; Parser (Maybe Text)
+</span><span class="hs-string">&quot;intentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FulfillmentState
+   -&gt; Maybe ConfirmationStatus
+   -&gt; Maybe Text
+   -&gt; DialogActionType
+   -&gt; IntentSummary)
+-&gt; Parser (Maybe FulfillmentState)
 -&gt; Parser
-     (Maybe ConfirmationStatus -&gt; DialogActionType -&gt; IntentSummary)
+     (Maybe ConfirmationStatus
+      -&gt; Maybe Text -&gt; DialogActionType -&gt; IntentSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679173642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FulfillmentState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;slotToElicit&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ConfirmationStatus -&gt; DialogActionType -&gt; IntentSummary)
+</span><span class="hs-string">&quot;fulfillmentState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ConfirmationStatus
+   -&gt; Maybe Text -&gt; DialogActionType -&gt; IntentSummary)
 -&gt; Parser (Maybe ConfirmationStatus)
--&gt; Parser (DialogActionType -&gt; IntentSummary)
+-&gt; Parser (Maybe Text -&gt; DialogActionType -&gt; IntentSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConfirmationStatus)
+</span><a href="#local-6989586621679173642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConfirmationStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;confirmationStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DialogActionType -&gt; IntentSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (DialogActionType -&gt; IntentSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;slotToElicit&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">Parser (DialogActionType -&gt; IntentSummary)
 -&gt; Parser DialogActionType -&gt; Parser IntentSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DialogActionType
+</span><a href="#local-6989586621679173642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DialogActionType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dialogActionType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>
-</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173564"><span id="local-6989586621679173566"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span></span></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173634"><span id="local-6989586621679173636"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span></span></span><span>
 </span><span id="line-262"></span><span>
-</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173561"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173631"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span></span><span>
 </span><span id="line-264"></span><span>
-</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173553"><span id="local-6989586621679173555"><span id="local-6989586621679173557"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-266"></span><span>  </span><span id="local-6989586621679173551"><span class="annot"><span class="annottext">toJSON :: IntentSummary -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173543"><span id="local-6989586621679173544"><span id="local-6989586621679173545"><span id="local-6989586621679173546"><span id="local-6989586621679173547"><span id="local-6989586621679173548"><span id="local-6989586621679173549"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173623"><span id="local-6989586621679173625"><span id="local-6989586621679173627"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary"><span class="hs-identifier hs-type">IntentSummary</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679173621"><span class="annot"><span class="annottext">toJSON :: IntentSummary -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentSummary.html#IntentSummary%27"><span class="hs-identifier hs-type">IntentSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173613"><span id="local-6989586621679173614"><span id="local-6989586621679173615"><span id="local-6989586621679173616"><span id="local-6989586621679173617"><span id="local-6989586621679173618"><span id="local-6989586621679173619"><span class="annot"><span class="annottext">Maybe Text
 Maybe (Sensitive (HashMap Text Text))
 Maybe ConfirmationStatus
 Maybe FulfillmentState
 DialogActionType
 dialogActionType :: DialogActionType
-confirmationStatus :: Maybe ConfirmationStatus
 slotToElicit :: Maybe Text
-checkpointLabel :: Maybe Text
-slots :: Maybe (Sensitive (HashMap Text Text))
+confirmationStatus :: Maybe ConfirmationStatus
 fulfillmentState :: Maybe FulfillmentState
 intentName :: Maybe Text
+slots :: Maybe (Sensitive (HashMap Text Text))
+checkpointLabel :: Maybe Text
 $sel:dialogActionType:IntentSummary' :: IntentSummary -&gt; DialogActionType
-$sel:confirmationStatus:IntentSummary' :: IntentSummary -&gt; Maybe ConfirmationStatus
 $sel:slotToElicit:IntentSummary' :: IntentSummary -&gt; Maybe Text
-$sel:checkpointLabel:IntentSummary' :: IntentSummary -&gt; Maybe Text
-$sel:slots:IntentSummary' :: IntentSummary -&gt; Maybe (Sensitive (HashMap Text Text))
+$sel:confirmationStatus:IntentSummary' :: IntentSummary -&gt; Maybe ConfirmationStatus
 $sel:fulfillmentState:IntentSummary' :: IntentSummary -&gt; Maybe FulfillmentState
 $sel:intentName:IntentSummary' :: IntentSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679173543"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:slots:IntentSummary' :: IntentSummary -&gt; Maybe (Sensitive (HashMap Text Text))
+$sel:checkpointLabel:IntentSummary' :: IntentSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679173613"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-267"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-268"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-269"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;intentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173549"><span class="hs-identifier hs-var">intentName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-270"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;fulfillmentState&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FulfillmentState -&gt; Pair
+</span><span class="hs-string">&quot;checkpointLabel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-271"></span><span>              </span><span class="annot"><span class="annottext">(FulfillmentState -&gt; Pair) -&gt; Maybe FulfillmentState -&gt; Maybe Pair
+</span><span id="line-270"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FulfillmentState
-</span><a href="#local-6989586621679173548"><span class="hs-identifier hs-var">fulfillmentState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-272"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173619"><span class="hs-identifier hs-var">checkpointLabel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;slots&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive (HashMap Text Text) -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive (HashMap Text Text) -&gt; Pair)
 -&gt; Maybe (Sensitive (HashMap Text Text)) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
-</span><a href="#local-6989586621679173547"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-273"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;checkpointLabel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><a href="#local-6989586621679173618"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;intentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-274"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173546"><span class="hs-identifier hs-var">checkpointLabel</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679173617"><span class="hs-identifier hs-var">intentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fulfillmentState&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FulfillmentState -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>              </span><span class="annot"><span class="annottext">(FulfillmentState -&gt; Pair) -&gt; Maybe FulfillmentState -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FulfillmentState
+</span><a href="#local-6989586621679173616"><span class="hs-identifier hs-var">fulfillmentState</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;confirmationStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConfirmationStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>              </span><span class="annot"><span class="annottext">(ConfirmationStatus -&gt; Pair)
+-&gt; Maybe ConfirmationStatus -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConfirmationStatus
+</span><a href="#local-6989586621679173615"><span class="hs-identifier hs-var">confirmationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;slotToElicit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173545"><span class="hs-identifier hs-var">slotToElicit</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-276"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;confirmationStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConfirmationStatus -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-277"></span><span>              </span><span class="annot"><span class="annottext">(ConfirmationStatus -&gt; Pair)
--&gt; Maybe ConfirmationStatus -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConfirmationStatus
-</span><a href="#local-6989586621679173544"><span class="hs-identifier hs-var">confirmationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679173614"><span class="hs-identifier hs-var">slotToElicit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-278"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -716,7 +714,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;dialogActionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DialogActionType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DialogActionType
-</span><a href="#local-6989586621679173543"><span class="hs-identifier hs-var">dialogActionType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679173613"><span class="hs-identifier hs-var">dialogActionType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-281"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-282"></span></pre></body></html>

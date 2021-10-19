@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679595228"><span id="local-6989586621679595229"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DimensionType"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DimensionType.html#DimensionType"><span class="hs-identifier hs-var">DimensionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DimensionType%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DimensionType.html#DimensionType%27"><span class="hs-identifier hs-var">DimensionType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679595669"><span id="local-6989586621679595670"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DimensionType"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DimensionType.html#DimensionType"><span class="hs-identifier hs-var">DimensionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DimensionType%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DimensionType.html#DimensionType%27"><span class="hs-identifier hs-var">DimensionType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDimensionType"><span class="annot"><span class="annottext">DimensionType -&gt; Text
 </span><a href="Network.AWS.Pinpoint.Types.DimensionType.html#fromDimensionType"><span class="hs-identifier hs-var hs-var">fromDimensionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679595220"><span id="local-6989586621679595222"><span id="local-6989586621679595224"><span class="annot"><span class="annottext">Int -&gt; DimensionType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679595661"><span id="local-6989586621679595663"><span id="local-6989586621679595665"><span class="annot"><span class="annottext">Int -&gt; DimensionType -&gt; ShowS
 [DimensionType] -&gt; ShowS
 DimensionType -&gt; String
 (Int -&gt; DimensionType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DimensionType -&gt; String
 showsPrec :: Int -&gt; DimensionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; DimensionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679595211"><span id="local-6989586621679595213"><span id="local-6989586621679595215"><span id="local-6989586621679595217"><span class="annot"><span class="annottext">ReadPrec [DimensionType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679595652"><span id="local-6989586621679595654"><span id="local-6989586621679595656"><span id="local-6989586621679595658"><span class="annot"><span class="annottext">ReadPrec [DimensionType]
 ReadPrec DimensionType
 Int -&gt; ReadS DimensionType
 ReadS [DimensionType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DimensionType]
 readsPrec :: Int -&gt; ReadS DimensionType
 $creadsPrec :: Int -&gt; ReadS DimensionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679595206"><span id="local-6989586621679595208"><span class="annot"><span class="annottext">DimensionType -&gt; DimensionType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679595647"><span id="local-6989586621679595649"><span class="annot"><span class="annottext">DimensionType -&gt; DimensionType -&gt; Bool
 (DimensionType -&gt; DimensionType -&gt; Bool)
 -&gt; (DimensionType -&gt; DimensionType -&gt; Bool) -&gt; Eq DimensionType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: DimensionType -&gt; DimensionType -&gt; Bool
 == :: DimensionType -&gt; DimensionType -&gt; Bool
 $c== :: DimensionType -&gt; DimensionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679595190"><span id="local-6989586621679595192"><span id="local-6989586621679595194"><span id="local-6989586621679595196"><span id="local-6989586621679595198"><span id="local-6989586621679595200"><span id="local-6989586621679595202"><span class="annot"><span class="annottext">Eq DimensionType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679595631"><span id="local-6989586621679595633"><span id="local-6989586621679595635"><span id="local-6989586621679595637"><span id="local-6989586621679595639"><span id="local-6989586621679595641"><span id="local-6989586621679595643"><span class="annot"><span class="annottext">Eq DimensionType
 Eq DimensionType
 -&gt; (DimensionType -&gt; DimensionType -&gt; Ordering)
 -&gt; (DimensionType -&gt; DimensionType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. DimensionType -&gt; Rep DimensionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679595182"><span id="local-6989586621679595184"><span class="annot"><span class="annottext">Int -&gt; DimensionType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679595623"><span id="local-6989586621679595625"><span class="annot"><span class="annottext">Int -&gt; DimensionType -&gt; Int
 DimensionType -&gt; Int
 (Int -&gt; DimensionType -&gt; Int)
 -&gt; (DimensionType -&gt; Int) -&gt; Hashable DimensionType
@@ -142,49 +142,49 @@ $chash :: DimensionType -&gt; Int
 hashWithSalt :: Int -&gt; DimensionType -&gt; Int
 $chashWithSalt :: Int -&gt; DimensionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679595179"><span class="annot"><span class="annottext">DimensionType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679595620"><span class="annot"><span class="annottext">DimensionType -&gt; ()
 (DimensionType -&gt; ()) -&gt; NFData DimensionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DimensionType -&gt; ()
 $crnf :: DimensionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679595176"><span class="annot"><span class="annottext">Text -&gt; Either String DimensionType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679595617"><span class="annot"><span class="annottext">Text -&gt; Either String DimensionType
 (Text -&gt; Either String DimensionType) -&gt; FromText DimensionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DimensionType
 $cfromText :: Text -&gt; Either String DimensionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679595173"><span class="annot"><span class="annottext">DimensionType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679595614"><span class="annot"><span class="annottext">DimensionType -&gt; Text
 (DimensionType -&gt; Text) -&gt; ToText DimensionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DimensionType -&gt; Text
 $ctoText :: DimensionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679595170"><span class="annot"><span class="annottext">DimensionType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679595611"><span class="annot"><span class="annottext">DimensionType -&gt; ByteString
 (DimensionType -&gt; ByteString) -&gt; ToByteString DimensionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DimensionType -&gt; ByteString
 $ctoBS :: DimensionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679595167"><span class="annot"><span class="annottext">DimensionType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679595608"><span class="annot"><span class="annottext">DimensionType -&gt; ByteStringBuilder
 (DimensionType -&gt; ByteStringBuilder) -&gt; ToLog DimensionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DimensionType -&gt; ByteStringBuilder
 $cbuild :: DimensionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679595164"><span class="annot"><span class="annottext">HeaderName -&gt; DimensionType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679595605"><span class="annot"><span class="annottext">HeaderName -&gt; DimensionType -&gt; [Header]
 (HeaderName -&gt; DimensionType -&gt; [Header]) -&gt; ToHeader DimensionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DimensionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DimensionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679595161"><span class="annot"><span class="annottext">DimensionType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679595602"><span class="annot"><span class="annottext">DimensionType -&gt; QueryString
 (DimensionType -&gt; QueryString) -&gt; ToQuery DimensionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DimensionType -&gt; QueryString
 $ctoQuery :: DimensionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679595156"><span id="local-6989586621679595158"><span class="annot"><span class="annottext">Value -&gt; Parser [DimensionType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679595597"><span id="local-6989586621679595599"><span class="annot"><span class="annottext">Value -&gt; Parser [DimensionType]
 Value -&gt; Parser DimensionType
 (Value -&gt; Parser DimensionType)
 -&gt; (Value -&gt; Parser [DimensionType]) -&gt; FromJSON DimensionType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [DimensionType]
 parseJSON :: Value -&gt; Parser DimensionType
 $cparseJSON :: Value -&gt; Parser DimensionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679595151"><span id="local-6989586621679595153"><span class="annot"><span class="annottext">FromJSONKeyFunction [DimensionType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679595592"><span id="local-6989586621679595594"><span class="annot"><span class="annottext">FromJSONKeyFunction [DimensionType]
 FromJSONKeyFunction DimensionType
 FromJSONKeyFunction DimensionType
 -&gt; FromJSONKeyFunction [DimensionType] -&gt; FromJSONKey DimensionType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DimensionType]
 fromJSONKey :: FromJSONKeyFunction DimensionType
 $cfromJSONKey :: FromJSONKeyFunction DimensionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679595142"><span id="local-6989586621679595144"><span id="local-6989586621679595146"><span id="local-6989586621679595148"><span class="annot"><span class="annottext">[DimensionType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679595583"><span id="local-6989586621679595585"><span id="local-6989586621679595587"><span id="local-6989586621679595589"><span class="annot"><span class="annottext">[DimensionType] -&gt; Encoding
 [DimensionType] -&gt; Value
 DimensionType -&gt; Encoding
 DimensionType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: DimensionType -&gt; Encoding
 toJSON :: DimensionType -&gt; Value
 $ctoJSON :: DimensionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679595137"><span id="local-6989586621679595139"><span class="annot"><span class="annottext">ToJSONKeyFunction [DimensionType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679595578"><span id="local-6989586621679595580"><span class="annot"><span class="annottext">ToJSONKeyFunction [DimensionType]
 ToJSONKeyFunction DimensionType
 ToJSONKeyFunction DimensionType
 -&gt; ToJSONKeyFunction [DimensionType] -&gt; ToJSONKey DimensionType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DimensionType]
 toJSONKey :: ToJSONKeyFunction DimensionType
 $ctoJSONKey :: ToJSONKeyFunction DimensionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679595134"><span class="annot"><span class="annottext">[Node] -&gt; Either String DimensionType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679595575"><span class="annot"><span class="annottext">[Node] -&gt; Either String DimensionType
 ([Node] -&gt; Either String DimensionType) -&gt; FromXML DimensionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DimensionType
 $cparseXML :: [Node] -&gt; Either String DimensionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679595131"><span class="annot"><span class="annottext">DimensionType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679595572"><span class="annot"><span class="annottext">DimensionType -&gt; XML
 (DimensionType -&gt; XML) -&gt; ToXML DimensionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DimensionType -&gt; XML

@@ -16,11 +16,11 @@
 </span><span id="line-16"></span><span>
 </span><span id="line-17"></span><span class="hs-comment">-- | Display the difference between two Haskell values,</span><span>
 </span><span id="line-18"></span><span class="hs-comment">-- with control over the diff parameters.</span><span>
-</span><span id="line-19"></span><span id="local-6989586621679163697"><span id="local-6989586621679163698"><span class="annot"><a href="Test.AWS.Diff.html#diff"><span class="hs-identifier hs-type">diff</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679163698"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679163697"><span class="hs-identifier hs-type">b</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679163698"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679163697"><span class="hs-identifier hs-type">b</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">IO</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span></span></span><span>
+</span><span id="line-19"></span><span id="local-6989586621679163698"><span id="local-6989586621679163699"><span class="annot"><a href="Test.AWS.Diff.html#diff"><span class="hs-identifier hs-type">diff</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679163699"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679163698"><span class="hs-identifier hs-type">b</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679163699"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679163698"><span class="hs-identifier hs-type">b</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">IO</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span></span></span><span>
 </span><span id="line-20"></span><span id="diff"><span class="annot"><span class="annottext">diff :: a -&gt; b -&gt; IO String
-</span><a href="Test.AWS.Diff.html#diff"><span class="hs-identifier hs-var hs-var">diff</span></a></span></span><span> </span><span id="local-6989586621679163695"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679163695"><span class="hs-identifier hs-var">e</span></a></span></span><span> </span><span id="local-6989586621679163694"><span class="annot"><span class="annottext">b
-</span><a href="#local-6989586621679163694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.AWS.Diff.html#diff"><span class="hs-identifier hs-var hs-var">diff</span></a></span></span><span> </span><span id="local-6989586621679163696"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679163696"><span class="hs-identifier hs-var">e</span></a></span></span><span> </span><span id="local-6989586621679163695"><span class="annot"><span class="annottext">b
+</span><a href="#local-6989586621679163695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-21"></span><span>  </span><span class="annot"><span class="annottext">String -&gt; (String -&gt; Handle -&gt; IO String) -&gt; IO String
 forall (m :: * -&gt; *) a.
 (MonadIO m, MonadMask m) =&gt;
@@ -29,9 +29,9 @@ String -&gt; (String -&gt; Handle -&gt; m a) -&gt; m a
 </span><span class="hs-string">&quot;diff_expect&quot;</span></span><span> </span><span class="annot"><span class="annottext">((String -&gt; Handle -&gt; IO String) -&gt; IO String)
 -&gt; (String -&gt; Handle -&gt; IO String) -&gt; IO String
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679163692"><span class="annot"><span class="annottext">String
-</span><a href="#local-6989586621679163692"><span class="hs-identifier hs-var">ep</span></a></span></span><span> </span><span id="local-6989586621679163691"><span class="annot"><span class="annottext">Handle
-</span><a href="#local-6989586621679163691"><span class="hs-identifier hs-var">eh</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679163693"><span class="annot"><span class="annottext">String
+</span><a href="#local-6989586621679163693"><span class="hs-identifier hs-var">ep</span></a></span></span><span> </span><span id="local-6989586621679163692"><span class="annot"><span class="annottext">Handle
+</span><a href="#local-6989586621679163692"><span class="hs-identifier hs-var">eh</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-22"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (String -&gt; Handle -&gt; IO String) -&gt; IO String
 forall (m :: * -&gt; *) a.
 (MonadIO m, MonadMask m) =&gt;
@@ -40,48 +40,48 @@ String -&gt; (String -&gt; Handle -&gt; m a) -&gt; m a
 </span><span class="hs-string">&quot;diff_actual&quot;</span></span><span> </span><span class="annot"><span class="annottext">((String -&gt; Handle -&gt; IO String) -&gt; IO String)
 -&gt; (String -&gt; Handle -&gt; IO String) -&gt; IO String
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679163690"><span class="annot"><span class="annottext">String
-</span><a href="#local-6989586621679163690"><span class="hs-identifier hs-var">ap</span></a></span></span><span> </span><span id="local-6989586621679163689"><span class="annot"><span class="annottext">Handle
-</span><a href="#local-6989586621679163689"><span class="hs-identifier hs-var">ah</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-keyword">do</span><span>
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679163691"><span class="annot"><span class="annottext">String
+</span><a href="#local-6989586621679163691"><span class="hs-identifier hs-var">ap</span></a></span></span><span> </span><span id="local-6989586621679163690"><span class="annot"><span class="annottext">Handle
+</span><a href="#local-6989586621679163690"><span class="hs-identifier hs-var">ah</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-keyword">do</span><span>
 </span><span id="line-23"></span><span>      </span><span class="annot"><span class="annottext">Handle -&gt; String -&gt; IO ()
 </span><span class="hs-identifier hs-var">hPutStrLn</span></span><span> </span><span class="annot"><span class="annottext">Handle
-</span><a href="#local-6989586621679163691"><span class="hs-identifier hs-var">eh</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; String
+</span><a href="#local-6989586621679163692"><span class="hs-identifier hs-var">eh</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; String
 forall a. Show a =&gt; a -&gt; String
 </span><span class="hs-identifier hs-var">groom</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679163695"><span class="hs-identifier hs-var">e</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">IO () -&gt; IO () -&gt; IO ()
+</span><a href="#local-6989586621679163696"><span class="hs-identifier hs-var">e</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">IO () -&gt; IO () -&gt; IO ()
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; m b -&gt; m b
 </span><span class="hs-operator hs-var">&gt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Handle -&gt; IO ()
 </span><span class="hs-identifier hs-var">hClose</span></span><span> </span><span class="annot"><span class="annottext">Handle
-</span><a href="#local-6989586621679163691"><span class="hs-identifier hs-var">eh</span></a></span><span>
+</span><a href="#local-6989586621679163692"><span class="hs-identifier hs-var">eh</span></a></span><span>
 </span><span id="line-24"></span><span>      </span><span class="annot"><span class="annottext">Handle -&gt; String -&gt; IO ()
 </span><span class="hs-identifier hs-var">hPutStrLn</span></span><span> </span><span class="annot"><span class="annottext">Handle
-</span><a href="#local-6989586621679163689"><span class="hs-identifier hs-var">ah</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">b -&gt; String
+</span><a href="#local-6989586621679163690"><span class="hs-identifier hs-var">ah</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">b -&gt; String
 forall a. Show a =&gt; a -&gt; String
 </span><span class="hs-identifier hs-var">groom</span></span><span> </span><span class="annot"><span class="annottext">b
-</span><a href="#local-6989586621679163694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">IO () -&gt; IO () -&gt; IO ()
+</span><a href="#local-6989586621679163695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">IO () -&gt; IO () -&gt; IO ()
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; m b -&gt; m b
 </span><span class="hs-operator hs-var">&gt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Handle -&gt; IO ()
 </span><span class="hs-identifier hs-var">hClose</span></span><span> </span><span class="annot"><span class="annottext">Handle
-</span><a href="#local-6989586621679163689"><span class="hs-identifier hs-var">ah</span></a></span><span>
+</span><a href="#local-6989586621679163690"><span class="hs-identifier hs-var">ah</span></a></span><span>
 </span><span id="line-25"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ExitCode
-</span><span class="hs-identifier">_</span></span><span class="hs-special">,</span><span> </span><span class="hs-glyph">!</span><span id="local-6989586621679163685"><span class="annot"><span class="annottext">String
-</span><a href="#local-6989586621679163685"><span class="hs-identifier hs-var">out</span></a></span></span><span class="hs-special">,</span><span> </span><span class="hs-glyph">!</span><span id="local-6989586621679163684"><span class="annot"><span class="annottext">String
-</span><a href="#local-6989586621679163684"><span class="hs-identifier hs-var">err</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">&lt;-</span><span>
+</span><span class="hs-identifier">_</span></span><span class="hs-special">,</span><span> </span><span class="hs-glyph">!</span><span id="local-6989586621679163686"><span class="annot"><span class="annottext">String
+</span><a href="#local-6989586621679163686"><span class="hs-identifier hs-var">out</span></a></span></span><span class="hs-special">,</span><span> </span><span class="hs-glyph">!</span><span id="local-6989586621679163685"><span class="annot"><span class="annottext">String
+</span><a href="#local-6989586621679163685"><span class="hs-identifier hs-var">err</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">&lt;-</span><span>
 </span><span id="line-26"></span><span>        </span><span class="annot"><span class="annottext">String -&gt; [String] -&gt; String -&gt; IO (ExitCode, String, String)
 </span><span class="hs-identifier hs-var">readProcessWithExitCode</span></span><span> </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;diff&quot;</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;-U&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;3&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">String
-</span><a href="#local-6989586621679163692"><span class="hs-identifier hs-var">ep</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">String
-</span><a href="#local-6989586621679163690"><span class="hs-identifier hs-var">ap</span></a></span><span class="hs-special">]</span><span> </span><span class="hs-special">[</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679163693"><span class="hs-identifier hs-var">ep</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">String
+</span><a href="#local-6989586621679163691"><span class="hs-identifier hs-var">ap</span></a></span><span class="hs-special">]</span><span> </span><span class="hs-special">[</span><span class="hs-special">]</span><span>
 </span><span id="line-27"></span><span>      </span><span class="annot"><span class="annottext">String -&gt; IO String
 forall (m :: * -&gt; *) a. Monad m =&gt; a -&gt; m a
 </span><span class="hs-identifier hs-var">return</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">String
-</span><a href="#local-6989586621679163685"><span class="hs-identifier hs-var">out</span></a></span><span> </span><span class="annot"><span class="annottext">String -&gt; String -&gt; String
+</span><a href="#local-6989586621679163686"><span class="hs-identifier hs-var">out</span></a></span><span> </span><span class="annot"><span class="annottext">String -&gt; String -&gt; String
 forall a. [a] -&gt; [a] -&gt; [a]
 </span><span class="hs-operator hs-var">++</span></span><span> </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;\n&quot;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; String -&gt; String
 forall a. [a] -&gt; [a] -&gt; [a]
 </span><span class="hs-operator hs-var">++</span></span><span> </span><span class="annot"><span class="annottext">String
-</span><a href="#local-6989586621679163684"><span class="hs-identifier hs-var">err</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679163685"><span class="hs-identifier hs-var">err</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-28"></span></pre></body></html>

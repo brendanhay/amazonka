@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An object representing the details of an update to a taints payload.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newUpdateTaintsPayload' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679270063"><span id="local-6989586621679270064"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTaintsPayload"><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload"><span class="hs-identifier hs-var">UpdateTaintsPayload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTaintsPayload%27"><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload%27"><span class="hs-identifier hs-var">UpdateTaintsPayload'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Kubernetes taints to be removed.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AremoveTaints%3AUpdateTaintsPayload%27"><span class="annot"><span class="annottext">UpdateTaintsPayload -&gt; Maybe [Taint]
-</span><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#%24sel%3AremoveTaints%3AUpdateTaintsPayload%27"><span class="hs-identifier hs-var hs-var">removeTaints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Kubernetes taints to be added or updated.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AaddOrUpdateTaints%3AUpdateTaintsPayload%27"><span class="annot"><span class="annottext">UpdateTaintsPayload -&gt; Maybe [Taint]
-</span><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#%24sel%3AaddOrUpdateTaints%3AUpdateTaintsPayload%27"><span class="hs-identifier hs-var hs-var">addOrUpdateTaints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679270331"><span id="local-6989586621679270332"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTaintsPayload"><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload"><span class="hs-identifier hs-var">UpdateTaintsPayload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTaintsPayload%27"><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload%27"><span class="hs-identifier hs-var">UpdateTaintsPayload'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Kubernetes taints to be added or updated.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AaddOrUpdateTaints%3AUpdateTaintsPayload%27"><span class="annot"><span class="annottext">UpdateTaintsPayload -&gt; Maybe [Taint]
+</span><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#%24sel%3AaddOrUpdateTaints%3AUpdateTaintsPayload%27"><span class="hs-identifier hs-var hs-var">addOrUpdateTaints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Kubernetes taints to be removed.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AremoveTaints%3AUpdateTaintsPayload%27"><span class="annot"><span class="annottext">UpdateTaintsPayload -&gt; Maybe [Taint]
+</span><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#%24sel%3AremoveTaints%3AUpdateTaintsPayload%27"><span class="hs-identifier hs-var hs-var">removeTaints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270056"><span id="local-6989586621679270058"><span class="annot"><span class="annottext">UpdateTaintsPayload -&gt; UpdateTaintsPayload -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270324"><span id="local-6989586621679270326"><span class="annot"><span class="annottext">UpdateTaintsPayload -&gt; UpdateTaintsPayload -&gt; Bool
 (UpdateTaintsPayload -&gt; UpdateTaintsPayload -&gt; Bool)
 -&gt; (UpdateTaintsPayload -&gt; UpdateTaintsPayload -&gt; Bool)
 -&gt; Eq UpdateTaintsPayload
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateTaintsPayload -&gt; UpdateTaintsPayload -&gt; Bool
 == :: UpdateTaintsPayload -&gt; UpdateTaintsPayload -&gt; Bool
 $c== :: UpdateTaintsPayload -&gt; UpdateTaintsPayload -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270047"><span id="local-6989586621679270049"><span id="local-6989586621679270051"><span id="local-6989586621679270053"><span class="annot"><span class="annottext">ReadPrec [UpdateTaintsPayload]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270315"><span id="local-6989586621679270317"><span id="local-6989586621679270319"><span id="local-6989586621679270321"><span class="annot"><span class="annottext">ReadPrec [UpdateTaintsPayload]
 ReadPrec UpdateTaintsPayload
 Int -&gt; ReadS UpdateTaintsPayload
 ReadS [UpdateTaintsPayload]
@@ -64,7 +64,7 @@ readList :: ReadS [UpdateTaintsPayload]
 $creadList :: ReadS [UpdateTaintsPayload]
 readsPrec :: Int -&gt; ReadS UpdateTaintsPayload
 $creadsPrec :: Int -&gt; ReadS UpdateTaintsPayload
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270040"><span id="local-6989586621679270042"><span id="local-6989586621679270044"><span class="annot"><span class="annottext">Int -&gt; UpdateTaintsPayload -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270308"><span id="local-6989586621679270310"><span id="local-6989586621679270312"><span class="annot"><span class="annottext">Int -&gt; UpdateTaintsPayload -&gt; ShowS
 [UpdateTaintsPayload] -&gt; ShowS
 UpdateTaintsPayload -&gt; String
 (Int -&gt; UpdateTaintsPayload -&gt; ShowS)
@@ -98,68 +98,29 @@ $cfrom :: forall x. UpdateTaintsPayload -&gt; Rep UpdateTaintsPayload x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'removeTaints', 'updateTaintsPayload_removeTaints' - Kubernetes taints to be removed.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'addOrUpdateTaints', 'updateTaintsPayload_addOrUpdateTaints' - Kubernetes taints to be added or updated.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'addOrUpdateTaints', 'updateTaintsPayload_addOrUpdateTaints' - Kubernetes taints to be added or updated.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'removeTaints', 'updateTaintsPayload_removeTaints' - Kubernetes taints to be removed.</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#newUpdateTaintsPayload"><span class="hs-identifier hs-type">newUpdateTaintsPayload</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload"><span class="hs-identifier hs-type">UpdateTaintsPayload</span></a></span><span>
 </span><span id="line-51"></span><span id="newUpdateTaintsPayload"><span class="annot"><span class="annottext">newUpdateTaintsPayload :: UpdateTaintsPayload
 </span><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#newUpdateTaintsPayload"><span class="hs-identifier hs-var hs-var">newUpdateTaintsPayload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">UpdateTaintsPayload' :: Maybe [Taint] -&gt; Maybe [Taint] -&gt; UpdateTaintsPayload
 </span><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload%27"><span class="hs-identifier hs-type">UpdateTaintsPayload'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:removeTaints:UpdateTaintsPayload' :: Maybe [Taint]
-</span><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#%24sel%3AremoveTaints%3AUpdateTaintsPayload%27"><span class="hs-identifier hs-var">removeTaints</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:addOrUpdateTaints:UpdateTaintsPayload' :: Maybe [Taint]
+</span><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#%24sel%3AaddOrUpdateTaints%3AUpdateTaintsPayload%27"><span class="hs-identifier hs-var">addOrUpdateTaints</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Taint]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:addOrUpdateTaints:UpdateTaintsPayload' :: Maybe [Taint]
-</span><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#%24sel%3AaddOrUpdateTaints%3AUpdateTaintsPayload%27"><span class="hs-identifier hs-var">addOrUpdateTaints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Taint]
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:removeTaints:UpdateTaintsPayload' :: Maybe [Taint]
+</span><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#%24sel%3AremoveTaints%3AUpdateTaintsPayload%27"><span class="hs-identifier hs-var">removeTaints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Taint]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | Kubernetes taints to be removed.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#updateTaintsPayload_removeTaints"><span class="hs-identifier hs-type">updateTaintsPayload_removeTaints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload"><span class="hs-identifier hs-type">UpdateTaintsPayload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="updateTaintsPayload_removeTaints"><span class="annot"><span class="annottext">updateTaintsPayload_removeTaints :: (Maybe [Taint] -&gt; f (Maybe [Taint]))
--&gt; UpdateTaintsPayload -&gt; f UpdateTaintsPayload
-</span><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#updateTaintsPayload_removeTaints"><span class="hs-identifier hs-var hs-var">updateTaintsPayload_removeTaints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTaintsPayload -&gt; Maybe [Taint])
--&gt; (UpdateTaintsPayload -&gt; Maybe [Taint] -&gt; UpdateTaintsPayload)
--&gt; Lens
-     UpdateTaintsPayload
-     UpdateTaintsPayload
-     (Maybe [Taint])
-     (Maybe [Taint])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload%27"><span class="hs-identifier hs-type">UpdateTaintsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270031"><span class="annot"><span class="annottext">Maybe [Taint]
-removeTaints :: Maybe [Taint]
-$sel:removeTaints:UpdateTaintsPayload' :: UpdateTaintsPayload -&gt; Maybe [Taint]
-</span><a href="#local-6989586621679270031"><span class="hs-identifier hs-var hs-var">removeTaints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Taint]
-</span><a href="#local-6989586621679270031"><span class="hs-identifier hs-var">removeTaints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270030"><span class="annot"><span class="annottext">s :: UpdateTaintsPayload
-</span><a href="#local-6989586621679270030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload%27"><span class="hs-identifier hs-type">UpdateTaintsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270029"><span class="annot"><span class="annottext">Maybe [Taint]
-</span><a href="#local-6989586621679270029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTaintsPayload
-</span><a href="#local-6989586621679270030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeTaints:UpdateTaintsPayload' :: Maybe [Taint]
-</span><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#%24sel%3AremoveTaints%3AUpdateTaintsPayload%27"><span class="hs-identifier hs-var">removeTaints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Taint]
-</span><a href="#local-6989586621679270029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload"><span class="hs-identifier hs-type">UpdateTaintsPayload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Taint] -&gt; f (Maybe [Taint]))
- -&gt; UpdateTaintsPayload -&gt; f UpdateTaintsPayload)
--&gt; ((Maybe [Taint] -&gt; f (Maybe [Taint]))
-    -&gt; Maybe [Taint] -&gt; f (Maybe [Taint]))
--&gt; (Maybe [Taint] -&gt; f (Maybe [Taint]))
--&gt; UpdateTaintsPayload
--&gt; f UpdateTaintsPayload
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Taint] [Taint] [Taint] [Taint]
--&gt; Iso
-     (Maybe [Taint]) (Maybe [Taint]) (Maybe [Taint]) (Maybe [Taint])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Taint] [Taint] [Taint] [Taint]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | Kubernetes taints to be added or updated.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#updateTaintsPayload_addOrUpdateTaints"><span class="hs-identifier hs-type">updateTaintsPayload_addOrUpdateTaints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload"><span class="hs-identifier hs-type">UpdateTaintsPayload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="updateTaintsPayload_addOrUpdateTaints"><span class="annot"><span class="annottext">updateTaintsPayload_addOrUpdateTaints :: (Maybe [Taint] -&gt; f (Maybe [Taint]))
+</span><span id="line-58"></span><span class="hs-comment">-- | Kubernetes taints to be added or updated.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#updateTaintsPayload_addOrUpdateTaints"><span class="hs-identifier hs-type">updateTaintsPayload_addOrUpdateTaints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload"><span class="hs-identifier hs-type">UpdateTaintsPayload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="updateTaintsPayload_addOrUpdateTaints"><span class="annot"><span class="annottext">updateTaintsPayload_addOrUpdateTaints :: (Maybe [Taint] -&gt; f (Maybe [Taint]))
 -&gt; UpdateTaintsPayload -&gt; f UpdateTaintsPayload
 </span><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#updateTaintsPayload_addOrUpdateTaints"><span class="hs-identifier hs-var hs-var">updateTaintsPayload_addOrUpdateTaints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTaintsPayload -&gt; Maybe [Taint])
 -&gt; (UpdateTaintsPayload -&gt; Maybe [Taint] -&gt; UpdateTaintsPayload)
@@ -169,16 +130,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [Taint])
      (Maybe [Taint])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload%27"><span class="hs-identifier hs-type">UpdateTaintsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270024"><span class="annot"><span class="annottext">Maybe [Taint]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload%27"><span class="hs-identifier hs-type">UpdateTaintsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270299"><span class="annot"><span class="annottext">Maybe [Taint]
 addOrUpdateTaints :: Maybe [Taint]
 $sel:addOrUpdateTaints:UpdateTaintsPayload' :: UpdateTaintsPayload -&gt; Maybe [Taint]
-</span><a href="#local-6989586621679270024"><span class="hs-identifier hs-var hs-var">addOrUpdateTaints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Taint]
-</span><a href="#local-6989586621679270024"><span class="hs-identifier hs-var">addOrUpdateTaints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270023"><span class="annot"><span class="annottext">s :: UpdateTaintsPayload
-</span><a href="#local-6989586621679270023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload%27"><span class="hs-identifier hs-type">UpdateTaintsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270022"><span class="annot"><span class="annottext">Maybe [Taint]
-</span><a href="#local-6989586621679270022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTaintsPayload
-</span><a href="#local-6989586621679270023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addOrUpdateTaints:UpdateTaintsPayload' :: Maybe [Taint]
+</span><a href="#local-6989586621679270299"><span class="hs-identifier hs-var hs-var">addOrUpdateTaints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Taint]
+</span><a href="#local-6989586621679270299"><span class="hs-identifier hs-var">addOrUpdateTaints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270298"><span class="annot"><span class="annottext">s :: UpdateTaintsPayload
+</span><a href="#local-6989586621679270298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload%27"><span class="hs-identifier hs-type">UpdateTaintsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270297"><span class="annot"><span class="annottext">Maybe [Taint]
+</span><a href="#local-6989586621679270297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTaintsPayload
+</span><a href="#local-6989586621679270298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addOrUpdateTaints:UpdateTaintsPayload' :: Maybe [Taint]
 </span><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#%24sel%3AaddOrUpdateTaints%3AUpdateTaintsPayload%27"><span class="hs-identifier hs-var">addOrUpdateTaints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Taint]
-</span><a href="#local-6989586621679270022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload"><span class="hs-identifier hs-type">UpdateTaintsPayload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Taint] -&gt; f (Maybe [Taint]))
+</span><a href="#local-6989586621679270297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload"><span class="hs-identifier hs-type">UpdateTaintsPayload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Taint] -&gt; f (Maybe [Taint]))
  -&gt; UpdateTaintsPayload -&gt; f UpdateTaintsPayload)
 -&gt; ((Maybe [Taint] -&gt; f (Maybe [Taint]))
     -&gt; Maybe [Taint] -&gt; f (Maybe [Taint]))
@@ -193,41 +154,80 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Taint] [Taint] [Taint] [Taint]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270018"><span id="local-6989586621679270020"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload"><span class="hs-identifier hs-type">UpdateTaintsPayload</span></a></span></span></span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270015"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload"><span class="hs-identifier hs-type">UpdateTaintsPayload</span></a></span></span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270007"><span id="local-6989586621679270009"><span id="local-6989586621679270011"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload"><span class="hs-identifier hs-type">UpdateTaintsPayload</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679270005"><span class="annot"><span class="annottext">toJSON :: UpdateTaintsPayload -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload%27"><span class="hs-identifier hs-type">UpdateTaintsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270002"><span id="local-6989586621679270003"><span class="annot"><span class="annottext">Maybe [Taint]
-addOrUpdateTaints :: Maybe [Taint]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | Kubernetes taints to be removed.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#updateTaintsPayload_removeTaints"><span class="hs-identifier hs-type">updateTaintsPayload_removeTaints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload"><span class="hs-identifier hs-type">UpdateTaintsPayload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.Taint.html#Taint"><span class="hs-identifier hs-type">Taint</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="updateTaintsPayload_removeTaints"><span class="annot"><span class="annottext">updateTaintsPayload_removeTaints :: (Maybe [Taint] -&gt; f (Maybe [Taint]))
+-&gt; UpdateTaintsPayload -&gt; f UpdateTaintsPayload
+</span><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#updateTaintsPayload_removeTaints"><span class="hs-identifier hs-var hs-var">updateTaintsPayload_removeTaints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTaintsPayload -&gt; Maybe [Taint])
+-&gt; (UpdateTaintsPayload -&gt; Maybe [Taint] -&gt; UpdateTaintsPayload)
+-&gt; Lens
+     UpdateTaintsPayload
+     UpdateTaintsPayload
+     (Maybe [Taint])
+     (Maybe [Taint])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload%27"><span class="hs-identifier hs-type">UpdateTaintsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270292"><span class="annot"><span class="annottext">Maybe [Taint]
 removeTaints :: Maybe [Taint]
-$sel:addOrUpdateTaints:UpdateTaintsPayload' :: UpdateTaintsPayload -&gt; Maybe [Taint]
 $sel:removeTaints:UpdateTaintsPayload' :: UpdateTaintsPayload -&gt; Maybe [Taint]
-</span><a href="#local-6989586621679270002"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679270292"><span class="hs-identifier hs-var hs-var">removeTaints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Taint]
+</span><a href="#local-6989586621679270292"><span class="hs-identifier hs-var">removeTaints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270291"><span class="annot"><span class="annottext">s :: UpdateTaintsPayload
+</span><a href="#local-6989586621679270291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload%27"><span class="hs-identifier hs-type">UpdateTaintsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270290"><span class="annot"><span class="annottext">Maybe [Taint]
+</span><a href="#local-6989586621679270290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTaintsPayload
+</span><a href="#local-6989586621679270291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeTaints:UpdateTaintsPayload' :: Maybe [Taint]
+</span><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#%24sel%3AremoveTaints%3AUpdateTaintsPayload%27"><span class="hs-identifier hs-var">removeTaints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Taint]
+</span><a href="#local-6989586621679270290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload"><span class="hs-identifier hs-type">UpdateTaintsPayload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Taint] -&gt; f (Maybe [Taint]))
+ -&gt; UpdateTaintsPayload -&gt; f UpdateTaintsPayload)
+-&gt; ((Maybe [Taint] -&gt; f (Maybe [Taint]))
+    -&gt; Maybe [Taint] -&gt; f (Maybe [Taint]))
+-&gt; (Maybe [Taint] -&gt; f (Maybe [Taint]))
+-&gt; UpdateTaintsPayload
+-&gt; f UpdateTaintsPayload
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Taint] [Taint] [Taint] [Taint]
+-&gt; Iso
+     (Maybe [Taint]) (Maybe [Taint]) (Maybe [Taint]) (Maybe [Taint])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Taint] [Taint] [Taint] [Taint]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270286"><span id="local-6989586621679270288"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload"><span class="hs-identifier hs-type">UpdateTaintsPayload</span></a></span></span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload"><span class="hs-identifier hs-type">UpdateTaintsPayload</span></a></span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270275"><span id="local-6989586621679270277"><span id="local-6989586621679270279"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload"><span class="hs-identifier hs-type">UpdateTaintsPayload</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679270273"><span class="annot"><span class="annottext">toJSON :: UpdateTaintsPayload -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateTaintsPayload.html#UpdateTaintsPayload%27"><span class="hs-identifier hs-type">UpdateTaintsPayload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270270"><span id="local-6989586621679270271"><span class="annot"><span class="annottext">Maybe [Taint]
+removeTaints :: Maybe [Taint]
+addOrUpdateTaints :: Maybe [Taint]
+$sel:removeTaints:UpdateTaintsPayload' :: UpdateTaintsPayload -&gt; Maybe [Taint]
+$sel:addOrUpdateTaints:UpdateTaintsPayload' :: UpdateTaintsPayload -&gt; Maybe [Taint]
+</span><a href="#local-6989586621679270270"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-74"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;addOrUpdateTaints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Taint] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>              </span><span class="annot"><span class="annottext">([Taint] -&gt; Pair) -&gt; Maybe [Taint] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Taint]
+</span><a href="#local-6989586621679270271"><span class="hs-identifier hs-var">addOrUpdateTaints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;removeTaints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Taint] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Taint] -&gt; Pair) -&gt; Maybe [Taint] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Taint]
-</span><a href="#local-6989586621679270003"><span class="hs-identifier hs-var">removeTaints</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;addOrUpdateTaints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Taint] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>              </span><span class="annot"><span class="annottext">([Taint] -&gt; Pair) -&gt; Maybe [Taint] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Taint]
-</span><a href="#local-6989586621679270002"><span class="hs-identifier hs-var">addOrUpdateTaints</span></a></span><span>
+</span><a href="#local-6989586621679270270"><span class="hs-identifier hs-var">removeTaints</span></a></span><span>
 </span><span id="line-77"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span></pre></body></html>

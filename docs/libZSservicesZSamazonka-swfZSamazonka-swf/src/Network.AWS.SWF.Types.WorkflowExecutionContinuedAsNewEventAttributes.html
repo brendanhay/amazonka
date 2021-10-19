@@ -29,32 +29,32 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Provides the details of the @WorkflowExecutionContinuedAsNew@ event.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newWorkflowExecutionContinuedAsNewEventAttributes' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679354946"><span id="local-6989586621679354947"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkflowExecutionContinuedAsNewEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-var">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The input provided to the new workflow execution.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Ainput%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3Ainput%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The IAM role to attach to the new (continued) workflow execution.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlambdaRole%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AlambdaRole%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var hs-var">lambdaRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The priority of the task to use for the decisions of the new (continued)</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- workflow execution.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AtaskPriority%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AtaskPriority%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var hs-var">taskPriority</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The total duration allowed for the new workflow execution.</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- The duration is specified in seconds, an integer greater than or equal</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- to @0@. You can use @NONE@ to specify unlimited duration.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AexecutionStartToCloseTimeout%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AexecutionStartToCloseTimeout%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var hs-var">executionStartToCloseTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The maximum duration of decision tasks for the new workflow execution.</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- The duration is specified in seconds, an integer greater than or equal</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- to @0@. You can use @NONE@ to specify unlimited duration.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AtaskStartToCloseTimeout%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AtaskStartToCloseTimeout%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var hs-var">taskStartToCloseTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The list of tags associated with the new workflow execution.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AtagList%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe [Text]
+</span><span id="line-32"></span><span id="local-6989586621679355029"><span id="local-6989586621679355030"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkflowExecutionContinuedAsNewEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-var">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of tags associated with the new workflow execution.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AtagList%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe [Text]
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AtagList%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The maximum duration of decision tasks for the new workflow execution.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- The duration is specified in seconds, an integer greater than or equal</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- to @0@. You can use @NONE@ to specify unlimited duration.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AtaskStartToCloseTimeout%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AtaskStartToCloseTimeout%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var hs-var">taskStartToCloseTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The IAM role to attach to the new (continued) workflow execution.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AlambdaRole%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AlambdaRole%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var hs-var">lambdaRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The input provided to the new workflow execution.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Ainput%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3Ainput%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The total duration allowed for the new workflow execution.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- The duration is specified in seconds, an integer greater than or equal</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- to @0@. You can use @NONE@ to specify unlimited duration.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AexecutionStartToCloseTimeout%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AexecutionStartToCloseTimeout%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var hs-var">executionStartToCloseTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The priority of the task to use for the decisions of the new (continued)</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- workflow execution.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AtaskPriority%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AtaskPriority%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var hs-var">taskPriority</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The ID of the @DecisionTaskCompleted@ event corresponding to the</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- decision task that resulted in the @ContinueAsNewWorkflowExecution@</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- decision that started this execution. This information can be useful for</span><span>
@@ -90,7 +90,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AworkflowType%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes -&gt; WorkflowType
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AworkflowType%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var hs-var">workflowType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354930"><span id="local-6989586621679354932"><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679355013"><span id="local-6989586621679355015"><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
 -&gt; WorkflowExecutionContinuedAsNewEventAttributes -&gt; Bool
 (WorkflowExecutionContinuedAsNewEventAttributes
  -&gt; WorkflowExecutionContinuedAsNewEventAttributes -&gt; Bool)
@@ -106,7 +106,7 @@ $c/= :: WorkflowExecutionContinuedAsNewEventAttributes
 -&gt; WorkflowExecutionContinuedAsNewEventAttributes -&gt; Bool
 $c== :: WorkflowExecutionContinuedAsNewEventAttributes
 -&gt; WorkflowExecutionContinuedAsNewEventAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354921"><span id="local-6989586621679354923"><span id="local-6989586621679354925"><span id="local-6989586621679354927"><span class="annot"><span class="annottext">ReadPrec [WorkflowExecutionContinuedAsNewEventAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355004"><span id="local-6989586621679355006"><span id="local-6989586621679355008"><span id="local-6989586621679355010"><span class="annot"><span class="annottext">ReadPrec [WorkflowExecutionContinuedAsNewEventAttributes]
 ReadPrec WorkflowExecutionContinuedAsNewEventAttributes
 Int -&gt; ReadS WorkflowExecutionContinuedAsNewEventAttributes
 ReadS [WorkflowExecutionContinuedAsNewEventAttributes]
@@ -126,7 +126,7 @@ readList :: ReadS [WorkflowExecutionContinuedAsNewEventAttributes]
 $creadList :: ReadS [WorkflowExecutionContinuedAsNewEventAttributes]
 readsPrec :: Int -&gt; ReadS WorkflowExecutionContinuedAsNewEventAttributes
 $creadsPrec :: Int -&gt; ReadS WorkflowExecutionContinuedAsNewEventAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354914"><span id="local-6989586621679354916"><span id="local-6989586621679354918"><span class="annot"><span class="annottext">Int -&gt; WorkflowExecutionContinuedAsNewEventAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354997"><span id="local-6989586621679354999"><span id="local-6989586621679355001"><span class="annot"><span class="annottext">Int -&gt; WorkflowExecutionContinuedAsNewEventAttributes -&gt; ShowS
 [WorkflowExecutionContinuedAsNewEventAttributes] -&gt; ShowS
 WorkflowExecutionContinuedAsNewEventAttributes -&gt; String
 (Int -&gt; WorkflowExecutionContinuedAsNewEventAttributes -&gt; ShowS)
@@ -172,24 +172,24 @@ WorkflowExecutionContinuedAsNewEventAttributes
 </span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'input', 'workflowExecutionContinuedAsNewEventAttributes_input' - The input provided to the new workflow execution.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'tagList', 'workflowExecutionContinuedAsNewEventAttributes_tagList' - The list of tags associated with the new workflow execution.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'lambdaRole', 'workflowExecutionContinuedAsNewEventAttributes_lambdaRole' - The IAM role to attach to the new (continued) workflow execution.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'taskStartToCloseTimeout', 'workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout' - The maximum duration of decision tasks for the new workflow execution.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'taskPriority', 'workflowExecutionContinuedAsNewEventAttributes_taskPriority' - The priority of the task to use for the decisions of the new (continued)</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- workflow execution.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- The duration is specified in seconds, an integer greater than or equal</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- to @0@. You can use @NONE@ to specify unlimited duration.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'executionStartToCloseTimeout', 'workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout' - The total duration allowed for the new workflow execution.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'lambdaRole', 'workflowExecutionContinuedAsNewEventAttributes_lambdaRole' - The IAM role to attach to the new (continued) workflow execution.</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- The duration is specified in seconds, an integer greater than or equal</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- to @0@. You can use @NONE@ to specify unlimited duration.</span><span>
-</span><span id="line-103"></span><span class="hs-comment">--</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- 'taskStartToCloseTimeout', 'workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout' - The maximum duration of decision tasks for the new workflow execution.</span><span>
-</span><span id="line-105"></span><span class="hs-comment">--</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- The duration is specified in seconds, an integer greater than or equal</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- to @0@. You can use @NONE@ to specify unlimited duration.</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- 'tagList', 'workflowExecutionContinuedAsNewEventAttributes_tagList' - The list of tags associated with the new workflow execution.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'input', 'workflowExecutionContinuedAsNewEventAttributes_input' - The input provided to the new workflow execution.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'executionStartToCloseTimeout', 'workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout' - The total duration allowed for the new workflow execution.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- The duration is specified in seconds, an integer greater than or equal</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- to @0@. You can use @NONE@ to specify unlimited duration.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'taskPriority', 'workflowExecutionContinuedAsNewEventAttributes_taskPriority' - The priority of the task to use for the decisions of the new (continued)</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- workflow execution.</span><span>
 </span><span id="line-110"></span><span class="hs-comment">--</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- 'decisionTaskCompletedEventId', 'workflowExecutionContinuedAsNewEventAttributes_decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- decision task that resulted in the @ContinueAsNewWorkflowExecution@</span><span>
@@ -238,22 +238,22 @@ WorkflowExecutionContinuedAsNewEventAttributes
 -&gt; WorkflowType
 -&gt; WorkflowExecutionContinuedAsNewEventAttributes
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#newWorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-var hs-var">newWorkflowExecutionContinuedAsNewEventAttributes</span></a></span></span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679354908"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679354908"><span class="hs-identifier hs-var">pDecisionTaskCompletedEventId_</span></a></span></span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679354907"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354907"><span class="hs-identifier hs-var">pNewExecutionRunId_</span></a></span></span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679354906"><span class="annot"><span class="annottext">TaskList
-</span><a href="#local-6989586621679354906"><span class="hs-identifier hs-var">pTaskList_</span></a></span></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679354905"><span class="annot"><span class="annottext">ChildPolicy
-</span><a href="#local-6989586621679354905"><span class="hs-identifier hs-var">pChildPolicy_</span></a></span></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679354904"><span class="annot"><span class="annottext">WorkflowType
-</span><a href="#local-6989586621679354904"><span class="hs-identifier hs-var">pWorkflowType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679354991"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679354991"><span class="hs-identifier hs-var">pDecisionTaskCompletedEventId_</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679354990"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354990"><span class="hs-identifier hs-var">pNewExecutionRunId_</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679354989"><span class="annot"><span class="annottext">TaskList
+</span><a href="#local-6989586621679354989"><span class="hs-identifier hs-var">pTaskList_</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679354988"><span class="annot"><span class="annottext">ChildPolicy
+</span><a href="#local-6989586621679354988"><span class="hs-identifier hs-var">pChildPolicy_</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679354987"><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679354987"><span class="hs-identifier hs-var">pWorkflowType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe [Text]
+-&gt; Maybe Text
 -&gt; Integer
 -&gt; Text
 -&gt; TaskList
@@ -261,190 +261,58 @@ WorkflowExecutionContinuedAsNewEventAttributes
 -&gt; WorkflowType
 -&gt; WorkflowExecutionContinuedAsNewEventAttributes
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span>
-</span><span id="line-158"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:input:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3Ainput%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-158"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tagList:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe [Text]
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AtagList%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">tagList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:lambdaRole:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AlambdaRole%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">lambdaRole</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:taskStartToCloseTimeout:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AtaskStartToCloseTimeout%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">taskStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:taskPriority:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AtaskPriority%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">taskPriority</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:lambdaRole:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AlambdaRole%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">lambdaRole</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:executionStartToCloseTimeout:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:input:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3Ainput%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:executionStartToCloseTimeout:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AexecutionStartToCloseTimeout%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">executionStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:taskStartToCloseTimeout:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AtaskStartToCloseTimeout%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">taskStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:tagList:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe [Text]
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AtagList%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">tagList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">$sel:taskPriority:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AtaskPriority%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">taskPriority</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">$sel:decisionTaskCompletedEventId:WorkflowExecutionContinuedAsNewEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AdecisionTaskCompletedEventId%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">decisionTaskCompletedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679354908"><span class="hs-identifier hs-var">pDecisionTaskCompletedEventId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679354991"><span class="hs-identifier hs-var">pDecisionTaskCompletedEventId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">$sel:newExecutionRunId':WorkflowExecutionContinuedAsNewEventAttributes' :: Text
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AnewExecutionRunId%27%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">newExecutionRunId'</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354907"><span class="hs-identifier hs-var">pNewExecutionRunId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679354990"><span class="hs-identifier hs-var">pNewExecutionRunId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">$sel:taskList:WorkflowExecutionContinuedAsNewEventAttributes' :: TaskList
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AtaskList%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">taskList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TaskList
-</span><a href="#local-6989586621679354906"><span class="hs-identifier hs-var">pTaskList_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679354989"><span class="hs-identifier hs-var">pTaskList_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">$sel:childPolicy:WorkflowExecutionContinuedAsNewEventAttributes' :: ChildPolicy
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AchildPolicy%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">childPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChildPolicy
-</span><a href="#local-6989586621679354905"><span class="hs-identifier hs-var">pChildPolicy_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679354988"><span class="hs-identifier hs-var">pChildPolicy_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">$sel:workflowType:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowType
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AworkflowType%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">workflowType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">WorkflowType
-</span><a href="#local-6989586621679354904"><span class="hs-identifier hs-var">pWorkflowType_</span></a></span><span>
+</span><a href="#local-6989586621679354987"><span class="hs-identifier hs-var">pWorkflowType_</span></a></span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- | The input provided to the new workflow execution.</span><span>
-</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_input"><span class="hs-identifier hs-type">workflowExecutionContinuedAsNewEventAttributes_input</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span id="workflowExecutionContinuedAsNewEventAttributes_input"><span class="annot"><span class="annottext">workflowExecutionContinuedAsNewEventAttributes_input :: (Maybe Text -&gt; f (Maybe Text))
--&gt; WorkflowExecutionContinuedAsNewEventAttributes
--&gt; f WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_input"><span class="hs-identifier hs-var hs-var">workflowExecutionContinuedAsNewEventAttributes_input</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text)
--&gt; (WorkflowExecutionContinuedAsNewEventAttributes
-    -&gt; Maybe Text -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
--&gt; Lens
-     WorkflowExecutionContinuedAsNewEventAttributes
-     WorkflowExecutionContinuedAsNewEventAttributes
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354900"><span class="annot"><span class="annottext">Maybe Text
-input :: Maybe Text
-$sel:input:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679354900"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354900"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354899"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354898"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:input:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3Ainput%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- | The IAM role to attach to the new (continued) workflow execution.</span><span>
-</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_lambdaRole"><span class="hs-identifier hs-type">workflowExecutionContinuedAsNewEventAttributes_lambdaRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span id="workflowExecutionContinuedAsNewEventAttributes_lambdaRole"><span class="annot"><span class="annottext">workflowExecutionContinuedAsNewEventAttributes_lambdaRole :: (Maybe Text -&gt; f (Maybe Text))
--&gt; WorkflowExecutionContinuedAsNewEventAttributes
--&gt; f WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_lambdaRole"><span class="hs-identifier hs-var hs-var">workflowExecutionContinuedAsNewEventAttributes_lambdaRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text)
--&gt; (WorkflowExecutionContinuedAsNewEventAttributes
-    -&gt; Maybe Text -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
--&gt; Lens
-     WorkflowExecutionContinuedAsNewEventAttributes
-     WorkflowExecutionContinuedAsNewEventAttributes
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354896"><span class="annot"><span class="annottext">Maybe Text
-lambdaRole :: Maybe Text
-$sel:lambdaRole:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679354896"><span class="hs-identifier hs-var hs-var">lambdaRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354896"><span class="hs-identifier hs-var">lambdaRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354895"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354894"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaRole:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AlambdaRole%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">lambdaRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- | The priority of the task to use for the decisions of the new (continued)</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- workflow execution.</span><span>
-</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_taskPriority"><span class="hs-identifier hs-type">workflowExecutionContinuedAsNewEventAttributes_taskPriority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span id="workflowExecutionContinuedAsNewEventAttributes_taskPriority"><span class="annot"><span class="annottext">workflowExecutionContinuedAsNewEventAttributes_taskPriority :: (Maybe Text -&gt; f (Maybe Text))
--&gt; WorkflowExecutionContinuedAsNewEventAttributes
--&gt; f WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_taskPriority"><span class="hs-identifier hs-var hs-var">workflowExecutionContinuedAsNewEventAttributes_taskPriority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text)
--&gt; (WorkflowExecutionContinuedAsNewEventAttributes
-    -&gt; Maybe Text -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
--&gt; Lens
-     WorkflowExecutionContinuedAsNewEventAttributes
-     WorkflowExecutionContinuedAsNewEventAttributes
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354892"><span class="annot"><span class="annottext">Maybe Text
-taskPriority :: Maybe Text
-$sel:taskPriority:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679354892"><span class="hs-identifier hs-var hs-var">taskPriority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354892"><span class="hs-identifier hs-var">taskPriority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354891"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354890"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskPriority:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AtaskPriority%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">taskPriority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- | The total duration allowed for the new workflow execution.</span><span>
-</span><span id="line-193"></span><span class="hs-comment">--</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- The duration is specified in seconds, an integer greater than or equal</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- to @0@. You can use @NONE@ to specify unlimited duration.</span><span>
-</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout"><span class="hs-identifier hs-type">workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-197"></span><span id="workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout"><span class="annot"><span class="annottext">workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout :: (Maybe Text -&gt; f (Maybe Text))
--&gt; WorkflowExecutionContinuedAsNewEventAttributes
--&gt; f WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout"><span class="hs-identifier hs-var hs-var">workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text)
--&gt; (WorkflowExecutionContinuedAsNewEventAttributes
-    -&gt; Maybe Text -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
--&gt; Lens
-     WorkflowExecutionContinuedAsNewEventAttributes
-     WorkflowExecutionContinuedAsNewEventAttributes
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354888"><span class="annot"><span class="annottext">Maybe Text
-executionStartToCloseTimeout :: Maybe Text
-$sel:executionStartToCloseTimeout:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679354888"><span class="hs-identifier hs-var hs-var">executionStartToCloseTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354888"><span class="hs-identifier hs-var">executionStartToCloseTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354887"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354886"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionStartToCloseTimeout:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AexecutionStartToCloseTimeout%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">executionStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- | The maximum duration of decision tasks for the new workflow execution.</span><span>
-</span><span id="line-200"></span><span class="hs-comment">--</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- The duration is specified in seconds, an integer greater than or equal</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- to @0@. You can use @NONE@ to specify unlimited duration.</span><span>
-</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout"><span class="hs-identifier hs-type">workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-204"></span><span id="workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout"><span class="annot"><span class="annottext">workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout :: (Maybe Text -&gt; f (Maybe Text))
--&gt; WorkflowExecutionContinuedAsNewEventAttributes
--&gt; f WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout"><span class="hs-identifier hs-var hs-var">workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text)
--&gt; (WorkflowExecutionContinuedAsNewEventAttributes
-    -&gt; Maybe Text -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
--&gt; Lens
-     WorkflowExecutionContinuedAsNewEventAttributes
-     WorkflowExecutionContinuedAsNewEventAttributes
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354884"><span class="annot"><span class="annottext">Maybe Text
-taskStartToCloseTimeout :: Maybe Text
-$sel:taskStartToCloseTimeout:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679354884"><span class="hs-identifier hs-var hs-var">taskStartToCloseTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354884"><span class="hs-identifier hs-var">taskStartToCloseTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354883"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354882"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskStartToCloseTimeout:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AtaskStartToCloseTimeout%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">taskStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- | The list of tags associated with the new workflow execution.</span><span>
-</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_tagList"><span class="hs-identifier hs-type">workflowExecutionContinuedAsNewEventAttributes_tagList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-208"></span><span id="workflowExecutionContinuedAsNewEventAttributes_tagList"><span class="annot"><span class="annottext">workflowExecutionContinuedAsNewEventAttributes_tagList :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-179"></span><span class="hs-comment">-- | The list of tags associated with the new workflow execution.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_tagList"><span class="hs-identifier hs-type">workflowExecutionContinuedAsNewEventAttributes_tagList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="workflowExecutionContinuedAsNewEventAttributes_tagList"><span class="annot"><span class="annottext">workflowExecutionContinuedAsNewEventAttributes_tagList :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; WorkflowExecutionContinuedAsNewEventAttributes
 -&gt; f WorkflowExecutionContinuedAsNewEventAttributes
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_tagList"><span class="hs-identifier hs-var hs-var">workflowExecutionContinuedAsNewEventAttributes_tagList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe [Text])
@@ -456,16 +324,16 @@ $sel:taskStartToCloseTimeout:WorkflowExecutionContinuedAsNewEventAttributes' :: 
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354880"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354983"><span class="annot"><span class="annottext">Maybe [Text]
 tagList :: Maybe [Text]
 $sel:tagList:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe [Text]
-</span><a href="#local-6989586621679354880"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679354880"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354879"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354878"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679354878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagList:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe [Text]
+</span><a href="#local-6989586621679354983"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679354983"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354982"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354981"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679354981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagList:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe [Text]
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AtagList%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">tagList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679354878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679354981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; WorkflowExecutionContinuedAsNewEventAttributes
  -&gt; f WorkflowExecutionContinuedAsNewEventAttributes)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -480,8 +348,140 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The maximum duration of decision tasks for the new workflow execution.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- The duration is specified in seconds, an integer greater than or equal</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- to @0@. You can use @NONE@ to specify unlimited duration.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout"><span class="hs-identifier hs-type">workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout"><span class="annot"><span class="annottext">workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkflowExecutionContinuedAsNewEventAttributes
+-&gt; f WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout"><span class="hs-identifier hs-var hs-var">workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text)
+-&gt; (WorkflowExecutionContinuedAsNewEventAttributes
+    -&gt; Maybe Text -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
+-&gt; Lens
+     WorkflowExecutionContinuedAsNewEventAttributes
+     WorkflowExecutionContinuedAsNewEventAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354976"><span class="annot"><span class="annottext">Maybe Text
+taskStartToCloseTimeout :: Maybe Text
+$sel:taskStartToCloseTimeout:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679354976"><span class="hs-identifier hs-var hs-var">taskStartToCloseTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354976"><span class="hs-identifier hs-var">taskStartToCloseTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354975"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354974"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskStartToCloseTimeout:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AtaskStartToCloseTimeout%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">taskStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The IAM role to attach to the new (continued) workflow execution.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_lambdaRole"><span class="hs-identifier hs-type">workflowExecutionContinuedAsNewEventAttributes_lambdaRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="workflowExecutionContinuedAsNewEventAttributes_lambdaRole"><span class="annot"><span class="annottext">workflowExecutionContinuedAsNewEventAttributes_lambdaRole :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkflowExecutionContinuedAsNewEventAttributes
+-&gt; f WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_lambdaRole"><span class="hs-identifier hs-var hs-var">workflowExecutionContinuedAsNewEventAttributes_lambdaRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text)
+-&gt; (WorkflowExecutionContinuedAsNewEventAttributes
+    -&gt; Maybe Text -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
+-&gt; Lens
+     WorkflowExecutionContinuedAsNewEventAttributes
+     WorkflowExecutionContinuedAsNewEventAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354972"><span class="annot"><span class="annottext">Maybe Text
+lambdaRole :: Maybe Text
+$sel:lambdaRole:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679354972"><span class="hs-identifier hs-var hs-var">lambdaRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354972"><span class="hs-identifier hs-var">lambdaRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354971"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354970"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaRole:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AlambdaRole%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">lambdaRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The input provided to the new workflow execution.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_input"><span class="hs-identifier hs-type">workflowExecutionContinuedAsNewEventAttributes_input</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="workflowExecutionContinuedAsNewEventAttributes_input"><span class="annot"><span class="annottext">workflowExecutionContinuedAsNewEventAttributes_input :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkflowExecutionContinuedAsNewEventAttributes
+-&gt; f WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_input"><span class="hs-identifier hs-var hs-var">workflowExecutionContinuedAsNewEventAttributes_input</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text)
+-&gt; (WorkflowExecutionContinuedAsNewEventAttributes
+    -&gt; Maybe Text -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
+-&gt; Lens
+     WorkflowExecutionContinuedAsNewEventAttributes
+     WorkflowExecutionContinuedAsNewEventAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354968"><span class="annot"><span class="annottext">Maybe Text
+input :: Maybe Text
+$sel:input:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679354968"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354968"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354967"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354966"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:input:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3Ainput%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The total duration allowed for the new workflow execution.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- The duration is specified in seconds, an integer greater than or equal</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- to @0@. You can use @NONE@ to specify unlimited duration.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout"><span class="hs-identifier hs-type">workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout"><span class="annot"><span class="annottext">workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkflowExecutionContinuedAsNewEventAttributes
+-&gt; f WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout"><span class="hs-identifier hs-var hs-var">workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text)
+-&gt; (WorkflowExecutionContinuedAsNewEventAttributes
+    -&gt; Maybe Text -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
+-&gt; Lens
+     WorkflowExecutionContinuedAsNewEventAttributes
+     WorkflowExecutionContinuedAsNewEventAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354964"><span class="annot"><span class="annottext">Maybe Text
+executionStartToCloseTimeout :: Maybe Text
+$sel:executionStartToCloseTimeout:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679354964"><span class="hs-identifier hs-var hs-var">executionStartToCloseTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354964"><span class="hs-identifier hs-var">executionStartToCloseTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354963"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354962"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionStartToCloseTimeout:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AexecutionStartToCloseTimeout%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">executionStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The priority of the task to use for the decisions of the new (continued)</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- workflow execution.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_taskPriority"><span class="hs-identifier hs-type">workflowExecutionContinuedAsNewEventAttributes_taskPriority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="workflowExecutionContinuedAsNewEventAttributes_taskPriority"><span class="annot"><span class="annottext">workflowExecutionContinuedAsNewEventAttributes_taskPriority :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkflowExecutionContinuedAsNewEventAttributes
+-&gt; f WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_taskPriority"><span class="hs-identifier hs-var hs-var">workflowExecutionContinuedAsNewEventAttributes_taskPriority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text)
+-&gt; (WorkflowExecutionContinuedAsNewEventAttributes
+    -&gt; Maybe Text -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
+-&gt; Lens
+     WorkflowExecutionContinuedAsNewEventAttributes
+     WorkflowExecutionContinuedAsNewEventAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354960"><span class="annot"><span class="annottext">Maybe Text
+taskPriority :: Maybe Text
+$sel:taskPriority:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowExecutionContinuedAsNewEventAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679354960"><span class="hs-identifier hs-var hs-var">taskPriority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354960"><span class="hs-identifier hs-var">taskPriority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354959"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354958"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskPriority:WorkflowExecutionContinuedAsNewEventAttributes' :: Maybe Text
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AtaskPriority%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">taskPriority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | The ID of the @DecisionTaskCompleted@ event corresponding to the</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- decision task that resulted in the @ContinueAsNewWorkflowExecution@</span><span>
@@ -501,16 +501,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Integer
      Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354873"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354956"><span class="annot"><span class="annottext">Integer
 decisionTaskCompletedEventId :: Integer
 $sel:decisionTaskCompletedEventId:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowExecutionContinuedAsNewEventAttributes -&gt; Integer
-</span><a href="#local-6989586621679354873"><span class="hs-identifier hs-var hs-var">decisionTaskCompletedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679354873"><span class="hs-identifier hs-var">decisionTaskCompletedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354872"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354871"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679354871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:decisionTaskCompletedEventId:WorkflowExecutionContinuedAsNewEventAttributes' :: Integer
+</span><a href="#local-6989586621679354956"><span class="hs-identifier hs-var hs-var">decisionTaskCompletedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679354956"><span class="hs-identifier hs-var">decisionTaskCompletedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354955"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354954"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679354954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:decisionTaskCompletedEventId:WorkflowExecutionContinuedAsNewEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AdecisionTaskCompletedEventId%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">decisionTaskCompletedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679354871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | The @runId@ of the new workflow execution.</span><span>
 </span><span id="line-219"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_newExecutionRunId"><span class="hs-identifier hs-type">workflowExecutionContinuedAsNewEventAttributes_newExecutionRunId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -526,16 +526,16 @@ $sel:decisionTaskCompletedEventId:WorkflowExecutionContinuedAsNewEventAttributes
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354869"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354952"><span class="annot"><span class="annottext">Text
 newExecutionRunId' :: Text
 $sel:newExecutionRunId':WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowExecutionContinuedAsNewEventAttributes -&gt; Text
-</span><a href="#local-6989586621679354869"><span class="hs-identifier hs-var hs-var">newExecutionRunId'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354869"><span class="hs-identifier hs-var">newExecutionRunId'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354868"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354867"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newExecutionRunId':WorkflowExecutionContinuedAsNewEventAttributes' :: Text
+</span><a href="#local-6989586621679354952"><span class="hs-identifier hs-var hs-var">newExecutionRunId'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354952"><span class="hs-identifier hs-var">newExecutionRunId'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354951"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354950"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newExecutionRunId':WorkflowExecutionContinuedAsNewEventAttributes' :: Text
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AnewExecutionRunId%27%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">newExecutionRunId'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | The task list to use for the decisions of the new (continued) workflow</span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- execution.</span><span>
@@ -552,16 +552,16 @@ $sel:newExecutionRunId':WorkflowExecutionContinuedAsNewEventAttributes' :: Workf
      TaskList
      TaskList
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354865"><span class="annot"><span class="annottext">TaskList
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354948"><span class="annot"><span class="annottext">TaskList
 taskList :: TaskList
 $sel:taskList:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowExecutionContinuedAsNewEventAttributes -&gt; TaskList
-</span><a href="#local-6989586621679354865"><span class="hs-identifier hs-var hs-var">taskList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskList
-</span><a href="#local-6989586621679354865"><span class="hs-identifier hs-var">taskList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354864"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354863"><span class="annot"><span class="annottext">TaskList
-</span><a href="#local-6989586621679354863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskList:WorkflowExecutionContinuedAsNewEventAttributes' :: TaskList
+</span><a href="#local-6989586621679354948"><span class="hs-identifier hs-var hs-var">taskList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskList
+</span><a href="#local-6989586621679354948"><span class="hs-identifier hs-var">taskList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354947"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354946"><span class="annot"><span class="annottext">TaskList
+</span><a href="#local-6989586621679354946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskList:WorkflowExecutionContinuedAsNewEventAttributes' :: TaskList
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AtaskList%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">taskList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TaskList
-</span><a href="#local-6989586621679354863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | The policy to use for the child workflow executions of the new execution</span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- if it is terminated by calling the TerminateWorkflowExecution action</span><span>
@@ -591,16 +591,16 @@ $sel:taskList:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowExecuti
      ChildPolicy
      ChildPolicy
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354861"><span class="annot"><span class="annottext">ChildPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354944"><span class="annot"><span class="annottext">ChildPolicy
 childPolicy :: ChildPolicy
 $sel:childPolicy:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowExecutionContinuedAsNewEventAttributes -&gt; ChildPolicy
-</span><a href="#local-6989586621679354861"><span class="hs-identifier hs-var hs-var">childPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildPolicy
-</span><a href="#local-6989586621679354861"><span class="hs-identifier hs-var">childPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354860"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354859"><span class="annot"><span class="annottext">ChildPolicy
-</span><a href="#local-6989586621679354859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:childPolicy:WorkflowExecutionContinuedAsNewEventAttributes' :: ChildPolicy
+</span><a href="#local-6989586621679354944"><span class="hs-identifier hs-var hs-var">childPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildPolicy
+</span><a href="#local-6989586621679354944"><span class="hs-identifier hs-var">childPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354943"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354942"><span class="annot"><span class="annottext">ChildPolicy
+</span><a href="#local-6989586621679354942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:childPolicy:WorkflowExecutionContinuedAsNewEventAttributes' :: ChildPolicy
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AchildPolicy%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">childPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChildPolicy
-</span><a href="#local-6989586621679354859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- | The workflow type of this execution.</span><span>
 </span><span id="line-246"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#workflowExecutionContinuedAsNewEventAttributes_workflowType"><span class="hs-identifier hs-type">workflowExecutionContinuedAsNewEventAttributes_workflowType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span><span>
@@ -616,22 +616,22 @@ $sel:childPolicy:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowExec
      WorkflowType
      WorkflowType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354857"><span class="annot"><span class="annottext">WorkflowType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354940"><span class="annot"><span class="annottext">WorkflowType
 workflowType :: WorkflowType
 $sel:workflowType:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowExecutionContinuedAsNewEventAttributes -&gt; WorkflowType
-</span><a href="#local-6989586621679354857"><span class="hs-identifier hs-var hs-var">workflowType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowType
-</span><a href="#local-6989586621679354857"><span class="hs-identifier hs-var">workflowType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354856"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354855"><span class="annot"><span class="annottext">WorkflowType
-</span><a href="#local-6989586621679354855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
-</span><a href="#local-6989586621679354856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowType:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowType
+</span><a href="#local-6989586621679354940"><span class="hs-identifier hs-var hs-var">workflowType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679354940"><span class="hs-identifier hs-var">workflowType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354939"><span class="annot"><span class="annottext">s :: WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354938"><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679354938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionContinuedAsNewEventAttributes
+</span><a href="#local-6989586621679354939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowType:WorkflowExecutionContinuedAsNewEventAttributes' :: WorkflowType
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#%24sel%3AworkflowType%3AWorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">workflowType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkflowType
-</span><a href="#local-6989586621679354855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-250"></span><span>  </span><span id="local-6989586621679354852"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679354935"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-251"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span></span><span>
 </span><span id="line-252"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-253"></span><span>  </span><span id="local-6989586621679354850"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkflowExecutionContinuedAsNewEventAttributes
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679354933"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkflowExecutionContinuedAsNewEventAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-254"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object
@@ -642,14 +642,14 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WorkflowExecutionContinuedAsNewEventAttributes&quot;</span></span><span>
-</span><span id="line-256"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679354847"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354847"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-257"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-256"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679354930"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354930"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-257"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe [Text]
+-&gt; Maybe Text
 -&gt; Integer
 -&gt; Text
 -&gt; TaskList
@@ -657,25 +657,25 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; WorkflowType
 -&gt; WorkflowExecutionContinuedAsNewEventAttributes
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes%27"><span class="hs-identifier hs-var">WorkflowExecutionContinuedAsNewEventAttributes'</span></a></span><span>
-</span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe [Text]
+ -&gt; Maybe Text
  -&gt; Integer
  -&gt; Text
  -&gt; TaskList
  -&gt; ChildPolicy
  -&gt; WorkflowType
  -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Text])
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe [Text]
+      -&gt; Maybe Text
       -&gt; Integer
       -&gt; Text
       -&gt; TaskList
@@ -684,16 +684,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679354930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;input&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;tagList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>              </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe [Text]
+   -&gt; Maybe Text
    -&gt; Integer
    -&gt; Text
    -&gt; TaskList
@@ -705,7 +710,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe [Text]
+      -&gt; Maybe Text
       -&gt; Integer
       -&gt; Text
       -&gt; TaskList
@@ -714,15 +719,15 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679354930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lambdaRole&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;taskStartToCloseTimeout&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>              </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe [Text]
+   -&gt; Maybe Text
    -&gt; Integer
    -&gt; Text
    -&gt; TaskList
@@ -733,7 +738,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe [Text]
+      -&gt; Maybe Text
       -&gt; Integer
       -&gt; Text
       -&gt; TaskList
@@ -742,14 +747,14 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679354930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;taskPriority&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;lambdaRole&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span><span>              </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe [Text]
+   -&gt; Maybe Text
    -&gt; Integer
    -&gt; Text
    -&gt; TaskList
@@ -759,7 +764,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe [Text]
+      -&gt; Maybe Text
       -&gt; Integer
       -&gt; Text
       -&gt; TaskList
@@ -768,13 +773,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679354930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;executionStartToCloseTimeout&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;input&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-262"></span><span>              </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe [Text]
+   -&gt; Maybe Text
    -&gt; Integer
    -&gt; Text
    -&gt; TaskList
@@ -783,7 +788,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
    -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe [Text]
+     (Maybe Text
       -&gt; Integer
       -&gt; Text
       -&gt; TaskList
@@ -792,19 +797,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679354930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;taskStartToCloseTimeout&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;executionStartToCloseTimeout&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-263"></span><span>              </span><span class="annot"><span class="annottext">Parser
-  (Maybe [Text]
+  (Maybe Text
    -&gt; Integer
    -&gt; Text
    -&gt; TaskList
    -&gt; ChildPolicy
    -&gt; WorkflowType
    -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
--&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe Text)
 -&gt; Parser
      (Integer
       -&gt; Text
@@ -814,15 +819,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679354930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;tagList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
--&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;taskPriority&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>              </span><span class="annot"><span class="annottext">Parser
   (Integer
    -&gt; Text
@@ -839,7 +839,7 @@ forall a. Monoid a =&gt; a
       -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679354930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;decisionTaskCompletedEventId&quot;</span></span><span class="hs-special">)</span><span>
@@ -857,7 +857,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679354930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;newExecutionRunId&quot;</span></span><span class="hs-special">)</span><span>
@@ -872,7 +872,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; WorkflowType -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TaskList
+</span><a href="#local-6989586621679354930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TaskList
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;taskList&quot;</span></span><span class="hs-special">)</span><span>
@@ -884,7 +884,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
      (WorkflowType -&gt; WorkflowExecutionContinuedAsNewEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ChildPolicy
+</span><a href="#local-6989586621679354930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ChildPolicy
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;childPolicy&quot;</span></span><span class="hs-special">)</span><span>
@@ -894,17 +894,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser WorkflowExecutionContinuedAsNewEventAttributes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkflowType
+</span><a href="#local-6989586621679354930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkflowType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;workflowType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>
 </span><span id="line-271"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-272"></span><span>  </span><span id="local-6989586621679354839"><span id="local-6989586621679354841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-272"></span><span>  </span><span id="local-6989586621679354922"><span id="local-6989586621679354924"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-273"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span></span></span><span>
 </span><span id="line-274"></span><span>
 </span><span id="line-275"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-276"></span><span>  </span><span id="local-6989586621679354836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-276"></span><span>  </span><span id="local-6989586621679354919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-277"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes.html#WorkflowExecutionContinuedAsNewEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionContinuedAsNewEventAttributes</span></a></span></span><span>
 </span><span id="line-278"></span></pre></body></html>

@@ -27,19 +27,19 @@
 </span><span id="line-27"></span><span class="hs-comment">-- retrieve organization details.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOrganizationAggregationSource' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679401425"><span id="local-6989586621679401426"></span></span><span class="hs-keyword">data</span><span> </span><span id="OrganizationAggregationSource"><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-var">OrganizationAggregationSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationAggregationSource%27"><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource%27"><span class="hs-identifier hs-var">OrganizationAggregationSource'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If true, aggregate existing Config regions and future regions.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AallAwsRegions%3AOrganizationAggregationSource%27"><span class="annot"><span class="annottext">OrganizationAggregationSource -&gt; Maybe Bool
-</span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#%24sel%3AallAwsRegions%3AOrganizationAggregationSource%27"><span class="hs-identifier hs-var hs-var">allAwsRegions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The source regions being aggregated.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AawsRegions%3AOrganizationAggregationSource%27"><span class="annot"><span class="annottext">OrganizationAggregationSource -&gt; Maybe (NonEmpty Text)
+</span><span id="line-30"></span><span id="local-6989586621679402008"><span id="local-6989586621679402009"></span></span><span class="hs-keyword">data</span><span> </span><span id="OrganizationAggregationSource"><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-var">OrganizationAggregationSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationAggregationSource%27"><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource%27"><span class="hs-identifier hs-var">OrganizationAggregationSource'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The source regions being aggregated.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AawsRegions%3AOrganizationAggregationSource%27"><span class="annot"><span class="annottext">OrganizationAggregationSource -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#%24sel%3AawsRegions%3AOrganizationAggregationSource%27"><span class="hs-identifier hs-var hs-var">awsRegions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | If true, aggregate existing Config regions and future regions.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AallAwsRegions%3AOrganizationAggregationSource%27"><span class="annot"><span class="annottext">OrganizationAggregationSource -&gt; Maybe Bool
+</span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#%24sel%3AallAwsRegions%3AOrganizationAggregationSource%27"><span class="hs-identifier hs-var hs-var">allAwsRegions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | ARN of the IAM role used to retrieve Amazon Web Services Organization</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- details associated with the aggregator account.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AroleArn%3AOrganizationAggregationSource%27"><span class="annot"><span class="annottext">OrganizationAggregationSource -&gt; Text
 </span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#%24sel%3AroleArn%3AOrganizationAggregationSource%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401417"><span id="local-6989586621679401419"><span class="annot"><span class="annottext">OrganizationAggregationSource
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402000"><span id="local-6989586621679402002"><span class="annot"><span class="annottext">OrganizationAggregationSource
 -&gt; OrganizationAggregationSource -&gt; Bool
 (OrganizationAggregationSource
  -&gt; OrganizationAggregationSource -&gt; Bool)
@@ -55,7 +55,7 @@ $c/= :: OrganizationAggregationSource
 -&gt; OrganizationAggregationSource -&gt; Bool
 $c== :: OrganizationAggregationSource
 -&gt; OrganizationAggregationSource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401408"><span id="local-6989586621679401410"><span id="local-6989586621679401412"><span id="local-6989586621679401414"><span class="annot"><span class="annottext">ReadPrec [OrganizationAggregationSource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401991"><span id="local-6989586621679401993"><span id="local-6989586621679401995"><span id="local-6989586621679401997"><span class="annot"><span class="annottext">ReadPrec [OrganizationAggregationSource]
 ReadPrec OrganizationAggregationSource
 Int -&gt; ReadS OrganizationAggregationSource
 ReadS [OrganizationAggregationSource]
@@ -75,7 +75,7 @@ readList :: ReadS [OrganizationAggregationSource]
 $creadList :: ReadS [OrganizationAggregationSource]
 readsPrec :: Int -&gt; ReadS OrganizationAggregationSource
 $creadsPrec :: Int -&gt; ReadS OrganizationAggregationSource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401401"><span id="local-6989586621679401403"><span id="local-6989586621679401405"><span class="annot"><span class="annottext">Int -&gt; OrganizationAggregationSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401984"><span id="local-6989586621679401986"><span id="local-6989586621679401988"><span class="annot"><span class="annottext">Int -&gt; OrganizationAggregationSource -&gt; ShowS
 [OrganizationAggregationSource] -&gt; ShowS
 OrganizationAggregationSource -&gt; String
 (Int -&gt; OrganizationAggregationSource -&gt; ShowS)
@@ -121,9 +121,9 @@ OrganizationAggregationSource
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'allAwsRegions', 'organizationAggregationSource_allAwsRegions' - If true, aggregate existing Config regions and future regions.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'awsRegions', 'organizationAggregationSource_awsRegions' - The source regions being aggregated.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'awsRegions', 'organizationAggregationSource_awsRegions' - The source regions being aggregated.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'allAwsRegions', 'organizationAggregationSource_allAwsRegions' - If true, aggregate existing Config regions and future regions.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- 'roleArn', 'organizationAggregationSource_roleArn' - ARN of the IAM role used to retrieve Amazon Web Services Organization</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- details associated with the aggregator account.</span><span>
@@ -132,52 +132,28 @@ OrganizationAggregationSource
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span><span>
 </span><span id="line-59"></span><span id="newOrganizationAggregationSource"><span class="annot"><span class="annottext">newOrganizationAggregationSource :: Text -&gt; OrganizationAggregationSource
-</span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#newOrganizationAggregationSource"><span class="hs-identifier hs-var hs-var">newOrganizationAggregationSource</span></a></span></span><span> </span><span id="local-6989586621679401395"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679401395"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">OrganizationAggregationSource' :: Maybe Bool
--&gt; Maybe (NonEmpty Text) -&gt; Text -&gt; OrganizationAggregationSource
+</span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#newOrganizationAggregationSource"><span class="hs-identifier hs-var hs-var">newOrganizationAggregationSource</span></a></span></span><span> </span><span id="local-6989586621679401978"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679401978"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">OrganizationAggregationSource' :: Maybe (NonEmpty Text)
+-&gt; Maybe Bool -&gt; Text -&gt; OrganizationAggregationSource
 </span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource%27"><span class="hs-identifier hs-type">OrganizationAggregationSource'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:allAwsRegions:OrganizationAggregationSource' :: Maybe Bool
-</span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#%24sel%3AallAwsRegions%3AOrganizationAggregationSource%27"><span class="hs-identifier hs-var">allAwsRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:awsRegions:OrganizationAggregationSource' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#%24sel%3AawsRegions%3AOrganizationAggregationSource%27"><span class="hs-identifier hs-var">awsRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsRegions:OrganizationAggregationSource' :: Maybe (NonEmpty Text)
-</span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#%24sel%3AawsRegions%3AOrganizationAggregationSource%27"><span class="hs-identifier hs-var">awsRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:allAwsRegions:OrganizationAggregationSource' :: Maybe Bool
+</span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#%24sel%3AallAwsRegions%3AOrganizationAggregationSource%27"><span class="hs-identifier hs-var">allAwsRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:OrganizationAggregationSource' :: Text
 </span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#%24sel%3AroleArn%3AOrganizationAggregationSource%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679401395"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><a href="#local-6989586621679401978"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | If true, aggregate existing Config regions and future regions.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#organizationAggregationSource_allAwsRegions"><span class="hs-identifier hs-type">organizationAggregationSource_allAwsRegions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="organizationAggregationSource_allAwsRegions"><span class="annot"><span class="annottext">organizationAggregationSource_allAwsRegions :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; OrganizationAggregationSource -&gt; f OrganizationAggregationSource
-</span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#organizationAggregationSource_allAwsRegions"><span class="hs-identifier hs-var hs-var">organizationAggregationSource_allAwsRegions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationAggregationSource -&gt; Maybe Bool)
--&gt; (OrganizationAggregationSource
-    -&gt; Maybe Bool -&gt; OrganizationAggregationSource)
--&gt; Lens
-     OrganizationAggregationSource
-     OrganizationAggregationSource
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource%27"><span class="hs-identifier hs-type">OrganizationAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401391"><span class="annot"><span class="annottext">Maybe Bool
-allAwsRegions :: Maybe Bool
-$sel:allAwsRegions:OrganizationAggregationSource' :: OrganizationAggregationSource -&gt; Maybe Bool
-</span><a href="#local-6989586621679401391"><span class="hs-identifier hs-var hs-var">allAwsRegions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679401391"><span class="hs-identifier hs-var">allAwsRegions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401390"><span class="annot"><span class="annottext">s :: OrganizationAggregationSource
-</span><a href="#local-6989586621679401390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource%27"><span class="hs-identifier hs-type">OrganizationAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401389"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679401389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationAggregationSource
-</span><a href="#local-6989586621679401390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allAwsRegions:OrganizationAggregationSource' :: Maybe Bool
-</span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#%24sel%3AallAwsRegions%3AOrganizationAggregationSource%27"><span class="hs-identifier hs-var">allAwsRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679401389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | The source regions being aggregated.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#organizationAggregationSource_awsRegions"><span class="hs-identifier hs-type">organizationAggregationSource_awsRegions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="organizationAggregationSource_awsRegions"><span class="annot"><span class="annottext">organizationAggregationSource_awsRegions :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><span id="line-67"></span><span class="hs-comment">-- | The source regions being aggregated.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#organizationAggregationSource_awsRegions"><span class="hs-identifier hs-type">organizationAggregationSource_awsRegions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="organizationAggregationSource_awsRegions"><span class="annot"><span class="annottext">organizationAggregationSource_awsRegions :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
 -&gt; OrganizationAggregationSource -&gt; f OrganizationAggregationSource
 </span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#organizationAggregationSource_awsRegions"><span class="hs-identifier hs-var hs-var">organizationAggregationSource_awsRegions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationAggregationSource -&gt; Maybe (NonEmpty Text))
 -&gt; (OrganizationAggregationSource
@@ -188,16 +164,16 @@ $sel:allAwsRegions:OrganizationAggregationSource' :: OrganizationAggregationSour
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource%27"><span class="hs-identifier hs-type">OrganizationAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401387"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource%27"><span class="hs-identifier hs-type">OrganizationAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401974"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 awsRegions :: Maybe (NonEmpty Text)
 $sel:awsRegions:OrganizationAggregationSource' :: OrganizationAggregationSource -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679401387"><span class="hs-identifier hs-var hs-var">awsRegions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679401387"><span class="hs-identifier hs-var">awsRegions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401386"><span class="annot"><span class="annottext">s :: OrganizationAggregationSource
-</span><a href="#local-6989586621679401386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource%27"><span class="hs-identifier hs-type">OrganizationAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401385"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679401385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationAggregationSource
-</span><a href="#local-6989586621679401386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegions:OrganizationAggregationSource' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679401974"><span class="hs-identifier hs-var hs-var">awsRegions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679401974"><span class="hs-identifier hs-var">awsRegions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401973"><span class="annot"><span class="annottext">s :: OrganizationAggregationSource
+</span><a href="#local-6989586621679401973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource%27"><span class="hs-identifier hs-type">OrganizationAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401972"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679401972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationAggregationSource
+</span><a href="#local-6989586621679401973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegions:OrganizationAggregationSource' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#%24sel%3AawsRegions%3AOrganizationAggregationSource%27"><span class="hs-identifier hs-var">awsRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679401385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679401972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; OrganizationAggregationSource
  -&gt; f OrganizationAggregationSource)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -218,8 +194,32 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | If true, aggregate existing Config regions and future regions.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#organizationAggregationSource_allAwsRegions"><span class="hs-identifier hs-type">organizationAggregationSource_allAwsRegions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="organizationAggregationSource_allAwsRegions"><span class="annot"><span class="annottext">organizationAggregationSource_allAwsRegions :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; OrganizationAggregationSource -&gt; f OrganizationAggregationSource
+</span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#organizationAggregationSource_allAwsRegions"><span class="hs-identifier hs-var hs-var">organizationAggregationSource_allAwsRegions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationAggregationSource -&gt; Maybe Bool)
+-&gt; (OrganizationAggregationSource
+    -&gt; Maybe Bool -&gt; OrganizationAggregationSource)
+-&gt; Lens
+     OrganizationAggregationSource
+     OrganizationAggregationSource
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource%27"><span class="hs-identifier hs-type">OrganizationAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401967"><span class="annot"><span class="annottext">Maybe Bool
+allAwsRegions :: Maybe Bool
+$sel:allAwsRegions:OrganizationAggregationSource' :: OrganizationAggregationSource -&gt; Maybe Bool
+</span><a href="#local-6989586621679401967"><span class="hs-identifier hs-var hs-var">allAwsRegions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679401967"><span class="hs-identifier hs-var">allAwsRegions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401966"><span class="annot"><span class="annottext">s :: OrganizationAggregationSource
+</span><a href="#local-6989586621679401966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource%27"><span class="hs-identifier hs-type">OrganizationAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401965"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679401965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationAggregationSource
+</span><a href="#local-6989586621679401966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allAwsRegions:OrganizationAggregationSource' :: Maybe Bool
+</span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#%24sel%3AallAwsRegions%3AOrganizationAggregationSource%27"><span class="hs-identifier hs-var">allAwsRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679401965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | ARN of the IAM role used to retrieve Amazon Web Services Organization</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- details associated with the aggregator account.</span><span>
@@ -235,19 +235,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource%27"><span class="hs-identifier hs-type">OrganizationAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401380"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource%27"><span class="hs-identifier hs-type">OrganizationAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401963"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:OrganizationAggregationSource' :: OrganizationAggregationSource -&gt; Text
-</span><a href="#local-6989586621679401380"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679401380"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401379"><span class="annot"><span class="annottext">s :: OrganizationAggregationSource
-</span><a href="#local-6989586621679401379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource%27"><span class="hs-identifier hs-type">OrganizationAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401378"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679401378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationAggregationSource
-</span><a href="#local-6989586621679401379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:OrganizationAggregationSource' :: Text
+</span><a href="#local-6989586621679401963"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679401963"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401962"><span class="annot"><span class="annottext">s :: OrganizationAggregationSource
+</span><a href="#local-6989586621679401962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource%27"><span class="hs-identifier hs-type">OrganizationAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401961"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679401961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationAggregationSource
+</span><a href="#local-6989586621679401962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:OrganizationAggregationSource' :: Text
 </span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#%24sel%3AroleArn%3AOrganizationAggregationSource%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679401378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401375"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679401373"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OrganizationAggregationSource
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401958"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679401956"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OrganizationAggregationSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OrganizationAggregationSource)
@@ -257,86 +257,84 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OrganizationAggregationSource&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679401370"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401370"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
--&gt; Maybe (NonEmpty Text) -&gt; Text -&gt; OrganizationAggregationSource
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679401953"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401953"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+-&gt; Maybe Bool -&gt; Text -&gt; OrganizationAggregationSource
 </span><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource%27"><span class="hs-identifier hs-var">OrganizationAggregationSource'</span></a></span><span>
-</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
- -&gt; Maybe (NonEmpty Text) -&gt; Text -&gt; OrganizationAggregationSource)
--&gt; Parser (Maybe Bool)
--&gt; Parser
-     (Maybe (NonEmpty Text) -&gt; Text -&gt; OrganizationAggregationSource)
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Text)
+ -&gt; Maybe Bool -&gt; Text -&gt; OrganizationAggregationSource)
+-&gt; Parser (Maybe (NonEmpty Text))
+-&gt; Parser (Maybe Bool -&gt; Text -&gt; OrganizationAggregationSource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AllAwsRegions&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (NonEmpty Text) -&gt; Text -&gt; OrganizationAggregationSource)
--&gt; Parser (Maybe (NonEmpty Text))
--&gt; Parser (Text -&gt; OrganizationAggregationSource)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679401953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AwsRegions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Text -&gt; OrganizationAggregationSource)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Text -&gt; OrganizationAggregationSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679401953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AllAwsRegions&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; OrganizationAggregationSource)
 -&gt; Parser Text -&gt; Parser OrganizationAggregationSource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679401953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679401363"><span id="local-6989586621679401365"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679401946"><span id="local-6989586621679401948"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401360"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401943"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401352"><span id="local-6989586621679401354"><span id="local-6989586621679401356"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679401350"><span class="annot"><span class="annottext">toJSON :: OrganizationAggregationSource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource%27"><span class="hs-identifier hs-type">OrganizationAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401346"><span id="local-6989586621679401347"><span id="local-6989586621679401348"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401935"><span id="local-6989586621679401937"><span id="local-6989586621679401939"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource"><span class="hs-identifier hs-type">OrganizationAggregationSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679401933"><span class="annot"><span class="annottext">toJSON :: OrganizationAggregationSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationAggregationSource.html#OrganizationAggregationSource%27"><span class="hs-identifier hs-type">OrganizationAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401929"><span id="local-6989586621679401930"><span id="local-6989586621679401931"><span class="annot"><span class="annottext">Maybe Bool
 Maybe (NonEmpty Text)
 Text
 roleArn :: Text
-awsRegions :: Maybe (NonEmpty Text)
 allAwsRegions :: Maybe Bool
+awsRegions :: Maybe (NonEmpty Text)
 $sel:roleArn:OrganizationAggregationSource' :: OrganizationAggregationSource -&gt; Text
-$sel:awsRegions:OrganizationAggregationSource' :: OrganizationAggregationSource -&gt; Maybe (NonEmpty Text)
 $sel:allAwsRegions:OrganizationAggregationSource' :: OrganizationAggregationSource -&gt; Maybe Bool
-</span><a href="#local-6989586621679401346"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:awsRegions:OrganizationAggregationSource' :: OrganizationAggregationSource -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679401929"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-101"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AllAwsRegions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679401348"><span class="hs-identifier hs-var">allAwsRegions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AwsRegions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679401347"><span class="hs-identifier hs-var">awsRegions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679401931"><span class="hs-identifier hs-var">awsRegions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AllAwsRegions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679401930"><span class="hs-identifier hs-var">allAwsRegions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679401346"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401929"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span></pre></body></html>

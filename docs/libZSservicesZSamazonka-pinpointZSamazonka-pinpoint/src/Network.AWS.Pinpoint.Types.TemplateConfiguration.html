@@ -28,22 +28,22 @@
 </span><span id="line-28"></span><span class="hs-comment">-- channel.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTemplateConfiguration' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679613482"><span id="local-6989586621679613483"></span></span><span class="hs-keyword">data</span><span> </span><span id="TemplateConfiguration"><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-var">TemplateConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TemplateConfiguration%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-var">TemplateConfiguration'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The email template to use for the message.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AemailTemplate%3ATemplateConfiguration%27"><span class="annot"><span class="annottext">TemplateConfiguration -&gt; Maybe Template
-</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3AemailTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var hs-var">emailTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679613980"><span id="local-6989586621679613981"></span></span><span class="hs-keyword">data</span><span> </span><span id="TemplateConfiguration"><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-var">TemplateConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TemplateConfiguration%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-var">TemplateConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The SMS template to use for the message.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsMSTemplate%3ATemplateConfiguration%27"><span class="annot"><span class="annottext">TemplateConfiguration -&gt; Maybe Template
+</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3AsMSTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var hs-var">sMSTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The voice template to use for the message. This object isn\'t supported</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- for campaigns.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AvoiceTemplate%3ATemplateConfiguration%27"><span class="annot"><span class="annottext">TemplateConfiguration -&gt; Maybe Template
 </span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3AvoiceTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var hs-var">voiceTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The SMS template to use for the message.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsMSTemplate%3ATemplateConfiguration%27"><span class="annot"><span class="annottext">TemplateConfiguration -&gt; Maybe Template
-</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3AsMSTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var hs-var">sMSTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The push notification template to use for the message.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3ApushTemplate%3ATemplateConfiguration%27"><span class="annot"><span class="annottext">TemplateConfiguration -&gt; Maybe Template
-</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3ApushTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var hs-var">pushTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The push notification template to use for the message.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3ApushTemplate%3ATemplateConfiguration%27"><span class="annot"><span class="annottext">TemplateConfiguration -&gt; Maybe Template
+</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3ApushTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var hs-var">pushTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The email template to use for the message.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AemailTemplate%3ATemplateConfiguration%27"><span class="annot"><span class="annottext">TemplateConfiguration -&gt; Maybe Template
+</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3AemailTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var hs-var">emailTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679613473"><span id="local-6989586621679613475"><span class="annot"><span class="annottext">TemplateConfiguration -&gt; TemplateConfiguration -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679613971"><span id="local-6989586621679613973"><span class="annot"><span class="annottext">TemplateConfiguration -&gt; TemplateConfiguration -&gt; Bool
 (TemplateConfiguration -&gt; TemplateConfiguration -&gt; Bool)
 -&gt; (TemplateConfiguration -&gt; TemplateConfiguration -&gt; Bool)
 -&gt; Eq TemplateConfiguration
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TemplateConfiguration -&gt; TemplateConfiguration -&gt; Bool
 == :: TemplateConfiguration -&gt; TemplateConfiguration -&gt; Bool
 $c== :: TemplateConfiguration -&gt; TemplateConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679613464"><span id="local-6989586621679613466"><span id="local-6989586621679613468"><span id="local-6989586621679613470"><span class="annot"><span class="annottext">ReadPrec [TemplateConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679613962"><span id="local-6989586621679613964"><span id="local-6989586621679613966"><span id="local-6989586621679613968"><span class="annot"><span class="annottext">ReadPrec [TemplateConfiguration]
 ReadPrec TemplateConfiguration
 Int -&gt; ReadS TemplateConfiguration
 ReadS [TemplateConfiguration]
@@ -72,7 +72,7 @@ readList :: ReadS [TemplateConfiguration]
 $creadList :: ReadS [TemplateConfiguration]
 readsPrec :: Int -&gt; ReadS TemplateConfiguration
 $creadsPrec :: Int -&gt; ReadS TemplateConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679613457"><span id="local-6989586621679613459"><span id="local-6989586621679613461"><span class="annot"><span class="annottext">Int -&gt; TemplateConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679613955"><span id="local-6989586621679613957"><span id="local-6989586621679613959"><span class="annot"><span class="annottext">Int -&gt; TemplateConfiguration -&gt; ShowS
 [TemplateConfiguration] -&gt; ShowS
 TemplateConfiguration -&gt; String
 (Int -&gt; TemplateConfiguration -&gt; ShowS)
@@ -106,14 +106,14 @@ $cfrom :: forall x. TemplateConfiguration -&gt; Rep TemplateConfiguration x
 </span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'emailTemplate', 'templateConfiguration_emailTemplate' - The email template to use for the message.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'sMSTemplate', 'templateConfiguration_sMSTemplate' - The SMS template to use for the message.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- 'voiceTemplate', 'templateConfiguration_voiceTemplate' - The voice template to use for the message. This object isn\'t supported</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for campaigns.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'sMSTemplate', 'templateConfiguration_sMSTemplate' - The SMS template to use for the message.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'pushTemplate', 'templateConfiguration_pushTemplate' - The push notification template to use for the message.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'pushTemplate', 'templateConfiguration_pushTemplate' - The push notification template to use for the message.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'emailTemplate', 'templateConfiguration_emailTemplate' - The email template to use for the message.</span><span>
 </span><span id="line-60"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#newTemplateConfiguration"><span class="hs-identifier hs-type">newTemplateConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span>
 </span><span id="line-62"></span><span id="newTemplateConfiguration"><span class="annot"><span class="annottext">newTemplateConfiguration :: TemplateConfiguration
@@ -124,8 +124,8 @@ $cfrom :: forall x. TemplateConfiguration -&gt; Rep TemplateConfiguration x
 -&gt; Maybe Template
 -&gt; TemplateConfiguration
 </span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:emailTemplate:TemplateConfiguration' :: Maybe Template
-</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3AemailTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var">emailTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sMSTemplate:TemplateConfiguration' :: Maybe Template
+</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3AsMSTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var">sMSTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">Maybe Template
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
@@ -133,21 +133,21 @@ forall a. Maybe a
 </span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3AvoiceTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var">voiceTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Template
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:sMSTemplate:TemplateConfiguration' :: Maybe Template
-</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3AsMSTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var">sMSTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Template
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:pushTemplate:TemplateConfiguration' :: Maybe Template
+</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3ApushTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var">pushTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Template
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:pushTemplate:TemplateConfiguration' :: Maybe Template
-</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3ApushTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var">pushTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Template
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:emailTemplate:TemplateConfiguration' :: Maybe Template
+</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3AemailTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var">emailTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Template
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | The email template to use for the message.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#templateConfiguration_emailTemplate"><span class="hs-identifier hs-type">templateConfiguration_emailTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="templateConfiguration_emailTemplate"><span class="annot"><span class="annottext">templateConfiguration_emailTemplate :: (Maybe Template -&gt; f (Maybe Template))
+</span><span id="line-71"></span><span class="hs-comment">-- | The SMS template to use for the message.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#templateConfiguration_sMSTemplate"><span class="hs-identifier hs-type">templateConfiguration_sMSTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="templateConfiguration_sMSTemplate"><span class="annot"><span class="annottext">templateConfiguration_sMSTemplate :: (Maybe Template -&gt; f (Maybe Template))
 -&gt; TemplateConfiguration -&gt; f TemplateConfiguration
-</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#templateConfiguration_emailTemplate"><span class="hs-identifier hs-var hs-var">templateConfiguration_emailTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TemplateConfiguration -&gt; Maybe Template)
+</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#templateConfiguration_sMSTemplate"><span class="hs-identifier hs-var hs-var">templateConfiguration_sMSTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TemplateConfiguration -&gt; Maybe Template)
 -&gt; (TemplateConfiguration
     -&gt; Maybe Template -&gt; TemplateConfiguration)
 -&gt; Lens
@@ -156,16 +156,16 @@ forall a. Maybe a
      (Maybe Template)
      (Maybe Template)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613448"><span class="annot"><span class="annottext">Maybe Template
-emailTemplate :: Maybe Template
-$sel:emailTemplate:TemplateConfiguration' :: TemplateConfiguration -&gt; Maybe Template
-</span><a href="#local-6989586621679613448"><span class="hs-identifier hs-var hs-var">emailTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679613448"><span class="hs-identifier hs-var">emailTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613447"><span class="annot"><span class="annottext">s :: TemplateConfiguration
-</span><a href="#local-6989586621679613447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613446"><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679613446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateConfiguration
-</span><a href="#local-6989586621679613447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailTemplate:TemplateConfiguration' :: Maybe Template
-</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3AemailTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var">emailTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679613446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613946"><span class="annot"><span class="annottext">Maybe Template
+sMSTemplate :: Maybe Template
+$sel:sMSTemplate:TemplateConfiguration' :: TemplateConfiguration -&gt; Maybe Template
+</span><a href="#local-6989586621679613946"><span class="hs-identifier hs-var hs-var">sMSTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679613946"><span class="hs-identifier hs-var">sMSTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613945"><span class="annot"><span class="annottext">s :: TemplateConfiguration
+</span><a href="#local-6989586621679613945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613944"><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679613944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateConfiguration
+</span><a href="#local-6989586621679613945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sMSTemplate:TemplateConfiguration' :: Maybe Template
+</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3AsMSTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var">sMSTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679613944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The voice template to use for the message. This object isn\'t supported</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- for campaigns.</span><span>
@@ -181,44 +181,20 @@ $sel:emailTemplate:TemplateConfiguration' :: TemplateConfiguration -&gt; Maybe T
      (Maybe Template)
      (Maybe Template)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613444"><span class="annot"><span class="annottext">Maybe Template
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613942"><span class="annot"><span class="annottext">Maybe Template
 voiceTemplate :: Maybe Template
 $sel:voiceTemplate:TemplateConfiguration' :: TemplateConfiguration -&gt; Maybe Template
-</span><a href="#local-6989586621679613444"><span class="hs-identifier hs-var hs-var">voiceTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679613444"><span class="hs-identifier hs-var">voiceTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613443"><span class="annot"><span class="annottext">s :: TemplateConfiguration
-</span><a href="#local-6989586621679613443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613442"><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679613442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateConfiguration
-</span><a href="#local-6989586621679613443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:voiceTemplate:TemplateConfiguration' :: Maybe Template
+</span><a href="#local-6989586621679613942"><span class="hs-identifier hs-var hs-var">voiceTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679613942"><span class="hs-identifier hs-var">voiceTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613941"><span class="annot"><span class="annottext">s :: TemplateConfiguration
+</span><a href="#local-6989586621679613941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613940"><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679613940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateConfiguration
+</span><a href="#local-6989586621679613941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:voiceTemplate:TemplateConfiguration' :: Maybe Template
 </span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3AvoiceTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var">voiceTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679613442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679613940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The SMS template to use for the message.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#templateConfiguration_sMSTemplate"><span class="hs-identifier hs-type">templateConfiguration_sMSTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="templateConfiguration_sMSTemplate"><span class="annot"><span class="annottext">templateConfiguration_sMSTemplate :: (Maybe Template -&gt; f (Maybe Template))
--&gt; TemplateConfiguration -&gt; f TemplateConfiguration
-</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#templateConfiguration_sMSTemplate"><span class="hs-identifier hs-var hs-var">templateConfiguration_sMSTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TemplateConfiguration -&gt; Maybe Template)
--&gt; (TemplateConfiguration
-    -&gt; Maybe Template -&gt; TemplateConfiguration)
--&gt; Lens
-     TemplateConfiguration
-     TemplateConfiguration
-     (Maybe Template)
-     (Maybe Template)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613440"><span class="annot"><span class="annottext">Maybe Template
-sMSTemplate :: Maybe Template
-$sel:sMSTemplate:TemplateConfiguration' :: TemplateConfiguration -&gt; Maybe Template
-</span><a href="#local-6989586621679613440"><span class="hs-identifier hs-var hs-var">sMSTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679613440"><span class="hs-identifier hs-var">sMSTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613439"><span class="annot"><span class="annottext">s :: TemplateConfiguration
-</span><a href="#local-6989586621679613439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613438"><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679613438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateConfiguration
-</span><a href="#local-6989586621679613439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sMSTemplate:TemplateConfiguration' :: Maybe Template
-</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3AsMSTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var">sMSTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679613438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The push notification template to use for the message.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#templateConfiguration_pushTemplate"><span class="hs-identifier hs-type">templateConfiguration_pushTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="templateConfiguration_pushTemplate"><span class="annot"><span class="annottext">templateConfiguration_pushTemplate :: (Maybe Template -&gt; f (Maybe Template))
+</span><span id="line-80"></span><span class="hs-comment">-- | The push notification template to use for the message.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#templateConfiguration_pushTemplate"><span class="hs-identifier hs-type">templateConfiguration_pushTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="templateConfiguration_pushTemplate"><span class="annot"><span class="annottext">templateConfiguration_pushTemplate :: (Maybe Template -&gt; f (Maybe Template))
 -&gt; TemplateConfiguration -&gt; f TemplateConfiguration
 </span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#templateConfiguration_pushTemplate"><span class="hs-identifier hs-var hs-var">templateConfiguration_pushTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TemplateConfiguration -&gt; Maybe Template)
 -&gt; (TemplateConfiguration
@@ -229,19 +205,43 @@ $sel:sMSTemplate:TemplateConfiguration' :: TemplateConfiguration -&gt; Maybe Tem
      (Maybe Template)
      (Maybe Template)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613436"><span class="annot"><span class="annottext">Maybe Template
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613938"><span class="annot"><span class="annottext">Maybe Template
 pushTemplate :: Maybe Template
 $sel:pushTemplate:TemplateConfiguration' :: TemplateConfiguration -&gt; Maybe Template
-</span><a href="#local-6989586621679613436"><span class="hs-identifier hs-var hs-var">pushTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679613436"><span class="hs-identifier hs-var">pushTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613435"><span class="annot"><span class="annottext">s :: TemplateConfiguration
-</span><a href="#local-6989586621679613435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613434"><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679613434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateConfiguration
-</span><a href="#local-6989586621679613435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pushTemplate:TemplateConfiguration' :: Maybe Template
+</span><a href="#local-6989586621679613938"><span class="hs-identifier hs-var hs-var">pushTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679613938"><span class="hs-identifier hs-var">pushTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613937"><span class="annot"><span class="annottext">s :: TemplateConfiguration
+</span><a href="#local-6989586621679613937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613936"><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679613936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateConfiguration
+</span><a href="#local-6989586621679613937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pushTemplate:TemplateConfiguration' :: Maybe Template
 </span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3ApushTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var">pushTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679613434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679613936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The email template to use for the message.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#templateConfiguration_emailTemplate"><span class="hs-identifier hs-type">templateConfiguration_emailTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="templateConfiguration_emailTemplate"><span class="annot"><span class="annottext">templateConfiguration_emailTemplate :: (Maybe Template -&gt; f (Maybe Template))
+-&gt; TemplateConfiguration -&gt; f TemplateConfiguration
+</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#templateConfiguration_emailTemplate"><span class="hs-identifier hs-var hs-var">templateConfiguration_emailTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TemplateConfiguration -&gt; Maybe Template)
+-&gt; (TemplateConfiguration
+    -&gt; Maybe Template -&gt; TemplateConfiguration)
+-&gt; Lens
+     TemplateConfiguration
+     TemplateConfiguration
+     (Maybe Template)
+     (Maybe Template)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613934"><span class="annot"><span class="annottext">Maybe Template
+emailTemplate :: Maybe Template
+$sel:emailTemplate:TemplateConfiguration' :: TemplateConfiguration -&gt; Maybe Template
+</span><a href="#local-6989586621679613934"><span class="hs-identifier hs-var hs-var">emailTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679613934"><span class="hs-identifier hs-var">emailTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613933"><span class="annot"><span class="annottext">s :: TemplateConfiguration
+</span><a href="#local-6989586621679613933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613932"><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679613932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateConfiguration
+</span><a href="#local-6989586621679613933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailTemplate:TemplateConfiguration' :: Maybe Template
+</span><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#%24sel%3AemailTemplate%3ATemplateConfiguration%27"><span class="hs-identifier hs-var">emailTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679613932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613431"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679613429"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TemplateConfiguration
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613929"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679613927"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TemplateConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TemplateConfiguration)
@@ -251,8 +251,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TemplateConfiguration&quot;</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679613426"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679613426"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679613924"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679613924"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe Template
 -&gt; Maybe Template
 -&gt; Maybe Template
@@ -270,10 +270,10 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Template -&gt; Maybe Template -&gt; TemplateConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679613426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Template)
+</span><a href="#local-6989586621679613924"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Template)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EmailTemplate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SMSTemplate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Template
    -&gt; Maybe Template -&gt; Maybe Template -&gt; TemplateConfiguration)
@@ -282,7 +282,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Template -&gt; Maybe Template -&gt; TemplateConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679613426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Template)
+</span><a href="#local-6989586621679613924"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Template)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VoiceTemplate&quot;</span></span><span class="hs-special">)</span><span>
@@ -291,69 +291,69 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Template -&gt; TemplateConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679613426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Template)
+</span><a href="#local-6989586621679613924"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Template)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SMSTemplate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;PushTemplate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Template -&gt; TemplateConfiguration)
 -&gt; Parser (Maybe Template) -&gt; Parser TemplateConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679613426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Template)
+</span><a href="#local-6989586621679613924"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Template)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PushTemplate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;EmailTemplate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613420"><span id="local-6989586621679613422"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613918"><span id="local-6989586621679613920"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613417"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613915"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613409"><span id="local-6989586621679613411"><span id="local-6989586621679613413"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679613407"><span class="annot"><span class="annottext">toJSON :: TemplateConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613402"><span id="local-6989586621679613403"><span id="local-6989586621679613404"><span id="local-6989586621679613405"><span class="annot"><span class="annottext">Maybe Template
-pushTemplate :: Maybe Template
-sMSTemplate :: Maybe Template
-voiceTemplate :: Maybe Template
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613907"><span id="local-6989586621679613909"><span id="local-6989586621679613911"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration"><span class="hs-identifier hs-type">TemplateConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679613905"><span class="annot"><span class="annottext">toJSON :: TemplateConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateConfiguration.html#TemplateConfiguration%27"><span class="hs-identifier hs-type">TemplateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613900"><span id="local-6989586621679613901"><span id="local-6989586621679613902"><span id="local-6989586621679613903"><span class="annot"><span class="annottext">Maybe Template
 emailTemplate :: Maybe Template
-$sel:pushTemplate:TemplateConfiguration' :: TemplateConfiguration -&gt; Maybe Template
-$sel:sMSTemplate:TemplateConfiguration' :: TemplateConfiguration -&gt; Maybe Template
-$sel:voiceTemplate:TemplateConfiguration' :: TemplateConfiguration -&gt; Maybe Template
+pushTemplate :: Maybe Template
+voiceTemplate :: Maybe Template
+sMSTemplate :: Maybe Template
 $sel:emailTemplate:TemplateConfiguration' :: TemplateConfiguration -&gt; Maybe Template
-</span><a href="#local-6989586621679613402"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:pushTemplate:TemplateConfiguration' :: TemplateConfiguration -&gt; Maybe Template
+$sel:voiceTemplate:TemplateConfiguration' :: TemplateConfiguration -&gt; Maybe Template
+$sel:sMSTemplate:TemplateConfiguration' :: TemplateConfiguration -&gt; Maybe Template
+</span><a href="#local-6989586621679613900"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-108"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EmailTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Template -&gt; Pair
+</span><span class="hs-string">&quot;SMSTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Template -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Template -&gt; Pair) -&gt; Maybe Template -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679613405"><span class="hs-identifier hs-var">emailTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679613903"><span class="hs-identifier hs-var">sMSTemplate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VoiceTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Template -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Template -&gt; Pair) -&gt; Maybe Template -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679613404"><span class="hs-identifier hs-var">voiceTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679613902"><span class="hs-identifier hs-var">voiceTemplate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SMSTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Template -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Template -&gt; Pair) -&gt; Maybe Template -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679613403"><span class="hs-identifier hs-var">sMSTemplate</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PushTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Template -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Template -&gt; Pair) -&gt; Maybe Template -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679613402"><span class="hs-identifier hs-var">pushTemplate</span></a></span><span>
+</span><a href="#local-6989586621679613901"><span class="hs-identifier hs-var">pushTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EmailTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Template -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Template -&gt; Pair) -&gt; Maybe Template -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679613900"><span class="hs-identifier hs-var">emailTemplate</span></a></span><span>
 </span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span></pre></body></html>

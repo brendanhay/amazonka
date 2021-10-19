@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | This data type is used in the Subscription data type.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEventSubscription' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679245848"><span id="local-6989586621679245849"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventSubscription"><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-var">EventSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventSubscription%27"><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-var">EventSubscription'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679246203"><span id="local-6989586621679246204"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventSubscription"><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-var">EventSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventSubscription%27"><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-var">EventSubscription'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The event for which Amazon Simple Notification Service (SNS)</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- notifications are sent.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aevent%3AEventSubscription%27"><span class="annot"><span class="annottext">EventSubscription -&gt; InspectorEvent
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AsubscribedAt%3AEventSubscription%27"><span class="annot"><span class="annottext">EventSubscription -&gt; POSIX
 </span><a href="Network.AWS.Inspector.Types.EventSubscription.html#%24sel%3AsubscribedAt%3AEventSubscription%27"><span class="hs-identifier hs-var hs-var">subscribedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245841"><span id="local-6989586621679245843"><span class="annot"><span class="annottext">EventSubscription -&gt; EventSubscription -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246196"><span id="local-6989586621679246198"><span class="annot"><span class="annottext">EventSubscription -&gt; EventSubscription -&gt; Bool
 (EventSubscription -&gt; EventSubscription -&gt; Bool)
 -&gt; (EventSubscription -&gt; EventSubscription -&gt; Bool)
 -&gt; Eq EventSubscription
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EventSubscription -&gt; EventSubscription -&gt; Bool
 == :: EventSubscription -&gt; EventSubscription -&gt; Bool
 $c== :: EventSubscription -&gt; EventSubscription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245832"><span id="local-6989586621679245834"><span id="local-6989586621679245836"><span id="local-6989586621679245838"><span class="annot"><span class="annottext">ReadPrec [EventSubscription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246187"><span id="local-6989586621679246189"><span id="local-6989586621679246191"><span id="local-6989586621679246193"><span class="annot"><span class="annottext">ReadPrec [EventSubscription]
 ReadPrec EventSubscription
 Int -&gt; ReadS EventSubscription
 ReadS [EventSubscription]
@@ -65,7 +65,7 @@ readList :: ReadS [EventSubscription]
 $creadList :: ReadS [EventSubscription]
 readsPrec :: Int -&gt; ReadS EventSubscription
 $creadsPrec :: Int -&gt; ReadS EventSubscription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245825"><span id="local-6989586621679245827"><span id="local-6989586621679245829"><span class="annot"><span class="annottext">Int -&gt; EventSubscription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246180"><span id="local-6989586621679246182"><span id="local-6989586621679246184"><span class="annot"><span class="annottext">Int -&gt; EventSubscription -&gt; ShowS
 [EventSubscription] -&gt; ShowS
 EventSubscription -&gt; String
 (Int -&gt; EventSubscription -&gt; ShowS)
@@ -110,14 +110,14 @@ $cfrom :: forall x. EventSubscription -&gt; Rep EventSubscription x
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span>
 </span><span id="line-57"></span><span id="newEventSubscription"><span class="annot"><span class="annottext">newEventSubscription :: InspectorEvent -&gt; UTCTime -&gt; EventSubscription
-</span><a href="Network.AWS.Inspector.Types.EventSubscription.html#newEventSubscription"><span class="hs-identifier hs-var hs-var">newEventSubscription</span></a></span></span><span> </span><span id="local-6989586621679245819"><span class="annot"><span class="annottext">InspectorEvent
-</span><a href="#local-6989586621679245819"><span class="hs-identifier hs-var">pEvent_</span></a></span></span><span> </span><span id="local-6989586621679245818"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679245818"><span class="hs-identifier hs-var">pSubscribedAt_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.Types.EventSubscription.html#newEventSubscription"><span class="hs-identifier hs-var hs-var">newEventSubscription</span></a></span></span><span> </span><span id="local-6989586621679246174"><span class="annot"><span class="annottext">InspectorEvent
+</span><a href="#local-6989586621679246174"><span class="hs-identifier hs-var">pEvent_</span></a></span></span><span> </span><span id="local-6989586621679246173"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679246173"><span class="hs-identifier hs-var">pSubscribedAt_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">EventSubscription' :: InspectorEvent -&gt; POSIX -&gt; EventSubscription
 </span><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:event:EventSubscription' :: InspectorEvent
 </span><a href="Network.AWS.Inspector.Types.EventSubscription.html#%24sel%3Aevent%3AEventSubscription%27"><span class="hs-identifier hs-var">event</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InspectorEvent
-</span><a href="#local-6989586621679245819"><span class="hs-identifier hs-var">pEvent_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679246174"><span class="hs-identifier hs-var">pEvent_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:subscribedAt:EventSubscription' :: POSIX
 </span><a href="Network.AWS.Inspector.Types.EventSubscription.html#%24sel%3AsubscribedAt%3AEventSubscription%27"><span class="hs-identifier hs-var">subscribedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -126,7 +126,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679245818"><span class="hs-identifier hs-var">pSubscribedAt_</span></a></span><span>
+</span><a href="#local-6989586621679246173"><span class="hs-identifier hs-var">pSubscribedAt_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The event for which Amazon Simple Notification Service (SNS)</span><span>
@@ -139,16 +139,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      EventSubscription EventSubscription InspectorEvent InspectorEvent
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245812"><span class="annot"><span class="annottext">InspectorEvent
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246167"><span class="annot"><span class="annottext">InspectorEvent
 event :: InspectorEvent
 $sel:event:EventSubscription' :: EventSubscription -&gt; InspectorEvent
-</span><a href="#local-6989586621679245812"><span class="hs-identifier hs-var hs-var">event</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InspectorEvent
-</span><a href="#local-6989586621679245812"><span class="hs-identifier hs-var">event</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245811"><span class="annot"><span class="annottext">s :: EventSubscription
-</span><a href="#local-6989586621679245811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245810"><span class="annot"><span class="annottext">InspectorEvent
-</span><a href="#local-6989586621679245810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSubscription
-</span><a href="#local-6989586621679245811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:event:EventSubscription' :: InspectorEvent
+</span><a href="#local-6989586621679246167"><span class="hs-identifier hs-var hs-var">event</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InspectorEvent
+</span><a href="#local-6989586621679246167"><span class="hs-identifier hs-var">event</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246166"><span class="annot"><span class="annottext">s :: EventSubscription
+</span><a href="#local-6989586621679246166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246165"><span class="annot"><span class="annottext">InspectorEvent
+</span><a href="#local-6989586621679246165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSubscription
+</span><a href="#local-6989586621679246166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:event:EventSubscription' :: InspectorEvent
 </span><a href="Network.AWS.Inspector.Types.EventSubscription.html#%24sel%3Aevent%3AEventSubscription%27"><span class="hs-identifier hs-var">event</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InspectorEvent
-</span><a href="#local-6989586621679245810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679246165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The time at which SubscribeToEvent is called.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#eventSubscription_subscribedAt"><span class="hs-identifier hs-type">eventSubscription_subscribedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -157,16 +157,16 @@ $sel:event:EventSubscription' :: EventSubscription -&gt; InspectorEvent
 -&gt; (EventSubscription -&gt; POSIX -&gt; EventSubscription)
 -&gt; Lens EventSubscription EventSubscription POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245808"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246163"><span class="annot"><span class="annottext">POSIX
 subscribedAt :: POSIX
 $sel:subscribedAt:EventSubscription' :: EventSubscription -&gt; POSIX
-</span><a href="#local-6989586621679245808"><span class="hs-identifier hs-var hs-var">subscribedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679245808"><span class="hs-identifier hs-var">subscribedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245807"><span class="annot"><span class="annottext">s :: EventSubscription
-</span><a href="#local-6989586621679245807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245806"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679245806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSubscription
-</span><a href="#local-6989586621679245807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscribedAt:EventSubscription' :: POSIX
+</span><a href="#local-6989586621679246163"><span class="hs-identifier hs-var hs-var">subscribedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679246163"><span class="hs-identifier hs-var">subscribedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246162"><span class="annot"><span class="annottext">s :: EventSubscription
+</span><a href="#local-6989586621679246162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246161"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679246161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSubscription
+</span><a href="#local-6989586621679246162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscribedAt:EventSubscription' :: POSIX
 </span><a href="Network.AWS.Inspector.Types.EventSubscription.html#%24sel%3AsubscribedAt%3AEventSubscription%27"><span class="hs-identifier hs-var">subscribedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679245806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; EventSubscription -&gt; f EventSubscription)
+</span><a href="#local-6989586621679246161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; EventSubscription -&gt; f EventSubscription)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; EventSubscription
@@ -176,8 +176,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245802"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679245800"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventSubscription
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246157"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679246155"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventSubscription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EventSubscription)
@@ -187,15 +187,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EventSubscription&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245797"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245797"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679246152"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246152"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">InspectorEvent -&gt; POSIX -&gt; EventSubscription
 </span><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-var">EventSubscription'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(InspectorEvent -&gt; POSIX -&gt; EventSubscription)
 -&gt; Parser InspectorEvent -&gt; Parser (POSIX -&gt; EventSubscription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser InspectorEvent
+</span><a href="#local-6989586621679246152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser InspectorEvent
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;event&quot;</span></span><span class="hs-special">)</span><span>
@@ -203,13 +203,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser EventSubscription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679246152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;subscribedAt&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245791"><span id="local-6989586621679245793"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246146"><span id="local-6989586621679246148"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245788"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246143"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

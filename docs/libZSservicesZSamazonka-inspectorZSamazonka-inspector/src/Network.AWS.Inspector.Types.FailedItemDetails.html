@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Includes details about the failed items.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFailedItemDetails' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679245574"><span id="local-6989586621679245575"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailedItemDetails"><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-var">FailedItemDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailedItemDetails%27"><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails%27"><span class="hs-identifier hs-var">FailedItemDetails'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679245929"><span id="local-6989586621679245930"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailedItemDetails"><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-var">FailedItemDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailedItemDetails%27"><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails%27"><span class="hs-identifier hs-var">FailedItemDetails'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status code of a failed item.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AfailureCode%3AFailedItemDetails%27"><span class="annot"><span class="annottext">FailedItemDetails -&gt; FailedItemErrorCode
 </span><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#%24sel%3AfailureCode%3AFailedItemDetails%27"><span class="hs-identifier hs-var hs-var">failureCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemErrorCode.html#FailedItemErrorCode"><span class="hs-identifier hs-type">FailedItemErrorCode</span></a></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aretryable%3AFailedItemDetails%27"><span class="annot"><span class="annottext">FailedItemDetails -&gt; Bool
 </span><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#%24sel%3Aretryable%3AFailedItemDetails%27"><span class="hs-identifier hs-var hs-var">retryable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245567"><span id="local-6989586621679245569"><span class="annot"><span class="annottext">FailedItemDetails -&gt; FailedItemDetails -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245922"><span id="local-6989586621679245924"><span class="annot"><span class="annottext">FailedItemDetails -&gt; FailedItemDetails -&gt; Bool
 (FailedItemDetails -&gt; FailedItemDetails -&gt; Bool)
 -&gt; (FailedItemDetails -&gt; FailedItemDetails -&gt; Bool)
 -&gt; Eq FailedItemDetails
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FailedItemDetails -&gt; FailedItemDetails -&gt; Bool
 == :: FailedItemDetails -&gt; FailedItemDetails -&gt; Bool
 $c== :: FailedItemDetails -&gt; FailedItemDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245558"><span id="local-6989586621679245560"><span id="local-6989586621679245562"><span id="local-6989586621679245564"><span class="annot"><span class="annottext">ReadPrec [FailedItemDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245913"><span id="local-6989586621679245915"><span id="local-6989586621679245917"><span id="local-6989586621679245919"><span class="annot"><span class="annottext">ReadPrec [FailedItemDetails]
 ReadPrec FailedItemDetails
 Int -&gt; ReadS FailedItemDetails
 ReadS [FailedItemDetails]
@@ -65,7 +65,7 @@ readList :: ReadS [FailedItemDetails]
 $creadList :: ReadS [FailedItemDetails]
 readsPrec :: Int -&gt; ReadS FailedItemDetails
 $creadsPrec :: Int -&gt; ReadS FailedItemDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245551"><span id="local-6989586621679245553"><span id="local-6989586621679245555"><span class="annot"><span class="annottext">Int -&gt; FailedItemDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245906"><span id="local-6989586621679245908"><span id="local-6989586621679245910"><span class="annot"><span class="annottext">Int -&gt; FailedItemDetails -&gt; ShowS
 [FailedItemDetails] -&gt; ShowS
 FailedItemDetails -&gt; String
 (Int -&gt; FailedItemDetails -&gt; ShowS)
@@ -110,17 +110,17 @@ $cfrom :: forall x. FailedItemDetails -&gt; Rep FailedItemDetails x
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-type">FailedItemDetails</span></a></span><span>
 </span><span id="line-57"></span><span id="newFailedItemDetails"><span class="annot"><span class="annottext">newFailedItemDetails :: FailedItemErrorCode -&gt; Bool -&gt; FailedItemDetails
-</span><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#newFailedItemDetails"><span class="hs-identifier hs-var hs-var">newFailedItemDetails</span></a></span></span><span> </span><span id="local-6989586621679245545"><span class="annot"><span class="annottext">FailedItemErrorCode
-</span><a href="#local-6989586621679245545"><span class="hs-identifier hs-var">pFailureCode_</span></a></span></span><span> </span><span id="local-6989586621679245544"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679245544"><span class="hs-identifier hs-var">pRetryable_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#newFailedItemDetails"><span class="hs-identifier hs-var hs-var">newFailedItemDetails</span></a></span></span><span> </span><span id="local-6989586621679245900"><span class="annot"><span class="annottext">FailedItemErrorCode
+</span><a href="#local-6989586621679245900"><span class="hs-identifier hs-var">pFailureCode_</span></a></span></span><span> </span><span id="local-6989586621679245899"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679245899"><span class="hs-identifier hs-var">pRetryable_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">FailedItemDetails' :: FailedItemErrorCode -&gt; Bool -&gt; FailedItemDetails
 </span><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails%27"><span class="hs-identifier hs-type">FailedItemDetails'</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failureCode:FailedItemDetails' :: FailedItemErrorCode
 </span><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#%24sel%3AfailureCode%3AFailedItemDetails%27"><span class="hs-identifier hs-var">failureCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FailedItemErrorCode
-</span><a href="#local-6989586621679245545"><span class="hs-identifier hs-var">pFailureCode_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679245900"><span class="hs-identifier hs-var">pFailureCode_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:retryable:FailedItemDetails' :: Bool
 </span><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#%24sel%3Aretryable%3AFailedItemDetails%27"><span class="hs-identifier hs-var">retryable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679245544"><span class="hs-identifier hs-var">pRetryable_</span></a></span><span>
+</span><a href="#local-6989586621679245899"><span class="hs-identifier hs-var">pRetryable_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The status code of a failed item.</span><span>
@@ -135,16 +135,16 @@ $cfrom :: forall x. FailedItemDetails -&gt; Rep FailedItemDetails x
      FailedItemErrorCode
      FailedItemErrorCode
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails%27"><span class="hs-identifier hs-type">FailedItemDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245540"><span class="annot"><span class="annottext">FailedItemErrorCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails%27"><span class="hs-identifier hs-type">FailedItemDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245895"><span class="annot"><span class="annottext">FailedItemErrorCode
 failureCode :: FailedItemErrorCode
 $sel:failureCode:FailedItemDetails' :: FailedItemDetails -&gt; FailedItemErrorCode
-</span><a href="#local-6989586621679245540"><span class="hs-identifier hs-var hs-var">failureCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedItemErrorCode
-</span><a href="#local-6989586621679245540"><span class="hs-identifier hs-var">failureCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245539"><span class="annot"><span class="annottext">s :: FailedItemDetails
-</span><a href="#local-6989586621679245539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails%27"><span class="hs-identifier hs-type">FailedItemDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245538"><span class="annot"><span class="annottext">FailedItemErrorCode
-</span><a href="#local-6989586621679245538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedItemDetails
-</span><a href="#local-6989586621679245539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureCode:FailedItemDetails' :: FailedItemErrorCode
+</span><a href="#local-6989586621679245895"><span class="hs-identifier hs-var hs-var">failureCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedItemErrorCode
+</span><a href="#local-6989586621679245895"><span class="hs-identifier hs-var">failureCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245894"><span class="annot"><span class="annottext">s :: FailedItemDetails
+</span><a href="#local-6989586621679245894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails%27"><span class="hs-identifier hs-type">FailedItemDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245893"><span class="annot"><span class="annottext">FailedItemErrorCode
+</span><a href="#local-6989586621679245893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedItemDetails
+</span><a href="#local-6989586621679245894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureCode:FailedItemDetails' :: FailedItemErrorCode
 </span><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#%24sel%3AfailureCode%3AFailedItemDetails%27"><span class="hs-identifier hs-var">failureCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FailedItemErrorCode
-</span><a href="#local-6989586621679245538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-type">FailedItemDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-type">FailedItemDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | Indicates whether you can immediately retry a request for this item for</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- a specified resource.</span><span>
@@ -154,19 +154,19 @@ $sel:failureCode:FailedItemDetails' :: FailedItemDetails -&gt; FailedItemErrorCo
 -&gt; (FailedItemDetails -&gt; Bool -&gt; FailedItemDetails)
 -&gt; Lens FailedItemDetails FailedItemDetails Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails%27"><span class="hs-identifier hs-type">FailedItemDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245536"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails%27"><span class="hs-identifier hs-type">FailedItemDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245891"><span class="annot"><span class="annottext">Bool
 retryable :: Bool
 $sel:retryable:FailedItemDetails' :: FailedItemDetails -&gt; Bool
-</span><a href="#local-6989586621679245536"><span class="hs-identifier hs-var hs-var">retryable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679245536"><span class="hs-identifier hs-var">retryable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245535"><span class="annot"><span class="annottext">s :: FailedItemDetails
-</span><a href="#local-6989586621679245535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails%27"><span class="hs-identifier hs-type">FailedItemDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245534"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679245534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedItemDetails
-</span><a href="#local-6989586621679245535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryable:FailedItemDetails' :: Bool
+</span><a href="#local-6989586621679245891"><span class="hs-identifier hs-var hs-var">retryable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679245891"><span class="hs-identifier hs-var">retryable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245890"><span class="annot"><span class="annottext">s :: FailedItemDetails
+</span><a href="#local-6989586621679245890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails%27"><span class="hs-identifier hs-type">FailedItemDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245889"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679245889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedItemDetails
+</span><a href="#local-6989586621679245890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryable:FailedItemDetails' :: Bool
 </span><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#%24sel%3Aretryable%3AFailedItemDetails%27"><span class="hs-identifier hs-var">retryable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679245534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-type">FailedItemDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-type">FailedItemDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245531"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-type">FailedItemDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679245529"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FailedItemDetails
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245886"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-type">FailedItemDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679245884"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FailedItemDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FailedItemDetails)
@@ -176,15 +176,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FailedItemDetails&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245526"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245526"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245881"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245881"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">FailedItemErrorCode -&gt; Bool -&gt; FailedItemDetails
 </span><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails%27"><span class="hs-identifier hs-var">FailedItemDetails'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(FailedItemErrorCode -&gt; Bool -&gt; FailedItemDetails)
 -&gt; Parser FailedItemErrorCode -&gt; Parser (Bool -&gt; FailedItemDetails)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245526"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FailedItemErrorCode
+</span><a href="#local-6989586621679245881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FailedItemErrorCode
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;failureCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -192,13 +192,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Bool -&gt; Parser FailedItemDetails
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245526"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+</span><a href="#local-6989586621679245881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;retryable&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245520"><span id="local-6989586621679245522"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-type">FailedItemDetails</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245875"><span id="local-6989586621679245877"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-type">FailedItemDetails</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245517"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-type">FailedItemDetails</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245872"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-type">FailedItemDetails</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

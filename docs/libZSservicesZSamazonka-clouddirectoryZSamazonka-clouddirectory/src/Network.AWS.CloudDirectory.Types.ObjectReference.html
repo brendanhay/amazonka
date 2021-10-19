@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The reference that identifies an object.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newObjectReference' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679324530"><span id="local-6989586621679324531"></span></span><span class="hs-keyword">data</span><span> </span><span id="ObjectReference"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-var">ObjectReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectReference%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference%27"><span class="hs-identifier hs-var">ObjectReference'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679324878"><span id="local-6989586621679324879"></span></span><span class="hs-keyword">data</span><span> </span><span id="ObjectReference"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-var">ObjectReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectReference%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference%27"><span class="hs-identifier hs-var">ObjectReference'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A path selector supports easy selection of an object by the</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- parent\/child links leading to it from the directory root. Use the link</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- names from each parent\/child link to construct the path. Path selectors</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3Aselector%3AObjectReference%27"><span class="annot"><span class="annottext">ObjectReference -&gt; Maybe Text
 </span><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#%24sel%3Aselector%3AObjectReference%27"><span class="hs-identifier hs-var hs-var">selector</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324524"><span id="local-6989586621679324526"><span class="annot"><span class="annottext">ObjectReference -&gt; ObjectReference -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324872"><span id="local-6989586621679324874"><span class="annot"><span class="annottext">ObjectReference -&gt; ObjectReference -&gt; Bool
 (ObjectReference -&gt; ObjectReference -&gt; Bool)
 -&gt; (ObjectReference -&gt; ObjectReference -&gt; Bool)
 -&gt; Eq ObjectReference
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ObjectReference -&gt; ObjectReference -&gt; Bool
 == :: ObjectReference -&gt; ObjectReference -&gt; Bool
 $c== :: ObjectReference -&gt; ObjectReference -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324515"><span id="local-6989586621679324517"><span id="local-6989586621679324519"><span id="local-6989586621679324521"><span class="annot"><span class="annottext">ReadPrec [ObjectReference]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324863"><span id="local-6989586621679324865"><span id="local-6989586621679324867"><span id="local-6989586621679324869"><span class="annot"><span class="annottext">ReadPrec [ObjectReference]
 ReadPrec ObjectReference
 Int -&gt; ReadS ObjectReference
 ReadS [ObjectReference]
@@ -78,7 +78,7 @@ readList :: ReadS [ObjectReference]
 $creadList :: ReadS [ObjectReference]
 readsPrec :: Int -&gt; ReadS ObjectReference
 $creadsPrec :: Int -&gt; ReadS ObjectReference
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324508"><span id="local-6989586621679324510"><span id="local-6989586621679324512"><span class="annot"><span class="annottext">Int -&gt; ObjectReference -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324856"><span id="local-6989586621679324858"><span id="local-6989586621679324860"><span class="annot"><span class="annottext">Int -&gt; ObjectReference -&gt; ShowS
 [ObjectReference] -&gt; ShowS
 ObjectReference -&gt; String
 (Int -&gt; ObjectReference -&gt; ShowS)
@@ -167,19 +167,19 @@ forall a. Maybe a
 -&gt; (ObjectReference -&gt; Maybe Text -&gt; ObjectReference)
 -&gt; Lens ObjectReference ObjectReference (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference%27"><span class="hs-identifier hs-type">ObjectReference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324499"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference%27"><span class="hs-identifier hs-type">ObjectReference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324847"><span class="annot"><span class="annottext">Maybe Text
 selector :: Maybe Text
 $sel:selector:ObjectReference' :: ObjectReference -&gt; Maybe Text
-</span><a href="#local-6989586621679324499"><span class="hs-identifier hs-var hs-var">selector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679324499"><span class="hs-identifier hs-var">selector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324498"><span class="annot"><span class="annottext">s :: ObjectReference
-</span><a href="#local-6989586621679324498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference%27"><span class="hs-identifier hs-type">ObjectReference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324497"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679324497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679324498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selector:ObjectReference' :: Maybe Text
+</span><a href="#local-6989586621679324847"><span class="hs-identifier hs-var hs-var">selector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324847"><span class="hs-identifier hs-var">selector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324846"><span class="annot"><span class="annottext">s :: ObjectReference
+</span><a href="#local-6989586621679324846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference%27"><span class="hs-identifier hs-type">ObjectReference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324845"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679324846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selector:ObjectReference' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#%24sel%3Aselector%3AObjectReference%27"><span class="hs-identifier hs-var">selector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679324497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679324845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324494"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679324492"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ObjectReference
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324842"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679324840"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ObjectReference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ObjectReference)
@@ -189,29 +189,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ObjectReference&quot;</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679324489"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679324489"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679324837"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324837"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; ObjectReference
 </span><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference%27"><span class="hs-identifier hs-var">ObjectReference'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; ObjectReference)
 -&gt; Parser (Maybe Text) -&gt; Parser ObjectReference
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679324489"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679324837"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Selector&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324483"><span id="local-6989586621679324485"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324831"><span id="local-6989586621679324833"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324480"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324828"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324472"><span id="local-6989586621679324474"><span id="local-6989586621679324476"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679324470"><span class="annot"><span class="annottext">toJSON :: ObjectReference -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference%27"><span class="hs-identifier hs-type">ObjectReference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324468"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324820"><span id="local-6989586621679324822"><span id="local-6989586621679324824"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679324818"><span class="annot"><span class="annottext">toJSON :: ObjectReference -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference%27"><span class="hs-identifier hs-type">ObjectReference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324816"><span class="annot"><span class="annottext">Maybe Text
 selector :: Maybe Text
 $sel:selector:ObjectReference' :: ObjectReference -&gt; Maybe Text
-</span><a href="#local-6989586621679324468"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679324816"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -223,6 +223,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679324468"><span class="hs-identifier hs-var">selector</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679324816"><span class="hs-identifier hs-var">selector</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span></pre></body></html>

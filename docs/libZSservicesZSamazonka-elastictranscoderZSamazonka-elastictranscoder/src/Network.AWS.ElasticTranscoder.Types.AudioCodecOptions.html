@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Options associated with your audio codec.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAudioCodecOptions' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679209641"><span id="local-6989586621679209642"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioCodecOptions"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-var">AudioCodecOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioCodecOptions%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-var">AudioCodecOptions'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679209756"><span id="local-6989586621679209757"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioCodecOptions"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-var">AudioCodecOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioCodecOptions%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-var">AudioCodecOptions'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | You can only choose whether an audio sample is signed when you specify</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- @pcm@ for the value of Audio:Codec.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -83,7 +83,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AbitOrder%3AAudioCodecOptions%27"><span class="annot"><span class="annottext">AudioCodecOptions -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#%24sel%3AbitOrder%3AAudioCodecOptions%27"><span class="hs-identifier hs-var hs-var">bitOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209632"><span id="local-6989586621679209634"><span class="annot"><span class="annottext">AudioCodecOptions -&gt; AudioCodecOptions -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209747"><span id="local-6989586621679209749"><span class="annot"><span class="annottext">AudioCodecOptions -&gt; AudioCodecOptions -&gt; Bool
 (AudioCodecOptions -&gt; AudioCodecOptions -&gt; Bool)
 -&gt; (AudioCodecOptions -&gt; AudioCodecOptions -&gt; Bool)
 -&gt; Eq AudioCodecOptions
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AudioCodecOptions -&gt; AudioCodecOptions -&gt; Bool
 == :: AudioCodecOptions -&gt; AudioCodecOptions -&gt; Bool
 $c== :: AudioCodecOptions -&gt; AudioCodecOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209623"><span id="local-6989586621679209625"><span id="local-6989586621679209627"><span id="local-6989586621679209629"><span class="annot"><span class="annottext">ReadPrec [AudioCodecOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209738"><span id="local-6989586621679209740"><span id="local-6989586621679209742"><span id="local-6989586621679209744"><span class="annot"><span class="annottext">ReadPrec [AudioCodecOptions]
 ReadPrec AudioCodecOptions
 Int -&gt; ReadS AudioCodecOptions
 ReadS [AudioCodecOptions]
@@ -112,7 +112,7 @@ readList :: ReadS [AudioCodecOptions]
 $creadList :: ReadS [AudioCodecOptions]
 readsPrec :: Int -&gt; ReadS AudioCodecOptions
 $creadsPrec :: Int -&gt; ReadS AudioCodecOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209616"><span id="local-6989586621679209618"><span id="local-6989586621679209620"><span class="annot"><span class="annottext">Int -&gt; AudioCodecOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209731"><span id="local-6989586621679209733"><span id="local-6989586621679209735"><span class="annot"><span class="annottext">Int -&gt; AudioCodecOptions -&gt; ShowS
 [AudioCodecOptions] -&gt; ShowS
 AudioCodecOptions -&gt; String
 (Int -&gt; AudioCodecOptions -&gt; ShowS)
@@ -236,16 +236,16 @@ forall a. Maybe a
 -&gt; Lens
      AudioCodecOptions AudioCodecOptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209607"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209722"><span class="annot"><span class="annottext">Maybe Text
 signed :: Maybe Text
 $sel:signed:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679209607"><span class="hs-identifier hs-var hs-var">signed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209607"><span class="hs-identifier hs-var">signed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209606"><span class="annot"><span class="annottext">s :: AudioCodecOptions
-</span><a href="#local-6989586621679209606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209605"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecOptions
-</span><a href="#local-6989586621679209606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signed:AudioCodecOptions' :: Maybe Text
+</span><a href="#local-6989586621679209722"><span class="hs-identifier hs-var hs-var">signed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209722"><span class="hs-identifier hs-var">signed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209721"><span class="annot"><span class="annottext">s :: AudioCodecOptions
+</span><a href="#local-6989586621679209721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209720"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecOptions
+</span><a href="#local-6989586621679209721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signed:AudioCodecOptions' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#%24sel%3Asigned%3AAudioCodecOptions%27"><span class="hs-identifier hs-var">signed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | You can only choose an audio bit depth when you specify @flac@ or @pcm@</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- for the value of Audio:Codec.</span><span>
@@ -265,16 +265,16 @@ $sel:signed:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
 -&gt; Lens
      AudioCodecOptions AudioCodecOptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209603"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209718"><span class="annot"><span class="annottext">Maybe Text
 bitDepth :: Maybe Text
 $sel:bitDepth:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679209603"><span class="hs-identifier hs-var hs-var">bitDepth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209603"><span class="hs-identifier hs-var">bitDepth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209602"><span class="annot"><span class="annottext">s :: AudioCodecOptions
-</span><a href="#local-6989586621679209602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209601"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecOptions
-</span><a href="#local-6989586621679209602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitDepth:AudioCodecOptions' :: Maybe Text
+</span><a href="#local-6989586621679209718"><span class="hs-identifier hs-var hs-var">bitDepth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209718"><span class="hs-identifier hs-var">bitDepth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209717"><span class="annot"><span class="annottext">s :: AudioCodecOptions
+</span><a href="#local-6989586621679209717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209716"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecOptions
+</span><a href="#local-6989586621679209717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitDepth:AudioCodecOptions' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#%24sel%3AbitDepth%3AAudioCodecOptions%27"><span class="hs-identifier hs-var">bitDepth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | You can only choose an audio profile when you specify AAC for the value</span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- of Audio:Codec.</span><span>
@@ -308,16 +308,16 @@ $sel:bitDepth:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
 -&gt; Lens
      AudioCodecOptions AudioCodecOptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209599"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209714"><span class="annot"><span class="annottext">Maybe Text
 profile :: Maybe Text
 $sel:profile:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679209599"><span class="hs-identifier hs-var hs-var">profile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209599"><span class="hs-identifier hs-var">profile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209598"><span class="annot"><span class="annottext">s :: AudioCodecOptions
-</span><a href="#local-6989586621679209598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209597"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecOptions
-</span><a href="#local-6989586621679209598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profile:AudioCodecOptions' :: Maybe Text
+</span><a href="#local-6989586621679209714"><span class="hs-identifier hs-var hs-var">profile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209714"><span class="hs-identifier hs-var">profile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209713"><span class="annot"><span class="annottext">s :: AudioCodecOptions
+</span><a href="#local-6989586621679209713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209712"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecOptions
+</span><a href="#local-6989586621679209713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profile:AudioCodecOptions' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#%24sel%3Aprofile%3AAudioCodecOptions%27"><span class="hs-identifier hs-var">profile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | You can only choose an audio bit order when you specify @pcm@ for the</span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- value of Audio:Codec.</span><span>
@@ -333,19 +333,19 @@ $sel:profile:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
 -&gt; Lens
      AudioCodecOptions AudioCodecOptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209595"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209710"><span class="annot"><span class="annottext">Maybe Text
 bitOrder :: Maybe Text
 $sel:bitOrder:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679209595"><span class="hs-identifier hs-var hs-var">bitOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209595"><span class="hs-identifier hs-var">bitOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209594"><span class="annot"><span class="annottext">s :: AudioCodecOptions
-</span><a href="#local-6989586621679209594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209593"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecOptions
-</span><a href="#local-6989586621679209594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitOrder:AudioCodecOptions' :: Maybe Text
+</span><a href="#local-6989586621679209710"><span class="hs-identifier hs-var hs-var">bitOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209710"><span class="hs-identifier hs-var">bitOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209709"><span class="annot"><span class="annottext">s :: AudioCodecOptions
+</span><a href="#local-6989586621679209709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209708"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecOptions
+</span><a href="#local-6989586621679209709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitOrder:AudioCodecOptions' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#%24sel%3AbitOrder%3AAudioCodecOptions%27"><span class="hs-identifier hs-var">bitOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209590"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621679209588"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioCodecOptions
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209705"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679209703"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioCodecOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AudioCodecOptions)
@@ -355,8 +355,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AudioCodecOptions&quot;</span></span><span>
-</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209585"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209585"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209700"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209700"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AudioCodecOptions
 </span><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-var">AudioCodecOptions'</span></a></span><span>
@@ -367,7 +367,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AudioCodecOptions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679209700"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Signed&quot;</span></span><span class="hs-special">)</span><span>
@@ -377,7 +377,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; AudioCodecOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679209700"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BitDepth&quot;</span></span><span class="hs-special">)</span><span>
@@ -385,7 +385,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; AudioCodecOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679209700"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Profile&quot;</span></span><span class="hs-special">)</span><span>
@@ -393,19 +393,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser AudioCodecOptions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679209700"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BitOrder&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209579"><span id="local-6989586621679209581"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span></span></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209694"><span id="local-6989586621679209696"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span></span></span><span>
 </span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209576"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209691"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span></span><span>
 </span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209568"><span id="local-6989586621679209570"><span id="local-6989586621679209572"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621679209566"><span class="annot"><span class="annottext">toJSON :: AudioCodecOptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209561"><span id="local-6989586621679209562"><span id="local-6989586621679209563"><span id="local-6989586621679209564"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209683"><span id="local-6989586621679209685"><span id="local-6989586621679209687"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679209681"><span class="annot"><span class="annottext">toJSON :: AudioCodecOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions%27"><span class="hs-identifier hs-type">AudioCodecOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209676"><span id="local-6989586621679209677"><span id="local-6989586621679209678"><span id="local-6989586621679209679"><span class="annot"><span class="annottext">Maybe Text
 bitOrder :: Maybe Text
 profile :: Maybe Text
 bitDepth :: Maybe Text
@@ -414,7 +414,7 @@ $sel:bitOrder:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
 $sel:profile:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
 $sel:bitDepth:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
 $sel:signed:AudioCodecOptions' :: AudioCodecOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679209561"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679209676"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-229"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-230"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -426,28 +426,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209564"><span class="hs-identifier hs-var">signed</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209679"><span class="hs-identifier hs-var">signed</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BitDepth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209563"><span class="hs-identifier hs-var">bitDepth</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209678"><span class="hs-identifier hs-var">bitDepth</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Profile&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209562"><span class="hs-identifier hs-var">profile</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209677"><span class="hs-identifier hs-var">profile</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BitOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209561"><span class="hs-identifier hs-var">bitOrder</span></a></span><span>
+</span><a href="#local-6989586621679209676"><span class="hs-identifier hs-var">bitOrder</span></a></span><span>
 </span><span id="line-235"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-236"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span></pre></body></html>

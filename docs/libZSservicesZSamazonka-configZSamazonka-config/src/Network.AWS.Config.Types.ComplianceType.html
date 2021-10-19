@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679395572"><span id="local-6989586621679395573"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ComplianceType"><span class="annot"><a href="Network.AWS.Config.Types.ComplianceType.html#ComplianceType"><span class="hs-identifier hs-var">ComplianceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComplianceType%27"><span class="annot"><a href="Network.AWS.Config.Types.ComplianceType.html#ComplianceType%27"><span class="hs-identifier hs-var">ComplianceType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679396150"><span id="local-6989586621679396151"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ComplianceType"><span class="annot"><a href="Network.AWS.Config.Types.ComplianceType.html#ComplianceType"><span class="hs-identifier hs-var">ComplianceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComplianceType%27"><span class="annot"><a href="Network.AWS.Config.Types.ComplianceType.html#ComplianceType%27"><span class="hs-identifier hs-var">ComplianceType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromComplianceType"><span class="annot"><span class="annottext">ComplianceType -&gt; Text
 </span><a href="Network.AWS.Config.Types.ComplianceType.html#fromComplianceType"><span class="hs-identifier hs-var hs-var">fromComplianceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395564"><span id="local-6989586621679395566"><span id="local-6989586621679395568"><span class="annot"><span class="annottext">Int -&gt; ComplianceType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396142"><span id="local-6989586621679396144"><span id="local-6989586621679396146"><span class="annot"><span class="annottext">Int -&gt; ComplianceType -&gt; ShowS
 [ComplianceType] -&gt; ShowS
 ComplianceType -&gt; String
 (Int -&gt; ComplianceType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: ComplianceType -&gt; String
 showsPrec :: Int -&gt; ComplianceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ComplianceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679395555"><span id="local-6989586621679395557"><span id="local-6989586621679395559"><span id="local-6989586621679395561"><span class="annot"><span class="annottext">ReadPrec [ComplianceType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679396133"><span id="local-6989586621679396135"><span id="local-6989586621679396137"><span id="local-6989586621679396139"><span class="annot"><span class="annottext">ReadPrec [ComplianceType]
 ReadPrec ComplianceType
 Int -&gt; ReadS ComplianceType
 ReadS [ComplianceType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [ComplianceType]
 readsPrec :: Int -&gt; ReadS ComplianceType
 $creadsPrec :: Int -&gt; ReadS ComplianceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679395550"><span id="local-6989586621679395552"><span class="annot"><span class="annottext">ComplianceType -&gt; ComplianceType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679396128"><span id="local-6989586621679396130"><span class="annot"><span class="annottext">ComplianceType -&gt; ComplianceType -&gt; Bool
 (ComplianceType -&gt; ComplianceType -&gt; Bool)
 -&gt; (ComplianceType -&gt; ComplianceType -&gt; Bool) -&gt; Eq ComplianceType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: ComplianceType -&gt; ComplianceType -&gt; Bool
 == :: ComplianceType -&gt; ComplianceType -&gt; Bool
 $c== :: ComplianceType -&gt; ComplianceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679395534"><span id="local-6989586621679395536"><span id="local-6989586621679395538"><span id="local-6989586621679395540"><span id="local-6989586621679395542"><span id="local-6989586621679395544"><span id="local-6989586621679395546"><span class="annot"><span class="annottext">Eq ComplianceType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679396112"><span id="local-6989586621679396114"><span id="local-6989586621679396116"><span id="local-6989586621679396118"><span id="local-6989586621679396120"><span id="local-6989586621679396122"><span id="local-6989586621679396124"><span class="annot"><span class="annottext">Eq ComplianceType
 Eq ComplianceType
 -&gt; (ComplianceType -&gt; ComplianceType -&gt; Ordering)
 -&gt; (ComplianceType -&gt; ComplianceType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ComplianceType -&gt; Rep ComplianceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395526"><span id="local-6989586621679395528"><span class="annot"><span class="annottext">Int -&gt; ComplianceType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396104"><span id="local-6989586621679396106"><span class="annot"><span class="annottext">Int -&gt; ComplianceType -&gt; Int
 ComplianceType -&gt; Int
 (Int -&gt; ComplianceType -&gt; Int)
 -&gt; (ComplianceType -&gt; Int) -&gt; Hashable ComplianceType
@@ -144,50 +144,50 @@ $chash :: ComplianceType -&gt; Int
 hashWithSalt :: Int -&gt; ComplianceType -&gt; Int
 $chashWithSalt :: Int -&gt; ComplianceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679395523"><span class="annot"><span class="annottext">ComplianceType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679396101"><span class="annot"><span class="annottext">ComplianceType -&gt; ()
 (ComplianceType -&gt; ()) -&gt; NFData ComplianceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ComplianceType -&gt; ()
 $crnf :: ComplianceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679395520"><span class="annot"><span class="annottext">Text -&gt; Either String ComplianceType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679396098"><span class="annot"><span class="annottext">Text -&gt; Either String ComplianceType
 (Text -&gt; Either String ComplianceType) -&gt; FromText ComplianceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ComplianceType
 $cfromText :: Text -&gt; Either String ComplianceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679395517"><span class="annot"><span class="annottext">ComplianceType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679396095"><span class="annot"><span class="annottext">ComplianceType -&gt; Text
 (ComplianceType -&gt; Text) -&gt; ToText ComplianceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ComplianceType -&gt; Text
 $ctoText :: ComplianceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679395514"><span class="annot"><span class="annottext">ComplianceType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679396092"><span class="annot"><span class="annottext">ComplianceType -&gt; ByteString
 (ComplianceType -&gt; ByteString) -&gt; ToByteString ComplianceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ComplianceType -&gt; ByteString
 $ctoBS :: ComplianceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679395511"><span class="annot"><span class="annottext">ComplianceType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679396089"><span class="annot"><span class="annottext">ComplianceType -&gt; ByteStringBuilder
 (ComplianceType -&gt; ByteStringBuilder) -&gt; ToLog ComplianceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ComplianceType -&gt; ByteStringBuilder
 $cbuild :: ComplianceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679395508"><span class="annot"><span class="annottext">HeaderName -&gt; ComplianceType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679396086"><span class="annot"><span class="annottext">HeaderName -&gt; ComplianceType -&gt; [Header]
 (HeaderName -&gt; ComplianceType -&gt; [Header])
 -&gt; ToHeader ComplianceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ComplianceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ComplianceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679395505"><span class="annot"><span class="annottext">ComplianceType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679396083"><span class="annot"><span class="annottext">ComplianceType -&gt; QueryString
 (ComplianceType -&gt; QueryString) -&gt; ToQuery ComplianceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ComplianceType -&gt; QueryString
 $ctoQuery :: ComplianceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679395500"><span id="local-6989586621679395502"><span class="annot"><span class="annottext">Value -&gt; Parser [ComplianceType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679396078"><span id="local-6989586621679396080"><span class="annot"><span class="annottext">Value -&gt; Parser [ComplianceType]
 Value -&gt; Parser ComplianceType
 (Value -&gt; Parser ComplianceType)
 -&gt; (Value -&gt; Parser [ComplianceType]) -&gt; FromJSON ComplianceType
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [ComplianceType]
 parseJSON :: Value -&gt; Parser ComplianceType
 $cparseJSON :: Value -&gt; Parser ComplianceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679395495"><span id="local-6989586621679395497"><span class="annot"><span class="annottext">FromJSONKeyFunction [ComplianceType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679396073"><span id="local-6989586621679396075"><span class="annot"><span class="annottext">FromJSONKeyFunction [ComplianceType]
 FromJSONKeyFunction ComplianceType
 FromJSONKeyFunction ComplianceType
 -&gt; FromJSONKeyFunction [ComplianceType]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ComplianceType]
 fromJSONKey :: FromJSONKeyFunction ComplianceType
 $cfromJSONKey :: FromJSONKeyFunction ComplianceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679395486"><span id="local-6989586621679395488"><span id="local-6989586621679395490"><span id="local-6989586621679395492"><span class="annot"><span class="annottext">[ComplianceType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679396064"><span id="local-6989586621679396066"><span id="local-6989586621679396068"><span id="local-6989586621679396070"><span class="annot"><span class="annottext">[ComplianceType] -&gt; Encoding
 [ComplianceType] -&gt; Value
 ComplianceType -&gt; Encoding
 ComplianceType -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: ComplianceType -&gt; Encoding
 toJSON :: ComplianceType -&gt; Value
 $ctoJSON :: ComplianceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679395481"><span id="local-6989586621679395483"><span class="annot"><span class="annottext">ToJSONKeyFunction [ComplianceType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679396059"><span id="local-6989586621679396061"><span class="annot"><span class="annottext">ToJSONKeyFunction [ComplianceType]
 ToJSONKeyFunction ComplianceType
 ToJSONKeyFunction ComplianceType
 -&gt; ToJSONKeyFunction [ComplianceType] -&gt; ToJSONKey ComplianceType
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ComplianceType]
 toJSONKey :: ToJSONKeyFunction ComplianceType
 $ctoJSONKey :: ToJSONKeyFunction ComplianceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679395478"><span class="annot"><span class="annottext">[Node] -&gt; Either String ComplianceType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679396056"><span class="annot"><span class="annottext">[Node] -&gt; Either String ComplianceType
 ([Node] -&gt; Either String ComplianceType) -&gt; FromXML ComplianceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ComplianceType
 $cparseXML :: [Node] -&gt; Either String ComplianceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679395475"><span class="annot"><span class="annottext">ComplianceType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679396053"><span class="annot"><span class="annottext">ComplianceType -&gt; XML
 (ComplianceType -&gt; XML) -&gt; ToXML ComplianceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ComplianceType -&gt; XML

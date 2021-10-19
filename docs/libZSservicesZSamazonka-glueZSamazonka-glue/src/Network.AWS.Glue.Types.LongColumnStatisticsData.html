@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Defines column statistics supported for integer data columns.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLongColumnStatisticsData' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679689112"><span id="local-6989586621679689113"></span></span><span class="hs-keyword">data</span><span> </span><span id="LongColumnStatisticsData"><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-var">LongColumnStatisticsData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LongColumnStatisticsData%27"><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-var">LongColumnStatisticsData'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679690767"><span id="local-6989586621679690768"></span></span><span class="hs-keyword">data</span><span> </span><span id="LongColumnStatisticsData"><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-var">LongColumnStatisticsData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LongColumnStatisticsData%27"><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-var">LongColumnStatisticsData'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The highest value in the column.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AmaximumValue%3ALongColumnStatisticsData%27"><span class="annot"><span class="annottext">LongColumnStatisticsData -&gt; Maybe Integer
 </span><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#%24sel%3AmaximumValue%3ALongColumnStatisticsData%27"><span class="hs-identifier hs-var hs-var">maximumValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AnumberOfDistinctValues%3ALongColumnStatisticsData%27"><span class="annot"><span class="annottext">LongColumnStatisticsData -&gt; Natural
 </span><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#%24sel%3AnumberOfDistinctValues%3ALongColumnStatisticsData%27"><span class="hs-identifier hs-var hs-var">numberOfDistinctValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679689103"><span id="local-6989586621679689105"><span class="annot"><span class="annottext">LongColumnStatisticsData -&gt; LongColumnStatisticsData -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679690758"><span id="local-6989586621679690760"><span class="annot"><span class="annottext">LongColumnStatisticsData -&gt; LongColumnStatisticsData -&gt; Bool
 (LongColumnStatisticsData -&gt; LongColumnStatisticsData -&gt; Bool)
 -&gt; (LongColumnStatisticsData -&gt; LongColumnStatisticsData -&gt; Bool)
 -&gt; Eq LongColumnStatisticsData
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LongColumnStatisticsData -&gt; LongColumnStatisticsData -&gt; Bool
 == :: LongColumnStatisticsData -&gt; LongColumnStatisticsData -&gt; Bool
 $c== :: LongColumnStatisticsData -&gt; LongColumnStatisticsData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679689094"><span id="local-6989586621679689096"><span id="local-6989586621679689098"><span id="local-6989586621679689100"><span class="annot"><span class="annottext">ReadPrec [LongColumnStatisticsData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679690749"><span id="local-6989586621679690751"><span id="local-6989586621679690753"><span id="local-6989586621679690755"><span class="annot"><span class="annottext">ReadPrec [LongColumnStatisticsData]
 ReadPrec LongColumnStatisticsData
 Int -&gt; ReadS LongColumnStatisticsData
 ReadS [LongColumnStatisticsData]
@@ -69,7 +69,7 @@ readList :: ReadS [LongColumnStatisticsData]
 $creadList :: ReadS [LongColumnStatisticsData]
 readsPrec :: Int -&gt; ReadS LongColumnStatisticsData
 $creadsPrec :: Int -&gt; ReadS LongColumnStatisticsData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679689087"><span id="local-6989586621679689089"><span id="local-6989586621679689091"><span class="annot"><span class="annottext">Int -&gt; LongColumnStatisticsData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679690742"><span id="local-6989586621679690744"><span id="local-6989586621679690746"><span class="annot"><span class="annottext">Int -&gt; LongColumnStatisticsData -&gt; ShowS
 [LongColumnStatisticsData] -&gt; ShowS
 LongColumnStatisticsData -&gt; String
 (Int -&gt; LongColumnStatisticsData -&gt; ShowS)
@@ -124,10 +124,10 @@ LongColumnStatisticsData -&gt; Rep LongColumnStatisticsData x
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span><span>
 </span><span id="line-62"></span><span id="newLongColumnStatisticsData"><span class="annot"><span class="annottext">newLongColumnStatisticsData :: Natural -&gt; Natural -&gt; LongColumnStatisticsData
 </span><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#newLongColumnStatisticsData"><span class="hs-identifier hs-var hs-var">newLongColumnStatisticsData</span></a></span></span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679689081"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679689081"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span></span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679689080"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679689080"><span class="hs-identifier hs-var">pNumberOfDistinctValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679690736"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679690736"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679690735"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679690735"><span class="hs-identifier hs-var">pNumberOfDistinctValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">LongColumnStatisticsData' :: Maybe Integer
 -&gt; Maybe Integer -&gt; Natural -&gt; Natural -&gt; LongColumnStatisticsData
 </span><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span>
@@ -142,10 +142,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">$sel:numberOfNulls:LongColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#%24sel%3AnumberOfNulls%3ALongColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679689081"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679690736"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">$sel:numberOfDistinctValues:LongColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#%24sel%3AnumberOfDistinctValues%3ALongColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfDistinctValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679689080"><span class="hs-identifier hs-var">pNumberOfDistinctValues_</span></a></span><span>
+</span><a href="#local-6989586621679690735"><span class="hs-identifier hs-var">pNumberOfDistinctValues_</span></a></span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The highest value in the column.</span><span>
@@ -161,16 +161,16 @@ forall a. Maybe a
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689076"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690731"><span class="annot"><span class="annottext">Maybe Integer
 maximumValue :: Maybe Integer
 $sel:maximumValue:LongColumnStatisticsData' :: LongColumnStatisticsData -&gt; Maybe Integer
-</span><a href="#local-6989586621679689076"><span class="hs-identifier hs-var hs-var">maximumValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679689076"><span class="hs-identifier hs-var">maximumValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689075"><span class="annot"><span class="annottext">s :: LongColumnStatisticsData
-</span><a href="#local-6989586621679689075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689074"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679689074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LongColumnStatisticsData
-</span><a href="#local-6989586621679689075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumValue:LongColumnStatisticsData' :: Maybe Integer
+</span><a href="#local-6989586621679690731"><span class="hs-identifier hs-var hs-var">maximumValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679690731"><span class="hs-identifier hs-var">maximumValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679690730"><span class="annot"><span class="annottext">s :: LongColumnStatisticsData
+</span><a href="#local-6989586621679690730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679690729"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679690729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LongColumnStatisticsData
+</span><a href="#local-6989586621679690730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumValue:LongColumnStatisticsData' :: Maybe Integer
 </span><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#%24sel%3AmaximumValue%3ALongColumnStatisticsData%27"><span class="hs-identifier hs-var">maximumValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679689074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679690729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The lowest value in the column.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#longColumnStatisticsData_minimumValue"><span class="hs-identifier hs-type">longColumnStatisticsData_minimumValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
@@ -185,16 +185,16 @@ $sel:maximumValue:LongColumnStatisticsData' :: LongColumnStatisticsData -&gt; Ma
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689072"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690727"><span class="annot"><span class="annottext">Maybe Integer
 minimumValue :: Maybe Integer
 $sel:minimumValue:LongColumnStatisticsData' :: LongColumnStatisticsData -&gt; Maybe Integer
-</span><a href="#local-6989586621679689072"><span class="hs-identifier hs-var hs-var">minimumValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679689072"><span class="hs-identifier hs-var">minimumValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689071"><span class="annot"><span class="annottext">s :: LongColumnStatisticsData
-</span><a href="#local-6989586621679689071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689070"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679689070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LongColumnStatisticsData
-</span><a href="#local-6989586621679689071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumValue:LongColumnStatisticsData' :: Maybe Integer
+</span><a href="#local-6989586621679690727"><span class="hs-identifier hs-var hs-var">minimumValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679690727"><span class="hs-identifier hs-var">minimumValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679690726"><span class="annot"><span class="annottext">s :: LongColumnStatisticsData
+</span><a href="#local-6989586621679690726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679690725"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679690725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LongColumnStatisticsData
+</span><a href="#local-6989586621679690726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumValue:LongColumnStatisticsData' :: Maybe Integer
 </span><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#%24sel%3AminimumValue%3ALongColumnStatisticsData%27"><span class="hs-identifier hs-var">minimumValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679689070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679690725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The number of null values in the column.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#longColumnStatisticsData_numberOfNulls"><span class="hs-identifier hs-type">longColumnStatisticsData_numberOfNulls</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -206,16 +206,16 @@ $sel:minimumValue:LongColumnStatisticsData' :: LongColumnStatisticsData -&gt; Ma
 -&gt; Lens
      LongColumnStatisticsData LongColumnStatisticsData Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689068"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690723"><span class="annot"><span class="annottext">Natural
 numberOfNulls :: Natural
 $sel:numberOfNulls:LongColumnStatisticsData' :: LongColumnStatisticsData -&gt; Natural
-</span><a href="#local-6989586621679689068"><span class="hs-identifier hs-var hs-var">numberOfNulls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679689068"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689067"><span class="annot"><span class="annottext">s :: LongColumnStatisticsData
-</span><a href="#local-6989586621679689067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689066"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679689066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LongColumnStatisticsData
-</span><a href="#local-6989586621679689067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfNulls:LongColumnStatisticsData' :: Natural
+</span><a href="#local-6989586621679690723"><span class="hs-identifier hs-var hs-var">numberOfNulls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679690723"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679690722"><span class="annot"><span class="annottext">s :: LongColumnStatisticsData
+</span><a href="#local-6989586621679690722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679690721"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679690721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LongColumnStatisticsData
+</span><a href="#local-6989586621679690722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfNulls:LongColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#%24sel%3AnumberOfNulls%3ALongColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679689066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679690721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The number of distinct values in a column.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#longColumnStatisticsData_numberOfDistinctValues"><span class="hs-identifier hs-type">longColumnStatisticsData_numberOfDistinctValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -227,19 +227,19 @@ $sel:numberOfNulls:LongColumnStatisticsData' :: LongColumnStatisticsData -&gt; N
 -&gt; Lens
      LongColumnStatisticsData LongColumnStatisticsData Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689064"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690719"><span class="annot"><span class="annottext">Natural
 numberOfDistinctValues :: Natural
 $sel:numberOfDistinctValues:LongColumnStatisticsData' :: LongColumnStatisticsData -&gt; Natural
-</span><a href="#local-6989586621679689064"><span class="hs-identifier hs-var hs-var">numberOfDistinctValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679689064"><span class="hs-identifier hs-var">numberOfDistinctValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689063"><span class="annot"><span class="annottext">s :: LongColumnStatisticsData
-</span><a href="#local-6989586621679689063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689062"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679689062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LongColumnStatisticsData
-</span><a href="#local-6989586621679689063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfDistinctValues:LongColumnStatisticsData' :: Natural
+</span><a href="#local-6989586621679690719"><span class="hs-identifier hs-var hs-var">numberOfDistinctValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679690719"><span class="hs-identifier hs-var">numberOfDistinctValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679690718"><span class="annot"><span class="annottext">s :: LongColumnStatisticsData
+</span><a href="#local-6989586621679690718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679690717"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679690717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LongColumnStatisticsData
+</span><a href="#local-6989586621679690718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfDistinctValues:LongColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#%24sel%3AnumberOfDistinctValues%3ALongColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfDistinctValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679689062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679690717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679689059"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679689057"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LongColumnStatisticsData
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679690714"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679690712"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LongColumnStatisticsData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LongColumnStatisticsData)
@@ -249,8 +249,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LongColumnStatisticsData&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679689054"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679689054"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679690709"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679690709"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
 -&gt; Maybe Integer -&gt; Natural -&gt; Natural -&gt; LongColumnStatisticsData
 </span><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-var">LongColumnStatisticsData'</span></a></span><span>
@@ -261,7 +261,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Integer -&gt; Natural -&gt; Natural -&gt; LongColumnStatisticsData)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679689054"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679690709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaximumValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -271,7 +271,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Natural -&gt; Natural -&gt; LongColumnStatisticsData)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679689054"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679690709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinimumValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -279,7 +279,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Natural -&gt; Parser (Natural -&gt; LongColumnStatisticsData)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679689054"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679690709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfNulls&quot;</span></span><span class="hs-special">)</span><span>
@@ -287,19 +287,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser LongColumnStatisticsData
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679689054"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679690709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfDistinctValues&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679689047"><span id="local-6989586621679689049"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679690702"><span id="local-6989586621679690704"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679689044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679690699"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679689036"><span id="local-6989586621679689038"><span id="local-6989586621679689040"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679689034"><span class="annot"><span class="annottext">toJSON :: LongColumnStatisticsData -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689029"><span id="local-6989586621679689030"><span id="local-6989586621679689031"><span id="local-6989586621679689032"><span class="annot"><span class="annottext">Natural
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679690691"><span id="local-6989586621679690693"><span id="local-6989586621679690695"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData"><span class="hs-identifier hs-type">LongColumnStatisticsData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679690689"><span class="annot"><span class="annottext">toJSON :: LongColumnStatisticsData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LongColumnStatisticsData.html#LongColumnStatisticsData%27"><span class="hs-identifier hs-type">LongColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690684"><span id="local-6989586621679690685"><span id="local-6989586621679690686"><span id="local-6989586621679690687"><span class="annot"><span class="annottext">Natural
 Maybe Integer
 numberOfDistinctValues :: Natural
 numberOfNulls :: Natural
@@ -309,7 +309,7 @@ $sel:numberOfDistinctValues:LongColumnStatisticsData' :: LongColumnStatisticsDat
 $sel:numberOfNulls:LongColumnStatisticsData' :: LongColumnStatisticsData -&gt; Natural
 $sel:minimumValue:LongColumnStatisticsData' :: LongColumnStatisticsData -&gt; Maybe Integer
 $sel:maximumValue:LongColumnStatisticsData' :: LongColumnStatisticsData -&gt; Maybe Integer
-</span><a href="#local-6989586621679689029"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679690684"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -321,21 +321,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679689032"><span class="hs-identifier hs-var">maximumValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679690687"><span class="hs-identifier hs-var">maximumValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinimumValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679689031"><span class="hs-identifier hs-var">minimumValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679690686"><span class="hs-identifier hs-var">minimumValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfNulls&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679689030"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679690685"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -344,7 +344,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-114"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679689029"><span class="hs-identifier hs-var">numberOfDistinctValues</span></a></span><span>
+</span><a href="#local-6989586621679690684"><span class="hs-identifier hs-var">numberOfDistinctValues</span></a></span><span>
 </span><span id="line-115"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>

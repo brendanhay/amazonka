@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newAttachLoadBalancers' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679347188"><span id="local-6989586621679347189"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachLoadBalancers"><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers"><span class="hs-identifier hs-var">AttachLoadBalancers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachLoadBalancers%27"><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers%27"><span class="hs-identifier hs-var">AttachLoadBalancers'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679347909"><span id="local-6989586621679347910"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachLoadBalancers"><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers"><span class="hs-identifier hs-var">AttachLoadBalancers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachLoadBalancers%27"><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers%27"><span class="hs-identifier hs-var">AttachLoadBalancers'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AautoScalingGroupName%3AAttachLoadBalancers%27"><span class="annot"><span class="annottext">AttachLoadBalancers -&gt; Text
 </span><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#%24sel%3AautoScalingGroupName%3AAttachLoadBalancers%27"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AloadBalancerNames%3AAttachLoadBalancers%27"><span class="annot"><span class="annottext">AttachLoadBalancers -&gt; [Text]
 </span><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#%24sel%3AloadBalancerNames%3AAttachLoadBalancers%27"><span class="hs-identifier hs-var hs-var">loadBalancerNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347181"><span id="local-6989586621679347183"><span class="annot"><span class="annottext">AttachLoadBalancers -&gt; AttachLoadBalancers -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347902"><span id="local-6989586621679347904"><span class="annot"><span class="annottext">AttachLoadBalancers -&gt; AttachLoadBalancers -&gt; Bool
 (AttachLoadBalancers -&gt; AttachLoadBalancers -&gt; Bool)
 -&gt; (AttachLoadBalancers -&gt; AttachLoadBalancers -&gt; Bool)
 -&gt; Eq AttachLoadBalancers
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttachLoadBalancers -&gt; AttachLoadBalancers -&gt; Bool
 == :: AttachLoadBalancers -&gt; AttachLoadBalancers -&gt; Bool
 $c== :: AttachLoadBalancers -&gt; AttachLoadBalancers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347172"><span id="local-6989586621679347174"><span id="local-6989586621679347176"><span id="local-6989586621679347178"><span class="annot"><span class="annottext">ReadPrec [AttachLoadBalancers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347893"><span id="local-6989586621679347895"><span id="local-6989586621679347897"><span id="local-6989586621679347899"><span class="annot"><span class="annottext">ReadPrec [AttachLoadBalancers]
 ReadPrec AttachLoadBalancers
 Int -&gt; ReadS AttachLoadBalancers
 ReadS [AttachLoadBalancers]
@@ -99,7 +99,7 @@ readList :: ReadS [AttachLoadBalancers]
 $creadList :: ReadS [AttachLoadBalancers]
 readsPrec :: Int -&gt; ReadS AttachLoadBalancers
 $creadsPrec :: Int -&gt; ReadS AttachLoadBalancers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347165"><span id="local-6989586621679347167"><span id="local-6989586621679347169"><span class="annot"><span class="annottext">Int -&gt; AttachLoadBalancers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347886"><span id="local-6989586621679347888"><span id="local-6989586621679347890"><span class="annot"><span class="annottext">Int -&gt; AttachLoadBalancers -&gt; ShowS
 [AttachLoadBalancers] -&gt; ShowS
 AttachLoadBalancers -&gt; String
 (Int -&gt; AttachLoadBalancers -&gt; ShowS)
@@ -142,14 +142,14 @@ $cfrom :: forall x. AttachLoadBalancers -&gt; Rep AttachLoadBalancers x
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers"><span class="hs-identifier hs-type">AttachLoadBalancers</span></a></span><span>
 </span><span id="line-89"></span><span id="newAttachLoadBalancers"><span class="annot"><span class="annottext">newAttachLoadBalancers :: Text -&gt; AttachLoadBalancers
-</span><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#newAttachLoadBalancers"><span class="hs-identifier hs-var hs-var">newAttachLoadBalancers</span></a></span></span><span> </span><span id="local-6989586621679347160"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347160"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#newAttachLoadBalancers"><span class="hs-identifier hs-var hs-var">newAttachLoadBalancers</span></a></span></span><span> </span><span id="local-6989586621679347881"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347881"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">AttachLoadBalancers' :: Text -&gt; [Text] -&gt; AttachLoadBalancers
 </span><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers%27"><span class="hs-identifier hs-type">AttachLoadBalancers'</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:AttachLoadBalancers' :: Text
 </span><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#%24sel%3AautoScalingGroupName%3AAttachLoadBalancers%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347160"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347881"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:loadBalancerNames:AttachLoadBalancers' :: [Text]
 </span><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#%24sel%3AloadBalancerNames%3AAttachLoadBalancers%27"><span class="hs-identifier hs-var">loadBalancerNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -163,16 +163,16 @@ forall a. Monoid a =&gt; a
 -&gt; (AttachLoadBalancers -&gt; Text -&gt; AttachLoadBalancers)
 -&gt; Lens AttachLoadBalancers AttachLoadBalancers Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers%27"><span class="hs-identifier hs-type">AttachLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347157"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers%27"><span class="hs-identifier hs-type">AttachLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347878"><span class="annot"><span class="annottext">Text
 autoScalingGroupName :: Text
 $sel:autoScalingGroupName:AttachLoadBalancers' :: AttachLoadBalancers -&gt; Text
-</span><a href="#local-6989586621679347157"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347157"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347156"><span class="annot"><span class="annottext">s :: AttachLoadBalancers
-</span><a href="#local-6989586621679347156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers%27"><span class="hs-identifier hs-type">AttachLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347155"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachLoadBalancers
-</span><a href="#local-6989586621679347156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:AttachLoadBalancers' :: Text
+</span><a href="#local-6989586621679347878"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347878"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347877"><span class="annot"><span class="annottext">s :: AttachLoadBalancers
+</span><a href="#local-6989586621679347877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers%27"><span class="hs-identifier hs-type">AttachLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347876"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachLoadBalancers
+</span><a href="#local-6989586621679347877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:AttachLoadBalancers' :: Text
 </span><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#%24sel%3AautoScalingGroupName%3AAttachLoadBalancers%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers"><span class="hs-identifier hs-type">AttachLoadBalancers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers"><span class="hs-identifier hs-type">AttachLoadBalancers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The names of the load balancers. You can specify up to 10 load</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- balancers.</span><span>
@@ -183,16 +183,16 @@ $sel:autoScalingGroupName:AttachLoadBalancers' :: AttachLoadBalancers -&gt; Text
 -&gt; (AttachLoadBalancers -&gt; [Text] -&gt; AttachLoadBalancers)
 -&gt; Lens AttachLoadBalancers AttachLoadBalancers [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers%27"><span class="hs-identifier hs-type">AttachLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347154"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers%27"><span class="hs-identifier hs-type">AttachLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347875"><span class="annot"><span class="annottext">[Text]
 loadBalancerNames :: [Text]
 $sel:loadBalancerNames:AttachLoadBalancers' :: AttachLoadBalancers -&gt; [Text]
-</span><a href="#local-6989586621679347154"><span class="hs-identifier hs-var hs-var">loadBalancerNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679347154"><span class="hs-identifier hs-var">loadBalancerNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347153"><span class="annot"><span class="annottext">s :: AttachLoadBalancers
-</span><a href="#local-6989586621679347153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers%27"><span class="hs-identifier hs-type">AttachLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347152"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679347152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachLoadBalancers
-</span><a href="#local-6989586621679347153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerNames:AttachLoadBalancers' :: [Text]
+</span><a href="#local-6989586621679347875"><span class="hs-identifier hs-var hs-var">loadBalancerNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679347875"><span class="hs-identifier hs-var">loadBalancerNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347874"><span class="annot"><span class="annottext">s :: AttachLoadBalancers
+</span><a href="#local-6989586621679347874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers%27"><span class="hs-identifier hs-type">AttachLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347873"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679347873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachLoadBalancers
+</span><a href="#local-6989586621679347874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerNames:AttachLoadBalancers' :: [Text]
 </span><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#%24sel%3AloadBalancerNames%3AAttachLoadBalancers%27"><span class="hs-identifier hs-var">loadBalancerNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679347152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers"><span class="hs-identifier hs-type">AttachLoadBalancers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679347873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers"><span class="hs-identifier hs-type">AttachLoadBalancers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; AttachLoadBalancers -&gt; f AttachLoadBalancers)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -200,19 +200,19 @@ $sel:loadBalancerNames:AttachLoadBalancers' :: AttachLoadBalancers -&gt; [Text]
 -&gt; f AttachLoadBalancers
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers"><span class="hs-identifier hs-type">AttachLoadBalancers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-107"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers"><span class="hs-identifier hs-type">AttachLoadBalancers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancersResponse"><span class="hs-identifier hs-type">AttachLoadBalancersResponse</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679347146"><span class="annot"><span class="annottext">request :: AttachLoadBalancers -&gt; Request AttachLoadBalancers
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679347867"><span class="annot"><span class="annottext">request :: AttachLoadBalancers -&gt; Request AttachLoadBalancers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AttachLoadBalancers -&gt; Request AttachLoadBalancers
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679347142"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679347863"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AttachLoadBalancers
 -&gt; ClientResponse ClientBody
@@ -243,10 +243,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttachLoadBalancersResult&quot;</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347139"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347139"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679347138"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679347138"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679347137"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679347137"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347860"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347860"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679347859"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679347859"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679347858"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679347858"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AttachLoadBalancersResponse
 </span><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancersResponse%27"><span class="hs-identifier hs-var">AttachLoadBalancersResponse'</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AttachLoadBalancersResponse)
@@ -257,15 +257,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347139"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347860"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347130"><span id="local-6989586621679347132"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers"><span class="hs-identifier hs-type">AttachLoadBalancers</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347851"><span id="local-6989586621679347853"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers"><span class="hs-identifier hs-type">AttachLoadBalancers</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347127"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers"><span class="hs-identifier hs-type">AttachLoadBalancers</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347848"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers"><span class="hs-identifier hs-type">AttachLoadBalancers</span></a></span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers"><span class="hs-identifier hs-type">AttachLoadBalancers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679347123"><span class="annot"><span class="annottext">toHeaders :: AttachLoadBalancers -&gt; ResponseHeaders
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679347844"><span class="annot"><span class="annottext">toHeaders :: AttachLoadBalancers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AttachLoadBalancers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -273,21 +273,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers"><span class="hs-identifier hs-type">AttachLoadBalancers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679347118"><span class="annot"><span class="annottext">toPath :: AttachLoadBalancers -&gt; ByteString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679347839"><span class="annot"><span class="annottext">toPath :: AttachLoadBalancers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AttachLoadBalancers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers"><span class="hs-identifier hs-type">AttachLoadBalancers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679347114"><span class="annot"><span class="annottext">toQuery :: AttachLoadBalancers -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers%27"><span class="hs-identifier hs-type">AttachLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347111"><span id="local-6989586621679347112"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679347835"><span class="annot"><span class="annottext">toQuery :: AttachLoadBalancers -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancers%27"><span class="hs-identifier hs-type">AttachLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347832"><span id="local-6989586621679347833"><span class="annot"><span class="annottext">[Text]
 Text
 loadBalancerNames :: [Text]
 autoScalingGroupName :: Text
 $sel:loadBalancerNames:AttachLoadBalancers' :: AttachLoadBalancers -&gt; [Text]
 $sel:autoScalingGroupName:AttachLoadBalancers' :: AttachLoadBalancers -&gt; Text
-</span><a href="#local-6989586621679347111"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679347832"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -307,7 +307,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;AutoScalingGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347112"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347833"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;LoadBalancerNames&quot;</span></span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -318,16 +318,16 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679347111"><span class="hs-identifier hs-var">loadBalancerNames</span></a></span><span>
+</span><a href="#local-6989586621679347832"><span class="hs-identifier hs-var">loadBalancerNames</span></a></span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newAttachLoadBalancersResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679347107"><span id="local-6989586621679347108"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachLoadBalancersResponse"><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancersResponse"><span class="hs-identifier hs-var">AttachLoadBalancersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachLoadBalancersResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancersResponse%27"><span class="hs-identifier hs-var">AttachLoadBalancersResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679347828"><span id="local-6989586621679347829"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachLoadBalancersResponse"><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancersResponse"><span class="hs-identifier hs-var">AttachLoadBalancersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachLoadBalancersResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancersResponse%27"><span class="hs-identifier hs-var">AttachLoadBalancersResponse'</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAttachLoadBalancersResponse%27"><span class="annot"><span class="annottext">AttachLoadBalancersResponse -&gt; Int
 </span><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#%24sel%3AhttpStatus%3AAttachLoadBalancersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347102"><span id="local-6989586621679347104"><span class="annot"><span class="annottext">AttachLoadBalancersResponse -&gt; AttachLoadBalancersResponse -&gt; Bool
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347823"><span id="local-6989586621679347825"><span class="annot"><span class="annottext">AttachLoadBalancersResponse -&gt; AttachLoadBalancersResponse -&gt; Bool
 (AttachLoadBalancersResponse
  -&gt; AttachLoadBalancersResponse -&gt; Bool)
 -&gt; (AttachLoadBalancersResponse
@@ -338,7 +338,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttachLoadBalancersResponse -&gt; AttachLoadBalancersResponse -&gt; Bool
 == :: AttachLoadBalancersResponse -&gt; AttachLoadBalancersResponse -&gt; Bool
 $c== :: AttachLoadBalancersResponse -&gt; AttachLoadBalancersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347094"><span id="local-6989586621679347096"><span id="local-6989586621679347098"><span id="local-6989586621679347100"><span class="annot"><span class="annottext">ReadPrec [AttachLoadBalancersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347815"><span id="local-6989586621679347817"><span id="local-6989586621679347819"><span id="local-6989586621679347821"><span class="annot"><span class="annottext">ReadPrec [AttachLoadBalancersResponse]
 ReadPrec AttachLoadBalancersResponse
 Int -&gt; ReadS AttachLoadBalancersResponse
 ReadS [AttachLoadBalancersResponse]
@@ -358,7 +358,7 @@ readList :: ReadS [AttachLoadBalancersResponse]
 $creadList :: ReadS [AttachLoadBalancersResponse]
 readsPrec :: Int -&gt; ReadS AttachLoadBalancersResponse
 $creadsPrec :: Int -&gt; ReadS AttachLoadBalancersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347088"><span id="local-6989586621679347090"><span id="local-6989586621679347092"><span class="annot"><span class="annottext">Int -&gt; AttachLoadBalancersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347809"><span id="local-6989586621679347811"><span id="local-6989586621679347813"><span class="annot"><span class="annottext">Int -&gt; AttachLoadBalancersResponse -&gt; ShowS
 [AttachLoadBalancersResponse] -&gt; ShowS
 AttachLoadBalancersResponse -&gt; String
 (Int -&gt; AttachLoadBalancersResponse -&gt; ShowS)
@@ -404,14 +404,14 @@ AttachLoadBalancersResponse -&gt; Rep AttachLoadBalancersResponse x
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancersResponse"><span class="hs-identifier hs-type">AttachLoadBalancersResponse</span></a></span><span>
 </span><span id="line-160"></span><span id="newAttachLoadBalancersResponse"><span class="annot"><span class="annottext">newAttachLoadBalancersResponse :: Int -&gt; AttachLoadBalancersResponse
-</span><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#newAttachLoadBalancersResponse"><span class="hs-identifier hs-var hs-var">newAttachLoadBalancersResponse</span></a></span></span><span> </span><span id="local-6989586621679347085"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347085"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#newAttachLoadBalancersResponse"><span class="hs-identifier hs-var hs-var">newAttachLoadBalancersResponse</span></a></span></span><span> </span><span id="local-6989586621679347806"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347806"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">AttachLoadBalancersResponse' :: Int -&gt; AttachLoadBalancersResponse
 </span><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancersResponse%27"><span class="hs-identifier hs-type">AttachLoadBalancersResponse'</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AttachLoadBalancersResponse' :: Int
 </span><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#%24sel%3AhttpStatus%3AAttachLoadBalancersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347085"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679347806"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -424,16 +424,16 @@ AttachLoadBalancersResponse -&gt; Rep AttachLoadBalancersResponse x
 -&gt; Lens
      AttachLoadBalancersResponse AttachLoadBalancersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancersResponse%27"><span class="hs-identifier hs-type">AttachLoadBalancersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347084"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancersResponse%27"><span class="hs-identifier hs-type">AttachLoadBalancersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347805"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AttachLoadBalancersResponse' :: AttachLoadBalancersResponse -&gt; Int
-</span><a href="#local-6989586621679347084"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347084"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347083"><span class="annot"><span class="annottext">s :: AttachLoadBalancersResponse
-</span><a href="#local-6989586621679347083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancersResponse%27"><span class="hs-identifier hs-type">AttachLoadBalancersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347082"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachLoadBalancersResponse
-</span><a href="#local-6989586621679347083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AttachLoadBalancersResponse' :: Int
+</span><a href="#local-6989586621679347805"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347805"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347804"><span class="annot"><span class="annottext">s :: AttachLoadBalancersResponse
+</span><a href="#local-6989586621679347804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancersResponse%27"><span class="hs-identifier hs-type">AttachLoadBalancersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347803"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachLoadBalancersResponse
+</span><a href="#local-6989586621679347804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AttachLoadBalancersResponse' :: Int
 </span><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#%24sel%3AhttpStatus%3AAttachLoadBalancersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancersResponse"><span class="hs-identifier hs-type">AttachLoadBalancersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancersResponse"><span class="hs-identifier hs-type">AttachLoadBalancersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347080"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancersResponse"><span class="hs-identifier hs-type">AttachLoadBalancersResponse</span></a></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347801"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.AttachLoadBalancers.html#AttachLoadBalancersResponse"><span class="hs-identifier hs-type">AttachLoadBalancersResponse</span></a></span></span><span>
 </span><span id="line-171"></span></pre></body></html>

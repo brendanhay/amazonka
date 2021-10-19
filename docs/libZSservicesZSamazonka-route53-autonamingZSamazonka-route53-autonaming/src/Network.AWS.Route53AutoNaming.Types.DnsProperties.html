@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Cloud Map creates when you create a namespace.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDnsProperties' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679223141"><span id="local-6989586621679223142"></span></span><span class="hs-keyword">data</span><span> </span><span id="DnsProperties"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties"><span class="hs-identifier hs-var">DnsProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DnsProperties%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties%27"><span class="hs-identifier hs-var">DnsProperties'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679223281"><span id="local-6989586621679223282"></span></span><span class="hs-keyword">data</span><span> </span><span id="DnsProperties"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties"><span class="hs-identifier hs-var">DnsProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DnsProperties%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties%27"><span class="hs-identifier hs-var">DnsProperties'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID for the Route 53 hosted zone that Cloud Map creates when you</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- create a namespace.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AhostedZoneId%3ADnsProperties%27"><span class="annot"><span class="annottext">DnsProperties -&gt; Maybe Text
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Asoa%3ADnsProperties%27"><span class="annot"><span class="annottext">DnsProperties -&gt; Maybe SOA
 </span><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#%24sel%3Asoa%3ADnsProperties%27"><span class="hs-identifier hs-var hs-var">soa</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA"><span class="hs-identifier hs-type">SOA</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223134"><span id="local-6989586621679223136"><span class="annot"><span class="annottext">DnsProperties -&gt; DnsProperties -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223274"><span id="local-6989586621679223276"><span class="annot"><span class="annottext">DnsProperties -&gt; DnsProperties -&gt; Bool
 (DnsProperties -&gt; DnsProperties -&gt; Bool)
 -&gt; (DnsProperties -&gt; DnsProperties -&gt; Bool) -&gt; Eq DnsProperties
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DnsProperties -&gt; DnsProperties -&gt; Bool
 == :: DnsProperties -&gt; DnsProperties -&gt; Bool
 $c== :: DnsProperties -&gt; DnsProperties -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223125"><span id="local-6989586621679223127"><span id="local-6989586621679223129"><span id="local-6989586621679223131"><span class="annot"><span class="annottext">ReadPrec [DnsProperties]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223265"><span id="local-6989586621679223267"><span id="local-6989586621679223269"><span id="local-6989586621679223271"><span class="annot"><span class="annottext">ReadPrec [DnsProperties]
 ReadPrec DnsProperties
 Int -&gt; ReadS DnsProperties
 ReadS [DnsProperties]
@@ -65,7 +65,7 @@ readList :: ReadS [DnsProperties]
 $creadList :: ReadS [DnsProperties]
 readsPrec :: Int -&gt; ReadS DnsProperties
 $creadsPrec :: Int -&gt; ReadS DnsProperties
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223118"><span id="local-6989586621679223120"><span id="local-6989586621679223122"><span class="annot"><span class="annottext">Int -&gt; DnsProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223258"><span id="local-6989586621679223260"><span id="local-6989586621679223262"><span class="annot"><span class="annottext">Int -&gt; DnsProperties -&gt; ShowS
 [DnsProperties] -&gt; ShowS
 DnsProperties -&gt; String
 (Int -&gt; DnsProperties -&gt; ShowS)
@@ -127,16 +127,16 @@ forall a. Maybe a
 -&gt; (DnsProperties -&gt; Maybe Text -&gt; DnsProperties)
 -&gt; Lens DnsProperties DnsProperties (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties%27"><span class="hs-identifier hs-type">DnsProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223109"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties%27"><span class="hs-identifier hs-type">DnsProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223249"><span class="annot"><span class="annottext">Maybe Text
 hostedZoneId :: Maybe Text
 $sel:hostedZoneId:DnsProperties' :: DnsProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679223109"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223109"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223108"><span class="annot"><span class="annottext">s :: DnsProperties
-</span><a href="#local-6989586621679223108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties%27"><span class="hs-identifier hs-type">DnsProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223107"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsProperties
-</span><a href="#local-6989586621679223108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneId:DnsProperties' :: Maybe Text
+</span><a href="#local-6989586621679223249"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223249"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223248"><span class="annot"><span class="annottext">s :: DnsProperties
+</span><a href="#local-6989586621679223248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties%27"><span class="hs-identifier hs-type">DnsProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223247"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsProperties
+</span><a href="#local-6989586621679223248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneId:DnsProperties' :: Maybe Text
 </span><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#%24sel%3AhostedZoneId%3ADnsProperties%27"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties"><span class="hs-identifier hs-type">DnsProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties"><span class="hs-identifier hs-type">DnsProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | Start of Authority (SOA) record for the hosted zone.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#dnsProperties_soa"><span class="hs-identifier hs-type">dnsProperties_soa</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties"><span class="hs-identifier hs-type">DnsProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA"><span class="hs-identifier hs-type">SOA</span></a></span><span class="hs-special">)</span><span>
@@ -145,19 +145,19 @@ $sel:hostedZoneId:DnsProperties' :: DnsProperties -&gt; Maybe Text
 -&gt; (DnsProperties -&gt; Maybe SOA -&gt; DnsProperties)
 -&gt; Lens DnsProperties DnsProperties (Maybe SOA) (Maybe SOA)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties%27"><span class="hs-identifier hs-type">DnsProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223105"><span class="annot"><span class="annottext">Maybe SOA
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties%27"><span class="hs-identifier hs-type">DnsProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223245"><span class="annot"><span class="annottext">Maybe SOA
 soa :: Maybe SOA
 $sel:soa:DnsProperties' :: DnsProperties -&gt; Maybe SOA
-</span><a href="#local-6989586621679223105"><span class="hs-identifier hs-var hs-var">soa</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SOA
-</span><a href="#local-6989586621679223105"><span class="hs-identifier hs-var">soa</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223104"><span class="annot"><span class="annottext">s :: DnsProperties
-</span><a href="#local-6989586621679223104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties%27"><span class="hs-identifier hs-type">DnsProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223103"><span class="annot"><span class="annottext">Maybe SOA
-</span><a href="#local-6989586621679223103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsProperties
-</span><a href="#local-6989586621679223104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:soa:DnsProperties' :: Maybe SOA
+</span><a href="#local-6989586621679223245"><span class="hs-identifier hs-var hs-var">soa</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SOA
+</span><a href="#local-6989586621679223245"><span class="hs-identifier hs-var">soa</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223244"><span class="annot"><span class="annottext">s :: DnsProperties
+</span><a href="#local-6989586621679223244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties%27"><span class="hs-identifier hs-type">DnsProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223243"><span class="annot"><span class="annottext">Maybe SOA
+</span><a href="#local-6989586621679223243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsProperties
+</span><a href="#local-6989586621679223244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:soa:DnsProperties' :: Maybe SOA
 </span><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#%24sel%3Asoa%3ADnsProperties%27"><span class="hs-identifier hs-var">soa</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SOA
-</span><a href="#local-6989586621679223103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties"><span class="hs-identifier hs-type">DnsProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties"><span class="hs-identifier hs-type">DnsProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223100"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties"><span class="hs-identifier hs-type">DnsProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679223098"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DnsProperties
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223240"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties"><span class="hs-identifier hs-type">DnsProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679223238"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DnsProperties
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DnsProperties)
@@ -167,15 +167,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DnsProperties&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223095"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223095"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223235"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223235"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe SOA -&gt; DnsProperties
 </span><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties%27"><span class="hs-identifier hs-var">DnsProperties'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe SOA -&gt; DnsProperties)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe SOA -&gt; DnsProperties)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679223235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HostedZoneId&quot;</span></span><span class="hs-special">)</span><span>
@@ -183,13 +183,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe SOA) -&gt; Parser DnsProperties
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SOA)
+</span><a href="#local-6989586621679223235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SOA)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SOA&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223089"><span id="local-6989586621679223091"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties"><span class="hs-identifier hs-type">DnsProperties</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223229"><span id="local-6989586621679223231"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties"><span class="hs-identifier hs-type">DnsProperties</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223086"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties"><span class="hs-identifier hs-type">DnsProperties</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223226"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties"><span class="hs-identifier hs-type">DnsProperties</span></a></span></span><span>
 </span><span id="line-82"></span></pre></body></html>

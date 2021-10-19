@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a disk image.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDiskImageDetail' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681066451"><span id="local-6989586621681066452"></span></span><span class="hs-keyword">data</span><span> </span><span id="DiskImageDetail"><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail"><span class="hs-identifier hs-var">DiskImageDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiskImageDetail%27"><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail%27"><span class="hs-identifier hs-var">DiskImageDetail'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681100384"><span id="local-6989586621681100385"></span></span><span class="hs-keyword">data</span><span> </span><span id="DiskImageDetail"><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail"><span class="hs-identifier hs-var">DiskImageDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiskImageDetail%27"><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail%27"><span class="hs-identifier hs-var">DiskImageDetail'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The size of the disk image, in GiB.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Abytes%3ADiskImageDetail%27"><span class="annot"><span class="annottext">DiskImageDetail -&gt; Integer
 </span><a href="Network.AWS.EC2.Types.DiskImageDetail.html#%24sel%3Abytes%3ADiskImageDetail%27"><span class="hs-identifier hs-var hs-var">bytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
@@ -48,7 +48,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AimportManifestUrl%3ADiskImageDetail%27"><span class="annot"><span class="annottext">DiskImageDetail -&gt; Text
 </span><a href="Network.AWS.EC2.Types.DiskImageDetail.html#%24sel%3AimportManifestUrl%3ADiskImageDetail%27"><span class="hs-identifier hs-var hs-var">importManifestUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681066443"><span id="local-6989586621681066445"><span class="annot"><span class="annottext">DiskImageDetail -&gt; DiskImageDetail -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681100376"><span id="local-6989586621681100378"><span class="annot"><span class="annottext">DiskImageDetail -&gt; DiskImageDetail -&gt; Bool
 (DiskImageDetail -&gt; DiskImageDetail -&gt; Bool)
 -&gt; (DiskImageDetail -&gt; DiskImageDetail -&gt; Bool)
 -&gt; Eq DiskImageDetail
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DiskImageDetail -&gt; DiskImageDetail -&gt; Bool
 == :: DiskImageDetail -&gt; DiskImageDetail -&gt; Bool
 $c== :: DiskImageDetail -&gt; DiskImageDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681066434"><span id="local-6989586621681066436"><span id="local-6989586621681066438"><span id="local-6989586621681066440"><span class="annot"><span class="annottext">ReadPrec [DiskImageDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681100367"><span id="local-6989586621681100369"><span id="local-6989586621681100371"><span id="local-6989586621681100373"><span class="annot"><span class="annottext">ReadPrec [DiskImageDetail]
 ReadPrec DiskImageDetail
 Int -&gt; ReadS DiskImageDetail
 ReadS [DiskImageDetail]
@@ -77,7 +77,7 @@ readList :: ReadS [DiskImageDetail]
 $creadList :: ReadS [DiskImageDetail]
 readsPrec :: Int -&gt; ReadS DiskImageDetail
 $creadsPrec :: Int -&gt; ReadS DiskImageDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681066427"><span id="local-6989586621681066429"><span id="local-6989586621681066431"><span class="annot"><span class="annottext">Int -&gt; DiskImageDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681100360"><span id="local-6989586621681100362"><span id="local-6989586621681100364"><span class="annot"><span class="annottext">Int -&gt; DiskImageDetail -&gt; ShowS
 [DiskImageDetail] -&gt; ShowS
 DiskImageDetail -&gt; String
 (Int -&gt; DiskImageDetail -&gt; ShowS)
@@ -135,23 +135,23 @@ $cfrom :: forall x. DiskImageDetail -&gt; Rep DiskImageDetail x
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail"><span class="hs-identifier hs-type">DiskImageDetail</span></a></span><span>
 </span><span id="line-80"></span><span id="newDiskImageDetail"><span class="annot"><span class="annottext">newDiskImageDetail :: Integer -&gt; DiskImageFormat -&gt; Text -&gt; DiskImageDetail
 </span><a href="Network.AWS.EC2.Types.DiskImageDetail.html#newDiskImageDetail"><span class="hs-identifier hs-var hs-var">newDiskImageDetail</span></a></span></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621681066421"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621681066421"><span class="hs-identifier hs-var">pBytes_</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621681066420"><span class="annot"><span class="annottext">DiskImageFormat
-</span><a href="#local-6989586621681066420"><span class="hs-identifier hs-var">pFormat_</span></a></span></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621681066419"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681066419"><span class="hs-identifier hs-var">pImportManifestUrl_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621681100354"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621681100354"><span class="hs-identifier hs-var">pBytes_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621681100353"><span class="annot"><span class="annottext">DiskImageFormat
+</span><a href="#local-6989586621681100353"><span class="hs-identifier hs-var">pFormat_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621681100352"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681100352"><span class="hs-identifier hs-var">pImportManifestUrl_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">DiskImageDetail' :: Integer -&gt; DiskImageFormat -&gt; Text -&gt; DiskImageDetail
 </span><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail%27"><span class="hs-identifier hs-type">DiskImageDetail'</span></a></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bytes:DiskImageDetail' :: Integer
 </span><a href="Network.AWS.EC2.Types.DiskImageDetail.html#%24sel%3Abytes%3ADiskImageDetail%27"><span class="hs-identifier hs-var">bytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621681066421"><span class="hs-identifier hs-var">pBytes_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681100354"><span class="hs-identifier hs-var">pBytes_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:format:DiskImageDetail' :: DiskImageFormat
 </span><a href="Network.AWS.EC2.Types.DiskImageDetail.html#%24sel%3Aformat%3ADiskImageDetail%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DiskImageFormat
-</span><a href="#local-6989586621681066420"><span class="hs-identifier hs-var">pFormat_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681100353"><span class="hs-identifier hs-var">pFormat_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:importManifestUrl:DiskImageDetail' :: Text
 </span><a href="Network.AWS.EC2.Types.DiskImageDetail.html#%24sel%3AimportManifestUrl%3ADiskImageDetail%27"><span class="hs-identifier hs-var">importManifestUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681066419"><span class="hs-identifier hs-var">pImportManifestUrl_</span></a></span><span>
+</span><a href="#local-6989586621681100352"><span class="hs-identifier hs-var">pImportManifestUrl_</span></a></span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The size of the disk image, in GiB.</span><span>
@@ -161,16 +161,16 @@ $cfrom :: forall x. DiskImageDetail -&gt; Rep DiskImageDetail x
 -&gt; (DiskImageDetail -&gt; Integer -&gt; DiskImageDetail)
 -&gt; Lens DiskImageDetail DiskImageDetail Integer Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail%27"><span class="hs-identifier hs-type">DiskImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681066415"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail%27"><span class="hs-identifier hs-type">DiskImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681100348"><span class="annot"><span class="annottext">Integer
 bytes :: Integer
 $sel:bytes:DiskImageDetail' :: DiskImageDetail -&gt; Integer
-</span><a href="#local-6989586621681066415"><span class="hs-identifier hs-var hs-var">bytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621681066415"><span class="hs-identifier hs-var">bytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681066414"><span class="annot"><span class="annottext">s :: DiskImageDetail
-</span><a href="#local-6989586621681066414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail%27"><span class="hs-identifier hs-type">DiskImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681066413"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621681066413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskImageDetail
-</span><a href="#local-6989586621681066414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytes:DiskImageDetail' :: Integer
+</span><a href="#local-6989586621681100348"><span class="hs-identifier hs-var hs-var">bytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621681100348"><span class="hs-identifier hs-var">bytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681100347"><span class="annot"><span class="annottext">s :: DiskImageDetail
+</span><a href="#local-6989586621681100347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail%27"><span class="hs-identifier hs-type">DiskImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681100346"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621681100346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskImageDetail
+</span><a href="#local-6989586621681100347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytes:DiskImageDetail' :: Integer
 </span><a href="Network.AWS.EC2.Types.DiskImageDetail.html#%24sel%3Abytes%3ADiskImageDetail%27"><span class="hs-identifier hs-var">bytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621681066413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail"><span class="hs-identifier hs-type">DiskImageDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681100346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail"><span class="hs-identifier hs-type">DiskImageDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The disk image format.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#diskImageDetail_format"><span class="hs-identifier hs-type">diskImageDetail_format</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail"><span class="hs-identifier hs-type">DiskImageDetail</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageFormat.html#DiskImageFormat"><span class="hs-identifier hs-type">DiskImageFormat</span></a></span><span>
@@ -181,16 +181,16 @@ $sel:bytes:DiskImageDetail' :: DiskImageDetail -&gt; Integer
 -&gt; Lens
      DiskImageDetail DiskImageDetail DiskImageFormat DiskImageFormat
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail%27"><span class="hs-identifier hs-type">DiskImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681066411"><span class="annot"><span class="annottext">DiskImageFormat
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail%27"><span class="hs-identifier hs-type">DiskImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681100344"><span class="annot"><span class="annottext">DiskImageFormat
 format :: DiskImageFormat
 $sel:format:DiskImageDetail' :: DiskImageDetail -&gt; DiskImageFormat
-</span><a href="#local-6989586621681066411"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskImageFormat
-</span><a href="#local-6989586621681066411"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681066410"><span class="annot"><span class="annottext">s :: DiskImageDetail
-</span><a href="#local-6989586621681066410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail%27"><span class="hs-identifier hs-type">DiskImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681066409"><span class="annot"><span class="annottext">DiskImageFormat
-</span><a href="#local-6989586621681066409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskImageDetail
-</span><a href="#local-6989586621681066410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:DiskImageDetail' :: DiskImageFormat
+</span><a href="#local-6989586621681100344"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskImageFormat
+</span><a href="#local-6989586621681100344"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681100343"><span class="annot"><span class="annottext">s :: DiskImageDetail
+</span><a href="#local-6989586621681100343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail%27"><span class="hs-identifier hs-type">DiskImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681100342"><span class="annot"><span class="annottext">DiskImageFormat
+</span><a href="#local-6989586621681100342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskImageDetail
+</span><a href="#local-6989586621681100343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:DiskImageDetail' :: DiskImageFormat
 </span><a href="Network.AWS.EC2.Types.DiskImageDetail.html#%24sel%3Aformat%3ADiskImageDetail%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DiskImageFormat
-</span><a href="#local-6989586621681066409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail"><span class="hs-identifier hs-type">DiskImageDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681100342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail"><span class="hs-identifier hs-type">DiskImageDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | A presigned URL for the import manifest stored in Amazon S3 and</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- presented here as an Amazon S3 presigned URL. For information about</span><span>
@@ -208,24 +208,24 @@ $sel:format:DiskImageDetail' :: DiskImageDetail -&gt; DiskImageFormat
 -&gt; (DiskImageDetail -&gt; Text -&gt; DiskImageDetail)
 -&gt; Lens DiskImageDetail DiskImageDetail Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail%27"><span class="hs-identifier hs-type">DiskImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681066407"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail%27"><span class="hs-identifier hs-type">DiskImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681100340"><span class="annot"><span class="annottext">Text
 importManifestUrl :: Text
 $sel:importManifestUrl:DiskImageDetail' :: DiskImageDetail -&gt; Text
-</span><a href="#local-6989586621681066407"><span class="hs-identifier hs-var hs-var">importManifestUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681066407"><span class="hs-identifier hs-var">importManifestUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681066406"><span class="annot"><span class="annottext">s :: DiskImageDetail
-</span><a href="#local-6989586621681066406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail%27"><span class="hs-identifier hs-type">DiskImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681066405"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681066405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskImageDetail
-</span><a href="#local-6989586621681066406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importManifestUrl:DiskImageDetail' :: Text
+</span><a href="#local-6989586621681100340"><span class="hs-identifier hs-var hs-var">importManifestUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681100340"><span class="hs-identifier hs-var">importManifestUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681100339"><span class="annot"><span class="annottext">s :: DiskImageDetail
+</span><a href="#local-6989586621681100339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail%27"><span class="hs-identifier hs-type">DiskImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681100338"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681100338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskImageDetail
+</span><a href="#local-6989586621681100339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importManifestUrl:DiskImageDetail' :: Text
 </span><a href="Network.AWS.EC2.Types.DiskImageDetail.html#%24sel%3AimportManifestUrl%3ADiskImageDetail%27"><span class="hs-identifier hs-var">importManifestUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681066405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail"><span class="hs-identifier hs-type">DiskImageDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681100338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail"><span class="hs-identifier hs-type">DiskImageDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681066401"><span id="local-6989586621681066403"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail"><span class="hs-identifier hs-type">DiskImageDetail</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681100334"><span id="local-6989586621681100336"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail"><span class="hs-identifier hs-type">DiskImageDetail</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681066398"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail"><span class="hs-identifier hs-type">DiskImageDetail</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681100331"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail"><span class="hs-identifier hs-type">DiskImageDetail</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail"><span class="hs-identifier hs-type">DiskImageDetail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621681066394"><span class="annot"><span class="annottext">toQuery :: DiskImageDetail -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail%27"><span class="hs-identifier hs-type">DiskImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681066390"><span id="local-6989586621681066391"><span id="local-6989586621681066392"><span class="annot"><span class="annottext">Integer
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621681100327"><span class="annot"><span class="annottext">toQuery :: DiskImageDetail -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail%27"><span class="hs-identifier hs-type">DiskImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681100323"><span id="local-6989586621681100324"><span id="local-6989586621681100325"><span class="annot"><span class="annottext">Integer
 Text
 DiskImageFormat
 importManifestUrl :: Text
@@ -234,7 +234,7 @@ bytes :: Integer
 $sel:importManifestUrl:DiskImageDetail' :: DiskImageDetail -&gt; Text
 $sel:format:DiskImageDetail' :: DiskImageDetail -&gt; DiskImageFormat
 $sel:bytes:DiskImageDetail' :: DiskImageDetail -&gt; Integer
-</span><a href="#local-6989586621681066390"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681100323"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -242,16 +242,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Bytes&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Integer -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621681066392"><span class="hs-identifier hs-var">bytes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681100325"><span class="hs-identifier hs-var">bytes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Format&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DiskImageFormat -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">DiskImageFormat
-</span><a href="#local-6989586621681066391"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681100324"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ImportManifestUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681066390"><span class="hs-identifier hs-var">importManifestUrl</span></a></span><span>
+</span><a href="#local-6989586621681100323"><span class="hs-identifier hs-var">importManifestUrl</span></a></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span></pre></body></html>

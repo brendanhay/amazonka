@@ -39,7 +39,7 @@
 </span><span id="line-39"></span><span class="hs-comment">-- header, the name of the header.</span><span>
 </span><span id="line-40"></span><span class="hs-comment">--</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newSqlInjectionMatchTuple' smart constructor.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679308464"><span id="local-6989586621679308465"></span></span><span class="hs-keyword">data</span><span> </span><span id="SqlInjectionMatchTuple"><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple"><span class="hs-identifier hs-var">SqlInjectionMatchTuple</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SqlInjectionMatchTuple%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple%27"><span class="hs-identifier hs-var">SqlInjectionMatchTuple'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679308709"><span id="local-6989586621679308710"></span></span><span class="hs-keyword">data</span><span> </span><span id="SqlInjectionMatchTuple"><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple"><span class="hs-identifier hs-var">SqlInjectionMatchTuple</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SqlInjectionMatchTuple%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple%27"><span class="hs-identifier hs-var">SqlInjectionMatchTuple'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies where in a web request to look for snippets of malicious SQL</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- code.</span><span>
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AfieldToMatch%3ASqlInjectionMatchTuple%27"><span class="annot"><span class="annottext">SqlInjectionMatchTuple -&gt; FieldToMatch
@@ -120,7 +120,7 @@
 </span><span id="line-119"></span><span>    </span><span id="%24sel%3AtextTransformation%3ASqlInjectionMatchTuple%27"><span class="annot"><span class="annottext">SqlInjectionMatchTuple -&gt; TextTransformation
 </span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#%24sel%3AtextTransformation%3ASqlInjectionMatchTuple%27"><span class="hs-identifier hs-var hs-var">textTransformation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TextTransformation.html#TextTransformation"><span class="hs-identifier hs-type">TextTransformation</span></a></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308457"><span id="local-6989586621679308459"><span class="annot"><span class="annottext">SqlInjectionMatchTuple -&gt; SqlInjectionMatchTuple -&gt; Bool
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308702"><span id="local-6989586621679308704"><span class="annot"><span class="annottext">SqlInjectionMatchTuple -&gt; SqlInjectionMatchTuple -&gt; Bool
 (SqlInjectionMatchTuple -&gt; SqlInjectionMatchTuple -&gt; Bool)
 -&gt; (SqlInjectionMatchTuple -&gt; SqlInjectionMatchTuple -&gt; Bool)
 -&gt; Eq SqlInjectionMatchTuple
@@ -129,7 +129,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SqlInjectionMatchTuple -&gt; SqlInjectionMatchTuple -&gt; Bool
 == :: SqlInjectionMatchTuple -&gt; SqlInjectionMatchTuple -&gt; Bool
 $c== :: SqlInjectionMatchTuple -&gt; SqlInjectionMatchTuple -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308448"><span id="local-6989586621679308450"><span id="local-6989586621679308452"><span id="local-6989586621679308454"><span class="annot"><span class="annottext">ReadPrec [SqlInjectionMatchTuple]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308693"><span id="local-6989586621679308695"><span id="local-6989586621679308697"><span id="local-6989586621679308699"><span class="annot"><span class="annottext">ReadPrec [SqlInjectionMatchTuple]
 ReadPrec SqlInjectionMatchTuple
 Int -&gt; ReadS SqlInjectionMatchTuple
 ReadS [SqlInjectionMatchTuple]
@@ -149,7 +149,7 @@ readList :: ReadS [SqlInjectionMatchTuple]
 $creadList :: ReadS [SqlInjectionMatchTuple]
 readsPrec :: Int -&gt; ReadS SqlInjectionMatchTuple
 $creadsPrec :: Int -&gt; ReadS SqlInjectionMatchTuple
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308441"><span id="local-6989586621679308443"><span id="local-6989586621679308445"><span class="annot"><span class="annottext">Int -&gt; SqlInjectionMatchTuple -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308686"><span id="local-6989586621679308688"><span id="local-6989586621679308690"><span class="annot"><span class="annottext">Int -&gt; SqlInjectionMatchTuple -&gt; ShowS
 [SqlInjectionMatchTuple] -&gt; ShowS
 SqlInjectionMatchTuple -&gt; String
 (Int -&gt; SqlInjectionMatchTuple -&gt; ShowS)
@@ -268,19 +268,19 @@ $cfrom :: forall x. SqlInjectionMatchTuple -&gt; Rep SqlInjectionMatchTuple x
 </span><span id="line-212"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple"><span class="hs-identifier hs-type">SqlInjectionMatchTuple</span></a></span><span>
 </span><span id="line-213"></span><span id="newSqlInjectionMatchTuple"><span class="annot"><span class="annottext">newSqlInjectionMatchTuple :: FieldToMatch -&gt; TextTransformation -&gt; SqlInjectionMatchTuple
 </span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#newSqlInjectionMatchTuple"><span class="hs-identifier hs-var hs-var">newSqlInjectionMatchTuple</span></a></span></span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679308435"><span class="annot"><span class="annottext">FieldToMatch
-</span><a href="#local-6989586621679308435"><span class="hs-identifier hs-var">pFieldToMatch_</span></a></span></span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679308434"><span class="annot"><span class="annottext">TextTransformation
-</span><a href="#local-6989586621679308434"><span class="hs-identifier hs-var">pTextTransformation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679308680"><span class="annot"><span class="annottext">FieldToMatch
+</span><a href="#local-6989586621679308680"><span class="hs-identifier hs-var">pFieldToMatch_</span></a></span></span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679308679"><span class="annot"><span class="annottext">TextTransformation
+</span><a href="#local-6989586621679308679"><span class="hs-identifier hs-var">pTextTransformation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-216"></span><span>    </span><span class="annot"><span class="annottext">SqlInjectionMatchTuple' :: FieldToMatch -&gt; TextTransformation -&gt; SqlInjectionMatchTuple
 </span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple%27"><span class="hs-identifier hs-type">SqlInjectionMatchTuple'</span></a></span><span>
 </span><span id="line-217"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fieldToMatch:SqlInjectionMatchTuple' :: FieldToMatch
 </span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#%24sel%3AfieldToMatch%3ASqlInjectionMatchTuple%27"><span class="hs-identifier hs-var">fieldToMatch</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-218"></span><span>          </span><span class="annot"><span class="annottext">FieldToMatch
-</span><a href="#local-6989586621679308435"><span class="hs-identifier hs-var">pFieldToMatch_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679308680"><span class="hs-identifier hs-var">pFieldToMatch_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">$sel:textTransformation:SqlInjectionMatchTuple' :: TextTransformation
 </span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#%24sel%3AtextTransformation%3ASqlInjectionMatchTuple%27"><span class="hs-identifier hs-var">textTransformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TextTransformation
-</span><a href="#local-6989586621679308434"><span class="hs-identifier hs-var">pTextTransformation_</span></a></span><span>
+</span><a href="#local-6989586621679308679"><span class="hs-identifier hs-var">pTextTransformation_</span></a></span><span>
 </span><span id="line-220"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | Specifies where in a web request to look for snippets of malicious SQL</span><span>
@@ -297,16 +297,16 @@ $cfrom :: forall x. SqlInjectionMatchTuple -&gt; Rep SqlInjectionMatchTuple x
      FieldToMatch
      FieldToMatch
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple%27"><span class="hs-identifier hs-type">SqlInjectionMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308430"><span class="annot"><span class="annottext">FieldToMatch
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple%27"><span class="hs-identifier hs-type">SqlInjectionMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308675"><span class="annot"><span class="annottext">FieldToMatch
 fieldToMatch :: FieldToMatch
 $sel:fieldToMatch:SqlInjectionMatchTuple' :: SqlInjectionMatchTuple -&gt; FieldToMatch
-</span><a href="#local-6989586621679308430"><span class="hs-identifier hs-var hs-var">fieldToMatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldToMatch
-</span><a href="#local-6989586621679308430"><span class="hs-identifier hs-var">fieldToMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308429"><span class="annot"><span class="annottext">s :: SqlInjectionMatchTuple
-</span><a href="#local-6989586621679308429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple%27"><span class="hs-identifier hs-type">SqlInjectionMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308428"><span class="annot"><span class="annottext">FieldToMatch
-</span><a href="#local-6989586621679308428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqlInjectionMatchTuple
-</span><a href="#local-6989586621679308429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldToMatch:SqlInjectionMatchTuple' :: FieldToMatch
+</span><a href="#local-6989586621679308675"><span class="hs-identifier hs-var hs-var">fieldToMatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldToMatch
+</span><a href="#local-6989586621679308675"><span class="hs-identifier hs-var">fieldToMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308674"><span class="annot"><span class="annottext">s :: SqlInjectionMatchTuple
+</span><a href="#local-6989586621679308674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple%27"><span class="hs-identifier hs-type">SqlInjectionMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308673"><span class="annot"><span class="annottext">FieldToMatch
+</span><a href="#local-6989586621679308673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqlInjectionMatchTuple
+</span><a href="#local-6989586621679308674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldToMatch:SqlInjectionMatchTuple' :: FieldToMatch
 </span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#%24sel%3AfieldToMatch%3ASqlInjectionMatchTuple%27"><span class="hs-identifier hs-var">fieldToMatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FieldToMatch
-</span><a href="#local-6989586621679308428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple"><span class="hs-identifier hs-type">SqlInjectionMatchTuple</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple"><span class="hs-identifier hs-type">SqlInjectionMatchTuple</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | Text transformations eliminate some of the unusual formatting that</span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- attackers use in web requests in an effort to bypass AWS WAF. If you</span><span>
@@ -393,19 +393,19 @@ $sel:fieldToMatch:SqlInjectionMatchTuple' :: SqlInjectionMatchTuple -&gt; FieldT
      TextTransformation
      TextTransformation
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple%27"><span class="hs-identifier hs-type">SqlInjectionMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308426"><span class="annot"><span class="annottext">TextTransformation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple%27"><span class="hs-identifier hs-type">SqlInjectionMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308671"><span class="annot"><span class="annottext">TextTransformation
 textTransformation :: TextTransformation
 $sel:textTransformation:SqlInjectionMatchTuple' :: SqlInjectionMatchTuple -&gt; TextTransformation
-</span><a href="#local-6989586621679308426"><span class="hs-identifier hs-var hs-var">textTransformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TextTransformation
-</span><a href="#local-6989586621679308426"><span class="hs-identifier hs-var">textTransformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308425"><span class="annot"><span class="annottext">s :: SqlInjectionMatchTuple
-</span><a href="#local-6989586621679308425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple%27"><span class="hs-identifier hs-type">SqlInjectionMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308424"><span class="annot"><span class="annottext">TextTransformation
-</span><a href="#local-6989586621679308424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqlInjectionMatchTuple
-</span><a href="#local-6989586621679308425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textTransformation:SqlInjectionMatchTuple' :: TextTransformation
+</span><a href="#local-6989586621679308671"><span class="hs-identifier hs-var hs-var">textTransformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TextTransformation
+</span><a href="#local-6989586621679308671"><span class="hs-identifier hs-var">textTransformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308670"><span class="annot"><span class="annottext">s :: SqlInjectionMatchTuple
+</span><a href="#local-6989586621679308670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple%27"><span class="hs-identifier hs-type">SqlInjectionMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308669"><span class="annot"><span class="annottext">TextTransformation
+</span><a href="#local-6989586621679308669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqlInjectionMatchTuple
+</span><a href="#local-6989586621679308670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textTransformation:SqlInjectionMatchTuple' :: TextTransformation
 </span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#%24sel%3AtextTransformation%3ASqlInjectionMatchTuple%27"><span class="hs-identifier hs-var">textTransformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TextTransformation
-</span><a href="#local-6989586621679308424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple"><span class="hs-identifier hs-type">SqlInjectionMatchTuple</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple"><span class="hs-identifier hs-type">SqlInjectionMatchTuple</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-302"></span><span>
-</span><span id="line-303"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308421"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple"><span class="hs-identifier hs-type">SqlInjectionMatchTuple</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-304"></span><span>  </span><span id="local-6989586621679308419"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SqlInjectionMatchTuple
+</span><span id="line-303"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308666"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple"><span class="hs-identifier hs-type">SqlInjectionMatchTuple</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-304"></span><span>  </span><span id="local-6989586621679308664"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SqlInjectionMatchTuple
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-305"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SqlInjectionMatchTuple)
@@ -415,8 +415,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-306"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SqlInjectionMatchTuple&quot;</span></span><span>
-</span><span id="line-307"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308416"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308416"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-307"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308661"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679308661"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-308"></span><span>          </span><span class="annot"><span class="annottext">FieldToMatch -&gt; TextTransformation -&gt; SqlInjectionMatchTuple
 </span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple%27"><span class="hs-identifier hs-var">SqlInjectionMatchTuple'</span></a></span><span>
 </span><span id="line-309"></span><span>            </span><span class="annot"><span class="annottext">(FieldToMatch -&gt; TextTransformation -&gt; SqlInjectionMatchTuple)
@@ -424,7 +424,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (TextTransformation -&gt; SqlInjectionMatchTuple)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FieldToMatch
+</span><a href="#local-6989586621679308661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FieldToMatch
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FieldToMatch&quot;</span></span><span class="hs-special">)</span><span>
@@ -432,25 +432,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser TextTransformation -&gt; Parser SqlInjectionMatchTuple
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TextTransformation
+</span><a href="#local-6989586621679308661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TextTransformation
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TextTransformation&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-311"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-312"></span><span>
-</span><span id="line-313"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308410"><span id="local-6989586621679308412"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple"><span class="hs-identifier hs-type">SqlInjectionMatchTuple</span></a></span></span></span><span>
+</span><span id="line-313"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308655"><span id="local-6989586621679308657"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple"><span class="hs-identifier hs-type">SqlInjectionMatchTuple</span></a></span></span></span><span>
 </span><span id="line-314"></span><span>
-</span><span id="line-315"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308407"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple"><span class="hs-identifier hs-type">SqlInjectionMatchTuple</span></a></span></span><span>
+</span><span id="line-315"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308652"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple"><span class="hs-identifier hs-type">SqlInjectionMatchTuple</span></a></span></span><span>
 </span><span id="line-316"></span><span>
-</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308399"><span id="local-6989586621679308401"><span id="local-6989586621679308403"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple"><span class="hs-identifier hs-type">SqlInjectionMatchTuple</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-318"></span><span>  </span><span id="local-6989586621679308397"><span class="annot"><span class="annottext">toJSON :: SqlInjectionMatchTuple -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple%27"><span class="hs-identifier hs-type">SqlInjectionMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308394"><span id="local-6989586621679308395"><span class="annot"><span class="annottext">FieldToMatch
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308644"><span id="local-6989586621679308646"><span id="local-6989586621679308648"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple"><span class="hs-identifier hs-type">SqlInjectionMatchTuple</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-318"></span><span>  </span><span id="local-6989586621679308642"><span class="annot"><span class="annottext">toJSON :: SqlInjectionMatchTuple -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple%27"><span class="hs-identifier hs-type">SqlInjectionMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308639"><span id="local-6989586621679308640"><span class="annot"><span class="annottext">FieldToMatch
 TextTransformation
 textTransformation :: TextTransformation
 fieldToMatch :: FieldToMatch
 $sel:textTransformation:SqlInjectionMatchTuple' :: SqlInjectionMatchTuple -&gt; TextTransformation
 $sel:fieldToMatch:SqlInjectionMatchTuple' :: SqlInjectionMatchTuple -&gt; FieldToMatch
-</span><a href="#local-6989586621679308394"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679308639"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-319"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-320"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -462,7 +462,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;FieldToMatch&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FieldToMatch -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">FieldToMatch
-</span><a href="#local-6989586621679308395"><span class="hs-identifier hs-var">fieldToMatch</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679308640"><span class="hs-identifier hs-var">fieldToMatch</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-322"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -470,7 +470,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TextTransformation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TextTransformation -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TextTransformation
-</span><a href="#local-6989586621679308394"><span class="hs-identifier hs-var">textTransformation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308639"><span class="hs-identifier hs-var">textTransformation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-324"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-325"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-326"></span></pre></body></html>

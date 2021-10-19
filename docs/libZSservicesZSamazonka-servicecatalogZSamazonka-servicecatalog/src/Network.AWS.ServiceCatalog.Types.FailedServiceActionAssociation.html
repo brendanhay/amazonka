@@ -28,26 +28,26 @@
 </span><span id="line-28"></span><span class="hs-comment">-- information about the self-service action and its associations.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newFailedServiceActionAssociation' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679406315"><span id="local-6989586621679406316"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailedServiceActionAssociation"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-var">FailedServiceActionAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailedServiceActionAssociation%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-var">FailedServiceActionAssociation'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679406770"><span id="local-6989586621679406771"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailedServiceActionAssociation"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-var">FailedServiceActionAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailedServiceActionAssociation%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-var">FailedServiceActionAssociation'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the provisioning artifact. For example,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @pa-4abcdjnxjj6ne@.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AprovisioningArtifactId%3AFailedServiceActionAssociation%27"><span class="annot"><span class="annottext">FailedServiceActionAssociation -&gt; Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AprovisioningArtifactId%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var hs-var">provisioningArtifactId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The product identifier. For example, @prod-abcdzk7xy33qa@.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AproductId%3AFailedServiceActionAssociation%27"><span class="annot"><span class="annottext">FailedServiceActionAssociation -&gt; Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AproductId%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AserviceActionId%3AFailedServiceActionAssociation%27"><span class="annot"><span class="annottext">FailedServiceActionAssociation -&gt; Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AserviceActionId%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var hs-var">serviceActionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A text description of the error.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AerrorMessage%3AFailedServiceActionAssociation%27"><span class="annot"><span class="annottext">FailedServiceActionAssociation -&gt; Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AerrorMessage%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The error code. Valid values are listed below.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AerrorCode%3AFailedServiceActionAssociation%27"><span class="annot"><span class="annottext">FailedServiceActionAssociation
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The error code. Valid values are listed below.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AerrorCode%3AFailedServiceActionAssociation%27"><span class="annot"><span class="annottext">FailedServiceActionAssociation
 -&gt; Maybe ServiceActionAssociationErrorCode
-</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AerrorCode%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode</span></a></span><span>
+</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AerrorCode%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A text description of the error.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AerrorMessage%3AFailedServiceActionAssociation%27"><span class="annot"><span class="annottext">FailedServiceActionAssociation -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AerrorMessage%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AserviceActionId%3AFailedServiceActionAssociation%27"><span class="annot"><span class="annottext">FailedServiceActionAssociation -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AserviceActionId%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var hs-var">serviceActionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The product identifier. For example, @prod-abcdzk7xy33qa@.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AproductId%3AFailedServiceActionAssociation%27"><span class="annot"><span class="annottext">FailedServiceActionAssociation -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AproductId%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406305"><span id="local-6989586621679406307"><span class="annot"><span class="annottext">FailedServiceActionAssociation
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406760"><span id="local-6989586621679406762"><span class="annot"><span class="annottext">FailedServiceActionAssociation
 -&gt; FailedServiceActionAssociation -&gt; Bool
 (FailedServiceActionAssociation
  -&gt; FailedServiceActionAssociation -&gt; Bool)
@@ -63,7 +63,7 @@ $c/= :: FailedServiceActionAssociation
 -&gt; FailedServiceActionAssociation -&gt; Bool
 $c== :: FailedServiceActionAssociation
 -&gt; FailedServiceActionAssociation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406296"><span id="local-6989586621679406298"><span id="local-6989586621679406300"><span id="local-6989586621679406302"><span class="annot"><span class="annottext">ReadPrec [FailedServiceActionAssociation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406751"><span id="local-6989586621679406753"><span id="local-6989586621679406755"><span id="local-6989586621679406757"><span class="annot"><span class="annottext">ReadPrec [FailedServiceActionAssociation]
 ReadPrec FailedServiceActionAssociation
 Int -&gt; ReadS FailedServiceActionAssociation
 ReadS [FailedServiceActionAssociation]
@@ -83,7 +83,7 @@ readList :: ReadS [FailedServiceActionAssociation]
 $creadList :: ReadS [FailedServiceActionAssociation]
 readsPrec :: Int -&gt; ReadS FailedServiceActionAssociation
 $creadsPrec :: Int -&gt; ReadS FailedServiceActionAssociation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406289"><span id="local-6989586621679406291"><span id="local-6989586621679406293"><span class="annot"><span class="annottext">Int -&gt; FailedServiceActionAssociation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406744"><span id="local-6989586621679406746"><span id="local-6989586621679406748"><span class="annot"><span class="annottext">Int -&gt; FailedServiceActionAssociation -&gt; ShowS
 [FailedServiceActionAssociation] -&gt; ShowS
 FailedServiceActionAssociation -&gt; String
 (Int -&gt; FailedServiceActionAssociation -&gt; ShowS)
@@ -132,22 +132,22 @@ FailedServiceActionAssociation
 </span><span id="line-54"></span><span class="hs-comment">-- 'provisioningArtifactId', 'failedServiceActionAssociation_provisioningArtifactId' - The identifier of the provisioning artifact. For example,</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- @pa-4abcdjnxjj6ne@.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'productId', 'failedServiceActionAssociation_productId' - The product identifier. For example, @prod-abcdzk7xy33qa@.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'errorCode', 'failedServiceActionAssociation_errorCode' - The error code. Valid values are listed below.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'serviceActionId', 'failedServiceActionAssociation_serviceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'errorMessage', 'failedServiceActionAssociation_errorMessage' - A text description of the error.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'errorMessage', 'failedServiceActionAssociation_errorMessage' - A text description of the error.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'serviceActionId', 'failedServiceActionAssociation_serviceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'errorCode', 'failedServiceActionAssociation_errorCode' - The error code. Valid values are listed below.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'productId', 'failedServiceActionAssociation_productId' - The product identifier. For example, @prod-abcdzk7xy33qa@.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#newFailedServiceActionAssociation"><span class="hs-identifier hs-type">newFailedServiceActionAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span>
 </span><span id="line-66"></span><span id="newFailedServiceActionAssociation"><span class="annot"><span class="annottext">newFailedServiceActionAssociation :: FailedServiceActionAssociation
 </span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#newFailedServiceActionAssociation"><span class="hs-identifier hs-var hs-var">newFailedServiceActionAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">FailedServiceActionAssociation' :: Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe ServiceActionAssociationErrorCode
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; FailedServiceActionAssociation
 </span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:provisioningArtifactId:FailedServiceActionAssociation' :: Maybe Text
@@ -155,20 +155,20 @@ FailedServiceActionAssociation
 </span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:productId:FailedServiceActionAssociation' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AproductId%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var">productId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:FailedServiceActionAssociation' :: Maybe ServiceActionAssociationErrorCode
+</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AerrorCode%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceActionAssociationErrorCode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceActionId:FailedServiceActionAssociation' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AserviceActionId%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var">serviceActionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:FailedServiceActionAssociation' :: Maybe Text
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:FailedServiceActionAssociation' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AerrorMessage%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:FailedServiceActionAssociation' :: Maybe ServiceActionAssociationErrorCode
-</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AerrorCode%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceActionAssociationErrorCode
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceActionId:FailedServiceActionAssociation' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AserviceActionId%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var">serviceActionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:productId:FailedServiceActionAssociation' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AproductId%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var">productId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
@@ -188,95 +188,20 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406280"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406735"><span class="annot"><span class="annottext">Maybe Text
 provisioningArtifactId :: Maybe Text
 $sel:provisioningArtifactId:FailedServiceActionAssociation' :: FailedServiceActionAssociation -&gt; Maybe Text
-</span><a href="#local-6989586621679406280"><span class="hs-identifier hs-var hs-var">provisioningArtifactId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406280"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406279"><span class="annot"><span class="annottext">s :: FailedServiceActionAssociation
-</span><a href="#local-6989586621679406279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406278"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedServiceActionAssociation
-</span><a href="#local-6989586621679406279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioningArtifactId:FailedServiceActionAssociation' :: Maybe Text
+</span><a href="#local-6989586621679406735"><span class="hs-identifier hs-var hs-var">provisioningArtifactId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406735"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406734"><span class="annot"><span class="annottext">s :: FailedServiceActionAssociation
+</span><a href="#local-6989586621679406734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406733"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedServiceActionAssociation
+</span><a href="#local-6989586621679406734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioningArtifactId:FailedServiceActionAssociation' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AprovisioningArtifactId%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679406733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The product identifier. For example, @prod-abcdzk7xy33qa@.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#failedServiceActionAssociation_productId"><span class="hs-identifier hs-type">failedServiceActionAssociation_productId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="failedServiceActionAssociation_productId"><span class="annot"><span class="annottext">failedServiceActionAssociation_productId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; FailedServiceActionAssociation
--&gt; f FailedServiceActionAssociation
-</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#failedServiceActionAssociation_productId"><span class="hs-identifier hs-var hs-var">failedServiceActionAssociation_productId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FailedServiceActionAssociation -&gt; Maybe Text)
--&gt; (FailedServiceActionAssociation
-    -&gt; Maybe Text -&gt; FailedServiceActionAssociation)
--&gt; Lens
-     FailedServiceActionAssociation
-     FailedServiceActionAssociation
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406276"><span class="annot"><span class="annottext">Maybe Text
-productId :: Maybe Text
-$sel:productId:FailedServiceActionAssociation' :: FailedServiceActionAssociation -&gt; Maybe Text
-</span><a href="#local-6989586621679406276"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406276"><span class="hs-identifier hs-var">productId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406275"><span class="annot"><span class="annottext">s :: FailedServiceActionAssociation
-</span><a href="#local-6989586621679406275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406274"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedServiceActionAssociation
-</span><a href="#local-6989586621679406275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productId:FailedServiceActionAssociation' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AproductId%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var">productId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#failedServiceActionAssociation_serviceActionId"><span class="hs-identifier hs-type">failedServiceActionAssociation_serviceActionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="failedServiceActionAssociation_serviceActionId"><span class="annot"><span class="annottext">failedServiceActionAssociation_serviceActionId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; FailedServiceActionAssociation
--&gt; f FailedServiceActionAssociation
-</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#failedServiceActionAssociation_serviceActionId"><span class="hs-identifier hs-var hs-var">failedServiceActionAssociation_serviceActionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FailedServiceActionAssociation -&gt; Maybe Text)
--&gt; (FailedServiceActionAssociation
-    -&gt; Maybe Text -&gt; FailedServiceActionAssociation)
--&gt; Lens
-     FailedServiceActionAssociation
-     FailedServiceActionAssociation
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406272"><span class="annot"><span class="annottext">Maybe Text
-serviceActionId :: Maybe Text
-$sel:serviceActionId:FailedServiceActionAssociation' :: FailedServiceActionAssociation -&gt; Maybe Text
-</span><a href="#local-6989586621679406272"><span class="hs-identifier hs-var hs-var">serviceActionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406272"><span class="hs-identifier hs-var">serviceActionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406271"><span class="annot"><span class="annottext">s :: FailedServiceActionAssociation
-</span><a href="#local-6989586621679406271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406270"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedServiceActionAssociation
-</span><a href="#local-6989586621679406271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceActionId:FailedServiceActionAssociation' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AserviceActionId%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var">serviceActionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | A text description of the error.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#failedServiceActionAssociation_errorMessage"><span class="hs-identifier hs-type">failedServiceActionAssociation_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="failedServiceActionAssociation_errorMessage"><span class="annot"><span class="annottext">failedServiceActionAssociation_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
--&gt; FailedServiceActionAssociation
--&gt; f FailedServiceActionAssociation
-</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#failedServiceActionAssociation_errorMessage"><span class="hs-identifier hs-var hs-var">failedServiceActionAssociation_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FailedServiceActionAssociation -&gt; Maybe Text)
--&gt; (FailedServiceActionAssociation
-    -&gt; Maybe Text -&gt; FailedServiceActionAssociation)
--&gt; Lens
-     FailedServiceActionAssociation
-     FailedServiceActionAssociation
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406268"><span class="annot"><span class="annottext">Maybe Text
-errorMessage :: Maybe Text
-$sel:errorMessage:FailedServiceActionAssociation' :: FailedServiceActionAssociation -&gt; Maybe Text
-</span><a href="#local-6989586621679406268"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406268"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406267"><span class="annot"><span class="annottext">s :: FailedServiceActionAssociation
-</span><a href="#local-6989586621679406267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406266"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedServiceActionAssociation
-</span><a href="#local-6989586621679406267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:FailedServiceActionAssociation' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AerrorMessage%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679406266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The error code. Valid values are listed below.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#failedServiceActionAssociation_errorCode"><span class="hs-identifier hs-type">failedServiceActionAssociation_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="failedServiceActionAssociation_errorCode"><span class="annot"><span class="annottext">failedServiceActionAssociation_errorCode :: (Maybe ServiceActionAssociationErrorCode
+</span><span id="line-81"></span><span class="hs-comment">-- | The error code. Valid values are listed below.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#failedServiceActionAssociation_errorCode"><span class="hs-identifier hs-type">failedServiceActionAssociation_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode.html#ServiceActionAssociationErrorCode"><span class="hs-identifier hs-type">ServiceActionAssociationErrorCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="failedServiceActionAssociation_errorCode"><span class="annot"><span class="annottext">failedServiceActionAssociation_errorCode :: (Maybe ServiceActionAssociationErrorCode
  -&gt; f (Maybe ServiceActionAssociationErrorCode))
 -&gt; FailedServiceActionAssociation
 -&gt; f FailedServiceActionAssociation
@@ -291,20 +216,95 @@ $sel:errorMessage:FailedServiceActionAssociation' :: FailedServiceActionAssociat
      (Maybe ServiceActionAssociationErrorCode)
      (Maybe ServiceActionAssociationErrorCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406264"><span class="annot"><span class="annottext">Maybe ServiceActionAssociationErrorCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406731"><span class="annot"><span class="annottext">Maybe ServiceActionAssociationErrorCode
 errorCode :: Maybe ServiceActionAssociationErrorCode
 $sel:errorCode:FailedServiceActionAssociation' :: FailedServiceActionAssociation
 -&gt; Maybe ServiceActionAssociationErrorCode
-</span><a href="#local-6989586621679406264"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceActionAssociationErrorCode
-</span><a href="#local-6989586621679406264"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406263"><span class="annot"><span class="annottext">s :: FailedServiceActionAssociation
-</span><a href="#local-6989586621679406263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406262"><span class="annot"><span class="annottext">Maybe ServiceActionAssociationErrorCode
-</span><a href="#local-6989586621679406262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedServiceActionAssociation
-</span><a href="#local-6989586621679406263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:FailedServiceActionAssociation' :: Maybe ServiceActionAssociationErrorCode
+</span><a href="#local-6989586621679406731"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceActionAssociationErrorCode
+</span><a href="#local-6989586621679406731"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406730"><span class="annot"><span class="annottext">s :: FailedServiceActionAssociation
+</span><a href="#local-6989586621679406730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406729"><span class="annot"><span class="annottext">Maybe ServiceActionAssociationErrorCode
+</span><a href="#local-6989586621679406729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedServiceActionAssociation
+</span><a href="#local-6989586621679406730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:FailedServiceActionAssociation' :: Maybe ServiceActionAssociationErrorCode
 </span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AerrorCode%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceActionAssociationErrorCode
-</span><a href="#local-6989586621679406262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679406729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | A text description of the error.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#failedServiceActionAssociation_errorMessage"><span class="hs-identifier hs-type">failedServiceActionAssociation_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="failedServiceActionAssociation_errorMessage"><span class="annot"><span class="annottext">failedServiceActionAssociation_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FailedServiceActionAssociation
+-&gt; f FailedServiceActionAssociation
+</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#failedServiceActionAssociation_errorMessage"><span class="hs-identifier hs-var hs-var">failedServiceActionAssociation_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FailedServiceActionAssociation -&gt; Maybe Text)
+-&gt; (FailedServiceActionAssociation
+    -&gt; Maybe Text -&gt; FailedServiceActionAssociation)
+-&gt; Lens
+     FailedServiceActionAssociation
+     FailedServiceActionAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406727"><span class="annot"><span class="annottext">Maybe Text
+errorMessage :: Maybe Text
+$sel:errorMessage:FailedServiceActionAssociation' :: FailedServiceActionAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679406727"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406727"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406726"><span class="annot"><span class="annottext">s :: FailedServiceActionAssociation
+</span><a href="#local-6989586621679406726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406725"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedServiceActionAssociation
+</span><a href="#local-6989586621679406726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:FailedServiceActionAssociation' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AerrorMessage%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#failedServiceActionAssociation_serviceActionId"><span class="hs-identifier hs-type">failedServiceActionAssociation_serviceActionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="failedServiceActionAssociation_serviceActionId"><span class="annot"><span class="annottext">failedServiceActionAssociation_serviceActionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FailedServiceActionAssociation
+-&gt; f FailedServiceActionAssociation
+</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#failedServiceActionAssociation_serviceActionId"><span class="hs-identifier hs-var hs-var">failedServiceActionAssociation_serviceActionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FailedServiceActionAssociation -&gt; Maybe Text)
+-&gt; (FailedServiceActionAssociation
+    -&gt; Maybe Text -&gt; FailedServiceActionAssociation)
+-&gt; Lens
+     FailedServiceActionAssociation
+     FailedServiceActionAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406723"><span class="annot"><span class="annottext">Maybe Text
+serviceActionId :: Maybe Text
+$sel:serviceActionId:FailedServiceActionAssociation' :: FailedServiceActionAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679406723"><span class="hs-identifier hs-var hs-var">serviceActionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406723"><span class="hs-identifier hs-var">serviceActionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406722"><span class="annot"><span class="annottext">s :: FailedServiceActionAssociation
+</span><a href="#local-6989586621679406722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406721"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedServiceActionAssociation
+</span><a href="#local-6989586621679406722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceActionId:FailedServiceActionAssociation' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AserviceActionId%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var">serviceActionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The product identifier. For example, @prod-abcdzk7xy33qa@.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#failedServiceActionAssociation_productId"><span class="hs-identifier hs-type">failedServiceActionAssociation_productId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="failedServiceActionAssociation_productId"><span class="annot"><span class="annottext">failedServiceActionAssociation_productId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FailedServiceActionAssociation
+-&gt; f FailedServiceActionAssociation
+</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#failedServiceActionAssociation_productId"><span class="hs-identifier hs-var hs-var">failedServiceActionAssociation_productId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FailedServiceActionAssociation -&gt; Maybe Text)
+-&gt; (FailedServiceActionAssociation
+    -&gt; Maybe Text -&gt; FailedServiceActionAssociation)
+-&gt; Lens
+     FailedServiceActionAssociation
+     FailedServiceActionAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406719"><span class="annot"><span class="annottext">Maybe Text
+productId :: Maybe Text
+$sel:productId:FailedServiceActionAssociation' :: FailedServiceActionAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679406719"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406719"><span class="hs-identifier hs-var">productId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406718"><span class="annot"><span class="annottext">s :: FailedServiceActionAssociation
+</span><a href="#local-6989586621679406718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-type">FailedServiceActionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406717"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedServiceActionAssociation
+</span><a href="#local-6989586621679406718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productId:FailedServiceActionAssociation' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#%24sel%3AproductId%3AFailedServiceActionAssociation%27"><span class="hs-identifier hs-var">productId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406259"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679406257"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FailedServiceActionAssociation
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406714"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679406712"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FailedServiceActionAssociation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FailedServiceActionAssociation)
@@ -314,100 +314,86 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FailedServiceActionAssociation&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679406254"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406254"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679406709"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679406709"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe ServiceActionAssociationErrorCode
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; FailedServiceActionAssociation
 </span><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation%27"><span class="hs-identifier hs-var">FailedServiceActionAssociation'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe ServiceActionAssociationErrorCode
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; FailedServiceActionAssociation)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
+     (Maybe ServiceActionAssociationErrorCode
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe ServiceActionAssociationErrorCode
+      -&gt; Maybe Text
       -&gt; FailedServiceActionAssociation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679406709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProvisioningArtifactId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ServiceActionAssociationErrorCode
-   -&gt; FailedServiceActionAssociation)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ServiceActionAssociationErrorCode
-      -&gt; FailedServiceActionAssociation)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProductId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ServiceActionAssociationErrorCode
-   -&gt; FailedServiceActionAssociation)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe ServiceActionAssociationErrorCode
-      -&gt; FailedServiceActionAssociation)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ServiceActionId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe ServiceActionAssociationErrorCode
-   -&gt; FailedServiceActionAssociation)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe ServiceActionAssociationErrorCode
-      -&gt; FailedServiceActionAssociation)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe ServiceActionAssociationErrorCode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; FailedServiceActionAssociation)
 -&gt; Parser (Maybe ServiceActionAssociationErrorCode)
--&gt; Parser FailedServiceActionAssociation
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; FailedServiceActionAssociation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceActionAssociationErrorCode)
+</span><a href="#local-6989586621679406709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceActionAssociationErrorCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; FailedServiceActionAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; FailedServiceActionAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679406709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; FailedServiceActionAssociation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; FailedServiceActionAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679406709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceActionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; FailedServiceActionAssociation)
+-&gt; Parser (Maybe Text) -&gt; Parser FailedServiceActionAssociation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679406709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProductId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679406248"><span id="local-6989586621679406250"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679406703"><span id="local-6989586621679406705"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679406245"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679406700"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation.html#FailedServiceActionAssociation"><span class="hs-identifier hs-type">FailedServiceActionAssociation</span></a></span></span><span>
 </span><span id="line-117"></span></pre></body></html>

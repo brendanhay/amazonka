@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A registered instance\'s reported operating system.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newReportedOs' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679376363"><span id="local-6989586621679376364"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReportedOs"><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs"><span class="hs-identifier hs-var">ReportedOs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportedOs%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs%27"><span class="hs-identifier hs-var">ReportedOs'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679376761"><span id="local-6989586621679376762"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReportedOs"><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs"><span class="hs-identifier hs-var">ReportedOs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportedOs%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs%27"><span class="hs-identifier hs-var">ReportedOs'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The operating system family.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Afamily%3AReportedOs%27"><span class="annot"><span class="annottext">ReportedOs -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#%24sel%3Afamily%3AReportedOs%27"><span class="hs-keyword hs-var hs-var">family</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aversion%3AReportedOs%27"><span class="annot"><span class="annottext">ReportedOs -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#%24sel%3Aversion%3AReportedOs%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376355"><span id="local-6989586621679376357"><span class="annot"><span class="annottext">ReportedOs -&gt; ReportedOs -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376753"><span id="local-6989586621679376755"><span class="annot"><span class="annottext">ReportedOs -&gt; ReportedOs -&gt; Bool
 (ReportedOs -&gt; ReportedOs -&gt; Bool)
 -&gt; (ReportedOs -&gt; ReportedOs -&gt; Bool) -&gt; Eq ReportedOs
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReportedOs -&gt; ReportedOs -&gt; Bool
 == :: ReportedOs -&gt; ReportedOs -&gt; Bool
 $c== :: ReportedOs -&gt; ReportedOs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376346"><span id="local-6989586621679376348"><span id="local-6989586621679376350"><span id="local-6989586621679376352"><span class="annot"><span class="annottext">ReadPrec [ReportedOs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376744"><span id="local-6989586621679376746"><span id="local-6989586621679376748"><span id="local-6989586621679376750"><span class="annot"><span class="annottext">ReadPrec [ReportedOs]
 ReadPrec ReportedOs
 Int -&gt; ReadS ReportedOs
 ReadS [ReportedOs]
@@ -65,7 +65,7 @@ readList :: ReadS [ReportedOs]
 $creadList :: ReadS [ReportedOs]
 readsPrec :: Int -&gt; ReadS ReportedOs
 $creadsPrec :: Int -&gt; ReadS ReportedOs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376339"><span id="local-6989586621679376341"><span id="local-6989586621679376343"><span class="annot"><span class="annottext">Int -&gt; ReportedOs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376737"><span id="local-6989586621679376739"><span id="local-6989586621679376741"><span class="annot"><span class="annottext">Int -&gt; ReportedOs -&gt; ShowS
 [ReportedOs] -&gt; ShowS
 ReportedOs -&gt; String
 (Int -&gt; ReportedOs -&gt; ShowS)
@@ -130,16 +130,16 @@ forall a. Maybe a
 -&gt; (ReportedOs -&gt; Maybe Text -&gt; ReportedOs)
 -&gt; Lens ReportedOs ReportedOs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs%27"><span class="hs-identifier hs-type">ReportedOs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376330"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs%27"><span class="hs-identifier hs-type">ReportedOs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376728"><span class="annot"><span class="annottext">Maybe Text
 family :: Maybe Text
 $sel:family:ReportedOs' :: ReportedOs -&gt; Maybe Text
-</span><a href="#local-6989586621679376330"><span class="hs-keyword hs-var hs-var">family</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376330"><span class="hs-keyword hs-var">family</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376329"><span class="annot"><span class="annottext">s :: ReportedOs
-</span><a href="#local-6989586621679376329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs%27"><span class="hs-identifier hs-type">ReportedOs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376328"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportedOs
-</span><a href="#local-6989586621679376329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:family:ReportedOs' :: Maybe Text
+</span><a href="#local-6989586621679376728"><span class="hs-keyword hs-var hs-var">family</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376728"><span class="hs-keyword hs-var">family</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376727"><span class="annot"><span class="annottext">s :: ReportedOs
+</span><a href="#local-6989586621679376727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs%27"><span class="hs-identifier hs-type">ReportedOs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376726"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportedOs
+</span><a href="#local-6989586621679376727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:family:ReportedOs' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#%24sel%3Afamily%3AReportedOs%27"><span class="hs-keyword hs-var">family</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs"><span class="hs-identifier hs-type">ReportedOs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs"><span class="hs-identifier hs-type">ReportedOs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The operating system name.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#reportedOs_name"><span class="hs-identifier hs-type">reportedOs_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs"><span class="hs-identifier hs-type">ReportedOs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -148,16 +148,16 @@ $sel:family:ReportedOs' :: ReportedOs -&gt; Maybe Text
 -&gt; (ReportedOs -&gt; Maybe Text -&gt; ReportedOs)
 -&gt; Lens ReportedOs ReportedOs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs%27"><span class="hs-identifier hs-type">ReportedOs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376326"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs%27"><span class="hs-identifier hs-type">ReportedOs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376724"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:ReportedOs' :: ReportedOs -&gt; Maybe Text
-</span><a href="#local-6989586621679376326"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376326"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376325"><span class="annot"><span class="annottext">s :: ReportedOs
-</span><a href="#local-6989586621679376325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs%27"><span class="hs-identifier hs-type">ReportedOs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376324"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportedOs
-</span><a href="#local-6989586621679376325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ReportedOs' :: Maybe Text
+</span><a href="#local-6989586621679376724"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376724"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376723"><span class="annot"><span class="annottext">s :: ReportedOs
+</span><a href="#local-6989586621679376723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs%27"><span class="hs-identifier hs-type">ReportedOs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376722"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportedOs
+</span><a href="#local-6989586621679376723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ReportedOs' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#%24sel%3Aname%3AReportedOs%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs"><span class="hs-identifier hs-type">ReportedOs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs"><span class="hs-identifier hs-type">ReportedOs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The operating system version.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#reportedOs_version"><span class="hs-identifier hs-type">reportedOs_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs"><span class="hs-identifier hs-type">ReportedOs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -166,19 +166,19 @@ $sel:name:ReportedOs' :: ReportedOs -&gt; Maybe Text
 -&gt; (ReportedOs -&gt; Maybe Text -&gt; ReportedOs)
 -&gt; Lens ReportedOs ReportedOs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs%27"><span class="hs-identifier hs-type">ReportedOs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376322"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs%27"><span class="hs-identifier hs-type">ReportedOs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376720"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 $sel:version:ReportedOs' :: ReportedOs -&gt; Maybe Text
-</span><a href="#local-6989586621679376322"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376322"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376321"><span class="annot"><span class="annottext">s :: ReportedOs
-</span><a href="#local-6989586621679376321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs%27"><span class="hs-identifier hs-type">ReportedOs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376320"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportedOs
-</span><a href="#local-6989586621679376321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:ReportedOs' :: Maybe Text
+</span><a href="#local-6989586621679376720"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376720"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376719"><span class="annot"><span class="annottext">s :: ReportedOs
+</span><a href="#local-6989586621679376719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs%27"><span class="hs-identifier hs-type">ReportedOs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376718"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportedOs
+</span><a href="#local-6989586621679376719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:ReportedOs' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#%24sel%3Aversion%3AReportedOs%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs"><span class="hs-identifier hs-type">ReportedOs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs"><span class="hs-identifier hs-type">ReportedOs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376317"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs"><span class="hs-identifier hs-type">ReportedOs</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679376315"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReportedOs
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376715"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs"><span class="hs-identifier hs-type">ReportedOs</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679376713"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReportedOs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReportedOs) -&gt; Value -&gt; Parser ReportedOs
@@ -186,8 +186,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReportedOs&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376312"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376312"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376710"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376710"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ReportedOs
 </span><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs%27"><span class="hs-identifier hs-var">ReportedOs'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ReportedOs)
@@ -195,7 +195,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ReportedOs)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679376710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Family&quot;</span></span><span class="hs-special">)</span><span>
@@ -203,7 +203,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ReportedOs)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679376710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -211,13 +211,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser ReportedOs
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679376710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376306"><span id="local-6989586621679376308"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs"><span class="hs-identifier hs-type">ReportedOs</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376704"><span id="local-6989586621679376706"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs"><span class="hs-identifier hs-type">ReportedOs</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376303"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs"><span class="hs-identifier hs-type">ReportedOs</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376701"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.ReportedOs.html#ReportedOs"><span class="hs-identifier hs-type">ReportedOs</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

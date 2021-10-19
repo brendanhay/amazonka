@@ -27,45 +27,45 @@
 </span><span id="line-27"></span><span class="hs-comment">-- connection pool associated with a @DBProxyTarget@.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newConnectionPoolConfigurationInfo' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679756392"><span id="local-6989586621679756393"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionPoolConfigurationInfo"><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-var">ConnectionPoolConfigurationInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionPoolConfigurationInfo%27"><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var">ConnectionPoolConfigurationInfo'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Each item in the list represents a class of SQL operations that normally</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- cause all later statements in a session using a proxy to be pinned to</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the same underlying database connection. Including an item in the list</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- exempts that class of SQL operations from the pinning behavior.</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Currently, the only allowed value is @EXCLUDE_VARIABLE_SETS@.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AsessionPinningFilters%3AConnectionPoolConfigurationInfo%27"><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo -&gt; Maybe [Text]
-</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AsessionPinningFilters%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var hs-var">sessionPinningFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Controls how actively the proxy closes idle database connections in the</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- connection pool. A high value enables the proxy to leave a high</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- percentage of idle connections open. A low value causes the proxy to</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- close idle client connections and return the underlying database</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- connections to the connection pool. For Aurora MySQL, it is expressed as</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- a percentage of the @max_connections@ setting for the RDS DB instance or</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Aurora DB cluster used by the target group.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AmaxIdleConnectionsPercent%3AConnectionPoolConfigurationInfo%27"><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo -&gt; Maybe Int
+</span><span id="line-30"></span><span id="local-6989586621679757427"><span id="local-6989586621679757428"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionPoolConfigurationInfo"><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-var">ConnectionPoolConfigurationInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionPoolConfigurationInfo%27"><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var">ConnectionPoolConfigurationInfo'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Controls how actively the proxy closes idle database connections in the</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- connection pool. A high value enables the proxy to leave a high</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- percentage of idle connections open. A low value causes the proxy to</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- close idle client connections and return the underlying database</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- connections to the connection pool. For Aurora MySQL, it is expressed as</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- a percentage of the @max_connections@ setting for the RDS DB instance or</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Aurora DB cluster used by the target group.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmaxIdleConnectionsPercent%3AConnectionPoolConfigurationInfo%27"><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo -&gt; Maybe Int
 </span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AmaxIdleConnectionsPercent%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var hs-var">maxIdleConnectionsPercent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The number of seconds for a proxy to wait for a connection to become</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- available in the connection pool. Only applies when the proxy has opened</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- its maximum number of connections and all connections are busy with</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- client sessions.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AconnectionBorrowTimeout%3AConnectionPoolConfigurationInfo%27"><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo -&gt; Maybe Int
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Each item in the list represents a class of SQL operations that normally</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- cause all later statements in a session using a proxy to be pinned to</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- the same underlying database connection. Including an item in the list</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- exempts that class of SQL operations from the pinning behavior.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Currently, the only allowed value is @EXCLUDE_VARIABLE_SETS@.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AsessionPinningFilters%3AConnectionPoolConfigurationInfo%27"><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo -&gt; Maybe [Text]
+</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AsessionPinningFilters%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var hs-var">sessionPinningFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The maximum size of the connection pool for each target in a target</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- group. For Aurora MySQL, it is expressed as a percentage of the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- @max_connections@ setting for the RDS DB instance or Aurora DB cluster</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- used by the target group.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AmaxConnectionsPercent%3AConnectionPoolConfigurationInfo%27"><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo -&gt; Maybe Int
+</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AmaxConnectionsPercent%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var hs-var">maxConnectionsPercent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The number of seconds for a proxy to wait for a connection to become</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- available in the connection pool. Only applies when the proxy has opened</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- its maximum number of connections and all connections are busy with</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- client sessions.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AconnectionBorrowTimeout%3AConnectionPoolConfigurationInfo%27"><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo -&gt; Maybe Int
 </span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AconnectionBorrowTimeout%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var hs-var">connectionBorrowTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | One or more SQL statements for the proxy to run when opening each new</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- database connection. Typically used with @SET@ statements to make sure</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- that each connection has identical settings such as time zone and</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- character set. This setting is empty by default. For multiple</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- statements, use semicolons as the separator. You can also include</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- multiple variables in a single @SET@ statement, such as @SET x=1, y=2@.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AinitQuery%3AConnectionPoolConfigurationInfo%27"><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AinitQuery%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var hs-var">initQuery</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The maximum size of the connection pool for each target in a target</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- group. For Aurora MySQL, it is expressed as a percentage of the</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @max_connections@ setting for the RDS DB instance or Aurora DB cluster</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- used by the target group.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AmaxConnectionsPercent%3AConnectionPoolConfigurationInfo%27"><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo -&gt; Maybe Int
-</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AmaxConnectionsPercent%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var hs-var">maxConnectionsPercent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | One or more SQL statements for the proxy to run when opening each new</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- database connection. Typically used with @SET@ statements to make sure</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- that each connection has identical settings such as time zone and</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- character set. This setting is empty by default. For multiple</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- statements, use semicolons as the separator. You can also include</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- multiple variables in a single @SET@ statement, such as @SET x=1, y=2@.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AinitQuery%3AConnectionPoolConfigurationInfo%27"><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AinitQuery%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var hs-var">initQuery</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679756382"><span id="local-6989586621679756384"><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679757417"><span id="local-6989586621679757419"><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo
 -&gt; ConnectionPoolConfigurationInfo -&gt; Bool
 (ConnectionPoolConfigurationInfo
  -&gt; ConnectionPoolConfigurationInfo -&gt; Bool)
@@ -81,7 +81,7 @@ $c/= :: ConnectionPoolConfigurationInfo
 -&gt; ConnectionPoolConfigurationInfo -&gt; Bool
 $c== :: ConnectionPoolConfigurationInfo
 -&gt; ConnectionPoolConfigurationInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679756373"><span id="local-6989586621679756375"><span id="local-6989586621679756377"><span id="local-6989586621679756379"><span class="annot"><span class="annottext">ReadPrec [ConnectionPoolConfigurationInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679757408"><span id="local-6989586621679757410"><span id="local-6989586621679757412"><span id="local-6989586621679757414"><span class="annot"><span class="annottext">ReadPrec [ConnectionPoolConfigurationInfo]
 ReadPrec ConnectionPoolConfigurationInfo
 Int -&gt; ReadS ConnectionPoolConfigurationInfo
 ReadS [ConnectionPoolConfigurationInfo]
@@ -101,7 +101,7 @@ readList :: ReadS [ConnectionPoolConfigurationInfo]
 $creadList :: ReadS [ConnectionPoolConfigurationInfo]
 readsPrec :: Int -&gt; ReadS ConnectionPoolConfigurationInfo
 $creadsPrec :: Int -&gt; ReadS ConnectionPoolConfigurationInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679756366"><span id="local-6989586621679756368"><span id="local-6989586621679756370"><span class="annot"><span class="annottext">Int -&gt; ConnectionPoolConfigurationInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679757401"><span id="local-6989586621679757403"><span id="local-6989586621679757405"><span class="annot"><span class="annottext">Int -&gt; ConnectionPoolConfigurationInfo -&gt; ShowS
 [ConnectionPoolConfigurationInfo] -&gt; ShowS
 ConnectionPoolConfigurationInfo -&gt; String
 (Int -&gt; ConnectionPoolConfigurationInfo -&gt; ShowS)
@@ -147,55 +147,58 @@ ConnectionPoolConfigurationInfo
 </span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'sessionPinningFilters', 'connectionPoolConfigurationInfo_sessionPinningFilters' - Each item in the list represents a class of SQL operations that normally</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- cause all later statements in a session using a proxy to be pinned to</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- the same underlying database connection. Including an item in the list</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- exempts that class of SQL operations from the pinning behavior.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- Currently, the only allowed value is @EXCLUDE_VARIABLE_SETS@.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'maxIdleConnectionsPercent', 'connectionPoolConfigurationInfo_maxIdleConnectionsPercent' - Controls how actively the proxy closes idle database connections in the</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- connection pool. A high value enables the proxy to leave a high</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- percentage of idle connections open. A low value causes the proxy to</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- close idle client connections and return the underlying database</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- connections to the connection pool. For Aurora MySQL, it is expressed as</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- a percentage of the @max_connections@ setting for the RDS DB instance or</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- Aurora DB cluster used by the target group.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'maxIdleConnectionsPercent', 'connectionPoolConfigurationInfo_maxIdleConnectionsPercent' - Controls how actively the proxy closes idle database connections in the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- connection pool. A high value enables the proxy to leave a high</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- percentage of idle connections open. A low value causes the proxy to</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- close idle client connections and return the underlying database</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- connections to the connection pool. For Aurora MySQL, it is expressed as</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- a percentage of the @max_connections@ setting for the RDS DB instance or</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Aurora DB cluster used by the target group.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'sessionPinningFilters', 'connectionPoolConfigurationInfo_sessionPinningFilters' - Each item in the list represents a class of SQL operations that normally</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- cause all later statements in a session using a proxy to be pinned to</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- the same underlying database connection. Including an item in the list</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- exempts that class of SQL operations from the pinning behavior.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Currently, the only allowed value is @EXCLUDE_VARIABLE_SETS@.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'connectionBorrowTimeout', 'connectionPoolConfigurationInfo_connectionBorrowTimeout' - The number of seconds for a proxy to wait for a connection to become</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- available in the connection pool. Only applies when the proxy has opened</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- its maximum number of connections and all connections are busy with</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- client sessions.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'maxConnectionsPercent', 'connectionPoolConfigurationInfo_maxConnectionsPercent' - The maximum size of the connection pool for each target in a target</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- group. For Aurora MySQL, it is expressed as a percentage of the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- @max_connections@ setting for the RDS DB instance or Aurora DB cluster</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- used by the target group.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'initQuery', 'connectionPoolConfigurationInfo_initQuery' - One or more SQL statements for the proxy to run when opening each new</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- database connection. Typically used with @SET@ statements to make sure</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- that each connection has identical settings such as time zone and</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- character set. This setting is empty by default. For multiple</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- statements, use semicolons as the separator. You can also include</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- multiple variables in a single @SET@ statement, such as @SET x=1, y=2@.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'maxConnectionsPercent', 'connectionPoolConfigurationInfo_maxConnectionsPercent' - The maximum size of the connection pool for each target in a target</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- group. For Aurora MySQL, it is expressed as a percentage of the</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- @max_connections@ setting for the RDS DB instance or Aurora DB cluster</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- used by the target group.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'connectionBorrowTimeout', 'connectionPoolConfigurationInfo_connectionBorrowTimeout' - The number of seconds for a proxy to wait for a connection to become</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- available in the connection pool. Only applies when the proxy has opened</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- its maximum number of connections and all connections are busy with</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- client sessions.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'initQuery', 'connectionPoolConfigurationInfo_initQuery' - One or more SQL statements for the proxy to run when opening each new</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- database connection. Typically used with @SET@ statements to make sure</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- that each connection has identical settings such as time zone and</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- character set. This setting is empty by default. For multiple</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- statements, use semicolons as the separator. You can also include</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- multiple variables in a single @SET@ statement, such as @SET x=1, y=2@.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#newConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">newConnectionPoolConfigurationInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span>
 </span><span id="line-105"></span><span id="newConnectionPoolConfigurationInfo"><span class="annot"><span class="annottext">newConnectionPoolConfigurationInfo :: ConnectionPoolConfigurationInfo
 </span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#newConnectionPoolConfigurationInfo"><span class="hs-identifier hs-var hs-var">newConnectionPoolConfigurationInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo' :: Maybe [Text]
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo' :: Maybe Int
+-&gt; Maybe [Text]
 -&gt; Maybe Int
 -&gt; Maybe Int
 -&gt; Maybe Text
--&gt; Maybe Int
 -&gt; ConnectionPoolConfigurationInfo
 </span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sessionPinningFilters:ConnectionPoolConfigurationInfo' :: Maybe [Text]
-</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AsessionPinningFilters%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var">sessionPinningFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxIdleConnectionsPercent:ConnectionPoolConfigurationInfo' :: Maybe Int
+</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AmaxIdleConnectionsPercent%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var">maxIdleConnectionsPercent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxIdleConnectionsPercent:ConnectionPoolConfigurationInfo' :: Maybe Int
-</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AmaxIdleConnectionsPercent%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var">maxIdleConnectionsPercent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:sessionPinningFilters:ConnectionPoolConfigurationInfo' :: Maybe [Text]
+</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AsessionPinningFilters%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var">sessionPinningFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxConnectionsPercent:ConnectionPoolConfigurationInfo' :: Maybe Int
+</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AmaxConnectionsPercent%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var">maxConnectionsPercent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionBorrowTimeout:ConnectionPoolConfigurationInfo' :: Maybe Int
@@ -205,20 +208,47 @@ forall a. Maybe a
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:initQuery:ConnectionPoolConfigurationInfo' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AinitQuery%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var">initQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxConnectionsPercent:ConnectionPoolConfigurationInfo' :: Maybe Int
-</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AmaxConnectionsPercent%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var">maxConnectionsPercent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | Each item in the list represents a class of SQL operations that normally</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- cause all later statements in a session using a proxy to be pinned to</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- the same underlying database connection. Including an item in the list</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- exempts that class of SQL operations from the pinning behavior.</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- Currently, the only allowed value is @EXCLUDE_VARIABLE_SETS@.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#connectionPoolConfigurationInfo_sessionPinningFilters"><span class="hs-identifier hs-type">connectionPoolConfigurationInfo_sessionPinningFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="connectionPoolConfigurationInfo_sessionPinningFilters"><span class="annot"><span class="annottext">connectionPoolConfigurationInfo_sessionPinningFilters :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Controls how actively the proxy closes idle database connections in the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- connection pool. A high value enables the proxy to leave a high</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- percentage of idle connections open. A low value causes the proxy to</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- close idle client connections and return the underlying database</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- connections to the connection pool. For Aurora MySQL, it is expressed as</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- a percentage of the @max_connections@ setting for the RDS DB instance or</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Aurora DB cluster used by the target group.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#connectionPoolConfigurationInfo_maxIdleConnectionsPercent"><span class="hs-identifier hs-type">connectionPoolConfigurationInfo_maxIdleConnectionsPercent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="connectionPoolConfigurationInfo_maxIdleConnectionsPercent"><span class="annot"><span class="annottext">connectionPoolConfigurationInfo_maxIdleConnectionsPercent :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ConnectionPoolConfigurationInfo
+-&gt; f ConnectionPoolConfigurationInfo
+</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#connectionPoolConfigurationInfo_maxIdleConnectionsPercent"><span class="hs-identifier hs-var hs-var">connectionPoolConfigurationInfo_maxIdleConnectionsPercent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionPoolConfigurationInfo -&gt; Maybe Int)
+-&gt; (ConnectionPoolConfigurationInfo
+    -&gt; Maybe Int -&gt; ConnectionPoolConfigurationInfo)
+-&gt; Lens
+     ConnectionPoolConfigurationInfo
+     ConnectionPoolConfigurationInfo
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679757392"><span class="annot"><span class="annottext">Maybe Int
+maxIdleConnectionsPercent :: Maybe Int
+$sel:maxIdleConnectionsPercent:ConnectionPoolConfigurationInfo' :: ConnectionPoolConfigurationInfo -&gt; Maybe Int
+</span><a href="#local-6989586621679757392"><span class="hs-identifier hs-var hs-var">maxIdleConnectionsPercent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679757392"><span class="hs-identifier hs-var">maxIdleConnectionsPercent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679757391"><span class="annot"><span class="annottext">s :: ConnectionPoolConfigurationInfo
+</span><a href="#local-6989586621679757391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679757390"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679757390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo
+</span><a href="#local-6989586621679757391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxIdleConnectionsPercent:ConnectionPoolConfigurationInfo' :: Maybe Int
+</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AmaxIdleConnectionsPercent%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var">maxIdleConnectionsPercent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679757390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Each item in the list represents a class of SQL operations that normally</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- cause all later statements in a session using a proxy to be pinned to</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- the same underlying database connection. Including an item in the list</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- exempts that class of SQL operations from the pinning behavior.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Currently, the only allowed value is @EXCLUDE_VARIABLE_SETS@.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#connectionPoolConfigurationInfo_sessionPinningFilters"><span class="hs-identifier hs-type">connectionPoolConfigurationInfo_sessionPinningFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="connectionPoolConfigurationInfo_sessionPinningFilters"><span class="annot"><span class="annottext">connectionPoolConfigurationInfo_sessionPinningFilters :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; ConnectionPoolConfigurationInfo
 -&gt; f ConnectionPoolConfigurationInfo
 </span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#connectionPoolConfigurationInfo_sessionPinningFilters"><span class="hs-identifier hs-var hs-var">connectionPoolConfigurationInfo_sessionPinningFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionPoolConfigurationInfo -&gt; Maybe [Text])
@@ -230,16 +260,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679756357"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679757388"><span class="annot"><span class="annottext">Maybe [Text]
 sessionPinningFilters :: Maybe [Text]
 $sel:sessionPinningFilters:ConnectionPoolConfigurationInfo' :: ConnectionPoolConfigurationInfo -&gt; Maybe [Text]
-</span><a href="#local-6989586621679756357"><span class="hs-identifier hs-var hs-var">sessionPinningFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679756357"><span class="hs-identifier hs-var">sessionPinningFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679756356"><span class="annot"><span class="annottext">s :: ConnectionPoolConfigurationInfo
-</span><a href="#local-6989586621679756356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679756355"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679756355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo
-</span><a href="#local-6989586621679756356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionPinningFilters:ConnectionPoolConfigurationInfo' :: Maybe [Text]
+</span><a href="#local-6989586621679757388"><span class="hs-identifier hs-var hs-var">sessionPinningFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679757388"><span class="hs-identifier hs-var">sessionPinningFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679757387"><span class="annot"><span class="annottext">s :: ConnectionPoolConfigurationInfo
+</span><a href="#local-6989586621679757387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679757386"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679757386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo
+</span><a href="#local-6989586621679757387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionPinningFilters:ConnectionPoolConfigurationInfo' :: Maybe [Text]
 </span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AsessionPinningFilters%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var">sessionPinningFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679756355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679757386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ConnectionPoolConfigurationInfo
  -&gt; f ConnectionPoolConfigurationInfo)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -254,104 +284,15 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | Controls how actively the proxy closes idle database connections in the</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- connection pool. A high value enables the proxy to leave a high</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- percentage of idle connections open. A low value causes the proxy to</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- close idle client connections and return the underlying database</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- connections to the connection pool. For Aurora MySQL, it is expressed as</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- a percentage of the @max_connections@ setting for the RDS DB instance or</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- Aurora DB cluster used by the target group.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#connectionPoolConfigurationInfo_maxIdleConnectionsPercent"><span class="hs-identifier hs-type">connectionPoolConfigurationInfo_maxIdleConnectionsPercent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="connectionPoolConfigurationInfo_maxIdleConnectionsPercent"><span class="annot"><span class="annottext">connectionPoolConfigurationInfo_maxIdleConnectionsPercent :: (Maybe Int -&gt; f (Maybe Int))
--&gt; ConnectionPoolConfigurationInfo
--&gt; f ConnectionPoolConfigurationInfo
-</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#connectionPoolConfigurationInfo_maxIdleConnectionsPercent"><span class="hs-identifier hs-var hs-var">connectionPoolConfigurationInfo_maxIdleConnectionsPercent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionPoolConfigurationInfo -&gt; Maybe Int)
--&gt; (ConnectionPoolConfigurationInfo
-    -&gt; Maybe Int -&gt; ConnectionPoolConfigurationInfo)
--&gt; Lens
-     ConnectionPoolConfigurationInfo
-     ConnectionPoolConfigurationInfo
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679756350"><span class="annot"><span class="annottext">Maybe Int
-maxIdleConnectionsPercent :: Maybe Int
-$sel:maxIdleConnectionsPercent:ConnectionPoolConfigurationInfo' :: ConnectionPoolConfigurationInfo -&gt; Maybe Int
-</span><a href="#local-6989586621679756350"><span class="hs-identifier hs-var hs-var">maxIdleConnectionsPercent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679756350"><span class="hs-identifier hs-var">maxIdleConnectionsPercent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679756349"><span class="annot"><span class="annottext">s :: ConnectionPoolConfigurationInfo
-</span><a href="#local-6989586621679756349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679756348"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679756348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo
-</span><a href="#local-6989586621679756349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxIdleConnectionsPercent:ConnectionPoolConfigurationInfo' :: Maybe Int
-</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AmaxIdleConnectionsPercent%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var">maxIdleConnectionsPercent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679756348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | The number of seconds for a proxy to wait for a connection to become</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- available in the connection pool. Only applies when the proxy has opened</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- its maximum number of connections and all connections are busy with</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- client sessions.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#connectionPoolConfigurationInfo_connectionBorrowTimeout"><span class="hs-identifier hs-type">connectionPoolConfigurationInfo_connectionBorrowTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="connectionPoolConfigurationInfo_connectionBorrowTimeout"><span class="annot"><span class="annottext">connectionPoolConfigurationInfo_connectionBorrowTimeout :: (Maybe Int -&gt; f (Maybe Int))
--&gt; ConnectionPoolConfigurationInfo
--&gt; f ConnectionPoolConfigurationInfo
-</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#connectionPoolConfigurationInfo_connectionBorrowTimeout"><span class="hs-identifier hs-var hs-var">connectionPoolConfigurationInfo_connectionBorrowTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionPoolConfigurationInfo -&gt; Maybe Int)
--&gt; (ConnectionPoolConfigurationInfo
-    -&gt; Maybe Int -&gt; ConnectionPoolConfigurationInfo)
--&gt; Lens
-     ConnectionPoolConfigurationInfo
-     ConnectionPoolConfigurationInfo
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679756346"><span class="annot"><span class="annottext">Maybe Int
-connectionBorrowTimeout :: Maybe Int
-$sel:connectionBorrowTimeout:ConnectionPoolConfigurationInfo' :: ConnectionPoolConfigurationInfo -&gt; Maybe Int
-</span><a href="#local-6989586621679756346"><span class="hs-identifier hs-var hs-var">connectionBorrowTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679756346"><span class="hs-identifier hs-var">connectionBorrowTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679756345"><span class="annot"><span class="annottext">s :: ConnectionPoolConfigurationInfo
-</span><a href="#local-6989586621679756345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679756344"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679756344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo
-</span><a href="#local-6989586621679756345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionBorrowTimeout:ConnectionPoolConfigurationInfo' :: Maybe Int
-</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AconnectionBorrowTimeout%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var">connectionBorrowTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679756344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | One or more SQL statements for the proxy to run when opening each new</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- database connection. Typically used with @SET@ statements to make sure</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- that each connection has identical settings such as time zone and</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- character set. This setting is empty by default. For multiple</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- statements, use semicolons as the separator. You can also include</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- multiple variables in a single @SET@ statement, such as @SET x=1, y=2@.</span><span>
-</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#connectionPoolConfigurationInfo_initQuery"><span class="hs-identifier hs-type">connectionPoolConfigurationInfo_initQuery</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span id="connectionPoolConfigurationInfo_initQuery"><span class="annot"><span class="annottext">connectionPoolConfigurationInfo_initQuery :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ConnectionPoolConfigurationInfo
--&gt; f ConnectionPoolConfigurationInfo
-</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#connectionPoolConfigurationInfo_initQuery"><span class="hs-identifier hs-var hs-var">connectionPoolConfigurationInfo_initQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionPoolConfigurationInfo -&gt; Maybe Text)
--&gt; (ConnectionPoolConfigurationInfo
-    -&gt; Maybe Text -&gt; ConnectionPoolConfigurationInfo)
--&gt; Lens
-     ConnectionPoolConfigurationInfo
-     ConnectionPoolConfigurationInfo
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679756342"><span class="annot"><span class="annottext">Maybe Text
-initQuery :: Maybe Text
-$sel:initQuery:ConnectionPoolConfigurationInfo' :: ConnectionPoolConfigurationInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679756342"><span class="hs-identifier hs-var hs-var">initQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679756342"><span class="hs-identifier hs-var">initQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679756341"><span class="annot"><span class="annottext">s :: ConnectionPoolConfigurationInfo
-</span><a href="#local-6989586621679756341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679756340"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679756340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo
-</span><a href="#local-6989586621679756341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initQuery:ConnectionPoolConfigurationInfo' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AinitQuery%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var">initQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679756340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- | The maximum size of the connection pool for each target in a target</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- group. For Aurora MySQL, it is expressed as a percentage of the</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- @max_connections@ setting for the RDS DB instance or Aurora DB cluster</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- used by the target group.</span><span>
-</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#connectionPoolConfigurationInfo_maxConnectionsPercent"><span class="hs-identifier hs-type">connectionPoolConfigurationInfo_maxConnectionsPercent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span id="connectionPoolConfigurationInfo_maxConnectionsPercent"><span class="annot"><span class="annottext">connectionPoolConfigurationInfo_maxConnectionsPercent :: (Maybe Int -&gt; f (Maybe Int))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The maximum size of the connection pool for each target in a target</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- group. For Aurora MySQL, it is expressed as a percentage of the</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- @max_connections@ setting for the RDS DB instance or Aurora DB cluster</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- used by the target group.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#connectionPoolConfigurationInfo_maxConnectionsPercent"><span class="hs-identifier hs-type">connectionPoolConfigurationInfo_maxConnectionsPercent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="connectionPoolConfigurationInfo_maxConnectionsPercent"><span class="annot"><span class="annottext">connectionPoolConfigurationInfo_maxConnectionsPercent :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; ConnectionPoolConfigurationInfo
 -&gt; f ConnectionPoolConfigurationInfo
 </span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#connectionPoolConfigurationInfo_maxConnectionsPercent"><span class="hs-identifier hs-var hs-var">connectionPoolConfigurationInfo_maxConnectionsPercent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionPoolConfigurationInfo -&gt; Maybe Int)
@@ -363,45 +304,121 @@ $sel:initQuery:ConnectionPoolConfigurationInfo' :: ConnectionPoolConfigurationIn
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679756338"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679757381"><span class="annot"><span class="annottext">Maybe Int
 maxConnectionsPercent :: Maybe Int
 $sel:maxConnectionsPercent:ConnectionPoolConfigurationInfo' :: ConnectionPoolConfigurationInfo -&gt; Maybe Int
-</span><a href="#local-6989586621679756338"><span class="hs-identifier hs-var hs-var">maxConnectionsPercent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679756338"><span class="hs-identifier hs-var">maxConnectionsPercent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679756337"><span class="annot"><span class="annottext">s :: ConnectionPoolConfigurationInfo
-</span><a href="#local-6989586621679756337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679756336"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679756336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo
-</span><a href="#local-6989586621679756337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxConnectionsPercent:ConnectionPoolConfigurationInfo' :: Maybe Int
+</span><a href="#local-6989586621679757381"><span class="hs-identifier hs-var hs-var">maxConnectionsPercent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679757381"><span class="hs-identifier hs-var">maxConnectionsPercent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679757380"><span class="annot"><span class="annottext">s :: ConnectionPoolConfigurationInfo
+</span><a href="#local-6989586621679757380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679757379"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679757379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo
+</span><a href="#local-6989586621679757380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxConnectionsPercent:ConnectionPoolConfigurationInfo' :: Maybe Int
 </span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AmaxConnectionsPercent%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var">maxConnectionsPercent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679756336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679756333"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ConnectionPoolConfigurationInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679756331"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679756331"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679757379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The number of seconds for a proxy to wait for a connection to become</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- available in the connection pool. Only applies when the proxy has opened</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- its maximum number of connections and all connections are busy with</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- client sessions.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#connectionPoolConfigurationInfo_connectionBorrowTimeout"><span class="hs-identifier hs-type">connectionPoolConfigurationInfo_connectionBorrowTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="connectionPoolConfigurationInfo_connectionBorrowTimeout"><span class="annot"><span class="annottext">connectionPoolConfigurationInfo_connectionBorrowTimeout :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ConnectionPoolConfigurationInfo
+-&gt; f ConnectionPoolConfigurationInfo
+</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#connectionPoolConfigurationInfo_connectionBorrowTimeout"><span class="hs-identifier hs-var hs-var">connectionPoolConfigurationInfo_connectionBorrowTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionPoolConfigurationInfo -&gt; Maybe Int)
+-&gt; (ConnectionPoolConfigurationInfo
+    -&gt; Maybe Int -&gt; ConnectionPoolConfigurationInfo)
+-&gt; Lens
+     ConnectionPoolConfigurationInfo
+     ConnectionPoolConfigurationInfo
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679757377"><span class="annot"><span class="annottext">Maybe Int
+connectionBorrowTimeout :: Maybe Int
+$sel:connectionBorrowTimeout:ConnectionPoolConfigurationInfo' :: ConnectionPoolConfigurationInfo -&gt; Maybe Int
+</span><a href="#local-6989586621679757377"><span class="hs-identifier hs-var hs-var">connectionBorrowTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679757377"><span class="hs-identifier hs-var">connectionBorrowTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679757376"><span class="annot"><span class="annottext">s :: ConnectionPoolConfigurationInfo
+</span><a href="#local-6989586621679757376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679757375"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679757375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo
+</span><a href="#local-6989586621679757376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionBorrowTimeout:ConnectionPoolConfigurationInfo' :: Maybe Int
+</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AconnectionBorrowTimeout%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var">connectionBorrowTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679757375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | One or more SQL statements for the proxy to run when opening each new</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- database connection. Typically used with @SET@ statements to make sure</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- that each connection has identical settings such as time zone and</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- character set. This setting is empty by default. For multiple</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- statements, use semicolons as the separator. You can also include</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- multiple variables in a single @SET@ statement, such as @SET x=1, y=2@.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#connectionPoolConfigurationInfo_initQuery"><span class="hs-identifier hs-type">connectionPoolConfigurationInfo_initQuery</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="connectionPoolConfigurationInfo_initQuery"><span class="annot"><span class="annottext">connectionPoolConfigurationInfo_initQuery :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConnectionPoolConfigurationInfo
+-&gt; f ConnectionPoolConfigurationInfo
+</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#connectionPoolConfigurationInfo_initQuery"><span class="hs-identifier hs-var hs-var">connectionPoolConfigurationInfo_initQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionPoolConfigurationInfo -&gt; Maybe Text)
+-&gt; (ConnectionPoolConfigurationInfo
+    -&gt; Maybe Text -&gt; ConnectionPoolConfigurationInfo)
+-&gt; Lens
+     ConnectionPoolConfigurationInfo
+     ConnectionPoolConfigurationInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679757373"><span class="annot"><span class="annottext">Maybe Text
+initQuery :: Maybe Text
+$sel:initQuery:ConnectionPoolConfigurationInfo' :: ConnectionPoolConfigurationInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679757373"><span class="hs-identifier hs-var hs-var">initQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679757373"><span class="hs-identifier hs-var">initQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679757372"><span class="annot"><span class="annottext">s :: ConnectionPoolConfigurationInfo
+</span><a href="#local-6989586621679757372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679757371"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679757371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionPoolConfigurationInfo
+</span><a href="#local-6989586621679757372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initQuery:ConnectionPoolConfigurationInfo' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#%24sel%3AinitQuery%3AConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var">initQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679757371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679757368"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ConnectionPoolConfigurationInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679757366"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679757366"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe [Text]
 -&gt; Maybe Int
 -&gt; Maybe Int
 -&gt; Maybe Text
--&gt; Maybe Int
 -&gt; ConnectionPoolConfigurationInfo
 </span><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo%27"><span class="hs-identifier hs-var">ConnectionPoolConfigurationInfo'</span></a></span><span>
-</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text]
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe [Text]
  -&gt; Maybe Int
  -&gt; Maybe Int
  -&gt; Maybe Text
- -&gt; Maybe Int
  -&gt; ConnectionPoolConfigurationInfo)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; ConnectionPoolConfigurationInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679757366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxIdleConnectionsPercent&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; ConnectionPoolConfigurationInfo)
 -&gt; Either String (Maybe [Text])
 -&gt; Either
      String
      (Maybe Int
-      -&gt; Maybe Int
-      -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; ConnectionPoolConfigurationInfo)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679756331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+      -&gt; Maybe Int -&gt; Maybe Text -&gt; ConnectionPoolConfigurationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679757366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SessionPinningFilters&quot;</span></span><span>
@@ -427,59 +444,41 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; ConnectionPoolConfigurationInfo)
+   -&gt; Maybe Int -&gt; Maybe Text -&gt; ConnectionPoolConfigurationInfo)
 -&gt; Either String (Maybe Int)
 -&gt; Either
-     String
-     (Maybe Int
-      -&gt; Maybe Text -&gt; Maybe Int -&gt; ConnectionPoolConfigurationInfo)
+     String (Maybe Int -&gt; Maybe Text -&gt; ConnectionPoolConfigurationInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679756331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxIdleConnectionsPercent&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Int
-   -&gt; Maybe Text -&gt; Maybe Int -&gt; ConnectionPoolConfigurationInfo)
--&gt; Either String (Maybe Int)
--&gt; Either
-     String (Maybe Text -&gt; Maybe Int -&gt; ConnectionPoolConfigurationInfo)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679756331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ConnectionBorrowTimeout&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Maybe Int -&gt; ConnectionPoolConfigurationInfo)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Int -&gt; ConnectionPoolConfigurationInfo)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679756331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InitQuery&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; ConnectionPoolConfigurationInfo)
--&gt; Either String (Maybe Int)
--&gt; Either String ConnectionPoolConfigurationInfo
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679756331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679757366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxConnectionsPercent&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679756322"><span id="local-6989586621679756324"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
-</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span></span></span><span>
-</span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679756319"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span></span><span>
-</span><span id="line-176"></span></pre></body></html>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Int -&gt; Maybe Text -&gt; ConnectionPoolConfigurationInfo)
+-&gt; Either String (Maybe Int)
+-&gt; Either String (Maybe Text -&gt; ConnectionPoolConfigurationInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679757366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectionBorrowTimeout&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ConnectionPoolConfigurationInfo)
+-&gt; Either String (Maybe Text)
+-&gt; Either String ConnectionPoolConfigurationInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679757366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InitQuery&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679757357"><span id="local-6989586621679757359"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span></span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679757354"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo.html#ConnectionPoolConfigurationInfo"><span class="hs-identifier hs-type">ConnectionPoolConfigurationInfo</span></a></span></span><span>
+</span><span id="line-175"></span></pre></body></html>

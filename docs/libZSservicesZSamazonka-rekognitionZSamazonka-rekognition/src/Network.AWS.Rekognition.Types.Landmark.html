@@ -27,24 +27,24 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Indicates the location of the landmark on the face.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLandmark' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679325762"><span id="local-6989586621679325763"></span></span><span class="hs-keyword">data</span><span> </span><span id="Landmark"><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-var">Landmark</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Landmark%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-var">Landmark'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The y-coordinate of the landmark expressed as a ratio of the height of</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the image. The y-coordinate is measured from the top of the image. For</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- example, if the image height is 200 pixels and the y-coordinate of the</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- landmark is at 50 pixels, this value is 0.25.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Ay%3ALandmark%27"><span class="annot"><span class="annottext">Landmark -&gt; Maybe Double
-</span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Ay%3ALandmark%27"><span class="hs-identifier hs-var hs-var">y</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The x-coordinate of the landmark expressed as a ratio of the width of</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the image. The x-coordinate is measured from the left-side of the image.</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- For example, if the image is 700 pixels wide and the x-coordinate of the</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- landmark is at 350 pixels, this value is 0.5.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Ax%3ALandmark%27"><span class="annot"><span class="annottext">Landmark -&gt; Maybe Double
+</span><span id="line-30"></span><span id="local-6989586621679326041"><span id="local-6989586621679326042"></span></span><span class="hs-keyword">data</span><span> </span><span id="Landmark"><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-var">Landmark</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Landmark%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-var">Landmark'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Type of landmark.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Atype%27%3ALandmark%27"><span class="annot"><span class="annottext">Landmark -&gt; Maybe LandmarkType
+</span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Atype%27%3ALandmark%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LandmarkType.html#LandmarkType"><span class="hs-identifier hs-type">LandmarkType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The x-coordinate of the landmark expressed as a ratio of the width of</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- the image. The x-coordinate is measured from the left-side of the image.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- For example, if the image is 700 pixels wide and the x-coordinate of the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- landmark is at 350 pixels, this value is 0.5.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Ax%3ALandmark%27"><span class="annot"><span class="annottext">Landmark -&gt; Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Ax%3ALandmark%27"><span class="hs-identifier hs-var hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Type of landmark.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Atype%27%3ALandmark%27"><span class="annot"><span class="annottext">Landmark -&gt; Maybe LandmarkType
-</span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Atype%27%3ALandmark%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LandmarkType.html#LandmarkType"><span class="hs-identifier hs-type">LandmarkType</span></a></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The y-coordinate of the landmark expressed as a ratio of the height of</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- the image. The y-coordinate is measured from the top of the image. For</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- example, if the image height is 200 pixels and the y-coordinate of the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- landmark is at 50 pixels, this value is 0.25.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Ay%3ALandmark%27"><span class="annot"><span class="annottext">Landmark -&gt; Maybe Double
+</span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Ay%3ALandmark%27"><span class="hs-identifier hs-var hs-var">y</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325754"><span id="local-6989586621679325756"><span class="annot"><span class="annottext">Landmark -&gt; Landmark -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326033"><span id="local-6989586621679326035"><span class="annot"><span class="annottext">Landmark -&gt; Landmark -&gt; Bool
 (Landmark -&gt; Landmark -&gt; Bool)
 -&gt; (Landmark -&gt; Landmark -&gt; Bool) -&gt; Eq Landmark
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Landmark -&gt; Landmark -&gt; Bool
 == :: Landmark -&gt; Landmark -&gt; Bool
 $c== :: Landmark -&gt; Landmark -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325745"><span id="local-6989586621679325747"><span id="local-6989586621679325749"><span id="local-6989586621679325751"><span class="annot"><span class="annottext">ReadPrec [Landmark]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326024"><span id="local-6989586621679326026"><span id="local-6989586621679326028"><span id="local-6989586621679326030"><span class="annot"><span class="annottext">ReadPrec [Landmark]
 ReadPrec Landmark
 Int -&gt; ReadS Landmark
 ReadS [Landmark]
@@ -72,7 +72,7 @@ readList :: ReadS [Landmark]
 $creadList :: ReadS [Landmark]
 readsPrec :: Int -&gt; ReadS Landmark
 $creadsPrec :: Int -&gt; ReadS Landmark
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325738"><span id="local-6989586621679325740"><span id="local-6989586621679325742"><span class="annot"><span class="annottext">Int -&gt; Landmark -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326017"><span id="local-6989586621679326019"><span id="local-6989586621679326021"><span class="annot"><span class="annottext">Int -&gt; Landmark -&gt; ShowS
 [Landmark] -&gt; ShowS
 Landmark -&gt; String
 (Int -&gt; Landmark -&gt; ShowS)
@@ -103,138 +103,138 @@ $cfrom :: forall x. Landmark -&gt; Rep Landmark x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'y', 'landmark_y' - The y-coordinate of the landmark expressed as a ratio of the height of</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- the image. The y-coordinate is measured from the top of the image. For</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- example, if the image height is 200 pixels and the y-coordinate of the</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- landmark is at 50 pixels, this value is 0.25.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'x', 'landmark_x' - The x-coordinate of the landmark expressed as a ratio of the width of</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- the image. The x-coordinate is measured from the left-side of the image.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- For example, if the image is 700 pixels wide and the x-coordinate of the</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- landmark is at 350 pixels, this value is 0.5.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'type'', 'landmark_type' - Type of landmark.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'type'', 'landmark_type' - Type of landmark.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'x', 'landmark_x' - The x-coordinate of the landmark expressed as a ratio of the width of</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- the image. The x-coordinate is measured from the left-side of the image.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- For example, if the image is 700 pixels wide and the x-coordinate of the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- landmark is at 350 pixels, this value is 0.5.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'y', 'landmark_y' - The y-coordinate of the landmark expressed as a ratio of the height of</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- the image. The y-coordinate is measured from the top of the image. For</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- example, if the image height is 200 pixels and the y-coordinate of the</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- landmark is at 50 pixels, this value is 0.25.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#newLandmark"><span class="hs-identifier hs-type">newLandmark</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span>
 </span><span id="line-67"></span><span id="newLandmark"><span class="annot"><span class="annottext">newLandmark :: Landmark
 </span><a href="Network.AWS.Rekognition.Types.Landmark.html#newLandmark"><span class="hs-identifier hs-var hs-var">newLandmark</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">Landmark' :: Maybe Double -&gt; Maybe Double -&gt; Maybe LandmarkType -&gt; Landmark
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">Landmark' :: Maybe LandmarkType -&gt; Maybe Double -&gt; Maybe Double -&gt; Landmark
 </span><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:y:Landmark' :: Maybe Double
-</span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Ay%3ALandmark%27"><span class="hs-identifier hs-var">y</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:type':Landmark' :: Maybe LandmarkType
+</span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Atype%27%3ALandmark%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LandmarkType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:x:Landmark' :: Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Ax%3ALandmark%27"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Landmark' :: Maybe LandmarkType
-</span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Atype%27%3ALandmark%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LandmarkType
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:y:Landmark' :: Maybe Double
+</span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Ay%3ALandmark%27"><span class="hs-identifier hs-var">y</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | The y-coordinate of the landmark expressed as a ratio of the height of</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- the image. The y-coordinate is measured from the top of the image. For</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- example, if the image height is 200 pixels and the y-coordinate of the</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- landmark is at 50 pixels, this value is 0.25.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#landmark_y"><span class="hs-identifier hs-type">landmark_y</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="landmark_y"><span class="annot"><span class="annottext">landmark_y :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Landmark -&gt; f Landmark
-</span><a href="Network.AWS.Rekognition.Types.Landmark.html#landmark_y"><span class="hs-identifier hs-var hs-var">landmark_y</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Landmark -&gt; Maybe Double)
--&gt; (Landmark -&gt; Maybe Double -&gt; Landmark)
--&gt; Lens Landmark Landmark (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325729"><span class="annot"><span class="annottext">Maybe Double
-y :: Maybe Double
-$sel:y:Landmark' :: Landmark -&gt; Maybe Double
-</span><a href="#local-6989586621679325729"><span class="hs-identifier hs-var hs-var">y</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679325729"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325728"><span class="annot"><span class="annottext">s :: Landmark
-</span><a href="#local-6989586621679325728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325727"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679325727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Landmark
-</span><a href="#local-6989586621679325728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:y:Landmark' :: Maybe Double
-</span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Ay%3ALandmark%27"><span class="hs-identifier hs-var">y</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679325727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The x-coordinate of the landmark expressed as a ratio of the width of</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- the image. The x-coordinate is measured from the left-side of the image.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- For example, if the image is 700 pixels wide and the x-coordinate of the</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- landmark is at 350 pixels, this value is 0.5.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#landmark_x"><span class="hs-identifier hs-type">landmark_x</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="landmark_x"><span class="annot"><span class="annottext">landmark_x :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Landmark -&gt; f Landmark
-</span><a href="Network.AWS.Rekognition.Types.Landmark.html#landmark_x"><span class="hs-identifier hs-var hs-var">landmark_x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Landmark -&gt; Maybe Double)
--&gt; (Landmark -&gt; Maybe Double -&gt; Landmark)
--&gt; Lens Landmark Landmark (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325725"><span class="annot"><span class="annottext">Maybe Double
-x :: Maybe Double
-$sel:x:Landmark' :: Landmark -&gt; Maybe Double
-</span><a href="#local-6989586621679325725"><span class="hs-identifier hs-var hs-var">x</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679325725"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325724"><span class="annot"><span class="annottext">s :: Landmark
-</span><a href="#local-6989586621679325724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325723"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679325723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Landmark
-</span><a href="#local-6989586621679325724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:x:Landmark' :: Maybe Double
-</span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Ax%3ALandmark%27"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679325723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | Type of landmark.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#landmark_type"><span class="hs-identifier hs-type">landmark_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LandmarkType.html#LandmarkType"><span class="hs-identifier hs-type">LandmarkType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="landmark_type"><span class="annot"><span class="annottext">landmark_type :: (Maybe LandmarkType -&gt; f (Maybe LandmarkType))
+</span><span id="line-74"></span><span class="hs-comment">-- | Type of landmark.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#landmark_type"><span class="hs-identifier hs-type">landmark_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LandmarkType.html#LandmarkType"><span class="hs-identifier hs-type">LandmarkType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="landmark_type"><span class="annot"><span class="annottext">landmark_type :: (Maybe LandmarkType -&gt; f (Maybe LandmarkType))
 -&gt; Landmark -&gt; f Landmark
 </span><a href="Network.AWS.Rekognition.Types.Landmark.html#landmark_type"><span class="hs-identifier hs-var hs-var">landmark_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Landmark -&gt; Maybe LandmarkType)
 -&gt; (Landmark -&gt; Maybe LandmarkType -&gt; Landmark)
 -&gt; Lens Landmark Landmark (Maybe LandmarkType) (Maybe LandmarkType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325721"><span class="annot"><span class="annottext">Maybe LandmarkType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326008"><span class="annot"><span class="annottext">Maybe LandmarkType
 type' :: Maybe LandmarkType
 $sel:type':Landmark' :: Landmark -&gt; Maybe LandmarkType
-</span><a href="#local-6989586621679325721"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LandmarkType
-</span><a href="#local-6989586621679325721"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325720"><span class="annot"><span class="annottext">s :: Landmark
-</span><a href="#local-6989586621679325720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325719"><span class="annot"><span class="annottext">Maybe LandmarkType
-</span><a href="#local-6989586621679325719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Landmark
-</span><a href="#local-6989586621679325720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Landmark' :: Maybe LandmarkType
+</span><a href="#local-6989586621679326008"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LandmarkType
+</span><a href="#local-6989586621679326008"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326007"><span class="annot"><span class="annottext">s :: Landmark
+</span><a href="#local-6989586621679326007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326006"><span class="annot"><span class="annottext">Maybe LandmarkType
+</span><a href="#local-6989586621679326006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Landmark
+</span><a href="#local-6989586621679326007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Landmark' :: Maybe LandmarkType
 </span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Atype%27%3ALandmark%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LandmarkType
-</span><a href="#local-6989586621679325719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The x-coordinate of the landmark expressed as a ratio of the width of</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- the image. The x-coordinate is measured from the left-side of the image.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- For example, if the image is 700 pixels wide and the x-coordinate of the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- landmark is at 350 pixels, this value is 0.5.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#landmark_x"><span class="hs-identifier hs-type">landmark_x</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="landmark_x"><span class="annot"><span class="annottext">landmark_x :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Landmark -&gt; f Landmark
+</span><a href="Network.AWS.Rekognition.Types.Landmark.html#landmark_x"><span class="hs-identifier hs-var hs-var">landmark_x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Landmark -&gt; Maybe Double)
+-&gt; (Landmark -&gt; Maybe Double -&gt; Landmark)
+-&gt; Lens Landmark Landmark (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326004"><span class="annot"><span class="annottext">Maybe Double
+x :: Maybe Double
+$sel:x:Landmark' :: Landmark -&gt; Maybe Double
+</span><a href="#local-6989586621679326004"><span class="hs-identifier hs-var hs-var">x</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679326004"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326003"><span class="annot"><span class="annottext">s :: Landmark
+</span><a href="#local-6989586621679326003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326002"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679326002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Landmark
+</span><a href="#local-6989586621679326003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:x:Landmark' :: Maybe Double
+</span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Ax%3ALandmark%27"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679326002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The y-coordinate of the landmark expressed as a ratio of the height of</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- the image. The y-coordinate is measured from the top of the image. For</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- example, if the image height is 200 pixels and the y-coordinate of the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- landmark is at 50 pixels, this value is 0.25.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#landmark_y"><span class="hs-identifier hs-type">landmark_y</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="landmark_y"><span class="annot"><span class="annottext">landmark_y :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Landmark -&gt; f Landmark
+</span><a href="Network.AWS.Rekognition.Types.Landmark.html#landmark_y"><span class="hs-identifier hs-var hs-var">landmark_y</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Landmark -&gt; Maybe Double)
+-&gt; (Landmark -&gt; Maybe Double -&gt; Landmark)
+-&gt; Lens Landmark Landmark (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326000"><span class="annot"><span class="annottext">Maybe Double
+y :: Maybe Double
+$sel:y:Landmark' :: Landmark -&gt; Maybe Double
+</span><a href="#local-6989586621679326000"><span class="hs-identifier hs-var hs-var">y</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679326000"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325999"><span class="annot"><span class="annottext">s :: Landmark
+</span><a href="#local-6989586621679325999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325998"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679325998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Landmark
+</span><a href="#local-6989586621679325999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:y:Landmark' :: Maybe Double
+</span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Ay%3ALandmark%27"><span class="hs-identifier hs-var">y</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679325998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325716"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679325714"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Landmark
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325995"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679325993"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Landmark
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Landmark) -&gt; Value -&gt; Parser Landmark
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Landmark&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679325711"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325711"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe Double -&gt; Maybe LandmarkType -&gt; Landmark
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679325990"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325990"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe LandmarkType -&gt; Maybe Double -&gt; Maybe Double -&gt; Landmark
 </span><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-var">Landmark'</span></a></span><span>
-</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe Double -&gt; Maybe LandmarkType -&gt; Landmark)
--&gt; Parser (Maybe Double)
--&gt; Parser (Maybe Double -&gt; Maybe LandmarkType -&gt; Landmark)
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LandmarkType -&gt; Maybe Double -&gt; Maybe Double -&gt; Landmark)
+-&gt; Parser (Maybe LandmarkType)
+-&gt; Parser (Maybe Double -&gt; Maybe Double -&gt; Landmark)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325711"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Y&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Maybe LandmarkType -&gt; Landmark)
--&gt; Parser (Maybe Double) -&gt; Parser (Maybe LandmarkType -&gt; Landmark)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325711"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;X&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe LandmarkType -&gt; Landmark)
--&gt; Parser (Maybe LandmarkType) -&gt; Parser Landmark
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325711"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LandmarkType)
+</span><a href="#local-6989586621679325990"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LandmarkType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Maybe Double -&gt; Landmark)
+-&gt; Parser (Maybe Double) -&gt; Parser (Maybe Double -&gt; Landmark)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325990"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;X&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Landmark)
+-&gt; Parser (Maybe Double) -&gt; Parser Landmark
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325990"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Y&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325705"><span id="local-6989586621679325707"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325984"><span id="local-6989586621679325986"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325702"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325981"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span></span><span>
 </span><span id="line-106"></span></pre></body></html>

@@ -26,16 +26,16 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies the class that categorizes the document being analyzed</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDocumentClass' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679340052"><span id="local-6989586621679340053"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentClass"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-var">DocumentClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentClass%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass%27"><span class="hs-identifier hs-var">DocumentClass'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the class.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3ADocumentClass%27"><span class="annot"><span class="annottext">DocumentClass -&gt; Maybe Text
-</span><a href="Network.AWS.Comprehend.Types.DocumentClass.html#%24sel%3Aname%3ADocumentClass%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The confidence score that Amazon Comprehend has this class correctly</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- attributed.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Ascore%3ADocumentClass%27"><span class="annot"><span class="annottext">DocumentClass -&gt; Maybe Double
-</span><a href="Network.AWS.Comprehend.Types.DocumentClass.html#%24sel%3Ascore%3ADocumentClass%27"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679340314"><span id="local-6989586621679340315"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentClass"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-var">DocumentClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentClass%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass%27"><span class="hs-identifier hs-var">DocumentClass'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The confidence score that Amazon Comprehend has this class correctly</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- attributed.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Ascore%3ADocumentClass%27"><span class="annot"><span class="annottext">DocumentClass -&gt; Maybe Double
+</span><a href="Network.AWS.Comprehend.Types.DocumentClass.html#%24sel%3Ascore%3ADocumentClass%27"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the class.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3ADocumentClass%27"><span class="annot"><span class="annottext">DocumentClass -&gt; Maybe Text
+</span><a href="Network.AWS.Comprehend.Types.DocumentClass.html#%24sel%3Aname%3ADocumentClass%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340045"><span id="local-6989586621679340047"><span class="annot"><span class="annottext">DocumentClass -&gt; DocumentClass -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340307"><span id="local-6989586621679340309"><span class="annot"><span class="annottext">DocumentClass -&gt; DocumentClass -&gt; Bool
 (DocumentClass -&gt; DocumentClass -&gt; Bool)
 -&gt; (DocumentClass -&gt; DocumentClass -&gt; Bool) -&gt; Eq DocumentClass
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DocumentClass -&gt; DocumentClass -&gt; Bool
 == :: DocumentClass -&gt; DocumentClass -&gt; Bool
 $c== :: DocumentClass -&gt; DocumentClass -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340036"><span id="local-6989586621679340038"><span id="local-6989586621679340040"><span id="local-6989586621679340042"><span class="annot"><span class="annottext">ReadPrec [DocumentClass]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340298"><span id="local-6989586621679340300"><span id="local-6989586621679340302"><span id="local-6989586621679340304"><span class="annot"><span class="annottext">ReadPrec [DocumentClass]
 ReadPrec DocumentClass
 Int -&gt; ReadS DocumentClass
 ReadS [DocumentClass]
@@ -63,7 +63,7 @@ readList :: ReadS [DocumentClass]
 $creadList :: ReadS [DocumentClass]
 readsPrec :: Int -&gt; ReadS DocumentClass
 $creadsPrec :: Int -&gt; ReadS DocumentClass
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340029"><span id="local-6989586621679340031"><span id="local-6989586621679340033"><span class="annot"><span class="annottext">Int -&gt; DocumentClass -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340291"><span id="local-6989586621679340293"><span id="local-6989586621679340295"><span class="annot"><span class="annottext">Int -&gt; DocumentClass -&gt; ShowS
 [DocumentClass] -&gt; ShowS
 DocumentClass -&gt; String
 (Int -&gt; DocumentClass -&gt; ShowS)
@@ -97,66 +97,66 @@ $cfrom :: forall x. DocumentClass -&gt; Rep DocumentClass x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'name', 'documentClass_name' - The name of the class.</span><span>
-</span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'score', 'documentClass_score' - The confidence score that Amazon Comprehend has this class correctly</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- attributed.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'score', 'documentClass_score' - The confidence score that Amazon Comprehend has this class correctly</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- attributed.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'name', 'documentClass_name' - The name of the class.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#newDocumentClass"><span class="hs-identifier hs-type">newDocumentClass</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span><span>
 </span><span id="line-52"></span><span id="newDocumentClass"><span class="annot"><span class="annottext">newDocumentClass :: DocumentClass
 </span><a href="Network.AWS.Comprehend.Types.DocumentClass.html#newDocumentClass"><span class="hs-identifier hs-var hs-var">newDocumentClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">DocumentClass' :: Maybe Text -&gt; Maybe Double -&gt; DocumentClass
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">DocumentClass' :: Maybe Double -&gt; Maybe Text -&gt; DocumentClass
 </span><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass%27"><span class="hs-identifier hs-type">DocumentClass'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:DocumentClass' :: Maybe Text
-</span><a href="Network.AWS.Comprehend.Types.DocumentClass.html#%24sel%3Aname%3ADocumentClass%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:score:DocumentClass' :: Maybe Double
+</span><a href="Network.AWS.Comprehend.Types.DocumentClass.html#%24sel%3Ascore%3ADocumentClass%27"><span class="hs-identifier hs-var">score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:score:DocumentClass' :: Maybe Double
-</span><a href="Network.AWS.Comprehend.Types.DocumentClass.html#%24sel%3Ascore%3ADocumentClass%27"><span class="hs-identifier hs-var">score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DocumentClass' :: Maybe Text
+</span><a href="Network.AWS.Comprehend.Types.DocumentClass.html#%24sel%3Aname%3ADocumentClass%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | The name of the class.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#documentClass_name"><span class="hs-identifier hs-type">documentClass_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="documentClass_name"><span class="annot"><span class="annottext">documentClass_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DocumentClass -&gt; f DocumentClass
-</span><a href="Network.AWS.Comprehend.Types.DocumentClass.html#documentClass_name"><span class="hs-identifier hs-var hs-var">documentClass_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentClass -&gt; Maybe Text)
--&gt; (DocumentClass -&gt; Maybe Text -&gt; DocumentClass)
--&gt; Lens DocumentClass DocumentClass (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass%27"><span class="hs-identifier hs-type">DocumentClass'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340020"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:DocumentClass' :: DocumentClass -&gt; Maybe Text
-</span><a href="#local-6989586621679340020"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340020"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340019"><span class="annot"><span class="annottext">s :: DocumentClass
-</span><a href="#local-6989586621679340019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass%27"><span class="hs-identifier hs-type">DocumentClass'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340018"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClass
-</span><a href="#local-6989586621679340019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DocumentClass' :: Maybe Text
-</span><a href="Network.AWS.Comprehend.Types.DocumentClass.html#%24sel%3Aname%3ADocumentClass%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The confidence score that Amazon Comprehend has this class correctly</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- attributed.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#documentClass_score"><span class="hs-identifier hs-type">documentClass_score</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="documentClass_score"><span class="annot"><span class="annottext">documentClass_score :: (Maybe Double -&gt; f (Maybe Double))
+</span><span id="line-58"></span><span class="hs-comment">-- | The confidence score that Amazon Comprehend has this class correctly</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- attributed.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#documentClass_score"><span class="hs-identifier hs-type">documentClass_score</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="documentClass_score"><span class="annot"><span class="annottext">documentClass_score :: (Maybe Double -&gt; f (Maybe Double))
 -&gt; DocumentClass -&gt; f DocumentClass
 </span><a href="Network.AWS.Comprehend.Types.DocumentClass.html#documentClass_score"><span class="hs-identifier hs-var hs-var">documentClass_score</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentClass -&gt; Maybe Double)
 -&gt; (DocumentClass -&gt; Maybe Double -&gt; DocumentClass)
 -&gt; Lens DocumentClass DocumentClass (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass%27"><span class="hs-identifier hs-type">DocumentClass'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340016"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass%27"><span class="hs-identifier hs-type">DocumentClass'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340282"><span class="annot"><span class="annottext">Maybe Double
 score :: Maybe Double
 $sel:score:DocumentClass' :: DocumentClass -&gt; Maybe Double
-</span><a href="#local-6989586621679340016"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679340016"><span class="hs-identifier hs-var">score</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340015"><span class="annot"><span class="annottext">s :: DocumentClass
-</span><a href="#local-6989586621679340015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass%27"><span class="hs-identifier hs-type">DocumentClass'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340014"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679340014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClass
-</span><a href="#local-6989586621679340015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:score:DocumentClass' :: Maybe Double
+</span><a href="#local-6989586621679340282"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679340282"><span class="hs-identifier hs-var">score</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340281"><span class="annot"><span class="annottext">s :: DocumentClass
+</span><a href="#local-6989586621679340281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass%27"><span class="hs-identifier hs-type">DocumentClass'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340280"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679340280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClass
+</span><a href="#local-6989586621679340281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:score:DocumentClass' :: Maybe Double
 </span><a href="Network.AWS.Comprehend.Types.DocumentClass.html#%24sel%3Ascore%3ADocumentClass%27"><span class="hs-identifier hs-var">score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679340014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The name of the class.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#documentClass_name"><span class="hs-identifier hs-type">documentClass_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="documentClass_name"><span class="annot"><span class="annottext">documentClass_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DocumentClass -&gt; f DocumentClass
+</span><a href="Network.AWS.Comprehend.Types.DocumentClass.html#documentClass_name"><span class="hs-identifier hs-var hs-var">documentClass_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentClass -&gt; Maybe Text)
+-&gt; (DocumentClass -&gt; Maybe Text -&gt; DocumentClass)
+-&gt; Lens DocumentClass DocumentClass (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass%27"><span class="hs-identifier hs-type">DocumentClass'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340278"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:DocumentClass' :: DocumentClass -&gt; Maybe Text
+</span><a href="#local-6989586621679340278"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679340278"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340277"><span class="annot"><span class="annottext">s :: DocumentClass
+</span><a href="#local-6989586621679340277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass%27"><span class="hs-identifier hs-type">DocumentClass'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340276"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679340276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClass
+</span><a href="#local-6989586621679340277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DocumentClass' :: Maybe Text
+</span><a href="Network.AWS.Comprehend.Types.DocumentClass.html#%24sel%3Aname%3ADocumentClass%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679340276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340011"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679340009"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentClass
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340273"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679340271"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DocumentClass)
@@ -166,28 +166,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DocumentClass&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679340006"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679340006"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Double -&gt; DocumentClass
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679340268"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340268"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe Text -&gt; DocumentClass
 </span><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass%27"><span class="hs-identifier hs-var">DocumentClass'</span></a></span><span>
-</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Double -&gt; DocumentClass)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe Double -&gt; DocumentClass)
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe Text -&gt; DocumentClass)
+-&gt; Parser (Maybe Double) -&gt; Parser (Maybe Text -&gt; DocumentClass)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679340006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679340268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; DocumentClass)
--&gt; Parser (Maybe Double) -&gt; Parser DocumentClass
+</span><span class="hs-string">&quot;Score&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DocumentClass)
+-&gt; Parser (Maybe Text) -&gt; Parser DocumentClass
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679340006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679340268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Score&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340000"><span id="local-6989586621679340002"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340262"><span id="local-6989586621679340264"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339997"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

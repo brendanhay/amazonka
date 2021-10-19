@@ -29,21 +29,21 @@
 </span><span id="line-29"></span><span class="hs-comment">-- Data Type.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newRollbackConfiguration' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679189515"><span id="local-6989586621679189516"></span></span><span class="hs-keyword">data</span><span> </span><span id="RollbackConfiguration"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-var">RollbackConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RollbackConfiguration%27"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-var">RollbackConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679189622"><span id="local-6989586621679189623"></span></span><span class="hs-keyword">data</span><span> </span><span id="RollbackConfiguration"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-var">RollbackConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RollbackConfiguration%27"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-var">RollbackConfiguration'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This property corresponds to the content of the same name for the /AWS</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- CloudFormation</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration RollbackConfiguration&gt;/</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Data Type.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AmonitoringTimeInMinutes%3ARollbackConfiguration%27"><span class="annot"><span class="annottext">RollbackConfiguration -&gt; Maybe Int
-</span><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#%24sel%3AmonitoringTimeInMinutes%3ARollbackConfiguration%27"><span class="hs-identifier hs-var hs-var">monitoringTimeInMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3ArollbackTriggers%3ARollbackConfiguration%27"><span class="annot"><span class="annottext">RollbackConfiguration -&gt; Maybe [RollbackTrigger]
+</span><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#%24sel%3ArollbackTriggers%3ARollbackConfiguration%27"><span class="hs-identifier hs-var hs-var">rollbackTriggers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger.html#RollbackTrigger"><span class="hs-identifier hs-type">RollbackTrigger</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | This property corresponds to the content of the same name for the /AWS</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- CloudFormation</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration RollbackConfiguration&gt;/</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Data Type.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3ArollbackTriggers%3ARollbackConfiguration%27"><span class="annot"><span class="annottext">RollbackConfiguration -&gt; Maybe [RollbackTrigger]
-</span><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#%24sel%3ArollbackTriggers%3ARollbackConfiguration%27"><span class="hs-identifier hs-var hs-var">rollbackTriggers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger.html#RollbackTrigger"><span class="hs-identifier hs-type">RollbackTrigger</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AmonitoringTimeInMinutes%3ARollbackConfiguration%27"><span class="annot"><span class="annottext">RollbackConfiguration -&gt; Maybe Int
+</span><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#%24sel%3AmonitoringTimeInMinutes%3ARollbackConfiguration%27"><span class="hs-identifier hs-var hs-var">monitoringTimeInMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189508"><span id="local-6989586621679189510"><span class="annot"><span class="annottext">RollbackConfiguration -&gt; RollbackConfiguration -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189615"><span id="local-6989586621679189617"><span class="annot"><span class="annottext">RollbackConfiguration -&gt; RollbackConfiguration -&gt; Bool
 (RollbackConfiguration -&gt; RollbackConfiguration -&gt; Bool)
 -&gt; (RollbackConfiguration -&gt; RollbackConfiguration -&gt; Bool)
 -&gt; Eq RollbackConfiguration
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RollbackConfiguration -&gt; RollbackConfiguration -&gt; Bool
 == :: RollbackConfiguration -&gt; RollbackConfiguration -&gt; Bool
 $c== :: RollbackConfiguration -&gt; RollbackConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189499"><span id="local-6989586621679189501"><span id="local-6989586621679189503"><span id="local-6989586621679189505"><span class="annot"><span class="annottext">ReadPrec [RollbackConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189606"><span id="local-6989586621679189608"><span id="local-6989586621679189610"><span id="local-6989586621679189612"><span class="annot"><span class="annottext">ReadPrec [RollbackConfiguration]
 ReadPrec RollbackConfiguration
 Int -&gt; ReadS RollbackConfiguration
 ReadS [RollbackConfiguration]
@@ -72,7 +72,7 @@ readList :: ReadS [RollbackConfiguration]
 $creadList :: ReadS [RollbackConfiguration]
 readsPrec :: Int -&gt; ReadS RollbackConfiguration
 $creadsPrec :: Int -&gt; ReadS RollbackConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189492"><span id="local-6989586621679189494"><span id="local-6989586621679189496"><span class="annot"><span class="annottext">Int -&gt; RollbackConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189599"><span id="local-6989586621679189601"><span id="local-6989586621679189603"><span class="annot"><span class="annottext">Int -&gt; RollbackConfiguration -&gt; ShowS
 [RollbackConfiguration] -&gt; ShowS
 RollbackConfiguration -&gt; String
 (Int -&gt; RollbackConfiguration -&gt; ShowS)
@@ -106,12 +106,12 @@ $cfrom :: forall x. RollbackConfiguration -&gt; Rep RollbackConfiguration x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'monitoringTimeInMinutes', 'rollbackConfiguration_monitoringTimeInMinutes' - This property corresponds to the content of the same name for the /AWS</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'rollbackTriggers', 'rollbackConfiguration_rollbackTriggers' - This property corresponds to the content of the same name for the /AWS</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- CloudFormation</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration RollbackConfiguration&gt;/</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- Data Type.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'rollbackTriggers', 'rollbackConfiguration_rollbackTriggers' - This property corresponds to the content of the same name for the /AWS</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'monitoringTimeInMinutes', 'rollbackConfiguration_monitoringTimeInMinutes' - This property corresponds to the content of the same name for the /AWS</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- CloudFormation</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration RollbackConfiguration&gt;/</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- Data Type.</span><span>
@@ -119,15 +119,15 @@ $cfrom :: forall x. RollbackConfiguration -&gt; Rep RollbackConfiguration x
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span><span>
 </span><span id="line-65"></span><span id="newRollbackConfiguration"><span class="annot"><span class="annottext">newRollbackConfiguration :: RollbackConfiguration
 </span><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#newRollbackConfiguration"><span class="hs-identifier hs-var hs-var">newRollbackConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">RollbackConfiguration' :: Maybe Int -&gt; Maybe [RollbackTrigger] -&gt; RollbackConfiguration
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">RollbackConfiguration' :: Maybe [RollbackTrigger] -&gt; Maybe Int -&gt; RollbackConfiguration
 </span><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-type">RollbackConfiguration'</span></a></span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:monitoringTimeInMinutes:RollbackConfiguration' :: Maybe Int
-</span><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#%24sel%3AmonitoringTimeInMinutes%3ARollbackConfiguration%27"><span class="hs-identifier hs-var">monitoringTimeInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rollbackTriggers:RollbackConfiguration' :: Maybe [RollbackTrigger]
+</span><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#%24sel%3ArollbackTriggers%3ARollbackConfiguration%27"><span class="hs-identifier hs-var">rollbackTriggers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">Maybe [RollbackTrigger]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:rollbackTriggers:RollbackConfiguration' :: Maybe [RollbackTrigger]
-</span><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#%24sel%3ArollbackTriggers%3ARollbackConfiguration%27"><span class="hs-identifier hs-var">rollbackTriggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RollbackTrigger]
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:monitoringTimeInMinutes:RollbackConfiguration' :: Maybe Int
+</span><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#%24sel%3AmonitoringTimeInMinutes%3ARollbackConfiguration%27"><span class="hs-identifier hs-var">monitoringTimeInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
@@ -136,31 +136,8 @@ forall a. Maybe a
 </span><span id="line-73"></span><span class="hs-comment">-- CloudFormation</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration RollbackConfiguration&gt;/</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- Data Type.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#rollbackConfiguration_monitoringTimeInMinutes"><span class="hs-identifier hs-type">rollbackConfiguration_monitoringTimeInMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="rollbackConfiguration_monitoringTimeInMinutes"><span class="annot"><span class="annottext">rollbackConfiguration_monitoringTimeInMinutes :: (Maybe Int -&gt; f (Maybe Int))
--&gt; RollbackConfiguration -&gt; f RollbackConfiguration
-</span><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#rollbackConfiguration_monitoringTimeInMinutes"><span class="hs-identifier hs-var hs-var">rollbackConfiguration_monitoringTimeInMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RollbackConfiguration -&gt; Maybe Int)
--&gt; (RollbackConfiguration -&gt; Maybe Int -&gt; RollbackConfiguration)
--&gt; Lens
-     RollbackConfiguration RollbackConfiguration (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-type">RollbackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189483"><span class="annot"><span class="annottext">Maybe Int
-monitoringTimeInMinutes :: Maybe Int
-$sel:monitoringTimeInMinutes:RollbackConfiguration' :: RollbackConfiguration -&gt; Maybe Int
-</span><a href="#local-6989586621679189483"><span class="hs-identifier hs-var hs-var">monitoringTimeInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679189483"><span class="hs-identifier hs-var">monitoringTimeInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189482"><span class="annot"><span class="annottext">s :: RollbackConfiguration
-</span><a href="#local-6989586621679189482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-type">RollbackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189481"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679189481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RollbackConfiguration
-</span><a href="#local-6989586621679189482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringTimeInMinutes:RollbackConfiguration' :: Maybe Int
-</span><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#%24sel%3AmonitoringTimeInMinutes%3ARollbackConfiguration%27"><span class="hs-identifier hs-var">monitoringTimeInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679189481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | This property corresponds to the content of the same name for the /AWS</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- CloudFormation</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration RollbackConfiguration&gt;/</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- Data Type.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#rollbackConfiguration_rollbackTriggers"><span class="hs-identifier hs-type">rollbackConfiguration_rollbackTriggers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger.html#RollbackTrigger"><span class="hs-identifier hs-type">RollbackTrigger</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="rollbackConfiguration_rollbackTriggers"><span class="annot"><span class="annottext">rollbackConfiguration_rollbackTriggers :: (Maybe [RollbackTrigger] -&gt; f (Maybe [RollbackTrigger]))
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#rollbackConfiguration_rollbackTriggers"><span class="hs-identifier hs-type">rollbackConfiguration_rollbackTriggers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger.html#RollbackTrigger"><span class="hs-identifier hs-type">RollbackTrigger</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="rollbackConfiguration_rollbackTriggers"><span class="annot"><span class="annottext">rollbackConfiguration_rollbackTriggers :: (Maybe [RollbackTrigger] -&gt; f (Maybe [RollbackTrigger]))
 -&gt; RollbackConfiguration -&gt; f RollbackConfiguration
 </span><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#rollbackConfiguration_rollbackTriggers"><span class="hs-identifier hs-var hs-var">rollbackConfiguration_rollbackTriggers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RollbackConfiguration -&gt; Maybe [RollbackTrigger])
 -&gt; (RollbackConfiguration
@@ -171,16 +148,16 @@ $sel:monitoringTimeInMinutes:RollbackConfiguration' :: RollbackConfiguration -&g
      (Maybe [RollbackTrigger])
      (Maybe [RollbackTrigger])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-type">RollbackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189479"><span class="annot"><span class="annottext">Maybe [RollbackTrigger]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-type">RollbackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189590"><span class="annot"><span class="annottext">Maybe [RollbackTrigger]
 rollbackTriggers :: Maybe [RollbackTrigger]
 $sel:rollbackTriggers:RollbackConfiguration' :: RollbackConfiguration -&gt; Maybe [RollbackTrigger]
-</span><a href="#local-6989586621679189479"><span class="hs-identifier hs-var hs-var">rollbackTriggers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RollbackTrigger]
-</span><a href="#local-6989586621679189479"><span class="hs-identifier hs-var">rollbackTriggers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189478"><span class="annot"><span class="annottext">s :: RollbackConfiguration
-</span><a href="#local-6989586621679189478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-type">RollbackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189477"><span class="annot"><span class="annottext">Maybe [RollbackTrigger]
-</span><a href="#local-6989586621679189477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RollbackConfiguration
-</span><a href="#local-6989586621679189478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rollbackTriggers:RollbackConfiguration' :: Maybe [RollbackTrigger]
+</span><a href="#local-6989586621679189590"><span class="hs-identifier hs-var hs-var">rollbackTriggers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RollbackTrigger]
+</span><a href="#local-6989586621679189590"><span class="hs-identifier hs-var">rollbackTriggers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189589"><span class="annot"><span class="annottext">s :: RollbackConfiguration
+</span><a href="#local-6989586621679189589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-type">RollbackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189588"><span class="annot"><span class="annottext">Maybe [RollbackTrigger]
+</span><a href="#local-6989586621679189588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RollbackConfiguration
+</span><a href="#local-6989586621679189589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rollbackTriggers:RollbackConfiguration' :: Maybe [RollbackTrigger]
 </span><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#%24sel%3ArollbackTriggers%3ARollbackConfiguration%27"><span class="hs-identifier hs-var">rollbackTriggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RollbackTrigger]
-</span><a href="#local-6989586621679189477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RollbackTrigger] -&gt; f (Maybe [RollbackTrigger]))
+</span><a href="#local-6989586621679189588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RollbackTrigger] -&gt; f (Maybe [RollbackTrigger]))
  -&gt; RollbackConfiguration -&gt; f RollbackConfiguration)
 -&gt; ((Maybe [RollbackTrigger] -&gt; f (Maybe [RollbackTrigger]))
     -&gt; Maybe [RollbackTrigger] -&gt; f (Maybe [RollbackTrigger]))
@@ -206,44 +183,67 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [RollbackTrigger]
   [RollbackTrigger]
   [RollbackTrigger]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189470"><span id="local-6989586621679189472"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span></span></span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189467"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span></span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189459"><span id="local-6989586621679189461"><span id="local-6989586621679189463"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679189457"><span class="annot"><span class="annottext">toJSON :: RollbackConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-type">RollbackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189454"><span id="local-6989586621679189455"><span class="annot"><span class="annottext">Maybe Int
-Maybe [RollbackTrigger]
-rollbackTriggers :: Maybe [RollbackTrigger]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | This property corresponds to the content of the same name for the /AWS</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- CloudFormation</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration RollbackConfiguration&gt;/</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Data Type.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#rollbackConfiguration_monitoringTimeInMinutes"><span class="hs-identifier hs-type">rollbackConfiguration_monitoringTimeInMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="rollbackConfiguration_monitoringTimeInMinutes"><span class="annot"><span class="annottext">rollbackConfiguration_monitoringTimeInMinutes :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; RollbackConfiguration -&gt; f RollbackConfiguration
+</span><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#rollbackConfiguration_monitoringTimeInMinutes"><span class="hs-identifier hs-var hs-var">rollbackConfiguration_monitoringTimeInMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RollbackConfiguration -&gt; Maybe Int)
+-&gt; (RollbackConfiguration -&gt; Maybe Int -&gt; RollbackConfiguration)
+-&gt; Lens
+     RollbackConfiguration RollbackConfiguration (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-type">RollbackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189583"><span class="annot"><span class="annottext">Maybe Int
 monitoringTimeInMinutes :: Maybe Int
-$sel:rollbackTriggers:RollbackConfiguration' :: RollbackConfiguration -&gt; Maybe [RollbackTrigger]
 $sel:monitoringTimeInMinutes:RollbackConfiguration' :: RollbackConfiguration -&gt; Maybe Int
-</span><a href="#local-6989586621679189454"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679189583"><span class="hs-identifier hs-var hs-var">monitoringTimeInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679189583"><span class="hs-identifier hs-var">monitoringTimeInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189582"><span class="annot"><span class="annottext">s :: RollbackConfiguration
+</span><a href="#local-6989586621679189582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-type">RollbackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189581"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679189581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RollbackConfiguration
+</span><a href="#local-6989586621679189582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringTimeInMinutes:RollbackConfiguration' :: Maybe Int
+</span><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#%24sel%3AmonitoringTimeInMinutes%3ARollbackConfiguration%27"><span class="hs-identifier hs-var">monitoringTimeInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679189581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189577"><span id="local-6989586621679189579"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189574"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189566"><span id="local-6989586621679189568"><span id="local-6989586621679189570"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration"><span class="hs-identifier hs-type">RollbackConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679189564"><span class="annot"><span class="annottext">toJSON :: RollbackConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration.html#RollbackConfiguration%27"><span class="hs-identifier hs-type">RollbackConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189561"><span id="local-6989586621679189562"><span class="annot"><span class="annottext">Maybe Int
+Maybe [RollbackTrigger]
+monitoringTimeInMinutes :: Maybe Int
+rollbackTriggers :: Maybe [RollbackTrigger]
+$sel:monitoringTimeInMinutes:RollbackConfiguration' :: RollbackConfiguration -&gt; Maybe Int
+$sel:rollbackTriggers:RollbackConfiguration' :: RollbackConfiguration -&gt; Maybe [RollbackTrigger]
+</span><a href="#local-6989586621679189561"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-94"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;monitoringTimeInMinutes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679189455"><span class="hs-identifier hs-var">monitoringTimeInMinutes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rollbackTriggers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [RollbackTrigger] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">([RollbackTrigger] -&gt; Pair)
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">([RollbackTrigger] -&gt; Pair)
 -&gt; Maybe [RollbackTrigger] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RollbackTrigger]
-</span><a href="#local-6989586621679189454"><span class="hs-identifier hs-var">rollbackTriggers</span></a></span><span>
+</span><a href="#local-6989586621679189562"><span class="hs-identifier hs-var">rollbackTriggers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;monitoringTimeInMinutes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679189561"><span class="hs-identifier hs-var">monitoringTimeInMinutes</span></a></span><span>
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span></pre></body></html>

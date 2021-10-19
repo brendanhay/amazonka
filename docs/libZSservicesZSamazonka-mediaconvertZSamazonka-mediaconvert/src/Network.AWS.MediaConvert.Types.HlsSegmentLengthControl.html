@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- specify with the setting Segment length (SegmentLength). This might</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- the encoder round up the segment lengths to match the next GOP boundary.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679974047"><span id="local-6989586621679974048"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsSegmentLengthControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsSegmentLengthControl.html#HlsSegmentLengthControl"><span class="hs-identifier hs-var">HlsSegmentLengthControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsSegmentLengthControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsSegmentLengthControl.html#HlsSegmentLengthControl%27"><span class="hs-identifier hs-var">HlsSegmentLengthControl'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679978672"><span id="local-6989586621679978673"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsSegmentLengthControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsSegmentLengthControl.html#HlsSegmentLengthControl"><span class="hs-identifier hs-var">HlsSegmentLengthControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsSegmentLengthControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsSegmentLengthControl.html#HlsSegmentLengthControl%27"><span class="hs-identifier hs-var">HlsSegmentLengthControl'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsSegmentLengthControl"><span class="annot"><span class="annottext">HlsSegmentLengthControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.HlsSegmentLengthControl.html#fromHlsSegmentLengthControl"><span class="hs-identifier hs-var hs-var">fromHlsSegmentLengthControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679974039"><span id="local-6989586621679974041"><span id="local-6989586621679974043"><span class="annot"><span class="annottext">Int -&gt; HlsSegmentLengthControl -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679978664"><span id="local-6989586621679978666"><span id="local-6989586621679978668"><span class="annot"><span class="annottext">Int -&gt; HlsSegmentLengthControl -&gt; ShowS
 [HlsSegmentLengthControl] -&gt; ShowS
 HlsSegmentLengthControl -&gt; String
 (Int -&gt; HlsSegmentLengthControl -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: HlsSegmentLengthControl -&gt; String
 showsPrec :: Int -&gt; HlsSegmentLengthControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; HlsSegmentLengthControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679974030"><span id="local-6989586621679974032"><span id="local-6989586621679974034"><span id="local-6989586621679974036"><span class="annot"><span class="annottext">ReadPrec [HlsSegmentLengthControl]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679978655"><span id="local-6989586621679978657"><span id="local-6989586621679978659"><span id="local-6989586621679978661"><span class="annot"><span class="annottext">ReadPrec [HlsSegmentLengthControl]
 ReadPrec HlsSegmentLengthControl
 Int -&gt; ReadS HlsSegmentLengthControl
 ReadS [HlsSegmentLengthControl]
@@ -77,7 +77,7 @@ $creadList :: ReadS [HlsSegmentLengthControl]
 readsPrec :: Int -&gt; ReadS HlsSegmentLengthControl
 $creadsPrec :: Int -&gt; ReadS HlsSegmentLengthControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679974025"><span id="local-6989586621679974027"><span class="annot"><span class="annottext">HlsSegmentLengthControl -&gt; HlsSegmentLengthControl -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679978650"><span id="local-6989586621679978652"><span class="annot"><span class="annottext">HlsSegmentLengthControl -&gt; HlsSegmentLengthControl -&gt; Bool
 (HlsSegmentLengthControl -&gt; HlsSegmentLengthControl -&gt; Bool)
 -&gt; (HlsSegmentLengthControl -&gt; HlsSegmentLengthControl -&gt; Bool)
 -&gt; Eq HlsSegmentLengthControl
@@ -87,7 +87,7 @@ $c/= :: HlsSegmentLengthControl -&gt; HlsSegmentLengthControl -&gt; Bool
 == :: HlsSegmentLengthControl -&gt; HlsSegmentLengthControl -&gt; Bool
 $c== :: HlsSegmentLengthControl -&gt; HlsSegmentLengthControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679974009"><span id="local-6989586621679974011"><span id="local-6989586621679974013"><span id="local-6989586621679974015"><span id="local-6989586621679974017"><span id="local-6989586621679974019"><span id="local-6989586621679974021"><span class="annot"><span class="annottext">Eq HlsSegmentLengthControl
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679978634"><span id="local-6989586621679978636"><span id="local-6989586621679978638"><span id="local-6989586621679978640"><span id="local-6989586621679978642"><span id="local-6989586621679978644"><span id="local-6989586621679978646"><span class="annot"><span class="annottext">Eq HlsSegmentLengthControl
 Eq HlsSegmentLengthControl
 -&gt; (HlsSegmentLengthControl -&gt; HlsSegmentLengthControl -&gt; Ordering)
 -&gt; (HlsSegmentLengthControl -&gt; HlsSegmentLengthControl -&gt; Bool)
@@ -147,7 +147,7 @@ $cfrom :: forall x. HlsSegmentLengthControl -&gt; Rep HlsSegmentLengthControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679974001"><span id="local-6989586621679974003"><span class="annot"><span class="annottext">Int -&gt; HlsSegmentLengthControl -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679978626"><span id="local-6989586621679978628"><span class="annot"><span class="annottext">Int -&gt; HlsSegmentLengthControl -&gt; Int
 HlsSegmentLengthControl -&gt; Int
 (Int -&gt; HlsSegmentLengthControl -&gt; Int)
 -&gt; (HlsSegmentLengthControl -&gt; Int)
@@ -158,54 +158,54 @@ $chash :: HlsSegmentLengthControl -&gt; Int
 hashWithSalt :: Int -&gt; HlsSegmentLengthControl -&gt; Int
 $chashWithSalt :: Int -&gt; HlsSegmentLengthControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679973998"><span class="annot"><span class="annottext">HlsSegmentLengthControl -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679978623"><span class="annot"><span class="annottext">HlsSegmentLengthControl -&gt; ()
 (HlsSegmentLengthControl -&gt; ()) -&gt; NFData HlsSegmentLengthControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HlsSegmentLengthControl -&gt; ()
 $crnf :: HlsSegmentLengthControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679973995"><span class="annot"><span class="annottext">Text -&gt; Either String HlsSegmentLengthControl
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679978620"><span class="annot"><span class="annottext">Text -&gt; Either String HlsSegmentLengthControl
 (Text -&gt; Either String HlsSegmentLengthControl)
 -&gt; FromText HlsSegmentLengthControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HlsSegmentLengthControl
 $cfromText :: Text -&gt; Either String HlsSegmentLengthControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679973992"><span class="annot"><span class="annottext">HlsSegmentLengthControl -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679978617"><span class="annot"><span class="annottext">HlsSegmentLengthControl -&gt; Text
 (HlsSegmentLengthControl -&gt; Text) -&gt; ToText HlsSegmentLengthControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HlsSegmentLengthControl -&gt; Text
 $ctoText :: HlsSegmentLengthControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679973989"><span class="annot"><span class="annottext">HlsSegmentLengthControl -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679978614"><span class="annot"><span class="annottext">HlsSegmentLengthControl -&gt; ByteString
 (HlsSegmentLengthControl -&gt; ByteString)
 -&gt; ToByteString HlsSegmentLengthControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HlsSegmentLengthControl -&gt; ByteString
 $ctoBS :: HlsSegmentLengthControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679973986"><span class="annot"><span class="annottext">HlsSegmentLengthControl -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679978611"><span class="annot"><span class="annottext">HlsSegmentLengthControl -&gt; ByteStringBuilder
 (HlsSegmentLengthControl -&gt; ByteStringBuilder)
 -&gt; ToLog HlsSegmentLengthControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HlsSegmentLengthControl -&gt; ByteStringBuilder
 $cbuild :: HlsSegmentLengthControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679973983"><span class="annot"><span class="annottext">HeaderName -&gt; HlsSegmentLengthControl -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679978608"><span class="annot"><span class="annottext">HeaderName -&gt; HlsSegmentLengthControl -&gt; [Header]
 (HeaderName -&gt; HlsSegmentLengthControl -&gt; [Header])
 -&gt; ToHeader HlsSegmentLengthControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HlsSegmentLengthControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HlsSegmentLengthControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679973980"><span class="annot"><span class="annottext">HlsSegmentLengthControl -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679978605"><span class="annot"><span class="annottext">HlsSegmentLengthControl -&gt; QueryString
 (HlsSegmentLengthControl -&gt; QueryString)
 -&gt; ToQuery HlsSegmentLengthControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HlsSegmentLengthControl -&gt; QueryString
 $ctoQuery :: HlsSegmentLengthControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679973975"><span id="local-6989586621679973977"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsSegmentLengthControl]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679978600"><span id="local-6989586621679978602"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsSegmentLengthControl]
 Value -&gt; Parser HlsSegmentLengthControl
 (Value -&gt; Parser HlsSegmentLengthControl)
 -&gt; (Value -&gt; Parser [HlsSegmentLengthControl])
@@ -217,7 +217,7 @@ $cparseJSONList :: Value -&gt; Parser [HlsSegmentLengthControl]
 parseJSON :: Value -&gt; Parser HlsSegmentLengthControl
 $cparseJSON :: Value -&gt; Parser HlsSegmentLengthControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679973970"><span id="local-6989586621679973972"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsSegmentLengthControl]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679978595"><span id="local-6989586621679978597"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsSegmentLengthControl]
 FromJSONKeyFunction HlsSegmentLengthControl
 FromJSONKeyFunction HlsSegmentLengthControl
 -&gt; FromJSONKeyFunction [HlsSegmentLengthControl]
@@ -229,7 +229,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HlsSegmentLengthControl]
 fromJSONKey :: FromJSONKeyFunction HlsSegmentLengthControl
 $cfromJSONKey :: FromJSONKeyFunction HlsSegmentLengthControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679973961"><span id="local-6989586621679973963"><span id="local-6989586621679973965"><span id="local-6989586621679973967"><span class="annot"><span class="annottext">[HlsSegmentLengthControl] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679978586"><span id="local-6989586621679978588"><span id="local-6989586621679978590"><span id="local-6989586621679978592"><span class="annot"><span class="annottext">[HlsSegmentLengthControl] -&gt; Encoding
 [HlsSegmentLengthControl] -&gt; Value
 HlsSegmentLengthControl -&gt; Encoding
 HlsSegmentLengthControl -&gt; Value
@@ -253,7 +253,7 @@ $ctoEncoding :: HlsSegmentLengthControl -&gt; Encoding
 toJSON :: HlsSegmentLengthControl -&gt; Value
 $ctoJSON :: HlsSegmentLengthControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679973956"><span id="local-6989586621679973958"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsSegmentLengthControl]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679978581"><span id="local-6989586621679978583"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsSegmentLengthControl]
 ToJSONKeyFunction HlsSegmentLengthControl
 ToJSONKeyFunction HlsSegmentLengthControl
 -&gt; ToJSONKeyFunction [HlsSegmentLengthControl]
@@ -265,14 +265,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HlsSegmentLengthControl]
 toJSONKey :: ToJSONKeyFunction HlsSegmentLengthControl
 $ctoJSONKey :: ToJSONKeyFunction HlsSegmentLengthControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679973953"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsSegmentLengthControl
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679978578"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsSegmentLengthControl
 ([Node] -&gt; Either String HlsSegmentLengthControl)
 -&gt; FromXML HlsSegmentLengthControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HlsSegmentLengthControl
 $cparseXML :: [Node] -&gt; Either String HlsSegmentLengthControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679973950"><span class="annot"><span class="annottext">HlsSegmentLengthControl -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679978575"><span class="annot"><span class="annottext">HlsSegmentLengthControl -&gt; XML
 (HlsSegmentLengthControl -&gt; XML) -&gt; ToXML HlsSegmentLengthControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HlsSegmentLengthControl -&gt; XML

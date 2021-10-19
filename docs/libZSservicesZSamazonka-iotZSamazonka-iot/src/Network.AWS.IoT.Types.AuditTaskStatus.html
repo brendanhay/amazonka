@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679775647"><span id="local-6989586621679775648"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuditTaskStatus"><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus"><span class="hs-identifier hs-var">AuditTaskStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuditTaskStatus%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus%27"><span class="hs-identifier hs-var">AuditTaskStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679776491"><span id="local-6989586621679776492"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuditTaskStatus"><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus"><span class="hs-identifier hs-var">AuditTaskStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuditTaskStatus%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus%27"><span class="hs-identifier hs-var">AuditTaskStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuditTaskStatus"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; Text
 </span><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#fromAuditTaskStatus"><span class="hs-identifier hs-var hs-var">fromAuditTaskStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679775639"><span id="local-6989586621679775641"><span id="local-6989586621679775643"><span class="annot"><span class="annottext">Int -&gt; AuditTaskStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679776483"><span id="local-6989586621679776485"><span id="local-6989586621679776487"><span class="annot"><span class="annottext">Int -&gt; AuditTaskStatus -&gt; ShowS
 [AuditTaskStatus] -&gt; ShowS
 AuditTaskStatus -&gt; String
 (Int -&gt; AuditTaskStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: AuditTaskStatus -&gt; String
 showsPrec :: Int -&gt; AuditTaskStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; AuditTaskStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679775630"><span id="local-6989586621679775632"><span id="local-6989586621679775634"><span id="local-6989586621679775636"><span class="annot"><span class="annottext">ReadPrec [AuditTaskStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679776474"><span id="local-6989586621679776476"><span id="local-6989586621679776478"><span id="local-6989586621679776480"><span class="annot"><span class="annottext">ReadPrec [AuditTaskStatus]
 ReadPrec AuditTaskStatus
 Int -&gt; ReadS AuditTaskStatus
 ReadS [AuditTaskStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [AuditTaskStatus]
 readsPrec :: Int -&gt; ReadS AuditTaskStatus
 $creadsPrec :: Int -&gt; ReadS AuditTaskStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679775625"><span id="local-6989586621679775627"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679776469"><span id="local-6989586621679776471"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
 (AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool)
 -&gt; (AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool)
 -&gt; Eq AuditTaskStatus
@@ -84,7 +84,7 @@ $c/= :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
 == :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
 $c== :: AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679775609"><span id="local-6989586621679775611"><span id="local-6989586621679775613"><span id="local-6989586621679775615"><span id="local-6989586621679775617"><span id="local-6989586621679775619"><span id="local-6989586621679775621"><span class="annot"><span class="annottext">Eq AuditTaskStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679776453"><span id="local-6989586621679776455"><span id="local-6989586621679776457"><span id="local-6989586621679776459"><span id="local-6989586621679776461"><span id="local-6989586621679776463"><span id="local-6989586621679776465"><span class="annot"><span class="annottext">Eq AuditTaskStatus
 Eq AuditTaskStatus
 -&gt; (AuditTaskStatus -&gt; AuditTaskStatus -&gt; Ordering)
 -&gt; (AuditTaskStatus -&gt; AuditTaskStatus -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. AuditTaskStatus -&gt; Rep AuditTaskStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679775601"><span id="local-6989586621679775603"><span class="annot"><span class="annottext">Int -&gt; AuditTaskStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679776445"><span id="local-6989586621679776447"><span class="annot"><span class="annottext">Int -&gt; AuditTaskStatus -&gt; Int
 AuditTaskStatus -&gt; Int
 (Int -&gt; AuditTaskStatus -&gt; Int)
 -&gt; (AuditTaskStatus -&gt; Int) -&gt; Hashable AuditTaskStatus
@@ -145,50 +145,50 @@ $chash :: AuditTaskStatus -&gt; Int
 hashWithSalt :: Int -&gt; AuditTaskStatus -&gt; Int
 $chashWithSalt :: Int -&gt; AuditTaskStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679775598"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679776442"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; ()
 (AuditTaskStatus -&gt; ()) -&gt; NFData AuditTaskStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AuditTaskStatus -&gt; ()
 $crnf :: AuditTaskStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679775595"><span class="annot"><span class="annottext">Text -&gt; Either String AuditTaskStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679776439"><span class="annot"><span class="annottext">Text -&gt; Either String AuditTaskStatus
 (Text -&gt; Either String AuditTaskStatus) -&gt; FromText AuditTaskStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AuditTaskStatus
 $cfromText :: Text -&gt; Either String AuditTaskStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679775592"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679776436"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; Text
 (AuditTaskStatus -&gt; Text) -&gt; ToText AuditTaskStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AuditTaskStatus -&gt; Text
 $ctoText :: AuditTaskStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679775589"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679776433"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; ByteString
 (AuditTaskStatus -&gt; ByteString) -&gt; ToByteString AuditTaskStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AuditTaskStatus -&gt; ByteString
 $ctoBS :: AuditTaskStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679775586"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679776430"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; ByteStringBuilder
 (AuditTaskStatus -&gt; ByteStringBuilder) -&gt; ToLog AuditTaskStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AuditTaskStatus -&gt; ByteStringBuilder
 $cbuild :: AuditTaskStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679775583"><span class="annot"><span class="annottext">HeaderName -&gt; AuditTaskStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679776427"><span class="annot"><span class="annottext">HeaderName -&gt; AuditTaskStatus -&gt; [Header]
 (HeaderName -&gt; AuditTaskStatus -&gt; [Header])
 -&gt; ToHeader AuditTaskStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AuditTaskStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AuditTaskStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679775580"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679776424"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; QueryString
 (AuditTaskStatus -&gt; QueryString) -&gt; ToQuery AuditTaskStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AuditTaskStatus -&gt; QueryString
 $ctoQuery :: AuditTaskStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679775575"><span id="local-6989586621679775577"><span class="annot"><span class="annottext">Value -&gt; Parser [AuditTaskStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679776419"><span id="local-6989586621679776421"><span class="annot"><span class="annottext">Value -&gt; Parser [AuditTaskStatus]
 Value -&gt; Parser AuditTaskStatus
 (Value -&gt; Parser AuditTaskStatus)
 -&gt; (Value -&gt; Parser [AuditTaskStatus]) -&gt; FromJSON AuditTaskStatus
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [AuditTaskStatus]
 parseJSON :: Value -&gt; Parser AuditTaskStatus
 $cparseJSON :: Value -&gt; Parser AuditTaskStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679775570"><span id="local-6989586621679775572"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuditTaskStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679776414"><span id="local-6989586621679776416"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuditTaskStatus]
 FromJSONKeyFunction AuditTaskStatus
 FromJSONKeyFunction AuditTaskStatus
 -&gt; FromJSONKeyFunction [AuditTaskStatus]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AuditTaskStatus]
 fromJSONKey :: FromJSONKeyFunction AuditTaskStatus
 $cfromJSONKey :: FromJSONKeyFunction AuditTaskStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679775561"><span id="local-6989586621679775563"><span id="local-6989586621679775565"><span id="local-6989586621679775567"><span class="annot"><span class="annottext">[AuditTaskStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679776405"><span id="local-6989586621679776407"><span id="local-6989586621679776409"><span id="local-6989586621679776411"><span class="annot"><span class="annottext">[AuditTaskStatus] -&gt; Encoding
 [AuditTaskStatus] -&gt; Value
 AuditTaskStatus -&gt; Encoding
 AuditTaskStatus -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: AuditTaskStatus -&gt; Encoding
 toJSON :: AuditTaskStatus -&gt; Value
 $ctoJSON :: AuditTaskStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679775556"><span id="local-6989586621679775558"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuditTaskStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679776400"><span id="local-6989586621679776402"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuditTaskStatus]
 ToJSONKeyFunction AuditTaskStatus
 ToJSONKeyFunction AuditTaskStatus
 -&gt; ToJSONKeyFunction [AuditTaskStatus] -&gt; ToJSONKey AuditTaskStatus
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AuditTaskStatus]
 toJSONKey :: ToJSONKeyFunction AuditTaskStatus
 $ctoJSONKey :: ToJSONKeyFunction AuditTaskStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679775553"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuditTaskStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679776397"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuditTaskStatus
 ([Node] -&gt; Either String AuditTaskStatus)
 -&gt; FromXML AuditTaskStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AuditTaskStatus
 $cparseXML :: [Node] -&gt; Either String AuditTaskStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679775550"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679776394"><span class="annot"><span class="annottext">AuditTaskStatus -&gt; XML
 (AuditTaskStatus -&gt; XML) -&gt; ToXML AuditTaskStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AuditTaskStatus -&gt; XML

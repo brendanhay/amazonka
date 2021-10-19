@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- specified values for it to be returned from an operation.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newFilter' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679295852"><span id="local-6989586621679295853"></span></span><span class="hs-keyword">data</span><span> </span><span id="Filter"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter"><span class="hs-identifier hs-var">Filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Filter%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter%27"><span class="hs-identifier hs-var">Filter'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679296054"><span id="local-6989586621679296055"></span></span><span class="hs-keyword">data</span><span> </span><span id="Filter"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter"><span class="hs-identifier hs-var">Filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Filter%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter%27"><span class="hs-identifier hs-var">Filter'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains one or more values for the filter.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalues%3AFilter%27"><span class="annot"><span class="annottext">Filter -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.ElasticSearch.Types.Filter.html#%24sel%3Avalues%3AFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aname%3AFilter%27"><span class="annot"><span class="annottext">Filter -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticSearch.Types.Filter.html#%24sel%3Aname%3AFilter%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295845"><span id="local-6989586621679295847"><span class="annot"><span class="annottext">Filter -&gt; Filter -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296047"><span id="local-6989586621679296049"><span class="annot"><span class="annottext">Filter -&gt; Filter -&gt; Bool
 (Filter -&gt; Filter -&gt; Bool)
 -&gt; (Filter -&gt; Filter -&gt; Bool) -&gt; Eq Filter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Filter -&gt; Filter -&gt; Bool
 == :: Filter -&gt; Filter -&gt; Bool
 $c== :: Filter -&gt; Filter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295836"><span id="local-6989586621679295838"><span id="local-6989586621679295840"><span id="local-6989586621679295842"><span class="annot"><span class="annottext">ReadPrec [Filter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296038"><span id="local-6989586621679296040"><span id="local-6989586621679296042"><span id="local-6989586621679296044"><span class="annot"><span class="annottext">ReadPrec [Filter]
 ReadPrec Filter
 Int -&gt; ReadS Filter
 ReadS [Filter]
@@ -65,7 +65,7 @@ readList :: ReadS [Filter]
 $creadList :: ReadS [Filter]
 readsPrec :: Int -&gt; ReadS Filter
 $creadsPrec :: Int -&gt; ReadS Filter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295829"><span id="local-6989586621679295831"><span id="local-6989586621679295833"><span class="annot"><span class="annottext">Int -&gt; Filter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296031"><span id="local-6989586621679296033"><span id="local-6989586621679296035"><span class="annot"><span class="annottext">Int -&gt; Filter -&gt; ShowS
 [Filter] -&gt; ShowS
 Filter -&gt; String
 (Int -&gt; Filter -&gt; ShowS)
@@ -124,16 +124,16 @@ forall a. Maybe a
 -&gt; Lens
      Filter Filter (Maybe (NonEmpty Text)) (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295820"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296022"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 values :: Maybe (NonEmpty Text)
 $sel:values:Filter' :: Filter -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679295820"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679295820"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295819"><span class="annot"><span class="annottext">s :: Filter
-</span><a href="#local-6989586621679295819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295818"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679295818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filter
-</span><a href="#local-6989586621679295819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:Filter' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679296022"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679296022"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296021"><span class="annot"><span class="annottext">s :: Filter
+</span><a href="#local-6989586621679296021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296020"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679296020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filter
+</span><a href="#local-6989586621679296021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:Filter' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.ElasticSearch.Types.Filter.html#%24sel%3Avalues%3AFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679295818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679296020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; Filter -&gt; f Filter)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -153,8 +153,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | Specifies the name of the filter.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#filter_name"><span class="hs-identifier hs-type">filter_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -163,30 +163,30 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (Filter -&gt; Maybe Text -&gt; Filter)
 -&gt; Lens Filter Filter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295813"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296015"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Filter' :: Filter -&gt; Maybe Text
-</span><a href="#local-6989586621679295813"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295813"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295812"><span class="annot"><span class="annottext">s :: Filter
-</span><a href="#local-6989586621679295812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295811"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filter
-</span><a href="#local-6989586621679295812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Filter' :: Maybe Text
+</span><a href="#local-6989586621679296015"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296015"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296014"><span class="annot"><span class="annottext">s :: Filter
+</span><a href="#local-6989586621679296014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296013"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filter
+</span><a href="#local-6989586621679296014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Filter' :: Maybe Text
 </span><a href="Network.AWS.ElasticSearch.Types.Filter.html#%24sel%3Aname%3AFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295807"><span id="local-6989586621679295809"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296009"><span id="local-6989586621679296011"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296006"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295796"><span id="local-6989586621679295798"><span id="local-6989586621679295800"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679295794"><span class="annot"><span class="annottext">toJSON :: Filter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295791"><span id="local-6989586621679295792"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295998"><span id="local-6989586621679296000"><span id="local-6989586621679296002"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679295996"><span class="annot"><span class="annottext">toJSON :: Filter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295993"><span id="local-6989586621679295994"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 Maybe Text
 name :: Maybe Text
 values :: Maybe (NonEmpty Text)
 $sel:name:Filter' :: Filter -&gt; Maybe Text
 $sel:values:Filter' :: Filter -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679295791"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679295993"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -198,14 +198,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679295792"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679295994"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295791"><span class="hs-identifier hs-var">name</span></a></span><span>
+</span><a href="#local-6989586621679295993"><span class="hs-identifier hs-var">name</span></a></span><span>
 </span><span id="line-77"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span></pre></body></html>

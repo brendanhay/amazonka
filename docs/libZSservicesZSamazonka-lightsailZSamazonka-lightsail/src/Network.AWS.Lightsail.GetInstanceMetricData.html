@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newGetInstanceMetricData' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679640781"><span id="local-6989586621679640782"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstanceMetricData"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-var">GetInstanceMetricData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstanceMetricData%27"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-var">GetInstanceMetricData'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679641762"><span id="local-6989586621679641763"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstanceMetricData"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-var">GetInstanceMetricData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstanceMetricData%27"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-var">GetInstanceMetricData'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the instance for which you want to get metrics data.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AinstanceName%3AGetInstanceMetricData%27"><span class="annot"><span class="annottext">GetInstanceMetricData -&gt; Text
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3AinstanceName%3AGetInstanceMetricData%27"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -208,7 +208,7 @@
 </span><span id="line-202"></span><span>    </span><span id="%24sel%3Astatistics%3AGetInstanceMetricData%27"><span class="annot"><span class="annottext">GetInstanceMetricData -&gt; [MetricStatistic]
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3Astatistics%3AGetInstanceMetricData%27"><span class="hs-identifier hs-var hs-var">statistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.MetricStatistic.html#MetricStatistic"><span class="hs-identifier hs-type">MetricStatistic</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-203"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-204"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679640769"><span id="local-6989586621679640771"><span class="annot"><span class="annottext">GetInstanceMetricData -&gt; GetInstanceMetricData -&gt; Bool
+</span><span id="line-204"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679641750"><span id="local-6989586621679641752"><span class="annot"><span class="annottext">GetInstanceMetricData -&gt; GetInstanceMetricData -&gt; Bool
 (GetInstanceMetricData -&gt; GetInstanceMetricData -&gt; Bool)
 -&gt; (GetInstanceMetricData -&gt; GetInstanceMetricData -&gt; Bool)
 -&gt; Eq GetInstanceMetricData
@@ -217,7 +217,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetInstanceMetricData -&gt; GetInstanceMetricData -&gt; Bool
 == :: GetInstanceMetricData -&gt; GetInstanceMetricData -&gt; Bool
 $c== :: GetInstanceMetricData -&gt; GetInstanceMetricData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679640760"><span id="local-6989586621679640762"><span id="local-6989586621679640764"><span id="local-6989586621679640766"><span class="annot"><span class="annottext">ReadPrec [GetInstanceMetricData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641741"><span id="local-6989586621679641743"><span id="local-6989586621679641745"><span id="local-6989586621679641747"><span class="annot"><span class="annottext">ReadPrec [GetInstanceMetricData]
 ReadPrec GetInstanceMetricData
 Int -&gt; ReadS GetInstanceMetricData
 ReadS [GetInstanceMetricData]
@@ -237,7 +237,7 @@ readList :: ReadS [GetInstanceMetricData]
 $creadList :: ReadS [GetInstanceMetricData]
 readsPrec :: Int -&gt; ReadS GetInstanceMetricData
 $creadsPrec :: Int -&gt; ReadS GetInstanceMetricData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679640753"><span id="local-6989586621679640755"><span id="local-6989586621679640757"><span class="annot"><span class="annottext">Int -&gt; GetInstanceMetricData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641734"><span id="local-6989586621679641736"><span id="local-6989586621679641738"><span class="annot"><span class="annottext">Int -&gt; GetInstanceMetricData -&gt; ShowS
 [GetInstanceMetricData] -&gt; ShowS
 GetInstanceMetricData -&gt; String
 (Int -&gt; GetInstanceMetricData -&gt; ShowS)
@@ -432,18 +432,18 @@ $cfrom :: forall x. GetInstanceMetricData -&gt; Rep GetInstanceMetricData x
 -&gt; MetricUnit
 -&gt; GetInstanceMetricData
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#newGetInstanceMetricData"><span class="hs-identifier hs-var hs-var">newGetInstanceMetricData</span></a></span></span><span>
-</span><span id="line-368"></span><span>  </span><span id="local-6989586621679640748"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679640748"><span class="hs-identifier hs-var">pInstanceName_</span></a></span></span><span>
-</span><span id="line-369"></span><span>  </span><span id="local-6989586621679640747"><span class="annot"><span class="annottext">InstanceMetricName
-</span><a href="#local-6989586621679640747"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span>
-</span><span id="line-370"></span><span>  </span><span id="local-6989586621679640746"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679640746"><span class="hs-identifier hs-var">pPeriod_</span></a></span></span><span>
-</span><span id="line-371"></span><span>  </span><span id="local-6989586621679640745"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679640745"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span>
-</span><span id="line-372"></span><span>  </span><span id="local-6989586621679640744"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679640744"><span class="hs-identifier hs-var">pEndTime_</span></a></span></span><span>
-</span><span id="line-373"></span><span>  </span><span id="local-6989586621679640743"><span class="annot"><span class="annottext">MetricUnit
-</span><a href="#local-6989586621679640743"><span class="hs-identifier hs-var">pUnit_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-368"></span><span>  </span><span id="local-6989586621679641729"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679641729"><span class="hs-identifier hs-var">pInstanceName_</span></a></span></span><span>
+</span><span id="line-369"></span><span>  </span><span id="local-6989586621679641728"><span class="annot"><span class="annottext">InstanceMetricName
+</span><a href="#local-6989586621679641728"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span>
+</span><span id="line-370"></span><span>  </span><span id="local-6989586621679641727"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679641727"><span class="hs-identifier hs-var">pPeriod_</span></a></span></span><span>
+</span><span id="line-371"></span><span>  </span><span id="local-6989586621679641726"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679641726"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span>
+</span><span id="line-372"></span><span>  </span><span id="local-6989586621679641725"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679641725"><span class="hs-identifier hs-var">pEndTime_</span></a></span></span><span>
+</span><span id="line-373"></span><span>  </span><span id="local-6989586621679641724"><span class="annot"><span class="annottext">MetricUnit
+</span><a href="#local-6989586621679641724"><span class="hs-identifier hs-var">pUnit_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-374"></span><span>    </span><span class="annot"><span class="annottext">GetInstanceMetricData' :: Text
 -&gt; InstanceMetricName
 -&gt; Natural
@@ -456,13 +456,13 @@ $cfrom :: forall x. GetInstanceMetricData -&gt; Rep GetInstanceMetricData x
 </span><span id="line-375"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceName:GetInstanceMetricData' :: Text
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3AinstanceName%3AGetInstanceMetricData%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-376"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679640748"><span class="hs-identifier hs-var">pInstanceName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679641729"><span class="hs-identifier hs-var">pInstanceName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-377"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricName:GetInstanceMetricData' :: InstanceMetricName
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3AmetricName%3AGetInstanceMetricData%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InstanceMetricName
-</span><a href="#local-6989586621679640747"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679641728"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-378"></span><span>        </span><span class="annot"><span class="annottext">$sel:period:GetInstanceMetricData' :: Natural
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3Aperiod%3AGetInstanceMetricData%27"><span class="hs-identifier hs-var">period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679640746"><span class="hs-identifier hs-var">pPeriod_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679641727"><span class="hs-identifier hs-var">pPeriod_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-379"></span><span>        </span><span class="annot"><span class="annottext">$sel:startTime:GetInstanceMetricData' :: POSIX
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3AstartTime%3AGetInstanceMetricData%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -471,7 +471,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679640745"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679641726"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-380"></span><span>        </span><span class="annot"><span class="annottext">$sel:endTime:GetInstanceMetricData' :: POSIX
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3AendTime%3AGetInstanceMetricData%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -480,10 +480,10 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679640744"><span class="hs-identifier hs-var">pEndTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679641725"><span class="hs-identifier hs-var">pEndTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-381"></span><span>        </span><span class="annot"><span class="annottext">$sel:unit:GetInstanceMetricData' :: MetricUnit
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3Aunit%3AGetInstanceMetricData%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MetricUnit
-</span><a href="#local-6989586621679640743"><span class="hs-identifier hs-var">pUnit_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679641724"><span class="hs-identifier hs-var">pUnit_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-382"></span><span>        </span><span class="annot"><span class="annottext">$sel:statistics:GetInstanceMetricData' :: [MetricStatistic]
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3Astatistics%3AGetInstanceMetricData%27"><span class="hs-identifier hs-var">statistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MetricStatistic]
 forall a. Monoid a =&gt; a
@@ -498,16 +498,16 @@ forall a. Monoid a =&gt; a
 -&gt; (GetInstanceMetricData -&gt; Text -&gt; GetInstanceMetricData)
 -&gt; Lens GetInstanceMetricData GetInstanceMetricData Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640738"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641719"><span class="annot"><span class="annottext">Text
 instanceName :: Text
 $sel:instanceName:GetInstanceMetricData' :: GetInstanceMetricData -&gt; Text
-</span><a href="#local-6989586621679640738"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679640738"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640737"><span class="annot"><span class="annottext">s :: GetInstanceMetricData
-</span><a href="#local-6989586621679640737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640736"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679640736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricData
-</span><a href="#local-6989586621679640737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:GetInstanceMetricData' :: Text
+</span><a href="#local-6989586621679641719"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679641719"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641718"><span class="annot"><span class="annottext">s :: GetInstanceMetricData
+</span><a href="#local-6989586621679641718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641717"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679641717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricData
+</span><a href="#local-6989586621679641718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:GetInstanceMetricData' :: Text
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3AinstanceName%3AGetInstanceMetricData%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679640736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679641717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-388"></span><span>
 </span><span id="line-389"></span><span class="hs-comment">-- | The metric for which you want to return information.</span><span>
 </span><span id="line-390"></span><span class="hs-comment">--</span><span>
@@ -617,16 +617,16 @@ $sel:instanceName:GetInstanceMetricData' :: GetInstanceMetricData -&gt; Text
      InstanceMetricName
      InstanceMetricName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640735"><span class="annot"><span class="annottext">InstanceMetricName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641716"><span class="annot"><span class="annottext">InstanceMetricName
 metricName :: InstanceMetricName
 $sel:metricName:GetInstanceMetricData' :: GetInstanceMetricData -&gt; InstanceMetricName
-</span><a href="#local-6989586621679640735"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceMetricName
-</span><a href="#local-6989586621679640735"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640734"><span class="annot"><span class="annottext">s :: GetInstanceMetricData
-</span><a href="#local-6989586621679640734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640733"><span class="annot"><span class="annottext">InstanceMetricName
-</span><a href="#local-6989586621679640733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricData
-</span><a href="#local-6989586621679640734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:GetInstanceMetricData' :: InstanceMetricName
+</span><a href="#local-6989586621679641716"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceMetricName
+</span><a href="#local-6989586621679641716"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641715"><span class="annot"><span class="annottext">s :: GetInstanceMetricData
+</span><a href="#local-6989586621679641715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641714"><span class="annot"><span class="annottext">InstanceMetricName
+</span><a href="#local-6989586621679641714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricData
+</span><a href="#local-6989586621679641715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:GetInstanceMetricData' :: InstanceMetricName
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3AmetricName%3AGetInstanceMetricData%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InstanceMetricName
-</span><a href="#local-6989586621679640733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679641714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-487"></span><span>
 </span><span id="line-488"></span><span class="hs-comment">-- | The granularity, in seconds, of the returned data points.</span><span>
 </span><span id="line-489"></span><span class="hs-comment">--</span><span>
@@ -641,16 +641,16 @@ $sel:metricName:GetInstanceMetricData' :: GetInstanceMetricData -&gt; InstanceMe
 -&gt; (GetInstanceMetricData -&gt; Natural -&gt; GetInstanceMetricData)
 -&gt; Lens GetInstanceMetricData GetInstanceMetricData Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640732"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641713"><span class="annot"><span class="annottext">Natural
 period :: Natural
 $sel:period:GetInstanceMetricData' :: GetInstanceMetricData -&gt; Natural
-</span><a href="#local-6989586621679640732"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679640732"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640731"><span class="annot"><span class="annottext">s :: GetInstanceMetricData
-</span><a href="#local-6989586621679640731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640730"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679640730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricData
-</span><a href="#local-6989586621679640731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:period:GetInstanceMetricData' :: Natural
+</span><a href="#local-6989586621679641713"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679641713"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641712"><span class="annot"><span class="annottext">s :: GetInstanceMetricData
+</span><a href="#local-6989586621679641712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641711"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679641711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricData
+</span><a href="#local-6989586621679641712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:period:GetInstanceMetricData' :: Natural
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3Aperiod%3AGetInstanceMetricData%27"><span class="hs-identifier hs-var">period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679640730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679641711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-496"></span><span>
 </span><span id="line-497"></span><span class="hs-comment">-- | The start time of the time period.</span><span>
 </span><span id="line-498"></span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#getInstanceMetricData_startTime"><span class="hs-identifier hs-type">getInstanceMetricData_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -660,16 +660,16 @@ $sel:period:GetInstanceMetricData' :: GetInstanceMetricData -&gt; Natural
 -&gt; (GetInstanceMetricData -&gt; POSIX -&gt; GetInstanceMetricData)
 -&gt; Lens GetInstanceMetricData GetInstanceMetricData POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640729"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641710"><span class="annot"><span class="annottext">POSIX
 startTime :: POSIX
 $sel:startTime:GetInstanceMetricData' :: GetInstanceMetricData -&gt; POSIX
-</span><a href="#local-6989586621679640729"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679640729"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640728"><span class="annot"><span class="annottext">s :: GetInstanceMetricData
-</span><a href="#local-6989586621679640728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640727"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679640727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricData
-</span><a href="#local-6989586621679640728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:GetInstanceMetricData' :: POSIX
+</span><a href="#local-6989586621679641710"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679641710"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641709"><span class="annot"><span class="annottext">s :: GetInstanceMetricData
+</span><a href="#local-6989586621679641709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641708"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679641708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricData
+</span><a href="#local-6989586621679641709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:GetInstanceMetricData' :: POSIX
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3AstartTime%3AGetInstanceMetricData%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679640727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+</span><a href="#local-6989586621679641708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
  -&gt; GetInstanceMetricData -&gt; f GetInstanceMetricData)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -688,16 +688,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (GetInstanceMetricData -&gt; POSIX -&gt; GetInstanceMetricData)
 -&gt; Lens GetInstanceMetricData GetInstanceMetricData POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640725"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641706"><span class="annot"><span class="annottext">POSIX
 endTime :: POSIX
 $sel:endTime:GetInstanceMetricData' :: GetInstanceMetricData -&gt; POSIX
-</span><a href="#local-6989586621679640725"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679640725"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640724"><span class="annot"><span class="annottext">s :: GetInstanceMetricData
-</span><a href="#local-6989586621679640724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640723"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679640723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricData
-</span><a href="#local-6989586621679640724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:GetInstanceMetricData' :: POSIX
+</span><a href="#local-6989586621679641706"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679641706"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641705"><span class="annot"><span class="annottext">s :: GetInstanceMetricData
+</span><a href="#local-6989586621679641705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641704"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679641704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricData
+</span><a href="#local-6989586621679641705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:GetInstanceMetricData' :: POSIX
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3AendTime%3AGetInstanceMetricData%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679640723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+</span><a href="#local-6989586621679641704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
  -&gt; GetInstanceMetricData -&gt; f GetInstanceMetricData)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -719,16 +719,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      GetInstanceMetricData GetInstanceMetricData MetricUnit MetricUnit
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640722"><span class="annot"><span class="annottext">MetricUnit
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641703"><span class="annot"><span class="annottext">MetricUnit
 unit :: MetricUnit
 $sel:unit:GetInstanceMetricData' :: GetInstanceMetricData -&gt; MetricUnit
-</span><a href="#local-6989586621679640722"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricUnit
-</span><a href="#local-6989586621679640722"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640721"><span class="annot"><span class="annottext">s :: GetInstanceMetricData
-</span><a href="#local-6989586621679640721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640720"><span class="annot"><span class="annottext">MetricUnit
-</span><a href="#local-6989586621679640720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricData
-</span><a href="#local-6989586621679640721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:GetInstanceMetricData' :: MetricUnit
+</span><a href="#local-6989586621679641703"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricUnit
+</span><a href="#local-6989586621679641703"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641702"><span class="annot"><span class="annottext">s :: GetInstanceMetricData
+</span><a href="#local-6989586621679641702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641701"><span class="annot"><span class="annottext">MetricUnit
+</span><a href="#local-6989586621679641701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricData
+</span><a href="#local-6989586621679641702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:GetInstanceMetricData' :: MetricUnit
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3Aunit%3AGetInstanceMetricData%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MetricUnit
-</span><a href="#local-6989586621679640720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679641701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-510"></span><span>
 </span><span id="line-511"></span><span class="hs-comment">-- | The statistic for the metric.</span><span>
 </span><span id="line-512"></span><span class="hs-comment">--</span><span>
@@ -767,16 +767,16 @@ $sel:unit:GetInstanceMetricData' :: GetInstanceMetricData -&gt; MetricUnit
      [MetricStatistic]
      [MetricStatistic]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640719"><span class="annot"><span class="annottext">[MetricStatistic]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641700"><span class="annot"><span class="annottext">[MetricStatistic]
 statistics :: [MetricStatistic]
 $sel:statistics:GetInstanceMetricData' :: GetInstanceMetricData -&gt; [MetricStatistic]
-</span><a href="#local-6989586621679640719"><span class="hs-identifier hs-var hs-var">statistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MetricStatistic]
-</span><a href="#local-6989586621679640719"><span class="hs-identifier hs-var">statistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640718"><span class="annot"><span class="annottext">s :: GetInstanceMetricData
-</span><a href="#local-6989586621679640718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640717"><span class="annot"><span class="annottext">[MetricStatistic]
-</span><a href="#local-6989586621679640717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricData
-</span><a href="#local-6989586621679640718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistics:GetInstanceMetricData' :: [MetricStatistic]
+</span><a href="#local-6989586621679641700"><span class="hs-identifier hs-var hs-var">statistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MetricStatistic]
+</span><a href="#local-6989586621679641700"><span class="hs-identifier hs-var">statistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641699"><span class="annot"><span class="annottext">s :: GetInstanceMetricData
+</span><a href="#local-6989586621679641699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641698"><span class="annot"><span class="annottext">[MetricStatistic]
+</span><a href="#local-6989586621679641698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricData
+</span><a href="#local-6989586621679641699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistics:GetInstanceMetricData' :: [MetricStatistic]
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3Astatistics%3AGetInstanceMetricData%27"><span class="hs-identifier hs-var">statistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MetricStatistic]
-</span><a href="#local-6989586621679640717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MetricStatistic] -&gt; f [MetricStatistic])
+</span><a href="#local-6989586621679641698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MetricStatistic] -&gt; f [MetricStatistic])
  -&gt; GetInstanceMetricData -&gt; f GetInstanceMetricData)
 -&gt; (([MetricStatistic] -&gt; f [MetricStatistic])
     -&gt; [MetricStatistic] -&gt; f [MetricStatistic])
@@ -786,19 +786,19 @@ $sel:statistics:GetInstanceMetricData' :: GetInstanceMetricData -&gt; [MetricSta
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([MetricStatistic] -&gt; f [MetricStatistic])
 -&gt; [MetricStatistic] -&gt; f [MetricStatistic]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-538"></span><span>
 </span><span id="line-539"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-540"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-541"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-542"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse</span></a></span><span>
-</span><span id="line-543"></span><span>  </span><span id="local-6989586621679640712"><span class="annot"><span class="annottext">request :: GetInstanceMetricData -&gt; Request GetInstanceMetricData
+</span><span id="line-543"></span><span>  </span><span id="local-6989586621679641693"><span class="annot"><span class="annottext">request :: GetInstanceMetricData -&gt; Request GetInstanceMetricData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetInstanceMetricData -&gt; Request GetInstanceMetricData
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-544"></span><span>  </span><span id="local-6989586621679640708"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-544"></span><span>  </span><span id="local-6989586621679641689"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetInstanceMetricData
 -&gt; ClientResponse ClientBody
@@ -824,10 +824,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-546"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679640705"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679640705"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679640704"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679640704"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679640703"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679640703"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-546"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679641686"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679641686"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679641685"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679641685"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679641684"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679641684"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-547"></span><span>          </span><span class="annot"><span class="annottext">Maybe InstanceMetricName
 -&gt; Maybe [MetricDatapoint] -&gt; Int -&gt; GetInstanceMetricDataResponse
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse%27"><span class="hs-identifier hs-var">GetInstanceMetricDataResponse'</span></a></span><span>
@@ -839,7 +839,7 @@ MonadResource m =&gt;
      (Maybe [MetricDatapoint] -&gt; Int -&gt; GetInstanceMetricDataResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679640703"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InstanceMetricName)
+</span><a href="#local-6989586621679641684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InstanceMetricName)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metricName&quot;</span></span><span class="hs-special">)</span><span>
@@ -850,7 +850,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetInstanceMetricDataResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679640703"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [MetricDatapoint]))
+</span><a href="#local-6989586621679641684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [MetricDatapoint]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metricData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [MetricDatapoint]))
@@ -868,15 +868,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679640705"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679641686"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-551"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-552"></span><span>
-</span><span id="line-553"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679640694"><span id="local-6989586621679640696"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span></span></span><span>
+</span><span id="line-553"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641675"><span id="local-6989586621679641677"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span></span></span><span>
 </span><span id="line-554"></span><span>
-</span><span id="line-555"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679640691"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span></span><span>
+</span><span id="line-555"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641672"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span></span><span>
 </span><span id="line-556"></span><span>
 </span><span id="line-557"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-558"></span><span>  </span><span id="local-6989586621679640687"><span class="annot"><span class="annottext">toHeaders :: GetInstanceMetricData -&gt; ResponseHeaders
+</span><span id="line-558"></span><span>  </span><span id="local-6989586621679641668"><span class="annot"><span class="annottext">toHeaders :: GetInstanceMetricData -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-559"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetInstanceMetricData -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -903,9 +903,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-569"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-570"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-571"></span><span>
-</span><span id="line-572"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679640677"><span id="local-6989586621679640679"><span id="local-6989586621679640681"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-573"></span><span>  </span><span id="local-6989586621679640675"><span class="annot"><span class="annottext">toJSON :: GetInstanceMetricData -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640667"><span id="local-6989586621679640668"><span id="local-6989586621679640669"><span id="local-6989586621679640670"><span id="local-6989586621679640671"><span id="local-6989586621679640672"><span id="local-6989586621679640673"><span class="annot"><span class="annottext">Natural
+</span><span id="line-572"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641658"><span id="local-6989586621679641660"><span id="local-6989586621679641662"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-573"></span><span>  </span><span id="local-6989586621679641656"><span class="annot"><span class="annottext">toJSON :: GetInstanceMetricData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData%27"><span class="hs-identifier hs-type">GetInstanceMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641648"><span id="local-6989586621679641649"><span id="local-6989586621679641650"><span id="local-6989586621679641651"><span id="local-6989586621679641652"><span id="local-6989586621679641653"><span id="local-6989586621679641654"><span class="annot"><span class="annottext">Natural
 [MetricStatistic]
 Text
 POSIX
@@ -925,7 +925,7 @@ $sel:startTime:GetInstanceMetricData' :: GetInstanceMetricData -&gt; POSIX
 $sel:period:GetInstanceMetricData' :: GetInstanceMetricData -&gt; Natural
 $sel:metricName:GetInstanceMetricData' :: GetInstanceMetricData -&gt; InstanceMetricName
 $sel:instanceName:GetInstanceMetricData' :: GetInstanceMetricData -&gt; Text
-</span><a href="#local-6989586621679640667"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679641648"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-574"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-575"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -937,61 +937,61 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;instanceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679640673"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679641654"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-577"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metricName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InstanceMetricName -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">InstanceMetricName
-</span><a href="#local-6989586621679640672"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679641653"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-578"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;period&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679640671"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679641652"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-579"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679640670"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679641651"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-580"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;endTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679640669"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679641650"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-581"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;unit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MetricUnit -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MetricUnit
-</span><a href="#local-6989586621679640668"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679641649"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-582"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;statistics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MetricStatistic] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[MetricStatistic]
-</span><a href="#local-6989586621679640667"><span class="hs-identifier hs-var">statistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679641648"><span class="hs-identifier hs-var">statistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-583"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-584"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-585"></span><span>
 </span><span id="line-586"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-587"></span><span>  </span><span id="local-6989586621679640661"><span class="annot"><span class="annottext">toPath :: GetInstanceMetricData -&gt; ByteString
+</span><span id="line-587"></span><span>  </span><span id="local-6989586621679641642"><span class="annot"><span class="annottext">toPath :: GetInstanceMetricData -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetInstanceMetricData -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-588"></span><span>
 </span><span id="line-589"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricData"><span class="hs-identifier hs-type">GetInstanceMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-590"></span><span>  </span><span id="local-6989586621679640657"><span class="annot"><span class="annottext">toQuery :: GetInstanceMetricData -&gt; QueryString
+</span><span id="line-590"></span><span>  </span><span id="local-6989586621679641638"><span class="annot"><span class="annottext">toQuery :: GetInstanceMetricData -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetInstanceMetricData -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -999,7 +999,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-591"></span><span>
 </span><span id="line-592"></span><span class="hs-comment">-- | /See:/ 'newGetInstanceMetricDataResponse' smart constructor.</span><span>
-</span><span id="line-593"></span><span id="local-6989586621679640654"><span id="local-6989586621679640655"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstanceMetricDataResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse"><span class="hs-identifier hs-var">GetInstanceMetricDataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstanceMetricDataResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse%27"><span class="hs-identifier hs-var">GetInstanceMetricDataResponse'</span></a></span></span><span>
+</span><span id="line-593"></span><span id="local-6989586621679641635"><span id="local-6989586621679641636"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstanceMetricDataResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse"><span class="hs-identifier hs-var">GetInstanceMetricDataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstanceMetricDataResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse%27"><span class="hs-identifier hs-var">GetInstanceMetricDataResponse'</span></a></span></span><span>
 </span><span id="line-594"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the metric returned.</span><span>
 </span><span id="line-595"></span><span>    </span><span id="%24sel%3AmetricName%3AGetInstanceMetricDataResponse%27"><span class="annot"><span class="annottext">GetInstanceMetricDataResponse -&gt; Maybe InstanceMetricName
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3AmetricName%3AGetInstanceMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceMetricName.html#InstanceMetricName"><span class="hs-identifier hs-type">InstanceMetricName</span></a></span><span class="hs-special">,</span><span>
@@ -1010,7 +1010,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-599"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetInstanceMetricDataResponse%27"><span class="annot"><span class="annottext">GetInstanceMetricDataResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3AhttpStatus%3AGetInstanceMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-600"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-601"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679640647"><span id="local-6989586621679640649"><span class="annot"><span class="annottext">GetInstanceMetricDataResponse
+</span><span id="line-601"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679641628"><span id="local-6989586621679641630"><span class="annot"><span class="annottext">GetInstanceMetricDataResponse
 -&gt; GetInstanceMetricDataResponse -&gt; Bool
 (GetInstanceMetricDataResponse
  -&gt; GetInstanceMetricDataResponse -&gt; Bool)
@@ -1026,7 +1026,7 @@ $c/= :: GetInstanceMetricDataResponse
 -&gt; GetInstanceMetricDataResponse -&gt; Bool
 $c== :: GetInstanceMetricDataResponse
 -&gt; GetInstanceMetricDataResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679640639"><span id="local-6989586621679640641"><span id="local-6989586621679640643"><span id="local-6989586621679640645"><span class="annot"><span class="annottext">ReadPrec [GetInstanceMetricDataResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641620"><span id="local-6989586621679641622"><span id="local-6989586621679641624"><span id="local-6989586621679641626"><span class="annot"><span class="annottext">ReadPrec [GetInstanceMetricDataResponse]
 ReadPrec GetInstanceMetricDataResponse
 Int -&gt; ReadS GetInstanceMetricDataResponse
 ReadS [GetInstanceMetricDataResponse]
@@ -1046,7 +1046,7 @@ readList :: ReadS [GetInstanceMetricDataResponse]
 $creadList :: ReadS [GetInstanceMetricDataResponse]
 readsPrec :: Int -&gt; ReadS GetInstanceMetricDataResponse
 $creadsPrec :: Int -&gt; ReadS GetInstanceMetricDataResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679640633"><span id="local-6989586621679640635"><span id="local-6989586621679640637"><span class="annot"><span class="annottext">Int -&gt; GetInstanceMetricDataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641614"><span id="local-6989586621679641616"><span id="local-6989586621679641618"><span class="annot"><span class="annottext">Int -&gt; GetInstanceMetricDataResponse -&gt; ShowS
 [GetInstanceMetricDataResponse] -&gt; ShowS
 GetInstanceMetricDataResponse -&gt; String
 (Int -&gt; GetInstanceMetricDataResponse -&gt; ShowS)
@@ -1102,8 +1102,8 @@ GetInstanceMetricDataResponse
 </span><span id="line-618"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-619"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse</span></a></span><span>
 </span><span id="line-620"></span><span id="newGetInstanceMetricDataResponse"><span class="annot"><span class="annottext">newGetInstanceMetricDataResponse :: Int -&gt; GetInstanceMetricDataResponse
-</span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#newGetInstanceMetricDataResponse"><span class="hs-identifier hs-var hs-var">newGetInstanceMetricDataResponse</span></a></span></span><span> </span><span id="local-6989586621679640630"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679640630"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#newGetInstanceMetricDataResponse"><span class="hs-identifier hs-var hs-var">newGetInstanceMetricDataResponse</span></a></span></span><span> </span><span id="local-6989586621679641611"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679641611"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-621"></span><span>  </span><span class="annot"><span class="annottext">GetInstanceMetricDataResponse' :: Maybe InstanceMetricName
 -&gt; Maybe [MetricDatapoint] -&gt; Int -&gt; GetInstanceMetricDataResponse
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse%27"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse'</span></a></span><span>
@@ -1118,7 +1118,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-625"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetInstanceMetricDataResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3AhttpStatus%3AGetInstanceMetricDataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679640630"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679641611"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-626"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-627"></span><span>
 </span><span id="line-628"></span><span class="hs-comment">-- | The name of the metric returned.</span><span>
@@ -1134,16 +1134,16 @@ forall a. Maybe a
      (Maybe InstanceMetricName)
      (Maybe InstanceMetricName)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse%27"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640629"><span class="annot"><span class="annottext">Maybe InstanceMetricName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse%27"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641610"><span class="annot"><span class="annottext">Maybe InstanceMetricName
 metricName :: Maybe InstanceMetricName
 $sel:metricName:GetInstanceMetricDataResponse' :: GetInstanceMetricDataResponse -&gt; Maybe InstanceMetricName
-</span><a href="#local-6989586621679640629"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceMetricName
-</span><a href="#local-6989586621679640629"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640628"><span class="annot"><span class="annottext">s :: GetInstanceMetricDataResponse
-</span><a href="#local-6989586621679640628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse%27"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640627"><span class="annot"><span class="annottext">Maybe InstanceMetricName
-</span><a href="#local-6989586621679640627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricDataResponse
-</span><a href="#local-6989586621679640628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:GetInstanceMetricDataResponse' :: Maybe InstanceMetricName
+</span><a href="#local-6989586621679641610"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceMetricName
+</span><a href="#local-6989586621679641610"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641609"><span class="annot"><span class="annottext">s :: GetInstanceMetricDataResponse
+</span><a href="#local-6989586621679641609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse%27"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641608"><span class="annot"><span class="annottext">Maybe InstanceMetricName
+</span><a href="#local-6989586621679641608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricDataResponse
+</span><a href="#local-6989586621679641609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:GetInstanceMetricDataResponse' :: Maybe InstanceMetricName
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3AmetricName%3AGetInstanceMetricDataResponse%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceMetricName
-</span><a href="#local-6989586621679640627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679641608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-631"></span><span>
 </span><span id="line-632"></span><span class="hs-comment">-- | An array of objects that describe the metric data returned.</span><span>
 </span><span id="line-633"></span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#getInstanceMetricDataResponse_metricData"><span class="hs-identifier hs-type">getInstanceMetricDataResponse_metricData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.MetricDatapoint.html#MetricDatapoint"><span class="hs-identifier hs-type">MetricDatapoint</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -1158,16 +1158,16 @@ $sel:metricName:GetInstanceMetricDataResponse' :: GetInstanceMetricDataResponse 
      (Maybe [MetricDatapoint])
      (Maybe [MetricDatapoint])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse%27"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640626"><span class="annot"><span class="annottext">Maybe [MetricDatapoint]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse%27"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641607"><span class="annot"><span class="annottext">Maybe [MetricDatapoint]
 metricData :: Maybe [MetricDatapoint]
 $sel:metricData:GetInstanceMetricDataResponse' :: GetInstanceMetricDataResponse -&gt; Maybe [MetricDatapoint]
-</span><a href="#local-6989586621679640626"><span class="hs-identifier hs-var hs-var">metricData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDatapoint]
-</span><a href="#local-6989586621679640626"><span class="hs-identifier hs-var">metricData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640625"><span class="annot"><span class="annottext">s :: GetInstanceMetricDataResponse
-</span><a href="#local-6989586621679640625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse%27"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640624"><span class="annot"><span class="annottext">Maybe [MetricDatapoint]
-</span><a href="#local-6989586621679640624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricDataResponse
-</span><a href="#local-6989586621679640625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricData:GetInstanceMetricDataResponse' :: Maybe [MetricDatapoint]
+</span><a href="#local-6989586621679641607"><span class="hs-identifier hs-var hs-var">metricData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDatapoint]
+</span><a href="#local-6989586621679641607"><span class="hs-identifier hs-var">metricData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641606"><span class="annot"><span class="annottext">s :: GetInstanceMetricDataResponse
+</span><a href="#local-6989586621679641606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse%27"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641605"><span class="annot"><span class="annottext">Maybe [MetricDatapoint]
+</span><a href="#local-6989586621679641605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricDataResponse
+</span><a href="#local-6989586621679641606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricData:GetInstanceMetricDataResponse' :: Maybe [MetricDatapoint]
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3AmetricData%3AGetInstanceMetricDataResponse%27"><span class="hs-identifier hs-var">metricData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDatapoint]
-</span><a href="#local-6989586621679640624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricDatapoint] -&gt; f (Maybe [MetricDatapoint]))
+</span><a href="#local-6989586621679641605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricDatapoint] -&gt; f (Maybe [MetricDatapoint]))
  -&gt; GetInstanceMetricDataResponse
  -&gt; f GetInstanceMetricDataResponse)
 -&gt; ((Maybe [MetricDatapoint] -&gt; f (Maybe [MetricDatapoint]))
@@ -1194,8 +1194,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [MetricDatapoint]
   [MetricDatapoint]
   [MetricDatapoint]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-635"></span><span>
 </span><span id="line-636"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-637"></span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#getInstanceMetricDataResponse_httpStatus"><span class="hs-identifier hs-type">getInstanceMetricDataResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1207,16 +1207,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      GetInstanceMetricDataResponse GetInstanceMetricDataResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse%27"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679640622"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse%27"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641603"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetInstanceMetricDataResponse' :: GetInstanceMetricDataResponse -&gt; Int
-</span><a href="#local-6989586621679640622"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679640622"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679640621"><span class="annot"><span class="annottext">s :: GetInstanceMetricDataResponse
-</span><a href="#local-6989586621679640621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse%27"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679640620"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679640620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricDataResponse
-</span><a href="#local-6989586621679640621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInstanceMetricDataResponse' :: Int
+</span><a href="#local-6989586621679641603"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679641603"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641602"><span class="annot"><span class="annottext">s :: GetInstanceMetricDataResponse
+</span><a href="#local-6989586621679641602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse%27"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641601"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679641601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstanceMetricDataResponse
+</span><a href="#local-6989586621679641602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInstanceMetricDataResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#%24sel%3AhttpStatus%3AGetInstanceMetricDataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679640620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679641601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-639"></span><span>
-</span><span id="line-640"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679640618"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse</span></a></span></span><span>
+</span><span id="line-640"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstanceMetricData.html#GetInstanceMetricDataResponse"><span class="hs-identifier hs-type">GetInstanceMetricDataResponse</span></a></span></span><span>
 </span><span id="line-641"></span></pre></body></html>

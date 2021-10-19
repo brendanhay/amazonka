@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-pollyZSamazonka-polly
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.Polly.Types.Engine
@@ -123,14 +123,14 @@ module Network.AWS.Polly.Types.Lexicon
 --   
 --   <i>See:</i> <a>newLexicon</a> smart constructor.
 data Lexicon
-Lexicon' :: Maybe Text -> Maybe (Sensitive Text) -> Lexicon
-
--- | Name of the lexicon.
-[$sel:name:Lexicon'] :: Lexicon -> Maybe Text
+Lexicon' :: Maybe (Sensitive Text) -> Maybe Text -> Lexicon
 
 -- | Lexicon content in string format. The content of a lexicon must be in
 --   PLS format.
 [$sel:content:Lexicon'] :: Lexicon -> Maybe (Sensitive Text)
+
+-- | Name of the lexicon.
+[$sel:name:Lexicon'] :: Lexicon -> Maybe Text
 
 -- | Create a value of <a>Lexicon</a> with all optional fields omitted.
 --   
@@ -140,18 +140,18 @@ Lexicon' :: Maybe Text -> Maybe (Sensitive Text) -> Lexicon
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:name:Lexicon'</a>, <a>lexicon_name</a> - Name of the lexicon.
---   
 --   <a>$sel:content:Lexicon'</a>, <a>lexicon_content</a> - Lexicon content
 --   in string format. The content of a lexicon must be in PLS format.
+--   
+--   <a>$sel:name:Lexicon'</a>, <a>lexicon_name</a> - Name of the lexicon.
 newLexicon :: Lexicon
-
--- | Name of the lexicon.
-lexicon_name :: Lens' Lexicon (Maybe Text)
 
 -- | Lexicon content in string format. The content of a lexicon must be in
 --   PLS format.
 lexicon_content :: Lens' Lexicon (Maybe Text)
+
+-- | Name of the lexicon.
+lexicon_name :: Lens' Lexicon (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.Polly.Types.Lexicon.Lexicon
 instance GHC.Show.Show Network.AWS.Polly.Types.Lexicon.Lexicon
 instance GHC.Classes.Eq Network.AWS.Polly.Types.Lexicon.Lexicon
@@ -168,28 +168,28 @@ module Network.AWS.Polly.Types.LexiconAttributes
 --   
 --   <i>See:</i> <a>newLexiconAttributes</a> smart constructor.
 data LexiconAttributes
-LexiconAttributes' :: Maybe LanguageCode -> Maybe Text -> Maybe Text -> Maybe Int -> Maybe POSIX -> Maybe Int -> LexiconAttributes
+LexiconAttributes' :: Maybe LanguageCode -> Maybe Int -> Maybe Int -> Maybe Text -> Maybe Text -> Maybe POSIX -> LexiconAttributes
 
 -- | Language code that the lexicon applies to. A lexicon with a language
 --   code such as "en" would be applied to all English languages (en-GB,
 --   en-US, en-AUS, en-WLS, and so on.
 [$sel:languageCode:LexiconAttributes'] :: LexiconAttributes -> Maybe LanguageCode
 
--- | Phonetic alphabet used in the lexicon. Valid values are <tt>ipa</tt>
---   and <tt>x-sampa</tt>.
-[$sel:alphabet:LexiconAttributes'] :: LexiconAttributes -> Maybe Text
-
--- | Amazon Resource Name (ARN) of the lexicon.
-[$sel:lexiconArn:LexiconAttributes'] :: LexiconAttributes -> Maybe Text
+-- | Total size of the lexicon, in characters.
+[$sel:size:LexiconAttributes'] :: LexiconAttributes -> Maybe Int
 
 -- | Number of lexemes in the lexicon.
 [$sel:lexemesCount:LexiconAttributes'] :: LexiconAttributes -> Maybe Int
 
+-- | Amazon Resource Name (ARN) of the lexicon.
+[$sel:lexiconArn:LexiconAttributes'] :: LexiconAttributes -> Maybe Text
+
+-- | Phonetic alphabet used in the lexicon. Valid values are <tt>ipa</tt>
+--   and <tt>x-sampa</tt>.
+[$sel:alphabet:LexiconAttributes'] :: LexiconAttributes -> Maybe Text
+
 -- | Date lexicon was last modified (a timestamp value).
 [$sel:lastModified:LexiconAttributes'] :: LexiconAttributes -> Maybe POSIX
-
--- | Total size of the lexicon, in characters.
-[$sel:size:LexiconAttributes'] :: LexiconAttributes -> Maybe Int
 
 -- | Create a value of <a>LexiconAttributes</a> with all optional fields
 --   omitted.
@@ -206,24 +206,24 @@ LexiconAttributes' :: Maybe LanguageCode -> Maybe Text -> Maybe Text -> Maybe In
 --   applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so
 --   on.
 --   
---   <a>$sel:alphabet:LexiconAttributes'</a>,
---   <a>lexiconAttributes_alphabet</a> - Phonetic alphabet used in the
---   lexicon. Valid values are <tt>ipa</tt> and <tt>x-sampa</tt>.
---   
---   <a>$sel:lexiconArn:LexiconAttributes'</a>,
---   <a>lexiconAttributes_lexiconArn</a> - Amazon Resource Name (ARN) of
---   the lexicon.
+--   <a>$sel:size:LexiconAttributes'</a>, <a>lexiconAttributes_size</a> -
+--   Total size of the lexicon, in characters.
 --   
 --   <a>$sel:lexemesCount:LexiconAttributes'</a>,
 --   <a>lexiconAttributes_lexemesCount</a> - Number of lexemes in the
 --   lexicon.
 --   
+--   <a>$sel:lexiconArn:LexiconAttributes'</a>,
+--   <a>lexiconAttributes_lexiconArn</a> - Amazon Resource Name (ARN) of
+--   the lexicon.
+--   
+--   <a>$sel:alphabet:LexiconAttributes'</a>,
+--   <a>lexiconAttributes_alphabet</a> - Phonetic alphabet used in the
+--   lexicon. Valid values are <tt>ipa</tt> and <tt>x-sampa</tt>.
+--   
 --   <a>$sel:lastModified:LexiconAttributes'</a>,
 --   <a>lexiconAttributes_lastModified</a> - Date lexicon was last modified
 --   (a timestamp value).
---   
---   <a>$sel:size:LexiconAttributes'</a>, <a>lexiconAttributes_size</a> -
---   Total size of the lexicon, in characters.
 newLexiconAttributes :: LexiconAttributes
 
 -- | Language code that the lexicon applies to. A lexicon with a language
@@ -231,21 +231,21 @@ newLexiconAttributes :: LexiconAttributes
 --   en-US, en-AUS, en-WLS, and so on.
 lexiconAttributes_languageCode :: Lens' LexiconAttributes (Maybe LanguageCode)
 
--- | Phonetic alphabet used in the lexicon. Valid values are <tt>ipa</tt>
---   and <tt>x-sampa</tt>.
-lexiconAttributes_alphabet :: Lens' LexiconAttributes (Maybe Text)
-
--- | Amazon Resource Name (ARN) of the lexicon.
-lexiconAttributes_lexiconArn :: Lens' LexiconAttributes (Maybe Text)
+-- | Total size of the lexicon, in characters.
+lexiconAttributes_size :: Lens' LexiconAttributes (Maybe Int)
 
 -- | Number of lexemes in the lexicon.
 lexiconAttributes_lexemesCount :: Lens' LexiconAttributes (Maybe Int)
 
+-- | Amazon Resource Name (ARN) of the lexicon.
+lexiconAttributes_lexiconArn :: Lens' LexiconAttributes (Maybe Text)
+
+-- | Phonetic alphabet used in the lexicon. Valid values are <tt>ipa</tt>
+--   and <tt>x-sampa</tt>.
+lexiconAttributes_alphabet :: Lens' LexiconAttributes (Maybe Text)
+
 -- | Date lexicon was last modified (a timestamp value).
 lexiconAttributes_lastModified :: Lens' LexiconAttributes (Maybe UTCTime)
-
--- | Total size of the lexicon, in characters.
-lexiconAttributes_size :: Lens' LexiconAttributes (Maybe Int)
 instance GHC.Generics.Generic Network.AWS.Polly.Types.LexiconAttributes.LexiconAttributes
 instance GHC.Show.Show Network.AWS.Polly.Types.LexiconAttributes.LexiconAttributes
 instance GHC.Read.Read Network.AWS.Polly.Types.LexiconAttributes.LexiconAttributes
@@ -261,13 +261,13 @@ module Network.AWS.Polly.Types.LexiconDescription
 --   
 --   <i>See:</i> <a>newLexiconDescription</a> smart constructor.
 data LexiconDescription
-LexiconDescription' :: Maybe Text -> Maybe LexiconAttributes -> LexiconDescription
-
--- | Name of the lexicon.
-[$sel:name:LexiconDescription'] :: LexiconDescription -> Maybe Text
+LexiconDescription' :: Maybe LexiconAttributes -> Maybe Text -> LexiconDescription
 
 -- | Provides lexicon metadata.
 [$sel:attributes:LexiconDescription'] :: LexiconDescription -> Maybe LexiconAttributes
+
+-- | Name of the lexicon.
+[$sel:name:LexiconDescription'] :: LexiconDescription -> Maybe Text
 
 -- | Create a value of <a>LexiconDescription</a> with all optional fields
 --   omitted.
@@ -278,18 +278,18 @@ LexiconDescription' :: Maybe Text -> Maybe LexiconAttributes -> LexiconDescripti
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:name:LexiconDescription'</a>, <a>lexiconDescription_name</a> -
---   Name of the lexicon.
---   
 --   <a>$sel:attributes:LexiconDescription'</a>,
 --   <a>lexiconDescription_attributes</a> - Provides lexicon metadata.
+--   
+--   <a>$sel:name:LexiconDescription'</a>, <a>lexiconDescription_name</a> -
+--   Name of the lexicon.
 newLexiconDescription :: LexiconDescription
-
--- | Name of the lexicon.
-lexiconDescription_name :: Lens' LexiconDescription (Maybe Text)
 
 -- | Provides lexicon metadata.
 lexiconDescription_attributes :: Lens' LexiconDescription (Maybe LexiconAttributes)
+
+-- | Name of the lexicon.
+lexiconDescription_name :: Lens' LexiconDescription (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.Polly.Types.LexiconDescription.LexiconDescription
 instance GHC.Show.Show Network.AWS.Polly.Types.LexiconDescription.LexiconDescription
 instance GHC.Read.Read Network.AWS.Polly.Types.LexiconDescription.LexiconDescription
@@ -509,25 +509,24 @@ module Network.AWS.Polly.Types.Voice
 --   
 --   <i>See:</i> <a>newVoice</a> smart constructor.
 data Voice
-Voice' :: Maybe LanguageCode -> Maybe VoiceId -> Maybe Text -> Maybe Gender -> Maybe [Engine] -> Maybe [LanguageCode] -> Maybe Text -> Voice
+Voice' :: Maybe LanguageCode -> Maybe Text -> Maybe Gender -> Maybe Text -> Maybe VoiceId -> Maybe [LanguageCode] -> Maybe [Engine] -> Voice
 
 -- | Language code of the voice.
 [$sel:languageCode:Voice'] :: Voice -> Maybe LanguageCode
 
--- | Amazon Polly assigned voice ID. This is the ID that you specify when
---   calling the <tt>SynthesizeSpeech</tt> operation.
-[$sel:id:Voice'] :: Voice -> Maybe VoiceId
+-- | Human readable name of the language in English.
+[$sel:languageName:Voice'] :: Voice -> Maybe Text
+
+-- | Gender of the voice.
+[$sel:gender:Voice'] :: Voice -> Maybe Gender
 
 -- | Name of the voice (for example, Salli, Kendra, etc.). This provides a
 --   human readable voice name that you might display in your application.
 [$sel:name:Voice'] :: Voice -> Maybe Text
 
--- | Gender of the voice.
-[$sel:gender:Voice'] :: Voice -> Maybe Gender
-
--- | Specifies which engines (<tt>standard</tt> or <tt>neural</tt>) that
---   are supported by a given voice.
-[$sel:supportedEngines:Voice'] :: Voice -> Maybe [Engine]
+-- | Amazon Polly assigned voice ID. This is the ID that you specify when
+--   calling the <tt>SynthesizeSpeech</tt> operation.
+[$sel:id:Voice'] :: Voice -> Maybe VoiceId
 
 -- | Additional codes for languages available for the specified voice in
 --   addition to its default language.
@@ -538,8 +537,9 @@ Voice' :: Maybe LanguageCode -> Maybe VoiceId -> Maybe Text -> Maybe Gender -> M
 --   the code <tt>hi-IN</tt>.
 [$sel:additionalLanguageCodes:Voice'] :: Voice -> Maybe [LanguageCode]
 
--- | Human readable name of the language in English.
-[$sel:languageName:Voice'] :: Voice -> Maybe Text
+-- | Specifies which engines (<tt>standard</tt> or <tt>neural</tt>) that
+--   are supported by a given voice.
+[$sel:supportedEngines:Voice'] :: Voice -> Maybe [Engine]
 
 -- | Create a value of <a>Voice</a> with all optional fields omitted.
 --   
@@ -552,19 +552,18 @@ Voice' :: Maybe LanguageCode -> Maybe VoiceId -> Maybe Text -> Maybe Gender -> M
 --   <a>$sel:languageCode:Voice'</a>, <a>voice_languageCode</a> - Language
 --   code of the voice.
 --   
---   <a>$sel:id:Voice'</a>, <a>voice_id</a> - Amazon Polly assigned voice
---   ID. This is the ID that you specify when calling the
---   <tt>SynthesizeSpeech</tt> operation.
+--   <a>$sel:languageName:Voice'</a>, <a>voice_languageName</a> - Human
+--   readable name of the language in English.
+--   
+--   <a>$sel:gender:Voice'</a>, <a>voice_gender</a> - Gender of the voice.
 --   
 --   <a>$sel:name:Voice'</a>, <a>voice_name</a> - Name of the voice (for
 --   example, Salli, Kendra, etc.). This provides a human readable voice
 --   name that you might display in your application.
 --   
---   <a>$sel:gender:Voice'</a>, <a>voice_gender</a> - Gender of the voice.
---   
---   <a>$sel:supportedEngines:Voice'</a>, <a>voice_supportedEngines</a> -
---   Specifies which engines (<tt>standard</tt> or <tt>neural</tt>) that
---   are supported by a given voice.
+--   <a>$sel:id:Voice'</a>, <a>voice_id</a> - Amazon Polly assigned voice
+--   ID. This is the ID that you specify when calling the
+--   <tt>SynthesizeSpeech</tt> operation.
 --   
 --   <a>$sel:additionalLanguageCodes:Voice'</a>,
 --   <a>voice_additionalLanguageCodes</a> - Additional codes for languages
@@ -575,27 +574,27 @@ Voice' :: Maybe LanguageCode -> Maybe VoiceId -> Maybe Text -> Maybe Gender -> M
 --   and fluent in both Indian English and Hindi, this parameter would show
 --   the code <tt>hi-IN</tt>.
 --   
---   <a>$sel:languageName:Voice'</a>, <a>voice_languageName</a> - Human
---   readable name of the language in English.
+--   <a>$sel:supportedEngines:Voice'</a>, <a>voice_supportedEngines</a> -
+--   Specifies which engines (<tt>standard</tt> or <tt>neural</tt>) that
+--   are supported by a given voice.
 newVoice :: Voice
 
 -- | Language code of the voice.
 voice_languageCode :: Lens' Voice (Maybe LanguageCode)
 
--- | Amazon Polly assigned voice ID. This is the ID that you specify when
---   calling the <tt>SynthesizeSpeech</tt> operation.
-voice_id :: Lens' Voice (Maybe VoiceId)
+-- | Human readable name of the language in English.
+voice_languageName :: Lens' Voice (Maybe Text)
+
+-- | Gender of the voice.
+voice_gender :: Lens' Voice (Maybe Gender)
 
 -- | Name of the voice (for example, Salli, Kendra, etc.). This provides a
 --   human readable voice name that you might display in your application.
 voice_name :: Lens' Voice (Maybe Text)
 
--- | Gender of the voice.
-voice_gender :: Lens' Voice (Maybe Gender)
-
--- | Specifies which engines (<tt>standard</tt> or <tt>neural</tt>) that
---   are supported by a given voice.
-voice_supportedEngines :: Lens' Voice (Maybe [Engine])
+-- | Amazon Polly assigned voice ID. This is the ID that you specify when
+--   calling the <tt>SynthesizeSpeech</tt> operation.
+voice_id :: Lens' Voice (Maybe VoiceId)
 
 -- | Additional codes for languages available for the specified voice in
 --   addition to its default language.
@@ -606,8 +605,9 @@ voice_supportedEngines :: Lens' Voice (Maybe [Engine])
 --   the code <tt>hi-IN</tt>.
 voice_additionalLanguageCodes :: Lens' Voice (Maybe [LanguageCode])
 
--- | Human readable name of the language in English.
-voice_languageName :: Lens' Voice (Maybe Text)
+-- | Specifies which engines (<tt>standard</tt> or <tt>neural</tt>) that
+--   are supported by a given voice.
+voice_supportedEngines :: Lens' Voice (Maybe [Engine])
 instance GHC.Generics.Generic Network.AWS.Polly.Types.Voice.Voice
 instance GHC.Show.Show Network.AWS.Polly.Types.Voice.Voice
 instance GHC.Read.Read Network.AWS.Polly.Types.Voice.Voice
@@ -624,7 +624,10 @@ module Network.AWS.Polly.Types.SynthesisTask
 --   
 --   <i>See:</i> <a>newSynthesisTask</a> smart constructor.
 data SynthesisTask
-SynthesisTask' :: Maybe LanguageCode -> Maybe POSIX -> Maybe Text -> Maybe [Text] -> Maybe [SpeechMarkType] -> Maybe VoiceId -> Maybe Text -> Maybe TextType -> Maybe OutputFormat -> Maybe Text -> Maybe TaskStatus -> Maybe Engine -> Maybe Int -> Maybe Text -> Maybe Text -> SynthesisTask
+SynthesisTask' :: Maybe POSIX -> Maybe LanguageCode -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Int -> Maybe Engine -> Maybe [SpeechMarkType] -> Maybe Text -> Maybe OutputFormat -> Maybe TextType -> Maybe VoiceId -> Maybe [Text] -> Maybe TaskStatus -> Maybe Text -> SynthesisTask
+
+-- | Timestamp for the time the synthesis task was started.
+[$sel:creationTime:SynthesisTask'] :: SynthesisTask -> Maybe POSIX
 
 -- | Optional language code for a synthesis task. This is only necessary if
 --   using a bilingual voice, such as Aditi, which can be used for either
@@ -638,34 +641,28 @@ SynthesisTask' :: Maybe LanguageCode -> Maybe POSIX -> Maybe Text -> Maybe [Text
 --   use Indian English rather than Hindi.
 [$sel:languageCode:SynthesisTask'] :: SynthesisTask -> Maybe LanguageCode
 
--- | Timestamp for the time the synthesis task was started.
-[$sel:creationTime:SynthesisTask'] :: SynthesisTask -> Maybe POSIX
+-- | ARN for the SNS topic optionally used for providing status
+--   notification for a speech synthesis task.
+[$sel:snsTopicArn:SynthesisTask'] :: SynthesisTask -> Maybe Text
 
--- | Pathway for the output speech file.
-[$sel:outputUri:SynthesisTask'] :: SynthesisTask -> Maybe Text
-
--- | List of one or more pronunciation lexicon names you want the service
---   to apply during synthesis. Lexicons are applied only if the language
---   of the lexicon is the same as the language of the voice.
-[$sel:lexiconNames:SynthesisTask'] :: SynthesisTask -> Maybe [Text]
-
--- | The type of speech marks returned for the input text.
-[$sel:speechMarkTypes:SynthesisTask'] :: SynthesisTask -> Maybe [SpeechMarkType]
-
--- | Voice ID to use for the synthesis.
-[$sel:voiceId:SynthesisTask'] :: SynthesisTask -> Maybe VoiceId
+-- | Reason for the current status of a specific speech synthesis task,
+--   including errors if the task has failed.
+[$sel:taskStatusReason:SynthesisTask'] :: SynthesisTask -> Maybe Text
 
 -- | The Amazon Polly generated identifier for a speech synthesis task.
 [$sel:taskId:SynthesisTask'] :: SynthesisTask -> Maybe Text
 
--- | Specifies whether the input text is plain text or SSML. The default
---   value is plain text.
-[$sel:textType:SynthesisTask'] :: SynthesisTask -> Maybe TextType
+-- | Number of billable characters synthesized.
+[$sel:requestCharacters:SynthesisTask'] :: SynthesisTask -> Maybe Int
 
--- | The format in which the returned output will be encoded. For audio
---   stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
---   will be json.
-[$sel:outputFormat:SynthesisTask'] :: SynthesisTask -> Maybe OutputFormat
+-- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
+--   Polly to use when processing input text for speech synthesis. Using a
+--   voice that is not supported for the engine selected will result in an
+--   error.
+[$sel:engine:SynthesisTask'] :: SynthesisTask -> Maybe Engine
+
+-- | The type of speech marks returned for the input text.
+[$sel:speechMarkTypes:SynthesisTask'] :: SynthesisTask -> Maybe [SpeechMarkType]
 
 -- | The audio frequency specified in Hz.
 --   
@@ -677,25 +674,28 @@ SynthesisTask' :: Maybe LanguageCode -> Maybe POSIX -> Maybe Text -> Maybe [Text
 --   "16000".
 [$sel:sampleRate:SynthesisTask'] :: SynthesisTask -> Maybe Text
 
+-- | The format in which the returned output will be encoded. For audio
+--   stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
+--   will be json.
+[$sel:outputFormat:SynthesisTask'] :: SynthesisTask -> Maybe OutputFormat
+
+-- | Specifies whether the input text is plain text or SSML. The default
+--   value is plain text.
+[$sel:textType:SynthesisTask'] :: SynthesisTask -> Maybe TextType
+
+-- | Voice ID to use for the synthesis.
+[$sel:voiceId:SynthesisTask'] :: SynthesisTask -> Maybe VoiceId
+
+-- | List of one or more pronunciation lexicon names you want the service
+--   to apply during synthesis. Lexicons are applied only if the language
+--   of the lexicon is the same as the language of the voice.
+[$sel:lexiconNames:SynthesisTask'] :: SynthesisTask -> Maybe [Text]
+
 -- | Current status of the individual speech synthesis task.
 [$sel:taskStatus:SynthesisTask'] :: SynthesisTask -> Maybe TaskStatus
 
--- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
---   Polly to use when processing input text for speech synthesis. Using a
---   voice that is not supported for the engine selected will result in an
---   error.
-[$sel:engine:SynthesisTask'] :: SynthesisTask -> Maybe Engine
-
--- | Number of billable characters synthesized.
-[$sel:requestCharacters:SynthesisTask'] :: SynthesisTask -> Maybe Int
-
--- | Reason for the current status of a specific speech synthesis task,
---   including errors if the task has failed.
-[$sel:taskStatusReason:SynthesisTask'] :: SynthesisTask -> Maybe Text
-
--- | ARN for the SNS topic optionally used for providing status
---   notification for a speech synthesis task.
-[$sel:snsTopicArn:SynthesisTask'] :: SynthesisTask -> Maybe Text
+-- | Pathway for the output speech file.
+[$sel:outputUri:SynthesisTask'] :: SynthesisTask -> Maybe Text
 
 -- | Create a value of <a>SynthesisTask</a> with all optional fields
 --   omitted.
@@ -705,6 +705,10 @@ SynthesisTask' :: Maybe LanguageCode -> Maybe POSIX -> Maybe Text -> Maybe [Text
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:creationTime:SynthesisTask'</a>,
+--   <a>synthesisTask_creationTime</a> - Timestamp for the time the
+--   synthesis task was started.
 --   
 --   <a>$sel:languageCode:SynthesisTask'</a>,
 --   <a>synthesisTask_languageCode</a> - Optional language code for a
@@ -719,37 +723,31 @@ SynthesisTask' :: Maybe LanguageCode -> Maybe POSIX -> Maybe Text -> Maybe [Text
 --   parameter. For example, if no language code is specified, Aditi will
 --   use Indian English rather than Hindi.
 --   
---   <a>$sel:creationTime:SynthesisTask'</a>,
---   <a>synthesisTask_creationTime</a> - Timestamp for the time the
---   synthesis task was started.
+--   <a>$sel:snsTopicArn:SynthesisTask'</a>,
+--   <a>synthesisTask_snsTopicArn</a> - ARN for the SNS topic optionally
+--   used for providing status notification for a speech synthesis task.
 --   
---   <a>$sel:outputUri:SynthesisTask'</a>, <a>synthesisTask_outputUri</a> -
---   Pathway for the output speech file.
---   
---   <a>$sel:lexiconNames:SynthesisTask'</a>,
---   <a>synthesisTask_lexiconNames</a> - List of one or more pronunciation
---   lexicon names you want the service to apply during synthesis. Lexicons
---   are applied only if the language of the lexicon is the same as the
---   language of the voice.
---   
---   <a>$sel:speechMarkTypes:SynthesisTask'</a>,
---   <a>synthesisTask_speechMarkTypes</a> - The type of speech marks
---   returned for the input text.
---   
---   <a>$sel:voiceId:SynthesisTask'</a>, <a>synthesisTask_voiceId</a> -
---   Voice ID to use for the synthesis.
+--   <a>$sel:taskStatusReason:SynthesisTask'</a>,
+--   <a>synthesisTask_taskStatusReason</a> - Reason for the current status
+--   of a specific speech synthesis task, including errors if the task has
+--   failed.
 --   
 --   <a>$sel:taskId:SynthesisTask'</a>, <a>synthesisTask_taskId</a> - The
 --   Amazon Polly generated identifier for a speech synthesis task.
 --   
---   <a>$sel:textType:SynthesisTask'</a>, <a>synthesisTask_textType</a> -
---   Specifies whether the input text is plain text or SSML. The default
---   value is plain text.
+--   <a>$sel:requestCharacters:SynthesisTask'</a>,
+--   <a>synthesisTask_requestCharacters</a> - Number of billable characters
+--   synthesized.
 --   
---   <a>$sel:outputFormat:SynthesisTask'</a>,
---   <a>synthesisTask_outputFormat</a> - The format in which the returned
---   output will be encoded. For audio stream, this will be mp3,
---   ogg_vorbis, or pcm. For speech marks, this will be json.
+--   <a>$sel:engine:SynthesisTask'</a>, <a>synthesisTask_engine</a> -
+--   Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
+--   Polly to use when processing input text for speech synthesis. Using a
+--   voice that is not supported for the engine selected will result in an
+--   error.
+--   
+--   <a>$sel:speechMarkTypes:SynthesisTask'</a>,
+--   <a>synthesisTask_speechMarkTypes</a> - The type of speech marks
+--   returned for the input text.
 --   
 --   <a>$sel:sampleRate:SynthesisTask'</a>, <a>synthesisTask_sampleRate</a>
 --   - The audio frequency specified in Hz.
@@ -761,28 +759,33 @@ SynthesisTask' :: Maybe LanguageCode -> Maybe POSIX -> Maybe Text -> Maybe [Text
 --   Valid values for pcm are "8000" and "16000" The default value is
 --   "16000".
 --   
+--   <a>$sel:outputFormat:SynthesisTask'</a>,
+--   <a>synthesisTask_outputFormat</a> - The format in which the returned
+--   output will be encoded. For audio stream, this will be mp3,
+--   ogg_vorbis, or pcm. For speech marks, this will be json.
+--   
+--   <a>$sel:textType:SynthesisTask'</a>, <a>synthesisTask_textType</a> -
+--   Specifies whether the input text is plain text or SSML. The default
+--   value is plain text.
+--   
+--   <a>$sel:voiceId:SynthesisTask'</a>, <a>synthesisTask_voiceId</a> -
+--   Voice ID to use for the synthesis.
+--   
+--   <a>$sel:lexiconNames:SynthesisTask'</a>,
+--   <a>synthesisTask_lexiconNames</a> - List of one or more pronunciation
+--   lexicon names you want the service to apply during synthesis. Lexicons
+--   are applied only if the language of the lexicon is the same as the
+--   language of the voice.
+--   
 --   <a>$sel:taskStatus:SynthesisTask'</a>, <a>synthesisTask_taskStatus</a>
 --   - Current status of the individual speech synthesis task.
 --   
---   <a>$sel:engine:SynthesisTask'</a>, <a>synthesisTask_engine</a> -
---   Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
---   Polly to use when processing input text for speech synthesis. Using a
---   voice that is not supported for the engine selected will result in an
---   error.
---   
---   <a>$sel:requestCharacters:SynthesisTask'</a>,
---   <a>synthesisTask_requestCharacters</a> - Number of billable characters
---   synthesized.
---   
---   <a>$sel:taskStatusReason:SynthesisTask'</a>,
---   <a>synthesisTask_taskStatusReason</a> - Reason for the current status
---   of a specific speech synthesis task, including errors if the task has
---   failed.
---   
---   <a>$sel:snsTopicArn:SynthesisTask'</a>,
---   <a>synthesisTask_snsTopicArn</a> - ARN for the SNS topic optionally
---   used for providing status notification for a speech synthesis task.
+--   <a>$sel:outputUri:SynthesisTask'</a>, <a>synthesisTask_outputUri</a> -
+--   Pathway for the output speech file.
 newSynthesisTask :: SynthesisTask
+
+-- | Timestamp for the time the synthesis task was started.
+synthesisTask_creationTime :: Lens' SynthesisTask (Maybe UTCTime)
 
 -- | Optional language code for a synthesis task. This is only necessary if
 --   using a bilingual voice, such as Aditi, which can be used for either
@@ -796,34 +799,28 @@ newSynthesisTask :: SynthesisTask
 --   use Indian English rather than Hindi.
 synthesisTask_languageCode :: Lens' SynthesisTask (Maybe LanguageCode)
 
--- | Timestamp for the time the synthesis task was started.
-synthesisTask_creationTime :: Lens' SynthesisTask (Maybe UTCTime)
+-- | ARN for the SNS topic optionally used for providing status
+--   notification for a speech synthesis task.
+synthesisTask_snsTopicArn :: Lens' SynthesisTask (Maybe Text)
 
--- | Pathway for the output speech file.
-synthesisTask_outputUri :: Lens' SynthesisTask (Maybe Text)
-
--- | List of one or more pronunciation lexicon names you want the service
---   to apply during synthesis. Lexicons are applied only if the language
---   of the lexicon is the same as the language of the voice.
-synthesisTask_lexiconNames :: Lens' SynthesisTask (Maybe [Text])
-
--- | The type of speech marks returned for the input text.
-synthesisTask_speechMarkTypes :: Lens' SynthesisTask (Maybe [SpeechMarkType])
-
--- | Voice ID to use for the synthesis.
-synthesisTask_voiceId :: Lens' SynthesisTask (Maybe VoiceId)
+-- | Reason for the current status of a specific speech synthesis task,
+--   including errors if the task has failed.
+synthesisTask_taskStatusReason :: Lens' SynthesisTask (Maybe Text)
 
 -- | The Amazon Polly generated identifier for a speech synthesis task.
 synthesisTask_taskId :: Lens' SynthesisTask (Maybe Text)
 
--- | Specifies whether the input text is plain text or SSML. The default
---   value is plain text.
-synthesisTask_textType :: Lens' SynthesisTask (Maybe TextType)
+-- | Number of billable characters synthesized.
+synthesisTask_requestCharacters :: Lens' SynthesisTask (Maybe Int)
 
--- | The format in which the returned output will be encoded. For audio
---   stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
---   will be json.
-synthesisTask_outputFormat :: Lens' SynthesisTask (Maybe OutputFormat)
+-- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
+--   Polly to use when processing input text for speech synthesis. Using a
+--   voice that is not supported for the engine selected will result in an
+--   error.
+synthesisTask_engine :: Lens' SynthesisTask (Maybe Engine)
+
+-- | The type of speech marks returned for the input text.
+synthesisTask_speechMarkTypes :: Lens' SynthesisTask (Maybe [SpeechMarkType])
 
 -- | The audio frequency specified in Hz.
 --   
@@ -835,25 +832,28 @@ synthesisTask_outputFormat :: Lens' SynthesisTask (Maybe OutputFormat)
 --   "16000".
 synthesisTask_sampleRate :: Lens' SynthesisTask (Maybe Text)
 
+-- | The format in which the returned output will be encoded. For audio
+--   stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
+--   will be json.
+synthesisTask_outputFormat :: Lens' SynthesisTask (Maybe OutputFormat)
+
+-- | Specifies whether the input text is plain text or SSML. The default
+--   value is plain text.
+synthesisTask_textType :: Lens' SynthesisTask (Maybe TextType)
+
+-- | Voice ID to use for the synthesis.
+synthesisTask_voiceId :: Lens' SynthesisTask (Maybe VoiceId)
+
+-- | List of one or more pronunciation lexicon names you want the service
+--   to apply during synthesis. Lexicons are applied only if the language
+--   of the lexicon is the same as the language of the voice.
+synthesisTask_lexiconNames :: Lens' SynthesisTask (Maybe [Text])
+
 -- | Current status of the individual speech synthesis task.
 synthesisTask_taskStatus :: Lens' SynthesisTask (Maybe TaskStatus)
 
--- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
---   Polly to use when processing input text for speech synthesis. Using a
---   voice that is not supported for the engine selected will result in an
---   error.
-synthesisTask_engine :: Lens' SynthesisTask (Maybe Engine)
-
--- | Number of billable characters synthesized.
-synthesisTask_requestCharacters :: Lens' SynthesisTask (Maybe Int)
-
--- | Reason for the current status of a specific speech synthesis task,
---   including errors if the task has failed.
-synthesisTask_taskStatusReason :: Lens' SynthesisTask (Maybe Text)
-
--- | ARN for the SNS topic optionally used for providing status
---   notification for a speech synthesis task.
-synthesisTask_snsTopicArn :: Lens' SynthesisTask (Maybe Text)
+-- | Pathway for the output speech file.
+synthesisTask_outputUri :: Lens' SynthesisTask (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.Polly.Types.SynthesisTask.SynthesisTask
 instance GHC.Show.Show Network.AWS.Polly.Types.SynthesisTask.SynthesisTask
 instance GHC.Read.Read Network.AWS.Polly.Types.SynthesisTask.SynthesisTask
@@ -868,28 +868,28 @@ module Network.AWS.Polly.Types
 -- | API version <tt>2016-06-10</tt> of the Amazon Polly SDK configuration.
 defaultService :: Service
 
+-- | The provided SNS topic ARN is invalid. Please provide a valid SNS
+--   topic ARN and try again.
+_InvalidSnsTopicArnException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The language specified in the lexicon is unsupported. For a list of
+--   supported languages, see <a>Lexicon Attributes</a>.
+_UnsupportedPlsLanguageException :: AsError a => Getting (First ServiceError) a ServiceError
+
 -- | The SSML you provided is invalid. Verify the SSML syntax, spelling of
 --   tags and values, and then try again.
 _InvalidSsmlException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Amazon Polly can't find the specified lexicon. Verify that the
---   lexicon's name is spelled correctly, and then try again.
-_InvalidLexiconException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The specified sample rate is not valid.
+_InvalidSampleRateException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The provided Amazon S3 key prefix is invalid. Please provide a valid
---   S3 object key name.
-_InvalidS3KeyException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | This engine is not compatible with the voice that you have designated.
+--   Choose a new voice that is compatible with the engine or change the
+--   engine and restart the operation.
+_EngineNotSupportedException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Amazon Polly can't find the specified lexicon. This could be caused by
---   a lexicon that is missing, its name is misspelled or specifying a
---   lexicon that is in a different region.
---   
---   Verify that the lexicon exists, is in the region (see ListLexicons)
---   and that you spelled its name is spelled correctly. Then try again.
-_LexiconNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The maximum size of the lexeme would be exceeded by this operation.
-_MaxLexemeLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The maximum number of lexicons would be exceeded by this operation.
+_MaxLexiconsNumberExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The value of the "Text" parameter is longer than the accepted limits.
 --   For the <tt>SynthesizeSpeech</tt> API, the limit for input text is a
@@ -899,21 +899,19 @@ _MaxLexemeLengthExceededException :: AsError a => Getting (First ServiceError) a
 --   billed characters. SSML tags are not counted as billed characters.
 _TextLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The Speech Synthesis task with requested Task ID cannot be found.
-_SynthesisTaskNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The maximum size of the lexeme would be exceeded by this operation.
+_MaxLexemeLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The specified sample rate is not valid.
-_InvalidSampleRateException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The provided Task ID is not valid. Please provide a valid Task ID and
+--   try again.
+_InvalidTaskIdException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Amazon Polly can't find the specified lexicon. Verify that the
+--   lexicon's name is spelled correctly, and then try again.
+_InvalidLexiconException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | An unknown condition has caused a service failure.
 _ServiceFailureException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Speech marks are not supported for the <tt>OutputFormat</tt> selected.
---   Speech marks are only available for content in <tt>json</tt> format.
-_MarksNotSupportedForFormatException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The maximum number of lexicons would be exceeded by this operation.
-_MaxLexiconsNumberExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The alphabet specified by the lexicon is not a supported alphabet.
 --   Valid values are <tt>x-sampa</tt> and <tt>ipa</tt>.
@@ -923,37 +921,39 @@ _UnsupportedPlsAlphabetException :: AsError a => Getting (First ServiceError) a 
 --   try again.
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The language specified in the lexicon is unsupported. For a list of
---   supported languages, see <a>Lexicon Attributes</a>.
-_UnsupportedPlsLanguageException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Speech marks are not supported for the <tt>OutputFormat</tt> selected.
+--   Speech marks are only available for content in <tt>json</tt> format.
+_MarksNotSupportedForFormatException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The provided SNS topic ARN is invalid. Please provide a valid SNS
---   topic ARN and try again.
-_InvalidSnsTopicArnException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The Speech Synthesis task with requested Task ID cannot be found.
+_SynthesisTaskNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The provided Task ID is not valid. Please provide a valid Task ID and
---   try again.
-_InvalidTaskIdException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The language specified is not currently supported by Amazon Polly in
---   this capacity.
-_LanguageNotSupportedException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The maximum size of the specified lexicon would be exceeded by this
---   operation.
-_LexiconSizeExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | SSML speech marks are not supported for plain text-type input.
+_SsmlMarksNotSupportedForTextTypeException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The provided Amazon S3 bucket name is invalid. Please check your input
 --   with S3 bucket naming requirements and try again.
 _InvalidS3BucketException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | SSML speech marks are not supported for plain text-type input.
-_SsmlMarksNotSupportedForTextTypeException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The maximum size of the specified lexicon would be exceeded by this
+--   operation.
+_LexiconSizeExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | This engine is not compatible with the voice that you have designated.
---   Choose a new voice that is compatible with the engine or change the
---   engine and restart the operation.
-_EngineNotSupportedException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The language specified is not currently supported by Amazon Polly in
+--   this capacity.
+_LanguageNotSupportedException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Amazon Polly can't find the specified lexicon. This could be caused by
+--   a lexicon that is missing, its name is misspelled or specifying a
+--   lexicon that is in a different region.
+--   
+--   Verify that the lexicon exists, is in the region (see ListLexicons)
+--   and that you spelled its name is spelled correctly. Then try again.
+_LexiconNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The provided Amazon S3 key prefix is invalid. Please provide a valid
+--   S3 object key name.
+_InvalidS3KeyException :: AsError a => Getting (First ServiceError) a ServiceError
 newtype Engine
 Engine' :: Text -> Engine
 [fromEngine] :: Engine -> Text
@@ -1099,14 +1099,14 @@ pattern VoiceId_Zhiyu :: VoiceId
 --   
 --   <i>See:</i> <a>newLexicon</a> smart constructor.
 data Lexicon
-Lexicon' :: Maybe Text -> Maybe (Sensitive Text) -> Lexicon
-
--- | Name of the lexicon.
-[$sel:name:Lexicon'] :: Lexicon -> Maybe Text
+Lexicon' :: Maybe (Sensitive Text) -> Maybe Text -> Lexicon
 
 -- | Lexicon content in string format. The content of a lexicon must be in
 --   PLS format.
 [$sel:content:Lexicon'] :: Lexicon -> Maybe (Sensitive Text)
+
+-- | Name of the lexicon.
+[$sel:name:Lexicon'] :: Lexicon -> Maybe Text
 
 -- | Create a value of <a>Lexicon</a> with all optional fields omitted.
 --   
@@ -1116,18 +1116,18 @@ Lexicon' :: Maybe Text -> Maybe (Sensitive Text) -> Lexicon
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:name:Lexicon'</a>, <a>lexicon_name</a> - Name of the lexicon.
---   
 --   <a>$sel:content:Lexicon'</a>, <a>lexicon_content</a> - Lexicon content
 --   in string format. The content of a lexicon must be in PLS format.
+--   
+--   <a>$sel:name:Lexicon'</a>, <a>lexicon_name</a> - Name of the lexicon.
 newLexicon :: Lexicon
-
--- | Name of the lexicon.
-lexicon_name :: Lens' Lexicon (Maybe Text)
 
 -- | Lexicon content in string format. The content of a lexicon must be in
 --   PLS format.
 lexicon_content :: Lens' Lexicon (Maybe Text)
+
+-- | Name of the lexicon.
+lexicon_name :: Lens' Lexicon (Maybe Text)
 
 -- | Contains metadata describing the lexicon such as the number of
 --   lexemes, language code, and so on. For more information, see
@@ -1135,28 +1135,28 @@ lexicon_content :: Lens' Lexicon (Maybe Text)
 --   
 --   <i>See:</i> <a>newLexiconAttributes</a> smart constructor.
 data LexiconAttributes
-LexiconAttributes' :: Maybe LanguageCode -> Maybe Text -> Maybe Text -> Maybe Int -> Maybe POSIX -> Maybe Int -> LexiconAttributes
+LexiconAttributes' :: Maybe LanguageCode -> Maybe Int -> Maybe Int -> Maybe Text -> Maybe Text -> Maybe POSIX -> LexiconAttributes
 
 -- | Language code that the lexicon applies to. A lexicon with a language
 --   code such as "en" would be applied to all English languages (en-GB,
 --   en-US, en-AUS, en-WLS, and so on.
 [$sel:languageCode:LexiconAttributes'] :: LexiconAttributes -> Maybe LanguageCode
 
--- | Phonetic alphabet used in the lexicon. Valid values are <tt>ipa</tt>
---   and <tt>x-sampa</tt>.
-[$sel:alphabet:LexiconAttributes'] :: LexiconAttributes -> Maybe Text
-
--- | Amazon Resource Name (ARN) of the lexicon.
-[$sel:lexiconArn:LexiconAttributes'] :: LexiconAttributes -> Maybe Text
+-- | Total size of the lexicon, in characters.
+[$sel:size:LexiconAttributes'] :: LexiconAttributes -> Maybe Int
 
 -- | Number of lexemes in the lexicon.
 [$sel:lexemesCount:LexiconAttributes'] :: LexiconAttributes -> Maybe Int
 
+-- | Amazon Resource Name (ARN) of the lexicon.
+[$sel:lexiconArn:LexiconAttributes'] :: LexiconAttributes -> Maybe Text
+
+-- | Phonetic alphabet used in the lexicon. Valid values are <tt>ipa</tt>
+--   and <tt>x-sampa</tt>.
+[$sel:alphabet:LexiconAttributes'] :: LexiconAttributes -> Maybe Text
+
 -- | Date lexicon was last modified (a timestamp value).
 [$sel:lastModified:LexiconAttributes'] :: LexiconAttributes -> Maybe POSIX
-
--- | Total size of the lexicon, in characters.
-[$sel:size:LexiconAttributes'] :: LexiconAttributes -> Maybe Int
 
 -- | Create a value of <a>LexiconAttributes</a> with all optional fields
 --   omitted.
@@ -1173,24 +1173,24 @@ LexiconAttributes' :: Maybe LanguageCode -> Maybe Text -> Maybe Text -> Maybe In
 --   applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so
 --   on.
 --   
---   <a>$sel:alphabet:LexiconAttributes'</a>,
---   <a>lexiconAttributes_alphabet</a> - Phonetic alphabet used in the
---   lexicon. Valid values are <tt>ipa</tt> and <tt>x-sampa</tt>.
---   
---   <a>$sel:lexiconArn:LexiconAttributes'</a>,
---   <a>lexiconAttributes_lexiconArn</a> - Amazon Resource Name (ARN) of
---   the lexicon.
+--   <a>$sel:size:LexiconAttributes'</a>, <a>lexiconAttributes_size</a> -
+--   Total size of the lexicon, in characters.
 --   
 --   <a>$sel:lexemesCount:LexiconAttributes'</a>,
 --   <a>lexiconAttributes_lexemesCount</a> - Number of lexemes in the
 --   lexicon.
 --   
+--   <a>$sel:lexiconArn:LexiconAttributes'</a>,
+--   <a>lexiconAttributes_lexiconArn</a> - Amazon Resource Name (ARN) of
+--   the lexicon.
+--   
+--   <a>$sel:alphabet:LexiconAttributes'</a>,
+--   <a>lexiconAttributes_alphabet</a> - Phonetic alphabet used in the
+--   lexicon. Valid values are <tt>ipa</tt> and <tt>x-sampa</tt>.
+--   
 --   <a>$sel:lastModified:LexiconAttributes'</a>,
 --   <a>lexiconAttributes_lastModified</a> - Date lexicon was last modified
 --   (a timestamp value).
---   
---   <a>$sel:size:LexiconAttributes'</a>, <a>lexiconAttributes_size</a> -
---   Total size of the lexicon, in characters.
 newLexiconAttributes :: LexiconAttributes
 
 -- | Language code that the lexicon applies to. A lexicon with a language
@@ -1198,33 +1198,33 @@ newLexiconAttributes :: LexiconAttributes
 --   en-US, en-AUS, en-WLS, and so on.
 lexiconAttributes_languageCode :: Lens' LexiconAttributes (Maybe LanguageCode)
 
--- | Phonetic alphabet used in the lexicon. Valid values are <tt>ipa</tt>
---   and <tt>x-sampa</tt>.
-lexiconAttributes_alphabet :: Lens' LexiconAttributes (Maybe Text)
-
--- | Amazon Resource Name (ARN) of the lexicon.
-lexiconAttributes_lexiconArn :: Lens' LexiconAttributes (Maybe Text)
+-- | Total size of the lexicon, in characters.
+lexiconAttributes_size :: Lens' LexiconAttributes (Maybe Int)
 
 -- | Number of lexemes in the lexicon.
 lexiconAttributes_lexemesCount :: Lens' LexiconAttributes (Maybe Int)
 
+-- | Amazon Resource Name (ARN) of the lexicon.
+lexiconAttributes_lexiconArn :: Lens' LexiconAttributes (Maybe Text)
+
+-- | Phonetic alphabet used in the lexicon. Valid values are <tt>ipa</tt>
+--   and <tt>x-sampa</tt>.
+lexiconAttributes_alphabet :: Lens' LexiconAttributes (Maybe Text)
+
 -- | Date lexicon was last modified (a timestamp value).
 lexiconAttributes_lastModified :: Lens' LexiconAttributes (Maybe UTCTime)
-
--- | Total size of the lexicon, in characters.
-lexiconAttributes_size :: Lens' LexiconAttributes (Maybe Int)
 
 -- | Describes the content of the lexicon.
 --   
 --   <i>See:</i> <a>newLexiconDescription</a> smart constructor.
 data LexiconDescription
-LexiconDescription' :: Maybe Text -> Maybe LexiconAttributes -> LexiconDescription
-
--- | Name of the lexicon.
-[$sel:name:LexiconDescription'] :: LexiconDescription -> Maybe Text
+LexiconDescription' :: Maybe LexiconAttributes -> Maybe Text -> LexiconDescription
 
 -- | Provides lexicon metadata.
 [$sel:attributes:LexiconDescription'] :: LexiconDescription -> Maybe LexiconAttributes
+
+-- | Name of the lexicon.
+[$sel:name:LexiconDescription'] :: LexiconDescription -> Maybe Text
 
 -- | Create a value of <a>LexiconDescription</a> with all optional fields
 --   omitted.
@@ -1235,25 +1235,28 @@ LexiconDescription' :: Maybe Text -> Maybe LexiconAttributes -> LexiconDescripti
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:name:LexiconDescription'</a>, <a>lexiconDescription_name</a> -
---   Name of the lexicon.
---   
 --   <a>$sel:attributes:LexiconDescription'</a>,
 --   <a>lexiconDescription_attributes</a> - Provides lexicon metadata.
+--   
+--   <a>$sel:name:LexiconDescription'</a>, <a>lexiconDescription_name</a> -
+--   Name of the lexicon.
 newLexiconDescription :: LexiconDescription
-
--- | Name of the lexicon.
-lexiconDescription_name :: Lens' LexiconDescription (Maybe Text)
 
 -- | Provides lexicon metadata.
 lexiconDescription_attributes :: Lens' LexiconDescription (Maybe LexiconAttributes)
+
+-- | Name of the lexicon.
+lexiconDescription_name :: Lens' LexiconDescription (Maybe Text)
 
 -- | SynthesisTask object that provides information about a speech
 --   synthesis task.
 --   
 --   <i>See:</i> <a>newSynthesisTask</a> smart constructor.
 data SynthesisTask
-SynthesisTask' :: Maybe LanguageCode -> Maybe POSIX -> Maybe Text -> Maybe [Text] -> Maybe [SpeechMarkType] -> Maybe VoiceId -> Maybe Text -> Maybe TextType -> Maybe OutputFormat -> Maybe Text -> Maybe TaskStatus -> Maybe Engine -> Maybe Int -> Maybe Text -> Maybe Text -> SynthesisTask
+SynthesisTask' :: Maybe POSIX -> Maybe LanguageCode -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Int -> Maybe Engine -> Maybe [SpeechMarkType] -> Maybe Text -> Maybe OutputFormat -> Maybe TextType -> Maybe VoiceId -> Maybe [Text] -> Maybe TaskStatus -> Maybe Text -> SynthesisTask
+
+-- | Timestamp for the time the synthesis task was started.
+[$sel:creationTime:SynthesisTask'] :: SynthesisTask -> Maybe POSIX
 
 -- | Optional language code for a synthesis task. This is only necessary if
 --   using a bilingual voice, such as Aditi, which can be used for either
@@ -1267,34 +1270,28 @@ SynthesisTask' :: Maybe LanguageCode -> Maybe POSIX -> Maybe Text -> Maybe [Text
 --   use Indian English rather than Hindi.
 [$sel:languageCode:SynthesisTask'] :: SynthesisTask -> Maybe LanguageCode
 
--- | Timestamp for the time the synthesis task was started.
-[$sel:creationTime:SynthesisTask'] :: SynthesisTask -> Maybe POSIX
+-- | ARN for the SNS topic optionally used for providing status
+--   notification for a speech synthesis task.
+[$sel:snsTopicArn:SynthesisTask'] :: SynthesisTask -> Maybe Text
 
--- | Pathway for the output speech file.
-[$sel:outputUri:SynthesisTask'] :: SynthesisTask -> Maybe Text
-
--- | List of one or more pronunciation lexicon names you want the service
---   to apply during synthesis. Lexicons are applied only if the language
---   of the lexicon is the same as the language of the voice.
-[$sel:lexiconNames:SynthesisTask'] :: SynthesisTask -> Maybe [Text]
-
--- | The type of speech marks returned for the input text.
-[$sel:speechMarkTypes:SynthesisTask'] :: SynthesisTask -> Maybe [SpeechMarkType]
-
--- | Voice ID to use for the synthesis.
-[$sel:voiceId:SynthesisTask'] :: SynthesisTask -> Maybe VoiceId
+-- | Reason for the current status of a specific speech synthesis task,
+--   including errors if the task has failed.
+[$sel:taskStatusReason:SynthesisTask'] :: SynthesisTask -> Maybe Text
 
 -- | The Amazon Polly generated identifier for a speech synthesis task.
 [$sel:taskId:SynthesisTask'] :: SynthesisTask -> Maybe Text
 
--- | Specifies whether the input text is plain text or SSML. The default
---   value is plain text.
-[$sel:textType:SynthesisTask'] :: SynthesisTask -> Maybe TextType
+-- | Number of billable characters synthesized.
+[$sel:requestCharacters:SynthesisTask'] :: SynthesisTask -> Maybe Int
 
--- | The format in which the returned output will be encoded. For audio
---   stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
---   will be json.
-[$sel:outputFormat:SynthesisTask'] :: SynthesisTask -> Maybe OutputFormat
+-- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
+--   Polly to use when processing input text for speech synthesis. Using a
+--   voice that is not supported for the engine selected will result in an
+--   error.
+[$sel:engine:SynthesisTask'] :: SynthesisTask -> Maybe Engine
+
+-- | The type of speech marks returned for the input text.
+[$sel:speechMarkTypes:SynthesisTask'] :: SynthesisTask -> Maybe [SpeechMarkType]
 
 -- | The audio frequency specified in Hz.
 --   
@@ -1306,25 +1303,28 @@ SynthesisTask' :: Maybe LanguageCode -> Maybe POSIX -> Maybe Text -> Maybe [Text
 --   "16000".
 [$sel:sampleRate:SynthesisTask'] :: SynthesisTask -> Maybe Text
 
+-- | The format in which the returned output will be encoded. For audio
+--   stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
+--   will be json.
+[$sel:outputFormat:SynthesisTask'] :: SynthesisTask -> Maybe OutputFormat
+
+-- | Specifies whether the input text is plain text or SSML. The default
+--   value is plain text.
+[$sel:textType:SynthesisTask'] :: SynthesisTask -> Maybe TextType
+
+-- | Voice ID to use for the synthesis.
+[$sel:voiceId:SynthesisTask'] :: SynthesisTask -> Maybe VoiceId
+
+-- | List of one or more pronunciation lexicon names you want the service
+--   to apply during synthesis. Lexicons are applied only if the language
+--   of the lexicon is the same as the language of the voice.
+[$sel:lexiconNames:SynthesisTask'] :: SynthesisTask -> Maybe [Text]
+
 -- | Current status of the individual speech synthesis task.
 [$sel:taskStatus:SynthesisTask'] :: SynthesisTask -> Maybe TaskStatus
 
--- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
---   Polly to use when processing input text for speech synthesis. Using a
---   voice that is not supported for the engine selected will result in an
---   error.
-[$sel:engine:SynthesisTask'] :: SynthesisTask -> Maybe Engine
-
--- | Number of billable characters synthesized.
-[$sel:requestCharacters:SynthesisTask'] :: SynthesisTask -> Maybe Int
-
--- | Reason for the current status of a specific speech synthesis task,
---   including errors if the task has failed.
-[$sel:taskStatusReason:SynthesisTask'] :: SynthesisTask -> Maybe Text
-
--- | ARN for the SNS topic optionally used for providing status
---   notification for a speech synthesis task.
-[$sel:snsTopicArn:SynthesisTask'] :: SynthesisTask -> Maybe Text
+-- | Pathway for the output speech file.
+[$sel:outputUri:SynthesisTask'] :: SynthesisTask -> Maybe Text
 
 -- | Create a value of <a>SynthesisTask</a> with all optional fields
 --   omitted.
@@ -1334,6 +1334,10 @@ SynthesisTask' :: Maybe LanguageCode -> Maybe POSIX -> Maybe Text -> Maybe [Text
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:creationTime:SynthesisTask'</a>,
+--   <a>synthesisTask_creationTime</a> - Timestamp for the time the
+--   synthesis task was started.
 --   
 --   <a>$sel:languageCode:SynthesisTask'</a>,
 --   <a>synthesisTask_languageCode</a> - Optional language code for a
@@ -1348,37 +1352,31 @@ SynthesisTask' :: Maybe LanguageCode -> Maybe POSIX -> Maybe Text -> Maybe [Text
 --   parameter. For example, if no language code is specified, Aditi will
 --   use Indian English rather than Hindi.
 --   
---   <a>$sel:creationTime:SynthesisTask'</a>,
---   <a>synthesisTask_creationTime</a> - Timestamp for the time the
---   synthesis task was started.
+--   <a>$sel:snsTopicArn:SynthesisTask'</a>,
+--   <a>synthesisTask_snsTopicArn</a> - ARN for the SNS topic optionally
+--   used for providing status notification for a speech synthesis task.
 --   
---   <a>$sel:outputUri:SynthesisTask'</a>, <a>synthesisTask_outputUri</a> -
---   Pathway for the output speech file.
---   
---   <a>$sel:lexiconNames:SynthesisTask'</a>,
---   <a>synthesisTask_lexiconNames</a> - List of one or more pronunciation
---   lexicon names you want the service to apply during synthesis. Lexicons
---   are applied only if the language of the lexicon is the same as the
---   language of the voice.
---   
---   <a>$sel:speechMarkTypes:SynthesisTask'</a>,
---   <a>synthesisTask_speechMarkTypes</a> - The type of speech marks
---   returned for the input text.
---   
---   <a>$sel:voiceId:SynthesisTask'</a>, <a>synthesisTask_voiceId</a> -
---   Voice ID to use for the synthesis.
+--   <a>$sel:taskStatusReason:SynthesisTask'</a>,
+--   <a>synthesisTask_taskStatusReason</a> - Reason for the current status
+--   of a specific speech synthesis task, including errors if the task has
+--   failed.
 --   
 --   <a>$sel:taskId:SynthesisTask'</a>, <a>synthesisTask_taskId</a> - The
 --   Amazon Polly generated identifier for a speech synthesis task.
 --   
---   <a>$sel:textType:SynthesisTask'</a>, <a>synthesisTask_textType</a> -
---   Specifies whether the input text is plain text or SSML. The default
---   value is plain text.
+--   <a>$sel:requestCharacters:SynthesisTask'</a>,
+--   <a>synthesisTask_requestCharacters</a> - Number of billable characters
+--   synthesized.
 --   
---   <a>$sel:outputFormat:SynthesisTask'</a>,
---   <a>synthesisTask_outputFormat</a> - The format in which the returned
---   output will be encoded. For audio stream, this will be mp3,
---   ogg_vorbis, or pcm. For speech marks, this will be json.
+--   <a>$sel:engine:SynthesisTask'</a>, <a>synthesisTask_engine</a> -
+--   Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
+--   Polly to use when processing input text for speech synthesis. Using a
+--   voice that is not supported for the engine selected will result in an
+--   error.
+--   
+--   <a>$sel:speechMarkTypes:SynthesisTask'</a>,
+--   <a>synthesisTask_speechMarkTypes</a> - The type of speech marks
+--   returned for the input text.
 --   
 --   <a>$sel:sampleRate:SynthesisTask'</a>, <a>synthesisTask_sampleRate</a>
 --   - The audio frequency specified in Hz.
@@ -1390,28 +1388,33 @@ SynthesisTask' :: Maybe LanguageCode -> Maybe POSIX -> Maybe Text -> Maybe [Text
 --   Valid values for pcm are "8000" and "16000" The default value is
 --   "16000".
 --   
+--   <a>$sel:outputFormat:SynthesisTask'</a>,
+--   <a>synthesisTask_outputFormat</a> - The format in which the returned
+--   output will be encoded. For audio stream, this will be mp3,
+--   ogg_vorbis, or pcm. For speech marks, this will be json.
+--   
+--   <a>$sel:textType:SynthesisTask'</a>, <a>synthesisTask_textType</a> -
+--   Specifies whether the input text is plain text or SSML. The default
+--   value is plain text.
+--   
+--   <a>$sel:voiceId:SynthesisTask'</a>, <a>synthesisTask_voiceId</a> -
+--   Voice ID to use for the synthesis.
+--   
+--   <a>$sel:lexiconNames:SynthesisTask'</a>,
+--   <a>synthesisTask_lexiconNames</a> - List of one or more pronunciation
+--   lexicon names you want the service to apply during synthesis. Lexicons
+--   are applied only if the language of the lexicon is the same as the
+--   language of the voice.
+--   
 --   <a>$sel:taskStatus:SynthesisTask'</a>, <a>synthesisTask_taskStatus</a>
 --   - Current status of the individual speech synthesis task.
 --   
---   <a>$sel:engine:SynthesisTask'</a>, <a>synthesisTask_engine</a> -
---   Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
---   Polly to use when processing input text for speech synthesis. Using a
---   voice that is not supported for the engine selected will result in an
---   error.
---   
---   <a>$sel:requestCharacters:SynthesisTask'</a>,
---   <a>synthesisTask_requestCharacters</a> - Number of billable characters
---   synthesized.
---   
---   <a>$sel:taskStatusReason:SynthesisTask'</a>,
---   <a>synthesisTask_taskStatusReason</a> - Reason for the current status
---   of a specific speech synthesis task, including errors if the task has
---   failed.
---   
---   <a>$sel:snsTopicArn:SynthesisTask'</a>,
---   <a>synthesisTask_snsTopicArn</a> - ARN for the SNS topic optionally
---   used for providing status notification for a speech synthesis task.
+--   <a>$sel:outputUri:SynthesisTask'</a>, <a>synthesisTask_outputUri</a> -
+--   Pathway for the output speech file.
 newSynthesisTask :: SynthesisTask
+
+-- | Timestamp for the time the synthesis task was started.
+synthesisTask_creationTime :: Lens' SynthesisTask (Maybe UTCTime)
 
 -- | Optional language code for a synthesis task. This is only necessary if
 --   using a bilingual voice, such as Aditi, which can be used for either
@@ -1425,34 +1428,28 @@ newSynthesisTask :: SynthesisTask
 --   use Indian English rather than Hindi.
 synthesisTask_languageCode :: Lens' SynthesisTask (Maybe LanguageCode)
 
--- | Timestamp for the time the synthesis task was started.
-synthesisTask_creationTime :: Lens' SynthesisTask (Maybe UTCTime)
+-- | ARN for the SNS topic optionally used for providing status
+--   notification for a speech synthesis task.
+synthesisTask_snsTopicArn :: Lens' SynthesisTask (Maybe Text)
 
--- | Pathway for the output speech file.
-synthesisTask_outputUri :: Lens' SynthesisTask (Maybe Text)
-
--- | List of one or more pronunciation lexicon names you want the service
---   to apply during synthesis. Lexicons are applied only if the language
---   of the lexicon is the same as the language of the voice.
-synthesisTask_lexiconNames :: Lens' SynthesisTask (Maybe [Text])
-
--- | The type of speech marks returned for the input text.
-synthesisTask_speechMarkTypes :: Lens' SynthesisTask (Maybe [SpeechMarkType])
-
--- | Voice ID to use for the synthesis.
-synthesisTask_voiceId :: Lens' SynthesisTask (Maybe VoiceId)
+-- | Reason for the current status of a specific speech synthesis task,
+--   including errors if the task has failed.
+synthesisTask_taskStatusReason :: Lens' SynthesisTask (Maybe Text)
 
 -- | The Amazon Polly generated identifier for a speech synthesis task.
 synthesisTask_taskId :: Lens' SynthesisTask (Maybe Text)
 
--- | Specifies whether the input text is plain text or SSML. The default
---   value is plain text.
-synthesisTask_textType :: Lens' SynthesisTask (Maybe TextType)
+-- | Number of billable characters synthesized.
+synthesisTask_requestCharacters :: Lens' SynthesisTask (Maybe Int)
 
--- | The format in which the returned output will be encoded. For audio
---   stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
---   will be json.
-synthesisTask_outputFormat :: Lens' SynthesisTask (Maybe OutputFormat)
+-- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
+--   Polly to use when processing input text for speech synthesis. Using a
+--   voice that is not supported for the engine selected will result in an
+--   error.
+synthesisTask_engine :: Lens' SynthesisTask (Maybe Engine)
+
+-- | The type of speech marks returned for the input text.
+synthesisTask_speechMarkTypes :: Lens' SynthesisTask (Maybe [SpeechMarkType])
 
 -- | The audio frequency specified in Hz.
 --   
@@ -1464,49 +1461,51 @@ synthesisTask_outputFormat :: Lens' SynthesisTask (Maybe OutputFormat)
 --   "16000".
 synthesisTask_sampleRate :: Lens' SynthesisTask (Maybe Text)
 
+-- | The format in which the returned output will be encoded. For audio
+--   stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
+--   will be json.
+synthesisTask_outputFormat :: Lens' SynthesisTask (Maybe OutputFormat)
+
+-- | Specifies whether the input text is plain text or SSML. The default
+--   value is plain text.
+synthesisTask_textType :: Lens' SynthesisTask (Maybe TextType)
+
+-- | Voice ID to use for the synthesis.
+synthesisTask_voiceId :: Lens' SynthesisTask (Maybe VoiceId)
+
+-- | List of one or more pronunciation lexicon names you want the service
+--   to apply during synthesis. Lexicons are applied only if the language
+--   of the lexicon is the same as the language of the voice.
+synthesisTask_lexiconNames :: Lens' SynthesisTask (Maybe [Text])
+
 -- | Current status of the individual speech synthesis task.
 synthesisTask_taskStatus :: Lens' SynthesisTask (Maybe TaskStatus)
 
--- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
---   Polly to use when processing input text for speech synthesis. Using a
---   voice that is not supported for the engine selected will result in an
---   error.
-synthesisTask_engine :: Lens' SynthesisTask (Maybe Engine)
-
--- | Number of billable characters synthesized.
-synthesisTask_requestCharacters :: Lens' SynthesisTask (Maybe Int)
-
--- | Reason for the current status of a specific speech synthesis task,
---   including errors if the task has failed.
-synthesisTask_taskStatusReason :: Lens' SynthesisTask (Maybe Text)
-
--- | ARN for the SNS topic optionally used for providing status
---   notification for a speech synthesis task.
-synthesisTask_snsTopicArn :: Lens' SynthesisTask (Maybe Text)
+-- | Pathway for the output speech file.
+synthesisTask_outputUri :: Lens' SynthesisTask (Maybe Text)
 
 -- | Description of the voice.
 --   
 --   <i>See:</i> <a>newVoice</a> smart constructor.
 data Voice
-Voice' :: Maybe LanguageCode -> Maybe VoiceId -> Maybe Text -> Maybe Gender -> Maybe [Engine] -> Maybe [LanguageCode] -> Maybe Text -> Voice
+Voice' :: Maybe LanguageCode -> Maybe Text -> Maybe Gender -> Maybe Text -> Maybe VoiceId -> Maybe [LanguageCode] -> Maybe [Engine] -> Voice
 
 -- | Language code of the voice.
 [$sel:languageCode:Voice'] :: Voice -> Maybe LanguageCode
 
--- | Amazon Polly assigned voice ID. This is the ID that you specify when
---   calling the <tt>SynthesizeSpeech</tt> operation.
-[$sel:id:Voice'] :: Voice -> Maybe VoiceId
+-- | Human readable name of the language in English.
+[$sel:languageName:Voice'] :: Voice -> Maybe Text
+
+-- | Gender of the voice.
+[$sel:gender:Voice'] :: Voice -> Maybe Gender
 
 -- | Name of the voice (for example, Salli, Kendra, etc.). This provides a
 --   human readable voice name that you might display in your application.
 [$sel:name:Voice'] :: Voice -> Maybe Text
 
--- | Gender of the voice.
-[$sel:gender:Voice'] :: Voice -> Maybe Gender
-
--- | Specifies which engines (<tt>standard</tt> or <tt>neural</tt>) that
---   are supported by a given voice.
-[$sel:supportedEngines:Voice'] :: Voice -> Maybe [Engine]
+-- | Amazon Polly assigned voice ID. This is the ID that you specify when
+--   calling the <tt>SynthesizeSpeech</tt> operation.
+[$sel:id:Voice'] :: Voice -> Maybe VoiceId
 
 -- | Additional codes for languages available for the specified voice in
 --   addition to its default language.
@@ -1517,8 +1516,9 @@ Voice' :: Maybe LanguageCode -> Maybe VoiceId -> Maybe Text -> Maybe Gender -> M
 --   the code <tt>hi-IN</tt>.
 [$sel:additionalLanguageCodes:Voice'] :: Voice -> Maybe [LanguageCode]
 
--- | Human readable name of the language in English.
-[$sel:languageName:Voice'] :: Voice -> Maybe Text
+-- | Specifies which engines (<tt>standard</tt> or <tt>neural</tt>) that
+--   are supported by a given voice.
+[$sel:supportedEngines:Voice'] :: Voice -> Maybe [Engine]
 
 -- | Create a value of <a>Voice</a> with all optional fields omitted.
 --   
@@ -1531,19 +1531,18 @@ Voice' :: Maybe LanguageCode -> Maybe VoiceId -> Maybe Text -> Maybe Gender -> M
 --   <a>$sel:languageCode:Voice'</a>, <a>voice_languageCode</a> - Language
 --   code of the voice.
 --   
---   <a>$sel:id:Voice'</a>, <a>voice_id</a> - Amazon Polly assigned voice
---   ID. This is the ID that you specify when calling the
---   <tt>SynthesizeSpeech</tt> operation.
+--   <a>$sel:languageName:Voice'</a>, <a>voice_languageName</a> - Human
+--   readable name of the language in English.
+--   
+--   <a>$sel:gender:Voice'</a>, <a>voice_gender</a> - Gender of the voice.
 --   
 --   <a>$sel:name:Voice'</a>, <a>voice_name</a> - Name of the voice (for
 --   example, Salli, Kendra, etc.). This provides a human readable voice
 --   name that you might display in your application.
 --   
---   <a>$sel:gender:Voice'</a>, <a>voice_gender</a> - Gender of the voice.
---   
---   <a>$sel:supportedEngines:Voice'</a>, <a>voice_supportedEngines</a> -
---   Specifies which engines (<tt>standard</tt> or <tt>neural</tt>) that
---   are supported by a given voice.
+--   <a>$sel:id:Voice'</a>, <a>voice_id</a> - Amazon Polly assigned voice
+--   ID. This is the ID that you specify when calling the
+--   <tt>SynthesizeSpeech</tt> operation.
 --   
 --   <a>$sel:additionalLanguageCodes:Voice'</a>,
 --   <a>voice_additionalLanguageCodes</a> - Additional codes for languages
@@ -1554,27 +1553,27 @@ Voice' :: Maybe LanguageCode -> Maybe VoiceId -> Maybe Text -> Maybe Gender -> M
 --   and fluent in both Indian English and Hindi, this parameter would show
 --   the code <tt>hi-IN</tt>.
 --   
---   <a>$sel:languageName:Voice'</a>, <a>voice_languageName</a> - Human
---   readable name of the language in English.
+--   <a>$sel:supportedEngines:Voice'</a>, <a>voice_supportedEngines</a> -
+--   Specifies which engines (<tt>standard</tt> or <tt>neural</tt>) that
+--   are supported by a given voice.
 newVoice :: Voice
 
 -- | Language code of the voice.
 voice_languageCode :: Lens' Voice (Maybe LanguageCode)
 
--- | Amazon Polly assigned voice ID. This is the ID that you specify when
---   calling the <tt>SynthesizeSpeech</tt> operation.
-voice_id :: Lens' Voice (Maybe VoiceId)
+-- | Human readable name of the language in English.
+voice_languageName :: Lens' Voice (Maybe Text)
+
+-- | Gender of the voice.
+voice_gender :: Lens' Voice (Maybe Gender)
 
 -- | Name of the voice (for example, Salli, Kendra, etc.). This provides a
 --   human readable voice name that you might display in your application.
 voice_name :: Lens' Voice (Maybe Text)
 
--- | Gender of the voice.
-voice_gender :: Lens' Voice (Maybe Gender)
-
--- | Specifies which engines (<tt>standard</tt> or <tt>neural</tt>) that
---   are supported by a given voice.
-voice_supportedEngines :: Lens' Voice (Maybe [Engine])
+-- | Amazon Polly assigned voice ID. This is the ID that you specify when
+--   calling the <tt>SynthesizeSpeech</tt> operation.
+voice_id :: Lens' Voice (Maybe VoiceId)
 
 -- | Additional codes for languages available for the specified voice in
 --   addition to its default language.
@@ -1585,8 +1584,9 @@ voice_supportedEngines :: Lens' Voice (Maybe [Engine])
 --   the code <tt>hi-IN</tt>.
 voice_additionalLanguageCodes :: Lens' Voice (Maybe [LanguageCode])
 
--- | Human readable name of the language in English.
-voice_languageName :: Lens' Voice (Maybe Text)
+-- | Specifies which engines (<tt>standard</tt> or <tt>neural</tt>) that
+--   are supported by a given voice.
+voice_supportedEngines :: Lens' Voice (Maybe [Engine])
 
 
 -- | Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.
@@ -1598,7 +1598,7 @@ module Network.AWS.Polly.SynthesizeSpeech
 
 -- | <i>See:</i> <a>newSynthesizeSpeech</a> smart constructor.
 data SynthesizeSpeech
-SynthesizeSpeech' :: Maybe LanguageCode -> Maybe [Text] -> Maybe [SpeechMarkType] -> Maybe TextType -> Maybe Text -> Maybe Engine -> OutputFormat -> Text -> VoiceId -> SynthesizeSpeech
+SynthesizeSpeech' :: Maybe LanguageCode -> Maybe Engine -> Maybe [SpeechMarkType] -> Maybe Text -> Maybe TextType -> Maybe [Text] -> OutputFormat -> Text -> VoiceId -> SynthesizeSpeech
 
 -- | Optional language code for the Synthesize Speech request. This is only
 --   necessary if using a bilingual voice, such as Aditi, which can be used
@@ -1611,29 +1611,6 @@ SynthesizeSpeech' :: Maybe LanguageCode -> Maybe [Text] -> Maybe [SpeechMarkType
 --   parameter. For example, if no language code is specified, Aditi will
 --   use Indian English rather than Hindi.
 [$sel:languageCode:SynthesizeSpeech'] :: SynthesizeSpeech -> Maybe LanguageCode
-
--- | List of one or more pronunciation lexicon names you want the service
---   to apply during synthesis. Lexicons are applied only if the language
---   of the lexicon is the same as the language of the voice. For
---   information about storing lexicons, see <a>PutLexicon</a>.
-[$sel:lexiconNames:SynthesizeSpeech'] :: SynthesizeSpeech -> Maybe [Text]
-
--- | The type of speech marks returned for the input text.
-[$sel:speechMarkTypes:SynthesizeSpeech'] :: SynthesizeSpeech -> Maybe [SpeechMarkType]
-
--- | Specifies whether the input text is plain text or SSML. The default
---   value is plain text. For more information, see <a>Using SSML</a>.
-[$sel:textType:SynthesizeSpeech'] :: SynthesizeSpeech -> Maybe TextType
-
--- | The audio frequency specified in Hz.
---   
---   The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
---   and "24000". The default value for standard voices is "22050". The
---   default value for neural voices is "24000".
---   
---   Valid values for pcm are "8000" and "16000" The default value is
---   "16000".
-[$sel:sampleRate:SynthesizeSpeech'] :: SynthesizeSpeech -> Maybe Text
 
 -- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
 --   Polly to use when processing input text for speech synthesis. For
@@ -1661,6 +1638,29 @@ SynthesizeSpeech' :: Maybe LanguageCode -> Maybe [Text] -> Maybe [SpeechMarkType
 --   set to <tt>standard</tt> and an NTTS-only voice is selected, this will
 --   result in an error.
 [$sel:engine:SynthesizeSpeech'] :: SynthesizeSpeech -> Maybe Engine
+
+-- | The type of speech marks returned for the input text.
+[$sel:speechMarkTypes:SynthesizeSpeech'] :: SynthesizeSpeech -> Maybe [SpeechMarkType]
+
+-- | The audio frequency specified in Hz.
+--   
+--   The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
+--   and "24000". The default value for standard voices is "22050". The
+--   default value for neural voices is "24000".
+--   
+--   Valid values for pcm are "8000" and "16000" The default value is
+--   "16000".
+[$sel:sampleRate:SynthesizeSpeech'] :: SynthesizeSpeech -> Maybe Text
+
+-- | Specifies whether the input text is plain text or SSML. The default
+--   value is plain text. For more information, see <a>Using SSML</a>.
+[$sel:textType:SynthesizeSpeech'] :: SynthesizeSpeech -> Maybe TextType
+
+-- | List of one or more pronunciation lexicon names you want the service
+--   to apply during synthesis. Lexicons are applied only if the language
+--   of the lexicon is the same as the language of the voice. For
+--   information about storing lexicons, see <a>PutLexicon</a>.
+[$sel:lexiconNames:SynthesizeSpeech'] :: SynthesizeSpeech -> Maybe [Text]
 
 -- | The format in which the returned output will be encoded. For audio
 --   stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
@@ -1700,33 +1700,6 @@ SynthesizeSpeech' :: Maybe LanguageCode -> Maybe [Text] -> Maybe [SpeechMarkType
 --   parameter. For example, if no language code is specified, Aditi will
 --   use Indian English rather than Hindi.
 --   
---   <a>$sel:lexiconNames:SynthesizeSpeech'</a>,
---   <a>synthesizeSpeech_lexiconNames</a> - List of one or more
---   pronunciation lexicon names you want the service to apply during
---   synthesis. Lexicons are applied only if the language of the lexicon is
---   the same as the language of the voice. For information about storing
---   lexicons, see <a>PutLexicon</a>.
---   
---   <a>$sel:speechMarkTypes:SynthesizeSpeech'</a>,
---   <a>synthesizeSpeech_speechMarkTypes</a> - The type of speech marks
---   returned for the input text.
---   
---   <a>$sel:textType:SynthesizeSpeech'</a>,
---   <a>synthesizeSpeech_textType</a> - Specifies whether the input text is
---   plain text or SSML. The default value is plain text. For more
---   information, see <a>Using SSML</a>.
---   
---   <a>$sel:sampleRate:SynthesizeSpeech'</a>,
---   <a>synthesizeSpeech_sampleRate</a> - The audio frequency specified in
---   Hz.
---   
---   The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
---   and "24000". The default value for standard voices is "22050". The
---   default value for neural voices is "24000".
---   
---   Valid values for pcm are "8000" and "16000" The default value is
---   "16000".
---   
 --   <a>$sel:engine:SynthesizeSpeech'</a>, <a>synthesizeSpeech_engine</a> -
 --   Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
 --   Polly to use when processing input text for speech synthesis. For
@@ -1753,6 +1726,33 @@ SynthesizeSpeech' :: Maybe LanguageCode -> Maybe [Text] -> Maybe [SpeechMarkType
 --   defaults to <tt>standard</tt>. If the engine is not specified, or is
 --   set to <tt>standard</tt> and an NTTS-only voice is selected, this will
 --   result in an error.
+--   
+--   <a>$sel:speechMarkTypes:SynthesizeSpeech'</a>,
+--   <a>synthesizeSpeech_speechMarkTypes</a> - The type of speech marks
+--   returned for the input text.
+--   
+--   <a>$sel:sampleRate:SynthesizeSpeech'</a>,
+--   <a>synthesizeSpeech_sampleRate</a> - The audio frequency specified in
+--   Hz.
+--   
+--   The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
+--   and "24000". The default value for standard voices is "22050". The
+--   default value for neural voices is "24000".
+--   
+--   Valid values for pcm are "8000" and "16000" The default value is
+--   "16000".
+--   
+--   <a>$sel:textType:SynthesizeSpeech'</a>,
+--   <a>synthesizeSpeech_textType</a> - Specifies whether the input text is
+--   plain text or SSML. The default value is plain text. For more
+--   information, see <a>Using SSML</a>.
+--   
+--   <a>$sel:lexiconNames:SynthesizeSpeech'</a>,
+--   <a>synthesizeSpeech_lexiconNames</a> - List of one or more
+--   pronunciation lexicon names you want the service to apply during
+--   synthesis. Lexicons are applied only if the language of the lexicon is
+--   the same as the language of the voice. For information about storing
+--   lexicons, see <a>PutLexicon</a>.
 --   
 --   <a>$sel:outputFormat:SynthesizeSpeech'</a>,
 --   <a>synthesizeSpeech_outputFormat</a> - The format in which the
@@ -1783,29 +1783,6 @@ newSynthesizeSpeech :: OutputFormat -> Text -> VoiceId -> SynthesizeSpeech
 --   use Indian English rather than Hindi.
 synthesizeSpeech_languageCode :: Lens' SynthesizeSpeech (Maybe LanguageCode)
 
--- | List of one or more pronunciation lexicon names you want the service
---   to apply during synthesis. Lexicons are applied only if the language
---   of the lexicon is the same as the language of the voice. For
---   information about storing lexicons, see <a>PutLexicon</a>.
-synthesizeSpeech_lexiconNames :: Lens' SynthesizeSpeech (Maybe [Text])
-
--- | The type of speech marks returned for the input text.
-synthesizeSpeech_speechMarkTypes :: Lens' SynthesizeSpeech (Maybe [SpeechMarkType])
-
--- | Specifies whether the input text is plain text or SSML. The default
---   value is plain text. For more information, see <a>Using SSML</a>.
-synthesizeSpeech_textType :: Lens' SynthesizeSpeech (Maybe TextType)
-
--- | The audio frequency specified in Hz.
---   
---   The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
---   and "24000". The default value for standard voices is "22050". The
---   default value for neural voices is "24000".
---   
---   Valid values for pcm are "8000" and "16000" The default value is
---   "16000".
-synthesizeSpeech_sampleRate :: Lens' SynthesizeSpeech (Maybe Text)
-
 -- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
 --   Polly to use when processing input text for speech synthesis. For
 --   information on Amazon Polly voices and which voices are available in
@@ -1833,6 +1810,29 @@ synthesizeSpeech_sampleRate :: Lens' SynthesizeSpeech (Maybe Text)
 --   result in an error.
 synthesizeSpeech_engine :: Lens' SynthesizeSpeech (Maybe Engine)
 
+-- | The type of speech marks returned for the input text.
+synthesizeSpeech_speechMarkTypes :: Lens' SynthesizeSpeech (Maybe [SpeechMarkType])
+
+-- | The audio frequency specified in Hz.
+--   
+--   The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
+--   and "24000". The default value for standard voices is "22050". The
+--   default value for neural voices is "24000".
+--   
+--   Valid values for pcm are "8000" and "16000" The default value is
+--   "16000".
+synthesizeSpeech_sampleRate :: Lens' SynthesizeSpeech (Maybe Text)
+
+-- | Specifies whether the input text is plain text or SSML. The default
+--   value is plain text. For more information, see <a>Using SSML</a>.
+synthesizeSpeech_textType :: Lens' SynthesizeSpeech (Maybe TextType)
+
+-- | List of one or more pronunciation lexicon names you want the service
+--   to apply during synthesis. Lexicons are applied only if the language
+--   of the lexicon is the same as the language of the voice. For
+--   information about storing lexicons, see <a>PutLexicon</a>.
+synthesizeSpeech_lexiconNames :: Lens' SynthesizeSpeech (Maybe [Text])
+
 -- | The format in which the returned output will be encoded. For audio
 --   stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
 --   will be json.
@@ -1851,7 +1851,10 @@ synthesizeSpeech_voiceId :: Lens' SynthesizeSpeech VoiceId
 
 -- | <i>See:</i> <a>newSynthesizeSpeechResponse</a> smart constructor.
 data SynthesizeSpeechResponse
-SynthesizeSpeechResponse' :: Maybe Text -> Maybe Int -> Int -> ResponseBody -> SynthesizeSpeechResponse
+SynthesizeSpeechResponse' :: Maybe Int -> Maybe Text -> Int -> ResponseBody -> SynthesizeSpeechResponse
+
+-- | Number of characters synthesized.
+[$sel:requestCharacters:SynthesizeSpeechResponse'] :: SynthesizeSpeechResponse -> Maybe Int
 
 -- | Specifies the type audio stream. This should reflect the
 --   <tt>OutputFormat</tt> parameter in your request.
@@ -1869,9 +1872,6 @@ SynthesizeSpeechResponse' :: Maybe Text -> Maybe Int -> Int -> ResponseBody -> S
 --   </ul>
 [$sel:contentType:SynthesizeSpeechResponse'] :: SynthesizeSpeechResponse -> Maybe Text
 
--- | Number of characters synthesized.
-[$sel:requestCharacters:SynthesizeSpeechResponse'] :: SynthesizeSpeechResponse -> Maybe Int
-
 -- | The response's http status code.
 [$sel:httpStatus:SynthesizeSpeechResponse'] :: SynthesizeSpeechResponse -> Int
 
@@ -1886,6 +1886,10 @@ SynthesizeSpeechResponse' :: Maybe Text -> Maybe Int -> Int -> ResponseBody -> S
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:requestCharacters:SynthesizeSpeechResponse'</a>,
+--   <a>synthesizeSpeechResponse_requestCharacters</a> - Number of
+--   characters synthesized.
 --   
 --   <a>$sel:contentType:SynthesizeSpeechResponse'</a>,
 --   <a>synthesizeSpeechResponse_contentType</a> - Specifies the type audio
@@ -1904,10 +1908,6 @@ SynthesizeSpeechResponse' :: Maybe Text -> Maybe Int -> Int -> ResponseBody -> S
 --   <tt>ContentType</tt> returned is audio/json.</li>
 --   </ul>
 --   
---   <a>$sel:requestCharacters:SynthesizeSpeechResponse'</a>,
---   <a>synthesizeSpeechResponse_requestCharacters</a> - Number of
---   characters synthesized.
---   
 --   <a>$sel:httpStatus:SynthesizeSpeechResponse'</a>,
 --   <a>synthesizeSpeechResponse_httpStatus</a> - The response's http
 --   status code.
@@ -1916,6 +1916,9 @@ SynthesizeSpeechResponse' :: Maybe Text -> Maybe Int -> Int -> ResponseBody -> S
 --   <a>synthesizeSpeechResponse_audioStream</a> - Stream containing the
 --   synthesized speech.
 newSynthesizeSpeechResponse :: Int -> ResponseBody -> SynthesizeSpeechResponse
+
+-- | Number of characters synthesized.
+synthesizeSpeechResponse_requestCharacters :: Lens' SynthesizeSpeechResponse (Maybe Int)
 
 -- | Specifies the type audio stream. This should reflect the
 --   <tt>OutputFormat</tt> parameter in your request.
@@ -1932,9 +1935,6 @@ newSynthesizeSpeechResponse :: Int -> ResponseBody -> SynthesizeSpeechResponse
 --   <tt>ContentType</tt> returned is audio/json.</li>
 --   </ul>
 synthesizeSpeechResponse_contentType :: Lens' SynthesizeSpeechResponse (Maybe Text)
-
--- | Number of characters synthesized.
-synthesizeSpeechResponse_requestCharacters :: Lens' SynthesizeSpeechResponse (Maybe Int)
 
 -- | The response's http status code.
 synthesizeSpeechResponse_httpStatus :: Lens' SynthesizeSpeechResponse Int
@@ -1970,7 +1970,7 @@ module Network.AWS.Polly.StartSpeechSynthesisTask
 
 -- | <i>See:</i> <a>newStartSpeechSynthesisTask</a> smart constructor.
 data StartSpeechSynthesisTask
-StartSpeechSynthesisTask' :: Maybe LanguageCode -> Maybe [Text] -> Maybe [SpeechMarkType] -> Maybe TextType -> Maybe Text -> Maybe Engine -> Maybe Text -> Maybe Text -> OutputFormat -> Text -> Text -> VoiceId -> StartSpeechSynthesisTask
+StartSpeechSynthesisTask' :: Maybe LanguageCode -> Maybe Text -> Maybe Text -> Maybe Engine -> Maybe [SpeechMarkType] -> Maybe Text -> Maybe TextType -> Maybe [Text] -> OutputFormat -> Text -> Text -> VoiceId -> StartSpeechSynthesisTask
 
 -- | Optional language code for the Speech Synthesis request. This is only
 --   necessary if using a bilingual voice, such as Aditi, which can be used
@@ -1984,17 +1984,21 @@ StartSpeechSynthesisTask' :: Maybe LanguageCode -> Maybe [Text] -> Maybe [Speech
 --   use Indian English rather than Hindi.
 [$sel:languageCode:StartSpeechSynthesisTask'] :: StartSpeechSynthesisTask -> Maybe LanguageCode
 
--- | List of one or more pronunciation lexicon names you want the service
---   to apply during synthesis. Lexicons are applied only if the language
---   of the lexicon is the same as the language of the voice.
-[$sel:lexiconNames:StartSpeechSynthesisTask'] :: StartSpeechSynthesisTask -> Maybe [Text]
+-- | ARN for the SNS topic optionally used for providing status
+--   notification for a speech synthesis task.
+[$sel:snsTopicArn:StartSpeechSynthesisTask'] :: StartSpeechSynthesisTask -> Maybe Text
+
+-- | The Amazon S3 key prefix for the output speech file.
+[$sel:outputS3KeyPrefix:StartSpeechSynthesisTask'] :: StartSpeechSynthesisTask -> Maybe Text
+
+-- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
+--   Polly to use when processing input text for speech synthesis. Using a
+--   voice that is not supported for the engine selected will result in an
+--   error.
+[$sel:engine:StartSpeechSynthesisTask'] :: StartSpeechSynthesisTask -> Maybe Engine
 
 -- | The type of speech marks returned for the input text.
 [$sel:speechMarkTypes:StartSpeechSynthesisTask'] :: StartSpeechSynthesisTask -> Maybe [SpeechMarkType]
-
--- | Specifies whether the input text is plain text or SSML. The default
---   value is plain text.
-[$sel:textType:StartSpeechSynthesisTask'] :: StartSpeechSynthesisTask -> Maybe TextType
 
 -- | The audio frequency specified in Hz.
 --   
@@ -2006,18 +2010,14 @@ StartSpeechSynthesisTask' :: Maybe LanguageCode -> Maybe [Text] -> Maybe [Speech
 --   "16000".
 [$sel:sampleRate:StartSpeechSynthesisTask'] :: StartSpeechSynthesisTask -> Maybe Text
 
--- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
---   Polly to use when processing input text for speech synthesis. Using a
---   voice that is not supported for the engine selected will result in an
---   error.
-[$sel:engine:StartSpeechSynthesisTask'] :: StartSpeechSynthesisTask -> Maybe Engine
+-- | Specifies whether the input text is plain text or SSML. The default
+--   value is plain text.
+[$sel:textType:StartSpeechSynthesisTask'] :: StartSpeechSynthesisTask -> Maybe TextType
 
--- | The Amazon S3 key prefix for the output speech file.
-[$sel:outputS3KeyPrefix:StartSpeechSynthesisTask'] :: StartSpeechSynthesisTask -> Maybe Text
-
--- | ARN for the SNS topic optionally used for providing status
---   notification for a speech synthesis task.
-[$sel:snsTopicArn:StartSpeechSynthesisTask'] :: StartSpeechSynthesisTask -> Maybe Text
+-- | List of one or more pronunciation lexicon names you want the service
+--   to apply during synthesis. Lexicons are applied only if the language
+--   of the lexicon is the same as the language of the voice.
+[$sel:lexiconNames:StartSpeechSynthesisTask'] :: StartSpeechSynthesisTask -> Maybe [Text]
 
 -- | The format in which the returned output will be encoded. For audio
 --   stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
@@ -2056,19 +2056,24 @@ StartSpeechSynthesisTask' :: Maybe LanguageCode -> Maybe [Text] -> Maybe [Speech
 --   parameter. For example, if no language code is specified, Aditi will
 --   use Indian English rather than Hindi.
 --   
---   <a>$sel:lexiconNames:StartSpeechSynthesisTask'</a>,
---   <a>startSpeechSynthesisTask_lexiconNames</a> - List of one or more
---   pronunciation lexicon names you want the service to apply during
---   synthesis. Lexicons are applied only if the language of the lexicon is
---   the same as the language of the voice.
+--   <a>$sel:snsTopicArn:StartSpeechSynthesisTask'</a>,
+--   <a>startSpeechSynthesisTask_snsTopicArn</a> - ARN for the SNS topic
+--   optionally used for providing status notification for a speech
+--   synthesis task.
+--   
+--   <a>$sel:outputS3KeyPrefix:StartSpeechSynthesisTask'</a>,
+--   <a>startSpeechSynthesisTask_outputS3KeyPrefix</a> - The Amazon S3 key
+--   prefix for the output speech file.
+--   
+--   <a>$sel:engine:StartSpeechSynthesisTask'</a>,
+--   <a>startSpeechSynthesisTask_engine</a> - Specifies the engine
+--   (<tt>standard</tt> or <tt>neural</tt>) for Amazon Polly to use when
+--   processing input text for speech synthesis. Using a voice that is not
+--   supported for the engine selected will result in an error.
 --   
 --   <a>$sel:speechMarkTypes:StartSpeechSynthesisTask'</a>,
 --   <a>startSpeechSynthesisTask_speechMarkTypes</a> - The type of speech
 --   marks returned for the input text.
---   
---   <a>$sel:textType:StartSpeechSynthesisTask'</a>,
---   <a>startSpeechSynthesisTask_textType</a> - Specifies whether the input
---   text is plain text or SSML. The default value is plain text.
 --   
 --   <a>$sel:sampleRate:StartSpeechSynthesisTask'</a>,
 --   <a>startSpeechSynthesisTask_sampleRate</a> - The audio frequency
@@ -2081,20 +2086,15 @@ StartSpeechSynthesisTask' :: Maybe LanguageCode -> Maybe [Text] -> Maybe [Speech
 --   Valid values for pcm are "8000" and "16000" The default value is
 --   "16000".
 --   
---   <a>$sel:engine:StartSpeechSynthesisTask'</a>,
---   <a>startSpeechSynthesisTask_engine</a> - Specifies the engine
---   (<tt>standard</tt> or <tt>neural</tt>) for Amazon Polly to use when
---   processing input text for speech synthesis. Using a voice that is not
---   supported for the engine selected will result in an error.
+--   <a>$sel:textType:StartSpeechSynthesisTask'</a>,
+--   <a>startSpeechSynthesisTask_textType</a> - Specifies whether the input
+--   text is plain text or SSML. The default value is plain text.
 --   
---   <a>$sel:outputS3KeyPrefix:StartSpeechSynthesisTask'</a>,
---   <a>startSpeechSynthesisTask_outputS3KeyPrefix</a> - The Amazon S3 key
---   prefix for the output speech file.
---   
---   <a>$sel:snsTopicArn:StartSpeechSynthesisTask'</a>,
---   <a>startSpeechSynthesisTask_snsTopicArn</a> - ARN for the SNS topic
---   optionally used for providing status notification for a speech
---   synthesis task.
+--   <a>$sel:lexiconNames:StartSpeechSynthesisTask'</a>,
+--   <a>startSpeechSynthesisTask_lexiconNames</a> - List of one or more
+--   pronunciation lexicon names you want the service to apply during
+--   synthesis. Lexicons are applied only if the language of the lexicon is
+--   the same as the language of the voice.
 --   
 --   <a>$sel:outputFormat:StartSpeechSynthesisTask'</a>,
 --   <a>startSpeechSynthesisTask_outputFormat</a> - The format in which the
@@ -2127,17 +2127,21 @@ newStartSpeechSynthesisTask :: OutputFormat -> Text -> Text -> VoiceId -> StartS
 --   use Indian English rather than Hindi.
 startSpeechSynthesisTask_languageCode :: Lens' StartSpeechSynthesisTask (Maybe LanguageCode)
 
--- | List of one or more pronunciation lexicon names you want the service
---   to apply during synthesis. Lexicons are applied only if the language
---   of the lexicon is the same as the language of the voice.
-startSpeechSynthesisTask_lexiconNames :: Lens' StartSpeechSynthesisTask (Maybe [Text])
+-- | ARN for the SNS topic optionally used for providing status
+--   notification for a speech synthesis task.
+startSpeechSynthesisTask_snsTopicArn :: Lens' StartSpeechSynthesisTask (Maybe Text)
+
+-- | The Amazon S3 key prefix for the output speech file.
+startSpeechSynthesisTask_outputS3KeyPrefix :: Lens' StartSpeechSynthesisTask (Maybe Text)
+
+-- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
+--   Polly to use when processing input text for speech synthesis. Using a
+--   voice that is not supported for the engine selected will result in an
+--   error.
+startSpeechSynthesisTask_engine :: Lens' StartSpeechSynthesisTask (Maybe Engine)
 
 -- | The type of speech marks returned for the input text.
 startSpeechSynthesisTask_speechMarkTypes :: Lens' StartSpeechSynthesisTask (Maybe [SpeechMarkType])
-
--- | Specifies whether the input text is plain text or SSML. The default
---   value is plain text.
-startSpeechSynthesisTask_textType :: Lens' StartSpeechSynthesisTask (Maybe TextType)
 
 -- | The audio frequency specified in Hz.
 --   
@@ -2149,18 +2153,14 @@ startSpeechSynthesisTask_textType :: Lens' StartSpeechSynthesisTask (Maybe TextT
 --   "16000".
 startSpeechSynthesisTask_sampleRate :: Lens' StartSpeechSynthesisTask (Maybe Text)
 
--- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
---   Polly to use when processing input text for speech synthesis. Using a
---   voice that is not supported for the engine selected will result in an
---   error.
-startSpeechSynthesisTask_engine :: Lens' StartSpeechSynthesisTask (Maybe Engine)
+-- | Specifies whether the input text is plain text or SSML. The default
+--   value is plain text.
+startSpeechSynthesisTask_textType :: Lens' StartSpeechSynthesisTask (Maybe TextType)
 
--- | The Amazon S3 key prefix for the output speech file.
-startSpeechSynthesisTask_outputS3KeyPrefix :: Lens' StartSpeechSynthesisTask (Maybe Text)
-
--- | ARN for the SNS topic optionally used for providing status
---   notification for a speech synthesis task.
-startSpeechSynthesisTask_snsTopicArn :: Lens' StartSpeechSynthesisTask (Maybe Text)
+-- | List of one or more pronunciation lexicon names you want the service
+--   to apply during synthesis. Lexicons are applied only if the language
+--   of the lexicon is the same as the language of the voice.
+startSpeechSynthesisTask_lexiconNames :: Lens' StartSpeechSynthesisTask (Maybe [Text])
 
 -- | The format in which the returned output will be encoded. For audio
 --   stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
@@ -2482,15 +2482,15 @@ listLexicons_nextToken :: Lens' ListLexicons (Maybe Text)
 
 -- | <i>See:</i> <a>newListLexiconsResponse</a> smart constructor.
 data ListLexiconsResponse
-ListLexiconsResponse' :: Maybe Text -> Maybe [LexiconDescription] -> Int -> ListLexiconsResponse
+ListLexiconsResponse' :: Maybe [LexiconDescription] -> Maybe Text -> Int -> ListLexiconsResponse
+
+-- | A list of lexicon names and attributes.
+[$sel:lexicons:ListLexiconsResponse'] :: ListLexiconsResponse -> Maybe [LexiconDescription]
 
 -- | The pagination token to use in the next request to continue the
 --   listing of lexicons. <tt>NextToken</tt> is returned only if the
 --   response is truncated.
 [$sel:nextToken:ListLexiconsResponse'] :: ListLexiconsResponse -> Maybe Text
-
--- | A list of lexicon names and attributes.
-[$sel:lexicons:ListLexiconsResponse'] :: ListLexiconsResponse -> Maybe [LexiconDescription]
 
 -- | The response's http status code.
 [$sel:httpStatus:ListLexiconsResponse'] :: ListLexiconsResponse -> Int
@@ -2504,27 +2504,27 @@ ListLexiconsResponse' :: Maybe Text -> Maybe [LexiconDescription] -> Int -> List
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:lexicons:ListLexiconsResponse'</a>,
+--   <a>listLexiconsResponse_lexicons</a> - A list of lexicon names and
+--   attributes.
+--   
 --   <a>$sel:nextToken:ListLexicons'</a>,
 --   <a>listLexiconsResponse_nextToken</a> - The pagination token to use in
 --   the next request to continue the listing of lexicons.
 --   <tt>NextToken</tt> is returned only if the response is truncated.
---   
---   <a>$sel:lexicons:ListLexiconsResponse'</a>,
---   <a>listLexiconsResponse_lexicons</a> - A list of lexicon names and
---   attributes.
 --   
 --   <a>$sel:httpStatus:ListLexiconsResponse'</a>,
 --   <a>listLexiconsResponse_httpStatus</a> - The response's http status
 --   code.
 newListLexiconsResponse :: Int -> ListLexiconsResponse
 
+-- | A list of lexicon names and attributes.
+listLexiconsResponse_lexicons :: Lens' ListLexiconsResponse (Maybe [LexiconDescription])
+
 -- | The pagination token to use in the next request to continue the
 --   listing of lexicons. <tt>NextToken</tt> is returned only if the
 --   response is truncated.
 listLexiconsResponse_nextToken :: Lens' ListLexiconsResponse (Maybe Text)
-
--- | A list of lexicon names and attributes.
-listLexiconsResponse_lexicons :: Lens' ListLexiconsResponse (Maybe [LexiconDescription])
 
 -- | The response's http status code.
 listLexiconsResponse_httpStatus :: Lens' ListLexiconsResponse Int
@@ -2749,13 +2749,17 @@ module Network.AWS.Polly.DescribeVoices
 
 -- | <i>See:</i> <a>newDescribeVoices</a> smart constructor.
 data DescribeVoices
-DescribeVoices' :: Maybe LanguageCode -> Maybe Text -> Maybe Bool -> Maybe Engine -> DescribeVoices
+DescribeVoices' :: Maybe LanguageCode -> Maybe Engine -> Maybe Text -> Maybe Bool -> DescribeVoices
 
 -- | The language identification tag (ISO 639 code for the language
 --   name-ISO 3166 country code) for filtering the list of voices returned.
 --   If you don't specify this optional parameter, all available voices are
 --   returned.
 [$sel:languageCode:DescribeVoices'] :: DescribeVoices -> Maybe LanguageCode
+
+-- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) used by
+--   Amazon Polly when processing input text for speech synthesis.
+[$sel:engine:DescribeVoices'] :: DescribeVoices -> Maybe Engine
 
 -- | An opaque pagination token returned from the previous
 --   <tt>DescribeVoices</tt> operation. If present, this indicates where to
@@ -2769,10 +2773,6 @@ DescribeVoices' :: Maybe LanguageCode -> Maybe Text -> Maybe Bool -> Maybe Engin
 --   voice will be included if you specify <tt>yes</tt> but not if you
 --   specify <tt>no</tt>.
 [$sel:includeAdditionalLanguageCodes:DescribeVoices'] :: DescribeVoices -> Maybe Bool
-
--- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) used by
---   Amazon Polly when processing input text for speech synthesis.
-[$sel:engine:DescribeVoices'] :: DescribeVoices -> Maybe Engine
 
 -- | Create a value of <a>DescribeVoices</a> with all optional fields
 --   omitted.
@@ -2789,6 +2789,10 @@ DescribeVoices' :: Maybe LanguageCode -> Maybe Text -> Maybe Bool -> Maybe Engin
 --   filtering the list of voices returned. If you don't specify this
 --   optional parameter, all available voices are returned.
 --   
+--   <a>$sel:engine:DescribeVoices'</a>, <a>describeVoices_engine</a> -
+--   Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) used by
+--   Amazon Polly when processing input text for speech synthesis.
+--   
 --   <a>$sel:nextToken:DescribeVoices'</a>, <a>describeVoices_nextToken</a>
 --   - An opaque pagination token returned from the previous
 --   <tt>DescribeVoices</tt> operation. If present, this indicates where to
@@ -2802,10 +2806,6 @@ DescribeVoices' :: Maybe LanguageCode -> Maybe Text -> Maybe Bool -> Maybe Engin
 --   Italian voice that speaks both Italian (it-IT) and US English, that
 --   voice will be included if you specify <tt>yes</tt> but not if you
 --   specify <tt>no</tt>.
---   
---   <a>$sel:engine:DescribeVoices'</a>, <a>describeVoices_engine</a> -
---   Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) used by
---   Amazon Polly when processing input text for speech synthesis.
 newDescribeVoices :: DescribeVoices
 
 -- | The language identification tag (ISO 639 code for the language
@@ -2813,6 +2813,10 @@ newDescribeVoices :: DescribeVoices
 --   If you don't specify this optional parameter, all available voices are
 --   returned.
 describeVoices_languageCode :: Lens' DescribeVoices (Maybe LanguageCode)
+
+-- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) used by
+--   Amazon Polly when processing input text for speech synthesis.
+describeVoices_engine :: Lens' DescribeVoices (Maybe Engine)
 
 -- | An opaque pagination token returned from the previous
 --   <tt>DescribeVoices</tt> operation. If present, this indicates where to
@@ -2826,10 +2830,6 @@ describeVoices_nextToken :: Lens' DescribeVoices (Maybe Text)
 --   voice will be included if you specify <tt>yes</tt> but not if you
 --   specify <tt>no</tt>.
 describeVoices_includeAdditionalLanguageCodes :: Lens' DescribeVoices (Maybe Bool)
-
--- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) used by
---   Amazon Polly when processing input text for speech synthesis.
-describeVoices_engine :: Lens' DescribeVoices (Maybe Engine)
 
 -- | <i>See:</i> <a>newDescribeVoicesResponse</a> smart constructor.
 data DescribeVoicesResponse
@@ -2972,16 +2972,6 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Polly.DeleteLexicon.DeleteLe
 
 module Network.AWS.Polly.Lens
 
--- | The Amazon Polly generated identifier for a speech synthesis task.
-getSpeechSynthesisTask_taskId :: Lens' GetSpeechSynthesisTask Text
-
--- | SynthesisTask object that provides information from the requested
---   task, including output format, creation time, task status, and so on.
-getSpeechSynthesisTaskResponse_synthesisTask :: Lens' GetSpeechSynthesisTaskResponse (Maybe SynthesisTask)
-
--- | The response's http status code.
-getSpeechSynthesisTaskResponse_httpStatus :: Lens' GetSpeechSynthesisTaskResponse Int
-
 -- | Name of the lexicon.
 getLexicon_name :: Lens' GetLexicon Text
 
@@ -2997,34 +2987,25 @@ getLexiconResponse_lexicon :: Lens' GetLexiconResponse (Maybe Lexicon)
 -- | The response's http status code.
 getLexiconResponse_httpStatus :: Lens' GetLexiconResponse Int
 
--- | The name of the lexicon to delete. Must be an existing lexicon in the
---   region.
-deleteLexicon_name :: Lens' DeleteLexicon Text
+-- | The Amazon Polly generated identifier for a speech synthesis task.
+getSpeechSynthesisTask_taskId :: Lens' GetSpeechSynthesisTask Text
+
+-- | SynthesisTask object that provides information from the requested
+--   task, including output format, creation time, task status, and so on.
+getSpeechSynthesisTaskResponse_synthesisTask :: Lens' GetSpeechSynthesisTaskResponse (Maybe SynthesisTask)
 
 -- | The response's http status code.
-deleteLexiconResponse_httpStatus :: Lens' DeleteLexiconResponse Int
-
--- | An opaque pagination token returned from previous
---   <tt>ListLexicons</tt> operation. If present, indicates where to
---   continue the list of lexicons.
-listLexicons_nextToken :: Lens' ListLexicons (Maybe Text)
-
--- | The pagination token to use in the next request to continue the
---   listing of lexicons. <tt>NextToken</tt> is returned only if the
---   response is truncated.
-listLexiconsResponse_nextToken :: Lens' ListLexiconsResponse (Maybe Text)
-
--- | A list of lexicon names and attributes.
-listLexiconsResponse_lexicons :: Lens' ListLexiconsResponse (Maybe [LexiconDescription])
-
--- | The response's http status code.
-listLexiconsResponse_httpStatus :: Lens' ListLexiconsResponse Int
+getSpeechSynthesisTaskResponse_httpStatus :: Lens' GetSpeechSynthesisTaskResponse Int
 
 -- | The language identification tag (ISO 639 code for the language
 --   name-ISO 3166 country code) for filtering the list of voices returned.
 --   If you don't specify this optional parameter, all available voices are
 --   returned.
 describeVoices_languageCode :: Lens' DescribeVoices (Maybe LanguageCode)
+
+-- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) used by
+--   Amazon Polly when processing input text for speech synthesis.
+describeVoices_engine :: Lens' DescribeVoices (Maybe Engine)
 
 -- | An opaque pagination token returned from the previous
 --   <tt>DescribeVoices</tt> operation. If present, this indicates where to
@@ -3039,10 +3020,6 @@ describeVoices_nextToken :: Lens' DescribeVoices (Maybe Text)
 --   specify <tt>no</tt>.
 describeVoices_includeAdditionalLanguageCodes :: Lens' DescribeVoices (Maybe Bool)
 
--- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) used by
---   Amazon Polly when processing input text for speech synthesis.
-describeVoices_engine :: Lens' DescribeVoices (Maybe Engine)
-
 -- | The pagination token to use in the next request to continue the
 --   listing of voices. <tt>NextToken</tt> is returned only if the response
 --   is truncated.
@@ -3054,85 +3031,21 @@ describeVoicesResponse_voices :: Lens' DescribeVoicesResponse (Maybe [Voice])
 -- | The response's http status code.
 describeVoicesResponse_httpStatus :: Lens' DescribeVoicesResponse Int
 
--- | Optional language code for the Speech Synthesis request. This is only
---   necessary if using a bilingual voice, such as Aditi, which can be used
---   for either Indian English (en-IN) or Hindi (hi-IN).
---   
---   If a bilingual voice is used and no language code is specified, Amazon
---   Polly uses the default language of the bilingual voice. The default
---   language for any voice is the one returned by the
---   <a>DescribeVoices</a> operation for the <tt>LanguageCode</tt>
---   parameter. For example, if no language code is specified, Aditi will
---   use Indian English rather than Hindi.
-startSpeechSynthesisTask_languageCode :: Lens' StartSpeechSynthesisTask (Maybe LanguageCode)
+-- | An opaque pagination token returned from previous
+--   <tt>ListLexicons</tt> operation. If present, indicates where to
+--   continue the list of lexicons.
+listLexicons_nextToken :: Lens' ListLexicons (Maybe Text)
 
--- | List of one or more pronunciation lexicon names you want the service
---   to apply during synthesis. Lexicons are applied only if the language
---   of the lexicon is the same as the language of the voice.
-startSpeechSynthesisTask_lexiconNames :: Lens' StartSpeechSynthesisTask (Maybe [Text])
+-- | A list of lexicon names and attributes.
+listLexiconsResponse_lexicons :: Lens' ListLexiconsResponse (Maybe [LexiconDescription])
 
--- | The type of speech marks returned for the input text.
-startSpeechSynthesisTask_speechMarkTypes :: Lens' StartSpeechSynthesisTask (Maybe [SpeechMarkType])
-
--- | Specifies whether the input text is plain text or SSML. The default
---   value is plain text.
-startSpeechSynthesisTask_textType :: Lens' StartSpeechSynthesisTask (Maybe TextType)
-
--- | The audio frequency specified in Hz.
---   
---   The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
---   and "24000". The default value for standard voices is "22050". The
---   default value for neural voices is "24000".
---   
---   Valid values for pcm are "8000" and "16000" The default value is
---   "16000".
-startSpeechSynthesisTask_sampleRate :: Lens' StartSpeechSynthesisTask (Maybe Text)
-
--- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
---   Polly to use when processing input text for speech synthesis. Using a
---   voice that is not supported for the engine selected will result in an
---   error.
-startSpeechSynthesisTask_engine :: Lens' StartSpeechSynthesisTask (Maybe Engine)
-
--- | The Amazon S3 key prefix for the output speech file.
-startSpeechSynthesisTask_outputS3KeyPrefix :: Lens' StartSpeechSynthesisTask (Maybe Text)
-
--- | ARN for the SNS topic optionally used for providing status
---   notification for a speech synthesis task.
-startSpeechSynthesisTask_snsTopicArn :: Lens' StartSpeechSynthesisTask (Maybe Text)
-
--- | The format in which the returned output will be encoded. For audio
---   stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
---   will be json.
-startSpeechSynthesisTask_outputFormat :: Lens' StartSpeechSynthesisTask OutputFormat
-
--- | Amazon S3 bucket name to which the output file will be saved.
-startSpeechSynthesisTask_outputS3BucketName :: Lens' StartSpeechSynthesisTask Text
-
--- | The input text to synthesize. If you specify ssml as the TextType,
---   follow the SSML format for the input text.
-startSpeechSynthesisTask_text :: Lens' StartSpeechSynthesisTask Text
-
--- | Voice ID to use for the synthesis.
-startSpeechSynthesisTask_voiceId :: Lens' StartSpeechSynthesisTask VoiceId
-
--- | SynthesisTask object that provides information and attributes about a
---   newly submitted speech synthesis task.
-startSpeechSynthesisTaskResponse_synthesisTask :: Lens' StartSpeechSynthesisTaskResponse (Maybe SynthesisTask)
+-- | The pagination token to use in the next request to continue the
+--   listing of lexicons. <tt>NextToken</tt> is returned only if the
+--   response is truncated.
+listLexiconsResponse_nextToken :: Lens' ListLexiconsResponse (Maybe Text)
 
 -- | The response's http status code.
-startSpeechSynthesisTaskResponse_httpStatus :: Lens' StartSpeechSynthesisTaskResponse Int
-
--- | Name of the lexicon. The name must follow the regular express format
---   [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric
---   string up to 20 characters long.
-putLexicon_name :: Lens' PutLexicon Text
-
--- | Content of the PLS lexicon as string data.
-putLexicon_content :: Lens' PutLexicon Text
-
--- | The response's http status code.
-putLexiconResponse_httpStatus :: Lens' PutLexiconResponse Int
+listLexiconsResponse_httpStatus :: Lens' ListLexiconsResponse Int
 
 -- | Optional language code for the Synthesize Speech request. This is only
 --   necessary if using a bilingual voice, such as Aditi, which can be used
@@ -3145,29 +3058,6 @@ putLexiconResponse_httpStatus :: Lens' PutLexiconResponse Int
 --   parameter. For example, if no language code is specified, Aditi will
 --   use Indian English rather than Hindi.
 synthesizeSpeech_languageCode :: Lens' SynthesizeSpeech (Maybe LanguageCode)
-
--- | List of one or more pronunciation lexicon names you want the service
---   to apply during synthesis. Lexicons are applied only if the language
---   of the lexicon is the same as the language of the voice. For
---   information about storing lexicons, see <a>PutLexicon</a>.
-synthesizeSpeech_lexiconNames :: Lens' SynthesizeSpeech (Maybe [Text])
-
--- | The type of speech marks returned for the input text.
-synthesizeSpeech_speechMarkTypes :: Lens' SynthesizeSpeech (Maybe [SpeechMarkType])
-
--- | Specifies whether the input text is plain text or SSML. The default
---   value is plain text. For more information, see <a>Using SSML</a>.
-synthesizeSpeech_textType :: Lens' SynthesizeSpeech (Maybe TextType)
-
--- | The audio frequency specified in Hz.
---   
---   The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
---   and "24000". The default value for standard voices is "22050". The
---   default value for neural voices is "24000".
---   
---   Valid values for pcm are "8000" and "16000" The default value is
---   "16000".
-synthesizeSpeech_sampleRate :: Lens' SynthesizeSpeech (Maybe Text)
 
 -- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
 --   Polly to use when processing input text for speech synthesis. For
@@ -3196,6 +3086,29 @@ synthesizeSpeech_sampleRate :: Lens' SynthesizeSpeech (Maybe Text)
 --   result in an error.
 synthesizeSpeech_engine :: Lens' SynthesizeSpeech (Maybe Engine)
 
+-- | The type of speech marks returned for the input text.
+synthesizeSpeech_speechMarkTypes :: Lens' SynthesizeSpeech (Maybe [SpeechMarkType])
+
+-- | The audio frequency specified in Hz.
+--   
+--   The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
+--   and "24000". The default value for standard voices is "22050". The
+--   default value for neural voices is "24000".
+--   
+--   Valid values for pcm are "8000" and "16000" The default value is
+--   "16000".
+synthesizeSpeech_sampleRate :: Lens' SynthesizeSpeech (Maybe Text)
+
+-- | Specifies whether the input text is plain text or SSML. The default
+--   value is plain text. For more information, see <a>Using SSML</a>.
+synthesizeSpeech_textType :: Lens' SynthesizeSpeech (Maybe TextType)
+
+-- | List of one or more pronunciation lexicon names you want the service
+--   to apply during synthesis. Lexicons are applied only if the language
+--   of the lexicon is the same as the language of the voice. For
+--   information about storing lexicons, see <a>PutLexicon</a>.
+synthesizeSpeech_lexiconNames :: Lens' SynthesizeSpeech (Maybe [Text])
+
 -- | The format in which the returned output will be encoded. For audio
 --   stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
 --   will be json.
@@ -3212,6 +3125,9 @@ synthesizeSpeech_text :: Lens' SynthesizeSpeech Text
 --   voice IDs by calling the <a>DescribeVoices</a> operation.
 synthesizeSpeech_voiceId :: Lens' SynthesizeSpeech VoiceId
 
+-- | Number of characters synthesized.
+synthesizeSpeechResponse_requestCharacters :: Lens' SynthesizeSpeechResponse (Maybe Int)
+
 -- | Specifies the type audio stream. This should reflect the
 --   <tt>OutputFormat</tt> parameter in your request.
 --   
@@ -3227,9 +3143,6 @@ synthesizeSpeech_voiceId :: Lens' SynthesizeSpeech VoiceId
 --   <tt>ContentType</tt> returned is audio/json.</li>
 --   </ul>
 synthesizeSpeechResponse_contentType :: Lens' SynthesizeSpeechResponse (Maybe Text)
-
--- | Number of characters synthesized.
-synthesizeSpeechResponse_requestCharacters :: Lens' SynthesizeSpeechResponse (Maybe Int)
 
 -- | The response's http status code.
 synthesizeSpeechResponse_httpStatus :: Lens' SynthesizeSpeechResponse Int
@@ -3260,39 +3173,129 @@ listSpeechSynthesisTasksResponse_synthesisTasks :: Lens' ListSpeechSynthesisTask
 -- | The response's http status code.
 listSpeechSynthesisTasksResponse_httpStatus :: Lens' ListSpeechSynthesisTasksResponse Int
 
--- | Name of the lexicon.
-lexicon_name :: Lens' Lexicon (Maybe Text)
+-- | Name of the lexicon. The name must follow the regular express format
+--   [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric
+--   string up to 20 characters long.
+putLexicon_name :: Lens' PutLexicon Text
+
+-- | Content of the PLS lexicon as string data.
+putLexicon_content :: Lens' PutLexicon Text
+
+-- | The response's http status code.
+putLexiconResponse_httpStatus :: Lens' PutLexiconResponse Int
+
+-- | The name of the lexicon to delete. Must be an existing lexicon in the
+--   region.
+deleteLexicon_name :: Lens' DeleteLexicon Text
+
+-- | The response's http status code.
+deleteLexiconResponse_httpStatus :: Lens' DeleteLexiconResponse Int
+
+-- | Optional language code for the Speech Synthesis request. This is only
+--   necessary if using a bilingual voice, such as Aditi, which can be used
+--   for either Indian English (en-IN) or Hindi (hi-IN).
+--   
+--   If a bilingual voice is used and no language code is specified, Amazon
+--   Polly uses the default language of the bilingual voice. The default
+--   language for any voice is the one returned by the
+--   <a>DescribeVoices</a> operation for the <tt>LanguageCode</tt>
+--   parameter. For example, if no language code is specified, Aditi will
+--   use Indian English rather than Hindi.
+startSpeechSynthesisTask_languageCode :: Lens' StartSpeechSynthesisTask (Maybe LanguageCode)
+
+-- | ARN for the SNS topic optionally used for providing status
+--   notification for a speech synthesis task.
+startSpeechSynthesisTask_snsTopicArn :: Lens' StartSpeechSynthesisTask (Maybe Text)
+
+-- | The Amazon S3 key prefix for the output speech file.
+startSpeechSynthesisTask_outputS3KeyPrefix :: Lens' StartSpeechSynthesisTask (Maybe Text)
+
+-- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
+--   Polly to use when processing input text for speech synthesis. Using a
+--   voice that is not supported for the engine selected will result in an
+--   error.
+startSpeechSynthesisTask_engine :: Lens' StartSpeechSynthesisTask (Maybe Engine)
+
+-- | The type of speech marks returned for the input text.
+startSpeechSynthesisTask_speechMarkTypes :: Lens' StartSpeechSynthesisTask (Maybe [SpeechMarkType])
+
+-- | The audio frequency specified in Hz.
+--   
+--   The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
+--   and "24000". The default value for standard voices is "22050". The
+--   default value for neural voices is "24000".
+--   
+--   Valid values for pcm are "8000" and "16000" The default value is
+--   "16000".
+startSpeechSynthesisTask_sampleRate :: Lens' StartSpeechSynthesisTask (Maybe Text)
+
+-- | Specifies whether the input text is plain text or SSML. The default
+--   value is plain text.
+startSpeechSynthesisTask_textType :: Lens' StartSpeechSynthesisTask (Maybe TextType)
+
+-- | List of one or more pronunciation lexicon names you want the service
+--   to apply during synthesis. Lexicons are applied only if the language
+--   of the lexicon is the same as the language of the voice.
+startSpeechSynthesisTask_lexiconNames :: Lens' StartSpeechSynthesisTask (Maybe [Text])
+
+-- | The format in which the returned output will be encoded. For audio
+--   stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
+--   will be json.
+startSpeechSynthesisTask_outputFormat :: Lens' StartSpeechSynthesisTask OutputFormat
+
+-- | Amazon S3 bucket name to which the output file will be saved.
+startSpeechSynthesisTask_outputS3BucketName :: Lens' StartSpeechSynthesisTask Text
+
+-- | The input text to synthesize. If you specify ssml as the TextType,
+--   follow the SSML format for the input text.
+startSpeechSynthesisTask_text :: Lens' StartSpeechSynthesisTask Text
+
+-- | Voice ID to use for the synthesis.
+startSpeechSynthesisTask_voiceId :: Lens' StartSpeechSynthesisTask VoiceId
+
+-- | SynthesisTask object that provides information and attributes about a
+--   newly submitted speech synthesis task.
+startSpeechSynthesisTaskResponse_synthesisTask :: Lens' StartSpeechSynthesisTaskResponse (Maybe SynthesisTask)
+
+-- | The response's http status code.
+startSpeechSynthesisTaskResponse_httpStatus :: Lens' StartSpeechSynthesisTaskResponse Int
 
 -- | Lexicon content in string format. The content of a lexicon must be in
 --   PLS format.
 lexicon_content :: Lens' Lexicon (Maybe Text)
+
+-- | Name of the lexicon.
+lexicon_name :: Lens' Lexicon (Maybe Text)
 
 -- | Language code that the lexicon applies to. A lexicon with a language
 --   code such as "en" would be applied to all English languages (en-GB,
 --   en-US, en-AUS, en-WLS, and so on.
 lexiconAttributes_languageCode :: Lens' LexiconAttributes (Maybe LanguageCode)
 
--- | Phonetic alphabet used in the lexicon. Valid values are <tt>ipa</tt>
---   and <tt>x-sampa</tt>.
-lexiconAttributes_alphabet :: Lens' LexiconAttributes (Maybe Text)
-
--- | Amazon Resource Name (ARN) of the lexicon.
-lexiconAttributes_lexiconArn :: Lens' LexiconAttributes (Maybe Text)
+-- | Total size of the lexicon, in characters.
+lexiconAttributes_size :: Lens' LexiconAttributes (Maybe Int)
 
 -- | Number of lexemes in the lexicon.
 lexiconAttributes_lexemesCount :: Lens' LexiconAttributes (Maybe Int)
 
+-- | Amazon Resource Name (ARN) of the lexicon.
+lexiconAttributes_lexiconArn :: Lens' LexiconAttributes (Maybe Text)
+
+-- | Phonetic alphabet used in the lexicon. Valid values are <tt>ipa</tt>
+--   and <tt>x-sampa</tt>.
+lexiconAttributes_alphabet :: Lens' LexiconAttributes (Maybe Text)
+
 -- | Date lexicon was last modified (a timestamp value).
 lexiconAttributes_lastModified :: Lens' LexiconAttributes (Maybe UTCTime)
 
--- | Total size of the lexicon, in characters.
-lexiconAttributes_size :: Lens' LexiconAttributes (Maybe Int)
+-- | Provides lexicon metadata.
+lexiconDescription_attributes :: Lens' LexiconDescription (Maybe LexiconAttributes)
 
 -- | Name of the lexicon.
 lexiconDescription_name :: Lens' LexiconDescription (Maybe Text)
 
--- | Provides lexicon metadata.
-lexiconDescription_attributes :: Lens' LexiconDescription (Maybe LexiconAttributes)
+-- | Timestamp for the time the synthesis task was started.
+synthesisTask_creationTime :: Lens' SynthesisTask (Maybe UTCTime)
 
 -- | Optional language code for a synthesis task. This is only necessary if
 --   using a bilingual voice, such as Aditi, which can be used for either
@@ -3306,34 +3309,28 @@ lexiconDescription_attributes :: Lens' LexiconDescription (Maybe LexiconAttribut
 --   use Indian English rather than Hindi.
 synthesisTask_languageCode :: Lens' SynthesisTask (Maybe LanguageCode)
 
--- | Timestamp for the time the synthesis task was started.
-synthesisTask_creationTime :: Lens' SynthesisTask (Maybe UTCTime)
+-- | ARN for the SNS topic optionally used for providing status
+--   notification for a speech synthesis task.
+synthesisTask_snsTopicArn :: Lens' SynthesisTask (Maybe Text)
 
--- | Pathway for the output speech file.
-synthesisTask_outputUri :: Lens' SynthesisTask (Maybe Text)
-
--- | List of one or more pronunciation lexicon names you want the service
---   to apply during synthesis. Lexicons are applied only if the language
---   of the lexicon is the same as the language of the voice.
-synthesisTask_lexiconNames :: Lens' SynthesisTask (Maybe [Text])
-
--- | The type of speech marks returned for the input text.
-synthesisTask_speechMarkTypes :: Lens' SynthesisTask (Maybe [SpeechMarkType])
-
--- | Voice ID to use for the synthesis.
-synthesisTask_voiceId :: Lens' SynthesisTask (Maybe VoiceId)
+-- | Reason for the current status of a specific speech synthesis task,
+--   including errors if the task has failed.
+synthesisTask_taskStatusReason :: Lens' SynthesisTask (Maybe Text)
 
 -- | The Amazon Polly generated identifier for a speech synthesis task.
 synthesisTask_taskId :: Lens' SynthesisTask (Maybe Text)
 
--- | Specifies whether the input text is plain text or SSML. The default
---   value is plain text.
-synthesisTask_textType :: Lens' SynthesisTask (Maybe TextType)
+-- | Number of billable characters synthesized.
+synthesisTask_requestCharacters :: Lens' SynthesisTask (Maybe Int)
 
--- | The format in which the returned output will be encoded. For audio
---   stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
---   will be json.
-synthesisTask_outputFormat :: Lens' SynthesisTask (Maybe OutputFormat)
+-- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
+--   Polly to use when processing input text for speech synthesis. Using a
+--   voice that is not supported for the engine selected will result in an
+--   error.
+synthesisTask_engine :: Lens' SynthesisTask (Maybe Engine)
+
+-- | The type of speech marks returned for the input text.
+synthesisTask_speechMarkTypes :: Lens' SynthesisTask (Maybe [SpeechMarkType])
 
 -- | The audio frequency specified in Hz.
 --   
@@ -3345,43 +3342,45 @@ synthesisTask_outputFormat :: Lens' SynthesisTask (Maybe OutputFormat)
 --   "16000".
 synthesisTask_sampleRate :: Lens' SynthesisTask (Maybe Text)
 
+-- | The format in which the returned output will be encoded. For audio
+--   stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this
+--   will be json.
+synthesisTask_outputFormat :: Lens' SynthesisTask (Maybe OutputFormat)
+
+-- | Specifies whether the input text is plain text or SSML. The default
+--   value is plain text.
+synthesisTask_textType :: Lens' SynthesisTask (Maybe TextType)
+
+-- | Voice ID to use for the synthesis.
+synthesisTask_voiceId :: Lens' SynthesisTask (Maybe VoiceId)
+
+-- | List of one or more pronunciation lexicon names you want the service
+--   to apply during synthesis. Lexicons are applied only if the language
+--   of the lexicon is the same as the language of the voice.
+synthesisTask_lexiconNames :: Lens' SynthesisTask (Maybe [Text])
+
 -- | Current status of the individual speech synthesis task.
 synthesisTask_taskStatus :: Lens' SynthesisTask (Maybe TaskStatus)
 
--- | Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
---   Polly to use when processing input text for speech synthesis. Using a
---   voice that is not supported for the engine selected will result in an
---   error.
-synthesisTask_engine :: Lens' SynthesisTask (Maybe Engine)
-
--- | Number of billable characters synthesized.
-synthesisTask_requestCharacters :: Lens' SynthesisTask (Maybe Int)
-
--- | Reason for the current status of a specific speech synthesis task,
---   including errors if the task has failed.
-synthesisTask_taskStatusReason :: Lens' SynthesisTask (Maybe Text)
-
--- | ARN for the SNS topic optionally used for providing status
---   notification for a speech synthesis task.
-synthesisTask_snsTopicArn :: Lens' SynthesisTask (Maybe Text)
+-- | Pathway for the output speech file.
+synthesisTask_outputUri :: Lens' SynthesisTask (Maybe Text)
 
 -- | Language code of the voice.
 voice_languageCode :: Lens' Voice (Maybe LanguageCode)
 
--- | Amazon Polly assigned voice ID. This is the ID that you specify when
---   calling the <tt>SynthesizeSpeech</tt> operation.
-voice_id :: Lens' Voice (Maybe VoiceId)
+-- | Human readable name of the language in English.
+voice_languageName :: Lens' Voice (Maybe Text)
+
+-- | Gender of the voice.
+voice_gender :: Lens' Voice (Maybe Gender)
 
 -- | Name of the voice (for example, Salli, Kendra, etc.). This provides a
 --   human readable voice name that you might display in your application.
 voice_name :: Lens' Voice (Maybe Text)
 
--- | Gender of the voice.
-voice_gender :: Lens' Voice (Maybe Gender)
-
--- | Specifies which engines (<tt>standard</tt> or <tt>neural</tt>) that
---   are supported by a given voice.
-voice_supportedEngines :: Lens' Voice (Maybe [Engine])
+-- | Amazon Polly assigned voice ID. This is the ID that you specify when
+--   calling the <tt>SynthesizeSpeech</tt> operation.
+voice_id :: Lens' Voice (Maybe VoiceId)
 
 -- | Additional codes for languages available for the specified voice in
 --   addition to its default language.
@@ -3392,8 +3391,9 @@ voice_supportedEngines :: Lens' Voice (Maybe [Engine])
 --   the code <tt>hi-IN</tt>.
 voice_additionalLanguageCodes :: Lens' Voice (Maybe [LanguageCode])
 
--- | Human readable name of the language in English.
-voice_languageName :: Lens' Voice (Maybe Text)
+-- | Specifies which engines (<tt>standard</tt> or <tt>neural</tt>) that
+--   are supported by a given voice.
+voice_supportedEngines :: Lens' Voice (Maybe [Engine])
 
 
 module Network.AWS.Polly.Waiters
@@ -3414,28 +3414,28 @@ module Network.AWS.Polly
 -- | API version <tt>2016-06-10</tt> of the Amazon Polly SDK configuration.
 defaultService :: Service
 
+-- | The provided SNS topic ARN is invalid. Please provide a valid SNS
+--   topic ARN and try again.
+_InvalidSnsTopicArnException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The language specified in the lexicon is unsupported. For a list of
+--   supported languages, see <a>Lexicon Attributes</a>.
+_UnsupportedPlsLanguageException :: AsError a => Getting (First ServiceError) a ServiceError
+
 -- | The SSML you provided is invalid. Verify the SSML syntax, spelling of
 --   tags and values, and then try again.
 _InvalidSsmlException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Amazon Polly can't find the specified lexicon. Verify that the
---   lexicon's name is spelled correctly, and then try again.
-_InvalidLexiconException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The specified sample rate is not valid.
+_InvalidSampleRateException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The provided Amazon S3 key prefix is invalid. Please provide a valid
---   S3 object key name.
-_InvalidS3KeyException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | This engine is not compatible with the voice that you have designated.
+--   Choose a new voice that is compatible with the engine or change the
+--   engine and restart the operation.
+_EngineNotSupportedException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Amazon Polly can't find the specified lexicon. This could be caused by
---   a lexicon that is missing, its name is misspelled or specifying a
---   lexicon that is in a different region.
---   
---   Verify that the lexicon exists, is in the region (see ListLexicons)
---   and that you spelled its name is spelled correctly. Then try again.
-_LexiconNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The maximum size of the lexeme would be exceeded by this operation.
-_MaxLexemeLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The maximum number of lexicons would be exceeded by this operation.
+_MaxLexiconsNumberExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The value of the "Text" parameter is longer than the accepted limits.
 --   For the <tt>SynthesizeSpeech</tt> API, the limit for input text is a
@@ -3445,21 +3445,19 @@ _MaxLexemeLengthExceededException :: AsError a => Getting (First ServiceError) a
 --   billed characters. SSML tags are not counted as billed characters.
 _TextLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The Speech Synthesis task with requested Task ID cannot be found.
-_SynthesisTaskNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The maximum size of the lexeme would be exceeded by this operation.
+_MaxLexemeLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The specified sample rate is not valid.
-_InvalidSampleRateException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The provided Task ID is not valid. Please provide a valid Task ID and
+--   try again.
+_InvalidTaskIdException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Amazon Polly can't find the specified lexicon. Verify that the
+--   lexicon's name is spelled correctly, and then try again.
+_InvalidLexiconException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | An unknown condition has caused a service failure.
 _ServiceFailureException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Speech marks are not supported for the <tt>OutputFormat</tt> selected.
---   Speech marks are only available for content in <tt>json</tt> format.
-_MarksNotSupportedForFormatException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The maximum number of lexicons would be exceeded by this operation.
-_MaxLexiconsNumberExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The alphabet specified by the lexicon is not a supported alphabet.
 --   Valid values are <tt>x-sampa</tt> and <tt>ipa</tt>.
@@ -3469,79 +3467,39 @@ _UnsupportedPlsAlphabetException :: AsError a => Getting (First ServiceError) a 
 --   try again.
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The language specified in the lexicon is unsupported. For a list of
---   supported languages, see <a>Lexicon Attributes</a>.
-_UnsupportedPlsLanguageException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Speech marks are not supported for the <tt>OutputFormat</tt> selected.
+--   Speech marks are only available for content in <tt>json</tt> format.
+_MarksNotSupportedForFormatException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The provided SNS topic ARN is invalid. Please provide a valid SNS
---   topic ARN and try again.
-_InvalidSnsTopicArnException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The Speech Synthesis task with requested Task ID cannot be found.
+_SynthesisTaskNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The provided Task ID is not valid. Please provide a valid Task ID and
---   try again.
-_InvalidTaskIdException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The language specified is not currently supported by Amazon Polly in
---   this capacity.
-_LanguageNotSupportedException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The maximum size of the specified lexicon would be exceeded by this
---   operation.
-_LexiconSizeExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | SSML speech marks are not supported for plain text-type input.
+_SsmlMarksNotSupportedForTextTypeException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The provided Amazon S3 bucket name is invalid. Please check your input
 --   with S3 bucket naming requirements and try again.
 _InvalidS3BucketException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | SSML speech marks are not supported for plain text-type input.
-_SsmlMarksNotSupportedForTextTypeException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The maximum size of the specified lexicon would be exceeded by this
+--   operation.
+_LexiconSizeExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | This engine is not compatible with the voice that you have designated.
---   Choose a new voice that is compatible with the engine or change the
---   engine and restart the operation.
-_EngineNotSupportedException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The language specified is not currently supported by Amazon Polly in
+--   this capacity.
+_LanguageNotSupportedException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | <i>See:</i> <a>newGetSpeechSynthesisTask</a> smart constructor.
-data GetSpeechSynthesisTask
-GetSpeechSynthesisTask' :: Text -> GetSpeechSynthesisTask
+-- | Amazon Polly can't find the specified lexicon. This could be caused by
+--   a lexicon that is missing, its name is misspelled or specifying a
+--   lexicon that is in a different region.
+--   
+--   Verify that the lexicon exists, is in the region (see ListLexicons)
+--   and that you spelled its name is spelled correctly. Then try again.
+_LexiconNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Create a value of <a>GetSpeechSynthesisTask</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:taskId:GetSpeechSynthesisTask'</a>,
---   <a>getSpeechSynthesisTask_taskId</a> - The Amazon Polly generated
---   identifier for a speech synthesis task.
-newGetSpeechSynthesisTask :: Text -> GetSpeechSynthesisTask
-
--- | <i>See:</i> <a>newGetSpeechSynthesisTaskResponse</a> smart
---   constructor.
-data GetSpeechSynthesisTaskResponse
-GetSpeechSynthesisTaskResponse' :: Maybe SynthesisTask -> Int -> GetSpeechSynthesisTaskResponse
-
--- | Create a value of <a>GetSpeechSynthesisTaskResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:synthesisTask:GetSpeechSynthesisTaskResponse'</a>,
---   <a>getSpeechSynthesisTaskResponse_synthesisTask</a> - SynthesisTask
---   object that provides information from the requested task, including
---   output format, creation time, task status, and so on.
---   
---   <a>$sel:httpStatus:GetSpeechSynthesisTaskResponse'</a>,
---   <a>getSpeechSynthesisTaskResponse_httpStatus</a> - The response's http
---   status code.
-newGetSpeechSynthesisTaskResponse :: Int -> GetSpeechSynthesisTaskResponse
+-- | The provided Amazon S3 key prefix is invalid. Please provide a valid
+--   S3 object key name.
+_InvalidS3KeyException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | <i>See:</i> <a>newGetLexicon</a> smart constructor.
 data GetLexicon
@@ -3586,28 +3544,11 @@ GetLexiconResponse' :: Maybe LexiconAttributes -> Maybe Lexicon -> Int -> GetLex
 --   code.
 newGetLexiconResponse :: Int -> GetLexiconResponse
 
--- | <i>See:</i> <a>newDeleteLexicon</a> smart constructor.
-data DeleteLexicon
-DeleteLexicon' :: Text -> DeleteLexicon
+-- | <i>See:</i> <a>newGetSpeechSynthesisTask</a> smart constructor.
+data GetSpeechSynthesisTask
+GetSpeechSynthesisTask' :: Text -> GetSpeechSynthesisTask
 
--- | Create a value of <a>DeleteLexicon</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:name:DeleteLexicon'</a>, <a>deleteLexicon_name</a> - The name
---   of the lexicon to delete. Must be an existing lexicon in the region.
-newDeleteLexicon :: Text -> DeleteLexicon
-
--- | <i>See:</i> <a>newDeleteLexiconResponse</a> smart constructor.
-data DeleteLexiconResponse
-DeleteLexiconResponse' :: Int -> DeleteLexiconResponse
-
--- | Create a value of <a>DeleteLexiconResponse</a> with all optional
+-- | Create a value of <a>GetSpeechSynthesisTask</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3616,17 +3557,18 @@ DeleteLexiconResponse' :: Int -> DeleteLexiconResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:DeleteLexiconResponse'</a>,
---   <a>deleteLexiconResponse_httpStatus</a> - The response's http status
---   code.
-newDeleteLexiconResponse :: Int -> DeleteLexiconResponse
+--   <a>$sel:taskId:GetSpeechSynthesisTask'</a>,
+--   <a>getSpeechSynthesisTask_taskId</a> - The Amazon Polly generated
+--   identifier for a speech synthesis task.
+newGetSpeechSynthesisTask :: Text -> GetSpeechSynthesisTask
 
--- | <i>See:</i> <a>newListLexicons</a> smart constructor.
-data ListLexicons
-ListLexicons' :: Maybe Text -> ListLexicons
+-- | <i>See:</i> <a>newGetSpeechSynthesisTaskResponse</a> smart
+--   constructor.
+data GetSpeechSynthesisTaskResponse
+GetSpeechSynthesisTaskResponse' :: Maybe SynthesisTask -> Int -> GetSpeechSynthesisTaskResponse
 
--- | Create a value of <a>ListLexicons</a> with all optional fields
---   omitted.
+-- | Create a value of <a>GetSpeechSynthesisTaskResponse</a> with all
+--   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -3634,42 +3576,19 @@ ListLexicons' :: Maybe Text -> ListLexicons
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListLexicons'</a>, <a>listLexicons_nextToken</a> -
---   An opaque pagination token returned from previous
---   <tt>ListLexicons</tt> operation. If present, indicates where to
---   continue the list of lexicons.
-newListLexicons :: ListLexicons
-
--- | <i>See:</i> <a>newListLexiconsResponse</a> smart constructor.
-data ListLexiconsResponse
-ListLexiconsResponse' :: Maybe Text -> Maybe [LexiconDescription] -> Int -> ListLexiconsResponse
-
--- | Create a value of <a>ListLexiconsResponse</a> with all optional fields
---   omitted.
+--   <a>$sel:synthesisTask:GetSpeechSynthesisTaskResponse'</a>,
+--   <a>getSpeechSynthesisTaskResponse_synthesisTask</a> - SynthesisTask
+--   object that provides information from the requested task, including
+--   output format, creation time, task status, and so on.
 --   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListLexicons'</a>,
---   <a>listLexiconsResponse_nextToken</a> - The pagination token to use in
---   the next request to continue the listing of lexicons.
---   <tt>NextToken</tt> is returned only if the response is truncated.
---   
---   <a>$sel:lexicons:ListLexiconsResponse'</a>,
---   <a>listLexiconsResponse_lexicons</a> - A list of lexicon names and
---   attributes.
---   
---   <a>$sel:httpStatus:ListLexiconsResponse'</a>,
---   <a>listLexiconsResponse_httpStatus</a> - The response's http status
---   code.
-newListLexiconsResponse :: Int -> ListLexiconsResponse
+--   <a>$sel:httpStatus:GetSpeechSynthesisTaskResponse'</a>,
+--   <a>getSpeechSynthesisTaskResponse_httpStatus</a> - The response's http
+--   status code.
+newGetSpeechSynthesisTaskResponse :: Int -> GetSpeechSynthesisTaskResponse
 
 -- | <i>See:</i> <a>newDescribeVoices</a> smart constructor.
 data DescribeVoices
-DescribeVoices' :: Maybe LanguageCode -> Maybe Text -> Maybe Bool -> Maybe Engine -> DescribeVoices
+DescribeVoices' :: Maybe LanguageCode -> Maybe Engine -> Maybe Text -> Maybe Bool -> DescribeVoices
 
 -- | Create a value of <a>DescribeVoices</a> with all optional fields
 --   omitted.
@@ -3686,6 +3605,10 @@ DescribeVoices' :: Maybe LanguageCode -> Maybe Text -> Maybe Bool -> Maybe Engin
 --   filtering the list of voices returned. If you don't specify this
 --   optional parameter, all available voices are returned.
 --   
+--   <a>$sel:engine:DescribeVoices'</a>, <a>describeVoices_engine</a> -
+--   Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) used by
+--   Amazon Polly when processing input text for speech synthesis.
+--   
 --   <a>$sel:nextToken:DescribeVoices'</a>, <a>describeVoices_nextToken</a>
 --   - An opaque pagination token returned from the previous
 --   <tt>DescribeVoices</tt> operation. If present, this indicates where to
@@ -3699,10 +3622,6 @@ DescribeVoices' :: Maybe LanguageCode -> Maybe Text -> Maybe Bool -> Maybe Engin
 --   Italian voice that speaks both Italian (it-IT) and US English, that
 --   voice will be included if you specify <tt>yes</tt> but not if you
 --   specify <tt>no</tt>.
---   
---   <a>$sel:engine:DescribeVoices'</a>, <a>describeVoices_engine</a> -
---   Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) used by
---   Amazon Polly when processing input text for speech synthesis.
 newDescribeVoices :: DescribeVoices
 
 -- | <i>See:</i> <a>newDescribeVoicesResponse</a> smart constructor.
@@ -3732,141 +3651,11 @@ DescribeVoicesResponse' :: Maybe Text -> Maybe [Voice] -> Int -> DescribeVoicesR
 --   code.
 newDescribeVoicesResponse :: Int -> DescribeVoicesResponse
 
--- | <i>See:</i> <a>newStartSpeechSynthesisTask</a> smart constructor.
-data StartSpeechSynthesisTask
-StartSpeechSynthesisTask' :: Maybe LanguageCode -> Maybe [Text] -> Maybe [SpeechMarkType] -> Maybe TextType -> Maybe Text -> Maybe Engine -> Maybe Text -> Maybe Text -> OutputFormat -> Text -> Text -> VoiceId -> StartSpeechSynthesisTask
+-- | <i>See:</i> <a>newListLexicons</a> smart constructor.
+data ListLexicons
+ListLexicons' :: Maybe Text -> ListLexicons
 
--- | Create a value of <a>StartSpeechSynthesisTask</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:languageCode:StartSpeechSynthesisTask'</a>,
---   <a>startSpeechSynthesisTask_languageCode</a> - Optional language code
---   for the Speech Synthesis request. This is only necessary if using a
---   bilingual voice, such as Aditi, which can be used for either Indian
---   English (en-IN) or Hindi (hi-IN).
---   
---   If a bilingual voice is used and no language code is specified, Amazon
---   Polly uses the default language of the bilingual voice. The default
---   language for any voice is the one returned by the
---   <a>DescribeVoices</a> operation for the <tt>LanguageCode</tt>
---   parameter. For example, if no language code is specified, Aditi will
---   use Indian English rather than Hindi.
---   
---   <a>$sel:lexiconNames:StartSpeechSynthesisTask'</a>,
---   <a>startSpeechSynthesisTask_lexiconNames</a> - List of one or more
---   pronunciation lexicon names you want the service to apply during
---   synthesis. Lexicons are applied only if the language of the lexicon is
---   the same as the language of the voice.
---   
---   <a>$sel:speechMarkTypes:StartSpeechSynthesisTask'</a>,
---   <a>startSpeechSynthesisTask_speechMarkTypes</a> - The type of speech
---   marks returned for the input text.
---   
---   <a>$sel:textType:StartSpeechSynthesisTask'</a>,
---   <a>startSpeechSynthesisTask_textType</a> - Specifies whether the input
---   text is plain text or SSML. The default value is plain text.
---   
---   <a>$sel:sampleRate:StartSpeechSynthesisTask'</a>,
---   <a>startSpeechSynthesisTask_sampleRate</a> - The audio frequency
---   specified in Hz.
---   
---   The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
---   and "24000". The default value for standard voices is "22050". The
---   default value for neural voices is "24000".
---   
---   Valid values for pcm are "8000" and "16000" The default value is
---   "16000".
---   
---   <a>$sel:engine:StartSpeechSynthesisTask'</a>,
---   <a>startSpeechSynthesisTask_engine</a> - Specifies the engine
---   (<tt>standard</tt> or <tt>neural</tt>) for Amazon Polly to use when
---   processing input text for speech synthesis. Using a voice that is not
---   supported for the engine selected will result in an error.
---   
---   <a>$sel:outputS3KeyPrefix:StartSpeechSynthesisTask'</a>,
---   <a>startSpeechSynthesisTask_outputS3KeyPrefix</a> - The Amazon S3 key
---   prefix for the output speech file.
---   
---   <a>$sel:snsTopicArn:StartSpeechSynthesisTask'</a>,
---   <a>startSpeechSynthesisTask_snsTopicArn</a> - ARN for the SNS topic
---   optionally used for providing status notification for a speech
---   synthesis task.
---   
---   <a>$sel:outputFormat:StartSpeechSynthesisTask'</a>,
---   <a>startSpeechSynthesisTask_outputFormat</a> - The format in which the
---   returned output will be encoded. For audio stream, this will be mp3,
---   ogg_vorbis, or pcm. For speech marks, this will be json.
---   
---   <a>$sel:outputS3BucketName:StartSpeechSynthesisTask'</a>,
---   <a>startSpeechSynthesisTask_outputS3BucketName</a> - Amazon S3 bucket
---   name to which the output file will be saved.
---   
---   <a>$sel:text:StartSpeechSynthesisTask'</a>,
---   <a>startSpeechSynthesisTask_text</a> - The input text to synthesize.
---   If you specify ssml as the TextType, follow the SSML format for the
---   input text.
---   
---   <a>$sel:voiceId:StartSpeechSynthesisTask'</a>,
---   <a>startSpeechSynthesisTask_voiceId</a> - Voice ID to use for the
---   synthesis.
-newStartSpeechSynthesisTask :: OutputFormat -> Text -> Text -> VoiceId -> StartSpeechSynthesisTask
-
--- | <i>See:</i> <a>newStartSpeechSynthesisTaskResponse</a> smart
---   constructor.
-data StartSpeechSynthesisTaskResponse
-StartSpeechSynthesisTaskResponse' :: Maybe SynthesisTask -> Int -> StartSpeechSynthesisTaskResponse
-
--- | Create a value of <a>StartSpeechSynthesisTaskResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:synthesisTask:StartSpeechSynthesisTaskResponse'</a>,
---   <a>startSpeechSynthesisTaskResponse_synthesisTask</a> - SynthesisTask
---   object that provides information and attributes about a newly
---   submitted speech synthesis task.
---   
---   <a>$sel:httpStatus:StartSpeechSynthesisTaskResponse'</a>,
---   <a>startSpeechSynthesisTaskResponse_httpStatus</a> - The response's
---   http status code.
-newStartSpeechSynthesisTaskResponse :: Int -> StartSpeechSynthesisTaskResponse
-
--- | <i>See:</i> <a>newPutLexicon</a> smart constructor.
-data PutLexicon
-PutLexicon' :: Text -> Sensitive Text -> PutLexicon
-
--- | Create a value of <a>PutLexicon</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:name:PutLexicon'</a>, <a>putLexicon_name</a> - Name of the
---   lexicon. The name must follow the regular express format
---   [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric
---   string up to 20 characters long.
---   
---   <a>$sel:content:PutLexicon'</a>, <a>putLexicon_content</a> - Content
---   of the PLS lexicon as string data.
-newPutLexicon :: Text -> Text -> PutLexicon
-
--- | <i>See:</i> <a>newPutLexiconResponse</a> smart constructor.
-data PutLexiconResponse
-PutLexiconResponse' :: Int -> PutLexiconResponse
-
--- | Create a value of <a>PutLexiconResponse</a> with all optional fields
+-- | Create a value of <a>ListLexicons</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3875,14 +3664,42 @@ PutLexiconResponse' :: Int -> PutLexiconResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:PutLexiconResponse'</a>,
---   <a>putLexiconResponse_httpStatus</a> - The response's http status
+--   <a>$sel:nextToken:ListLexicons'</a>, <a>listLexicons_nextToken</a> -
+--   An opaque pagination token returned from previous
+--   <tt>ListLexicons</tt> operation. If present, indicates where to
+--   continue the list of lexicons.
+newListLexicons :: ListLexicons
+
+-- | <i>See:</i> <a>newListLexiconsResponse</a> smart constructor.
+data ListLexiconsResponse
+ListLexiconsResponse' :: Maybe [LexiconDescription] -> Maybe Text -> Int -> ListLexiconsResponse
+
+-- | Create a value of <a>ListLexiconsResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:lexicons:ListLexiconsResponse'</a>,
+--   <a>listLexiconsResponse_lexicons</a> - A list of lexicon names and
+--   attributes.
+--   
+--   <a>$sel:nextToken:ListLexicons'</a>,
+--   <a>listLexiconsResponse_nextToken</a> - The pagination token to use in
+--   the next request to continue the listing of lexicons.
+--   <tt>NextToken</tt> is returned only if the response is truncated.
+--   
+--   <a>$sel:httpStatus:ListLexiconsResponse'</a>,
+--   <a>listLexiconsResponse_httpStatus</a> - The response's http status
 --   code.
-newPutLexiconResponse :: Int -> PutLexiconResponse
+newListLexiconsResponse :: Int -> ListLexiconsResponse
 
 -- | <i>See:</i> <a>newSynthesizeSpeech</a> smart constructor.
 data SynthesizeSpeech
-SynthesizeSpeech' :: Maybe LanguageCode -> Maybe [Text] -> Maybe [SpeechMarkType] -> Maybe TextType -> Maybe Text -> Maybe Engine -> OutputFormat -> Text -> VoiceId -> SynthesizeSpeech
+SynthesizeSpeech' :: Maybe LanguageCode -> Maybe Engine -> Maybe [SpeechMarkType] -> Maybe Text -> Maybe TextType -> Maybe [Text] -> OutputFormat -> Text -> VoiceId -> SynthesizeSpeech
 
 -- | Create a value of <a>SynthesizeSpeech</a> with all optional fields
 --   omitted.
@@ -3905,33 +3722,6 @@ SynthesizeSpeech' :: Maybe LanguageCode -> Maybe [Text] -> Maybe [SpeechMarkType
 --   <a>DescribeVoices</a> operation for the <tt>LanguageCode</tt>
 --   parameter. For example, if no language code is specified, Aditi will
 --   use Indian English rather than Hindi.
---   
---   <a>$sel:lexiconNames:SynthesizeSpeech'</a>,
---   <a>synthesizeSpeech_lexiconNames</a> - List of one or more
---   pronunciation lexicon names you want the service to apply during
---   synthesis. Lexicons are applied only if the language of the lexicon is
---   the same as the language of the voice. For information about storing
---   lexicons, see <a>PutLexicon</a>.
---   
---   <a>$sel:speechMarkTypes:SynthesizeSpeech'</a>,
---   <a>synthesizeSpeech_speechMarkTypes</a> - The type of speech marks
---   returned for the input text.
---   
---   <a>$sel:textType:SynthesizeSpeech'</a>,
---   <a>synthesizeSpeech_textType</a> - Specifies whether the input text is
---   plain text or SSML. The default value is plain text. For more
---   information, see <a>Using SSML</a>.
---   
---   <a>$sel:sampleRate:SynthesizeSpeech'</a>,
---   <a>synthesizeSpeech_sampleRate</a> - The audio frequency specified in
---   Hz.
---   
---   The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
---   and "24000". The default value for standard voices is "22050". The
---   default value for neural voices is "24000".
---   
---   Valid values for pcm are "8000" and "16000" The default value is
---   "16000".
 --   
 --   <a>$sel:engine:SynthesizeSpeech'</a>, <a>synthesizeSpeech_engine</a> -
 --   Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
@@ -3960,6 +3750,33 @@ SynthesizeSpeech' :: Maybe LanguageCode -> Maybe [Text] -> Maybe [SpeechMarkType
 --   set to <tt>standard</tt> and an NTTS-only voice is selected, this will
 --   result in an error.
 --   
+--   <a>$sel:speechMarkTypes:SynthesizeSpeech'</a>,
+--   <a>synthesizeSpeech_speechMarkTypes</a> - The type of speech marks
+--   returned for the input text.
+--   
+--   <a>$sel:sampleRate:SynthesizeSpeech'</a>,
+--   <a>synthesizeSpeech_sampleRate</a> - The audio frequency specified in
+--   Hz.
+--   
+--   The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
+--   and "24000". The default value for standard voices is "22050". The
+--   default value for neural voices is "24000".
+--   
+--   Valid values for pcm are "8000" and "16000" The default value is
+--   "16000".
+--   
+--   <a>$sel:textType:SynthesizeSpeech'</a>,
+--   <a>synthesizeSpeech_textType</a> - Specifies whether the input text is
+--   plain text or SSML. The default value is plain text. For more
+--   information, see <a>Using SSML</a>.
+--   
+--   <a>$sel:lexiconNames:SynthesizeSpeech'</a>,
+--   <a>synthesizeSpeech_lexiconNames</a> - List of one or more
+--   pronunciation lexicon names you want the service to apply during
+--   synthesis. Lexicons are applied only if the language of the lexicon is
+--   the same as the language of the voice. For information about storing
+--   lexicons, see <a>PutLexicon</a>.
+--   
 --   <a>$sel:outputFormat:SynthesizeSpeech'</a>,
 --   <a>synthesizeSpeech_outputFormat</a> - The format in which the
 --   returned output will be encoded. For audio stream, this will be mp3,
@@ -3979,7 +3796,7 @@ newSynthesizeSpeech :: OutputFormat -> Text -> VoiceId -> SynthesizeSpeech
 
 -- | <i>See:</i> <a>newSynthesizeSpeechResponse</a> smart constructor.
 data SynthesizeSpeechResponse
-SynthesizeSpeechResponse' :: Maybe Text -> Maybe Int -> Int -> ResponseBody -> SynthesizeSpeechResponse
+SynthesizeSpeechResponse' :: Maybe Int -> Maybe Text -> Int -> ResponseBody -> SynthesizeSpeechResponse
 
 -- | Create a value of <a>SynthesizeSpeechResponse</a> with all optional
 --   fields omitted.
@@ -3989,6 +3806,10 @@ SynthesizeSpeechResponse' :: Maybe Text -> Maybe Int -> Int -> ResponseBody -> S
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:requestCharacters:SynthesizeSpeechResponse'</a>,
+--   <a>synthesizeSpeechResponse_requestCharacters</a> - Number of
+--   characters synthesized.
 --   
 --   <a>$sel:contentType:SynthesizeSpeechResponse'</a>,
 --   <a>synthesizeSpeechResponse_contentType</a> - Specifies the type audio
@@ -4006,10 +3827,6 @@ SynthesizeSpeechResponse' :: Maybe Text -> Maybe Int -> Int -> ResponseBody -> S
 --   <li>If you request <tt>json</tt> as the <tt>OutputFormat</tt>, the
 --   <tt>ContentType</tt> returned is audio/json.</li>
 --   </ul>
---   
---   <a>$sel:requestCharacters:SynthesizeSpeechResponse'</a>,
---   <a>synthesizeSpeechResponse_requestCharacters</a> - Number of
---   characters synthesized.
 --   
 --   <a>$sel:httpStatus:SynthesizeSpeechResponse'</a>,
 --   <a>synthesizeSpeechResponse_httpStatus</a> - The response's http
@@ -4076,6 +3893,189 @@ ListSpeechSynthesisTasksResponse' :: Maybe Text -> Maybe [SynthesisTask] -> Int 
 --   <a>listSpeechSynthesisTasksResponse_httpStatus</a> - The response's
 --   http status code.
 newListSpeechSynthesisTasksResponse :: Int -> ListSpeechSynthesisTasksResponse
+
+-- | <i>See:</i> <a>newPutLexicon</a> smart constructor.
+data PutLexicon
+PutLexicon' :: Text -> Sensitive Text -> PutLexicon
+
+-- | Create a value of <a>PutLexicon</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:name:PutLexicon'</a>, <a>putLexicon_name</a> - Name of the
+--   lexicon. The name must follow the regular express format
+--   [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric
+--   string up to 20 characters long.
+--   
+--   <a>$sel:content:PutLexicon'</a>, <a>putLexicon_content</a> - Content
+--   of the PLS lexicon as string data.
+newPutLexicon :: Text -> Text -> PutLexicon
+
+-- | <i>See:</i> <a>newPutLexiconResponse</a> smart constructor.
+data PutLexiconResponse
+PutLexiconResponse' :: Int -> PutLexiconResponse
+
+-- | Create a value of <a>PutLexiconResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:PutLexiconResponse'</a>,
+--   <a>putLexiconResponse_httpStatus</a> - The response's http status
+--   code.
+newPutLexiconResponse :: Int -> PutLexiconResponse
+
+-- | <i>See:</i> <a>newDeleteLexicon</a> smart constructor.
+data DeleteLexicon
+DeleteLexicon' :: Text -> DeleteLexicon
+
+-- | Create a value of <a>DeleteLexicon</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:name:DeleteLexicon'</a>, <a>deleteLexicon_name</a> - The name
+--   of the lexicon to delete. Must be an existing lexicon in the region.
+newDeleteLexicon :: Text -> DeleteLexicon
+
+-- | <i>See:</i> <a>newDeleteLexiconResponse</a> smart constructor.
+data DeleteLexiconResponse
+DeleteLexiconResponse' :: Int -> DeleteLexiconResponse
+
+-- | Create a value of <a>DeleteLexiconResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:DeleteLexiconResponse'</a>,
+--   <a>deleteLexiconResponse_httpStatus</a> - The response's http status
+--   code.
+newDeleteLexiconResponse :: Int -> DeleteLexiconResponse
+
+-- | <i>See:</i> <a>newStartSpeechSynthesisTask</a> smart constructor.
+data StartSpeechSynthesisTask
+StartSpeechSynthesisTask' :: Maybe LanguageCode -> Maybe Text -> Maybe Text -> Maybe Engine -> Maybe [SpeechMarkType] -> Maybe Text -> Maybe TextType -> Maybe [Text] -> OutputFormat -> Text -> Text -> VoiceId -> StartSpeechSynthesisTask
+
+-- | Create a value of <a>StartSpeechSynthesisTask</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:languageCode:StartSpeechSynthesisTask'</a>,
+--   <a>startSpeechSynthesisTask_languageCode</a> - Optional language code
+--   for the Speech Synthesis request. This is only necessary if using a
+--   bilingual voice, such as Aditi, which can be used for either Indian
+--   English (en-IN) or Hindi (hi-IN).
+--   
+--   If a bilingual voice is used and no language code is specified, Amazon
+--   Polly uses the default language of the bilingual voice. The default
+--   language for any voice is the one returned by the
+--   <a>DescribeVoices</a> operation for the <tt>LanguageCode</tt>
+--   parameter. For example, if no language code is specified, Aditi will
+--   use Indian English rather than Hindi.
+--   
+--   <a>$sel:snsTopicArn:StartSpeechSynthesisTask'</a>,
+--   <a>startSpeechSynthesisTask_snsTopicArn</a> - ARN for the SNS topic
+--   optionally used for providing status notification for a speech
+--   synthesis task.
+--   
+--   <a>$sel:outputS3KeyPrefix:StartSpeechSynthesisTask'</a>,
+--   <a>startSpeechSynthesisTask_outputS3KeyPrefix</a> - The Amazon S3 key
+--   prefix for the output speech file.
+--   
+--   <a>$sel:engine:StartSpeechSynthesisTask'</a>,
+--   <a>startSpeechSynthesisTask_engine</a> - Specifies the engine
+--   (<tt>standard</tt> or <tt>neural</tt>) for Amazon Polly to use when
+--   processing input text for speech synthesis. Using a voice that is not
+--   supported for the engine selected will result in an error.
+--   
+--   <a>$sel:speechMarkTypes:StartSpeechSynthesisTask'</a>,
+--   <a>startSpeechSynthesisTask_speechMarkTypes</a> - The type of speech
+--   marks returned for the input text.
+--   
+--   <a>$sel:sampleRate:StartSpeechSynthesisTask'</a>,
+--   <a>startSpeechSynthesisTask_sampleRate</a> - The audio frequency
+--   specified in Hz.
+--   
+--   The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
+--   and "24000". The default value for standard voices is "22050". The
+--   default value for neural voices is "24000".
+--   
+--   Valid values for pcm are "8000" and "16000" The default value is
+--   "16000".
+--   
+--   <a>$sel:textType:StartSpeechSynthesisTask'</a>,
+--   <a>startSpeechSynthesisTask_textType</a> - Specifies whether the input
+--   text is plain text or SSML. The default value is plain text.
+--   
+--   <a>$sel:lexiconNames:StartSpeechSynthesisTask'</a>,
+--   <a>startSpeechSynthesisTask_lexiconNames</a> - List of one or more
+--   pronunciation lexicon names you want the service to apply during
+--   synthesis. Lexicons are applied only if the language of the lexicon is
+--   the same as the language of the voice.
+--   
+--   <a>$sel:outputFormat:StartSpeechSynthesisTask'</a>,
+--   <a>startSpeechSynthesisTask_outputFormat</a> - The format in which the
+--   returned output will be encoded. For audio stream, this will be mp3,
+--   ogg_vorbis, or pcm. For speech marks, this will be json.
+--   
+--   <a>$sel:outputS3BucketName:StartSpeechSynthesisTask'</a>,
+--   <a>startSpeechSynthesisTask_outputS3BucketName</a> - Amazon S3 bucket
+--   name to which the output file will be saved.
+--   
+--   <a>$sel:text:StartSpeechSynthesisTask'</a>,
+--   <a>startSpeechSynthesisTask_text</a> - The input text to synthesize.
+--   If you specify ssml as the TextType, follow the SSML format for the
+--   input text.
+--   
+--   <a>$sel:voiceId:StartSpeechSynthesisTask'</a>,
+--   <a>startSpeechSynthesisTask_voiceId</a> - Voice ID to use for the
+--   synthesis.
+newStartSpeechSynthesisTask :: OutputFormat -> Text -> Text -> VoiceId -> StartSpeechSynthesisTask
+
+-- | <i>See:</i> <a>newStartSpeechSynthesisTaskResponse</a> smart
+--   constructor.
+data StartSpeechSynthesisTaskResponse
+StartSpeechSynthesisTaskResponse' :: Maybe SynthesisTask -> Int -> StartSpeechSynthesisTaskResponse
+
+-- | Create a value of <a>StartSpeechSynthesisTaskResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:synthesisTask:StartSpeechSynthesisTaskResponse'</a>,
+--   <a>startSpeechSynthesisTaskResponse_synthesisTask</a> - SynthesisTask
+--   object that provides information and attributes about a newly
+--   submitted speech synthesis task.
+--   
+--   <a>$sel:httpStatus:StartSpeechSynthesisTaskResponse'</a>,
+--   <a>startSpeechSynthesisTaskResponse_httpStatus</a> - The response's
+--   http status code.
+newStartSpeechSynthesisTaskResponse :: Int -> StartSpeechSynthesisTaskResponse
 newtype Engine
 Engine' :: Text -> Engine
 [fromEngine] :: Engine -> Text
@@ -4221,7 +4221,7 @@ pattern VoiceId_Zhiyu :: VoiceId
 --   
 --   <i>See:</i> <a>newLexicon</a> smart constructor.
 data Lexicon
-Lexicon' :: Maybe Text -> Maybe (Sensitive Text) -> Lexicon
+Lexicon' :: Maybe (Sensitive Text) -> Maybe Text -> Lexicon
 
 -- | Create a value of <a>Lexicon</a> with all optional fields omitted.
 --   
@@ -4231,10 +4231,10 @@ Lexicon' :: Maybe Text -> Maybe (Sensitive Text) -> Lexicon
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:name:Lexicon'</a>, <a>lexicon_name</a> - Name of the lexicon.
---   
 --   <a>$sel:content:Lexicon'</a>, <a>lexicon_content</a> - Lexicon content
 --   in string format. The content of a lexicon must be in PLS format.
+--   
+--   <a>$sel:name:Lexicon'</a>, <a>lexicon_name</a> - Name of the lexicon.
 newLexicon :: Lexicon
 
 -- | Contains metadata describing the lexicon such as the number of
@@ -4243,7 +4243,7 @@ newLexicon :: Lexicon
 --   
 --   <i>See:</i> <a>newLexiconAttributes</a> smart constructor.
 data LexiconAttributes
-LexiconAttributes' :: Maybe LanguageCode -> Maybe Text -> Maybe Text -> Maybe Int -> Maybe POSIX -> Maybe Int -> LexiconAttributes
+LexiconAttributes' :: Maybe LanguageCode -> Maybe Int -> Maybe Int -> Maybe Text -> Maybe Text -> Maybe POSIX -> LexiconAttributes
 
 -- | Create a value of <a>LexiconAttributes</a> with all optional fields
 --   omitted.
@@ -4260,31 +4260,31 @@ LexiconAttributes' :: Maybe LanguageCode -> Maybe Text -> Maybe Text -> Maybe In
 --   applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so
 --   on.
 --   
---   <a>$sel:alphabet:LexiconAttributes'</a>,
---   <a>lexiconAttributes_alphabet</a> - Phonetic alphabet used in the
---   lexicon. Valid values are <tt>ipa</tt> and <tt>x-sampa</tt>.
---   
---   <a>$sel:lexiconArn:LexiconAttributes'</a>,
---   <a>lexiconAttributes_lexiconArn</a> - Amazon Resource Name (ARN) of
---   the lexicon.
+--   <a>$sel:size:LexiconAttributes'</a>, <a>lexiconAttributes_size</a> -
+--   Total size of the lexicon, in characters.
 --   
 --   <a>$sel:lexemesCount:LexiconAttributes'</a>,
 --   <a>lexiconAttributes_lexemesCount</a> - Number of lexemes in the
 --   lexicon.
 --   
+--   <a>$sel:lexiconArn:LexiconAttributes'</a>,
+--   <a>lexiconAttributes_lexiconArn</a> - Amazon Resource Name (ARN) of
+--   the lexicon.
+--   
+--   <a>$sel:alphabet:LexiconAttributes'</a>,
+--   <a>lexiconAttributes_alphabet</a> - Phonetic alphabet used in the
+--   lexicon. Valid values are <tt>ipa</tt> and <tt>x-sampa</tt>.
+--   
 --   <a>$sel:lastModified:LexiconAttributes'</a>,
 --   <a>lexiconAttributes_lastModified</a> - Date lexicon was last modified
 --   (a timestamp value).
---   
---   <a>$sel:size:LexiconAttributes'</a>, <a>lexiconAttributes_size</a> -
---   Total size of the lexicon, in characters.
 newLexiconAttributes :: LexiconAttributes
 
 -- | Describes the content of the lexicon.
 --   
 --   <i>See:</i> <a>newLexiconDescription</a> smart constructor.
 data LexiconDescription
-LexiconDescription' :: Maybe Text -> Maybe LexiconAttributes -> LexiconDescription
+LexiconDescription' :: Maybe LexiconAttributes -> Maybe Text -> LexiconDescription
 
 -- | Create a value of <a>LexiconDescription</a> with all optional fields
 --   omitted.
@@ -4295,11 +4295,11 @@ LexiconDescription' :: Maybe Text -> Maybe LexiconAttributes -> LexiconDescripti
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:name:LexiconDescription'</a>, <a>lexiconDescription_name</a> -
---   Name of the lexicon.
---   
 --   <a>$sel:attributes:LexiconDescription'</a>,
 --   <a>lexiconDescription_attributes</a> - Provides lexicon metadata.
+--   
+--   <a>$sel:name:LexiconDescription'</a>, <a>lexiconDescription_name</a> -
+--   Name of the lexicon.
 newLexiconDescription :: LexiconDescription
 
 -- | SynthesisTask object that provides information about a speech
@@ -4307,7 +4307,7 @@ newLexiconDescription :: LexiconDescription
 --   
 --   <i>See:</i> <a>newSynthesisTask</a> smart constructor.
 data SynthesisTask
-SynthesisTask' :: Maybe LanguageCode -> Maybe POSIX -> Maybe Text -> Maybe [Text] -> Maybe [SpeechMarkType] -> Maybe VoiceId -> Maybe Text -> Maybe TextType -> Maybe OutputFormat -> Maybe Text -> Maybe TaskStatus -> Maybe Engine -> Maybe Int -> Maybe Text -> Maybe Text -> SynthesisTask
+SynthesisTask' :: Maybe POSIX -> Maybe LanguageCode -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Int -> Maybe Engine -> Maybe [SpeechMarkType] -> Maybe Text -> Maybe OutputFormat -> Maybe TextType -> Maybe VoiceId -> Maybe [Text] -> Maybe TaskStatus -> Maybe Text -> SynthesisTask
 
 -- | Create a value of <a>SynthesisTask</a> with all optional fields
 --   omitted.
@@ -4317,6 +4317,10 @@ SynthesisTask' :: Maybe LanguageCode -> Maybe POSIX -> Maybe Text -> Maybe [Text
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:creationTime:SynthesisTask'</a>,
+--   <a>synthesisTask_creationTime</a> - Timestamp for the time the
+--   synthesis task was started.
 --   
 --   <a>$sel:languageCode:SynthesisTask'</a>,
 --   <a>synthesisTask_languageCode</a> - Optional language code for a
@@ -4331,37 +4335,31 @@ SynthesisTask' :: Maybe LanguageCode -> Maybe POSIX -> Maybe Text -> Maybe [Text
 --   parameter. For example, if no language code is specified, Aditi will
 --   use Indian English rather than Hindi.
 --   
---   <a>$sel:creationTime:SynthesisTask'</a>,
---   <a>synthesisTask_creationTime</a> - Timestamp for the time the
---   synthesis task was started.
+--   <a>$sel:snsTopicArn:SynthesisTask'</a>,
+--   <a>synthesisTask_snsTopicArn</a> - ARN for the SNS topic optionally
+--   used for providing status notification for a speech synthesis task.
 --   
---   <a>$sel:outputUri:SynthesisTask'</a>, <a>synthesisTask_outputUri</a> -
---   Pathway for the output speech file.
---   
---   <a>$sel:lexiconNames:SynthesisTask'</a>,
---   <a>synthesisTask_lexiconNames</a> - List of one or more pronunciation
---   lexicon names you want the service to apply during synthesis. Lexicons
---   are applied only if the language of the lexicon is the same as the
---   language of the voice.
---   
---   <a>$sel:speechMarkTypes:SynthesisTask'</a>,
---   <a>synthesisTask_speechMarkTypes</a> - The type of speech marks
---   returned for the input text.
---   
---   <a>$sel:voiceId:SynthesisTask'</a>, <a>synthesisTask_voiceId</a> -
---   Voice ID to use for the synthesis.
+--   <a>$sel:taskStatusReason:SynthesisTask'</a>,
+--   <a>synthesisTask_taskStatusReason</a> - Reason for the current status
+--   of a specific speech synthesis task, including errors if the task has
+--   failed.
 --   
 --   <a>$sel:taskId:SynthesisTask'</a>, <a>synthesisTask_taskId</a> - The
 --   Amazon Polly generated identifier for a speech synthesis task.
 --   
---   <a>$sel:textType:SynthesisTask'</a>, <a>synthesisTask_textType</a> -
---   Specifies whether the input text is plain text or SSML. The default
---   value is plain text.
+--   <a>$sel:requestCharacters:SynthesisTask'</a>,
+--   <a>synthesisTask_requestCharacters</a> - Number of billable characters
+--   synthesized.
 --   
---   <a>$sel:outputFormat:SynthesisTask'</a>,
---   <a>synthesisTask_outputFormat</a> - The format in which the returned
---   output will be encoded. For audio stream, this will be mp3,
---   ogg_vorbis, or pcm. For speech marks, this will be json.
+--   <a>$sel:engine:SynthesisTask'</a>, <a>synthesisTask_engine</a> -
+--   Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
+--   Polly to use when processing input text for speech synthesis. Using a
+--   voice that is not supported for the engine selected will result in an
+--   error.
+--   
+--   <a>$sel:speechMarkTypes:SynthesisTask'</a>,
+--   <a>synthesisTask_speechMarkTypes</a> - The type of speech marks
+--   returned for the input text.
 --   
 --   <a>$sel:sampleRate:SynthesisTask'</a>, <a>synthesisTask_sampleRate</a>
 --   - The audio frequency specified in Hz.
@@ -4373,34 +4371,36 @@ SynthesisTask' :: Maybe LanguageCode -> Maybe POSIX -> Maybe Text -> Maybe [Text
 --   Valid values for pcm are "8000" and "16000" The default value is
 --   "16000".
 --   
+--   <a>$sel:outputFormat:SynthesisTask'</a>,
+--   <a>synthesisTask_outputFormat</a> - The format in which the returned
+--   output will be encoded. For audio stream, this will be mp3,
+--   ogg_vorbis, or pcm. For speech marks, this will be json.
+--   
+--   <a>$sel:textType:SynthesisTask'</a>, <a>synthesisTask_textType</a> -
+--   Specifies whether the input text is plain text or SSML. The default
+--   value is plain text.
+--   
+--   <a>$sel:voiceId:SynthesisTask'</a>, <a>synthesisTask_voiceId</a> -
+--   Voice ID to use for the synthesis.
+--   
+--   <a>$sel:lexiconNames:SynthesisTask'</a>,
+--   <a>synthesisTask_lexiconNames</a> - List of one or more pronunciation
+--   lexicon names you want the service to apply during synthesis. Lexicons
+--   are applied only if the language of the lexicon is the same as the
+--   language of the voice.
+--   
 --   <a>$sel:taskStatus:SynthesisTask'</a>, <a>synthesisTask_taskStatus</a>
 --   - Current status of the individual speech synthesis task.
 --   
---   <a>$sel:engine:SynthesisTask'</a>, <a>synthesisTask_engine</a> -
---   Specifies the engine (<tt>standard</tt> or <tt>neural</tt>) for Amazon
---   Polly to use when processing input text for speech synthesis. Using a
---   voice that is not supported for the engine selected will result in an
---   error.
---   
---   <a>$sel:requestCharacters:SynthesisTask'</a>,
---   <a>synthesisTask_requestCharacters</a> - Number of billable characters
---   synthesized.
---   
---   <a>$sel:taskStatusReason:SynthesisTask'</a>,
---   <a>synthesisTask_taskStatusReason</a> - Reason for the current status
---   of a specific speech synthesis task, including errors if the task has
---   failed.
---   
---   <a>$sel:snsTopicArn:SynthesisTask'</a>,
---   <a>synthesisTask_snsTopicArn</a> - ARN for the SNS topic optionally
---   used for providing status notification for a speech synthesis task.
+--   <a>$sel:outputUri:SynthesisTask'</a>, <a>synthesisTask_outputUri</a> -
+--   Pathway for the output speech file.
 newSynthesisTask :: SynthesisTask
 
 -- | Description of the voice.
 --   
 --   <i>See:</i> <a>newVoice</a> smart constructor.
 data Voice
-Voice' :: Maybe LanguageCode -> Maybe VoiceId -> Maybe Text -> Maybe Gender -> Maybe [Engine] -> Maybe [LanguageCode] -> Maybe Text -> Voice
+Voice' :: Maybe LanguageCode -> Maybe Text -> Maybe Gender -> Maybe Text -> Maybe VoiceId -> Maybe [LanguageCode] -> Maybe [Engine] -> Voice
 
 -- | Create a value of <a>Voice</a> with all optional fields omitted.
 --   
@@ -4413,19 +4413,18 @@ Voice' :: Maybe LanguageCode -> Maybe VoiceId -> Maybe Text -> Maybe Gender -> M
 --   <a>$sel:languageCode:Voice'</a>, <a>voice_languageCode</a> - Language
 --   code of the voice.
 --   
---   <a>$sel:id:Voice'</a>, <a>voice_id</a> - Amazon Polly assigned voice
---   ID. This is the ID that you specify when calling the
---   <tt>SynthesizeSpeech</tt> operation.
+--   <a>$sel:languageName:Voice'</a>, <a>voice_languageName</a> - Human
+--   readable name of the language in English.
+--   
+--   <a>$sel:gender:Voice'</a>, <a>voice_gender</a> - Gender of the voice.
 --   
 --   <a>$sel:name:Voice'</a>, <a>voice_name</a> - Name of the voice (for
 --   example, Salli, Kendra, etc.). This provides a human readable voice
 --   name that you might display in your application.
 --   
---   <a>$sel:gender:Voice'</a>, <a>voice_gender</a> - Gender of the voice.
---   
---   <a>$sel:supportedEngines:Voice'</a>, <a>voice_supportedEngines</a> -
---   Specifies which engines (<tt>standard</tt> or <tt>neural</tt>) that
---   are supported by a given voice.
+--   <a>$sel:id:Voice'</a>, <a>voice_id</a> - Amazon Polly assigned voice
+--   ID. This is the ID that you specify when calling the
+--   <tt>SynthesizeSpeech</tt> operation.
 --   
 --   <a>$sel:additionalLanguageCodes:Voice'</a>,
 --   <a>voice_additionalLanguageCodes</a> - Additional codes for languages
@@ -4436,6 +4435,7 @@ Voice' :: Maybe LanguageCode -> Maybe VoiceId -> Maybe Text -> Maybe Gender -> M
 --   and fluent in both Indian English and Hindi, this parameter would show
 --   the code <tt>hi-IN</tt>.
 --   
---   <a>$sel:languageName:Voice'</a>, <a>voice_languageName</a> - Human
---   readable name of the language in English.
+--   <a>$sel:supportedEngines:Voice'</a>, <a>voice_supportedEngines</a> -
+--   Specifies which engines (<tt>standard</tt> or <tt>neural</tt>) that
+--   are supported by a given voice.
 newVoice :: Voice

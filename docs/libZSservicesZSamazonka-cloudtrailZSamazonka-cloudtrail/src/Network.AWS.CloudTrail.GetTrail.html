@@ -47,13 +47,13 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetTrail' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679199913"><span id="local-6989586621679199914"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTrail"><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail"><span class="hs-identifier hs-var">GetTrail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTrail%27"><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail%27"><span class="hs-identifier hs-var">GetTrail'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679200061"><span id="local-6989586621679200062"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTrail"><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail"><span class="hs-identifier hs-var">GetTrail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTrail%27"><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail%27"><span class="hs-identifier hs-var">GetTrail'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name or the Amazon Resource Name (ARN) of the trail for which you</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- want to retrieve settings information.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3Aname%3AGetTrail%27"><span class="annot"><span class="annottext">GetTrail -&gt; Text
 </span><a href="Network.AWS.CloudTrail.GetTrail.html#%24sel%3Aname%3AGetTrail%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199907"><span id="local-6989586621679199909"><span class="annot"><span class="annottext">GetTrail -&gt; GetTrail -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200055"><span id="local-6989586621679200057"><span class="annot"><span class="annottext">GetTrail -&gt; GetTrail -&gt; Bool
 (GetTrail -&gt; GetTrail -&gt; Bool)
 -&gt; (GetTrail -&gt; GetTrail -&gt; Bool) -&gt; Eq GetTrail
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTrail -&gt; GetTrail -&gt; Bool
 == :: GetTrail -&gt; GetTrail -&gt; Bool
 $c== :: GetTrail -&gt; GetTrail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199898"><span id="local-6989586621679199900"><span id="local-6989586621679199902"><span id="local-6989586621679199904"><span class="annot"><span class="annottext">ReadPrec [GetTrail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200046"><span id="local-6989586621679200048"><span id="local-6989586621679200050"><span id="local-6989586621679200052"><span class="annot"><span class="annottext">ReadPrec [GetTrail]
 ReadPrec GetTrail
 Int -&gt; ReadS GetTrail
 ReadS [GetTrail]
@@ -81,7 +81,7 @@ readList :: ReadS [GetTrail]
 $creadList :: ReadS [GetTrail]
 readsPrec :: Int -&gt; ReadS GetTrail
 $creadsPrec :: Int -&gt; ReadS GetTrail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199891"><span id="local-6989586621679199893"><span id="local-6989586621679199895"><span class="annot"><span class="annottext">Int -&gt; GetTrail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200039"><span id="local-6989586621679200041"><span id="local-6989586621679200043"><span class="annot"><span class="annottext">Int -&gt; GetTrail -&gt; ShowS
 [GetTrail] -&gt; ShowS
 GetTrail -&gt; String
 (Int -&gt; GetTrail -&gt; ShowS)
@@ -119,11 +119,11 @@ $cfrom :: forall x. GetTrail -&gt; Rep GetTrail x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail"><span class="hs-identifier hs-type">GetTrail</span></a></span><span>
 </span><span id="line-71"></span><span id="newGetTrail"><span class="annot"><span class="annottext">newGetTrail :: Text -&gt; GetTrail
-</span><a href="Network.AWS.CloudTrail.GetTrail.html#newGetTrail"><span class="hs-identifier hs-var hs-var">newGetTrail</span></a></span></span><span> </span><span id="local-6989586621679199886"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199886"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetTrail' :: Text -&gt; GetTrail
+</span><a href="Network.AWS.CloudTrail.GetTrail.html#newGetTrail"><span class="hs-identifier hs-var hs-var">newGetTrail</span></a></span></span><span> </span><span id="local-6989586621679200034"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200034"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetTrail' :: Text -&gt; GetTrail
 </span><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail%27"><span class="hs-identifier hs-type">GetTrail'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetTrail' :: Text
 </span><a href="Network.AWS.CloudTrail.GetTrail.html#%24sel%3Aname%3AGetTrail%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199886"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679200034"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The name or the Amazon Resource Name (ARN) of the trail for which you</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- want to retrieve settings information.</span><span>
@@ -133,25 +133,25 @@ $cfrom :: forall x. GetTrail -&gt; Rep GetTrail x
 -&gt; (GetTrail -&gt; Text -&gt; GetTrail)
 -&gt; Lens GetTrail GetTrail Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail%27"><span class="hs-identifier hs-type">GetTrail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199883"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail%27"><span class="hs-identifier hs-type">GetTrail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200031"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:GetTrail' :: GetTrail -&gt; Text
-</span><a href="#local-6989586621679199883"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199883"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199882"><span class="annot"><span class="annottext">s :: GetTrail
-</span><a href="#local-6989586621679199882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail%27"><span class="hs-identifier hs-type">GetTrail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199881"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTrail
-</span><a href="#local-6989586621679199882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetTrail' :: Text
+</span><a href="#local-6989586621679200031"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200031"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200030"><span class="annot"><span class="annottext">s :: GetTrail
+</span><a href="#local-6989586621679200030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail%27"><span class="hs-identifier hs-type">GetTrail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200029"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTrail
+</span><a href="#local-6989586621679200030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetTrail' :: Text
 </span><a href="Network.AWS.CloudTrail.GetTrail.html#%24sel%3Aname%3AGetTrail%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail"><span class="hs-identifier hs-type">GetTrail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail"><span class="hs-identifier hs-type">GetTrail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail"><span class="hs-identifier hs-type">GetTrail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail"><span class="hs-identifier hs-type">GetTrail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse"><span class="hs-identifier hs-type">GetTrailResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679199877"><span class="annot"><span class="annottext">request :: GetTrail -&gt; Request GetTrail
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679200025"><span class="annot"><span class="annottext">request :: GetTrail -&gt; Request GetTrail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetTrail -&gt; Request GetTrail
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudTrail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679199873"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679200021"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetTrail
 -&gt; ClientResponse ClientBody
@@ -175,10 +175,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679199870"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199870"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679199869"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679199869"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679199868"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199868"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200018"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200018"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200017"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679200017"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200016"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200016"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Trail -&gt; Int -&gt; GetTrailResponse
 </span><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse%27"><span class="hs-identifier hs-var">GetTrailResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Trail -&gt; Int -&gt; GetTrailResponse)
@@ -186,7 +186,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetTrailResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Trail)
+</span><a href="#local-6989586621679200016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Trail)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Trail&quot;</span></span><span class="hs-special">)</span><span>
@@ -198,15 +198,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199870"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200018"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199860"><span id="local-6989586621679199862"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail"><span class="hs-identifier hs-type">GetTrail</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200008"><span id="local-6989586621679200010"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail"><span class="hs-identifier hs-type">GetTrail</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199857"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail"><span class="hs-identifier hs-type">GetTrail</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail"><span class="hs-identifier hs-type">GetTrail</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail"><span class="hs-identifier hs-type">GetTrail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679199853"><span class="annot"><span class="annottext">toHeaders :: GetTrail -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679200001"><span class="annot"><span class="annottext">toHeaders :: GetTrail -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetTrail -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -233,12 +233,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199843"><span id="local-6989586621679199845"><span id="local-6989586621679199847"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail"><span class="hs-identifier hs-type">GetTrail</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679199841"><span class="annot"><span class="annottext">toJSON :: GetTrail -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail%27"><span class="hs-identifier hs-type">GetTrail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199839"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199991"><span id="local-6989586621679199993"><span id="local-6989586621679199995"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail"><span class="hs-identifier hs-type">GetTrail</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679199989"><span class="annot"><span class="annottext">toJSON :: GetTrail -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail%27"><span class="hs-identifier hs-type">GetTrail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199987"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:GetTrail' :: GetTrail -&gt; Text
-</span><a href="#local-6989586621679199839"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679199987"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -250,18 +250,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199839"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679199987"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail"><span class="hs-identifier hs-type">GetTrail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679199833"><span class="annot"><span class="annottext">toPath :: GetTrail -&gt; ByteString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679199981"><span class="annot"><span class="annottext">toPath :: GetTrail -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetTrail -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrail"><span class="hs-identifier hs-type">GetTrail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679199829"><span class="annot"><span class="annottext">toQuery :: GetTrail -&gt; QueryString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679199977"><span class="annot"><span class="annottext">toQuery :: GetTrail -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetTrail -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -269,14 +269,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newGetTrailResponse' smart constructor.</span><span>
-</span><span id="line-122"></span><span id="local-6989586621679199826"><span id="local-6989586621679199827"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTrailResponse"><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse"><span class="hs-identifier hs-var">GetTrailResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTrailResponse%27"><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse%27"><span class="hs-identifier hs-var">GetTrailResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span id="local-6989586621679199974"><span id="local-6989586621679199975"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTrailResponse"><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse"><span class="hs-identifier hs-var">GetTrailResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTrailResponse%27"><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse%27"><span class="hs-identifier hs-var">GetTrailResponse'</span></a></span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Atrail%3AGetTrailResponse%27"><span class="annot"><span class="annottext">GetTrailResponse -&gt; Maybe Trail
 </span><a href="Network.AWS.CloudTrail.GetTrail.html#%24sel%3Atrail%3AGetTrailResponse%27"><span class="hs-identifier hs-var hs-var">trail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Trail.html#Trail"><span class="hs-identifier hs-type">Trail</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetTrailResponse%27"><span class="annot"><span class="annottext">GetTrailResponse -&gt; Int
 </span><a href="Network.AWS.CloudTrail.GetTrail.html#%24sel%3AhttpStatus%3AGetTrailResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199820"><span id="local-6989586621679199822"><span class="annot"><span class="annottext">GetTrailResponse -&gt; GetTrailResponse -&gt; Bool
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199968"><span id="local-6989586621679199970"><span class="annot"><span class="annottext">GetTrailResponse -&gt; GetTrailResponse -&gt; Bool
 (GetTrailResponse -&gt; GetTrailResponse -&gt; Bool)
 -&gt; (GetTrailResponse -&gt; GetTrailResponse -&gt; Bool)
 -&gt; Eq GetTrailResponse
@@ -285,7 +285,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTrailResponse -&gt; GetTrailResponse -&gt; Bool
 == :: GetTrailResponse -&gt; GetTrailResponse -&gt; Bool
 $c== :: GetTrailResponse -&gt; GetTrailResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199812"><span id="local-6989586621679199814"><span id="local-6989586621679199816"><span id="local-6989586621679199818"><span class="annot"><span class="annottext">ReadPrec [GetTrailResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199960"><span id="local-6989586621679199962"><span id="local-6989586621679199964"><span id="local-6989586621679199966"><span class="annot"><span class="annottext">ReadPrec [GetTrailResponse]
 ReadPrec GetTrailResponse
 Int -&gt; ReadS GetTrailResponse
 ReadS [GetTrailResponse]
@@ -305,7 +305,7 @@ readList :: ReadS [GetTrailResponse]
 $creadList :: ReadS [GetTrailResponse]
 readsPrec :: Int -&gt; ReadS GetTrailResponse
 $creadsPrec :: Int -&gt; ReadS GetTrailResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199806"><span id="local-6989586621679199808"><span id="local-6989586621679199810"><span class="annot"><span class="annottext">Int -&gt; GetTrailResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199954"><span id="local-6989586621679199956"><span id="local-6989586621679199958"><span class="annot"><span class="annottext">Int -&gt; GetTrailResponse -&gt; ShowS
 [GetTrailResponse] -&gt; ShowS
 GetTrailResponse -&gt; String
 (Int -&gt; GetTrailResponse -&gt; ShowS)
@@ -347,8 +347,8 @@ $cfrom :: forall x. GetTrailResponse -&gt; Rep GetTrailResponse x
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse"><span class="hs-identifier hs-type">GetTrailResponse</span></a></span><span>
 </span><span id="line-144"></span><span id="newGetTrailResponse"><span class="annot"><span class="annottext">newGetTrailResponse :: Int -&gt; GetTrailResponse
-</span><a href="Network.AWS.CloudTrail.GetTrail.html#newGetTrailResponse"><span class="hs-identifier hs-var hs-var">newGetTrailResponse</span></a></span></span><span> </span><span id="local-6989586621679199803"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199803"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudTrail.GetTrail.html#newGetTrailResponse"><span class="hs-identifier hs-var hs-var">newGetTrailResponse</span></a></span></span><span> </span><span id="local-6989586621679199951"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199951"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">GetTrailResponse' :: Maybe Trail -&gt; Int -&gt; GetTrailResponse
 </span><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse%27"><span class="hs-identifier hs-type">GetTrailResponse'</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trail:GetTrailResponse' :: Maybe Trail
@@ -357,7 +357,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetTrailResponse' :: Int
 </span><a href="Network.AWS.CloudTrail.GetTrail.html#%24sel%3AhttpStatus%3AGetTrailResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199803"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679199951"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -369,16 +369,16 @@ forall a. Maybe a
 -&gt; Lens
      GetTrailResponse GetTrailResponse (Maybe Trail) (Maybe Trail)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse%27"><span class="hs-identifier hs-type">GetTrailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199802"><span class="annot"><span class="annottext">Maybe Trail
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse%27"><span class="hs-identifier hs-type">GetTrailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199950"><span class="annot"><span class="annottext">Maybe Trail
 trail :: Maybe Trail
 $sel:trail:GetTrailResponse' :: GetTrailResponse -&gt; Maybe Trail
-</span><a href="#local-6989586621679199802"><span class="hs-identifier hs-var hs-var">trail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Trail
-</span><a href="#local-6989586621679199802"><span class="hs-identifier hs-var">trail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199801"><span class="annot"><span class="annottext">s :: GetTrailResponse
-</span><a href="#local-6989586621679199801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse%27"><span class="hs-identifier hs-type">GetTrailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199800"><span class="annot"><span class="annottext">Maybe Trail
-</span><a href="#local-6989586621679199800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTrailResponse
-</span><a href="#local-6989586621679199801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trail:GetTrailResponse' :: Maybe Trail
+</span><a href="#local-6989586621679199950"><span class="hs-identifier hs-var hs-var">trail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Trail
+</span><a href="#local-6989586621679199950"><span class="hs-identifier hs-var">trail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199949"><span class="annot"><span class="annottext">s :: GetTrailResponse
+</span><a href="#local-6989586621679199949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse%27"><span class="hs-identifier hs-type">GetTrailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199948"><span class="annot"><span class="annottext">Maybe Trail
+</span><a href="#local-6989586621679199948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTrailResponse
+</span><a href="#local-6989586621679199949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trail:GetTrailResponse' :: Maybe Trail
 </span><a href="Network.AWS.CloudTrail.GetTrail.html#%24sel%3Atrail%3AGetTrailResponse%27"><span class="hs-identifier hs-var">trail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Trail
-</span><a href="#local-6989586621679199800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse"><span class="hs-identifier hs-type">GetTrailResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse"><span class="hs-identifier hs-type">GetTrailResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-155"></span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#getTrailResponse_httpStatus"><span class="hs-identifier hs-type">getTrailResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse"><span class="hs-identifier hs-type">GetTrailResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -387,16 +387,16 @@ $sel:trail:GetTrailResponse' :: GetTrailResponse -&gt; Maybe Trail
 -&gt; (GetTrailResponse -&gt; Int -&gt; GetTrailResponse)
 -&gt; Lens GetTrailResponse GetTrailResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse%27"><span class="hs-identifier hs-type">GetTrailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199799"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse%27"><span class="hs-identifier hs-type">GetTrailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199947"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetTrailResponse' :: GetTrailResponse -&gt; Int
-</span><a href="#local-6989586621679199799"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199799"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199798"><span class="annot"><span class="annottext">s :: GetTrailResponse
-</span><a href="#local-6989586621679199798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse%27"><span class="hs-identifier hs-type">GetTrailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199797"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTrailResponse
-</span><a href="#local-6989586621679199798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTrailResponse' :: Int
+</span><a href="#local-6989586621679199947"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199947"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199946"><span class="annot"><span class="annottext">s :: GetTrailResponse
+</span><a href="#local-6989586621679199946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse%27"><span class="hs-identifier hs-type">GetTrailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199945"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTrailResponse
+</span><a href="#local-6989586621679199946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTrailResponse' :: Int
 </span><a href="Network.AWS.CloudTrail.GetTrail.html#%24sel%3AhttpStatus%3AGetTrailResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse"><span class="hs-identifier hs-type">GetTrailResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse"><span class="hs-identifier hs-type">GetTrailResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse"><span class="hs-identifier hs-type">GetTrailResponse</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199943"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.GetTrail.html#GetTrailResponse"><span class="hs-identifier hs-type">GetTrailResponse</span></a></span></span><span>
 </span><span id="line-159"></span></pre></body></html>

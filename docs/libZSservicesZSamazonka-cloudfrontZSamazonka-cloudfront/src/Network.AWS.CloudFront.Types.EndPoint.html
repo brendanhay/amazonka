@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- sending real-time log data in a real-time log configuration.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEndPoint' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679394279"><span id="local-6989586621679394280"></span></span><span class="hs-keyword">data</span><span> </span><span id="EndPoint"><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-var">EndPoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndPoint%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint%27"><span class="hs-identifier hs-var">EndPoint'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679394522"><span id="local-6989586621679394523"></span></span><span class="hs-keyword">data</span><span> </span><span id="EndPoint"><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-var">EndPoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndPoint%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint%27"><span class="hs-identifier hs-var">EndPoint'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains information about the Amazon Kinesis data stream where you are</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- sending real-time log data.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AkinesisStreamConfig%3AEndPoint%27"><span class="annot"><span class="annottext">EndPoint -&gt; Maybe KinesisStreamConfig
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AstreamType%3AEndPoint%27"><span class="annot"><span class="annottext">EndPoint -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.EndPoint.html#%24sel%3AstreamType%3AEndPoint%27"><span class="hs-identifier hs-var hs-var">streamType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394272"><span id="local-6989586621679394274"><span class="annot"><span class="annottext">EndPoint -&gt; EndPoint -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394515"><span id="local-6989586621679394517"><span class="annot"><span class="annottext">EndPoint -&gt; EndPoint -&gt; Bool
 (EndPoint -&gt; EndPoint -&gt; Bool)
 -&gt; (EndPoint -&gt; EndPoint -&gt; Bool) -&gt; Eq EndPoint
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EndPoint -&gt; EndPoint -&gt; Bool
 == :: EndPoint -&gt; EndPoint -&gt; Bool
 $c== :: EndPoint -&gt; EndPoint -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394263"><span id="local-6989586621679394265"><span id="local-6989586621679394267"><span id="local-6989586621679394269"><span class="annot"><span class="annottext">ReadPrec [EndPoint]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394506"><span id="local-6989586621679394508"><span id="local-6989586621679394510"><span id="local-6989586621679394512"><span class="annot"><span class="annottext">ReadPrec [EndPoint]
 ReadPrec EndPoint
 Int -&gt; ReadS EndPoint
 ReadS [EndPoint]
@@ -66,7 +66,7 @@ readList :: ReadS [EndPoint]
 $creadList :: ReadS [EndPoint]
 readsPrec :: Int -&gt; ReadS EndPoint
 $creadsPrec :: Int -&gt; ReadS EndPoint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394256"><span id="local-6989586621679394258"><span id="local-6989586621679394260"><span class="annot"><span class="annottext">Int -&gt; EndPoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394499"><span id="local-6989586621679394501"><span id="local-6989586621679394503"><span class="annot"><span class="annottext">Int -&gt; EndPoint -&gt; ShowS
 [EndPoint] -&gt; ShowS
 EndPoint -&gt; String
 (Int -&gt; EndPoint -&gt; ShowS)
@@ -107,8 +107,8 @@ $cfrom :: forall x. EndPoint -&gt; Rep EndPoint x
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-type">EndPoint</span></a></span><span>
 </span><span id="line-58"></span><span id="newEndPoint"><span class="annot"><span class="annottext">newEndPoint :: Text -&gt; EndPoint
-</span><a href="Network.AWS.CloudFront.Types.EndPoint.html#newEndPoint"><span class="hs-identifier hs-var hs-var">newEndPoint</span></a></span></span><span> </span><span id="local-6989586621679394250"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394250"><span class="hs-identifier hs-var">pStreamType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.EndPoint.html#newEndPoint"><span class="hs-identifier hs-var hs-var">newEndPoint</span></a></span></span><span> </span><span id="local-6989586621679394493"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394493"><span class="hs-identifier hs-var">pStreamType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">EndPoint' :: Maybe KinesisStreamConfig -&gt; Text -&gt; EndPoint
 </span><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint%27"><span class="hs-identifier hs-type">EndPoint'</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:kinesisStreamConfig:EndPoint' :: Maybe KinesisStreamConfig
@@ -117,7 +117,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamType:EndPoint' :: Text
 </span><a href="Network.AWS.CloudFront.Types.EndPoint.html#%24sel%3AstreamType%3AEndPoint%27"><span class="hs-identifier hs-var">streamType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394250"><span class="hs-identifier hs-var">pStreamType_</span></a></span><span>
+</span><a href="#local-6989586621679394493"><span class="hs-identifier hs-var">pStreamType_</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | Contains information about the Amazon Kinesis data stream where you are</span><span>
@@ -133,16 +133,16 @@ forall a. Maybe a
      (Maybe KinesisStreamConfig)
      (Maybe KinesisStreamConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint%27"><span class="hs-identifier hs-type">EndPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394246"><span class="annot"><span class="annottext">Maybe KinesisStreamConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint%27"><span class="hs-identifier hs-type">EndPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394489"><span class="annot"><span class="annottext">Maybe KinesisStreamConfig
 kinesisStreamConfig :: Maybe KinesisStreamConfig
 $sel:kinesisStreamConfig:EndPoint' :: EndPoint -&gt; Maybe KinesisStreamConfig
-</span><a href="#local-6989586621679394246"><span class="hs-identifier hs-var hs-var">kinesisStreamConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamConfig
-</span><a href="#local-6989586621679394246"><span class="hs-identifier hs-var">kinesisStreamConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394245"><span class="annot"><span class="annottext">s :: EndPoint
-</span><a href="#local-6989586621679394245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint%27"><span class="hs-identifier hs-type">EndPoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394244"><span class="annot"><span class="annottext">Maybe KinesisStreamConfig
-</span><a href="#local-6989586621679394244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndPoint
-</span><a href="#local-6989586621679394245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisStreamConfig:EndPoint' :: Maybe KinesisStreamConfig
+</span><a href="#local-6989586621679394489"><span class="hs-identifier hs-var hs-var">kinesisStreamConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamConfig
+</span><a href="#local-6989586621679394489"><span class="hs-identifier hs-var">kinesisStreamConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394488"><span class="annot"><span class="annottext">s :: EndPoint
+</span><a href="#local-6989586621679394488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint%27"><span class="hs-identifier hs-type">EndPoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394487"><span class="annot"><span class="annottext">Maybe KinesisStreamConfig
+</span><a href="#local-6989586621679394487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndPoint
+</span><a href="#local-6989586621679394488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisStreamConfig:EndPoint' :: Maybe KinesisStreamConfig
 </span><a href="Network.AWS.CloudFront.Types.EndPoint.html#%24sel%3AkinesisStreamConfig%3AEndPoint%27"><span class="hs-identifier hs-var">kinesisStreamConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamConfig
-</span><a href="#local-6989586621679394244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-type">EndPoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-type">EndPoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The type of data stream where you are sending real-time log data. The</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- only valid value is @Kinesis@.</span><span>
@@ -152,21 +152,21 @@ $sel:kinesisStreamConfig:EndPoint' :: EndPoint -&gt; Maybe KinesisStreamConfig
 -&gt; (EndPoint -&gt; Text -&gt; EndPoint)
 -&gt; Lens EndPoint EndPoint Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint%27"><span class="hs-identifier hs-type">EndPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394242"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint%27"><span class="hs-identifier hs-type">EndPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394485"><span class="annot"><span class="annottext">Text
 streamType :: Text
 $sel:streamType:EndPoint' :: EndPoint -&gt; Text
-</span><a href="#local-6989586621679394242"><span class="hs-identifier hs-var hs-var">streamType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394242"><span class="hs-identifier hs-var">streamType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394241"><span class="annot"><span class="annottext">s :: EndPoint
-</span><a href="#local-6989586621679394241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint%27"><span class="hs-identifier hs-type">EndPoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394240"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndPoint
-</span><a href="#local-6989586621679394241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamType:EndPoint' :: Text
+</span><a href="#local-6989586621679394485"><span class="hs-identifier hs-var hs-var">streamType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394485"><span class="hs-identifier hs-var">streamType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394484"><span class="annot"><span class="annottext">s :: EndPoint
+</span><a href="#local-6989586621679394484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint%27"><span class="hs-identifier hs-type">EndPoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394483"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndPoint
+</span><a href="#local-6989586621679394484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamType:EndPoint' :: Text
 </span><a href="Network.AWS.CloudFront.Types.EndPoint.html#%24sel%3AstreamType%3AEndPoint%27"><span class="hs-identifier hs-var">streamType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-type">EndPoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-type">EndPoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-type">EndPoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679394237"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EndPoint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679394235"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679394235"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679394480"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EndPoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679394478"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679394478"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">Maybe KinesisStreamConfig -&gt; Text -&gt; EndPoint
 </span><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint%27"><span class="hs-identifier hs-var">EndPoint'</span></a></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">(Maybe KinesisStreamConfig -&gt; Text -&gt; EndPoint)
@@ -174,7 +174,7 @@ $sel:streamType:EndPoint' :: EndPoint -&gt; Text
 -&gt; Either String (Text -&gt; EndPoint)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679394235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe KinesisStreamConfig)
+</span><a href="#local-6989586621679394478"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe KinesisStreamConfig)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KinesisStreamConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -182,24 +182,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Text -&gt; Either String EndPoint
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679394235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679394478"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394228"><span id="local-6989586621679394230"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-type">EndPoint</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394471"><span id="local-6989586621679394473"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-type">EndPoint</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394225"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-type">EndPoint</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394468"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-type">EndPoint</span></a></span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-type">EndPoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679394221"><span class="annot"><span class="annottext">toXML :: EndPoint -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint%27"><span class="hs-identifier hs-type">EndPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394218"><span id="local-6989586621679394219"><span class="annot"><span class="annottext">Maybe KinesisStreamConfig
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679394464"><span class="annot"><span class="annottext">toXML :: EndPoint -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint%27"><span class="hs-identifier hs-type">EndPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394461"><span id="local-6989586621679394462"><span class="annot"><span class="annottext">Maybe KinesisStreamConfig
 Text
 streamType :: Text
 kinesisStreamConfig :: Maybe KinesisStreamConfig
 $sel:streamType:EndPoint' :: EndPoint -&gt; Text
 $sel:kinesisStreamConfig:EndPoint' :: EndPoint -&gt; Maybe KinesisStreamConfig
-</span><a href="#local-6989586621679394218"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679394461"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -207,11 +207,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;KinesisStreamConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe KinesisStreamConfig -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamConfig
-</span><a href="#local-6989586621679394219"><span class="hs-identifier hs-var">kinesisStreamConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394462"><span class="hs-identifier hs-var">kinesisStreamConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;StreamType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394218"><span class="hs-identifier hs-var">streamType</span></a></span><span>
+</span><a href="#local-6989586621679394461"><span class="hs-identifier hs-var">streamType</span></a></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span></pre></body></html>

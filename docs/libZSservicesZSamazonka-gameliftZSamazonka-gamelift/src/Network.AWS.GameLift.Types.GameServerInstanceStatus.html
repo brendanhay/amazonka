@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679432263"><span id="local-6989586621679432264"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameServerInstanceStatus"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerInstanceStatus.html#GameServerInstanceStatus"><span class="hs-identifier hs-var">GameServerInstanceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameServerInstanceStatus%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerInstanceStatus.html#GameServerInstanceStatus%27"><span class="hs-identifier hs-var">GameServerInstanceStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679432708"><span id="local-6989586621679432709"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameServerInstanceStatus"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerInstanceStatus.html#GameServerInstanceStatus"><span class="hs-identifier hs-var">GameServerInstanceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameServerInstanceStatus%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerInstanceStatus.html#GameServerInstanceStatus%27"><span class="hs-identifier hs-var">GameServerInstanceStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGameServerInstanceStatus"><span class="annot"><span class="annottext">GameServerInstanceStatus -&gt; Text
 </span><a href="Network.AWS.GameLift.Types.GameServerInstanceStatus.html#fromGameServerInstanceStatus"><span class="hs-identifier hs-var hs-var">fromGameServerInstanceStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432255"><span id="local-6989586621679432257"><span id="local-6989586621679432259"><span class="annot"><span class="annottext">Int -&gt; GameServerInstanceStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432700"><span id="local-6989586621679432702"><span id="local-6989586621679432704"><span class="annot"><span class="annottext">Int -&gt; GameServerInstanceStatus -&gt; ShowS
 [GameServerInstanceStatus] -&gt; ShowS
 GameServerInstanceStatus -&gt; String
 (Int -&gt; GameServerInstanceStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: GameServerInstanceStatus -&gt; String
 showsPrec :: Int -&gt; GameServerInstanceStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; GameServerInstanceStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679432246"><span id="local-6989586621679432248"><span id="local-6989586621679432250"><span id="local-6989586621679432252"><span class="annot"><span class="annottext">ReadPrec [GameServerInstanceStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679432691"><span id="local-6989586621679432693"><span id="local-6989586621679432695"><span id="local-6989586621679432697"><span class="annot"><span class="annottext">ReadPrec [GameServerInstanceStatus]
 ReadPrec GameServerInstanceStatus
 Int -&gt; ReadS GameServerInstanceStatus
 ReadS [GameServerInstanceStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [GameServerInstanceStatus]
 readsPrec :: Int -&gt; ReadS GameServerInstanceStatus
 $creadsPrec :: Int -&gt; ReadS GameServerInstanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679432241"><span id="local-6989586621679432243"><span class="annot"><span class="annottext">GameServerInstanceStatus -&gt; GameServerInstanceStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679432686"><span id="local-6989586621679432688"><span class="annot"><span class="annottext">GameServerInstanceStatus -&gt; GameServerInstanceStatus -&gt; Bool
 (GameServerInstanceStatus -&gt; GameServerInstanceStatus -&gt; Bool)
 -&gt; (GameServerInstanceStatus -&gt; GameServerInstanceStatus -&gt; Bool)
 -&gt; Eq GameServerInstanceStatus
@@ -83,7 +83,7 @@ $c/= :: GameServerInstanceStatus -&gt; GameServerInstanceStatus -&gt; Bool
 == :: GameServerInstanceStatus -&gt; GameServerInstanceStatus -&gt; Bool
 $c== :: GameServerInstanceStatus -&gt; GameServerInstanceStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679432225"><span id="local-6989586621679432227"><span id="local-6989586621679432229"><span id="local-6989586621679432231"><span id="local-6989586621679432233"><span id="local-6989586621679432235"><span id="local-6989586621679432237"><span class="annot"><span class="annottext">Eq GameServerInstanceStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679432670"><span id="local-6989586621679432672"><span id="local-6989586621679432674"><span id="local-6989586621679432676"><span id="local-6989586621679432678"><span id="local-6989586621679432680"><span id="local-6989586621679432682"><span class="annot"><span class="annottext">Eq GameServerInstanceStatus
 Eq GameServerInstanceStatus
 -&gt; (GameServerInstanceStatus
     -&gt; GameServerInstanceStatus -&gt; Ordering)
@@ -148,7 +148,7 @@ GameServerInstanceStatus -&gt; Rep GameServerInstanceStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432217"><span id="local-6989586621679432219"><span class="annot"><span class="annottext">Int -&gt; GameServerInstanceStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432662"><span id="local-6989586621679432664"><span class="annot"><span class="annottext">Int -&gt; GameServerInstanceStatus -&gt; Int
 GameServerInstanceStatus -&gt; Int
 (Int -&gt; GameServerInstanceStatus -&gt; Int)
 -&gt; (GameServerInstanceStatus -&gt; Int)
@@ -159,55 +159,55 @@ $chash :: GameServerInstanceStatus -&gt; Int
 hashWithSalt :: Int -&gt; GameServerInstanceStatus -&gt; Int
 $chashWithSalt :: Int -&gt; GameServerInstanceStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679432214"><span class="annot"><span class="annottext">GameServerInstanceStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679432659"><span class="annot"><span class="annottext">GameServerInstanceStatus -&gt; ()
 (GameServerInstanceStatus -&gt; ()) -&gt; NFData GameServerInstanceStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: GameServerInstanceStatus -&gt; ()
 $crnf :: GameServerInstanceStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679432211"><span class="annot"><span class="annottext">Text -&gt; Either String GameServerInstanceStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679432656"><span class="annot"><span class="annottext">Text -&gt; Either String GameServerInstanceStatus
 (Text -&gt; Either String GameServerInstanceStatus)
 -&gt; FromText GameServerInstanceStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String GameServerInstanceStatus
 $cfromText :: Text -&gt; Either String GameServerInstanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679432208"><span class="annot"><span class="annottext">GameServerInstanceStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679432653"><span class="annot"><span class="annottext">GameServerInstanceStatus -&gt; Text
 (GameServerInstanceStatus -&gt; Text)
 -&gt; ToText GameServerInstanceStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: GameServerInstanceStatus -&gt; Text
 $ctoText :: GameServerInstanceStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679432205"><span class="annot"><span class="annottext">GameServerInstanceStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679432650"><span class="annot"><span class="annottext">GameServerInstanceStatus -&gt; ByteString
 (GameServerInstanceStatus -&gt; ByteString)
 -&gt; ToByteString GameServerInstanceStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: GameServerInstanceStatus -&gt; ByteString
 $ctoBS :: GameServerInstanceStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679432202"><span class="annot"><span class="annottext">GameServerInstanceStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679432647"><span class="annot"><span class="annottext">GameServerInstanceStatus -&gt; ByteStringBuilder
 (GameServerInstanceStatus -&gt; ByteStringBuilder)
 -&gt; ToLog GameServerInstanceStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: GameServerInstanceStatus -&gt; ByteStringBuilder
 $cbuild :: GameServerInstanceStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679432199"><span class="annot"><span class="annottext">HeaderName -&gt; GameServerInstanceStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679432644"><span class="annot"><span class="annottext">HeaderName -&gt; GameServerInstanceStatus -&gt; [Header]
 (HeaderName -&gt; GameServerInstanceStatus -&gt; [Header])
 -&gt; ToHeader GameServerInstanceStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; GameServerInstanceStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; GameServerInstanceStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679432196"><span class="annot"><span class="annottext">GameServerInstanceStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679432641"><span class="annot"><span class="annottext">GameServerInstanceStatus -&gt; QueryString
 (GameServerInstanceStatus -&gt; QueryString)
 -&gt; ToQuery GameServerInstanceStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: GameServerInstanceStatus -&gt; QueryString
 $ctoQuery :: GameServerInstanceStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679432191"><span id="local-6989586621679432193"><span class="annot"><span class="annottext">Value -&gt; Parser [GameServerInstanceStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679432636"><span id="local-6989586621679432638"><span class="annot"><span class="annottext">Value -&gt; Parser [GameServerInstanceStatus]
 Value -&gt; Parser GameServerInstanceStatus
 (Value -&gt; Parser GameServerInstanceStatus)
 -&gt; (Value -&gt; Parser [GameServerInstanceStatus])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [GameServerInstanceStatus]
 parseJSON :: Value -&gt; Parser GameServerInstanceStatus
 $cparseJSON :: Value -&gt; Parser GameServerInstanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679432186"><span id="local-6989586621679432188"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameServerInstanceStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679432631"><span id="local-6989586621679432633"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameServerInstanceStatus]
 FromJSONKeyFunction GameServerInstanceStatus
 FromJSONKeyFunction GameServerInstanceStatus
 -&gt; FromJSONKeyFunction [GameServerInstanceStatus]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [GameServerInstanceStatus]
 fromJSONKey :: FromJSONKeyFunction GameServerInstanceStatus
 $cfromJSONKey :: FromJSONKeyFunction GameServerInstanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679432177"><span id="local-6989586621679432179"><span id="local-6989586621679432181"><span id="local-6989586621679432183"><span class="annot"><span class="annottext">[GameServerInstanceStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679432622"><span id="local-6989586621679432624"><span id="local-6989586621679432626"><span id="local-6989586621679432628"><span class="annot"><span class="annottext">[GameServerInstanceStatus] -&gt; Encoding
 [GameServerInstanceStatus] -&gt; Value
 GameServerInstanceStatus -&gt; Encoding
 GameServerInstanceStatus -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: GameServerInstanceStatus -&gt; Encoding
 toJSON :: GameServerInstanceStatus -&gt; Value
 $ctoJSON :: GameServerInstanceStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679432172"><span id="local-6989586621679432174"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameServerInstanceStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679432617"><span id="local-6989586621679432619"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameServerInstanceStatus]
 ToJSONKeyFunction GameServerInstanceStatus
 ToJSONKeyFunction GameServerInstanceStatus
 -&gt; ToJSONKeyFunction [GameServerInstanceStatus]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [GameServerInstanceStatus]
 toJSONKey :: ToJSONKeyFunction GameServerInstanceStatus
 $ctoJSONKey :: ToJSONKeyFunction GameServerInstanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679432169"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameServerInstanceStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679432614"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameServerInstanceStatus
 ([Node] -&gt; Either String GameServerInstanceStatus)
 -&gt; FromXML GameServerInstanceStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String GameServerInstanceStatus
 $cparseXML :: [Node] -&gt; Either String GameServerInstanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679432166"><span class="annot"><span class="annottext">GameServerInstanceStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679432611"><span class="annot"><span class="annottext">GameServerInstanceStatus -&gt; XML
 (GameServerInstanceStatus -&gt; XML) -&gt; ToXML GameServerInstanceStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: GameServerInstanceStatus -&gt; XML

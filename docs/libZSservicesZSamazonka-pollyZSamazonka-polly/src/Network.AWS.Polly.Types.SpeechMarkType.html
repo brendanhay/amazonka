@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679171690"><span id="local-6989586621679171691"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SpeechMarkType"><span class="annot"><a href="Network.AWS.Polly.Types.SpeechMarkType.html#SpeechMarkType"><span class="hs-identifier hs-var">SpeechMarkType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SpeechMarkType%27"><span class="annot"><a href="Network.AWS.Polly.Types.SpeechMarkType.html#SpeechMarkType%27"><span class="hs-identifier hs-var">SpeechMarkType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679171734"><span id="local-6989586621679171735"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SpeechMarkType"><span class="annot"><a href="Network.AWS.Polly.Types.SpeechMarkType.html#SpeechMarkType"><span class="hs-identifier hs-var">SpeechMarkType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SpeechMarkType%27"><span class="annot"><a href="Network.AWS.Polly.Types.SpeechMarkType.html#SpeechMarkType%27"><span class="hs-identifier hs-var">SpeechMarkType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSpeechMarkType"><span class="annot"><span class="annottext">SpeechMarkType -&gt; Text
 </span><a href="Network.AWS.Polly.Types.SpeechMarkType.html#fromSpeechMarkType"><span class="hs-identifier hs-var hs-var">fromSpeechMarkType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679171682"><span id="local-6989586621679171684"><span id="local-6989586621679171686"><span class="annot"><span class="annottext">Int -&gt; SpeechMarkType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679171726"><span id="local-6989586621679171728"><span id="local-6989586621679171730"><span class="annot"><span class="annottext">Int -&gt; SpeechMarkType -&gt; ShowS
 [SpeechMarkType] -&gt; ShowS
 SpeechMarkType -&gt; String
 (Int -&gt; SpeechMarkType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: SpeechMarkType -&gt; String
 showsPrec :: Int -&gt; SpeechMarkType -&gt; ShowS
 $cshowsPrec :: Int -&gt; SpeechMarkType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679171673"><span id="local-6989586621679171675"><span id="local-6989586621679171677"><span id="local-6989586621679171679"><span class="annot"><span class="annottext">ReadPrec [SpeechMarkType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679171717"><span id="local-6989586621679171719"><span id="local-6989586621679171721"><span id="local-6989586621679171723"><span class="annot"><span class="annottext">ReadPrec [SpeechMarkType]
 ReadPrec SpeechMarkType
 Int -&gt; ReadS SpeechMarkType
 ReadS [SpeechMarkType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [SpeechMarkType]
 readsPrec :: Int -&gt; ReadS SpeechMarkType
 $creadsPrec :: Int -&gt; ReadS SpeechMarkType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679171668"><span id="local-6989586621679171670"><span class="annot"><span class="annottext">SpeechMarkType -&gt; SpeechMarkType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679171712"><span id="local-6989586621679171714"><span class="annot"><span class="annottext">SpeechMarkType -&gt; SpeechMarkType -&gt; Bool
 (SpeechMarkType -&gt; SpeechMarkType -&gt; Bool)
 -&gt; (SpeechMarkType -&gt; SpeechMarkType -&gt; Bool) -&gt; Eq SpeechMarkType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: SpeechMarkType -&gt; SpeechMarkType -&gt; Bool
 == :: SpeechMarkType -&gt; SpeechMarkType -&gt; Bool
 $c== :: SpeechMarkType -&gt; SpeechMarkType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679171652"><span id="local-6989586621679171654"><span id="local-6989586621679171656"><span id="local-6989586621679171658"><span id="local-6989586621679171660"><span id="local-6989586621679171662"><span id="local-6989586621679171664"><span class="annot"><span class="annottext">Eq SpeechMarkType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679171696"><span id="local-6989586621679171698"><span id="local-6989586621679171700"><span id="local-6989586621679171702"><span id="local-6989586621679171704"><span id="local-6989586621679171706"><span id="local-6989586621679171708"><span class="annot"><span class="annottext">Eq SpeechMarkType
 Eq SpeechMarkType
 -&gt; (SpeechMarkType -&gt; SpeechMarkType -&gt; Ordering)
 -&gt; (SpeechMarkType -&gt; SpeechMarkType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. SpeechMarkType -&gt; Rep SpeechMarkType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679171644"><span id="local-6989586621679171646"><span class="annot"><span class="annottext">Int -&gt; SpeechMarkType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679171688"><span id="local-6989586621679171690"><span class="annot"><span class="annottext">Int -&gt; SpeechMarkType -&gt; Int
 SpeechMarkType -&gt; Int
 (Int -&gt; SpeechMarkType -&gt; Int)
 -&gt; (SpeechMarkType -&gt; Int) -&gt; Hashable SpeechMarkType
@@ -144,50 +144,50 @@ $chash :: SpeechMarkType -&gt; Int
 hashWithSalt :: Int -&gt; SpeechMarkType -&gt; Int
 $chashWithSalt :: Int -&gt; SpeechMarkType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679171641"><span class="annot"><span class="annottext">SpeechMarkType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679171685"><span class="annot"><span class="annottext">SpeechMarkType -&gt; ()
 (SpeechMarkType -&gt; ()) -&gt; NFData SpeechMarkType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SpeechMarkType -&gt; ()
 $crnf :: SpeechMarkType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679171638"><span class="annot"><span class="annottext">Text -&gt; Either String SpeechMarkType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679171682"><span class="annot"><span class="annottext">Text -&gt; Either String SpeechMarkType
 (Text -&gt; Either String SpeechMarkType) -&gt; FromText SpeechMarkType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SpeechMarkType
 $cfromText :: Text -&gt; Either String SpeechMarkType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679171635"><span class="annot"><span class="annottext">SpeechMarkType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679171679"><span class="annot"><span class="annottext">SpeechMarkType -&gt; Text
 (SpeechMarkType -&gt; Text) -&gt; ToText SpeechMarkType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SpeechMarkType -&gt; Text
 $ctoText :: SpeechMarkType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679171632"><span class="annot"><span class="annottext">SpeechMarkType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679171676"><span class="annot"><span class="annottext">SpeechMarkType -&gt; ByteString
 (SpeechMarkType -&gt; ByteString) -&gt; ToByteString SpeechMarkType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SpeechMarkType -&gt; ByteString
 $ctoBS :: SpeechMarkType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679171629"><span class="annot"><span class="annottext">SpeechMarkType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679171673"><span class="annot"><span class="annottext">SpeechMarkType -&gt; ByteStringBuilder
 (SpeechMarkType -&gt; ByteStringBuilder) -&gt; ToLog SpeechMarkType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SpeechMarkType -&gt; ByteStringBuilder
 $cbuild :: SpeechMarkType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679171626"><span class="annot"><span class="annottext">HeaderName -&gt; SpeechMarkType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679171670"><span class="annot"><span class="annottext">HeaderName -&gt; SpeechMarkType -&gt; [Header]
 (HeaderName -&gt; SpeechMarkType -&gt; [Header])
 -&gt; ToHeader SpeechMarkType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SpeechMarkType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SpeechMarkType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679171623"><span class="annot"><span class="annottext">SpeechMarkType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679171667"><span class="annot"><span class="annottext">SpeechMarkType -&gt; QueryString
 (SpeechMarkType -&gt; QueryString) -&gt; ToQuery SpeechMarkType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SpeechMarkType -&gt; QueryString
 $ctoQuery :: SpeechMarkType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679171618"><span id="local-6989586621679171620"><span class="annot"><span class="annottext">Value -&gt; Parser [SpeechMarkType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679171662"><span id="local-6989586621679171664"><span class="annot"><span class="annottext">Value -&gt; Parser [SpeechMarkType]
 Value -&gt; Parser SpeechMarkType
 (Value -&gt; Parser SpeechMarkType)
 -&gt; (Value -&gt; Parser [SpeechMarkType]) -&gt; FromJSON SpeechMarkType
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [SpeechMarkType]
 parseJSON :: Value -&gt; Parser SpeechMarkType
 $cparseJSON :: Value -&gt; Parser SpeechMarkType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679171613"><span id="local-6989586621679171615"><span class="annot"><span class="annottext">FromJSONKeyFunction [SpeechMarkType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679171657"><span id="local-6989586621679171659"><span class="annot"><span class="annottext">FromJSONKeyFunction [SpeechMarkType]
 FromJSONKeyFunction SpeechMarkType
 FromJSONKeyFunction SpeechMarkType
 -&gt; FromJSONKeyFunction [SpeechMarkType]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SpeechMarkType]
 fromJSONKey :: FromJSONKeyFunction SpeechMarkType
 $cfromJSONKey :: FromJSONKeyFunction SpeechMarkType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679171604"><span id="local-6989586621679171606"><span id="local-6989586621679171608"><span id="local-6989586621679171610"><span class="annot"><span class="annottext">[SpeechMarkType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679171648"><span id="local-6989586621679171650"><span id="local-6989586621679171652"><span id="local-6989586621679171654"><span class="annot"><span class="annottext">[SpeechMarkType] -&gt; Encoding
 [SpeechMarkType] -&gt; Value
 SpeechMarkType -&gt; Encoding
 SpeechMarkType -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: SpeechMarkType -&gt; Encoding
 toJSON :: SpeechMarkType -&gt; Value
 $ctoJSON :: SpeechMarkType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679171599"><span id="local-6989586621679171601"><span class="annot"><span class="annottext">ToJSONKeyFunction [SpeechMarkType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679171643"><span id="local-6989586621679171645"><span class="annot"><span class="annottext">ToJSONKeyFunction [SpeechMarkType]
 ToJSONKeyFunction SpeechMarkType
 ToJSONKeyFunction SpeechMarkType
 -&gt; ToJSONKeyFunction [SpeechMarkType] -&gt; ToJSONKey SpeechMarkType
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SpeechMarkType]
 toJSONKey :: ToJSONKeyFunction SpeechMarkType
 $ctoJSONKey :: ToJSONKeyFunction SpeechMarkType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679171596"><span class="annot"><span class="annottext">[Node] -&gt; Either String SpeechMarkType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679171640"><span class="annot"><span class="annottext">[Node] -&gt; Either String SpeechMarkType
 ([Node] -&gt; Either String SpeechMarkType) -&gt; FromXML SpeechMarkType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SpeechMarkType
 $cparseXML :: [Node] -&gt; Either String SpeechMarkType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679171593"><span class="annot"><span class="annottext">SpeechMarkType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679171637"><span class="annot"><span class="annottext">SpeechMarkType -&gt; XML
 (SpeechMarkType -&gt; XML) -&gt; ToXML SpeechMarkType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SpeechMarkType -&gt; XML

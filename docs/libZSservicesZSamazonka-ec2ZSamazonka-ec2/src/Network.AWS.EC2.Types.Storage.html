@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the storage location for an instance store-backed AMI.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newStorage' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681119257"><span id="local-6989586621681119258"></span></span><span class="hs-keyword">data</span><span> </span><span id="Storage"><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage"><span class="hs-identifier hs-var">Storage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Storage%27"><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage%27"><span class="hs-identifier hs-var">Storage'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681154103"><span id="local-6989586621681154104"></span></span><span class="hs-keyword">data</span><span> </span><span id="Storage"><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage"><span class="hs-identifier hs-var">Storage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Storage%27"><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage%27"><span class="hs-identifier hs-var">Storage'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An Amazon S3 storage location.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3As3%3AStorage%27"><span class="annot"><span class="annottext">Storage -&gt; Maybe S3Storage
 </span><a href="Network.AWS.EC2.Types.Storage.html#%24sel%3As3%3AStorage%27"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.S3Storage.html#S3Storage"><span class="hs-identifier hs-type">S3Storage</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681119251"><span id="local-6989586621681119253"><span class="annot"><span class="annottext">Storage -&gt; Storage -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681154097"><span id="local-6989586621681154099"><span class="annot"><span class="annottext">Storage -&gt; Storage -&gt; Bool
 (Storage -&gt; Storage -&gt; Bool)
 -&gt; (Storage -&gt; Storage -&gt; Bool) -&gt; Eq Storage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Storage -&gt; Storage -&gt; Bool
 == :: Storage -&gt; Storage -&gt; Bool
 $c== :: Storage -&gt; Storage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681119242"><span id="local-6989586621681119244"><span id="local-6989586621681119246"><span id="local-6989586621681119248"><span class="annot"><span class="annottext">ReadPrec [Storage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681154088"><span id="local-6989586621681154090"><span id="local-6989586621681154092"><span id="local-6989586621681154094"><span class="annot"><span class="annottext">ReadPrec [Storage]
 ReadPrec Storage
 Int -&gt; ReadS Storage
 ReadS [Storage]
@@ -61,7 +61,7 @@ readList :: ReadS [Storage]
 $creadList :: ReadS [Storage]
 readsPrec :: Int -&gt; ReadS Storage
 $creadsPrec :: Int -&gt; ReadS Storage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681119235"><span id="local-6989586621681119237"><span id="local-6989586621681119239"><span class="annot"><span class="annottext">Int -&gt; Storage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681154081"><span id="local-6989586621681154083"><span id="local-6989586621681154085"><span class="annot"><span class="annottext">Int -&gt; Storage -&gt; ShowS
 [Storage] -&gt; ShowS
 Storage -&gt; String
 (Int -&gt; Storage -&gt; ShowS)
@@ -109,45 +109,45 @@ forall a. Maybe a
 -&gt; (Storage -&gt; Maybe S3Storage -&gt; Storage)
 -&gt; Lens Storage Storage (Maybe S3Storage) (Maybe S3Storage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage%27"><span class="hs-identifier hs-type">Storage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119226"><span class="annot"><span class="annottext">Maybe S3Storage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage%27"><span class="hs-identifier hs-type">Storage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681154072"><span class="annot"><span class="annottext">Maybe S3Storage
 s3 :: Maybe S3Storage
 $sel:s3:Storage' :: Storage -&gt; Maybe S3Storage
-</span><a href="#local-6989586621681119226"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Storage
-</span><a href="#local-6989586621681119226"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119225"><span class="annot"><span class="annottext">s :: Storage
-</span><a href="#local-6989586621681119225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage%27"><span class="hs-identifier hs-type">Storage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119224"><span class="annot"><span class="annottext">Maybe S3Storage
-</span><a href="#local-6989586621681119224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Storage
-</span><a href="#local-6989586621681119225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3:Storage' :: Maybe S3Storage
+</span><a href="#local-6989586621681154072"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Storage
+</span><a href="#local-6989586621681154072"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681154071"><span class="annot"><span class="annottext">s :: Storage
+</span><a href="#local-6989586621681154071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage%27"><span class="hs-identifier hs-type">Storage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681154070"><span class="annot"><span class="annottext">Maybe S3Storage
+</span><a href="#local-6989586621681154070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Storage
+</span><a href="#local-6989586621681154071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3:Storage' :: Maybe S3Storage
 </span><a href="Network.AWS.EC2.Types.Storage.html#%24sel%3As3%3AStorage%27"><span class="hs-identifier hs-var">s3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Storage
-</span><a href="#local-6989586621681119224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage"><span class="hs-identifier hs-type">Storage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681154070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage"><span class="hs-identifier hs-type">Storage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage"><span class="hs-identifier hs-type">Storage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621681119221"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Storage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681119219"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681119219"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Storage -&gt; Storage
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621681154067"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Storage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681154065"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681154065"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Storage -&gt; Storage
 </span><a href="Network.AWS.EC2.Types.Storage.html#Storage%27"><span class="hs-identifier hs-var">Storage'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe S3Storage -&gt; Storage)
 -&gt; Either String (Maybe S3Storage) -&gt; Either String Storage
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681119219"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe S3Storage)
+</span><a href="#local-6989586621681154065"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe S3Storage)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681119213"><span id="local-6989586621681119215"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage"><span class="hs-identifier hs-type">Storage</span></a></span></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681154059"><span id="local-6989586621681154061"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage"><span class="hs-identifier hs-type">Storage</span></a></span></span></span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681119210"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage"><span class="hs-identifier hs-type">Storage</span></a></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681154056"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage"><span class="hs-identifier hs-type">Storage</span></a></span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage"><span class="hs-identifier hs-type">Storage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621681119206"><span class="annot"><span class="annottext">toQuery :: Storage -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage%27"><span class="hs-identifier hs-type">Storage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119204"><span class="annot"><span class="annottext">Maybe S3Storage
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621681154052"><span class="annot"><span class="annottext">toQuery :: Storage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Storage.html#Storage%27"><span class="hs-identifier hs-type">Storage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681154050"><span class="annot"><span class="annottext">Maybe S3Storage
 s3 :: Maybe S3Storage
 $sel:s3:Storage' :: Storage -&gt; Maybe S3Storage
-</span><a href="#local-6989586621681119204"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681154050"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;S3&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe S3Storage -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3Storage
-</span><a href="#local-6989586621681119204"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621681154050"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-64"></span></pre></body></html>

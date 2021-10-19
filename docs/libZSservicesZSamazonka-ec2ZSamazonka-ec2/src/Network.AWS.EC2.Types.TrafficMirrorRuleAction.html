@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681132985"><span id="local-6989586621681132986"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrafficMirrorRuleAction"><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorRuleAction.html#TrafficMirrorRuleAction"><span class="hs-identifier hs-var">TrafficMirrorRuleAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrafficMirrorRuleAction%27"><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorRuleAction.html#TrafficMirrorRuleAction%27"><span class="hs-identifier hs-var">TrafficMirrorRuleAction'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681168102"><span id="local-6989586621681168103"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrafficMirrorRuleAction"><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorRuleAction.html#TrafficMirrorRuleAction"><span class="hs-identifier hs-var">TrafficMirrorRuleAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrafficMirrorRuleAction%27"><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorRuleAction.html#TrafficMirrorRuleAction%27"><span class="hs-identifier hs-var">TrafficMirrorRuleAction'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTrafficMirrorRuleAction"><span class="annot"><span class="annottext">TrafficMirrorRuleAction -&gt; Text
 </span><a href="Network.AWS.EC2.Types.TrafficMirrorRuleAction.html#fromTrafficMirrorRuleAction"><span class="hs-identifier hs-var hs-var">fromTrafficMirrorRuleAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681132977"><span id="local-6989586621681132979"><span id="local-6989586621681132981"><span class="annot"><span class="annottext">Int -&gt; TrafficMirrorRuleAction -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681168094"><span id="local-6989586621681168096"><span id="local-6989586621681168098"><span class="annot"><span class="annottext">Int -&gt; TrafficMirrorRuleAction -&gt; ShowS
 [TrafficMirrorRuleAction] -&gt; ShowS
 TrafficMirrorRuleAction -&gt; String
 (Int -&gt; TrafficMirrorRuleAction -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: TrafficMirrorRuleAction -&gt; String
 showsPrec :: Int -&gt; TrafficMirrorRuleAction -&gt; ShowS
 $cshowsPrec :: Int -&gt; TrafficMirrorRuleAction -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681132968"><span id="local-6989586621681132970"><span id="local-6989586621681132972"><span id="local-6989586621681132974"><span class="annot"><span class="annottext">ReadPrec [TrafficMirrorRuleAction]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681168085"><span id="local-6989586621681168087"><span id="local-6989586621681168089"><span id="local-6989586621681168091"><span class="annot"><span class="annottext">ReadPrec [TrafficMirrorRuleAction]
 ReadPrec TrafficMirrorRuleAction
 Int -&gt; ReadS TrafficMirrorRuleAction
 ReadS [TrafficMirrorRuleAction]
@@ -73,7 +73,7 @@ $creadList :: ReadS [TrafficMirrorRuleAction]
 readsPrec :: Int -&gt; ReadS TrafficMirrorRuleAction
 $creadsPrec :: Int -&gt; ReadS TrafficMirrorRuleAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681132963"><span id="local-6989586621681132965"><span class="annot"><span class="annottext">TrafficMirrorRuleAction -&gt; TrafficMirrorRuleAction -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681168080"><span id="local-6989586621681168082"><span class="annot"><span class="annottext">TrafficMirrorRuleAction -&gt; TrafficMirrorRuleAction -&gt; Bool
 (TrafficMirrorRuleAction -&gt; TrafficMirrorRuleAction -&gt; Bool)
 -&gt; (TrafficMirrorRuleAction -&gt; TrafficMirrorRuleAction -&gt; Bool)
 -&gt; Eq TrafficMirrorRuleAction
@@ -83,7 +83,7 @@ $c/= :: TrafficMirrorRuleAction -&gt; TrafficMirrorRuleAction -&gt; Bool
 == :: TrafficMirrorRuleAction -&gt; TrafficMirrorRuleAction -&gt; Bool
 $c== :: TrafficMirrorRuleAction -&gt; TrafficMirrorRuleAction -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681132947"><span id="local-6989586621681132949"><span id="local-6989586621681132951"><span id="local-6989586621681132953"><span id="local-6989586621681132955"><span id="local-6989586621681132957"><span id="local-6989586621681132959"><span class="annot"><span class="annottext">Eq TrafficMirrorRuleAction
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681168064"><span id="local-6989586621681168066"><span id="local-6989586621681168068"><span id="local-6989586621681168070"><span id="local-6989586621681168072"><span id="local-6989586621681168074"><span id="local-6989586621681168076"><span class="annot"><span class="annottext">Eq TrafficMirrorRuleAction
 Eq TrafficMirrorRuleAction
 -&gt; (TrafficMirrorRuleAction -&gt; TrafficMirrorRuleAction -&gt; Ordering)
 -&gt; (TrafficMirrorRuleAction -&gt; TrafficMirrorRuleAction -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. TrafficMirrorRuleAction -&gt; Rep TrafficMirrorRuleAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681132939"><span id="local-6989586621681132941"><span class="annot"><span class="annottext">Int -&gt; TrafficMirrorRuleAction -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681168056"><span id="local-6989586621681168058"><span class="annot"><span class="annottext">Int -&gt; TrafficMirrorRuleAction -&gt; Int
 TrafficMirrorRuleAction -&gt; Int
 (Int -&gt; TrafficMirrorRuleAction -&gt; Int)
 -&gt; (TrafficMirrorRuleAction -&gt; Int)
@@ -154,54 +154,54 @@ $chash :: TrafficMirrorRuleAction -&gt; Int
 hashWithSalt :: Int -&gt; TrafficMirrorRuleAction -&gt; Int
 $chashWithSalt :: Int -&gt; TrafficMirrorRuleAction -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681132936"><span class="annot"><span class="annottext">TrafficMirrorRuleAction -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681168053"><span class="annot"><span class="annottext">TrafficMirrorRuleAction -&gt; ()
 (TrafficMirrorRuleAction -&gt; ()) -&gt; NFData TrafficMirrorRuleAction
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TrafficMirrorRuleAction -&gt; ()
 $crnf :: TrafficMirrorRuleAction -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681132933"><span class="annot"><span class="annottext">Text -&gt; Either String TrafficMirrorRuleAction
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681168050"><span class="annot"><span class="annottext">Text -&gt; Either String TrafficMirrorRuleAction
 (Text -&gt; Either String TrafficMirrorRuleAction)
 -&gt; FromText TrafficMirrorRuleAction
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TrafficMirrorRuleAction
 $cfromText :: Text -&gt; Either String TrafficMirrorRuleAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681132930"><span class="annot"><span class="annottext">TrafficMirrorRuleAction -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681168047"><span class="annot"><span class="annottext">TrafficMirrorRuleAction -&gt; Text
 (TrafficMirrorRuleAction -&gt; Text) -&gt; ToText TrafficMirrorRuleAction
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TrafficMirrorRuleAction -&gt; Text
 $ctoText :: TrafficMirrorRuleAction -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681132927"><span class="annot"><span class="annottext">TrafficMirrorRuleAction -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681168044"><span class="annot"><span class="annottext">TrafficMirrorRuleAction -&gt; ByteString
 (TrafficMirrorRuleAction -&gt; ByteString)
 -&gt; ToByteString TrafficMirrorRuleAction
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TrafficMirrorRuleAction -&gt; ByteString
 $ctoBS :: TrafficMirrorRuleAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681132924"><span class="annot"><span class="annottext">TrafficMirrorRuleAction -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681168041"><span class="annot"><span class="annottext">TrafficMirrorRuleAction -&gt; ByteStringBuilder
 (TrafficMirrorRuleAction -&gt; ByteStringBuilder)
 -&gt; ToLog TrafficMirrorRuleAction
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TrafficMirrorRuleAction -&gt; ByteStringBuilder
 $cbuild :: TrafficMirrorRuleAction -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681132921"><span class="annot"><span class="annottext">HeaderName -&gt; TrafficMirrorRuleAction -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681168038"><span class="annot"><span class="annottext">HeaderName -&gt; TrafficMirrorRuleAction -&gt; [Header]
 (HeaderName -&gt; TrafficMirrorRuleAction -&gt; [Header])
 -&gt; ToHeader TrafficMirrorRuleAction
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TrafficMirrorRuleAction -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TrafficMirrorRuleAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681132918"><span class="annot"><span class="annottext">TrafficMirrorRuleAction -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681168035"><span class="annot"><span class="annottext">TrafficMirrorRuleAction -&gt; QueryString
 (TrafficMirrorRuleAction -&gt; QueryString)
 -&gt; ToQuery TrafficMirrorRuleAction
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TrafficMirrorRuleAction -&gt; QueryString
 $ctoQuery :: TrafficMirrorRuleAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681132913"><span id="local-6989586621681132915"><span class="annot"><span class="annottext">Value -&gt; Parser [TrafficMirrorRuleAction]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681168030"><span id="local-6989586621681168032"><span class="annot"><span class="annottext">Value -&gt; Parser [TrafficMirrorRuleAction]
 Value -&gt; Parser TrafficMirrorRuleAction
 (Value -&gt; Parser TrafficMirrorRuleAction)
 -&gt; (Value -&gt; Parser [TrafficMirrorRuleAction])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [TrafficMirrorRuleAction]
 parseJSON :: Value -&gt; Parser TrafficMirrorRuleAction
 $cparseJSON :: Value -&gt; Parser TrafficMirrorRuleAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681132908"><span id="local-6989586621681132910"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrafficMirrorRuleAction]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681168025"><span id="local-6989586621681168027"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrafficMirrorRuleAction]
 FromJSONKeyFunction TrafficMirrorRuleAction
 FromJSONKeyFunction TrafficMirrorRuleAction
 -&gt; FromJSONKeyFunction [TrafficMirrorRuleAction]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TrafficMirrorRuleAction]
 fromJSONKey :: FromJSONKeyFunction TrafficMirrorRuleAction
 $cfromJSONKey :: FromJSONKeyFunction TrafficMirrorRuleAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681132899"><span id="local-6989586621681132901"><span id="local-6989586621681132903"><span id="local-6989586621681132905"><span class="annot"><span class="annottext">[TrafficMirrorRuleAction] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681168016"><span id="local-6989586621681168018"><span id="local-6989586621681168020"><span id="local-6989586621681168022"><span class="annot"><span class="annottext">[TrafficMirrorRuleAction] -&gt; Encoding
 [TrafficMirrorRuleAction] -&gt; Value
 TrafficMirrorRuleAction -&gt; Encoding
 TrafficMirrorRuleAction -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: TrafficMirrorRuleAction -&gt; Encoding
 toJSON :: TrafficMirrorRuleAction -&gt; Value
 $ctoJSON :: TrafficMirrorRuleAction -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681132894"><span id="local-6989586621681132896"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrafficMirrorRuleAction]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681168011"><span id="local-6989586621681168013"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrafficMirrorRuleAction]
 ToJSONKeyFunction TrafficMirrorRuleAction
 ToJSONKeyFunction TrafficMirrorRuleAction
 -&gt; ToJSONKeyFunction [TrafficMirrorRuleAction]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TrafficMirrorRuleAction]
 toJSONKey :: ToJSONKeyFunction TrafficMirrorRuleAction
 $ctoJSONKey :: ToJSONKeyFunction TrafficMirrorRuleAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681132891"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrafficMirrorRuleAction
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681168008"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrafficMirrorRuleAction
 ([Node] -&gt; Either String TrafficMirrorRuleAction)
 -&gt; FromXML TrafficMirrorRuleAction
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TrafficMirrorRuleAction
 $cparseXML :: [Node] -&gt; Either String TrafficMirrorRuleAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681132888"><span class="annot"><span class="annottext">TrafficMirrorRuleAction -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681168005"><span class="annot"><span class="annottext">TrafficMirrorRuleAction -&gt; XML
 (TrafficMirrorRuleAction -&gt; XML) -&gt; ToXML TrafficMirrorRuleAction
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TrafficMirrorRuleAction -&gt; XML

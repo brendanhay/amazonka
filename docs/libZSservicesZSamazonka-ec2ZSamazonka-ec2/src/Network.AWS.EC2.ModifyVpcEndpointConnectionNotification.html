@@ -30,8 +30,8 @@
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#modifyVpcEndpointConnectionNotification_connectionEvents"><span class="hs-identifier">modifyVpcEndpointConnectionNotification_connectionEvents</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#modifyVpcEndpointConnectionNotification_dryRun"><span class="hs-identifier">modifyVpcEndpointConnectionNotification_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#modifyVpcEndpointConnectionNotification_connectionNotificationArn"><span class="hs-identifier">modifyVpcEndpointConnectionNotification_connectionNotificationArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#modifyVpcEndpointConnectionNotification_connectionNotificationArn"><span class="hs-identifier">modifyVpcEndpointConnectionNotification_connectionNotificationArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#modifyVpcEndpointConnectionNotification_dryRun"><span class="hs-identifier">modifyVpcEndpointConnectionNotification_dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#modifyVpcEndpointConnectionNotification_connectionNotificationId"><span class="hs-identifier">modifyVpcEndpointConnectionNotification_connectionNotificationId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -52,25 +52,25 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newModifyVpcEndpointConnectionNotification' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621681179355"><span id="local-6989586621681179356"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVpcEndpointConnectionNotification"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-var">ModifyVpcEndpointConnectionNotification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVpcEndpointConnectionNotification%27"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-var">ModifyVpcEndpointConnectionNotification'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621681214735"><span id="local-6989586621681214736"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVpcEndpointConnectionNotification"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-var">ModifyVpcEndpointConnectionNotification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVpcEndpointConnectionNotification%27"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-var">ModifyVpcEndpointConnectionNotification'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more events for the endpoint. Valid values are @Accept@,</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- @Connect@, @Delete@, and @Reject@.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AconnectionEvents%3AModifyVpcEndpointConnectionNotification%27"><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotification -&gt; Maybe [Text]
 </span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AconnectionEvents%3AModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-var hs-var">connectionEvents</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AdryRun%3AModifyVpcEndpointConnectionNotification%27"><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotification -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AdryRun%3AModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ARN for the SNS topic for the notification.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AconnectionNotificationArn%3AModifyVpcEndpointConnectionNotification%27"><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotification -&gt; Maybe Text
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The ARN for the SNS topic for the notification.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AconnectionNotificationArn%3AModifyVpcEndpointConnectionNotification%27"><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotification -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AconnectionNotificationArn%3AModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-var hs-var">connectionNotificationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AdryRun%3AModifyVpcEndpointConnectionNotification%27"><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotification -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AdryRun%3AModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The ID of the notification.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AconnectionNotificationId%3AModifyVpcEndpointConnectionNotification%27"><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotification -&gt; Text
 </span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AconnectionNotificationId%3AModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-var hs-var">connectionNotificationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681179346"><span id="local-6989586621681179348"><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotification
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681214726"><span id="local-6989586621681214728"><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotification
 -&gt; ModifyVpcEndpointConnectionNotification -&gt; Bool
 (ModifyVpcEndpointConnectionNotification
  -&gt; ModifyVpcEndpointConnectionNotification -&gt; Bool)
@@ -86,7 +86,7 @@ $c/= :: ModifyVpcEndpointConnectionNotification
 -&gt; ModifyVpcEndpointConnectionNotification -&gt; Bool
 $c== :: ModifyVpcEndpointConnectionNotification
 -&gt; ModifyVpcEndpointConnectionNotification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681179337"><span id="local-6989586621681179339"><span id="local-6989586621681179341"><span id="local-6989586621681179343"><span class="annot"><span class="annottext">ReadPrec [ModifyVpcEndpointConnectionNotification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681214717"><span id="local-6989586621681214719"><span id="local-6989586621681214721"><span id="local-6989586621681214723"><span class="annot"><span class="annottext">ReadPrec [ModifyVpcEndpointConnectionNotification]
 ReadPrec ModifyVpcEndpointConnectionNotification
 Int -&gt; ReadS ModifyVpcEndpointConnectionNotification
 ReadS [ModifyVpcEndpointConnectionNotification]
@@ -106,7 +106,7 @@ readList :: ReadS [ModifyVpcEndpointConnectionNotification]
 $creadList :: ReadS [ModifyVpcEndpointConnectionNotification]
 readsPrec :: Int -&gt; ReadS ModifyVpcEndpointConnectionNotification
 $creadsPrec :: Int -&gt; ReadS ModifyVpcEndpointConnectionNotification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681179330"><span id="local-6989586621681179332"><span id="local-6989586621681179334"><span class="annot"><span class="annottext">Int -&gt; ModifyVpcEndpointConnectionNotification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681214710"><span id="local-6989586621681214712"><span id="local-6989586621681214714"><span class="annot"><span class="annottext">Int -&gt; ModifyVpcEndpointConnectionNotification -&gt; ShowS
 [ModifyVpcEndpointConnectionNotification] -&gt; ShowS
 ModifyVpcEndpointConnectionNotification -&gt; String
 (Int -&gt; ModifyVpcEndpointConnectionNotification -&gt; ShowS)
@@ -155,12 +155,12 @@ ModifyVpcEndpointConnectionNotification
 </span><span id="line-79"></span><span class="hs-comment">-- 'connectionEvents', 'modifyVpcEndpointConnectionNotification_connectionEvents' - One or more events for the endpoint. Valid values are @Accept@,</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- @Connect@, @Delete@, and @Reject@.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'dryRun', 'modifyVpcEndpointConnectionNotification_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'connectionNotificationArn', 'modifyVpcEndpointConnectionNotification_connectionNotificationArn' - The ARN for the SNS topic for the notification.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'connectionNotificationArn', 'modifyVpcEndpointConnectionNotification_connectionNotificationArn' - The ARN for the SNS topic for the notification.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'dryRun', 'modifyVpcEndpointConnectionNotification_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- 'connectionNotificationId', 'modifyVpcEndpointConnectionNotification_connectionNotificationId' - The ID of the notification.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#newModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">newModifyVpcEndpointConnectionNotification</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -169,11 +169,11 @@ ModifyVpcEndpointConnectionNotification
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span><span>
 </span><span id="line-94"></span><span id="newModifyVpcEndpointConnectionNotification"><span class="annot"><span class="annottext">newModifyVpcEndpointConnectionNotification :: Text -&gt; ModifyVpcEndpointConnectionNotification
 </span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#newModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-var hs-var">newModifyVpcEndpointConnectionNotification</span></a></span></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621681179325"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179325"><span class="hs-identifier hs-var">pConnectionNotificationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621681214705"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681214705"><span class="hs-identifier hs-var">pConnectionNotificationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotification' :: Maybe [Text]
--&gt; Maybe Bool
 -&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; Text
 -&gt; ModifyVpcEndpointConnectionNotification
 </span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span>
@@ -182,19 +182,19 @@ ModifyVpcEndpointConnectionNotification
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:dryRun:ModifyVpcEndpointConnectionNotification' :: Maybe Bool
-</span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AdryRun%3AModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:connectionNotificationArn:ModifyVpcEndpointConnectionNotification' :: Maybe Text
+</span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AconnectionNotificationArn%3AModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-var">connectionNotificationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:connectionNotificationArn:ModifyVpcEndpointConnectionNotification' :: Maybe Text
-</span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AconnectionNotificationArn%3AModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-var">connectionNotificationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:dryRun:ModifyVpcEndpointConnectionNotification' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AdryRun%3AModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:connectionNotificationId:ModifyVpcEndpointConnectionNotification' :: Text
 </span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AconnectionNotificationId%3AModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-var">connectionNotificationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179325"><span class="hs-identifier hs-var">pConnectionNotificationId_</span></a></span><span>
+</span><a href="#local-6989586621681214705"><span class="hs-identifier hs-var">pConnectionNotificationId_</span></a></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | One or more events for the endpoint. Valid values are @Accept@,</span><span>
@@ -212,16 +212,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179322"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681214702"><span class="annot"><span class="annottext">Maybe [Text]
 connectionEvents :: Maybe [Text]
 $sel:connectionEvents:ModifyVpcEndpointConnectionNotification' :: ModifyVpcEndpointConnectionNotification -&gt; Maybe [Text]
-</span><a href="#local-6989586621681179322"><span class="hs-identifier hs-var hs-var">connectionEvents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681179322"><span class="hs-identifier hs-var">connectionEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179321"><span class="annot"><span class="annottext">s :: ModifyVpcEndpointConnectionNotification
-</span><a href="#local-6989586621681179321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179320"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681179320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotification
-</span><a href="#local-6989586621681179321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionEvents:ModifyVpcEndpointConnectionNotification' :: Maybe [Text]
+</span><a href="#local-6989586621681214702"><span class="hs-identifier hs-var hs-var">connectionEvents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681214702"><span class="hs-identifier hs-var">connectionEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681214701"><span class="annot"><span class="annottext">s :: ModifyVpcEndpointConnectionNotification
+</span><a href="#local-6989586621681214701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681214700"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681214700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotification
+</span><a href="#local-6989586621681214701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionEvents:ModifyVpcEndpointConnectionNotification' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AconnectionEvents%3AModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-var">connectionEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681179320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681214700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ModifyVpcEndpointConnectionNotification
  -&gt; f ModifyVpcEndpointConnectionNotification)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -236,40 +236,12 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#modifyVpcEndpointConnectionNotification_dryRun"><span class="hs-identifier hs-type">modifyVpcEndpointConnectionNotification_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="modifyVpcEndpointConnectionNotification_dryRun"><span class="annot"><span class="annottext">modifyVpcEndpointConnectionNotification_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ModifyVpcEndpointConnectionNotification
--&gt; f ModifyVpcEndpointConnectionNotification
-</span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#modifyVpcEndpointConnectionNotification_dryRun"><span class="hs-identifier hs-var hs-var">modifyVpcEndpointConnectionNotification_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpcEndpointConnectionNotification -&gt; Maybe Bool)
--&gt; (ModifyVpcEndpointConnectionNotification
-    -&gt; Maybe Bool -&gt; ModifyVpcEndpointConnectionNotification)
--&gt; Lens
-     ModifyVpcEndpointConnectionNotification
-     ModifyVpcEndpointConnectionNotification
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179316"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:ModifyVpcEndpointConnectionNotification' :: ModifyVpcEndpointConnectionNotification -&gt; Maybe Bool
-</span><a href="#local-6989586621681179316"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681179316"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179315"><span class="annot"><span class="annottext">s :: ModifyVpcEndpointConnectionNotification
-</span><a href="#local-6989586621681179315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179314"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681179314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotification
-</span><a href="#local-6989586621681179315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ModifyVpcEndpointConnectionNotification' :: Maybe Bool
-</span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AdryRun%3AModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681179314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The ARN for the SNS topic for the notification.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#modifyVpcEndpointConnectionNotification_connectionNotificationArn"><span class="hs-identifier hs-type">modifyVpcEndpointConnectionNotification_connectionNotificationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="modifyVpcEndpointConnectionNotification_connectionNotificationArn"><span class="annot"><span class="annottext">modifyVpcEndpointConnectionNotification_connectionNotificationArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-111"></span><span class="hs-comment">-- | The ARN for the SNS topic for the notification.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#modifyVpcEndpointConnectionNotification_connectionNotificationArn"><span class="hs-identifier hs-type">modifyVpcEndpointConnectionNotification_connectionNotificationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="modifyVpcEndpointConnectionNotification_connectionNotificationArn"><span class="annot"><span class="annottext">modifyVpcEndpointConnectionNotification_connectionNotificationArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ModifyVpcEndpointConnectionNotification
 -&gt; f ModifyVpcEndpointConnectionNotification
 </span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#modifyVpcEndpointConnectionNotification_connectionNotificationArn"><span class="hs-identifier hs-var hs-var">modifyVpcEndpointConnectionNotification_connectionNotificationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpcEndpointConnectionNotification -&gt; Maybe Text)
@@ -281,16 +253,44 @@ $sel:dryRun:ModifyVpcEndpointConnectionNotification' :: ModifyVpcEndpointConnect
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179313"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681214696"><span class="annot"><span class="annottext">Maybe Text
 connectionNotificationArn :: Maybe Text
 $sel:connectionNotificationArn:ModifyVpcEndpointConnectionNotification' :: ModifyVpcEndpointConnectionNotification -&gt; Maybe Text
-</span><a href="#local-6989586621681179313"><span class="hs-identifier hs-var hs-var">connectionNotificationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681179313"><span class="hs-identifier hs-var">connectionNotificationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179312"><span class="annot"><span class="annottext">s :: ModifyVpcEndpointConnectionNotification
-</span><a href="#local-6989586621681179312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179311"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681179311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotification
-</span><a href="#local-6989586621681179312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionNotificationArn:ModifyVpcEndpointConnectionNotification' :: Maybe Text
+</span><a href="#local-6989586621681214696"><span class="hs-identifier hs-var hs-var">connectionNotificationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681214696"><span class="hs-identifier hs-var">connectionNotificationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681214695"><span class="annot"><span class="annottext">s :: ModifyVpcEndpointConnectionNotification
+</span><a href="#local-6989586621681214695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681214694"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681214694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotification
+</span><a href="#local-6989586621681214695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionNotificationArn:ModifyVpcEndpointConnectionNotification' :: Maybe Text
 </span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AconnectionNotificationArn%3AModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-var">connectionNotificationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681179311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681214694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#modifyVpcEndpointConnectionNotification_dryRun"><span class="hs-identifier hs-type">modifyVpcEndpointConnectionNotification_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="modifyVpcEndpointConnectionNotification_dryRun"><span class="annot"><span class="annottext">modifyVpcEndpointConnectionNotification_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ModifyVpcEndpointConnectionNotification
+-&gt; f ModifyVpcEndpointConnectionNotification
+</span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#modifyVpcEndpointConnectionNotification_dryRun"><span class="hs-identifier hs-var hs-var">modifyVpcEndpointConnectionNotification_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpcEndpointConnectionNotification -&gt; Maybe Bool)
+-&gt; (ModifyVpcEndpointConnectionNotification
+    -&gt; Maybe Bool -&gt; ModifyVpcEndpointConnectionNotification)
+-&gt; Lens
+     ModifyVpcEndpointConnectionNotification
+     ModifyVpcEndpointConnectionNotification
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681214693"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:ModifyVpcEndpointConnectionNotification' :: ModifyVpcEndpointConnectionNotification -&gt; Maybe Bool
+</span><a href="#local-6989586621681214693"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681214693"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681214692"><span class="annot"><span class="annottext">s :: ModifyVpcEndpointConnectionNotification
+</span><a href="#local-6989586621681214692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681214691"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681214691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotification
+</span><a href="#local-6989586621681214692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ModifyVpcEndpointConnectionNotification' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AdryRun%3AModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681214691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The ID of the notification.</span><span>
 </span><span id="line-123"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#modifyVpcEndpointConnectionNotification_connectionNotificationId"><span class="hs-identifier hs-type">modifyVpcEndpointConnectionNotification_connectionNotificationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -306,16 +306,16 @@ $sel:connectionNotificationArn:ModifyVpcEndpointConnectionNotification' :: Modif
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179310"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681214690"><span class="annot"><span class="annottext">Text
 connectionNotificationId :: Text
 $sel:connectionNotificationId:ModifyVpcEndpointConnectionNotification' :: ModifyVpcEndpointConnectionNotification -&gt; Text
-</span><a href="#local-6989586621681179310"><span class="hs-identifier hs-var hs-var">connectionNotificationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179310"><span class="hs-identifier hs-var">connectionNotificationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179309"><span class="annot"><span class="annottext">s :: ModifyVpcEndpointConnectionNotification
-</span><a href="#local-6989586621681179309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179308"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotification
-</span><a href="#local-6989586621681179309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionNotificationId:ModifyVpcEndpointConnectionNotification' :: Text
+</span><a href="#local-6989586621681214690"><span class="hs-identifier hs-var hs-var">connectionNotificationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681214690"><span class="hs-identifier hs-var">connectionNotificationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681214689"><span class="annot"><span class="annottext">s :: ModifyVpcEndpointConnectionNotification
+</span><a href="#local-6989586621681214689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681214688"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681214688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotification
+</span><a href="#local-6989586621681214689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionNotificationId:ModifyVpcEndpointConnectionNotification' :: Text
 </span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AconnectionNotificationId%3AModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-var">connectionNotificationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681214688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -325,7 +325,7 @@ $sel:connectionNotificationId:ModifyVpcEndpointConnectionNotification' :: Modify
 </span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotificationResponse</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621681179304"><span class="annot"><span class="annottext">request :: ModifyVpcEndpointConnectionNotification
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621681214684"><span class="annot"><span class="annottext">request :: ModifyVpcEndpointConnectionNotification
 -&gt; Request ModifyVpcEndpointConnectionNotification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ModifyVpcEndpointConnectionNotification
@@ -333,7 +333,7 @@ $sel:connectionNotificationId:ModifyVpcEndpointConnectionNotification' :: Modify
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621681179300"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621681214680"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyVpcEndpointConnectionNotification
 -&gt; ClientResponse ClientBody
@@ -364,10 +364,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681179297"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681179297"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681179296"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681179296"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681179295"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681179295"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681214677"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681214677"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681214676"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681214676"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681214675"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681214675"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Int -&gt; ModifyVpcEndpointConnectionNotificationResponse
 </span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse%27"><span class="hs-identifier hs-var">ModifyVpcEndpointConnectionNotificationResponse'</span></a></span><span>
@@ -378,7 +378,7 @@ MonadResource m =&gt;
      String (Int -&gt; ModifyVpcEndpointConnectionNotificationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681179295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621681214675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;return&quot;</span></span><span class="hs-special">)</span><span>
@@ -392,22 +392,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681179297"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681214677"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621681179287"><span id="local-6989586621681179289"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621681214667"><span id="local-6989586621681214669"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621681179284"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621681214664"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621681179280"><span class="annot"><span class="annottext">toHeaders :: ModifyVpcEndpointConnectionNotification -&gt; ResponseHeaders
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621681214660"><span class="annot"><span class="annottext">toHeaders :: ModifyVpcEndpointConnectionNotification -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; ModifyVpcEndpointConnectionNotification -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -419,7 +419,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621681179275"><span class="annot"><span class="annottext">toPath :: ModifyVpcEndpointConnectionNotification -&gt; ByteString
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621681214655"><span class="annot"><span class="annottext">toPath :: ModifyVpcEndpointConnectionNotification -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyVpcEndpointConnectionNotification -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -429,20 +429,20 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification</span></a></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621681179271"><span class="annot"><span class="annottext">toQuery :: ModifyVpcEndpointConnectionNotification -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179266"><span id="local-6989586621681179267"><span id="local-6989586621681179268"><span id="local-6989586621681179269"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621681214651"><span class="annot"><span class="annottext">toQuery :: ModifyVpcEndpointConnectionNotification -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotification%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681214646"><span id="local-6989586621681214647"><span id="local-6989586621681214648"><span id="local-6989586621681214649"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe Text
 Text
 connectionNotificationId :: Text
-connectionNotificationArn :: Maybe Text
 dryRun :: Maybe Bool
+connectionNotificationArn :: Maybe Text
 connectionEvents :: Maybe [Text]
 $sel:connectionNotificationId:ModifyVpcEndpointConnectionNotification' :: ModifyVpcEndpointConnectionNotification -&gt; Text
-$sel:connectionNotificationArn:ModifyVpcEndpointConnectionNotification' :: ModifyVpcEndpointConnectionNotification -&gt; Maybe Text
 $sel:dryRun:ModifyVpcEndpointConnectionNotification' :: ModifyVpcEndpointConnectionNotification -&gt; Maybe Bool
+$sel:connectionNotificationArn:ModifyVpcEndpointConnectionNotification' :: ModifyVpcEndpointConnectionNotification -&gt; Maybe Text
 $sel:connectionEvents:ModifyVpcEndpointConnectionNotification' :: ModifyVpcEndpointConnectionNotification -&gt; Maybe [Text]
-</span><a href="#local-6989586621681179266"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681214646"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -472,29 +472,29 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681179269"><span class="hs-identifier hs-var">connectionEvents</span></a></span><span>
+</span><a href="#local-6989586621681214649"><span class="hs-identifier hs-var">connectionEvents</span></a></span><span>
 </span><span id="line-178"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ConnectionNotificationArn&quot;</span></span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681214648"><span class="hs-identifier hs-var">connectionNotificationArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681179268"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;ConnectionNotificationArn&quot;</span></span><span>
-</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681179267"><span class="hs-identifier hs-var">connectionNotificationArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681214647"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ConnectionNotificationId&quot;</span></span><span>
 </span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179266"><span class="hs-identifier hs-var">connectionNotificationId</span></a></span><span>
+</span><a href="#local-6989586621681214646"><span class="hs-identifier hs-var">connectionNotificationId</span></a></span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | /See:/ 'newModifyVpcEndpointConnectionNotificationResponse' smart constructor.</span><span>
-</span><span id="line-187"></span><span id="local-6989586621681179262"><span id="local-6989586621681179263"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVpcEndpointConnectionNotificationResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse"><span class="hs-identifier hs-var">ModifyVpcEndpointConnectionNotificationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVpcEndpointConnectionNotificationResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse%27"><span class="hs-identifier hs-var">ModifyVpcEndpointConnectionNotificationResponse'</span></a></span></span><span>
+</span><span id="line-187"></span><span id="local-6989586621681214642"><span id="local-6989586621681214643"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVpcEndpointConnectionNotificationResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse"><span class="hs-identifier hs-var">ModifyVpcEndpointConnectionNotificationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVpcEndpointConnectionNotificationResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse%27"><span class="hs-identifier hs-var">ModifyVpcEndpointConnectionNotificationResponse'</span></a></span></span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns @true@ if the request succeeds; otherwise, it returns an error.</span><span>
 </span><span id="line-189"></span><span>    </span><span id="%24sel%3AreturnValue%3AModifyVpcEndpointConnectionNotificationResponse%27"><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotificationResponse -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AreturnValue%3AModifyVpcEndpointConnectionNotificationResponse%27"><span class="hs-identifier hs-var hs-var">returnValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -502,7 +502,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-191"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyVpcEndpointConnectionNotificationResponse%27"><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotificationResponse -&gt; Int
 </span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AhttpStatus%3AModifyVpcEndpointConnectionNotificationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681179256"><span id="local-6989586621681179258"><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotificationResponse
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681214636"><span id="local-6989586621681214638"><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotificationResponse
 -&gt; ModifyVpcEndpointConnectionNotificationResponse -&gt; Bool
 (ModifyVpcEndpointConnectionNotificationResponse
  -&gt; ModifyVpcEndpointConnectionNotificationResponse -&gt; Bool)
@@ -518,7 +518,7 @@ $c/= :: ModifyVpcEndpointConnectionNotificationResponse
 -&gt; ModifyVpcEndpointConnectionNotificationResponse -&gt; Bool
 $c== :: ModifyVpcEndpointConnectionNotificationResponse
 -&gt; ModifyVpcEndpointConnectionNotificationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681179248"><span id="local-6989586621681179250"><span id="local-6989586621681179252"><span id="local-6989586621681179254"><span class="annot"><span class="annottext">ReadPrec [ModifyVpcEndpointConnectionNotificationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681214628"><span id="local-6989586621681214630"><span id="local-6989586621681214632"><span id="local-6989586621681214634"><span class="annot"><span class="annottext">ReadPrec [ModifyVpcEndpointConnectionNotificationResponse]
 ReadPrec ModifyVpcEndpointConnectionNotificationResponse
 Int -&gt; ReadS ModifyVpcEndpointConnectionNotificationResponse
 ReadS [ModifyVpcEndpointConnectionNotificationResponse]
@@ -538,7 +538,7 @@ readList :: ReadS [ModifyVpcEndpointConnectionNotificationResponse]
 $creadList :: ReadS [ModifyVpcEndpointConnectionNotificationResponse]
 readsPrec :: Int -&gt; ReadS ModifyVpcEndpointConnectionNotificationResponse
 $creadsPrec :: Int -&gt; ReadS ModifyVpcEndpointConnectionNotificationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681179242"><span id="local-6989586621681179244"><span id="local-6989586621681179246"><span class="annot"><span class="annottext">Int -&gt; ModifyVpcEndpointConnectionNotificationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681214622"><span id="local-6989586621681214624"><span id="local-6989586621681214626"><span class="annot"><span class="annottext">Int -&gt; ModifyVpcEndpointConnectionNotificationResponse -&gt; ShowS
 [ModifyVpcEndpointConnectionNotificationResponse] -&gt; ShowS
 ModifyVpcEndpointConnectionNotificationResponse -&gt; String
 (Int -&gt; ModifyVpcEndpointConnectionNotificationResponse -&gt; ShowS)
@@ -593,8 +593,8 @@ ModifyVpcEndpointConnectionNotificationResponse
 </span><span id="line-209"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotificationResponse</span></a></span><span>
 </span><span id="line-210"></span><span id="newModifyVpcEndpointConnectionNotificationResponse"><span class="annot"><span class="annottext">newModifyVpcEndpointConnectionNotificationResponse :: Int -&gt; ModifyVpcEndpointConnectionNotificationResponse
 </span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#newModifyVpcEndpointConnectionNotificationResponse"><span class="hs-identifier hs-var hs-var">newModifyVpcEndpointConnectionNotificationResponse</span></a></span></span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621681179239"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681179239"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621681214619"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681214619"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotificationResponse' :: Maybe Bool
 -&gt; Int -&gt; ModifyVpcEndpointConnectionNotificationResponse
 </span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotificationResponse'</span></a></span><span>
@@ -605,7 +605,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyVpcEndpointConnectionNotificationResponse' :: Int
 </span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AhttpStatus%3AModifyVpcEndpointConnectionNotificationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681179239"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681214619"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-216"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | Returns @true@ if the request succeeds; otherwise, it returns an error.</span><span>
@@ -622,16 +622,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179238"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681214618"><span class="annot"><span class="annottext">Maybe Bool
 returnValue :: Maybe Bool
 $sel:returnValue:ModifyVpcEndpointConnectionNotificationResponse' :: ModifyVpcEndpointConnectionNotificationResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621681179238"><span class="hs-identifier hs-var hs-var">returnValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681179238"><span class="hs-identifier hs-var">returnValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179237"><span class="annot"><span class="annottext">s :: ModifyVpcEndpointConnectionNotificationResponse
-</span><a href="#local-6989586621681179237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179236"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681179236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotificationResponse
-</span><a href="#local-6989586621681179237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnValue:ModifyVpcEndpointConnectionNotificationResponse' :: Maybe Bool
+</span><a href="#local-6989586621681214618"><span class="hs-identifier hs-var hs-var">returnValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681214618"><span class="hs-identifier hs-var">returnValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681214617"><span class="annot"><span class="annottext">s :: ModifyVpcEndpointConnectionNotificationResponse
+</span><a href="#local-6989586621681214617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681214616"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681214616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotificationResponse
+</span><a href="#local-6989586621681214617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnValue:ModifyVpcEndpointConnectionNotificationResponse' :: Maybe Bool
 </span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AreturnValue%3AModifyVpcEndpointConnectionNotificationResponse%27"><span class="hs-identifier hs-var">returnValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681179236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotificationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681214616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotificationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-223"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#modifyVpcEndpointConnectionNotificationResponse_httpStatus"><span class="hs-identifier hs-type">modifyVpcEndpointConnectionNotificationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotificationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -647,18 +647,18 @@ $sel:returnValue:ModifyVpcEndpointConnectionNotificationResponse' :: ModifyVpcEn
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179235"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681214615"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ModifyVpcEndpointConnectionNotificationResponse' :: ModifyVpcEndpointConnectionNotificationResponse -&gt; Int
-</span><a href="#local-6989586621681179235"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681179235"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179234"><span class="annot"><span class="annottext">s :: ModifyVpcEndpointConnectionNotificationResponse
-</span><a href="#local-6989586621681179234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179233"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681179233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotificationResponse
-</span><a href="#local-6989586621681179234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyVpcEndpointConnectionNotificationResponse' :: Int
+</span><a href="#local-6989586621681214615"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681214615"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681214614"><span class="annot"><span class="annottext">s :: ModifyVpcEndpointConnectionNotificationResponse
+</span><a href="#local-6989586621681214614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse%27"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681214613"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681214613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcEndpointConnectionNotificationResponse
+</span><a href="#local-6989586621681214614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyVpcEndpointConnectionNotificationResponse' :: Int
 </span><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#%24sel%3AhttpStatus%3AModifyVpcEndpointConnectionNotificationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681179233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotificationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681214613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotificationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621681179231"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621681214611"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-228"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcEndpointConnectionNotification.html#ModifyVpcEndpointConnectionNotificationResponse"><span class="hs-identifier hs-type">ModifyVpcEndpointConnectionNotificationResponse</span></a></span></span><span>
 </span><span id="line-229"></span></pre></body></html>

@@ -25,22 +25,31 @@
 </span><span id="line-25"></span><span>
 </span><span id="line-26"></span><span class="hs-comment">-- | An object that describes the recipients for an email.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
-</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDestination' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679324047"><span id="local-6989586621679324048"></span></span><span class="hs-keyword">data</span><span> </span><span id="Destination"><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-var">Destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Destination%27"><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination%27"><span class="hs-identifier hs-var">Destination'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array that contains the email addresses of the \&quot;To\&quot; recipients for</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- the email.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AtoAddresses%3ADestination%27"><span class="annot"><span class="annottext">Destination -&gt; Maybe [Text]
-</span><a href="Network.AWS.SESv2.Types.Destination.html#%24sel%3AtoAddresses%3ADestination%27"><span class="hs-identifier hs-var hs-var">toAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | An array that contains the email addresses of the \&quot;CC\&quot; (carbon copy)</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- recipients for the email.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AccAddresses%3ADestination%27"><span class="annot"><span class="annottext">Destination -&gt; Maybe [Text]
+</span><span id="line-28"></span><span class="hs-comment">-- Amazon SES does not support the SMTPUTF8 extension, as described in</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc6531 RFC6531&gt;. For this reason, the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /local part/ of a destination email address (the part of the email</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- address that precedes the \@ sign) may only contain</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://en.wikipedia.org/wiki/Email_address#Local-part 7-bit ASCII characters&gt;.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- If the /domain part/ of an address (the part after the \@ sign) contains</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- non-ASCII characters, they must be encoded using Punycode, as described</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- in &lt;https://tools.ietf.org/html/rfc3492.html RFC3492&gt;.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newDestination' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679326346"><span id="local-6989586621679326347"></span></span><span class="hs-keyword">data</span><span> </span><span id="Destination"><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-var">Destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Destination%27"><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination%27"><span class="hs-identifier hs-var">Destination'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array that contains the email addresses of the \&quot;BCC\&quot; (blind carbon</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- copy) recipients for the email.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AbccAddresses%3ADestination%27"><span class="annot"><span class="annottext">Destination -&gt; Maybe [Text]
+</span><a href="Network.AWS.SESv2.Types.Destination.html#%24sel%3AbccAddresses%3ADestination%27"><span class="hs-identifier hs-var hs-var">bccAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | An array that contains the email addresses of the \&quot;CC\&quot; (carbon copy)</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- recipients for the email.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AccAddresses%3ADestination%27"><span class="annot"><span class="annottext">Destination -&gt; Maybe [Text]
 </span><a href="Network.AWS.SESv2.Types.Destination.html#%24sel%3AccAddresses%3ADestination%27"><span class="hs-identifier hs-var hs-var">ccAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | An array that contains the email addresses of the \&quot;BCC\&quot; (blind carbon</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- copy) recipients for the email.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AbccAddresses%3ADestination%27"><span class="annot"><span class="annottext">Destination -&gt; Maybe [Text]
-</span><a href="Network.AWS.SESv2.Types.Destination.html#%24sel%3AbccAddresses%3ADestination%27"><span class="hs-identifier hs-var hs-var">bccAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324039"><span id="local-6989586621679324041"><span class="annot"><span class="annottext">Destination -&gt; Destination -&gt; Bool
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | An array that contains the email addresses of the \&quot;To\&quot; recipients for</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- the email.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AtoAddresses%3ADestination%27"><span class="annot"><span class="annottext">Destination -&gt; Maybe [Text]
+</span><a href="Network.AWS.SESv2.Types.Destination.html#%24sel%3AtoAddresses%3ADestination%27"><span class="hs-identifier hs-var hs-var">toAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326338"><span id="local-6989586621679326340"><span class="annot"><span class="annottext">Destination -&gt; Destination -&gt; Bool
 (Destination -&gt; Destination -&gt; Bool)
 -&gt; (Destination -&gt; Destination -&gt; Bool) -&gt; Eq Destination
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Destination -&gt; Destination -&gt; Bool
 == :: Destination -&gt; Destination -&gt; Bool
 $c== :: Destination -&gt; Destination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324030"><span id="local-6989586621679324032"><span id="local-6989586621679324034"><span id="local-6989586621679324036"><span class="annot"><span class="annottext">ReadPrec [Destination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326329"><span id="local-6989586621679326331"><span id="local-6989586621679326333"><span id="local-6989586621679326335"><span class="annot"><span class="annottext">ReadPrec [Destination]
 ReadPrec Destination
 Int -&gt; ReadS Destination
 ReadS [Destination]
@@ -68,7 +77,7 @@ readList :: ReadS [Destination]
 $creadList :: ReadS [Destination]
 readsPrec :: Int -&gt; ReadS Destination
 $creadsPrec :: Int -&gt; ReadS Destination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324023"><span id="local-6989586621679324025"><span id="local-6989586621679324027"><span class="annot"><span class="annottext">Int -&gt; Destination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326322"><span id="local-6989586621679326324"><span id="local-6989586621679326326"><span class="annot"><span class="annottext">Int -&gt; Destination -&gt; ShowS
 [Destination] -&gt; ShowS
 Destination -&gt; String
 (Int -&gt; Destination -&gt; ShowS)
@@ -93,129 +102,61 @@ forall a.
 $cto :: forall x. Rep Destination x -&gt; Destination
 $cfrom :: forall x. Destination -&gt; Rep Destination x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-41"></span><span>
-</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'Destination' with all optional fields omitted.</span><span>
-</span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'toAddresses', 'destination_toAddresses' - An array that contains the email addresses of the \&quot;To\&quot; recipients for</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- the email.</span><span>
-</span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'ccAddresses', 'destination_ccAddresses' - An array that contains the email addresses of the \&quot;CC\&quot; (carbon copy)</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- recipients for the email.</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'Destination' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'bccAddresses', 'destination_bccAddresses' - An array that contains the email addresses of the \&quot;BCC\&quot; (blind carbon</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- copy) recipients for the email.</span><span>
-</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#newDestination"><span class="hs-identifier hs-type">newDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span>
-</span><span id="line-60"></span><span id="newDestination"><span class="annot"><span class="annottext">newDestination :: Destination
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'bccAddresses', 'destination_bccAddresses' - An array that contains the email addresses of the \&quot;BCC\&quot; (blind carbon</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- copy) recipients for the email.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'ccAddresses', 'destination_ccAddresses' - An array that contains the email addresses of the \&quot;CC\&quot; (carbon copy)</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- recipients for the email.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'toAddresses', 'destination_toAddresses' - An array that contains the email addresses of the \&quot;To\&quot; recipients for</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- the email.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#newDestination"><span class="hs-identifier hs-type">newDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span>
+</span><span id="line-69"></span><span id="newDestination"><span class="annot"><span class="annottext">newDestination :: Destination
 </span><a href="Network.AWS.SESv2.Types.Destination.html#newDestination"><span class="hs-identifier hs-var hs-var">newDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">Destination' :: Maybe [Text] -&gt; Maybe [Text] -&gt; Maybe [Text] -&gt; Destination
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">Destination' :: Maybe [Text] -&gt; Maybe [Text] -&gt; Maybe [Text] -&gt; Destination
 </span><a href="Network.AWS.SESv2.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:toAddresses:Destination' :: Maybe [Text]
-</span><a href="Network.AWS.SESv2.Types.Destination.html#%24sel%3AtoAddresses%3ADestination%27"><span class="hs-identifier hs-var">toAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:ccAddresses:Destination' :: Maybe [Text]
-</span><a href="Network.AWS.SESv2.Types.Destination.html#%24sel%3AccAddresses%3ADestination%27"><span class="hs-identifier hs-var">ccAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:bccAddresses:Destination' :: Maybe [Text]
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bccAddresses:Destination' :: Maybe [Text]
 </span><a href="Network.AWS.SESv2.Types.Destination.html#%24sel%3AbccAddresses%3ADestination%27"><span class="hs-identifier hs-var">bccAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | An array that contains the email addresses of the \&quot;To\&quot; recipients for</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- the email.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#destination_toAddresses"><span class="hs-identifier hs-type">destination_toAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="destination_toAddresses"><span class="annot"><span class="annottext">destination_toAddresses :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Destination -&gt; f Destination
-</span><a href="Network.AWS.SESv2.Types.Destination.html#destination_toAddresses"><span class="hs-identifier hs-var hs-var">destination_toAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Destination -&gt; Maybe [Text])
--&gt; (Destination -&gt; Maybe [Text] -&gt; Destination)
--&gt; Lens Destination Destination (Maybe [Text]) (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324014"><span class="annot"><span class="annottext">Maybe [Text]
-toAddresses :: Maybe [Text]
-$sel:toAddresses:Destination' :: Destination -&gt; Maybe [Text]
-</span><a href="#local-6989586621679324014"><span class="hs-identifier hs-var hs-var">toAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679324014"><span class="hs-identifier hs-var">toAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324013"><span class="annot"><span class="annottext">s :: Destination
-</span><a href="#local-6989586621679324013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324012"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679324012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679324013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:toAddresses:Destination' :: Maybe [Text]
-</span><a href="Network.AWS.SESv2.Types.Destination.html#%24sel%3AtoAddresses%3ADestination%27"><span class="hs-identifier hs-var">toAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679324012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; Destination -&gt; f Destination)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; Destination
--&gt; f Destination
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | An array that contains the email addresses of the \&quot;CC\&quot; (carbon copy)</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- recipients for the email.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#destination_ccAddresses"><span class="hs-identifier hs-type">destination_ccAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="destination_ccAddresses"><span class="annot"><span class="annottext">destination_ccAddresses :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Destination -&gt; f Destination
-</span><a href="Network.AWS.SESv2.Types.Destination.html#destination_ccAddresses"><span class="hs-identifier hs-var hs-var">destination_ccAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Destination -&gt; Maybe [Text])
--&gt; (Destination -&gt; Maybe [Text] -&gt; Destination)
--&gt; Lens Destination Destination (Maybe [Text]) (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324007"><span class="annot"><span class="annottext">Maybe [Text]
-ccAddresses :: Maybe [Text]
-$sel:ccAddresses:Destination' :: Destination -&gt; Maybe [Text]
-</span><a href="#local-6989586621679324007"><span class="hs-identifier hs-var hs-var">ccAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679324007"><span class="hs-identifier hs-var">ccAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324006"><span class="annot"><span class="annottext">s :: Destination
-</span><a href="#local-6989586621679324006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324005"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679324005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679324006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ccAddresses:Destination' :: Maybe [Text]
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:ccAddresses:Destination' :: Maybe [Text]
 </span><a href="Network.AWS.SESv2.Types.Destination.html#%24sel%3AccAddresses%3ADestination%27"><span class="hs-identifier hs-var">ccAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679324005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; Destination -&gt; f Destination)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; Destination
--&gt; f Destination
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | An array that contains the email addresses of the \&quot;BCC\&quot; (blind carbon</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- copy) recipients for the email.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#destination_bccAddresses"><span class="hs-identifier hs-type">destination_bccAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="destination_bccAddresses"><span class="annot"><span class="annottext">destination_bccAddresses :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Destination -&gt; f Destination
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:toAddresses:Destination' :: Maybe [Text]
+</span><a href="Network.AWS.SESv2.Types.Destination.html#%24sel%3AtoAddresses%3ADestination%27"><span class="hs-identifier hs-var">toAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | An array that contains the email addresses of the \&quot;BCC\&quot; (blind carbon</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- copy) recipients for the email.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#destination_bccAddresses"><span class="hs-identifier hs-type">destination_bccAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="destination_bccAddresses"><span class="annot"><span class="annottext">destination_bccAddresses :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Destination -&gt; f Destination
 </span><a href="Network.AWS.SESv2.Types.Destination.html#destination_bccAddresses"><span class="hs-identifier hs-var hs-var">destination_bccAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Destination -&gt; Maybe [Text])
 -&gt; (Destination -&gt; Maybe [Text] -&gt; Destination)
 -&gt; Lens Destination Destination (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324003"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326313"><span class="annot"><span class="annottext">Maybe [Text]
 bccAddresses :: Maybe [Text]
 $sel:bccAddresses:Destination' :: Destination -&gt; Maybe [Text]
-</span><a href="#local-6989586621679324003"><span class="hs-identifier hs-var hs-var">bccAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679324003"><span class="hs-identifier hs-var">bccAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324002"><span class="annot"><span class="annottext">s :: Destination
-</span><a href="#local-6989586621679324002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324001"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679324001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679324002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bccAddresses:Destination' :: Maybe [Text]
+</span><a href="#local-6989586621679326313"><span class="hs-identifier hs-var hs-var">bccAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679326313"><span class="hs-identifier hs-var">bccAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326312"><span class="annot"><span class="annottext">s :: Destination
+</span><a href="#local-6989586621679326312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326311"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679326311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679326312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bccAddresses:Destination' :: Maybe [Text]
 </span><a href="Network.AWS.SESv2.Types.Destination.html#%24sel%3AbccAddresses%3ADestination%27"><span class="hs-identifier hs-var">bccAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679324001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679326311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; Destination -&gt; f Destination)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -229,49 +170,117 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323997"><span id="local-6989586621679323999"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span></span></span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323994"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span></span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323986"><span id="local-6989586621679323988"><span id="local-6989586621679323990"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679323984"><span class="annot"><span class="annottext">toJSON :: Destination -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323980"><span id="local-6989586621679323981"><span id="local-6989586621679323982"><span class="annot"><span class="annottext">Maybe [Text]
-bccAddresses :: Maybe [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | An array that contains the email addresses of the \&quot;CC\&quot; (carbon copy)</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- recipients for the email.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#destination_ccAddresses"><span class="hs-identifier hs-type">destination_ccAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="destination_ccAddresses"><span class="annot"><span class="annottext">destination_ccAddresses :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Destination -&gt; f Destination
+</span><a href="Network.AWS.SESv2.Types.Destination.html#destination_ccAddresses"><span class="hs-identifier hs-var hs-var">destination_ccAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Destination -&gt; Maybe [Text])
+-&gt; (Destination -&gt; Maybe [Text] -&gt; Destination)
+-&gt; Lens Destination Destination (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326306"><span class="annot"><span class="annottext">Maybe [Text]
 ccAddresses :: Maybe [Text]
-toAddresses :: Maybe [Text]
-$sel:bccAddresses:Destination' :: Destination -&gt; Maybe [Text]
 $sel:ccAddresses:Destination' :: Destination -&gt; Maybe [Text]
+</span><a href="#local-6989586621679326306"><span class="hs-identifier hs-var hs-var">ccAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679326306"><span class="hs-identifier hs-var">ccAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326305"><span class="annot"><span class="annottext">s :: Destination
+</span><a href="#local-6989586621679326305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326304"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679326304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679326305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ccAddresses:Destination' :: Maybe [Text]
+</span><a href="Network.AWS.SESv2.Types.Destination.html#%24sel%3AccAddresses%3ADestination%27"><span class="hs-identifier hs-var">ccAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679326304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; Destination -&gt; f Destination)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Destination
+-&gt; f Destination
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | An array that contains the email addresses of the \&quot;To\&quot; recipients for</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- the email.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#destination_toAddresses"><span class="hs-identifier hs-type">destination_toAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="destination_toAddresses"><span class="annot"><span class="annottext">destination_toAddresses :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Destination -&gt; f Destination
+</span><a href="Network.AWS.SESv2.Types.Destination.html#destination_toAddresses"><span class="hs-identifier hs-var hs-var">destination_toAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Destination -&gt; Maybe [Text])
+-&gt; (Destination -&gt; Maybe [Text] -&gt; Destination)
+-&gt; Lens Destination Destination (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326302"><span class="annot"><span class="annottext">Maybe [Text]
+toAddresses :: Maybe [Text]
 $sel:toAddresses:Destination' :: Destination -&gt; Maybe [Text]
-</span><a href="#local-6989586621679323980"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><a href="#local-6989586621679326302"><span class="hs-identifier hs-var hs-var">toAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679326302"><span class="hs-identifier hs-var">toAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326301"><span class="annot"><span class="annottext">s :: Destination
+</span><a href="#local-6989586621679326301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326300"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679326300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679326301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:toAddresses:Destination' :: Maybe [Text]
+</span><a href="Network.AWS.SESv2.Types.Destination.html#%24sel%3AtoAddresses%3ADestination%27"><span class="hs-identifier hs-var">toAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679326300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; Destination -&gt; f Destination)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Destination
+-&gt; f Destination
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326296"><span id="local-6989586621679326298"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326285"><span id="local-6989586621679326287"><span id="local-6989586621679326289"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679326283"><span class="annot"><span class="annottext">toJSON :: Destination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326279"><span id="local-6989586621679326280"><span id="local-6989586621679326281"><span class="annot"><span class="annottext">Maybe [Text]
+toAddresses :: Maybe [Text]
+ccAddresses :: Maybe [Text]
+bccAddresses :: Maybe [Text]
+$sel:toAddresses:Destination' :: Destination -&gt; Maybe [Text]
+$sel:ccAddresses:Destination' :: Destination -&gt; Maybe [Text]
+$sel:bccAddresses:Destination' :: Destination -&gt; Maybe [Text]
+</span><a href="#local-6989586621679326279"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-90"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ToAddresses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679323982"><span class="hs-identifier hs-var">toAddresses</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CcAddresses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679323981"><span class="hs-identifier hs-var">ccAddresses</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-99"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BccAddresses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679323980"><span class="hs-identifier hs-var">bccAddresses</span></a></span><span>
-</span><span id="line-93"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span></pre></body></html>
+</span><a href="#local-6989586621679326281"><span class="hs-identifier hs-var">bccAddresses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CcAddresses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679326280"><span class="hs-identifier hs-var">ccAddresses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ToAddresses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679326279"><span class="hs-identifier hs-var">toAddresses</span></a></span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span></pre></body></html>

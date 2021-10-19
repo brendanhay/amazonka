@@ -38,8 +38,8 @@
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#newGenerateDataSet"><span class="hs-identifier">newGenerateDataSet</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#generateDataSet_destinationS3Prefix"><span class="hs-identifier">generateDataSet_destinationS3Prefix</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#generateDataSet_customerDefinedValues"><span class="hs-identifier">generateDataSet_customerDefinedValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#generateDataSet_customerDefinedValues"><span class="hs-identifier">generateDataSet_customerDefinedValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#generateDataSet_destinationS3Prefix"><span class="hs-identifier">generateDataSet_destinationS3Prefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#generateDataSet_dataSetType"><span class="hs-identifier">generateDataSet_dataSetType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#generateDataSet_dataSetPublicationDate"><span class="hs-identifier">generateDataSet_dataSetPublicationDate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#generateDataSet_roleNameArn"><span class="hs-identifier">generateDataSet_roleNameArn</span></a></span><span class="hs-special">,</span><span>
@@ -66,22 +66,22 @@
 </span><span id="line-66"></span><span class="hs-comment">-- | Container for the parameters to the GenerateDataSet operation.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- /See:/ 'newGenerateDataSet' smart constructor.</span><span>
-</span><span id="line-69"></span><span id="local-6989586621679142364"><span id="local-6989586621679142365"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenerateDataSet"><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-var">GenerateDataSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenerateDataSet%27"><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-var">GenerateDataSet'</span></a></span></span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | (Optional) The desired S3 prefix for the published data set, similar to</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- a directory path in standard file systems. For example, if given the</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- bucket name \&quot;mybucket\&quot; and the prefix \&quot;myprefix\/mydatasets\&quot;, the</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- output file \&quot;outputfile\&quot; would be published to</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- \&quot;s3:\/\/mybucket\/myprefix\/mydatasets\/outputfile\&quot;. If the prefix</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- directory structure does not exist, it will be created. If no prefix is</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- provided, the data set will be published to the S3 bucket root.</span><span>
-</span><span id="line-77"></span><span>    </span><span id="%24sel%3AdestinationS3Prefix%3AGenerateDataSet%27"><span class="annot"><span class="annottext">GenerateDataSet -&gt; Maybe Text
-</span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AdestinationS3Prefix%3AGenerateDataSet%27"><span class="hs-identifier hs-var hs-var">destinationS3Prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | (Optional) Key-value pairs which will be returned, unmodified, in the</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- Amazon SNS notification message and the data set metadata file. These</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- key-value pairs can be used to correlated responses with tracking</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- information from other systems.</span><span>
-</span><span id="line-82"></span><span>    </span><span id="%24sel%3AcustomerDefinedValues%3AGenerateDataSet%27"><span class="annot"><span class="annottext">GenerateDataSet -&gt; Maybe (HashMap Text Text)
+</span><span id="line-69"></span><span id="local-6989586621679142393"><span id="local-6989586621679142394"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenerateDataSet"><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-var">GenerateDataSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenerateDataSet%27"><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-var">GenerateDataSet'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | (Optional) Key-value pairs which will be returned, unmodified, in the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Amazon SNS notification message and the data set metadata file. These</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- key-value pairs can be used to correlated responses with tracking</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- information from other systems.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AcustomerDefinedValues%3AGenerateDataSet%27"><span class="annot"><span class="annottext">GenerateDataSet -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AcustomerDefinedValues%3AGenerateDataSet%27"><span class="hs-identifier hs-var hs-var">customerDefinedValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | (Optional) The desired S3 prefix for the published data set, similar to</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- a directory path in standard file systems. For example, if given the</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- bucket name \&quot;mybucket\&quot; and the prefix \&quot;myprefix\/mydatasets\&quot;, the</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- output file \&quot;outputfile\&quot; would be published to</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- \&quot;s3:\/\/mybucket\/myprefix\/mydatasets\/outputfile\&quot;. If the prefix</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- directory structure does not exist, it will be created. If no prefix is</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- provided, the data set will be published to the S3 bucket root.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AdestinationS3Prefix%3AGenerateDataSet%27"><span class="annot"><span class="annottext">GenerateDataSet -&gt; Maybe Text
+</span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AdestinationS3Prefix%3AGenerateDataSet%27"><span class="hs-identifier hs-var hs-var">destinationS3Prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The desired data set type.</span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-comment">-- -   __customer_subscriber_hourly_monthly_subscriptions__</span><span>
@@ -221,7 +221,7 @@
 </span><span id="line-215"></span><span>    </span><span id="%24sel%3AsnsTopicArn%3AGenerateDataSet%27"><span class="annot"><span class="annottext">GenerateDataSet -&gt; Text
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AsnsTopicArn%3AGenerateDataSet%27"><span class="hs-identifier hs-var hs-var">snsTopicArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-216"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-217"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679142352"><span id="local-6989586621679142354"><span class="annot"><span class="annottext">GenerateDataSet -&gt; GenerateDataSet -&gt; Bool
+</span><span id="line-217"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679142381"><span id="local-6989586621679142383"><span class="annot"><span class="annottext">GenerateDataSet -&gt; GenerateDataSet -&gt; Bool
 (GenerateDataSet -&gt; GenerateDataSet -&gt; Bool)
 -&gt; (GenerateDataSet -&gt; GenerateDataSet -&gt; Bool)
 -&gt; Eq GenerateDataSet
@@ -230,7 +230,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GenerateDataSet -&gt; GenerateDataSet -&gt; Bool
 == :: GenerateDataSet -&gt; GenerateDataSet -&gt; Bool
 $c== :: GenerateDataSet -&gt; GenerateDataSet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679142343"><span id="local-6989586621679142345"><span id="local-6989586621679142347"><span id="local-6989586621679142349"><span class="annot"><span class="annottext">ReadPrec [GenerateDataSet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679142372"><span id="local-6989586621679142374"><span id="local-6989586621679142376"><span id="local-6989586621679142378"><span class="annot"><span class="annottext">ReadPrec [GenerateDataSet]
 ReadPrec GenerateDataSet
 Int -&gt; ReadS GenerateDataSet
 ReadS [GenerateDataSet]
@@ -250,7 +250,7 @@ readList :: ReadS [GenerateDataSet]
 $creadList :: ReadS [GenerateDataSet]
 readsPrec :: Int -&gt; ReadS GenerateDataSet
 $creadsPrec :: Int -&gt; ReadS GenerateDataSet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679142336"><span id="local-6989586621679142338"><span id="local-6989586621679142340"><span class="annot"><span class="annottext">Int -&gt; GenerateDataSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679142365"><span id="local-6989586621679142367"><span id="local-6989586621679142369"><span class="annot"><span class="annottext">Int -&gt; GenerateDataSet -&gt; ShowS
 [GenerateDataSet] -&gt; ShowS
 GenerateDataSet -&gt; String
 (Int -&gt; GenerateDataSet -&gt; ShowS)
@@ -284,18 +284,18 @@ $cfrom :: forall x. GenerateDataSet -&gt; Rep GenerateDataSet x
 </span><span id="line-224"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-226"></span><span class="hs-comment">--</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- 'destinationS3Prefix', 'generateDataSet_destinationS3Prefix' - (Optional) The desired S3 prefix for the published data set, similar to</span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- a directory path in standard file systems. For example, if given the</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- bucket name \&quot;mybucket\&quot; and the prefix \&quot;myprefix\/mydatasets\&quot;, the</span><span>
-</span><span id="line-230"></span><span class="hs-comment">-- output file \&quot;outputfile\&quot; would be published to</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- \&quot;s3:\/\/mybucket\/myprefix\/mydatasets\/outputfile\&quot;. If the prefix</span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- directory structure does not exist, it will be created. If no prefix is</span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- provided, the data set will be published to the S3 bucket root.</span><span>
-</span><span id="line-234"></span><span class="hs-comment">--</span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- 'customerDefinedValues', 'generateDataSet_customerDefinedValues' - (Optional) Key-value pairs which will be returned, unmodified, in the</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- Amazon SNS notification message and the data set metadata file. These</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- key-value pairs can be used to correlated responses with tracking</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- information from other systems.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'customerDefinedValues', 'generateDataSet_customerDefinedValues' - (Optional) Key-value pairs which will be returned, unmodified, in the</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- Amazon SNS notification message and the data set metadata file. These</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- key-value pairs can be used to correlated responses with tracking</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- information from other systems.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'destinationS3Prefix', 'generateDataSet_destinationS3Prefix' - (Optional) The desired S3 prefix for the published data set, similar to</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- a directory path in standard file systems. For example, if given the</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- bucket name \&quot;mybucket\&quot; and the prefix \&quot;myprefix\/mydatasets\&quot;, the</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- output file \&quot;outputfile\&quot; would be published to</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- \&quot;s3:\/\/mybucket\/myprefix\/mydatasets\/outputfile\&quot;. If the prefix</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- directory structure does not exist, it will be created. If no prefix is</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- provided, the data set will be published to the S3 bucket root.</span><span>
 </span><span id="line-239"></span><span class="hs-comment">--</span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- 'dataSetType', 'generateDataSet_dataSetType' - The desired data set type.</span><span>
 </span><span id="line-241"></span><span class="hs-comment">--</span><span>
@@ -443,18 +443,18 @@ $cfrom :: forall x. GenerateDataSet -&gt; Rep GenerateDataSet x
 </span><span id="line-383"></span><span>  </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span>
 </span><span id="line-384"></span><span id="newGenerateDataSet"><span class="annot"><span class="annottext">newGenerateDataSet :: DataSetType -&gt; UTCTime -&gt; Text -&gt; Text -&gt; Text -&gt; GenerateDataSet
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#newGenerateDataSet"><span class="hs-identifier hs-var hs-var">newGenerateDataSet</span></a></span></span><span>
-</span><span id="line-385"></span><span>  </span><span id="local-6989586621679142331"><span class="annot"><span class="annottext">DataSetType
-</span><a href="#local-6989586621679142331"><span class="hs-identifier hs-var">pDataSetType_</span></a></span></span><span>
-</span><span id="line-386"></span><span>  </span><span id="local-6989586621679142330"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679142330"><span class="hs-identifier hs-var">pDataSetPublicationDate_</span></a></span></span><span>
-</span><span id="line-387"></span><span>  </span><span id="local-6989586621679142329"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679142329"><span class="hs-identifier hs-var">pRoleNameArn_</span></a></span></span><span>
-</span><span id="line-388"></span><span>  </span><span id="local-6989586621679142328"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679142328"><span class="hs-identifier hs-var">pDestinationS3BucketName_</span></a></span></span><span>
-</span><span id="line-389"></span><span>  </span><span id="local-6989586621679142327"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679142327"><span class="hs-identifier hs-var">pSnsTopicArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-390"></span><span>    </span><span class="annot"><span class="annottext">GenerateDataSet' :: Maybe Text
--&gt; Maybe (HashMap Text Text)
+</span><span id="line-385"></span><span>  </span><span id="local-6989586621679142360"><span class="annot"><span class="annottext">DataSetType
+</span><a href="#local-6989586621679142360"><span class="hs-identifier hs-var">pDataSetType_</span></a></span></span><span>
+</span><span id="line-386"></span><span>  </span><span id="local-6989586621679142359"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679142359"><span class="hs-identifier hs-var">pDataSetPublicationDate_</span></a></span></span><span>
+</span><span id="line-387"></span><span>  </span><span id="local-6989586621679142358"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142358"><span class="hs-identifier hs-var">pRoleNameArn_</span></a></span></span><span>
+</span><span id="line-388"></span><span>  </span><span id="local-6989586621679142357"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142357"><span class="hs-identifier hs-var">pDestinationS3BucketName_</span></a></span></span><span>
+</span><span id="line-389"></span><span>  </span><span id="local-6989586621679142356"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142356"><span class="hs-identifier hs-var">pSnsTopicArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-390"></span><span>    </span><span class="annot"><span class="annottext">GenerateDataSet' :: Maybe (HashMap Text Text)
+-&gt; Maybe Text
 -&gt; DataSetType
 -&gt; POSIX
 -&gt; Text
@@ -462,18 +462,18 @@ $cfrom :: forall x. GenerateDataSet -&gt; Rep GenerateDataSet x
 -&gt; Text
 -&gt; GenerateDataSet
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span>
-</span><span id="line-391"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destinationS3Prefix:GenerateDataSet' :: Maybe Text
-</span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AdestinationS3Prefix%3AGenerateDataSet%27"><span class="hs-identifier hs-var">destinationS3Prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-392"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-391"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:customerDefinedValues:GenerateDataSet' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AcustomerDefinedValues%3AGenerateDataSet%27"><span class="hs-identifier hs-var">customerDefinedValues</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-392"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-393"></span><span>        </span><span class="annot"><span class="annottext">$sel:customerDefinedValues:GenerateDataSet' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AcustomerDefinedValues%3AGenerateDataSet%27"><span class="hs-identifier hs-var">customerDefinedValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-393"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationS3Prefix:GenerateDataSet' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AdestinationS3Prefix%3AGenerateDataSet%27"><span class="hs-identifier hs-var">destinationS3Prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-394"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSetType:GenerateDataSet' :: DataSetType
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AdataSetType%3AGenerateDataSet%27"><span class="hs-identifier hs-var">dataSetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DataSetType
-</span><a href="#local-6989586621679142331"><span class="hs-identifier hs-var">pDataSetType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679142360"><span class="hs-identifier hs-var">pDataSetType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-395"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSetPublicationDate:GenerateDataSet' :: POSIX
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AdataSetPublicationDate%3AGenerateDataSet%27"><span class="hs-identifier hs-var">dataSetPublicationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-396"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
@@ -483,49 +483,24 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679142330"><span class="hs-identifier hs-var">pDataSetPublicationDate_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679142359"><span class="hs-identifier hs-var">pDataSetPublicationDate_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-397"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleNameArn:GenerateDataSet' :: Text
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AroleNameArn%3AGenerateDataSet%27"><span class="hs-identifier hs-var">roleNameArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679142329"><span class="hs-identifier hs-var">pRoleNameArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679142358"><span class="hs-identifier hs-var">pRoleNameArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-398"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationS3BucketName:GenerateDataSet' :: Text
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AdestinationS3BucketName%3AGenerateDataSet%27"><span class="hs-identifier hs-var">destinationS3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679142328"><span class="hs-identifier hs-var">pDestinationS3BucketName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679142357"><span class="hs-identifier hs-var">pDestinationS3BucketName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-399"></span><span>        </span><span class="annot"><span class="annottext">$sel:snsTopicArn:GenerateDataSet' :: Text
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AsnsTopicArn%3AGenerateDataSet%27"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679142327"><span class="hs-identifier hs-var">pSnsTopicArn_</span></a></span><span>
+</span><a href="#local-6989586621679142356"><span class="hs-identifier hs-var">pSnsTopicArn_</span></a></span><span>
 </span><span id="line-400"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-401"></span><span>
-</span><span id="line-402"></span><span class="hs-comment">-- | (Optional) The desired S3 prefix for the published data set, similar to</span><span>
-</span><span id="line-403"></span><span class="hs-comment">-- a directory path in standard file systems. For example, if given the</span><span>
-</span><span id="line-404"></span><span class="hs-comment">-- bucket name \&quot;mybucket\&quot; and the prefix \&quot;myprefix\/mydatasets\&quot;, the</span><span>
-</span><span id="line-405"></span><span class="hs-comment">-- output file \&quot;outputfile\&quot; would be published to</span><span>
-</span><span id="line-406"></span><span class="hs-comment">-- \&quot;s3:\/\/mybucket\/myprefix\/mydatasets\/outputfile\&quot;. If the prefix</span><span>
-</span><span id="line-407"></span><span class="hs-comment">-- directory structure does not exist, it will be created. If no prefix is</span><span>
-</span><span id="line-408"></span><span class="hs-comment">-- provided, the data set will be published to the S3 bucket root.</span><span>
-</span><span id="line-409"></span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#generateDataSet_destinationS3Prefix"><span class="hs-identifier hs-type">generateDataSet_destinationS3Prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-410"></span><span id="generateDataSet_destinationS3Prefix"><span class="annot"><span class="annottext">generateDataSet_destinationS3Prefix :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GenerateDataSet -&gt; f GenerateDataSet
-</span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#generateDataSet_destinationS3Prefix"><span class="hs-identifier hs-var hs-var">generateDataSet_destinationS3Prefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateDataSet -&gt; Maybe Text)
--&gt; (GenerateDataSet -&gt; Maybe Text -&gt; GenerateDataSet)
--&gt; Lens GenerateDataSet GenerateDataSet (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142322"><span class="annot"><span class="annottext">Maybe Text
-destinationS3Prefix :: Maybe Text
-$sel:destinationS3Prefix:GenerateDataSet' :: GenerateDataSet -&gt; Maybe Text
-</span><a href="#local-6989586621679142322"><span class="hs-identifier hs-var hs-var">destinationS3Prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679142322"><span class="hs-identifier hs-var">destinationS3Prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142321"><span class="annot"><span class="annottext">s :: GenerateDataSet
-</span><a href="#local-6989586621679142321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142320"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679142320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataSet
-</span><a href="#local-6989586621679142321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationS3Prefix:GenerateDataSet' :: Maybe Text
-</span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AdestinationS3Prefix%3AGenerateDataSet%27"><span class="hs-identifier hs-var">destinationS3Prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679142320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-411"></span><span>
-</span><span id="line-412"></span><span class="hs-comment">-- | (Optional) Key-value pairs which will be returned, unmodified, in the</span><span>
-</span><span id="line-413"></span><span class="hs-comment">-- Amazon SNS notification message and the data set metadata file. These</span><span>
-</span><span id="line-414"></span><span class="hs-comment">-- key-value pairs can be used to correlated responses with tracking</span><span>
-</span><span id="line-415"></span><span class="hs-comment">-- information from other systems.</span><span>
-</span><span id="line-416"></span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#generateDataSet_customerDefinedValues"><span class="hs-identifier hs-type">generateDataSet_customerDefinedValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-417"></span><span id="generateDataSet_customerDefinedValues"><span class="annot"><span class="annottext">generateDataSet_customerDefinedValues :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span id="line-402"></span><span class="hs-comment">-- | (Optional) Key-value pairs which will be returned, unmodified, in the</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- Amazon SNS notification message and the data set metadata file. These</span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- key-value pairs can be used to correlated responses with tracking</span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- information from other systems.</span><span>
+</span><span id="line-406"></span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#generateDataSet_customerDefinedValues"><span class="hs-identifier hs-type">generateDataSet_customerDefinedValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-407"></span><span id="generateDataSet_customerDefinedValues"><span class="annot"><span class="annottext">generateDataSet_customerDefinedValues :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; GenerateDataSet -&gt; f GenerateDataSet
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#generateDataSet_customerDefinedValues"><span class="hs-identifier hs-var hs-var">generateDataSet_customerDefinedValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateDataSet -&gt; Maybe (HashMap Text Text))
 -&gt; (GenerateDataSet
@@ -536,16 +511,16 @@ $sel:destinationS3Prefix:GenerateDataSet' :: GenerateDataSet -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142319"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142351"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 customerDefinedValues :: Maybe (HashMap Text Text)
 $sel:customerDefinedValues:GenerateDataSet' :: GenerateDataSet -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679142319"><span class="hs-identifier hs-var hs-var">customerDefinedValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679142319"><span class="hs-identifier hs-var">customerDefinedValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142318"><span class="annot"><span class="annottext">s :: GenerateDataSet
-</span><a href="#local-6989586621679142318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142317"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679142317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataSet
-</span><a href="#local-6989586621679142318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerDefinedValues:GenerateDataSet' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679142351"><span class="hs-identifier hs-var hs-var">customerDefinedValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679142351"><span class="hs-identifier hs-var">customerDefinedValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142350"><span class="annot"><span class="annottext">s :: GenerateDataSet
+</span><a href="#local-6989586621679142350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142349"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679142349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataSet
+</span><a href="#local-6989586621679142350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerDefinedValues:GenerateDataSet' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AcustomerDefinedValues%3AGenerateDataSet%27"><span class="hs-identifier hs-var">customerDefinedValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679142317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679142349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; GenerateDataSet -&gt; f GenerateDataSet)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -571,8 +546,33 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-408"></span><span>
+</span><span id="line-409"></span><span class="hs-comment">-- | (Optional) The desired S3 prefix for the published data set, similar to</span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- a directory path in standard file systems. For example, if given the</span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- bucket name \&quot;mybucket\&quot; and the prefix \&quot;myprefix\/mydatasets\&quot;, the</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- output file \&quot;outputfile\&quot; would be published to</span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- \&quot;s3:\/\/mybucket\/myprefix\/mydatasets\/outputfile\&quot;. If the prefix</span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- directory structure does not exist, it will be created. If no prefix is</span><span>
+</span><span id="line-415"></span><span class="hs-comment">-- provided, the data set will be published to the S3 bucket root.</span><span>
+</span><span id="line-416"></span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#generateDataSet_destinationS3Prefix"><span class="hs-identifier hs-type">generateDataSet_destinationS3Prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-417"></span><span id="generateDataSet_destinationS3Prefix"><span class="annot"><span class="annottext">generateDataSet_destinationS3Prefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GenerateDataSet -&gt; f GenerateDataSet
+</span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#generateDataSet_destinationS3Prefix"><span class="hs-identifier hs-var hs-var">generateDataSet_destinationS3Prefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GenerateDataSet -&gt; Maybe Text)
+-&gt; (GenerateDataSet -&gt; Maybe Text -&gt; GenerateDataSet)
+-&gt; Lens GenerateDataSet GenerateDataSet (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142345"><span class="annot"><span class="annottext">Maybe Text
+destinationS3Prefix :: Maybe Text
+$sel:destinationS3Prefix:GenerateDataSet' :: GenerateDataSet -&gt; Maybe Text
+</span><a href="#local-6989586621679142345"><span class="hs-identifier hs-var hs-var">destinationS3Prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679142345"><span class="hs-identifier hs-var">destinationS3Prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142344"><span class="annot"><span class="annottext">s :: GenerateDataSet
+</span><a href="#local-6989586621679142344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142343"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679142343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataSet
+</span><a href="#local-6989586621679142344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationS3Prefix:GenerateDataSet' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AdestinationS3Prefix%3AGenerateDataSet%27"><span class="hs-identifier hs-var">destinationS3Prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679142343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-418"></span><span>
 </span><span id="line-419"></span><span class="hs-comment">-- | The desired data set type.</span><span>
 </span><span id="line-420"></span><span class="hs-comment">--</span><span>
@@ -696,16 +696,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GenerateDataSet -&gt; DataSetType -&gt; GenerateDataSet)
 -&gt; Lens GenerateDataSet GenerateDataSet DataSetType DataSetType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142313"><span class="annot"><span class="annottext">DataSetType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142342"><span class="annot"><span class="annottext">DataSetType
 dataSetType :: DataSetType
 $sel:dataSetType:GenerateDataSet' :: GenerateDataSet -&gt; DataSetType
-</span><a href="#local-6989586621679142313"><span class="hs-identifier hs-var hs-var">dataSetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetType
-</span><a href="#local-6989586621679142313"><span class="hs-identifier hs-var">dataSetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142312"><span class="annot"><span class="annottext">s :: GenerateDataSet
-</span><a href="#local-6989586621679142312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142311"><span class="annot"><span class="annottext">DataSetType
-</span><a href="#local-6989586621679142311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataSet
-</span><a href="#local-6989586621679142312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSetType:GenerateDataSet' :: DataSetType
+</span><a href="#local-6989586621679142342"><span class="hs-identifier hs-var hs-var">dataSetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetType
+</span><a href="#local-6989586621679142342"><span class="hs-identifier hs-var">dataSetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142341"><span class="annot"><span class="annottext">s :: GenerateDataSet
+</span><a href="#local-6989586621679142341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142340"><span class="annot"><span class="annottext">DataSetType
+</span><a href="#local-6989586621679142340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataSet
+</span><a href="#local-6989586621679142341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSetType:GenerateDataSet' :: DataSetType
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AdataSetType%3AGenerateDataSet%27"><span class="hs-identifier hs-var">dataSetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DataSetType
-</span><a href="#local-6989586621679142311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679142340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-536"></span><span>
 </span><span id="line-537"></span><span class="hs-comment">-- | The date a data set was published. For daily data sets, provide a date</span><span>
 </span><span id="line-538"></span><span class="hs-comment">-- with day-level granularity for the desired day. For monthly data sets</span><span>
@@ -721,16 +721,16 @@ $sel:dataSetType:GenerateDataSet' :: GenerateDataSet -&gt; DataSetType
 -&gt; (GenerateDataSet -&gt; POSIX -&gt; GenerateDataSet)
 -&gt; Lens GenerateDataSet GenerateDataSet POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142310"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142339"><span class="annot"><span class="annottext">POSIX
 dataSetPublicationDate :: POSIX
 $sel:dataSetPublicationDate:GenerateDataSet' :: GenerateDataSet -&gt; POSIX
-</span><a href="#local-6989586621679142310"><span class="hs-identifier hs-var hs-var">dataSetPublicationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679142310"><span class="hs-identifier hs-var">dataSetPublicationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142309"><span class="annot"><span class="annottext">s :: GenerateDataSet
-</span><a href="#local-6989586621679142309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142308"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679142308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataSet
-</span><a href="#local-6989586621679142309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSetPublicationDate:GenerateDataSet' :: POSIX
+</span><a href="#local-6989586621679142339"><span class="hs-identifier hs-var hs-var">dataSetPublicationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679142339"><span class="hs-identifier hs-var">dataSetPublicationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142338"><span class="annot"><span class="annottext">s :: GenerateDataSet
+</span><a href="#local-6989586621679142338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142337"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679142337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataSet
+</span><a href="#local-6989586621679142338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSetPublicationDate:GenerateDataSet' :: POSIX
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AdataSetPublicationDate%3AGenerateDataSet%27"><span class="hs-identifier hs-var">dataSetPublicationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679142308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; GenerateDataSet -&gt; f GenerateDataSet)
+</span><a href="#local-6989586621679142337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; GenerateDataSet -&gt; f GenerateDataSet)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; GenerateDataSet
@@ -748,16 +748,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (GenerateDataSet -&gt; Text -&gt; GenerateDataSet)
 -&gt; Lens GenerateDataSet GenerateDataSet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142307"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142336"><span class="annot"><span class="annottext">Text
 roleNameArn :: Text
 $sel:roleNameArn:GenerateDataSet' :: GenerateDataSet -&gt; Text
-</span><a href="#local-6989586621679142307"><span class="hs-identifier hs-var hs-var">roleNameArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679142307"><span class="hs-identifier hs-var">roleNameArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142306"><span class="annot"><span class="annottext">s :: GenerateDataSet
-</span><a href="#local-6989586621679142306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142305"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679142305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataSet
-</span><a href="#local-6989586621679142306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleNameArn:GenerateDataSet' :: Text
+</span><a href="#local-6989586621679142336"><span class="hs-identifier hs-var hs-var">roleNameArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142336"><span class="hs-identifier hs-var">roleNameArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142335"><span class="annot"><span class="annottext">s :: GenerateDataSet
+</span><a href="#local-6989586621679142335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142334"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataSet
+</span><a href="#local-6989586621679142335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleNameArn:GenerateDataSet' :: Text
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AroleNameArn%3AGenerateDataSet%27"><span class="hs-identifier hs-var">roleNameArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679142305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679142334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-552"></span><span>
 </span><span id="line-553"></span><span class="hs-comment">-- | The name (friendly name, not ARN) of the destination S3 bucket.</span><span>
 </span><span id="line-554"></span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#generateDataSet_destinationS3BucketName"><span class="hs-identifier hs-type">generateDataSet_destinationS3BucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -766,16 +766,16 @@ $sel:roleNameArn:GenerateDataSet' :: GenerateDataSet -&gt; Text
 -&gt; (GenerateDataSet -&gt; Text -&gt; GenerateDataSet)
 -&gt; Lens GenerateDataSet GenerateDataSet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142304"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142333"><span class="annot"><span class="annottext">Text
 destinationS3BucketName :: Text
 $sel:destinationS3BucketName:GenerateDataSet' :: GenerateDataSet -&gt; Text
-</span><a href="#local-6989586621679142304"><span class="hs-identifier hs-var hs-var">destinationS3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679142304"><span class="hs-identifier hs-var">destinationS3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142303"><span class="annot"><span class="annottext">s :: GenerateDataSet
-</span><a href="#local-6989586621679142303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142302"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679142302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataSet
-</span><a href="#local-6989586621679142303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationS3BucketName:GenerateDataSet' :: Text
+</span><a href="#local-6989586621679142333"><span class="hs-identifier hs-var hs-var">destinationS3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142333"><span class="hs-identifier hs-var">destinationS3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142332"><span class="annot"><span class="annottext">s :: GenerateDataSet
+</span><a href="#local-6989586621679142332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142331"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataSet
+</span><a href="#local-6989586621679142332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationS3BucketName:GenerateDataSet' :: Text
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AdestinationS3BucketName%3AGenerateDataSet%27"><span class="hs-identifier hs-var">destinationS3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679142302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679142331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-556"></span><span>
 </span><span id="line-557"></span><span class="hs-comment">-- | Amazon Resource Name (ARN) for the SNS Topic that will be notified when</span><span>
 </span><span id="line-558"></span><span class="hs-comment">-- the data set has been published or if an error has occurred.</span><span>
@@ -785,27 +785,27 @@ $sel:destinationS3BucketName:GenerateDataSet' :: GenerateDataSet -&gt; Text
 -&gt; (GenerateDataSet -&gt; Text -&gt; GenerateDataSet)
 -&gt; Lens GenerateDataSet GenerateDataSet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142301"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142330"><span class="annot"><span class="annottext">Text
 snsTopicArn :: Text
 $sel:snsTopicArn:GenerateDataSet' :: GenerateDataSet -&gt; Text
-</span><a href="#local-6989586621679142301"><span class="hs-identifier hs-var hs-var">snsTopicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679142301"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142300"><span class="annot"><span class="annottext">s :: GenerateDataSet
-</span><a href="#local-6989586621679142300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142299"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679142299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataSet
-</span><a href="#local-6989586621679142300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snsTopicArn:GenerateDataSet' :: Text
+</span><a href="#local-6989586621679142330"><span class="hs-identifier hs-var hs-var">snsTopicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142330"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142329"><span class="annot"><span class="annottext">s :: GenerateDataSet
+</span><a href="#local-6989586621679142329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142328"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataSet
+</span><a href="#local-6989586621679142329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snsTopicArn:GenerateDataSet' :: Text
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AsnsTopicArn%3AGenerateDataSet%27"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679142299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679142328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-561"></span><span>
 </span><span id="line-562"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-563"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-564"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-565"></span><span>      </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse"><span class="hs-identifier hs-type">GenerateDataSetResponse</span></a></span><span>
-</span><span id="line-566"></span><span>  </span><span id="local-6989586621679142295"><span class="annot"><span class="annottext">request :: GenerateDataSet -&gt; Request GenerateDataSet
+</span><span id="line-566"></span><span>  </span><span id="local-6989586621679142324"><span class="annot"><span class="annottext">request :: GenerateDataSet -&gt; Request GenerateDataSet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GenerateDataSet -&gt; Request GenerateDataSet
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MarketplaceAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-567"></span><span>  </span><span id="local-6989586621679142291"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-567"></span><span>  </span><span id="local-6989586621679142320"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GenerateDataSet
 -&gt; ClientResponse ClientBody
@@ -829,10 +829,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-569"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679142288"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679142288"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679142287"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679142287"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679142286"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679142286"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-569"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679142317"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679142317"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679142316"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679142316"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679142315"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679142315"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-570"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; GenerateDataSetResponse
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse%27"><span class="hs-identifier hs-var">GenerateDataSetResponse'</span></a></span><span>
 </span><span id="line-571"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; GenerateDataSetResponse)
@@ -840,7 +840,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GenerateDataSetResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679142286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679142315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dataSetRequestId&quot;</span></span><span class="hs-special">)</span><span>
@@ -852,15 +852,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679142288"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679142317"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-573"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-574"></span><span>
-</span><span id="line-575"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679142278"><span id="local-6989586621679142280"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span></span></span><span>
+</span><span id="line-575"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679142307"><span id="local-6989586621679142309"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span></span></span><span>
 </span><span id="line-576"></span><span>
-</span><span id="line-577"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679142275"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span></span><span>
+</span><span id="line-577"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679142304"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span></span><span>
 </span><span id="line-578"></span><span>
 </span><span id="line-579"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-580"></span><span>  </span><span id="local-6989586621679142271"><span class="annot"><span class="annottext">toHeaders :: GenerateDataSet -&gt; ResponseHeaders
+</span><span id="line-580"></span><span>  </span><span id="local-6989586621679142300"><span class="annot"><span class="annottext">toHeaders :: GenerateDataSet -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-581"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GenerateDataSet -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -887,9 +887,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-591"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-592"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-593"></span><span>
-</span><span id="line-594"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679142261"><span id="local-6989586621679142263"><span id="local-6989586621679142265"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-595"></span><span>  </span><span id="local-6989586621679142259"><span class="annot"><span class="annottext">toJSON :: GenerateDataSet -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142251"><span id="local-6989586621679142252"><span id="local-6989586621679142253"><span id="local-6989586621679142254"><span id="local-6989586621679142255"><span id="local-6989586621679142256"><span id="local-6989586621679142257"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-594"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679142290"><span id="local-6989586621679142292"><span id="local-6989586621679142294"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-595"></span><span>  </span><span id="local-6989586621679142288"><span class="annot"><span class="annottext">toJSON :: GenerateDataSet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet%27"><span class="hs-identifier hs-type">GenerateDataSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142280"><span id="local-6989586621679142281"><span id="local-6989586621679142282"><span id="local-6989586621679142283"><span id="local-6989586621679142284"><span id="local-6989586621679142285"><span id="local-6989586621679142286"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text Text)
 Text
 POSIX
@@ -899,45 +899,45 @@ destinationS3BucketName :: Text
 roleNameArn :: Text
 dataSetPublicationDate :: POSIX
 dataSetType :: DataSetType
-customerDefinedValues :: Maybe (HashMap Text Text)
 destinationS3Prefix :: Maybe Text
+customerDefinedValues :: Maybe (HashMap Text Text)
 $sel:snsTopicArn:GenerateDataSet' :: GenerateDataSet -&gt; Text
 $sel:destinationS3BucketName:GenerateDataSet' :: GenerateDataSet -&gt; Text
 $sel:roleNameArn:GenerateDataSet' :: GenerateDataSet -&gt; Text
 $sel:dataSetPublicationDate:GenerateDataSet' :: GenerateDataSet -&gt; POSIX
 $sel:dataSetType:GenerateDataSet' :: GenerateDataSet -&gt; DataSetType
-$sel:customerDefinedValues:GenerateDataSet' :: GenerateDataSet -&gt; Maybe (HashMap Text Text)
 $sel:destinationS3Prefix:GenerateDataSet' :: GenerateDataSet -&gt; Maybe Text
-</span><a href="#local-6989586621679142251"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:customerDefinedValues:GenerateDataSet' :: GenerateDataSet -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679142280"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-596"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-597"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-598"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;destinationS3Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-599"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679142257"><span class="hs-identifier hs-var">destinationS3Prefix</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-600"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;customerDefinedValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-601"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+</span><span id="line-599"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679142256"><span class="hs-identifier hs-var">customerDefinedValues</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679142286"><span class="hs-identifier hs-var">customerDefinedValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-600"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinationS3Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-601"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679142285"><span class="hs-identifier hs-var">destinationS3Prefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-602"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dataSetType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataSetType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DataSetType
-</span><a href="#local-6989586621679142255"><span class="hs-identifier hs-var">dataSetType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679142284"><span class="hs-identifier hs-var">dataSetType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-603"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -946,7 +946,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-605"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679142254"><span class="hs-identifier hs-var">dataSetPublicationDate</span></a></span><span>
+</span><a href="#local-6989586621679142283"><span class="hs-identifier hs-var">dataSetPublicationDate</span></a></span><span>
 </span><span id="line-606"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-607"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -954,7 +954,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;roleNameArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679142253"><span class="hs-identifier hs-var">roleNameArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679142282"><span class="hs-identifier hs-var">roleNameArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-608"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -963,7 +963,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-610"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679142252"><span class="hs-identifier hs-var">destinationS3BucketName</span></a></span><span>
+</span><a href="#local-6989586621679142281"><span class="hs-identifier hs-var">destinationS3BucketName</span></a></span><span>
 </span><span id="line-611"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-612"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -971,19 +971,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;snsTopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679142251"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679142280"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-613"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-614"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-615"></span><span>
 </span><span id="line-616"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-617"></span><span>  </span><span id="local-6989586621679142245"><span class="annot"><span class="annottext">toPath :: GenerateDataSet -&gt; ByteString
+</span><span id="line-617"></span><span>  </span><span id="local-6989586621679142274"><span class="annot"><span class="annottext">toPath :: GenerateDataSet -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GenerateDataSet -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-618"></span><span>
 </span><span id="line-619"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSet"><span class="hs-identifier hs-type">GenerateDataSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-620"></span><span>  </span><span id="local-6989586621679142241"><span class="annot"><span class="annottext">toQuery :: GenerateDataSet -&gt; QueryString
+</span><span id="line-620"></span><span>  </span><span id="local-6989586621679142270"><span class="annot"><span class="annottext">toQuery :: GenerateDataSet -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GenerateDataSet -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -993,7 +993,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-622"></span><span class="hs-comment">-- | Container for the result of the GenerateDataSet operation.</span><span>
 </span><span id="line-623"></span><span class="hs-comment">--</span><span>
 </span><span id="line-624"></span><span class="hs-comment">-- /See:/ 'newGenerateDataSetResponse' smart constructor.</span><span>
-</span><span id="line-625"></span><span id="local-6989586621679142238"><span id="local-6989586621679142239"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenerateDataSetResponse"><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse"><span class="hs-identifier hs-var">GenerateDataSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenerateDataSetResponse%27"><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse%27"><span class="hs-identifier hs-var">GenerateDataSetResponse'</span></a></span></span><span>
+</span><span id="line-625"></span><span id="local-6989586621679142267"><span id="local-6989586621679142268"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenerateDataSetResponse"><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse"><span class="hs-identifier hs-var">GenerateDataSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenerateDataSetResponse%27"><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse%27"><span class="hs-identifier hs-var">GenerateDataSetResponse'</span></a></span></span><span>
 </span><span id="line-626"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier representing a specific request to the</span><span>
 </span><span id="line-627"></span><span>    </span><span class="hs-comment">-- GenerateDataSet operation. This identifier can be used to correlate a</span><span>
 </span><span id="line-628"></span><span>    </span><span class="hs-comment">-- request with notifications from the SNS topic.</span><span>
@@ -1003,7 +1003,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-631"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGenerateDataSetResponse%27"><span class="annot"><span class="annottext">GenerateDataSetResponse -&gt; Int
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AhttpStatus%3AGenerateDataSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-632"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-633"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679142232"><span id="local-6989586621679142234"><span class="annot"><span class="annottext">GenerateDataSetResponse -&gt; GenerateDataSetResponse -&gt; Bool
+</span><span id="line-633"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679142261"><span id="local-6989586621679142263"><span class="annot"><span class="annottext">GenerateDataSetResponse -&gt; GenerateDataSetResponse -&gt; Bool
 (GenerateDataSetResponse -&gt; GenerateDataSetResponse -&gt; Bool)
 -&gt; (GenerateDataSetResponse -&gt; GenerateDataSetResponse -&gt; Bool)
 -&gt; Eq GenerateDataSetResponse
@@ -1012,7 +1012,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GenerateDataSetResponse -&gt; GenerateDataSetResponse -&gt; Bool
 == :: GenerateDataSetResponse -&gt; GenerateDataSetResponse -&gt; Bool
 $c== :: GenerateDataSetResponse -&gt; GenerateDataSetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679142224"><span id="local-6989586621679142226"><span id="local-6989586621679142228"><span id="local-6989586621679142230"><span class="annot"><span class="annottext">ReadPrec [GenerateDataSetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679142253"><span id="local-6989586621679142255"><span id="local-6989586621679142257"><span id="local-6989586621679142259"><span class="annot"><span class="annottext">ReadPrec [GenerateDataSetResponse]
 ReadPrec GenerateDataSetResponse
 Int -&gt; ReadS GenerateDataSetResponse
 ReadS [GenerateDataSetResponse]
@@ -1032,7 +1032,7 @@ readList :: ReadS [GenerateDataSetResponse]
 $creadList :: ReadS [GenerateDataSetResponse]
 readsPrec :: Int -&gt; ReadS GenerateDataSetResponse
 $creadsPrec :: Int -&gt; ReadS GenerateDataSetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679142218"><span id="local-6989586621679142220"><span id="local-6989586621679142222"><span class="annot"><span class="annottext">Int -&gt; GenerateDataSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679142247"><span id="local-6989586621679142249"><span id="local-6989586621679142251"><span class="annot"><span class="annottext">Int -&gt; GenerateDataSetResponse -&gt; ShowS
 [GenerateDataSetResponse] -&gt; ShowS
 GenerateDataSetResponse -&gt; String
 (Int -&gt; GenerateDataSetResponse -&gt; ShowS)
@@ -1078,8 +1078,8 @@ $cfrom :: forall x. GenerateDataSetResponse -&gt; Rep GenerateDataSetResponse x
 </span><span id="line-650"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-651"></span><span>  </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse"><span class="hs-identifier hs-type">GenerateDataSetResponse</span></a></span><span>
 </span><span id="line-652"></span><span id="newGenerateDataSetResponse"><span class="annot"><span class="annottext">newGenerateDataSetResponse :: Int -&gt; GenerateDataSetResponse
-</span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#newGenerateDataSetResponse"><span class="hs-identifier hs-var hs-var">newGenerateDataSetResponse</span></a></span></span><span> </span><span id="local-6989586621679142215"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679142215"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#newGenerateDataSetResponse"><span class="hs-identifier hs-var hs-var">newGenerateDataSetResponse</span></a></span></span><span> </span><span id="local-6989586621679142244"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679142244"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-653"></span><span>  </span><span class="annot"><span class="annottext">GenerateDataSetResponse' :: Maybe Text -&gt; Int -&gt; GenerateDataSetResponse
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse%27"><span class="hs-identifier hs-type">GenerateDataSetResponse'</span></a></span><span>
 </span><span id="line-654"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataSetRequestId:GenerateDataSetResponse' :: Maybe Text
@@ -1089,7 +1089,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-656"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GenerateDataSetResponse' :: Int
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AhttpStatus%3AGenerateDataSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679142215"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679142244"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-657"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-658"></span><span>
 </span><span id="line-659"></span><span class="hs-comment">-- | A unique identifier representing a specific request to the</span><span>
@@ -1107,16 +1107,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse%27"><span class="hs-identifier hs-type">GenerateDataSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142214"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse%27"><span class="hs-identifier hs-type">GenerateDataSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142243"><span class="annot"><span class="annottext">Maybe Text
 dataSetRequestId :: Maybe Text
 $sel:dataSetRequestId:GenerateDataSetResponse' :: GenerateDataSetResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679142214"><span class="hs-identifier hs-var hs-var">dataSetRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679142214"><span class="hs-identifier hs-var">dataSetRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142213"><span class="annot"><span class="annottext">s :: GenerateDataSetResponse
-</span><a href="#local-6989586621679142213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse%27"><span class="hs-identifier hs-type">GenerateDataSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142212"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679142212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataSetResponse
-</span><a href="#local-6989586621679142213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSetRequestId:GenerateDataSetResponse' :: Maybe Text
+</span><a href="#local-6989586621679142243"><span class="hs-identifier hs-var hs-var">dataSetRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679142243"><span class="hs-identifier hs-var">dataSetRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142242"><span class="annot"><span class="annottext">s :: GenerateDataSetResponse
+</span><a href="#local-6989586621679142242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse%27"><span class="hs-identifier hs-type">GenerateDataSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142241"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679142241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataSetResponse
+</span><a href="#local-6989586621679142242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSetRequestId:GenerateDataSetResponse' :: Maybe Text
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AdataSetRequestId%3AGenerateDataSetResponse%27"><span class="hs-identifier hs-var">dataSetRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679142212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse"><span class="hs-identifier hs-type">GenerateDataSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679142241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse"><span class="hs-identifier hs-type">GenerateDataSetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-664"></span><span>
 </span><span id="line-665"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-666"></span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#generateDataSetResponse_httpStatus"><span class="hs-identifier hs-type">generateDataSetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse"><span class="hs-identifier hs-type">GenerateDataSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1126,16 +1126,16 @@ $sel:dataSetRequestId:GenerateDataSetResponse' :: GenerateDataSetResponse -&gt; 
 -&gt; (GenerateDataSetResponse -&gt; Int -&gt; GenerateDataSetResponse)
 -&gt; Lens GenerateDataSetResponse GenerateDataSetResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse%27"><span class="hs-identifier hs-type">GenerateDataSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142211"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse%27"><span class="hs-identifier hs-type">GenerateDataSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142240"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GenerateDataSetResponse' :: GenerateDataSetResponse -&gt; Int
-</span><a href="#local-6989586621679142211"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679142211"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142210"><span class="annot"><span class="annottext">s :: GenerateDataSetResponse
-</span><a href="#local-6989586621679142210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse%27"><span class="hs-identifier hs-type">GenerateDataSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142209"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679142209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataSetResponse
-</span><a href="#local-6989586621679142210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GenerateDataSetResponse' :: Int
+</span><a href="#local-6989586621679142240"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679142240"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142239"><span class="annot"><span class="annottext">s :: GenerateDataSetResponse
+</span><a href="#local-6989586621679142239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse%27"><span class="hs-identifier hs-type">GenerateDataSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142238"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679142238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateDataSetResponse
+</span><a href="#local-6989586621679142239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GenerateDataSetResponse' :: Int
 </span><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#%24sel%3AhttpStatus%3AGenerateDataSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679142209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse"><span class="hs-identifier hs-type">GenerateDataSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679142238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse"><span class="hs-identifier hs-type">GenerateDataSetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-668"></span><span>
-</span><span id="line-669"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679142207"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse"><span class="hs-identifier hs-type">GenerateDataSetResponse</span></a></span></span><span>
+</span><span id="line-669"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679142236"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceAnalytics.GenerateDataSet.html#GenerateDataSetResponse"><span class="hs-identifier hs-type">GenerateDataSetResponse</span></a></span></span><span>
 </span><span id="line-670"></span></pre></body></html>

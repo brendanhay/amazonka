@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679429497"><span id="local-6989586621679429498"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CannedAclForObjectsValue"><span class="annot"><a href="Network.AWS.DMS.Types.CannedAclForObjectsValue.html#CannedAclForObjectsValue"><span class="hs-identifier hs-var">CannedAclForObjectsValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CannedAclForObjectsValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.CannedAclForObjectsValue.html#CannedAclForObjectsValue%27"><span class="hs-identifier hs-var">CannedAclForObjectsValue'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679429768"><span id="local-6989586621679429769"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CannedAclForObjectsValue"><span class="annot"><a href="Network.AWS.DMS.Types.CannedAclForObjectsValue.html#CannedAclForObjectsValue"><span class="hs-identifier hs-var">CannedAclForObjectsValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CannedAclForObjectsValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.CannedAclForObjectsValue.html#CannedAclForObjectsValue%27"><span class="hs-identifier hs-var">CannedAclForObjectsValue'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCannedAclForObjectsValue"><span class="annot"><span class="annottext">CannedAclForObjectsValue -&gt; Text
 </span><a href="Network.AWS.DMS.Types.CannedAclForObjectsValue.html#fromCannedAclForObjectsValue"><span class="hs-identifier hs-var hs-var">fromCannedAclForObjectsValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679429489"><span id="local-6989586621679429491"><span id="local-6989586621679429493"><span class="annot"><span class="annottext">Int -&gt; CannedAclForObjectsValue -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679429760"><span id="local-6989586621679429762"><span id="local-6989586621679429764"><span class="annot"><span class="annottext">Int -&gt; CannedAclForObjectsValue -&gt; ShowS
 [CannedAclForObjectsValue] -&gt; ShowS
 CannedAclForObjectsValue -&gt; String
 (Int -&gt; CannedAclForObjectsValue -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: CannedAclForObjectsValue -&gt; String
 showsPrec :: Int -&gt; CannedAclForObjectsValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; CannedAclForObjectsValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679429480"><span id="local-6989586621679429482"><span id="local-6989586621679429484"><span id="local-6989586621679429486"><span class="annot"><span class="annottext">ReadPrec [CannedAclForObjectsValue]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679429751"><span id="local-6989586621679429753"><span id="local-6989586621679429755"><span id="local-6989586621679429757"><span class="annot"><span class="annottext">ReadPrec [CannedAclForObjectsValue]
 ReadPrec CannedAclForObjectsValue
 Int -&gt; ReadS CannedAclForObjectsValue
 ReadS [CannedAclForObjectsValue]
@@ -78,7 +78,7 @@ $creadList :: ReadS [CannedAclForObjectsValue]
 readsPrec :: Int -&gt; ReadS CannedAclForObjectsValue
 $creadsPrec :: Int -&gt; ReadS CannedAclForObjectsValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679429475"><span id="local-6989586621679429477"><span class="annot"><span class="annottext">CannedAclForObjectsValue -&gt; CannedAclForObjectsValue -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679429746"><span id="local-6989586621679429748"><span class="annot"><span class="annottext">CannedAclForObjectsValue -&gt; CannedAclForObjectsValue -&gt; Bool
 (CannedAclForObjectsValue -&gt; CannedAclForObjectsValue -&gt; Bool)
 -&gt; (CannedAclForObjectsValue -&gt; CannedAclForObjectsValue -&gt; Bool)
 -&gt; Eq CannedAclForObjectsValue
@@ -88,7 +88,7 @@ $c/= :: CannedAclForObjectsValue -&gt; CannedAclForObjectsValue -&gt; Bool
 == :: CannedAclForObjectsValue -&gt; CannedAclForObjectsValue -&gt; Bool
 $c== :: CannedAclForObjectsValue -&gt; CannedAclForObjectsValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679429459"><span id="local-6989586621679429461"><span id="local-6989586621679429463"><span id="local-6989586621679429465"><span id="local-6989586621679429467"><span id="local-6989586621679429469"><span id="local-6989586621679429471"><span class="annot"><span class="annottext">Eq CannedAclForObjectsValue
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679429730"><span id="local-6989586621679429732"><span id="local-6989586621679429734"><span id="local-6989586621679429736"><span id="local-6989586621679429738"><span id="local-6989586621679429740"><span id="local-6989586621679429742"><span class="annot"><span class="annottext">Eq CannedAclForObjectsValue
 Eq CannedAclForObjectsValue
 -&gt; (CannedAclForObjectsValue
     -&gt; CannedAclForObjectsValue -&gt; Ordering)
@@ -153,7 +153,7 @@ CannedAclForObjectsValue -&gt; Rep CannedAclForObjectsValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679429451"><span id="local-6989586621679429453"><span class="annot"><span class="annottext">Int -&gt; CannedAclForObjectsValue -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679429722"><span id="local-6989586621679429724"><span class="annot"><span class="annottext">Int -&gt; CannedAclForObjectsValue -&gt; Int
 CannedAclForObjectsValue -&gt; Int
 (Int -&gt; CannedAclForObjectsValue -&gt; Int)
 -&gt; (CannedAclForObjectsValue -&gt; Int)
@@ -164,55 +164,55 @@ $chash :: CannedAclForObjectsValue -&gt; Int
 hashWithSalt :: Int -&gt; CannedAclForObjectsValue -&gt; Int
 $chashWithSalt :: Int -&gt; CannedAclForObjectsValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679429448"><span class="annot"><span class="annottext">CannedAclForObjectsValue -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679429719"><span class="annot"><span class="annottext">CannedAclForObjectsValue -&gt; ()
 (CannedAclForObjectsValue -&gt; ()) -&gt; NFData CannedAclForObjectsValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CannedAclForObjectsValue -&gt; ()
 $crnf :: CannedAclForObjectsValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679429445"><span class="annot"><span class="annottext">Text -&gt; Either String CannedAclForObjectsValue
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679429716"><span class="annot"><span class="annottext">Text -&gt; Either String CannedAclForObjectsValue
 (Text -&gt; Either String CannedAclForObjectsValue)
 -&gt; FromText CannedAclForObjectsValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CannedAclForObjectsValue
 $cfromText :: Text -&gt; Either String CannedAclForObjectsValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679429442"><span class="annot"><span class="annottext">CannedAclForObjectsValue -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679429713"><span class="annot"><span class="annottext">CannedAclForObjectsValue -&gt; Text
 (CannedAclForObjectsValue -&gt; Text)
 -&gt; ToText CannedAclForObjectsValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CannedAclForObjectsValue -&gt; Text
 $ctoText :: CannedAclForObjectsValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679429439"><span class="annot"><span class="annottext">CannedAclForObjectsValue -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679429710"><span class="annot"><span class="annottext">CannedAclForObjectsValue -&gt; ByteString
 (CannedAclForObjectsValue -&gt; ByteString)
 -&gt; ToByteString CannedAclForObjectsValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CannedAclForObjectsValue -&gt; ByteString
 $ctoBS :: CannedAclForObjectsValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679429436"><span class="annot"><span class="annottext">CannedAclForObjectsValue -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679429707"><span class="annot"><span class="annottext">CannedAclForObjectsValue -&gt; ByteStringBuilder
 (CannedAclForObjectsValue -&gt; ByteStringBuilder)
 -&gt; ToLog CannedAclForObjectsValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CannedAclForObjectsValue -&gt; ByteStringBuilder
 $cbuild :: CannedAclForObjectsValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679429433"><span class="annot"><span class="annottext">HeaderName -&gt; CannedAclForObjectsValue -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679429704"><span class="annot"><span class="annottext">HeaderName -&gt; CannedAclForObjectsValue -&gt; [Header]
 (HeaderName -&gt; CannedAclForObjectsValue -&gt; [Header])
 -&gt; ToHeader CannedAclForObjectsValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CannedAclForObjectsValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CannedAclForObjectsValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679429430"><span class="annot"><span class="annottext">CannedAclForObjectsValue -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679429701"><span class="annot"><span class="annottext">CannedAclForObjectsValue -&gt; QueryString
 (CannedAclForObjectsValue -&gt; QueryString)
 -&gt; ToQuery CannedAclForObjectsValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CannedAclForObjectsValue -&gt; QueryString
 $ctoQuery :: CannedAclForObjectsValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679429425"><span id="local-6989586621679429427"><span class="annot"><span class="annottext">Value -&gt; Parser [CannedAclForObjectsValue]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679429696"><span id="local-6989586621679429698"><span class="annot"><span class="annottext">Value -&gt; Parser [CannedAclForObjectsValue]
 Value -&gt; Parser CannedAclForObjectsValue
 (Value -&gt; Parser CannedAclForObjectsValue)
 -&gt; (Value -&gt; Parser [CannedAclForObjectsValue])
@@ -224,7 +224,7 @@ $cparseJSONList :: Value -&gt; Parser [CannedAclForObjectsValue]
 parseJSON :: Value -&gt; Parser CannedAclForObjectsValue
 $cparseJSON :: Value -&gt; Parser CannedAclForObjectsValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679429420"><span id="local-6989586621679429422"><span class="annot"><span class="annottext">FromJSONKeyFunction [CannedAclForObjectsValue]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679429691"><span id="local-6989586621679429693"><span class="annot"><span class="annottext">FromJSONKeyFunction [CannedAclForObjectsValue]
 FromJSONKeyFunction CannedAclForObjectsValue
 FromJSONKeyFunction CannedAclForObjectsValue
 -&gt; FromJSONKeyFunction [CannedAclForObjectsValue]
@@ -236,7 +236,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CannedAclForObjectsValue]
 fromJSONKey :: FromJSONKeyFunction CannedAclForObjectsValue
 $cfromJSONKey :: FromJSONKeyFunction CannedAclForObjectsValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679429411"><span id="local-6989586621679429413"><span id="local-6989586621679429415"><span id="local-6989586621679429417"><span class="annot"><span class="annottext">[CannedAclForObjectsValue] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679429682"><span id="local-6989586621679429684"><span id="local-6989586621679429686"><span id="local-6989586621679429688"><span class="annot"><span class="annottext">[CannedAclForObjectsValue] -&gt; Encoding
 [CannedAclForObjectsValue] -&gt; Value
 CannedAclForObjectsValue -&gt; Encoding
 CannedAclForObjectsValue -&gt; Value
@@ -260,7 +260,7 @@ $ctoEncoding :: CannedAclForObjectsValue -&gt; Encoding
 toJSON :: CannedAclForObjectsValue -&gt; Value
 $ctoJSON :: CannedAclForObjectsValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679429406"><span id="local-6989586621679429408"><span class="annot"><span class="annottext">ToJSONKeyFunction [CannedAclForObjectsValue]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679429677"><span id="local-6989586621679429679"><span class="annot"><span class="annottext">ToJSONKeyFunction [CannedAclForObjectsValue]
 ToJSONKeyFunction CannedAclForObjectsValue
 ToJSONKeyFunction CannedAclForObjectsValue
 -&gt; ToJSONKeyFunction [CannedAclForObjectsValue]
@@ -272,14 +272,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CannedAclForObjectsValue]
 toJSONKey :: ToJSONKeyFunction CannedAclForObjectsValue
 $ctoJSONKey :: ToJSONKeyFunction CannedAclForObjectsValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679429403"><span class="annot"><span class="annottext">[Node] -&gt; Either String CannedAclForObjectsValue
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679429674"><span class="annot"><span class="annottext">[Node] -&gt; Either String CannedAclForObjectsValue
 ([Node] -&gt; Either String CannedAclForObjectsValue)
 -&gt; FromXML CannedAclForObjectsValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CannedAclForObjectsValue
 $cparseXML :: [Node] -&gt; Either String CannedAclForObjectsValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679429400"><span class="annot"><span class="annottext">CannedAclForObjectsValue -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679429671"><span class="annot"><span class="annottext">CannedAclForObjectsValue -&gt; XML
 (CannedAclForObjectsValue -&gt; XML) -&gt; ToXML CannedAclForObjectsValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CannedAclForObjectsValue -&gt; XML

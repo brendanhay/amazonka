@@ -70,12 +70,12 @@
 </span><span id="line-70"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- /See:/ 'newStopMatchmaking' smart constructor.</span><span>
-</span><span id="line-73"></span><span id="local-6989586621679443806"><span id="local-6989586621679443807"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopMatchmaking"><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking"><span class="hs-identifier hs-var">StopMatchmaking</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopMatchmaking%27"><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking%27"><span class="hs-identifier hs-var">StopMatchmaking'</span></a></span></span><span>
+</span><span id="line-73"></span><span id="local-6989586621679444273"><span id="local-6989586621679444274"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopMatchmaking"><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking"><span class="hs-identifier hs-var">StopMatchmaking</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopMatchmaking%27"><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking%27"><span class="hs-identifier hs-var">StopMatchmaking'</span></a></span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for a matchmaking ticket.</span><span>
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AticketId%3AStopMatchmaking%27"><span class="annot"><span class="annottext">StopMatchmaking -&gt; Text
 </span><a href="Network.AWS.GameLift.StopMatchmaking.html#%24sel%3AticketId%3AStopMatchmaking%27"><span class="hs-identifier hs-var hs-var">ticketId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443800"><span id="local-6989586621679443802"><span class="annot"><span class="annottext">StopMatchmaking -&gt; StopMatchmaking -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444267"><span id="local-6989586621679444269"><span class="annot"><span class="annottext">StopMatchmaking -&gt; StopMatchmaking -&gt; Bool
 (StopMatchmaking -&gt; StopMatchmaking -&gt; Bool)
 -&gt; (StopMatchmaking -&gt; StopMatchmaking -&gt; Bool)
 -&gt; Eq StopMatchmaking
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopMatchmaking -&gt; StopMatchmaking -&gt; Bool
 == :: StopMatchmaking -&gt; StopMatchmaking -&gt; Bool
 $c== :: StopMatchmaking -&gt; StopMatchmaking -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443791"><span id="local-6989586621679443793"><span id="local-6989586621679443795"><span id="local-6989586621679443797"><span class="annot"><span class="annottext">ReadPrec [StopMatchmaking]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444258"><span id="local-6989586621679444260"><span id="local-6989586621679444262"><span id="local-6989586621679444264"><span class="annot"><span class="annottext">ReadPrec [StopMatchmaking]
 ReadPrec StopMatchmaking
 Int -&gt; ReadS StopMatchmaking
 ReadS [StopMatchmaking]
@@ -104,7 +104,7 @@ readList :: ReadS [StopMatchmaking]
 $creadList :: ReadS [StopMatchmaking]
 readsPrec :: Int -&gt; ReadS StopMatchmaking
 $creadsPrec :: Int -&gt; ReadS StopMatchmaking
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443784"><span id="local-6989586621679443786"><span id="local-6989586621679443788"><span class="annot"><span class="annottext">Int -&gt; StopMatchmaking -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444251"><span id="local-6989586621679444253"><span id="local-6989586621679444255"><span class="annot"><span class="annottext">Int -&gt; StopMatchmaking -&gt; ShowS
 [StopMatchmaking] -&gt; ShowS
 StopMatchmaking -&gt; String
 (Int -&gt; StopMatchmaking -&gt; ShowS)
@@ -144,12 +144,12 @@ $cfrom :: forall x. StopMatchmaking -&gt; Rep StopMatchmaking x
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking"><span class="hs-identifier hs-type">StopMatchmaking</span></a></span><span>
 </span><span id="line-92"></span><span id="newStopMatchmaking"><span class="annot"><span class="annottext">newStopMatchmaking :: Text -&gt; StopMatchmaking
-</span><a href="Network.AWS.GameLift.StopMatchmaking.html#newStopMatchmaking"><span class="hs-identifier hs-var hs-var">newStopMatchmaking</span></a></span></span><span> </span><span id="local-6989586621679443779"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679443779"><span class="hs-identifier hs-var">pTicketId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.StopMatchmaking.html#newStopMatchmaking"><span class="hs-identifier hs-var hs-var">newStopMatchmaking</span></a></span></span><span> </span><span id="local-6989586621679444246"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679444246"><span class="hs-identifier hs-var">pTicketId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">StopMatchmaking' :: Text -&gt; StopMatchmaking
 </span><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking%27"><span class="hs-identifier hs-type">StopMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ticketId:StopMatchmaking' :: Text
 </span><a href="Network.AWS.GameLift.StopMatchmaking.html#%24sel%3AticketId%3AStopMatchmaking%27"><span class="hs-identifier hs-var">ticketId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679443779"><span class="hs-identifier hs-var">pTicketId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679444246"><span class="hs-identifier hs-var">pTicketId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | A unique identifier for a matchmaking ticket.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#stopMatchmaking_ticketId"><span class="hs-identifier hs-type">stopMatchmaking_ticketId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking"><span class="hs-identifier hs-type">StopMatchmaking</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -158,27 +158,27 @@ $cfrom :: forall x. StopMatchmaking -&gt; Rep StopMatchmaking x
 -&gt; (StopMatchmaking -&gt; Text -&gt; StopMatchmaking)
 -&gt; Lens StopMatchmaking StopMatchmaking Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking%27"><span class="hs-identifier hs-type">StopMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443776"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking%27"><span class="hs-identifier hs-type">StopMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444243"><span class="annot"><span class="annottext">Text
 ticketId :: Text
 $sel:ticketId:StopMatchmaking' :: StopMatchmaking -&gt; Text
-</span><a href="#local-6989586621679443776"><span class="hs-identifier hs-var hs-var">ticketId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679443776"><span class="hs-identifier hs-var">ticketId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443775"><span class="annot"><span class="annottext">s :: StopMatchmaking
-</span><a href="#local-6989586621679443775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking%27"><span class="hs-identifier hs-type">StopMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443774"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679443774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopMatchmaking
-</span><a href="#local-6989586621679443775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ticketId:StopMatchmaking' :: Text
+</span><a href="#local-6989586621679444243"><span class="hs-identifier hs-var hs-var">ticketId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679444243"><span class="hs-identifier hs-var">ticketId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444242"><span class="annot"><span class="annottext">s :: StopMatchmaking
+</span><a href="#local-6989586621679444242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking%27"><span class="hs-identifier hs-type">StopMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444241"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679444241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopMatchmaking
+</span><a href="#local-6989586621679444242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ticketId:StopMatchmaking' :: Text
 </span><a href="Network.AWS.GameLift.StopMatchmaking.html#%24sel%3AticketId%3AStopMatchmaking%27"><span class="hs-identifier hs-var">ticketId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679443774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking"><span class="hs-identifier hs-type">StopMatchmaking</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking"><span class="hs-identifier hs-type">StopMatchmaking</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking"><span class="hs-identifier hs-type">StopMatchmaking</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking"><span class="hs-identifier hs-type">StopMatchmaking</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmakingResponse"><span class="hs-identifier hs-type">StopMatchmakingResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679443770"><span class="annot"><span class="annottext">request :: StopMatchmaking -&gt; Request StopMatchmaking
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679444237"><span class="annot"><span class="annottext">request :: StopMatchmaking -&gt; Request StopMatchmaking
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopMatchmaking -&gt; Request StopMatchmaking
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679443766"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679444233"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopMatchmaking
 -&gt; ClientResponse ClientBody
@@ -202,10 +202,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679443763"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443763"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679443762"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679443762"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679443761"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679443761"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679444230"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444230"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679444229"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679444229"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679444228"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679444228"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StopMatchmakingResponse
 </span><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmakingResponse%27"><span class="hs-identifier hs-var">StopMatchmakingResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StopMatchmakingResponse)
@@ -216,15 +216,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443763"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444230"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443754"><span id="local-6989586621679443756"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking"><span class="hs-identifier hs-type">StopMatchmaking</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444221"><span id="local-6989586621679444223"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking"><span class="hs-identifier hs-type">StopMatchmaking</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443751"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking"><span class="hs-identifier hs-type">StopMatchmaking</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444218"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking"><span class="hs-identifier hs-type">StopMatchmaking</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking"><span class="hs-identifier hs-type">StopMatchmaking</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679443747"><span class="annot"><span class="annottext">toHeaders :: StopMatchmaking -&gt; ResponseHeaders
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679444214"><span class="annot"><span class="annottext">toHeaders :: StopMatchmaking -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopMatchmaking -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -249,12 +249,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443737"><span id="local-6989586621679443739"><span id="local-6989586621679443741"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking"><span class="hs-identifier hs-type">StopMatchmaking</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679443735"><span class="annot"><span class="annottext">toJSON :: StopMatchmaking -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking%27"><span class="hs-identifier hs-type">StopMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443733"><span class="annot"><span class="annottext">Text
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444204"><span id="local-6989586621679444206"><span id="local-6989586621679444208"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking"><span class="hs-identifier hs-type">StopMatchmaking</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679444202"><span class="annot"><span class="annottext">toJSON :: StopMatchmaking -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking%27"><span class="hs-identifier hs-type">StopMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444200"><span class="annot"><span class="annottext">Text
 ticketId :: Text
 $sel:ticketId:StopMatchmaking' :: StopMatchmaking -&gt; Text
-</span><a href="#local-6989586621679443733"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679444200"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -266,18 +266,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TicketId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679443733"><span class="hs-identifier hs-var">ticketId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679444200"><span class="hs-identifier hs-var">ticketId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking"><span class="hs-identifier hs-type">StopMatchmaking</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679443727"><span class="annot"><span class="annottext">toPath :: StopMatchmaking -&gt; ByteString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679444194"><span class="annot"><span class="annottext">toPath :: StopMatchmaking -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopMatchmaking -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmaking"><span class="hs-identifier hs-type">StopMatchmaking</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679443723"><span class="annot"><span class="annottext">toQuery :: StopMatchmaking -&gt; QueryString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679444190"><span class="annot"><span class="annottext">toQuery :: StopMatchmaking -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopMatchmaking -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -285,12 +285,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newStopMatchmakingResponse' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621679443720"><span id="local-6989586621679443721"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopMatchmakingResponse"><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmakingResponse"><span class="hs-identifier hs-var">StopMatchmakingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopMatchmakingResponse%27"><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmakingResponse%27"><span class="hs-identifier hs-var">StopMatchmakingResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621679444187"><span id="local-6989586621679444188"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopMatchmakingResponse"><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmakingResponse"><span class="hs-identifier hs-var">StopMatchmakingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopMatchmakingResponse%27"><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmakingResponse%27"><span class="hs-identifier hs-var">StopMatchmakingResponse'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopMatchmakingResponse%27"><span class="annot"><span class="annottext">StopMatchmakingResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.StopMatchmaking.html#%24sel%3AhttpStatus%3AStopMatchmakingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443715"><span id="local-6989586621679443717"><span class="annot"><span class="annottext">StopMatchmakingResponse -&gt; StopMatchmakingResponse -&gt; Bool
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444182"><span id="local-6989586621679444184"><span class="annot"><span class="annottext">StopMatchmakingResponse -&gt; StopMatchmakingResponse -&gt; Bool
 (StopMatchmakingResponse -&gt; StopMatchmakingResponse -&gt; Bool)
 -&gt; (StopMatchmakingResponse -&gt; StopMatchmakingResponse -&gt; Bool)
 -&gt; Eq StopMatchmakingResponse
@@ -299,7 +299,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopMatchmakingResponse -&gt; StopMatchmakingResponse -&gt; Bool
 == :: StopMatchmakingResponse -&gt; StopMatchmakingResponse -&gt; Bool
 $c== :: StopMatchmakingResponse -&gt; StopMatchmakingResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443707"><span id="local-6989586621679443709"><span id="local-6989586621679443711"><span id="local-6989586621679443713"><span class="annot"><span class="annottext">ReadPrec [StopMatchmakingResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444174"><span id="local-6989586621679444176"><span id="local-6989586621679444178"><span id="local-6989586621679444180"><span class="annot"><span class="annottext">ReadPrec [StopMatchmakingResponse]
 ReadPrec StopMatchmakingResponse
 Int -&gt; ReadS StopMatchmakingResponse
 ReadS [StopMatchmakingResponse]
@@ -319,7 +319,7 @@ readList :: ReadS [StopMatchmakingResponse]
 $creadList :: ReadS [StopMatchmakingResponse]
 readsPrec :: Int -&gt; ReadS StopMatchmakingResponse
 $creadsPrec :: Int -&gt; ReadS StopMatchmakingResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443701"><span id="local-6989586621679443703"><span id="local-6989586621679443705"><span class="annot"><span class="annottext">Int -&gt; StopMatchmakingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444168"><span id="local-6989586621679444170"><span id="local-6989586621679444172"><span class="annot"><span class="annottext">Int -&gt; StopMatchmakingResponse -&gt; ShowS
 [StopMatchmakingResponse] -&gt; ShowS
 StopMatchmakingResponse -&gt; String
 (Int -&gt; StopMatchmakingResponse -&gt; ShowS)
@@ -361,12 +361,12 @@ $cfrom :: forall x. StopMatchmakingResponse -&gt; Rep StopMatchmakingResponse x
 </span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmakingResponse"><span class="hs-identifier hs-type">StopMatchmakingResponse</span></a></span><span>
 </span><span id="line-161"></span><span id="newStopMatchmakingResponse"><span class="annot"><span class="annottext">newStopMatchmakingResponse :: Int -&gt; StopMatchmakingResponse
-</span><a href="Network.AWS.GameLift.StopMatchmaking.html#newStopMatchmakingResponse"><span class="hs-identifier hs-var hs-var">newStopMatchmakingResponse</span></a></span></span><span> </span><span id="local-6989586621679443698"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443698"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.StopMatchmaking.html#newStopMatchmakingResponse"><span class="hs-identifier hs-var hs-var">newStopMatchmakingResponse</span></a></span></span><span> </span><span id="local-6989586621679444165"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444165"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">StopMatchmakingResponse' :: Int -&gt; StopMatchmakingResponse
 </span><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmakingResponse%27"><span class="hs-identifier hs-type">StopMatchmakingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopMatchmakingResponse' :: Int
 </span><a href="Network.AWS.GameLift.StopMatchmaking.html#%24sel%3AhttpStatus%3AStopMatchmakingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443698"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679444165"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-165"></span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#stopMatchmakingResponse_httpStatus"><span class="hs-identifier hs-type">stopMatchmakingResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmakingResponse"><span class="hs-identifier hs-type">StopMatchmakingResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -376,16 +376,16 @@ $cfrom :: forall x. StopMatchmakingResponse -&gt; Rep StopMatchmakingResponse x
 -&gt; (StopMatchmakingResponse -&gt; Int -&gt; StopMatchmakingResponse)
 -&gt; Lens StopMatchmakingResponse StopMatchmakingResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmakingResponse%27"><span class="hs-identifier hs-type">StopMatchmakingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443697"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmakingResponse%27"><span class="hs-identifier hs-type">StopMatchmakingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444164"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopMatchmakingResponse' :: StopMatchmakingResponse -&gt; Int
-</span><a href="#local-6989586621679443697"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443697"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443696"><span class="annot"><span class="annottext">s :: StopMatchmakingResponse
-</span><a href="#local-6989586621679443696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmakingResponse%27"><span class="hs-identifier hs-type">StopMatchmakingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443695"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopMatchmakingResponse
-</span><a href="#local-6989586621679443696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopMatchmakingResponse' :: Int
+</span><a href="#local-6989586621679444164"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444164"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444163"><span class="annot"><span class="annottext">s :: StopMatchmakingResponse
+</span><a href="#local-6989586621679444163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmakingResponse%27"><span class="hs-identifier hs-type">StopMatchmakingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444162"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopMatchmakingResponse
+</span><a href="#local-6989586621679444163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopMatchmakingResponse' :: Int
 </span><a href="Network.AWS.GameLift.StopMatchmaking.html#%24sel%3AhttpStatus%3AStopMatchmakingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmakingResponse"><span class="hs-identifier hs-type">StopMatchmakingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmakingResponse"><span class="hs-identifier hs-type">StopMatchmakingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443693"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmakingResponse"><span class="hs-identifier hs-type">StopMatchmakingResponse</span></a></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444160"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopMatchmaking.html#StopMatchmakingResponse"><span class="hs-identifier hs-type">StopMatchmakingResponse</span></a></span></span><span>
 </span><span id="line-169"></span></pre></body></html>

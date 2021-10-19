@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the user data for an instance.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newUserData' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681143011"><span id="local-6989586621681143012"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserData"><span class="annot"><a href="Network.AWS.EC2.Types.UserData.html#UserData"><span class="hs-identifier hs-var">UserData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserData%27"><span class="annot"><a href="Network.AWS.EC2.Types.UserData.html#UserData%27"><span class="hs-identifier hs-var">UserData'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681178165"><span id="local-6989586621681178166"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserData"><span class="annot"><a href="Network.AWS.EC2.Types.UserData.html#UserData"><span class="hs-identifier hs-var">UserData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserData%27"><span class="annot"><a href="Network.AWS.EC2.Types.UserData.html#UserData%27"><span class="hs-identifier hs-var">UserData'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user data. If you are using an Amazon Web Services SDK or command</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- line tool, Base64-encoding is performed for you, and you can load the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- text from a file. Otherwise, you must provide Base64-encoded text.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Adata%27%3AUserData%27"><span class="annot"><span class="annottext">UserData -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.UserData.html#%24sel%3Adata%27%3AUserData%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681143005"><span id="local-6989586621681143007"><span class="annot"><span class="annottext">UserData -&gt; UserData -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681178159"><span id="local-6989586621681178161"><span class="annot"><span class="annottext">UserData -&gt; UserData -&gt; Bool
 (UserData -&gt; UserData -&gt; Bool)
 -&gt; (UserData -&gt; UserData -&gt; Bool) -&gt; Eq UserData
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UserData -&gt; UserData -&gt; Bool
 == :: UserData -&gt; UserData -&gt; Bool
 $c== :: UserData -&gt; UserData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681142998"><span id="local-6989586621681143000"><span id="local-6989586621681143002"><span class="annot"><span class="annottext">Int -&gt; UserData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681178152"><span id="local-6989586621681178154"><span id="local-6989586621681178156"><span class="annot"><span class="annottext">Int -&gt; UserData -&gt; ShowS
 [UserData] -&gt; ShowS
 UserData -&gt; String
 (Int -&gt; UserData -&gt; ShowS)
@@ -94,32 +94,32 @@ forall a. Maybe a
 -&gt; (UserData -&gt; Maybe Text -&gt; UserData)
 -&gt; Lens UserData UserData (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.UserData.html#UserData%27"><span class="hs-identifier hs-type">UserData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681142989"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.UserData.html#UserData%27"><span class="hs-identifier hs-type">UserData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681178143"><span class="annot"><span class="annottext">Maybe Text
 data' :: Maybe Text
 $sel:data':UserData' :: UserData -&gt; Maybe Text
-</span><a href="#local-6989586621681142989"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681142989"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681142988"><span class="annot"><span class="annottext">s :: UserData
-</span><a href="#local-6989586621681142988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.UserData.html#UserData%27"><span class="hs-identifier hs-type">UserData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681142987"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681142987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserData
-</span><a href="#local-6989586621681142988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':UserData' :: Maybe Text
+</span><a href="#local-6989586621681178143"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681178143"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681178142"><span class="annot"><span class="annottext">s :: UserData
+</span><a href="#local-6989586621681178142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.UserData.html#UserData%27"><span class="hs-identifier hs-type">UserData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681178141"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681178141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserData
+</span><a href="#local-6989586621681178142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':UserData' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.UserData.html#%24sel%3Adata%27%3AUserData%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681142987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserData.html#UserData"><span class="hs-identifier hs-type">UserData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681178141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserData.html#UserData"><span class="hs-identifier hs-type">UserData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681142983"><span id="local-6989586621681142985"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserData.html#UserData"><span class="hs-identifier hs-type">UserData</span></a></span></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681178137"><span id="local-6989586621681178139"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserData.html#UserData"><span class="hs-identifier hs-type">UserData</span></a></span></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681142980"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserData.html#UserData"><span class="hs-identifier hs-type">UserData</span></a></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681178134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserData.html#UserData"><span class="hs-identifier hs-type">UserData</span></a></span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserData.html#UserData"><span class="hs-identifier hs-type">UserData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621681142976"><span class="annot"><span class="annottext">toQuery :: UserData -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserData.html#UserData%27"><span class="hs-identifier hs-type">UserData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681142974"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621681178130"><span class="annot"><span class="annottext">toQuery :: UserData -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserData.html#UserData%27"><span class="hs-identifier hs-type">UserData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681178128"><span class="annot"><span class="annottext">Maybe Text
 data' :: Maybe Text
 $sel:data':UserData' :: UserData -&gt; Maybe Text
-</span><a href="#local-6989586621681142974"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681178128"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Data&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681142974"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621681178128"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-66"></span></pre></body></html>

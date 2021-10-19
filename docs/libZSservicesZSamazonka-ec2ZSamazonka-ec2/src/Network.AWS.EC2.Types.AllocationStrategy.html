@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621681052086"><span id="local-6989586621681052087"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AllocationStrategy"><span class="annot"><a href="Network.AWS.EC2.Types.AllocationStrategy.html#AllocationStrategy"><span class="hs-identifier hs-var">AllocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AllocationStrategy%27"><span class="annot"><a href="Network.AWS.EC2.Types.AllocationStrategy.html#AllocationStrategy%27"><span class="hs-identifier hs-var">AllocationStrategy'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681085281"><span id="local-6989586621681085282"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AllocationStrategy"><span class="annot"><a href="Network.AWS.EC2.Types.AllocationStrategy.html#AllocationStrategy"><span class="hs-identifier hs-var">AllocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AllocationStrategy%27"><span class="annot"><a href="Network.AWS.EC2.Types.AllocationStrategy.html#AllocationStrategy%27"><span class="hs-identifier hs-var">AllocationStrategy'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAllocationStrategy"><span class="annot"><span class="annottext">AllocationStrategy -&gt; Text
 </span><a href="Network.AWS.EC2.Types.AllocationStrategy.html#fromAllocationStrategy"><span class="hs-identifier hs-var hs-var">fromAllocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681052078"><span id="local-6989586621681052080"><span id="local-6989586621681052082"><span class="annot"><span class="annottext">Int -&gt; AllocationStrategy -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681085273"><span id="local-6989586621681085275"><span id="local-6989586621681085277"><span class="annot"><span class="annottext">Int -&gt; AllocationStrategy -&gt; ShowS
 [AllocationStrategy] -&gt; ShowS
 AllocationStrategy -&gt; String
 (Int -&gt; AllocationStrategy -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: AllocationStrategy -&gt; String
 showsPrec :: Int -&gt; AllocationStrategy -&gt; ShowS
 $cshowsPrec :: Int -&gt; AllocationStrategy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681052069"><span id="local-6989586621681052071"><span id="local-6989586621681052073"><span id="local-6989586621681052075"><span class="annot"><span class="annottext">ReadPrec [AllocationStrategy]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681085264"><span id="local-6989586621681085266"><span id="local-6989586621681085268"><span id="local-6989586621681085270"><span class="annot"><span class="annottext">ReadPrec [AllocationStrategy]
 ReadPrec AllocationStrategy
 Int -&gt; ReadS AllocationStrategy
 ReadS [AllocationStrategy]
@@ -75,7 +75,7 @@ $creadList :: ReadS [AllocationStrategy]
 readsPrec :: Int -&gt; ReadS AllocationStrategy
 $creadsPrec :: Int -&gt; ReadS AllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681052064"><span id="local-6989586621681052066"><span class="annot"><span class="annottext">AllocationStrategy -&gt; AllocationStrategy -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681085259"><span id="local-6989586621681085261"><span class="annot"><span class="annottext">AllocationStrategy -&gt; AllocationStrategy -&gt; Bool
 (AllocationStrategy -&gt; AllocationStrategy -&gt; Bool)
 -&gt; (AllocationStrategy -&gt; AllocationStrategy -&gt; Bool)
 -&gt; Eq AllocationStrategy
@@ -85,7 +85,7 @@ $c/= :: AllocationStrategy -&gt; AllocationStrategy -&gt; Bool
 == :: AllocationStrategy -&gt; AllocationStrategy -&gt; Bool
 $c== :: AllocationStrategy -&gt; AllocationStrategy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681052048"><span id="local-6989586621681052050"><span id="local-6989586621681052052"><span id="local-6989586621681052054"><span id="local-6989586621681052056"><span id="local-6989586621681052058"><span id="local-6989586621681052060"><span class="annot"><span class="annottext">Eq AllocationStrategy
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681085243"><span id="local-6989586621681085245"><span id="local-6989586621681085247"><span id="local-6989586621681085249"><span id="local-6989586621681085251"><span id="local-6989586621681085253"><span id="local-6989586621681085255"><span class="annot"><span class="annottext">Eq AllocationStrategy
 Eq AllocationStrategy
 -&gt; (AllocationStrategy -&gt; AllocationStrategy -&gt; Ordering)
 -&gt; (AllocationStrategy -&gt; AllocationStrategy -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. AllocationStrategy -&gt; Rep AllocationStrategy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681052040"><span id="local-6989586621681052042"><span class="annot"><span class="annottext">Int -&gt; AllocationStrategy -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681085235"><span id="local-6989586621681085237"><span class="annot"><span class="annottext">Int -&gt; AllocationStrategy -&gt; Int
 AllocationStrategy -&gt; Int
 (Int -&gt; AllocationStrategy -&gt; Int)
 -&gt; (AllocationStrategy -&gt; Int) -&gt; Hashable AllocationStrategy
@@ -146,53 +146,53 @@ $chash :: AllocationStrategy -&gt; Int
 hashWithSalt :: Int -&gt; AllocationStrategy -&gt; Int
 $chashWithSalt :: Int -&gt; AllocationStrategy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681052037"><span class="annot"><span class="annottext">AllocationStrategy -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681085232"><span class="annot"><span class="annottext">AllocationStrategy -&gt; ()
 (AllocationStrategy -&gt; ()) -&gt; NFData AllocationStrategy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AllocationStrategy -&gt; ()
 $crnf :: AllocationStrategy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681052034"><span class="annot"><span class="annottext">Text -&gt; Either String AllocationStrategy
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681085229"><span class="annot"><span class="annottext">Text -&gt; Either String AllocationStrategy
 (Text -&gt; Either String AllocationStrategy)
 -&gt; FromText AllocationStrategy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AllocationStrategy
 $cfromText :: Text -&gt; Either String AllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681052031"><span class="annot"><span class="annottext">AllocationStrategy -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681085226"><span class="annot"><span class="annottext">AllocationStrategy -&gt; Text
 (AllocationStrategy -&gt; Text) -&gt; ToText AllocationStrategy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AllocationStrategy -&gt; Text
 $ctoText :: AllocationStrategy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681052028"><span class="annot"><span class="annottext">AllocationStrategy -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681085223"><span class="annot"><span class="annottext">AllocationStrategy -&gt; ByteString
 (AllocationStrategy -&gt; ByteString)
 -&gt; ToByteString AllocationStrategy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AllocationStrategy -&gt; ByteString
 $ctoBS :: AllocationStrategy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681052025"><span class="annot"><span class="annottext">AllocationStrategy -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681085220"><span class="annot"><span class="annottext">AllocationStrategy -&gt; ByteStringBuilder
 (AllocationStrategy -&gt; ByteStringBuilder)
 -&gt; ToLog AllocationStrategy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AllocationStrategy -&gt; ByteStringBuilder
 $cbuild :: AllocationStrategy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681052022"><span class="annot"><span class="annottext">HeaderName -&gt; AllocationStrategy -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681085217"><span class="annot"><span class="annottext">HeaderName -&gt; AllocationStrategy -&gt; [Header]
 (HeaderName -&gt; AllocationStrategy -&gt; [Header])
 -&gt; ToHeader AllocationStrategy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AllocationStrategy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AllocationStrategy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681052019"><span class="annot"><span class="annottext">AllocationStrategy -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681085214"><span class="annot"><span class="annottext">AllocationStrategy -&gt; QueryString
 (AllocationStrategy -&gt; QueryString) -&gt; ToQuery AllocationStrategy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AllocationStrategy -&gt; QueryString
 $ctoQuery :: AllocationStrategy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681052014"><span id="local-6989586621681052016"><span class="annot"><span class="annottext">Value -&gt; Parser [AllocationStrategy]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681085209"><span id="local-6989586621681085211"><span class="annot"><span class="annottext">Value -&gt; Parser [AllocationStrategy]
 Value -&gt; Parser AllocationStrategy
 (Value -&gt; Parser AllocationStrategy)
 -&gt; (Value -&gt; Parser [AllocationStrategy])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [AllocationStrategy]
 parseJSON :: Value -&gt; Parser AllocationStrategy
 $cparseJSON :: Value -&gt; Parser AllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681052009"><span id="local-6989586621681052011"><span class="annot"><span class="annottext">FromJSONKeyFunction [AllocationStrategy]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681085204"><span id="local-6989586621681085206"><span class="annot"><span class="annottext">FromJSONKeyFunction [AllocationStrategy]
 FromJSONKeyFunction AllocationStrategy
 FromJSONKeyFunction AllocationStrategy
 -&gt; FromJSONKeyFunction [AllocationStrategy]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AllocationStrategy]
 fromJSONKey :: FromJSONKeyFunction AllocationStrategy
 $cfromJSONKey :: FromJSONKeyFunction AllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681052000"><span id="local-6989586621681052002"><span id="local-6989586621681052004"><span id="local-6989586621681052006"><span class="annot"><span class="annottext">[AllocationStrategy] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681085195"><span id="local-6989586621681085197"><span id="local-6989586621681085199"><span id="local-6989586621681085201"><span class="annot"><span class="annottext">[AllocationStrategy] -&gt; Encoding
 [AllocationStrategy] -&gt; Value
 AllocationStrategy -&gt; Encoding
 AllocationStrategy -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: AllocationStrategy -&gt; Encoding
 toJSON :: AllocationStrategy -&gt; Value
 $ctoJSON :: AllocationStrategy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681051995"><span id="local-6989586621681051997"><span class="annot"><span class="annottext">ToJSONKeyFunction [AllocationStrategy]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681085190"><span id="local-6989586621681085192"><span class="annot"><span class="annottext">ToJSONKeyFunction [AllocationStrategy]
 ToJSONKeyFunction AllocationStrategy
 ToJSONKeyFunction AllocationStrategy
 -&gt; ToJSONKeyFunction [AllocationStrategy]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AllocationStrategy]
 toJSONKey :: ToJSONKeyFunction AllocationStrategy
 $ctoJSONKey :: ToJSONKeyFunction AllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681051992"><span class="annot"><span class="annottext">[Node] -&gt; Either String AllocationStrategy
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681085187"><span class="annot"><span class="annottext">[Node] -&gt; Either String AllocationStrategy
 ([Node] -&gt; Either String AllocationStrategy)
 -&gt; FromXML AllocationStrategy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AllocationStrategy
 $cparseXML :: [Node] -&gt; Either String AllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681051989"><span class="annot"><span class="annottext">AllocationStrategy -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681085184"><span class="annot"><span class="annottext">AllocationStrategy -&gt; XML
 (AllocationStrategy -&gt; XML) -&gt; ToXML AllocationStrategy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AllocationStrategy -&gt; XML

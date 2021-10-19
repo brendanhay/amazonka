@@ -56,16 +56,16 @@
 </span><span id="line-56"></span><span class="hs-comment">-- | A request to delete an event destination from a configuration set.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newDeleteConfigurationSetEventDestination' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679347389"><span id="local-6989586621679347390"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteConfigurationSetEventDestination"><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination"><span class="hs-identifier hs-var">DeleteConfigurationSetEventDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteConfigurationSetEventDestination%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-var">DeleteConfigurationSetEventDestination'</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the configuration set that contains the event destination</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- that you want to delete.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679349967"><span id="local-6989586621679349968"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteConfigurationSetEventDestination"><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination"><span class="hs-identifier hs-var">DeleteConfigurationSetEventDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteConfigurationSetEventDestination%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-var">DeleteConfigurationSetEventDestination'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the configuration set that contains the event destination to</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- delete.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AconfigurationSetName%3ADeleteConfigurationSetEventDestination%27"><span class="annot"><span class="annottext">DeleteConfigurationSetEventDestination -&gt; Text
 </span><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#%24sel%3AconfigurationSetName%3ADeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-var hs-var">configurationSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The name of the event destination that you want to delete.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The name of the event destination to delete.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AeventDestinationName%3ADeleteConfigurationSetEventDestination%27"><span class="annot"><span class="annottext">DeleteConfigurationSetEventDestination -&gt; Text
 </span><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#%24sel%3AeventDestinationName%3ADeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-var hs-var">eventDestinationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347382"><span id="local-6989586621679347384"><span class="annot"><span class="annottext">DeleteConfigurationSetEventDestination
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349960"><span id="local-6989586621679349962"><span class="annot"><span class="annottext">DeleteConfigurationSetEventDestination
 -&gt; DeleteConfigurationSetEventDestination -&gt; Bool
 (DeleteConfigurationSetEventDestination
  -&gt; DeleteConfigurationSetEventDestination -&gt; Bool)
@@ -81,7 +81,7 @@ $c/= :: DeleteConfigurationSetEventDestination
 -&gt; DeleteConfigurationSetEventDestination -&gt; Bool
 $c== :: DeleteConfigurationSetEventDestination
 -&gt; DeleteConfigurationSetEventDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347373"><span id="local-6989586621679347375"><span id="local-6989586621679347377"><span id="local-6989586621679347379"><span class="annot"><span class="annottext">ReadPrec [DeleteConfigurationSetEventDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349951"><span id="local-6989586621679349953"><span id="local-6989586621679349955"><span id="local-6989586621679349957"><span class="annot"><span class="annottext">ReadPrec [DeleteConfigurationSetEventDestination]
 ReadPrec DeleteConfigurationSetEventDestination
 Int -&gt; ReadS DeleteConfigurationSetEventDestination
 ReadS [DeleteConfigurationSetEventDestination]
@@ -101,7 +101,7 @@ readList :: ReadS [DeleteConfigurationSetEventDestination]
 $creadList :: ReadS [DeleteConfigurationSetEventDestination]
 readsPrec :: Int -&gt; ReadS DeleteConfigurationSetEventDestination
 $creadsPrec :: Int -&gt; ReadS DeleteConfigurationSetEventDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347366"><span id="local-6989586621679347368"><span id="local-6989586621679347370"><span class="annot"><span class="annottext">Int -&gt; DeleteConfigurationSetEventDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349944"><span id="local-6989586621679349946"><span id="local-6989586621679349948"><span class="annot"><span class="annottext">Int -&gt; DeleteConfigurationSetEventDestination -&gt; ShowS
 [DeleteConfigurationSetEventDestination] -&gt; ShowS
 DeleteConfigurationSetEventDestination -&gt; String
 (Int -&gt; DeleteConfigurationSetEventDestination -&gt; ShowS)
@@ -147,10 +147,10 @@ DeleteConfigurationSetEventDestination
 </span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'configurationSetName', 'deleteConfigurationSetEventDestination_configurationSetName' - The name of the configuration set that contains the event destination</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- that you want to delete.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'configurationSetName', 'deleteConfigurationSetEventDestination_configurationSetName' - The name of the configuration set that contains the event destination to</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- delete.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'eventDestinationName', 'deleteConfigurationSetEventDestination_eventDestinationName' - The name of the event destination that you want to delete.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'eventDestinationName', 'deleteConfigurationSetEventDestination_eventDestinationName' - The name of the event destination to delete.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#newDeleteConfigurationSetEventDestination"><span class="hs-identifier hs-type">newDeleteConfigurationSetEventDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'configurationSetName'</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
@@ -159,24 +159,24 @@ DeleteConfigurationSetEventDestination
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination</span></a></span><span>
 </span><span id="line-86"></span><span id="newDeleteConfigurationSetEventDestination"><span class="annot"><span class="annottext">newDeleteConfigurationSetEventDestination :: Text -&gt; Text -&gt; DeleteConfigurationSetEventDestination
 </span><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#newDeleteConfigurationSetEventDestination"><span class="hs-identifier hs-var hs-var">newDeleteConfigurationSetEventDestination</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679347361"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347361"><span class="hs-identifier hs-var">pConfigurationSetName_</span></a></span></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679347360"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347360"><span class="hs-identifier hs-var">pEventDestinationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679349939"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349939"><span class="hs-identifier hs-var">pConfigurationSetName_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679349938"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349938"><span class="hs-identifier hs-var">pEventDestinationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">DeleteConfigurationSetEventDestination' :: Text -&gt; Text -&gt; DeleteConfigurationSetEventDestination
 </span><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination'</span></a></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:configurationSetName:DeleteConfigurationSetEventDestination' :: Text
 </span><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#%24sel%3AconfigurationSetName%3ADeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347361"><span class="hs-identifier hs-var">pConfigurationSetName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679349939"><span class="hs-identifier hs-var">pConfigurationSetName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:eventDestinationName:DeleteConfigurationSetEventDestination' :: Text
 </span><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#%24sel%3AeventDestinationName%3ADeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-var">eventDestinationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347360"><span class="hs-identifier hs-var">pEventDestinationName_</span></a></span><span>
+</span><a href="#local-6989586621679349938"><span class="hs-identifier hs-var">pEventDestinationName_</span></a></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The name of the configuration set that contains the event destination</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- that you want to delete.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The name of the configuration set that contains the event destination to</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- delete.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#deleteConfigurationSetEventDestination_configurationSetName"><span class="hs-identifier hs-type">deleteConfigurationSetEventDestination_configurationSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-99"></span><span id="deleteConfigurationSetEventDestination_configurationSetName"><span class="annot"><span class="annottext">deleteConfigurationSetEventDestination_configurationSetName :: (Text -&gt; f Text)
 -&gt; DeleteConfigurationSetEventDestination
@@ -190,18 +190,18 @@ DeleteConfigurationSetEventDestination
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347357"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349935"><span class="annot"><span class="annottext">Text
 configurationSetName :: Text
 $sel:configurationSetName:DeleteConfigurationSetEventDestination' :: DeleteConfigurationSetEventDestination -&gt; Text
-</span><a href="#local-6989586621679347357"><span class="hs-identifier hs-var hs-var">configurationSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347357"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347356"><span class="annot"><span class="annottext">s :: DeleteConfigurationSetEventDestination
-</span><a href="#local-6989586621679347356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347355"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConfigurationSetEventDestination
-</span><a href="#local-6989586621679347356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationSetName:DeleteConfigurationSetEventDestination' :: Text
+</span><a href="#local-6989586621679349935"><span class="hs-identifier hs-var hs-var">configurationSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349935"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349934"><span class="annot"><span class="annottext">s :: DeleteConfigurationSetEventDestination
+</span><a href="#local-6989586621679349934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349933"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConfigurationSetEventDestination
+</span><a href="#local-6989586621679349934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationSetName:DeleteConfigurationSetEventDestination' :: Text
 </span><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#%24sel%3AconfigurationSetName%3ADeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The name of the event destination that you want to delete.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The name of the event destination to delete.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#deleteConfigurationSetEventDestination_eventDestinationName"><span class="hs-identifier hs-type">deleteConfigurationSetEventDestination_eventDestinationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-103"></span><span id="deleteConfigurationSetEventDestination_eventDestinationName"><span class="annot"><span class="annottext">deleteConfigurationSetEventDestination_eventDestinationName :: (Text -&gt; f Text)
 -&gt; DeleteConfigurationSetEventDestination
@@ -215,16 +215,16 @@ $sel:configurationSetName:DeleteConfigurationSetEventDestination' :: DeleteConfi
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347354"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349932"><span class="annot"><span class="annottext">Text
 eventDestinationName :: Text
 $sel:eventDestinationName:DeleteConfigurationSetEventDestination' :: DeleteConfigurationSetEventDestination -&gt; Text
-</span><a href="#local-6989586621679347354"><span class="hs-identifier hs-var hs-var">eventDestinationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347354"><span class="hs-identifier hs-var">eventDestinationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347353"><span class="annot"><span class="annottext">s :: DeleteConfigurationSetEventDestination
-</span><a href="#local-6989586621679347353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347352"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConfigurationSetEventDestination
-</span><a href="#local-6989586621679347353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventDestinationName:DeleteConfigurationSetEventDestination' :: Text
+</span><a href="#local-6989586621679349932"><span class="hs-identifier hs-var hs-var">eventDestinationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349932"><span class="hs-identifier hs-var">eventDestinationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349931"><span class="annot"><span class="annottext">s :: DeleteConfigurationSetEventDestination
+</span><a href="#local-6989586621679349931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349930"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConfigurationSetEventDestination
+</span><a href="#local-6989586621679349931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventDestinationName:DeleteConfigurationSetEventDestination' :: Text
 </span><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#%24sel%3AeventDestinationName%3ADeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-var">eventDestinationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -234,7 +234,7 @@ $sel:eventDestinationName:DeleteConfigurationSetEventDestination' :: DeleteConfi
 </span><span id="line-110"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestinationResponse"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestinationResponse</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679347348"><span class="annot"><span class="annottext">request :: DeleteConfigurationSetEventDestination
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679349926"><span class="annot"><span class="annottext">request :: DeleteConfigurationSetEventDestination
 -&gt; Request DeleteConfigurationSetEventDestination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeleteConfigurationSetEventDestination
@@ -242,7 +242,7 @@ $sel:eventDestinationName:DeleteConfigurationSetEventDestination' :: DeleteConfi
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679347344"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679349922"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteConfigurationSetEventDestination
 -&gt; ClientResponse ClientBody
@@ -273,10 +273,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347341"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347341"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679347340"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679347340"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679347339"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679347339"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349919"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349919"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679349918"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679349918"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679349917"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679349917"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteConfigurationSetEventDestinationResponse
 </span><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-var">DeleteConfigurationSetEventDestinationResponse'</span></a></span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteConfigurationSetEventDestinationResponse)
@@ -288,22 +288,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347341"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349919"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679347332"><span id="local-6989586621679347334"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679349910"><span id="local-6989586621679349912"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679347329"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679349907"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination</span></a></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination</span></a></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679347325"><span class="annot"><span class="annottext">toHeaders :: DeleteConfigurationSetEventDestination -&gt; ResponseHeaders
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679349903"><span class="annot"><span class="annottext">toHeaders :: DeleteConfigurationSetEventDestination -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DeleteConfigurationSetEventDestination -&gt; ResponseHeaders
@@ -327,13 +327,13 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination</span></a></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679347319"><span class="annot"><span class="annottext">toPath :: DeleteConfigurationSetEventDestination -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347316"><span id="local-6989586621679347317"><span class="annot"><span class="annottext">Text
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679349897"><span class="annot"><span class="annottext">toPath :: DeleteConfigurationSetEventDestination -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349894"><span id="local-6989586621679349895"><span class="annot"><span class="annottext">Text
 eventDestinationName :: Text
 configurationSetName :: Text
 $sel:eventDestinationName:DeleteConfigurationSetEventDestination' :: DeleteConfigurationSetEventDestination -&gt; Text
 $sel:configurationSetName:DeleteConfigurationSetEventDestination' :: DeleteConfigurationSetEventDestination -&gt; Text
-</span><a href="#local-6989586621679347316"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679349894"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -342,20 +342,20 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347317"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679349895"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/event-destinations/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347316"><span class="hs-identifier hs-var">eventDestinationName</span></a></span><span>
+</span><a href="#local-6989586621679349894"><span class="hs-identifier hs-var">eventDestinationName</span></a></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestination"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestination</span></a></span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679347312"><span class="annot"><span class="annottext">toQuery :: DeleteConfigurationSetEventDestination -&gt; QueryString
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679349890"><span class="annot"><span class="annottext">toQuery :: DeleteConfigurationSetEventDestination -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString
 -&gt; DeleteConfigurationSetEventDestination -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -367,12 +367,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-162"></span><span class="hs-comment">-- request fails.</span><span>
 </span><span id="line-163"></span><span class="hs-comment">--</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- /See:/ 'newDeleteConfigurationSetEventDestinationResponse' smart constructor.</span><span>
-</span><span id="line-165"></span><span id="local-6989586621679347309"><span id="local-6989586621679347310"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteConfigurationSetEventDestinationResponse"><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestinationResponse"><span class="hs-identifier hs-var">DeleteConfigurationSetEventDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteConfigurationSetEventDestinationResponse%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-var">DeleteConfigurationSetEventDestinationResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span id="local-6989586621679349887"><span id="local-6989586621679349888"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteConfigurationSetEventDestinationResponse"><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestinationResponse"><span class="hs-identifier hs-var">DeleteConfigurationSetEventDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteConfigurationSetEventDestinationResponse%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-var">DeleteConfigurationSetEventDestinationResponse'</span></a></span></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-167"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteConfigurationSetEventDestinationResponse%27"><span class="annot"><span class="annottext">DeleteConfigurationSetEventDestinationResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#%24sel%3AhttpStatus%3ADeleteConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347304"><span id="local-6989586621679347306"><span class="annot"><span class="annottext">DeleteConfigurationSetEventDestinationResponse
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349882"><span id="local-6989586621679349884"><span class="annot"><span class="annottext">DeleteConfigurationSetEventDestinationResponse
 -&gt; DeleteConfigurationSetEventDestinationResponse -&gt; Bool
 (DeleteConfigurationSetEventDestinationResponse
  -&gt; DeleteConfigurationSetEventDestinationResponse -&gt; Bool)
@@ -388,7 +388,7 @@ $c/= :: DeleteConfigurationSetEventDestinationResponse
 -&gt; DeleteConfigurationSetEventDestinationResponse -&gt; Bool
 $c== :: DeleteConfigurationSetEventDestinationResponse
 -&gt; DeleteConfigurationSetEventDestinationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347296"><span id="local-6989586621679347298"><span id="local-6989586621679347300"><span id="local-6989586621679347302"><span class="annot"><span class="annottext">ReadPrec [DeleteConfigurationSetEventDestinationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349874"><span id="local-6989586621679349876"><span id="local-6989586621679349878"><span id="local-6989586621679349880"><span class="annot"><span class="annottext">ReadPrec [DeleteConfigurationSetEventDestinationResponse]
 ReadPrec DeleteConfigurationSetEventDestinationResponse
 Int -&gt; ReadS DeleteConfigurationSetEventDestinationResponse
 ReadS [DeleteConfigurationSetEventDestinationResponse]
@@ -408,7 +408,7 @@ readList :: ReadS [DeleteConfigurationSetEventDestinationResponse]
 $creadList :: ReadS [DeleteConfigurationSetEventDestinationResponse]
 readsPrec :: Int -&gt; ReadS DeleteConfigurationSetEventDestinationResponse
 $creadsPrec :: Int -&gt; ReadS DeleteConfigurationSetEventDestinationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347290"><span id="local-6989586621679347292"><span id="local-6989586621679347294"><span class="annot"><span class="annottext">Int -&gt; DeleteConfigurationSetEventDestinationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349868"><span id="local-6989586621679349870"><span id="local-6989586621679349872"><span class="annot"><span class="annottext">Int -&gt; DeleteConfigurationSetEventDestinationResponse -&gt; ShowS
 [DeleteConfigurationSetEventDestinationResponse] -&gt; ShowS
 DeleteConfigurationSetEventDestinationResponse -&gt; String
 (Int -&gt; DeleteConfigurationSetEventDestinationResponse -&gt; ShowS)
@@ -461,14 +461,14 @@ DeleteConfigurationSetEventDestinationResponse
 </span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestinationResponse"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestinationResponse</span></a></span><span>
 </span><span id="line-184"></span><span id="newDeleteConfigurationSetEventDestinationResponse"><span class="annot"><span class="annottext">newDeleteConfigurationSetEventDestinationResponse :: Int -&gt; DeleteConfigurationSetEventDestinationResponse
 </span><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#newDeleteConfigurationSetEventDestinationResponse"><span class="hs-identifier hs-var hs-var">newDeleteConfigurationSetEventDestinationResponse</span></a></span></span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679347287"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347287"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679349865"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349865"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">DeleteConfigurationSetEventDestinationResponse' :: Int -&gt; DeleteConfigurationSetEventDestinationResponse
 </span><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestinationResponse'</span></a></span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteConfigurationSetEventDestinationResponse' :: Int
 </span><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#%24sel%3AhttpStatus%3ADeleteConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347287"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679349865"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -485,18 +485,18 @@ DeleteConfigurationSetEventDestinationResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347286"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349864"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteConfigurationSetEventDestinationResponse' :: DeleteConfigurationSetEventDestinationResponse -&gt; Int
-</span><a href="#local-6989586621679347286"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347286"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347285"><span class="annot"><span class="annottext">s :: DeleteConfigurationSetEventDestinationResponse
-</span><a href="#local-6989586621679347285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347284"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConfigurationSetEventDestinationResponse
-</span><a href="#local-6989586621679347285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteConfigurationSetEventDestinationResponse' :: Int
+</span><a href="#local-6989586621679349864"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349864"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349863"><span class="annot"><span class="annottext">s :: DeleteConfigurationSetEventDestinationResponse
+</span><a href="#local-6989586621679349863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349862"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConfigurationSetEventDestinationResponse
+</span><a href="#local-6989586621679349863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteConfigurationSetEventDestinationResponse' :: Int
 </span><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#%24sel%3AhttpStatus%3ADeleteConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestinationResponse"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestinationResponse"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestinationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679347282"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679349860"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.DeleteConfigurationSetEventDestination.html#DeleteConfigurationSetEventDestinationResponse"><span class="hs-identifier hs-type">DeleteConfigurationSetEventDestinationResponse</span></a></span></span><span>
 </span><span id="line-198"></span></pre></body></html>

@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">-- input AFD values and instead encode the value specified in the job. *</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- Choose Auto to calculate output AFD values based on the input AFD scaler</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- data.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679933911"><span id="local-6989586621679933912"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AfdSignaling"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AfdSignaling.html#AfdSignaling"><span class="hs-identifier hs-var">AfdSignaling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AfdSignaling%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AfdSignaling.html#AfdSignaling%27"><span class="hs-identifier hs-var">AfdSignaling'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679938532"><span id="local-6989586621679938533"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AfdSignaling"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AfdSignaling.html#AfdSignaling"><span class="hs-identifier hs-var">AfdSignaling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AfdSignaling%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AfdSignaling.html#AfdSignaling%27"><span class="hs-identifier hs-var">AfdSignaling'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAfdSignaling"><span class="annot"><span class="annottext">AfdSignaling -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.AfdSignaling.html#fromAfdSignaling"><span class="hs-identifier hs-var hs-var">fromAfdSignaling</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679933903"><span id="local-6989586621679933905"><span id="local-6989586621679933907"><span class="annot"><span class="annottext">Int -&gt; AfdSignaling -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679938524"><span id="local-6989586621679938526"><span id="local-6989586621679938528"><span class="annot"><span class="annottext">Int -&gt; AfdSignaling -&gt; ShowS
 [AfdSignaling] -&gt; ShowS
 AfdSignaling -&gt; String
 (Int -&gt; AfdSignaling -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: AfdSignaling -&gt; String
 showsPrec :: Int -&gt; AfdSignaling -&gt; ShowS
 $cshowsPrec :: Int -&gt; AfdSignaling -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679933894"><span id="local-6989586621679933896"><span id="local-6989586621679933898"><span id="local-6989586621679933900"><span class="annot"><span class="annottext">ReadPrec [AfdSignaling]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679938515"><span id="local-6989586621679938517"><span id="local-6989586621679938519"><span id="local-6989586621679938521"><span class="annot"><span class="annottext">ReadPrec [AfdSignaling]
 ReadPrec AfdSignaling
 Int -&gt; ReadS AfdSignaling
 ReadS [AfdSignaling]
@@ -80,7 +80,7 @@ $creadList :: ReadS [AfdSignaling]
 readsPrec :: Int -&gt; ReadS AfdSignaling
 $creadsPrec :: Int -&gt; ReadS AfdSignaling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679933889"><span id="local-6989586621679933891"><span class="annot"><span class="annottext">AfdSignaling -&gt; AfdSignaling -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679938510"><span id="local-6989586621679938512"><span class="annot"><span class="annottext">AfdSignaling -&gt; AfdSignaling -&gt; Bool
 (AfdSignaling -&gt; AfdSignaling -&gt; Bool)
 -&gt; (AfdSignaling -&gt; AfdSignaling -&gt; Bool) -&gt; Eq AfdSignaling
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ $c/= :: AfdSignaling -&gt; AfdSignaling -&gt; Bool
 == :: AfdSignaling -&gt; AfdSignaling -&gt; Bool
 $c== :: AfdSignaling -&gt; AfdSignaling -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679933873"><span id="local-6989586621679933875"><span id="local-6989586621679933877"><span id="local-6989586621679933879"><span id="local-6989586621679933881"><span id="local-6989586621679933883"><span id="local-6989586621679933885"><span class="annot"><span class="annottext">Eq AfdSignaling
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679938494"><span id="local-6989586621679938496"><span id="local-6989586621679938498"><span id="local-6989586621679938500"><span id="local-6989586621679938502"><span id="local-6989586621679938504"><span id="local-6989586621679938506"><span class="annot"><span class="annottext">Eq AfdSignaling
 Eq AfdSignaling
 -&gt; (AfdSignaling -&gt; AfdSignaling -&gt; Ordering)
 -&gt; (AfdSignaling -&gt; AfdSignaling -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. AfdSignaling -&gt; Rep AfdSignaling x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679933865"><span id="local-6989586621679933867"><span class="annot"><span class="annottext">Int -&gt; AfdSignaling -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679938486"><span id="local-6989586621679938488"><span class="annot"><span class="annottext">Int -&gt; AfdSignaling -&gt; Int
 AfdSignaling -&gt; Int
 (Int -&gt; AfdSignaling -&gt; Int)
 -&gt; (AfdSignaling -&gt; Int) -&gt; Hashable AfdSignaling
@@ -150,49 +150,49 @@ $chash :: AfdSignaling -&gt; Int
 hashWithSalt :: Int -&gt; AfdSignaling -&gt; Int
 $chashWithSalt :: Int -&gt; AfdSignaling -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679933862"><span class="annot"><span class="annottext">AfdSignaling -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679938483"><span class="annot"><span class="annottext">AfdSignaling -&gt; ()
 (AfdSignaling -&gt; ()) -&gt; NFData AfdSignaling
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AfdSignaling -&gt; ()
 $crnf :: AfdSignaling -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679933859"><span class="annot"><span class="annottext">Text -&gt; Either String AfdSignaling
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679938480"><span class="annot"><span class="annottext">Text -&gt; Either String AfdSignaling
 (Text -&gt; Either String AfdSignaling) -&gt; FromText AfdSignaling
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AfdSignaling
 $cfromText :: Text -&gt; Either String AfdSignaling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679933856"><span class="annot"><span class="annottext">AfdSignaling -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679938477"><span class="annot"><span class="annottext">AfdSignaling -&gt; Text
 (AfdSignaling -&gt; Text) -&gt; ToText AfdSignaling
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AfdSignaling -&gt; Text
 $ctoText :: AfdSignaling -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679933853"><span class="annot"><span class="annottext">AfdSignaling -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679938474"><span class="annot"><span class="annottext">AfdSignaling -&gt; ByteString
 (AfdSignaling -&gt; ByteString) -&gt; ToByteString AfdSignaling
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AfdSignaling -&gt; ByteString
 $ctoBS :: AfdSignaling -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679933850"><span class="annot"><span class="annottext">AfdSignaling -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679938471"><span class="annot"><span class="annottext">AfdSignaling -&gt; ByteStringBuilder
 (AfdSignaling -&gt; ByteStringBuilder) -&gt; ToLog AfdSignaling
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AfdSignaling -&gt; ByteStringBuilder
 $cbuild :: AfdSignaling -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679933847"><span class="annot"><span class="annottext">HeaderName -&gt; AfdSignaling -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679938468"><span class="annot"><span class="annottext">HeaderName -&gt; AfdSignaling -&gt; [Header]
 (HeaderName -&gt; AfdSignaling -&gt; [Header]) -&gt; ToHeader AfdSignaling
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AfdSignaling -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AfdSignaling -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679933844"><span class="annot"><span class="annottext">AfdSignaling -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679938465"><span class="annot"><span class="annottext">AfdSignaling -&gt; QueryString
 (AfdSignaling -&gt; QueryString) -&gt; ToQuery AfdSignaling
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AfdSignaling -&gt; QueryString
 $ctoQuery :: AfdSignaling -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679933839"><span id="local-6989586621679933841"><span class="annot"><span class="annottext">Value -&gt; Parser [AfdSignaling]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679938460"><span id="local-6989586621679938462"><span class="annot"><span class="annottext">Value -&gt; Parser [AfdSignaling]
 Value -&gt; Parser AfdSignaling
 (Value -&gt; Parser AfdSignaling)
 -&gt; (Value -&gt; Parser [AfdSignaling]) -&gt; FromJSON AfdSignaling
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [AfdSignaling]
 parseJSON :: Value -&gt; Parser AfdSignaling
 $cparseJSON :: Value -&gt; Parser AfdSignaling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679933834"><span id="local-6989586621679933836"><span class="annot"><span class="annottext">FromJSONKeyFunction [AfdSignaling]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679938455"><span id="local-6989586621679938457"><span class="annot"><span class="annottext">FromJSONKeyFunction [AfdSignaling]
 FromJSONKeyFunction AfdSignaling
 FromJSONKeyFunction AfdSignaling
 -&gt; FromJSONKeyFunction [AfdSignaling] -&gt; FromJSONKey AfdSignaling
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AfdSignaling]
 fromJSONKey :: FromJSONKeyFunction AfdSignaling
 $cfromJSONKey :: FromJSONKeyFunction AfdSignaling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679933825"><span id="local-6989586621679933827"><span id="local-6989586621679933829"><span id="local-6989586621679933831"><span class="annot"><span class="annottext">[AfdSignaling] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679938446"><span id="local-6989586621679938448"><span id="local-6989586621679938450"><span id="local-6989586621679938452"><span class="annot"><span class="annottext">[AfdSignaling] -&gt; Encoding
 [AfdSignaling] -&gt; Value
 AfdSignaling -&gt; Encoding
 AfdSignaling -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: AfdSignaling -&gt; Encoding
 toJSON :: AfdSignaling -&gt; Value
 $ctoJSON :: AfdSignaling -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679933820"><span id="local-6989586621679933822"><span class="annot"><span class="annottext">ToJSONKeyFunction [AfdSignaling]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679938441"><span id="local-6989586621679938443"><span class="annot"><span class="annottext">ToJSONKeyFunction [AfdSignaling]
 ToJSONKeyFunction AfdSignaling
 ToJSONKeyFunction AfdSignaling
 -&gt; ToJSONKeyFunction [AfdSignaling] -&gt; ToJSONKey AfdSignaling
@@ -249,13 +249,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AfdSignaling]
 toJSONKey :: ToJSONKeyFunction AfdSignaling
 $ctoJSONKey :: ToJSONKeyFunction AfdSignaling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679933817"><span class="annot"><span class="annottext">[Node] -&gt; Either String AfdSignaling
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679938438"><span class="annot"><span class="annottext">[Node] -&gt; Either String AfdSignaling
 ([Node] -&gt; Either String AfdSignaling) -&gt; FromXML AfdSignaling
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AfdSignaling
 $cparseXML :: [Node] -&gt; Either String AfdSignaling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679933814"><span class="annot"><span class="annottext">AfdSignaling -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679938435"><span class="annot"><span class="annottext">AfdSignaling -&gt; XML
 (AfdSignaling -&gt; XML) -&gt; ToXML AfdSignaling
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AfdSignaling -&gt; XML

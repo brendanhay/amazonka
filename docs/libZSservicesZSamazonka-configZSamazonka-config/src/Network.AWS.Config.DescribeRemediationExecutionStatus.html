@@ -34,8 +34,8 @@
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#describeRemediationExecutionStatus_nextToken"><span class="hs-identifier">describeRemediationExecutionStatus_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#describeRemediationExecutionStatus_resourceKeys"><span class="hs-identifier">describeRemediationExecutionStatus_resourceKeys</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#describeRemediationExecutionStatus_limit"><span class="hs-identifier">describeRemediationExecutionStatus_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#describeRemediationExecutionStatus_limit"><span class="hs-identifier">describeRemediationExecutionStatus_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#describeRemediationExecutionStatus_resourceKeys"><span class="hs-identifier">describeRemediationExecutionStatus_resourceKeys</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#describeRemediationExecutionStatus_configRuleName"><span class="hs-identifier">describeRemediationExecutionStatus_configRuleName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -57,24 +57,24 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newDescribeRemediationExecutionStatus' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679422416"><span id="local-6989586621679422417"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRemediationExecutionStatus"><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-var">DescribeRemediationExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRemediationExecutionStatus%27"><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-var">DescribeRemediationExecutionStatus'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679423065"><span id="local-6989586621679423066"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRemediationExecutionStatus"><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-var">DescribeRemediationExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRemediationExecutionStatus%27"><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-var">DescribeRemediationExecutionStatus'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeRemediationExecutionStatus%27"><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus -&gt; Maybe Text
 </span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3AnextToken%3ADescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A list of resource keys to be processed with the current request. Each</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- element in the list consists of the resource type and resource ID.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AresourceKeys%3ADescribeRemediationExecutionStatus%27"><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus -&gt; Maybe (NonEmpty ResourceKey)
-</span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3AresourceKeys%3ADescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-var hs-var">resourceKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceKey.html#ResourceKey"><span class="hs-identifier hs-type">ResourceKey</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The maximum number of RemediationExecutionStatuses returned on each</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- page. The default is maximum. If you specify 0, Config uses the default.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeRemediationExecutionStatus%27"><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus -&gt; Maybe Natural
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The maximum number of RemediationExecutionStatuses returned on each</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- page. The default is maximum. If you specify 0, Config uses the default.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeRemediationExecutionStatus%27"><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus -&gt; Maybe Natural
 </span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3Alimit%3ADescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | A list of resource keys to be processed with the current request. Each</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- element in the list consists of the resource type and resource ID.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AresourceKeys%3ADescribeRemediationExecutionStatus%27"><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus -&gt; Maybe (NonEmpty ResourceKey)
+</span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3AresourceKeys%3ADescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-var hs-var">resourceKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceKey.html#ResourceKey"><span class="hs-identifier hs-type">ResourceKey</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | A list of Config rule names.</span><span>
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AconfigRuleName%3ADescribeRemediationExecutionStatus%27"><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus -&gt; Text
 </span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3AconfigRuleName%3ADescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-var hs-var">configRuleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679422407"><span id="local-6989586621679422409"><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423056"><span id="local-6989586621679423058"><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus
 -&gt; DescribeRemediationExecutionStatus -&gt; Bool
 (DescribeRemediationExecutionStatus
  -&gt; DescribeRemediationExecutionStatus -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: DescribeRemediationExecutionStatus
 -&gt; DescribeRemediationExecutionStatus -&gt; Bool
 $c== :: DescribeRemediationExecutionStatus
 -&gt; DescribeRemediationExecutionStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422398"><span id="local-6989586621679422400"><span id="local-6989586621679422402"><span id="local-6989586621679422404"><span class="annot"><span class="annottext">ReadPrec [DescribeRemediationExecutionStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423047"><span id="local-6989586621679423049"><span id="local-6989586621679423051"><span id="local-6989586621679423053"><span class="annot"><span class="annottext">ReadPrec [DescribeRemediationExecutionStatus]
 ReadPrec DescribeRemediationExecutionStatus
 Int -&gt; ReadS DescribeRemediationExecutionStatus
 ReadS [DescribeRemediationExecutionStatus]
@@ -110,7 +110,7 @@ readList :: ReadS [DescribeRemediationExecutionStatus]
 $creadList :: ReadS [DescribeRemediationExecutionStatus]
 readsPrec :: Int -&gt; ReadS DescribeRemediationExecutionStatus
 $creadsPrec :: Int -&gt; ReadS DescribeRemediationExecutionStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422391"><span id="local-6989586621679422393"><span id="local-6989586621679422395"><span class="annot"><span class="annottext">Int -&gt; DescribeRemediationExecutionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423040"><span id="local-6989586621679423042"><span id="local-6989586621679423044"><span class="annot"><span class="annottext">Int -&gt; DescribeRemediationExecutionStatus -&gt; ShowS
 [DescribeRemediationExecutionStatus] -&gt; ShowS
 DescribeRemediationExecutionStatus -&gt; String
 (Int -&gt; DescribeRemediationExecutionStatus -&gt; ShowS)
@@ -159,11 +159,11 @@ DescribeRemediationExecutionStatus
 </span><span id="line-83"></span><span class="hs-comment">-- 'nextToken', 'describeRemediationExecutionStatus_nextToken' - The @nextToken@ string returned on a previous page that you use to get</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'resourceKeys', 'describeRemediationExecutionStatus_resourceKeys' - A list of resource keys to be processed with the current request. Each</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- element in the list consists of the resource type and resource ID.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'limit', 'describeRemediationExecutionStatus_limit' - The maximum number of RemediationExecutionStatuses returned on each</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- page. The default is maximum. If you specify 0, Config uses the default.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'limit', 'describeRemediationExecutionStatus_limit' - The maximum number of RemediationExecutionStatuses returned on each</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- page. The default is maximum. If you specify 0, Config uses the default.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'resourceKeys', 'describeRemediationExecutionStatus_resourceKeys' - A list of resource keys to be processed with the current request. Each</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- element in the list consists of the resource type and resource ID.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- 'configRuleName', 'describeRemediationExecutionStatus_configRuleName' - A list of Config rule names.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#newDescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">newDescribeRemediationExecutionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -172,11 +172,11 @@ DescribeRemediationExecutionStatus
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span>
 </span><span id="line-97"></span><span id="newDescribeRemediationExecutionStatus"><span class="annot"><span class="annottext">newDescribeRemediationExecutionStatus :: Text -&gt; DescribeRemediationExecutionStatus
 </span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#newDescribeRemediationExecutionStatus"><span class="hs-identifier hs-var hs-var">newDescribeRemediationExecutionStatus</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679422386"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422386"><span class="hs-identifier hs-var">pConfigRuleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679423035"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423035"><span class="hs-identifier hs-var">pConfigRuleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus' :: Maybe Text
--&gt; Maybe (NonEmpty ResourceKey)
 -&gt; Maybe Natural
+-&gt; Maybe (NonEmpty ResourceKey)
 -&gt; Text
 -&gt; DescribeRemediationExecutionStatus
 </span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span>
@@ -185,17 +185,17 @@ DescribeRemediationExecutionStatus
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceKeys:DescribeRemediationExecutionStatus' :: Maybe (NonEmpty ResourceKey)
-</span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3AresourceKeys%3ADescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-var">resourceKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:limit:DescribeRemediationExecutionStatus' :: Maybe Natural
+</span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3Alimit%3ADescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:limit:DescribeRemediationExecutionStatus' :: Maybe Natural
-</span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3Alimit%3ADescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceKeys:DescribeRemediationExecutionStatus' :: Maybe (NonEmpty ResourceKey)
+</span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3AresourceKeys%3ADescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-var">resourceKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:configRuleName:DescribeRemediationExecutionStatus' :: Text
 </span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3AconfigRuleName%3ADescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-var">configRuleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422386"><span class="hs-identifier hs-var">pConfigRuleName_</span></a></span><span>
+</span><a href="#local-6989586621679423035"><span class="hs-identifier hs-var">pConfigRuleName_</span></a></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
@@ -213,21 +213,47 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422384"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423033"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeRemediationExecutionStatus' :: DescribeRemediationExecutionStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679422384"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422384"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422383"><span class="annot"><span class="annottext">s :: DescribeRemediationExecutionStatus
-</span><a href="#local-6989586621679422383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422382"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus
-</span><a href="#local-6989586621679422383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeRemediationExecutionStatus' :: Maybe Text
+</span><a href="#local-6989586621679423033"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423033"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423032"><span class="annot"><span class="annottext">s :: DescribeRemediationExecutionStatus
+</span><a href="#local-6989586621679423032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423031"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus
+</span><a href="#local-6989586621679423032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeRemediationExecutionStatus' :: Maybe Text
 </span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3AnextToken%3ADescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679423031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | A list of resource keys to be processed with the current request. Each</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- element in the list consists of the resource type and resource ID.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#describeRemediationExecutionStatus_resourceKeys"><span class="hs-identifier hs-type">describeRemediationExecutionStatus_resourceKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceKey.html#ResourceKey"><span class="hs-identifier hs-type">ResourceKey</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="describeRemediationExecutionStatus_resourceKeys"><span class="annot"><span class="annottext">describeRemediationExecutionStatus_resourceKeys :: (Maybe (NonEmpty ResourceKey) -&gt; f (Maybe (NonEmpty ResourceKey)))
+</span><span id="line-112"></span><span class="hs-comment">-- | The maximum number of RemediationExecutionStatuses returned on each</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- page. The default is maximum. If you specify 0, Config uses the default.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#describeRemediationExecutionStatus_limit"><span class="hs-identifier hs-type">describeRemediationExecutionStatus_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="describeRemediationExecutionStatus_limit"><span class="annot"><span class="annottext">describeRemediationExecutionStatus_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeRemediationExecutionStatus
+-&gt; f DescribeRemediationExecutionStatus
+</span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#describeRemediationExecutionStatus_limit"><span class="hs-identifier hs-var hs-var">describeRemediationExecutionStatus_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRemediationExecutionStatus -&gt; Maybe Natural)
+-&gt; (DescribeRemediationExecutionStatus
+    -&gt; Maybe Natural -&gt; DescribeRemediationExecutionStatus)
+-&gt; Lens
+     DescribeRemediationExecutionStatus
+     DescribeRemediationExecutionStatus
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423030"><span class="annot"><span class="annottext">Maybe Natural
+limit :: Maybe Natural
+$sel:limit:DescribeRemediationExecutionStatus' :: DescribeRemediationExecutionStatus -&gt; Maybe Natural
+</span><a href="#local-6989586621679423030"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679423030"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423029"><span class="annot"><span class="annottext">s :: DescribeRemediationExecutionStatus
+</span><a href="#local-6989586621679423029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423028"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679423028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus
+</span><a href="#local-6989586621679423029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeRemediationExecutionStatus' :: Maybe Natural
+</span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3Alimit%3ADescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679423028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | A list of resource keys to be processed with the current request. Each</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- element in the list consists of the resource type and resource ID.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#describeRemediationExecutionStatus_resourceKeys"><span class="hs-identifier hs-type">describeRemediationExecutionStatus_resourceKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceKey.html#ResourceKey"><span class="hs-identifier hs-type">ResourceKey</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="describeRemediationExecutionStatus_resourceKeys"><span class="annot"><span class="annottext">describeRemediationExecutionStatus_resourceKeys :: (Maybe (NonEmpty ResourceKey) -&gt; f (Maybe (NonEmpty ResourceKey)))
 -&gt; DescribeRemediationExecutionStatus
 -&gt; f DescribeRemediationExecutionStatus
 </span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#describeRemediationExecutionStatus_resourceKeys"><span class="hs-identifier hs-var hs-var">describeRemediationExecutionStatus_resourceKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRemediationExecutionStatus
@@ -241,16 +267,16 @@ $sel:nextToken:DescribeRemediationExecutionStatus' :: DescribeRemediationExecuti
      (Maybe (NonEmpty ResourceKey))
      (Maybe (NonEmpty ResourceKey))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422381"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423027"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
 resourceKeys :: Maybe (NonEmpty ResourceKey)
 $sel:resourceKeys:DescribeRemediationExecutionStatus' :: DescribeRemediationExecutionStatus -&gt; Maybe (NonEmpty ResourceKey)
-</span><a href="#local-6989586621679422381"><span class="hs-identifier hs-var hs-var">resourceKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
-</span><a href="#local-6989586621679422381"><span class="hs-identifier hs-var">resourceKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422380"><span class="annot"><span class="annottext">s :: DescribeRemediationExecutionStatus
-</span><a href="#local-6989586621679422380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422379"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
-</span><a href="#local-6989586621679422379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus
-</span><a href="#local-6989586621679422380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceKeys:DescribeRemediationExecutionStatus' :: Maybe (NonEmpty ResourceKey)
+</span><a href="#local-6989586621679423027"><span class="hs-identifier hs-var hs-var">resourceKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
+</span><a href="#local-6989586621679423027"><span class="hs-identifier hs-var">resourceKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423026"><span class="annot"><span class="annottext">s :: DescribeRemediationExecutionStatus
+</span><a href="#local-6989586621679423026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423025"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
+</span><a href="#local-6989586621679423025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus
+</span><a href="#local-6989586621679423026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceKeys:DescribeRemediationExecutionStatus' :: Maybe (NonEmpty ResourceKey)
 </span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3AresourceKeys%3ADescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-var">resourceKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
-</span><a href="#local-6989586621679422379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResourceKey) -&gt; f (Maybe (NonEmpty ResourceKey)))
+</span><a href="#local-6989586621679423025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResourceKey) -&gt; f (Maybe (NonEmpty ResourceKey)))
  -&gt; DescribeRemediationExecutionStatus
  -&gt; f DescribeRemediationExecutionStatus)
 -&gt; ((Maybe (NonEmpty ResourceKey)
@@ -280,34 +306,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty ResourceKey)
   (NonEmpty ResourceKey)
   (NonEmpty ResourceKey)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | The maximum number of RemediationExecutionStatuses returned on each</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- page. The default is maximum. If you specify 0, Config uses the default.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#describeRemediationExecutionStatus_limit"><span class="hs-identifier hs-type">describeRemediationExecutionStatus_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="describeRemediationExecutionStatus_limit"><span class="annot"><span class="annottext">describeRemediationExecutionStatus_limit :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; DescribeRemediationExecutionStatus
--&gt; f DescribeRemediationExecutionStatus
-</span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#describeRemediationExecutionStatus_limit"><span class="hs-identifier hs-var hs-var">describeRemediationExecutionStatus_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRemediationExecutionStatus -&gt; Maybe Natural)
--&gt; (DescribeRemediationExecutionStatus
-    -&gt; Maybe Natural -&gt; DescribeRemediationExecutionStatus)
--&gt; Lens
-     DescribeRemediationExecutionStatus
-     DescribeRemediationExecutionStatus
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422375"><span class="annot"><span class="annottext">Maybe Natural
-limit :: Maybe Natural
-$sel:limit:DescribeRemediationExecutionStatus' :: DescribeRemediationExecutionStatus -&gt; Maybe Natural
-</span><a href="#local-6989586621679422375"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679422375"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422374"><span class="annot"><span class="annottext">s :: DescribeRemediationExecutionStatus
-</span><a href="#local-6989586621679422374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422373"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679422373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus
-</span><a href="#local-6989586621679422374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeRemediationExecutionStatus' :: Maybe Natural
-</span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3Alimit%3ADescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679422373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | A list of Config rule names.</span><span>
 </span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#describeRemediationExecutionStatus_configRuleName"><span class="hs-identifier hs-type">describeRemediationExecutionStatus_configRuleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -323,33 +323,33 @@ $sel:limit:DescribeRemediationExecutionStatus' :: DescribeRemediationExecutionSt
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422372"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423021"><span class="annot"><span class="annottext">Text
 configRuleName :: Text
 $sel:configRuleName:DescribeRemediationExecutionStatus' :: DescribeRemediationExecutionStatus -&gt; Text
-</span><a href="#local-6989586621679422372"><span class="hs-identifier hs-var hs-var">configRuleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422372"><span class="hs-identifier hs-var">configRuleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422371"><span class="annot"><span class="annottext">s :: DescribeRemediationExecutionStatus
-</span><a href="#local-6989586621679422371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422370"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus
-</span><a href="#local-6989586621679422371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRuleName:DescribeRemediationExecutionStatus' :: Text
+</span><a href="#local-6989586621679423021"><span class="hs-identifier hs-var hs-var">configRuleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423021"><span class="hs-identifier hs-var">configRuleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423020"><span class="annot"><span class="annottext">s :: DescribeRemediationExecutionStatus
+</span><a href="#local-6989586621679423020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423019"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus
+</span><a href="#local-6989586621679423020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRuleName:DescribeRemediationExecutionStatus' :: Text
 </span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3AconfigRuleName%3ADescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-var">configRuleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679423019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679422366"><span class="annot"><span class="annottext">page :: DescribeRemediationExecutionStatus
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679423015"><span class="annot"><span class="annottext">page :: DescribeRemediationExecutionStatus
 -&gt; AWSResponse DescribeRemediationExecutionStatus
 -&gt; Maybe DescribeRemediationExecutionStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679422364"><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus
-</span><a href="#local-6989586621679422364"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679422363"><span class="annot"><span class="annottext">AWSResponse DescribeRemediationExecutionStatus
-</span><a href="#local-6989586621679422363"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679423013"><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus
+</span><a href="#local-6989586621679423013"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679423012"><span class="annot"><span class="annottext">AWSResponse DescribeRemediationExecutionStatus
+</span><a href="#local-6989586621679423012"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-132"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeRemediationExecutionStatus
 DescribeRemediationExecutionStatusResponse
-</span><a href="#local-6989586621679422363"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679423012"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatusResponse
 -&gt; Getting
      (First Text) DescribeRemediationExecutionStatusResponse Text
@@ -381,7 +381,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-138"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeRemediationExecutionStatus
 DescribeRemediationExecutionStatusResponse
-</span><a href="#local-6989586621679422363"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679423012"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatusResponse
 -&gt; Getting
      (First [RemediationExecutionStatus])
@@ -446,7 +446,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus
-</span><a href="#local-6989586621679422364"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679423013"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatus
 -&gt; (DescribeRemediationExecutionStatus
     -&gt; DescribeRemediationExecutionStatus)
@@ -470,7 +470,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeRemediationExecutionStatus
 DescribeRemediationExecutionStatusResponse
-</span><a href="#local-6989586621679422363"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679423012"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatusResponse
 -&gt; Getting
      (First Text) DescribeRemediationExecutionStatusResponse Text
@@ -501,7 +501,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-155"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-156"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse</span></a></span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679422354"><span class="annot"><span class="annottext">request :: DescribeRemediationExecutionStatus
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679423003"><span class="annot"><span class="annottext">request :: DescribeRemediationExecutionStatus
 -&gt; Request DescribeRemediationExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeRemediationExecutionStatus
@@ -509,7 +509,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679422350"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679422999"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeRemediationExecutionStatus
 -&gt; ClientResponse ClientBody
@@ -537,10 +537,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679422347"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679422347"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679422346"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679422346"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679422345"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679422345"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679422996"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679422996"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679422995"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679422995"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679422994"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679422994"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RemediationExecutionStatus]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeRemediationExecutionStatusResponse
 </span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-var">DescribeRemediationExecutionStatusResponse'</span></a></span><span>
@@ -552,7 +552,7 @@ MonadResource m =&gt;
      (Maybe Text -&gt; Int -&gt; DescribeRemediationExecutionStatusResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679422345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679422994"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [RemediationExecutionStatus]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -574,7 +574,7 @@ forall a. Monoid a =&gt; a
      String (Int -&gt; DescribeRemediationExecutionStatusResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679422345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679422994"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -587,22 +587,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679422347"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422996"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679422336"><span id="local-6989586621679422338"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679422985"><span id="local-6989586621679422987"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span></span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679422333"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679422982"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679422329"><span class="annot"><span class="annottext">toHeaders :: DescribeRemediationExecutionStatus -&gt; ResponseHeaders
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679422978"><span class="annot"><span class="annottext">toHeaders :: DescribeRemediationExecutionStatus -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DescribeRemediationExecutionStatus -&gt; ResponseHeaders
@@ -631,23 +631,23 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-194"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679422319"><span id="local-6989586621679422321"><span id="local-6989586621679422323"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679422968"><span id="local-6989586621679422970"><span id="local-6989586621679422972"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span></span></span></span><span>
 </span><span id="line-199"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679422317"><span class="annot"><span class="annottext">toJSON :: DescribeRemediationExecutionStatus -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422312"><span id="local-6989586621679422313"><span id="local-6989586621679422314"><span id="local-6989586621679422315"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679422966"><span class="annot"><span class="annottext">toJSON :: DescribeRemediationExecutionStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422961"><span id="local-6989586621679422962"><span id="local-6989586621679422963"><span id="local-6989586621679422964"><span class="annot"><span class="annottext">Maybe Natural
 Maybe (NonEmpty ResourceKey)
 Maybe Text
 Text
 configRuleName :: Text
-limit :: Maybe Natural
 resourceKeys :: Maybe (NonEmpty ResourceKey)
+limit :: Maybe Natural
 nextToken :: Maybe Text
 $sel:configRuleName:DescribeRemediationExecutionStatus' :: DescribeRemediationExecutionStatus -&gt; Text
-$sel:limit:DescribeRemediationExecutionStatus' :: DescribeRemediationExecutionStatus -&gt; Maybe Natural
 $sel:resourceKeys:DescribeRemediationExecutionStatus' :: DescribeRemediationExecutionStatus -&gt; Maybe (NonEmpty ResourceKey)
+$sel:limit:DescribeRemediationExecutionStatus' :: DescribeRemediationExecutionStatus -&gt; Maybe Natural
 $sel:nextToken:DescribeRemediationExecutionStatus' :: DescribeRemediationExecutionStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679422312"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679422961"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -659,22 +659,22 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422315"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422964"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679422963"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ResourceKey -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty ResourceKey -&gt; Pair)
 -&gt; Maybe (NonEmpty ResourceKey) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceKey)
-</span><a href="#local-6989586621679422314"><span class="hs-identifier hs-var">resourceKeys</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679422313"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422962"><span class="hs-identifier hs-var">resourceKeys</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -682,7 +682,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ConfigRuleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422312"><span class="hs-identifier hs-var">configRuleName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422961"><span class="hs-identifier hs-var">configRuleName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-209"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
@@ -690,7 +690,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-213"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span>
 </span><span id="line-214"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679422306"><span class="annot"><span class="annottext">toPath :: DescribeRemediationExecutionStatus -&gt; ByteString
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679422955"><span class="annot"><span class="annottext">toPath :: DescribeRemediationExecutionStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeRemediationExecutionStatus -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -700,7 +700,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-218"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-219"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatus"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatus</span></a></span><span>
 </span><span id="line-220"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-221"></span><span>  </span><span id="local-6989586621679422302"><span class="annot"><span class="annottext">toQuery :: DescribeRemediationExecutionStatus -&gt; QueryString
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679422951"><span class="annot"><span class="annottext">toQuery :: DescribeRemediationExecutionStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeRemediationExecutionStatus -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -708,7 +708,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | /See:/ 'newDescribeRemediationExecutionStatusResponse' smart constructor.</span><span>
-</span><span id="line-224"></span><span id="local-6989586621679422299"><span id="local-6989586621679422300"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRemediationExecutionStatusResponse"><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse"><span class="hs-identifier hs-var">DescribeRemediationExecutionStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRemediationExecutionStatusResponse%27"><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-var">DescribeRemediationExecutionStatusResponse'</span></a></span></span><span>
+</span><span id="line-224"></span><span id="local-6989586621679422948"><span id="local-6989586621679422949"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRemediationExecutionStatusResponse"><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse"><span class="hs-identifier hs-var">DescribeRemediationExecutionStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRemediationExecutionStatusResponse%27"><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-var">DescribeRemediationExecutionStatusResponse'</span></a></span></span><span>
 </span><span id="line-225"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns a list of remediation execution statuses objects.</span><span>
 </span><span id="line-226"></span><span>    </span><span id="%24sel%3AremediationExecutionStatuses%3ADescribeRemediationExecutionStatusResponse%27"><span class="annot"><span class="annottext">DescribeRemediationExecutionStatusResponse
 -&gt; Maybe [RemediationExecutionStatus]
@@ -721,7 +721,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-231"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeRemediationExecutionStatusResponse%27"><span class="annot"><span class="annottext">DescribeRemediationExecutionStatusResponse -&gt; Int
 </span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3AhttpStatus%3ADescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-232"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-233"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679422292"><span id="local-6989586621679422294"><span class="annot"><span class="annottext">DescribeRemediationExecutionStatusResponse
+</span><span id="line-233"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679422941"><span id="local-6989586621679422943"><span class="annot"><span class="annottext">DescribeRemediationExecutionStatusResponse
 -&gt; DescribeRemediationExecutionStatusResponse -&gt; Bool
 (DescribeRemediationExecutionStatusResponse
  -&gt; DescribeRemediationExecutionStatusResponse -&gt; Bool)
@@ -737,7 +737,7 @@ $c/= :: DescribeRemediationExecutionStatusResponse
 -&gt; DescribeRemediationExecutionStatusResponse -&gt; Bool
 $c== :: DescribeRemediationExecutionStatusResponse
 -&gt; DescribeRemediationExecutionStatusResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422284"><span id="local-6989586621679422286"><span id="local-6989586621679422288"><span id="local-6989586621679422290"><span class="annot"><span class="annottext">ReadPrec [DescribeRemediationExecutionStatusResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422933"><span id="local-6989586621679422935"><span id="local-6989586621679422937"><span id="local-6989586621679422939"><span class="annot"><span class="annottext">ReadPrec [DescribeRemediationExecutionStatusResponse]
 ReadPrec DescribeRemediationExecutionStatusResponse
 Int -&gt; ReadS DescribeRemediationExecutionStatusResponse
 ReadS [DescribeRemediationExecutionStatusResponse]
@@ -757,7 +757,7 @@ readList :: ReadS [DescribeRemediationExecutionStatusResponse]
 $creadList :: ReadS [DescribeRemediationExecutionStatusResponse]
 readsPrec :: Int -&gt; ReadS DescribeRemediationExecutionStatusResponse
 $creadsPrec :: Int -&gt; ReadS DescribeRemediationExecutionStatusResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422278"><span id="local-6989586621679422280"><span id="local-6989586621679422282"><span class="annot"><span class="annottext">Int -&gt; DescribeRemediationExecutionStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422927"><span id="local-6989586621679422929"><span id="local-6989586621679422931"><span class="annot"><span class="annottext">Int -&gt; DescribeRemediationExecutionStatusResponse -&gt; ShowS
 [DescribeRemediationExecutionStatusResponse] -&gt; ShowS
 DescribeRemediationExecutionStatusResponse -&gt; String
 (Int -&gt; DescribeRemediationExecutionStatusResponse -&gt; ShowS)
@@ -815,8 +815,8 @@ DescribeRemediationExecutionStatusResponse
 </span><span id="line-252"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse</span></a></span><span>
 </span><span id="line-253"></span><span id="newDescribeRemediationExecutionStatusResponse"><span class="annot"><span class="annottext">newDescribeRemediationExecutionStatusResponse :: Int -&gt; DescribeRemediationExecutionStatusResponse
 </span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#newDescribeRemediationExecutionStatusResponse"><span class="hs-identifier hs-var hs-var">newDescribeRemediationExecutionStatusResponse</span></a></span></span><span>
-</span><span id="line-254"></span><span>  </span><span id="local-6989586621679422275"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679422275"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679422924"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679422924"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-255"></span><span>    </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatusResponse' :: Maybe [RemediationExecutionStatus]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeRemediationExecutionStatusResponse
 </span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse'</span></a></span><span>
@@ -831,7 +831,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-259"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRemediationExecutionStatusResponse' :: Int
 </span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3AhttpStatus%3ADescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679422275"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679422924"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-260"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-comment">-- | Returns a list of remediation execution statuses objects.</span><span>
@@ -849,17 +849,17 @@ forall a. Maybe a
      DescribeRemediationExecutionStatusResponse
      (Maybe [RemediationExecutionStatus])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422274"><span class="annot"><span class="annottext">Maybe [RemediationExecutionStatus]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422923"><span class="annot"><span class="annottext">Maybe [RemediationExecutionStatus]
 remediationExecutionStatuses :: Maybe [RemediationExecutionStatus]
 $sel:remediationExecutionStatuses:DescribeRemediationExecutionStatusResponse' :: DescribeRemediationExecutionStatusResponse
 -&gt; Maybe [RemediationExecutionStatus]
-</span><a href="#local-6989586621679422274"><span class="hs-identifier hs-var hs-var">remediationExecutionStatuses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RemediationExecutionStatus]
-</span><a href="#local-6989586621679422274"><span class="hs-identifier hs-var">remediationExecutionStatuses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422273"><span class="annot"><span class="annottext">s :: DescribeRemediationExecutionStatusResponse
-</span><a href="#local-6989586621679422273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422272"><span class="annot"><span class="annottext">Maybe [RemediationExecutionStatus]
-</span><a href="#local-6989586621679422272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatusResponse
-</span><a href="#local-6989586621679422273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remediationExecutionStatuses:DescribeRemediationExecutionStatusResponse' :: Maybe [RemediationExecutionStatus]
+</span><a href="#local-6989586621679422923"><span class="hs-identifier hs-var hs-var">remediationExecutionStatuses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RemediationExecutionStatus]
+</span><a href="#local-6989586621679422923"><span class="hs-identifier hs-var">remediationExecutionStatuses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422922"><span class="annot"><span class="annottext">s :: DescribeRemediationExecutionStatusResponse
+</span><a href="#local-6989586621679422922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422921"><span class="annot"><span class="annottext">Maybe [RemediationExecutionStatus]
+</span><a href="#local-6989586621679422921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatusResponse
+</span><a href="#local-6989586621679422922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remediationExecutionStatuses:DescribeRemediationExecutionStatusResponse' :: Maybe [RemediationExecutionStatus]
 </span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3AremediationExecutionStatuses%3ADescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-var">remediationExecutionStatuses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RemediationExecutionStatus]
-</span><a href="#local-6989586621679422272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RemediationExecutionStatus]
+</span><a href="#local-6989586621679422921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RemediationExecutionStatus]
   -&gt; f (Maybe [RemediationExecutionStatus]))
  -&gt; DescribeRemediationExecutionStatusResponse
  -&gt; f DescribeRemediationExecutionStatusResponse)
@@ -890,8 +890,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [RemediationExecutionStatus]
   [RemediationExecutionStatus]
   [RemediationExecutionStatus]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-265"></span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
@@ -904,16 +904,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
     -&gt; Maybe Text -&gt; DescribeRemediationExecutionStatusResponse)
 -&gt; Lens' DescribeRemediationExecutionStatusResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422271"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422920"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeRemediationExecutionStatusResponse' :: DescribeRemediationExecutionStatusResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679422271"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422271"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422270"><span class="annot"><span class="annottext">s :: DescribeRemediationExecutionStatusResponse
-</span><a href="#local-6989586621679422270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422269"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatusResponse
-</span><a href="#local-6989586621679422270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeRemediationExecutionStatusResponse' :: Maybe Text
+</span><a href="#local-6989586621679422920"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422920"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422919"><span class="annot"><span class="annottext">s :: DescribeRemediationExecutionStatusResponse
+</span><a href="#local-6989586621679422919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422918"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679422918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatusResponse
+</span><a href="#local-6989586621679422919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeRemediationExecutionStatusResponse' :: Maybe Text
 </span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3AnextToken%3ADescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679422269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>
 </span><span id="line-271"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-272"></span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#describeRemediationExecutionStatusResponse_httpStatus"><span class="hs-identifier hs-type">describeRemediationExecutionStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -929,18 +929,18 @@ $sel:nextToken:DescribeRemediationExecutionStatusResponse' :: DescribeRemediatio
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422268"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422917"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeRemediationExecutionStatusResponse' :: DescribeRemediationExecutionStatusResponse -&gt; Int
-</span><a href="#local-6989586621679422268"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679422268"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422267"><span class="annot"><span class="annottext">s :: DescribeRemediationExecutionStatusResponse
-</span><a href="#local-6989586621679422267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422266"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679422266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatusResponse
-</span><a href="#local-6989586621679422267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRemediationExecutionStatusResponse' :: Int
+</span><a href="#local-6989586621679422917"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679422917"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422916"><span class="annot"><span class="annottext">s :: DescribeRemediationExecutionStatusResponse
+</span><a href="#local-6989586621679422916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422915"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679422915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationExecutionStatusResponse
+</span><a href="#local-6989586621679422916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRemediationExecutionStatusResponse' :: Int
 </span><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#%24sel%3AhttpStatus%3ADescribeRemediationExecutionStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679422266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-274"></span><span>
 </span><span id="line-275"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-276"></span><span>  </span><span id="local-6989586621679422264"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-276"></span><span>  </span><span id="local-6989586621679422913"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-277"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationExecutionStatus.html#DescribeRemediationExecutionStatusResponse"><span class="hs-identifier hs-type">DescribeRemediationExecutionStatusResponse</span></a></span></span><span>
 </span><span id="line-278"></span></pre></body></html>

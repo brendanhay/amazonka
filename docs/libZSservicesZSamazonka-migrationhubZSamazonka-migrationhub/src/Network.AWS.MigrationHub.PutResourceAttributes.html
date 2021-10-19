@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newPutResourceAttributes' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679170892"><span id="local-6989586621679170893"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutResourceAttributes"><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-var">PutResourceAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutResourceAttributes%27"><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-var">PutResourceAttributes'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679170929"><span id="local-6989586621679170930"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutResourceAttributes"><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-var">PutResourceAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutResourceAttributes%27"><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-var">PutResourceAttributes'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional boolean flag to indicate whether any effect should take place.</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Used to test if the caller has permission to make the call.</span><span>
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AdryRun%3APutResourceAttributes%27"><span class="annot"><span class="annottext">PutResourceAttributes -&gt; Maybe Bool
@@ -101,7 +101,7 @@
 </span><span id="line-98"></span><span>    </span><span id="%24sel%3AresourceAttributeList%3APutResourceAttributes%27"><span class="annot"><span class="annottext">PutResourceAttributes -&gt; NonEmpty ResourceAttribute
 </span><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#%24sel%3AresourceAttributeList%3APutResourceAttributes%27"><span class="hs-identifier hs-var hs-var">resourceAttributeList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679170883"><span id="local-6989586621679170885"><span class="annot"><span class="annottext">PutResourceAttributes -&gt; PutResourceAttributes -&gt; Bool
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679170920"><span id="local-6989586621679170922"><span class="annot"><span class="annottext">PutResourceAttributes -&gt; PutResourceAttributes -&gt; Bool
 (PutResourceAttributes -&gt; PutResourceAttributes -&gt; Bool)
 -&gt; (PutResourceAttributes -&gt; PutResourceAttributes -&gt; Bool)
 -&gt; Eq PutResourceAttributes
@@ -110,7 +110,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutResourceAttributes -&gt; PutResourceAttributes -&gt; Bool
 == :: PutResourceAttributes -&gt; PutResourceAttributes -&gt; Bool
 $c== :: PutResourceAttributes -&gt; PutResourceAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170874"><span id="local-6989586621679170876"><span id="local-6989586621679170878"><span id="local-6989586621679170880"><span class="annot"><span class="annottext">ReadPrec [PutResourceAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170911"><span id="local-6989586621679170913"><span id="local-6989586621679170915"><span id="local-6989586621679170917"><span class="annot"><span class="annottext">ReadPrec [PutResourceAttributes]
 ReadPrec PutResourceAttributes
 Int -&gt; ReadS PutResourceAttributes
 ReadS [PutResourceAttributes]
@@ -130,7 +130,7 @@ readList :: ReadS [PutResourceAttributes]
 $creadList :: ReadS [PutResourceAttributes]
 readsPrec :: Int -&gt; ReadS PutResourceAttributes
 $creadsPrec :: Int -&gt; ReadS PutResourceAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170867"><span id="local-6989586621679170869"><span id="local-6989586621679170871"><span class="annot"><span class="annottext">Int -&gt; PutResourceAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170904"><span id="local-6989586621679170906"><span id="local-6989586621679170908"><span class="annot"><span class="annottext">Int -&gt; PutResourceAttributes -&gt; ShowS
 [PutResourceAttributes] -&gt; ShowS
 PutResourceAttributes -&gt; String
 (Int -&gt; PutResourceAttributes -&gt; ShowS)
@@ -203,12 +203,12 @@ $cfrom :: forall x. PutResourceAttributes -&gt; Rep PutResourceAttributes x
 </span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span><span>
 </span><span id="line-147"></span><span id="newPutResourceAttributes"><span class="annot"><span class="annottext">newPutResourceAttributes :: Text -&gt; Text -&gt; NonEmpty ResourceAttribute -&gt; PutResourceAttributes
 </span><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#newPutResourceAttributes"><span class="hs-identifier hs-var hs-var">newPutResourceAttributes</span></a></span></span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679170862"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679170862"><span class="hs-identifier hs-var">pProgressUpdateStream_</span></a></span></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679170861"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679170861"><span class="hs-identifier hs-var">pMigrationTaskName_</span></a></span></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679170860"><span class="annot"><span class="annottext">NonEmpty ResourceAttribute
-</span><a href="#local-6989586621679170860"><span class="hs-identifier hs-var">pResourceAttributeList_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679170899"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170899"><span class="hs-identifier hs-var">pProgressUpdateStream_</span></a></span></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679170898"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170898"><span class="hs-identifier hs-var">pMigrationTaskName_</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679170897"><span class="annot"><span class="annottext">NonEmpty ResourceAttribute
+</span><a href="#local-6989586621679170897"><span class="hs-identifier hs-var">pResourceAttributeList_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">PutResourceAttributes' :: Maybe Bool
 -&gt; Text
 -&gt; Text
@@ -221,10 +221,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">$sel:progressUpdateStream:PutResourceAttributes' :: Text
 </span><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#%24sel%3AprogressUpdateStream%3APutResourceAttributes%27"><span class="hs-identifier hs-var">progressUpdateStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679170862"><span class="hs-identifier hs-var">pProgressUpdateStream_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679170899"><span class="hs-identifier hs-var">pProgressUpdateStream_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">$sel:migrationTaskName:PutResourceAttributes' :: Text
 </span><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#%24sel%3AmigrationTaskName%3APutResourceAttributes%27"><span class="hs-identifier hs-var">migrationTaskName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679170861"><span class="hs-identifier hs-var">pMigrationTaskName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679170898"><span class="hs-identifier hs-var">pMigrationTaskName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceAttributeList:PutResourceAttributes' :: NonEmpty ResourceAttribute
 </span><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#%24sel%3AresourceAttributeList%3APutResourceAttributes%27"><span class="hs-identifier hs-var">resourceAttributeList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Tagged
@@ -233,8 +233,8 @@ forall a. Maybe a
 -&gt; Tagged
      (NonEmpty ResourceAttribute)
      (Identity (NonEmpty ResourceAttribute))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
    (NonEmpty ResourceAttribute)
    (Identity (NonEmpty ResourceAttribute))
  -&gt; Tagged
@@ -243,7 +243,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; NonEmpty ResourceAttribute -&gt; NonEmpty ResourceAttribute
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty ResourceAttribute
-</span><a href="#local-6989586621679170860"><span class="hs-identifier hs-var">pResourceAttributeList_</span></a></span><span>
+</span><a href="#local-6989586621679170897"><span class="hs-identifier hs-var">pResourceAttributeList_</span></a></span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | Optional boolean flag to indicate whether any effect should take place.</span><span>
@@ -259,16 +259,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-type">PutResourceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170855"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-type">PutResourceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170892"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:PutResourceAttributes' :: PutResourceAttributes -&gt; Maybe Bool
-</span><a href="#local-6989586621679170855"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679170855"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170854"><span class="annot"><span class="annottext">s :: PutResourceAttributes
-</span><a href="#local-6989586621679170854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-type">PutResourceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170853"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679170853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutResourceAttributes
-</span><a href="#local-6989586621679170854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:PutResourceAttributes' :: Maybe Bool
+</span><a href="#local-6989586621679170892"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679170892"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170891"><span class="annot"><span class="annottext">s :: PutResourceAttributes
+</span><a href="#local-6989586621679170891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-type">PutResourceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170890"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679170890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutResourceAttributes
+</span><a href="#local-6989586621679170891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:PutResourceAttributes' :: Maybe Bool
 </span><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#%24sel%3AdryRun%3APutResourceAttributes%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679170853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679170890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The name of the ProgressUpdateStream.</span><span>
 </span><span id="line-165"></span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#putResourceAttributes_progressUpdateStream"><span class="hs-identifier hs-type">putResourceAttributes_progressUpdateStream</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -278,16 +278,16 @@ $sel:dryRun:PutResourceAttributes' :: PutResourceAttributes -&gt; Maybe Bool
 -&gt; (PutResourceAttributes -&gt; Text -&gt; PutResourceAttributes)
 -&gt; Lens PutResourceAttributes PutResourceAttributes Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-type">PutResourceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170852"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-type">PutResourceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170889"><span class="annot"><span class="annottext">Text
 progressUpdateStream :: Text
 $sel:progressUpdateStream:PutResourceAttributes' :: PutResourceAttributes -&gt; Text
-</span><a href="#local-6989586621679170852"><span class="hs-identifier hs-var hs-var">progressUpdateStream</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679170852"><span class="hs-identifier hs-var">progressUpdateStream</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170851"><span class="annot"><span class="annottext">s :: PutResourceAttributes
-</span><a href="#local-6989586621679170851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-type">PutResourceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170850"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679170850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutResourceAttributes
-</span><a href="#local-6989586621679170851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressUpdateStream:PutResourceAttributes' :: Text
+</span><a href="#local-6989586621679170889"><span class="hs-identifier hs-var hs-var">progressUpdateStream</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170889"><span class="hs-identifier hs-var">progressUpdateStream</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170888"><span class="annot"><span class="annottext">s :: PutResourceAttributes
+</span><a href="#local-6989586621679170888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-type">PutResourceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170887"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutResourceAttributes
+</span><a href="#local-6989586621679170888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressUpdateStream:PutResourceAttributes' :: Text
 </span><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#%24sel%3AprogressUpdateStream%3APutResourceAttributes%27"><span class="hs-identifier hs-var">progressUpdateStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679170850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679170887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | Unique identifier that references the migration task. /Do not store</span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- personal data in this field./</span><span>
@@ -298,16 +298,16 @@ $sel:progressUpdateStream:PutResourceAttributes' :: PutResourceAttributes -&gt; 
 -&gt; (PutResourceAttributes -&gt; Text -&gt; PutResourceAttributes)
 -&gt; Lens PutResourceAttributes PutResourceAttributes Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-type">PutResourceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170849"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-type">PutResourceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170886"><span class="annot"><span class="annottext">Text
 migrationTaskName :: Text
 $sel:migrationTaskName:PutResourceAttributes' :: PutResourceAttributes -&gt; Text
-</span><a href="#local-6989586621679170849"><span class="hs-identifier hs-var hs-var">migrationTaskName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679170849"><span class="hs-identifier hs-var">migrationTaskName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170848"><span class="annot"><span class="annottext">s :: PutResourceAttributes
-</span><a href="#local-6989586621679170848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-type">PutResourceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170847"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679170847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutResourceAttributes
-</span><a href="#local-6989586621679170848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationTaskName:PutResourceAttributes' :: Text
+</span><a href="#local-6989586621679170886"><span class="hs-identifier hs-var hs-var">migrationTaskName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170886"><span class="hs-identifier hs-var">migrationTaskName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170885"><span class="annot"><span class="annottext">s :: PutResourceAttributes
+</span><a href="#local-6989586621679170885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-type">PutResourceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170884"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutResourceAttributes
+</span><a href="#local-6989586621679170885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationTaskName:PutResourceAttributes' :: Text
 </span><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#%24sel%3AmigrationTaskName%3APutResourceAttributes%27"><span class="hs-identifier hs-var">migrationTaskName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679170847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679170884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | Information about the resource that is being migrated. This data will be</span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- used to map the task to a resource in the Application Discovery Service</span><span>
@@ -342,16 +342,16 @@ $sel:migrationTaskName:PutResourceAttributes' :: PutResourceAttributes -&gt; Tex
      (NonEmpty ResourceAttribute)
      (NonEmpty ResourceAttribute)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-type">PutResourceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170846"><span class="annot"><span class="annottext">NonEmpty ResourceAttribute
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-type">PutResourceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170883"><span class="annot"><span class="annottext">NonEmpty ResourceAttribute
 resourceAttributeList :: NonEmpty ResourceAttribute
 $sel:resourceAttributeList:PutResourceAttributes' :: PutResourceAttributes -&gt; NonEmpty ResourceAttribute
-</span><a href="#local-6989586621679170846"><span class="hs-identifier hs-var hs-var">resourceAttributeList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty ResourceAttribute
-</span><a href="#local-6989586621679170846"><span class="hs-identifier hs-var">resourceAttributeList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170845"><span class="annot"><span class="annottext">s :: PutResourceAttributes
-</span><a href="#local-6989586621679170845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-type">PutResourceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170844"><span class="annot"><span class="annottext">NonEmpty ResourceAttribute
-</span><a href="#local-6989586621679170844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutResourceAttributes
-</span><a href="#local-6989586621679170845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceAttributeList:PutResourceAttributes' :: NonEmpty ResourceAttribute
+</span><a href="#local-6989586621679170883"><span class="hs-identifier hs-var hs-var">resourceAttributeList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty ResourceAttribute
+</span><a href="#local-6989586621679170883"><span class="hs-identifier hs-var">resourceAttributeList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170882"><span class="annot"><span class="annottext">s :: PutResourceAttributes
+</span><a href="#local-6989586621679170882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-type">PutResourceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170881"><span class="annot"><span class="annottext">NonEmpty ResourceAttribute
+</span><a href="#local-6989586621679170881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutResourceAttributes
+</span><a href="#local-6989586621679170882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceAttributeList:PutResourceAttributes' :: NonEmpty ResourceAttribute
 </span><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#%24sel%3AresourceAttributeList%3APutResourceAttributes%27"><span class="hs-identifier hs-var">resourceAttributeList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty ResourceAttribute
-</span><a href="#local-6989586621679170844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty ResourceAttribute -&gt; f (NonEmpty ResourceAttribute))
+</span><a href="#local-6989586621679170881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty ResourceAttribute -&gt; f (NonEmpty ResourceAttribute))
  -&gt; PutResourceAttributes -&gt; f PutResourceAttributes)
 -&gt; ((NonEmpty ResourceAttribute -&gt; f (NonEmpty ResourceAttribute))
     -&gt; NonEmpty ResourceAttribute -&gt; f (NonEmpty ResourceAttribute))
@@ -361,19 +361,19 @@ $sel:resourceAttributeList:PutResourceAttributes' :: PutResourceAttributes -&gt;
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty ResourceAttribute -&gt; f (NonEmpty ResourceAttribute))
 -&gt; NonEmpty ResourceAttribute -&gt; f (NonEmpty ResourceAttribute)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-198"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-199"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>      </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributesResponse"><span class="hs-identifier hs-type">PutResourceAttributesResponse</span></a></span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621679170839"><span class="annot"><span class="annottext">request :: PutResourceAttributes -&gt; Request PutResourceAttributes
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679170876"><span class="annot"><span class="annottext">request :: PutResourceAttributes -&gt; Request PutResourceAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutResourceAttributes -&gt; Request PutResourceAttributes
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MigrationHub.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-202"></span><span>  </span><span id="local-6989586621679170835"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679170872"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutResourceAttributes
 -&gt; ClientResponse ClientBody
@@ -399,10 +399,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-204"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679170832"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679170832"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679170831"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679170831"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679170830"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679170830"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679170869"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679170869"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679170868"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679170868"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679170867"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679170867"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-205"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutResourceAttributesResponse
 </span><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributesResponse%27"><span class="hs-identifier hs-var">PutResourceAttributesResponse'</span></a></span><span>
 </span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutResourceAttributesResponse)
@@ -413,15 +413,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679170832"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679170869"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
-</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170823"><span id="local-6989586621679170825"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span></span></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170860"><span id="local-6989586621679170862"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span></span></span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170820"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170857"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span></span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679170816"><span class="annot"><span class="annottext">toHeaders :: PutResourceAttributes -&gt; ResponseHeaders
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679170853"><span class="annot"><span class="annottext">toHeaders :: PutResourceAttributes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutResourceAttributes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -448,9 +448,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-225"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-226"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170806"><span id="local-6989586621679170808"><span id="local-6989586621679170810"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679170804"><span class="annot"><span class="annottext">toJSON :: PutResourceAttributes -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-type">PutResourceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170799"><span id="local-6989586621679170800"><span id="local-6989586621679170801"><span id="local-6989586621679170802"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170843"><span id="local-6989586621679170845"><span id="local-6989586621679170847"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679170841"><span class="annot"><span class="annottext">toJSON :: PutResourceAttributes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes%27"><span class="hs-identifier hs-type">PutResourceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170836"><span id="local-6989586621679170837"><span id="local-6989586621679170838"><span id="local-6989586621679170839"><span class="annot"><span class="annottext">Maybe Bool
 NonEmpty ResourceAttribute
 Text
 resourceAttributeList :: NonEmpty ResourceAttribute
@@ -461,7 +461,7 @@ $sel:resourceAttributeList:PutResourceAttributes' :: PutResourceAttributes -&gt;
 $sel:migrationTaskName:PutResourceAttributes' :: PutResourceAttributes -&gt; Text
 $sel:progressUpdateStream:PutResourceAttributes' :: PutResourceAttributes -&gt; Text
 $sel:dryRun:PutResourceAttributes' :: PutResourceAttributes -&gt; Maybe Bool
-</span><a href="#local-6989586621679170799"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679170836"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-230"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-231"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -473,7 +473,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679170802"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679170839"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -482,7 +482,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-235"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679170801"><span class="hs-identifier hs-var">progressUpdateStream</span></a></span><span>
+</span><a href="#local-6989586621679170838"><span class="hs-identifier hs-var">progressUpdateStream</span></a></span><span>
 </span><span id="line-236"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -491,7 +491,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;MigrationTaskName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679170800"><span class="hs-identifier hs-var">migrationTaskName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679170837"><span class="hs-identifier hs-var">migrationTaskName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -500,20 +500,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-241"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ResourceAttribute -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty ResourceAttribute
-</span><a href="#local-6989586621679170799"><span class="hs-identifier hs-var">resourceAttributeList</span></a></span><span>
+</span><a href="#local-6989586621679170836"><span class="hs-identifier hs-var">resourceAttributeList</span></a></span><span>
 </span><span id="line-242"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-244"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-247"></span><span>  </span><span id="local-6989586621679170793"><span class="annot"><span class="annottext">toPath :: PutResourceAttributes -&gt; ByteString
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679170830"><span class="annot"><span class="annottext">toPath :: PutResourceAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutResourceAttributes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributes"><span class="hs-identifier hs-type">PutResourceAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-250"></span><span>  </span><span id="local-6989586621679170789"><span class="annot"><span class="annottext">toQuery :: PutResourceAttributes -&gt; QueryString
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679170826"><span class="annot"><span class="annottext">toQuery :: PutResourceAttributes -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutResourceAttributes -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -521,12 +521,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- | /See:/ 'newPutResourceAttributesResponse' smart constructor.</span><span>
-</span><span id="line-253"></span><span id="local-6989586621679170786"><span id="local-6989586621679170787"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutResourceAttributesResponse"><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributesResponse"><span class="hs-identifier hs-var">PutResourceAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutResourceAttributesResponse%27"><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributesResponse%27"><span class="hs-identifier hs-var">PutResourceAttributesResponse'</span></a></span></span><span>
+</span><span id="line-253"></span><span id="local-6989586621679170823"><span id="local-6989586621679170824"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutResourceAttributesResponse"><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributesResponse"><span class="hs-identifier hs-var">PutResourceAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutResourceAttributesResponse%27"><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributesResponse%27"><span class="hs-identifier hs-var">PutResourceAttributesResponse'</span></a></span></span><span>
 </span><span id="line-254"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-255"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutResourceAttributesResponse%27"><span class="annot"><span class="annottext">PutResourceAttributesResponse -&gt; Int
 </span><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#%24sel%3AhttpStatus%3APutResourceAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-256"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-257"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679170781"><span id="local-6989586621679170783"><span class="annot"><span class="annottext">PutResourceAttributesResponse
+</span><span id="line-257"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679170818"><span id="local-6989586621679170820"><span class="annot"><span class="annottext">PutResourceAttributesResponse
 -&gt; PutResourceAttributesResponse -&gt; Bool
 (PutResourceAttributesResponse
  -&gt; PutResourceAttributesResponse -&gt; Bool)
@@ -542,7 +542,7 @@ $c/= :: PutResourceAttributesResponse
 -&gt; PutResourceAttributesResponse -&gt; Bool
 $c== :: PutResourceAttributesResponse
 -&gt; PutResourceAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170773"><span id="local-6989586621679170775"><span id="local-6989586621679170777"><span id="local-6989586621679170779"><span class="annot"><span class="annottext">ReadPrec [PutResourceAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170810"><span id="local-6989586621679170812"><span id="local-6989586621679170814"><span id="local-6989586621679170816"><span class="annot"><span class="annottext">ReadPrec [PutResourceAttributesResponse]
 ReadPrec PutResourceAttributesResponse
 Int -&gt; ReadS PutResourceAttributesResponse
 ReadS [PutResourceAttributesResponse]
@@ -562,7 +562,7 @@ readList :: ReadS [PutResourceAttributesResponse]
 $creadList :: ReadS [PutResourceAttributesResponse]
 readsPrec :: Int -&gt; ReadS PutResourceAttributesResponse
 $creadsPrec :: Int -&gt; ReadS PutResourceAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170767"><span id="local-6989586621679170769"><span id="local-6989586621679170771"><span class="annot"><span class="annottext">Int -&gt; PutResourceAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170804"><span id="local-6989586621679170806"><span id="local-6989586621679170808"><span class="annot"><span class="annottext">Int -&gt; PutResourceAttributesResponse -&gt; ShowS
 [PutResourceAttributesResponse] -&gt; ShowS
 PutResourceAttributesResponse -&gt; String
 (Int -&gt; PutResourceAttributesResponse -&gt; ShowS)
@@ -614,14 +614,14 @@ PutResourceAttributesResponse
 </span><span id="line-270"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-271"></span><span>  </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributesResponse"><span class="hs-identifier hs-type">PutResourceAttributesResponse</span></a></span><span>
 </span><span id="line-272"></span><span id="newPutResourceAttributesResponse"><span class="annot"><span class="annottext">newPutResourceAttributesResponse :: Int -&gt; PutResourceAttributesResponse
-</span><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#newPutResourceAttributesResponse"><span class="hs-identifier hs-var hs-var">newPutResourceAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679170764"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679170764"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#newPutResourceAttributesResponse"><span class="hs-identifier hs-var hs-var">newPutResourceAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679170801"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679170801"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-273"></span><span>  </span><span class="annot"><span class="annottext">PutResourceAttributesResponse' :: Int -&gt; PutResourceAttributesResponse
 </span><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributesResponse%27"><span class="hs-identifier hs-type">PutResourceAttributesResponse'</span></a></span><span>
 </span><span id="line-274"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutResourceAttributesResponse' :: Int
 </span><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#%24sel%3AhttpStatus%3APutResourceAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679170764"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679170801"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-276"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-277"></span><span>
 </span><span id="line-278"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -634,16 +634,16 @@ PutResourceAttributesResponse
 -&gt; Lens
      PutResourceAttributesResponse PutResourceAttributesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributesResponse%27"><span class="hs-identifier hs-type">PutResourceAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170763"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributesResponse%27"><span class="hs-identifier hs-type">PutResourceAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170800"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutResourceAttributesResponse' :: PutResourceAttributesResponse -&gt; Int
-</span><a href="#local-6989586621679170763"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679170763"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170762"><span class="annot"><span class="annottext">s :: PutResourceAttributesResponse
-</span><a href="#local-6989586621679170762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributesResponse%27"><span class="hs-identifier hs-type">PutResourceAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170761"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679170761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutResourceAttributesResponse
-</span><a href="#local-6989586621679170762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutResourceAttributesResponse' :: Int
+</span><a href="#local-6989586621679170800"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679170800"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170799"><span class="annot"><span class="annottext">s :: PutResourceAttributesResponse
+</span><a href="#local-6989586621679170799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributesResponse%27"><span class="hs-identifier hs-type">PutResourceAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170798"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679170798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutResourceAttributesResponse
+</span><a href="#local-6989586621679170799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutResourceAttributesResponse' :: Int
 </span><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#%24sel%3AhttpStatus%3APutResourceAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679170761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributesResponse"><span class="hs-identifier hs-type">PutResourceAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679170798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributesResponse"><span class="hs-identifier hs-type">PutResourceAttributesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-281"></span><span>
-</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170759"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributesResponse"><span class="hs-identifier hs-type">PutResourceAttributesResponse</span></a></span></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170796"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.PutResourceAttributes.html#PutResourceAttributesResponse"><span class="hs-identifier hs-type">PutResourceAttributesResponse</span></a></span></span><span>
 </span><span id="line-283"></span></pre></body></html>

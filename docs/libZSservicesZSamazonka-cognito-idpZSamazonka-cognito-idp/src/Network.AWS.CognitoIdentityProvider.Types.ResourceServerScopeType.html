@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A resource server scope.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newResourceServerScopeType' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679432500"><span id="local-6989586621679432501"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceServerScopeType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType"><span class="hs-identifier hs-var">ResourceServerScopeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceServerScopeType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType%27"><span class="hs-identifier hs-var">ResourceServerScopeType'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679432958"><span id="local-6989586621679432959"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceServerScopeType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType"><span class="hs-identifier hs-var">ResourceServerScopeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceServerScopeType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType%27"><span class="hs-identifier hs-var">ResourceServerScopeType'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the scope.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AscopeName%3AResourceServerScopeType%27"><span class="annot"><span class="annottext">ResourceServerScopeType -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#%24sel%3AscopeName%3AResourceServerScopeType%27"><span class="hs-identifier hs-var hs-var">scopeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AscopeDescription%3AResourceServerScopeType%27"><span class="annot"><span class="annottext">ResourceServerScopeType -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#%24sel%3AscopeDescription%3AResourceServerScopeType%27"><span class="hs-identifier hs-var hs-var">scopeDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432493"><span id="local-6989586621679432495"><span class="annot"><span class="annottext">ResourceServerScopeType -&gt; ResourceServerScopeType -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432951"><span id="local-6989586621679432953"><span class="annot"><span class="annottext">ResourceServerScopeType -&gt; ResourceServerScopeType -&gt; Bool
 (ResourceServerScopeType -&gt; ResourceServerScopeType -&gt; Bool)
 -&gt; (ResourceServerScopeType -&gt; ResourceServerScopeType -&gt; Bool)
 -&gt; Eq ResourceServerScopeType
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceServerScopeType -&gt; ResourceServerScopeType -&gt; Bool
 == :: ResourceServerScopeType -&gt; ResourceServerScopeType -&gt; Bool
 $c== :: ResourceServerScopeType -&gt; ResourceServerScopeType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432484"><span id="local-6989586621679432486"><span id="local-6989586621679432488"><span id="local-6989586621679432490"><span class="annot"><span class="annottext">ReadPrec [ResourceServerScopeType]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432942"><span id="local-6989586621679432944"><span id="local-6989586621679432946"><span id="local-6989586621679432948"><span class="annot"><span class="annottext">ReadPrec [ResourceServerScopeType]
 ReadPrec ResourceServerScopeType
 Int -&gt; ReadS ResourceServerScopeType
 ReadS [ResourceServerScopeType]
@@ -63,7 +63,7 @@ readList :: ReadS [ResourceServerScopeType]
 $creadList :: ReadS [ResourceServerScopeType]
 readsPrec :: Int -&gt; ReadS ResourceServerScopeType
 $creadsPrec :: Int -&gt; ReadS ResourceServerScopeType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432477"><span id="local-6989586621679432479"><span id="local-6989586621679432481"><span class="annot"><span class="annottext">Int -&gt; ResourceServerScopeType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432935"><span id="local-6989586621679432937"><span id="local-6989586621679432939"><span class="annot"><span class="annottext">Int -&gt; ResourceServerScopeType -&gt; ShowS
 [ResourceServerScopeType] -&gt; ShowS
 ResourceServerScopeType -&gt; String
 (Int -&gt; ResourceServerScopeType -&gt; ShowS)
@@ -110,18 +110,18 @@ $cfrom :: forall x. ResourceServerScopeType -&gt; Rep ResourceServerScopeType x
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType"><span class="hs-identifier hs-type">ResourceServerScopeType</span></a></span><span>
 </span><span id="line-54"></span><span id="newResourceServerScopeType"><span class="annot"><span class="annottext">newResourceServerScopeType :: Text -&gt; Text -&gt; ResourceServerScopeType
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#newResourceServerScopeType"><span class="hs-identifier hs-var hs-var">newResourceServerScopeType</span></a></span></span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679432471"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432471"><span class="hs-identifier hs-var">pScopeName_</span></a></span></span><span>
-</span><span id="line-56"></span><span>  </span><span id="local-6989586621679432470"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432470"><span class="hs-identifier hs-var">pScopeDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679432929"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432929"><span class="hs-identifier hs-var">pScopeName_</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679432928"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432928"><span class="hs-identifier hs-var">pScopeDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">ResourceServerScopeType' :: Text -&gt; Text -&gt; ResourceServerScopeType
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType%27"><span class="hs-identifier hs-type">ResourceServerScopeType'</span></a></span><span>
 </span><span id="line-58"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scopeName:ResourceServerScopeType' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#%24sel%3AscopeName%3AResourceServerScopeType%27"><span class="hs-identifier hs-var">scopeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432471"><span class="hs-identifier hs-var">pScopeName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679432929"><span class="hs-identifier hs-var">pScopeName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">$sel:scopeDescription:ResourceServerScopeType' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#%24sel%3AscopeDescription%3AResourceServerScopeType%27"><span class="hs-identifier hs-var">scopeDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432470"><span class="hs-identifier hs-var">pScopeDescription_</span></a></span><span>
+</span><a href="#local-6989586621679432928"><span class="hs-identifier hs-var">pScopeDescription_</span></a></span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The name of the scope.</span><span>
@@ -132,16 +132,16 @@ $cfrom :: forall x. ResourceServerScopeType -&gt; Rep ResourceServerScopeType x
 -&gt; (ResourceServerScopeType -&gt; Text -&gt; ResourceServerScopeType)
 -&gt; Lens ResourceServerScopeType ResourceServerScopeType Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType%27"><span class="hs-identifier hs-type">ResourceServerScopeType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432466"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType%27"><span class="hs-identifier hs-type">ResourceServerScopeType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432924"><span class="annot"><span class="annottext">Text
 scopeName :: Text
 $sel:scopeName:ResourceServerScopeType' :: ResourceServerScopeType -&gt; Text
-</span><a href="#local-6989586621679432466"><span class="hs-identifier hs-var hs-var">scopeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432466"><span class="hs-identifier hs-var">scopeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432465"><span class="annot"><span class="annottext">s :: ResourceServerScopeType
-</span><a href="#local-6989586621679432465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType%27"><span class="hs-identifier hs-type">ResourceServerScopeType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432464"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceServerScopeType
-</span><a href="#local-6989586621679432465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scopeName:ResourceServerScopeType' :: Text
+</span><a href="#local-6989586621679432924"><span class="hs-identifier hs-var hs-var">scopeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432924"><span class="hs-identifier hs-var">scopeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432923"><span class="annot"><span class="annottext">s :: ResourceServerScopeType
+</span><a href="#local-6989586621679432923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType%27"><span class="hs-identifier hs-type">ResourceServerScopeType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432922"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceServerScopeType
+</span><a href="#local-6989586621679432923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scopeName:ResourceServerScopeType' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#%24sel%3AscopeName%3AResourceServerScopeType%27"><span class="hs-identifier hs-var">scopeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType"><span class="hs-identifier hs-type">ResourceServerScopeType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679432922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType"><span class="hs-identifier hs-type">ResourceServerScopeType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | A description of the scope.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#resourceServerScopeType_scopeDescription"><span class="hs-identifier hs-type">resourceServerScopeType_scopeDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType"><span class="hs-identifier hs-type">ResourceServerScopeType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -151,19 +151,19 @@ $sel:scopeName:ResourceServerScopeType' :: ResourceServerScopeType -&gt; Text
 -&gt; (ResourceServerScopeType -&gt; Text -&gt; ResourceServerScopeType)
 -&gt; Lens ResourceServerScopeType ResourceServerScopeType Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType%27"><span class="hs-identifier hs-type">ResourceServerScopeType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432462"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType%27"><span class="hs-identifier hs-type">ResourceServerScopeType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432920"><span class="annot"><span class="annottext">Text
 scopeDescription :: Text
 $sel:scopeDescription:ResourceServerScopeType' :: ResourceServerScopeType -&gt; Text
-</span><a href="#local-6989586621679432462"><span class="hs-identifier hs-var hs-var">scopeDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432462"><span class="hs-identifier hs-var">scopeDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432461"><span class="annot"><span class="annottext">s :: ResourceServerScopeType
-</span><a href="#local-6989586621679432461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType%27"><span class="hs-identifier hs-type">ResourceServerScopeType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432460"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceServerScopeType
-</span><a href="#local-6989586621679432461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scopeDescription:ResourceServerScopeType' :: Text
+</span><a href="#local-6989586621679432920"><span class="hs-identifier hs-var hs-var">scopeDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432920"><span class="hs-identifier hs-var">scopeDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432919"><span class="annot"><span class="annottext">s :: ResourceServerScopeType
+</span><a href="#local-6989586621679432919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType%27"><span class="hs-identifier hs-type">ResourceServerScopeType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432918"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceServerScopeType
+</span><a href="#local-6989586621679432919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scopeDescription:ResourceServerScopeType' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#%24sel%3AscopeDescription%3AResourceServerScopeType%27"><span class="hs-identifier hs-var">scopeDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType"><span class="hs-identifier hs-type">ResourceServerScopeType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679432918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType"><span class="hs-identifier hs-type">ResourceServerScopeType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432457"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType"><span class="hs-identifier hs-type">ResourceServerScopeType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679432455"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceServerScopeType
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432915"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType"><span class="hs-identifier hs-type">ResourceServerScopeType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679432913"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceServerScopeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceServerScopeType)
@@ -173,15 +173,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceServerScopeType&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679432452"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679432452"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679432910"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679432910"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; ResourceServerScopeType
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType%27"><span class="hs-identifier hs-var">ResourceServerScopeType'</span></a></span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; ResourceServerScopeType)
 -&gt; Parser Text -&gt; Parser (Text -&gt; ResourceServerScopeType)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679432452"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679432910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScopeName&quot;</span></span><span class="hs-special">)</span><span>
@@ -189,24 +189,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser ResourceServerScopeType
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679432452"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679432910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScopeDescription&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432446"><span id="local-6989586621679432448"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType"><span class="hs-identifier hs-type">ResourceServerScopeType</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432904"><span id="local-6989586621679432906"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType"><span class="hs-identifier hs-type">ResourceServerScopeType</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType"><span class="hs-identifier hs-type">ResourceServerScopeType</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432901"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType"><span class="hs-identifier hs-type">ResourceServerScopeType</span></a></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432435"><span id="local-6989586621679432437"><span id="local-6989586621679432439"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType"><span class="hs-identifier hs-type">ResourceServerScopeType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679432433"><span class="annot"><span class="annottext">toJSON :: ResourceServerScopeType -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType%27"><span class="hs-identifier hs-type">ResourceServerScopeType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432430"><span id="local-6989586621679432431"><span class="annot"><span class="annottext">Text
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432893"><span id="local-6989586621679432895"><span id="local-6989586621679432897"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType"><span class="hs-identifier hs-type">ResourceServerScopeType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679432891"><span class="annot"><span class="annottext">toJSON :: ResourceServerScopeType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType.html#ResourceServerScopeType%27"><span class="hs-identifier hs-type">ResourceServerScopeType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432888"><span id="local-6989586621679432889"><span class="annot"><span class="annottext">Text
 scopeDescription :: Text
 scopeName :: Text
 $sel:scopeDescription:ResourceServerScopeType' :: ResourceServerScopeType -&gt; Text
 $sel:scopeName:ResourceServerScopeType' :: ResourceServerScopeType -&gt; Text
-</span><a href="#local-6989586621679432430"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679432888"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -218,7 +218,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ScopeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432431"><span class="hs-identifier hs-var">scopeName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679432889"><span class="hs-identifier hs-var">scopeName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -226,7 +226,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ScopeDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432430"><span class="hs-identifier hs-var">scopeDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679432888"><span class="hs-identifier hs-var">scopeDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span></pre></body></html>

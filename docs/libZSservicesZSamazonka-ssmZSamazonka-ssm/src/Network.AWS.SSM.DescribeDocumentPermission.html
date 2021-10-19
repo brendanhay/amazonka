@@ -42,8 +42,8 @@
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#describeDocumentPermissionResponse_accountIds"><span class="hs-identifier">describeDocumentPermissionResponse_accountIds</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#describeDocumentPermissionResponse_nextToken"><span class="hs-identifier">describeDocumentPermissionResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#describeDocumentPermissionResponse_accountSharingInfoList"><span class="hs-identifier">describeDocumentPermissionResponse_accountSharingInfoList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#describeDocumentPermissionResponse_accountSharingInfoList"><span class="hs-identifier">describeDocumentPermissionResponse_accountSharingInfoList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#describeDocumentPermissionResponse_nextToken"><span class="hs-identifier">describeDocumentPermissionResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#describeDocumentPermissionResponse_httpStatus"><span class="hs-identifier">describeDocumentPermissionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span class="hs-keyword">where</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newDescribeDocumentPermission' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679845394"><span id="local-6989586621679845395"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDocumentPermission"><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-var">DescribeDocumentPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDocumentPermission%27"><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-var">DescribeDocumentPermission'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679847209"><span id="local-6989586621679847210"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDocumentPermission"><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-var">DescribeDocumentPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDocumentPermission%27"><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-var">DescribeDocumentPermission'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- from a previous call.)</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeDocumentPermission%27"><span class="annot"><span class="annottext">DescribeDocumentPermission -&gt; Maybe Text
@@ -74,7 +74,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3ApermissionType%3ADescribeDocumentPermission%27"><span class="annot"><span class="annottext">DescribeDocumentPermission -&gt; DocumentPermissionType
 </span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3ApermissionType%3ADescribeDocumentPermission%27"><span class="hs-identifier hs-var hs-var">permissionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentPermissionType.html#DocumentPermissionType"><span class="hs-identifier hs-type">DocumentPermissionType</span></a></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679845385"><span id="local-6989586621679845387"><span class="annot"><span class="annottext">DescribeDocumentPermission -&gt; DescribeDocumentPermission -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679847200"><span id="local-6989586621679847202"><span class="annot"><span class="annottext">DescribeDocumentPermission -&gt; DescribeDocumentPermission -&gt; Bool
 (DescribeDocumentPermission -&gt; DescribeDocumentPermission -&gt; Bool)
 -&gt; (DescribeDocumentPermission
     -&gt; DescribeDocumentPermission -&gt; Bool)
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeDocumentPermission -&gt; DescribeDocumentPermission -&gt; Bool
 == :: DescribeDocumentPermission -&gt; DescribeDocumentPermission -&gt; Bool
 $c== :: DescribeDocumentPermission -&gt; DescribeDocumentPermission -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845376"><span id="local-6989586621679845378"><span id="local-6989586621679845380"><span id="local-6989586621679845382"><span class="annot"><span class="annottext">ReadPrec [DescribeDocumentPermission]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679847191"><span id="local-6989586621679847193"><span id="local-6989586621679847195"><span id="local-6989586621679847197"><span class="annot"><span class="annottext">ReadPrec [DescribeDocumentPermission]
 ReadPrec DescribeDocumentPermission
 Int -&gt; ReadS DescribeDocumentPermission
 ReadS [DescribeDocumentPermission]
@@ -104,7 +104,7 @@ readList :: ReadS [DescribeDocumentPermission]
 $creadList :: ReadS [DescribeDocumentPermission]
 readsPrec :: Int -&gt; ReadS DescribeDocumentPermission
 $creadsPrec :: Int -&gt; ReadS DescribeDocumentPermission
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845369"><span id="local-6989586621679845371"><span id="local-6989586621679845373"><span class="annot"><span class="annottext">Int -&gt; DescribeDocumentPermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679847184"><span id="local-6989586621679847186"><span id="local-6989586621679847188"><span class="annot"><span class="annottext">Int -&gt; DescribeDocumentPermission -&gt; ShowS
 [DescribeDocumentPermission] -&gt; ShowS
 DescribeDocumentPermission -&gt; String
 (Int -&gt; DescribeDocumentPermission -&gt; ShowS)
@@ -162,9 +162,9 @@ DescribeDocumentPermission -&gt; Rep DescribeDocumentPermission x
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentPermissionType.html#DocumentPermissionType"><span class="hs-identifier hs-type">DocumentPermissionType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span><span>
 </span><span id="line-100"></span><span id="newDescribeDocumentPermission"><span class="annot"><span class="annottext">newDescribeDocumentPermission :: Text -&gt; DocumentPermissionType -&gt; DescribeDocumentPermission
-</span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#newDescribeDocumentPermission"><span class="hs-identifier hs-var hs-var">newDescribeDocumentPermission</span></a></span></span><span> </span><span id="local-6989586621679845364"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679845364"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679845363"><span class="annot"><span class="annottext">DocumentPermissionType
-</span><a href="#local-6989586621679845363"><span class="hs-identifier hs-var">pPermissionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#newDescribeDocumentPermission"><span class="hs-identifier hs-var hs-var">newDescribeDocumentPermission</span></a></span></span><span> </span><span id="local-6989586621679847179"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679847179"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679847178"><span class="annot"><span class="annottext">DocumentPermissionType
+</span><a href="#local-6989586621679847178"><span class="hs-identifier hs-var">pPermissionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">DescribeDocumentPermission' :: Maybe Text
 -&gt; Maybe Natural
 -&gt; Text
@@ -182,10 +182,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DescribeDocumentPermission' :: Text
 </span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3Aname%3ADescribeDocumentPermission%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679845364"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679847179"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:permissionType:DescribeDocumentPermission' :: DocumentPermissionType
 </span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3ApermissionType%3ADescribeDocumentPermission%27"><span class="hs-identifier hs-var">permissionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DocumentPermissionType
-</span><a href="#local-6989586621679845363"><span class="hs-identifier hs-var">pPermissionType_</span></a></span><span>
+</span><a href="#local-6989586621679847178"><span class="hs-identifier hs-var">pPermissionType_</span></a></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
@@ -202,16 +202,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-type">DescribeDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845360"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-type">DescribeDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679847175"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeDocumentPermission' :: DescribeDocumentPermission -&gt; Maybe Text
-</span><a href="#local-6989586621679845360"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679845360"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845359"><span class="annot"><span class="annottext">s :: DescribeDocumentPermission
-</span><a href="#local-6989586621679845359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-type">DescribeDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845358"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679845358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDocumentPermission
-</span><a href="#local-6989586621679845359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeDocumentPermission' :: Maybe Text
+</span><a href="#local-6989586621679847175"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679847175"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679847174"><span class="annot"><span class="annottext">s :: DescribeDocumentPermission
+</span><a href="#local-6989586621679847174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-type">DescribeDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679847173"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679847173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDocumentPermission
+</span><a href="#local-6989586621679847174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeDocumentPermission' :: Maybe Text
 </span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3AnextToken%3ADescribeDocumentPermission%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679845358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679847173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
@@ -228,16 +228,16 @@ $sel:nextToken:DescribeDocumentPermission' :: DescribeDocumentPermission -&gt; M
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-type">DescribeDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845357"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-type">DescribeDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679847172"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:DescribeDocumentPermission' :: DescribeDocumentPermission -&gt; Maybe Natural
-</span><a href="#local-6989586621679845357"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679845357"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845356"><span class="annot"><span class="annottext">s :: DescribeDocumentPermission
-</span><a href="#local-6989586621679845356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-type">DescribeDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845355"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679845355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDocumentPermission
-</span><a href="#local-6989586621679845356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeDocumentPermission' :: Maybe Natural
+</span><a href="#local-6989586621679847172"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679847172"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679847171"><span class="annot"><span class="annottext">s :: DescribeDocumentPermission
+</span><a href="#local-6989586621679847171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-type">DescribeDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679847170"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679847170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDocumentPermission
+</span><a href="#local-6989586621679847171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeDocumentPermission' :: Maybe Natural
 </span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3AmaxResults%3ADescribeDocumentPermission%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679845355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679847170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The name of the document for which you are the owner.</span><span>
 </span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#describeDocumentPermission_name"><span class="hs-identifier hs-type">describeDocumentPermission_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -249,16 +249,16 @@ $sel:maxResults:DescribeDocumentPermission' :: DescribeDocumentPermission -&gt; 
 -&gt; Lens
      DescribeDocumentPermission DescribeDocumentPermission Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-type">DescribeDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845354"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-type">DescribeDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679847169"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DescribeDocumentPermission' :: DescribeDocumentPermission -&gt; Text
-</span><a href="#local-6989586621679845354"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679845354"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845353"><span class="annot"><span class="annottext">s :: DescribeDocumentPermission
-</span><a href="#local-6989586621679845353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-type">DescribeDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845352"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679845352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDocumentPermission
-</span><a href="#local-6989586621679845353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DescribeDocumentPermission' :: Text
+</span><a href="#local-6989586621679847169"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679847169"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679847168"><span class="annot"><span class="annottext">s :: DescribeDocumentPermission
+</span><a href="#local-6989586621679847168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-type">DescribeDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679847167"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679847167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDocumentPermission
+</span><a href="#local-6989586621679847168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DescribeDocumentPermission' :: Text
 </span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3Aname%3ADescribeDocumentPermission%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679845352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679847167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The permission type for the document. The permission type can be</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- /Share/.</span><span>
@@ -274,28 +274,28 @@ $sel:name:DescribeDocumentPermission' :: DescribeDocumentPermission -&gt; Text
      DocumentPermissionType
      DocumentPermissionType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-type">DescribeDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845351"><span class="annot"><span class="annottext">DocumentPermissionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-type">DescribeDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679847166"><span class="annot"><span class="annottext">DocumentPermissionType
 permissionType :: DocumentPermissionType
 $sel:permissionType:DescribeDocumentPermission' :: DescribeDocumentPermission -&gt; DocumentPermissionType
-</span><a href="#local-6989586621679845351"><span class="hs-identifier hs-var hs-var">permissionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentPermissionType
-</span><a href="#local-6989586621679845351"><span class="hs-identifier hs-var">permissionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845350"><span class="annot"><span class="annottext">s :: DescribeDocumentPermission
-</span><a href="#local-6989586621679845350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-type">DescribeDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845349"><span class="annot"><span class="annottext">DocumentPermissionType
-</span><a href="#local-6989586621679845349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDocumentPermission
-</span><a href="#local-6989586621679845350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionType:DescribeDocumentPermission' :: DocumentPermissionType
+</span><a href="#local-6989586621679847166"><span class="hs-identifier hs-var hs-var">permissionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentPermissionType
+</span><a href="#local-6989586621679847166"><span class="hs-identifier hs-var">permissionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679847165"><span class="annot"><span class="annottext">s :: DescribeDocumentPermission
+</span><a href="#local-6989586621679847165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-type">DescribeDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679847164"><span class="annot"><span class="annottext">DocumentPermissionType
+</span><a href="#local-6989586621679847164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDocumentPermission
+</span><a href="#local-6989586621679847165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionType:DescribeDocumentPermission' :: DocumentPermissionType
 </span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3ApermissionType%3ADescribeDocumentPermission%27"><span class="hs-identifier hs-var">permissionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DocumentPermissionType
-</span><a href="#local-6989586621679845349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679847164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679845345"><span class="annot"><span class="annottext">request :: DescribeDocumentPermission -&gt; Request DescribeDocumentPermission
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679847160"><span class="annot"><span class="annottext">request :: DescribeDocumentPermission -&gt; Request DescribeDocumentPermission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeDocumentPermission -&gt; Request DescribeDocumentPermission
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679845341"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679847156"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeDocumentPermission
 -&gt; ClientResponse ClientBody
@@ -321,31 +321,29 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679845338"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845338"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679845337"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679845337"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679845336"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679845336"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679847153"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679847153"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679847152"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679847152"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679847151"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679847151"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
--&gt; Maybe Text
 -&gt; Maybe [AccountSharingInfo]
+-&gt; Maybe Text
 -&gt; Int
 -&gt; DescribeDocumentPermissionResponse
 </span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-var">DescribeDocumentPermissionResponse'</span></a></span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
- -&gt; Maybe Text
  -&gt; Maybe [AccountSharingInfo]
+ -&gt; Maybe Text
  -&gt; Int
  -&gt; DescribeDocumentPermissionResponse)
 -&gt; Either String (Maybe [Text])
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe [AccountSharingInfo]
-      -&gt; Int
-      -&gt; DescribeDocumentPermissionResponse)
+     (Maybe [AccountSharingInfo]
+      -&gt; Maybe Text -&gt; Int -&gt; DescribeDocumentPermissionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679845336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679847151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccountIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -356,42 +354,36 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
-   -&gt; Maybe [AccountSharingInfo]
-   -&gt; Int
-   -&gt; DescribeDocumentPermissionResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [AccountSharingInfo]
-      -&gt; Int -&gt; DescribeDocumentPermissionResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679845336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
   (Maybe [AccountSharingInfo]
-   -&gt; Int -&gt; DescribeDocumentPermissionResponse)
+   -&gt; Maybe Text -&gt; Int -&gt; DescribeDocumentPermissionResponse)
 -&gt; Either String (Maybe [AccountSharingInfo])
--&gt; Either String (Int -&gt; DescribeDocumentPermissionResponse)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeDocumentPermissionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679845336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679847151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [AccountSharingInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccountSharingInfoList&quot;</span></span><span>
-</span><span id="line-141"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AccountSharingInfo]))
+</span><span id="line-140"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AccountSharingInfo]))
 -&gt; Maybe [AccountSharingInfo]
 -&gt; Either String (Maybe [AccountSharingInfo])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AccountSharingInfo]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-142"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; DescribeDocumentPermissionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeDocumentPermissionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679847151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeDocumentPermissionResponse)
 -&gt; Either String Int
 -&gt; Either String DescribeDocumentPermissionResponse
@@ -401,15 +393,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845338"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679847153"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679845327"><span id="local-6989586621679845329"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679847142"><span id="local-6989586621679847144"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679845324"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679847139"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679845320"><span class="annot"><span class="annottext">toHeaders :: DescribeDocumentPermission -&gt; ResponseHeaders
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679847135"><span class="annot"><span class="annottext">toHeaders :: DescribeDocumentPermission -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeDocumentPermission -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -436,9 +428,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679845310"><span id="local-6989586621679845312"><span id="local-6989586621679845314"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679845308"><span class="annot"><span class="annottext">toJSON :: DescribeDocumentPermission -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-type">DescribeDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845303"><span id="local-6989586621679845304"><span id="local-6989586621679845305"><span id="local-6989586621679845306"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679847125"><span id="local-6989586621679847127"><span id="local-6989586621679847129"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679847123"><span class="annot"><span class="annottext">toJSON :: DescribeDocumentPermission -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission%27"><span class="hs-identifier hs-type">DescribeDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679847118"><span id="local-6989586621679847119"><span id="local-6989586621679847120"><span id="local-6989586621679847121"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 DocumentPermissionType
@@ -450,7 +442,7 @@ $sel:permissionType:DescribeDocumentPermission' :: DescribeDocumentPermission -&
 $sel:name:DescribeDocumentPermission' :: DescribeDocumentPermission -&gt; Text
 $sel:maxResults:DescribeDocumentPermission' :: DescribeDocumentPermission -&gt; Maybe Natural
 $sel:nextToken:DescribeDocumentPermission' :: DescribeDocumentPermission -&gt; Maybe Text
-</span><a href="#local-6989586621679845303"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679847118"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -462,21 +454,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679845306"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679847121"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679845305"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679847120"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679845304"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679847119"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -484,19 +476,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;PermissionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DocumentPermissionType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DocumentPermissionType
-</span><a href="#local-6989586621679845303"><span class="hs-identifier hs-var">permissionType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679847118"><span class="hs-identifier hs-var">permissionType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679845297"><span class="annot"><span class="annottext">toPath :: DescribeDocumentPermission -&gt; ByteString
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679847112"><span class="annot"><span class="annottext">toPath :: DescribeDocumentPermission -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeDocumentPermission -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermission"><span class="hs-identifier hs-type">DescribeDocumentPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679845293"><span class="annot"><span class="annottext">toQuery :: DescribeDocumentPermission -&gt; QueryString
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679847108"><span class="annot"><span class="annottext">toQuery :: DescribeDocumentPermission -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeDocumentPermission -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -504,24 +496,24 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newDescribeDocumentPermissionResponse' smart constructor.</span><span>
-</span><span id="line-184"></span><span id="local-6989586621679845290"><span id="local-6989586621679845291"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDocumentPermissionResponse"><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse"><span class="hs-identifier hs-var">DescribeDocumentPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDocumentPermissionResponse%27"><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-var">DescribeDocumentPermissionResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span id="local-6989586621679847105"><span id="local-6989586621679847106"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDocumentPermissionResponse"><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse"><span class="hs-identifier hs-var">DescribeDocumentPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDocumentPermissionResponse%27"><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-var">DescribeDocumentPermissionResponse'</span></a></span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account IDs that have permission to use this document. The ID can be</span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-comment">-- either an Amazon Web Services account or /All/.</span><span>
 </span><span id="line-187"></span><span>    </span><span id="%24sel%3AaccountIds%3ADescribeDocumentPermissionResponse%27"><span class="annot"><span class="annottext">DescribeDocumentPermissionResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3AaccountIds%3ADescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
-</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-190"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeDocumentPermissionResponse%27"><span class="annot"><span class="annottext">DescribeDocumentPermissionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3AnextToken%3ADescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | A list of Amazon Web Services accounts where the current document is</span><span>
-</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- shared and the version shared with each account.</span><span>
-</span><span id="line-193"></span><span>    </span><span id="%24sel%3AaccountSharingInfoList%3ADescribeDocumentPermissionResponse%27"><span class="annot"><span class="annottext">DescribeDocumentPermissionResponse -&gt; Maybe [AccountSharingInfo]
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | A list of Amazon Web Services accounts where the current document is</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- shared and the version shared with each account.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AaccountSharingInfoList%3ADescribeDocumentPermissionResponse%27"><span class="annot"><span class="annottext">DescribeDocumentPermissionResponse -&gt; Maybe [AccountSharingInfo]
 </span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3AaccountSharingInfoList%3ADescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-var hs-var">accountSharingInfoList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.AccountSharingInfo.html#AccountSharingInfo"><span class="hs-identifier hs-type">AccountSharingInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeDocumentPermissionResponse%27"><span class="annot"><span class="annottext">DescribeDocumentPermissionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3AnextToken%3ADescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeDocumentPermissionResponse%27"><span class="annot"><span class="annottext">DescribeDocumentPermissionResponse -&gt; Int
 </span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3AhttpStatus%3ADescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679845282"><span id="local-6989586621679845284"><span class="annot"><span class="annottext">DescribeDocumentPermissionResponse
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679847097"><span id="local-6989586621679847099"><span class="annot"><span class="annottext">DescribeDocumentPermissionResponse
 -&gt; DescribeDocumentPermissionResponse -&gt; Bool
 (DescribeDocumentPermissionResponse
  -&gt; DescribeDocumentPermissionResponse -&gt; Bool)
@@ -537,7 +529,7 @@ $c/= :: DescribeDocumentPermissionResponse
 -&gt; DescribeDocumentPermissionResponse -&gt; Bool
 $c== :: DescribeDocumentPermissionResponse
 -&gt; DescribeDocumentPermissionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845274"><span id="local-6989586621679845276"><span id="local-6989586621679845278"><span id="local-6989586621679845280"><span class="annot"><span class="annottext">ReadPrec [DescribeDocumentPermissionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679847089"><span id="local-6989586621679847091"><span id="local-6989586621679847093"><span id="local-6989586621679847095"><span class="annot"><span class="annottext">ReadPrec [DescribeDocumentPermissionResponse]
 ReadPrec DescribeDocumentPermissionResponse
 Int -&gt; ReadS DescribeDocumentPermissionResponse
 ReadS [DescribeDocumentPermissionResponse]
@@ -557,7 +549,7 @@ readList :: ReadS [DescribeDocumentPermissionResponse]
 $creadList :: ReadS [DescribeDocumentPermissionResponse]
 readsPrec :: Int -&gt; ReadS DescribeDocumentPermissionResponse
 $creadsPrec :: Int -&gt; ReadS DescribeDocumentPermissionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845268"><span id="local-6989586621679845270"><span id="local-6989586621679845272"><span class="annot"><span class="annottext">Int -&gt; DescribeDocumentPermissionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679847083"><span id="local-6989586621679847085"><span id="local-6989586621679847087"><span class="annot"><span class="annottext">Int -&gt; DescribeDocumentPermissionResponse -&gt; ShowS
 [DescribeDocumentPermissionResponse] -&gt; ShowS
 DescribeDocumentPermissionResponse -&gt; String
 (Int -&gt; DescribeDocumentPermissionResponse -&gt; ShowS)
@@ -606,11 +598,11 @@ DescribeDocumentPermissionResponse
 </span><span id="line-207"></span><span class="hs-comment">-- 'accountIds', 'describeDocumentPermissionResponse_accountIds' - The account IDs that have permission to use this document. The ID can be</span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- either an Amazon Web Services account or /All/.</span><span>
 </span><span id="line-209"></span><span class="hs-comment">--</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- 'nextToken', 'describeDocumentPermissionResponse_nextToken' - The token for the next set of items to return. Use this token to get the</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'accountSharingInfoList', 'describeDocumentPermissionResponse_accountSharingInfoList' - A list of Amazon Web Services accounts where the current document is</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- shared and the version shared with each account.</span><span>
 </span><span id="line-212"></span><span class="hs-comment">--</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- 'accountSharingInfoList', 'describeDocumentPermissionResponse_accountSharingInfoList' - A list of Amazon Web Services accounts where the current document is</span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- shared and the version shared with each account.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'nextToken', 'describeDocumentPermissionResponse_nextToken' - The token for the next set of items to return. Use this token to get the</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- next set of results.</span><span>
 </span><span id="line-215"></span><span class="hs-comment">--</span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- 'httpStatus', 'describeDocumentPermissionResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-217"></span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#newDescribeDocumentPermissionResponse"><span class="hs-identifier hs-type">newDescribeDocumentPermissionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -618,11 +610,11 @@ DescribeDocumentPermissionResponse
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-220"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse</span></a></span><span>
 </span><span id="line-221"></span><span id="newDescribeDocumentPermissionResponse"><span class="annot"><span class="annottext">newDescribeDocumentPermissionResponse :: Int -&gt; DescribeDocumentPermissionResponse
-</span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#newDescribeDocumentPermissionResponse"><span class="hs-identifier hs-var hs-var">newDescribeDocumentPermissionResponse</span></a></span></span><span> </span><span id="local-6989586621679845265"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845265"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#newDescribeDocumentPermissionResponse"><span class="hs-identifier hs-var hs-var">newDescribeDocumentPermissionResponse</span></a></span></span><span> </span><span id="local-6989586621679847080"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679847080"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-222"></span><span>  </span><span class="annot"><span class="annottext">DescribeDocumentPermissionResponse' :: Maybe [Text]
--&gt; Maybe Text
 -&gt; Maybe [AccountSharingInfo]
+-&gt; Maybe Text
 -&gt; Int
 -&gt; DescribeDocumentPermissionResponse
 </span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse'</span></a></span><span>
@@ -631,18 +623,18 @@ DescribeDocumentPermissionResponse
 </span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeDocumentPermissionResponse' :: Maybe Text
-</span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3AnextToken%3ADescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountSharingInfoList:DescribeDocumentPermissionResponse' :: Maybe [AccountSharingInfo]
+</span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3AaccountSharingInfoList%3ADescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-var">accountSharingInfoList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">Maybe [AccountSharingInfo]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountSharingInfoList:DescribeDocumentPermissionResponse' :: Maybe [AccountSharingInfo]
-</span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3AaccountSharingInfoList%3ADescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-var">accountSharingInfoList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">Maybe [AccountSharingInfo]
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeDocumentPermissionResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3AnextToken%3ADescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDocumentPermissionResponse' :: Int
 </span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3AhttpStatus%3ADescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845265"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679847080"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-229"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | The account IDs that have permission to use this document. The ID can be</span><span>
@@ -660,16 +652,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845264"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679847079"><span class="annot"><span class="annottext">Maybe [Text]
 accountIds :: Maybe [Text]
 $sel:accountIds:DescribeDocumentPermissionResponse' :: DescribeDocumentPermissionResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679845264"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679845264"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845263"><span class="annot"><span class="annottext">s :: DescribeDocumentPermissionResponse
-</span><a href="#local-6989586621679845263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845262"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679845262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDocumentPermissionResponse
-</span><a href="#local-6989586621679845263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:DescribeDocumentPermissionResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679847079"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679847079"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679847078"><span class="annot"><span class="annottext">s :: DescribeDocumentPermissionResponse
+</span><a href="#local-6989586621679847078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679847077"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679847077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDocumentPermissionResponse
+</span><a href="#local-6989586621679847078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:DescribeDocumentPermissionResponse' :: Maybe [Text]
 </span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3AaccountIds%3ADescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679845262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679847077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeDocumentPermissionResponse
  -&gt; f DescribeDocumentPermissionResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -684,39 +676,13 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#describeDocumentPermissionResponse_nextToken"><span class="hs-identifier hs-type">describeDocumentPermissionResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-239"></span><span id="describeDocumentPermissionResponse_nextToken"><span class="annot"><span class="annottext">describeDocumentPermissionResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeDocumentPermissionResponse
--&gt; f DescribeDocumentPermissionResponse
-</span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#describeDocumentPermissionResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeDocumentPermissionResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDocumentPermissionResponse -&gt; Maybe Text)
--&gt; (DescribeDocumentPermissionResponse
-    -&gt; Maybe Text -&gt; DescribeDocumentPermissionResponse)
--&gt; Lens
-     DescribeDocumentPermissionResponse
-     DescribeDocumentPermissionResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845258"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeDocumentPermissionResponse' :: DescribeDocumentPermissionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679845258"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679845258"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845257"><span class="annot"><span class="annottext">s :: DescribeDocumentPermissionResponse
-</span><a href="#local-6989586621679845257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845256"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679845256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDocumentPermissionResponse
-</span><a href="#local-6989586621679845257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeDocumentPermissionResponse' :: Maybe Text
-</span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3AnextToken%3ADescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679845256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-240"></span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- | A list of Amazon Web Services accounts where the current document is</span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- shared and the version shared with each account.</span><span>
-</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#describeDocumentPermissionResponse_accountSharingInfoList"><span class="hs-identifier hs-type">describeDocumentPermissionResponse_accountSharingInfoList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.AccountSharingInfo.html#AccountSharingInfo"><span class="hs-identifier hs-type">AccountSharingInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-244"></span><span id="describeDocumentPermissionResponse_accountSharingInfoList"><span class="annot"><span class="annottext">describeDocumentPermissionResponse_accountSharingInfoList :: (Maybe [AccountSharingInfo] -&gt; f (Maybe [AccountSharingInfo]))
+</span><span id="line-236"></span><span class="hs-comment">-- | A list of Amazon Web Services accounts where the current document is</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- shared and the version shared with each account.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#describeDocumentPermissionResponse_accountSharingInfoList"><span class="hs-identifier hs-type">describeDocumentPermissionResponse_accountSharingInfoList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.AccountSharingInfo.html#AccountSharingInfo"><span class="hs-identifier hs-type">AccountSharingInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="describeDocumentPermissionResponse_accountSharingInfoList"><span class="annot"><span class="annottext">describeDocumentPermissionResponse_accountSharingInfoList :: (Maybe [AccountSharingInfo] -&gt; f (Maybe [AccountSharingInfo]))
 -&gt; DescribeDocumentPermissionResponse
 -&gt; f DescribeDocumentPermissionResponse
 </span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#describeDocumentPermissionResponse_accountSharingInfoList"><span class="hs-identifier hs-var hs-var">describeDocumentPermissionResponse_accountSharingInfoList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDocumentPermissionResponse -&gt; Maybe [AccountSharingInfo])
@@ -729,16 +695,16 @@ $sel:nextToken:DescribeDocumentPermissionResponse' :: DescribeDocumentPermission
      (Maybe [AccountSharingInfo])
      (Maybe [AccountSharingInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845255"><span class="annot"><span class="annottext">Maybe [AccountSharingInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679847073"><span class="annot"><span class="annottext">Maybe [AccountSharingInfo]
 accountSharingInfoList :: Maybe [AccountSharingInfo]
 $sel:accountSharingInfoList:DescribeDocumentPermissionResponse' :: DescribeDocumentPermissionResponse -&gt; Maybe [AccountSharingInfo]
-</span><a href="#local-6989586621679845255"><span class="hs-identifier hs-var hs-var">accountSharingInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AccountSharingInfo]
-</span><a href="#local-6989586621679845255"><span class="hs-identifier hs-var">accountSharingInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845254"><span class="annot"><span class="annottext">s :: DescribeDocumentPermissionResponse
-</span><a href="#local-6989586621679845254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845253"><span class="annot"><span class="annottext">Maybe [AccountSharingInfo]
-</span><a href="#local-6989586621679845253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDocumentPermissionResponse
-</span><a href="#local-6989586621679845254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountSharingInfoList:DescribeDocumentPermissionResponse' :: Maybe [AccountSharingInfo]
+</span><a href="#local-6989586621679847073"><span class="hs-identifier hs-var hs-var">accountSharingInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AccountSharingInfo]
+</span><a href="#local-6989586621679847073"><span class="hs-identifier hs-var">accountSharingInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679847072"><span class="annot"><span class="annottext">s :: DescribeDocumentPermissionResponse
+</span><a href="#local-6989586621679847072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679847071"><span class="annot"><span class="annottext">Maybe [AccountSharingInfo]
+</span><a href="#local-6989586621679847071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDocumentPermissionResponse
+</span><a href="#local-6989586621679847072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountSharingInfoList:DescribeDocumentPermissionResponse' :: Maybe [AccountSharingInfo]
 </span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3AaccountSharingInfoList%3ADescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-var">accountSharingInfoList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AccountSharingInfo]
-</span><a href="#local-6989586621679845253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AccountSharingInfo] -&gt; f (Maybe [AccountSharingInfo]))
+</span><a href="#local-6989586621679847071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AccountSharingInfo] -&gt; f (Maybe [AccountSharingInfo]))
  -&gt; DescribeDocumentPermissionResponse
  -&gt; f DescribeDocumentPermissionResponse)
 -&gt; ((Maybe [AccountSharingInfo] -&gt; f (Maybe [AccountSharingInfo]))
@@ -765,8 +731,34 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AccountSharingInfo]
   [AccountSharingInfo]
   [AccountSharingInfo]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#describeDocumentPermissionResponse_nextToken"><span class="hs-identifier hs-type">describeDocumentPermissionResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="describeDocumentPermissionResponse_nextToken"><span class="annot"><span class="annottext">describeDocumentPermissionResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDocumentPermissionResponse
+-&gt; f DescribeDocumentPermissionResponse
+</span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#describeDocumentPermissionResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeDocumentPermissionResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDocumentPermissionResponse -&gt; Maybe Text)
+-&gt; (DescribeDocumentPermissionResponse
+    -&gt; Maybe Text -&gt; DescribeDocumentPermissionResponse)
+-&gt; Lens
+     DescribeDocumentPermissionResponse
+     DescribeDocumentPermissionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679847070"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeDocumentPermissionResponse' :: DescribeDocumentPermissionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679847070"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679847070"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679847069"><span class="annot"><span class="annottext">s :: DescribeDocumentPermissionResponse
+</span><a href="#local-6989586621679847069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679847068"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679847068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDocumentPermissionResponse
+</span><a href="#local-6989586621679847069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeDocumentPermissionResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3AnextToken%3ADescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679847068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-247"></span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#describeDocumentPermissionResponse_httpStatus"><span class="hs-identifier hs-type">describeDocumentPermissionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -782,18 +774,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845252"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679847067"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeDocumentPermissionResponse' :: DescribeDocumentPermissionResponse -&gt; Int
-</span><a href="#local-6989586621679845252"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845252"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845251"><span class="annot"><span class="annottext">s :: DescribeDocumentPermissionResponse
-</span><a href="#local-6989586621679845251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845250"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDocumentPermissionResponse
-</span><a href="#local-6989586621679845251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDocumentPermissionResponse' :: Int
+</span><a href="#local-6989586621679847067"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679847067"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679847066"><span class="annot"><span class="annottext">s :: DescribeDocumentPermissionResponse
+</span><a href="#local-6989586621679847066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679847065"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679847065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDocumentPermissionResponse
+</span><a href="#local-6989586621679847066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDocumentPermissionResponse' :: Int
 </span><a href="Network.AWS.SSM.DescribeDocumentPermission.html#%24sel%3AhttpStatus%3ADescribeDocumentPermissionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679847065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-251"></span><span>  </span><span id="local-6989586621679845248"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679847063"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-252"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeDocumentPermission.html#DescribeDocumentPermissionResponse"><span class="hs-identifier hs-type">DescribeDocumentPermissionResponse</span></a></span></span><span>
 </span><span id="line-253"></span></pre></body></html>

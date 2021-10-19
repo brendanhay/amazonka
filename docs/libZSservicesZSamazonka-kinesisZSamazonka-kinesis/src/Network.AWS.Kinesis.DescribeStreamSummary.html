@@ -55,12 +55,12 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDescribeStreamSummary' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679204051"><span id="local-6989586621679204052"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStreamSummary"><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary"><span class="hs-identifier hs-var">DescribeStreamSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStreamSummary%27"><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary%27"><span class="hs-identifier hs-var">DescribeStreamSummary'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679204170"><span id="local-6989586621679204171"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStreamSummary"><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary"><span class="hs-identifier hs-var">DescribeStreamSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStreamSummary%27"><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary%27"><span class="hs-identifier hs-var">DescribeStreamSummary'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the stream to describe.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AstreamName%3ADescribeStreamSummary%27"><span class="annot"><span class="annottext">DescribeStreamSummary -&gt; Text
 </span><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#%24sel%3AstreamName%3ADescribeStreamSummary%27"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204045"><span id="local-6989586621679204047"><span class="annot"><span class="annottext">DescribeStreamSummary -&gt; DescribeStreamSummary -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204164"><span id="local-6989586621679204166"><span class="annot"><span class="annottext">DescribeStreamSummary -&gt; DescribeStreamSummary -&gt; Bool
 (DescribeStreamSummary -&gt; DescribeStreamSummary -&gt; Bool)
 -&gt; (DescribeStreamSummary -&gt; DescribeStreamSummary -&gt; Bool)
 -&gt; Eq DescribeStreamSummary
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeStreamSummary -&gt; DescribeStreamSummary -&gt; Bool
 == :: DescribeStreamSummary -&gt; DescribeStreamSummary -&gt; Bool
 $c== :: DescribeStreamSummary -&gt; DescribeStreamSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204036"><span id="local-6989586621679204038"><span id="local-6989586621679204040"><span id="local-6989586621679204042"><span class="annot"><span class="annottext">ReadPrec [DescribeStreamSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204155"><span id="local-6989586621679204157"><span id="local-6989586621679204159"><span id="local-6989586621679204161"><span class="annot"><span class="annottext">ReadPrec [DescribeStreamSummary]
 ReadPrec DescribeStreamSummary
 Int -&gt; ReadS DescribeStreamSummary
 ReadS [DescribeStreamSummary]
@@ -89,7 +89,7 @@ readList :: ReadS [DescribeStreamSummary]
 $creadList :: ReadS [DescribeStreamSummary]
 readsPrec :: Int -&gt; ReadS DescribeStreamSummary
 $creadsPrec :: Int -&gt; ReadS DescribeStreamSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204029"><span id="local-6989586621679204031"><span id="local-6989586621679204033"><span class="annot"><span class="annottext">Int -&gt; DescribeStreamSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204148"><span id="local-6989586621679204150"><span id="local-6989586621679204152"><span class="annot"><span class="annottext">Int -&gt; DescribeStreamSummary -&gt; ShowS
 [DescribeStreamSummary] -&gt; ShowS
 DescribeStreamSummary -&gt; String
 (Int -&gt; DescribeStreamSummary -&gt; ShowS)
@@ -129,12 +129,12 @@ $cfrom :: forall x. DescribeStreamSummary -&gt; Rep DescribeStreamSummary x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary"><span class="hs-identifier hs-type">DescribeStreamSummary</span></a></span><span>
 </span><span id="line-77"></span><span id="newDescribeStreamSummary"><span class="annot"><span class="annottext">newDescribeStreamSummary :: Text -&gt; DescribeStreamSummary
-</span><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#newDescribeStreamSummary"><span class="hs-identifier hs-var hs-var">newDescribeStreamSummary</span></a></span></span><span> </span><span id="local-6989586621679204024"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679204024"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#newDescribeStreamSummary"><span class="hs-identifier hs-var hs-var">newDescribeStreamSummary</span></a></span></span><span> </span><span id="local-6989586621679204143"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204143"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DescribeStreamSummary' :: Text -&gt; DescribeStreamSummary
 </span><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary%27"><span class="hs-identifier hs-type">DescribeStreamSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:DescribeStreamSummary' :: Text
 </span><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#%24sel%3AstreamName%3ADescribeStreamSummary%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679204024"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679204143"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The name of the stream to describe.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#describeStreamSummary_streamName"><span class="hs-identifier hs-type">describeStreamSummary_streamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary"><span class="hs-identifier hs-type">DescribeStreamSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -144,27 +144,27 @@ $cfrom :: forall x. DescribeStreamSummary -&gt; Rep DescribeStreamSummary x
 -&gt; (DescribeStreamSummary -&gt; Text -&gt; DescribeStreamSummary)
 -&gt; Lens DescribeStreamSummary DescribeStreamSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary%27"><span class="hs-identifier hs-type">DescribeStreamSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204021"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary%27"><span class="hs-identifier hs-type">DescribeStreamSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204140"><span class="annot"><span class="annottext">Text
 streamName :: Text
 $sel:streamName:DescribeStreamSummary' :: DescribeStreamSummary -&gt; Text
-</span><a href="#local-6989586621679204021"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679204021"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204020"><span class="annot"><span class="annottext">s :: DescribeStreamSummary
-</span><a href="#local-6989586621679204020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary%27"><span class="hs-identifier hs-type">DescribeStreamSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204019"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679204019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamSummary
-</span><a href="#local-6989586621679204020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:DescribeStreamSummary' :: Text
+</span><a href="#local-6989586621679204140"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204140"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204139"><span class="annot"><span class="annottext">s :: DescribeStreamSummary
+</span><a href="#local-6989586621679204139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary%27"><span class="hs-identifier hs-type">DescribeStreamSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204138"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamSummary
+</span><a href="#local-6989586621679204139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:DescribeStreamSummary' :: Text
 </span><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#%24sel%3AstreamName%3ADescribeStreamSummary%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679204019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary"><span class="hs-identifier hs-type">DescribeStreamSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary"><span class="hs-identifier hs-type">DescribeStreamSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary"><span class="hs-identifier hs-type">DescribeStreamSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary"><span class="hs-identifier hs-type">DescribeStreamSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse"><span class="hs-identifier hs-type">DescribeStreamSummaryResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679204015"><span class="annot"><span class="annottext">request :: DescribeStreamSummary -&gt; Request DescribeStreamSummary
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679204134"><span class="annot"><span class="annottext">request :: DescribeStreamSummary -&gt; Request DescribeStreamSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeStreamSummary -&gt; Request DescribeStreamSummary
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Kinesis.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679204011"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679204130"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeStreamSummary
 -&gt; ClientResponse ClientBody
@@ -190,10 +190,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679204008"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204008"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679204007"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679204007"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679204006"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679204006"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679204127"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204127"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679204126"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679204126"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679204125"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204125"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StreamDescriptionSummary -&gt; DescribeStreamSummaryResponse
 </span><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse%27"><span class="hs-identifier hs-var">DescribeStreamSummaryResponse'</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StreamDescriptionSummary -&gt; DescribeStreamSummaryResponse)
@@ -206,25 +206,25 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204008"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204127"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (StreamDescriptionSummary -&gt; DescribeStreamSummaryResponse)
 -&gt; Either String StreamDescriptionSummary
 -&gt; Either String DescribeStreamSummaryResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679204006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String StreamDescriptionSummary
+</span><a href="#local-6989586621679204125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String StreamDescriptionSummary
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamDescriptionSummary&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203998"><span id="local-6989586621679204000"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary"><span class="hs-identifier hs-type">DescribeStreamSummary</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204117"><span id="local-6989586621679204119"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary"><span class="hs-identifier hs-type">DescribeStreamSummary</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203995"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary"><span class="hs-identifier hs-type">DescribeStreamSummary</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204114"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary"><span class="hs-identifier hs-type">DescribeStreamSummary</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary"><span class="hs-identifier hs-type">DescribeStreamSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679203991"><span class="annot"><span class="annottext">toHeaders :: DescribeStreamSummary -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679204110"><span class="annot"><span class="annottext">toHeaders :: DescribeStreamSummary -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeStreamSummary -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -251,12 +251,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203981"><span id="local-6989586621679203983"><span id="local-6989586621679203985"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary"><span class="hs-identifier hs-type">DescribeStreamSummary</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679203979"><span class="annot"><span class="annottext">toJSON :: DescribeStreamSummary -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary%27"><span class="hs-identifier hs-type">DescribeStreamSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203977"><span class="annot"><span class="annottext">Text
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204100"><span id="local-6989586621679204102"><span id="local-6989586621679204104"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary"><span class="hs-identifier hs-type">DescribeStreamSummary</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679204098"><span class="annot"><span class="annottext">toJSON :: DescribeStreamSummary -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary%27"><span class="hs-identifier hs-type">DescribeStreamSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204096"><span class="annot"><span class="annottext">Text
 streamName :: Text
 $sel:streamName:DescribeStreamSummary' :: DescribeStreamSummary -&gt; Text
-</span><a href="#local-6989586621679203977"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679204096"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -268,18 +268,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203977"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679204096"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary"><span class="hs-identifier hs-type">DescribeStreamSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679203971"><span class="annot"><span class="annottext">toPath :: DescribeStreamSummary -&gt; ByteString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679204090"><span class="annot"><span class="annottext">toPath :: DescribeStreamSummary -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeStreamSummary -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummary"><span class="hs-identifier hs-type">DescribeStreamSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679203967"><span class="annot"><span class="annottext">toQuery :: DescribeStreamSummary -&gt; QueryString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679204086"><span class="annot"><span class="annottext">toQuery :: DescribeStreamSummary -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeStreamSummary -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -287,7 +287,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newDescribeStreamSummaryResponse' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679203964"><span id="local-6989586621679203965"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStreamSummaryResponse"><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse"><span class="hs-identifier hs-var">DescribeStreamSummaryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStreamSummaryResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse%27"><span class="hs-identifier hs-var">DescribeStreamSummaryResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span id="local-6989586621679204083"><span id="local-6989586621679204084"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStreamSummaryResponse"><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse"><span class="hs-identifier hs-var">DescribeStreamSummaryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStreamSummaryResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse%27"><span class="hs-identifier hs-var">DescribeStreamSummaryResponse'</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeStreamSummaryResponse%27"><span class="annot"><span class="annottext">DescribeStreamSummaryResponse -&gt; Int
 </span><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#%24sel%3AhttpStatus%3ADescribeStreamSummaryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -295,7 +295,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-134"></span><span>    </span><span id="%24sel%3AstreamDescriptionSummary%3ADescribeStreamSummaryResponse%27"><span class="annot"><span class="annottext">DescribeStreamSummaryResponse -&gt; StreamDescriptionSummary
 </span><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#%24sel%3AstreamDescriptionSummary%3ADescribeStreamSummaryResponse%27"><span class="hs-identifier hs-var hs-var">streamDescriptionSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescriptionSummary.html#StreamDescriptionSummary"><span class="hs-identifier hs-type">StreamDescriptionSummary</span></a></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203958"><span id="local-6989586621679203960"><span class="annot"><span class="annottext">DescribeStreamSummaryResponse
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204077"><span id="local-6989586621679204079"><span class="annot"><span class="annottext">DescribeStreamSummaryResponse
 -&gt; DescribeStreamSummaryResponse -&gt; Bool
 (DescribeStreamSummaryResponse
  -&gt; DescribeStreamSummaryResponse -&gt; Bool)
@@ -311,7 +311,7 @@ $c/= :: DescribeStreamSummaryResponse
 -&gt; DescribeStreamSummaryResponse -&gt; Bool
 $c== :: DescribeStreamSummaryResponse
 -&gt; DescribeStreamSummaryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203950"><span id="local-6989586621679203952"><span id="local-6989586621679203954"><span id="local-6989586621679203956"><span class="annot"><span class="annottext">ReadPrec [DescribeStreamSummaryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204069"><span id="local-6989586621679204071"><span id="local-6989586621679204073"><span id="local-6989586621679204075"><span class="annot"><span class="annottext">ReadPrec [DescribeStreamSummaryResponse]
 ReadPrec DescribeStreamSummaryResponse
 Int -&gt; ReadS DescribeStreamSummaryResponse
 ReadS [DescribeStreamSummaryResponse]
@@ -331,7 +331,7 @@ readList :: ReadS [DescribeStreamSummaryResponse]
 $creadList :: ReadS [DescribeStreamSummaryResponse]
 readsPrec :: Int -&gt; ReadS DescribeStreamSummaryResponse
 $creadsPrec :: Int -&gt; ReadS DescribeStreamSummaryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203944"><span id="local-6989586621679203946"><span id="local-6989586621679203948"><span class="annot"><span class="annottext">Int -&gt; DescribeStreamSummaryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204063"><span id="local-6989586621679204065"><span id="local-6989586621679204067"><span class="annot"><span class="annottext">Int -&gt; DescribeStreamSummaryResponse -&gt; ShowS
 [DescribeStreamSummaryResponse] -&gt; ShowS
 DescribeStreamSummaryResponse -&gt; String
 (Int -&gt; DescribeStreamSummaryResponse -&gt; ShowS)
@@ -388,20 +388,20 @@ DescribeStreamSummaryResponse
 </span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse"><span class="hs-identifier hs-type">DescribeStreamSummaryResponse</span></a></span><span>
 </span><span id="line-155"></span><span id="newDescribeStreamSummaryResponse"><span class="annot"><span class="annottext">newDescribeStreamSummaryResponse :: Int -&gt; StreamDescriptionSummary -&gt; DescribeStreamSummaryResponse
 </span><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#newDescribeStreamSummaryResponse"><span class="hs-identifier hs-var hs-var">newDescribeStreamSummaryResponse</span></a></span></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679203941"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679203941"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679203940"><span class="annot"><span class="annottext">StreamDescriptionSummary
-</span><a href="#local-6989586621679203940"><span class="hs-identifier hs-var">pStreamDescriptionSummary_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679204060"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204060"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679204059"><span class="annot"><span class="annottext">StreamDescriptionSummary
+</span><a href="#local-6989586621679204059"><span class="hs-identifier hs-var">pStreamDescriptionSummary_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">DescribeStreamSummaryResponse' :: Int -&gt; StreamDescriptionSummary -&gt; DescribeStreamSummaryResponse
 </span><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse%27"><span class="hs-identifier hs-type">DescribeStreamSummaryResponse'</span></a></span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStreamSummaryResponse' :: Int
 </span><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#%24sel%3AhttpStatus%3ADescribeStreamSummaryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679203941"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679204060"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:streamDescriptionSummary:DescribeStreamSummaryResponse' :: StreamDescriptionSummary
 </span><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#%24sel%3AstreamDescriptionSummary%3ADescribeStreamSummaryResponse%27"><span class="hs-identifier hs-var">streamDescriptionSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">StreamDescriptionSummary
-</span><a href="#local-6989586621679203940"><span class="hs-identifier hs-var">pStreamDescriptionSummary_</span></a></span><span>
+</span><a href="#local-6989586621679204059"><span class="hs-identifier hs-var">pStreamDescriptionSummary_</span></a></span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -414,16 +414,16 @@ DescribeStreamSummaryResponse
 -&gt; Lens
      DescribeStreamSummaryResponse DescribeStreamSummaryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse%27"><span class="hs-identifier hs-type">DescribeStreamSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203939"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse%27"><span class="hs-identifier hs-type">DescribeStreamSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204058"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeStreamSummaryResponse' :: DescribeStreamSummaryResponse -&gt; Int
-</span><a href="#local-6989586621679203939"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679203939"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203938"><span class="annot"><span class="annottext">s :: DescribeStreamSummaryResponse
-</span><a href="#local-6989586621679203938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse%27"><span class="hs-identifier hs-type">DescribeStreamSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203937"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679203937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamSummaryResponse
-</span><a href="#local-6989586621679203938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStreamSummaryResponse' :: Int
+</span><a href="#local-6989586621679204058"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204058"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204057"><span class="annot"><span class="annottext">s :: DescribeStreamSummaryResponse
+</span><a href="#local-6989586621679204057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse%27"><span class="hs-identifier hs-type">DescribeStreamSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204056"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamSummaryResponse
+</span><a href="#local-6989586621679204057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStreamSummaryResponse' :: Int
 </span><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#%24sel%3AhttpStatus%3ADescribeStreamSummaryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679203937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse"><span class="hs-identifier hs-type">DescribeStreamSummaryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse"><span class="hs-identifier hs-type">DescribeStreamSummaryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | A StreamDescriptionSummary containing information about the stream.</span><span>
 </span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#describeStreamSummaryResponse_streamDescriptionSummary"><span class="hs-identifier hs-type">describeStreamSummaryResponse_streamDescriptionSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse"><span class="hs-identifier hs-type">DescribeStreamSummaryResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescriptionSummary.html#StreamDescriptionSummary"><span class="hs-identifier hs-type">StreamDescriptionSummary</span></a></span><span>
@@ -438,16 +438,16 @@ $sel:httpStatus:DescribeStreamSummaryResponse' :: DescribeStreamSummaryResponse 
      StreamDescriptionSummary
      StreamDescriptionSummary
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse%27"><span class="hs-identifier hs-type">DescribeStreamSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203936"><span class="annot"><span class="annottext">StreamDescriptionSummary
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse%27"><span class="hs-identifier hs-type">DescribeStreamSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204055"><span class="annot"><span class="annottext">StreamDescriptionSummary
 streamDescriptionSummary :: StreamDescriptionSummary
 $sel:streamDescriptionSummary:DescribeStreamSummaryResponse' :: DescribeStreamSummaryResponse -&gt; StreamDescriptionSummary
-</span><a href="#local-6989586621679203936"><span class="hs-identifier hs-var hs-var">streamDescriptionSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescriptionSummary
-</span><a href="#local-6989586621679203936"><span class="hs-identifier hs-var">streamDescriptionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203935"><span class="annot"><span class="annottext">s :: DescribeStreamSummaryResponse
-</span><a href="#local-6989586621679203935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse%27"><span class="hs-identifier hs-type">DescribeStreamSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203934"><span class="annot"><span class="annottext">StreamDescriptionSummary
-</span><a href="#local-6989586621679203934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamSummaryResponse
-</span><a href="#local-6989586621679203935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamDescriptionSummary:DescribeStreamSummaryResponse' :: StreamDescriptionSummary
+</span><a href="#local-6989586621679204055"><span class="hs-identifier hs-var hs-var">streamDescriptionSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescriptionSummary
+</span><a href="#local-6989586621679204055"><span class="hs-identifier hs-var">streamDescriptionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204054"><span class="annot"><span class="annottext">s :: DescribeStreamSummaryResponse
+</span><a href="#local-6989586621679204054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse%27"><span class="hs-identifier hs-type">DescribeStreamSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204053"><span class="annot"><span class="annottext">StreamDescriptionSummary
+</span><a href="#local-6989586621679204053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStreamSummaryResponse
+</span><a href="#local-6989586621679204054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamDescriptionSummary:DescribeStreamSummaryResponse' :: StreamDescriptionSummary
 </span><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#%24sel%3AstreamDescriptionSummary%3ADescribeStreamSummaryResponse%27"><span class="hs-identifier hs-var">streamDescriptionSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StreamDescriptionSummary
-</span><a href="#local-6989586621679203934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse"><span class="hs-identifier hs-type">DescribeStreamSummaryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse"><span class="hs-identifier hs-type">DescribeStreamSummaryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203932"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse"><span class="hs-identifier hs-type">DescribeStreamSummaryResponse</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204051"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeStreamSummary.html#DescribeStreamSummaryResponse"><span class="hs-identifier hs-type">DescribeStreamSummaryResponse</span></a></span></span><span>
 </span><span id="line-174"></span></pre></body></html>

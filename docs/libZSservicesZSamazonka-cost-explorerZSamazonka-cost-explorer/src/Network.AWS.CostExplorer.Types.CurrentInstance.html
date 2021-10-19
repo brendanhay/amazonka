@@ -29,50 +29,50 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Context about the current instance.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCurrentInstance' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679339068"><span id="local-6989586621679339069"></span></span><span class="hs-keyword">data</span><span> </span><span id="CurrentInstance"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-var">CurrentInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CurrentInstance%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-var">CurrentInstance'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679339413"><span id="local-6989586621679339414"></span></span><span class="hs-keyword">data</span><span> </span><span id="CurrentInstance"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-var">CurrentInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CurrentInstance%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-var">CurrentInstance'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Resource ID of the current instance.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AresourceId%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AresourceId%3ACurrentInstance%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The number of hours during the lookback period that\'s covered by</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Savings Plans.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsavingsPlansCoveredHoursInLookbackPeriod%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AsavingsPlansCoveredHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var hs-var">savingsPlansCoveredHoursInLookbackPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name that you given an instance. This field shows as blank if you</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- haven\'t given the instance a name.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AinstanceName%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AinstanceName%3ACurrentInstance%27"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The number of hours during the lookback period that\'s billed at</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- On-Demand rates.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AonDemandHoursInLookbackPeriod%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AonDemandHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var hs-var">onDemandHoursInLookbackPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The currency code that Amazon Web Services used to calculate the costs</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- for this instance.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AcurrencyCode%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The currency code that Amazon Web Services used to calculate the costs</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- for this instance.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcurrencyCode%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AcurrencyCode%3ACurrentInstance%27"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Cost allocation resource tags that are applied to the instance.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3Atags%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe [TagValues]
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3Atags%3ACurrentInstance%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The number of hours during the lookback period that\'s covered by</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- reservations.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AreservationCoveredHoursInLookbackPeriod%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe Text
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Utilization information of the current instance during the lookback</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AresourceUtilization%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe ResourceUtilization
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AresourceUtilization%3ACurrentInstance%27"><span class="hs-identifier hs-var hs-var">resourceUtilization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceUtilization.html#ResourceUtilization"><span class="hs-identifier hs-type">ResourceUtilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Details about the resource and utilization.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AresourceDetails%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe ResourceDetails
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AresourceDetails%3ACurrentInstance%27"><span class="hs-identifier hs-var hs-var">resourceDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails"><span class="hs-identifier hs-type">ResourceDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The total number of hours that the instance ran during the lookback</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AtotalRunningHoursInLookbackPeriod%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AtotalRunningHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var hs-var">totalRunningHoursInLookbackPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The number of hours during the lookback period that\'s covered by</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- reservations.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AreservationCoveredHoursInLookbackPeriod%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AreservationCoveredHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var hs-var">reservationCoveredHoursInLookbackPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The number of hours during the lookback period that\'s billed at</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- On-Demand rates.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AonDemandHoursInLookbackPeriod%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AonDemandHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var hs-var">onDemandHoursInLookbackPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The current On-Demand cost of operating this instance on a monthly</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- basis.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AmonthlyCost%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AmonthlyCost%3ACurrentInstance%27"><span class="hs-identifier hs-var hs-var">monthlyCost</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Utilization information of the current instance during the lookback</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- period.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3AresourceUtilization%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe ResourceUtilization
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AresourceUtilization%3ACurrentInstance%27"><span class="hs-identifier hs-var hs-var">resourceUtilization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceUtilization.html#ResourceUtilization"><span class="hs-identifier hs-type">ResourceUtilization</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Details about the resource and utilization.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AresourceDetails%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe ResourceDetails
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AresourceDetails%3ACurrentInstance%27"><span class="hs-identifier hs-var hs-var">resourceDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails"><span class="hs-identifier hs-type">ResourceDetails</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The total number of hours that the instance ran during the lookback</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- period.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AtotalRunningHoursInLookbackPeriod%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AtotalRunningHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var hs-var">totalRunningHoursInLookbackPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The name that you given an instance. This field shows as blank if you</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- haven\'t given the instance a name.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AinstanceName%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AinstanceName%3ACurrentInstance%27"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The number of hours during the lookback period that\'s covered by</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Savings Plans.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AsavingsPlansCoveredHoursInLookbackPeriod%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AsavingsPlansCoveredHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var hs-var">savingsPlansCoveredHoursInLookbackPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Cost allocation resource tags that are applied to the instance.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Atags%3ACurrentInstance%27"><span class="annot"><span class="annottext">CurrentInstance -&gt; Maybe [TagValues]
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3Atags%3ACurrentInstance%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339052"><span id="local-6989586621679339054"><span class="annot"><span class="annottext">CurrentInstance -&gt; CurrentInstance -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339397"><span id="local-6989586621679339399"><span class="annot"><span class="annottext">CurrentInstance -&gt; CurrentInstance -&gt; Bool
 (CurrentInstance -&gt; CurrentInstance -&gt; Bool)
 -&gt; (CurrentInstance -&gt; CurrentInstance -&gt; Bool)
 -&gt; Eq CurrentInstance
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CurrentInstance -&gt; CurrentInstance -&gt; Bool
 == :: CurrentInstance -&gt; CurrentInstance -&gt; Bool
 $c== :: CurrentInstance -&gt; CurrentInstance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339043"><span id="local-6989586621679339045"><span id="local-6989586621679339047"><span id="local-6989586621679339049"><span class="annot"><span class="annottext">ReadPrec [CurrentInstance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339388"><span id="local-6989586621679339390"><span id="local-6989586621679339392"><span id="local-6989586621679339394"><span class="annot"><span class="annottext">ReadPrec [CurrentInstance]
 ReadPrec CurrentInstance
 Int -&gt; ReadS CurrentInstance
 ReadS [CurrentInstance]
@@ -101,7 +101,7 @@ readList :: ReadS [CurrentInstance]
 $creadList :: ReadS [CurrentInstance]
 readsPrec :: Int -&gt; ReadS CurrentInstance
 $creadsPrec :: Int -&gt; ReadS CurrentInstance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339036"><span id="local-6989586621679339038"><span id="local-6989586621679339040"><span class="annot"><span class="annottext">Int -&gt; CurrentInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339381"><span id="local-6989586621679339383"><span id="local-6989586621679339385"><span class="annot"><span class="annottext">Int -&gt; CurrentInstance -&gt; ShowS
 [CurrentInstance] -&gt; ShowS
 CurrentInstance -&gt; String
 (Int -&gt; CurrentInstance -&gt; ShowS)
@@ -137,94 +137,94 @@ $cfrom :: forall x. CurrentInstance -&gt; Rep CurrentInstance x
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- 'resourceId', 'currentInstance_resourceId' - Resource ID of the current instance.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'savingsPlansCoveredHoursInLookbackPeriod', 'currentInstance_savingsPlansCoveredHoursInLookbackPeriod' - The number of hours during the lookback period that\'s covered by</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- Savings Plans.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'currencyCode', 'currentInstance_currencyCode' - The currency code that Amazon Web Services used to calculate the costs</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for this instance.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'instanceName', 'currentInstance_instanceName' - The name that you given an instance. This field shows as blank if you</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- haven\'t given the instance a name.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'resourceUtilization', 'currentInstance_resourceUtilization' - Utilization information of the current instance during the lookback</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- period.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'onDemandHoursInLookbackPeriod', 'currentInstance_onDemandHoursInLookbackPeriod' - The number of hours during the lookback period that\'s billed at</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- On-Demand rates.</span><span>
-</span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'currencyCode', 'currentInstance_currencyCode' - The currency code that Amazon Web Services used to calculate the costs</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- for this instance.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'tags', 'currentInstance_tags' - Cost allocation resource tags that are applied to the instance.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'resourceDetails', 'currentInstance_resourceDetails' - Details about the resource and utilization.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'totalRunningHoursInLookbackPeriod', 'currentInstance_totalRunningHoursInLookbackPeriod' - The total number of hours that the instance ran during the lookback</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'reservationCoveredHoursInLookbackPeriod', 'currentInstance_reservationCoveredHoursInLookbackPeriod' - The number of hours during the lookback period that\'s covered by</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- reservations.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'reservationCoveredHoursInLookbackPeriod', 'currentInstance_reservationCoveredHoursInLookbackPeriod' - The number of hours during the lookback period that\'s covered by</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- reservations.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'onDemandHoursInLookbackPeriod', 'currentInstance_onDemandHoursInLookbackPeriod' - The number of hours during the lookback period that\'s billed at</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- On-Demand rates.</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- 'monthlyCost', 'currentInstance_monthlyCost' - The current On-Demand cost of operating this instance on a monthly</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- basis.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'resourceUtilization', 'currentInstance_resourceUtilization' - Utilization information of the current instance during the lookback</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'instanceName', 'currentInstance_instanceName' - The name that you given an instance. This field shows as blank if you</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- haven\'t given the instance a name.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'resourceDetails', 'currentInstance_resourceDetails' - Details about the resource and utilization.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'totalRunningHoursInLookbackPeriod', 'currentInstance_totalRunningHoursInLookbackPeriod' - The total number of hours that the instance ran during the lookback</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'savingsPlansCoveredHoursInLookbackPeriod', 'currentInstance_savingsPlansCoveredHoursInLookbackPeriod' - The number of hours during the lookback period that\'s covered by</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Savings Plans.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'tags', 'currentInstance_tags' - Cost allocation resource tags that are applied to the instance.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#newCurrentInstance"><span class="hs-identifier hs-type">newCurrentInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span>
 </span><span id="line-105"></span><span id="newCurrentInstance"><span class="annot"><span class="annottext">newCurrentInstance :: CurrentInstance
 </span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#newCurrentInstance"><span class="hs-identifier hs-var hs-var">newCurrentInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">CurrentInstance' :: Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe ResourceUtilization
+-&gt; Maybe ResourceDetails
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [TagValues]
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe ResourceUtilization
--&gt; Maybe ResourceDetails
--&gt; Maybe Text
 -&gt; CurrentInstance
 </span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceId:CurrentInstance' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AresourceId%3ACurrentInstance%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:savingsPlansCoveredHoursInLookbackPeriod:CurrentInstance' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AsavingsPlansCoveredHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var">savingsPlansCoveredHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceName:CurrentInstance' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AinstanceName%3ACurrentInstance%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:onDemandHoursInLookbackPeriod:CurrentInstance' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AonDemandHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var">onDemandHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:currencyCode:CurrentInstance' :: Maybe Text
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:currencyCode:CurrentInstance' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AcurrencyCode%3ACurrentInstance%27"><span class="hs-identifier hs-var">currencyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CurrentInstance' :: Maybe [TagValues]
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3Atags%3ACurrentInstance%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagValues]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:reservationCoveredHoursInLookbackPeriod:CurrentInstance' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AreservationCoveredHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var">reservationCoveredHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:monthlyCost:CurrentInstance' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AmonthlyCost%3ACurrentInstance%27"><span class="hs-identifier hs-var">monthlyCost</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceUtilization:CurrentInstance' :: Maybe ResourceUtilization
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceUtilization:CurrentInstance' :: Maybe ResourceUtilization
 </span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AresourceUtilization%3ACurrentInstance%27"><span class="hs-identifier hs-var">resourceUtilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceUtilization
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceDetails:CurrentInstance' :: Maybe ResourceDetails
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceDetails:CurrentInstance' :: Maybe ResourceDetails
 </span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AresourceDetails%3ACurrentInstance%27"><span class="hs-identifier hs-var">resourceDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDetails
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalRunningHoursInLookbackPeriod:CurrentInstance' :: Maybe Text
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalRunningHoursInLookbackPeriod:CurrentInstance' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AtotalRunningHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var">totalRunningHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:reservationCoveredHoursInLookbackPeriod:CurrentInstance' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AreservationCoveredHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var">reservationCoveredHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:onDemandHoursInLookbackPeriod:CurrentInstance' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AonDemandHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var">onDemandHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:monthlyCost:CurrentInstance' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AmonthlyCost%3ACurrentInstance%27"><span class="hs-identifier hs-var">monthlyCost</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceName:CurrentInstance' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AinstanceName%3ACurrentInstance%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:savingsPlansCoveredHoursInLookbackPeriod:CurrentInstance' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AsavingsPlansCoveredHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var">savingsPlansCoveredHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CurrentInstance' :: Maybe [TagValues]
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3Atags%3ACurrentInstance%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagValues]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-special">}</span><span>
@@ -237,100 +237,208 @@ forall a. Maybe a
 -&gt; (CurrentInstance -&gt; Maybe Text -&gt; CurrentInstance)
 -&gt; Lens CurrentInstance CurrentInstance (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339027"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339372"><span class="annot"><span class="annottext">Maybe Text
 resourceId :: Maybe Text
 $sel:resourceId:CurrentInstance' :: CurrentInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679339027"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339027"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339026"><span class="annot"><span class="annottext">s :: CurrentInstance
-</span><a href="#local-6989586621679339026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339025"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
-</span><a href="#local-6989586621679339026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:CurrentInstance' :: Maybe Text
+</span><a href="#local-6989586621679339372"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339372"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339371"><span class="annot"><span class="annottext">s :: CurrentInstance
+</span><a href="#local-6989586621679339371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339370"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
+</span><a href="#local-6989586621679339371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:CurrentInstance' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AresourceId%3ACurrentInstance%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679339370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The number of hours during the lookback period that\'s covered by</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- Savings Plans.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_savingsPlansCoveredHoursInLookbackPeriod"><span class="hs-identifier hs-type">currentInstance_savingsPlansCoveredHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span id="currentInstance_savingsPlansCoveredHoursInLookbackPeriod"><span class="annot"><span class="annottext">currentInstance_savingsPlansCoveredHoursInLookbackPeriod :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CurrentInstance -&gt; f CurrentInstance
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_savingsPlansCoveredHoursInLookbackPeriod"><span class="hs-identifier hs-var hs-var">currentInstance_savingsPlansCoveredHoursInLookbackPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentInstance -&gt; Maybe Text)
--&gt; (CurrentInstance -&gt; Maybe Text -&gt; CurrentInstance)
--&gt; Lens CurrentInstance CurrentInstance (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339023"><span class="annot"><span class="annottext">Maybe Text
-savingsPlansCoveredHoursInLookbackPeriod :: Maybe Text
-$sel:savingsPlansCoveredHoursInLookbackPeriod:CurrentInstance' :: CurrentInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679339023"><span class="hs-identifier hs-var hs-var">savingsPlansCoveredHoursInLookbackPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339023"><span class="hs-identifier hs-var">savingsPlansCoveredHoursInLookbackPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339022"><span class="annot"><span class="annottext">s :: CurrentInstance
-</span><a href="#local-6989586621679339022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339021"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
-</span><a href="#local-6989586621679339022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:savingsPlansCoveredHoursInLookbackPeriod:CurrentInstance' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AsavingsPlansCoveredHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var">savingsPlansCoveredHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- | The name that you given an instance. This field shows as blank if you</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- haven\'t given the instance a name.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_instanceName"><span class="hs-identifier hs-type">currentInstance_instanceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="currentInstance_instanceName"><span class="annot"><span class="annottext">currentInstance_instanceName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CurrentInstance -&gt; f CurrentInstance
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_instanceName"><span class="hs-identifier hs-var hs-var">currentInstance_instanceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentInstance -&gt; Maybe Text)
--&gt; (CurrentInstance -&gt; Maybe Text -&gt; CurrentInstance)
--&gt; Lens CurrentInstance CurrentInstance (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339019"><span class="annot"><span class="annottext">Maybe Text
-instanceName :: Maybe Text
-$sel:instanceName:CurrentInstance' :: CurrentInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679339019"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339019"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339018"><span class="annot"><span class="annottext">s :: CurrentInstance
-</span><a href="#local-6989586621679339018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339017"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
-</span><a href="#local-6989586621679339018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:CurrentInstance' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AinstanceName%3ACurrentInstance%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | The number of hours during the lookback period that\'s billed at</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- On-Demand rates.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_onDemandHoursInLookbackPeriod"><span class="hs-identifier hs-type">currentInstance_onDemandHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="currentInstance_onDemandHoursInLookbackPeriod"><span class="annot"><span class="annottext">currentInstance_onDemandHoursInLookbackPeriod :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CurrentInstance -&gt; f CurrentInstance
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_onDemandHoursInLookbackPeriod"><span class="hs-identifier hs-var hs-var">currentInstance_onDemandHoursInLookbackPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentInstance -&gt; Maybe Text)
--&gt; (CurrentInstance -&gt; Maybe Text -&gt; CurrentInstance)
--&gt; Lens CurrentInstance CurrentInstance (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339015"><span class="annot"><span class="annottext">Maybe Text
-onDemandHoursInLookbackPeriod :: Maybe Text
-$sel:onDemandHoursInLookbackPeriod:CurrentInstance' :: CurrentInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679339015"><span class="hs-identifier hs-var hs-var">onDemandHoursInLookbackPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339015"><span class="hs-identifier hs-var">onDemandHoursInLookbackPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339014"><span class="annot"><span class="annottext">s :: CurrentInstance
-</span><a href="#local-6989586621679339014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339013"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
-</span><a href="#local-6989586621679339014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onDemandHoursInLookbackPeriod:CurrentInstance' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AonDemandHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var">onDemandHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | The currency code that Amazon Web Services used to calculate the costs</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- for this instance.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_currencyCode"><span class="hs-identifier hs-type">currentInstance_currencyCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="currentInstance_currencyCode"><span class="annot"><span class="annottext">currentInstance_currencyCode :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-126"></span><span class="hs-comment">-- | The currency code that Amazon Web Services used to calculate the costs</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- for this instance.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_currencyCode"><span class="hs-identifier hs-type">currentInstance_currencyCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="currentInstance_currencyCode"><span class="annot"><span class="annottext">currentInstance_currencyCode :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CurrentInstance -&gt; f CurrentInstance
 </span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_currencyCode"><span class="hs-identifier hs-var hs-var">currentInstance_currencyCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentInstance -&gt; Maybe Text)
 -&gt; (CurrentInstance -&gt; Maybe Text -&gt; CurrentInstance)
 -&gt; Lens CurrentInstance CurrentInstance (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339011"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339368"><span class="annot"><span class="annottext">Maybe Text
 currencyCode :: Maybe Text
 $sel:currencyCode:CurrentInstance' :: CurrentInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679339011"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339011"><span class="hs-identifier hs-var">currencyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339010"><span class="annot"><span class="annottext">s :: CurrentInstance
-</span><a href="#local-6989586621679339010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339009"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
-</span><a href="#local-6989586621679339010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currencyCode:CurrentInstance' :: Maybe Text
+</span><a href="#local-6989586621679339368"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339368"><span class="hs-identifier hs-var">currencyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339367"><span class="annot"><span class="annottext">s :: CurrentInstance
+</span><a href="#local-6989586621679339367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339366"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
+</span><a href="#local-6989586621679339367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currencyCode:CurrentInstance' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AcurrencyCode%3ACurrentInstance%27"><span class="hs-identifier hs-var">currencyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- | Cost allocation resource tags that are applied to the instance.</span><span>
-</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_tags"><span class="hs-identifier hs-type">currentInstance_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span id="currentInstance_tags"><span class="annot"><span class="annottext">currentInstance_tags :: (Maybe [TagValues] -&gt; f (Maybe [TagValues]))
+</span><a href="#local-6989586621679339366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Utilization information of the current instance during the lookback</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_resourceUtilization"><span class="hs-identifier hs-type">currentInstance_resourceUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceUtilization.html#ResourceUtilization"><span class="hs-identifier hs-type">ResourceUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="currentInstance_resourceUtilization"><span class="annot"><span class="annottext">currentInstance_resourceUtilization :: (Maybe ResourceUtilization -&gt; f (Maybe ResourceUtilization))
+-&gt; CurrentInstance -&gt; f CurrentInstance
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_resourceUtilization"><span class="hs-identifier hs-var hs-var">currentInstance_resourceUtilization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentInstance -&gt; Maybe ResourceUtilization)
+-&gt; (CurrentInstance
+    -&gt; Maybe ResourceUtilization -&gt; CurrentInstance)
+-&gt; Lens
+     CurrentInstance
+     CurrentInstance
+     (Maybe ResourceUtilization)
+     (Maybe ResourceUtilization)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339364"><span class="annot"><span class="annottext">Maybe ResourceUtilization
+resourceUtilization :: Maybe ResourceUtilization
+$sel:resourceUtilization:CurrentInstance' :: CurrentInstance -&gt; Maybe ResourceUtilization
+</span><a href="#local-6989586621679339364"><span class="hs-identifier hs-var hs-var">resourceUtilization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceUtilization
+</span><a href="#local-6989586621679339364"><span class="hs-identifier hs-var">resourceUtilization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339363"><span class="annot"><span class="annottext">s :: CurrentInstance
+</span><a href="#local-6989586621679339363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339362"><span class="annot"><span class="annottext">Maybe ResourceUtilization
+</span><a href="#local-6989586621679339362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
+</span><a href="#local-6989586621679339363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceUtilization:CurrentInstance' :: Maybe ResourceUtilization
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AresourceUtilization%3ACurrentInstance%27"><span class="hs-identifier hs-var">resourceUtilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceUtilization
+</span><a href="#local-6989586621679339362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | Details about the resource and utilization.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_resourceDetails"><span class="hs-identifier hs-type">currentInstance_resourceDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails"><span class="hs-identifier hs-type">ResourceDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="currentInstance_resourceDetails"><span class="annot"><span class="annottext">currentInstance_resourceDetails :: (Maybe ResourceDetails -&gt; f (Maybe ResourceDetails))
+-&gt; CurrentInstance -&gt; f CurrentInstance
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_resourceDetails"><span class="hs-identifier hs-var hs-var">currentInstance_resourceDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentInstance -&gt; Maybe ResourceDetails)
+-&gt; (CurrentInstance -&gt; Maybe ResourceDetails -&gt; CurrentInstance)
+-&gt; Lens
+     CurrentInstance
+     CurrentInstance
+     (Maybe ResourceDetails)
+     (Maybe ResourceDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339360"><span class="annot"><span class="annottext">Maybe ResourceDetails
+resourceDetails :: Maybe ResourceDetails
+$sel:resourceDetails:CurrentInstance' :: CurrentInstance -&gt; Maybe ResourceDetails
+</span><a href="#local-6989586621679339360"><span class="hs-identifier hs-var hs-var">resourceDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDetails
+</span><a href="#local-6989586621679339360"><span class="hs-identifier hs-var">resourceDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339359"><span class="annot"><span class="annottext">s :: CurrentInstance
+</span><a href="#local-6989586621679339359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339358"><span class="annot"><span class="annottext">Maybe ResourceDetails
+</span><a href="#local-6989586621679339358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
+</span><a href="#local-6989586621679339359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceDetails:CurrentInstance' :: Maybe ResourceDetails
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AresourceDetails%3ACurrentInstance%27"><span class="hs-identifier hs-var">resourceDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDetails
+</span><a href="#local-6989586621679339358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The total number of hours that the instance ran during the lookback</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_totalRunningHoursInLookbackPeriod"><span class="hs-identifier hs-type">currentInstance_totalRunningHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="currentInstance_totalRunningHoursInLookbackPeriod"><span class="annot"><span class="annottext">currentInstance_totalRunningHoursInLookbackPeriod :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CurrentInstance -&gt; f CurrentInstance
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_totalRunningHoursInLookbackPeriod"><span class="hs-identifier hs-var hs-var">currentInstance_totalRunningHoursInLookbackPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentInstance -&gt; Maybe Text)
+-&gt; (CurrentInstance -&gt; Maybe Text -&gt; CurrentInstance)
+-&gt; Lens CurrentInstance CurrentInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339356"><span class="annot"><span class="annottext">Maybe Text
+totalRunningHoursInLookbackPeriod :: Maybe Text
+$sel:totalRunningHoursInLookbackPeriod:CurrentInstance' :: CurrentInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679339356"><span class="hs-identifier hs-var hs-var">totalRunningHoursInLookbackPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339356"><span class="hs-identifier hs-var">totalRunningHoursInLookbackPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339355"><span class="annot"><span class="annottext">s :: CurrentInstance
+</span><a href="#local-6989586621679339355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339354"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
+</span><a href="#local-6989586621679339355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalRunningHoursInLookbackPeriod:CurrentInstance' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AtotalRunningHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var">totalRunningHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The number of hours during the lookback period that\'s covered by</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- reservations.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_reservationCoveredHoursInLookbackPeriod"><span class="hs-identifier hs-type">currentInstance_reservationCoveredHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="currentInstance_reservationCoveredHoursInLookbackPeriod"><span class="annot"><span class="annottext">currentInstance_reservationCoveredHoursInLookbackPeriod :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CurrentInstance -&gt; f CurrentInstance
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_reservationCoveredHoursInLookbackPeriod"><span class="hs-identifier hs-var hs-var">currentInstance_reservationCoveredHoursInLookbackPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentInstance -&gt; Maybe Text)
+-&gt; (CurrentInstance -&gt; Maybe Text -&gt; CurrentInstance)
+-&gt; Lens CurrentInstance CurrentInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339352"><span class="annot"><span class="annottext">Maybe Text
+reservationCoveredHoursInLookbackPeriod :: Maybe Text
+$sel:reservationCoveredHoursInLookbackPeriod:CurrentInstance' :: CurrentInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679339352"><span class="hs-identifier hs-var hs-var">reservationCoveredHoursInLookbackPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339352"><span class="hs-identifier hs-var">reservationCoveredHoursInLookbackPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339351"><span class="annot"><span class="annottext">s :: CurrentInstance
+</span><a href="#local-6989586621679339351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339350"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
+</span><a href="#local-6989586621679339351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservationCoveredHoursInLookbackPeriod:CurrentInstance' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AreservationCoveredHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var">reservationCoveredHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The number of hours during the lookback period that\'s billed at</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- On-Demand rates.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_onDemandHoursInLookbackPeriod"><span class="hs-identifier hs-type">currentInstance_onDemandHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="currentInstance_onDemandHoursInLookbackPeriod"><span class="annot"><span class="annottext">currentInstance_onDemandHoursInLookbackPeriod :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CurrentInstance -&gt; f CurrentInstance
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_onDemandHoursInLookbackPeriod"><span class="hs-identifier hs-var hs-var">currentInstance_onDemandHoursInLookbackPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentInstance -&gt; Maybe Text)
+-&gt; (CurrentInstance -&gt; Maybe Text -&gt; CurrentInstance)
+-&gt; Lens CurrentInstance CurrentInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339348"><span class="annot"><span class="annottext">Maybe Text
+onDemandHoursInLookbackPeriod :: Maybe Text
+$sel:onDemandHoursInLookbackPeriod:CurrentInstance' :: CurrentInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679339348"><span class="hs-identifier hs-var hs-var">onDemandHoursInLookbackPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339348"><span class="hs-identifier hs-var">onDemandHoursInLookbackPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339347"><span class="annot"><span class="annottext">s :: CurrentInstance
+</span><a href="#local-6989586621679339347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339346"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
+</span><a href="#local-6989586621679339347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onDemandHoursInLookbackPeriod:CurrentInstance' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AonDemandHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var">onDemandHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The current On-Demand cost of operating this instance on a monthly</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- basis.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_monthlyCost"><span class="hs-identifier hs-type">currentInstance_monthlyCost</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="currentInstance_monthlyCost"><span class="annot"><span class="annottext">currentInstance_monthlyCost :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CurrentInstance -&gt; f CurrentInstance
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_monthlyCost"><span class="hs-identifier hs-var hs-var">currentInstance_monthlyCost</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentInstance -&gt; Maybe Text)
+-&gt; (CurrentInstance -&gt; Maybe Text -&gt; CurrentInstance)
+-&gt; Lens CurrentInstance CurrentInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339344"><span class="annot"><span class="annottext">Maybe Text
+monthlyCost :: Maybe Text
+$sel:monthlyCost:CurrentInstance' :: CurrentInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679339344"><span class="hs-identifier hs-var hs-var">monthlyCost</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339344"><span class="hs-identifier hs-var">monthlyCost</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339343"><span class="annot"><span class="annottext">s :: CurrentInstance
+</span><a href="#local-6989586621679339343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339342"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
+</span><a href="#local-6989586621679339343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monthlyCost:CurrentInstance' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AmonthlyCost%3ACurrentInstance%27"><span class="hs-identifier hs-var">monthlyCost</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The name that you given an instance. This field shows as blank if you</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- haven\'t given the instance a name.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_instanceName"><span class="hs-identifier hs-type">currentInstance_instanceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="currentInstance_instanceName"><span class="annot"><span class="annottext">currentInstance_instanceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CurrentInstance -&gt; f CurrentInstance
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_instanceName"><span class="hs-identifier hs-var hs-var">currentInstance_instanceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentInstance -&gt; Maybe Text)
+-&gt; (CurrentInstance -&gt; Maybe Text -&gt; CurrentInstance)
+-&gt; Lens CurrentInstance CurrentInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339340"><span class="annot"><span class="annottext">Maybe Text
+instanceName :: Maybe Text
+$sel:instanceName:CurrentInstance' :: CurrentInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679339340"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339340"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339339"><span class="annot"><span class="annottext">s :: CurrentInstance
+</span><a href="#local-6989586621679339339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339338"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
+</span><a href="#local-6989586621679339339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:CurrentInstance' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AinstanceName%3ACurrentInstance%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The number of hours during the lookback period that\'s covered by</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Savings Plans.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_savingsPlansCoveredHoursInLookbackPeriod"><span class="hs-identifier hs-type">currentInstance_savingsPlansCoveredHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="currentInstance_savingsPlansCoveredHoursInLookbackPeriod"><span class="annot"><span class="annottext">currentInstance_savingsPlansCoveredHoursInLookbackPeriod :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CurrentInstance -&gt; f CurrentInstance
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_savingsPlansCoveredHoursInLookbackPeriod"><span class="hs-identifier hs-var hs-var">currentInstance_savingsPlansCoveredHoursInLookbackPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentInstance -&gt; Maybe Text)
+-&gt; (CurrentInstance -&gt; Maybe Text -&gt; CurrentInstance)
+-&gt; Lens CurrentInstance CurrentInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339336"><span class="annot"><span class="annottext">Maybe Text
+savingsPlansCoveredHoursInLookbackPeriod :: Maybe Text
+$sel:savingsPlansCoveredHoursInLookbackPeriod:CurrentInstance' :: CurrentInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679339336"><span class="hs-identifier hs-var hs-var">savingsPlansCoveredHoursInLookbackPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339336"><span class="hs-identifier hs-var">savingsPlansCoveredHoursInLookbackPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339335"><span class="annot"><span class="annottext">s :: CurrentInstance
+</span><a href="#local-6989586621679339335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339334"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
+</span><a href="#local-6989586621679339335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:savingsPlansCoveredHoursInLookbackPeriod:CurrentInstance' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AsavingsPlansCoveredHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var">savingsPlansCoveredHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | Cost allocation resource tags that are applied to the instance.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_tags"><span class="hs-identifier hs-type">currentInstance_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="currentInstance_tags"><span class="annot"><span class="annottext">currentInstance_tags :: (Maybe [TagValues] -&gt; f (Maybe [TagValues]))
 -&gt; CurrentInstance -&gt; f CurrentInstance
 </span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_tags"><span class="hs-identifier hs-var hs-var">currentInstance_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentInstance -&gt; Maybe [TagValues])
 -&gt; (CurrentInstance -&gt; Maybe [TagValues] -&gt; CurrentInstance)
@@ -340,16 +448,16 @@ $sel:currencyCode:CurrentInstance' :: CurrentInstance -&gt; Maybe Text
      (Maybe [TagValues])
      (Maybe [TagValues])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339007"><span class="annot"><span class="annottext">Maybe [TagValues]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339332"><span class="annot"><span class="annottext">Maybe [TagValues]
 tags :: Maybe [TagValues]
 $sel:tags:CurrentInstance' :: CurrentInstance -&gt; Maybe [TagValues]
-</span><a href="#local-6989586621679339007"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagValues]
-</span><a href="#local-6989586621679339007"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339006"><span class="annot"><span class="annottext">s :: CurrentInstance
-</span><a href="#local-6989586621679339006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339005"><span class="annot"><span class="annottext">Maybe [TagValues]
-</span><a href="#local-6989586621679339005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
-</span><a href="#local-6989586621679339006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CurrentInstance' :: Maybe [TagValues]
+</span><a href="#local-6989586621679339332"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagValues]
+</span><a href="#local-6989586621679339332"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339331"><span class="annot"><span class="annottext">s :: CurrentInstance
+</span><a href="#local-6989586621679339331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339330"><span class="annot"><span class="annottext">Maybe [TagValues]
+</span><a href="#local-6989586621679339330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
+</span><a href="#local-6989586621679339331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CurrentInstance' :: Maybe [TagValues]
 </span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3Atags%3ACurrentInstance%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagValues]
-</span><a href="#local-6989586621679339005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagValues] -&gt; f (Maybe [TagValues]))
+</span><a href="#local-6989586621679339330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagValues] -&gt; f (Maybe [TagValues]))
  -&gt; CurrentInstance -&gt; f CurrentInstance)
 -&gt; ((Maybe [TagValues] -&gt; f (Maybe [TagValues]))
     -&gt; Maybe [TagValues] -&gt; f (Maybe [TagValues]))
@@ -367,119 +475,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagValues] [TagValues] [TagValues] [TagValues]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- | The number of hours during the lookback period that\'s covered by</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- reservations.</span><span>
-</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_reservationCoveredHoursInLookbackPeriod"><span class="hs-identifier hs-type">currentInstance_reservationCoveredHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span id="currentInstance_reservationCoveredHoursInLookbackPeriod"><span class="annot"><span class="annottext">currentInstance_reservationCoveredHoursInLookbackPeriod :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CurrentInstance -&gt; f CurrentInstance
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_reservationCoveredHoursInLookbackPeriod"><span class="hs-identifier hs-var hs-var">currentInstance_reservationCoveredHoursInLookbackPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentInstance -&gt; Maybe Text)
--&gt; (CurrentInstance -&gt; Maybe Text -&gt; CurrentInstance)
--&gt; Lens CurrentInstance CurrentInstance (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339000"><span class="annot"><span class="annottext">Maybe Text
-reservationCoveredHoursInLookbackPeriod :: Maybe Text
-$sel:reservationCoveredHoursInLookbackPeriod:CurrentInstance' :: CurrentInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679339000"><span class="hs-identifier hs-var hs-var">reservationCoveredHoursInLookbackPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339000"><span class="hs-identifier hs-var">reservationCoveredHoursInLookbackPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338999"><span class="annot"><span class="annottext">s :: CurrentInstance
-</span><a href="#local-6989586621679338999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338998"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
-</span><a href="#local-6989586621679338999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservationCoveredHoursInLookbackPeriod:CurrentInstance' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AreservationCoveredHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var">reservationCoveredHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- | The current On-Demand cost of operating this instance on a monthly</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- basis.</span><span>
-</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_monthlyCost"><span class="hs-identifier hs-type">currentInstance_monthlyCost</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span id="currentInstance_monthlyCost"><span class="annot"><span class="annottext">currentInstance_monthlyCost :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CurrentInstance -&gt; f CurrentInstance
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_monthlyCost"><span class="hs-identifier hs-var hs-var">currentInstance_monthlyCost</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentInstance -&gt; Maybe Text)
--&gt; (CurrentInstance -&gt; Maybe Text -&gt; CurrentInstance)
--&gt; Lens CurrentInstance CurrentInstance (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338996"><span class="annot"><span class="annottext">Maybe Text
-monthlyCost :: Maybe Text
-$sel:monthlyCost:CurrentInstance' :: CurrentInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679338996"><span class="hs-identifier hs-var hs-var">monthlyCost</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338996"><span class="hs-identifier hs-var">monthlyCost</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338995"><span class="annot"><span class="annottext">s :: CurrentInstance
-</span><a href="#local-6989586621679338995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338994"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
-</span><a href="#local-6989586621679338995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monthlyCost:CurrentInstance' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AmonthlyCost%3ACurrentInstance%27"><span class="hs-identifier hs-var">monthlyCost</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- | Utilization information of the current instance during the lookback</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- period.</span><span>
-</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_resourceUtilization"><span class="hs-identifier hs-type">currentInstance_resourceUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceUtilization.html#ResourceUtilization"><span class="hs-identifier hs-type">ResourceUtilization</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span id="currentInstance_resourceUtilization"><span class="annot"><span class="annottext">currentInstance_resourceUtilization :: (Maybe ResourceUtilization -&gt; f (Maybe ResourceUtilization))
--&gt; CurrentInstance -&gt; f CurrentInstance
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_resourceUtilization"><span class="hs-identifier hs-var hs-var">currentInstance_resourceUtilization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentInstance -&gt; Maybe ResourceUtilization)
--&gt; (CurrentInstance
-    -&gt; Maybe ResourceUtilization -&gt; CurrentInstance)
--&gt; Lens
-     CurrentInstance
-     CurrentInstance
-     (Maybe ResourceUtilization)
-     (Maybe ResourceUtilization)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338992"><span class="annot"><span class="annottext">Maybe ResourceUtilization
-resourceUtilization :: Maybe ResourceUtilization
-$sel:resourceUtilization:CurrentInstance' :: CurrentInstance -&gt; Maybe ResourceUtilization
-</span><a href="#local-6989586621679338992"><span class="hs-identifier hs-var hs-var">resourceUtilization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceUtilization
-</span><a href="#local-6989586621679338992"><span class="hs-identifier hs-var">resourceUtilization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338991"><span class="annot"><span class="annottext">s :: CurrentInstance
-</span><a href="#local-6989586621679338991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338990"><span class="annot"><span class="annottext">Maybe ResourceUtilization
-</span><a href="#local-6989586621679338990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
-</span><a href="#local-6989586621679338991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceUtilization:CurrentInstance' :: Maybe ResourceUtilization
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AresourceUtilization%3ACurrentInstance%27"><span class="hs-identifier hs-var">resourceUtilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceUtilization
-</span><a href="#local-6989586621679338990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- | Details about the resource and utilization.</span><span>
-</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_resourceDetails"><span class="hs-identifier hs-type">currentInstance_resourceDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ResourceDetails.html#ResourceDetails"><span class="hs-identifier hs-type">ResourceDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span id="currentInstance_resourceDetails"><span class="annot"><span class="annottext">currentInstance_resourceDetails :: (Maybe ResourceDetails -&gt; f (Maybe ResourceDetails))
--&gt; CurrentInstance -&gt; f CurrentInstance
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_resourceDetails"><span class="hs-identifier hs-var hs-var">currentInstance_resourceDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentInstance -&gt; Maybe ResourceDetails)
--&gt; (CurrentInstance -&gt; Maybe ResourceDetails -&gt; CurrentInstance)
--&gt; Lens
-     CurrentInstance
-     CurrentInstance
-     (Maybe ResourceDetails)
-     (Maybe ResourceDetails)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338988"><span class="annot"><span class="annottext">Maybe ResourceDetails
-resourceDetails :: Maybe ResourceDetails
-$sel:resourceDetails:CurrentInstance' :: CurrentInstance -&gt; Maybe ResourceDetails
-</span><a href="#local-6989586621679338988"><span class="hs-identifier hs-var hs-var">resourceDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDetails
-</span><a href="#local-6989586621679338988"><span class="hs-identifier hs-var">resourceDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338987"><span class="annot"><span class="annottext">s :: CurrentInstance
-</span><a href="#local-6989586621679338987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338986"><span class="annot"><span class="annottext">Maybe ResourceDetails
-</span><a href="#local-6989586621679338986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
-</span><a href="#local-6989586621679338987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceDetails:CurrentInstance' :: Maybe ResourceDetails
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AresourceDetails%3ACurrentInstance%27"><span class="hs-identifier hs-var">resourceDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDetails
-</span><a href="#local-6989586621679338986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- | The total number of hours that the instance ran during the lookback</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- period.</span><span>
-</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_totalRunningHoursInLookbackPeriod"><span class="hs-identifier hs-type">currentInstance_totalRunningHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span id="currentInstance_totalRunningHoursInLookbackPeriod"><span class="annot"><span class="annottext">currentInstance_totalRunningHoursInLookbackPeriod :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CurrentInstance -&gt; f CurrentInstance
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#currentInstance_totalRunningHoursInLookbackPeriod"><span class="hs-identifier hs-var hs-var">currentInstance_totalRunningHoursInLookbackPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CurrentInstance -&gt; Maybe Text)
--&gt; (CurrentInstance -&gt; Maybe Text -&gt; CurrentInstance)
--&gt; Lens CurrentInstance CurrentInstance (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338984"><span class="annot"><span class="annottext">Maybe Text
-totalRunningHoursInLookbackPeriod :: Maybe Text
-$sel:totalRunningHoursInLookbackPeriod:CurrentInstance' :: CurrentInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679338984"><span class="hs-identifier hs-var hs-var">totalRunningHoursInLookbackPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338984"><span class="hs-identifier hs-var">totalRunningHoursInLookbackPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338983"><span class="annot"><span class="annottext">s :: CurrentInstance
-</span><a href="#local-6989586621679338983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-type">CurrentInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338982"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentInstance
-</span><a href="#local-6989586621679338983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalRunningHoursInLookbackPeriod:CurrentInstance' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#%24sel%3AtotalRunningHoursInLookbackPeriod%3ACurrentInstance%27"><span class="hs-identifier hs-var">totalRunningHoursInLookbackPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338979"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679338977"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CurrentInstance
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339324"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679339322"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CurrentInstance
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CurrentInstance)
@@ -489,181 +489,245 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CurrentInstance&quot;</span></span><span>
-</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338974"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338974"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679339319"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339319"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ResourceUtilization
+-&gt; Maybe ResourceDetails
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [TagValues]
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe ResourceUtilization
--&gt; Maybe ResourceDetails
--&gt; Maybe Text
 -&gt; CurrentInstance
 </span><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance%27"><span class="hs-identifier hs-var">CurrentInstance'</span></a></span><span>
 </span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ResourceUtilization
+ -&gt; Maybe ResourceDetails
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe [TagValues]
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe ResourceUtilization
- -&gt; Maybe ResourceDetails
- -&gt; Maybe Text
  -&gt; CurrentInstance)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
+      -&gt; Maybe ResourceUtilization
+      -&gt; Maybe ResourceDetails
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe [TagValues]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ResourceUtilization
-      -&gt; Maybe ResourceDetails
-      -&gt; Maybe Text
       -&gt; CurrentInstance)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679339319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
+   -&gt; Maybe ResourceUtilization
+   -&gt; Maybe ResourceDetails
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe [TagValues]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ResourceUtilization
-   -&gt; Maybe ResourceDetails
-   -&gt; Maybe Text
    -&gt; CurrentInstance)
 -&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ResourceUtilization
+      -&gt; Maybe ResourceDetails
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [TagValues]
+      -&gt; CurrentInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CurrencyCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ResourceUtilization
+   -&gt; Maybe ResourceDetails
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [TagValues]
+   -&gt; CurrentInstance)
+-&gt; Parser (Maybe ResourceUtilization)
+-&gt; Parser
+     (Maybe ResourceDetails
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [TagValues]
+      -&gt; CurrentInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceUtilization)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceUtilization&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ResourceDetails
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [TagValues]
+   -&gt; CurrentInstance)
+-&gt; Parser (Maybe ResourceDetails)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe [TagValues]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ResourceUtilization
-      -&gt; Maybe ResourceDetails
-      -&gt; Maybe Text
       -&gt; CurrentInstance)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338974"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-182"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceDetails)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SavingsPlansCoveredHoursInLookbackPeriod&quot;</span></span><span>
-</span><span id="line-183"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ResourceDetails&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe [TagValues]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ResourceUtilization
-   -&gt; Maybe ResourceDetails
-   -&gt; Maybe Text
    -&gt; CurrentInstance)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe [TagValues]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ResourceUtilization
-      -&gt; Maybe ResourceDetails
-      -&gt; Maybe Text
       -&gt; CurrentInstance)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679339319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InstanceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TotalRunningHoursInLookbackPeriod&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe [TagValues]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ResourceUtilization
-   -&gt; Maybe ResourceDetails
-   -&gt; Maybe Text
    -&gt; CurrentInstance)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe [TagValues]
+      -&gt; CurrentInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339319"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-186"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReservationCoveredHoursInLookbackPeriod&quot;</span></span><span>
+</span><span id="line-187"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [TagValues]
+   -&gt; CurrentInstance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe ResourceUtilization
-      -&gt; Maybe ResourceDetails
-      -&gt; Maybe Text
+      -&gt; Maybe [TagValues]
       -&gt; CurrentInstance)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679339319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OnDemandHoursInLookbackPeriod&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe [TagValues]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ResourceUtilization
-   -&gt; Maybe ResourceDetails
-   -&gt; Maybe Text
    -&gt; CurrentInstance)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe [TagValues]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ResourceUtilization
-      -&gt; Maybe ResourceDetails
-      -&gt; Maybe Text
-      -&gt; CurrentInstance)
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe [TagValues] -&gt; CurrentInstance)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679339319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CurrencyCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [TagValues]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ResourceUtilization
-   -&gt; Maybe ResourceDetails
-   -&gt; Maybe Text
-   -&gt; CurrentInstance)
--&gt; Parser (Maybe [TagValues])
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ResourceUtilization
-      -&gt; Maybe ResourceDetails
-      -&gt; Maybe Text
-      -&gt; CurrentInstance)
+</span><span class="hs-string">&quot;MonthlyCost&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe [TagValues] -&gt; CurrentInstance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe [TagValues] -&gt; CurrentInstance)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [TagValues]))
+</span><a href="#local-6989586621679339319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [TagValues] -&gt; CurrentInstance)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [TagValues] -&gt; CurrentInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339319"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-192"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SavingsPlansCoveredHoursInLookbackPeriod&quot;</span></span><span>
+</span><span id="line-193"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [TagValues] -&gt; CurrentInstance)
+-&gt; Parser (Maybe [TagValues]) -&gt; Parser CurrentInstance
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [TagValues]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [TagValues]))
@@ -672,75 +736,9 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagValues]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ResourceUtilization
-   -&gt; Maybe ResourceDetails
-   -&gt; Maybe Text
-   -&gt; CurrentInstance)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe ResourceUtilization
-      -&gt; Maybe ResourceDetails
-      -&gt; Maybe Text
-      -&gt; CurrentInstance)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338974"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-189"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReservationCoveredHoursInLookbackPeriod&quot;</span></span><span>
-</span><span id="line-190"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe ResourceUtilization
-   -&gt; Maybe ResourceDetails
-   -&gt; Maybe Text
-   -&gt; CurrentInstance)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe ResourceUtilization
-      -&gt; Maybe ResourceDetails -&gt; Maybe Text -&gt; CurrentInstance)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MonthlyCost&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ResourceUtilization
-   -&gt; Maybe ResourceDetails -&gt; Maybe Text -&gt; CurrentInstance)
--&gt; Parser (Maybe ResourceUtilization)
--&gt; Parser (Maybe ResourceDetails -&gt; Maybe Text -&gt; CurrentInstance)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceUtilization)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ResourceUtilization&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ResourceDetails -&gt; Maybe Text -&gt; CurrentInstance)
--&gt; Parser (Maybe ResourceDetails)
--&gt; Parser (Maybe Text -&gt; CurrentInstance)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceDetails)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ResourceDetails&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; CurrentInstance)
--&gt; Parser (Maybe Text) -&gt; Parser CurrentInstance
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TotalRunningHoursInLookbackPeriod&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338967"><span id="local-6989586621679338969"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span></span></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339312"><span id="local-6989586621679339314"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span></span></span><span>
 </span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338964"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CurrentInstance.html#CurrentInstance"><span class="hs-identifier hs-type">CurrentInstance</span></a></span></span><span>
 </span><span id="line-200"></span></pre></body></html>

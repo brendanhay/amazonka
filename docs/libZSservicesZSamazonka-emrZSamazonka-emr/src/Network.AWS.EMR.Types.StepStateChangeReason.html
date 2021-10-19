@@ -27,16 +27,16 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The details of the step state change reason.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStepStateChangeReason' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679377220"><span id="local-6989586621679377221"></span></span><span class="hs-keyword">data</span><span> </span><span id="StepStateChangeReason"><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason"><span class="hs-identifier hs-var">StepStateChangeReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepStateChangeReason%27"><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason%27"><span class="hs-identifier hs-var">StepStateChangeReason'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The descriptive message for the state change reason.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Amessage%3AStepStateChangeReason%27"><span class="annot"><span class="annottext">StepStateChangeReason -&gt; Maybe Text
-</span><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#%24sel%3Amessage%3AStepStateChangeReason%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The programmable code for the state change reason. Note: Currently, the</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- service provides no code for the state change.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Acode%3AStepStateChangeReason%27"><span class="annot"><span class="annottext">StepStateChangeReason -&gt; Maybe StepStateChangeReasonCode
-</span><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#%24sel%3Acode%3AStepStateChangeReason%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReasonCode.html#StepStateChangeReasonCode"><span class="hs-identifier hs-type">StepStateChangeReasonCode</span></a></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679377576"><span id="local-6989586621679377577"></span></span><span class="hs-keyword">data</span><span> </span><span id="StepStateChangeReason"><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason"><span class="hs-identifier hs-var">StepStateChangeReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepStateChangeReason%27"><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason%27"><span class="hs-identifier hs-var">StepStateChangeReason'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The programmable code for the state change reason. Note: Currently, the</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- service provides no code for the state change.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Acode%3AStepStateChangeReason%27"><span class="annot"><span class="annottext">StepStateChangeReason -&gt; Maybe StepStateChangeReasonCode
+</span><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#%24sel%3Acode%3AStepStateChangeReason%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReasonCode.html#StepStateChangeReasonCode"><span class="hs-identifier hs-type">StepStateChangeReasonCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The descriptive message for the state change reason.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Amessage%3AStepStateChangeReason%27"><span class="annot"><span class="annottext">StepStateChangeReason -&gt; Maybe Text
+</span><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#%24sel%3Amessage%3AStepStateChangeReason%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377213"><span id="local-6989586621679377215"><span class="annot"><span class="annottext">StepStateChangeReason -&gt; StepStateChangeReason -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377569"><span id="local-6989586621679377571"><span class="annot"><span class="annottext">StepStateChangeReason -&gt; StepStateChangeReason -&gt; Bool
 (StepStateChangeReason -&gt; StepStateChangeReason -&gt; Bool)
 -&gt; (StepStateChangeReason -&gt; StepStateChangeReason -&gt; Bool)
 -&gt; Eq StepStateChangeReason
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StepStateChangeReason -&gt; StepStateChangeReason -&gt; Bool
 == :: StepStateChangeReason -&gt; StepStateChangeReason -&gt; Bool
 $c== :: StepStateChangeReason -&gt; StepStateChangeReason -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377204"><span id="local-6989586621679377206"><span id="local-6989586621679377208"><span id="local-6989586621679377210"><span class="annot"><span class="annottext">ReadPrec [StepStateChangeReason]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377560"><span id="local-6989586621679377562"><span id="local-6989586621679377564"><span id="local-6989586621679377566"><span class="annot"><span class="annottext">ReadPrec [StepStateChangeReason]
 ReadPrec StepStateChangeReason
 Int -&gt; ReadS StepStateChangeReason
 ReadS [StepStateChangeReason]
@@ -65,7 +65,7 @@ readList :: ReadS [StepStateChangeReason]
 $creadList :: ReadS [StepStateChangeReason]
 readsPrec :: Int -&gt; ReadS StepStateChangeReason
 $creadsPrec :: Int -&gt; ReadS StepStateChangeReason
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377197"><span id="local-6989586621679377199"><span id="local-6989586621679377201"><span class="annot"><span class="annottext">Int -&gt; StepStateChangeReason -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377553"><span id="local-6989586621679377555"><span id="local-6989586621679377557"><span class="annot"><span class="annottext">Int -&gt; StepStateChangeReason -&gt; ShowS
 [StepStateChangeReason] -&gt; ShowS
 StepStateChangeReason -&gt; String
 (Int -&gt; StepStateChangeReason -&gt; ShowS)
@@ -99,54 +99,31 @@ $cfrom :: forall x. StepStateChangeReason -&gt; Rep StepStateChangeReason x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'message', 'stepStateChangeReason_message' - The descriptive message for the state change reason.</span><span>
-</span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'code', 'stepStateChangeReason_code' - The programmable code for the state change reason. Note: Currently, the</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- service provides no code for the state change.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'code', 'stepStateChangeReason_code' - The programmable code for the state change reason. Note: Currently, the</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- service provides no code for the state change.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'message', 'stepStateChangeReason_message' - The descriptive message for the state change reason.</span><span>
 </span><span id="line-51"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#newStepStateChangeReason"><span class="hs-identifier hs-type">newStepStateChangeReason</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason"><span class="hs-identifier hs-type">StepStateChangeReason</span></a></span><span>
 </span><span id="line-53"></span><span id="newStepStateChangeReason"><span class="annot"><span class="annottext">newStepStateChangeReason :: StepStateChangeReason
 </span><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#newStepStateChangeReason"><span class="hs-identifier hs-var hs-var">newStepStateChangeReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">StepStateChangeReason' :: Maybe Text
--&gt; Maybe StepStateChangeReasonCode -&gt; StepStateChangeReason
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">StepStateChangeReason' :: Maybe StepStateChangeReasonCode
+-&gt; Maybe Text -&gt; StepStateChangeReason
 </span><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason%27"><span class="hs-identifier hs-type">StepStateChangeReason'</span></a></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:StepStateChangeReason' :: Maybe Text
-</span><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#%24sel%3Amessage%3AStepStateChangeReason%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:code:StepStateChangeReason' :: Maybe StepStateChangeReasonCode
+</span><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#%24sel%3Acode%3AStepStateChangeReason%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StepStateChangeReasonCode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:StepStateChangeReason' :: Maybe StepStateChangeReasonCode
-</span><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#%24sel%3Acode%3AStepStateChangeReason%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StepStateChangeReasonCode
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:StepStateChangeReason' :: Maybe Text
+</span><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#%24sel%3Amessage%3AStepStateChangeReason%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | The descriptive message for the state change reason.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#stepStateChangeReason_message"><span class="hs-identifier hs-type">stepStateChangeReason_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason"><span class="hs-identifier hs-type">StepStateChangeReason</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="stepStateChangeReason_message"><span class="annot"><span class="annottext">stepStateChangeReason_message :: (Maybe Text -&gt; f (Maybe Text))
--&gt; StepStateChangeReason -&gt; f StepStateChangeReason
-</span><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#stepStateChangeReason_message"><span class="hs-identifier hs-var hs-var">stepStateChangeReason_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepStateChangeReason -&gt; Maybe Text)
--&gt; (StepStateChangeReason -&gt; Maybe Text -&gt; StepStateChangeReason)
--&gt; Lens
-     StepStateChangeReason
-     StepStateChangeReason
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason%27"><span class="hs-identifier hs-type">StepStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377188"><span class="annot"><span class="annottext">Maybe Text
-message :: Maybe Text
-$sel:message:StepStateChangeReason' :: StepStateChangeReason -&gt; Maybe Text
-</span><a href="#local-6989586621679377188"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377188"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377187"><span class="annot"><span class="annottext">s :: StepStateChangeReason
-</span><a href="#local-6989586621679377187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason%27"><span class="hs-identifier hs-type">StepStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377186"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepStateChangeReason
-</span><a href="#local-6989586621679377187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:StepStateChangeReason' :: Maybe Text
-</span><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#%24sel%3Amessage%3AStepStateChangeReason%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason"><span class="hs-identifier hs-type">StepStateChangeReason</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The programmable code for the state change reason. Note: Currently, the</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- service provides no code for the state change.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#stepStateChangeReason_code"><span class="hs-identifier hs-type">stepStateChangeReason_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason"><span class="hs-identifier hs-type">StepStateChangeReason</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReasonCode.html#StepStateChangeReasonCode"><span class="hs-identifier hs-type">StepStateChangeReasonCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="stepStateChangeReason_code"><span class="annot"><span class="annottext">stepStateChangeReason_code :: (Maybe StepStateChangeReasonCode
+</span><span id="line-59"></span><span class="hs-comment">-- | The programmable code for the state change reason. Note: Currently, the</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- service provides no code for the state change.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#stepStateChangeReason_code"><span class="hs-identifier hs-type">stepStateChangeReason_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason"><span class="hs-identifier hs-type">StepStateChangeReason</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReasonCode.html#StepStateChangeReasonCode"><span class="hs-identifier hs-type">StepStateChangeReasonCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="stepStateChangeReason_code"><span class="annot"><span class="annottext">stepStateChangeReason_code :: (Maybe StepStateChangeReasonCode
  -&gt; f (Maybe StepStateChangeReasonCode))
 -&gt; StepStateChangeReason -&gt; f StepStateChangeReason
 </span><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#stepStateChangeReason_code"><span class="hs-identifier hs-var hs-var">stepStateChangeReason_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepStateChangeReason -&gt; Maybe StepStateChangeReasonCode)
@@ -158,19 +135,42 @@ $sel:message:StepStateChangeReason' :: StepStateChangeReason -&gt; Maybe Text
      (Maybe StepStateChangeReasonCode)
      (Maybe StepStateChangeReasonCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason%27"><span class="hs-identifier hs-type">StepStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377184"><span class="annot"><span class="annottext">Maybe StepStateChangeReasonCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason%27"><span class="hs-identifier hs-type">StepStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377544"><span class="annot"><span class="annottext">Maybe StepStateChangeReasonCode
 code :: Maybe StepStateChangeReasonCode
 $sel:code:StepStateChangeReason' :: StepStateChangeReason -&gt; Maybe StepStateChangeReasonCode
-</span><a href="#local-6989586621679377184"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StepStateChangeReasonCode
-</span><a href="#local-6989586621679377184"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377183"><span class="annot"><span class="annottext">s :: StepStateChangeReason
-</span><a href="#local-6989586621679377183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason%27"><span class="hs-identifier hs-type">StepStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377182"><span class="annot"><span class="annottext">Maybe StepStateChangeReasonCode
-</span><a href="#local-6989586621679377182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepStateChangeReason
-</span><a href="#local-6989586621679377183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:StepStateChangeReason' :: Maybe StepStateChangeReasonCode
+</span><a href="#local-6989586621679377544"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StepStateChangeReasonCode
+</span><a href="#local-6989586621679377544"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377543"><span class="annot"><span class="annottext">s :: StepStateChangeReason
+</span><a href="#local-6989586621679377543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason%27"><span class="hs-identifier hs-type">StepStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377542"><span class="annot"><span class="annottext">Maybe StepStateChangeReasonCode
+</span><a href="#local-6989586621679377542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepStateChangeReason
+</span><a href="#local-6989586621679377543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:StepStateChangeReason' :: Maybe StepStateChangeReasonCode
 </span><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#%24sel%3Acode%3AStepStateChangeReason%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StepStateChangeReasonCode
-</span><a href="#local-6989586621679377182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason"><span class="hs-identifier hs-type">StepStateChangeReason</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason"><span class="hs-identifier hs-type">StepStateChangeReason</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The descriptive message for the state change reason.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#stepStateChangeReason_message"><span class="hs-identifier hs-type">stepStateChangeReason_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason"><span class="hs-identifier hs-type">StepStateChangeReason</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="stepStateChangeReason_message"><span class="annot"><span class="annottext">stepStateChangeReason_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StepStateChangeReason -&gt; f StepStateChangeReason
+</span><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#stepStateChangeReason_message"><span class="hs-identifier hs-var hs-var">stepStateChangeReason_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepStateChangeReason -&gt; Maybe Text)
+-&gt; (StepStateChangeReason -&gt; Maybe Text -&gt; StepStateChangeReason)
+-&gt; Lens
+     StepStateChangeReason
+     StepStateChangeReason
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason%27"><span class="hs-identifier hs-type">StepStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377540"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:StepStateChangeReason' :: StepStateChangeReason -&gt; Maybe Text
+</span><a href="#local-6989586621679377540"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377540"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377539"><span class="annot"><span class="annottext">s :: StepStateChangeReason
+</span><a href="#local-6989586621679377539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason%27"><span class="hs-identifier hs-type">StepStateChangeReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377538"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepStateChangeReason
+</span><a href="#local-6989586621679377539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:StepStateChangeReason' :: Maybe Text
+</span><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#%24sel%3Amessage%3AStepStateChangeReason%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason"><span class="hs-identifier hs-type">StepStateChangeReason</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377179"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason"><span class="hs-identifier hs-type">StepStateChangeReason</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679377177"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StepStateChangeReason
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377535"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason"><span class="hs-identifier hs-type">StepStateChangeReason</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679377533"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StepStateChangeReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StepStateChangeReason)
@@ -180,34 +180,32 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StepStateChangeReason&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377174"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377174"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe StepStateChangeReasonCode -&gt; StepStateChangeReason
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377530"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe StepStateChangeReasonCode
+-&gt; Maybe Text -&gt; StepStateChangeReason
 </span><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason%27"><span class="hs-identifier hs-var">StepStateChangeReason'</span></a></span><span>
-</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe StepStateChangeReasonCode -&gt; StepStateChangeReason)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe StepStateChangeReasonCode -&gt; StepStateChangeReason)
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe StepStateChangeReasonCode
+ -&gt; Maybe Text -&gt; StepStateChangeReason)
+-&gt; Parser (Maybe StepStateChangeReasonCode)
+-&gt; Parser (Maybe Text -&gt; StepStateChangeReason)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe StepStateChangeReasonCode -&gt; StepStateChangeReason)
--&gt; Parser (Maybe StepStateChangeReasonCode)
--&gt; Parser StepStateChangeReason
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StepStateChangeReasonCode)
+</span><a href="#local-6989586621679377530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StepStateChangeReasonCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Code&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; StepStateChangeReason)
+-&gt; Parser (Maybe Text) -&gt; Parser StepStateChangeReason
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377168"><span id="local-6989586621679377170"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason"><span class="hs-identifier hs-type">StepStateChangeReason</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377524"><span id="local-6989586621679377526"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason"><span class="hs-identifier hs-type">StepStateChangeReason</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377165"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason"><span class="hs-identifier hs-type">StepStateChangeReason</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377521"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReason.html#StepStateChangeReason"><span class="hs-identifier hs-type">StepStateChangeReason</span></a></span></span><span>
 </span><span id="line-81"></span></pre></body></html>

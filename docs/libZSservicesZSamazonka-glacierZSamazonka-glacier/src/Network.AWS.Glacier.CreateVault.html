@@ -74,7 +74,7 @@
 </span><span id="line-74"></span><span class="hs-comment">-- | Provides options to create a vault.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- /See:/ 'newCreateVault' smart constructor.</span><span>
-</span><span id="line-77"></span><span id="local-6989586621679225375"><span id="local-6989586621679225376"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVault"><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-var">CreateVault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVault%27"><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault%27"><span class="hs-identifier hs-var">CreateVault'</span></a></span></span><span>
+</span><span id="line-77"></span><span id="local-6989586621679225434"><span id="local-6989586621679225435"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVault"><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-var">CreateVault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVault%27"><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault%27"><span class="hs-identifier hs-var">CreateVault'</span></a></span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID. This value must match the</span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-comment">-- AWS account ID associated with the credentials used to sign the request.</span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-comment">-- You can either specify an AWS account ID or optionally a single \'@-@\'</span><span>
@@ -87,7 +87,7 @@
 </span><span id="line-86"></span><span>    </span><span id="%24sel%3AvaultName%3ACreateVault%27"><span class="annot"><span class="annottext">CreateVault -&gt; Text
 </span><a href="Network.AWS.Glacier.CreateVault.html#%24sel%3AvaultName%3ACreateVault%27"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225368"><span id="local-6989586621679225370"><span class="annot"><span class="annottext">CreateVault -&gt; CreateVault -&gt; Bool
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225427"><span id="local-6989586621679225429"><span class="annot"><span class="annottext">CreateVault -&gt; CreateVault -&gt; Bool
 (CreateVault -&gt; CreateVault -&gt; Bool)
 -&gt; (CreateVault -&gt; CreateVault -&gt; Bool) -&gt; Eq CreateVault
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -95,7 +95,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateVault -&gt; CreateVault -&gt; Bool
 == :: CreateVault -&gt; CreateVault -&gt; Bool
 $c== :: CreateVault -&gt; CreateVault -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225359"><span id="local-6989586621679225361"><span id="local-6989586621679225363"><span id="local-6989586621679225365"><span class="annot"><span class="annottext">ReadPrec [CreateVault]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225418"><span id="local-6989586621679225420"><span id="local-6989586621679225422"><span id="local-6989586621679225424"><span class="annot"><span class="annottext">ReadPrec [CreateVault]
 ReadPrec CreateVault
 Int -&gt; ReadS CreateVault
 ReadS [CreateVault]
@@ -115,7 +115,7 @@ readList :: ReadS [CreateVault]
 $creadList :: ReadS [CreateVault]
 readsPrec :: Int -&gt; ReadS CreateVault
 $creadsPrec :: Int -&gt; ReadS CreateVault
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225352"><span id="local-6989586621679225354"><span id="local-6989586621679225356"><span class="annot"><span class="annottext">Int -&gt; CreateVault -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225411"><span id="local-6989586621679225413"><span id="local-6989586621679225415"><span class="annot"><span class="annottext">Int -&gt; CreateVault -&gt; ShowS
 [CreateVault] -&gt; ShowS
 CreateVault -&gt; String
 (Int -&gt; CreateVault -&gt; ShowS)
@@ -164,17 +164,17 @@ $cfrom :: forall x. CreateVault -&gt; Rep CreateVault x
 </span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-type">CreateVault</span></a></span><span>
 </span><span id="line-112"></span><span id="newCreateVault"><span class="annot"><span class="annottext">newCreateVault :: Text -&gt; Text -&gt; CreateVault
-</span><a href="Network.AWS.Glacier.CreateVault.html#newCreateVault"><span class="hs-identifier hs-var hs-var">newCreateVault</span></a></span></span><span> </span><span id="local-6989586621679225347"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225347"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679225346"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225346"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.CreateVault.html#newCreateVault"><span class="hs-identifier hs-var hs-var">newCreateVault</span></a></span></span><span> </span><span id="local-6989586621679225406"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225406"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679225405"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225405"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">CreateVault' :: Text -&gt; Text -&gt; CreateVault
 </span><a href="Network.AWS.Glacier.CreateVault.html#CreateVault%27"><span class="hs-identifier hs-type">CreateVault'</span></a></span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:CreateVault' :: Text
 </span><a href="Network.AWS.Glacier.CreateVault.html#%24sel%3AaccountId%3ACreateVault%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225347"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225406"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultName:CreateVault' :: Text
 </span><a href="Network.AWS.Glacier.CreateVault.html#%24sel%3AvaultName%3ACreateVault%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225346"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
+</span><a href="#local-6989586621679225405"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID. This value must match the</span><span>
@@ -189,16 +189,16 @@ $cfrom :: forall x. CreateVault -&gt; Rep CreateVault x
 -&gt; (CreateVault -&gt; Text -&gt; CreateVault)
 -&gt; Lens CreateVault CreateVault Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault%27"><span class="hs-identifier hs-type">CreateVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225343"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault%27"><span class="hs-identifier hs-type">CreateVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225402"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:CreateVault' :: CreateVault -&gt; Text
-</span><a href="#local-6989586621679225343"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225343"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225342"><span class="annot"><span class="annottext">s :: CreateVault
-</span><a href="#local-6989586621679225342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault%27"><span class="hs-identifier hs-type">CreateVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225341"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVault
-</span><a href="#local-6989586621679225342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:CreateVault' :: Text
+</span><a href="#local-6989586621679225402"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225402"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225401"><span class="annot"><span class="annottext">s :: CreateVault
+</span><a href="#local-6989586621679225401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault%27"><span class="hs-identifier hs-type">CreateVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225400"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVault
+</span><a href="#local-6989586621679225401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:CreateVault' :: Text
 </span><a href="Network.AWS.Glacier.CreateVault.html#%24sel%3AaccountId%3ACreateVault%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-type">CreateVault</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-type">CreateVault</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The name of the vault.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#createVault_vaultName"><span class="hs-identifier hs-type">createVault_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-type">CreateVault</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -207,20 +207,20 @@ $sel:accountId:CreateVault' :: CreateVault -&gt; Text
 -&gt; (CreateVault -&gt; Text -&gt; CreateVault)
 -&gt; Lens CreateVault CreateVault Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault%27"><span class="hs-identifier hs-type">CreateVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225340"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault%27"><span class="hs-identifier hs-type">CreateVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225399"><span class="annot"><span class="annottext">Text
 vaultName :: Text
 $sel:vaultName:CreateVault' :: CreateVault -&gt; Text
-</span><a href="#local-6989586621679225340"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225340"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225339"><span class="annot"><span class="annottext">s :: CreateVault
-</span><a href="#local-6989586621679225339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault%27"><span class="hs-identifier hs-type">CreateVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225338"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVault
-</span><a href="#local-6989586621679225339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:CreateVault' :: Text
+</span><a href="#local-6989586621679225399"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225399"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225398"><span class="annot"><span class="annottext">s :: CreateVault
+</span><a href="#local-6989586621679225398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault%27"><span class="hs-identifier hs-type">CreateVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225397"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVault
+</span><a href="#local-6989586621679225398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:CreateVault' :: Text
 </span><a href="Network.AWS.Glacier.CreateVault.html#%24sel%3AvaultName%3ACreateVault%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-type">CreateVault</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-type">CreateVault</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-type">CreateVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-type">CreateVault</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse"><span class="hs-identifier hs-type">CreateVaultResponse</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679225334"><span class="annot"><span class="annottext">request :: CreateVault -&gt; Request CreateVault
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679225393"><span class="annot"><span class="annottext">request :: CreateVault -&gt; Request CreateVault
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; Request CreateVault -&gt; Request CreateVault
 forall a. ByteString -&gt; Request a -&gt; Request a
@@ -236,7 +236,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679225327"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679225386"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateVault
 -&gt; ClientResponse ClientBody
@@ -260,10 +260,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225324"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225324"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679225323"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679225323"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679225322"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679225322"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225383"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225383"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679225382"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679225382"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679225381"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679225381"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateVaultResponse
 </span><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse%27"><span class="hs-identifier hs-var">CreateVaultResponse'</span></a></span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateVaultResponse)
@@ -271,7 +271,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateVaultResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679225323"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679225382"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -285,23 +285,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225324"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225383"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225314"><span id="local-6989586621679225316"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-type">CreateVault</span></a></span></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225373"><span id="local-6989586621679225375"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-type">CreateVault</span></a></span></span></span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225311"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-type">CreateVault</span></a></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-type">CreateVault</span></a></span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-type">CreateVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679225307"><span class="annot"><span class="annottext">toHeaders :: CreateVault -&gt; ResponseHeaders
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679225366"><span class="annot"><span class="annottext">toHeaders :: CreateVault -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateVault -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225298"><span id="local-6989586621679225300"><span id="local-6989586621679225302"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-type">CreateVault</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679225296"><span class="annot"><span class="annottext">toJSON :: CreateVault -&gt; Value
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225357"><span id="local-6989586621679225359"><span id="local-6989586621679225361"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-type">CreateVault</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679225355"><span class="annot"><span class="annottext">toJSON :: CreateVault -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; CreateVault -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -310,13 +310,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-type">CreateVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679225291"><span class="annot"><span class="annottext">toPath :: CreateVault -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault%27"><span class="hs-identifier hs-type">CreateVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225288"><span id="local-6989586621679225289"><span class="annot"><span class="annottext">Text
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679225350"><span class="annot"><span class="annottext">toPath :: CreateVault -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault%27"><span class="hs-identifier hs-type">CreateVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225347"><span id="local-6989586621679225348"><span class="annot"><span class="annottext">Text
 vaultName :: Text
 accountId :: Text
 $sel:vaultName:CreateVault' :: CreateVault -&gt; Text
 $sel:accountId:CreateVault' :: CreateVault -&gt; Text
-</span><a href="#local-6989586621679225288"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679225347"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -325,17 +325,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225289"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225348"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225288"><span class="hs-identifier hs-var">vaultName</span></a></span><span>
+</span><a href="#local-6989586621679225347"><span class="hs-identifier hs-var">vaultName</span></a></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVault"><span class="hs-identifier hs-type">CreateVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679225284"><span class="annot"><span class="annottext">toQuery :: CreateVault -&gt; QueryString
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679225343"><span class="annot"><span class="annottext">toQuery :: CreateVault -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateVault -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -345,7 +345,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-166"></span><span class="hs-comment">-- | Contains the Amazon S3 Glacier response to your request.</span><span>
 </span><span id="line-167"></span><span class="hs-comment">--</span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- /See:/ 'newCreateVaultResponse' smart constructor.</span><span>
-</span><span id="line-169"></span><span id="local-6989586621679225281"><span id="local-6989586621679225282"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVaultResponse"><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse"><span class="hs-identifier hs-var">CreateVaultResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVaultResponse%27"><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse%27"><span class="hs-identifier hs-var">CreateVaultResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span id="local-6989586621679225340"><span id="local-6989586621679225341"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVaultResponse"><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse"><span class="hs-identifier hs-var">CreateVaultResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVaultResponse%27"><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse%27"><span class="hs-identifier hs-var">CreateVaultResponse'</span></a></span></span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The URI of the vault that was created.</span><span>
 </span><span id="line-171"></span><span>    </span><span id="%24sel%3Alocation%3ACreateVaultResponse%27"><span class="annot"><span class="annottext">CreateVaultResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Glacier.CreateVault.html#%24sel%3Alocation%3ACreateVaultResponse%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -353,7 +353,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-173"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateVaultResponse%27"><span class="annot"><span class="annottext">CreateVaultResponse -&gt; Int
 </span><a href="Network.AWS.Glacier.CreateVault.html#%24sel%3AhttpStatus%3ACreateVaultResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-175"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225275"><span id="local-6989586621679225277"><span class="annot"><span class="annottext">CreateVaultResponse -&gt; CreateVaultResponse -&gt; Bool
+</span><span id="line-175"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225334"><span id="local-6989586621679225336"><span class="annot"><span class="annottext">CreateVaultResponse -&gt; CreateVaultResponse -&gt; Bool
 (CreateVaultResponse -&gt; CreateVaultResponse -&gt; Bool)
 -&gt; (CreateVaultResponse -&gt; CreateVaultResponse -&gt; Bool)
 -&gt; Eq CreateVaultResponse
@@ -362,7 +362,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateVaultResponse -&gt; CreateVaultResponse -&gt; Bool
 == :: CreateVaultResponse -&gt; CreateVaultResponse -&gt; Bool
 $c== :: CreateVaultResponse -&gt; CreateVaultResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225267"><span id="local-6989586621679225269"><span id="local-6989586621679225271"><span id="local-6989586621679225273"><span class="annot"><span class="annottext">ReadPrec [CreateVaultResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225326"><span id="local-6989586621679225328"><span id="local-6989586621679225330"><span id="local-6989586621679225332"><span class="annot"><span class="annottext">ReadPrec [CreateVaultResponse]
 ReadPrec CreateVaultResponse
 Int -&gt; ReadS CreateVaultResponse
 ReadS [CreateVaultResponse]
@@ -382,7 +382,7 @@ readList :: ReadS [CreateVaultResponse]
 $creadList :: ReadS [CreateVaultResponse]
 readsPrec :: Int -&gt; ReadS CreateVaultResponse
 $creadsPrec :: Int -&gt; ReadS CreateVaultResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225261"><span id="local-6989586621679225263"><span id="local-6989586621679225265"><span class="annot"><span class="annottext">Int -&gt; CreateVaultResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225320"><span id="local-6989586621679225322"><span id="local-6989586621679225324"><span class="annot"><span class="annottext">Int -&gt; CreateVaultResponse -&gt; ShowS
 [CreateVaultResponse] -&gt; ShowS
 CreateVaultResponse -&gt; String
 (Int -&gt; CreateVaultResponse -&gt; ShowS)
@@ -424,8 +424,8 @@ $cfrom :: forall x. CreateVaultResponse -&gt; Rep CreateVaultResponse x
 </span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse"><span class="hs-identifier hs-type">CreateVaultResponse</span></a></span><span>
 </span><span id="line-192"></span><span id="newCreateVaultResponse"><span class="annot"><span class="annottext">newCreateVaultResponse :: Int -&gt; CreateVaultResponse
-</span><a href="Network.AWS.Glacier.CreateVault.html#newCreateVaultResponse"><span class="hs-identifier hs-var hs-var">newCreateVaultResponse</span></a></span></span><span> </span><span id="local-6989586621679225258"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.CreateVault.html#newCreateVaultResponse"><span class="hs-identifier hs-var hs-var">newCreateVaultResponse</span></a></span></span><span> </span><span id="local-6989586621679225317"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225317"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="annottext">CreateVaultResponse' :: Maybe Text -&gt; Int -&gt; CreateVaultResponse
 </span><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse%27"><span class="hs-identifier hs-type">CreateVaultResponse'</span></a></span><span>
 </span><span id="line-194"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:location:CreateVaultResponse' :: Maybe Text
@@ -434,7 +434,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateVaultResponse' :: Int
 </span><a href="Network.AWS.Glacier.CreateVault.html#%24sel%3AhttpStatus%3ACreateVaultResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679225317"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The URI of the vault that was created.</span><span>
@@ -446,16 +446,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateVaultResponse CreateVaultResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse%27"><span class="hs-identifier hs-type">CreateVaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225257"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse%27"><span class="hs-identifier hs-type">CreateVaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225316"><span class="annot"><span class="annottext">Maybe Text
 location :: Maybe Text
 $sel:location:CreateVaultResponse' :: CreateVaultResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679225257"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225257"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225256"><span class="annot"><span class="annottext">s :: CreateVaultResponse
-</span><a href="#local-6989586621679225256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse%27"><span class="hs-identifier hs-type">CreateVaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225255"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVaultResponse
-</span><a href="#local-6989586621679225256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CreateVaultResponse' :: Maybe Text
+</span><a href="#local-6989586621679225316"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225316"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225315"><span class="annot"><span class="annottext">s :: CreateVaultResponse
+</span><a href="#local-6989586621679225315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse%27"><span class="hs-identifier hs-type">CreateVaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225314"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVaultResponse
+</span><a href="#local-6989586621679225315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CreateVaultResponse' :: Maybe Text
 </span><a href="Network.AWS.Glacier.CreateVault.html#%24sel%3Alocation%3ACreateVaultResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse"><span class="hs-identifier hs-type">CreateVaultResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse"><span class="hs-identifier hs-type">CreateVaultResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-203"></span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#createVaultResponse_httpStatus"><span class="hs-identifier hs-type">createVaultResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse"><span class="hs-identifier hs-type">CreateVaultResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -464,16 +464,16 @@ $sel:location:CreateVaultResponse' :: CreateVaultResponse -&gt; Maybe Text
 -&gt; (CreateVaultResponse -&gt; Int -&gt; CreateVaultResponse)
 -&gt; Lens CreateVaultResponse CreateVaultResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse%27"><span class="hs-identifier hs-type">CreateVaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225254"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse%27"><span class="hs-identifier hs-type">CreateVaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225313"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateVaultResponse' :: CreateVaultResponse -&gt; Int
-</span><a href="#local-6989586621679225254"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225254"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225253"><span class="annot"><span class="annottext">s :: CreateVaultResponse
-</span><a href="#local-6989586621679225253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse%27"><span class="hs-identifier hs-type">CreateVaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225252"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVaultResponse
-</span><a href="#local-6989586621679225253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateVaultResponse' :: Int
+</span><a href="#local-6989586621679225313"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225313"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225312"><span class="annot"><span class="annottext">s :: CreateVaultResponse
+</span><a href="#local-6989586621679225312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse%27"><span class="hs-identifier hs-type">CreateVaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225311"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVaultResponse
+</span><a href="#local-6989586621679225312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateVaultResponse' :: Int
 </span><a href="Network.AWS.Glacier.CreateVault.html#%24sel%3AhttpStatus%3ACreateVaultResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse"><span class="hs-identifier hs-type">CreateVaultResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse"><span class="hs-identifier hs-type">CreateVaultResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225250"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse"><span class="hs-identifier hs-type">CreateVaultResponse</span></a></span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.CreateVault.html#CreateVaultResponse"><span class="hs-identifier hs-type">CreateVaultResponse</span></a></span></span><span>
 </span><span id="line-207"></span></pre></body></html>

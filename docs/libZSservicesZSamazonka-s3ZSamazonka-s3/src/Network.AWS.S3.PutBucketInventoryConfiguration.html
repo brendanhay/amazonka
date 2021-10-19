@@ -108,7 +108,7 @@
 </span><span id="line-108"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | /See:/ 'newPutBucketInventoryConfiguration' smart constructor.</span><span>
-</span><span id="line-111"></span><span id="local-6989586621679565828"><span id="local-6989586621679565829"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketInventoryConfiguration"><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-var">PutBucketInventoryConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketInventoryConfiguration%27"><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var">PutBucketInventoryConfiguration'</span></a></span></span><span>
+</span><span id="line-111"></span><span id="local-6989586621679566596"><span id="local-6989586621679566597"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketInventoryConfiguration"><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-var">PutBucketInventoryConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketInventoryConfiguration%27"><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var">PutBucketInventoryConfiguration'</span></a></span></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-113"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
@@ -124,7 +124,7 @@
 </span><span id="line-121"></span><span>    </span><span id="%24sel%3AinventoryConfiguration%3APutBucketInventoryConfiguration%27"><span class="annot"><span class="annottext">PutBucketInventoryConfiguration -&gt; InventoryConfiguration
 </span><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#%24sel%3AinventoryConfiguration%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var hs-var">inventoryConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679565819"><span id="local-6989586621679565821"><span class="annot"><span class="annottext">PutBucketInventoryConfiguration
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679566587"><span id="local-6989586621679566589"><span class="annot"><span class="annottext">PutBucketInventoryConfiguration
 -&gt; PutBucketInventoryConfiguration -&gt; Bool
 (PutBucketInventoryConfiguration
  -&gt; PutBucketInventoryConfiguration -&gt; Bool)
@@ -140,7 +140,7 @@ $c/= :: PutBucketInventoryConfiguration
 -&gt; PutBucketInventoryConfiguration -&gt; Bool
 $c== :: PutBucketInventoryConfiguration
 -&gt; PutBucketInventoryConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679565812"><span id="local-6989586621679565814"><span id="local-6989586621679565816"><span class="annot"><span class="annottext">Int -&gt; PutBucketInventoryConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566580"><span id="local-6989586621679566582"><span id="local-6989586621679566584"><span class="annot"><span class="annottext">Int -&gt; PutBucketInventoryConfiguration -&gt; ShowS
 [PutBucketInventoryConfiguration] -&gt; ShowS
 PutBucketInventoryConfiguration -&gt; String
 (Int -&gt; PutBucketInventoryConfiguration -&gt; ShowS)
@@ -208,12 +208,12 @@ PutBucketInventoryConfiguration
 -&gt; InventoryConfiguration
 -&gt; PutBucketInventoryConfiguration
 </span><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#newPutBucketInventoryConfiguration"><span class="hs-identifier hs-var hs-var">newPutBucketInventoryConfiguration</span></a></span></span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679565807"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679565807"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679565806"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679565806"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679565805"><span class="annot"><span class="annottext">InventoryConfiguration
-</span><a href="#local-6989586621679565805"><span class="hs-identifier hs-var">pInventoryConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679566575"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679566575"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679566574"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679566574"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679566573"><span class="annot"><span class="annottext">InventoryConfiguration
+</span><a href="#local-6989586621679566573"><span class="hs-identifier hs-var">pInventoryConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">PutBucketInventoryConfiguration' :: Maybe Text
 -&gt; BucketName
 -&gt; Text
@@ -227,14 +227,14 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:bucket:PutBucketInventoryConfiguration' :: BucketName
 </span><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#%24sel%3Abucket%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679565807"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679566575"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:PutBucketInventoryConfiguration' :: Text
 </span><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#%24sel%3Aid%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679565806"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679566574"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">$sel:inventoryConfiguration:PutBucketInventoryConfiguration' :: InventoryConfiguration
 </span><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#%24sel%3AinventoryConfiguration%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var">inventoryConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">InventoryConfiguration
-</span><a href="#local-6989586621679565805"><span class="hs-identifier hs-var">pInventoryConfiguration_</span></a></span><span>
+</span><a href="#local-6989586621679566573"><span class="hs-identifier hs-var">pInventoryConfiguration_</span></a></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
@@ -253,16 +253,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565802"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566570"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679565802"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679565802"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565801"><span class="annot"><span class="annottext">s :: PutBucketInventoryConfiguration
-</span><a href="#local-6989586621679565801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565800"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679565800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketInventoryConfiguration
-</span><a href="#local-6989586621679565801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketInventoryConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679566570"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566570"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566569"><span class="annot"><span class="annottext">s :: PutBucketInventoryConfiguration
+</span><a href="#local-6989586621679566569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566568"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketInventoryConfiguration
+</span><a href="#local-6989586621679566569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:PutBucketInventoryConfiguration' :: Maybe Text
 </span><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#%24sel%3AexpectedBucketOwner%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679565800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679566568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The name of the bucket where the inventory configuration will be stored.</span><span>
 </span><span id="line-170"></span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#putBucketInventoryConfiguration_bucket"><span class="hs-identifier hs-type">putBucketInventoryConfiguration_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
@@ -278,16 +278,16 @@ $sel:expectedBucketOwner:PutBucketInventoryConfiguration' :: PutBucketInventoryC
      BucketName
      BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565799"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566567"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; BucketName
-</span><a href="#local-6989586621679565799"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679565799"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565798"><span class="annot"><span class="annottext">s :: PutBucketInventoryConfiguration
-</span><a href="#local-6989586621679565798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565797"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679565797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketInventoryConfiguration
-</span><a href="#local-6989586621679565798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:PutBucketInventoryConfiguration' :: BucketName
+</span><a href="#local-6989586621679566567"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679566567"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566566"><span class="annot"><span class="annottext">s :: PutBucketInventoryConfiguration
+</span><a href="#local-6989586621679566566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566565"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679566565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketInventoryConfiguration
+</span><a href="#local-6989586621679566566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:PutBucketInventoryConfiguration' :: BucketName
 </span><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#%24sel%3Abucket%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679565797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679566565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The ID used to identify the inventory configuration.</span><span>
 </span><span id="line-174"></span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#putBucketInventoryConfiguration_id"><span class="hs-identifier hs-type">putBucketInventoryConfiguration_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -303,16 +303,16 @@ $sel:bucket:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration 
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565796"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566564"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Text
-</span><a href="#local-6989586621679565796"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679565796"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565795"><span class="annot"><span class="annottext">s :: PutBucketInventoryConfiguration
-</span><a href="#local-6989586621679565795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565794"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679565794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketInventoryConfiguration
-</span><a href="#local-6989586621679565795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:PutBucketInventoryConfiguration' :: Text
+</span><a href="#local-6989586621679566564"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679566564"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566563"><span class="annot"><span class="annottext">s :: PutBucketInventoryConfiguration
+</span><a href="#local-6989586621679566563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566562"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679566562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketInventoryConfiguration
+</span><a href="#local-6989586621679566563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:PutBucketInventoryConfiguration' :: Text
 </span><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#%24sel%3Aid%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679565794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679566562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | Specifies the inventory configuration.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#putBucketInventoryConfiguration_inventoryConfiguration"><span class="hs-identifier hs-type">putBucketInventoryConfiguration_inventoryConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span>
@@ -328,16 +328,16 @@ $sel:id:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt
      InventoryConfiguration
      InventoryConfiguration
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565793"><span class="annot"><span class="annottext">InventoryConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566561"><span class="annot"><span class="annottext">InventoryConfiguration
 inventoryConfiguration :: InventoryConfiguration
 $sel:inventoryConfiguration:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; InventoryConfiguration
-</span><a href="#local-6989586621679565793"><span class="hs-identifier hs-var hs-var">inventoryConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
-</span><a href="#local-6989586621679565793"><span class="hs-identifier hs-var">inventoryConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679565792"><span class="annot"><span class="annottext">s :: PutBucketInventoryConfiguration
-</span><a href="#local-6989586621679565792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679565791"><span class="annot"><span class="annottext">InventoryConfiguration
-</span><a href="#local-6989586621679565791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketInventoryConfiguration
-</span><a href="#local-6989586621679565792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inventoryConfiguration:PutBucketInventoryConfiguration' :: InventoryConfiguration
+</span><a href="#local-6989586621679566561"><span class="hs-identifier hs-var hs-var">inventoryConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
+</span><a href="#local-6989586621679566561"><span class="hs-identifier hs-var">inventoryConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679566560"><span class="annot"><span class="annottext">s :: PutBucketInventoryConfiguration
+</span><a href="#local-6989586621679566560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679566559"><span class="annot"><span class="annottext">InventoryConfiguration
+</span><a href="#local-6989586621679566559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutBucketInventoryConfiguration
+</span><a href="#local-6989586621679566560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inventoryConfiguration:PutBucketInventoryConfiguration' :: InventoryConfiguration
 </span><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#%24sel%3AinventoryConfiguration%3APutBucketInventoryConfiguration%27"><span class="hs-identifier hs-var">inventoryConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
-</span><a href="#local-6989586621679565791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679566559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -346,15 +346,27 @@ $sel:inventoryConfiguration:PutBucketInventoryConfiguration' :: PutBucketInvento
 </span><span id="line-185"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-186"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-187"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse"><span class="hs-identifier hs-type">PutBucketInventoryConfigurationResponse</span></a></span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679565787"><span class="annot"><span class="annottext">request :: PutBucketInventoryConfiguration
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679566555"><span class="annot"><span class="annottext">request :: PutBucketInventoryConfiguration
 -&gt; Request PutBucketInventoryConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">Request PutBucketInventoryConfiguration
+-&gt; Request PutBucketInventoryConfiguration
+forall a. Request a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.s3vhost</span></span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">(Request PutBucketInventoryConfiguration
+ -&gt; Request PutBucketInventoryConfiguration)
+-&gt; (PutBucketInventoryConfiguration
+    -&gt; Request PutBucketInventoryConfiguration)
+-&gt; PutBucketInventoryConfiguration
+-&gt; Request PutBucketInventoryConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; PutBucketInventoryConfiguration
 -&gt; Request PutBucketInventoryConfiguration
 forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putXML</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679565783"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679566549"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutBucketInventoryConfiguration
 -&gt; ClientResponse ClientBody
@@ -362,7 +374,7 @@ forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
         Error
         (ClientResponse (AWSResponse PutBucketInventoryConfiguration)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse PutBucketInventoryConfiguration
+</span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse PutBucketInventoryConfiguration
 -&gt; Logger
 -&gt; Service
 -&gt; Proxy PutBucketInventoryConfiguration
@@ -379,24 +391,24 @@ AWSResponse a
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
-</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse PutBucketInventoryConfiguration
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse PutBucketInventoryConfiguration
 PutBucketInventoryConfigurationResponse
 </span><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse%27"><span class="hs-identifier hs-var">PutBucketInventoryConfigurationResponse'</span></a></span><span>
-</span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679565776"><span id="local-6989586621679565778"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
-</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span></span></span><span>
-</span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679565773"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span></span><span>
-</span><span id="line-200"></span><span>
-</span><span id="line-201"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-202"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span>
-</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span>
-</span><span id="line-204"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-205"></span><span>  </span><span id="local-6989586621679565769"><span class="annot"><span class="annottext">toElement :: PutBucketInventoryConfiguration -&gt; Element
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565764"><span id="local-6989586621679565765"><span id="local-6989586621679565766"><span id="local-6989586621679565767"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679566542"><span id="local-6989586621679566544"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span></span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679566539"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679566535"><span class="annot"><span class="annottext">toElement :: PutBucketInventoryConfiguration -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566530"><span id="local-6989586621679566531"><span id="local-6989586621679566532"><span id="local-6989586621679566533"><span class="annot"><span class="annottext">Maybe Text
 Text
 BucketName
 InventoryConfiguration
@@ -408,21 +420,21 @@ $sel:inventoryConfiguration:PutBucketInventoryConfiguration' :: PutBucketInvento
 $sel:id:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Text
 $sel:bucket:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; BucketName
 $sel:expectedBucketOwner:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679565764"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; InventoryConfiguration -&gt; Element
+</span><a href="#local-6989586621679566530"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; InventoryConfiguration -&gt; Element
 forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
 </span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
-</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">Name
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;{http://s3.amazonaws.com/doc/2006-03-01/}InventoryConfiguration&quot;</span></span><span>
-</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">InventoryConfiguration
-</span><a href="#local-6989586621679565764"><span class="hs-identifier hs-var">inventoryConfiguration</span></a></span><span>
-</span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-211"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
-</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span>
-</span><span id="line-213"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679565760"><span class="annot"><span class="annottext">toHeaders :: PutBucketInventoryConfiguration -&gt; [Header]
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565755"><span id="local-6989586621679565756"><span id="local-6989586621679565757"><span id="local-6989586621679565758"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">InventoryConfiguration
+</span><a href="#local-6989586621679566530"><span class="hs-identifier hs-var">inventoryConfiguration</span></a></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679566526"><span class="annot"><span class="annottext">toHeaders :: PutBucketInventoryConfiguration -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566521"><span id="local-6989586621679566522"><span id="local-6989586621679566523"><span id="local-6989586621679566524"><span class="annot"><span class="annottext">Maybe Text
 Text
 BucketName
 InventoryConfiguration
@@ -434,21 +446,21 @@ $sel:inventoryConfiguration:PutBucketInventoryConfiguration' :: PutBucketInvento
 $sel:id:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Text
 $sel:bucket:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; BucketName
 $sel:expectedBucketOwner:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679565755"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+</span><a href="#local-6989586621679566521"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-216"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-218"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
-</span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
+</span><span id="line-219"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679565758"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
-</span><span id="line-218"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-221"></span><span>  </span><span id="local-6989586621679565751"><span class="annot"><span class="annottext">toPath :: PutBucketInventoryConfiguration -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565746"><span id="local-6989586621679565747"><span id="local-6989586621679565748"><span id="local-6989586621679565749"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566524"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679566517"><span class="annot"><span class="annottext">toPath :: PutBucketInventoryConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566512"><span id="local-6989586621679566513"><span id="local-6989586621679566514"><span id="local-6989586621679566515"><span class="annot"><span class="annottext">Maybe Text
 Text
 BucketName
 InventoryConfiguration
@@ -460,18 +472,18 @@ $sel:inventoryConfiguration:PutBucketInventoryConfiguration' :: PutBucketInvento
 $sel:id:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Text
 $sel:bucket:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; BucketName
 $sel:expectedBucketOwner:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679565746"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-222"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+</span><a href="#local-6989586621679566512"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679565748"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
-</span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-225"></span><span>  </span><span id="local-6989586621679565742"><span class="annot"><span class="annottext">toQuery :: PutBucketInventoryConfiguration -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679565737"><span id="local-6989586621679565738"><span id="local-6989586621679565739"><span id="local-6989586621679565740"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679566514"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679566508"><span class="annot"><span class="annottext">toQuery :: PutBucketInventoryConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfiguration%27"><span class="hs-identifier hs-type">PutBucketInventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679566503"><span id="local-6989586621679566504"><span id="local-6989586621679566505"><span id="local-6989586621679566506"><span class="annot"><span class="annottext">Maybe Text
 Text
 BucketName
 InventoryConfiguration
@@ -483,21 +495,21 @@ $sel:inventoryConfiguration:PutBucketInventoryConfiguration' :: PutBucketInvento
 $sel:id:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Text
 $sel:bucket:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; BucketName
 $sel:expectedBucketOwner:PutBucketInventoryConfiguration' :: PutBucketInventoryConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679565737"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-226"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+</span><a href="#local-6989586621679566503"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679565738"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679566504"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">QueryString
 </span><span class="hs-string">&quot;inventory&quot;</span></span><span class="hs-special">]</span><span>
-</span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- | /See:/ 'newPutBucketInventoryConfigurationResponse' smart constructor.</span><span>
-</span><span id="line-229"></span><span id="local-6989586621679565734"><span id="local-6989586621679565735"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketInventoryConfigurationResponse"><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse"><span class="hs-identifier hs-var">PutBucketInventoryConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketInventoryConfigurationResponse%27"><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse%27"><span class="hs-identifier hs-var">PutBucketInventoryConfigurationResponse'</span></a></span></span><span>
-</span><span id="line-230"></span><span>  </span><span class="hs-special">{</span><span>
-</span><span id="line-231"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-232"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679565730"><span id="local-6989586621679565732"><span class="annot"><span class="annottext">PutBucketInventoryConfigurationResponse
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | /See:/ 'newPutBucketInventoryConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-231"></span><span id="local-6989586621679566500"><span id="local-6989586621679566501"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutBucketInventoryConfigurationResponse"><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse"><span class="hs-identifier hs-var">PutBucketInventoryConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutBucketInventoryConfigurationResponse%27"><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse%27"><span class="hs-identifier hs-var">PutBucketInventoryConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679566496"><span id="local-6989586621679566498"><span class="annot"><span class="annottext">PutBucketInventoryConfigurationResponse
 -&gt; PutBucketInventoryConfigurationResponse -&gt; Bool
 (PutBucketInventoryConfigurationResponse
  -&gt; PutBucketInventoryConfigurationResponse -&gt; Bool)
@@ -513,7 +525,7 @@ $c/= :: PutBucketInventoryConfigurationResponse
 -&gt; PutBucketInventoryConfigurationResponse -&gt; Bool
 $c== :: PutBucketInventoryConfigurationResponse
 -&gt; PutBucketInventoryConfigurationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679565722"><span id="local-6989586621679565724"><span id="local-6989586621679565726"><span id="local-6989586621679565728"><span class="annot"><span class="annottext">ReadPrec [PutBucketInventoryConfigurationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566488"><span id="local-6989586621679566490"><span id="local-6989586621679566492"><span id="local-6989586621679566494"><span class="annot"><span class="annottext">ReadPrec [PutBucketInventoryConfigurationResponse]
 ReadPrec PutBucketInventoryConfigurationResponse
 Int -&gt; ReadS PutBucketInventoryConfigurationResponse
 ReadS [PutBucketInventoryConfigurationResponse]
@@ -533,7 +545,7 @@ readList :: ReadS [PutBucketInventoryConfigurationResponse]
 $creadList :: ReadS [PutBucketInventoryConfigurationResponse]
 readsPrec :: Int -&gt; ReadS PutBucketInventoryConfigurationResponse
 $creadsPrec :: Int -&gt; ReadS PutBucketInventoryConfigurationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679565715"><span id="local-6989586621679565717"><span id="local-6989586621679565719"><span class="annot"><span class="annottext">Int -&gt; PutBucketInventoryConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679566481"><span id="local-6989586621679566483"><span id="local-6989586621679566485"><span class="annot"><span class="annottext">Int -&gt; PutBucketInventoryConfigurationResponse -&gt; ShowS
 [PutBucketInventoryConfigurationResponse] -&gt; ShowS
 PutBucketInventoryConfigurationResponse -&gt; String
 (Int -&gt; PutBucketInventoryConfigurationResponse -&gt; ShowS)
@@ -570,19 +582,19 @@ $cfrom :: forall x.
 PutBucketInventoryConfigurationResponse
 -&gt; Rep PutBucketInventoryConfigurationResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- Create a value of 'PutBucketInventoryConfigurationResponse' with all optional fields omitted.</span><span>
-</span><span id="line-236"></span><span class="hs-comment">--</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#newPutBucketInventoryConfigurationResponse"><span class="hs-identifier hs-type">newPutBucketInventoryConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-239"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse"><span class="hs-identifier hs-type">PutBucketInventoryConfigurationResponse</span></a></span><span>
-</span><span id="line-240"></span><span id="newPutBucketInventoryConfigurationResponse"><span class="annot"><span class="annottext">newPutBucketInventoryConfigurationResponse :: PutBucketInventoryConfigurationResponse
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- Create a value of 'PutBucketInventoryConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#newPutBucketInventoryConfigurationResponse"><span class="hs-identifier hs-type">newPutBucketInventoryConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse"><span class="hs-identifier hs-type">PutBucketInventoryConfigurationResponse</span></a></span><span>
+</span><span id="line-242"></span><span id="newPutBucketInventoryConfigurationResponse"><span class="annot"><span class="annottext">newPutBucketInventoryConfigurationResponse :: PutBucketInventoryConfigurationResponse
 </span><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#newPutBucketInventoryConfigurationResponse"><span class="hs-identifier hs-var hs-var">newPutBucketInventoryConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-241"></span><span>  </span><span class="annot"><span class="annottext">PutBucketInventoryConfigurationResponse
+</span><span id="line-243"></span><span>  </span><span class="annot"><span class="annottext">PutBucketInventoryConfigurationResponse
 </span><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse%27"><span class="hs-identifier hs-var">PutBucketInventoryConfigurationResponse'</span></a></span><span>
-</span><span id="line-242"></span><span>
-</span><span id="line-243"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621679565711"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse"><span class="hs-identifier hs-type">PutBucketInventoryConfigurationResponse</span></a></span></span><span>
-</span><span id="line-246"></span></pre></body></html>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679566477"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.PutBucketInventoryConfiguration.html#PutBucketInventoryConfigurationResponse"><span class="hs-identifier hs-type">PutBucketInventoryConfigurationResponse</span></a></span></span><span>
+</span><span id="line-248"></span></pre></body></html>

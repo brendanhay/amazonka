@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The configuration of the resource used to execute the @containerAction@.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newResourceConfiguration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679258226"><span id="local-6989586621679258227"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceConfiguration"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration"><span class="hs-identifier hs-var">ResourceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceConfiguration%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration%27"><span class="hs-identifier hs-var">ResourceConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679258432"><span id="local-6989586621679258433"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceConfiguration"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration"><span class="hs-identifier hs-var">ResourceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceConfiguration%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration%27"><span class="hs-identifier hs-var">ResourceConfiguration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of the compute resource used to execute the @containerAction@.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- Possible values are: @ACU_1@ (vCPU=4, memory=16 GiB) or @ACU_2@ (vCPU=8,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- memory=32 GiB).</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AvolumeSizeInGB%3AResourceConfiguration%27"><span class="annot"><span class="annottext">ResourceConfiguration -&gt; Natural
 </span><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#%24sel%3AvolumeSizeInGB%3AResourceConfiguration%27"><span class="hs-identifier hs-var hs-var">volumeSizeInGB</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258219"><span id="local-6989586621679258221"><span class="annot"><span class="annottext">ResourceConfiguration -&gt; ResourceConfiguration -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258425"><span id="local-6989586621679258427"><span class="annot"><span class="annottext">ResourceConfiguration -&gt; ResourceConfiguration -&gt; Bool
 (ResourceConfiguration -&gt; ResourceConfiguration -&gt; Bool)
 -&gt; (ResourceConfiguration -&gt; ResourceConfiguration -&gt; Bool)
 -&gt; Eq ResourceConfiguration
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceConfiguration -&gt; ResourceConfiguration -&gt; Bool
 == :: ResourceConfiguration -&gt; ResourceConfiguration -&gt; Bool
 $c== :: ResourceConfiguration -&gt; ResourceConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258210"><span id="local-6989586621679258212"><span id="local-6989586621679258214"><span id="local-6989586621679258216"><span class="annot"><span class="annottext">ReadPrec [ResourceConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258416"><span id="local-6989586621679258418"><span id="local-6989586621679258420"><span id="local-6989586621679258422"><span class="annot"><span class="annottext">ReadPrec [ResourceConfiguration]
 ReadPrec ResourceConfiguration
 Int -&gt; ReadS ResourceConfiguration
 ReadS [ResourceConfiguration]
@@ -67,7 +67,7 @@ readList :: ReadS [ResourceConfiguration]
 $creadList :: ReadS [ResourceConfiguration]
 readsPrec :: Int -&gt; ReadS ResourceConfiguration
 $creadsPrec :: Int -&gt; ReadS ResourceConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258203"><span id="local-6989586621679258205"><span id="local-6989586621679258207"><span class="annot"><span class="annottext">Int -&gt; ResourceConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258409"><span id="local-6989586621679258411"><span id="local-6989586621679258413"><span class="annot"><span class="annottext">Int -&gt; ResourceConfiguration -&gt; ShowS
 [ResourceConfiguration] -&gt; ShowS
 ResourceConfiguration -&gt; String
 (Int -&gt; ResourceConfiguration -&gt; ShowS)
@@ -115,18 +115,18 @@ $cfrom :: forall x. ResourceConfiguration -&gt; Rep ResourceConfiguration x
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration"><span class="hs-identifier hs-type">ResourceConfiguration</span></a></span><span>
 </span><span id="line-61"></span><span id="newResourceConfiguration"><span class="annot"><span class="annottext">newResourceConfiguration :: ComputeType -&gt; Natural -&gt; ResourceConfiguration
 </span><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#newResourceConfiguration"><span class="hs-identifier hs-var hs-var">newResourceConfiguration</span></a></span></span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679258197"><span class="annot"><span class="annottext">ComputeType
-</span><a href="#local-6989586621679258197"><span class="hs-identifier hs-var">pComputeType_</span></a></span></span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679258196"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679258196"><span class="hs-identifier hs-var">pVolumeSizeInGB_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679258403"><span class="annot"><span class="annottext">ComputeType
+</span><a href="#local-6989586621679258403"><span class="hs-identifier hs-var">pComputeType_</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679258402"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679258402"><span class="hs-identifier hs-var">pVolumeSizeInGB_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">ResourceConfiguration' :: ComputeType -&gt; Natural -&gt; ResourceConfiguration
 </span><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration%27"><span class="hs-identifier hs-type">ResourceConfiguration'</span></a></span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:computeType:ResourceConfiguration' :: ComputeType
 </span><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#%24sel%3AcomputeType%3AResourceConfiguration%27"><span class="hs-identifier hs-var">computeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComputeType
-</span><a href="#local-6989586621679258197"><span class="hs-identifier hs-var">pComputeType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679258403"><span class="hs-identifier hs-var">pComputeType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">$sel:volumeSizeInGB:ResourceConfiguration' :: Natural
 </span><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#%24sel%3AvolumeSizeInGB%3AResourceConfiguration%27"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679258196"><span class="hs-identifier hs-var">pVolumeSizeInGB_</span></a></span><span>
+</span><a href="#local-6989586621679258402"><span class="hs-identifier hs-var">pVolumeSizeInGB_</span></a></span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The type of the compute resource used to execute the @containerAction@.</span><span>
@@ -140,16 +140,16 @@ $cfrom :: forall x. ResourceConfiguration -&gt; Rep ResourceConfiguration x
 -&gt; Lens
      ResourceConfiguration ResourceConfiguration ComputeType ComputeType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration%27"><span class="hs-identifier hs-type">ResourceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258192"><span class="annot"><span class="annottext">ComputeType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration%27"><span class="hs-identifier hs-type">ResourceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258398"><span class="annot"><span class="annottext">ComputeType
 computeType :: ComputeType
 $sel:computeType:ResourceConfiguration' :: ResourceConfiguration -&gt; ComputeType
-</span><a href="#local-6989586621679258192"><span class="hs-identifier hs-var hs-var">computeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeType
-</span><a href="#local-6989586621679258192"><span class="hs-identifier hs-var">computeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258191"><span class="annot"><span class="annottext">s :: ResourceConfiguration
-</span><a href="#local-6989586621679258191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration%27"><span class="hs-identifier hs-type">ResourceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258190"><span class="annot"><span class="annottext">ComputeType
-</span><a href="#local-6989586621679258190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceConfiguration
-</span><a href="#local-6989586621679258191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeType:ResourceConfiguration' :: ComputeType
+</span><a href="#local-6989586621679258398"><span class="hs-identifier hs-var hs-var">computeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeType
+</span><a href="#local-6989586621679258398"><span class="hs-identifier hs-var">computeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258397"><span class="annot"><span class="annottext">s :: ResourceConfiguration
+</span><a href="#local-6989586621679258397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration%27"><span class="hs-identifier hs-type">ResourceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258396"><span class="annot"><span class="annottext">ComputeType
+</span><a href="#local-6989586621679258396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceConfiguration
+</span><a href="#local-6989586621679258397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeType:ResourceConfiguration' :: ComputeType
 </span><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#%24sel%3AcomputeType%3AResourceConfiguration%27"><span class="hs-identifier hs-var">computeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComputeType
-</span><a href="#local-6989586621679258190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration"><span class="hs-identifier hs-type">ResourceConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration"><span class="hs-identifier hs-type">ResourceConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The size, in GB, of the persistent storage available to the resource</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- instance used to execute the @containerAction@ (min: 1, max: 50).</span><span>
@@ -160,19 +160,19 @@ $sel:computeType:ResourceConfiguration' :: ResourceConfiguration -&gt; ComputeTy
 -&gt; (ResourceConfiguration -&gt; Natural -&gt; ResourceConfiguration)
 -&gt; Lens ResourceConfiguration ResourceConfiguration Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration%27"><span class="hs-identifier hs-type">ResourceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258188"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration%27"><span class="hs-identifier hs-type">ResourceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258394"><span class="annot"><span class="annottext">Natural
 volumeSizeInGB :: Natural
 $sel:volumeSizeInGB:ResourceConfiguration' :: ResourceConfiguration -&gt; Natural
-</span><a href="#local-6989586621679258188"><span class="hs-identifier hs-var hs-var">volumeSizeInGB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679258188"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258187"><span class="annot"><span class="annottext">s :: ResourceConfiguration
-</span><a href="#local-6989586621679258187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration%27"><span class="hs-identifier hs-type">ResourceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258186"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679258186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceConfiguration
-</span><a href="#local-6989586621679258187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeSizeInGB:ResourceConfiguration' :: Natural
+</span><a href="#local-6989586621679258394"><span class="hs-identifier hs-var hs-var">volumeSizeInGB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679258394"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258393"><span class="annot"><span class="annottext">s :: ResourceConfiguration
+</span><a href="#local-6989586621679258393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration%27"><span class="hs-identifier hs-type">ResourceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258392"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679258392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceConfiguration
+</span><a href="#local-6989586621679258393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeSizeInGB:ResourceConfiguration' :: Natural
 </span><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#%24sel%3AvolumeSizeInGB%3AResourceConfiguration%27"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679258186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration"><span class="hs-identifier hs-type">ResourceConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration"><span class="hs-identifier hs-type">ResourceConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258183"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration"><span class="hs-identifier hs-type">ResourceConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679258181"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceConfiguration
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258389"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration"><span class="hs-identifier hs-type">ResourceConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679258387"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceConfiguration)
@@ -182,15 +182,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceConfiguration&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258178"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258178"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258384"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258384"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">ComputeType -&gt; Natural -&gt; ResourceConfiguration
 </span><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration%27"><span class="hs-identifier hs-var">ResourceConfiguration'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(ComputeType -&gt; Natural -&gt; ResourceConfiguration)
 -&gt; Parser ComputeType -&gt; Parser (Natural -&gt; ResourceConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258178"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ComputeType
+</span><a href="#local-6989586621679258384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ComputeType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;computeType&quot;</span></span><span class="hs-special">)</span><span>
@@ -198,25 +198,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser ResourceConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258178"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679258384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;volumeSizeInGB&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258172"><span id="local-6989586621679258174"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration"><span class="hs-identifier hs-type">ResourceConfiguration</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258378"><span id="local-6989586621679258380"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration"><span class="hs-identifier hs-type">ResourceConfiguration</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258169"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration"><span class="hs-identifier hs-type">ResourceConfiguration</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration"><span class="hs-identifier hs-type">ResourceConfiguration</span></a></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258161"><span id="local-6989586621679258163"><span id="local-6989586621679258165"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration"><span class="hs-identifier hs-type">ResourceConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679258159"><span class="annot"><span class="annottext">toJSON :: ResourceConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration%27"><span class="hs-identifier hs-type">ResourceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258156"><span id="local-6989586621679258157"><span class="annot"><span class="annottext">Natural
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258367"><span id="local-6989586621679258369"><span id="local-6989586621679258371"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration"><span class="hs-identifier hs-type">ResourceConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679258365"><span class="annot"><span class="annottext">toJSON :: ResourceConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ResourceConfiguration.html#ResourceConfiguration%27"><span class="hs-identifier hs-type">ResourceConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258362"><span id="local-6989586621679258363"><span class="annot"><span class="annottext">Natural
 ComputeType
 volumeSizeInGB :: Natural
 computeType :: ComputeType
 $sel:volumeSizeInGB:ResourceConfiguration' :: ResourceConfiguration -&gt; Natural
 $sel:computeType:ResourceConfiguration' :: ResourceConfiguration -&gt; ComputeType
-</span><a href="#local-6989586621679258156"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679258362"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -228,7 +228,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;computeType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComputeType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ComputeType
-</span><a href="#local-6989586621679258157"><span class="hs-identifier hs-var">computeType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679258363"><span class="hs-identifier hs-var">computeType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -236,7 +236,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;volumeSizeInGB&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679258156"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258362"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span></pre></body></html>

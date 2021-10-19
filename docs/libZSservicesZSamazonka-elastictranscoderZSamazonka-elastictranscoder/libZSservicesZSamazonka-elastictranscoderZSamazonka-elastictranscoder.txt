@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-elastictranscoderZSamazonka-elastictranscoder
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.ElasticTranscoder.Types.AudioCodecOptions

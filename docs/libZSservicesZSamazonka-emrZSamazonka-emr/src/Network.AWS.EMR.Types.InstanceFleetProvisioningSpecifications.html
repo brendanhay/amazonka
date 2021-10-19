@@ -35,24 +35,24 @@
 </span><span id="line-35"></span><span class="hs-comment">-- 5.12.1 and later.</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newInstanceFleetProvisioningSpecifications' smart constructor.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679376327"><span id="local-6989586621679376328"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceFleetProvisioningSpecifications"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-var">InstanceFleetProvisioningSpecifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceFleetProvisioningSpecifications%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-var">InstanceFleetProvisioningSpecifications'</span></a></span></span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The launch specification for On-Demand Instances in the instance fleet,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- which determines the allocation strategy.</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- The instance fleet configuration is available only in Amazon EMR</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- versions 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- allocation strategy is available in Amazon EMR version 5.12.1 and later.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AonDemandSpecification%3AInstanceFleetProvisioningSpecifications%27"><span class="annot"><span class="annottext">InstanceFleetProvisioningSpecifications
--&gt; Maybe OnDemandProvisioningSpecification
-</span><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#%24sel%3AonDemandSpecification%3AInstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-var hs-var">onDemandSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The launch specification for Spot Instances in the fleet, which</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- determines the defined duration, provisioning timeout behavior, and</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- allocation strategy.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AspotSpecification%3AInstanceFleetProvisioningSpecifications%27"><span class="annot"><span class="annottext">InstanceFleetProvisioningSpecifications
+</span><span id="line-38"></span><span id="local-6989586621679376683"><span id="local-6989586621679376684"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceFleetProvisioningSpecifications"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-var">InstanceFleetProvisioningSpecifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceFleetProvisioningSpecifications%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-var">InstanceFleetProvisioningSpecifications'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The launch specification for Spot Instances in the fleet, which</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- determines the defined duration, provisioning timeout behavior, and</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- allocation strategy.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AspotSpecification%3AInstanceFleetProvisioningSpecifications%27"><span class="annot"><span class="annottext">InstanceFleetProvisioningSpecifications
 -&gt; Maybe SpotProvisioningSpecification
-</span><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#%24sel%3AspotSpecification%3AInstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-var hs-var">spotSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span><span>
+</span><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#%24sel%3AspotSpecification%3AInstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-var hs-var">spotSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The launch specification for On-Demand Instances in the instance fleet,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- which determines the allocation strategy.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- The instance fleet configuration is available only in Amazon EMR</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- versions 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- allocation strategy is available in Amazon EMR version 5.12.1 and later.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AonDemandSpecification%3AInstanceFleetProvisioningSpecifications%27"><span class="annot"><span class="annottext">InstanceFleetProvisioningSpecifications
+-&gt; Maybe OnDemandProvisioningSpecification
+</span><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#%24sel%3AonDemandSpecification%3AInstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-var hs-var">onDemandSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification</span></a></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376320"><span id="local-6989586621679376322"><span class="annot"><span class="annottext">InstanceFleetProvisioningSpecifications
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376676"><span id="local-6989586621679376678"><span class="annot"><span class="annottext">InstanceFleetProvisioningSpecifications
 -&gt; InstanceFleetProvisioningSpecifications -&gt; Bool
 (InstanceFleetProvisioningSpecifications
  -&gt; InstanceFleetProvisioningSpecifications -&gt; Bool)
@@ -68,7 +68,7 @@ $c/= :: InstanceFleetProvisioningSpecifications
 -&gt; InstanceFleetProvisioningSpecifications -&gt; Bool
 $c== :: InstanceFleetProvisioningSpecifications
 -&gt; InstanceFleetProvisioningSpecifications -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376311"><span id="local-6989586621679376313"><span id="local-6989586621679376315"><span id="local-6989586621679376317"><span class="annot"><span class="annottext">ReadPrec [InstanceFleetProvisioningSpecifications]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376667"><span id="local-6989586621679376669"><span id="local-6989586621679376671"><span id="local-6989586621679376673"><span class="annot"><span class="annottext">ReadPrec [InstanceFleetProvisioningSpecifications]
 ReadPrec InstanceFleetProvisioningSpecifications
 Int -&gt; ReadS InstanceFleetProvisioningSpecifications
 ReadS [InstanceFleetProvisioningSpecifications]
@@ -88,7 +88,7 @@ readList :: ReadS [InstanceFleetProvisioningSpecifications]
 $creadList :: ReadS [InstanceFleetProvisioningSpecifications]
 readsPrec :: Int -&gt; ReadS InstanceFleetProvisioningSpecifications
 $creadsPrec :: Int -&gt; ReadS InstanceFleetProvisioningSpecifications
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376304"><span id="local-6989586621679376306"><span id="local-6989586621679376308"><span class="annot"><span class="annottext">Int -&gt; InstanceFleetProvisioningSpecifications -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376660"><span id="local-6989586621679376662"><span id="local-6989586621679376664"><span class="annot"><span class="annottext">Int -&gt; InstanceFleetProvisioningSpecifications -&gt; ShowS
 [InstanceFleetProvisioningSpecifications] -&gt; ShowS
 InstanceFleetProvisioningSpecifications -&gt; String
 (Int -&gt; InstanceFleetProvisioningSpecifications -&gt; ShowS)
@@ -134,75 +134,41 @@ InstanceFleetProvisioningSpecifications
 </span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'onDemandSpecification', 'instanceFleetProvisioningSpecifications_onDemandSpecification' - The launch specification for On-Demand Instances in the instance fleet,</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- which determines the allocation strategy.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- The instance fleet configuration is available only in Amazon EMR</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- versions 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- allocation strategy is available in Amazon EMR version 5.12.1 and later.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'spotSpecification', 'instanceFleetProvisioningSpecifications_spotSpecification' - The launch specification for Spot Instances in the fleet, which</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- determines the defined duration, provisioning timeout behavior, and</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- allocation strategy.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'onDemandSpecification', 'instanceFleetProvisioningSpecifications_onDemandSpecification' - The launch specification for On-Demand Instances in the instance fleet,</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- which determines the allocation strategy.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'spotSpecification', 'instanceFleetProvisioningSpecifications_spotSpecification' - The launch specification for Spot Instances in the fleet, which</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- determines the defined duration, provisioning timeout behavior, and</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- allocation strategy.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The instance fleet configuration is available only in Amazon EMR</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- versions 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- allocation strategy is available in Amazon EMR version 5.12.1 and later.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#newInstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-type">newInstanceFleetProvisioningSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications</span></a></span><span>
 </span><span id="line-73"></span><span id="newInstanceFleetProvisioningSpecifications"><span class="annot"><span class="annottext">newInstanceFleetProvisioningSpecifications :: InstanceFleetProvisioningSpecifications
 </span><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#newInstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-var hs-var">newInstanceFleetProvisioningSpecifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">InstanceFleetProvisioningSpecifications' :: Maybe OnDemandProvisioningSpecification
--&gt; Maybe SpotProvisioningSpecification
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">InstanceFleetProvisioningSpecifications' :: Maybe SpotProvisioningSpecification
+-&gt; Maybe OnDemandProvisioningSpecification
 -&gt; InstanceFleetProvisioningSpecifications
 </span><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications'</span></a></span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:onDemandSpecification:InstanceFleetProvisioningSpecifications' :: Maybe OnDemandProvisioningSpecification
-</span><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#%24sel%3AonDemandSpecification%3AInstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-var">onDemandSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe OnDemandProvisioningSpecification
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:spotSpecification:InstanceFleetProvisioningSpecifications' :: Maybe SpotProvisioningSpecification
+</span><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#%24sel%3AspotSpecification%3AInstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-var">spotSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe SpotProvisioningSpecification
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:spotSpecification:InstanceFleetProvisioningSpecifications' :: Maybe SpotProvisioningSpecification
-</span><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#%24sel%3AspotSpecification%3AInstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-var">spotSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Maybe SpotProvisioningSpecification
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:onDemandSpecification:InstanceFleetProvisioningSpecifications' :: Maybe OnDemandProvisioningSpecification
+</span><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#%24sel%3AonDemandSpecification%3AInstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-var">onDemandSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Maybe OnDemandProvisioningSpecification
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The launch specification for On-Demand Instances in the instance fleet,</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- which determines the allocation strategy.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- The instance fleet configuration is available only in Amazon EMR</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- versions 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- allocation strategy is available in Amazon EMR version 5.12.1 and later.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#instanceFleetProvisioningSpecifications_onDemandSpecification"><span class="hs-identifier hs-type">instanceFleetProvisioningSpecifications_onDemandSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="instanceFleetProvisioningSpecifications_onDemandSpecification"><span class="annot"><span class="annottext">instanceFleetProvisioningSpecifications_onDemandSpecification :: (Maybe OnDemandProvisioningSpecification
- -&gt; f (Maybe OnDemandProvisioningSpecification))
--&gt; InstanceFleetProvisioningSpecifications
--&gt; f InstanceFleetProvisioningSpecifications
-</span><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#instanceFleetProvisioningSpecifications_onDemandSpecification"><span class="hs-identifier hs-var hs-var">instanceFleetProvisioningSpecifications_onDemandSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleetProvisioningSpecifications
- -&gt; Maybe OnDemandProvisioningSpecification)
--&gt; (InstanceFleetProvisioningSpecifications
-    -&gt; Maybe OnDemandProvisioningSpecification
-    -&gt; InstanceFleetProvisioningSpecifications)
--&gt; Lens
-     InstanceFleetProvisioningSpecifications
-     InstanceFleetProvisioningSpecifications
-     (Maybe OnDemandProvisioningSpecification)
-     (Maybe OnDemandProvisioningSpecification)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376295"><span class="annot"><span class="annottext">Maybe OnDemandProvisioningSpecification
-onDemandSpecification :: Maybe OnDemandProvisioningSpecification
-$sel:onDemandSpecification:InstanceFleetProvisioningSpecifications' :: InstanceFleetProvisioningSpecifications
--&gt; Maybe OnDemandProvisioningSpecification
-</span><a href="#local-6989586621679376295"><span class="hs-identifier hs-var hs-var">onDemandSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OnDemandProvisioningSpecification
-</span><a href="#local-6989586621679376295"><span class="hs-identifier hs-var">onDemandSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376294"><span class="annot"><span class="annottext">s :: InstanceFleetProvisioningSpecifications
-</span><a href="#local-6989586621679376294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376293"><span class="annot"><span class="annottext">Maybe OnDemandProvisioningSpecification
-</span><a href="#local-6989586621679376293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleetProvisioningSpecifications
-</span><a href="#local-6989586621679376294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onDemandSpecification:InstanceFleetProvisioningSpecifications' :: Maybe OnDemandProvisioningSpecification
-</span><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#%24sel%3AonDemandSpecification%3AInstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-var">onDemandSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OnDemandProvisioningSpecification
-</span><a href="#local-6989586621679376293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The launch specification for Spot Instances in the fleet, which</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- determines the defined duration, provisioning timeout behavior, and</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- allocation strategy.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#instanceFleetProvisioningSpecifications_spotSpecification"><span class="hs-identifier hs-type">instanceFleetProvisioningSpecifications_spotSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="instanceFleetProvisioningSpecifications_spotSpecification"><span class="annot"><span class="annottext">instanceFleetProvisioningSpecifications_spotSpecification :: (Maybe SpotProvisioningSpecification
+</span><span id="line-81"></span><span class="hs-comment">-- | The launch specification for Spot Instances in the fleet, which</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- determines the defined duration, provisioning timeout behavior, and</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- allocation strategy.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#instanceFleetProvisioningSpecifications_spotSpecification"><span class="hs-identifier hs-type">instanceFleetProvisioningSpecifications_spotSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="instanceFleetProvisioningSpecifications_spotSpecification"><span class="annot"><span class="annottext">instanceFleetProvisioningSpecifications_spotSpecification :: (Maybe SpotProvisioningSpecification
  -&gt; f (Maybe SpotProvisioningSpecification))
 -&gt; InstanceFleetProvisioningSpecifications
 -&gt; f InstanceFleetProvisioningSpecifications
@@ -217,23 +183,57 @@ $sel:onDemandSpecification:InstanceFleetProvisioningSpecifications' :: InstanceF
      (Maybe SpotProvisioningSpecification)
      (Maybe SpotProvisioningSpecification)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376291"><span class="annot"><span class="annottext">Maybe SpotProvisioningSpecification
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376651"><span class="annot"><span class="annottext">Maybe SpotProvisioningSpecification
 spotSpecification :: Maybe SpotProvisioningSpecification
 $sel:spotSpecification:InstanceFleetProvisioningSpecifications' :: InstanceFleetProvisioningSpecifications
 -&gt; Maybe SpotProvisioningSpecification
-</span><a href="#local-6989586621679376291"><span class="hs-identifier hs-var hs-var">spotSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SpotProvisioningSpecification
-</span><a href="#local-6989586621679376291"><span class="hs-identifier hs-var">spotSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376290"><span class="annot"><span class="annottext">s :: InstanceFleetProvisioningSpecifications
-</span><a href="#local-6989586621679376290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376289"><span class="annot"><span class="annottext">Maybe SpotProvisioningSpecification
-</span><a href="#local-6989586621679376289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleetProvisioningSpecifications
-</span><a href="#local-6989586621679376290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spotSpecification:InstanceFleetProvisioningSpecifications' :: Maybe SpotProvisioningSpecification
+</span><a href="#local-6989586621679376651"><span class="hs-identifier hs-var hs-var">spotSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SpotProvisioningSpecification
+</span><a href="#local-6989586621679376651"><span class="hs-identifier hs-var">spotSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376650"><span class="annot"><span class="annottext">s :: InstanceFleetProvisioningSpecifications
+</span><a href="#local-6989586621679376650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376649"><span class="annot"><span class="annottext">Maybe SpotProvisioningSpecification
+</span><a href="#local-6989586621679376649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleetProvisioningSpecifications
+</span><a href="#local-6989586621679376650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spotSpecification:InstanceFleetProvisioningSpecifications' :: Maybe SpotProvisioningSpecification
 </span><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#%24sel%3AspotSpecification%3AInstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-var">spotSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SpotProvisioningSpecification
-</span><a href="#local-6989586621679376289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The launch specification for On-Demand Instances in the instance fleet,</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- which determines the allocation strategy.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- The instance fleet configuration is available only in Amazon EMR</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- versions 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- allocation strategy is available in Amazon EMR version 5.12.1 and later.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#instanceFleetProvisioningSpecifications_onDemandSpecification"><span class="hs-identifier hs-type">instanceFleetProvisioningSpecifications_onDemandSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="instanceFleetProvisioningSpecifications_onDemandSpecification"><span class="annot"><span class="annottext">instanceFleetProvisioningSpecifications_onDemandSpecification :: (Maybe OnDemandProvisioningSpecification
+ -&gt; f (Maybe OnDemandProvisioningSpecification))
+-&gt; InstanceFleetProvisioningSpecifications
+-&gt; f InstanceFleetProvisioningSpecifications
+</span><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#instanceFleetProvisioningSpecifications_onDemandSpecification"><span class="hs-identifier hs-var hs-var">instanceFleetProvisioningSpecifications_onDemandSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleetProvisioningSpecifications
+ -&gt; Maybe OnDemandProvisioningSpecification)
+-&gt; (InstanceFleetProvisioningSpecifications
+    -&gt; Maybe OnDemandProvisioningSpecification
+    -&gt; InstanceFleetProvisioningSpecifications)
+-&gt; Lens
+     InstanceFleetProvisioningSpecifications
+     InstanceFleetProvisioningSpecifications
+     (Maybe OnDemandProvisioningSpecification)
+     (Maybe OnDemandProvisioningSpecification)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376647"><span class="annot"><span class="annottext">Maybe OnDemandProvisioningSpecification
+onDemandSpecification :: Maybe OnDemandProvisioningSpecification
+$sel:onDemandSpecification:InstanceFleetProvisioningSpecifications' :: InstanceFleetProvisioningSpecifications
+-&gt; Maybe OnDemandProvisioningSpecification
+</span><a href="#local-6989586621679376647"><span class="hs-identifier hs-var hs-var">onDemandSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OnDemandProvisioningSpecification
+</span><a href="#local-6989586621679376647"><span class="hs-identifier hs-var">onDemandSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376646"><span class="annot"><span class="annottext">s :: InstanceFleetProvisioningSpecifications
+</span><a href="#local-6989586621679376646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376645"><span class="annot"><span class="annottext">Maybe OnDemandProvisioningSpecification
+</span><a href="#local-6989586621679376645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleetProvisioningSpecifications
+</span><a href="#local-6989586621679376646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onDemandSpecification:InstanceFleetProvisioningSpecifications' :: Maybe OnDemandProvisioningSpecification
+</span><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#%24sel%3AonDemandSpecification%3AInstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-var">onDemandSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OnDemandProvisioningSpecification
+</span><a href="#local-6989586621679376645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679376286"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679376642"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications</span></a></span></span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679376284"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceFleetProvisioningSpecifications
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679376640"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceFleetProvisioningSpecifications
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InstanceFleetProvisioningSpecifications)
@@ -243,83 +243,83 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InstanceFleetProvisioningSpecifications&quot;</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376281"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376281"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe OnDemandProvisioningSpecification
--&gt; Maybe SpotProvisioningSpecification
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376637"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376637"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe SpotProvisioningSpecification
+-&gt; Maybe OnDemandProvisioningSpecification
 -&gt; InstanceFleetProvisioningSpecifications
 </span><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-var">InstanceFleetProvisioningSpecifications'</span></a></span><span>
-</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OnDemandProvisioningSpecification
- -&gt; Maybe SpotProvisioningSpecification
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SpotProvisioningSpecification
+ -&gt; Maybe OnDemandProvisioningSpecification
  -&gt; InstanceFleetProvisioningSpecifications)
--&gt; Parser (Maybe OnDemandProvisioningSpecification)
+-&gt; Parser (Maybe SpotProvisioningSpecification)
 -&gt; Parser
-     (Maybe SpotProvisioningSpecification
+     (Maybe OnDemandProvisioningSpecification
       -&gt; InstanceFleetProvisioningSpecifications)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376281"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OnDemandProvisioningSpecification)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OnDemandSpecification&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe SpotProvisioningSpecification
-   -&gt; InstanceFleetProvisioningSpecifications)
--&gt; Parser (Maybe SpotProvisioningSpecification)
--&gt; Parser InstanceFleetProvisioningSpecifications
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376281"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SpotProvisioningSpecification)
+</span><a href="#local-6989586621679376637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SpotProvisioningSpecification)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SpotSpecification&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OnDemandProvisioningSpecification
+   -&gt; InstanceFleetProvisioningSpecifications)
+-&gt; Parser (Maybe OnDemandProvisioningSpecification)
+-&gt; Parser InstanceFleetProvisioningSpecifications
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OnDemandProvisioningSpecification)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OnDemandSpecification&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679376275"><span id="local-6989586621679376277"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679376631"><span id="local-6989586621679376633"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679376272"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679376628"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications</span></a></span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679376264"><span id="local-6989586621679376266"><span id="local-6989586621679376268"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679376620"><span id="local-6989586621679376622"><span id="local-6989586621679376624"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications</span></a></span></span></span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679376262"><span class="annot"><span class="annottext">toJSON :: InstanceFleetProvisioningSpecifications -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376259"><span id="local-6989586621679376260"><span class="annot"><span class="annottext">Maybe OnDemandProvisioningSpecification
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679376618"><span class="annot"><span class="annottext">toJSON :: InstanceFleetProvisioningSpecifications -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications%27"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376615"><span id="local-6989586621679376616"><span class="annot"><span class="annottext">Maybe OnDemandProvisioningSpecification
 Maybe SpotProvisioningSpecification
-spotSpecification :: Maybe SpotProvisioningSpecification
 onDemandSpecification :: Maybe OnDemandProvisioningSpecification
-$sel:spotSpecification:InstanceFleetProvisioningSpecifications' :: InstanceFleetProvisioningSpecifications
--&gt; Maybe SpotProvisioningSpecification
+spotSpecification :: Maybe SpotProvisioningSpecification
 $sel:onDemandSpecification:InstanceFleetProvisioningSpecifications' :: InstanceFleetProvisioningSpecifications
 -&gt; Maybe OnDemandProvisioningSpecification
-</span><a href="#local-6989586621679376259"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:spotSpecification:InstanceFleetProvisioningSpecifications' :: InstanceFleetProvisioningSpecifications
+-&gt; Maybe SpotProvisioningSpecification
+</span><a href="#local-6989586621679376615"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OnDemandSpecification&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OnDemandProvisioningSpecification -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">(OnDemandProvisioningSpecification -&gt; Pair)
--&gt; Maybe OnDemandProvisioningSpecification -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OnDemandProvisioningSpecification
-</span><a href="#local-6989586621679376260"><span class="hs-identifier hs-var">onDemandSpecification</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SpotSpecification&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SpotProvisioningSpecification -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">(SpotProvisioningSpecification -&gt; Pair)
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">(SpotProvisioningSpecification -&gt; Pair)
 -&gt; Maybe SpotProvisioningSpecification -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SpotProvisioningSpecification
-</span><a href="#local-6989586621679376259"><span class="hs-identifier hs-var">spotSpecification</span></a></span><span>
+</span><a href="#local-6989586621679376616"><span class="hs-identifier hs-var">spotSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OnDemandSpecification&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OnDemandProvisioningSpecification -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">(OnDemandProvisioningSpecification -&gt; Pair)
+-&gt; Maybe OnDemandProvisioningSpecification -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OnDemandProvisioningSpecification
+</span><a href="#local-6989586621679376615"><span class="hs-identifier hs-var">onDemandSpecification</span></a></span><span>
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span></pre></body></html>

@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-comment">-- #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- (ENABLED) and control caching in your video distribution set up. For</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- example, use the Cache-Control http header.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679942540"><span id="local-6989586621679942541"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafClientCache"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafClientCache.html#CmafClientCache"><span class="hs-identifier hs-var">CmafClientCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafClientCache%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafClientCache.html#CmafClientCache%27"><span class="hs-identifier hs-var">CmafClientCache'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679947163"><span id="local-6989586621679947164"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafClientCache"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafClientCache.html#CmafClientCache"><span class="hs-identifier hs-var">CmafClientCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafClientCache%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafClientCache.html#CmafClientCache%27"><span class="hs-identifier hs-var">CmafClientCache'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmafClientCache"><span class="annot"><span class="annottext">CmafClientCache -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.CmafClientCache.html#fromCmafClientCache"><span class="hs-identifier hs-var hs-var">fromCmafClientCache</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679942532"><span id="local-6989586621679942534"><span id="local-6989586621679942536"><span class="annot"><span class="annottext">Int -&gt; CmafClientCache -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947155"><span id="local-6989586621679947157"><span id="local-6989586621679947159"><span class="annot"><span class="annottext">Int -&gt; CmafClientCache -&gt; ShowS
 [CmafClientCache] -&gt; ShowS
 CmafClientCache -&gt; String
 (Int -&gt; CmafClientCache -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: CmafClientCache -&gt; String
 showsPrec :: Int -&gt; CmafClientCache -&gt; ShowS
 $cshowsPrec :: Int -&gt; CmafClientCache -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679942523"><span id="local-6989586621679942525"><span id="local-6989586621679942527"><span id="local-6989586621679942529"><span class="annot"><span class="annottext">ReadPrec [CmafClientCache]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679947146"><span id="local-6989586621679947148"><span id="local-6989586621679947150"><span id="local-6989586621679947152"><span class="annot"><span class="annottext">ReadPrec [CmafClientCache]
 ReadPrec CmafClientCache
 Int -&gt; ReadS CmafClientCache
 ReadS [CmafClientCache]
@@ -76,7 +76,7 @@ $creadList :: ReadS [CmafClientCache]
 readsPrec :: Int -&gt; ReadS CmafClientCache
 $creadsPrec :: Int -&gt; ReadS CmafClientCache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679942518"><span id="local-6989586621679942520"><span class="annot"><span class="annottext">CmafClientCache -&gt; CmafClientCache -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679947141"><span id="local-6989586621679947143"><span class="annot"><span class="annottext">CmafClientCache -&gt; CmafClientCache -&gt; Bool
 (CmafClientCache -&gt; CmafClientCache -&gt; Bool)
 -&gt; (CmafClientCache -&gt; CmafClientCache -&gt; Bool)
 -&gt; Eq CmafClientCache
@@ -86,7 +86,7 @@ $c/= :: CmafClientCache -&gt; CmafClientCache -&gt; Bool
 == :: CmafClientCache -&gt; CmafClientCache -&gt; Bool
 $c== :: CmafClientCache -&gt; CmafClientCache -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679942502"><span id="local-6989586621679942504"><span id="local-6989586621679942506"><span id="local-6989586621679942508"><span id="local-6989586621679942510"><span id="local-6989586621679942512"><span id="local-6989586621679942514"><span class="annot"><span class="annottext">Eq CmafClientCache
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679947125"><span id="local-6989586621679947127"><span id="local-6989586621679947129"><span id="local-6989586621679947131"><span id="local-6989586621679947133"><span id="local-6989586621679947135"><span id="local-6989586621679947137"><span class="annot"><span class="annottext">Eq CmafClientCache
 Eq CmafClientCache
 -&gt; (CmafClientCache -&gt; CmafClientCache -&gt; Ordering)
 -&gt; (CmafClientCache -&gt; CmafClientCache -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. CmafClientCache -&gt; Rep CmafClientCache x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679942494"><span id="local-6989586621679942496"><span class="annot"><span class="annottext">Int -&gt; CmafClientCache -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947117"><span id="local-6989586621679947119"><span class="annot"><span class="annottext">Int -&gt; CmafClientCache -&gt; Int
 CmafClientCache -&gt; Int
 (Int -&gt; CmafClientCache -&gt; Int)
 -&gt; (CmafClientCache -&gt; Int) -&gt; Hashable CmafClientCache
@@ -147,50 +147,50 @@ $chash :: CmafClientCache -&gt; Int
 hashWithSalt :: Int -&gt; CmafClientCache -&gt; Int
 $chashWithSalt :: Int -&gt; CmafClientCache -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679942491"><span class="annot"><span class="annottext">CmafClientCache -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679947114"><span class="annot"><span class="annottext">CmafClientCache -&gt; ()
 (CmafClientCache -&gt; ()) -&gt; NFData CmafClientCache
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CmafClientCache -&gt; ()
 $crnf :: CmafClientCache -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679942488"><span class="annot"><span class="annottext">Text -&gt; Either String CmafClientCache
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679947111"><span class="annot"><span class="annottext">Text -&gt; Either String CmafClientCache
 (Text -&gt; Either String CmafClientCache) -&gt; FromText CmafClientCache
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CmafClientCache
 $cfromText :: Text -&gt; Either String CmafClientCache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679942485"><span class="annot"><span class="annottext">CmafClientCache -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679947108"><span class="annot"><span class="annottext">CmafClientCache -&gt; Text
 (CmafClientCache -&gt; Text) -&gt; ToText CmafClientCache
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CmafClientCache -&gt; Text
 $ctoText :: CmafClientCache -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679942482"><span class="annot"><span class="annottext">CmafClientCache -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679947105"><span class="annot"><span class="annottext">CmafClientCache -&gt; ByteString
 (CmafClientCache -&gt; ByteString) -&gt; ToByteString CmafClientCache
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CmafClientCache -&gt; ByteString
 $ctoBS :: CmafClientCache -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679942479"><span class="annot"><span class="annottext">CmafClientCache -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679947102"><span class="annot"><span class="annottext">CmafClientCache -&gt; ByteStringBuilder
 (CmafClientCache -&gt; ByteStringBuilder) -&gt; ToLog CmafClientCache
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CmafClientCache -&gt; ByteStringBuilder
 $cbuild :: CmafClientCache -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679942476"><span class="annot"><span class="annottext">HeaderName -&gt; CmafClientCache -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679947099"><span class="annot"><span class="annottext">HeaderName -&gt; CmafClientCache -&gt; [Header]
 (HeaderName -&gt; CmafClientCache -&gt; [Header])
 -&gt; ToHeader CmafClientCache
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CmafClientCache -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CmafClientCache -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679942473"><span class="annot"><span class="annottext">CmafClientCache -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679947096"><span class="annot"><span class="annottext">CmafClientCache -&gt; QueryString
 (CmafClientCache -&gt; QueryString) -&gt; ToQuery CmafClientCache
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CmafClientCache -&gt; QueryString
 $ctoQuery :: CmafClientCache -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679942468"><span id="local-6989586621679942470"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafClientCache]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679947091"><span id="local-6989586621679947093"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafClientCache]
 Value -&gt; Parser CmafClientCache
 (Value -&gt; Parser CmafClientCache)
 -&gt; (Value -&gt; Parser [CmafClientCache]) -&gt; FromJSON CmafClientCache
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [CmafClientCache]
 parseJSON :: Value -&gt; Parser CmafClientCache
 $cparseJSON :: Value -&gt; Parser CmafClientCache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679942463"><span id="local-6989586621679942465"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafClientCache]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679947086"><span id="local-6989586621679947088"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafClientCache]
 FromJSONKeyFunction CmafClientCache
 FromJSONKeyFunction CmafClientCache
 -&gt; FromJSONKeyFunction [CmafClientCache]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CmafClientCache]
 fromJSONKey :: FromJSONKeyFunction CmafClientCache
 $cfromJSONKey :: FromJSONKeyFunction CmafClientCache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679942454"><span id="local-6989586621679942456"><span id="local-6989586621679942458"><span id="local-6989586621679942460"><span class="annot"><span class="annottext">[CmafClientCache] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679947077"><span id="local-6989586621679947079"><span id="local-6989586621679947081"><span id="local-6989586621679947083"><span class="annot"><span class="annottext">[CmafClientCache] -&gt; Encoding
 [CmafClientCache] -&gt; Value
 CmafClientCache -&gt; Encoding
 CmafClientCache -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: CmafClientCache -&gt; Encoding
 toJSON :: CmafClientCache -&gt; Value
 $ctoJSON :: CmafClientCache -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679942449"><span id="local-6989586621679942451"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafClientCache]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679947072"><span id="local-6989586621679947074"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafClientCache]
 ToJSONKeyFunction CmafClientCache
 ToJSONKeyFunction CmafClientCache
 -&gt; ToJSONKeyFunction [CmafClientCache] -&gt; ToJSONKey CmafClientCache
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CmafClientCache]
 toJSONKey :: ToJSONKeyFunction CmafClientCache
 $ctoJSONKey :: ToJSONKeyFunction CmafClientCache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679942446"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafClientCache
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679947069"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafClientCache
 ([Node] -&gt; Either String CmafClientCache)
 -&gt; FromXML CmafClientCache
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CmafClientCache
 $cparseXML :: [Node] -&gt; Either String CmafClientCache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679942443"><span class="annot"><span class="annottext">CmafClientCache -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679947066"><span class="annot"><span class="annottext">CmafClientCache -&gt; XML
 (CmafClientCache -&gt; XML) -&gt; ToXML CmafClientCache
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CmafClientCache -&gt; XML

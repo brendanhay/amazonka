@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span class="hs-comment">-- architecture types in a single job queue.</span><span>
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newComputeEnvironmentOrder' smart constructor.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679258761"><span id="local-6989586621679258762"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComputeEnvironmentOrder"><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder"><span class="hs-identifier hs-var">ComputeEnvironmentOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComputeEnvironmentOrder%27"><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder%27"><span class="hs-identifier hs-var">ComputeEnvironmentOrder'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679259040"><span id="local-6989586621679259041"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComputeEnvironmentOrder"><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder"><span class="hs-identifier hs-var">ComputeEnvironmentOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComputeEnvironmentOrder%27"><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder%27"><span class="hs-identifier hs-var">ComputeEnvironmentOrder'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The order of the compute environment. Compute environments are tried in</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- ascending order. For example, if two compute environments are associated</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- with a job queue, the compute environment with a lower @order@ integer</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AcomputeEnvironment%3AComputeEnvironmentOrder%27"><span class="annot"><span class="annottext">ComputeEnvironmentOrder -&gt; Text
 </span><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#%24sel%3AcomputeEnvironment%3AComputeEnvironmentOrder%27"><span class="hs-identifier hs-var hs-var">computeEnvironment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258754"><span id="local-6989586621679258756"><span class="annot"><span class="annottext">ComputeEnvironmentOrder -&gt; ComputeEnvironmentOrder -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259033"><span id="local-6989586621679259035"><span class="annot"><span class="annottext">ComputeEnvironmentOrder -&gt; ComputeEnvironmentOrder -&gt; Bool
 (ComputeEnvironmentOrder -&gt; ComputeEnvironmentOrder -&gt; Bool)
 -&gt; (ComputeEnvironmentOrder -&gt; ComputeEnvironmentOrder -&gt; Bool)
 -&gt; Eq ComputeEnvironmentOrder
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ComputeEnvironmentOrder -&gt; ComputeEnvironmentOrder -&gt; Bool
 == :: ComputeEnvironmentOrder -&gt; ComputeEnvironmentOrder -&gt; Bool
 $c== :: ComputeEnvironmentOrder -&gt; ComputeEnvironmentOrder -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258745"><span id="local-6989586621679258747"><span id="local-6989586621679258749"><span id="local-6989586621679258751"><span class="annot"><span class="annottext">ReadPrec [ComputeEnvironmentOrder]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259024"><span id="local-6989586621679259026"><span id="local-6989586621679259028"><span id="local-6989586621679259030"><span class="annot"><span class="annottext">ReadPrec [ComputeEnvironmentOrder]
 ReadPrec ComputeEnvironmentOrder
 Int -&gt; ReadS ComputeEnvironmentOrder
 ReadS [ComputeEnvironmentOrder]
@@ -78,7 +78,7 @@ readList :: ReadS [ComputeEnvironmentOrder]
 $creadList :: ReadS [ComputeEnvironmentOrder]
 readsPrec :: Int -&gt; ReadS ComputeEnvironmentOrder
 $creadsPrec :: Int -&gt; ReadS ComputeEnvironmentOrder
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258738"><span id="local-6989586621679258740"><span id="local-6989586621679258742"><span class="annot"><span class="annottext">Int -&gt; ComputeEnvironmentOrder -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259017"><span id="local-6989586621679259019"><span id="local-6989586621679259021"><span class="annot"><span class="annottext">Int -&gt; ComputeEnvironmentOrder -&gt; ShowS
 [ComputeEnvironmentOrder] -&gt; ShowS
 ComputeEnvironmentOrder -&gt; String
 (Int -&gt; ComputeEnvironmentOrder -&gt; ShowS)
@@ -128,18 +128,18 @@ $cfrom :: forall x. ComputeEnvironmentOrder -&gt; Rep ComputeEnvironmentOrder x
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder"><span class="hs-identifier hs-type">ComputeEnvironmentOrder</span></a></span><span>
 </span><span id="line-72"></span><span id="newComputeEnvironmentOrder"><span class="annot"><span class="annottext">newComputeEnvironmentOrder :: Int -&gt; Text -&gt; ComputeEnvironmentOrder
 </span><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#newComputeEnvironmentOrder"><span class="hs-identifier hs-var hs-var">newComputeEnvironmentOrder</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679258732"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258732"><span class="hs-identifier hs-var">pOrder_</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679258731"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258731"><span class="hs-identifier hs-var">pComputeEnvironment_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679259011"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259011"><span class="hs-identifier hs-var">pOrder_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679259010"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259010"><span class="hs-identifier hs-var">pComputeEnvironment_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">ComputeEnvironmentOrder' :: Int -&gt; Text -&gt; ComputeEnvironmentOrder
 </span><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder%27"><span class="hs-identifier hs-type">ComputeEnvironmentOrder'</span></a></span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:order:ComputeEnvironmentOrder' :: Int
 </span><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#%24sel%3Aorder%3AComputeEnvironmentOrder%27"><span class="hs-identifier hs-var">order</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258732"><span class="hs-identifier hs-var">pOrder_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259011"><span class="hs-identifier hs-var">pOrder_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">$sel:computeEnvironment:ComputeEnvironmentOrder' :: Text
 </span><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#%24sel%3AcomputeEnvironment%3AComputeEnvironmentOrder%27"><span class="hs-identifier hs-var">computeEnvironment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258731"><span class="hs-identifier hs-var">pComputeEnvironment_</span></a></span><span>
+</span><a href="#local-6989586621679259010"><span class="hs-identifier hs-var">pComputeEnvironment_</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The order of the compute environment. Compute environments are tried in</span><span>
@@ -153,16 +153,16 @@ $cfrom :: forall x. ComputeEnvironmentOrder -&gt; Rep ComputeEnvironmentOrder x
 -&gt; (ComputeEnvironmentOrder -&gt; Int -&gt; ComputeEnvironmentOrder)
 -&gt; Lens ComputeEnvironmentOrder ComputeEnvironmentOrder Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder%27"><span class="hs-identifier hs-type">ComputeEnvironmentOrder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258727"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder%27"><span class="hs-identifier hs-type">ComputeEnvironmentOrder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259006"><span class="annot"><span class="annottext">Int
 order :: Int
 $sel:order:ComputeEnvironmentOrder' :: ComputeEnvironmentOrder -&gt; Int
-</span><a href="#local-6989586621679258727"><span class="hs-identifier hs-var hs-var">order</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258727"><span class="hs-identifier hs-var">order</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258726"><span class="annot"><span class="annottext">s :: ComputeEnvironmentOrder
-</span><a href="#local-6989586621679258726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder%27"><span class="hs-identifier hs-type">ComputeEnvironmentOrder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258725"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeEnvironmentOrder
-</span><a href="#local-6989586621679258726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:order:ComputeEnvironmentOrder' :: Int
+</span><a href="#local-6989586621679259006"><span class="hs-identifier hs-var hs-var">order</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259006"><span class="hs-identifier hs-var">order</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259005"><span class="annot"><span class="annottext">s :: ComputeEnvironmentOrder
+</span><a href="#local-6989586621679259005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder%27"><span class="hs-identifier hs-type">ComputeEnvironmentOrder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259004"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeEnvironmentOrder
+</span><a href="#local-6989586621679259005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:order:ComputeEnvironmentOrder' :: Int
 </span><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#%24sel%3Aorder%3AComputeEnvironmentOrder%27"><span class="hs-identifier hs-var">order</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder"><span class="hs-identifier hs-type">ComputeEnvironmentOrder</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder"><span class="hs-identifier hs-type">ComputeEnvironmentOrder</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the compute environment.</span><span>
 </span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#computeEnvironmentOrder_computeEnvironment"><span class="hs-identifier hs-type">computeEnvironmentOrder_computeEnvironment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder"><span class="hs-identifier hs-type">ComputeEnvironmentOrder</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -172,19 +172,19 @@ $sel:order:ComputeEnvironmentOrder' :: ComputeEnvironmentOrder -&gt; Int
 -&gt; (ComputeEnvironmentOrder -&gt; Text -&gt; ComputeEnvironmentOrder)
 -&gt; Lens ComputeEnvironmentOrder ComputeEnvironmentOrder Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder%27"><span class="hs-identifier hs-type">ComputeEnvironmentOrder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258723"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder%27"><span class="hs-identifier hs-type">ComputeEnvironmentOrder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259002"><span class="annot"><span class="annottext">Text
 computeEnvironment :: Text
 $sel:computeEnvironment:ComputeEnvironmentOrder' :: ComputeEnvironmentOrder -&gt; Text
-</span><a href="#local-6989586621679258723"><span class="hs-identifier hs-var hs-var">computeEnvironment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258723"><span class="hs-identifier hs-var">computeEnvironment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258722"><span class="annot"><span class="annottext">s :: ComputeEnvironmentOrder
-</span><a href="#local-6989586621679258722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder%27"><span class="hs-identifier hs-type">ComputeEnvironmentOrder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258721"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeEnvironmentOrder
-</span><a href="#local-6989586621679258722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeEnvironment:ComputeEnvironmentOrder' :: Text
+</span><a href="#local-6989586621679259002"><span class="hs-identifier hs-var hs-var">computeEnvironment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259002"><span class="hs-identifier hs-var">computeEnvironment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259001"><span class="annot"><span class="annottext">s :: ComputeEnvironmentOrder
+</span><a href="#local-6989586621679259001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder%27"><span class="hs-identifier hs-type">ComputeEnvironmentOrder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259000"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeEnvironmentOrder
+</span><a href="#local-6989586621679259001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeEnvironment:ComputeEnvironmentOrder' :: Text
 </span><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#%24sel%3AcomputeEnvironment%3AComputeEnvironmentOrder%27"><span class="hs-identifier hs-var">computeEnvironment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder"><span class="hs-identifier hs-type">ComputeEnvironmentOrder</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder"><span class="hs-identifier hs-type">ComputeEnvironmentOrder</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258718"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder"><span class="hs-identifier hs-type">ComputeEnvironmentOrder</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679258716"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ComputeEnvironmentOrder
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258997"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder"><span class="hs-identifier hs-type">ComputeEnvironmentOrder</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679258995"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ComputeEnvironmentOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ComputeEnvironmentOrder)
@@ -194,15 +194,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ComputeEnvironmentOrder&quot;</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258713"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258713"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258992"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258992"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; ComputeEnvironmentOrder
 </span><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder%27"><span class="hs-identifier hs-var">ComputeEnvironmentOrder'</span></a></span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; ComputeEnvironmentOrder)
 -&gt; Parser Int -&gt; Parser (Text -&gt; ComputeEnvironmentOrder)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+</span><a href="#local-6989586621679258992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;order&quot;</span></span><span class="hs-special">)</span><span>
@@ -210,25 +210,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser ComputeEnvironmentOrder
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679258992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;computeEnvironment&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258707"><span id="local-6989586621679258709"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder"><span class="hs-identifier hs-type">ComputeEnvironmentOrder</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258986"><span id="local-6989586621679258988"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder"><span class="hs-identifier hs-type">ComputeEnvironmentOrder</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258704"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder"><span class="hs-identifier hs-type">ComputeEnvironmentOrder</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258983"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder"><span class="hs-identifier hs-type">ComputeEnvironmentOrder</span></a></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258696"><span id="local-6989586621679258698"><span id="local-6989586621679258700"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder"><span class="hs-identifier hs-type">ComputeEnvironmentOrder</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679258694"><span class="annot"><span class="annottext">toJSON :: ComputeEnvironmentOrder -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder%27"><span class="hs-identifier hs-type">ComputeEnvironmentOrder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258691"><span id="local-6989586621679258692"><span class="annot"><span class="annottext">Int
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258975"><span id="local-6989586621679258977"><span id="local-6989586621679258979"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder"><span class="hs-identifier hs-type">ComputeEnvironmentOrder</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679258973"><span class="annot"><span class="annottext">toJSON :: ComputeEnvironmentOrder -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder%27"><span class="hs-identifier hs-type">ComputeEnvironmentOrder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258970"><span id="local-6989586621679258971"><span class="annot"><span class="annottext">Int
 Text
 computeEnvironment :: Text
 order :: Int
 $sel:computeEnvironment:ComputeEnvironmentOrder' :: ComputeEnvironmentOrder -&gt; Text
 $sel:order:ComputeEnvironmentOrder' :: ComputeEnvironmentOrder -&gt; Int
-</span><a href="#local-6989586621679258691"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679258970"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -240,7 +240,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;order&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258692"><span class="hs-identifier hs-var">order</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679258971"><span class="hs-identifier hs-var">order</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -248,7 +248,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;computeEnvironment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258691"><span class="hs-identifier hs-var">computeEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258970"><span class="hs-identifier hs-var">computeEnvironment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An object that contains details about the data source of the import job.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newImportDataSource' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679326270"><span id="local-6989586621679326271"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportDataSource"><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-var">ImportDataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportDataSource%27"><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource%27"><span class="hs-identifier hs-var">ImportDataSource'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679328777"><span id="local-6989586621679328778"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportDataSource"><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-var">ImportDataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportDataSource%27"><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource%27"><span class="hs-identifier hs-var">ImportDataSource'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An Amazon S3 URL in the format s3:\/\//\&lt;bucket_name&gt;/\//\&lt;object&gt;/.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3As3Url%3AImportDataSource%27"><span class="annot"><span class="annottext">ImportDataSource -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.ImportDataSource.html#%24sel%3As3Url%3AImportDataSource%27"><span class="hs-identifier hs-var hs-var">s3Url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AdataFormat%3AImportDataSource%27"><span class="annot"><span class="annottext">ImportDataSource -&gt; DataFormat
 </span><a href="Network.AWS.SESv2.Types.ImportDataSource.html#%24sel%3AdataFormat%3AImportDataSource%27"><span class="hs-identifier hs-var hs-var">dataFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DataFormat.html#DataFormat"><span class="hs-identifier hs-type">DataFormat</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326263"><span id="local-6989586621679326265"><span class="annot"><span class="annottext">ImportDataSource -&gt; ImportDataSource -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679328770"><span id="local-6989586621679328772"><span class="annot"><span class="annottext">ImportDataSource -&gt; ImportDataSource -&gt; Bool
 (ImportDataSource -&gt; ImportDataSource -&gt; Bool)
 -&gt; (ImportDataSource -&gt; ImportDataSource -&gt; Bool)
 -&gt; Eq ImportDataSource
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImportDataSource -&gt; ImportDataSource -&gt; Bool
 == :: ImportDataSource -&gt; ImportDataSource -&gt; Bool
 $c== :: ImportDataSource -&gt; ImportDataSource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326254"><span id="local-6989586621679326256"><span id="local-6989586621679326258"><span id="local-6989586621679326260"><span class="annot"><span class="annottext">ReadPrec [ImportDataSource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328761"><span id="local-6989586621679328763"><span id="local-6989586621679328765"><span id="local-6989586621679328767"><span class="annot"><span class="annottext">ReadPrec [ImportDataSource]
 ReadPrec ImportDataSource
 Int -&gt; ReadS ImportDataSource
 ReadS [ImportDataSource]
@@ -64,7 +64,7 @@ readList :: ReadS [ImportDataSource]
 $creadList :: ReadS [ImportDataSource]
 readsPrec :: Int -&gt; ReadS ImportDataSource
 $creadsPrec :: Int -&gt; ReadS ImportDataSource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326247"><span id="local-6989586621679326249"><span id="local-6989586621679326251"><span class="annot"><span class="annottext">Int -&gt; ImportDataSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328754"><span id="local-6989586621679328756"><span id="local-6989586621679328758"><span class="annot"><span class="annottext">Int -&gt; ImportDataSource -&gt; ShowS
 [ImportDataSource] -&gt; ShowS
 ImportDataSource -&gt; String
 (Int -&gt; ImportDataSource -&gt; ShowS)
@@ -108,17 +108,17 @@ $cfrom :: forall x. ImportDataSource -&gt; Rep ImportDataSource x
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.DataFormat.html#DataFormat"><span class="hs-identifier hs-type">DataFormat</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span><span>
 </span><span id="line-55"></span><span id="newImportDataSource"><span class="annot"><span class="annottext">newImportDataSource :: Text -&gt; DataFormat -&gt; ImportDataSource
-</span><a href="Network.AWS.SESv2.Types.ImportDataSource.html#newImportDataSource"><span class="hs-identifier hs-var hs-var">newImportDataSource</span></a></span></span><span> </span><span id="local-6989586621679326241"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326241"><span class="hs-identifier hs-var">pS3Url_</span></a></span></span><span> </span><span id="local-6989586621679326240"><span class="annot"><span class="annottext">DataFormat
-</span><a href="#local-6989586621679326240"><span class="hs-identifier hs-var">pDataFormat_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.Types.ImportDataSource.html#newImportDataSource"><span class="hs-identifier hs-var hs-var">newImportDataSource</span></a></span></span><span> </span><span id="local-6989586621679328748"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328748"><span class="hs-identifier hs-var">pS3Url_</span></a></span></span><span> </span><span id="local-6989586621679328747"><span class="annot"><span class="annottext">DataFormat
+</span><a href="#local-6989586621679328747"><span class="hs-identifier hs-var">pDataFormat_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">ImportDataSource' :: Text -&gt; DataFormat -&gt; ImportDataSource
 </span><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource%27"><span class="hs-identifier hs-type">ImportDataSource'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3Url:ImportDataSource' :: Text
 </span><a href="Network.AWS.SESv2.Types.ImportDataSource.html#%24sel%3As3Url%3AImportDataSource%27"><span class="hs-identifier hs-var">s3Url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326241"><span class="hs-identifier hs-var">pS3Url_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679328748"><span class="hs-identifier hs-var">pS3Url_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataFormat:ImportDataSource' :: DataFormat
 </span><a href="Network.AWS.SESv2.Types.ImportDataSource.html#%24sel%3AdataFormat%3AImportDataSource%27"><span class="hs-identifier hs-var">dataFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DataFormat
-</span><a href="#local-6989586621679326240"><span class="hs-identifier hs-var">pDataFormat_</span></a></span><span>
+</span><a href="#local-6989586621679328747"><span class="hs-identifier hs-var">pDataFormat_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | An Amazon S3 URL in the format s3:\/\//\&lt;bucket_name&gt;/\//\&lt;object&gt;/.</span><span>
@@ -128,16 +128,16 @@ $cfrom :: forall x. ImportDataSource -&gt; Rep ImportDataSource x
 -&gt; (ImportDataSource -&gt; Text -&gt; ImportDataSource)
 -&gt; Lens ImportDataSource ImportDataSource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource%27"><span class="hs-identifier hs-type">ImportDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326236"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource%27"><span class="hs-identifier hs-type">ImportDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328743"><span class="annot"><span class="annottext">Text
 s3Url :: Text
 $sel:s3Url:ImportDataSource' :: ImportDataSource -&gt; Text
-</span><a href="#local-6989586621679326236"><span class="hs-identifier hs-var hs-var">s3Url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326236"><span class="hs-identifier hs-var">s3Url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326235"><span class="annot"><span class="annottext">s :: ImportDataSource
-</span><a href="#local-6989586621679326235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource%27"><span class="hs-identifier hs-type">ImportDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326234"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportDataSource
-</span><a href="#local-6989586621679326235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Url:ImportDataSource' :: Text
+</span><a href="#local-6989586621679328743"><span class="hs-identifier hs-var hs-var">s3Url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328743"><span class="hs-identifier hs-var">s3Url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328742"><span class="annot"><span class="annottext">s :: ImportDataSource
+</span><a href="#local-6989586621679328742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource%27"><span class="hs-identifier hs-type">ImportDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328741"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportDataSource
+</span><a href="#local-6989586621679328742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Url:ImportDataSource' :: Text
 </span><a href="Network.AWS.SESv2.Types.ImportDataSource.html#%24sel%3As3Url%3AImportDataSource%27"><span class="hs-identifier hs-var">s3Url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679328741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The data format of the import job\'s data source.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#importDataSource_dataFormat"><span class="hs-identifier hs-type">importDataSource_dataFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DataFormat.html#DataFormat"><span class="hs-identifier hs-type">DataFormat</span></a></span><span>
@@ -147,19 +147,19 @@ $sel:s3Url:ImportDataSource' :: ImportDataSource -&gt; Text
 -&gt; (ImportDataSource -&gt; DataFormat -&gt; ImportDataSource)
 -&gt; Lens ImportDataSource ImportDataSource DataFormat DataFormat
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource%27"><span class="hs-identifier hs-type">ImportDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326232"><span class="annot"><span class="annottext">DataFormat
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource%27"><span class="hs-identifier hs-type">ImportDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328739"><span class="annot"><span class="annottext">DataFormat
 dataFormat :: DataFormat
 $sel:dataFormat:ImportDataSource' :: ImportDataSource -&gt; DataFormat
-</span><a href="#local-6989586621679326232"><span class="hs-identifier hs-var hs-var">dataFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataFormat
-</span><a href="#local-6989586621679326232"><span class="hs-identifier hs-var">dataFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326231"><span class="annot"><span class="annottext">s :: ImportDataSource
-</span><a href="#local-6989586621679326231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource%27"><span class="hs-identifier hs-type">ImportDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326230"><span class="annot"><span class="annottext">DataFormat
-</span><a href="#local-6989586621679326230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportDataSource
-</span><a href="#local-6989586621679326231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataFormat:ImportDataSource' :: DataFormat
+</span><a href="#local-6989586621679328739"><span class="hs-identifier hs-var hs-var">dataFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataFormat
+</span><a href="#local-6989586621679328739"><span class="hs-identifier hs-var">dataFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328738"><span class="annot"><span class="annottext">s :: ImportDataSource
+</span><a href="#local-6989586621679328738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource%27"><span class="hs-identifier hs-type">ImportDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328737"><span class="annot"><span class="annottext">DataFormat
+</span><a href="#local-6989586621679328737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportDataSource
+</span><a href="#local-6989586621679328738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataFormat:ImportDataSource' :: DataFormat
 </span><a href="Network.AWS.SESv2.Types.ImportDataSource.html#%24sel%3AdataFormat%3AImportDataSource%27"><span class="hs-identifier hs-var">dataFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DataFormat
-</span><a href="#local-6989586621679326230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679328737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326227"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679326225"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImportDataSource
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328734"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679328732"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImportDataSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ImportDataSource)
@@ -169,15 +169,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ImportDataSource&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326222"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326222"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679328729"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679328729"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; DataFormat -&gt; ImportDataSource
 </span><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource%27"><span class="hs-identifier hs-var">ImportDataSource'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; DataFormat -&gt; ImportDataSource)
 -&gt; Parser Text -&gt; Parser (DataFormat -&gt; ImportDataSource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679328729"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Url&quot;</span></span><span class="hs-special">)</span><span>
@@ -185,25 +185,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser DataFormat -&gt; Parser ImportDataSource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DataFormat
+</span><a href="#local-6989586621679328729"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DataFormat
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataFormat&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326216"><span id="local-6989586621679326218"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328723"><span id="local-6989586621679328725"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326213"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328720"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326205"><span id="local-6989586621679326207"><span id="local-6989586621679326209"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679326203"><span class="annot"><span class="annottext">toJSON :: ImportDataSource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource%27"><span class="hs-identifier hs-type">ImportDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326200"><span id="local-6989586621679326201"><span class="annot"><span class="annottext">Text
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328712"><span id="local-6989586621679328714"><span id="local-6989586621679328716"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679328710"><span class="annot"><span class="annottext">toJSON :: ImportDataSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDataSource.html#ImportDataSource%27"><span class="hs-identifier hs-type">ImportDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328707"><span id="local-6989586621679328708"><span class="annot"><span class="annottext">Text
 DataFormat
 dataFormat :: DataFormat
 s3Url :: Text
 $sel:dataFormat:ImportDataSource' :: ImportDataSource -&gt; DataFormat
 $sel:s3Url:ImportDataSource' :: ImportDataSource -&gt; Text
-</span><a href="#local-6989586621679326200"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679328707"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -215,14 +215,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;S3Url&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326201"><span class="hs-identifier hs-var">s3Url</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679328708"><span class="hs-identifier hs-var">s3Url</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataFormat -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DataFormat
-</span><a href="#local-6989586621679326200"><span class="hs-identifier hs-var">dataFormat</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679328707"><span class="hs-identifier hs-var">dataFormat</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span></pre></body></html>

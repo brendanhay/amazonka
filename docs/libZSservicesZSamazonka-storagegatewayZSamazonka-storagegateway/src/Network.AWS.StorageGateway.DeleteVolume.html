@@ -65,13 +65,13 @@
 </span><span id="line-65"></span><span class="hs-comment">-- | A JSON object containing the DeleteVolumeInput$VolumeARN to delete.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- /See:/ 'newDeleteVolume' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679383847"><span id="local-6989586621679383848"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVolume"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-var">DeleteVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVolume%27"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-var">DeleteVolume'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679388396"><span id="local-6989586621679388397"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVolume"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-var">DeleteVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVolume%27"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-var">DeleteVolume'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- operation to return a list of gateway volumes.</span><span>
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AvolumeARN%3ADeleteVolume%27"><span class="annot"><span class="annottext">DeleteVolume -&gt; Text
 </span><a href="Network.AWS.StorageGateway.DeleteVolume.html#%24sel%3AvolumeARN%3ADeleteVolume%27"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383841"><span id="local-6989586621679383843"><span class="annot"><span class="annottext">DeleteVolume -&gt; DeleteVolume -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388390"><span id="local-6989586621679388392"><span class="annot"><span class="annottext">DeleteVolume -&gt; DeleteVolume -&gt; Bool
 (DeleteVolume -&gt; DeleteVolume -&gt; Bool)
 -&gt; (DeleteVolume -&gt; DeleteVolume -&gt; Bool) -&gt; Eq DeleteVolume
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteVolume -&gt; DeleteVolume -&gt; Bool
 == :: DeleteVolume -&gt; DeleteVolume -&gt; Bool
 $c== :: DeleteVolume -&gt; DeleteVolume -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383832"><span id="local-6989586621679383834"><span id="local-6989586621679383836"><span id="local-6989586621679383838"><span class="annot"><span class="annottext">ReadPrec [DeleteVolume]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388381"><span id="local-6989586621679388383"><span id="local-6989586621679388385"><span id="local-6989586621679388387"><span class="annot"><span class="annottext">ReadPrec [DeleteVolume]
 ReadPrec DeleteVolume
 Int -&gt; ReadS DeleteVolume
 ReadS [DeleteVolume]
@@ -99,7 +99,7 @@ readList :: ReadS [DeleteVolume]
 $creadList :: ReadS [DeleteVolume]
 readsPrec :: Int -&gt; ReadS DeleteVolume
 $creadsPrec :: Int -&gt; ReadS DeleteVolume
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383825"><span id="local-6989586621679383827"><span id="local-6989586621679383829"><span class="annot"><span class="annottext">Int -&gt; DeleteVolume -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388374"><span id="local-6989586621679388376"><span id="local-6989586621679388378"><span class="annot"><span class="annottext">Int -&gt; DeleteVolume -&gt; ShowS
 [DeleteVolume] -&gt; ShowS
 DeleteVolume -&gt; String
 (Int -&gt; DeleteVolume -&gt; ShowS)
@@ -140,12 +140,12 @@ $cfrom :: forall x. DeleteVolume -&gt; Rep DeleteVolume x
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span>
 </span><span id="line-89"></span><span id="newDeleteVolume"><span class="annot"><span class="annottext">newDeleteVolume :: Text -&gt; DeleteVolume
-</span><a href="Network.AWS.StorageGateway.DeleteVolume.html#newDeleteVolume"><span class="hs-identifier hs-var hs-var">newDeleteVolume</span></a></span></span><span> </span><span id="local-6989586621679383820"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383820"><span class="hs-identifier hs-var">pVolumeARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.DeleteVolume.html#newDeleteVolume"><span class="hs-identifier hs-var hs-var">newDeleteVolume</span></a></span></span><span> </span><span id="local-6989586621679388369"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388369"><span class="hs-identifier hs-var">pVolumeARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">DeleteVolume' :: Text -&gt; DeleteVolume
 </span><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-type">DeleteVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARN:DeleteVolume' :: Text
 </span><a href="Network.AWS.StorageGateway.DeleteVolume.html#%24sel%3AvolumeARN%3ADeleteVolume%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383820"><span class="hs-identifier hs-var">pVolumeARN_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679388369"><span class="hs-identifier hs-var">pVolumeARN_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- operation to return a list of gateway volumes.</span><span>
@@ -155,25 +155,25 @@ $cfrom :: forall x. DeleteVolume -&gt; Rep DeleteVolume x
 -&gt; (DeleteVolume -&gt; Text -&gt; DeleteVolume)
 -&gt; Lens DeleteVolume DeleteVolume Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-type">DeleteVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383817"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-type">DeleteVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388366"><span class="annot"><span class="annottext">Text
 volumeARN :: Text
 $sel:volumeARN:DeleteVolume' :: DeleteVolume -&gt; Text
-</span><a href="#local-6989586621679383817"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383817"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383816"><span class="annot"><span class="annottext">s :: DeleteVolume
-</span><a href="#local-6989586621679383816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-type">DeleteVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383815"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVolume
-</span><a href="#local-6989586621679383816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARN:DeleteVolume' :: Text
+</span><a href="#local-6989586621679388366"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388366"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388365"><span class="annot"><span class="annottext">s :: DeleteVolume
+</span><a href="#local-6989586621679388365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-type">DeleteVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388364"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVolume
+</span><a href="#local-6989586621679388365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARN:DeleteVolume' :: Text
 </span><a href="Network.AWS.StorageGateway.DeleteVolume.html#%24sel%3AvolumeARN%3ADeleteVolume%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse"><span class="hs-identifier hs-type">DeleteVolumeResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679383811"><span class="annot"><span class="annottext">request :: DeleteVolume -&gt; Request DeleteVolume
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679388360"><span class="annot"><span class="annottext">request :: DeleteVolume -&gt; Request DeleteVolume
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteVolume -&gt; Request DeleteVolume
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679383807"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679388356"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteVolume
 -&gt; ClientResponse ClientBody
@@ -197,10 +197,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679383804"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383804"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679383803"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679383803"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679383802"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679383802"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388353"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388353"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388352"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679388352"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388351"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388351"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DeleteVolumeResponse
 </span><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse%27"><span class="hs-identifier hs-var">DeleteVolumeResponse'</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DeleteVolumeResponse)
@@ -208,7 +208,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteVolumeResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679383802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679388351"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VolumeARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -220,15 +220,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383804"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388353"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383794"><span id="local-6989586621679383796"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388343"><span id="local-6989586621679388345"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383791"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388340"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679383787"><span class="annot"><span class="annottext">toHeaders :: DeleteVolume -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679388336"><span class="annot"><span class="annottext">toHeaders :: DeleteVolume -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteVolume -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -255,12 +255,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383777"><span id="local-6989586621679383779"><span id="local-6989586621679383781"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679383775"><span class="annot"><span class="annottext">toJSON :: DeleteVolume -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-type">DeleteVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383773"><span class="annot"><span class="annottext">Text
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388326"><span id="local-6989586621679388328"><span id="local-6989586621679388330"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679388324"><span class="annot"><span class="annottext">toJSON :: DeleteVolume -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-type">DeleteVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388322"><span class="annot"><span class="annottext">Text
 volumeARN :: Text
 $sel:volumeARN:DeleteVolume' :: DeleteVolume -&gt; Text
-</span><a href="#local-6989586621679383773"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679388322"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -272,18 +272,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;VolumeARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383773"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679388322"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679383767"><span class="annot"><span class="annottext">toPath :: DeleteVolume -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679388316"><span class="annot"><span class="annottext">toPath :: DeleteVolume -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteVolume -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679383763"><span class="annot"><span class="annottext">toQuery :: DeleteVolume -&gt; QueryString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679388312"><span class="annot"><span class="annottext">toQuery :: DeleteVolume -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteVolume -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -294,7 +294,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-141"></span><span class="hs-comment">-- volume that was deleted.</span><span>
 </span><span id="line-142"></span><span class="hs-comment">--</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- /See:/ 'newDeleteVolumeResponse' smart constructor.</span><span>
-</span><span id="line-144"></span><span id="local-6989586621679383760"><span id="local-6989586621679383761"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVolumeResponse"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse"><span class="hs-identifier hs-var">DeleteVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVolumeResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse%27"><span class="hs-identifier hs-var">DeleteVolumeResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679388309"><span id="local-6989586621679388310"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVolumeResponse"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse"><span class="hs-identifier hs-var">DeleteVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVolumeResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse%27"><span class="hs-identifier hs-var">DeleteVolumeResponse'</span></a></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the storage volume that was deleted.</span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-comment">-- It is the same ARN you provided in the request.</span><span>
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3AvolumeARN%3ADeleteVolumeResponse%27"><span class="annot"><span class="annottext">DeleteVolumeResponse -&gt; Maybe Text
@@ -303,7 +303,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteVolumeResponse%27"><span class="annot"><span class="annottext">DeleteVolumeResponse -&gt; Int
 </span><a href="Network.AWS.StorageGateway.DeleteVolume.html#%24sel%3AhttpStatus%3ADeleteVolumeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383754"><span id="local-6989586621679383756"><span class="annot"><span class="annottext">DeleteVolumeResponse -&gt; DeleteVolumeResponse -&gt; Bool
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388303"><span id="local-6989586621679388305"><span class="annot"><span class="annottext">DeleteVolumeResponse -&gt; DeleteVolumeResponse -&gt; Bool
 (DeleteVolumeResponse -&gt; DeleteVolumeResponse -&gt; Bool)
 -&gt; (DeleteVolumeResponse -&gt; DeleteVolumeResponse -&gt; Bool)
 -&gt; Eq DeleteVolumeResponse
@@ -312,7 +312,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteVolumeResponse -&gt; DeleteVolumeResponse -&gt; Bool
 == :: DeleteVolumeResponse -&gt; DeleteVolumeResponse -&gt; Bool
 $c== :: DeleteVolumeResponse -&gt; DeleteVolumeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383746"><span id="local-6989586621679383748"><span id="local-6989586621679383750"><span id="local-6989586621679383752"><span class="annot"><span class="annottext">ReadPrec [DeleteVolumeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388295"><span id="local-6989586621679388297"><span id="local-6989586621679388299"><span id="local-6989586621679388301"><span class="annot"><span class="annottext">ReadPrec [DeleteVolumeResponse]
 ReadPrec DeleteVolumeResponse
 Int -&gt; ReadS DeleteVolumeResponse
 ReadS [DeleteVolumeResponse]
@@ -332,7 +332,7 @@ readList :: ReadS [DeleteVolumeResponse]
 $creadList :: ReadS [DeleteVolumeResponse]
 readsPrec :: Int -&gt; ReadS DeleteVolumeResponse
 $creadsPrec :: Int -&gt; ReadS DeleteVolumeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383740"><span id="local-6989586621679383742"><span id="local-6989586621679383744"><span class="annot"><span class="annottext">Int -&gt; DeleteVolumeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388289"><span id="local-6989586621679388291"><span id="local-6989586621679388293"><span class="annot"><span class="annottext">Int -&gt; DeleteVolumeResponse -&gt; ShowS
 [DeleteVolumeResponse] -&gt; ShowS
 DeleteVolumeResponse -&gt; String
 (Int -&gt; DeleteVolumeResponse -&gt; ShowS)
@@ -375,8 +375,8 @@ $cfrom :: forall x. DeleteVolumeResponse -&gt; Rep DeleteVolumeResponse x
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse"><span class="hs-identifier hs-type">DeleteVolumeResponse</span></a></span><span>
 </span><span id="line-169"></span><span id="newDeleteVolumeResponse"><span class="annot"><span class="annottext">newDeleteVolumeResponse :: Int -&gt; DeleteVolumeResponse
-</span><a href="Network.AWS.StorageGateway.DeleteVolume.html#newDeleteVolumeResponse"><span class="hs-identifier hs-var hs-var">newDeleteVolumeResponse</span></a></span></span><span> </span><span id="local-6989586621679383737"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383737"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.DeleteVolume.html#newDeleteVolumeResponse"><span class="hs-identifier hs-var hs-var">newDeleteVolumeResponse</span></a></span></span><span> </span><span id="local-6989586621679388286"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388286"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">DeleteVolumeResponse' :: Maybe Text -&gt; Int -&gt; DeleteVolumeResponse
 </span><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse%27"><span class="hs-identifier hs-type">DeleteVolumeResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:volumeARN:DeleteVolumeResponse' :: Maybe Text
@@ -385,7 +385,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteVolumeResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.DeleteVolume.html#%24sel%3AhttpStatus%3ADeleteVolumeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383737"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679388286"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the storage volume that was deleted.</span><span>
@@ -398,16 +398,16 @@ forall a. Maybe a
 -&gt; Lens
      DeleteVolumeResponse DeleteVolumeResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse%27"><span class="hs-identifier hs-type">DeleteVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383736"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse%27"><span class="hs-identifier hs-type">DeleteVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388285"><span class="annot"><span class="annottext">Maybe Text
 volumeARN :: Maybe Text
 $sel:volumeARN:DeleteVolumeResponse' :: DeleteVolumeResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679383736"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679383736"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383735"><span class="annot"><span class="annottext">s :: DeleteVolumeResponse
-</span><a href="#local-6989586621679383735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse%27"><span class="hs-identifier hs-type">DeleteVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383734"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679383734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVolumeResponse
-</span><a href="#local-6989586621679383735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARN:DeleteVolumeResponse' :: Maybe Text
+</span><a href="#local-6989586621679388285"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388285"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388284"><span class="annot"><span class="annottext">s :: DeleteVolumeResponse
+</span><a href="#local-6989586621679388284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse%27"><span class="hs-identifier hs-type">DeleteVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388283"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVolumeResponse
+</span><a href="#local-6989586621679388284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARN:DeleteVolumeResponse' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.DeleteVolume.html#%24sel%3AvolumeARN%3ADeleteVolumeResponse%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679383734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse"><span class="hs-identifier hs-type">DeleteVolumeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse"><span class="hs-identifier hs-type">DeleteVolumeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-181"></span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#deleteVolumeResponse_httpStatus"><span class="hs-identifier hs-type">deleteVolumeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse"><span class="hs-identifier hs-type">DeleteVolumeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -416,16 +416,16 @@ $sel:volumeARN:DeleteVolumeResponse' :: DeleteVolumeResponse -&gt; Maybe Text
 -&gt; (DeleteVolumeResponse -&gt; Int -&gt; DeleteVolumeResponse)
 -&gt; Lens DeleteVolumeResponse DeleteVolumeResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse%27"><span class="hs-identifier hs-type">DeleteVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383733"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse%27"><span class="hs-identifier hs-type">DeleteVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388282"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteVolumeResponse' :: DeleteVolumeResponse -&gt; Int
-</span><a href="#local-6989586621679383733"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383733"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383732"><span class="annot"><span class="annottext">s :: DeleteVolumeResponse
-</span><a href="#local-6989586621679383732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse%27"><span class="hs-identifier hs-type">DeleteVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383731"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVolumeResponse
-</span><a href="#local-6989586621679383732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteVolumeResponse' :: Int
+</span><a href="#local-6989586621679388282"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388282"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388281"><span class="annot"><span class="annottext">s :: DeleteVolumeResponse
+</span><a href="#local-6989586621679388281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse%27"><span class="hs-identifier hs-type">DeleteVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388280"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVolumeResponse
+</span><a href="#local-6989586621679388281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteVolumeResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.DeleteVolume.html#%24sel%3AhttpStatus%3ADeleteVolumeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse"><span class="hs-identifier hs-type">DeleteVolumeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse"><span class="hs-identifier hs-type">DeleteVolumeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383729"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse"><span class="hs-identifier hs-type">DeleteVolumeResponse</span></a></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388278"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteVolume.html#DeleteVolumeResponse"><span class="hs-identifier hs-type">DeleteVolumeResponse</span></a></span></span><span>
 </span><span id="line-185"></span></pre></body></html>

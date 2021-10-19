@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621681058915"><span id="local-6989586621681058916"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CarrierGatewayState"><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGatewayState.html#CarrierGatewayState"><span class="hs-identifier hs-var">CarrierGatewayState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CarrierGatewayState%27"><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGatewayState.html#CarrierGatewayState%27"><span class="hs-identifier hs-var">CarrierGatewayState'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681092487"><span id="local-6989586621681092488"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CarrierGatewayState"><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGatewayState.html#CarrierGatewayState"><span class="hs-identifier hs-var">CarrierGatewayState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CarrierGatewayState%27"><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGatewayState.html#CarrierGatewayState%27"><span class="hs-identifier hs-var">CarrierGatewayState'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCarrierGatewayState"><span class="annot"><span class="annottext">CarrierGatewayState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.CarrierGatewayState.html#fromCarrierGatewayState"><span class="hs-identifier hs-var hs-var">fromCarrierGatewayState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681058907"><span id="local-6989586621681058909"><span id="local-6989586621681058911"><span class="annot"><span class="annottext">Int -&gt; CarrierGatewayState -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681092479"><span id="local-6989586621681092481"><span id="local-6989586621681092483"><span class="annot"><span class="annottext">Int -&gt; CarrierGatewayState -&gt; ShowS
 [CarrierGatewayState] -&gt; ShowS
 CarrierGatewayState -&gt; String
 (Int -&gt; CarrierGatewayState -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: CarrierGatewayState -&gt; String
 showsPrec :: Int -&gt; CarrierGatewayState -&gt; ShowS
 $cshowsPrec :: Int -&gt; CarrierGatewayState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681058898"><span id="local-6989586621681058900"><span id="local-6989586621681058902"><span id="local-6989586621681058904"><span class="annot"><span class="annottext">ReadPrec [CarrierGatewayState]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681092470"><span id="local-6989586621681092472"><span id="local-6989586621681092474"><span id="local-6989586621681092476"><span class="annot"><span class="annottext">ReadPrec [CarrierGatewayState]
 ReadPrec CarrierGatewayState
 Int -&gt; ReadS CarrierGatewayState
 ReadS [CarrierGatewayState]
@@ -75,7 +75,7 @@ $creadList :: ReadS [CarrierGatewayState]
 readsPrec :: Int -&gt; ReadS CarrierGatewayState
 $creadsPrec :: Int -&gt; ReadS CarrierGatewayState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681058893"><span id="local-6989586621681058895"><span class="annot"><span class="annottext">CarrierGatewayState -&gt; CarrierGatewayState -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681092465"><span id="local-6989586621681092467"><span class="annot"><span class="annottext">CarrierGatewayState -&gt; CarrierGatewayState -&gt; Bool
 (CarrierGatewayState -&gt; CarrierGatewayState -&gt; Bool)
 -&gt; (CarrierGatewayState -&gt; CarrierGatewayState -&gt; Bool)
 -&gt; Eq CarrierGatewayState
@@ -85,7 +85,7 @@ $c/= :: CarrierGatewayState -&gt; CarrierGatewayState -&gt; Bool
 == :: CarrierGatewayState -&gt; CarrierGatewayState -&gt; Bool
 $c== :: CarrierGatewayState -&gt; CarrierGatewayState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681058877"><span id="local-6989586621681058879"><span id="local-6989586621681058881"><span id="local-6989586621681058883"><span id="local-6989586621681058885"><span id="local-6989586621681058887"><span id="local-6989586621681058889"><span class="annot"><span class="annottext">Eq CarrierGatewayState
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681092449"><span id="local-6989586621681092451"><span id="local-6989586621681092453"><span id="local-6989586621681092455"><span id="local-6989586621681092457"><span id="local-6989586621681092459"><span id="local-6989586621681092461"><span class="annot"><span class="annottext">Eq CarrierGatewayState
 Eq CarrierGatewayState
 -&gt; (CarrierGatewayState -&gt; CarrierGatewayState -&gt; Ordering)
 -&gt; (CarrierGatewayState -&gt; CarrierGatewayState -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. CarrierGatewayState -&gt; Rep CarrierGatewayState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681058869"><span id="local-6989586621681058871"><span class="annot"><span class="annottext">Int -&gt; CarrierGatewayState -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681092441"><span id="local-6989586621681092443"><span class="annot"><span class="annottext">Int -&gt; CarrierGatewayState -&gt; Int
 CarrierGatewayState -&gt; Int
 (Int -&gt; CarrierGatewayState -&gt; Int)
 -&gt; (CarrierGatewayState -&gt; Int) -&gt; Hashable CarrierGatewayState
@@ -148,53 +148,53 @@ $chash :: CarrierGatewayState -&gt; Int
 hashWithSalt :: Int -&gt; CarrierGatewayState -&gt; Int
 $chashWithSalt :: Int -&gt; CarrierGatewayState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681058866"><span class="annot"><span class="annottext">CarrierGatewayState -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681092438"><span class="annot"><span class="annottext">CarrierGatewayState -&gt; ()
 (CarrierGatewayState -&gt; ()) -&gt; NFData CarrierGatewayState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CarrierGatewayState -&gt; ()
 $crnf :: CarrierGatewayState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681058863"><span class="annot"><span class="annottext">Text -&gt; Either String CarrierGatewayState
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681092435"><span class="annot"><span class="annottext">Text -&gt; Either String CarrierGatewayState
 (Text -&gt; Either String CarrierGatewayState)
 -&gt; FromText CarrierGatewayState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CarrierGatewayState
 $cfromText :: Text -&gt; Either String CarrierGatewayState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681058860"><span class="annot"><span class="annottext">CarrierGatewayState -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681092432"><span class="annot"><span class="annottext">CarrierGatewayState -&gt; Text
 (CarrierGatewayState -&gt; Text) -&gt; ToText CarrierGatewayState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CarrierGatewayState -&gt; Text
 $ctoText :: CarrierGatewayState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681058857"><span class="annot"><span class="annottext">CarrierGatewayState -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681092429"><span class="annot"><span class="annottext">CarrierGatewayState -&gt; ByteString
 (CarrierGatewayState -&gt; ByteString)
 -&gt; ToByteString CarrierGatewayState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CarrierGatewayState -&gt; ByteString
 $ctoBS :: CarrierGatewayState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681058854"><span class="annot"><span class="annottext">CarrierGatewayState -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681092426"><span class="annot"><span class="annottext">CarrierGatewayState -&gt; ByteStringBuilder
 (CarrierGatewayState -&gt; ByteStringBuilder)
 -&gt; ToLog CarrierGatewayState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CarrierGatewayState -&gt; ByteStringBuilder
 $cbuild :: CarrierGatewayState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681058851"><span class="annot"><span class="annottext">HeaderName -&gt; CarrierGatewayState -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681092423"><span class="annot"><span class="annottext">HeaderName -&gt; CarrierGatewayState -&gt; [Header]
 (HeaderName -&gt; CarrierGatewayState -&gt; [Header])
 -&gt; ToHeader CarrierGatewayState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CarrierGatewayState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CarrierGatewayState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681058848"><span class="annot"><span class="annottext">CarrierGatewayState -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681092420"><span class="annot"><span class="annottext">CarrierGatewayState -&gt; QueryString
 (CarrierGatewayState -&gt; QueryString) -&gt; ToQuery CarrierGatewayState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CarrierGatewayState -&gt; QueryString
 $ctoQuery :: CarrierGatewayState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681058843"><span id="local-6989586621681058845"><span class="annot"><span class="annottext">Value -&gt; Parser [CarrierGatewayState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681092415"><span id="local-6989586621681092417"><span class="annot"><span class="annottext">Value -&gt; Parser [CarrierGatewayState]
 Value -&gt; Parser CarrierGatewayState
 (Value -&gt; Parser CarrierGatewayState)
 -&gt; (Value -&gt; Parser [CarrierGatewayState])
@@ -206,7 +206,7 @@ $cparseJSONList :: Value -&gt; Parser [CarrierGatewayState]
 parseJSON :: Value -&gt; Parser CarrierGatewayState
 $cparseJSON :: Value -&gt; Parser CarrierGatewayState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681058838"><span id="local-6989586621681058840"><span class="annot"><span class="annottext">FromJSONKeyFunction [CarrierGatewayState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681092410"><span id="local-6989586621681092412"><span class="annot"><span class="annottext">FromJSONKeyFunction [CarrierGatewayState]
 FromJSONKeyFunction CarrierGatewayState
 FromJSONKeyFunction CarrierGatewayState
 -&gt; FromJSONKeyFunction [CarrierGatewayState]
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CarrierGatewayState]
 fromJSONKey :: FromJSONKeyFunction CarrierGatewayState
 $cfromJSONKey :: FromJSONKeyFunction CarrierGatewayState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681058829"><span id="local-6989586621681058831"><span id="local-6989586621681058833"><span id="local-6989586621681058835"><span class="annot"><span class="annottext">[CarrierGatewayState] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681092401"><span id="local-6989586621681092403"><span id="local-6989586621681092405"><span id="local-6989586621681092407"><span class="annot"><span class="annottext">[CarrierGatewayState] -&gt; Encoding
 [CarrierGatewayState] -&gt; Value
 CarrierGatewayState -&gt; Encoding
 CarrierGatewayState -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: CarrierGatewayState -&gt; Encoding
 toJSON :: CarrierGatewayState -&gt; Value
 $ctoJSON :: CarrierGatewayState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681058824"><span id="local-6989586621681058826"><span class="annot"><span class="annottext">ToJSONKeyFunction [CarrierGatewayState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681092396"><span id="local-6989586621681092398"><span class="annot"><span class="annottext">ToJSONKeyFunction [CarrierGatewayState]
 ToJSONKeyFunction CarrierGatewayState
 ToJSONKeyFunction CarrierGatewayState
 -&gt; ToJSONKeyFunction [CarrierGatewayState]
@@ -254,14 +254,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CarrierGatewayState]
 toJSONKey :: ToJSONKeyFunction CarrierGatewayState
 $ctoJSONKey :: ToJSONKeyFunction CarrierGatewayState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681058821"><span class="annot"><span class="annottext">[Node] -&gt; Either String CarrierGatewayState
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681092393"><span class="annot"><span class="annottext">[Node] -&gt; Either String CarrierGatewayState
 ([Node] -&gt; Either String CarrierGatewayState)
 -&gt; FromXML CarrierGatewayState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CarrierGatewayState
 $cparseXML :: [Node] -&gt; Either String CarrierGatewayState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681058818"><span class="annot"><span class="annottext">CarrierGatewayState -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681092390"><span class="annot"><span class="annottext">CarrierGatewayState -&gt; XML
 (CarrierGatewayState -&gt; XML) -&gt; ToXML CarrierGatewayState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CarrierGatewayState -&gt; XML

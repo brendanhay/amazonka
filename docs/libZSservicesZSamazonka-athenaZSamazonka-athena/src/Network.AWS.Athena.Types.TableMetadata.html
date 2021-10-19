@@ -27,30 +27,30 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains metadata for a table.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTableMetadata' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679218826"><span id="local-6989586621679218827"></span></span><span class="hs-keyword">data</span><span> </span><span id="TableMetadata"><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-var">TableMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TableMetadata%27"><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-var">TableMetadata'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679218988"><span id="local-6989586621679218989"></span></span><span class="hs-keyword">data</span><span> </span><span id="TableMetadata"><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-var">TableMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TableMetadata%27"><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-var">TableMetadata'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of table. In Athena, only @EXTERNAL_TABLE@ is supported.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AtableType%3ATableMetadata%27"><span class="annot"><span class="annottext">TableMetadata -&gt; Maybe Text
 </span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3AtableType%3ATableMetadata%27"><span class="hs-identifier hs-var hs-var">tableType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The time that the table was created.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcreateTime%3ATableMetadata%27"><span class="annot"><span class="annottext">TableMetadata -&gt; Maybe POSIX
-</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3AcreateTime%3ATableMetadata%27"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A list of the partition keys in the table.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3ApartitionKeys%3ATableMetadata%27"><span class="annot"><span class="annottext">TableMetadata -&gt; Maybe [Column]
-</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3ApartitionKeys%3ATableMetadata%27"><span class="hs-identifier hs-var hs-var">partitionKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Athena.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | A set of custom key\/value pairs for table properties.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aparameters%3ATableMetadata%27"><span class="annot"><span class="annottext">TableMetadata -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3Aparameters%3ATableMetadata%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A list of the columns in the table.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Acolumns%3ATableMetadata%27"><span class="annot"><span class="annottext">TableMetadata -&gt; Maybe [Column]
+</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3Acolumns%3ATableMetadata%27"><span class="hs-identifier hs-var hs-var">columns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Athena.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The last time the table was accessed.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AlastAccessTime%3ATableMetadata%27"><span class="annot"><span class="annottext">TableMetadata -&gt; Maybe POSIX
 </span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3AlastAccessTime%3ATableMetadata%27"><span class="hs-identifier hs-var hs-var">lastAccessTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A list of the columns in the table.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Acolumns%3ATableMetadata%27"><span class="annot"><span class="annottext">TableMetadata -&gt; Maybe [Column]
-</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3Acolumns%3ATableMetadata%27"><span class="hs-identifier hs-var hs-var">columns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Athena.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A set of custom key\/value pairs for table properties.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aparameters%3ATableMetadata%27"><span class="annot"><span class="annottext">TableMetadata -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3Aparameters%3ATableMetadata%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A list of the partition keys in the table.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3ApartitionKeys%3ATableMetadata%27"><span class="annot"><span class="annottext">TableMetadata -&gt; Maybe [Column]
+</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3ApartitionKeys%3ATableMetadata%27"><span class="hs-identifier hs-var hs-var">partitionKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Athena.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The time that the table was created.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcreateTime%3ATableMetadata%27"><span class="annot"><span class="annottext">TableMetadata -&gt; Maybe POSIX
+</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3AcreateTime%3ATableMetadata%27"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The name of the table.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Aname%3ATableMetadata%27"><span class="annot"><span class="annottext">TableMetadata -&gt; Text
 </span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3Aname%3ATableMetadata%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218814"><span id="local-6989586621679218816"><span class="annot"><span class="annottext">TableMetadata -&gt; TableMetadata -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218976"><span id="local-6989586621679218978"><span class="annot"><span class="annottext">TableMetadata -&gt; TableMetadata -&gt; Bool
 (TableMetadata -&gt; TableMetadata -&gt; Bool)
 -&gt; (TableMetadata -&gt; TableMetadata -&gt; Bool) -&gt; Eq TableMetadata
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TableMetadata -&gt; TableMetadata -&gt; Bool
 == :: TableMetadata -&gt; TableMetadata -&gt; Bool
 $c== :: TableMetadata -&gt; TableMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218805"><span id="local-6989586621679218807"><span id="local-6989586621679218809"><span id="local-6989586621679218811"><span class="annot"><span class="annottext">ReadPrec [TableMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218967"><span id="local-6989586621679218969"><span id="local-6989586621679218971"><span id="local-6989586621679218973"><span class="annot"><span class="annottext">ReadPrec [TableMetadata]
 ReadPrec TableMetadata
 Int -&gt; ReadS TableMetadata
 ReadS [TableMetadata]
@@ -78,7 +78,7 @@ readList :: ReadS [TableMetadata]
 $creadList :: ReadS [TableMetadata]
 readsPrec :: Int -&gt; ReadS TableMetadata
 $creadsPrec :: Int -&gt; ReadS TableMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218798"><span id="local-6989586621679218800"><span id="local-6989586621679218802"><span class="annot"><span class="annottext">Int -&gt; TableMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218960"><span id="local-6989586621679218962"><span id="local-6989586621679218964"><span class="annot"><span class="annottext">Int -&gt; TableMetadata -&gt; ShowS
 [TableMetadata] -&gt; ShowS
 TableMetadata -&gt; String
 (Int -&gt; TableMetadata -&gt; ShowS)
@@ -114,15 +114,15 @@ $cfrom :: forall x. TableMetadata -&gt; Rep TableMetadata x
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- 'tableType', 'tableMetadata_tableType' - The type of table. In Athena, only @EXTERNAL_TABLE@ is supported.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'createTime', 'tableMetadata_createTime' - The time that the table was created.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'parameters', 'tableMetadata_parameters' - A set of custom key\/value pairs for table properties.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'partitionKeys', 'tableMetadata_partitionKeys' - A list of the partition keys in the table.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'columns', 'tableMetadata_columns' - A list of the columns in the table.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- 'lastAccessTime', 'tableMetadata_lastAccessTime' - The last time the table was accessed.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'columns', 'tableMetadata_columns' - A list of the columns in the table.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'partitionKeys', 'tableMetadata_partitionKeys' - A list of the partition keys in the table.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'parameters', 'tableMetadata_parameters' - A set of custom key\/value pairs for table properties.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'createTime', 'tableMetadata_createTime' - The time that the table was created.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- 'name', 'tableMetadata_name' - The name of the table.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#newTableMetadata"><span class="hs-identifier hs-type">newTableMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -130,14 +130,14 @@ $cfrom :: forall x. TableMetadata -&gt; Rep TableMetadata x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span>
 </span><span id="line-73"></span><span id="newTableMetadata"><span class="annot"><span class="annottext">newTableMetadata :: Text -&gt; TableMetadata
-</span><a href="Network.AWS.Athena.Types.TableMetadata.html#newTableMetadata"><span class="hs-identifier hs-var hs-var">newTableMetadata</span></a></span></span><span> </span><span id="local-6989586621679218792"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679218792"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Athena.Types.TableMetadata.html#newTableMetadata"><span class="hs-identifier hs-var hs-var">newTableMetadata</span></a></span></span><span> </span><span id="local-6989586621679218954"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679218954"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">TableMetadata' :: Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe [Column]
--&gt; Maybe POSIX
--&gt; Maybe [Column]
 -&gt; Maybe (HashMap Text Text)
+-&gt; Maybe [Column]
+-&gt; Maybe POSIX
+-&gt; Maybe [Column]
+-&gt; Maybe POSIX
 -&gt; Text
 -&gt; TableMetadata
 </span><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span>
@@ -145,29 +145,29 @@ $cfrom :: forall x. TableMetadata -&gt; Rep TableMetadata x
 </span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3AtableType%3ATableMetadata%27"><span class="hs-identifier hs-var">tableType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:createTime:TableMetadata' :: Maybe POSIX
-</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3AcreateTime%3ATableMetadata%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameters:TableMetadata' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3Aparameters%3ATableMetadata%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:partitionKeys:TableMetadata' :: Maybe [Column]
-</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3ApartitionKeys%3ATableMetadata%27"><span class="hs-identifier hs-var">partitionKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:columns:TableMetadata' :: Maybe [Column]
+</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3Acolumns%3ATableMetadata%27"><span class="hs-identifier hs-var">columns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastAccessTime:TableMetadata' :: Maybe POSIX
 </span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3AlastAccessTime%3ATableMetadata%27"><span class="hs-identifier hs-var">lastAccessTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:columns:TableMetadata' :: Maybe [Column]
-</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3Acolumns%3ATableMetadata%27"><span class="hs-identifier hs-var">columns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:partitionKeys:TableMetadata' :: Maybe [Column]
+</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3ApartitionKeys%3ATableMetadata%27"><span class="hs-identifier hs-var">partitionKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameters:TableMetadata' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3Aparameters%3ATableMetadata%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:createTime:TableMetadata' :: Maybe POSIX
+</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3AcreateTime%3ATableMetadata%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:TableMetadata' :: Text
 </span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3Aname%3ATableMetadata%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679218792"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679218954"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The type of table. In Athena, only @EXTERNAL_TABLE@ is supported.</span><span>
@@ -177,160 +177,20 @@ forall a. Maybe a
 -&gt; (TableMetadata -&gt; Maybe Text -&gt; TableMetadata)
 -&gt; Lens TableMetadata TableMetadata (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218788"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218950"><span class="annot"><span class="annottext">Maybe Text
 tableType :: Maybe Text
 $sel:tableType:TableMetadata' :: TableMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679218788"><span class="hs-identifier hs-var hs-var">tableType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218788"><span class="hs-identifier hs-var">tableType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218787"><span class="annot"><span class="annottext">s :: TableMetadata
-</span><a href="#local-6989586621679218787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218786"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableMetadata
-</span><a href="#local-6989586621679218787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableType:TableMetadata' :: Maybe Text
+</span><a href="#local-6989586621679218950"><span class="hs-identifier hs-var hs-var">tableType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218950"><span class="hs-identifier hs-var">tableType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218949"><span class="annot"><span class="annottext">s :: TableMetadata
+</span><a href="#local-6989586621679218949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218948"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableMetadata
+</span><a href="#local-6989586621679218949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableType:TableMetadata' :: Maybe Text
 </span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3AtableType%3ATableMetadata%27"><span class="hs-identifier hs-var">tableType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679218948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The time that the table was created.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_createTime"><span class="hs-identifier hs-type">tableMetadata_createTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="tableMetadata_createTime"><span class="annot"><span class="annottext">tableMetadata_createTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; TableMetadata -&gt; f TableMetadata
-</span><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_createTime"><span class="hs-identifier hs-var hs-var">tableMetadata_createTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TableMetadata -&gt; Maybe POSIX)
--&gt; (TableMetadata -&gt; Maybe POSIX -&gt; TableMetadata)
--&gt; Lens TableMetadata TableMetadata (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218784"><span class="annot"><span class="annottext">Maybe POSIX
-createTime :: Maybe POSIX
-$sel:createTime:TableMetadata' :: TableMetadata -&gt; Maybe POSIX
-</span><a href="#local-6989586621679218784"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679218784"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218783"><span class="annot"><span class="annottext">s :: TableMetadata
-</span><a href="#local-6989586621679218783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218782"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679218782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableMetadata
-</span><a href="#local-6989586621679218783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:TableMetadata' :: Maybe POSIX
-</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3AcreateTime%3ATableMetadata%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679218782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; TableMetadata -&gt; f TableMetadata)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; TableMetadata
--&gt; f TableMetadata
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | A list of the partition keys in the table.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_partitionKeys"><span class="hs-identifier hs-type">tableMetadata_partitionKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Athena.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="tableMetadata_partitionKeys"><span class="annot"><span class="annottext">tableMetadata_partitionKeys :: (Maybe [Column] -&gt; f (Maybe [Column]))
--&gt; TableMetadata -&gt; f TableMetadata
-</span><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_partitionKeys"><span class="hs-identifier hs-var hs-var">tableMetadata_partitionKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TableMetadata -&gt; Maybe [Column])
--&gt; (TableMetadata -&gt; Maybe [Column] -&gt; TableMetadata)
--&gt; Lens
-     TableMetadata TableMetadata (Maybe [Column]) (Maybe [Column])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218777"><span class="annot"><span class="annottext">Maybe [Column]
-partitionKeys :: Maybe [Column]
-$sel:partitionKeys:TableMetadata' :: TableMetadata -&gt; Maybe [Column]
-</span><a href="#local-6989586621679218777"><span class="hs-identifier hs-var hs-var">partitionKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
-</span><a href="#local-6989586621679218777"><span class="hs-identifier hs-var">partitionKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218776"><span class="annot"><span class="annottext">s :: TableMetadata
-</span><a href="#local-6989586621679218776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218775"><span class="annot"><span class="annottext">Maybe [Column]
-</span><a href="#local-6989586621679218775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableMetadata
-</span><a href="#local-6989586621679218776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionKeys:TableMetadata' :: Maybe [Column]
-</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3ApartitionKeys%3ATableMetadata%27"><span class="hs-identifier hs-var">partitionKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
-</span><a href="#local-6989586621679218775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Column] -&gt; f (Maybe [Column]))
- -&gt; TableMetadata -&gt; f TableMetadata)
--&gt; ((Maybe [Column] -&gt; f (Maybe [Column]))
-    -&gt; Maybe [Column] -&gt; f (Maybe [Column]))
--&gt; (Maybe [Column] -&gt; f (Maybe [Column]))
--&gt; TableMetadata
--&gt; f TableMetadata
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Column] [Column] [Column] [Column]
--&gt; Iso
-     (Maybe [Column]) (Maybe [Column]) (Maybe [Column]) (Maybe [Column])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Column] [Column] [Column] [Column]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The last time the table was accessed.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_lastAccessTime"><span class="hs-identifier hs-type">tableMetadata_lastAccessTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="tableMetadata_lastAccessTime"><span class="annot"><span class="annottext">tableMetadata_lastAccessTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; TableMetadata -&gt; f TableMetadata
-</span><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_lastAccessTime"><span class="hs-identifier hs-var hs-var">tableMetadata_lastAccessTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TableMetadata -&gt; Maybe POSIX)
--&gt; (TableMetadata -&gt; Maybe POSIX -&gt; TableMetadata)
--&gt; Lens TableMetadata TableMetadata (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218772"><span class="annot"><span class="annottext">Maybe POSIX
-lastAccessTime :: Maybe POSIX
-$sel:lastAccessTime:TableMetadata' :: TableMetadata -&gt; Maybe POSIX
-</span><a href="#local-6989586621679218772"><span class="hs-identifier hs-var hs-var">lastAccessTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679218772"><span class="hs-identifier hs-var">lastAccessTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218771"><span class="annot"><span class="annottext">s :: TableMetadata
-</span><a href="#local-6989586621679218771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218770"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679218770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableMetadata
-</span><a href="#local-6989586621679218771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAccessTime:TableMetadata' :: Maybe POSIX
-</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3AlastAccessTime%3ATableMetadata%27"><span class="hs-identifier hs-var">lastAccessTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679218770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; TableMetadata -&gt; f TableMetadata)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; TableMetadata
--&gt; f TableMetadata
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | A list of the columns in the table.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_columns"><span class="hs-identifier hs-type">tableMetadata_columns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Athena.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="tableMetadata_columns"><span class="annot"><span class="annottext">tableMetadata_columns :: (Maybe [Column] -&gt; f (Maybe [Column]))
--&gt; TableMetadata -&gt; f TableMetadata
-</span><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_columns"><span class="hs-identifier hs-var hs-var">tableMetadata_columns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TableMetadata -&gt; Maybe [Column])
--&gt; (TableMetadata -&gt; Maybe [Column] -&gt; TableMetadata)
--&gt; Lens
-     TableMetadata TableMetadata (Maybe [Column]) (Maybe [Column])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218768"><span class="annot"><span class="annottext">Maybe [Column]
-columns :: Maybe [Column]
-$sel:columns:TableMetadata' :: TableMetadata -&gt; Maybe [Column]
-</span><a href="#local-6989586621679218768"><span class="hs-identifier hs-var hs-var">columns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
-</span><a href="#local-6989586621679218768"><span class="hs-identifier hs-var">columns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218767"><span class="annot"><span class="annottext">s :: TableMetadata
-</span><a href="#local-6989586621679218767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218766"><span class="annot"><span class="annottext">Maybe [Column]
-</span><a href="#local-6989586621679218766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableMetadata
-</span><a href="#local-6989586621679218767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columns:TableMetadata' :: Maybe [Column]
-</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3Acolumns%3ATableMetadata%27"><span class="hs-identifier hs-var">columns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
-</span><a href="#local-6989586621679218766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Column] -&gt; f (Maybe [Column]))
- -&gt; TableMetadata -&gt; f TableMetadata)
--&gt; ((Maybe [Column] -&gt; f (Maybe [Column]))
-    -&gt; Maybe [Column] -&gt; f (Maybe [Column]))
--&gt; (Maybe [Column] -&gt; f (Maybe [Column]))
--&gt; TableMetadata
--&gt; f TableMetadata
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Column] [Column] [Column] [Column]
--&gt; Iso
-     (Maybe [Column]) (Maybe [Column]) (Maybe [Column]) (Maybe [Column])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Column] [Column] [Column] [Column]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | A set of custom key\/value pairs for table properties.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_parameters"><span class="hs-identifier hs-type">tableMetadata_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="tableMetadata_parameters"><span class="annot"><span class="annottext">tableMetadata_parameters :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span id="line-88"></span><span class="hs-comment">-- | A set of custom key\/value pairs for table properties.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_parameters"><span class="hs-identifier hs-type">tableMetadata_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="tableMetadata_parameters"><span class="annot"><span class="annottext">tableMetadata_parameters :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; TableMetadata -&gt; f TableMetadata
 </span><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_parameters"><span class="hs-identifier hs-var hs-var">tableMetadata_parameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TableMetadata -&gt; Maybe (HashMap Text Text))
 -&gt; (TableMetadata -&gt; Maybe (HashMap Text Text) -&gt; TableMetadata)
@@ -340,16 +200,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218764"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218946"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 parameters :: Maybe (HashMap Text Text)
 $sel:parameters:TableMetadata' :: TableMetadata -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679218764"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679218764"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218763"><span class="annot"><span class="annottext">s :: TableMetadata
-</span><a href="#local-6989586621679218763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218762"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679218762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableMetadata
-</span><a href="#local-6989586621679218763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:TableMetadata' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679218946"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679218946"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218945"><span class="annot"><span class="annottext">s :: TableMetadata
+</span><a href="#local-6989586621679218945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218944"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679218944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableMetadata
+</span><a href="#local-6989586621679218945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:TableMetadata' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3Aparameters%3ATableMetadata%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679218762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679218944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; TableMetadata -&gt; f TableMetadata)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -375,8 +235,148 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | A list of the columns in the table.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_columns"><span class="hs-identifier hs-type">tableMetadata_columns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Athena.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="tableMetadata_columns"><span class="annot"><span class="annottext">tableMetadata_columns :: (Maybe [Column] -&gt; f (Maybe [Column]))
+-&gt; TableMetadata -&gt; f TableMetadata
+</span><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_columns"><span class="hs-identifier hs-var hs-var">tableMetadata_columns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TableMetadata -&gt; Maybe [Column])
+-&gt; (TableMetadata -&gt; Maybe [Column] -&gt; TableMetadata)
+-&gt; Lens
+     TableMetadata TableMetadata (Maybe [Column]) (Maybe [Column])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218939"><span class="annot"><span class="annottext">Maybe [Column]
+columns :: Maybe [Column]
+$sel:columns:TableMetadata' :: TableMetadata -&gt; Maybe [Column]
+</span><a href="#local-6989586621679218939"><span class="hs-identifier hs-var hs-var">columns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
+</span><a href="#local-6989586621679218939"><span class="hs-identifier hs-var">columns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218938"><span class="annot"><span class="annottext">s :: TableMetadata
+</span><a href="#local-6989586621679218938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218937"><span class="annot"><span class="annottext">Maybe [Column]
+</span><a href="#local-6989586621679218937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableMetadata
+</span><a href="#local-6989586621679218938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columns:TableMetadata' :: Maybe [Column]
+</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3Acolumns%3ATableMetadata%27"><span class="hs-identifier hs-var">columns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
+</span><a href="#local-6989586621679218937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Column] -&gt; f (Maybe [Column]))
+ -&gt; TableMetadata -&gt; f TableMetadata)
+-&gt; ((Maybe [Column] -&gt; f (Maybe [Column]))
+    -&gt; Maybe [Column] -&gt; f (Maybe [Column]))
+-&gt; (Maybe [Column] -&gt; f (Maybe [Column]))
+-&gt; TableMetadata
+-&gt; f TableMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Column] [Column] [Column] [Column]
+-&gt; Iso
+     (Maybe [Column]) (Maybe [Column]) (Maybe [Column]) (Maybe [Column])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Column] [Column] [Column] [Column]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The last time the table was accessed.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_lastAccessTime"><span class="hs-identifier hs-type">tableMetadata_lastAccessTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="tableMetadata_lastAccessTime"><span class="annot"><span class="annottext">tableMetadata_lastAccessTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TableMetadata -&gt; f TableMetadata
+</span><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_lastAccessTime"><span class="hs-identifier hs-var hs-var">tableMetadata_lastAccessTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TableMetadata -&gt; Maybe POSIX)
+-&gt; (TableMetadata -&gt; Maybe POSIX -&gt; TableMetadata)
+-&gt; Lens TableMetadata TableMetadata (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218935"><span class="annot"><span class="annottext">Maybe POSIX
+lastAccessTime :: Maybe POSIX
+$sel:lastAccessTime:TableMetadata' :: TableMetadata -&gt; Maybe POSIX
+</span><a href="#local-6989586621679218935"><span class="hs-identifier hs-var hs-var">lastAccessTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679218935"><span class="hs-identifier hs-var">lastAccessTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218934"><span class="annot"><span class="annottext">s :: TableMetadata
+</span><a href="#local-6989586621679218934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218933"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679218933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableMetadata
+</span><a href="#local-6989586621679218934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAccessTime:TableMetadata' :: Maybe POSIX
+</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3AlastAccessTime%3ATableMetadata%27"><span class="hs-identifier hs-var">lastAccessTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679218933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; TableMetadata -&gt; f TableMetadata)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TableMetadata
+-&gt; f TableMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | A list of the partition keys in the table.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_partitionKeys"><span class="hs-identifier hs-type">tableMetadata_partitionKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Athena.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="tableMetadata_partitionKeys"><span class="annot"><span class="annottext">tableMetadata_partitionKeys :: (Maybe [Column] -&gt; f (Maybe [Column]))
+-&gt; TableMetadata -&gt; f TableMetadata
+</span><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_partitionKeys"><span class="hs-identifier hs-var hs-var">tableMetadata_partitionKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TableMetadata -&gt; Maybe [Column])
+-&gt; (TableMetadata -&gt; Maybe [Column] -&gt; TableMetadata)
+-&gt; Lens
+     TableMetadata TableMetadata (Maybe [Column]) (Maybe [Column])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218930"><span class="annot"><span class="annottext">Maybe [Column]
+partitionKeys :: Maybe [Column]
+$sel:partitionKeys:TableMetadata' :: TableMetadata -&gt; Maybe [Column]
+</span><a href="#local-6989586621679218930"><span class="hs-identifier hs-var hs-var">partitionKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
+</span><a href="#local-6989586621679218930"><span class="hs-identifier hs-var">partitionKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218929"><span class="annot"><span class="annottext">s :: TableMetadata
+</span><a href="#local-6989586621679218929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218928"><span class="annot"><span class="annottext">Maybe [Column]
+</span><a href="#local-6989586621679218928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableMetadata
+</span><a href="#local-6989586621679218929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionKeys:TableMetadata' :: Maybe [Column]
+</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3ApartitionKeys%3ATableMetadata%27"><span class="hs-identifier hs-var">partitionKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
+</span><a href="#local-6989586621679218928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Column] -&gt; f (Maybe [Column]))
+ -&gt; TableMetadata -&gt; f TableMetadata)
+-&gt; ((Maybe [Column] -&gt; f (Maybe [Column]))
+    -&gt; Maybe [Column] -&gt; f (Maybe [Column]))
+-&gt; (Maybe [Column] -&gt; f (Maybe [Column]))
+-&gt; TableMetadata
+-&gt; f TableMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Column] [Column] [Column] [Column]
+-&gt; Iso
+     (Maybe [Column]) (Maybe [Column]) (Maybe [Column]) (Maybe [Column])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Column] [Column] [Column] [Column]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The time that the table was created.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_createTime"><span class="hs-identifier hs-type">tableMetadata_createTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="tableMetadata_createTime"><span class="annot"><span class="annottext">tableMetadata_createTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TableMetadata -&gt; f TableMetadata
+</span><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_createTime"><span class="hs-identifier hs-var hs-var">tableMetadata_createTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TableMetadata -&gt; Maybe POSIX)
+-&gt; (TableMetadata -&gt; Maybe POSIX -&gt; TableMetadata)
+-&gt; Lens TableMetadata TableMetadata (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218926"><span class="annot"><span class="annottext">Maybe POSIX
+createTime :: Maybe POSIX
+$sel:createTime:TableMetadata' :: TableMetadata -&gt; Maybe POSIX
+</span><a href="#local-6989586621679218926"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679218926"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218925"><span class="annot"><span class="annottext">s :: TableMetadata
+</span><a href="#local-6989586621679218925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218924"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679218924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableMetadata
+</span><a href="#local-6989586621679218925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:TableMetadata' :: Maybe POSIX
+</span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3AcreateTime%3ATableMetadata%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679218924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; TableMetadata -&gt; f TableMetadata)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; TableMetadata
+-&gt; f TableMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The name of the table.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#tableMetadata_name"><span class="hs-identifier hs-type">tableMetadata_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -385,19 +385,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (TableMetadata -&gt; Text -&gt; TableMetadata)
 -&gt; Lens TableMetadata TableMetadata Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218760"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218922"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:TableMetadata' :: TableMetadata -&gt; Text
-</span><a href="#local-6989586621679218760"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679218760"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218759"><span class="annot"><span class="annottext">s :: TableMetadata
-</span><a href="#local-6989586621679218759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218758"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679218758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableMetadata
-</span><a href="#local-6989586621679218759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:TableMetadata' :: Text
+</span><a href="#local-6989586621679218922"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679218922"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218921"><span class="annot"><span class="annottext">s :: TableMetadata
+</span><a href="#local-6989586621679218921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-type">TableMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218920"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679218920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableMetadata
+</span><a href="#local-6989586621679218921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:TableMetadata' :: Text
 </span><a href="Network.AWS.Athena.Types.TableMetadata.html#%24sel%3Aname%3ATableMetadata%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679218758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679218920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218755"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679218753"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TableMetadata
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218917"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679218915"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TableMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TableMetadata)
@@ -407,125 +407,59 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TableMetadata&quot;</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679218750"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218750"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679218912"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218912"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe [Column]
--&gt; Maybe POSIX
--&gt; Maybe [Column]
 -&gt; Maybe (HashMap Text Text)
+-&gt; Maybe [Column]
+-&gt; Maybe POSIX
+-&gt; Maybe [Column]
+-&gt; Maybe POSIX
 -&gt; Text
 -&gt; TableMetadata
 </span><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata%27"><span class="hs-identifier hs-var">TableMetadata'</span></a></span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe POSIX
- -&gt; Maybe [Column]
- -&gt; Maybe POSIX
- -&gt; Maybe [Column]
  -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe [Column]
+ -&gt; Maybe POSIX
+ -&gt; Maybe [Column]
+ -&gt; Maybe POSIX
  -&gt; Text
  -&gt; TableMetadata)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe POSIX
+     (Maybe (HashMap Text Text)
       -&gt; Maybe [Column]
       -&gt; Maybe POSIX
       -&gt; Maybe [Column]
-      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe POSIX
       -&gt; Text
       -&gt; TableMetadata)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679218912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
+  (Maybe (HashMap Text Text)
    -&gt; Maybe [Column]
    -&gt; Maybe POSIX
    -&gt; Maybe [Column]
-   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe POSIX
    -&gt; Text
    -&gt; TableMetadata)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe (HashMap Text Text))
 -&gt; Parser
      (Maybe [Column]
       -&gt; Maybe POSIX
       -&gt; Maybe [Column]
-      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe POSIX
       -&gt; Text
       -&gt; TableMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreateTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [Column]
-   -&gt; Maybe POSIX
-   -&gt; Maybe [Column]
-   -&gt; Maybe (HashMap Text Text)
-   -&gt; Text
-   -&gt; TableMetadata)
--&gt; Parser (Maybe [Column])
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe [Column]
-      -&gt; Maybe (HashMap Text Text)
-      -&gt; Text
-      -&gt; TableMetadata)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Column]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PartitionKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Column]))
--&gt; Maybe [Column] -&gt; Parser (Maybe [Column])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe [Column]
-   -&gt; Maybe (HashMap Text Text)
-   -&gt; Text
-   -&gt; TableMetadata)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe [Column]
-      -&gt; Maybe (HashMap Text Text) -&gt; Text -&gt; TableMetadata)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastAccessTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [Column]
-   -&gt; Maybe (HashMap Text Text) -&gt; Text -&gt; TableMetadata)
--&gt; Parser (Maybe [Column])
--&gt; Parser (Maybe (HashMap Text Text) -&gt; Text -&gt; TableMetadata)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Column]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Columns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Column]))
--&gt; Maybe [Column] -&gt; Parser (Maybe [Column])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text) -&gt; Text -&gt; TableMetadata)
--&gt; Parser (Maybe (HashMap Text Text))
--&gt; Parser (Text -&gt; TableMetadata)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679218912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -534,17 +468,72 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Column]
+   -&gt; Maybe POSIX
+   -&gt; Maybe [Column]
+   -&gt; Maybe POSIX
+   -&gt; Text
+   -&gt; TableMetadata)
+-&gt; Parser (Maybe [Column])
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe [Column] -&gt; Maybe POSIX -&gt; Text -&gt; TableMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Column]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Columns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Column]))
+-&gt; Maybe [Column] -&gt; Parser (Maybe [Column])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe [Column] -&gt; Maybe POSIX -&gt; Text -&gt; TableMetadata)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe [Column] -&gt; Maybe POSIX -&gt; Text -&gt; TableMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastAccessTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Column] -&gt; Maybe POSIX -&gt; Text -&gt; TableMetadata)
+-&gt; Parser (Maybe [Column])
+-&gt; Parser (Maybe POSIX -&gt; Text -&gt; TableMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Column]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PartitionKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Column]))
+-&gt; Maybe [Column] -&gt; Parser (Maybe [Column])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Text -&gt; TableMetadata)
+-&gt; Parser (Maybe POSIX) -&gt; Parser (Text -&gt; TableMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; TableMetadata)
 -&gt; Parser Text -&gt; Parser TableMetadata
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679218912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218742"><span id="local-6989586621679218744"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218904"><span id="local-6989586621679218906"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218739"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218901"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.TableMetadata.html#TableMetadata"><span class="hs-identifier hs-type">TableMetadata</span></a></span></span><span>
 </span><span id="line-130"></span></pre></body></html>

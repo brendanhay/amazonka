@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The CloudWatch Logs configuration.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLogConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679250209"><span id="local-6989586621679250210"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogConfig"><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-var">LogConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogConfig%27"><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig%27"><span class="hs-identifier hs-var">LogConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679250285"><span id="local-6989586621679250286"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogConfig"><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-var">LogConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogConfig%27"><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig%27"><span class="hs-identifier hs-var">LogConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Set to TRUE to exclude sections that contain information such as</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- headers, context, and evaluated mapping templates, regardless of logging</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- level.</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AcloudWatchLogsRoleArn%3ALogConfig%27"><span class="annot"><span class="annottext">LogConfig -&gt; Text
 </span><a href="Network.AWS.AppSync.Types.LogConfig.html#%24sel%3AcloudWatchLogsRoleArn%3ALogConfig%27"><span class="hs-identifier hs-var hs-var">cloudWatchLogsRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250201"><span id="local-6989586621679250203"><span class="annot"><span class="annottext">LogConfig -&gt; LogConfig -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250277"><span id="local-6989586621679250279"><span class="annot"><span class="annottext">LogConfig -&gt; LogConfig -&gt; Bool
 (LogConfig -&gt; LogConfig -&gt; Bool)
 -&gt; (LogConfig -&gt; LogConfig -&gt; Bool) -&gt; Eq LogConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LogConfig -&gt; LogConfig -&gt; Bool
 == :: LogConfig -&gt; LogConfig -&gt; Bool
 $c== :: LogConfig -&gt; LogConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250192"><span id="local-6989586621679250194"><span id="local-6989586621679250196"><span id="local-6989586621679250198"><span class="annot"><span class="annottext">ReadPrec [LogConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250268"><span id="local-6989586621679250270"><span id="local-6989586621679250272"><span id="local-6989586621679250274"><span class="annot"><span class="annottext">ReadPrec [LogConfig]
 ReadPrec LogConfig
 Int -&gt; ReadS LogConfig
 ReadS [LogConfig]
@@ -89,7 +89,7 @@ readList :: ReadS [LogConfig]
 $creadList :: ReadS [LogConfig]
 readsPrec :: Int -&gt; ReadS LogConfig
 $creadsPrec :: Int -&gt; ReadS LogConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250185"><span id="local-6989586621679250187"><span id="local-6989586621679250189"><span class="annot"><span class="annottext">Int -&gt; LogConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250261"><span id="local-6989586621679250263"><span id="local-6989586621679250265"><span class="annot"><span class="annottext">Int -&gt; LogConfig -&gt; ShowS
 [LogConfig] -&gt; ShowS
 LogConfig -&gt; String
 (Int -&gt; LogConfig -&gt; ShowS)
@@ -157,9 +157,9 @@ $cfrom :: forall x. LogConfig -&gt; Rep LogConfig x
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span><span>
 </span><span id="line-105"></span><span id="newLogConfig"><span class="annot"><span class="annottext">newLogConfig :: FieldLogLevel -&gt; Text -&gt; LogConfig
-</span><a href="Network.AWS.AppSync.Types.LogConfig.html#newLogConfig"><span class="hs-identifier hs-var hs-var">newLogConfig</span></a></span></span><span> </span><span id="local-6989586621679250179"><span class="annot"><span class="annottext">FieldLogLevel
-</span><a href="#local-6989586621679250179"><span class="hs-identifier hs-var">pFieldLogLevel_</span></a></span></span><span> </span><span id="local-6989586621679250178"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250178"><span class="hs-identifier hs-var">pCloudWatchLogsRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppSync.Types.LogConfig.html#newLogConfig"><span class="hs-identifier hs-var hs-var">newLogConfig</span></a></span></span><span> </span><span id="local-6989586621679250255"><span class="annot"><span class="annottext">FieldLogLevel
+</span><a href="#local-6989586621679250255"><span class="hs-identifier hs-var">pFieldLogLevel_</span></a></span></span><span> </span><span id="local-6989586621679250254"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250254"><span class="hs-identifier hs-var">pCloudWatchLogsRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">LogConfig' :: Maybe Bool -&gt; FieldLogLevel -&gt; Text -&gt; LogConfig
 </span><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig%27"><span class="hs-identifier hs-type">LogConfig'</span></a></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:excludeVerboseContent:LogConfig' :: Maybe Bool
@@ -168,10 +168,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:fieldLogLevel:LogConfig' :: FieldLogLevel
 </span><a href="Network.AWS.AppSync.Types.LogConfig.html#%24sel%3AfieldLogLevel%3ALogConfig%27"><span class="hs-identifier hs-var">fieldLogLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FieldLogLevel
-</span><a href="#local-6989586621679250179"><span class="hs-identifier hs-var">pFieldLogLevel_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250255"><span class="hs-identifier hs-var">pFieldLogLevel_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudWatchLogsRoleArn:LogConfig' :: Text
 </span><a href="Network.AWS.AppSync.Types.LogConfig.html#%24sel%3AcloudWatchLogsRoleArn%3ALogConfig%27"><span class="hs-identifier hs-var">cloudWatchLogsRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250178"><span class="hs-identifier hs-var">pCloudWatchLogsRoleArn_</span></a></span><span>
+</span><a href="#local-6989586621679250254"><span class="hs-identifier hs-var">pCloudWatchLogsRoleArn_</span></a></span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | Set to TRUE to exclude sections that contain information such as</span><span>
@@ -183,16 +183,16 @@ forall a. Maybe a
 -&gt; (LogConfig -&gt; Maybe Bool -&gt; LogConfig)
 -&gt; Lens LogConfig LogConfig (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig%27"><span class="hs-identifier hs-type">LogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250174"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig%27"><span class="hs-identifier hs-type">LogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250250"><span class="annot"><span class="annottext">Maybe Bool
 excludeVerboseContent :: Maybe Bool
 $sel:excludeVerboseContent:LogConfig' :: LogConfig -&gt; Maybe Bool
-</span><a href="#local-6989586621679250174"><span class="hs-identifier hs-var hs-var">excludeVerboseContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679250174"><span class="hs-identifier hs-var">excludeVerboseContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250173"><span class="annot"><span class="annottext">s :: LogConfig
-</span><a href="#local-6989586621679250173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig%27"><span class="hs-identifier hs-type">LogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250172"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679250172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogConfig
-</span><a href="#local-6989586621679250173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludeVerboseContent:LogConfig' :: Maybe Bool
+</span><a href="#local-6989586621679250250"><span class="hs-identifier hs-var hs-var">excludeVerboseContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679250250"><span class="hs-identifier hs-var">excludeVerboseContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250249"><span class="annot"><span class="annottext">s :: LogConfig
+</span><a href="#local-6989586621679250249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig%27"><span class="hs-identifier hs-type">LogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250248"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679250248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogConfig
+</span><a href="#local-6989586621679250249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludeVerboseContent:LogConfig' :: Maybe Bool
 </span><a href="Network.AWS.AppSync.Types.LogConfig.html#%24sel%3AexcludeVerboseContent%3ALogConfig%27"><span class="hs-identifier hs-var">excludeVerboseContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679250172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The field logging level. Values can be NONE, ERROR, or ALL.</span><span>
 </span><span id="line-119"></span><span class="hs-comment">--</span><span>
@@ -221,16 +221,16 @@ $sel:excludeVerboseContent:LogConfig' :: LogConfig -&gt; Maybe Bool
 -&gt; (LogConfig -&gt; FieldLogLevel -&gt; LogConfig)
 -&gt; Lens LogConfig LogConfig FieldLogLevel FieldLogLevel
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig%27"><span class="hs-identifier hs-type">LogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250170"><span class="annot"><span class="annottext">FieldLogLevel
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig%27"><span class="hs-identifier hs-type">LogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250246"><span class="annot"><span class="annottext">FieldLogLevel
 fieldLogLevel :: FieldLogLevel
 $sel:fieldLogLevel:LogConfig' :: LogConfig -&gt; FieldLogLevel
-</span><a href="#local-6989586621679250170"><span class="hs-identifier hs-var hs-var">fieldLogLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldLogLevel
-</span><a href="#local-6989586621679250170"><span class="hs-identifier hs-var">fieldLogLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250169"><span class="annot"><span class="annottext">s :: LogConfig
-</span><a href="#local-6989586621679250169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig%27"><span class="hs-identifier hs-type">LogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250168"><span class="annot"><span class="annottext">FieldLogLevel
-</span><a href="#local-6989586621679250168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogConfig
-</span><a href="#local-6989586621679250169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldLogLevel:LogConfig' :: FieldLogLevel
+</span><a href="#local-6989586621679250246"><span class="hs-identifier hs-var hs-var">fieldLogLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldLogLevel
+</span><a href="#local-6989586621679250246"><span class="hs-identifier hs-var">fieldLogLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250245"><span class="annot"><span class="annottext">s :: LogConfig
+</span><a href="#local-6989586621679250245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig%27"><span class="hs-identifier hs-type">LogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250244"><span class="annot"><span class="annottext">FieldLogLevel
+</span><a href="#local-6989586621679250244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogConfig
+</span><a href="#local-6989586621679250245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldLogLevel:LogConfig' :: FieldLogLevel
 </span><a href="Network.AWS.AppSync.Types.LogConfig.html#%24sel%3AfieldLogLevel%3ALogConfig%27"><span class="hs-identifier hs-var">fieldLogLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FieldLogLevel
-</span><a href="#local-6989586621679250168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The service role that AppSync will assume to publish to Amazon</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- CloudWatch logs in your account.</span><span>
@@ -240,27 +240,27 @@ $sel:fieldLogLevel:LogConfig' :: LogConfig -&gt; FieldLogLevel
 -&gt; (LogConfig -&gt; Text -&gt; LogConfig)
 -&gt; Lens LogConfig LogConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig%27"><span class="hs-identifier hs-type">LogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250166"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig%27"><span class="hs-identifier hs-type">LogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250242"><span class="annot"><span class="annottext">Text
 cloudWatchLogsRoleArn :: Text
 $sel:cloudWatchLogsRoleArn:LogConfig' :: LogConfig -&gt; Text
-</span><a href="#local-6989586621679250166"><span class="hs-identifier hs-var hs-var">cloudWatchLogsRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250166"><span class="hs-identifier hs-var">cloudWatchLogsRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250165"><span class="annot"><span class="annottext">s :: LogConfig
-</span><a href="#local-6989586621679250165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig%27"><span class="hs-identifier hs-type">LogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250164"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogConfig
-</span><a href="#local-6989586621679250165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLogsRoleArn:LogConfig' :: Text
+</span><a href="#local-6989586621679250242"><span class="hs-identifier hs-var hs-var">cloudWatchLogsRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250242"><span class="hs-identifier hs-var">cloudWatchLogsRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250241"><span class="annot"><span class="annottext">s :: LogConfig
+</span><a href="#local-6989586621679250241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig%27"><span class="hs-identifier hs-type">LogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250240"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogConfig
+</span><a href="#local-6989586621679250241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLogsRoleArn:LogConfig' :: Text
 </span><a href="Network.AWS.AppSync.Types.LogConfig.html#%24sel%3AcloudWatchLogsRoleArn%3ALogConfig%27"><span class="hs-identifier hs-var">cloudWatchLogsRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250161"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679250159"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogConfig
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250237"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679250235"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser LogConfig) -&gt; Value -&gt; Parser LogConfig
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LogConfig&quot;</span></span><span>
-</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250156"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250156"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250232"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250232"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; FieldLogLevel -&gt; Text -&gt; LogConfig
 </span><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig%27"><span class="hs-identifier hs-var">LogConfig'</span></a></span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; FieldLogLevel -&gt; Text -&gt; LogConfig)
@@ -268,7 +268,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (FieldLogLevel -&gt; Text -&gt; LogConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679250232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;excludeVerboseContent&quot;</span></span><span class="hs-special">)</span><span>
@@ -276,26 +276,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser FieldLogLevel -&gt; Parser (Text -&gt; LogConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FieldLogLevel
+</span><a href="#local-6989586621679250232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FieldLogLevel
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fieldLogLevel&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; LogConfig) -&gt; Parser Text -&gt; Parser LogConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679250232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cloudWatchLogsRoleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250149"><span id="local-6989586621679250151"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250225"><span id="local-6989586621679250227"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250146"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250222"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span></span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250138"><span id="local-6989586621679250140"><span id="local-6989586621679250142"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679250136"><span class="annot"><span class="annottext">toJSON :: LogConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig%27"><span class="hs-identifier hs-type">LogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250132"><span id="local-6989586621679250133"><span id="local-6989586621679250134"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250214"><span id="local-6989586621679250216"><span id="local-6989586621679250218"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679250212"><span class="annot"><span class="annottext">toJSON :: LogConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig%27"><span class="hs-identifier hs-type">LogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250208"><span id="local-6989586621679250209"><span id="local-6989586621679250210"><span class="annot"><span class="annottext">Maybe Bool
 Text
 FieldLogLevel
 cloudWatchLogsRoleArn :: Text
@@ -304,7 +304,7 @@ excludeVerboseContent :: Maybe Bool
 $sel:cloudWatchLogsRoleArn:LogConfig' :: LogConfig -&gt; Text
 $sel:fieldLogLevel:LogConfig' :: LogConfig -&gt; FieldLogLevel
 $sel:excludeVerboseContent:LogConfig' :: LogConfig -&gt; Maybe Bool
-</span><a href="#local-6989586621679250132"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679250208"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -317,14 +317,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679250134"><span class="hs-identifier hs-var">excludeVerboseContent</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250210"><span class="hs-identifier hs-var">excludeVerboseContent</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fieldLogLevel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FieldLogLevel -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">FieldLogLevel
-</span><a href="#local-6989586621679250133"><span class="hs-identifier hs-var">fieldLogLevel</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250209"><span class="hs-identifier hs-var">fieldLogLevel</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -333,7 +333,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-171"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250132"><span class="hs-identifier hs-var">cloudWatchLogsRoleArn</span></a></span><span>
+</span><a href="#local-6989586621679250208"><span class="hs-identifier hs-var">cloudWatchLogsRoleArn</span></a></span><span>
 </span><span id="line-172"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679310708"><span id="local-6989586621679310709"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OutdatedInstancesStrategy"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.OutdatedInstancesStrategy.html#OutdatedInstancesStrategy"><span class="hs-identifier hs-var">OutdatedInstancesStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutdatedInstancesStrategy%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.OutdatedInstancesStrategy.html#OutdatedInstancesStrategy%27"><span class="hs-identifier hs-var">OutdatedInstancesStrategy'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679310994"><span id="local-6989586621679310995"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OutdatedInstancesStrategy"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.OutdatedInstancesStrategy.html#OutdatedInstancesStrategy"><span class="hs-identifier hs-var">OutdatedInstancesStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutdatedInstancesStrategy%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.OutdatedInstancesStrategy.html#OutdatedInstancesStrategy%27"><span class="hs-identifier hs-var">OutdatedInstancesStrategy'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOutdatedInstancesStrategy"><span class="annot"><span class="annottext">OutdatedInstancesStrategy -&gt; Text
 </span><a href="Network.AWS.CodeDeploy.Types.OutdatedInstancesStrategy.html#fromOutdatedInstancesStrategy"><span class="hs-identifier hs-var hs-var">fromOutdatedInstancesStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679310700"><span id="local-6989586621679310702"><span id="local-6989586621679310704"><span class="annot"><span class="annottext">Int -&gt; OutdatedInstancesStrategy -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679310986"><span id="local-6989586621679310988"><span id="local-6989586621679310990"><span class="annot"><span class="annottext">Int -&gt; OutdatedInstancesStrategy -&gt; ShowS
 [OutdatedInstancesStrategy] -&gt; ShowS
 OutdatedInstancesStrategy -&gt; String
 (Int -&gt; OutdatedInstancesStrategy -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: OutdatedInstancesStrategy -&gt; String
 showsPrec :: Int -&gt; OutdatedInstancesStrategy -&gt; ShowS
 $cshowsPrec :: Int -&gt; OutdatedInstancesStrategy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679310691"><span id="local-6989586621679310693"><span id="local-6989586621679310695"><span id="local-6989586621679310697"><span class="annot"><span class="annottext">ReadPrec [OutdatedInstancesStrategy]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679310977"><span id="local-6989586621679310979"><span id="local-6989586621679310981"><span id="local-6989586621679310983"><span class="annot"><span class="annottext">ReadPrec [OutdatedInstancesStrategy]
 ReadPrec OutdatedInstancesStrategy
 Int -&gt; ReadS OutdatedInstancesStrategy
 ReadS [OutdatedInstancesStrategy]
@@ -72,7 +72,7 @@ $creadList :: ReadS [OutdatedInstancesStrategy]
 readsPrec :: Int -&gt; ReadS OutdatedInstancesStrategy
 $creadsPrec :: Int -&gt; ReadS OutdatedInstancesStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679310686"><span id="local-6989586621679310688"><span class="annot"><span class="annottext">OutdatedInstancesStrategy -&gt; OutdatedInstancesStrategy -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679310972"><span id="local-6989586621679310974"><span class="annot"><span class="annottext">OutdatedInstancesStrategy -&gt; OutdatedInstancesStrategy -&gt; Bool
 (OutdatedInstancesStrategy -&gt; OutdatedInstancesStrategy -&gt; Bool)
 -&gt; (OutdatedInstancesStrategy -&gt; OutdatedInstancesStrategy -&gt; Bool)
 -&gt; Eq OutdatedInstancesStrategy
@@ -82,7 +82,7 @@ $c/= :: OutdatedInstancesStrategy -&gt; OutdatedInstancesStrategy -&gt; Bool
 == :: OutdatedInstancesStrategy -&gt; OutdatedInstancesStrategy -&gt; Bool
 $c== :: OutdatedInstancesStrategy -&gt; OutdatedInstancesStrategy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679310670"><span id="local-6989586621679310672"><span id="local-6989586621679310674"><span id="local-6989586621679310676"><span id="local-6989586621679310678"><span id="local-6989586621679310680"><span id="local-6989586621679310682"><span class="annot"><span class="annottext">Eq OutdatedInstancesStrategy
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679310956"><span id="local-6989586621679310958"><span id="local-6989586621679310960"><span id="local-6989586621679310962"><span id="local-6989586621679310964"><span id="local-6989586621679310966"><span id="local-6989586621679310968"><span class="annot"><span class="annottext">Eq OutdatedInstancesStrategy
 Eq OutdatedInstancesStrategy
 -&gt; (OutdatedInstancesStrategy
     -&gt; OutdatedInstancesStrategy -&gt; Ordering)
@@ -147,7 +147,7 @@ OutdatedInstancesStrategy -&gt; Rep OutdatedInstancesStrategy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679310662"><span id="local-6989586621679310664"><span class="annot"><span class="annottext">Int -&gt; OutdatedInstancesStrategy -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679310948"><span id="local-6989586621679310950"><span class="annot"><span class="annottext">Int -&gt; OutdatedInstancesStrategy -&gt; Int
 OutdatedInstancesStrategy -&gt; Int
 (Int -&gt; OutdatedInstancesStrategy -&gt; Int)
 -&gt; (OutdatedInstancesStrategy -&gt; Int)
@@ -158,56 +158,56 @@ $chash :: OutdatedInstancesStrategy -&gt; Int
 hashWithSalt :: Int -&gt; OutdatedInstancesStrategy -&gt; Int
 $chashWithSalt :: Int -&gt; OutdatedInstancesStrategy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679310659"><span class="annot"><span class="annottext">OutdatedInstancesStrategy -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679310945"><span class="annot"><span class="annottext">OutdatedInstancesStrategy -&gt; ()
 (OutdatedInstancesStrategy -&gt; ())
 -&gt; NFData OutdatedInstancesStrategy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OutdatedInstancesStrategy -&gt; ()
 $crnf :: OutdatedInstancesStrategy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679310656"><span class="annot"><span class="annottext">Text -&gt; Either String OutdatedInstancesStrategy
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679310942"><span class="annot"><span class="annottext">Text -&gt; Either String OutdatedInstancesStrategy
 (Text -&gt; Either String OutdatedInstancesStrategy)
 -&gt; FromText OutdatedInstancesStrategy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OutdatedInstancesStrategy
 $cfromText :: Text -&gt; Either String OutdatedInstancesStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679310653"><span class="annot"><span class="annottext">OutdatedInstancesStrategy -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679310939"><span class="annot"><span class="annottext">OutdatedInstancesStrategy -&gt; Text
 (OutdatedInstancesStrategy -&gt; Text)
 -&gt; ToText OutdatedInstancesStrategy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OutdatedInstancesStrategy -&gt; Text
 $ctoText :: OutdatedInstancesStrategy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679310650"><span class="annot"><span class="annottext">OutdatedInstancesStrategy -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679310936"><span class="annot"><span class="annottext">OutdatedInstancesStrategy -&gt; ByteString
 (OutdatedInstancesStrategy -&gt; ByteString)
 -&gt; ToByteString OutdatedInstancesStrategy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OutdatedInstancesStrategy -&gt; ByteString
 $ctoBS :: OutdatedInstancesStrategy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679310647"><span class="annot"><span class="annottext">OutdatedInstancesStrategy -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679310933"><span class="annot"><span class="annottext">OutdatedInstancesStrategy -&gt; ByteStringBuilder
 (OutdatedInstancesStrategy -&gt; ByteStringBuilder)
 -&gt; ToLog OutdatedInstancesStrategy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OutdatedInstancesStrategy -&gt; ByteStringBuilder
 $cbuild :: OutdatedInstancesStrategy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679310644"><span class="annot"><span class="annottext">HeaderName -&gt; OutdatedInstancesStrategy -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679310930"><span class="annot"><span class="annottext">HeaderName -&gt; OutdatedInstancesStrategy -&gt; [Header]
 (HeaderName -&gt; OutdatedInstancesStrategy -&gt; [Header])
 -&gt; ToHeader OutdatedInstancesStrategy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OutdatedInstancesStrategy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OutdatedInstancesStrategy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679310641"><span class="annot"><span class="annottext">OutdatedInstancesStrategy -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679310927"><span class="annot"><span class="annottext">OutdatedInstancesStrategy -&gt; QueryString
 (OutdatedInstancesStrategy -&gt; QueryString)
 -&gt; ToQuery OutdatedInstancesStrategy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OutdatedInstancesStrategy -&gt; QueryString
 $ctoQuery :: OutdatedInstancesStrategy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679310636"><span id="local-6989586621679310638"><span class="annot"><span class="annottext">Value -&gt; Parser [OutdatedInstancesStrategy]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679310922"><span id="local-6989586621679310924"><span class="annot"><span class="annottext">Value -&gt; Parser [OutdatedInstancesStrategy]
 Value -&gt; Parser OutdatedInstancesStrategy
 (Value -&gt; Parser OutdatedInstancesStrategy)
 -&gt; (Value -&gt; Parser [OutdatedInstancesStrategy])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [OutdatedInstancesStrategy]
 parseJSON :: Value -&gt; Parser OutdatedInstancesStrategy
 $cparseJSON :: Value -&gt; Parser OutdatedInstancesStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679310631"><span id="local-6989586621679310633"><span class="annot"><span class="annottext">FromJSONKeyFunction [OutdatedInstancesStrategy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679310917"><span id="local-6989586621679310919"><span class="annot"><span class="annottext">FromJSONKeyFunction [OutdatedInstancesStrategy]
 FromJSONKeyFunction OutdatedInstancesStrategy
 FromJSONKeyFunction OutdatedInstancesStrategy
 -&gt; FromJSONKeyFunction [OutdatedInstancesStrategy]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OutdatedInstancesStrategy]
 fromJSONKey :: FromJSONKeyFunction OutdatedInstancesStrategy
 $cfromJSONKey :: FromJSONKeyFunction OutdatedInstancesStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679310622"><span id="local-6989586621679310624"><span id="local-6989586621679310626"><span id="local-6989586621679310628"><span class="annot"><span class="annottext">[OutdatedInstancesStrategy] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679310908"><span id="local-6989586621679310910"><span id="local-6989586621679310912"><span id="local-6989586621679310914"><span class="annot"><span class="annottext">[OutdatedInstancesStrategy] -&gt; Encoding
 [OutdatedInstancesStrategy] -&gt; Value
 OutdatedInstancesStrategy -&gt; Encoding
 OutdatedInstancesStrategy -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: OutdatedInstancesStrategy -&gt; Encoding
 toJSON :: OutdatedInstancesStrategy -&gt; Value
 $ctoJSON :: OutdatedInstancesStrategy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679310617"><span id="local-6989586621679310619"><span class="annot"><span class="annottext">ToJSONKeyFunction [OutdatedInstancesStrategy]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679310903"><span id="local-6989586621679310905"><span class="annot"><span class="annottext">ToJSONKeyFunction [OutdatedInstancesStrategy]
 ToJSONKeyFunction OutdatedInstancesStrategy
 ToJSONKeyFunction OutdatedInstancesStrategy
 -&gt; ToJSONKeyFunction [OutdatedInstancesStrategy]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OutdatedInstancesStrategy]
 toJSONKey :: ToJSONKeyFunction OutdatedInstancesStrategy
 $ctoJSONKey :: ToJSONKeyFunction OutdatedInstancesStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679310614"><span class="annot"><span class="annottext">[Node] -&gt; Either String OutdatedInstancesStrategy
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679310900"><span class="annot"><span class="annottext">[Node] -&gt; Either String OutdatedInstancesStrategy
 ([Node] -&gt; Either String OutdatedInstancesStrategy)
 -&gt; FromXML OutdatedInstancesStrategy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OutdatedInstancesStrategy
 $cparseXML :: [Node] -&gt; Either String OutdatedInstancesStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679310611"><span class="annot"><span class="annottext">OutdatedInstancesStrategy -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679310897"><span class="annot"><span class="annottext">OutdatedInstancesStrategy -&gt; XML
 (OutdatedInstancesStrategy -&gt; XML)
 -&gt; ToXML OutdatedInstancesStrategy
 forall a. (a -&gt; XML) -&gt; ToXML a

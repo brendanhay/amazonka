@@ -29,24 +29,24 @@
 </span><span id="line-29"></span><span class="hs-comment">-- environment in a blue\/green deployment.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newTargetInstances' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679313207"><span id="local-6989586621679313208"></span></span><span class="hs-keyword">data</span><span> </span><span id="TargetInstances"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-var">TargetInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetInstances%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances%27"><span class="hs-identifier hs-var">TargetInstances'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tag filter key, type, and value used to identify Amazon EC2</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- instances in a replacement environment for a blue\/green deployment.</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Cannot be used in the same call as @ec2TagSet@.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtagFilters%3ATargetInstances%27"><span class="annot"><span class="annottext">TargetInstances -&gt; Maybe [EC2TagFilter]
-</span><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#%24sel%3AtagFilters%3ATargetInstances%27"><span class="hs-identifier hs-var hs-var">tagFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Information about the groups of EC2 instance tags that an instance must</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- be identified by in order for it to be included in the replacement</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- environment for a blue\/green deployment. Cannot be used in the same</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- call as @tagFilters@.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aec2TagSet%3ATargetInstances%27"><span class="annot"><span class="annottext">TargetInstances -&gt; Maybe EC2TagSet
+</span><span id="line-32"></span><span id="local-6989586621679313497"><span id="local-6989586621679313498"></span></span><span class="hs-keyword">data</span><span> </span><span id="TargetInstances"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-var">TargetInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetInstances%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances%27"><span class="hs-identifier hs-var">TargetInstances'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the groups of EC2 instance tags that an instance must</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- be identified by in order for it to be included in the replacement</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- environment for a blue\/green deployment. Cannot be used in the same</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- call as @tagFilters@.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aec2TagSet%3ATargetInstances%27"><span class="annot"><span class="annottext">TargetInstances -&gt; Maybe EC2TagSet
 </span><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#%24sel%3Aec2TagSet%3ATargetInstances%27"><span class="hs-identifier hs-var hs-var">ec2TagSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagSet.html#EC2TagSet"><span class="hs-identifier hs-type">EC2TagSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The tag filter key, type, and value used to identify Amazon EC2</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- instances in a replacement environment for a blue\/green deployment.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Cannot be used in the same call as @ec2TagSet@.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AtagFilters%3ATargetInstances%27"><span class="annot"><span class="annottext">TargetInstances -&gt; Maybe [EC2TagFilter]
+</span><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#%24sel%3AtagFilters%3ATargetInstances%27"><span class="hs-identifier hs-var hs-var">tagFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The names of one or more Auto Scaling groups to identify a replacement</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- environment for a blue\/green deployment.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AautoScalingGroups%3ATargetInstances%27"><span class="annot"><span class="annottext">TargetInstances -&gt; Maybe [Text]
 </span><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#%24sel%3AautoScalingGroups%3ATargetInstances%27"><span class="hs-identifier hs-var hs-var">autoScalingGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313199"><span id="local-6989586621679313201"><span class="annot"><span class="annottext">TargetInstances -&gt; TargetInstances -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313489"><span id="local-6989586621679313491"><span class="annot"><span class="annottext">TargetInstances -&gt; TargetInstances -&gt; Bool
 (TargetInstances -&gt; TargetInstances -&gt; Bool)
 -&gt; (TargetInstances -&gt; TargetInstances -&gt; Bool)
 -&gt; Eq TargetInstances
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TargetInstances -&gt; TargetInstances -&gt; Bool
 == :: TargetInstances -&gt; TargetInstances -&gt; Bool
 $c== :: TargetInstances -&gt; TargetInstances -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313190"><span id="local-6989586621679313192"><span id="local-6989586621679313194"><span id="local-6989586621679313196"><span class="annot"><span class="annottext">ReadPrec [TargetInstances]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313480"><span id="local-6989586621679313482"><span id="local-6989586621679313484"><span id="local-6989586621679313486"><span class="annot"><span class="annottext">ReadPrec [TargetInstances]
 ReadPrec TargetInstances
 Int -&gt; ReadS TargetInstances
 ReadS [TargetInstances]
@@ -75,7 +75,7 @@ readList :: ReadS [TargetInstances]
 $creadList :: ReadS [TargetInstances]
 readsPrec :: Int -&gt; ReadS TargetInstances
 $creadsPrec :: Int -&gt; ReadS TargetInstances
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313183"><span id="local-6989586621679313185"><span id="local-6989586621679313187"><span class="annot"><span class="annottext">Int -&gt; TargetInstances -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313473"><span id="local-6989586621679313475"><span id="local-6989586621679313477"><span class="annot"><span class="annottext">Int -&gt; TargetInstances -&gt; ShowS
 [TargetInstances] -&gt; ShowS
 TargetInstances -&gt; String
 (Int -&gt; TargetInstances -&gt; ShowS)
@@ -109,14 +109,14 @@ $cfrom :: forall x. TargetInstances -&gt; Rep TargetInstances x
 </span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'tagFilters', 'targetInstances_tagFilters' - The tag filter key, type, and value used to identify Amazon EC2</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- instances in a replacement environment for a blue\/green deployment.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- Cannot be used in the same call as @ec2TagSet@.</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'ec2TagSet', 'targetInstances_ec2TagSet' - Information about the groups of EC2 instance tags that an instance must</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- be identified by in order for it to be included in the replacement</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- environment for a blue\/green deployment. Cannot be used in the same</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- call as @tagFilters@.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'ec2TagSet', 'targetInstances_ec2TagSet' - Information about the groups of EC2 instance tags that an instance must</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- be identified by in order for it to be included in the replacement</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- environment for a blue\/green deployment. Cannot be used in the same</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- call as @tagFilters@.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'tagFilters', 'targetInstances_tagFilters' - The tag filter key, type, and value used to identify Amazon EC2</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- instances in a replacement environment for a blue\/green deployment.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Cannot be used in the same call as @ec2TagSet@.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- 'autoScalingGroups', 'targetInstances_autoScalingGroups' - The names of one or more Auto Scaling groups to identify a replacement</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- environment for a blue\/green deployment.</span><span>
@@ -124,15 +124,15 @@ $cfrom :: forall x. TargetInstances -&gt; Rep TargetInstances x
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span><span>
 </span><span id="line-69"></span><span id="newTargetInstances"><span class="annot"><span class="annottext">newTargetInstances :: TargetInstances
 </span><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#newTargetInstances"><span class="hs-identifier hs-var hs-var">newTargetInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">TargetInstances' :: Maybe [EC2TagFilter]
--&gt; Maybe EC2TagSet -&gt; Maybe [Text] -&gt; TargetInstances
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">TargetInstances' :: Maybe EC2TagSet
+-&gt; Maybe [EC2TagFilter] -&gt; Maybe [Text] -&gt; TargetInstances
 </span><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances%27"><span class="hs-identifier hs-type">TargetInstances'</span></a></span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tagFilters:TargetInstances' :: Maybe [EC2TagFilter]
-</span><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#%24sel%3AtagFilters%3ATargetInstances%27"><span class="hs-identifier hs-var">tagFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EC2TagFilter]
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ec2TagSet:TargetInstances' :: Maybe EC2TagSet
+</span><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#%24sel%3Aec2TagSet%3ATargetInstances%27"><span class="hs-identifier hs-var">ec2TagSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2TagSet
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:ec2TagSet:TargetInstances' :: Maybe EC2TagSet
-</span><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#%24sel%3Aec2TagSet%3ATargetInstances%27"><span class="hs-identifier hs-var">ec2TagSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2TagSet
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagFilters:TargetInstances' :: Maybe [EC2TagFilter]
+</span><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#%24sel%3AtagFilters%3ATargetInstances%27"><span class="hs-identifier hs-var">tagFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EC2TagFilter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingGroups:TargetInstances' :: Maybe [Text]
@@ -141,11 +141,34 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | The tag filter key, type, and value used to identify Amazon EC2</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- instances in a replacement environment for a blue\/green deployment.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- Cannot be used in the same call as @ec2TagSet@.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#targetInstances_tagFilters"><span class="hs-identifier hs-type">targetInstances_tagFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="targetInstances_tagFilters"><span class="annot"><span class="annottext">targetInstances_tagFilters :: (Maybe [EC2TagFilter] -&gt; f (Maybe [EC2TagFilter]))
+</span><span id="line-76"></span><span class="hs-comment">-- | Information about the groups of EC2 instance tags that an instance must</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- be identified by in order for it to be included in the replacement</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- environment for a blue\/green deployment. Cannot be used in the same</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- call as @tagFilters@.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#targetInstances_ec2TagSet"><span class="hs-identifier hs-type">targetInstances_ec2TagSet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagSet.html#EC2TagSet"><span class="hs-identifier hs-type">EC2TagSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="targetInstances_ec2TagSet"><span class="annot"><span class="annottext">targetInstances_ec2TagSet :: (Maybe EC2TagSet -&gt; f (Maybe EC2TagSet))
+-&gt; TargetInstances -&gt; f TargetInstances
+</span><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#targetInstances_ec2TagSet"><span class="hs-identifier hs-var hs-var">targetInstances_ec2TagSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TargetInstances -&gt; Maybe EC2TagSet)
+-&gt; (TargetInstances -&gt; Maybe EC2TagSet -&gt; TargetInstances)
+-&gt; Lens
+     TargetInstances TargetInstances (Maybe EC2TagSet) (Maybe EC2TagSet)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances%27"><span class="hs-identifier hs-type">TargetInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313464"><span class="annot"><span class="annottext">Maybe EC2TagSet
+ec2TagSet :: Maybe EC2TagSet
+$sel:ec2TagSet:TargetInstances' :: TargetInstances -&gt; Maybe EC2TagSet
+</span><a href="#local-6989586621679313464"><span class="hs-identifier hs-var hs-var">ec2TagSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2TagSet
+</span><a href="#local-6989586621679313464"><span class="hs-identifier hs-var">ec2TagSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313463"><span class="annot"><span class="annottext">s :: TargetInstances
+</span><a href="#local-6989586621679313463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances%27"><span class="hs-identifier hs-type">TargetInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313462"><span class="annot"><span class="annottext">Maybe EC2TagSet
+</span><a href="#local-6989586621679313462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetInstances
+</span><a href="#local-6989586621679313463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ec2TagSet:TargetInstances' :: Maybe EC2TagSet
+</span><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#%24sel%3Aec2TagSet%3ATargetInstances%27"><span class="hs-identifier hs-var">ec2TagSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2TagSet
+</span><a href="#local-6989586621679313462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The tag filter key, type, and value used to identify Amazon EC2</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- instances in a replacement environment for a blue\/green deployment.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Cannot be used in the same call as @ec2TagSet@.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#targetInstances_tagFilters"><span class="hs-identifier hs-type">targetInstances_tagFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilter.html#EC2TagFilter"><span class="hs-identifier hs-type">EC2TagFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="targetInstances_tagFilters"><span class="annot"><span class="annottext">targetInstances_tagFilters :: (Maybe [EC2TagFilter] -&gt; f (Maybe [EC2TagFilter]))
 -&gt; TargetInstances -&gt; f TargetInstances
 </span><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#targetInstances_tagFilters"><span class="hs-identifier hs-var hs-var">targetInstances_tagFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TargetInstances -&gt; Maybe [EC2TagFilter])
 -&gt; (TargetInstances -&gt; Maybe [EC2TagFilter] -&gt; TargetInstances)
@@ -155,16 +178,16 @@ forall a. Maybe a
      (Maybe [EC2TagFilter])
      (Maybe [EC2TagFilter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances%27"><span class="hs-identifier hs-type">TargetInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313174"><span class="annot"><span class="annottext">Maybe [EC2TagFilter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances%27"><span class="hs-identifier hs-type">TargetInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313460"><span class="annot"><span class="annottext">Maybe [EC2TagFilter]
 tagFilters :: Maybe [EC2TagFilter]
 $sel:tagFilters:TargetInstances' :: TargetInstances -&gt; Maybe [EC2TagFilter]
-</span><a href="#local-6989586621679313174"><span class="hs-identifier hs-var hs-var">tagFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EC2TagFilter]
-</span><a href="#local-6989586621679313174"><span class="hs-identifier hs-var">tagFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313173"><span class="annot"><span class="annottext">s :: TargetInstances
-</span><a href="#local-6989586621679313173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances%27"><span class="hs-identifier hs-type">TargetInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313172"><span class="annot"><span class="annottext">Maybe [EC2TagFilter]
-</span><a href="#local-6989586621679313172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetInstances
-</span><a href="#local-6989586621679313173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagFilters:TargetInstances' :: Maybe [EC2TagFilter]
+</span><a href="#local-6989586621679313460"><span class="hs-identifier hs-var hs-var">tagFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EC2TagFilter]
+</span><a href="#local-6989586621679313460"><span class="hs-identifier hs-var">tagFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313459"><span class="annot"><span class="annottext">s :: TargetInstances
+</span><a href="#local-6989586621679313459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances%27"><span class="hs-identifier hs-type">TargetInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313458"><span class="annot"><span class="annottext">Maybe [EC2TagFilter]
+</span><a href="#local-6989586621679313458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetInstances
+</span><a href="#local-6989586621679313459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagFilters:TargetInstances' :: Maybe [EC2TagFilter]
 </span><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#%24sel%3AtagFilters%3ATargetInstances%27"><span class="hs-identifier hs-var">tagFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EC2TagFilter]
-</span><a href="#local-6989586621679313172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EC2TagFilter] -&gt; f (Maybe [EC2TagFilter]))
+</span><a href="#local-6989586621679313458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EC2TagFilter] -&gt; f (Maybe [EC2TagFilter]))
  -&gt; TargetInstances -&gt; f TargetInstances)
 -&gt; ((Maybe [EC2TagFilter] -&gt; f (Maybe [EC2TagFilter]))
     -&gt; Maybe [EC2TagFilter] -&gt; f (Maybe [EC2TagFilter]))
@@ -182,31 +205,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [EC2TagFilter] [EC2TagFilter] [EC2TagFilter] [EC2TagFilter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | Information about the groups of EC2 instance tags that an instance must</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- be identified by in order for it to be included in the replacement</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- environment for a blue\/green deployment. Cannot be used in the same</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- call as @tagFilters@.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#targetInstances_ec2TagSet"><span class="hs-identifier hs-type">targetInstances_ec2TagSet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagSet.html#EC2TagSet"><span class="hs-identifier hs-type">EC2TagSet</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="targetInstances_ec2TagSet"><span class="annot"><span class="annottext">targetInstances_ec2TagSet :: (Maybe EC2TagSet -&gt; f (Maybe EC2TagSet))
--&gt; TargetInstances -&gt; f TargetInstances
-</span><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#targetInstances_ec2TagSet"><span class="hs-identifier hs-var hs-var">targetInstances_ec2TagSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TargetInstances -&gt; Maybe EC2TagSet)
--&gt; (TargetInstances -&gt; Maybe EC2TagSet -&gt; TargetInstances)
--&gt; Lens
-     TargetInstances TargetInstances (Maybe EC2TagSet) (Maybe EC2TagSet)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances%27"><span class="hs-identifier hs-type">TargetInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313167"><span class="annot"><span class="annottext">Maybe EC2TagSet
-ec2TagSet :: Maybe EC2TagSet
-$sel:ec2TagSet:TargetInstances' :: TargetInstances -&gt; Maybe EC2TagSet
-</span><a href="#local-6989586621679313167"><span class="hs-identifier hs-var hs-var">ec2TagSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2TagSet
-</span><a href="#local-6989586621679313167"><span class="hs-identifier hs-var">ec2TagSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313166"><span class="annot"><span class="annottext">s :: TargetInstances
-</span><a href="#local-6989586621679313166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances%27"><span class="hs-identifier hs-type">TargetInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313165"><span class="annot"><span class="annottext">Maybe EC2TagSet
-</span><a href="#local-6989586621679313165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetInstances
-</span><a href="#local-6989586621679313166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ec2TagSet:TargetInstances' :: Maybe EC2TagSet
-</span><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#%24sel%3Aec2TagSet%3ATargetInstances%27"><span class="hs-identifier hs-var">ec2TagSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2TagSet
-</span><a href="#local-6989586621679313165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The names of one or more Auto Scaling groups to identify a replacement</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- environment for a blue\/green deployment.</span><span>
@@ -218,16 +218,16 @@ $sel:ec2TagSet:TargetInstances' :: TargetInstances -&gt; Maybe EC2TagSet
 -&gt; Lens
      TargetInstances TargetInstances (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances%27"><span class="hs-identifier hs-type">TargetInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313163"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances%27"><span class="hs-identifier hs-type">TargetInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313453"><span class="annot"><span class="annottext">Maybe [Text]
 autoScalingGroups :: Maybe [Text]
 $sel:autoScalingGroups:TargetInstances' :: TargetInstances -&gt; Maybe [Text]
-</span><a href="#local-6989586621679313163"><span class="hs-identifier hs-var hs-var">autoScalingGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679313163"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313162"><span class="annot"><span class="annottext">s :: TargetInstances
-</span><a href="#local-6989586621679313162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances%27"><span class="hs-identifier hs-type">TargetInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313161"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679313161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetInstances
-</span><a href="#local-6989586621679313162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroups:TargetInstances' :: Maybe [Text]
+</span><a href="#local-6989586621679313453"><span class="hs-identifier hs-var hs-var">autoScalingGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679313453"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313452"><span class="annot"><span class="annottext">s :: TargetInstances
+</span><a href="#local-6989586621679313452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances%27"><span class="hs-identifier hs-type">TargetInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313451"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679313451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetInstances
+</span><a href="#local-6989586621679313452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroups:TargetInstances' :: Maybe [Text]
 </span><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#%24sel%3AautoScalingGroups%3ATargetInstances%27"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679313161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679313451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; TargetInstances -&gt; f TargetInstances)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -241,11 +241,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313158"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679313156"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TargetInstances
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313448"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679313446"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TargetInstances
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TargetInstances)
@@ -255,18 +255,27 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TargetInstances&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313153"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313153"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe [EC2TagFilter]
--&gt; Maybe EC2TagSet -&gt; Maybe [Text] -&gt; TargetInstances
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313443"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313443"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe EC2TagSet
+-&gt; Maybe [EC2TagFilter] -&gt; Maybe [Text] -&gt; TargetInstances
 </span><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances%27"><span class="hs-identifier hs-var">TargetInstances'</span></a></span><span>
-</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [EC2TagFilter]
- -&gt; Maybe EC2TagSet -&gt; Maybe [Text] -&gt; TargetInstances)
--&gt; Parser (Maybe [EC2TagFilter])
--&gt; Parser (Maybe EC2TagSet -&gt; Maybe [Text] -&gt; TargetInstances)
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EC2TagSet
+ -&gt; Maybe [EC2TagFilter] -&gt; Maybe [Text] -&gt; TargetInstances)
+-&gt; Parser (Maybe EC2TagSet)
+-&gt; Parser (Maybe [EC2TagFilter] -&gt; Maybe [Text] -&gt; TargetInstances)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [EC2TagFilter]))
+</span><a href="#local-6989586621679313443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2TagSet)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ec2TagSet&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [EC2TagFilter] -&gt; Maybe [Text] -&gt; TargetInstances)
+-&gt; Parser (Maybe [EC2TagFilter])
+-&gt; Parser (Maybe [Text] -&gt; TargetInstances)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [EC2TagFilter]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagFilters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [EC2TagFilter]))
@@ -275,20 +284,11 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EC2TagFilter]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EC2TagSet -&gt; Maybe [Text] -&gt; TargetInstances)
--&gt; Parser (Maybe EC2TagSet)
--&gt; Parser (Maybe [Text] -&gt; TargetInstances)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2TagSet)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ec2TagSet&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; TargetInstances)
 -&gt; Parser (Maybe [Text]) -&gt; Parser TargetInstances
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679313443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;autoScalingGroups&quot;</span></span><span>
@@ -301,41 +301,41 @@ forall a. Monoid a =&gt; a
 </span><span id="line-104"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313146"><span id="local-6989586621679313148"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313436"><span id="local-6989586621679313438"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313143"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313135"><span id="local-6989586621679313137"><span id="local-6989586621679313139"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679313133"><span class="annot"><span class="annottext">toJSON :: TargetInstances -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances%27"><span class="hs-identifier hs-type">TargetInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313129"><span id="local-6989586621679313130"><span id="local-6989586621679313131"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313425"><span id="local-6989586621679313427"><span id="local-6989586621679313429"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances"><span class="hs-identifier hs-type">TargetInstances</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679313423"><span class="annot"><span class="annottext">toJSON :: TargetInstances -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetInstances.html#TargetInstances%27"><span class="hs-identifier hs-type">TargetInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313419"><span id="local-6989586621679313420"><span id="local-6989586621679313421"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe [EC2TagFilter]
 Maybe EC2TagSet
 autoScalingGroups :: Maybe [Text]
-ec2TagSet :: Maybe EC2TagSet
 tagFilters :: Maybe [EC2TagFilter]
+ec2TagSet :: Maybe EC2TagSet
 $sel:autoScalingGroups:TargetInstances' :: TargetInstances -&gt; Maybe [Text]
-$sel:ec2TagSet:TargetInstances' :: TargetInstances -&gt; Maybe EC2TagSet
 $sel:tagFilters:TargetInstances' :: TargetInstances -&gt; Maybe [EC2TagFilter]
-</span><a href="#local-6989586621679313129"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:ec2TagSet:TargetInstances' :: TargetInstances -&gt; Maybe EC2TagSet
+</span><a href="#local-6989586621679313419"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;tagFilters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [EC2TagFilter] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([EC2TagFilter] -&gt; Pair) -&gt; Maybe [EC2TagFilter] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EC2TagFilter]
-</span><a href="#local-6989586621679313131"><span class="hs-identifier hs-var">tagFilters</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ec2TagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EC2TagSet -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EC2TagSet -&gt; Pair) -&gt; Maybe EC2TagSet -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EC2TagSet
-</span><a href="#local-6989586621679313130"><span class="hs-identifier hs-var">ec2TagSet</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313421"><span class="hs-identifier hs-var">ec2TagSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tagFilters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [EC2TagFilter] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([EC2TagFilter] -&gt; Pair) -&gt; Maybe [EC2TagFilter] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EC2TagFilter]
+</span><a href="#local-6989586621679313420"><span class="hs-identifier hs-var">tagFilters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;autoScalingGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -343,7 +343,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679313129"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span>
+</span><a href="#local-6989586621679313419"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span>
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span></pre></body></html>

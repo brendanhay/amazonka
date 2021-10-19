@@ -39,11 +39,11 @@
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_auditDetails"><span class="hs-identifier">describeAuditTaskResponse_auditDetails</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_scheduledAuditName"><span class="hs-identifier">describeAuditTaskResponse_scheduledAuditName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskStatistics"><span class="hs-identifier">describeAuditTaskResponse_taskStatistics</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskStatus"><span class="hs-identifier">describeAuditTaskResponse_taskStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskStartTime"><span class="hs-identifier">describeAuditTaskResponse_taskStartTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskType"><span class="hs-identifier">describeAuditTaskResponse_taskType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskType"><span class="hs-identifier">describeAuditTaskResponse_taskType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskStartTime"><span class="hs-identifier">describeAuditTaskResponse_taskStartTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskStatistics"><span class="hs-identifier">describeAuditTaskResponse_taskStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_scheduledAuditName"><span class="hs-identifier">describeAuditTaskResponse_scheduledAuditName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskStatus"><span class="hs-identifier">describeAuditTaskResponse_taskStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_httpStatus"><span class="hs-identifier">describeAuditTaskResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span class="hs-keyword">where</span><span>
@@ -56,12 +56,12 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newDescribeAuditTask' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679839488"><span id="local-6989586621679839489"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAuditTask"><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask"><span class="hs-identifier hs-var">DescribeAuditTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAuditTask%27"><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask%27"><span class="hs-identifier hs-var">DescribeAuditTask'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679840471"><span id="local-6989586621679840472"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAuditTask"><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask"><span class="hs-identifier hs-var">DescribeAuditTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAuditTask%27"><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask%27"><span class="hs-identifier hs-var">DescribeAuditTask'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the audit whose information you want to get.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AtaskId%3ADescribeAuditTask%27"><span class="annot"><span class="annottext">DescribeAuditTask -&gt; Text
 </span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskId%3ADescribeAuditTask%27"><span class="hs-identifier hs-var hs-var">taskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679839482"><span id="local-6989586621679839484"><span class="annot"><span class="annottext">DescribeAuditTask -&gt; DescribeAuditTask -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679840465"><span id="local-6989586621679840467"><span class="annot"><span class="annottext">DescribeAuditTask -&gt; DescribeAuditTask -&gt; Bool
 (DescribeAuditTask -&gt; DescribeAuditTask -&gt; Bool)
 -&gt; (DescribeAuditTask -&gt; DescribeAuditTask -&gt; Bool)
 -&gt; Eq DescribeAuditTask
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeAuditTask -&gt; DescribeAuditTask -&gt; Bool
 == :: DescribeAuditTask -&gt; DescribeAuditTask -&gt; Bool
 $c== :: DescribeAuditTask -&gt; DescribeAuditTask -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839473"><span id="local-6989586621679839475"><span id="local-6989586621679839477"><span id="local-6989586621679839479"><span class="annot"><span class="annottext">ReadPrec [DescribeAuditTask]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679840456"><span id="local-6989586621679840458"><span id="local-6989586621679840460"><span id="local-6989586621679840462"><span class="annot"><span class="annottext">ReadPrec [DescribeAuditTask]
 ReadPrec DescribeAuditTask
 Int -&gt; ReadS DescribeAuditTask
 ReadS [DescribeAuditTask]
@@ -90,7 +90,7 @@ readList :: ReadS [DescribeAuditTask]
 $creadList :: ReadS [DescribeAuditTask]
 readsPrec :: Int -&gt; ReadS DescribeAuditTask
 $creadsPrec :: Int -&gt; ReadS DescribeAuditTask
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839466"><span id="local-6989586621679839468"><span id="local-6989586621679839470"><span class="annot"><span class="annottext">Int -&gt; DescribeAuditTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679840449"><span id="local-6989586621679840451"><span id="local-6989586621679840453"><span class="annot"><span class="annottext">Int -&gt; DescribeAuditTask -&gt; ShowS
 [DescribeAuditTask] -&gt; ShowS
 DescribeAuditTask -&gt; String
 (Int -&gt; DescribeAuditTask -&gt; ShowS)
@@ -130,12 +130,12 @@ $cfrom :: forall x. DescribeAuditTask -&gt; Rep DescribeAuditTask x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask"><span class="hs-identifier hs-type">DescribeAuditTask</span></a></span><span>
 </span><span id="line-78"></span><span id="newDescribeAuditTask"><span class="annot"><span class="annottext">newDescribeAuditTask :: Text -&gt; DescribeAuditTask
-</span><a href="Network.AWS.IoT.DescribeAuditTask.html#newDescribeAuditTask"><span class="hs-identifier hs-var hs-var">newDescribeAuditTask</span></a></span></span><span> </span><span id="local-6989586621679839461"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679839461"><span class="hs-identifier hs-var">pTaskId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DescribeAuditTask.html#newDescribeAuditTask"><span class="hs-identifier hs-var hs-var">newDescribeAuditTask</span></a></span></span><span> </span><span id="local-6989586621679840444"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679840444"><span class="hs-identifier hs-var">pTaskId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DescribeAuditTask' :: Text -&gt; DescribeAuditTask
 </span><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask%27"><span class="hs-identifier hs-type">DescribeAuditTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskId:DescribeAuditTask' :: Text
 </span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskId%3ADescribeAuditTask%27"><span class="hs-identifier hs-var">taskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679839461"><span class="hs-identifier hs-var">pTaskId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679840444"><span class="hs-identifier hs-var">pTaskId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The ID of the audit whose information you want to get.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTask_taskId"><span class="hs-identifier hs-type">describeAuditTask_taskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask"><span class="hs-identifier hs-type">DescribeAuditTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -144,27 +144,27 @@ $cfrom :: forall x. DescribeAuditTask -&gt; Rep DescribeAuditTask x
 -&gt; (DescribeAuditTask -&gt; Text -&gt; DescribeAuditTask)
 -&gt; Lens DescribeAuditTask DescribeAuditTask Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask%27"><span class="hs-identifier hs-type">DescribeAuditTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839458"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask%27"><span class="hs-identifier hs-type">DescribeAuditTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840441"><span class="annot"><span class="annottext">Text
 taskId :: Text
 $sel:taskId:DescribeAuditTask' :: DescribeAuditTask -&gt; Text
-</span><a href="#local-6989586621679839458"><span class="hs-identifier hs-var hs-var">taskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679839458"><span class="hs-identifier hs-var">taskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839457"><span class="annot"><span class="annottext">s :: DescribeAuditTask
-</span><a href="#local-6989586621679839457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask%27"><span class="hs-identifier hs-type">DescribeAuditTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839456"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679839456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditTask
-</span><a href="#local-6989586621679839457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskId:DescribeAuditTask' :: Text
+</span><a href="#local-6989586621679840441"><span class="hs-identifier hs-var hs-var">taskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679840441"><span class="hs-identifier hs-var">taskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840440"><span class="annot"><span class="annottext">s :: DescribeAuditTask
+</span><a href="#local-6989586621679840440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask%27"><span class="hs-identifier hs-type">DescribeAuditTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840439"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679840439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditTask
+</span><a href="#local-6989586621679840440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskId:DescribeAuditTask' :: Text
 </span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskId%3ADescribeAuditTask%27"><span class="hs-identifier hs-var">taskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679839456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask"><span class="hs-identifier hs-type">DescribeAuditTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679840439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask"><span class="hs-identifier hs-type">DescribeAuditTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask"><span class="hs-identifier hs-type">DescribeAuditTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask"><span class="hs-identifier hs-type">DescribeAuditTask</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679839452"><span class="annot"><span class="annottext">request :: DescribeAuditTask -&gt; Request DescribeAuditTask
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679840435"><span class="annot"><span class="annottext">request :: DescribeAuditTask -&gt; Request DescribeAuditTask
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeAuditTask -&gt; Request DescribeAuditTask
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679839448"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679840431"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeAuditTask
 -&gt; ClientResponse ClientBody
@@ -190,40 +190,40 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679839445"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679839445"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679839444"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679839444"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679839443"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679839443"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679840428"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679840428"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679840427"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679840427"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679840426"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679840426"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text AuditCheckDetails)
--&gt; Maybe Text
--&gt; Maybe TaskStatistics
--&gt; Maybe AuditTaskStatus
--&gt; Maybe POSIX
 -&gt; Maybe AuditTaskType
+-&gt; Maybe POSIX
+-&gt; Maybe TaskStatistics
+-&gt; Maybe Text
+-&gt; Maybe AuditTaskStatus
 -&gt; Int
 -&gt; DescribeAuditTaskResponse
 </span><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">DescribeAuditTaskResponse'</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text AuditCheckDetails)
- -&gt; Maybe Text
- -&gt; Maybe TaskStatistics
- -&gt; Maybe AuditTaskStatus
- -&gt; Maybe POSIX
  -&gt; Maybe AuditTaskType
+ -&gt; Maybe POSIX
+ -&gt; Maybe TaskStatistics
+ -&gt; Maybe Text
+ -&gt; Maybe AuditTaskStatus
  -&gt; Int
  -&gt; DescribeAuditTaskResponse)
 -&gt; Either String (Maybe (HashMap Text AuditCheckDetails))
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe TaskStatistics
-      -&gt; Maybe AuditTaskStatus
+     (Maybe AuditTaskType
       -&gt; Maybe POSIX
-      -&gt; Maybe AuditTaskType
+      -&gt; Maybe TaskStatistics
+      -&gt; Maybe Text
+      -&gt; Maybe AuditTaskStatus
       -&gt; Int
       -&gt; DescribeAuditTaskResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679839443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679840426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe (HashMap Text AuditCheckDetails)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -237,91 +237,91 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
-   -&gt; Maybe TaskStatistics
-   -&gt; Maybe AuditTaskStatus
+  (Maybe AuditTaskType
    -&gt; Maybe POSIX
-   -&gt; Maybe AuditTaskType
+   -&gt; Maybe TaskStatistics
+   -&gt; Maybe Text
+   -&gt; Maybe AuditTaskStatus
    -&gt; Int
    -&gt; DescribeAuditTaskResponse)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe AuditTaskType)
 -&gt; Either
      String
-     (Maybe TaskStatistics
+     (Maybe POSIX
+      -&gt; Maybe TaskStatistics
+      -&gt; Maybe Text
       -&gt; Maybe AuditTaskStatus
-      -&gt; Maybe POSIX
-      -&gt; Maybe AuditTaskType
       -&gt; Int
       -&gt; DescribeAuditTaskResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679839443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679840426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AuditTaskType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;scheduledAuditName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;taskType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe TaskStatistics
+  (Maybe POSIX
+   -&gt; Maybe TaskStatistics
+   -&gt; Maybe Text
    -&gt; Maybe AuditTaskStatus
-   -&gt; Maybe POSIX
-   -&gt; Maybe AuditTaskType
+   -&gt; Int
+   -&gt; DescribeAuditTaskResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe TaskStatistics
+      -&gt; Maybe Text
+      -&gt; Maybe AuditTaskStatus
+      -&gt; Int
+      -&gt; DescribeAuditTaskResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679840426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;taskStartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe TaskStatistics
+   -&gt; Maybe Text
+   -&gt; Maybe AuditTaskStatus
    -&gt; Int
    -&gt; DescribeAuditTaskResponse)
 -&gt; Either String (Maybe TaskStatistics)
 -&gt; Either
      String
-     (Maybe AuditTaskStatus
-      -&gt; Maybe POSIX
-      -&gt; Maybe AuditTaskType
-      -&gt; Int
-      -&gt; DescribeAuditTaskResponse)
+     (Maybe Text
+      -&gt; Maybe AuditTaskStatus -&gt; Int -&gt; DescribeAuditTaskResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679839443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TaskStatistics)
+</span><a href="#local-6989586621679840426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TaskStatistics)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;taskStatistics&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe AuditTaskStatus
-   -&gt; Maybe POSIX
-   -&gt; Maybe AuditTaskType
-   -&gt; Int
-   -&gt; DescribeAuditTaskResponse)
--&gt; Either String (Maybe AuditTaskStatus)
--&gt; Either
-     String
-     (Maybe POSIX
-      -&gt; Maybe AuditTaskType -&gt; Int -&gt; DescribeAuditTaskResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679839443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AuditTaskStatus)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;taskStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe POSIX
-   -&gt; Maybe AuditTaskType -&gt; Int -&gt; DescribeAuditTaskResponse)
--&gt; Either String (Maybe POSIX)
+  (Maybe Text
+   -&gt; Maybe AuditTaskStatus -&gt; Int -&gt; DescribeAuditTaskResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe AuditTaskType -&gt; Int -&gt; DescribeAuditTaskResponse)
+     String (Maybe AuditTaskStatus -&gt; Int -&gt; DescribeAuditTaskResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679839443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679840426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;taskStartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;scheduledAuditName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe AuditTaskType -&gt; Int -&gt; DescribeAuditTaskResponse)
--&gt; Either String (Maybe AuditTaskType)
+  String (Maybe AuditTaskStatus -&gt; Int -&gt; DescribeAuditTaskResponse)
+-&gt; Either String (Maybe AuditTaskStatus)
 -&gt; Either String (Int -&gt; DescribeAuditTaskResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679839443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AuditTaskType)
+</span><a href="#local-6989586621679840426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AuditTaskStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;taskType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;taskStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeAuditTaskResponse)
 -&gt; Either String Int -&gt; Either String DescribeAuditTaskResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -330,15 +330,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679839445"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679840428"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679839434"><span id="local-6989586621679839436"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask"><span class="hs-identifier hs-type">DescribeAuditTask</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679840417"><span id="local-6989586621679840419"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask"><span class="hs-identifier hs-type">DescribeAuditTask</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679839431"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask"><span class="hs-identifier hs-type">DescribeAuditTask</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679840414"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask"><span class="hs-identifier hs-type">DescribeAuditTask</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask"><span class="hs-identifier hs-type">DescribeAuditTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679839427"><span class="annot"><span class="annottext">toHeaders :: DescribeAuditTask -&gt; ResponseHeaders
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679840410"><span class="annot"><span class="annottext">toHeaders :: DescribeAuditTask -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAuditTask -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -346,21 +346,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask"><span class="hs-identifier hs-type">DescribeAuditTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679839422"><span class="annot"><span class="annottext">toPath :: DescribeAuditTask -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask%27"><span class="hs-identifier hs-type">DescribeAuditTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839420"><span class="annot"><span class="annottext">Text
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679840405"><span class="annot"><span class="annottext">toPath :: DescribeAuditTask -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask%27"><span class="hs-identifier hs-type">DescribeAuditTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840403"><span class="annot"><span class="annottext">Text
 taskId :: Text
 $sel:taskId:DescribeAuditTask' :: DescribeAuditTask -&gt; Text
-</span><a href="#local-6989586621679839420"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679840403"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/audit/tasks/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679839420"><span class="hs-identifier hs-var">taskId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679840403"><span class="hs-identifier hs-var">taskId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTask"><span class="hs-identifier hs-type">DescribeAuditTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679839416"><span class="annot"><span class="annottext">toQuery :: DescribeAuditTask -&gt; QueryString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679840399"><span class="annot"><span class="annottext">toQuery :: DescribeAuditTask -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeAuditTask -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -368,32 +368,32 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | /See:/ 'newDescribeAuditTaskResponse' smart constructor.</span><span>
-</span><span id="line-118"></span><span id="local-6989586621679839413"><span id="local-6989586621679839414"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAuditTaskResponse"><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-var">DescribeAuditTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAuditTaskResponse%27"><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">DescribeAuditTaskResponse'</span></a></span></span><span>
+</span><span id="line-118"></span><span id="local-6989586621679840396"><span id="local-6989586621679840397"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAuditTaskResponse"><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-var">DescribeAuditTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAuditTaskResponse%27"><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">DescribeAuditTaskResponse'</span></a></span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Detailed information about each check performed during this audit.</span><span>
 </span><span id="line-120"></span><span>    </span><span id="%24sel%3AauditDetails%3ADescribeAuditTaskResponse%27"><span class="annot"><span class="annottext">DescribeAuditTaskResponse -&gt; Maybe (HashMap Text AuditCheckDetails)
 </span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AauditDetails%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var hs-var">auditDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditCheckDetails.html#AuditCheckDetails"><span class="hs-identifier hs-type">AuditCheckDetails</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The name of the scheduled audit (only if the audit was a scheduled</span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- audit).</span><span>
-</span><span id="line-123"></span><span>    </span><span id="%24sel%3AscheduledAuditName%3ADescribeAuditTaskResponse%27"><span class="annot"><span class="annottext">DescribeAuditTaskResponse -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AscheduledAuditName%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var hs-var">scheduledAuditName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- | Statistical information about the audit.</span><span>
-</span><span id="line-125"></span><span>    </span><span id="%24sel%3AtaskStatistics%3ADescribeAuditTaskResponse%27"><span class="annot"><span class="annottext">DescribeAuditTaskResponse -&gt; Maybe TaskStatistics
-</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskStatistics%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var hs-var">taskStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatistics.html#TaskStatistics"><span class="hs-identifier hs-type">TaskStatistics</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The status of the audit: one of \&quot;IN_PROGRESS\&quot;, \&quot;COMPLETED\&quot;,</span><span>
-</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- \&quot;FAILED\&quot;, or \&quot;CANCELED\&quot;.</span><span>
-</span><span id="line-128"></span><span>    </span><span id="%24sel%3AtaskStatus%3ADescribeAuditTaskResponse%27"><span class="annot"><span class="annottext">DescribeAuditTaskResponse -&gt; Maybe AuditTaskStatus
-</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskStatus%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var hs-var">taskStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus"><span class="hs-identifier hs-type">AuditTaskStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The time the audit started.</span><span>
-</span><span id="line-130"></span><span>    </span><span id="%24sel%3AtaskStartTime%3ADescribeAuditTaskResponse%27"><span class="annot"><span class="annottext">DescribeAuditTaskResponse -&gt; Maybe POSIX
-</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskStartTime%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var hs-var">taskStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The type of audit: \&quot;ON_DEMAND_AUDIT_TASK\&quot; or \&quot;SCHEDULED_AUDIT_TASK\&quot;.</span><span>
-</span><span id="line-132"></span><span>    </span><span id="%24sel%3AtaskType%3ADescribeAuditTaskResponse%27"><span class="annot"><span class="annottext">DescribeAuditTaskResponse -&gt; Maybe AuditTaskType
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The type of audit: \&quot;ON_DEMAND_AUDIT_TASK\&quot; or \&quot;SCHEDULED_AUDIT_TASK\&quot;.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AtaskType%3ADescribeAuditTaskResponse%27"><span class="annot"><span class="annottext">DescribeAuditTaskResponse -&gt; Maybe AuditTaskType
 </span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskType%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var hs-var">taskType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskType.html#AuditTaskType"><span class="hs-identifier hs-type">AuditTaskType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | The time the audit started.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AtaskStartTime%3ADescribeAuditTaskResponse%27"><span class="annot"><span class="annottext">DescribeAuditTaskResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskStartTime%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var hs-var">taskStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | Statistical information about the audit.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AtaskStatistics%3ADescribeAuditTaskResponse%27"><span class="annot"><span class="annottext">DescribeAuditTaskResponse -&gt; Maybe TaskStatistics
+</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskStatistics%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var hs-var">taskStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatistics.html#TaskStatistics"><span class="hs-identifier hs-type">TaskStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | The name of the scheduled audit (only if the audit was a scheduled</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- audit).</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AscheduledAuditName%3ADescribeAuditTaskResponse%27"><span class="annot"><span class="annottext">DescribeAuditTaskResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AscheduledAuditName%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var hs-var">scheduledAuditName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The status of the audit: one of \&quot;IN_PROGRESS\&quot;, \&quot;COMPLETED\&quot;,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- \&quot;FAILED\&quot;, or \&quot;CANCELED\&quot;.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3AtaskStatus%3ADescribeAuditTaskResponse%27"><span class="annot"><span class="annottext">DescribeAuditTaskResponse -&gt; Maybe AuditTaskStatus
+</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskStatus%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var hs-var">taskStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus"><span class="hs-identifier hs-type">AuditTaskStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-134"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAuditTaskResponse%27"><span class="annot"><span class="annottext">DescribeAuditTaskResponse -&gt; Int
 </span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AhttpStatus%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679839402"><span id="local-6989586621679839404"><span class="annot"><span class="annottext">DescribeAuditTaskResponse -&gt; DescribeAuditTaskResponse -&gt; Bool
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679840385"><span id="local-6989586621679840387"><span class="annot"><span class="annottext">DescribeAuditTaskResponse -&gt; DescribeAuditTaskResponse -&gt; Bool
 (DescribeAuditTaskResponse -&gt; DescribeAuditTaskResponse -&gt; Bool)
 -&gt; (DescribeAuditTaskResponse -&gt; DescribeAuditTaskResponse -&gt; Bool)
 -&gt; Eq DescribeAuditTaskResponse
@@ -402,7 +402,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeAuditTaskResponse -&gt; DescribeAuditTaskResponse -&gt; Bool
 == :: DescribeAuditTaskResponse -&gt; DescribeAuditTaskResponse -&gt; Bool
 $c== :: DescribeAuditTaskResponse -&gt; DescribeAuditTaskResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839394"><span id="local-6989586621679839396"><span id="local-6989586621679839398"><span id="local-6989586621679839400"><span class="annot"><span class="annottext">ReadPrec [DescribeAuditTaskResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679840377"><span id="local-6989586621679840379"><span id="local-6989586621679840381"><span id="local-6989586621679840383"><span class="annot"><span class="annottext">ReadPrec [DescribeAuditTaskResponse]
 ReadPrec DescribeAuditTaskResponse
 Int -&gt; ReadS DescribeAuditTaskResponse
 ReadS [DescribeAuditTaskResponse]
@@ -422,7 +422,7 @@ readList :: ReadS [DescribeAuditTaskResponse]
 $creadList :: ReadS [DescribeAuditTaskResponse]
 readsPrec :: Int -&gt; ReadS DescribeAuditTaskResponse
 $creadsPrec :: Int -&gt; ReadS DescribeAuditTaskResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839388"><span id="local-6989586621679839390"><span id="local-6989586621679839392"><span class="annot"><span class="annottext">Int -&gt; DescribeAuditTaskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679840371"><span id="local-6989586621679840373"><span id="local-6989586621679840375"><span class="annot"><span class="annottext">Int -&gt; DescribeAuditTaskResponse -&gt; ShowS
 [DescribeAuditTaskResponse] -&gt; ShowS
 DescribeAuditTaskResponse -&gt; String
 (Int -&gt; DescribeAuditTaskResponse -&gt; ShowS)
@@ -464,17 +464,17 @@ DescribeAuditTaskResponse -&gt; Rep DescribeAuditTaskResponse x
 </span><span id="line-145"></span><span class="hs-comment">--</span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- 'auditDetails', 'describeAuditTaskResponse_auditDetails' - Detailed information about each check performed during this audit.</span><span>
 </span><span id="line-147"></span><span class="hs-comment">--</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- 'scheduledAuditName', 'describeAuditTaskResponse_scheduledAuditName' - The name of the scheduled audit (only if the audit was a scheduled</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- audit).</span><span>
-</span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- 'taskStatistics', 'describeAuditTaskResponse_taskStatistics' - Statistical information about the audit.</span><span>
-</span><span id="line-152"></span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- 'taskStatus', 'describeAuditTaskResponse_taskStatus' - The status of the audit: one of \&quot;IN_PROGRESS\&quot;, \&quot;COMPLETED\&quot;,</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- \&quot;FAILED\&quot;, or \&quot;CANCELED\&quot;.</span><span>
-</span><span id="line-155"></span><span class="hs-comment">--</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- 'taskStartTime', 'describeAuditTaskResponse_taskStartTime' - The time the audit started.</span><span>
-</span><span id="line-157"></span><span class="hs-comment">--</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- 'taskType', 'describeAuditTaskResponse_taskType' - The type of audit: \&quot;ON_DEMAND_AUDIT_TASK\&quot; or \&quot;SCHEDULED_AUDIT_TASK\&quot;.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'taskType', 'describeAuditTaskResponse_taskType' - The type of audit: \&quot;ON_DEMAND_AUDIT_TASK\&quot; or \&quot;SCHEDULED_AUDIT_TASK\&quot;.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'taskStartTime', 'describeAuditTaskResponse_taskStartTime' - The time the audit started.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'taskStatistics', 'describeAuditTaskResponse_taskStatistics' - Statistical information about the audit.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'scheduledAuditName', 'describeAuditTaskResponse_scheduledAuditName' - The name of the scheduled audit (only if the audit was a scheduled</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- audit).</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'taskStatus', 'describeAuditTaskResponse_taskStatus' - The status of the audit: one of \&quot;IN_PROGRESS\&quot;, \&quot;COMPLETED\&quot;,</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- \&quot;FAILED\&quot;, or \&quot;CANCELED\&quot;.</span><span>
 </span><span id="line-159"></span><span class="hs-comment">--</span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- 'httpStatus', 'describeAuditTaskResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-161"></span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#newDescribeAuditTaskResponse"><span class="hs-identifier hs-type">newDescribeAuditTaskResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -482,14 +482,14 @@ DescribeAuditTaskResponse -&gt; Rep DescribeAuditTaskResponse x
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span>
 </span><span id="line-165"></span><span id="newDescribeAuditTaskResponse"><span class="annot"><span class="annottext">newDescribeAuditTaskResponse :: Int -&gt; DescribeAuditTaskResponse
-</span><a href="Network.AWS.IoT.DescribeAuditTask.html#newDescribeAuditTaskResponse"><span class="hs-identifier hs-var hs-var">newDescribeAuditTaskResponse</span></a></span></span><span> </span><span id="local-6989586621679839385"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679839385"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DescribeAuditTask.html#newDescribeAuditTaskResponse"><span class="hs-identifier hs-var hs-var">newDescribeAuditTaskResponse</span></a></span></span><span> </span><span id="local-6989586621679840368"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679840368"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="annottext">DescribeAuditTaskResponse' :: Maybe (HashMap Text AuditCheckDetails)
--&gt; Maybe Text
--&gt; Maybe TaskStatistics
--&gt; Maybe AuditTaskStatus
--&gt; Maybe POSIX
 -&gt; Maybe AuditTaskType
+-&gt; Maybe POSIX
+-&gt; Maybe TaskStatistics
+-&gt; Maybe Text
+-&gt; Maybe AuditTaskStatus
 -&gt; Int
 -&gt; DescribeAuditTaskResponse
 </span><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span>
@@ -498,29 +498,29 @@ DescribeAuditTaskResponse -&gt; Rep DescribeAuditTaskResponse x
 </span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">Maybe (HashMap Text AuditCheckDetails)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduledAuditName:DescribeAuditTaskResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AscheduledAuditName%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">scheduledAuditName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskType:DescribeAuditTaskResponse' :: Maybe AuditTaskType
+</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskType%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">taskType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskStatistics:DescribeAuditTaskResponse' :: Maybe TaskStatistics
-</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskStatistics%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">taskStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskStatistics
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskStatus:DescribeAuditTaskResponse' :: Maybe AuditTaskStatus
-</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskStatus%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">taskStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskStatus
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskStartTime:DescribeAuditTaskResponse' :: Maybe POSIX
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskStartTime:DescribeAuditTaskResponse' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskStartTime%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">taskStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskType:DescribeAuditTaskResponse' :: Maybe AuditTaskType
-</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskType%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">taskType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskType
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskStatistics:DescribeAuditTaskResponse' :: Maybe TaskStatistics
+</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskStatistics%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">taskStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskStatistics
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduledAuditName:DescribeAuditTaskResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AscheduledAuditName%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">scheduledAuditName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskStatus:DescribeAuditTaskResponse' :: Maybe AuditTaskStatus
+</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskStatus%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">taskStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAuditTaskResponse' :: Int
 </span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AhttpStatus%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679839385"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679840368"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | Detailed information about each check performed during this audit.</span><span>
@@ -539,16 +539,16 @@ forall a. Maybe a
      (Maybe (HashMap Text AuditCheckDetails))
      (Maybe (HashMap Text AuditCheckDetails))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839384"><span class="annot"><span class="annottext">Maybe (HashMap Text AuditCheckDetails)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840367"><span class="annot"><span class="annottext">Maybe (HashMap Text AuditCheckDetails)
 auditDetails :: Maybe (HashMap Text AuditCheckDetails)
 $sel:auditDetails:DescribeAuditTaskResponse' :: DescribeAuditTaskResponse -&gt; Maybe (HashMap Text AuditCheckDetails)
-</span><a href="#local-6989586621679839384"><span class="hs-identifier hs-var hs-var">auditDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AuditCheckDetails)
-</span><a href="#local-6989586621679839384"><span class="hs-identifier hs-var">auditDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839383"><span class="annot"><span class="annottext">s :: DescribeAuditTaskResponse
-</span><a href="#local-6989586621679839383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839382"><span class="annot"><span class="annottext">Maybe (HashMap Text AuditCheckDetails)
-</span><a href="#local-6989586621679839382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditTaskResponse
-</span><a href="#local-6989586621679839383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auditDetails:DescribeAuditTaskResponse' :: Maybe (HashMap Text AuditCheckDetails)
+</span><a href="#local-6989586621679840367"><span class="hs-identifier hs-var hs-var">auditDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AuditCheckDetails)
+</span><a href="#local-6989586621679840367"><span class="hs-identifier hs-var">auditDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840366"><span class="annot"><span class="annottext">s :: DescribeAuditTaskResponse
+</span><a href="#local-6989586621679840366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840365"><span class="annot"><span class="annottext">Maybe (HashMap Text AuditCheckDetails)
+</span><a href="#local-6989586621679840365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditTaskResponse
+</span><a href="#local-6989586621679840366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auditDetails:DescribeAuditTaskResponse' :: Maybe (HashMap Text AuditCheckDetails)
 </span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AauditDetails%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">auditDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AuditCheckDetails)
-</span><a href="#local-6989586621679839382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AuditCheckDetails)
+</span><a href="#local-6989586621679840365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AuditCheckDetails)
   -&gt; f (Maybe (HashMap Text AuditCheckDetails)))
  -&gt; DescribeAuditTaskResponse -&gt; f DescribeAuditTaskResponse)
 -&gt; ((Maybe (HashMap Text AuditCheckDetails)
@@ -578,86 +578,36 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text AuditCheckDetails)
   (HashMap Text AuditCheckDetails)
   (HashMap Text AuditCheckDetails)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- | The name of the scheduled audit (only if the audit was a scheduled</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- audit).</span><span>
-</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_scheduledAuditName"><span class="hs-identifier hs-type">describeAuditTaskResponse_scheduledAuditName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span id="describeAuditTaskResponse_scheduledAuditName"><span class="annot"><span class="annottext">describeAuditTaskResponse_scheduledAuditName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-181"></span><span class="hs-comment">-- | The type of audit: \&quot;ON_DEMAND_AUDIT_TASK\&quot; or \&quot;SCHEDULED_AUDIT_TASK\&quot;.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskType"><span class="hs-identifier hs-type">describeAuditTaskResponse_taskType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskType.html#AuditTaskType"><span class="hs-identifier hs-type">AuditTaskType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="describeAuditTaskResponse_taskType"><span class="annot"><span class="annottext">describeAuditTaskResponse_taskType :: (Maybe AuditTaskType -&gt; f (Maybe AuditTaskType))
 -&gt; DescribeAuditTaskResponse -&gt; f DescribeAuditTaskResponse
-</span><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_scheduledAuditName"><span class="hs-identifier hs-var hs-var">describeAuditTaskResponse_scheduledAuditName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAuditTaskResponse -&gt; Maybe Text)
+</span><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskType"><span class="hs-identifier hs-var hs-var">describeAuditTaskResponse_taskType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAuditTaskResponse -&gt; Maybe AuditTaskType)
 -&gt; (DescribeAuditTaskResponse
-    -&gt; Maybe Text -&gt; DescribeAuditTaskResponse)
+    -&gt; Maybe AuditTaskType -&gt; DescribeAuditTaskResponse)
 -&gt; Lens
      DescribeAuditTaskResponse
      DescribeAuditTaskResponse
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe AuditTaskType)
+     (Maybe AuditTaskType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839378"><span class="annot"><span class="annottext">Maybe Text
-scheduledAuditName :: Maybe Text
-$sel:scheduledAuditName:DescribeAuditTaskResponse' :: DescribeAuditTaskResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679839378"><span class="hs-identifier hs-var hs-var">scheduledAuditName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679839378"><span class="hs-identifier hs-var">scheduledAuditName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839377"><span class="annot"><span class="annottext">s :: DescribeAuditTaskResponse
-</span><a href="#local-6989586621679839377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839376"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679839376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditTaskResponse
-</span><a href="#local-6989586621679839377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledAuditName:DescribeAuditTaskResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AscheduledAuditName%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">scheduledAuditName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679839376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- | Statistical information about the audit.</span><span>
-</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskStatistics"><span class="hs-identifier hs-type">describeAuditTaskResponse_taskStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatistics.html#TaskStatistics"><span class="hs-identifier hs-type">TaskStatistics</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span id="describeAuditTaskResponse_taskStatistics"><span class="annot"><span class="annottext">describeAuditTaskResponse_taskStatistics :: (Maybe TaskStatistics -&gt; f (Maybe TaskStatistics))
--&gt; DescribeAuditTaskResponse -&gt; f DescribeAuditTaskResponse
-</span><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskStatistics"><span class="hs-identifier hs-var hs-var">describeAuditTaskResponse_taskStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAuditTaskResponse -&gt; Maybe TaskStatistics)
--&gt; (DescribeAuditTaskResponse
-    -&gt; Maybe TaskStatistics -&gt; DescribeAuditTaskResponse)
--&gt; Lens
-     DescribeAuditTaskResponse
-     DescribeAuditTaskResponse
-     (Maybe TaskStatistics)
-     (Maybe TaskStatistics)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839375"><span class="annot"><span class="annottext">Maybe TaskStatistics
-taskStatistics :: Maybe TaskStatistics
-$sel:taskStatistics:DescribeAuditTaskResponse' :: DescribeAuditTaskResponse -&gt; Maybe TaskStatistics
-</span><a href="#local-6989586621679839375"><span class="hs-identifier hs-var hs-var">taskStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskStatistics
-</span><a href="#local-6989586621679839375"><span class="hs-identifier hs-var">taskStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839374"><span class="annot"><span class="annottext">s :: DescribeAuditTaskResponse
-</span><a href="#local-6989586621679839374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839373"><span class="annot"><span class="annottext">Maybe TaskStatistics
-</span><a href="#local-6989586621679839373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditTaskResponse
-</span><a href="#local-6989586621679839374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskStatistics:DescribeAuditTaskResponse' :: Maybe TaskStatistics
-</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskStatistics%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">taskStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskStatistics
-</span><a href="#local-6989586621679839373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- | The status of the audit: one of \&quot;IN_PROGRESS\&quot;, \&quot;COMPLETED\&quot;,</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- \&quot;FAILED\&quot;, or \&quot;CANCELED\&quot;.</span><span>
-</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskStatus"><span class="hs-identifier hs-type">describeAuditTaskResponse_taskStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus"><span class="hs-identifier hs-type">AuditTaskStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-193"></span><span id="describeAuditTaskResponse_taskStatus"><span class="annot"><span class="annottext">describeAuditTaskResponse_taskStatus :: (Maybe AuditTaskStatus -&gt; f (Maybe AuditTaskStatus))
--&gt; DescribeAuditTaskResponse -&gt; f DescribeAuditTaskResponse
-</span><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskStatus"><span class="hs-identifier hs-var hs-var">describeAuditTaskResponse_taskStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAuditTaskResponse -&gt; Maybe AuditTaskStatus)
--&gt; (DescribeAuditTaskResponse
-    -&gt; Maybe AuditTaskStatus -&gt; DescribeAuditTaskResponse)
--&gt; Lens
-     DescribeAuditTaskResponse
-     DescribeAuditTaskResponse
-     (Maybe AuditTaskStatus)
-     (Maybe AuditTaskStatus)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839372"><span class="annot"><span class="annottext">Maybe AuditTaskStatus
-taskStatus :: Maybe AuditTaskStatus
-$sel:taskStatus:DescribeAuditTaskResponse' :: DescribeAuditTaskResponse -&gt; Maybe AuditTaskStatus
-</span><a href="#local-6989586621679839372"><span class="hs-identifier hs-var hs-var">taskStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskStatus
-</span><a href="#local-6989586621679839372"><span class="hs-identifier hs-var">taskStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839371"><span class="annot"><span class="annottext">s :: DescribeAuditTaskResponse
-</span><a href="#local-6989586621679839371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839370"><span class="annot"><span class="annottext">Maybe AuditTaskStatus
-</span><a href="#local-6989586621679839370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditTaskResponse
-</span><a href="#local-6989586621679839371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskStatus:DescribeAuditTaskResponse' :: Maybe AuditTaskStatus
-</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskStatus%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">taskStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskStatus
-</span><a href="#local-6989586621679839370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- | The time the audit started.</span><span>
-</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskStartTime"><span class="hs-identifier hs-type">describeAuditTaskResponse_taskStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-197"></span><span id="describeAuditTaskResponse_taskStartTime"><span class="annot"><span class="annottext">describeAuditTaskResponse_taskStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840361"><span class="annot"><span class="annottext">Maybe AuditTaskType
+taskType :: Maybe AuditTaskType
+$sel:taskType:DescribeAuditTaskResponse' :: DescribeAuditTaskResponse -&gt; Maybe AuditTaskType
+</span><a href="#local-6989586621679840361"><span class="hs-identifier hs-var hs-var">taskType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskType
+</span><a href="#local-6989586621679840361"><span class="hs-identifier hs-var">taskType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840360"><span class="annot"><span class="annottext">s :: DescribeAuditTaskResponse
+</span><a href="#local-6989586621679840360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840359"><span class="annot"><span class="annottext">Maybe AuditTaskType
+</span><a href="#local-6989586621679840359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditTaskResponse
+</span><a href="#local-6989586621679840360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskType:DescribeAuditTaskResponse' :: Maybe AuditTaskType
+</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskType%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">taskType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskType
+</span><a href="#local-6989586621679840359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The time the audit started.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskStartTime"><span class="hs-identifier hs-type">describeAuditTaskResponse_taskStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="describeAuditTaskResponse_taskStartTime"><span class="annot"><span class="annottext">describeAuditTaskResponse_taskStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; DescribeAuditTaskResponse -&gt; f DescribeAuditTaskResponse
 </span><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskStartTime"><span class="hs-identifier hs-var hs-var">describeAuditTaskResponse_taskStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAuditTaskResponse -&gt; Maybe POSIX)
 -&gt; (DescribeAuditTaskResponse
@@ -668,16 +618,16 @@ $sel:taskStatus:DescribeAuditTaskResponse' :: DescribeAuditTaskResponse -&gt; Ma
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839369"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840358"><span class="annot"><span class="annottext">Maybe POSIX
 taskStartTime :: Maybe POSIX
 $sel:taskStartTime:DescribeAuditTaskResponse' :: DescribeAuditTaskResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679839369"><span class="hs-identifier hs-var hs-var">taskStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679839369"><span class="hs-identifier hs-var">taskStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839368"><span class="annot"><span class="annottext">s :: DescribeAuditTaskResponse
-</span><a href="#local-6989586621679839368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839367"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679839367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditTaskResponse
-</span><a href="#local-6989586621679839368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskStartTime:DescribeAuditTaskResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679840358"><span class="hs-identifier hs-var hs-var">taskStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679840358"><span class="hs-identifier hs-var">taskStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840357"><span class="annot"><span class="annottext">s :: DescribeAuditTaskResponse
+</span><a href="#local-6989586621679840357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840356"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679840356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditTaskResponse
+</span><a href="#local-6989586621679840357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskStartTime:DescribeAuditTaskResponse' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskStartTime%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">taskStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679839367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679840356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DescribeAuditTaskResponse -&gt; f DescribeAuditTaskResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -693,30 +643,80 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- | The type of audit: \&quot;ON_DEMAND_AUDIT_TASK\&quot; or \&quot;SCHEDULED_AUDIT_TASK\&quot;.</span><span>
-</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskType"><span class="hs-identifier hs-type">describeAuditTaskResponse_taskType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskType.html#AuditTaskType"><span class="hs-identifier hs-type">AuditTaskType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-201"></span><span id="describeAuditTaskResponse_taskType"><span class="annot"><span class="annottext">describeAuditTaskResponse_taskType :: (Maybe AuditTaskType -&gt; f (Maybe AuditTaskType))
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | Statistical information about the audit.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskStatistics"><span class="hs-identifier hs-type">describeAuditTaskResponse_taskStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatistics.html#TaskStatistics"><span class="hs-identifier hs-type">TaskStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="describeAuditTaskResponse_taskStatistics"><span class="annot"><span class="annottext">describeAuditTaskResponse_taskStatistics :: (Maybe TaskStatistics -&gt; f (Maybe TaskStatistics))
 -&gt; DescribeAuditTaskResponse -&gt; f DescribeAuditTaskResponse
-</span><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskType"><span class="hs-identifier hs-var hs-var">describeAuditTaskResponse_taskType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAuditTaskResponse -&gt; Maybe AuditTaskType)
+</span><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskStatistics"><span class="hs-identifier hs-var hs-var">describeAuditTaskResponse_taskStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAuditTaskResponse -&gt; Maybe TaskStatistics)
 -&gt; (DescribeAuditTaskResponse
-    -&gt; Maybe AuditTaskType -&gt; DescribeAuditTaskResponse)
+    -&gt; Maybe TaskStatistics -&gt; DescribeAuditTaskResponse)
 -&gt; Lens
      DescribeAuditTaskResponse
      DescribeAuditTaskResponse
-     (Maybe AuditTaskType)
-     (Maybe AuditTaskType)
+     (Maybe TaskStatistics)
+     (Maybe TaskStatistics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839365"><span class="annot"><span class="annottext">Maybe AuditTaskType
-taskType :: Maybe AuditTaskType
-$sel:taskType:DescribeAuditTaskResponse' :: DescribeAuditTaskResponse -&gt; Maybe AuditTaskType
-</span><a href="#local-6989586621679839365"><span class="hs-identifier hs-var hs-var">taskType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskType
-</span><a href="#local-6989586621679839365"><span class="hs-identifier hs-var">taskType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839364"><span class="annot"><span class="annottext">s :: DescribeAuditTaskResponse
-</span><a href="#local-6989586621679839364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839363"><span class="annot"><span class="annottext">Maybe AuditTaskType
-</span><a href="#local-6989586621679839363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditTaskResponse
-</span><a href="#local-6989586621679839364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskType:DescribeAuditTaskResponse' :: Maybe AuditTaskType
-</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskType%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">taskType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskType
-</span><a href="#local-6989586621679839363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840354"><span class="annot"><span class="annottext">Maybe TaskStatistics
+taskStatistics :: Maybe TaskStatistics
+$sel:taskStatistics:DescribeAuditTaskResponse' :: DescribeAuditTaskResponse -&gt; Maybe TaskStatistics
+</span><a href="#local-6989586621679840354"><span class="hs-identifier hs-var hs-var">taskStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskStatistics
+</span><a href="#local-6989586621679840354"><span class="hs-identifier hs-var">taskStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840353"><span class="annot"><span class="annottext">s :: DescribeAuditTaskResponse
+</span><a href="#local-6989586621679840353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840352"><span class="annot"><span class="annottext">Maybe TaskStatistics
+</span><a href="#local-6989586621679840352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditTaskResponse
+</span><a href="#local-6989586621679840353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskStatistics:DescribeAuditTaskResponse' :: Maybe TaskStatistics
+</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskStatistics%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">taskStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskStatistics
+</span><a href="#local-6989586621679840352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The name of the scheduled audit (only if the audit was a scheduled</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- audit).</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_scheduledAuditName"><span class="hs-identifier hs-type">describeAuditTaskResponse_scheduledAuditName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="describeAuditTaskResponse_scheduledAuditName"><span class="annot"><span class="annottext">describeAuditTaskResponse_scheduledAuditName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeAuditTaskResponse -&gt; f DescribeAuditTaskResponse
+</span><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_scheduledAuditName"><span class="hs-identifier hs-var hs-var">describeAuditTaskResponse_scheduledAuditName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAuditTaskResponse -&gt; Maybe Text)
+-&gt; (DescribeAuditTaskResponse
+    -&gt; Maybe Text -&gt; DescribeAuditTaskResponse)
+-&gt; Lens
+     DescribeAuditTaskResponse
+     DescribeAuditTaskResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840351"><span class="annot"><span class="annottext">Maybe Text
+scheduledAuditName :: Maybe Text
+$sel:scheduledAuditName:DescribeAuditTaskResponse' :: DescribeAuditTaskResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679840351"><span class="hs-identifier hs-var hs-var">scheduledAuditName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679840351"><span class="hs-identifier hs-var">scheduledAuditName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840350"><span class="annot"><span class="annottext">s :: DescribeAuditTaskResponse
+</span><a href="#local-6989586621679840350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840349"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679840349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditTaskResponse
+</span><a href="#local-6989586621679840350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledAuditName:DescribeAuditTaskResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AscheduledAuditName%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">scheduledAuditName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679840349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The status of the audit: one of \&quot;IN_PROGRESS\&quot;, \&quot;COMPLETED\&quot;,</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- \&quot;FAILED\&quot;, or \&quot;CANCELED\&quot;.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskStatus"><span class="hs-identifier hs-type">describeAuditTaskResponse_taskStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskStatus.html#AuditTaskStatus"><span class="hs-identifier hs-type">AuditTaskStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="describeAuditTaskResponse_taskStatus"><span class="annot"><span class="annottext">describeAuditTaskResponse_taskStatus :: (Maybe AuditTaskStatus -&gt; f (Maybe AuditTaskStatus))
+-&gt; DescribeAuditTaskResponse -&gt; f DescribeAuditTaskResponse
+</span><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_taskStatus"><span class="hs-identifier hs-var hs-var">describeAuditTaskResponse_taskStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAuditTaskResponse -&gt; Maybe AuditTaskStatus)
+-&gt; (DescribeAuditTaskResponse
+    -&gt; Maybe AuditTaskStatus -&gt; DescribeAuditTaskResponse)
+-&gt; Lens
+     DescribeAuditTaskResponse
+     DescribeAuditTaskResponse
+     (Maybe AuditTaskStatus)
+     (Maybe AuditTaskStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840348"><span class="annot"><span class="annottext">Maybe AuditTaskStatus
+taskStatus :: Maybe AuditTaskStatus
+$sel:taskStatus:DescribeAuditTaskResponse' :: DescribeAuditTaskResponse -&gt; Maybe AuditTaskStatus
+</span><a href="#local-6989586621679840348"><span class="hs-identifier hs-var hs-var">taskStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskStatus
+</span><a href="#local-6989586621679840348"><span class="hs-identifier hs-var">taskStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840347"><span class="annot"><span class="annottext">s :: DescribeAuditTaskResponse
+</span><a href="#local-6989586621679840347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840346"><span class="annot"><span class="annottext">Maybe AuditTaskStatus
+</span><a href="#local-6989586621679840346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditTaskResponse
+</span><a href="#local-6989586621679840347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskStatus:DescribeAuditTaskResponse' :: Maybe AuditTaskStatus
+</span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AtaskStatus%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">taskStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskStatus
+</span><a href="#local-6989586621679840346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-204"></span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#describeAuditTaskResponse_httpStatus"><span class="hs-identifier hs-type">describeAuditTaskResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -726,16 +726,16 @@ $sel:taskType:DescribeAuditTaskResponse' :: DescribeAuditTaskResponse -&gt; Mayb
 -&gt; (DescribeAuditTaskResponse -&gt; Int -&gt; DescribeAuditTaskResponse)
 -&gt; Lens DescribeAuditTaskResponse DescribeAuditTaskResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839362"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840345"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeAuditTaskResponse' :: DescribeAuditTaskResponse -&gt; Int
-</span><a href="#local-6989586621679839362"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679839362"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839361"><span class="annot"><span class="annottext">s :: DescribeAuditTaskResponse
-</span><a href="#local-6989586621679839361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839360"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679839360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditTaskResponse
-</span><a href="#local-6989586621679839361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAuditTaskResponse' :: Int
+</span><a href="#local-6989586621679840345"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679840345"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840344"><span class="annot"><span class="annottext">s :: DescribeAuditTaskResponse
+</span><a href="#local-6989586621679840344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse%27"><span class="hs-identifier hs-type">DescribeAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840343"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679840343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditTaskResponse
+</span><a href="#local-6989586621679840344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAuditTaskResponse' :: Int
 </span><a href="Network.AWS.IoT.DescribeAuditTask.html#%24sel%3AhttpStatus%3ADescribeAuditTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679839360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679840343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679839358"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679840341"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditTask.html#DescribeAuditTaskResponse"><span class="hs-identifier hs-type">DescribeAuditTaskResponse</span></a></span></span><span>
 </span><span id="line-208"></span></pre></body></html>

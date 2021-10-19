@@ -41,17 +41,17 @@
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeys_userName"><span class="hs-identifier">listSSHPublicKeys_userName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeys_maxItems"><span class="hs-identifier">listSSHPublicKeys_maxItems</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeys_marker"><span class="hs-identifier">listSSHPublicKeys_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeys_marker"><span class="hs-identifier">listSSHPublicKeys_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeys_maxItems"><span class="hs-identifier">listSSHPublicKeys_maxItems</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier">ListSSHPublicKeysResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#newListSSHPublicKeysResponse"><span class="hs-identifier">newListSSHPublicKeysResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeysResponse_isTruncated"><span class="hs-identifier">listSSHPublicKeysResponse_isTruncated</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeysResponse_sSHPublicKeys"><span class="hs-identifier">listSSHPublicKeysResponse_sSHPublicKeys</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeysResponse_marker"><span class="hs-identifier">listSSHPublicKeysResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeysResponse_sSHPublicKeys"><span class="hs-identifier">listSSHPublicKeysResponse_sSHPublicKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeysResponse_marker"><span class="hs-identifier">listSSHPublicKeysResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeysResponse_isTruncated"><span class="hs-identifier">listSSHPublicKeysResponse_isTruncated</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeysResponse_httpStatus"><span class="hs-identifier">listSSHPublicKeysResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span class="hs-keyword">where</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newListSSHPublicKeys' smart constructor.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621679440333"><span id="local-6989586621679440334"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSSHPublicKeys"><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-var">ListSSHPublicKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSSHPublicKeys%27"><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys%27"><span class="hs-identifier hs-var">ListSSHPublicKeys'</span></a></span></span><span>
+</span><span id="line-67"></span><span id="local-6989586621679440898"><span id="local-6989586621679440899"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSSHPublicKeys"><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-var">ListSSHPublicKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSSHPublicKeys%27"><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys%27"><span class="hs-identifier hs-var">ListSSHPublicKeys'</span></a></span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the IAM user to list SSH public keys for. If none is</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- specified, the @UserName@ field is determined implicitly based on the</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Amazon Web Services access key used to sign the request.</span><span>
@@ -75,25 +75,25 @@
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- spaces. You can also include any of the following characters: _+=,.\@-</span><span>
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3AuserName%3AListSSHPublicKeys%27"><span class="annot"><span class="annottext">ListSSHPublicKeys -&gt; Maybe Text
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AuserName%3AListSSHPublicKeys%27"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
-</span><span id="line-86"></span><span>    </span><span id="%24sel%3AmaxItems%3AListSSHPublicKeys%27"><span class="annot"><span class="annottext">ListSSHPublicKeys -&gt; Maybe Natural
-</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AmaxItems%3AListSSHPublicKeys%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- indicate where the next call should start.</span><span>
-</span><span id="line-91"></span><span>    </span><span id="%24sel%3Amarker%3AListSSHPublicKeys%27"><span class="annot"><span class="annottext">ListSSHPublicKeys -&gt; Maybe Text
-</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3Amarker%3AListSSHPublicKeys%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- indicate where the next call should start.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Amarker%3AListSSHPublicKeys%27"><span class="annot"><span class="annottext">ListSSHPublicKeys -&gt; Maybe Text
+</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3Amarker%3AListSSHPublicKeys%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AmaxItems%3AListSSHPublicKeys%27"><span class="annot"><span class="annottext">ListSSHPublicKeys -&gt; Maybe Natural
+</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AmaxItems%3AListSSHPublicKeys%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440325"><span id="local-6989586621679440327"><span class="annot"><span class="annottext">ListSSHPublicKeys -&gt; ListSSHPublicKeys -&gt; Bool
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440890"><span id="local-6989586621679440892"><span class="annot"><span class="annottext">ListSSHPublicKeys -&gt; ListSSHPublicKeys -&gt; Bool
 (ListSSHPublicKeys -&gt; ListSSHPublicKeys -&gt; Bool)
 -&gt; (ListSSHPublicKeys -&gt; ListSSHPublicKeys -&gt; Bool)
 -&gt; Eq ListSSHPublicKeys
@@ -102,7 +102,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListSSHPublicKeys -&gt; ListSSHPublicKeys -&gt; Bool
 == :: ListSSHPublicKeys -&gt; ListSSHPublicKeys -&gt; Bool
 $c== :: ListSSHPublicKeys -&gt; ListSSHPublicKeys -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440316"><span id="local-6989586621679440318"><span id="local-6989586621679440320"><span id="local-6989586621679440322"><span class="annot"><span class="annottext">ReadPrec [ListSSHPublicKeys]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440881"><span id="local-6989586621679440883"><span id="local-6989586621679440885"><span id="local-6989586621679440887"><span class="annot"><span class="annottext">ReadPrec [ListSSHPublicKeys]
 ReadPrec ListSSHPublicKeys
 Int -&gt; ReadS ListSSHPublicKeys
 ReadS [ListSSHPublicKeys]
@@ -122,7 +122,7 @@ readList :: ReadS [ListSSHPublicKeys]
 $creadList :: ReadS [ListSSHPublicKeys]
 readsPrec :: Int -&gt; ReadS ListSSHPublicKeys
 $creadsPrec :: Int -&gt; ReadS ListSSHPublicKeys
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440309"><span id="local-6989586621679440311"><span id="local-6989586621679440313"><span class="annot"><span class="annottext">Int -&gt; ListSSHPublicKeys -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440874"><span id="local-6989586621679440876"><span id="local-6989586621679440878"><span class="annot"><span class="annottext">Int -&gt; ListSSHPublicKeys -&gt; ShowS
 [ListSSHPublicKeys] -&gt; ShowS
 ListSSHPublicKeys -&gt; String
 (Int -&gt; ListSSHPublicKeys -&gt; ShowS)
@@ -165,36 +165,36 @@ $cfrom :: forall x. ListSSHPublicKeys -&gt; Rep ListSSHPublicKeys x
 </span><span id="line-109"></span><span class="hs-comment">-- consisting of upper and lowercase alphanumeric characters with no</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- spaces. You can also include any of the following characters: _+=,.\@-</span><span>
 </span><span id="line-111"></span><span class="hs-comment">--</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- 'maxItems', 'listSSHPublicKeys_maxItems' - Use this only when paginating results to indicate the maximum number of</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
-</span><span id="line-115"></span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
-</span><span id="line-121"></span><span class="hs-comment">--</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- 'marker', 'listSSHPublicKeys_marker' - Use this parameter only when paginating results and only after you</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- indicate where the next call should start.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'marker', 'listSSHPublicKeys_marker' - Use this parameter only when paginating results and only after you</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- indicate where the next call should start.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'maxItems', 'listSSHPublicKeys_maxItems' - Use this only when paginating results to indicate the maximum number of</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#newListSSHPublicKeys"><span class="hs-identifier hs-type">newListSSHPublicKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span><span>
 </span><span id="line-128"></span><span id="newListSSHPublicKeys"><span class="annot"><span class="annottext">newListSSHPublicKeys :: ListSSHPublicKeys
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#newListSSHPublicKeys"><span class="hs-identifier hs-var hs-var">newListSSHPublicKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-129"></span><span>  </span><span class="annot"><span class="annottext">ListSSHPublicKeys' :: Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; ListSSHPublicKeys
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="annottext">ListSSHPublicKeys' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; ListSSHPublicKeys
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys%27"><span class="hs-identifier hs-type">ListSSHPublicKeys'</span></a></span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userName:ListSSHPublicKeys' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AuserName%3AListSSHPublicKeys%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxItems:ListSSHPublicKeys' :: Maybe Natural
-</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AmaxItems%3AListSSHPublicKeys%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:ListSSHPublicKeys' :: Maybe Text
+</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3Amarker%3AListSSHPublicKeys%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:ListSSHPublicKeys' :: Maybe Text
-</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3Amarker%3AListSSHPublicKeys%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxItems:ListSSHPublicKeys' :: Maybe Natural
+</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AmaxItems%3AListSSHPublicKeys%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
@@ -215,80 +215,80 @@ forall a. Maybe a
 -&gt; Lens
      ListSSHPublicKeys ListSSHPublicKeys (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys%27"><span class="hs-identifier hs-type">ListSSHPublicKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440303"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys%27"><span class="hs-identifier hs-type">ListSSHPublicKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440868"><span class="annot"><span class="annottext">Maybe Text
 userName :: Maybe Text
 $sel:userName:ListSSHPublicKeys' :: ListSSHPublicKeys -&gt; Maybe Text
-</span><a href="#local-6989586621679440303"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440303"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440302"><span class="annot"><span class="annottext">s :: ListSSHPublicKeys
-</span><a href="#local-6989586621679440302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys%27"><span class="hs-identifier hs-type">ListSSHPublicKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440301"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSSHPublicKeys
-</span><a href="#local-6989586621679440302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:ListSSHPublicKeys' :: Maybe Text
+</span><a href="#local-6989586621679440868"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440868"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440867"><span class="annot"><span class="annottext">s :: ListSSHPublicKeys
+</span><a href="#local-6989586621679440867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys%27"><span class="hs-identifier hs-type">ListSSHPublicKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440866"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSSHPublicKeys
+</span><a href="#local-6989586621679440867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:ListSSHPublicKeys' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AuserName%3AListSSHPublicKeys%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
-</span><span id="line-149"></span><span class="hs-comment">--</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
-</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeys_maxItems"><span class="hs-identifier hs-type">listSSHPublicKeys_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span id="listSSHPublicKeys_maxItems"><span class="annot"><span class="annottext">listSSHPublicKeys_maxItems :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ListSSHPublicKeys -&gt; f ListSSHPublicKeys
-</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeys_maxItems"><span class="hs-identifier hs-var hs-var">listSSHPublicKeys_maxItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSSHPublicKeys -&gt; Maybe Natural)
--&gt; (ListSSHPublicKeys -&gt; Maybe Natural -&gt; ListSSHPublicKeys)
--&gt; Lens
-     ListSSHPublicKeys ListSSHPublicKeys (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys%27"><span class="hs-identifier hs-type">ListSSHPublicKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440300"><span class="annot"><span class="annottext">Maybe Natural
-maxItems :: Maybe Natural
-$sel:maxItems:ListSSHPublicKeys' :: ListSSHPublicKeys -&gt; Maybe Natural
-</span><a href="#local-6989586621679440300"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440300"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440299"><span class="annot"><span class="annottext">s :: ListSSHPublicKeys
-</span><a href="#local-6989586621679440299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys%27"><span class="hs-identifier hs-type">ListSSHPublicKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440298"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSSHPublicKeys
-</span><a href="#local-6989586621679440299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListSSHPublicKeys' :: Maybe Natural
-</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AmaxItems%3AListSSHPublicKeys%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- indicate where the next call should start.</span><span>
-</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeys_marker"><span class="hs-identifier hs-type">listSSHPublicKeys_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span id="listSSHPublicKeys_marker"><span class="annot"><span class="annottext">listSSHPublicKeys_marker :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-146"></span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- indicate where the next call should start.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeys_marker"><span class="hs-identifier hs-type">listSSHPublicKeys_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="listSSHPublicKeys_marker"><span class="annot"><span class="annottext">listSSHPublicKeys_marker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListSSHPublicKeys -&gt; f ListSSHPublicKeys
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeys_marker"><span class="hs-identifier hs-var hs-var">listSSHPublicKeys_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSSHPublicKeys -&gt; Maybe Text)
 -&gt; (ListSSHPublicKeys -&gt; Maybe Text -&gt; ListSSHPublicKeys)
 -&gt; Lens
      ListSSHPublicKeys ListSSHPublicKeys (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys%27"><span class="hs-identifier hs-type">ListSSHPublicKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440297"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys%27"><span class="hs-identifier hs-type">ListSSHPublicKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440865"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListSSHPublicKeys' :: ListSSHPublicKeys -&gt; Maybe Text
-</span><a href="#local-6989586621679440297"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440297"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440296"><span class="annot"><span class="annottext">s :: ListSSHPublicKeys
-</span><a href="#local-6989586621679440296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys%27"><span class="hs-identifier hs-type">ListSSHPublicKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440295"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSSHPublicKeys
-</span><a href="#local-6989586621679440296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListSSHPublicKeys' :: Maybe Text
+</span><a href="#local-6989586621679440865"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440865"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440864"><span class="annot"><span class="annottext">s :: ListSSHPublicKeys
+</span><a href="#local-6989586621679440864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys%27"><span class="hs-identifier hs-type">ListSSHPublicKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440863"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSSHPublicKeys
+</span><a href="#local-6989586621679440864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListSSHPublicKeys' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3Amarker%3AListSSHPublicKeys%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeys_maxItems"><span class="hs-identifier hs-type">listSSHPublicKeys_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="listSSHPublicKeys_maxItems"><span class="annot"><span class="annottext">listSSHPublicKeys_maxItems :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListSSHPublicKeys -&gt; f ListSSHPublicKeys
+</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeys_maxItems"><span class="hs-identifier hs-var hs-var">listSSHPublicKeys_maxItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSSHPublicKeys -&gt; Maybe Natural)
+-&gt; (ListSSHPublicKeys -&gt; Maybe Natural -&gt; ListSSHPublicKeys)
+-&gt; Lens
+     ListSSHPublicKeys ListSSHPublicKeys (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys%27"><span class="hs-identifier hs-type">ListSSHPublicKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440862"><span class="annot"><span class="annottext">Maybe Natural
+maxItems :: Maybe Natural
+$sel:maxItems:ListSSHPublicKeys' :: ListSSHPublicKeys -&gt; Maybe Natural
+</span><a href="#local-6989586621679440862"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679440862"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440861"><span class="annot"><span class="annottext">s :: ListSSHPublicKeys
+</span><a href="#local-6989586621679440861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys%27"><span class="hs-identifier hs-type">ListSSHPublicKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440860"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679440860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSSHPublicKeys
+</span><a href="#local-6989586621679440861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListSSHPublicKeys' :: Maybe Natural
+</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AmaxItems%3AListSSHPublicKeys%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679440860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679440291"><span class="annot"><span class="annottext">page :: ListSSHPublicKeys
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679440856"><span class="annot"><span class="annottext">page :: ListSSHPublicKeys
 -&gt; AWSResponse ListSSHPublicKeys -&gt; Maybe ListSSHPublicKeys
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679440289"><span class="annot"><span class="annottext">ListSSHPublicKeys
-</span><a href="#local-6989586621679440289"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679440288"><span class="annot"><span class="annottext">AWSResponse ListSSHPublicKeys
-</span><a href="#local-6989586621679440288"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679440854"><span class="annot"><span class="annottext">ListSSHPublicKeys
+</span><a href="#local-6989586621679440854"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679440853"><span class="annot"><span class="annottext">AWSResponse ListSSHPublicKeys
+</span><a href="#local-6989586621679440853"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-168"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSSHPublicKeys
 ListSSHPublicKeysResponse
-</span><a href="#local-6989586621679440288"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679440853"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">ListSSHPublicKeysResponse
 -&gt; Getting (First Bool) ListSSHPublicKeysResponse Bool
 -&gt; Maybe Bool
@@ -318,7 +318,7 @@ forall a. Maybe a -&gt; Bool
 </span><span class="hs-identifier hs-var">Prelude.isNothing</span></span><span>
 </span><span id="line-174"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSSHPublicKeys
 ListSSHPublicKeysResponse
-</span><a href="#local-6989586621679440288"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679440853"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">ListSSHPublicKeysResponse
 -&gt; Getting (First Text) ListSSHPublicKeysResponse Text
 -&gt; Maybe Text
@@ -352,7 +352,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ListSSHPublicKeys
-</span><a href="#local-6989586621679440289"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679440854"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">ListSSHPublicKeys
 -&gt; (ListSSHPublicKeys -&gt; ListSSHPublicKeys) -&gt; ListSSHPublicKeys
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -366,7 +366,7 @@ Lens ListSSHPublicKeys ListSSHPublicKeys (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSSHPublicKeys
 ListSSHPublicKeysResponse
-</span><a href="#local-6989586621679440288"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679440853"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">ListSSHPublicKeysResponse
 -&gt; Getting (First Text) ListSSHPublicKeysResponse Text
 -&gt; Maybe Text
@@ -391,12 +391,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-187"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-188"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679440277"><span class="annot"><span class="annottext">request :: ListSSHPublicKeys -&gt; Request ListSSHPublicKeys
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679440842"><span class="annot"><span class="annottext">request :: ListSSHPublicKeys -&gt; Request ListSSHPublicKeys
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListSSHPublicKeys -&gt; Request ListSSHPublicKeys
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679440273"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679440838"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListSSHPublicKeys
 -&gt; ClientResponse ClientBody
@@ -427,41 +427,22 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ListSSHPublicKeysResult&quot;</span></span><span>
-</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440270"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440270"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679440269"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679440269"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679440268"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679440268"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
--&gt; Maybe [SSHPublicKeyMetadata]
--&gt; Maybe Text
--&gt; Int
--&gt; ListSSHPublicKeysResponse
+</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440835"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440835"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679440834"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679440834"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679440833"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679440833"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SSHPublicKeyMetadata]
+-&gt; Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; ListSSHPublicKeysResponse
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var">ListSSHPublicKeysResponse'</span></a></span><span>
-</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
- -&gt; Maybe [SSHPublicKeyMetadata]
- -&gt; Maybe Text
- -&gt; Int
- -&gt; ListSSHPublicKeysResponse)
--&gt; Either String (Maybe Bool)
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [SSHPublicKeyMetadata]
+ -&gt; Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; ListSSHPublicKeysResponse)
+-&gt; Either String (Maybe [SSHPublicKeyMetadata])
 -&gt; Either
      String
-     (Maybe [SSHPublicKeyMetadata]
-      -&gt; Maybe Text -&gt; Int -&gt; ListSSHPublicKeysResponse)
+     (Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; ListSSHPublicKeysResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679440268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [SSHPublicKeyMetadata]
-   -&gt; Maybe Text -&gt; Int -&gt; ListSSHPublicKeysResponse)
--&gt; Either String (Maybe [SSHPublicKeyMetadata])
--&gt; Either String (Maybe Text -&gt; Int -&gt; ListSSHPublicKeysResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679440268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679440833"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SSHPublicKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -469,7 +450,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-198"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-197"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [SSHPublicKeyMetadata]))
 -&gt; Either String (Maybe [SSHPublicKeyMetadata])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -482,16 +463,27 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-199"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListSSHPublicKeysResponse)
+</span><span id="line-198"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; ListSSHPublicKeysResponse)
 -&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; ListSSHPublicKeysResponse)
+-&gt; Either String (Maybe Bool -&gt; Int -&gt; ListSSHPublicKeysResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679440268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679440833"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; Int -&gt; ListSSHPublicKeysResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Int -&gt; ListSSHPublicKeysResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679440833"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListSSHPublicKeysResponse)
 -&gt; Either String Int -&gt; Either String ListSSHPublicKeysResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -500,15 +492,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440270"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440835"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440257"><span id="local-6989586621679440259"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span></span></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440822"><span id="local-6989586621679440824"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span></span></span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440254"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440819"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span></span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-209"></span><span>  </span><span id="local-6989586621679440250"><span class="annot"><span class="annottext">toHeaders :: ListSSHPublicKeys -&gt; ResponseHeaders
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679440815"><span class="annot"><span class="annottext">toHeaders :: ListSSHPublicKeys -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListSSHPublicKeys -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -516,23 +508,23 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621679440245"><span class="annot"><span class="annottext">toPath :: ListSSHPublicKeys -&gt; ByteString
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679440810"><span class="annot"><span class="annottext">toPath :: ListSSHPublicKeys -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListSSHPublicKeys -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys"><span class="hs-identifier hs-type">ListSSHPublicKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679440241"><span class="annot"><span class="annottext">toQuery :: ListSSHPublicKeys -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys%27"><span class="hs-identifier hs-type">ListSSHPublicKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440237"><span id="local-6989586621679440238"><span id="local-6989586621679440239"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679440806"><span class="annot"><span class="annottext">toQuery :: ListSSHPublicKeys -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeys%27"><span class="hs-identifier hs-type">ListSSHPublicKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440802"><span id="local-6989586621679440803"><span id="local-6989586621679440804"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
-marker :: Maybe Text
 maxItems :: Maybe Natural
+marker :: Maybe Text
 userName :: Maybe Text
-$sel:marker:ListSSHPublicKeys' :: ListSSHPublicKeys -&gt; Maybe Text
 $sel:maxItems:ListSSHPublicKeys' :: ListSSHPublicKeys -&gt; Maybe Natural
+$sel:marker:ListSSHPublicKeys' :: ListSSHPublicKeys -&gt; Maybe Text
 $sel:userName:ListSSHPublicKeys' :: ListSSHPublicKeys -&gt; Maybe Text
-</span><a href="#local-6989586621679440237"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679440802"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-216"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -552,45 +544,45 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440239"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440804"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440238"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440237"><span class="hs-identifier hs-var">marker</span></a></span><span>
+</span><a href="#local-6989586621679440803"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679440802"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
 </span><span id="line-224"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | Contains the response to a successful ListSSHPublicKeys request.</span><span>
 </span><span id="line-227"></span><span class="hs-comment">--</span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- /See:/ 'newListSSHPublicKeysResponse' smart constructor.</span><span>
-</span><span id="line-229"></span><span id="local-6989586621679440234"><span id="local-6989586621679440235"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSSHPublicKeysResponse"><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-var">ListSSHPublicKeysResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSSHPublicKeysResponse%27"><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var">ListSSHPublicKeysResponse'</span></a></span></span><span>
-</span><span id="line-230"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
-</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
-</span><span id="line-232"></span><span>    </span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
-</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
-</span><span id="line-234"></span><span>    </span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
-</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
-</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-237"></span><span>    </span><span id="%24sel%3AisTruncated%3AListSSHPublicKeysResponse%27"><span class="annot"><span class="annottext">ListSSHPublicKeysResponse -&gt; Maybe Bool
-</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AisTruncated%3AListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- | A list of the SSH public keys assigned to IAM user.</span><span>
-</span><span id="line-239"></span><span>    </span><span id="%24sel%3AsSHPublicKeys%3AListSSHPublicKeysResponse%27"><span class="annot"><span class="annottext">ListSSHPublicKeysResponse -&gt; Maybe [SSHPublicKeyMetadata]
+</span><span id="line-229"></span><span id="local-6989586621679440799"><span id="local-6989586621679440800"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSSHPublicKeysResponse"><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-var">ListSSHPublicKeysResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSSHPublicKeysResponse%27"><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var">ListSSHPublicKeysResponse'</span></a></span></span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the SSH public keys assigned to IAM user.</span><span>
+</span><span id="line-231"></span><span>    </span><span id="%24sel%3AsSHPublicKeys%3AListSSHPublicKeysResponse%27"><span class="annot"><span class="annottext">ListSSHPublicKeysResponse -&gt; Maybe [SSHPublicKeyMetadata]
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AsSHPublicKeys%3AListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var hs-var">sSHPublicKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKeyMetadata.html#SSHPublicKeyMetadata"><span class="hs-identifier hs-type">SSHPublicKeyMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-240"></span><span>    </span><span class="hs-comment">-- | When @IsTruncated@ is @true@, this element is present and contains the</span><span>
-</span><span id="line-241"></span><span>    </span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
-</span><span id="line-242"></span><span>    </span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-243"></span><span>    </span><span id="%24sel%3Amarker%3AListSSHPublicKeysResponse%27"><span class="annot"><span class="annottext">ListSSHPublicKeysResponse -&gt; Maybe Text
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">-- | When @IsTruncated@ is @true@, this element is present and contains the</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-235"></span><span>    </span><span id="%24sel%3Amarker%3AListSSHPublicKeysResponse%27"><span class="annot"><span class="annottext">ListSSHPublicKeysResponse -&gt; Maybe Text
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3Amarker%3AListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-243"></span><span>    </span><span id="%24sel%3AisTruncated%3AListSSHPublicKeysResponse%27"><span class="annot"><span class="annottext">ListSSHPublicKeysResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AisTruncated%3AListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-244"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-245"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListSSHPublicKeysResponse%27"><span class="annot"><span class="annottext">ListSSHPublicKeysResponse -&gt; Int
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AhttpStatus%3AListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-246"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-247"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440226"><span id="local-6989586621679440228"><span class="annot"><span class="annottext">ListSSHPublicKeysResponse -&gt; ListSSHPublicKeysResponse -&gt; Bool
+</span><span id="line-247"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440791"><span id="local-6989586621679440793"><span class="annot"><span class="annottext">ListSSHPublicKeysResponse -&gt; ListSSHPublicKeysResponse -&gt; Bool
 (ListSSHPublicKeysResponse -&gt; ListSSHPublicKeysResponse -&gt; Bool)
 -&gt; (ListSSHPublicKeysResponse -&gt; ListSSHPublicKeysResponse -&gt; Bool)
 -&gt; Eq ListSSHPublicKeysResponse
@@ -599,7 +591,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListSSHPublicKeysResponse -&gt; ListSSHPublicKeysResponse -&gt; Bool
 == :: ListSSHPublicKeysResponse -&gt; ListSSHPublicKeysResponse -&gt; Bool
 $c== :: ListSSHPublicKeysResponse -&gt; ListSSHPublicKeysResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440218"><span id="local-6989586621679440220"><span id="local-6989586621679440222"><span id="local-6989586621679440224"><span class="annot"><span class="annottext">ReadPrec [ListSSHPublicKeysResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440783"><span id="local-6989586621679440785"><span id="local-6989586621679440787"><span id="local-6989586621679440789"><span class="annot"><span class="annottext">ReadPrec [ListSSHPublicKeysResponse]
 ReadPrec ListSSHPublicKeysResponse
 Int -&gt; ReadS ListSSHPublicKeysResponse
 ReadS [ListSSHPublicKeysResponse]
@@ -619,7 +611,7 @@ readList :: ReadS [ListSSHPublicKeysResponse]
 $creadList :: ReadS [ListSSHPublicKeysResponse]
 readsPrec :: Int -&gt; ReadS ListSSHPublicKeysResponse
 $creadsPrec :: Int -&gt; ReadS ListSSHPublicKeysResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440212"><span id="local-6989586621679440214"><span id="local-6989586621679440216"><span class="annot"><span class="annottext">Int -&gt; ListSSHPublicKeysResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440777"><span id="local-6989586621679440779"><span id="local-6989586621679440781"><span class="annot"><span class="annottext">Int -&gt; ListSSHPublicKeysResponse -&gt; ShowS
 [ListSSHPublicKeysResponse] -&gt; ShowS
 ListSSHPublicKeysResponse -&gt; String
 (Int -&gt; ListSSHPublicKeysResponse -&gt; ShowS)
@@ -659,19 +651,19 @@ ListSSHPublicKeysResponse -&gt; Rep ListSSHPublicKeysResponse x
 </span><span id="line-254"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-255"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-256"></span><span class="hs-comment">--</span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- 'isTruncated', 'listSSHPublicKeysResponse_isTruncated' - A flag that indicates whether there are more items to return. If your</span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-264"></span><span class="hs-comment">--</span><span>
-</span><span id="line-265"></span><span class="hs-comment">-- 'sSHPublicKeys', 'listSSHPublicKeysResponse_sSHPublicKeys' - A list of the SSH public keys assigned to IAM user.</span><span>
-</span><span id="line-266"></span><span class="hs-comment">--</span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- 'marker', 'listSSHPublicKeysResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the</span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
-</span><span id="line-269"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'sSHPublicKeys', 'listSSHPublicKeysResponse_sSHPublicKeys' - A list of the SSH public keys assigned to IAM user.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- 'marker', 'listSSHPublicKeysResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- 'isTruncated', 'listSSHPublicKeysResponse_isTruncated' - A flag that indicates whether there are more items to return. If your</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- results.</span><span>
 </span><span id="line-270"></span><span class="hs-comment">--</span><span>
 </span><span id="line-271"></span><span class="hs-comment">-- 'httpStatus', 'listSSHPublicKeysResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-272"></span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#newListSSHPublicKeysResponse"><span class="hs-identifier hs-type">newListSSHPublicKeysResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -679,61 +671,32 @@ ListSSHPublicKeysResponse -&gt; Rep ListSSHPublicKeysResponse x
 </span><span id="line-274"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-275"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span><span>
 </span><span id="line-276"></span><span id="newListSSHPublicKeysResponse"><span class="annot"><span class="annottext">newListSSHPublicKeysResponse :: Int -&gt; ListSSHPublicKeysResponse
-</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#newListSSHPublicKeysResponse"><span class="hs-identifier hs-var hs-var">newListSSHPublicKeysResponse</span></a></span></span><span> </span><span id="local-6989586621679440209"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440209"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-277"></span><span>  </span><span class="annot"><span class="annottext">ListSSHPublicKeysResponse' :: Maybe Bool
--&gt; Maybe [SSHPublicKeyMetadata]
--&gt; Maybe Text
--&gt; Int
--&gt; ListSSHPublicKeysResponse
+</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#newListSSHPublicKeysResponse"><span class="hs-identifier hs-var hs-var">newListSSHPublicKeysResponse</span></a></span></span><span> </span><span id="local-6989586621679440774"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440774"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-277"></span><span>  </span><span class="annot"><span class="annottext">ListSSHPublicKeysResponse' :: Maybe [SSHPublicKeyMetadata]
+-&gt; Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; ListSSHPublicKeysResponse
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse'</span></a></span><span>
-</span><span id="line-278"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:isTruncated:ListSSHPublicKeysResponse' :: Maybe Bool
-</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AisTruncated%3AListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-279"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-278"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sSHPublicKeys:ListSSHPublicKeysResponse' :: Maybe [SSHPublicKeyMetadata]
+</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AsSHPublicKeys%3AListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var">sSHPublicKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-279"></span><span>        </span><span class="annot"><span class="annottext">Maybe [SSHPublicKeyMetadata]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-280"></span><span>      </span><span class="annot"><span class="annottext">$sel:sSHPublicKeys:ListSSHPublicKeysResponse' :: Maybe [SSHPublicKeyMetadata]
-</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AsSHPublicKeys%3AListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var">sSHPublicKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SSHPublicKeyMetadata]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-281"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:ListSSHPublicKeysResponse' :: Maybe Text
+</span><span id="line-280"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:ListSSHPublicKeysResponse' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3Amarker%3AListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>      </span><span class="annot"><span class="annottext">$sel:isTruncated:ListSSHPublicKeysResponse' :: Maybe Bool
+</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AisTruncated%3AListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-282"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListSSHPublicKeysResponse' :: Int
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AhttpStatus%3AListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440209"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679440774"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-283"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-284"></span><span>
-</span><span id="line-285"></span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
-</span><span id="line-286"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
-</span><span id="line-287"></span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
-</span><span id="line-288"></span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
-</span><span id="line-289"></span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
-</span><span id="line-290"></span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
-</span><span id="line-291"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-292"></span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeysResponse_isTruncated"><span class="hs-identifier hs-type">listSSHPublicKeysResponse_isTruncated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-293"></span><span id="listSSHPublicKeysResponse_isTruncated"><span class="annot"><span class="annottext">listSSHPublicKeysResponse_isTruncated :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ListSSHPublicKeysResponse -&gt; f ListSSHPublicKeysResponse
-</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeysResponse_isTruncated"><span class="hs-identifier hs-var hs-var">listSSHPublicKeysResponse_isTruncated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSSHPublicKeysResponse -&gt; Maybe Bool)
--&gt; (ListSSHPublicKeysResponse
-    -&gt; Maybe Bool -&gt; ListSSHPublicKeysResponse)
--&gt; Lens' ListSSHPublicKeysResponse (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440208"><span class="annot"><span class="annottext">Maybe Bool
-isTruncated :: Maybe Bool
-$sel:isTruncated:ListSSHPublicKeysResponse' :: ListSSHPublicKeysResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679440208"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679440208"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440207"><span class="annot"><span class="annottext">s :: ListSSHPublicKeysResponse
-</span><a href="#local-6989586621679440207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440206"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679440206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSSHPublicKeysResponse
-</span><a href="#local-6989586621679440207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListSSHPublicKeysResponse' :: Maybe Bool
-</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AisTruncated%3AListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679440206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-294"></span><span>
-</span><span id="line-295"></span><span class="hs-comment">-- | A list of the SSH public keys assigned to IAM user.</span><span>
-</span><span id="line-296"></span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeysResponse_sSHPublicKeys"><span class="hs-identifier hs-type">listSSHPublicKeysResponse_sSHPublicKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKeyMetadata.html#SSHPublicKeyMetadata"><span class="hs-identifier hs-type">SSHPublicKeyMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-297"></span><span id="listSSHPublicKeysResponse_sSHPublicKeys"><span class="annot"><span class="annottext">listSSHPublicKeysResponse_sSHPublicKeys :: (Maybe [SSHPublicKeyMetadata] -&gt; f (Maybe [SSHPublicKeyMetadata]))
+</span><span id="line-285"></span><span class="hs-comment">-- | A list of the SSH public keys assigned to IAM user.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeysResponse_sSHPublicKeys"><span class="hs-identifier hs-type">listSSHPublicKeysResponse_sSHPublicKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKeyMetadata.html#SSHPublicKeyMetadata"><span class="hs-identifier hs-type">SSHPublicKeyMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="listSSHPublicKeysResponse_sSHPublicKeys"><span class="annot"><span class="annottext">listSSHPublicKeysResponse_sSHPublicKeys :: (Maybe [SSHPublicKeyMetadata] -&gt; f (Maybe [SSHPublicKeyMetadata]))
 -&gt; ListSSHPublicKeysResponse -&gt; f ListSSHPublicKeysResponse
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeysResponse_sSHPublicKeys"><span class="hs-identifier hs-var hs-var">listSSHPublicKeysResponse_sSHPublicKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSSHPublicKeysResponse -&gt; Maybe [SSHPublicKeyMetadata])
 -&gt; (ListSSHPublicKeysResponse
@@ -744,16 +707,16 @@ $sel:isTruncated:ListSSHPublicKeysResponse' :: ListSSHPublicKeysResponse -&gt; M
      (Maybe [SSHPublicKeyMetadata])
      (Maybe [SSHPublicKeyMetadata])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440205"><span class="annot"><span class="annottext">Maybe [SSHPublicKeyMetadata]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440773"><span class="annot"><span class="annottext">Maybe [SSHPublicKeyMetadata]
 sSHPublicKeys :: Maybe [SSHPublicKeyMetadata]
 $sel:sSHPublicKeys:ListSSHPublicKeysResponse' :: ListSSHPublicKeysResponse -&gt; Maybe [SSHPublicKeyMetadata]
-</span><a href="#local-6989586621679440205"><span class="hs-identifier hs-var hs-var">sSHPublicKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SSHPublicKeyMetadata]
-</span><a href="#local-6989586621679440205"><span class="hs-identifier hs-var">sSHPublicKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440204"><span class="annot"><span class="annottext">s :: ListSSHPublicKeysResponse
-</span><a href="#local-6989586621679440204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440203"><span class="annot"><span class="annottext">Maybe [SSHPublicKeyMetadata]
-</span><a href="#local-6989586621679440203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSSHPublicKeysResponse
-</span><a href="#local-6989586621679440204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSHPublicKeys:ListSSHPublicKeysResponse' :: Maybe [SSHPublicKeyMetadata]
+</span><a href="#local-6989586621679440773"><span class="hs-identifier hs-var hs-var">sSHPublicKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SSHPublicKeyMetadata]
+</span><a href="#local-6989586621679440773"><span class="hs-identifier hs-var">sSHPublicKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440772"><span class="annot"><span class="annottext">s :: ListSSHPublicKeysResponse
+</span><a href="#local-6989586621679440772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440771"><span class="annot"><span class="annottext">Maybe [SSHPublicKeyMetadata]
+</span><a href="#local-6989586621679440771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSSHPublicKeysResponse
+</span><a href="#local-6989586621679440772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSHPublicKeys:ListSSHPublicKeysResponse' :: Maybe [SSHPublicKeyMetadata]
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AsSHPublicKeys%3AListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var">sSHPublicKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SSHPublicKeyMetadata]
-</span><a href="#local-6989586621679440203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SSHPublicKeyMetadata] -&gt; f (Maybe [SSHPublicKeyMetadata]))
+</span><a href="#local-6989586621679440771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SSHPublicKeyMetadata] -&gt; f (Maybe [SSHPublicKeyMetadata]))
  -&gt; ListSSHPublicKeysResponse -&gt; f ListSSHPublicKeysResponse)
 -&gt; ((Maybe [SSHPublicKeyMetadata]
      -&gt; f (Maybe [SSHPublicKeyMetadata]))
@@ -782,30 +745,56 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [SSHPublicKeyMetadata]
   [SSHPublicKeyMetadata]
   [SSHPublicKeyMetadata]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-298"></span><span>
-</span><span id="line-299"></span><span class="hs-comment">-- | When @IsTruncated@ is @true@, this element is present and contains the</span><span>
-</span><span id="line-300"></span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
-</span><span id="line-301"></span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-302"></span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeysResponse_marker"><span class="hs-identifier hs-type">listSSHPublicKeysResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-303"></span><span id="listSSHPublicKeysResponse_marker"><span class="annot"><span class="annottext">listSSHPublicKeysResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | When @IsTruncated@ is @true@, this element is present and contains the</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-292"></span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeysResponse_marker"><span class="hs-identifier hs-type">listSSHPublicKeysResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span id="listSSHPublicKeysResponse_marker"><span class="annot"><span class="annottext">listSSHPublicKeysResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListSSHPublicKeysResponse -&gt; f ListSSHPublicKeysResponse
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeysResponse_marker"><span class="hs-identifier hs-var hs-var">listSSHPublicKeysResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSSHPublicKeysResponse -&gt; Maybe Text)
 -&gt; (ListSSHPublicKeysResponse
     -&gt; Maybe Text -&gt; ListSSHPublicKeysResponse)
 -&gt; Lens' ListSSHPublicKeysResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440200"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440768"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListSSHPublicKeysResponse' :: ListSSHPublicKeysResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679440200"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440200"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440199"><span class="annot"><span class="annottext">s :: ListSSHPublicKeysResponse
-</span><a href="#local-6989586621679440199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440198"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSSHPublicKeysResponse
-</span><a href="#local-6989586621679440199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListSSHPublicKeysResponse' :: Maybe Text
+</span><a href="#local-6989586621679440768"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440768"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440767"><span class="annot"><span class="annottext">s :: ListSSHPublicKeysResponse
+</span><a href="#local-6989586621679440767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440766"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSSHPublicKeysResponse
+</span><a href="#local-6989586621679440767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListSSHPublicKeysResponse' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3Amarker%3AListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeysResponse_isTruncated"><span class="hs-identifier hs-type">listSSHPublicKeysResponse_isTruncated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span id="listSSHPublicKeysResponse_isTruncated"><span class="annot"><span class="annottext">listSSHPublicKeysResponse_isTruncated :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ListSSHPublicKeysResponse -&gt; f ListSSHPublicKeysResponse
+</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeysResponse_isTruncated"><span class="hs-identifier hs-var hs-var">listSSHPublicKeysResponse_isTruncated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSSHPublicKeysResponse -&gt; Maybe Bool)
+-&gt; (ListSSHPublicKeysResponse
+    -&gt; Maybe Bool -&gt; ListSSHPublicKeysResponse)
+-&gt; Lens' ListSSHPublicKeysResponse (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440765"><span class="annot"><span class="annottext">Maybe Bool
+isTruncated :: Maybe Bool
+$sel:isTruncated:ListSSHPublicKeysResponse' :: ListSSHPublicKeysResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679440765"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679440765"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440764"><span class="annot"><span class="annottext">s :: ListSSHPublicKeysResponse
+</span><a href="#local-6989586621679440764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440763"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679440763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSSHPublicKeysResponse
+</span><a href="#local-6989586621679440764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListSSHPublicKeysResponse' :: Maybe Bool
+</span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AisTruncated%3AListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679440763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-304"></span><span>
 </span><span id="line-305"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-306"></span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#listSSHPublicKeysResponse_httpStatus"><span class="hs-identifier hs-type">listSSHPublicKeysResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -815,16 +804,16 @@ $sel:marker:ListSSHPublicKeysResponse' :: ListSSHPublicKeysResponse -&gt; Maybe 
 -&gt; (ListSSHPublicKeysResponse -&gt; Int -&gt; ListSSHPublicKeysResponse)
 -&gt; Lens ListSSHPublicKeysResponse ListSSHPublicKeysResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440197"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440762"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListSSHPublicKeysResponse' :: ListSSHPublicKeysResponse -&gt; Int
-</span><a href="#local-6989586621679440197"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440197"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440196"><span class="annot"><span class="annottext">s :: ListSSHPublicKeysResponse
-</span><a href="#local-6989586621679440196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440195"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSSHPublicKeysResponse
-</span><a href="#local-6989586621679440196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSSHPublicKeysResponse' :: Int
+</span><a href="#local-6989586621679440762"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440762"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440761"><span class="annot"><span class="annottext">s :: ListSSHPublicKeysResponse
+</span><a href="#local-6989586621679440761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse%27"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440760"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSSHPublicKeysResponse
+</span><a href="#local-6989586621679440761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSSHPublicKeysResponse' :: Int
 </span><a href="Network.AWS.IAM.ListSSHPublicKeys.html#%24sel%3AhttpStatus%3AListSSHPublicKeysResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-308"></span><span>
-</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440193"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span></span><span>
+</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSSHPublicKeys.html#ListSSHPublicKeysResponse"><span class="hs-identifier hs-type">ListSSHPublicKeysResponse</span></a></span></span><span>
 </span><span id="line-310"></span></pre></body></html>

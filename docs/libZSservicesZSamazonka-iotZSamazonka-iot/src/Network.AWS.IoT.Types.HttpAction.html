@@ -28,29 +28,29 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Send data to an HTTPS endpoint.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newHttpAction' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679797319"><span id="local-6989586621679797320"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpAction"><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-var">HttpAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-var">HttpAction'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The HTTP headers to send with the message data.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aheaders%3AHttpAction%27"><span class="annot"><span class="annottext">HttpAction -&gt; Maybe [HttpActionHeader]
-</span><a href="Network.AWS.IoT.Types.HttpAction.html#%24sel%3Aheaders%3AHttpAction%27"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The authentication method to use when sending data to an HTTPS endpoint.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aauth%3AHttpAction%27"><span class="annot"><span class="annottext">HttpAction -&gt; Maybe HttpAuthorization
-</span><a href="Network.AWS.IoT.Types.HttpAction.html#%24sel%3Aauth%3AHttpAction%27"><span class="hs-identifier hs-var hs-var">auth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAuthorization.html#HttpAuthorization"><span class="hs-identifier hs-type">HttpAuthorization</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The URL to which IoT sends a confirmation message. The value of the</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- confirmation URL must be a prefix of the endpoint URL. If you do not</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- specify a confirmation URL IoT uses the endpoint URL as the confirmation</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- URL. If you use substitution templates in the confirmationUrl, you must</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- create and enable topic rule destinations that match each possible value</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- of the substitution template before traffic is allowed to your endpoint</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- URL.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AconfirmationUrl%3AHttpAction%27"><span class="annot"><span class="annottext">HttpAction -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621679798190"><span id="local-6989586621679798191"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpAction"><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-var">HttpAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-var">HttpAction'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The URL to which IoT sends a confirmation message. The value of the</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- confirmation URL must be a prefix of the endpoint URL. If you do not</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- specify a confirmation URL IoT uses the endpoint URL as the confirmation</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- URL. If you use substitution templates in the confirmationUrl, you must</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- create and enable topic rule destinations that match each possible value</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- of the substitution template before traffic is allowed to your endpoint</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- URL.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AconfirmationUrl%3AHttpAction%27"><span class="annot"><span class="annottext">HttpAction -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.HttpAction.html#%24sel%3AconfirmationUrl%3AHttpAction%27"><span class="hs-identifier hs-var hs-var">confirmationUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The authentication method to use when sending data to an HTTPS endpoint.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aauth%3AHttpAction%27"><span class="annot"><span class="annottext">HttpAction -&gt; Maybe HttpAuthorization
+</span><a href="Network.AWS.IoT.Types.HttpAction.html#%24sel%3Aauth%3AHttpAction%27"><span class="hs-identifier hs-var hs-var">auth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAuthorization.html#HttpAuthorization"><span class="hs-identifier hs-type">HttpAuthorization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The HTTP headers to send with the message data.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aheaders%3AHttpAction%27"><span class="annot"><span class="annottext">HttpAction -&gt; Maybe [HttpActionHeader]
+</span><a href="Network.AWS.IoT.Types.HttpAction.html#%24sel%3Aheaders%3AHttpAction%27"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The endpoint URL. If substitution templates are used in the URL, you</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- must also specify a @confirmationUrl@. If this is a new destination, a</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- new @TopicRuleDestination@ is created if possible.</span><span>
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3Aurl%3AHttpAction%27"><span class="annot"><span class="annottext">HttpAction -&gt; Text
 </span><a href="Network.AWS.IoT.Types.HttpAction.html#%24sel%3Aurl%3AHttpAction%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797310"><span id="local-6989586621679797312"><span class="annot"><span class="annottext">HttpAction -&gt; HttpAction -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679798181"><span id="local-6989586621679798183"><span class="annot"><span class="annottext">HttpAction -&gt; HttpAction -&gt; Bool
 (HttpAction -&gt; HttpAction -&gt; Bool)
 -&gt; (HttpAction -&gt; HttpAction -&gt; Bool) -&gt; Eq HttpAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HttpAction -&gt; HttpAction -&gt; Bool
 == :: HttpAction -&gt; HttpAction -&gt; Bool
 $c== :: HttpAction -&gt; HttpAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797301"><span id="local-6989586621679797303"><span id="local-6989586621679797305"><span id="local-6989586621679797307"><span class="annot"><span class="annottext">ReadPrec [HttpAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798172"><span id="local-6989586621679798174"><span id="local-6989586621679798176"><span id="local-6989586621679798178"><span class="annot"><span class="annottext">ReadPrec [HttpAction]
 ReadPrec HttpAction
 Int -&gt; ReadS HttpAction
 ReadS [HttpAction]
@@ -78,7 +78,7 @@ readList :: ReadS [HttpAction]
 $creadList :: ReadS [HttpAction]
 readsPrec :: Int -&gt; ReadS HttpAction
 $creadsPrec :: Int -&gt; ReadS HttpAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797294"><span id="local-6989586621679797296"><span id="local-6989586621679797298"><span class="annot"><span class="annottext">Int -&gt; HttpAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798165"><span id="local-6989586621679798167"><span id="local-6989586621679798169"><span class="annot"><span class="annottext">Int -&gt; HttpAction -&gt; ShowS
 [HttpAction] -&gt; ShowS
 HttpAction -&gt; String
 (Int -&gt; HttpAction -&gt; ShowS)
@@ -111,17 +111,17 @@ $cfrom :: forall x. HttpAction -&gt; Rep HttpAction x
 </span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'headers', 'httpAction_headers' - The HTTP headers to send with the message data.</span><span>
-</span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'auth', 'httpAction_auth' - The authentication method to use when sending data to an HTTPS endpoint.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'confirmationUrl', 'httpAction_confirmationUrl' - The URL to which IoT sends a confirmation message. The value of the</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- confirmation URL must be a prefix of the endpoint URL. If you do not</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- specify a confirmation URL IoT uses the endpoint URL as the confirmation</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- URL. If you use substitution templates in the confirmationUrl, you must</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- create and enable topic rule destinations that match each possible value</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- of the substitution template before traffic is allowed to your endpoint</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- URL.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'confirmationUrl', 'httpAction_confirmationUrl' - The URL to which IoT sends a confirmation message. The value of the</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- confirmation URL must be a prefix of the endpoint URL. If you do not</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- specify a confirmation URL IoT uses the endpoint URL as the confirmation</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- URL. If you use substitution templates in the confirmationUrl, you must</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- create and enable topic rule destinations that match each possible value</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- of the substitution template before traffic is allowed to your endpoint</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- URL.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'auth', 'httpAction_auth' - The authentication method to use when sending data to an HTTPS endpoint.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'headers', 'httpAction_headers' - The HTTP headers to send with the message data.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- 'url', 'httpAction_url' - The endpoint URL. If substitution templates are used in the URL, you</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- must also specify a @confirmationUrl@. If this is a new destination, a</span><span>
@@ -131,31 +131,81 @@ $cfrom :: forall x. HttpAction -&gt; Rep HttpAction x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span><span>
 </span><span id="line-78"></span><span id="newHttpAction"><span class="annot"><span class="annottext">newHttpAction :: Text -&gt; HttpAction
-</span><a href="Network.AWS.IoT.Types.HttpAction.html#newHttpAction"><span class="hs-identifier hs-var hs-var">newHttpAction</span></a></span></span><span> </span><span id="local-6989586621679797288"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797288"><span class="hs-identifier hs-var">pUrl_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">HttpAction' :: Maybe [HttpActionHeader]
--&gt; Maybe HttpAuthorization -&gt; Maybe Text -&gt; Text -&gt; HttpAction
+</span><a href="Network.AWS.IoT.Types.HttpAction.html#newHttpAction"><span class="hs-identifier hs-var hs-var">newHttpAction</span></a></span></span><span> </span><span id="local-6989586621679798159"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798159"><span class="hs-identifier hs-var">pUrl_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">HttpAction' :: Maybe Text
+-&gt; Maybe HttpAuthorization
+-&gt; Maybe [HttpActionHeader]
+-&gt; Text
+-&gt; HttpAction
 </span><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:headers:HttpAction' :: Maybe [HttpActionHeader]
-</span><a href="Network.AWS.IoT.Types.HttpAction.html#%24sel%3Aheaders%3AHttpAction%27"><span class="hs-identifier hs-var">headers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HttpActionHeader]
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:confirmationUrl:HttpAction' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.HttpAction.html#%24sel%3AconfirmationUrl%3AHttpAction%27"><span class="hs-identifier hs-var">confirmationUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:auth:HttpAction' :: Maybe HttpAuthorization
 </span><a href="Network.AWS.IoT.Types.HttpAction.html#%24sel%3Aauth%3AHttpAction%27"><span class="hs-identifier hs-var">auth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpAuthorization
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:confirmationUrl:HttpAction' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.HttpAction.html#%24sel%3AconfirmationUrl%3AHttpAction%27"><span class="hs-identifier hs-var">confirmationUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:headers:HttpAction' :: Maybe [HttpActionHeader]
+</span><a href="Network.AWS.IoT.Types.HttpAction.html#%24sel%3Aheaders%3AHttpAction%27"><span class="hs-identifier hs-var">headers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HttpActionHeader]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:HttpAction' :: Text
 </span><a href="Network.AWS.IoT.Types.HttpAction.html#%24sel%3Aurl%3AHttpAction%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797288"><span class="hs-identifier hs-var">pUrl_</span></a></span><span>
+</span><a href="#local-6989586621679798159"><span class="hs-identifier hs-var">pUrl_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | The HTTP headers to send with the message data.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#httpAction_headers"><span class="hs-identifier hs-type">httpAction_headers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="httpAction_headers"><span class="annot"><span class="annottext">httpAction_headers :: (Maybe [HttpActionHeader] -&gt; f (Maybe [HttpActionHeader]))
+</span><span id="line-86"></span><span class="hs-comment">-- | The URL to which IoT sends a confirmation message. The value of the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- confirmation URL must be a prefix of the endpoint URL. If you do not</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- specify a confirmation URL IoT uses the endpoint URL as the confirmation</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- URL. If you use substitution templates in the confirmationUrl, you must</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- create and enable topic rule destinations that match each possible value</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- of the substitution template before traffic is allowed to your endpoint</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- URL.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#httpAction_confirmationUrl"><span class="hs-identifier hs-type">httpAction_confirmationUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="httpAction_confirmationUrl"><span class="annot"><span class="annottext">httpAction_confirmationUrl :: (Maybe Text -&gt; f (Maybe Text)) -&gt; HttpAction -&gt; f HttpAction
+</span><a href="Network.AWS.IoT.Types.HttpAction.html#httpAction_confirmationUrl"><span class="hs-identifier hs-var hs-var">httpAction_confirmationUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpAction -&gt; Maybe Text)
+-&gt; (HttpAction -&gt; Maybe Text -&gt; HttpAction)
+-&gt; Lens HttpAction HttpAction (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798155"><span class="annot"><span class="annottext">Maybe Text
+confirmationUrl :: Maybe Text
+$sel:confirmationUrl:HttpAction' :: HttpAction -&gt; Maybe Text
+</span><a href="#local-6989586621679798155"><span class="hs-identifier hs-var hs-var">confirmationUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679798155"><span class="hs-identifier hs-var">confirmationUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798154"><span class="annot"><span class="annottext">s :: HttpAction
+</span><a href="#local-6989586621679798154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798153"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679798153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpAction
+</span><a href="#local-6989586621679798154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confirmationUrl:HttpAction' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.HttpAction.html#%24sel%3AconfirmationUrl%3AHttpAction%27"><span class="hs-identifier hs-var">confirmationUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679798153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The authentication method to use when sending data to an HTTPS endpoint.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#httpAction_auth"><span class="hs-identifier hs-type">httpAction_auth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAuthorization.html#HttpAuthorization"><span class="hs-identifier hs-type">HttpAuthorization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="httpAction_auth"><span class="annot"><span class="annottext">httpAction_auth :: (Maybe HttpAuthorization -&gt; f (Maybe HttpAuthorization))
+-&gt; HttpAction -&gt; f HttpAction
+</span><a href="Network.AWS.IoT.Types.HttpAction.html#httpAction_auth"><span class="hs-identifier hs-var hs-var">httpAction_auth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpAction -&gt; Maybe HttpAuthorization)
+-&gt; (HttpAction -&gt; Maybe HttpAuthorization -&gt; HttpAction)
+-&gt; Lens
+     HttpAction
+     HttpAction
+     (Maybe HttpAuthorization)
+     (Maybe HttpAuthorization)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798151"><span class="annot"><span class="annottext">Maybe HttpAuthorization
+auth :: Maybe HttpAuthorization
+$sel:auth:HttpAction' :: HttpAction -&gt; Maybe HttpAuthorization
+</span><a href="#local-6989586621679798151"><span class="hs-identifier hs-var hs-var">auth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpAuthorization
+</span><a href="#local-6989586621679798151"><span class="hs-identifier hs-var">auth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798150"><span class="annot"><span class="annottext">s :: HttpAction
+</span><a href="#local-6989586621679798150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798149"><span class="annot"><span class="annottext">Maybe HttpAuthorization
+</span><a href="#local-6989586621679798149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpAction
+</span><a href="#local-6989586621679798150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auth:HttpAction' :: Maybe HttpAuthorization
+</span><a href="Network.AWS.IoT.Types.HttpAction.html#%24sel%3Aauth%3AHttpAction%27"><span class="hs-identifier hs-var">auth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpAuthorization
+</span><a href="#local-6989586621679798149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The HTTP headers to send with the message data.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#httpAction_headers"><span class="hs-identifier hs-type">httpAction_headers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="httpAction_headers"><span class="annot"><span class="annottext">httpAction_headers :: (Maybe [HttpActionHeader] -&gt; f (Maybe [HttpActionHeader]))
 -&gt; HttpAction -&gt; f HttpAction
 </span><a href="Network.AWS.IoT.Types.HttpAction.html#httpAction_headers"><span class="hs-identifier hs-var hs-var">httpAction_headers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpAction -&gt; Maybe [HttpActionHeader])
 -&gt; (HttpAction -&gt; Maybe [HttpActionHeader] -&gt; HttpAction)
@@ -165,16 +215,16 @@ forall a. Maybe a
      (Maybe [HttpActionHeader])
      (Maybe [HttpActionHeader])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797284"><span class="annot"><span class="annottext">Maybe [HttpActionHeader]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798147"><span class="annot"><span class="annottext">Maybe [HttpActionHeader]
 headers :: Maybe [HttpActionHeader]
 $sel:headers:HttpAction' :: HttpAction -&gt; Maybe [HttpActionHeader]
-</span><a href="#local-6989586621679797284"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HttpActionHeader]
-</span><a href="#local-6989586621679797284"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797283"><span class="annot"><span class="annottext">s :: HttpAction
-</span><a href="#local-6989586621679797283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797282"><span class="annot"><span class="annottext">Maybe [HttpActionHeader]
-</span><a href="#local-6989586621679797282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpAction
-</span><a href="#local-6989586621679797283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headers:HttpAction' :: Maybe [HttpActionHeader]
+</span><a href="#local-6989586621679798147"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HttpActionHeader]
+</span><a href="#local-6989586621679798147"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798146"><span class="annot"><span class="annottext">s :: HttpAction
+</span><a href="#local-6989586621679798146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798145"><span class="annot"><span class="annottext">Maybe [HttpActionHeader]
+</span><a href="#local-6989586621679798145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpAction
+</span><a href="#local-6989586621679798146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headers:HttpAction' :: Maybe [HttpActionHeader]
 </span><a href="Network.AWS.IoT.Types.HttpAction.html#%24sel%3Aheaders%3AHttpAction%27"><span class="hs-identifier hs-var">headers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HttpActionHeader]
-</span><a href="#local-6989586621679797282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HttpActionHeader] -&gt; f (Maybe [HttpActionHeader]))
+</span><a href="#local-6989586621679798145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HttpActionHeader] -&gt; f (Maybe [HttpActionHeader]))
  -&gt; HttpAction -&gt; f HttpAction)
 -&gt; ((Maybe [HttpActionHeader] -&gt; f (Maybe [HttpActionHeader]))
     -&gt; Maybe [HttpActionHeader] -&gt; f (Maybe [HttpActionHeader]))
@@ -200,55 +250,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [HttpActionHeader]
   [HttpActionHeader]
   [HttpActionHeader]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The authentication method to use when sending data to an HTTPS endpoint.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#httpAction_auth"><span class="hs-identifier hs-type">httpAction_auth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAuthorization.html#HttpAuthorization"><span class="hs-identifier hs-type">HttpAuthorization</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="httpAction_auth"><span class="annot"><span class="annottext">httpAction_auth :: (Maybe HttpAuthorization -&gt; f (Maybe HttpAuthorization))
--&gt; HttpAction -&gt; f HttpAction
-</span><a href="Network.AWS.IoT.Types.HttpAction.html#httpAction_auth"><span class="hs-identifier hs-var hs-var">httpAction_auth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpAction -&gt; Maybe HttpAuthorization)
--&gt; (HttpAction -&gt; Maybe HttpAuthorization -&gt; HttpAction)
--&gt; Lens
-     HttpAction
-     HttpAction
-     (Maybe HttpAuthorization)
-     (Maybe HttpAuthorization)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797277"><span class="annot"><span class="annottext">Maybe HttpAuthorization
-auth :: Maybe HttpAuthorization
-$sel:auth:HttpAction' :: HttpAction -&gt; Maybe HttpAuthorization
-</span><a href="#local-6989586621679797277"><span class="hs-identifier hs-var hs-var">auth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpAuthorization
-</span><a href="#local-6989586621679797277"><span class="hs-identifier hs-var">auth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797276"><span class="annot"><span class="annottext">s :: HttpAction
-</span><a href="#local-6989586621679797276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797275"><span class="annot"><span class="annottext">Maybe HttpAuthorization
-</span><a href="#local-6989586621679797275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpAction
-</span><a href="#local-6989586621679797276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auth:HttpAction' :: Maybe HttpAuthorization
-</span><a href="Network.AWS.IoT.Types.HttpAction.html#%24sel%3Aauth%3AHttpAction%27"><span class="hs-identifier hs-var">auth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpAuthorization
-</span><a href="#local-6989586621679797275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The URL to which IoT sends a confirmation message. The value of the</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- confirmation URL must be a prefix of the endpoint URL. If you do not</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- specify a confirmation URL IoT uses the endpoint URL as the confirmation</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- URL. If you use substitution templates in the confirmationUrl, you must</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- create and enable topic rule destinations that match each possible value</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- of the substitution template before traffic is allowed to your endpoint</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- URL.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#httpAction_confirmationUrl"><span class="hs-identifier hs-type">httpAction_confirmationUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="httpAction_confirmationUrl"><span class="annot"><span class="annottext">httpAction_confirmationUrl :: (Maybe Text -&gt; f (Maybe Text)) -&gt; HttpAction -&gt; f HttpAction
-</span><a href="Network.AWS.IoT.Types.HttpAction.html#httpAction_confirmationUrl"><span class="hs-identifier hs-var hs-var">httpAction_confirmationUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpAction -&gt; Maybe Text)
--&gt; (HttpAction -&gt; Maybe Text -&gt; HttpAction)
--&gt; Lens HttpAction HttpAction (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797273"><span class="annot"><span class="annottext">Maybe Text
-confirmationUrl :: Maybe Text
-$sel:confirmationUrl:HttpAction' :: HttpAction -&gt; Maybe Text
-</span><a href="#local-6989586621679797273"><span class="hs-identifier hs-var hs-var">confirmationUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797273"><span class="hs-identifier hs-var">confirmationUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797272"><span class="annot"><span class="annottext">s :: HttpAction
-</span><a href="#local-6989586621679797272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797271"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpAction
-</span><a href="#local-6989586621679797272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confirmationUrl:HttpAction' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.HttpAction.html#%24sel%3AconfirmationUrl%3AHttpAction%27"><span class="hs-identifier hs-var">confirmationUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The endpoint URL. If substitution templates are used in the URL, you</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- must also specify a @confirmationUrl@. If this is a new destination, a</span><span>
@@ -259,19 +262,19 @@ $sel:confirmationUrl:HttpAction' :: HttpAction -&gt; Maybe Text
 -&gt; (HttpAction -&gt; Text -&gt; HttpAction)
 -&gt; Lens HttpAction HttpAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797269"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798140"><span class="annot"><span class="annottext">Text
 url :: Text
 $sel:url:HttpAction' :: HttpAction -&gt; Text
-</span><a href="#local-6989586621679797269"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797269"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797268"><span class="annot"><span class="annottext">s :: HttpAction
-</span><a href="#local-6989586621679797268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797267"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpAction
-</span><a href="#local-6989586621679797268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:HttpAction' :: Text
+</span><a href="#local-6989586621679798140"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798140"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798139"><span class="annot"><span class="annottext">s :: HttpAction
+</span><a href="#local-6989586621679798139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798138"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpAction
+</span><a href="#local-6989586621679798139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:HttpAction' :: Text
 </span><a href="Network.AWS.IoT.Types.HttpAction.html#%24sel%3Aurl%3AHttpAction%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679798138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797264"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679797262"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HttpAction
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798135"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679798133"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HttpAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HttpAction) -&gt; Value -&gt; Parser HttpAction
@@ -279,19 +282,45 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HttpAction&quot;</span></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679797259"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797259"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe [HttpActionHeader]
--&gt; Maybe HttpAuthorization -&gt; Maybe Text -&gt; Text -&gt; HttpAction
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679798130"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679798130"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe HttpAuthorization
+-&gt; Maybe [HttpActionHeader]
+-&gt; Text
+-&gt; HttpAction
 </span><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-var">HttpAction'</span></a></span><span>
-</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [HttpActionHeader]
- -&gt; Maybe HttpAuthorization -&gt; Maybe Text -&gt; Text -&gt; HttpAction)
--&gt; Parser (Maybe [HttpActionHeader])
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe HttpAuthorization
+ -&gt; Maybe [HttpActionHeader]
+ -&gt; Text
+ -&gt; HttpAction)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe HttpAuthorization -&gt; Maybe Text -&gt; Text -&gt; HttpAction)
+     (Maybe HttpAuthorization
+      -&gt; Maybe [HttpActionHeader] -&gt; Text -&gt; HttpAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797259"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [HttpActionHeader]))
+</span><a href="#local-6989586621679798130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;confirmationUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe HttpAuthorization
+   -&gt; Maybe [HttpActionHeader] -&gt; Text -&gt; HttpAction)
+-&gt; Parser (Maybe HttpAuthorization)
+-&gt; Parser (Maybe [HttpActionHeader] -&gt; Text -&gt; HttpAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679798130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpAuthorization)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;auth&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [HttpActionHeader] -&gt; Text -&gt; HttpAction)
+-&gt; Parser (Maybe [HttpActionHeader]) -&gt; Parser (Text -&gt; HttpAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679798130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [HttpActionHeader]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;headers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [HttpActionHeader]))
@@ -300,88 +329,70 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [HttpActionHeader]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe HttpAuthorization -&gt; Maybe Text -&gt; Text -&gt; HttpAction)
--&gt; Parser (Maybe HttpAuthorization)
--&gt; Parser (Maybe Text -&gt; Text -&gt; HttpAction)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797259"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpAuthorization)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;auth&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; HttpAction)
--&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; HttpAction)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797259"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;confirmationUrl&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; HttpAction) -&gt; Parser Text -&gt; Parser HttpAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797259"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679798130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;url&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797251"><span id="local-6989586621679797253"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798122"><span id="local-6989586621679798124"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797248"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798119"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797240"><span id="local-6989586621679797242"><span id="local-6989586621679797244"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679797238"><span class="annot"><span class="annottext">toJSON :: HttpAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797233"><span id="local-6989586621679797234"><span id="local-6989586621679797235"><span id="local-6989586621679797236"><span class="annot"><span class="annottext">Maybe [HttpActionHeader]
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798111"><span id="local-6989586621679798113"><span id="local-6989586621679798115"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679798109"><span class="annot"><span class="annottext">toJSON :: HttpAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction%27"><span class="hs-identifier hs-type">HttpAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798104"><span id="local-6989586621679798105"><span id="local-6989586621679798106"><span id="local-6989586621679798107"><span class="annot"><span class="annottext">Maybe [HttpActionHeader]
 Maybe Text
 Maybe HttpAuthorization
 Text
 url :: Text
-confirmationUrl :: Maybe Text
-auth :: Maybe HttpAuthorization
 headers :: Maybe [HttpActionHeader]
+auth :: Maybe HttpAuthorization
+confirmationUrl :: Maybe Text
 $sel:url:HttpAction' :: HttpAction -&gt; Text
-$sel:confirmationUrl:HttpAction' :: HttpAction -&gt; Maybe Text
-$sel:auth:HttpAction' :: HttpAction -&gt; Maybe HttpAuthorization
 $sel:headers:HttpAction' :: HttpAction -&gt; Maybe [HttpActionHeader]
-</span><a href="#local-6989586621679797233"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:auth:HttpAction' :: HttpAction -&gt; Maybe HttpAuthorization
+$sel:confirmationUrl:HttpAction' :: HttpAction -&gt; Maybe Text
+</span><a href="#local-6989586621679798104"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;headers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [HttpActionHeader] -&gt; Pair
+</span><span class="hs-string">&quot;confirmationUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([HttpActionHeader] -&gt; Pair)
--&gt; Maybe [HttpActionHeader] -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [HttpActionHeader]
-</span><a href="#local-6989586621679797236"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679798107"><span class="hs-identifier hs-var">confirmationUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;auth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpAuthorization -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HttpAuthorization -&gt; Pair)
 -&gt; Maybe HttpAuthorization -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpAuthorization
-</span><a href="#local-6989586621679797235"><span class="hs-identifier hs-var">auth</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;confirmationUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><a href="#local-6989586621679798106"><span class="hs-identifier hs-var">auth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;headers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [HttpActionHeader] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([HttpActionHeader] -&gt; Pair)
+-&gt; Maybe [HttpActionHeader] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797234"><span class="hs-identifier hs-var">confirmationUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [HttpActionHeader]
+</span><a href="#local-6989586621679798105"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;url&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797233"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679798104"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span></pre></body></html>

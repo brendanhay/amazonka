@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDescribeDatastore' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679267035"><span id="local-6989586621679267036"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDatastore"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore"><span class="hs-identifier hs-var">DescribeDatastore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDatastore%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore%27"><span class="hs-identifier hs-var">DescribeDatastore'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679267267"><span id="local-6989586621679267268"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDatastore"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore"><span class="hs-identifier hs-var">DescribeDatastore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDatastore%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore%27"><span class="hs-identifier hs-var">DescribeDatastore'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If true, additional statistical information about the data store is</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- included in the response. This feature can\'t be used with a data store</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- whose S3 storage is customer-managed.</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdatastoreName%3ADescribeDatastore%27"><span class="annot"><span class="annottext">DescribeDatastore -&gt; Text
 </span><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#%24sel%3AdatastoreName%3ADescribeDatastore%27"><span class="hs-identifier hs-var hs-var">datastoreName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267028"><span id="local-6989586621679267030"><span class="annot"><span class="annottext">DescribeDatastore -&gt; DescribeDatastore -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267260"><span id="local-6989586621679267262"><span class="annot"><span class="annottext">DescribeDatastore -&gt; DescribeDatastore -&gt; Bool
 (DescribeDatastore -&gt; DescribeDatastore -&gt; Bool)
 -&gt; (DescribeDatastore -&gt; DescribeDatastore -&gt; Bool)
 -&gt; Eq DescribeDatastore
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeDatastore -&gt; DescribeDatastore -&gt; Bool
 == :: DescribeDatastore -&gt; DescribeDatastore -&gt; Bool
 $c== :: DescribeDatastore -&gt; DescribeDatastore -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267019"><span id="local-6989586621679267021"><span id="local-6989586621679267023"><span id="local-6989586621679267025"><span class="annot"><span class="annottext">ReadPrec [DescribeDatastore]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267251"><span id="local-6989586621679267253"><span id="local-6989586621679267255"><span id="local-6989586621679267257"><span class="annot"><span class="annottext">ReadPrec [DescribeDatastore]
 ReadPrec DescribeDatastore
 Int -&gt; ReadS DescribeDatastore
 ReadS [DescribeDatastore]
@@ -88,7 +88,7 @@ readList :: ReadS [DescribeDatastore]
 $creadList :: ReadS [DescribeDatastore]
 readsPrec :: Int -&gt; ReadS DescribeDatastore
 $creadsPrec :: Int -&gt; ReadS DescribeDatastore
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267012"><span id="local-6989586621679267014"><span id="local-6989586621679267016"><span class="annot"><span class="annottext">Int -&gt; DescribeDatastore -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267244"><span id="local-6989586621679267246"><span id="local-6989586621679267248"><span class="annot"><span class="annottext">Int -&gt; DescribeDatastore -&gt; ShowS
 [DescribeDatastore] -&gt; ShowS
 DescribeDatastore -&gt; String
 (Int -&gt; DescribeDatastore -&gt; ShowS)
@@ -132,8 +132,8 @@ $cfrom :: forall x. DescribeDatastore -&gt; Rep DescribeDatastore x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore"><span class="hs-identifier hs-type">DescribeDatastore</span></a></span><span>
 </span><span id="line-79"></span><span id="newDescribeDatastore"><span class="annot"><span class="annottext">newDescribeDatastore :: Text -&gt; DescribeDatastore
-</span><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#newDescribeDatastore"><span class="hs-identifier hs-var hs-var">newDescribeDatastore</span></a></span></span><span> </span><span id="local-6989586621679267007"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267007"><span class="hs-identifier hs-var">pDatastoreName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#newDescribeDatastore"><span class="hs-identifier hs-var hs-var">newDescribeDatastore</span></a></span></span><span> </span><span id="local-6989586621679267239"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267239"><span class="hs-identifier hs-var">pDatastoreName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">DescribeDatastore' :: Maybe Bool -&gt; Text -&gt; DescribeDatastore
 </span><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore%27"><span class="hs-identifier hs-type">DescribeDatastore'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:includeStatistics:DescribeDatastore' :: Maybe Bool
@@ -143,7 +143,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:datastoreName:DescribeDatastore' :: Text
 </span><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#%24sel%3AdatastoreName%3ADescribeDatastore%27"><span class="hs-identifier hs-var">datastoreName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267007"><span class="hs-identifier hs-var">pDatastoreName_</span></a></span><span>
+</span><a href="#local-6989586621679267239"><span class="hs-identifier hs-var">pDatastoreName_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | If true, additional statistical information about the data store is</span><span>
@@ -157,16 +157,16 @@ forall a. Maybe a
 -&gt; Lens
      DescribeDatastore DescribeDatastore (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore%27"><span class="hs-identifier hs-type">DescribeDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267004"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore%27"><span class="hs-identifier hs-type">DescribeDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267236"><span class="annot"><span class="annottext">Maybe Bool
 includeStatistics :: Maybe Bool
 $sel:includeStatistics:DescribeDatastore' :: DescribeDatastore -&gt; Maybe Bool
-</span><a href="#local-6989586621679267004"><span class="hs-identifier hs-var hs-var">includeStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679267004"><span class="hs-identifier hs-var">includeStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267003"><span class="annot"><span class="annottext">s :: DescribeDatastore
-</span><a href="#local-6989586621679267003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore%27"><span class="hs-identifier hs-type">DescribeDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267002"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679267002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDatastore
-</span><a href="#local-6989586621679267003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeStatistics:DescribeDatastore' :: Maybe Bool
+</span><a href="#local-6989586621679267236"><span class="hs-identifier hs-var hs-var">includeStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679267236"><span class="hs-identifier hs-var">includeStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267235"><span class="annot"><span class="annottext">s :: DescribeDatastore
+</span><a href="#local-6989586621679267235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore%27"><span class="hs-identifier hs-type">DescribeDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267234"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679267234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDatastore
+</span><a href="#local-6989586621679267235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeStatistics:DescribeDatastore' :: Maybe Bool
 </span><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#%24sel%3AincludeStatistics%3ADescribeDatastore%27"><span class="hs-identifier hs-var">includeStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679267002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore"><span class="hs-identifier hs-type">DescribeDatastore</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679267234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore"><span class="hs-identifier hs-type">DescribeDatastore</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The name of the data store</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#describeDatastore_datastoreName"><span class="hs-identifier hs-type">describeDatastore_datastoreName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore"><span class="hs-identifier hs-type">DescribeDatastore</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -175,27 +175,27 @@ $sel:includeStatistics:DescribeDatastore' :: DescribeDatastore -&gt; Maybe Bool
 -&gt; (DescribeDatastore -&gt; Text -&gt; DescribeDatastore)
 -&gt; Lens DescribeDatastore DescribeDatastore Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore%27"><span class="hs-identifier hs-type">DescribeDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267001"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore%27"><span class="hs-identifier hs-type">DescribeDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267233"><span class="annot"><span class="annottext">Text
 datastoreName :: Text
 $sel:datastoreName:DescribeDatastore' :: DescribeDatastore -&gt; Text
-</span><a href="#local-6989586621679267001"><span class="hs-identifier hs-var hs-var">datastoreName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267001"><span class="hs-identifier hs-var">datastoreName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267000"><span class="annot"><span class="annottext">s :: DescribeDatastore
-</span><a href="#local-6989586621679267000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore%27"><span class="hs-identifier hs-type">DescribeDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266999"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDatastore
-</span><a href="#local-6989586621679267000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreName:DescribeDatastore' :: Text
+</span><a href="#local-6989586621679267233"><span class="hs-identifier hs-var hs-var">datastoreName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267233"><span class="hs-identifier hs-var">datastoreName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267232"><span class="annot"><span class="annottext">s :: DescribeDatastore
+</span><a href="#local-6989586621679267232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore%27"><span class="hs-identifier hs-type">DescribeDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267231"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDatastore
+</span><a href="#local-6989586621679267232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreName:DescribeDatastore' :: Text
 </span><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#%24sel%3AdatastoreName%3ADescribeDatastore%27"><span class="hs-identifier hs-var">datastoreName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore"><span class="hs-identifier hs-type">DescribeDatastore</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679267231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore"><span class="hs-identifier hs-type">DescribeDatastore</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore"><span class="hs-identifier hs-type">DescribeDatastore</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore"><span class="hs-identifier hs-type">DescribeDatastore</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse"><span class="hs-identifier hs-type">DescribeDatastoreResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679266995"><span class="annot"><span class="annottext">request :: DescribeDatastore -&gt; Request DescribeDatastore
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679267227"><span class="annot"><span class="annottext">request :: DescribeDatastore -&gt; Request DescribeDatastore
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeDatastore -&gt; Request DescribeDatastore
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679266991"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679267223"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeDatastore
 -&gt; ClientResponse ClientBody
@@ -221,10 +221,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266988"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266988"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679266987"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679266987"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679266986"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679266986"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679267220"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267220"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679267219"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679267219"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679267218"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267218"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe Datastore
 -&gt; Maybe DatastoreStatistics -&gt; Int -&gt; DescribeDatastoreResponse
 </span><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse%27"><span class="hs-identifier hs-var">DescribeDatastoreResponse'</span></a></span><span>
@@ -236,7 +236,7 @@ MonadResource m =&gt;
      (Maybe DatastoreStatistics -&gt; Int -&gt; DescribeDatastoreResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679266986"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Datastore)
+</span><a href="#local-6989586621679267218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Datastore)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;datastore&quot;</span></span><span class="hs-special">)</span><span>
@@ -247,7 +247,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeDatastoreResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679266986"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DatastoreStatistics)
+</span><a href="#local-6989586621679267218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DatastoreStatistics)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;statistics&quot;</span></span><span class="hs-special">)</span><span>
@@ -259,15 +259,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266988"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679267220"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266978"><span id="local-6989586621679266980"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore"><span class="hs-identifier hs-type">DescribeDatastore</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267210"><span id="local-6989586621679267212"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore"><span class="hs-identifier hs-type">DescribeDatastore</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266975"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore"><span class="hs-identifier hs-type">DescribeDatastore</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267207"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore"><span class="hs-identifier hs-type">DescribeDatastore</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore"><span class="hs-identifier hs-type">DescribeDatastore</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679266971"><span class="annot"><span class="annottext">toHeaders :: DescribeDatastore -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679267203"><span class="annot"><span class="annottext">toHeaders :: DescribeDatastore -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeDatastore -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -275,14 +275,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore"><span class="hs-identifier hs-type">DescribeDatastore</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679266966"><span class="annot"><span class="annottext">toPath :: DescribeDatastore -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore%27"><span class="hs-identifier hs-type">DescribeDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266963"><span id="local-6989586621679266964"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679267198"><span class="annot"><span class="annottext">toPath :: DescribeDatastore -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore%27"><span class="hs-identifier hs-type">DescribeDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267195"><span id="local-6989586621679267196"><span class="annot"><span class="annottext">Maybe Bool
 Text
 datastoreName :: Text
 includeStatistics :: Maybe Bool
 $sel:datastoreName:DescribeDatastore' :: DescribeDatastore -&gt; Text
 $sel:includeStatistics:DescribeDatastore' :: DescribeDatastore -&gt; Maybe Bool
-</span><a href="#local-6989586621679266963"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679267195"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -290,17 +290,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/datastores/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679266963"><span class="hs-identifier hs-var">datastoreName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679267195"><span class="hs-identifier hs-var">datastoreName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore"><span class="hs-identifier hs-type">DescribeDatastore</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679266959"><span class="annot"><span class="annottext">toQuery :: DescribeDatastore -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore%27"><span class="hs-identifier hs-type">DescribeDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266956"><span id="local-6989586621679266957"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679267191"><span class="annot"><span class="annottext">toQuery :: DescribeDatastore -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastore%27"><span class="hs-identifier hs-type">DescribeDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267188"><span id="local-6989586621679267189"><span class="annot"><span class="annottext">Maybe Bool
 Text
 datastoreName :: Text
 includeStatistics :: Maybe Bool
 $sel:datastoreName:DescribeDatastore' :: DescribeDatastore -&gt; Text
 $sel:includeStatistics:DescribeDatastore' :: DescribeDatastore -&gt; Maybe Bool
-</span><a href="#local-6989586621679266956"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679267188"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -308,10 +308,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;includeStatistics&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679266957"><span class="hs-identifier hs-var">includeStatistics</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679267189"><span class="hs-identifier hs-var">includeStatistics</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newDescribeDatastoreResponse' smart constructor.</span><span>
-</span><span id="line-128"></span><span id="local-6989586621679266953"><span id="local-6989586621679266954"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDatastoreResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse"><span class="hs-identifier hs-var">DescribeDatastoreResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDatastoreResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse%27"><span class="hs-identifier hs-var">DescribeDatastoreResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span id="local-6989586621679267185"><span id="local-6989586621679267186"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDatastoreResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse"><span class="hs-identifier hs-var">DescribeDatastoreResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDatastoreResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse%27"><span class="hs-identifier hs-var">DescribeDatastoreResponse'</span></a></span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the data store.</span><span>
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3Adatastore%3ADescribeDatastoreResponse%27"><span class="annot"><span class="annottext">DescribeDatastoreResponse -&gt; Maybe Datastore
 </span><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#%24sel%3Adatastore%3ADescribeDatastoreResponse%27"><span class="hs-identifier hs-var hs-var">datastore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#Datastore"><span class="hs-identifier hs-type">Datastore</span></a></span><span class="hs-special">,</span><span>
@@ -323,7 +323,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeDatastoreResponse%27"><span class="annot"><span class="annottext">DescribeDatastoreResponse -&gt; Int
 </span><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#%24sel%3AhttpStatus%3ADescribeDatastoreResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266946"><span id="local-6989586621679266948"><span class="annot"><span class="annottext">DescribeDatastoreResponse -&gt; DescribeDatastoreResponse -&gt; Bool
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267178"><span id="local-6989586621679267180"><span class="annot"><span class="annottext">DescribeDatastoreResponse -&gt; DescribeDatastoreResponse -&gt; Bool
 (DescribeDatastoreResponse -&gt; DescribeDatastoreResponse -&gt; Bool)
 -&gt; (DescribeDatastoreResponse -&gt; DescribeDatastoreResponse -&gt; Bool)
 -&gt; Eq DescribeDatastoreResponse
@@ -332,7 +332,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeDatastoreResponse -&gt; DescribeDatastoreResponse -&gt; Bool
 == :: DescribeDatastoreResponse -&gt; DescribeDatastoreResponse -&gt; Bool
 $c== :: DescribeDatastoreResponse -&gt; DescribeDatastoreResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266938"><span id="local-6989586621679266940"><span id="local-6989586621679266942"><span id="local-6989586621679266944"><span class="annot"><span class="annottext">ReadPrec [DescribeDatastoreResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267170"><span id="local-6989586621679267172"><span id="local-6989586621679267174"><span id="local-6989586621679267176"><span class="annot"><span class="annottext">ReadPrec [DescribeDatastoreResponse]
 ReadPrec DescribeDatastoreResponse
 Int -&gt; ReadS DescribeDatastoreResponse
 ReadS [DescribeDatastoreResponse]
@@ -352,7 +352,7 @@ readList :: ReadS [DescribeDatastoreResponse]
 $creadList :: ReadS [DescribeDatastoreResponse]
 readsPrec :: Int -&gt; ReadS DescribeDatastoreResponse
 $creadsPrec :: Int -&gt; ReadS DescribeDatastoreResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266932"><span id="local-6989586621679266934"><span id="local-6989586621679266936"><span class="annot"><span class="annottext">Int -&gt; DescribeDatastoreResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267164"><span id="local-6989586621679267166"><span id="local-6989586621679267168"><span class="annot"><span class="annottext">Int -&gt; DescribeDatastoreResponse -&gt; ShowS
 [DescribeDatastoreResponse] -&gt; ShowS
 DescribeDatastoreResponse -&gt; String
 (Int -&gt; DescribeDatastoreResponse -&gt; ShowS)
@@ -403,8 +403,8 @@ DescribeDatastoreResponse -&gt; Rep DescribeDatastoreResponse x
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse"><span class="hs-identifier hs-type">DescribeDatastoreResponse</span></a></span><span>
 </span><span id="line-157"></span><span id="newDescribeDatastoreResponse"><span class="annot"><span class="annottext">newDescribeDatastoreResponse :: Int -&gt; DescribeDatastoreResponse
-</span><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#newDescribeDatastoreResponse"><span class="hs-identifier hs-var hs-var">newDescribeDatastoreResponse</span></a></span></span><span> </span><span id="local-6989586621679266929"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266929"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#newDescribeDatastoreResponse"><span class="hs-identifier hs-var hs-var">newDescribeDatastoreResponse</span></a></span></span><span> </span><span id="local-6989586621679267161"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267161"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">DescribeDatastoreResponse' :: Maybe Datastore
 -&gt; Maybe DatastoreStatistics -&gt; Int -&gt; DescribeDatastoreResponse
 </span><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse%27"><span class="hs-identifier hs-type">DescribeDatastoreResponse'</span></a></span><span>
@@ -419,7 +419,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDatastoreResponse' :: Int
 </span><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#%24sel%3AhttpStatus%3ADescribeDatastoreResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266929"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679267161"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | Information about the data store.</span><span>
@@ -435,16 +435,16 @@ forall a. Maybe a
      (Maybe Datastore)
      (Maybe Datastore)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse%27"><span class="hs-identifier hs-type">DescribeDatastoreResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266928"><span class="annot"><span class="annottext">Maybe Datastore
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse%27"><span class="hs-identifier hs-type">DescribeDatastoreResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267160"><span class="annot"><span class="annottext">Maybe Datastore
 datastore :: Maybe Datastore
 $sel:datastore:DescribeDatastoreResponse' :: DescribeDatastoreResponse -&gt; Maybe Datastore
-</span><a href="#local-6989586621679266928"><span class="hs-identifier hs-var hs-var">datastore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Datastore
-</span><a href="#local-6989586621679266928"><span class="hs-identifier hs-var">datastore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266927"><span class="annot"><span class="annottext">s :: DescribeDatastoreResponse
-</span><a href="#local-6989586621679266927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse%27"><span class="hs-identifier hs-type">DescribeDatastoreResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266926"><span class="annot"><span class="annottext">Maybe Datastore
-</span><a href="#local-6989586621679266926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDatastoreResponse
-</span><a href="#local-6989586621679266927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastore:DescribeDatastoreResponse' :: Maybe Datastore
+</span><a href="#local-6989586621679267160"><span class="hs-identifier hs-var hs-var">datastore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Datastore
+</span><a href="#local-6989586621679267160"><span class="hs-identifier hs-var">datastore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267159"><span class="annot"><span class="annottext">s :: DescribeDatastoreResponse
+</span><a href="#local-6989586621679267159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse%27"><span class="hs-identifier hs-type">DescribeDatastoreResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267158"><span class="annot"><span class="annottext">Maybe Datastore
+</span><a href="#local-6989586621679267158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDatastoreResponse
+</span><a href="#local-6989586621679267159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastore:DescribeDatastoreResponse' :: Maybe Datastore
 </span><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#%24sel%3Adatastore%3ADescribeDatastoreResponse%27"><span class="hs-identifier hs-var">datastore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Datastore
-</span><a href="#local-6989586621679266926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse"><span class="hs-identifier hs-type">DescribeDatastoreResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679267158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse"><span class="hs-identifier hs-type">DescribeDatastoreResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | Additional statistical information about the data store. Included if the</span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- @includeStatistics@ parameter is set to @true@ in the request.</span><span>
@@ -460,16 +460,16 @@ $sel:datastore:DescribeDatastoreResponse' :: DescribeDatastoreResponse -&gt; May
      (Maybe DatastoreStatistics)
      (Maybe DatastoreStatistics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse%27"><span class="hs-identifier hs-type">DescribeDatastoreResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266925"><span class="annot"><span class="annottext">Maybe DatastoreStatistics
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse%27"><span class="hs-identifier hs-type">DescribeDatastoreResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267157"><span class="annot"><span class="annottext">Maybe DatastoreStatistics
 statistics :: Maybe DatastoreStatistics
 $sel:statistics:DescribeDatastoreResponse' :: DescribeDatastoreResponse -&gt; Maybe DatastoreStatistics
-</span><a href="#local-6989586621679266925"><span class="hs-identifier hs-var hs-var">statistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatastoreStatistics
-</span><a href="#local-6989586621679266925"><span class="hs-identifier hs-var">statistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266924"><span class="annot"><span class="annottext">s :: DescribeDatastoreResponse
-</span><a href="#local-6989586621679266924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse%27"><span class="hs-identifier hs-type">DescribeDatastoreResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266923"><span class="annot"><span class="annottext">Maybe DatastoreStatistics
-</span><a href="#local-6989586621679266923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDatastoreResponse
-</span><a href="#local-6989586621679266924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistics:DescribeDatastoreResponse' :: Maybe DatastoreStatistics
+</span><a href="#local-6989586621679267157"><span class="hs-identifier hs-var hs-var">statistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatastoreStatistics
+</span><a href="#local-6989586621679267157"><span class="hs-identifier hs-var">statistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267156"><span class="annot"><span class="annottext">s :: DescribeDatastoreResponse
+</span><a href="#local-6989586621679267156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse%27"><span class="hs-identifier hs-type">DescribeDatastoreResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267155"><span class="annot"><span class="annottext">Maybe DatastoreStatistics
+</span><a href="#local-6989586621679267155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDatastoreResponse
+</span><a href="#local-6989586621679267156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistics:DescribeDatastoreResponse' :: Maybe DatastoreStatistics
 </span><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#%24sel%3Astatistics%3ADescribeDatastoreResponse%27"><span class="hs-identifier hs-var">statistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatastoreStatistics
-</span><a href="#local-6989586621679266923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse"><span class="hs-identifier hs-type">DescribeDatastoreResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679267155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse"><span class="hs-identifier hs-type">DescribeDatastoreResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-175"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#describeDatastoreResponse_httpStatus"><span class="hs-identifier hs-type">describeDatastoreResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse"><span class="hs-identifier hs-type">DescribeDatastoreResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -479,16 +479,16 @@ $sel:statistics:DescribeDatastoreResponse' :: DescribeDatastoreResponse -&gt; Ma
 -&gt; (DescribeDatastoreResponse -&gt; Int -&gt; DescribeDatastoreResponse)
 -&gt; Lens DescribeDatastoreResponse DescribeDatastoreResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse%27"><span class="hs-identifier hs-type">DescribeDatastoreResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266922"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse%27"><span class="hs-identifier hs-type">DescribeDatastoreResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267154"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeDatastoreResponse' :: DescribeDatastoreResponse -&gt; Int
-</span><a href="#local-6989586621679266922"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266922"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266921"><span class="annot"><span class="annottext">s :: DescribeDatastoreResponse
-</span><a href="#local-6989586621679266921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse%27"><span class="hs-identifier hs-type">DescribeDatastoreResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266920"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDatastoreResponse
-</span><a href="#local-6989586621679266921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDatastoreResponse' :: Int
+</span><a href="#local-6989586621679267154"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267154"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267153"><span class="annot"><span class="annottext">s :: DescribeDatastoreResponse
+</span><a href="#local-6989586621679267153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse%27"><span class="hs-identifier hs-type">DescribeDatastoreResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267152"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDatastoreResponse
+</span><a href="#local-6989586621679267153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDatastoreResponse' :: Int
 </span><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#%24sel%3AhttpStatus%3ADescribeDatastoreResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse"><span class="hs-identifier hs-type">DescribeDatastoreResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679267152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse"><span class="hs-identifier hs-type">DescribeDatastoreResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266918"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse"><span class="hs-identifier hs-type">DescribeDatastoreResponse</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeDatastore.html#DescribeDatastoreResponse"><span class="hs-identifier hs-type">DescribeDatastoreResponse</span></a></span></span><span>
 </span><span id="line-179"></span></pre></body></html>

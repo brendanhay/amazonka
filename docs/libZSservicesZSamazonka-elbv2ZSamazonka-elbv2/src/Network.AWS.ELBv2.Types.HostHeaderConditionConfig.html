@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about a host header condition.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newHostHeaderConditionConfig' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679247069"><span id="local-6989586621679247070"></span></span><span class="hs-keyword">data</span><span> </span><span id="HostHeaderConditionConfig"><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig"><span class="hs-identifier hs-var">HostHeaderConditionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HostHeaderConditionConfig%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig%27"><span class="hs-identifier hs-var">HostHeaderConditionConfig'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679249766"><span id="local-6989586621679249767"></span></span><span class="hs-keyword">data</span><span> </span><span id="HostHeaderConditionConfig"><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig"><span class="hs-identifier hs-var">HostHeaderConditionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HostHeaderConditionConfig%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig%27"><span class="hs-identifier hs-var">HostHeaderConditionConfig'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more host names. The maximum size of each name is 128 characters.</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- The comparison is case insensitive. The following wildcard characters</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- are supported: * (matches 0 or more characters) and ? (matches exactly 1</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Avalues%3AHostHeaderConditionConfig%27"><span class="annot"><span class="annottext">HostHeaderConditionConfig -&gt; Maybe [Text]
 </span><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#%24sel%3Avalues%3AHostHeaderConditionConfig%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247063"><span id="local-6989586621679247065"><span class="annot"><span class="annottext">HostHeaderConditionConfig -&gt; HostHeaderConditionConfig -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249760"><span id="local-6989586621679249762"><span class="annot"><span class="annottext">HostHeaderConditionConfig -&gt; HostHeaderConditionConfig -&gt; Bool
 (HostHeaderConditionConfig -&gt; HostHeaderConditionConfig -&gt; Bool)
 -&gt; (HostHeaderConditionConfig -&gt; HostHeaderConditionConfig -&gt; Bool)
 -&gt; Eq HostHeaderConditionConfig
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HostHeaderConditionConfig -&gt; HostHeaderConditionConfig -&gt; Bool
 == :: HostHeaderConditionConfig -&gt; HostHeaderConditionConfig -&gt; Bool
 $c== :: HostHeaderConditionConfig -&gt; HostHeaderConditionConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247054"><span id="local-6989586621679247056"><span id="local-6989586621679247058"><span id="local-6989586621679247060"><span class="annot"><span class="annottext">ReadPrec [HostHeaderConditionConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249751"><span id="local-6989586621679249753"><span id="local-6989586621679249755"><span id="local-6989586621679249757"><span class="annot"><span class="annottext">ReadPrec [HostHeaderConditionConfig]
 ReadPrec HostHeaderConditionConfig
 Int -&gt; ReadS HostHeaderConditionConfig
 ReadS [HostHeaderConditionConfig]
@@ -66,7 +66,7 @@ readList :: ReadS [HostHeaderConditionConfig]
 $creadList :: ReadS [HostHeaderConditionConfig]
 readsPrec :: Int -&gt; ReadS HostHeaderConditionConfig
 $creadsPrec :: Int -&gt; ReadS HostHeaderConditionConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247047"><span id="local-6989586621679247049"><span id="local-6989586621679247051"><span class="annot"><span class="annottext">Int -&gt; HostHeaderConditionConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249744"><span id="local-6989586621679249746"><span id="local-6989586621679249748"><span class="annot"><span class="annottext">Int -&gt; HostHeaderConditionConfig -&gt; ShowS
 [HostHeaderConditionConfig] -&gt; ShowS
 HostHeaderConditionConfig -&gt; String
 (Int -&gt; HostHeaderConditionConfig -&gt; ShowS)
@@ -145,16 +145,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig%27"><span class="hs-identifier hs-type">HostHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247038"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig%27"><span class="hs-identifier hs-type">HostHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249735"><span class="annot"><span class="annottext">Maybe [Text]
 values :: Maybe [Text]
 $sel:values:HostHeaderConditionConfig' :: HostHeaderConditionConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679247038"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679247038"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247037"><span class="annot"><span class="annottext">s :: HostHeaderConditionConfig
-</span><a href="#local-6989586621679247037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig%27"><span class="hs-identifier hs-type">HostHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247036"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679247036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostHeaderConditionConfig
-</span><a href="#local-6989586621679247037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:HostHeaderConditionConfig' :: Maybe [Text]
+</span><a href="#local-6989586621679249735"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249735"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249734"><span class="annot"><span class="annottext">s :: HostHeaderConditionConfig
+</span><a href="#local-6989586621679249734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig%27"><span class="hs-identifier hs-type">HostHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249733"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostHeaderConditionConfig
+</span><a href="#local-6989586621679249734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:HostHeaderConditionConfig' :: Maybe [Text]
 </span><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#%24sel%3Avalues%3AHostHeaderConditionConfig%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679247036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig"><span class="hs-identifier hs-type">HostHeaderConditionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679249733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig"><span class="hs-identifier hs-type">HostHeaderConditionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; HostHeaderConditionConfig -&gt; f HostHeaderConditionConfig)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -168,13 +168,13 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig"><span class="hs-identifier hs-type">HostHeaderConditionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679247030"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String HostHeaderConditionConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679247028"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679247028"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679249727"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String HostHeaderConditionConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679249725"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679249725"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; HostHeaderConditionConfig
 </span><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig%27"><span class="hs-identifier hs-var">HostHeaderConditionConfig'</span></a></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; HostHeaderConditionConfig)
@@ -182,7 +182,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Either String HostHeaderConditionConfig
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679247028"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679249725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -205,16 +205,16 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247019"><span id="local-6989586621679247021"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig"><span class="hs-identifier hs-type">HostHeaderConditionConfig</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249716"><span id="local-6989586621679249718"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig"><span class="hs-identifier hs-type">HostHeaderConditionConfig</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247016"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig"><span class="hs-identifier hs-type">HostHeaderConditionConfig</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249713"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig"><span class="hs-identifier hs-type">HostHeaderConditionConfig</span></a></span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig"><span class="hs-identifier hs-type">HostHeaderConditionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679247012"><span class="annot"><span class="annottext">toQuery :: HostHeaderConditionConfig -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig%27"><span class="hs-identifier hs-type">HostHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247010"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679249709"><span class="annot"><span class="annottext">toQuery :: HostHeaderConditionConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HostHeaderConditionConfig.html#HostHeaderConditionConfig%27"><span class="hs-identifier hs-type">HostHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249707"><span class="annot"><span class="annottext">Maybe [Text]
 values :: Maybe [Text]
 $sel:values:HostHeaderConditionConfig' :: HostHeaderConditionConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679247010"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679249707"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -233,6 +233,6 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679247010"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249707"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-92"></span></pre></body></html>

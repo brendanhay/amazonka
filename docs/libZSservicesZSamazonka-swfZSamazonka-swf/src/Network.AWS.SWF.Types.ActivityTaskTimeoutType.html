@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679342387"><span id="local-6989586621679342388"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActivityTaskTimeoutType"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimeoutType.html#ActivityTaskTimeoutType"><span class="hs-identifier hs-var">ActivityTaskTimeoutType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityTaskTimeoutType%27"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimeoutType.html#ActivityTaskTimeoutType%27"><span class="hs-identifier hs-var">ActivityTaskTimeoutType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679342464"><span id="local-6989586621679342465"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActivityTaskTimeoutType"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimeoutType.html#ActivityTaskTimeoutType"><span class="hs-identifier hs-var">ActivityTaskTimeoutType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityTaskTimeoutType%27"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimeoutType.html#ActivityTaskTimeoutType%27"><span class="hs-identifier hs-var">ActivityTaskTimeoutType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromActivityTaskTimeoutType"><span class="annot"><span class="annottext">ActivityTaskTimeoutType -&gt; Text
 </span><a href="Network.AWS.SWF.Types.ActivityTaskTimeoutType.html#fromActivityTaskTimeoutType"><span class="hs-identifier hs-var hs-var">fromActivityTaskTimeoutType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679342379"><span id="local-6989586621679342381"><span id="local-6989586621679342383"><span class="annot"><span class="annottext">Int -&gt; ActivityTaskTimeoutType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679342456"><span id="local-6989586621679342458"><span id="local-6989586621679342460"><span class="annot"><span class="annottext">Int -&gt; ActivityTaskTimeoutType -&gt; ShowS
 [ActivityTaskTimeoutType] -&gt; ShowS
 ActivityTaskTimeoutType -&gt; String
 (Int -&gt; ActivityTaskTimeoutType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: ActivityTaskTimeoutType -&gt; String
 showsPrec :: Int -&gt; ActivityTaskTimeoutType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ActivityTaskTimeoutType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679342370"><span id="local-6989586621679342372"><span id="local-6989586621679342374"><span id="local-6989586621679342376"><span class="annot"><span class="annottext">ReadPrec [ActivityTaskTimeoutType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679342447"><span id="local-6989586621679342449"><span id="local-6989586621679342451"><span id="local-6989586621679342453"><span class="annot"><span class="annottext">ReadPrec [ActivityTaskTimeoutType]
 ReadPrec ActivityTaskTimeoutType
 Int -&gt; ReadS ActivityTaskTimeoutType
 ReadS [ActivityTaskTimeoutType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [ActivityTaskTimeoutType]
 readsPrec :: Int -&gt; ReadS ActivityTaskTimeoutType
 $creadsPrec :: Int -&gt; ReadS ActivityTaskTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679342365"><span id="local-6989586621679342367"><span class="annot"><span class="annottext">ActivityTaskTimeoutType -&gt; ActivityTaskTimeoutType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679342442"><span id="local-6989586621679342444"><span class="annot"><span class="annottext">ActivityTaskTimeoutType -&gt; ActivityTaskTimeoutType -&gt; Bool
 (ActivityTaskTimeoutType -&gt; ActivityTaskTimeoutType -&gt; Bool)
 -&gt; (ActivityTaskTimeoutType -&gt; ActivityTaskTimeoutType -&gt; Bool)
 -&gt; Eq ActivityTaskTimeoutType
@@ -84,7 +84,7 @@ $c/= :: ActivityTaskTimeoutType -&gt; ActivityTaskTimeoutType -&gt; Bool
 == :: ActivityTaskTimeoutType -&gt; ActivityTaskTimeoutType -&gt; Bool
 $c== :: ActivityTaskTimeoutType -&gt; ActivityTaskTimeoutType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679342349"><span id="local-6989586621679342351"><span id="local-6989586621679342353"><span id="local-6989586621679342355"><span id="local-6989586621679342357"><span id="local-6989586621679342359"><span id="local-6989586621679342361"><span class="annot"><span class="annottext">Eq ActivityTaskTimeoutType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679342426"><span id="local-6989586621679342428"><span id="local-6989586621679342430"><span id="local-6989586621679342432"><span id="local-6989586621679342434"><span id="local-6989586621679342436"><span id="local-6989586621679342438"><span class="annot"><span class="annottext">Eq ActivityTaskTimeoutType
 Eq ActivityTaskTimeoutType
 -&gt; (ActivityTaskTimeoutType -&gt; ActivityTaskTimeoutType -&gt; Ordering)
 -&gt; (ActivityTaskTimeoutType -&gt; ActivityTaskTimeoutType -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. ActivityTaskTimeoutType -&gt; Rep ActivityTaskTimeoutType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679342341"><span id="local-6989586621679342343"><span class="annot"><span class="annottext">Int -&gt; ActivityTaskTimeoutType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679342418"><span id="local-6989586621679342420"><span class="annot"><span class="annottext">Int -&gt; ActivityTaskTimeoutType -&gt; Int
 ActivityTaskTimeoutType -&gt; Int
 (Int -&gt; ActivityTaskTimeoutType -&gt; Int)
 -&gt; (ActivityTaskTimeoutType -&gt; Int)
@@ -155,54 +155,54 @@ $chash :: ActivityTaskTimeoutType -&gt; Int
 hashWithSalt :: Int -&gt; ActivityTaskTimeoutType -&gt; Int
 $chashWithSalt :: Int -&gt; ActivityTaskTimeoutType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679342338"><span class="annot"><span class="annottext">ActivityTaskTimeoutType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679342415"><span class="annot"><span class="annottext">ActivityTaskTimeoutType -&gt; ()
 (ActivityTaskTimeoutType -&gt; ()) -&gt; NFData ActivityTaskTimeoutType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ActivityTaskTimeoutType -&gt; ()
 $crnf :: ActivityTaskTimeoutType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679342335"><span class="annot"><span class="annottext">Text -&gt; Either String ActivityTaskTimeoutType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679342412"><span class="annot"><span class="annottext">Text -&gt; Either String ActivityTaskTimeoutType
 (Text -&gt; Either String ActivityTaskTimeoutType)
 -&gt; FromText ActivityTaskTimeoutType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ActivityTaskTimeoutType
 $cfromText :: Text -&gt; Either String ActivityTaskTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679342332"><span class="annot"><span class="annottext">ActivityTaskTimeoutType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679342409"><span class="annot"><span class="annottext">ActivityTaskTimeoutType -&gt; Text
 (ActivityTaskTimeoutType -&gt; Text) -&gt; ToText ActivityTaskTimeoutType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ActivityTaskTimeoutType -&gt; Text
 $ctoText :: ActivityTaskTimeoutType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679342329"><span class="annot"><span class="annottext">ActivityTaskTimeoutType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679342406"><span class="annot"><span class="annottext">ActivityTaskTimeoutType -&gt; ByteString
 (ActivityTaskTimeoutType -&gt; ByteString)
 -&gt; ToByteString ActivityTaskTimeoutType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ActivityTaskTimeoutType -&gt; ByteString
 $ctoBS :: ActivityTaskTimeoutType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679342326"><span class="annot"><span class="annottext">ActivityTaskTimeoutType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679342403"><span class="annot"><span class="annottext">ActivityTaskTimeoutType -&gt; ByteStringBuilder
 (ActivityTaskTimeoutType -&gt; ByteStringBuilder)
 -&gt; ToLog ActivityTaskTimeoutType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ActivityTaskTimeoutType -&gt; ByteStringBuilder
 $cbuild :: ActivityTaskTimeoutType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679342323"><span class="annot"><span class="annottext">HeaderName -&gt; ActivityTaskTimeoutType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679342400"><span class="annot"><span class="annottext">HeaderName -&gt; ActivityTaskTimeoutType -&gt; [Header]
 (HeaderName -&gt; ActivityTaskTimeoutType -&gt; [Header])
 -&gt; ToHeader ActivityTaskTimeoutType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ActivityTaskTimeoutType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ActivityTaskTimeoutType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679342320"><span class="annot"><span class="annottext">ActivityTaskTimeoutType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679342397"><span class="annot"><span class="annottext">ActivityTaskTimeoutType -&gt; QueryString
 (ActivityTaskTimeoutType -&gt; QueryString)
 -&gt; ToQuery ActivityTaskTimeoutType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ActivityTaskTimeoutType -&gt; QueryString
 $ctoQuery :: ActivityTaskTimeoutType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679342315"><span id="local-6989586621679342317"><span class="annot"><span class="annottext">Value -&gt; Parser [ActivityTaskTimeoutType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679342392"><span id="local-6989586621679342394"><span class="annot"><span class="annottext">Value -&gt; Parser [ActivityTaskTimeoutType]
 Value -&gt; Parser ActivityTaskTimeoutType
 (Value -&gt; Parser ActivityTaskTimeoutType)
 -&gt; (Value -&gt; Parser [ActivityTaskTimeoutType])
@@ -214,7 +214,7 @@ $cparseJSONList :: Value -&gt; Parser [ActivityTaskTimeoutType]
 parseJSON :: Value -&gt; Parser ActivityTaskTimeoutType
 $cparseJSON :: Value -&gt; Parser ActivityTaskTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679342310"><span id="local-6989586621679342312"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActivityTaskTimeoutType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679342387"><span id="local-6989586621679342389"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActivityTaskTimeoutType]
 FromJSONKeyFunction ActivityTaskTimeoutType
 FromJSONKeyFunction ActivityTaskTimeoutType
 -&gt; FromJSONKeyFunction [ActivityTaskTimeoutType]
@@ -226,7 +226,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ActivityTaskTimeoutType]
 fromJSONKey :: FromJSONKeyFunction ActivityTaskTimeoutType
 $cfromJSONKey :: FromJSONKeyFunction ActivityTaskTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679342301"><span id="local-6989586621679342303"><span id="local-6989586621679342305"><span id="local-6989586621679342307"><span class="annot"><span class="annottext">[ActivityTaskTimeoutType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679342378"><span id="local-6989586621679342380"><span id="local-6989586621679342382"><span id="local-6989586621679342384"><span class="annot"><span class="annottext">[ActivityTaskTimeoutType] -&gt; Encoding
 [ActivityTaskTimeoutType] -&gt; Value
 ActivityTaskTimeoutType -&gt; Encoding
 ActivityTaskTimeoutType -&gt; Value
@@ -250,7 +250,7 @@ $ctoEncoding :: ActivityTaskTimeoutType -&gt; Encoding
 toJSON :: ActivityTaskTimeoutType -&gt; Value
 $ctoJSON :: ActivityTaskTimeoutType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679342296"><span id="local-6989586621679342298"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActivityTaskTimeoutType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679342373"><span id="local-6989586621679342375"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActivityTaskTimeoutType]
 ToJSONKeyFunction ActivityTaskTimeoutType
 ToJSONKeyFunction ActivityTaskTimeoutType
 -&gt; ToJSONKeyFunction [ActivityTaskTimeoutType]
@@ -262,14 +262,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ActivityTaskTimeoutType]
 toJSONKey :: ToJSONKeyFunction ActivityTaskTimeoutType
 $ctoJSONKey :: ToJSONKeyFunction ActivityTaskTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679342293"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActivityTaskTimeoutType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679342370"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActivityTaskTimeoutType
 ([Node] -&gt; Either String ActivityTaskTimeoutType)
 -&gt; FromXML ActivityTaskTimeoutType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ActivityTaskTimeoutType
 $cparseXML :: [Node] -&gt; Either String ActivityTaskTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679342290"><span class="annot"><span class="annottext">ActivityTaskTimeoutType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679342367"><span class="annot"><span class="annottext">ActivityTaskTimeoutType -&gt; XML
 (ActivityTaskTimeoutType -&gt; XML) -&gt; ToXML ActivityTaskTimeoutType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ActivityTaskTimeoutType -&gt; XML

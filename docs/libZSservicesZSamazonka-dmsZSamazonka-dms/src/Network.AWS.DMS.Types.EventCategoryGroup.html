@@ -29,18 +29,18 @@
 </span><span id="line-29"></span><span class="hs-comment">-- action.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newEventCategoryGroup' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679431942"><span id="local-6989586621679431943"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventCategoryGroup"><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup"><span class="hs-identifier hs-var">EventCategoryGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventCategoryGroup%27"><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup%27"><span class="hs-identifier hs-var">EventCategoryGroup'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of event categories from a source type that you\'ve chosen.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AeventCategories%3AEventCategoryGroup%27"><span class="annot"><span class="annottext">EventCategoryGroup -&gt; Maybe [Text]
-</span><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#%24sel%3AeventCategories%3AEventCategoryGroup%27"><span class="hs-identifier hs-var hs-var">eventCategories</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The type of DMS resource that generates events.</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Valid values: replication-instance | replication-server | security-group</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | replication-task</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AsourceType%3AEventCategoryGroup%27"><span class="annot"><span class="annottext">EventCategoryGroup -&gt; Maybe Text
-</span><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#%24sel%3AsourceType%3AEventCategoryGroup%27"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679432214"><span id="local-6989586621679432215"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventCategoryGroup"><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup"><span class="hs-identifier hs-var">EventCategoryGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventCategoryGroup%27"><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup%27"><span class="hs-identifier hs-var">EventCategoryGroup'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of DMS resource that generates events.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Valid values: replication-instance | replication-server | security-group</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | replication-task</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsourceType%3AEventCategoryGroup%27"><span class="annot"><span class="annottext">EventCategoryGroup -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#%24sel%3AsourceType%3AEventCategoryGroup%27"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A list of event categories from a source type that you\'ve chosen.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AeventCategories%3AEventCategoryGroup%27"><span class="annot"><span class="annottext">EventCategoryGroup -&gt; Maybe [Text]
+</span><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#%24sel%3AeventCategories%3AEventCategoryGroup%27"><span class="hs-identifier hs-var hs-var">eventCategories</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431935"><span id="local-6989586621679431937"><span class="annot"><span class="annottext">EventCategoryGroup -&gt; EventCategoryGroup -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432207"><span id="local-6989586621679432209"><span class="annot"><span class="annottext">EventCategoryGroup -&gt; EventCategoryGroup -&gt; Bool
 (EventCategoryGroup -&gt; EventCategoryGroup -&gt; Bool)
 -&gt; (EventCategoryGroup -&gt; EventCategoryGroup -&gt; Bool)
 -&gt; Eq EventCategoryGroup
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EventCategoryGroup -&gt; EventCategoryGroup -&gt; Bool
 == :: EventCategoryGroup -&gt; EventCategoryGroup -&gt; Bool
 $c== :: EventCategoryGroup -&gt; EventCategoryGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431926"><span id="local-6989586621679431928"><span id="local-6989586621679431930"><span id="local-6989586621679431932"><span class="annot"><span class="annottext">ReadPrec [EventCategoryGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432198"><span id="local-6989586621679432200"><span id="local-6989586621679432202"><span id="local-6989586621679432204"><span class="annot"><span class="annottext">ReadPrec [EventCategoryGroup]
 ReadPrec EventCategoryGroup
 Int -&gt; ReadS EventCategoryGroup
 ReadS [EventCategoryGroup]
@@ -69,7 +69,7 @@ readList :: ReadS [EventCategoryGroup]
 $creadList :: ReadS [EventCategoryGroup]
 readsPrec :: Int -&gt; ReadS EventCategoryGroup
 $creadsPrec :: Int -&gt; ReadS EventCategoryGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431919"><span id="local-6989586621679431921"><span id="local-6989586621679431923"><span class="annot"><span class="annottext">Int -&gt; EventCategoryGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432191"><span id="local-6989586621679432193"><span id="local-6989586621679432195"><span class="annot"><span class="annottext">Int -&gt; EventCategoryGroup -&gt; ShowS
 [EventCategoryGroup] -&gt; ShowS
 EventCategoryGroup -&gt; String
 (Int -&gt; EventCategoryGroup -&gt; ShowS)
@@ -103,48 +103,70 @@ $cfrom :: forall x. EventCategoryGroup -&gt; Rep EventCategoryGroup x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'eventCategories', 'eventCategoryGroup_eventCategories' - A list of event categories from a source type that you\'ve chosen.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'sourceType', 'eventCategoryGroup_sourceType' - The type of DMS resource that generates events.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'sourceType', 'eventCategoryGroup_sourceType' - The type of DMS resource that generates events.</span><span>
-</span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- Valid values: replication-instance | replication-server | security-group</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- | replication-task</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Valid values: replication-instance | replication-server | security-group</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | replication-task</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'eventCategories', 'eventCategoryGroup_eventCategories' - A list of event categories from a source type that you\'ve chosen.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#newEventCategoryGroup"><span class="hs-identifier hs-type">newEventCategoryGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup"><span class="hs-identifier hs-type">EventCategoryGroup</span></a></span><span>
 </span><span id="line-59"></span><span id="newEventCategoryGroup"><span class="annot"><span class="annottext">newEventCategoryGroup :: EventCategoryGroup
 </span><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#newEventCategoryGroup"><span class="hs-identifier hs-var hs-var">newEventCategoryGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">EventCategoryGroup' :: Maybe [Text] -&gt; Maybe Text -&gt; EventCategoryGroup
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">EventCategoryGroup' :: Maybe Text -&gt; Maybe [Text] -&gt; EventCategoryGroup
 </span><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup%27"><span class="hs-identifier hs-type">EventCategoryGroup'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventCategories:EventCategoryGroup' :: Maybe [Text]
-</span><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#%24sel%3AeventCategories%3AEventCategoryGroup%27"><span class="hs-identifier hs-var">eventCategories</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceType:EventCategoryGroup' :: Maybe Text
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceType:EventCategoryGroup' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#%24sel%3AsourceType%3AEventCategoryGroup%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventCategories:EventCategoryGroup' :: Maybe [Text]
+</span><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#%24sel%3AeventCategories%3AEventCategoryGroup%27"><span class="hs-identifier hs-var">eventCategories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | A list of event categories from a source type that you\'ve chosen.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#eventCategoryGroup_eventCategories"><span class="hs-identifier hs-type">eventCategoryGroup_eventCategories</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup"><span class="hs-identifier hs-type">EventCategoryGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="eventCategoryGroup_eventCategories"><span class="annot"><span class="annottext">eventCategoryGroup_eventCategories :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The type of DMS resource that generates events.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Valid values: replication-instance | replication-server | security-group</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | replication-task</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#eventCategoryGroup_sourceType"><span class="hs-identifier hs-type">eventCategoryGroup_sourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup"><span class="hs-identifier hs-type">EventCategoryGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="eventCategoryGroup_sourceType"><span class="annot"><span class="annottext">eventCategoryGroup_sourceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EventCategoryGroup -&gt; f EventCategoryGroup
+</span><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#eventCategoryGroup_sourceType"><span class="hs-identifier hs-var hs-var">eventCategoryGroup_sourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventCategoryGroup -&gt; Maybe Text)
+-&gt; (EventCategoryGroup -&gt; Maybe Text -&gt; EventCategoryGroup)
+-&gt; Lens
+     EventCategoryGroup EventCategoryGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup%27"><span class="hs-identifier hs-type">EventCategoryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432182"><span class="annot"><span class="annottext">Maybe Text
+sourceType :: Maybe Text
+$sel:sourceType:EventCategoryGroup' :: EventCategoryGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679432182"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432182"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432181"><span class="annot"><span class="annottext">s :: EventCategoryGroup
+</span><a href="#local-6989586621679432181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup%27"><span class="hs-identifier hs-type">EventCategoryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432180"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventCategoryGroup
+</span><a href="#local-6989586621679432181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:EventCategoryGroup' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#%24sel%3AsourceType%3AEventCategoryGroup%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679432180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup"><span class="hs-identifier hs-type">EventCategoryGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | A list of event categories from a source type that you\'ve chosen.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#eventCategoryGroup_eventCategories"><span class="hs-identifier hs-type">eventCategoryGroup_eventCategories</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup"><span class="hs-identifier hs-type">EventCategoryGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="eventCategoryGroup_eventCategories"><span class="annot"><span class="annottext">eventCategoryGroup_eventCategories :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; EventCategoryGroup -&gt; f EventCategoryGroup
 </span><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#eventCategoryGroup_eventCategories"><span class="hs-identifier hs-var hs-var">eventCategoryGroup_eventCategories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventCategoryGroup -&gt; Maybe [Text])
 -&gt; (EventCategoryGroup -&gt; Maybe [Text] -&gt; EventCategoryGroup)
 -&gt; Lens
      EventCategoryGroup EventCategoryGroup (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup%27"><span class="hs-identifier hs-type">EventCategoryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431910"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup%27"><span class="hs-identifier hs-type">EventCategoryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432178"><span class="annot"><span class="annottext">Maybe [Text]
 eventCategories :: Maybe [Text]
 $sel:eventCategories:EventCategoryGroup' :: EventCategoryGroup -&gt; Maybe [Text]
-</span><a href="#local-6989586621679431910"><span class="hs-identifier hs-var hs-var">eventCategories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679431910"><span class="hs-identifier hs-var">eventCategories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431909"><span class="annot"><span class="annottext">s :: EventCategoryGroup
-</span><a href="#local-6989586621679431909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup%27"><span class="hs-identifier hs-type">EventCategoryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431908"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679431908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventCategoryGroup
-</span><a href="#local-6989586621679431909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventCategories:EventCategoryGroup' :: Maybe [Text]
+</span><a href="#local-6989586621679432178"><span class="hs-identifier hs-var hs-var">eventCategories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679432178"><span class="hs-identifier hs-var">eventCategories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432177"><span class="annot"><span class="annottext">s :: EventCategoryGroup
+</span><a href="#local-6989586621679432177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup%27"><span class="hs-identifier hs-type">EventCategoryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432176"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679432176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventCategoryGroup
+</span><a href="#local-6989586621679432177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventCategories:EventCategoryGroup' :: Maybe [Text]
 </span><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#%24sel%3AeventCategories%3AEventCategoryGroup%27"><span class="hs-identifier hs-var">eventCategories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679431908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup"><span class="hs-identifier hs-type">EventCategoryGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679432176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup"><span class="hs-identifier hs-type">EventCategoryGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; EventCategoryGroup -&gt; f EventCategoryGroup)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -158,53 +180,38 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | The type of DMS resource that generates events.</span><span>
-</span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- Valid values: replication-instance | replication-server | security-group</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | replication-task</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#eventCategoryGroup_sourceType"><span class="hs-identifier hs-type">eventCategoryGroup_sourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup"><span class="hs-identifier hs-type">EventCategoryGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="eventCategoryGroup_sourceType"><span class="annot"><span class="annottext">eventCategoryGroup_sourceType :: (Maybe Text -&gt; f (Maybe Text))
--&gt; EventCategoryGroup -&gt; f EventCategoryGroup
-</span><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#eventCategoryGroup_sourceType"><span class="hs-identifier hs-var hs-var">eventCategoryGroup_sourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventCategoryGroup -&gt; Maybe Text)
--&gt; (EventCategoryGroup -&gt; Maybe Text -&gt; EventCategoryGroup)
--&gt; Lens
-     EventCategoryGroup EventCategoryGroup (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup%27"><span class="hs-identifier hs-type">EventCategoryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431903"><span class="annot"><span class="annottext">Maybe Text
-sourceType :: Maybe Text
-$sel:sourceType:EventCategoryGroup' :: EventCategoryGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679431903"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679431903"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431902"><span class="annot"><span class="annottext">s :: EventCategoryGroup
-</span><a href="#local-6989586621679431902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup%27"><span class="hs-identifier hs-type">EventCategoryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431901"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679431901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventCategoryGroup
-</span><a href="#local-6989586621679431902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:EventCategoryGroup' :: Maybe Text
-</span><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#%24sel%3AsourceType%3AEventCategoryGroup%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679431901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup"><span class="hs-identifier hs-type">EventCategoryGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431898"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup"><span class="hs-identifier hs-type">EventCategoryGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679431896"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventCategoryGroup
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432170"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup"><span class="hs-identifier hs-type">EventCategoryGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679432168"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventCategoryGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EventCategoryGroup)
 -&gt; Value
 -&gt; Parser EventCategoryGroup
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EventCategoryGroup&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679431893"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679431893"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; EventCategoryGroup
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679432165"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679432165"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; EventCategoryGroup
 </span><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup%27"><span class="hs-identifier hs-var">EventCategoryGroup'</span></a></span><span>
-</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; EventCategoryGroup)
--&gt; Parser (Maybe [Text])
--&gt; Parser (Maybe Text -&gt; EventCategoryGroup)
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Text] -&gt; EventCategoryGroup)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Text] -&gt; EventCategoryGroup)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679431893"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679432165"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; EventCategoryGroup)
+-&gt; Parser (Maybe [Text]) -&gt; Parser EventCategoryGroup
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679432165"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventCategories&quot;</span></span><span>
@@ -215,17 +222,9 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-85"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; EventCategoryGroup)
--&gt; Parser (Maybe Text) -&gt; Parser EventCategoryGroup
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679431893"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SourceType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431886"><span id="local-6989586621679431888"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup"><span class="hs-identifier hs-type">EventCategoryGroup</span></a></span></span></span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431883"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup"><span class="hs-identifier hs-type">EventCategoryGroup</span></a></span></span><span>
-</span><span id="line-92"></span></pre></body></html>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432158"><span id="local-6989586621679432160"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup"><span class="hs-identifier hs-type">EventCategoryGroup</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432155"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EventCategoryGroup.html#EventCategoryGroup"><span class="hs-identifier hs-type">EventCategoryGroup</span></a></span></span><span>
+</span><span id="line-91"></span></pre></body></html>

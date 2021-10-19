@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a principal.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAllowedPrincipal' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681104456"><span id="local-6989586621681104457"></span></span><span class="hs-keyword">data</span><span> </span><span id="AllowedPrincipal"><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal"><span class="hs-identifier hs-var">AllowedPrincipal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AllowedPrincipal%27"><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal%27"><span class="hs-identifier hs-var">AllowedPrincipal'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the principal.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aprincipal%3AAllowedPrincipal%27"><span class="annot"><span class="annottext">AllowedPrincipal -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#%24sel%3Aprincipal%3AAllowedPrincipal%27"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The type of principal.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AprincipalType%3AAllowedPrincipal%27"><span class="annot"><span class="annottext">AllowedPrincipal -&gt; Maybe PrincipalType
-</span><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#%24sel%3AprincipalType%3AAllowedPrincipal%27"><span class="hs-identifier hs-var hs-var">principalType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-type">PrincipalType</span></a></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681139165"><span id="local-6989586621681139166"></span></span><span class="hs-keyword">data</span><span> </span><span id="AllowedPrincipal"><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal"><span class="hs-identifier hs-var">AllowedPrincipal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AllowedPrincipal%27"><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal%27"><span class="hs-identifier hs-var">AllowedPrincipal'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of principal.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AprincipalType%3AAllowedPrincipal%27"><span class="annot"><span class="annottext">AllowedPrincipal -&gt; Maybe PrincipalType
+</span><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#%24sel%3AprincipalType%3AAllowedPrincipal%27"><span class="hs-identifier hs-var hs-var">principalType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-type">PrincipalType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the principal.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aprincipal%3AAllowedPrincipal%27"><span class="annot"><span class="annottext">AllowedPrincipal -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#%24sel%3Aprincipal%3AAllowedPrincipal%27"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681104449"><span id="local-6989586621681104451"><span class="annot"><span class="annottext">AllowedPrincipal -&gt; AllowedPrincipal -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681139158"><span id="local-6989586621681139160"><span class="annot"><span class="annottext">AllowedPrincipal -&gt; AllowedPrincipal -&gt; Bool
 (AllowedPrincipal -&gt; AllowedPrincipal -&gt; Bool)
 -&gt; (AllowedPrincipal -&gt; AllowedPrincipal -&gt; Bool)
 -&gt; Eq AllowedPrincipal
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AllowedPrincipal -&gt; AllowedPrincipal -&gt; Bool
 == :: AllowedPrincipal -&gt; AllowedPrincipal -&gt; Bool
 $c== :: AllowedPrincipal -&gt; AllowedPrincipal -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681104440"><span id="local-6989586621681104442"><span id="local-6989586621681104444"><span id="local-6989586621681104446"><span class="annot"><span class="annottext">ReadPrec [AllowedPrincipal]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681139149"><span id="local-6989586621681139151"><span id="local-6989586621681139153"><span id="local-6989586621681139155"><span class="annot"><span class="annottext">ReadPrec [AllowedPrincipal]
 ReadPrec AllowedPrincipal
 Int -&gt; ReadS AllowedPrincipal
 ReadS [AllowedPrincipal]
@@ -65,7 +65,7 @@ readList :: ReadS [AllowedPrincipal]
 $creadList :: ReadS [AllowedPrincipal]
 readsPrec :: Int -&gt; ReadS AllowedPrincipal
 $creadsPrec :: Int -&gt; ReadS AllowedPrincipal
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681104433"><span id="local-6989586621681104435"><span id="local-6989586621681104437"><span class="annot"><span class="annottext">Int -&gt; AllowedPrincipal -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681139142"><span id="local-6989586621681139144"><span id="local-6989586621681139146"><span class="annot"><span class="annottext">Int -&gt; AllowedPrincipal -&gt; ShowS
 [AllowedPrincipal] -&gt; ShowS
 AllowedPrincipal -&gt; String
 (Int -&gt; AllowedPrincipal -&gt; ShowS)
@@ -99,47 +99,28 @@ $cfrom :: forall x. AllowedPrincipal -&gt; Rep AllowedPrincipal x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'principal', 'allowedPrincipal_principal' - The Amazon Resource Name (ARN) of the principal.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'principalType', 'allowedPrincipal_principalType' - The type of principal.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'principalType', 'allowedPrincipal_principalType' - The type of principal.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'principal', 'allowedPrincipal_principal' - The Amazon Resource Name (ARN) of the principal.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#newAllowedPrincipal"><span class="hs-identifier hs-type">newAllowedPrincipal</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal"><span class="hs-identifier hs-type">AllowedPrincipal</span></a></span><span>
 </span><span id="line-52"></span><span id="newAllowedPrincipal"><span class="annot"><span class="annottext">newAllowedPrincipal :: AllowedPrincipal
 </span><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#newAllowedPrincipal"><span class="hs-identifier hs-var hs-var">newAllowedPrincipal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">AllowedPrincipal' :: Maybe Text -&gt; Maybe PrincipalType -&gt; AllowedPrincipal
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">AllowedPrincipal' :: Maybe PrincipalType -&gt; Maybe Text -&gt; AllowedPrincipal
 </span><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal%27"><span class="hs-identifier hs-type">AllowedPrincipal'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:principal:AllowedPrincipal' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#%24sel%3Aprincipal%3AAllowedPrincipal%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:principalType:AllowedPrincipal' :: Maybe PrincipalType
+</span><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#%24sel%3AprincipalType%3AAllowedPrincipal%27"><span class="hs-identifier hs-var">principalType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:principalType:AllowedPrincipal' :: Maybe PrincipalType
-</span><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#%24sel%3AprincipalType%3AAllowedPrincipal%27"><span class="hs-identifier hs-var">principalType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:principal:AllowedPrincipal' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#%24sel%3Aprincipal%3AAllowedPrincipal%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the principal.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#allowedPrincipal_principal"><span class="hs-identifier hs-type">allowedPrincipal_principal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal"><span class="hs-identifier hs-type">AllowedPrincipal</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="allowedPrincipal_principal"><span class="annot"><span class="annottext">allowedPrincipal_principal :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AllowedPrincipal -&gt; f AllowedPrincipal
-</span><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#allowedPrincipal_principal"><span class="hs-identifier hs-var hs-var">allowedPrincipal_principal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AllowedPrincipal -&gt; Maybe Text)
--&gt; (AllowedPrincipal -&gt; Maybe Text -&gt; AllowedPrincipal)
--&gt; Lens AllowedPrincipal AllowedPrincipal (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal%27"><span class="hs-identifier hs-type">AllowedPrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681104424"><span class="annot"><span class="annottext">Maybe Text
-principal :: Maybe Text
-$sel:principal:AllowedPrincipal' :: AllowedPrincipal -&gt; Maybe Text
-</span><a href="#local-6989586621681104424"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681104424"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681104423"><span class="annot"><span class="annottext">s :: AllowedPrincipal
-</span><a href="#local-6989586621681104423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal%27"><span class="hs-identifier hs-type">AllowedPrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681104422"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681104422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AllowedPrincipal
-</span><a href="#local-6989586621681104423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principal:AllowedPrincipal' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#%24sel%3Aprincipal%3AAllowedPrincipal%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681104422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal"><span class="hs-identifier hs-type">AllowedPrincipal</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The type of principal.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#allowedPrincipal_principalType"><span class="hs-identifier hs-type">allowedPrincipal_principalType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal"><span class="hs-identifier hs-type">AllowedPrincipal</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-type">PrincipalType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="allowedPrincipal_principalType"><span class="annot"><span class="annottext">allowedPrincipal_principalType :: (Maybe PrincipalType -&gt; f (Maybe PrincipalType))
+</span><span id="line-58"></span><span class="hs-comment">-- | The type of principal.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#allowedPrincipal_principalType"><span class="hs-identifier hs-type">allowedPrincipal_principalType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal"><span class="hs-identifier hs-type">AllowedPrincipal</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-type">PrincipalType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="allowedPrincipal_principalType"><span class="annot"><span class="annottext">allowedPrincipal_principalType :: (Maybe PrincipalType -&gt; f (Maybe PrincipalType))
 -&gt; AllowedPrincipal -&gt; f AllowedPrincipal
 </span><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#allowedPrincipal_principalType"><span class="hs-identifier hs-var hs-var">allowedPrincipal_principalType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AllowedPrincipal -&gt; Maybe PrincipalType)
 -&gt; (AllowedPrincipal -&gt; Maybe PrincipalType -&gt; AllowedPrincipal)
@@ -149,43 +130,61 @@ $sel:principal:AllowedPrincipal' :: AllowedPrincipal -&gt; Maybe Text
      (Maybe PrincipalType)
      (Maybe PrincipalType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal%27"><span class="hs-identifier hs-type">AllowedPrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681104420"><span class="annot"><span class="annottext">Maybe PrincipalType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal%27"><span class="hs-identifier hs-type">AllowedPrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681139133"><span class="annot"><span class="annottext">Maybe PrincipalType
 principalType :: Maybe PrincipalType
 $sel:principalType:AllowedPrincipal' :: AllowedPrincipal -&gt; Maybe PrincipalType
-</span><a href="#local-6989586621681104420"><span class="hs-identifier hs-var hs-var">principalType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
-</span><a href="#local-6989586621681104420"><span class="hs-identifier hs-var">principalType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681104419"><span class="annot"><span class="annottext">s :: AllowedPrincipal
-</span><a href="#local-6989586621681104419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal%27"><span class="hs-identifier hs-type">AllowedPrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681104418"><span class="annot"><span class="annottext">Maybe PrincipalType
-</span><a href="#local-6989586621681104418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AllowedPrincipal
-</span><a href="#local-6989586621681104419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalType:AllowedPrincipal' :: Maybe PrincipalType
+</span><a href="#local-6989586621681139133"><span class="hs-identifier hs-var hs-var">principalType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
+</span><a href="#local-6989586621681139133"><span class="hs-identifier hs-var">principalType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681139132"><span class="annot"><span class="annottext">s :: AllowedPrincipal
+</span><a href="#local-6989586621681139132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal%27"><span class="hs-identifier hs-type">AllowedPrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681139131"><span class="annot"><span class="annottext">Maybe PrincipalType
+</span><a href="#local-6989586621681139131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AllowedPrincipal
+</span><a href="#local-6989586621681139132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalType:AllowedPrincipal' :: Maybe PrincipalType
 </span><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#%24sel%3AprincipalType%3AAllowedPrincipal%27"><span class="hs-identifier hs-var">principalType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
-</span><a href="#local-6989586621681104418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal"><span class="hs-identifier hs-type">AllowedPrincipal</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681139131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal"><span class="hs-identifier hs-type">AllowedPrincipal</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the principal.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#allowedPrincipal_principal"><span class="hs-identifier hs-type">allowedPrincipal_principal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal"><span class="hs-identifier hs-type">AllowedPrincipal</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="allowedPrincipal_principal"><span class="annot"><span class="annottext">allowedPrincipal_principal :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AllowedPrincipal -&gt; f AllowedPrincipal
+</span><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#allowedPrincipal_principal"><span class="hs-identifier hs-var hs-var">allowedPrincipal_principal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AllowedPrincipal -&gt; Maybe Text)
+-&gt; (AllowedPrincipal -&gt; Maybe Text -&gt; AllowedPrincipal)
+-&gt; Lens AllowedPrincipal AllowedPrincipal (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal%27"><span class="hs-identifier hs-type">AllowedPrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681139129"><span class="annot"><span class="annottext">Maybe Text
+principal :: Maybe Text
+$sel:principal:AllowedPrincipal' :: AllowedPrincipal -&gt; Maybe Text
+</span><a href="#local-6989586621681139129"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681139129"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681139128"><span class="annot"><span class="annottext">s :: AllowedPrincipal
+</span><a href="#local-6989586621681139128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal%27"><span class="hs-identifier hs-type">AllowedPrincipal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681139127"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681139127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AllowedPrincipal
+</span><a href="#local-6989586621681139128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principal:AllowedPrincipal' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#%24sel%3Aprincipal%3AAllowedPrincipal%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681139127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal"><span class="hs-identifier hs-type">AllowedPrincipal</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal"><span class="hs-identifier hs-type">AllowedPrincipal</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621681104415"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AllowedPrincipal
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681104413"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681104413"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe PrincipalType -&gt; AllowedPrincipal
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621681139124"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AllowedPrincipal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681139122"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681139122"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Maybe PrincipalType -&gt; Maybe Text -&gt; AllowedPrincipal
 </span><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal%27"><span class="hs-identifier hs-var">AllowedPrincipal'</span></a></span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe PrincipalType -&gt; AllowedPrincipal)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe PrincipalType -&gt; AllowedPrincipal)
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">(Maybe PrincipalType -&gt; Maybe Text -&gt; AllowedPrincipal)
+-&gt; Either String (Maybe PrincipalType)
+-&gt; Either String (Maybe Text -&gt; AllowedPrincipal)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681104413"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;principal&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe PrincipalType -&gt; AllowedPrincipal)
--&gt; Either String (Maybe PrincipalType)
--&gt; Either String AllowedPrincipal
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681104413"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PrincipalType)
+</span><a href="#local-6989586621681139122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PrincipalType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;principalType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; AllowedPrincipal)
+-&gt; Either String (Maybe Text) -&gt; Either String AllowedPrincipal
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681139122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;principal&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681104407"><span id="local-6989586621681104409"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal"><span class="hs-identifier hs-type">AllowedPrincipal</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681139116"><span id="local-6989586621681139118"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal"><span class="hs-identifier hs-type">AllowedPrincipal</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681104404"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal"><span class="hs-identifier hs-type">AllowedPrincipal</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681139113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AllowedPrincipal.html#AllowedPrincipal"><span class="hs-identifier hs-type">AllowedPrincipal</span></a></span></span><span>
 </span><span id="line-75"></span></pre></body></html>

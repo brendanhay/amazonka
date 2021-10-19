@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDeleteInstance' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679652251"><span id="local-6989586621679652252"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInstance"><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-var">DeleteInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInstance%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-var">DeleteInstance'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679653276"><span id="local-6989586621679653277"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInstance"><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-var">DeleteInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInstance%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-var">DeleteInstance'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A Boolean value to indicate whether to delete the enabled add-ons for</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the disk.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AforceDeleteAddOns%3ADeleteInstance%27"><span class="annot"><span class="annottext">DeleteInstance -&gt; Maybe Bool
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AinstanceName%3ADeleteInstance%27"><span class="annot"><span class="annottext">DeleteInstance -&gt; Text
 </span><a href="Network.AWS.Lightsail.DeleteInstance.html#%24sel%3AinstanceName%3ADeleteInstance%27"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679652244"><span id="local-6989586621679652246"><span class="annot"><span class="annottext">DeleteInstance -&gt; DeleteInstance -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679653269"><span id="local-6989586621679653271"><span class="annot"><span class="annottext">DeleteInstance -&gt; DeleteInstance -&gt; Bool
 (DeleteInstance -&gt; DeleteInstance -&gt; Bool)
 -&gt; (DeleteInstance -&gt; DeleteInstance -&gt; Bool) -&gt; Eq DeleteInstance
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteInstance -&gt; DeleteInstance -&gt; Bool
 == :: DeleteInstance -&gt; DeleteInstance -&gt; Bool
 $c== :: DeleteInstance -&gt; DeleteInstance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652235"><span id="local-6989586621679652237"><span id="local-6989586621679652239"><span id="local-6989586621679652241"><span class="annot"><span class="annottext">ReadPrec [DeleteInstance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653260"><span id="local-6989586621679653262"><span id="local-6989586621679653264"><span id="local-6989586621679653266"><span class="annot"><span class="annottext">ReadPrec [DeleteInstance]
 ReadPrec DeleteInstance
 Int -&gt; ReadS DeleteInstance
 ReadS [DeleteInstance]
@@ -90,7 +90,7 @@ readList :: ReadS [DeleteInstance]
 $creadList :: ReadS [DeleteInstance]
 readsPrec :: Int -&gt; ReadS DeleteInstance
 $creadsPrec :: Int -&gt; ReadS DeleteInstance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652228"><span id="local-6989586621679652230"><span id="local-6989586621679652232"><span class="annot"><span class="annottext">Int -&gt; DeleteInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653253"><span id="local-6989586621679653255"><span id="local-6989586621679653257"><span class="annot"><span class="annottext">Int -&gt; DeleteInstance -&gt; ShowS
 [DeleteInstance] -&gt; ShowS
 DeleteInstance -&gt; String
 (Int -&gt; DeleteInstance -&gt; ShowS)
@@ -133,8 +133,8 @@ $cfrom :: forall x. DeleteInstance -&gt; Rep DeleteInstance x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span>
 </span><span id="line-81"></span><span id="newDeleteInstance"><span class="annot"><span class="annottext">newDeleteInstance :: Text -&gt; DeleteInstance
-</span><a href="Network.AWS.Lightsail.DeleteInstance.html#newDeleteInstance"><span class="hs-identifier hs-var hs-var">newDeleteInstance</span></a></span></span><span> </span><span id="local-6989586621679652223"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652223"><span class="hs-identifier hs-var">pInstanceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteInstance.html#newDeleteInstance"><span class="hs-identifier hs-var hs-var">newDeleteInstance</span></a></span></span><span> </span><span id="local-6989586621679653248"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679653248"><span class="hs-identifier hs-var">pInstanceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DeleteInstance' :: Maybe Bool -&gt; Text -&gt; DeleteInstance
 </span><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-type">DeleteInstance'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:forceDeleteAddOns:DeleteInstance' :: Maybe Bool
@@ -144,7 +144,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceName:DeleteInstance' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteInstance.html#%24sel%3AinstanceName%3ADeleteInstance%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652223"><span class="hs-identifier hs-var">pInstanceName_</span></a></span><span>
+</span><a href="#local-6989586621679653248"><span class="hs-identifier hs-var">pInstanceName_</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | A Boolean value to indicate whether to delete the enabled add-ons for</span><span>
@@ -156,16 +156,16 @@ forall a. Maybe a
 -&gt; (DeleteInstance -&gt; Maybe Bool -&gt; DeleteInstance)
 -&gt; Lens DeleteInstance DeleteInstance (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-type">DeleteInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652220"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-type">DeleteInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679653245"><span class="annot"><span class="annottext">Maybe Bool
 forceDeleteAddOns :: Maybe Bool
 $sel:forceDeleteAddOns:DeleteInstance' :: DeleteInstance -&gt; Maybe Bool
-</span><a href="#local-6989586621679652220"><span class="hs-identifier hs-var hs-var">forceDeleteAddOns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679652220"><span class="hs-identifier hs-var">forceDeleteAddOns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652219"><span class="annot"><span class="annottext">s :: DeleteInstance
-</span><a href="#local-6989586621679652219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-type">DeleteInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652218"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679652218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstance
-</span><a href="#local-6989586621679652219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forceDeleteAddOns:DeleteInstance' :: Maybe Bool
+</span><a href="#local-6989586621679653245"><span class="hs-identifier hs-var hs-var">forceDeleteAddOns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679653245"><span class="hs-identifier hs-var">forceDeleteAddOns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679653244"><span class="annot"><span class="annottext">s :: DeleteInstance
+</span><a href="#local-6989586621679653244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-type">DeleteInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679653243"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679653243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstance
+</span><a href="#local-6989586621679653244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forceDeleteAddOns:DeleteInstance' :: Maybe Bool
 </span><a href="Network.AWS.Lightsail.DeleteInstance.html#%24sel%3AforceDeleteAddOns%3ADeleteInstance%27"><span class="hs-identifier hs-var">forceDeleteAddOns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679652218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679653243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The name of the instance to delete.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#deleteInstance_instanceName"><span class="hs-identifier hs-type">deleteInstance_instanceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -174,27 +174,27 @@ $sel:forceDeleteAddOns:DeleteInstance' :: DeleteInstance -&gt; Maybe Bool
 -&gt; (DeleteInstance -&gt; Text -&gt; DeleteInstance)
 -&gt; Lens DeleteInstance DeleteInstance Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-type">DeleteInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652217"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-type">DeleteInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679653242"><span class="annot"><span class="annottext">Text
 instanceName :: Text
 $sel:instanceName:DeleteInstance' :: DeleteInstance -&gt; Text
-</span><a href="#local-6989586621679652217"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652217"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652216"><span class="annot"><span class="annottext">s :: DeleteInstance
-</span><a href="#local-6989586621679652216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-type">DeleteInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652215"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstance
-</span><a href="#local-6989586621679652216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:DeleteInstance' :: Text
+</span><a href="#local-6989586621679653242"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679653242"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679653241"><span class="annot"><span class="annottext">s :: DeleteInstance
+</span><a href="#local-6989586621679653241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-type">DeleteInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679653240"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679653240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstance
+</span><a href="#local-6989586621679653241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:DeleteInstance' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteInstance.html#%24sel%3AinstanceName%3ADeleteInstance%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679653240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse"><span class="hs-identifier hs-type">DeleteInstanceResponse</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679652211"><span class="annot"><span class="annottext">request :: DeleteInstance -&gt; Request DeleteInstance
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679653236"><span class="annot"><span class="annottext">request :: DeleteInstance -&gt; Request DeleteInstance
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteInstance -&gt; Request DeleteInstance
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679652207"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679653232"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteInstance
 -&gt; ClientResponse ClientBody
@@ -218,10 +218,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679652204"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652204"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679652203"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679652203"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679652202"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679652202"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679653229"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679653229"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679653228"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679653228"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679653227"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679653227"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; DeleteInstanceResponse
 </span><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse%27"><span class="hs-identifier hs-var">DeleteInstanceResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; DeleteInstanceResponse)
@@ -229,7 +229,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteInstanceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679652202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679653227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -246,15 +246,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652204"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679653229"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652193"><span id="local-6989586621679652195"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679653218"><span id="local-6989586621679653220"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652190"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679653215"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679652186"><span class="annot"><span class="annottext">toHeaders :: DeleteInstance -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679653211"><span class="annot"><span class="annottext">toHeaders :: DeleteInstance -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteInstance -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -281,15 +281,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652176"><span id="local-6989586621679652178"><span id="local-6989586621679652180"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679652174"><span class="annot"><span class="annottext">toJSON :: DeleteInstance -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-type">DeleteInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652171"><span id="local-6989586621679652172"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679653201"><span id="local-6989586621679653203"><span id="local-6989586621679653205"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679653199"><span class="annot"><span class="annottext">toJSON :: DeleteInstance -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance%27"><span class="hs-identifier hs-type">DeleteInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679653196"><span id="local-6989586621679653197"><span class="annot"><span class="annottext">Maybe Bool
 Text
 instanceName :: Text
 forceDeleteAddOns :: Maybe Bool
 $sel:instanceName:DeleteInstance' :: DeleteInstance -&gt; Text
 $sel:forceDeleteAddOns:DeleteInstance' :: DeleteInstance -&gt; Maybe Bool
-</span><a href="#local-6989586621679652171"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679653196"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -302,26 +302,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679652172"><span class="hs-identifier hs-var">forceDeleteAddOns</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679653197"><span class="hs-identifier hs-var">forceDeleteAddOns</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652171"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679653196"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679652165"><span class="annot"><span class="annottext">toPath :: DeleteInstance -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679653190"><span class="annot"><span class="annottext">toPath :: DeleteInstance -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteInstance -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstance"><span class="hs-identifier hs-type">DeleteInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679652161"><span class="annot"><span class="annottext">toQuery :: DeleteInstance -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679653186"><span class="annot"><span class="annottext">toQuery :: DeleteInstance -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteInstance -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -329,7 +329,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newDeleteInstanceResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679652158"><span id="local-6989586621679652159"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInstanceResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse"><span class="hs-identifier hs-var">DeleteInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInstanceResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse%27"><span class="hs-identifier hs-var">DeleteInstanceResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679653183"><span id="local-6989586621679653184"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInstanceResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse"><span class="hs-identifier hs-var">DeleteInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInstanceResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse%27"><span class="hs-identifier hs-var">DeleteInstanceResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -339,7 +339,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteInstanceResponse%27"><span class="annot"><span class="annottext">DeleteInstanceResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.DeleteInstance.html#%24sel%3AhttpStatus%3ADeleteInstanceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679652152"><span id="local-6989586621679652154"><span class="annot"><span class="annottext">DeleteInstanceResponse -&gt; DeleteInstanceResponse -&gt; Bool
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679653177"><span id="local-6989586621679653179"><span class="annot"><span class="annottext">DeleteInstanceResponse -&gt; DeleteInstanceResponse -&gt; Bool
 (DeleteInstanceResponse -&gt; DeleteInstanceResponse -&gt; Bool)
 -&gt; (DeleteInstanceResponse -&gt; DeleteInstanceResponse -&gt; Bool)
 -&gt; Eq DeleteInstanceResponse
@@ -348,7 +348,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteInstanceResponse -&gt; DeleteInstanceResponse -&gt; Bool
 == :: DeleteInstanceResponse -&gt; DeleteInstanceResponse -&gt; Bool
 $c== :: DeleteInstanceResponse -&gt; DeleteInstanceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652144"><span id="local-6989586621679652146"><span id="local-6989586621679652148"><span id="local-6989586621679652150"><span class="annot"><span class="annottext">ReadPrec [DeleteInstanceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653169"><span id="local-6989586621679653171"><span id="local-6989586621679653173"><span id="local-6989586621679653175"><span class="annot"><span class="annottext">ReadPrec [DeleteInstanceResponse]
 ReadPrec DeleteInstanceResponse
 Int -&gt; ReadS DeleteInstanceResponse
 ReadS [DeleteInstanceResponse]
@@ -368,7 +368,7 @@ readList :: ReadS [DeleteInstanceResponse]
 $creadList :: ReadS [DeleteInstanceResponse]
 readsPrec :: Int -&gt; ReadS DeleteInstanceResponse
 $creadsPrec :: Int -&gt; ReadS DeleteInstanceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652138"><span id="local-6989586621679652140"><span id="local-6989586621679652142"><span class="annot"><span class="annottext">Int -&gt; DeleteInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653163"><span id="local-6989586621679653165"><span id="local-6989586621679653167"><span class="annot"><span class="annottext">Int -&gt; DeleteInstanceResponse -&gt; ShowS
 [DeleteInstanceResponse] -&gt; ShowS
 DeleteInstanceResponse -&gt; String
 (Int -&gt; DeleteInstanceResponse -&gt; ShowS)
@@ -413,8 +413,8 @@ $cfrom :: forall x. DeleteInstanceResponse -&gt; Rep DeleteInstanceResponse x
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse"><span class="hs-identifier hs-type">DeleteInstanceResponse</span></a></span><span>
 </span><span id="line-173"></span><span id="newDeleteInstanceResponse"><span class="annot"><span class="annottext">newDeleteInstanceResponse :: Int -&gt; DeleteInstanceResponse
-</span><a href="Network.AWS.Lightsail.DeleteInstance.html#newDeleteInstanceResponse"><span class="hs-identifier hs-var hs-var">newDeleteInstanceResponse</span></a></span></span><span> </span><span id="local-6989586621679652135"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652135"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteInstance.html#newDeleteInstanceResponse"><span class="hs-identifier hs-var hs-var">newDeleteInstanceResponse</span></a></span></span><span> </span><span id="local-6989586621679653160"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679653160"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">DeleteInstanceResponse' :: Maybe [Operation] -&gt; Int -&gt; DeleteInstanceResponse
 </span><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse%27"><span class="hs-identifier hs-type">DeleteInstanceResponse'</span></a></span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:DeleteInstanceResponse' :: Maybe [Operation]
@@ -424,7 +424,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteInstanceResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteInstance.html#%24sel%3AhttpStatus%3ADeleteInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652135"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679653160"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -442,16 +442,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse%27"><span class="hs-identifier hs-type">DeleteInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652134"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse%27"><span class="hs-identifier hs-type">DeleteInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679653159"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:DeleteInstanceResponse' :: DeleteInstanceResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679652134"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679652134"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652133"><span class="annot"><span class="annottext">s :: DeleteInstanceResponse
-</span><a href="#local-6989586621679652133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse%27"><span class="hs-identifier hs-type">DeleteInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652132"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679652132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstanceResponse
-</span><a href="#local-6989586621679652133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DeleteInstanceResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679653159"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679653159"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679653158"><span class="annot"><span class="annottext">s :: DeleteInstanceResponse
+</span><a href="#local-6989586621679653158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse%27"><span class="hs-identifier hs-type">DeleteInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679653157"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679653157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstanceResponse
+</span><a href="#local-6989586621679653158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DeleteInstanceResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.DeleteInstance.html#%24sel%3Aoperations%3ADeleteInstanceResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679652132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse"><span class="hs-identifier hs-type">DeleteInstanceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679653157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse"><span class="hs-identifier hs-type">DeleteInstanceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; DeleteInstanceResponse -&gt; f DeleteInstanceResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
     -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -469,8 +469,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Operation] [Operation] [Operation] [Operation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-187"></span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#deleteInstanceResponse_httpStatus"><span class="hs-identifier hs-type">deleteInstanceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse"><span class="hs-identifier hs-type">DeleteInstanceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -480,16 +480,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (DeleteInstanceResponse -&gt; Int -&gt; DeleteInstanceResponse)
 -&gt; Lens DeleteInstanceResponse DeleteInstanceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse%27"><span class="hs-identifier hs-type">DeleteInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652128"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse%27"><span class="hs-identifier hs-type">DeleteInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679653153"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteInstanceResponse' :: DeleteInstanceResponse -&gt; Int
-</span><a href="#local-6989586621679652128"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652128"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652127"><span class="annot"><span class="annottext">s :: DeleteInstanceResponse
-</span><a href="#local-6989586621679652127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse%27"><span class="hs-identifier hs-type">DeleteInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652126"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstanceResponse
-</span><a href="#local-6989586621679652127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteInstanceResponse' :: Int
+</span><a href="#local-6989586621679653153"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679653153"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679653152"><span class="annot"><span class="annottext">s :: DeleteInstanceResponse
+</span><a href="#local-6989586621679653152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse%27"><span class="hs-identifier hs-type">DeleteInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679653151"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679653151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInstanceResponse
+</span><a href="#local-6989586621679653152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteInstanceResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteInstance.html#%24sel%3AhttpStatus%3ADeleteInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse"><span class="hs-identifier hs-type">DeleteInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679653151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse"><span class="hs-identifier hs-type">DeleteInstanceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652124"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse"><span class="hs-identifier hs-type">DeleteInstanceResponse</span></a></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679653149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteInstance.html#DeleteInstanceResponse"><span class="hs-identifier hs-type">DeleteInstanceResponse</span></a></span></span><span>
 </span><span id="line-191"></span></pre></body></html>

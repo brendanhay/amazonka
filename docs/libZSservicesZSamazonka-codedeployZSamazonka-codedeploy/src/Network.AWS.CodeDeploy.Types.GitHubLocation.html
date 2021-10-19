@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- GitHub.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newGitHubLocation' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679308577"><span id="local-6989586621679308578"></span></span><span class="hs-keyword">data</span><span> </span><span id="GitHubLocation"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation"><span class="hs-identifier hs-var">GitHubLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GitHubLocation%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation%27"><span class="hs-identifier hs-var">GitHubLocation'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679308863"><span id="local-6989586621679308864"></span></span><span class="hs-keyword">data</span><span> </span><span id="GitHubLocation"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation"><span class="hs-identifier hs-var">GitHubLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GitHubLocation%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation%27"><span class="hs-identifier hs-var">GitHubLocation'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The SHA1 commit ID of the GitHub commit that represents the bundled</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- artifacts for the application revision.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AcommitId%3AGitHubLocation%27"><span class="annot"><span class="annottext">GitHubLocation -&gt; Maybe Text
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Arepository%3AGitHubLocation%27"><span class="annot"><span class="annottext">GitHubLocation -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#%24sel%3Arepository%3AGitHubLocation%27"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308570"><span id="local-6989586621679308572"><span class="annot"><span class="annottext">GitHubLocation -&gt; GitHubLocation -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308856"><span id="local-6989586621679308858"><span class="annot"><span class="annottext">GitHubLocation -&gt; GitHubLocation -&gt; Bool
 (GitHubLocation -&gt; GitHubLocation -&gt; Bool)
 -&gt; (GitHubLocation -&gt; GitHubLocation -&gt; Bool) -&gt; Eq GitHubLocation
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GitHubLocation -&gt; GitHubLocation -&gt; Bool
 == :: GitHubLocation -&gt; GitHubLocation -&gt; Bool
 $c== :: GitHubLocation -&gt; GitHubLocation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308561"><span id="local-6989586621679308563"><span id="local-6989586621679308565"><span id="local-6989586621679308567"><span class="annot"><span class="annottext">ReadPrec [GitHubLocation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308847"><span id="local-6989586621679308849"><span id="local-6989586621679308851"><span id="local-6989586621679308853"><span class="annot"><span class="annottext">ReadPrec [GitHubLocation]
 ReadPrec GitHubLocation
 Int -&gt; ReadS GitHubLocation
 ReadS [GitHubLocation]
@@ -68,7 +68,7 @@ readList :: ReadS [GitHubLocation]
 $creadList :: ReadS [GitHubLocation]
 readsPrec :: Int -&gt; ReadS GitHubLocation
 $creadsPrec :: Int -&gt; ReadS GitHubLocation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308554"><span id="local-6989586621679308556"><span id="local-6989586621679308558"><span class="annot"><span class="annottext">Int -&gt; GitHubLocation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308840"><span id="local-6989586621679308842"><span id="local-6989586621679308844"><span class="annot"><span class="annottext">Int -&gt; GitHubLocation -&gt; ShowS
 [GitHubLocation] -&gt; ShowS
 GitHubLocation -&gt; String
 (Int -&gt; GitHubLocation -&gt; ShowS)
@@ -135,16 +135,16 @@ forall a. Maybe a
 -&gt; (GitHubLocation -&gt; Maybe Text -&gt; GitHubLocation)
 -&gt; Lens GitHubLocation GitHubLocation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation%27"><span class="hs-identifier hs-type">GitHubLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308545"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation%27"><span class="hs-identifier hs-type">GitHubLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308831"><span class="annot"><span class="annottext">Maybe Text
 commitId :: Maybe Text
 $sel:commitId:GitHubLocation' :: GitHubLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679308545"><span class="hs-identifier hs-var hs-var">commitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308545"><span class="hs-identifier hs-var">commitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308544"><span class="annot"><span class="annottext">s :: GitHubLocation
-</span><a href="#local-6989586621679308544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation%27"><span class="hs-identifier hs-type">GitHubLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308543"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GitHubLocation
-</span><a href="#local-6989586621679308544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitId:GitHubLocation' :: Maybe Text
+</span><a href="#local-6989586621679308831"><span class="hs-identifier hs-var hs-var">commitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308831"><span class="hs-identifier hs-var">commitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308830"><span class="annot"><span class="annottext">s :: GitHubLocation
+</span><a href="#local-6989586621679308830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation%27"><span class="hs-identifier hs-type">GitHubLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308829"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GitHubLocation
+</span><a href="#local-6989586621679308830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitId:GitHubLocation' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#%24sel%3AcommitId%3AGitHubLocation%27"><span class="hs-identifier hs-var">commitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation"><span class="hs-identifier hs-type">GitHubLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation"><span class="hs-identifier hs-type">GitHubLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The GitHub account and repository pair that stores a reference to the</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- commit that represents the bundled artifacts for the application</span><span>
@@ -158,19 +158,19 @@ $sel:commitId:GitHubLocation' :: GitHubLocation -&gt; Maybe Text
 -&gt; (GitHubLocation -&gt; Maybe Text -&gt; GitHubLocation)
 -&gt; Lens GitHubLocation GitHubLocation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation%27"><span class="hs-identifier hs-type">GitHubLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308541"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation%27"><span class="hs-identifier hs-type">GitHubLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308827"><span class="annot"><span class="annottext">Maybe Text
 repository :: Maybe Text
 $sel:repository:GitHubLocation' :: GitHubLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679308541"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308541"><span class="hs-identifier hs-var">repository</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308540"><span class="annot"><span class="annottext">s :: GitHubLocation
-</span><a href="#local-6989586621679308540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation%27"><span class="hs-identifier hs-type">GitHubLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308539"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GitHubLocation
-</span><a href="#local-6989586621679308540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repository:GitHubLocation' :: Maybe Text
+</span><a href="#local-6989586621679308827"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308827"><span class="hs-identifier hs-var">repository</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308826"><span class="annot"><span class="annottext">s :: GitHubLocation
+</span><a href="#local-6989586621679308826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation%27"><span class="hs-identifier hs-type">GitHubLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308825"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GitHubLocation
+</span><a href="#local-6989586621679308826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repository:GitHubLocation' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#%24sel%3Arepository%3AGitHubLocation%27"><span class="hs-identifier hs-var">repository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation"><span class="hs-identifier hs-type">GitHubLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation"><span class="hs-identifier hs-type">GitHubLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308536"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation"><span class="hs-identifier hs-type">GitHubLocation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679308534"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GitHubLocation
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308822"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation"><span class="hs-identifier hs-type">GitHubLocation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679308820"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GitHubLocation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser GitHubLocation)
@@ -180,15 +180,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;GitHubLocation&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308531"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308531"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308817"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679308817"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; GitHubLocation
 </span><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation%27"><span class="hs-identifier hs-var">GitHubLocation'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; GitHubLocation)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; GitHubLocation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308531"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679308817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;commitId&quot;</span></span><span class="hs-special">)</span><span>
@@ -196,24 +196,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser GitHubLocation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308531"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679308817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;repository&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308525"><span id="local-6989586621679308527"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation"><span class="hs-identifier hs-type">GitHubLocation</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308811"><span id="local-6989586621679308813"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation"><span class="hs-identifier hs-type">GitHubLocation</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308522"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation"><span class="hs-identifier hs-type">GitHubLocation</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308808"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation"><span class="hs-identifier hs-type">GitHubLocation</span></a></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308514"><span id="local-6989586621679308516"><span id="local-6989586621679308518"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation"><span class="hs-identifier hs-type">GitHubLocation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679308512"><span class="annot"><span class="annottext">toJSON :: GitHubLocation -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation%27"><span class="hs-identifier hs-type">GitHubLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308509"><span id="local-6989586621679308510"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308800"><span id="local-6989586621679308802"><span id="local-6989586621679308804"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation"><span class="hs-identifier hs-type">GitHubLocation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679308798"><span class="annot"><span class="annottext">toJSON :: GitHubLocation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation%27"><span class="hs-identifier hs-type">GitHubLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308795"><span id="local-6989586621679308796"><span class="annot"><span class="annottext">Maybe Text
 repository :: Maybe Text
 commitId :: Maybe Text
 $sel:repository:GitHubLocation' :: GitHubLocation -&gt; Maybe Text
 $sel:commitId:GitHubLocation' :: GitHubLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679308509"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679308795"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -225,14 +225,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308510"><span class="hs-identifier hs-var">commitId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679308796"><span class="hs-identifier hs-var">commitId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;repository&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308509"><span class="hs-identifier hs-var">repository</span></a></span><span>
+</span><a href="#local-6989586621679308795"><span class="hs-identifier hs-var">repository</span></a></span><span>
 </span><span id="line-100"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span></pre></body></html>

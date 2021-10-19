@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Identifies the resources to deploy for a monitoring job.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMonitoringResources' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680328728"><span id="local-6989586621680328729"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonitoringResources"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources"><span class="hs-identifier hs-var">MonitoringResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringResources%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources%27"><span class="hs-identifier hs-var">MonitoringResources'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680330128"><span id="local-6989586621680330129"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonitoringResources"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources"><span class="hs-identifier hs-var">MonitoringResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringResources%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources%27"><span class="hs-identifier hs-var">MonitoringResources'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configuration for the cluster resources used to run the processing</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- job.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AclusterConfig%3AMonitoringResources%27"><span class="annot"><span class="annottext">MonitoringResources -&gt; MonitoringClusterConfig
 </span><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#%24sel%3AclusterConfig%3AMonitoringResources%27"><span class="hs-identifier hs-var hs-var">clusterConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringClusterConfig.html#MonitoringClusterConfig"><span class="hs-identifier hs-type">MonitoringClusterConfig</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680328722"><span id="local-6989586621680328724"><span class="annot"><span class="annottext">MonitoringResources -&gt; MonitoringResources -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680330122"><span id="local-6989586621680330124"><span class="annot"><span class="annottext">MonitoringResources -&gt; MonitoringResources -&gt; Bool
 (MonitoringResources -&gt; MonitoringResources -&gt; Bool)
 -&gt; (MonitoringResources -&gt; MonitoringResources -&gt; Bool)
 -&gt; Eq MonitoringResources
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MonitoringResources -&gt; MonitoringResources -&gt; Bool
 == :: MonitoringResources -&gt; MonitoringResources -&gt; Bool
 $c== :: MonitoringResources -&gt; MonitoringResources -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680328713"><span id="local-6989586621680328715"><span id="local-6989586621680328717"><span id="local-6989586621680328719"><span class="annot"><span class="annottext">ReadPrec [MonitoringResources]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680330113"><span id="local-6989586621680330115"><span id="local-6989586621680330117"><span id="local-6989586621680330119"><span class="annot"><span class="annottext">ReadPrec [MonitoringResources]
 ReadPrec MonitoringResources
 Int -&gt; ReadS MonitoringResources
 ReadS [MonitoringResources]
@@ -62,7 +62,7 @@ readList :: ReadS [MonitoringResources]
 $creadList :: ReadS [MonitoringResources]
 readsPrec :: Int -&gt; ReadS MonitoringResources
 $creadsPrec :: Int -&gt; ReadS MonitoringResources
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680328706"><span id="local-6989586621680328708"><span id="local-6989586621680328710"><span class="annot"><span class="annottext">Int -&gt; MonitoringResources -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680330106"><span id="local-6989586621680330108"><span id="local-6989586621680330110"><span class="annot"><span class="annottext">Int -&gt; MonitoringResources -&gt; ShowS
 [MonitoringResources] -&gt; ShowS
 MonitoringResources -&gt; String
 (Int -&gt; MonitoringResources -&gt; ShowS)
@@ -103,14 +103,14 @@ $cfrom :: forall x. MonitoringResources -&gt; Rep MonitoringResources x
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringClusterConfig.html#MonitoringClusterConfig"><span class="hs-identifier hs-type">MonitoringClusterConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources"><span class="hs-identifier hs-type">MonitoringResources</span></a></span><span>
 </span><span id="line-51"></span><span id="newMonitoringResources"><span class="annot"><span class="annottext">newMonitoringResources :: MonitoringClusterConfig -&gt; MonitoringResources
-</span><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#newMonitoringResources"><span class="hs-identifier hs-var hs-var">newMonitoringResources</span></a></span></span><span> </span><span id="local-6989586621680328700"><span class="annot"><span class="annottext">MonitoringClusterConfig
-</span><a href="#local-6989586621680328700"><span class="hs-identifier hs-var">pClusterConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#newMonitoringResources"><span class="hs-identifier hs-var hs-var">newMonitoringResources</span></a></span></span><span> </span><span id="local-6989586621680330100"><span class="annot"><span class="annottext">MonitoringClusterConfig
+</span><a href="#local-6989586621680330100"><span class="hs-identifier hs-var">pClusterConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">MonitoringResources' :: MonitoringClusterConfig -&gt; MonitoringResources
 </span><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources%27"><span class="hs-identifier hs-type">MonitoringResources'</span></a></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterConfig:MonitoringResources' :: MonitoringClusterConfig
 </span><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#%24sel%3AclusterConfig%3AMonitoringResources%27"><span class="hs-identifier hs-var">clusterConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">MonitoringClusterConfig
-</span><a href="#local-6989586621680328700"><span class="hs-identifier hs-var">pClusterConfig_</span></a></span><span>
+</span><a href="#local-6989586621680330100"><span class="hs-identifier hs-var">pClusterConfig_</span></a></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | The configuration for the cluster resources used to run the processing</span><span>
@@ -127,19 +127,19 @@ $cfrom :: forall x. MonitoringResources -&gt; Rep MonitoringResources x
      MonitoringClusterConfig
      MonitoringClusterConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources%27"><span class="hs-identifier hs-type">MonitoringResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680328696"><span class="annot"><span class="annottext">MonitoringClusterConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources%27"><span class="hs-identifier hs-type">MonitoringResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680330096"><span class="annot"><span class="annottext">MonitoringClusterConfig
 clusterConfig :: MonitoringClusterConfig
 $sel:clusterConfig:MonitoringResources' :: MonitoringResources -&gt; MonitoringClusterConfig
-</span><a href="#local-6989586621680328696"><span class="hs-identifier hs-var hs-var">clusterConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringClusterConfig
-</span><a href="#local-6989586621680328696"><span class="hs-identifier hs-var">clusterConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680328695"><span class="annot"><span class="annottext">s :: MonitoringResources
-</span><a href="#local-6989586621680328695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources%27"><span class="hs-identifier hs-type">MonitoringResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680328694"><span class="annot"><span class="annottext">MonitoringClusterConfig
-</span><a href="#local-6989586621680328694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringResources
-</span><a href="#local-6989586621680328695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterConfig:MonitoringResources' :: MonitoringClusterConfig
+</span><a href="#local-6989586621680330096"><span class="hs-identifier hs-var hs-var">clusterConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringClusterConfig
+</span><a href="#local-6989586621680330096"><span class="hs-identifier hs-var">clusterConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680330095"><span class="annot"><span class="annottext">s :: MonitoringResources
+</span><a href="#local-6989586621680330095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources%27"><span class="hs-identifier hs-type">MonitoringResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680330094"><span class="annot"><span class="annottext">MonitoringClusterConfig
+</span><a href="#local-6989586621680330094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringResources
+</span><a href="#local-6989586621680330095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterConfig:MonitoringResources' :: MonitoringClusterConfig
 </span><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#%24sel%3AclusterConfig%3AMonitoringResources%27"><span class="hs-identifier hs-var">clusterConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MonitoringClusterConfig
-</span><a href="#local-6989586621680328694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources"><span class="hs-identifier hs-type">MonitoringResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680330094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources"><span class="hs-identifier hs-type">MonitoringResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680328691"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources"><span class="hs-identifier hs-type">MonitoringResources</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621680328689"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonitoringResources
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680330091"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources"><span class="hs-identifier hs-type">MonitoringResources</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621680330089"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonitoringResources
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MonitoringResources)
@@ -149,30 +149,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MonitoringResources&quot;</span></span><span>
-</span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680328686"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680328686"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680330086"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680330086"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>          </span><span class="annot"><span class="annottext">MonitoringClusterConfig -&gt; MonitoringResources
 </span><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources%27"><span class="hs-identifier hs-var">MonitoringResources'</span></a></span><span>
 </span><span id="line-68"></span><span>            </span><span class="annot"><span class="annottext">(MonitoringClusterConfig -&gt; MonitoringResources)
 -&gt; Parser MonitoringClusterConfig -&gt; Parser MonitoringResources
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680328686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser MonitoringClusterConfig
+</span><a href="#local-6989586621680330086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser MonitoringClusterConfig
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClusterConfig&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680328680"><span id="local-6989586621680328682"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources"><span class="hs-identifier hs-type">MonitoringResources</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680330080"><span id="local-6989586621680330082"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources"><span class="hs-identifier hs-type">MonitoringResources</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680328677"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources"><span class="hs-identifier hs-type">MonitoringResources</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680330077"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources"><span class="hs-identifier hs-type">MonitoringResources</span></a></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680328669"><span id="local-6989586621680328671"><span id="local-6989586621680328673"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources"><span class="hs-identifier hs-type">MonitoringResources</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621680328667"><span class="annot"><span class="annottext">toJSON :: MonitoringResources -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources%27"><span class="hs-identifier hs-type">MonitoringResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680328665"><span class="annot"><span class="annottext">MonitoringClusterConfig
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680330069"><span id="local-6989586621680330071"><span id="local-6989586621680330073"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources"><span class="hs-identifier hs-type">MonitoringResources</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621680330067"><span class="annot"><span class="annottext">toJSON :: MonitoringResources -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources%27"><span class="hs-identifier hs-type">MonitoringResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680330065"><span class="annot"><span class="annottext">MonitoringClusterConfig
 clusterConfig :: MonitoringClusterConfig
 $sel:clusterConfig:MonitoringResources' :: MonitoringResources -&gt; MonitoringClusterConfig
-</span><a href="#local-6989586621680328665"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680330065"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -185,7 +185,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ClusterConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringClusterConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MonitoringClusterConfig
-</span><a href="#local-6989586621680328665"><span class="hs-identifier hs-var">clusterConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680330065"><span class="hs-identifier hs-var">clusterConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span></pre></body></html>

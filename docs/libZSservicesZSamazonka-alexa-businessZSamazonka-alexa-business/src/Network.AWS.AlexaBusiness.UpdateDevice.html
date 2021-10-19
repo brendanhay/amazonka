@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newUpdateDevice' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679395455"><span id="local-6989586621679395456"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDevice"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice"><span class="hs-identifier hs-var">UpdateDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDevice%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice%27"><span class="hs-identifier hs-var">UpdateDevice'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679395830"><span id="local-6989586621679395831"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDevice"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice"><span class="hs-identifier hs-var">UpdateDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDevice%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice%27"><span class="hs-identifier hs-var">UpdateDevice'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the device to update. Required.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AdeviceArn%3AUpdateDevice%27"><span class="annot"><span class="annottext">UpdateDevice -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#%24sel%3AdeviceArn%3AUpdateDevice%27"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AdeviceName%3AUpdateDevice%27"><span class="annot"><span class="annottext">UpdateDevice -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#%24sel%3AdeviceName%3AUpdateDevice%27"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395448"><span id="local-6989586621679395450"><span class="annot"><span class="annottext">UpdateDevice -&gt; UpdateDevice -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395823"><span id="local-6989586621679395825"><span class="annot"><span class="annottext">UpdateDevice -&gt; UpdateDevice -&gt; Bool
 (UpdateDevice -&gt; UpdateDevice -&gt; Bool)
 -&gt; (UpdateDevice -&gt; UpdateDevice -&gt; Bool) -&gt; Eq UpdateDevice
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDevice -&gt; UpdateDevice -&gt; Bool
 == :: UpdateDevice -&gt; UpdateDevice -&gt; Bool
 $c== :: UpdateDevice -&gt; UpdateDevice -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395439"><span id="local-6989586621679395441"><span id="local-6989586621679395443"><span id="local-6989586621679395445"><span class="annot"><span class="annottext">ReadPrec [UpdateDevice]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395814"><span id="local-6989586621679395816"><span id="local-6989586621679395818"><span id="local-6989586621679395820"><span class="annot"><span class="annottext">ReadPrec [UpdateDevice]
 ReadPrec UpdateDevice
 Int -&gt; ReadS UpdateDevice
 ReadS [UpdateDevice]
@@ -83,7 +83,7 @@ readList :: ReadS [UpdateDevice]
 $creadList :: ReadS [UpdateDevice]
 readsPrec :: Int -&gt; ReadS UpdateDevice
 $creadsPrec :: Int -&gt; ReadS UpdateDevice
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395432"><span id="local-6989586621679395434"><span id="local-6989586621679395436"><span class="annot"><span class="annottext">Int -&gt; UpdateDevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395807"><span id="local-6989586621679395809"><span id="local-6989586621679395811"><span class="annot"><span class="annottext">Int -&gt; UpdateDevice -&gt; ShowS
 [UpdateDevice] -&gt; ShowS
 UpdateDevice -&gt; String
 (Int -&gt; UpdateDevice -&gt; ShowS)
@@ -143,16 +143,16 @@ forall a. Maybe a
 -&gt; (UpdateDevice -&gt; Maybe Text -&gt; UpdateDevice)
 -&gt; Lens UpdateDevice UpdateDevice (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice%27"><span class="hs-identifier hs-type">UpdateDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395425"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice%27"><span class="hs-identifier hs-type">UpdateDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395800"><span class="annot"><span class="annottext">Maybe Text
 deviceArn :: Maybe Text
 $sel:deviceArn:UpdateDevice' :: UpdateDevice -&gt; Maybe Text
-</span><a href="#local-6989586621679395425"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395425"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395424"><span class="annot"><span class="annottext">s :: UpdateDevice
-</span><a href="#local-6989586621679395424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice%27"><span class="hs-identifier hs-type">UpdateDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395423"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevice
-</span><a href="#local-6989586621679395424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceArn:UpdateDevice' :: Maybe Text
+</span><a href="#local-6989586621679395800"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395800"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395799"><span class="annot"><span class="annottext">s :: UpdateDevice
+</span><a href="#local-6989586621679395799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice%27"><span class="hs-identifier hs-type">UpdateDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395798"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevice
+</span><a href="#local-6989586621679395799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceArn:UpdateDevice' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#%24sel%3AdeviceArn%3AUpdateDevice%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice"><span class="hs-identifier hs-type">UpdateDevice</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice"><span class="hs-identifier hs-type">UpdateDevice</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The updated device name. Required.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#updateDevice_deviceName"><span class="hs-identifier hs-type">updateDevice_deviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice"><span class="hs-identifier hs-type">UpdateDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -161,25 +161,25 @@ $sel:deviceArn:UpdateDevice' :: UpdateDevice -&gt; Maybe Text
 -&gt; (UpdateDevice -&gt; Maybe Text -&gt; UpdateDevice)
 -&gt; Lens UpdateDevice UpdateDevice (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice%27"><span class="hs-identifier hs-type">UpdateDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395422"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice%27"><span class="hs-identifier hs-type">UpdateDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395797"><span class="annot"><span class="annottext">Maybe Text
 deviceName :: Maybe Text
 $sel:deviceName:UpdateDevice' :: UpdateDevice -&gt; Maybe Text
-</span><a href="#local-6989586621679395422"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395422"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395421"><span class="annot"><span class="annottext">s :: UpdateDevice
-</span><a href="#local-6989586621679395421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice%27"><span class="hs-identifier hs-type">UpdateDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395420"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevice
-</span><a href="#local-6989586621679395421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceName:UpdateDevice' :: Maybe Text
+</span><a href="#local-6989586621679395797"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395797"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395796"><span class="annot"><span class="annottext">s :: UpdateDevice
+</span><a href="#local-6989586621679395796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice%27"><span class="hs-identifier hs-type">UpdateDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395795"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDevice
+</span><a href="#local-6989586621679395796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceName:UpdateDevice' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#%24sel%3AdeviceName%3AUpdateDevice%27"><span class="hs-identifier hs-var">deviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice"><span class="hs-identifier hs-type">UpdateDevice</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice"><span class="hs-identifier hs-type">UpdateDevice</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice"><span class="hs-identifier hs-type">UpdateDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice"><span class="hs-identifier hs-type">UpdateDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDeviceResponse"><span class="hs-identifier hs-type">UpdateDeviceResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679395416"><span class="annot"><span class="annottext">request :: UpdateDevice -&gt; Request UpdateDevice
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679395791"><span class="annot"><span class="annottext">request :: UpdateDevice -&gt; Request UpdateDevice
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDevice -&gt; Request UpdateDevice
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679395412"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679395787"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateDevice
 -&gt; ClientResponse ClientBody
@@ -203,10 +203,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679395409"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395409"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679395408"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679395408"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679395407"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679395407"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679395784"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395784"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679395783"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679395783"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679395782"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679395782"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateDeviceResponse
 </span><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDeviceResponse%27"><span class="hs-identifier hs-var">UpdateDeviceResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateDeviceResponse)
@@ -217,15 +217,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395409"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395784"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395400"><span id="local-6989586621679395402"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice"><span class="hs-identifier hs-type">UpdateDevice</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395775"><span id="local-6989586621679395777"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice"><span class="hs-identifier hs-type">UpdateDevice</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395397"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice"><span class="hs-identifier hs-type">UpdateDevice</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395772"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice"><span class="hs-identifier hs-type">UpdateDevice</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice"><span class="hs-identifier hs-type">UpdateDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679395393"><span class="annot"><span class="annottext">toHeaders :: UpdateDevice -&gt; ResponseHeaders
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679395768"><span class="annot"><span class="annottext">toHeaders :: UpdateDevice -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateDevice -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -252,14 +252,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395383"><span id="local-6989586621679395385"><span id="local-6989586621679395387"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice"><span class="hs-identifier hs-type">UpdateDevice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679395381"><span class="annot"><span class="annottext">toJSON :: UpdateDevice -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice%27"><span class="hs-identifier hs-type">UpdateDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395378"><span id="local-6989586621679395379"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395758"><span id="local-6989586621679395760"><span id="local-6989586621679395762"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice"><span class="hs-identifier hs-type">UpdateDevice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679395756"><span class="annot"><span class="annottext">toJSON :: UpdateDevice -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice%27"><span class="hs-identifier hs-type">UpdateDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395753"><span id="local-6989586621679395754"><span class="annot"><span class="annottext">Maybe Text
 deviceName :: Maybe Text
 deviceArn :: Maybe Text
 $sel:deviceName:UpdateDevice' :: UpdateDevice -&gt; Maybe Text
 $sel:deviceArn:UpdateDevice' :: UpdateDevice -&gt; Maybe Text
-</span><a href="#local-6989586621679395378"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679395753"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -271,26 +271,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395379"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679395754"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395378"><span class="hs-identifier hs-var">deviceName</span></a></span><span>
+</span><a href="#local-6989586621679395753"><span class="hs-identifier hs-var">deviceName</span></a></span><span>
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice"><span class="hs-identifier hs-type">UpdateDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679395372"><span class="annot"><span class="annottext">toPath :: UpdateDevice -&gt; ByteString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679395747"><span class="annot"><span class="annottext">toPath :: UpdateDevice -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateDevice -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDevice"><span class="hs-identifier hs-type">UpdateDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679395368"><span class="annot"><span class="annottext">toQuery :: UpdateDevice -&gt; QueryString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679395743"><span class="annot"><span class="annottext">toQuery :: UpdateDevice -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDevice -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -298,12 +298,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newUpdateDeviceResponse' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679395365"><span id="local-6989586621679395366"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDeviceResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDeviceResponse"><span class="hs-identifier hs-var">UpdateDeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDeviceResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDeviceResponse%27"><span class="hs-identifier hs-var">UpdateDeviceResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span id="local-6989586621679395740"><span id="local-6989586621679395741"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDeviceResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDeviceResponse"><span class="hs-identifier hs-var">UpdateDeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDeviceResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDeviceResponse%27"><span class="hs-identifier hs-var">UpdateDeviceResponse'</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateDeviceResponse%27"><span class="annot"><span class="annottext">UpdateDeviceResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#%24sel%3AhttpStatus%3AUpdateDeviceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395360"><span id="local-6989586621679395362"><span class="annot"><span class="annottext">UpdateDeviceResponse -&gt; UpdateDeviceResponse -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395735"><span id="local-6989586621679395737"><span class="annot"><span class="annottext">UpdateDeviceResponse -&gt; UpdateDeviceResponse -&gt; Bool
 (UpdateDeviceResponse -&gt; UpdateDeviceResponse -&gt; Bool)
 -&gt; (UpdateDeviceResponse -&gt; UpdateDeviceResponse -&gt; Bool)
 -&gt; Eq UpdateDeviceResponse
@@ -312,7 +312,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDeviceResponse -&gt; UpdateDeviceResponse -&gt; Bool
 == :: UpdateDeviceResponse -&gt; UpdateDeviceResponse -&gt; Bool
 $c== :: UpdateDeviceResponse -&gt; UpdateDeviceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395352"><span id="local-6989586621679395354"><span id="local-6989586621679395356"><span id="local-6989586621679395358"><span class="annot"><span class="annottext">ReadPrec [UpdateDeviceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395727"><span id="local-6989586621679395729"><span id="local-6989586621679395731"><span id="local-6989586621679395733"><span class="annot"><span class="annottext">ReadPrec [UpdateDeviceResponse]
 ReadPrec UpdateDeviceResponse
 Int -&gt; ReadS UpdateDeviceResponse
 ReadS [UpdateDeviceResponse]
@@ -332,7 +332,7 @@ readList :: ReadS [UpdateDeviceResponse]
 $creadList :: ReadS [UpdateDeviceResponse]
 readsPrec :: Int -&gt; ReadS UpdateDeviceResponse
 $creadsPrec :: Int -&gt; ReadS UpdateDeviceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395346"><span id="local-6989586621679395348"><span id="local-6989586621679395350"><span class="annot"><span class="annottext">Int -&gt; UpdateDeviceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395721"><span id="local-6989586621679395723"><span id="local-6989586621679395725"><span class="annot"><span class="annottext">Int -&gt; UpdateDeviceResponse -&gt; ShowS
 [UpdateDeviceResponse] -&gt; ShowS
 UpdateDeviceResponse -&gt; String
 (Int -&gt; UpdateDeviceResponse -&gt; ShowS)
@@ -372,12 +372,12 @@ $cfrom :: forall x. UpdateDeviceResponse -&gt; Rep UpdateDeviceResponse x
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDeviceResponse"><span class="hs-identifier hs-type">UpdateDeviceResponse</span></a></span><span>
 </span><span id="line-149"></span><span id="newUpdateDeviceResponse"><span class="annot"><span class="annottext">newUpdateDeviceResponse :: Int -&gt; UpdateDeviceResponse
-</span><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#newUpdateDeviceResponse"><span class="hs-identifier hs-var hs-var">newUpdateDeviceResponse</span></a></span></span><span> </span><span id="local-6989586621679395343"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395343"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#newUpdateDeviceResponse"><span class="hs-identifier hs-var hs-var">newUpdateDeviceResponse</span></a></span></span><span> </span><span id="local-6989586621679395718"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395718"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">UpdateDeviceResponse' :: Int -&gt; UpdateDeviceResponse
 </span><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDeviceResponse%27"><span class="hs-identifier hs-type">UpdateDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDeviceResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#%24sel%3AhttpStatus%3AUpdateDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395343"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679395718"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-153"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#updateDeviceResponse_httpStatus"><span class="hs-identifier hs-type">updateDeviceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDeviceResponse"><span class="hs-identifier hs-type">UpdateDeviceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -386,16 +386,16 @@ $cfrom :: forall x. UpdateDeviceResponse -&gt; Rep UpdateDeviceResponse x
 -&gt; (UpdateDeviceResponse -&gt; Int -&gt; UpdateDeviceResponse)
 -&gt; Lens UpdateDeviceResponse UpdateDeviceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDeviceResponse%27"><span class="hs-identifier hs-type">UpdateDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395342"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDeviceResponse%27"><span class="hs-identifier hs-type">UpdateDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395717"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateDeviceResponse' :: UpdateDeviceResponse -&gt; Int
-</span><a href="#local-6989586621679395342"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395342"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395341"><span class="annot"><span class="annottext">s :: UpdateDeviceResponse
-</span><a href="#local-6989586621679395341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDeviceResponse%27"><span class="hs-identifier hs-type">UpdateDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395340"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceResponse
-</span><a href="#local-6989586621679395341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDeviceResponse' :: Int
+</span><a href="#local-6989586621679395717"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395717"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395716"><span class="annot"><span class="annottext">s :: UpdateDeviceResponse
+</span><a href="#local-6989586621679395716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDeviceResponse%27"><span class="hs-identifier hs-type">UpdateDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395715"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceResponse
+</span><a href="#local-6989586621679395716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDeviceResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#%24sel%3AhttpStatus%3AUpdateDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDeviceResponse"><span class="hs-identifier hs-type">UpdateDeviceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDeviceResponse"><span class="hs-identifier hs-type">UpdateDeviceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395338"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDeviceResponse"><span class="hs-identifier hs-type">UpdateDeviceResponse</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395713"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateDevice.html#UpdateDeviceResponse"><span class="hs-identifier hs-type">UpdateDeviceResponse</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- parallel job.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newNodeRangeProperty' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679265775"><span id="local-6989586621679265776"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodeRangeProperty"><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty"><span class="hs-identifier hs-var">NodeRangeProperty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeRangeProperty%27"><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty%27"><span class="hs-identifier hs-var">NodeRangeProperty'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679266068"><span id="local-6989586621679266069"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodeRangeProperty"><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty"><span class="hs-identifier hs-var">NodeRangeProperty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeRangeProperty%27"><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty%27"><span class="hs-identifier hs-var">NodeRangeProperty'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The container details for the node range.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Acontainer%3ANodeRangeProperty%27"><span class="annot"><span class="annottext">NodeRangeProperty -&gt; Maybe ContainerProperties
 </span><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#%24sel%3Acontainer%3ANodeRangeProperty%27"><span class="hs-identifier hs-var hs-var">container</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerProperties.html#ContainerProperties"><span class="hs-identifier hs-type">ContainerProperties</span></a></span><span class="hs-special">,</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AtargetNodes%3ANodeRangeProperty%27"><span class="annot"><span class="annottext">NodeRangeProperty -&gt; Text
 </span><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#%24sel%3AtargetNodes%3ANodeRangeProperty%27"><span class="hs-identifier hs-var hs-var">targetNodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265768"><span id="local-6989586621679265770"><span class="annot"><span class="annottext">NodeRangeProperty -&gt; NodeRangeProperty -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266061"><span id="local-6989586621679266063"><span class="annot"><span class="annottext">NodeRangeProperty -&gt; NodeRangeProperty -&gt; Bool
 (NodeRangeProperty -&gt; NodeRangeProperty -&gt; Bool)
 -&gt; (NodeRangeProperty -&gt; NodeRangeProperty -&gt; Bool)
 -&gt; Eq NodeRangeProperty
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NodeRangeProperty -&gt; NodeRangeProperty -&gt; Bool
 == :: NodeRangeProperty -&gt; NodeRangeProperty -&gt; Bool
 $c== :: NodeRangeProperty -&gt; NodeRangeProperty -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265759"><span id="local-6989586621679265761"><span id="local-6989586621679265763"><span id="local-6989586621679265765"><span class="annot"><span class="annottext">ReadPrec [NodeRangeProperty]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266052"><span id="local-6989586621679266054"><span id="local-6989586621679266056"><span id="local-6989586621679266058"><span class="annot"><span class="annottext">ReadPrec [NodeRangeProperty]
 ReadPrec NodeRangeProperty
 Int -&gt; ReadS NodeRangeProperty
 ReadS [NodeRangeProperty]
@@ -72,7 +72,7 @@ readList :: ReadS [NodeRangeProperty]
 $creadList :: ReadS [NodeRangeProperty]
 readsPrec :: Int -&gt; ReadS NodeRangeProperty
 $creadsPrec :: Int -&gt; ReadS NodeRangeProperty
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265752"><span id="local-6989586621679265754"><span id="local-6989586621679265756"><span class="annot"><span class="annottext">Int -&gt; NodeRangeProperty -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266045"><span id="local-6989586621679266047"><span id="local-6989586621679266049"><span class="annot"><span class="annottext">Int -&gt; NodeRangeProperty -&gt; ShowS
 [NodeRangeProperty] -&gt; ShowS
 NodeRangeProperty -&gt; String
 (Int -&gt; NodeRangeProperty -&gt; ShowS)
@@ -121,8 +121,8 @@ $cfrom :: forall x. NodeRangeProperty -&gt; Rep NodeRangeProperty x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty"><span class="hs-identifier hs-type">NodeRangeProperty</span></a></span><span>
 </span><span id="line-68"></span><span id="newNodeRangeProperty"><span class="annot"><span class="annottext">newNodeRangeProperty :: Text -&gt; NodeRangeProperty
-</span><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#newNodeRangeProperty"><span class="hs-identifier hs-var hs-var">newNodeRangeProperty</span></a></span></span><span> </span><span id="local-6989586621679265746"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679265746"><span class="hs-identifier hs-var">pTargetNodes_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#newNodeRangeProperty"><span class="hs-identifier hs-var hs-var">newNodeRangeProperty</span></a></span></span><span> </span><span id="local-6989586621679266039"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266039"><span class="hs-identifier hs-var">pTargetNodes_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">NodeRangeProperty' :: Maybe ContainerProperties -&gt; Text -&gt; NodeRangeProperty
 </span><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty%27"><span class="hs-identifier hs-type">NodeRangeProperty'</span></a></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:container:NodeRangeProperty' :: Maybe ContainerProperties
@@ -131,7 +131,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetNodes:NodeRangeProperty' :: Text
 </span><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#%24sel%3AtargetNodes%3ANodeRangeProperty%27"><span class="hs-identifier hs-var">targetNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679265746"><span class="hs-identifier hs-var">pTargetNodes_</span></a></span><span>
+</span><a href="#local-6989586621679266039"><span class="hs-identifier hs-var">pTargetNodes_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The container details for the node range.</span><span>
@@ -147,16 +147,16 @@ forall a. Maybe a
      (Maybe ContainerProperties)
      (Maybe ContainerProperties)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty%27"><span class="hs-identifier hs-type">NodeRangeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265742"><span class="annot"><span class="annottext">Maybe ContainerProperties
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty%27"><span class="hs-identifier hs-type">NodeRangeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266035"><span class="annot"><span class="annottext">Maybe ContainerProperties
 container :: Maybe ContainerProperties
 $sel:container:NodeRangeProperty' :: NodeRangeProperty -&gt; Maybe ContainerProperties
-</span><a href="#local-6989586621679265742"><span class="hs-identifier hs-var hs-var">container</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerProperties
-</span><a href="#local-6989586621679265742"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265741"><span class="annot"><span class="annottext">s :: NodeRangeProperty
-</span><a href="#local-6989586621679265741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty%27"><span class="hs-identifier hs-type">NodeRangeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265740"><span class="annot"><span class="annottext">Maybe ContainerProperties
-</span><a href="#local-6989586621679265740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeRangeProperty
-</span><a href="#local-6989586621679265741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:container:NodeRangeProperty' :: Maybe ContainerProperties
+</span><a href="#local-6989586621679266035"><span class="hs-identifier hs-var hs-var">container</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerProperties
+</span><a href="#local-6989586621679266035"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266034"><span class="annot"><span class="annottext">s :: NodeRangeProperty
+</span><a href="#local-6989586621679266034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty%27"><span class="hs-identifier hs-type">NodeRangeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266033"><span class="annot"><span class="annottext">Maybe ContainerProperties
+</span><a href="#local-6989586621679266033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeRangeProperty
+</span><a href="#local-6989586621679266034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:container:NodeRangeProperty' :: Maybe ContainerProperties
 </span><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#%24sel%3Acontainer%3ANodeRangeProperty%27"><span class="hs-identifier hs-var">container</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerProperties
-</span><a href="#local-6989586621679265740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty"><span class="hs-identifier hs-type">NodeRangeProperty</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty"><span class="hs-identifier hs-type">NodeRangeProperty</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The range of nodes, using node index values. A range of @0:3@ indicates</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- nodes with index values of @0@ through @3@. If the starting range value</span><span>
@@ -172,19 +172,19 @@ $sel:container:NodeRangeProperty' :: NodeRangeProperty -&gt; Maybe ContainerProp
 -&gt; (NodeRangeProperty -&gt; Text -&gt; NodeRangeProperty)
 -&gt; Lens NodeRangeProperty NodeRangeProperty Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty%27"><span class="hs-identifier hs-type">NodeRangeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265738"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty%27"><span class="hs-identifier hs-type">NodeRangeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266031"><span class="annot"><span class="annottext">Text
 targetNodes :: Text
 $sel:targetNodes:NodeRangeProperty' :: NodeRangeProperty -&gt; Text
-</span><a href="#local-6989586621679265738"><span class="hs-identifier hs-var hs-var">targetNodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679265738"><span class="hs-identifier hs-var">targetNodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265737"><span class="annot"><span class="annottext">s :: NodeRangeProperty
-</span><a href="#local-6989586621679265737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty%27"><span class="hs-identifier hs-type">NodeRangeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265736"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679265736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeRangeProperty
-</span><a href="#local-6989586621679265737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetNodes:NodeRangeProperty' :: Text
+</span><a href="#local-6989586621679266031"><span class="hs-identifier hs-var hs-var">targetNodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266031"><span class="hs-identifier hs-var">targetNodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266030"><span class="annot"><span class="annottext">s :: NodeRangeProperty
+</span><a href="#local-6989586621679266030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty%27"><span class="hs-identifier hs-type">NodeRangeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266029"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeRangeProperty
+</span><a href="#local-6989586621679266030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetNodes:NodeRangeProperty' :: Text
 </span><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#%24sel%3AtargetNodes%3ANodeRangeProperty%27"><span class="hs-identifier hs-var">targetNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679265736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty"><span class="hs-identifier hs-type">NodeRangeProperty</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty"><span class="hs-identifier hs-type">NodeRangeProperty</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265733"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty"><span class="hs-identifier hs-type">NodeRangeProperty</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679265731"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NodeRangeProperty
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266026"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty"><span class="hs-identifier hs-type">NodeRangeProperty</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679266024"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NodeRangeProperty
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser NodeRangeProperty)
@@ -194,8 +194,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;NodeRangeProperty&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265728"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265728"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266021"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266021"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe ContainerProperties -&gt; Text -&gt; NodeRangeProperty
 </span><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty%27"><span class="hs-identifier hs-var">NodeRangeProperty'</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ContainerProperties -&gt; Text -&gt; NodeRangeProperty)
@@ -203,7 +203,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; NodeRangeProperty)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265728"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerProperties)
+</span><a href="#local-6989586621679266021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerProperties)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;container&quot;</span></span><span class="hs-special">)</span><span>
@@ -211,25 +211,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser NodeRangeProperty
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265728"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679266021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetNodes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265721"><span id="local-6989586621679265723"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty"><span class="hs-identifier hs-type">NodeRangeProperty</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266014"><span id="local-6989586621679266016"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty"><span class="hs-identifier hs-type">NodeRangeProperty</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265718"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty"><span class="hs-identifier hs-type">NodeRangeProperty</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266011"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty"><span class="hs-identifier hs-type">NodeRangeProperty</span></a></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265710"><span id="local-6989586621679265712"><span id="local-6989586621679265714"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty"><span class="hs-identifier hs-type">NodeRangeProperty</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679265708"><span class="annot"><span class="annottext">toJSON :: NodeRangeProperty -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty%27"><span class="hs-identifier hs-type">NodeRangeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265705"><span id="local-6989586621679265706"><span class="annot"><span class="annottext">Maybe ContainerProperties
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266003"><span id="local-6989586621679266005"><span id="local-6989586621679266007"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty"><span class="hs-identifier hs-type">NodeRangeProperty</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679266001"><span class="annot"><span class="annottext">toJSON :: NodeRangeProperty -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeRangeProperty.html#NodeRangeProperty%27"><span class="hs-identifier hs-type">NodeRangeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265998"><span id="local-6989586621679265999"><span class="annot"><span class="annottext">Maybe ContainerProperties
 Text
 targetNodes :: Text
 container :: Maybe ContainerProperties
 $sel:targetNodes:NodeRangeProperty' :: NodeRangeProperty -&gt; Text
 $sel:container:NodeRangeProperty' :: NodeRangeProperty -&gt; Maybe ContainerProperties
-</span><a href="#local-6989586621679265705"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679265998"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -242,14 +242,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ContainerProperties -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ContainerProperties
-</span><a href="#local-6989586621679265706"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265999"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetNodes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679265705"><span class="hs-identifier hs-var">targetNodes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265998"><span class="hs-identifier hs-var">targetNodes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span></pre></body></html>

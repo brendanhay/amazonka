@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679398232"><span id="local-6989586621679398233"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceStatus"><span class="annot"><a href="Network.AWS.Connect.Types.InstanceStatus.html#InstanceStatus"><span class="hs-identifier hs-var">InstanceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceStatus%27"><span class="annot"><a href="Network.AWS.Connect.Types.InstanceStatus.html#InstanceStatus%27"><span class="hs-identifier hs-var">InstanceStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679398514"><span id="local-6989586621679398515"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceStatus"><span class="annot"><a href="Network.AWS.Connect.Types.InstanceStatus.html#InstanceStatus"><span class="hs-identifier hs-var">InstanceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceStatus%27"><span class="annot"><a href="Network.AWS.Connect.Types.InstanceStatus.html#InstanceStatus%27"><span class="hs-identifier hs-var">InstanceStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceStatus"><span class="annot"><span class="annottext">InstanceStatus -&gt; Text
 </span><a href="Network.AWS.Connect.Types.InstanceStatus.html#fromInstanceStatus"><span class="hs-identifier hs-var hs-var">fromInstanceStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398224"><span id="local-6989586621679398226"><span id="local-6989586621679398228"><span class="annot"><span class="annottext">Int -&gt; InstanceStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398506"><span id="local-6989586621679398508"><span id="local-6989586621679398510"><span class="annot"><span class="annottext">Int -&gt; InstanceStatus -&gt; ShowS
 [InstanceStatus] -&gt; ShowS
 InstanceStatus -&gt; String
 (Int -&gt; InstanceStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: InstanceStatus -&gt; String
 showsPrec :: Int -&gt; InstanceStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; InstanceStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679398215"><span id="local-6989586621679398217"><span id="local-6989586621679398219"><span id="local-6989586621679398221"><span class="annot"><span class="annottext">ReadPrec [InstanceStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679398497"><span id="local-6989586621679398499"><span id="local-6989586621679398501"><span id="local-6989586621679398503"><span class="annot"><span class="annottext">ReadPrec [InstanceStatus]
 ReadPrec InstanceStatus
 Int -&gt; ReadS InstanceStatus
 ReadS [InstanceStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [InstanceStatus]
 readsPrec :: Int -&gt; ReadS InstanceStatus
 $creadsPrec :: Int -&gt; ReadS InstanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679398210"><span id="local-6989586621679398212"><span class="annot"><span class="annottext">InstanceStatus -&gt; InstanceStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679398492"><span id="local-6989586621679398494"><span class="annot"><span class="annottext">InstanceStatus -&gt; InstanceStatus -&gt; Bool
 (InstanceStatus -&gt; InstanceStatus -&gt; Bool)
 -&gt; (InstanceStatus -&gt; InstanceStatus -&gt; Bool) -&gt; Eq InstanceStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: InstanceStatus -&gt; InstanceStatus -&gt; Bool
 == :: InstanceStatus -&gt; InstanceStatus -&gt; Bool
 $c== :: InstanceStatus -&gt; InstanceStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679398194"><span id="local-6989586621679398196"><span id="local-6989586621679398198"><span id="local-6989586621679398200"><span id="local-6989586621679398202"><span id="local-6989586621679398204"><span id="local-6989586621679398206"><span class="annot"><span class="annottext">Eq InstanceStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679398476"><span id="local-6989586621679398478"><span id="local-6989586621679398480"><span id="local-6989586621679398482"><span id="local-6989586621679398484"><span id="local-6989586621679398486"><span id="local-6989586621679398488"><span class="annot"><span class="annottext">Eq InstanceStatus
 Eq InstanceStatus
 -&gt; (InstanceStatus -&gt; InstanceStatus -&gt; Ordering)
 -&gt; (InstanceStatus -&gt; InstanceStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. InstanceStatus -&gt; Rep InstanceStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398186"><span id="local-6989586621679398188"><span class="annot"><span class="annottext">Int -&gt; InstanceStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398468"><span id="local-6989586621679398470"><span class="annot"><span class="annottext">Int -&gt; InstanceStatus -&gt; Int
 InstanceStatus -&gt; Int
 (Int -&gt; InstanceStatus -&gt; Int)
 -&gt; (InstanceStatus -&gt; Int) -&gt; Hashable InstanceStatus
@@ -143,50 +143,50 @@ $chash :: InstanceStatus -&gt; Int
 hashWithSalt :: Int -&gt; InstanceStatus -&gt; Int
 $chashWithSalt :: Int -&gt; InstanceStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679398183"><span class="annot"><span class="annottext">InstanceStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679398465"><span class="annot"><span class="annottext">InstanceStatus -&gt; ()
 (InstanceStatus -&gt; ()) -&gt; NFData InstanceStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InstanceStatus -&gt; ()
 $crnf :: InstanceStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679398180"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679398462"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceStatus
 (Text -&gt; Either String InstanceStatus) -&gt; FromText InstanceStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InstanceStatus
 $cfromText :: Text -&gt; Either String InstanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679398177"><span class="annot"><span class="annottext">InstanceStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679398459"><span class="annot"><span class="annottext">InstanceStatus -&gt; Text
 (InstanceStatus -&gt; Text) -&gt; ToText InstanceStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InstanceStatus -&gt; Text
 $ctoText :: InstanceStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679398174"><span class="annot"><span class="annottext">InstanceStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679398456"><span class="annot"><span class="annottext">InstanceStatus -&gt; ByteString
 (InstanceStatus -&gt; ByteString) -&gt; ToByteString InstanceStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InstanceStatus -&gt; ByteString
 $ctoBS :: InstanceStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679398171"><span class="annot"><span class="annottext">InstanceStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679398453"><span class="annot"><span class="annottext">InstanceStatus -&gt; ByteStringBuilder
 (InstanceStatus -&gt; ByteStringBuilder) -&gt; ToLog InstanceStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InstanceStatus -&gt; ByteStringBuilder
 $cbuild :: InstanceStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679398168"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679398450"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceStatus -&gt; [Header]
 (HeaderName -&gt; InstanceStatus -&gt; [Header])
 -&gt; ToHeader InstanceStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InstanceStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InstanceStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679398165"><span class="annot"><span class="annottext">InstanceStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679398447"><span class="annot"><span class="annottext">InstanceStatus -&gt; QueryString
 (InstanceStatus -&gt; QueryString) -&gt; ToQuery InstanceStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InstanceStatus -&gt; QueryString
 $ctoQuery :: InstanceStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679398160"><span id="local-6989586621679398162"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679398442"><span id="local-6989586621679398444"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceStatus]
 Value -&gt; Parser InstanceStatus
 (Value -&gt; Parser InstanceStatus)
 -&gt; (Value -&gt; Parser [InstanceStatus]) -&gt; FromJSON InstanceStatus
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [InstanceStatus]
 parseJSON :: Value -&gt; Parser InstanceStatus
 $cparseJSON :: Value -&gt; Parser InstanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679398155"><span id="local-6989586621679398157"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679398437"><span id="local-6989586621679398439"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceStatus]
 FromJSONKeyFunction InstanceStatus
 FromJSONKeyFunction InstanceStatus
 -&gt; FromJSONKeyFunction [InstanceStatus]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InstanceStatus]
 fromJSONKey :: FromJSONKeyFunction InstanceStatus
 $cfromJSONKey :: FromJSONKeyFunction InstanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679398146"><span id="local-6989586621679398148"><span id="local-6989586621679398150"><span id="local-6989586621679398152"><span class="annot"><span class="annottext">[InstanceStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679398428"><span id="local-6989586621679398430"><span id="local-6989586621679398432"><span id="local-6989586621679398434"><span class="annot"><span class="annottext">[InstanceStatus] -&gt; Encoding
 [InstanceStatus] -&gt; Value
 InstanceStatus -&gt; Encoding
 InstanceStatus -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: InstanceStatus -&gt; Encoding
 toJSON :: InstanceStatus -&gt; Value
 $ctoJSON :: InstanceStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679398141"><span id="local-6989586621679398143"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679398423"><span id="local-6989586621679398425"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceStatus]
 ToJSONKeyFunction InstanceStatus
 ToJSONKeyFunction InstanceStatus
 -&gt; ToJSONKeyFunction [InstanceStatus] -&gt; ToJSONKey InstanceStatus
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InstanceStatus]
 toJSONKey :: ToJSONKeyFunction InstanceStatus
 $ctoJSONKey :: ToJSONKeyFunction InstanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679398138"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679398420"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceStatus
 ([Node] -&gt; Either String InstanceStatus) -&gt; FromXML InstanceStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InstanceStatus
 $cparseXML :: [Node] -&gt; Either String InstanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679398135"><span class="annot"><span class="annottext">InstanceStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679398417"><span class="annot"><span class="annottext">InstanceStatus -&gt; XML
 (InstanceStatus -&gt; XML) -&gt; ToXML InstanceStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InstanceStatus -&gt; XML

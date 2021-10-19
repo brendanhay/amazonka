@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- defined in RFC 5280.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newQualifier' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679210938"><span id="local-6989586621679210939"></span></span><span class="hs-keyword">data</span><span> </span><span id="Qualifier"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier"><span class="hs-identifier hs-var">Qualifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Qualifier%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier%27"><span class="hs-identifier hs-var">Qualifier'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679211000"><span id="local-6989586621679211001"></span></span><span class="hs-keyword">data</span><span> </span><span id="Qualifier"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier"><span class="hs-identifier hs-var">Qualifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Qualifier%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier%27"><span class="hs-identifier hs-var">Qualifier'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains a pointer to a certification practice statement (CPS) published</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- by the CA.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AcpsUri%3AQualifier%27"><span class="annot"><span class="annottext">Qualifier -&gt; Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#%24sel%3AcpsUri%3AQualifier%27"><span class="hs-identifier hs-var hs-var">cpsUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210932"><span id="local-6989586621679210934"><span class="annot"><span class="annottext">Qualifier -&gt; Qualifier -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210994"><span id="local-6989586621679210996"><span class="annot"><span class="annottext">Qualifier -&gt; Qualifier -&gt; Bool
 (Qualifier -&gt; Qualifier -&gt; Bool)
 -&gt; (Qualifier -&gt; Qualifier -&gt; Bool) -&gt; Eq Qualifier
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Qualifier -&gt; Qualifier -&gt; Bool
 == :: Qualifier -&gt; Qualifier -&gt; Bool
 $c== :: Qualifier -&gt; Qualifier -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210923"><span id="local-6989586621679210925"><span id="local-6989586621679210927"><span id="local-6989586621679210929"><span class="annot"><span class="annottext">ReadPrec [Qualifier]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210985"><span id="local-6989586621679210987"><span id="local-6989586621679210989"><span id="local-6989586621679210991"><span class="annot"><span class="annottext">ReadPrec [Qualifier]
 ReadPrec Qualifier
 Int -&gt; ReadS Qualifier
 ReadS [Qualifier]
@@ -62,7 +62,7 @@ readList :: ReadS [Qualifier]
 $creadList :: ReadS [Qualifier]
 readsPrec :: Int -&gt; ReadS Qualifier
 $creadsPrec :: Int -&gt; ReadS Qualifier
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210916"><span id="local-6989586621679210918"><span id="local-6989586621679210920"><span class="annot"><span class="annottext">Int -&gt; Qualifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210978"><span id="local-6989586621679210980"><span id="local-6989586621679210982"><span class="annot"><span class="annottext">Int -&gt; Qualifier -&gt; ShowS
 [Qualifier] -&gt; ShowS
 Qualifier -&gt; String
 (Int -&gt; Qualifier -&gt; ShowS)
@@ -102,11 +102,11 @@ $cfrom :: forall x. Qualifier -&gt; Rep Qualifier x
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier"><span class="hs-identifier hs-type">Qualifier</span></a></span><span>
 </span><span id="line-52"></span><span id="newQualifier"><span class="annot"><span class="annottext">newQualifier :: Text -&gt; Qualifier
-</span><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#newQualifier"><span class="hs-identifier hs-var hs-var">newQualifier</span></a></span></span><span> </span><span id="local-6989586621679210910"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210910"><span class="hs-identifier hs-var">pCpsUri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Qualifier' :: Text -&gt; Qualifier
+</span><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#newQualifier"><span class="hs-identifier hs-var hs-var">newQualifier</span></a></span></span><span> </span><span id="local-6989586621679210972"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210972"><span class="hs-identifier hs-var">pCpsUri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Qualifier' :: Text -&gt; Qualifier
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier%27"><span class="hs-identifier hs-type">Qualifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cpsUri:Qualifier' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#%24sel%3AcpsUri%3AQualifier%27"><span class="hs-identifier hs-var">cpsUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210910"><span class="hs-identifier hs-var">pCpsUri_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679210972"><span class="hs-identifier hs-var">pCpsUri_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | Contains a pointer to a certification practice statement (CPS) published</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- by the CA.</span><span>
@@ -116,27 +116,27 @@ $cfrom :: forall x. Qualifier -&gt; Rep Qualifier x
 -&gt; (Qualifier -&gt; Text -&gt; Qualifier)
 -&gt; Lens Qualifier Qualifier Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier%27"><span class="hs-identifier hs-type">Qualifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210906"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier%27"><span class="hs-identifier hs-type">Qualifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210968"><span class="annot"><span class="annottext">Text
 cpsUri :: Text
 $sel:cpsUri:Qualifier' :: Qualifier -&gt; Text
-</span><a href="#local-6989586621679210906"><span class="hs-identifier hs-var hs-var">cpsUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210906"><span class="hs-identifier hs-var">cpsUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210905"><span class="annot"><span class="annottext">s :: Qualifier
-</span><a href="#local-6989586621679210905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier%27"><span class="hs-identifier hs-type">Qualifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210904"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Qualifier
-</span><a href="#local-6989586621679210905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cpsUri:Qualifier' :: Text
+</span><a href="#local-6989586621679210968"><span class="hs-identifier hs-var hs-var">cpsUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210968"><span class="hs-identifier hs-var">cpsUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210967"><span class="annot"><span class="annottext">s :: Qualifier
+</span><a href="#local-6989586621679210967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier%27"><span class="hs-identifier hs-type">Qualifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210966"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Qualifier
+</span><a href="#local-6989586621679210967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cpsUri:Qualifier' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#%24sel%3AcpsUri%3AQualifier%27"><span class="hs-identifier hs-var">cpsUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier"><span class="hs-identifier hs-type">Qualifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier"><span class="hs-identifier hs-type">Qualifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210900"><span id="local-6989586621679210902"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier"><span class="hs-identifier hs-type">Qualifier</span></a></span></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210962"><span id="local-6989586621679210964"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier"><span class="hs-identifier hs-type">Qualifier</span></a></span></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210897"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier"><span class="hs-identifier hs-type">Qualifier</span></a></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210959"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier"><span class="hs-identifier hs-type">Qualifier</span></a></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210889"><span id="local-6989586621679210891"><span id="local-6989586621679210893"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier"><span class="hs-identifier hs-type">Qualifier</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679210887"><span class="annot"><span class="annottext">toJSON :: Qualifier -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier%27"><span class="hs-identifier hs-type">Qualifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210885"><span class="annot"><span class="annottext">Text
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210951"><span id="local-6989586621679210953"><span id="local-6989586621679210955"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier"><span class="hs-identifier hs-type">Qualifier</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679210949"><span class="annot"><span class="annottext">toJSON :: Qualifier -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Qualifier.html#Qualifier%27"><span class="hs-identifier hs-type">Qualifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210947"><span class="annot"><span class="annottext">Text
 cpsUri :: Text
 $sel:cpsUri:Qualifier' :: Qualifier -&gt; Text
-</span><a href="#local-6989586621679210885"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679210947"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -148,6 +148,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;CpsUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210885"><span class="hs-identifier hs-var">cpsUri</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679210947"><span class="hs-identifier hs-var">cpsUri</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span></pre></body></html>

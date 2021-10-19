@@ -38,8 +38,8 @@
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#newListInvitationsResponse"><span class="hs-identifier">newListInvitationsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#listInvitationsResponse_nextToken"><span class="hs-identifier">listInvitationsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#listInvitationsResponse_invitations"><span class="hs-identifier">listInvitationsResponse_invitations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#listInvitationsResponse_invitations"><span class="hs-identifier">listInvitationsResponse_invitations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#listInvitationsResponse_nextToken"><span class="hs-identifier">listInvitationsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#listInvitationsResponse_httpStatus"><span class="hs-identifier">listInvitationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span class="hs-keyword">where</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListInvitations' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679305852"><span id="local-6989586621679305853"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInvitations"><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-var">ListInvitations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInvitations%27"><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-var">ListInvitations'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679306160"><span id="local-6989586621679306161"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInvitations"><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-var">ListInvitations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInvitations%27"><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-var">ListInvitations'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | You can use this parameter when paginating results. Set the value of</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- this parameter to null on your first call to the list action. For</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- subsequent calls to the action, fill nextToken in the request with the</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3AListInvitations%27"><span class="annot"><span class="annottext">ListInvitations -&gt; Maybe Natural
 </span><a href="Network.AWS.GuardDuty.ListInvitations.html#%24sel%3AmaxResults%3AListInvitations%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305845"><span id="local-6989586621679305847"><span class="annot"><span class="annottext">ListInvitations -&gt; ListInvitations -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306153"><span id="local-6989586621679306155"><span class="annot"><span class="annottext">ListInvitations -&gt; ListInvitations -&gt; Bool
 (ListInvitations -&gt; ListInvitations -&gt; Bool)
 -&gt; (ListInvitations -&gt; ListInvitations -&gt; Bool)
 -&gt; Eq ListInvitations
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListInvitations -&gt; ListInvitations -&gt; Bool
 == :: ListInvitations -&gt; ListInvitations -&gt; Bool
 $c== :: ListInvitations -&gt; ListInvitations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305836"><span id="local-6989586621679305838"><span id="local-6989586621679305840"><span id="local-6989586621679305842"><span class="annot"><span class="annottext">ReadPrec [ListInvitations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306144"><span id="local-6989586621679306146"><span id="local-6989586621679306148"><span id="local-6989586621679306150"><span class="annot"><span class="annottext">ReadPrec [ListInvitations]
 ReadPrec ListInvitations
 Int -&gt; ReadS ListInvitations
 ReadS [ListInvitations]
@@ -94,7 +94,7 @@ readList :: ReadS [ListInvitations]
 $creadList :: ReadS [ListInvitations]
 readsPrec :: Int -&gt; ReadS ListInvitations
 $creadsPrec :: Int -&gt; ReadS ListInvitations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305829"><span id="local-6989586621679305831"><span id="local-6989586621679305833"><span class="annot"><span class="annottext">Int -&gt; ListInvitations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306137"><span id="local-6989586621679306139"><span id="local-6989586621679306141"><span class="annot"><span class="annottext">Int -&gt; ListInvitations -&gt; ShowS
 [ListInvitations] -&gt; ShowS
 ListInvitations -&gt; String
 (Int -&gt; ListInvitations -&gt; ShowS)
@@ -163,16 +163,16 @@ forall a. Maybe a
 -&gt; (ListInvitations -&gt; Maybe Text -&gt; ListInvitations)
 -&gt; Lens ListInvitations ListInvitations (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-type">ListInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305823"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-type">ListInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306131"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListInvitations' :: ListInvitations -&gt; Maybe Text
-</span><a href="#local-6989586621679305823"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305823"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305822"><span class="annot"><span class="annottext">s :: ListInvitations
-</span><a href="#local-6989586621679305822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-type">ListInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305821"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInvitations
-</span><a href="#local-6989586621679305822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListInvitations' :: Maybe Text
+</span><a href="#local-6989586621679306131"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306131"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306130"><span class="annot"><span class="annottext">s :: ListInvitations
+</span><a href="#local-6989586621679306130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-type">ListInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306129"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInvitations
+</span><a href="#local-6989586621679306130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListInvitations' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.ListInvitations.html#%24sel%3AnextToken%3AListInvitations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | You can use this parameter to indicate the maximum number of items that</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- you want in the response. The default value is 50. The maximum value is</span><span>
@@ -185,29 +185,29 @@ $sel:nextToken:ListInvitations' :: ListInvitations -&gt; Maybe Text
 -&gt; Lens
      ListInvitations ListInvitations (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-type">ListInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305820"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-type">ListInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306128"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListInvitations' :: ListInvitations -&gt; Maybe Natural
-</span><a href="#local-6989586621679305820"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679305820"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305819"><span class="annot"><span class="annottext">s :: ListInvitations
-</span><a href="#local-6989586621679305819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-type">ListInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305818"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679305818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInvitations
-</span><a href="#local-6989586621679305819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListInvitations' :: Maybe Natural
+</span><a href="#local-6989586621679306128"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679306128"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306127"><span class="annot"><span class="annottext">s :: ListInvitations
+</span><a href="#local-6989586621679306127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-type">ListInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306126"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679306126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInvitations
+</span><a href="#local-6989586621679306127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListInvitations' :: Maybe Natural
 </span><a href="Network.AWS.GuardDuty.ListInvitations.html#%24sel%3AmaxResults%3AListInvitations%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679305818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679305814"><span class="annot"><span class="annottext">page :: ListInvitations
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679306122"><span class="annot"><span class="annottext">page :: ListInvitations
 -&gt; AWSResponse ListInvitations -&gt; Maybe ListInvitations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679305812"><span class="annot"><span class="annottext">ListInvitations
-</span><a href="#local-6989586621679305812"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679305811"><span class="annot"><span class="annottext">AWSResponse ListInvitations
-</span><a href="#local-6989586621679305811"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679306120"><span class="annot"><span class="annottext">ListInvitations
+</span><a href="#local-6989586621679306120"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679306119"><span class="annot"><span class="annottext">AWSResponse ListInvitations
+</span><a href="#local-6989586621679306119"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-108"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInvitations
 ListInvitationsResponse
-</span><a href="#local-6989586621679305811"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679306119"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">ListInvitationsResponse
 -&gt; Getting (First Text) ListInvitationsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -236,7 +236,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-114"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInvitations
 ListInvitationsResponse
-</span><a href="#local-6989586621679305811"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679306119"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">ListInvitationsResponse
 -&gt; Getting
      (First [Invitation]) ListInvitationsResponse [Invitation]
@@ -276,7 +276,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ListInvitations
-</span><a href="#local-6989586621679305812"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679306120"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">ListInvitations
 -&gt; (ListInvitations -&gt; ListInvitations) -&gt; ListInvitations
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -290,7 +290,7 @@ Lens ListInvitations ListInvitations (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInvitations
 ListInvitationsResponse
-</span><a href="#local-6989586621679305811"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679306119"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">ListInvitationsResponse
 -&gt; Getting (First Text) ListInvitationsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -315,12 +315,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-128"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-129"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679305801"><span class="annot"><span class="annottext">request :: ListInvitations -&gt; Request ListInvitations
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679306109"><span class="annot"><span class="annottext">request :: ListInvitations -&gt; Request ListInvitations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListInvitations -&gt; Request ListInvitations
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679305797"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679306105"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListInvitations
 -&gt; ClientResponse ClientBody
@@ -344,30 +344,19 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305794"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305794"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679305793"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679305793"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679305792"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305792"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Invitation] -&gt; Int -&gt; ListInvitationsResponse
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306102"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306102"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679306101"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679306101"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679306100"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306100"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Invitation] -&gt; Maybe Text -&gt; Int -&gt; ListInvitationsResponse
 </span><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-var">ListInvitationsResponse'</span></a></span><span>
-</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [Invitation] -&gt; Int -&gt; ListInvitationsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe [Invitation] -&gt; Int -&gt; ListInvitationsResponse)
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Invitation]
+ -&gt; Maybe Text -&gt; Int -&gt; ListInvitationsResponse)
+-&gt; Either String (Maybe [Invitation])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListInvitationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe [Invitation] -&gt; Int -&gt; ListInvitationsResponse)
--&gt; Either String (Maybe [Invitation])
--&gt; Either String (Int -&gt; ListInvitationsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Invitation]))
+</span><a href="#local-6989586621679306100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Invitation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;invitations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Invitation]))
@@ -376,6 +365,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Invitation]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListInvitationsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListInvitationsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListInvitationsResponse)
 -&gt; Either String Int -&gt; Either String ListInvitationsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -384,15 +382,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305794"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306102"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305783"><span id="local-6989586621679305785"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306091"><span id="local-6989586621679306093"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305780"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306088"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679305776"><span class="annot"><span class="annottext">toHeaders :: ListInvitations -&gt; ResponseHeaders
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679306084"><span class="annot"><span class="annottext">toHeaders :: ListInvitations -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListInvitations -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -412,21 +410,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679305770"><span class="annot"><span class="annottext">toPath :: ListInvitations -&gt; ByteString
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679306078"><span class="annot"><span class="annottext">toPath :: ListInvitations -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListInvitations -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/invitation&quot;</span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679305766"><span class="annot"><span class="annottext">toQuery :: ListInvitations -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-type">ListInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305763"><span id="local-6989586621679305764"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679306074"><span class="annot"><span class="annottext">toQuery :: ListInvitations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-type">ListInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306071"><span id="local-6989586621679306072"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListInvitations' :: ListInvitations -&gt; Maybe Natural
 $sel:nextToken:ListInvitations' :: ListInvitations -&gt; Maybe Text
-</span><a href="#local-6989586621679305763"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679306071"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -434,28 +432,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305764"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306072"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679305763"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679306071"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | /See:/ 'newListInvitationsResponse' smart constructor.</span><span>
-</span><span id="line-167"></span><span id="local-6989586621679305760"><span id="local-6989586621679305761"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInvitationsResponse"><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-var">ListInvitationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInvitationsResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-var">ListInvitationsResponse'</span></a></span></span><span>
-</span><span id="line-168"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination parameter to be used on the next list operation to</span><span>
-</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- retrieve more items.</span><span>
-</span><span id="line-170"></span><span>    </span><span id="%24sel%3AnextToken%3AListInvitationsResponse%27"><span class="annot"><span class="annottext">ListInvitationsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.GuardDuty.ListInvitations.html#%24sel%3AnextToken%3AListInvitationsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | A list of invitation descriptions.</span><span>
-</span><span id="line-172"></span><span>    </span><span id="%24sel%3Ainvitations%3AListInvitationsResponse%27"><span class="annot"><span class="annottext">ListInvitationsResponse -&gt; Maybe [Invitation]
+</span><span id="line-167"></span><span id="local-6989586621679306068"><span id="local-6989586621679306069"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInvitationsResponse"><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-var">ListInvitationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInvitationsResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-var">ListInvitationsResponse'</span></a></span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of invitation descriptions.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3Ainvitations%3AListInvitationsResponse%27"><span class="annot"><span class="annottext">ListInvitationsResponse -&gt; Maybe [Invitation]
 </span><a href="Network.AWS.GuardDuty.ListInvitations.html#%24sel%3Ainvitations%3AListInvitationsResponse%27"><span class="hs-identifier hs-var hs-var">invitations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Invitation.html#Invitation"><span class="hs-identifier hs-type">Invitation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | The pagination parameter to be used on the next list operation to</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- retrieve more items.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AnextToken%3AListInvitationsResponse%27"><span class="annot"><span class="annottext">ListInvitationsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.GuardDuty.ListInvitations.html#%24sel%3AnextToken%3AListInvitationsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListInvitationsResponse%27"><span class="annot"><span class="annottext">ListInvitationsResponse -&gt; Int
 </span><a href="Network.AWS.GuardDuty.ListInvitations.html#%24sel%3AhttpStatus%3AListInvitationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305753"><span id="local-6989586621679305755"><span class="annot"><span class="annottext">ListInvitationsResponse -&gt; ListInvitationsResponse -&gt; Bool
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306061"><span id="local-6989586621679306063"><span class="annot"><span class="annottext">ListInvitationsResponse -&gt; ListInvitationsResponse -&gt; Bool
 (ListInvitationsResponse -&gt; ListInvitationsResponse -&gt; Bool)
 -&gt; (ListInvitationsResponse -&gt; ListInvitationsResponse -&gt; Bool)
 -&gt; Eq ListInvitationsResponse
@@ -464,7 +462,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListInvitationsResponse -&gt; ListInvitationsResponse -&gt; Bool
 == :: ListInvitationsResponse -&gt; ListInvitationsResponse -&gt; Bool
 $c== :: ListInvitationsResponse -&gt; ListInvitationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305745"><span id="local-6989586621679305747"><span id="local-6989586621679305749"><span id="local-6989586621679305751"><span class="annot"><span class="annottext">ReadPrec [ListInvitationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306053"><span id="local-6989586621679306055"><span id="local-6989586621679306057"><span id="local-6989586621679306059"><span class="annot"><span class="annottext">ReadPrec [ListInvitationsResponse]
 ReadPrec ListInvitationsResponse
 Int -&gt; ReadS ListInvitationsResponse
 ReadS [ListInvitationsResponse]
@@ -484,7 +482,7 @@ readList :: ReadS [ListInvitationsResponse]
 $creadList :: ReadS [ListInvitationsResponse]
 readsPrec :: Int -&gt; ReadS ListInvitationsResponse
 $creadsPrec :: Int -&gt; ReadS ListInvitationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305739"><span id="local-6989586621679305741"><span id="local-6989586621679305743"><span class="annot"><span class="annottext">Int -&gt; ListInvitationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306047"><span id="local-6989586621679306049"><span id="local-6989586621679306051"><span class="annot"><span class="annottext">Int -&gt; ListInvitationsResponse -&gt; ShowS
 [ListInvitationsResponse] -&gt; ShowS
 ListInvitationsResponse -&gt; String
 (Int -&gt; ListInvitationsResponse -&gt; ShowS)
@@ -520,10 +518,10 @@ $cfrom :: forall x. ListInvitationsResponse -&gt; Rep ListInvitationsResponse x
 </span><span id="line-183"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-185"></span><span class="hs-comment">--</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- 'nextToken', 'listInvitationsResponse_nextToken' - The pagination parameter to be used on the next list operation to</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- retrieve more items.</span><span>
-</span><span id="line-188"></span><span class="hs-comment">--</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- 'invitations', 'listInvitationsResponse_invitations' - A list of invitation descriptions.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'invitations', 'listInvitationsResponse_invitations' - A list of invitation descriptions.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'nextToken', 'listInvitationsResponse_nextToken' - The pagination parameter to be used on the next list operation to</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- retrieve more items.</span><span>
 </span><span id="line-190"></span><span class="hs-comment">--</span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- 'httpStatus', 'listInvitationsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-192"></span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#newListInvitationsResponse"><span class="hs-identifier hs-type">newListInvitationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -531,64 +529,43 @@ $cfrom :: forall x. ListInvitationsResponse -&gt; Rep ListInvitationsResponse x
 </span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-195"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span>
 </span><span id="line-196"></span><span id="newListInvitationsResponse"><span class="annot"><span class="annottext">newListInvitationsResponse :: Int -&gt; ListInvitationsResponse
-</span><a href="Network.AWS.GuardDuty.ListInvitations.html#newListInvitationsResponse"><span class="hs-identifier hs-var hs-var">newListInvitationsResponse</span></a></span></span><span> </span><span id="local-6989586621679305736"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305736"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-197"></span><span>  </span><span class="annot"><span class="annottext">ListInvitationsResponse' :: Maybe Text -&gt; Maybe [Invitation] -&gt; Int -&gt; ListInvitationsResponse
+</span><a href="Network.AWS.GuardDuty.ListInvitations.html#newListInvitationsResponse"><span class="hs-identifier hs-var hs-var">newListInvitationsResponse</span></a></span></span><span> </span><span id="local-6989586621679306044"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306044"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><span class="annottext">ListInvitationsResponse' :: Maybe [Invitation] -&gt; Maybe Text -&gt; Int -&gt; ListInvitationsResponse
 </span><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span>
-</span><span id="line-198"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListInvitationsResponse' :: Maybe Text
-</span><a href="Network.AWS.GuardDuty.ListInvitations.html#%24sel%3AnextToken%3AListInvitationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-198"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:invitations:ListInvitationsResponse' :: Maybe [Invitation]
+</span><a href="Network.AWS.GuardDuty.ListInvitations.html#%24sel%3Ainvitations%3AListInvitationsResponse%27"><span class="hs-identifier hs-var">invitations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Invitation]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:invitations:ListInvitationsResponse' :: Maybe [Invitation]
-</span><a href="Network.AWS.GuardDuty.ListInvitations.html#%24sel%3Ainvitations%3AListInvitationsResponse%27"><span class="hs-identifier hs-var">invitations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Invitation]
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListInvitationsResponse' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.ListInvitations.html#%24sel%3AnextToken%3AListInvitationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListInvitationsResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.ListInvitations.html#%24sel%3AhttpStatus%3AListInvitationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305736"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679306044"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-202"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- | The pagination parameter to be used on the next list operation to</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- retrieve more items.</span><span>
-</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#listInvitationsResponse_nextToken"><span class="hs-identifier hs-type">listInvitationsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-207"></span><span id="listInvitationsResponse_nextToken"><span class="annot"><span class="annottext">listInvitationsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListInvitationsResponse -&gt; f ListInvitationsResponse
-</span><a href="Network.AWS.GuardDuty.ListInvitations.html#listInvitationsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listInvitationsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInvitationsResponse -&gt; Maybe Text)
--&gt; (ListInvitationsResponse
-    -&gt; Maybe Text -&gt; ListInvitationsResponse)
--&gt; Lens' ListInvitationsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305735"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListInvitationsResponse' :: ListInvitationsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679305735"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305735"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305734"><span class="annot"><span class="annottext">s :: ListInvitationsResponse
-</span><a href="#local-6989586621679305734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305733"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInvitationsResponse
-</span><a href="#local-6989586621679305734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListInvitationsResponse' :: Maybe Text
-</span><a href="Network.AWS.GuardDuty.ListInvitations.html#%24sel%3AnextToken%3AListInvitationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-208"></span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- | A list of invitation descriptions.</span><span>
-</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#listInvitationsResponse_invitations"><span class="hs-identifier hs-type">listInvitationsResponse_invitations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Invitation.html#Invitation"><span class="hs-identifier hs-type">Invitation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-211"></span><span id="listInvitationsResponse_invitations"><span class="annot"><span class="annottext">listInvitationsResponse_invitations :: (Maybe [Invitation] -&gt; f (Maybe [Invitation]))
+</span><span id="line-204"></span><span class="hs-comment">-- | A list of invitation descriptions.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#listInvitationsResponse_invitations"><span class="hs-identifier hs-type">listInvitationsResponse_invitations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Invitation.html#Invitation"><span class="hs-identifier hs-type">Invitation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="listInvitationsResponse_invitations"><span class="annot"><span class="annottext">listInvitationsResponse_invitations :: (Maybe [Invitation] -&gt; f (Maybe [Invitation]))
 -&gt; ListInvitationsResponse -&gt; f ListInvitationsResponse
 </span><a href="Network.AWS.GuardDuty.ListInvitations.html#listInvitationsResponse_invitations"><span class="hs-identifier hs-var hs-var">listInvitationsResponse_invitations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInvitationsResponse -&gt; Maybe [Invitation])
 -&gt; (ListInvitationsResponse
     -&gt; Maybe [Invitation] -&gt; ListInvitationsResponse)
 -&gt; Lens' ListInvitationsResponse (Maybe [Invitation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305732"><span class="annot"><span class="annottext">Maybe [Invitation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306043"><span class="annot"><span class="annottext">Maybe [Invitation]
 invitations :: Maybe [Invitation]
 $sel:invitations:ListInvitationsResponse' :: ListInvitationsResponse -&gt; Maybe [Invitation]
-</span><a href="#local-6989586621679305732"><span class="hs-identifier hs-var hs-var">invitations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Invitation]
-</span><a href="#local-6989586621679305732"><span class="hs-identifier hs-var">invitations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305731"><span class="annot"><span class="annottext">s :: ListInvitationsResponse
-</span><a href="#local-6989586621679305731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305730"><span class="annot"><span class="annottext">Maybe [Invitation]
-</span><a href="#local-6989586621679305730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInvitationsResponse
-</span><a href="#local-6989586621679305731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invitations:ListInvitationsResponse' :: Maybe [Invitation]
+</span><a href="#local-6989586621679306043"><span class="hs-identifier hs-var hs-var">invitations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Invitation]
+</span><a href="#local-6989586621679306043"><span class="hs-identifier hs-var">invitations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306042"><span class="annot"><span class="annottext">s :: ListInvitationsResponse
+</span><a href="#local-6989586621679306042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306041"><span class="annot"><span class="annottext">Maybe [Invitation]
+</span><a href="#local-6989586621679306041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInvitationsResponse
+</span><a href="#local-6989586621679306042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invitations:ListInvitationsResponse' :: Maybe [Invitation]
 </span><a href="Network.AWS.GuardDuty.ListInvitations.html#%24sel%3Ainvitations%3AListInvitationsResponse%27"><span class="hs-identifier hs-var">invitations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Invitation]
-</span><a href="#local-6989586621679305730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Invitation] -&gt; f (Maybe [Invitation]))
+</span><a href="#local-6989586621679306041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Invitation] -&gt; f (Maybe [Invitation]))
  -&gt; ListInvitationsResponse -&gt; f ListInvitationsResponse)
 -&gt; ((Maybe [Invitation] -&gt; f (Maybe [Invitation]))
     -&gt; Maybe [Invitation] -&gt; f (Maybe [Invitation]))
@@ -606,8 +583,29 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Invitation] [Invitation] [Invitation] [Invitation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The pagination parameter to be used on the next list operation to</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- retrieve more items.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#listInvitationsResponse_nextToken"><span class="hs-identifier hs-type">listInvitationsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="listInvitationsResponse_nextToken"><span class="annot"><span class="annottext">listInvitationsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListInvitationsResponse -&gt; f ListInvitationsResponse
+</span><a href="Network.AWS.GuardDuty.ListInvitations.html#listInvitationsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listInvitationsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInvitationsResponse -&gt; Maybe Text)
+-&gt; (ListInvitationsResponse
+    -&gt; Maybe Text -&gt; ListInvitationsResponse)
+-&gt; Lens' ListInvitationsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306038"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListInvitationsResponse' :: ListInvitationsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679306038"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306038"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306037"><span class="annot"><span class="annottext">s :: ListInvitationsResponse
+</span><a href="#local-6989586621679306037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306036"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInvitationsResponse
+</span><a href="#local-6989586621679306037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListInvitationsResponse' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.ListInvitations.html#%24sel%3AnextToken%3AListInvitationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-214"></span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#listInvitationsResponse_httpStatus"><span class="hs-identifier hs-type">listInvitationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -617,16 +615,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListInvitationsResponse -&gt; Int -&gt; ListInvitationsResponse)
 -&gt; Lens ListInvitationsResponse ListInvitationsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305727"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306035"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListInvitationsResponse' :: ListInvitationsResponse -&gt; Int
-</span><a href="#local-6989586621679305727"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305727"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305726"><span class="annot"><span class="annottext">s :: ListInvitationsResponse
-</span><a href="#local-6989586621679305726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305725"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInvitationsResponse
-</span><a href="#local-6989586621679305726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListInvitationsResponse' :: Int
+</span><a href="#local-6989586621679306035"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306035"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306034"><span class="annot"><span class="annottext">s :: ListInvitationsResponse
+</span><a href="#local-6989586621679306034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306033"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInvitationsResponse
+</span><a href="#local-6989586621679306034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListInvitationsResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.ListInvitations.html#%24sel%3AhttpStatus%3AListInvitationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305723"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306031"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span></span><span>
 </span><span id="line-218"></span></pre></body></html>

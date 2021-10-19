@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newResolveRoom' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679379277"><span id="local-6989586621679379278"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResolveRoom"><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-var">ResolveRoom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResolveRoom%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom%27"><span class="hs-identifier hs-var">ResolveRoom'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679379619"><span id="local-6989586621679379620"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResolveRoom"><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-var">ResolveRoom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResolveRoom%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom%27"><span class="hs-identifier hs-var">ResolveRoom'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the user. Required.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AuserId%3AResolveRoom%27"><span class="annot"><span class="annottext">ResolveRoom -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#%24sel%3AuserId%3AResolveRoom%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AskillId%3AResolveRoom%27"><span class="annot"><span class="annottext">ResolveRoom -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#%24sel%3AskillId%3AResolveRoom%27"><span class="hs-identifier hs-var hs-var">skillId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379270"><span id="local-6989586621679379272"><span class="annot"><span class="annottext">ResolveRoom -&gt; ResolveRoom -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379612"><span id="local-6989586621679379614"><span class="annot"><span class="annottext">ResolveRoom -&gt; ResolveRoom -&gt; Bool
 (ResolveRoom -&gt; ResolveRoom -&gt; Bool)
 -&gt; (ResolveRoom -&gt; ResolveRoom -&gt; Bool) -&gt; Eq ResolveRoom
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResolveRoom -&gt; ResolveRoom -&gt; Bool
 == :: ResolveRoom -&gt; ResolveRoom -&gt; Bool
 $c== :: ResolveRoom -&gt; ResolveRoom -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379261"><span id="local-6989586621679379263"><span id="local-6989586621679379265"><span id="local-6989586621679379267"><span class="annot"><span class="annottext">ReadPrec [ResolveRoom]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379603"><span id="local-6989586621679379605"><span id="local-6989586621679379607"><span id="local-6989586621679379609"><span class="annot"><span class="annottext">ReadPrec [ResolveRoom]
 ReadPrec ResolveRoom
 Int -&gt; ReadS ResolveRoom
 ReadS [ResolveRoom]
@@ -95,7 +95,7 @@ readList :: ReadS [ResolveRoom]
 $creadList :: ReadS [ResolveRoom]
 readsPrec :: Int -&gt; ReadS ResolveRoom
 $creadsPrec :: Int -&gt; ReadS ResolveRoom
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379254"><span id="local-6989586621679379256"><span id="local-6989586621679379258"><span class="annot"><span class="annottext">Int -&gt; ResolveRoom -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379596"><span id="local-6989586621679379598"><span id="local-6989586621679379600"><span class="annot"><span class="annottext">Int -&gt; ResolveRoom -&gt; ShowS
 [ResolveRoom] -&gt; ShowS
 ResolveRoom -&gt; String
 (Int -&gt; ResolveRoom -&gt; ShowS)
@@ -139,17 +139,17 @@ $cfrom :: forall x. ResolveRoom -&gt; Rep ResolveRoom x
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-type">ResolveRoom</span></a></span><span>
 </span><span id="line-87"></span><span id="newResolveRoom"><span class="annot"><span class="annottext">newResolveRoom :: Text -&gt; Text -&gt; ResolveRoom
-</span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#newResolveRoom"><span class="hs-identifier hs-var hs-var">newResolveRoom</span></a></span></span><span> </span><span id="local-6989586621679379249"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379249"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span> </span><span id="local-6989586621679379248"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379248"><span class="hs-identifier hs-var">pSkillId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#newResolveRoom"><span class="hs-identifier hs-var hs-var">newResolveRoom</span></a></span></span><span> </span><span id="local-6989586621679379591"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379591"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span> </span><span id="local-6989586621679379590"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379590"><span class="hs-identifier hs-var">pSkillId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">ResolveRoom' :: Text -&gt; Text -&gt; ResolveRoom
 </span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom%27"><span class="hs-identifier hs-type">ResolveRoom'</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userId:ResolveRoom' :: Text
 </span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#%24sel%3AuserId%3AResolveRoom%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379249"><span class="hs-identifier hs-var">pUserId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379591"><span class="hs-identifier hs-var">pUserId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:skillId:ResolveRoom' :: Text
 </span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#%24sel%3AskillId%3AResolveRoom%27"><span class="hs-identifier hs-var">skillId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379248"><span class="hs-identifier hs-var">pSkillId_</span></a></span><span>
+</span><a href="#local-6989586621679379590"><span class="hs-identifier hs-var">pSkillId_</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The ARN of the user. Required.</span><span>
@@ -159,16 +159,16 @@ $cfrom :: forall x. ResolveRoom -&gt; Rep ResolveRoom x
 -&gt; (ResolveRoom -&gt; Text -&gt; ResolveRoom)
 -&gt; Lens ResolveRoom ResolveRoom Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom%27"><span class="hs-identifier hs-type">ResolveRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379245"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom%27"><span class="hs-identifier hs-type">ResolveRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379587"><span class="annot"><span class="annottext">Text
 userId :: Text
 $sel:userId:ResolveRoom' :: ResolveRoom -&gt; Text
-</span><a href="#local-6989586621679379245"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379245"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379244"><span class="annot"><span class="annottext">s :: ResolveRoom
-</span><a href="#local-6989586621679379244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom%27"><span class="hs-identifier hs-type">ResolveRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379243"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveRoom
-</span><a href="#local-6989586621679379244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:ResolveRoom' :: Text
+</span><a href="#local-6989586621679379587"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379587"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379586"><span class="annot"><span class="annottext">s :: ResolveRoom
+</span><a href="#local-6989586621679379586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom%27"><span class="hs-identifier hs-type">ResolveRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379585"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveRoom
+</span><a href="#local-6989586621679379586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:ResolveRoom' :: Text
 </span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#%24sel%3AuserId%3AResolveRoom%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-type">ResolveRoom</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-type">ResolveRoom</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The ARN of the skill that was requested. Required.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#resolveRoom_skillId"><span class="hs-identifier hs-type">resolveRoom_skillId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-type">ResolveRoom</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -177,25 +177,25 @@ $sel:userId:ResolveRoom' :: ResolveRoom -&gt; Text
 -&gt; (ResolveRoom -&gt; Text -&gt; ResolveRoom)
 -&gt; Lens ResolveRoom ResolveRoom Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom%27"><span class="hs-identifier hs-type">ResolveRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379242"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom%27"><span class="hs-identifier hs-type">ResolveRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379584"><span class="annot"><span class="annottext">Text
 skillId :: Text
 $sel:skillId:ResolveRoom' :: ResolveRoom -&gt; Text
-</span><a href="#local-6989586621679379242"><span class="hs-identifier hs-var hs-var">skillId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379242"><span class="hs-identifier hs-var">skillId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379241"><span class="annot"><span class="annottext">s :: ResolveRoom
-</span><a href="#local-6989586621679379241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom%27"><span class="hs-identifier hs-type">ResolveRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379240"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveRoom
-</span><a href="#local-6989586621679379241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skillId:ResolveRoom' :: Text
+</span><a href="#local-6989586621679379584"><span class="hs-identifier hs-var hs-var">skillId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379584"><span class="hs-identifier hs-var">skillId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379583"><span class="annot"><span class="annottext">s :: ResolveRoom
+</span><a href="#local-6989586621679379583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom%27"><span class="hs-identifier hs-type">ResolveRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379582"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveRoom
+</span><a href="#local-6989586621679379583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skillId:ResolveRoom' :: Text
 </span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#%24sel%3AskillId%3AResolveRoom%27"><span class="hs-identifier hs-var">skillId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-type">ResolveRoom</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-type">ResolveRoom</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-type">ResolveRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-type">ResolveRoom</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse"><span class="hs-identifier hs-type">ResolveRoomResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679379236"><span class="annot"><span class="annottext">request :: ResolveRoom -&gt; Request ResolveRoom
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679379578"><span class="annot"><span class="annottext">request :: ResolveRoom -&gt; Request ResolveRoom
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ResolveRoom -&gt; Request ResolveRoom
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679379232"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679379574"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ResolveRoom
 -&gt; ClientResponse ClientBody
@@ -219,10 +219,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679379229"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679379229"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679379228"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679379228"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679379227"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679379227"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679379571"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379571"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679379570"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679379570"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679379569"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379569"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RoomSkillParameter]
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ResolveRoomResponse
 </span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-var">ResolveRoomResponse'</span></a></span><span>
@@ -233,7 +233,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ResolveRoomResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679379227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [RoomSkillParameter]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -252,7 +252,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ResolveRoomResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679379227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679379569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoomArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -261,7 +261,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ResolveRoomResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679379227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679379569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoomName&quot;</span></span><span class="hs-special">)</span><span>
@@ -273,15 +273,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679379229"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379571"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379218"><span id="local-6989586621679379220"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-type">ResolveRoom</span></a></span></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379560"><span id="local-6989586621679379562"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-type">ResolveRoom</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379215"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-type">ResolveRoom</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379557"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-type">ResolveRoom</span></a></span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-type">ResolveRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679379211"><span class="annot"><span class="annottext">toHeaders :: ResolveRoom -&gt; ResponseHeaders
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679379553"><span class="annot"><span class="annottext">toHeaders :: ResolveRoom -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ResolveRoom -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -308,14 +308,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379201"><span id="local-6989586621679379203"><span id="local-6989586621679379205"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-type">ResolveRoom</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679379199"><span class="annot"><span class="annottext">toJSON :: ResolveRoom -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom%27"><span class="hs-identifier hs-type">ResolveRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379196"><span id="local-6989586621679379197"><span class="annot"><span class="annottext">Text
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379543"><span id="local-6989586621679379545"><span id="local-6989586621679379547"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-type">ResolveRoom</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679379541"><span class="annot"><span class="annottext">toJSON :: ResolveRoom -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom%27"><span class="hs-identifier hs-type">ResolveRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379538"><span id="local-6989586621679379539"><span class="annot"><span class="annottext">Text
 skillId :: Text
 userId :: Text
 $sel:skillId:ResolveRoom' :: ResolveRoom -&gt; Text
 $sel:userId:ResolveRoom' :: ResolveRoom -&gt; Text
-</span><a href="#local-6989586621679379196"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679379538"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -327,26 +327,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;UserId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379197"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379539"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SkillId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679379196"><span class="hs-identifier hs-var">skillId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379538"><span class="hs-identifier hs-var">skillId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-type">ResolveRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679379190"><span class="annot"><span class="annottext">toPath :: ResolveRoom -&gt; ByteString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679379532"><span class="annot"><span class="annottext">toPath :: ResolveRoom -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ResolveRoom -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoom"><span class="hs-identifier hs-type">ResolveRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679379186"><span class="annot"><span class="annottext">toQuery :: ResolveRoom -&gt; QueryString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679379528"><span class="annot"><span class="annottext">toQuery :: ResolveRoom -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ResolveRoom -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -354,7 +354,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newResolveRoomResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679379183"><span id="local-6989586621679379184"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResolveRoomResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse"><span class="hs-identifier hs-var">ResolveRoomResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResolveRoomResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-var">ResolveRoomResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679379525"><span id="local-6989586621679379526"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResolveRoomResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse"><span class="hs-identifier hs-var">ResolveRoomResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResolveRoomResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-var">ResolveRoomResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Response to get the room profile request. Required.</span><span>
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AroomSkillParameters%3AResolveRoomResponse%27"><span class="annot"><span class="annottext">ResolveRoomResponse -&gt; Maybe [RoomSkillParameter]
 </span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#%24sel%3AroomSkillParameters%3AResolveRoomResponse%27"><span class="hs-identifier hs-var hs-var">roomSkillParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RoomSkillParameter.html#RoomSkillParameter"><span class="hs-identifier hs-type">RoomSkillParameter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -368,7 +368,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-159"></span><span>    </span><span id="%24sel%3AhttpStatus%3AResolveRoomResponse%27"><span class="annot"><span class="annottext">ResolveRoomResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#%24sel%3AhttpStatus%3AResolveRoomResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379175"><span id="local-6989586621679379177"><span class="annot"><span class="annottext">ResolveRoomResponse -&gt; ResolveRoomResponse -&gt; Bool
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379517"><span id="local-6989586621679379519"><span class="annot"><span class="annottext">ResolveRoomResponse -&gt; ResolveRoomResponse -&gt; Bool
 (ResolveRoomResponse -&gt; ResolveRoomResponse -&gt; Bool)
 -&gt; (ResolveRoomResponse -&gt; ResolveRoomResponse -&gt; Bool)
 -&gt; Eq ResolveRoomResponse
@@ -377,7 +377,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResolveRoomResponse -&gt; ResolveRoomResponse -&gt; Bool
 == :: ResolveRoomResponse -&gt; ResolveRoomResponse -&gt; Bool
 $c== :: ResolveRoomResponse -&gt; ResolveRoomResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379167"><span id="local-6989586621679379169"><span id="local-6989586621679379171"><span id="local-6989586621679379173"><span class="annot"><span class="annottext">ReadPrec [ResolveRoomResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379509"><span id="local-6989586621679379511"><span id="local-6989586621679379513"><span id="local-6989586621679379515"><span class="annot"><span class="annottext">ReadPrec [ResolveRoomResponse]
 ReadPrec ResolveRoomResponse
 Int -&gt; ReadS ResolveRoomResponse
 ReadS [ResolveRoomResponse]
@@ -397,7 +397,7 @@ readList :: ReadS [ResolveRoomResponse]
 $creadList :: ReadS [ResolveRoomResponse]
 readsPrec :: Int -&gt; ReadS ResolveRoomResponse
 $creadsPrec :: Int -&gt; ReadS ResolveRoomResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379161"><span id="local-6989586621679379163"><span id="local-6989586621679379165"><span class="annot"><span class="annottext">Int -&gt; ResolveRoomResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379503"><span id="local-6989586621679379505"><span id="local-6989586621679379507"><span class="annot"><span class="annottext">Int -&gt; ResolveRoomResponse -&gt; ShowS
 [ResolveRoomResponse] -&gt; ShowS
 ResolveRoomResponse -&gt; String
 (Int -&gt; ResolveRoomResponse -&gt; ShowS)
@@ -443,8 +443,8 @@ $cfrom :: forall x. ResolveRoomResponse -&gt; Rep ResolveRoomResponse x
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse"><span class="hs-identifier hs-type">ResolveRoomResponse</span></a></span><span>
 </span><span id="line-182"></span><span id="newResolveRoomResponse"><span class="annot"><span class="annottext">newResolveRoomResponse :: Int -&gt; ResolveRoomResponse
-</span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#newResolveRoomResponse"><span class="hs-identifier hs-var hs-var">newResolveRoomResponse</span></a></span></span><span> </span><span id="local-6989586621679379158"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679379158"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#newResolveRoomResponse"><span class="hs-identifier hs-var hs-var">newResolveRoomResponse</span></a></span></span><span> </span><span id="local-6989586621679379500"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379500"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">ResolveRoomResponse' :: Maybe [RoomSkillParameter]
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ResolveRoomResponse
 </span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-type">ResolveRoomResponse'</span></a></span><span>
@@ -463,7 +463,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ResolveRoomResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#%24sel%3AhttpStatus%3AResolveRoomResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679379158"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679379500"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-189"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | Response to get the room profile request. Required.</span><span>
@@ -479,16 +479,16 @@ forall a. Maybe a
      (Maybe [RoomSkillParameter])
      (Maybe [RoomSkillParameter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-type">ResolveRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379157"><span class="annot"><span class="annottext">Maybe [RoomSkillParameter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-type">ResolveRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379499"><span class="annot"><span class="annottext">Maybe [RoomSkillParameter]
 roomSkillParameters :: Maybe [RoomSkillParameter]
 $sel:roomSkillParameters:ResolveRoomResponse' :: ResolveRoomResponse -&gt; Maybe [RoomSkillParameter]
-</span><a href="#local-6989586621679379157"><span class="hs-identifier hs-var hs-var">roomSkillParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RoomSkillParameter]
-</span><a href="#local-6989586621679379157"><span class="hs-identifier hs-var">roomSkillParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379156"><span class="annot"><span class="annottext">s :: ResolveRoomResponse
-</span><a href="#local-6989586621679379156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-type">ResolveRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379155"><span class="annot"><span class="annottext">Maybe [RoomSkillParameter]
-</span><a href="#local-6989586621679379155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveRoomResponse
-</span><a href="#local-6989586621679379156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomSkillParameters:ResolveRoomResponse' :: Maybe [RoomSkillParameter]
+</span><a href="#local-6989586621679379499"><span class="hs-identifier hs-var hs-var">roomSkillParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RoomSkillParameter]
+</span><a href="#local-6989586621679379499"><span class="hs-identifier hs-var">roomSkillParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379498"><span class="annot"><span class="annottext">s :: ResolveRoomResponse
+</span><a href="#local-6989586621679379498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-type">ResolveRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379497"><span class="annot"><span class="annottext">Maybe [RoomSkillParameter]
+</span><a href="#local-6989586621679379497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveRoomResponse
+</span><a href="#local-6989586621679379498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomSkillParameters:ResolveRoomResponse' :: Maybe [RoomSkillParameter]
 </span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#%24sel%3AroomSkillParameters%3AResolveRoomResponse%27"><span class="hs-identifier hs-var">roomSkillParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RoomSkillParameter]
-</span><a href="#local-6989586621679379155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse"><span class="hs-identifier hs-type">ResolveRoomResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RoomSkillParameter] -&gt; f (Maybe [RoomSkillParameter]))
+</span><a href="#local-6989586621679379497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse"><span class="hs-identifier hs-type">ResolveRoomResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RoomSkillParameter] -&gt; f (Maybe [RoomSkillParameter]))
  -&gt; ResolveRoomResponse -&gt; f ResolveRoomResponse)
 -&gt; ((Maybe [RoomSkillParameter] -&gt; f (Maybe [RoomSkillParameter]))
     -&gt; Maybe [RoomSkillParameter] -&gt; f (Maybe [RoomSkillParameter]))
@@ -514,8 +514,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [RoomSkillParameter]
   [RoomSkillParameter]
   [RoomSkillParameter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | The ARN of the room from which the skill request was invoked.</span><span>
 </span><span id="line-196"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#resolveRoomResponse_roomArn"><span class="hs-identifier hs-type">resolveRoomResponse_roomArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse"><span class="hs-identifier hs-type">ResolveRoomResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -526,16 +526,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      ResolveRoomResponse ResolveRoomResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-type">ResolveRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379151"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-type">ResolveRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379493"><span class="annot"><span class="annottext">Maybe Text
 roomArn :: Maybe Text
 $sel:roomArn:ResolveRoomResponse' :: ResolveRoomResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679379151"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679379151"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379150"><span class="annot"><span class="annottext">s :: ResolveRoomResponse
-</span><a href="#local-6989586621679379150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-type">ResolveRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379149"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679379149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveRoomResponse
-</span><a href="#local-6989586621679379150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomArn:ResolveRoomResponse' :: Maybe Text
+</span><a href="#local-6989586621679379493"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379493"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379492"><span class="annot"><span class="annottext">s :: ResolveRoomResponse
+</span><a href="#local-6989586621679379492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-type">ResolveRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379491"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveRoomResponse
+</span><a href="#local-6989586621679379492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomArn:ResolveRoomResponse' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#%24sel%3AroomArn%3AResolveRoomResponse%27"><span class="hs-identifier hs-var">roomArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679379149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse"><span class="hs-identifier hs-type">ResolveRoomResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse"><span class="hs-identifier hs-type">ResolveRoomResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | The name of the room from which the skill request was invoked.</span><span>
 </span><span id="line-200"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#resolveRoomResponse_roomName"><span class="hs-identifier hs-type">resolveRoomResponse_roomName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse"><span class="hs-identifier hs-type">ResolveRoomResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -546,16 +546,16 @@ $sel:roomArn:ResolveRoomResponse' :: ResolveRoomResponse -&gt; Maybe Text
 -&gt; Lens
      ResolveRoomResponse ResolveRoomResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-type">ResolveRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379148"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-type">ResolveRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379490"><span class="annot"><span class="annottext">Maybe Text
 roomName :: Maybe Text
 $sel:roomName:ResolveRoomResponse' :: ResolveRoomResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679379148"><span class="hs-identifier hs-var hs-var">roomName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679379148"><span class="hs-identifier hs-var">roomName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379147"><span class="annot"><span class="annottext">s :: ResolveRoomResponse
-</span><a href="#local-6989586621679379147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-type">ResolveRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379146"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679379146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveRoomResponse
-</span><a href="#local-6989586621679379147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomName:ResolveRoomResponse' :: Maybe Text
+</span><a href="#local-6989586621679379490"><span class="hs-identifier hs-var hs-var">roomName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379490"><span class="hs-identifier hs-var">roomName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379489"><span class="annot"><span class="annottext">s :: ResolveRoomResponse
+</span><a href="#local-6989586621679379489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-type">ResolveRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379488"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveRoomResponse
+</span><a href="#local-6989586621679379489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomName:ResolveRoomResponse' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#%24sel%3AroomName%3AResolveRoomResponse%27"><span class="hs-identifier hs-var">roomName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679379146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse"><span class="hs-identifier hs-type">ResolveRoomResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse"><span class="hs-identifier hs-type">ResolveRoomResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-204"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#resolveRoomResponse_httpStatus"><span class="hs-identifier hs-type">resolveRoomResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse"><span class="hs-identifier hs-type">ResolveRoomResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -564,16 +564,16 @@ $sel:roomName:ResolveRoomResponse' :: ResolveRoomResponse -&gt; Maybe Text
 -&gt; (ResolveRoomResponse -&gt; Int -&gt; ResolveRoomResponse)
 -&gt; Lens ResolveRoomResponse ResolveRoomResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-type">ResolveRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379145"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-type">ResolveRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379487"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ResolveRoomResponse' :: ResolveRoomResponse -&gt; Int
-</span><a href="#local-6989586621679379145"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679379145"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379144"><span class="annot"><span class="annottext">s :: ResolveRoomResponse
-</span><a href="#local-6989586621679379144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-type">ResolveRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379143"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679379143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveRoomResponse
-</span><a href="#local-6989586621679379144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ResolveRoomResponse' :: Int
+</span><a href="#local-6989586621679379487"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379487"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379486"><span class="annot"><span class="annottext">s :: ResolveRoomResponse
+</span><a href="#local-6989586621679379486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse%27"><span class="hs-identifier hs-type">ResolveRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379485"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolveRoomResponse
+</span><a href="#local-6989586621679379486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ResolveRoomResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#%24sel%3AhttpStatus%3AResolveRoomResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679379143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse"><span class="hs-identifier hs-type">ResolveRoomResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse"><span class="hs-identifier hs-type">ResolveRoomResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse"><span class="hs-identifier hs-type">ResolveRoomResponse</span></a></span></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379483"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ResolveRoom.html#ResolveRoomResponse"><span class="hs-identifier hs-type">ResolveRoomResponse</span></a></span></span><span>
 </span><span id="line-208"></span></pre></body></html>

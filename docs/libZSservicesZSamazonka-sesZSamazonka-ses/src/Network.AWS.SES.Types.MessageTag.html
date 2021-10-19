@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newMessageTag' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679273265"><span id="local-6989586621679273266"></span></span><span class="hs-keyword">data</span><span> </span><span id="MessageTag"><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag"><span class="hs-identifier hs-var">MessageTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MessageTag%27"><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag%27"><span class="hs-identifier hs-var">MessageTag'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679273459"><span id="local-6989586621679273460"></span></span><span class="hs-keyword">data</span><span> </span><span id="MessageTag"><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag"><span class="hs-identifier hs-var">MessageTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MessageTag%27"><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag%27"><span class="hs-identifier hs-var">MessageTag'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the tag. The name must:</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),</span><span>
@@ -50,7 +50,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3Avalue%3AMessageTag%27"><span class="annot"><span class="annottext">MessageTag -&gt; Text
 </span><a href="Network.AWS.SES.Types.MessageTag.html#%24sel%3Avalue%3AMessageTag%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273258"><span id="local-6989586621679273260"><span class="annot"><span class="annottext">MessageTag -&gt; MessageTag -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273452"><span id="local-6989586621679273454"><span class="annot"><span class="annottext">MessageTag -&gt; MessageTag -&gt; Bool
 (MessageTag -&gt; MessageTag -&gt; Bool)
 -&gt; (MessageTag -&gt; MessageTag -&gt; Bool) -&gt; Eq MessageTag
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MessageTag -&gt; MessageTag -&gt; Bool
 == :: MessageTag -&gt; MessageTag -&gt; Bool
 $c== :: MessageTag -&gt; MessageTag -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273249"><span id="local-6989586621679273251"><span id="local-6989586621679273253"><span id="local-6989586621679273255"><span class="annot"><span class="annottext">ReadPrec [MessageTag]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273443"><span id="local-6989586621679273445"><span id="local-6989586621679273447"><span id="local-6989586621679273449"><span class="annot"><span class="annottext">ReadPrec [MessageTag]
 ReadPrec MessageTag
 Int -&gt; ReadS MessageTag
 ReadS [MessageTag]
@@ -78,7 +78,7 @@ readList :: ReadS [MessageTag]
 $creadList :: ReadS [MessageTag]
 readsPrec :: Int -&gt; ReadS MessageTag
 $creadsPrec :: Int -&gt; ReadS MessageTag
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273242"><span id="local-6989586621679273244"><span id="local-6989586621679273246"><span class="annot"><span class="annottext">Int -&gt; MessageTag -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273436"><span id="local-6989586621679273438"><span id="local-6989586621679273440"><span class="annot"><span class="annottext">Int -&gt; MessageTag -&gt; ShowS
 [MessageTag] -&gt; ShowS
 MessageTag -&gt; String
 (Int -&gt; MessageTag -&gt; ShowS)
@@ -131,15 +131,15 @@ $cfrom :: forall x. MessageTag -&gt; Rep MessageTag x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag"><span class="hs-identifier hs-type">MessageTag</span></a></span><span>
 </span><span id="line-80"></span><span id="newMessageTag"><span class="annot"><span class="annottext">newMessageTag :: Text -&gt; Text -&gt; MessageTag
-</span><a href="Network.AWS.SES.Types.MessageTag.html#newMessageTag"><span class="hs-identifier hs-var hs-var">newMessageTag</span></a></span></span><span> </span><span id="local-6989586621679273236"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273236"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679273235"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273235"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.Types.MessageTag.html#newMessageTag"><span class="hs-identifier hs-var hs-var">newMessageTag</span></a></span></span><span> </span><span id="local-6989586621679273430"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273430"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679273429"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273429"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">MessageTag' :: Text -&gt; Text -&gt; MessageTag
 </span><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag%27"><span class="hs-identifier hs-type">MessageTag'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MessageTag' :: Text
 </span><a href="Network.AWS.SES.Types.MessageTag.html#%24sel%3Aname%3AMessageTag%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273236"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:MessageTag' :: Text
+</span><a href="#local-6989586621679273430"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:MessageTag' :: Text
 </span><a href="Network.AWS.SES.Types.MessageTag.html#%24sel%3Avalue%3AMessageTag%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273235"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679273429"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The name of the tag. The name must:</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
@@ -153,16 +153,16 @@ $cfrom :: forall x. MessageTag -&gt; Rep MessageTag x
 -&gt; (MessageTag -&gt; Text -&gt; MessageTag)
 -&gt; Lens MessageTag MessageTag Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag%27"><span class="hs-identifier hs-type">MessageTag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273231"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag%27"><span class="hs-identifier hs-type">MessageTag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273425"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:MessageTag' :: MessageTag -&gt; Text
-</span><a href="#local-6989586621679273231"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273231"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273230"><span class="annot"><span class="annottext">s :: MessageTag
-</span><a href="#local-6989586621679273230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag%27"><span class="hs-identifier hs-type">MessageTag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273229"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageTag
-</span><a href="#local-6989586621679273230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MessageTag' :: Text
+</span><a href="#local-6989586621679273425"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273425"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273424"><span class="annot"><span class="annottext">s :: MessageTag
+</span><a href="#local-6989586621679273424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag%27"><span class="hs-identifier hs-type">MessageTag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273423"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageTag
+</span><a href="#local-6989586621679273424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MessageTag' :: Text
 </span><a href="Network.AWS.SES.Types.MessageTag.html#%24sel%3Aname%3AMessageTag%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag"><span class="hs-identifier hs-type">MessageTag</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag"><span class="hs-identifier hs-type">MessageTag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The value of the tag. The value must:</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
@@ -176,29 +176,29 @@ $sel:name:MessageTag' :: MessageTag -&gt; Text
 -&gt; (MessageTag -&gt; Text -&gt; MessageTag)
 -&gt; Lens MessageTag MessageTag Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag%27"><span class="hs-identifier hs-type">MessageTag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273227"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag%27"><span class="hs-identifier hs-type">MessageTag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273421"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:MessageTag' :: MessageTag -&gt; Text
-</span><a href="#local-6989586621679273227"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273227"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273226"><span class="annot"><span class="annottext">s :: MessageTag
-</span><a href="#local-6989586621679273226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag%27"><span class="hs-identifier hs-type">MessageTag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273225"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageTag
-</span><a href="#local-6989586621679273226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:MessageTag' :: Text
+</span><a href="#local-6989586621679273421"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273421"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273420"><span class="annot"><span class="annottext">s :: MessageTag
+</span><a href="#local-6989586621679273420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag%27"><span class="hs-identifier hs-type">MessageTag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273419"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageTag
+</span><a href="#local-6989586621679273420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:MessageTag' :: Text
 </span><a href="Network.AWS.SES.Types.MessageTag.html#%24sel%3Avalue%3AMessageTag%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag"><span class="hs-identifier hs-type">MessageTag</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag"><span class="hs-identifier hs-type">MessageTag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273221"><span id="local-6989586621679273223"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag"><span class="hs-identifier hs-type">MessageTag</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273415"><span id="local-6989586621679273417"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag"><span class="hs-identifier hs-type">MessageTag</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273218"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag"><span class="hs-identifier hs-type">MessageTag</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273412"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag"><span class="hs-identifier hs-type">MessageTag</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag"><span class="hs-identifier hs-type">MessageTag</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679273214"><span class="annot"><span class="annottext">toQuery :: MessageTag -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag%27"><span class="hs-identifier hs-type">MessageTag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273211"><span id="local-6989586621679273212"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679273408"><span class="annot"><span class="annottext">toQuery :: MessageTag -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.MessageTag.html#MessageTag%27"><span class="hs-identifier hs-type">MessageTag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273405"><span id="local-6989586621679273406"><span class="annot"><span class="annottext">Text
 value :: Text
 name :: Text
 $sel:value:MessageTag' :: MessageTag -&gt; Text
 $sel:name:MessageTag' :: MessageTag -&gt; Text
-</span><a href="#local-6989586621679273211"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679273405"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -206,9 +206,9 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273212"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679273406"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273211"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679273405"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span></pre></body></html>

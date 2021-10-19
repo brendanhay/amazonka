@@ -32,41 +32,41 @@
 </span><span id="line-32"></span><span class="hs-comment">-- versions 4.8.0 and later, excluding 5.0.x versions.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newInstanceFleetStatus' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679369253"><span id="local-6989586621679369254"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceFleetStatus"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-var">InstanceFleetStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceFleetStatus%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus%27"><span class="hs-identifier hs-var">InstanceFleetStatus'</span></a></span></span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Provides status change reason details for the instance fleet.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AstateChangeReason%3AInstanceFleetStatus%27"><span class="annot"><span class="annottext">InstanceFleetStatus -&gt; Maybe InstanceFleetStateChangeReason
-</span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#%24sel%3AstateChangeReason%3AInstanceFleetStatus%27"><span class="hs-identifier hs-var hs-var">stateChangeReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStateChangeReason.html#InstanceFleetStateChangeReason"><span class="hs-identifier hs-type">InstanceFleetStateChangeReason</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A code representing the instance fleet status.</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   @PROVISIONING@&#8212;The instance fleet is provisioning EC2 resources and</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">--     is not yet ready to run jobs.</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   @BOOTSTRAPPING@&#8212;EC2 instances and other resources have been</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     provisioned and the bootstrap actions specified for the instances</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     are underway.</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   @RUNNING@&#8212;EC2 instances and other resources are running. They are</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     either executing jobs or waiting to execute jobs.</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   @RESIZING@&#8212;A resize operation is underway. EC2 instances are either</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     being added or removed.</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   @SUSPENDED@&#8212;A resize operation could not complete. Existing EC2</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     instances are running, but instances can\'t be added or removed.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679369602"><span id="local-6989586621679369603"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceFleetStatus"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-var">InstanceFleetStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceFleetStatus%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus%27"><span class="hs-identifier hs-var">InstanceFleetStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A code representing the instance fleet status.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   @PROVISIONING@&#8212;The instance fleet is provisioning EC2 resources and</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--     is not yet ready to run jobs.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   @BOOTSTRAPPING@&#8212;EC2 instances and other resources have been</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     provisioned and the bootstrap actions specified for the instances</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--     are underway.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   @RUNNING@&#8212;EC2 instances and other resources are running. They are</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     either executing jobs or waiting to execute jobs.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   @RESIZING@&#8212;A resize operation is underway. EC2 instances are either</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     being added or removed.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   @SUSPENDED@&#8212;A resize operation could not complete. Existing EC2</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     instances are running, but instances can\'t be added or removed.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- -   @TERMINATING@&#8212;The instance fleet is terminating EC2 instances.</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   @TERMINATING@&#8212;The instance fleet is terminating EC2 instances.</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   @TERMINATED@&#8212;The instance fleet is no longer active, and all EC2</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     instances have been terminated.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3Astate%3AInstanceFleetStatus%27"><span class="annot"><span class="annottext">InstanceFleetStatus -&gt; Maybe InstanceFleetState
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   @TERMINATED@&#8212;The instance fleet is no longer active, and all EC2</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     instances have been terminated.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Astate%3AInstanceFleetStatus%27"><span class="annot"><span class="annottext">InstanceFleetStatus -&gt; Maybe InstanceFleetState
 </span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#%24sel%3Astate%3AInstanceFleetStatus%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetState.html#InstanceFleetState"><span class="hs-identifier hs-type">InstanceFleetState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Provides status change reason details for the instance fleet.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AstateChangeReason%3AInstanceFleetStatus%27"><span class="annot"><span class="annottext">InstanceFleetStatus -&gt; Maybe InstanceFleetStateChangeReason
+</span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#%24sel%3AstateChangeReason%3AInstanceFleetStatus%27"><span class="hs-identifier hs-var hs-var">stateChangeReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStateChangeReason.html#InstanceFleetStateChangeReason"><span class="hs-identifier hs-type">InstanceFleetStateChangeReason</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Provides historical timestamps for the instance fleet, including the</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- time of creation, the time it became ready to run jobs, and the time of</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- termination.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3Atimeline%3AInstanceFleetStatus%27"><span class="annot"><span class="annottext">InstanceFleetStatus -&gt; Maybe InstanceFleetTimeline
 </span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#%24sel%3Atimeline%3AInstanceFleetStatus%27"><span class="hs-identifier hs-var hs-var">timeline</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369245"><span id="local-6989586621679369247"><span class="annot"><span class="annottext">InstanceFleetStatus -&gt; InstanceFleetStatus -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369594"><span id="local-6989586621679369596"><span class="annot"><span class="annottext">InstanceFleetStatus -&gt; InstanceFleetStatus -&gt; Bool
 (InstanceFleetStatus -&gt; InstanceFleetStatus -&gt; Bool)
 -&gt; (InstanceFleetStatus -&gt; InstanceFleetStatus -&gt; Bool)
 -&gt; Eq InstanceFleetStatus
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceFleetStatus -&gt; InstanceFleetStatus -&gt; Bool
 == :: InstanceFleetStatus -&gt; InstanceFleetStatus -&gt; Bool
 $c== :: InstanceFleetStatus -&gt; InstanceFleetStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369236"><span id="local-6989586621679369238"><span id="local-6989586621679369240"><span id="local-6989586621679369242"><span class="annot"><span class="annottext">ReadPrec [InstanceFleetStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369585"><span id="local-6989586621679369587"><span id="local-6989586621679369589"><span id="local-6989586621679369591"><span class="annot"><span class="annottext">ReadPrec [InstanceFleetStatus]
 ReadPrec InstanceFleetStatus
 Int -&gt; ReadS InstanceFleetStatus
 ReadS [InstanceFleetStatus]
@@ -95,7 +95,7 @@ readList :: ReadS [InstanceFleetStatus]
 $creadList :: ReadS [InstanceFleetStatus]
 readsPrec :: Int -&gt; ReadS InstanceFleetStatus
 $creadsPrec :: Int -&gt; ReadS InstanceFleetStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369229"><span id="local-6989586621679369231"><span id="local-6989586621679369233"><span class="annot"><span class="annottext">Int -&gt; InstanceFleetStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369578"><span id="local-6989586621679369580"><span id="local-6989586621679369582"><span class="annot"><span class="annottext">Int -&gt; InstanceFleetStatus -&gt; ShowS
 [InstanceFleetStatus] -&gt; ShowS
 InstanceFleetStatus -&gt; String
 (Int -&gt; InstanceFleetStatus -&gt; ShowS)
@@ -129,30 +129,30 @@ $cfrom :: forall x. InstanceFleetStatus -&gt; Rep InstanceFleetStatus x
 </span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'stateChangeReason', 'instanceFleetStatus_stateChangeReason' - Provides status change reason details for the instance fleet.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'state', 'instanceFleetStatus_state' - A code representing the instance fleet status.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'state', 'instanceFleetStatus_state' - A code representing the instance fleet status.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- -   @PROVISIONING@&#8212;The instance fleet is provisioning EC2 resources and</span><span>
-</span><span id="line-81"></span><span class="hs-comment">--     is not yet ready to run jobs.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- -   @BOOTSTRAPPING@&#8212;EC2 instances and other resources have been</span><span>
-</span><span id="line-84"></span><span class="hs-comment">--     provisioned and the bootstrap actions specified for the instances</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--     are underway.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- -   @RUNNING@&#8212;EC2 instances and other resources are running. They are</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--     either executing jobs or waiting to execute jobs.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- -   @RESIZING@&#8212;A resize operation is underway. EC2 instances are either</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--     being added or removed.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- -   @SUSPENDED@&#8212;A resize operation could not complete. Existing EC2</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--     instances are running, but instances can\'t be added or removed.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- -   @PROVISIONING@&#8212;The instance fleet is provisioning EC2 resources and</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--     is not yet ready to run jobs.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- -   @BOOTSTRAPPING@&#8212;EC2 instances and other resources have been</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--     provisioned and the bootstrap actions specified for the instances</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--     are underway.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- -   @RUNNING@&#8212;EC2 instances and other resources are running. They are</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--     either executing jobs or waiting to execute jobs.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- -   @RESIZING@&#8212;A resize operation is underway. EC2 instances are either</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--     being added or removed.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- -   @SUSPENDED@&#8212;A resize operation could not complete. Existing EC2</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--     instances are running, but instances can\'t be added or removed.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   @TERMINATING@&#8212;The instance fleet is terminating EC2 instances.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- -   @TERMINATING@&#8212;The instance fleet is terminating EC2 instances.</span><span>
-</span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- -   @TERMINATED@&#8212;The instance fleet is no longer active, and all EC2</span><span>
-</span><span id="line-99"></span><span class="hs-comment">--     instances have been terminated.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- -   @TERMINATED@&#8212;The instance fleet is no longer active, and all EC2</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--     instances have been terminated.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'stateChangeReason', 'instanceFleetStatus_stateChangeReason' - Provides status change reason details for the instance fleet.</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- 'timeline', 'instanceFleetStatus_timeline' - Provides historical timestamps for the instance fleet, including the</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- time of creation, the time it became ready to run jobs, and the time of</span><span>
@@ -161,29 +161,73 @@ $cfrom :: forall x. InstanceFleetStatus -&gt; Rep InstanceFleetStatus x
 </span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span><span>
 </span><span id="line-106"></span><span id="newInstanceFleetStatus"><span class="annot"><span class="annottext">newInstanceFleetStatus :: InstanceFleetStatus
 </span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#newInstanceFleetStatus"><span class="hs-identifier hs-var hs-var">newInstanceFleetStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">InstanceFleetStatus' :: Maybe InstanceFleetStateChangeReason
--&gt; Maybe InstanceFleetState
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">InstanceFleetStatus' :: Maybe InstanceFleetState
+-&gt; Maybe InstanceFleetStateChangeReason
 -&gt; Maybe InstanceFleetTimeline
 -&gt; InstanceFleetStatus
 </span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus%27"><span class="hs-identifier hs-type">InstanceFleetStatus'</span></a></span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stateChangeReason:InstanceFleetStatus' :: Maybe InstanceFleetStateChangeReason
-</span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#%24sel%3AstateChangeReason%3AInstanceFleetStatus%27"><span class="hs-identifier hs-var">stateChangeReason</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Maybe InstanceFleetStateChangeReason
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:InstanceFleetStatus' :: Maybe InstanceFleetState
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:InstanceFleetStatus' :: Maybe InstanceFleetState
 </span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#%24sel%3Astate%3AInstanceFleetStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeline:InstanceFleetStatus' :: Maybe InstanceFleetTimeline
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateChangeReason:InstanceFleetStatus' :: Maybe InstanceFleetStateChangeReason
+</span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#%24sel%3AstateChangeReason%3AInstanceFleetStatus%27"><span class="hs-identifier hs-var">stateChangeReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetStateChangeReason
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeline:InstanceFleetStatus' :: Maybe InstanceFleetTimeline
 </span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#%24sel%3Atimeline%3AInstanceFleetStatus%27"><span class="hs-identifier hs-var">timeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetTimeline
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | Provides status change reason details for the instance fleet.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#instanceFleetStatus_stateChangeReason"><span class="hs-identifier hs-type">instanceFleetStatus_stateChangeReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStateChangeReason.html#InstanceFleetStateChangeReason"><span class="hs-identifier hs-type">InstanceFleetStateChangeReason</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="instanceFleetStatus_stateChangeReason"><span class="annot"><span class="annottext">instanceFleetStatus_stateChangeReason :: (Maybe InstanceFleetStateChangeReason
+</span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | A code representing the instance fleet status.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   @PROVISIONING@&#8212;The instance fleet is provisioning EC2 resources and</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--     is not yet ready to run jobs.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   @BOOTSTRAPPING@&#8212;EC2 instances and other resources have been</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     provisioned and the bootstrap actions specified for the instances</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--     are underway.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   @RUNNING@&#8212;EC2 instances and other resources are running. They are</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--     either executing jobs or waiting to execute jobs.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   @RESIZING@&#8212;A resize operation is underway. EC2 instances are either</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     being added or removed.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   @SUSPENDED@&#8212;A resize operation could not complete. Existing EC2</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--     instances are running, but instances can\'t be added or removed.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- -   @TERMINATING@&#8212;The instance fleet is terminating EC2 instances.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- -   @TERMINATED@&#8212;The instance fleet is no longer active, and all EC2</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--     instances have been terminated.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#instanceFleetStatus_state"><span class="hs-identifier hs-type">instanceFleetStatus_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetState.html#InstanceFleetState"><span class="hs-identifier hs-type">InstanceFleetState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="instanceFleetStatus_state"><span class="annot"><span class="annottext">instanceFleetStatus_state :: (Maybe InstanceFleetState -&gt; f (Maybe InstanceFleetState))
+-&gt; InstanceFleetStatus -&gt; f InstanceFleetStatus
+</span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#instanceFleetStatus_state"><span class="hs-identifier hs-var hs-var">instanceFleetStatus_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleetStatus -&gt; Maybe InstanceFleetState)
+-&gt; (InstanceFleetStatus
+    -&gt; Maybe InstanceFleetState -&gt; InstanceFleetStatus)
+-&gt; Lens
+     InstanceFleetStatus
+     InstanceFleetStatus
+     (Maybe InstanceFleetState)
+     (Maybe InstanceFleetState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus%27"><span class="hs-identifier hs-type">InstanceFleetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369569"><span class="annot"><span class="annottext">Maybe InstanceFleetState
+state :: Maybe InstanceFleetState
+$sel:state:InstanceFleetStatus' :: InstanceFleetStatus -&gt; Maybe InstanceFleetState
+</span><a href="#local-6989586621679369569"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetState
+</span><a href="#local-6989586621679369569"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369568"><span class="annot"><span class="annottext">s :: InstanceFleetStatus
+</span><a href="#local-6989586621679369568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus%27"><span class="hs-identifier hs-type">InstanceFleetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369567"><span class="annot"><span class="annottext">Maybe InstanceFleetState
+</span><a href="#local-6989586621679369567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleetStatus
+</span><a href="#local-6989586621679369568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:InstanceFleetStatus' :: Maybe InstanceFleetState
+</span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#%24sel%3Astate%3AInstanceFleetStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetState
+</span><a href="#local-6989586621679369567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Provides status change reason details for the instance fleet.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#instanceFleetStatus_stateChangeReason"><span class="hs-identifier hs-type">instanceFleetStatus_stateChangeReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStateChangeReason.html#InstanceFleetStateChangeReason"><span class="hs-identifier hs-type">InstanceFleetStateChangeReason</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="instanceFleetStatus_stateChangeReason"><span class="annot"><span class="annottext">instanceFleetStatus_stateChangeReason :: (Maybe InstanceFleetStateChangeReason
  -&gt; f (Maybe InstanceFleetStateChangeReason))
 -&gt; InstanceFleetStatus -&gt; f InstanceFleetStatus
 </span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#instanceFleetStatus_stateChangeReason"><span class="hs-identifier hs-var hs-var">instanceFleetStatus_stateChangeReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleetStatus -&gt; Maybe InstanceFleetStateChangeReason)
@@ -195,67 +239,22 @@ forall a. Maybe a
      (Maybe InstanceFleetStateChangeReason)
      (Maybe InstanceFleetStateChangeReason)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus%27"><span class="hs-identifier hs-type">InstanceFleetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369220"><span class="annot"><span class="annottext">Maybe InstanceFleetStateChangeReason
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus%27"><span class="hs-identifier hs-type">InstanceFleetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369565"><span class="annot"><span class="annottext">Maybe InstanceFleetStateChangeReason
 stateChangeReason :: Maybe InstanceFleetStateChangeReason
 $sel:stateChangeReason:InstanceFleetStatus' :: InstanceFleetStatus -&gt; Maybe InstanceFleetStateChangeReason
-</span><a href="#local-6989586621679369220"><span class="hs-identifier hs-var hs-var">stateChangeReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetStateChangeReason
-</span><a href="#local-6989586621679369220"><span class="hs-identifier hs-var">stateChangeReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369219"><span class="annot"><span class="annottext">s :: InstanceFleetStatus
-</span><a href="#local-6989586621679369219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus%27"><span class="hs-identifier hs-type">InstanceFleetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369218"><span class="annot"><span class="annottext">Maybe InstanceFleetStateChangeReason
-</span><a href="#local-6989586621679369218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleetStatus
-</span><a href="#local-6989586621679369219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateChangeReason:InstanceFleetStatus' :: Maybe InstanceFleetStateChangeReason
+</span><a href="#local-6989586621679369565"><span class="hs-identifier hs-var hs-var">stateChangeReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetStateChangeReason
+</span><a href="#local-6989586621679369565"><span class="hs-identifier hs-var">stateChangeReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369564"><span class="annot"><span class="annottext">s :: InstanceFleetStatus
+</span><a href="#local-6989586621679369564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus%27"><span class="hs-identifier hs-type">InstanceFleetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369563"><span class="annot"><span class="annottext">Maybe InstanceFleetStateChangeReason
+</span><a href="#local-6989586621679369563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleetStatus
+</span><a href="#local-6989586621679369564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateChangeReason:InstanceFleetStatus' :: Maybe InstanceFleetStateChangeReason
 </span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#%24sel%3AstateChangeReason%3AInstanceFleetStatus%27"><span class="hs-identifier hs-var">stateChangeReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetStateChangeReason
-</span><a href="#local-6989586621679369218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | A code representing the instance fleet status.</span><span>
-</span><span id="line-119"></span><span class="hs-comment">--</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- -   @PROVISIONING@&#8212;The instance fleet is provisioning EC2 resources and</span><span>
-</span><span id="line-121"></span><span class="hs-comment">--     is not yet ready to run jobs.</span><span>
-</span><span id="line-122"></span><span class="hs-comment">--</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- -   @BOOTSTRAPPING@&#8212;EC2 instances and other resources have been</span><span>
-</span><span id="line-124"></span><span class="hs-comment">--     provisioned and the bootstrap actions specified for the instances</span><span>
-</span><span id="line-125"></span><span class="hs-comment">--     are underway.</span><span>
-</span><span id="line-126"></span><span class="hs-comment">--</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- -   @RUNNING@&#8212;EC2 instances and other resources are running. They are</span><span>
-</span><span id="line-128"></span><span class="hs-comment">--     either executing jobs or waiting to execute jobs.</span><span>
-</span><span id="line-129"></span><span class="hs-comment">--</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- -   @RESIZING@&#8212;A resize operation is underway. EC2 instances are either</span><span>
-</span><span id="line-131"></span><span class="hs-comment">--     being added or removed.</span><span>
-</span><span id="line-132"></span><span class="hs-comment">--</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- -   @SUSPENDED@&#8212;A resize operation could not complete. Existing EC2</span><span>
-</span><span id="line-134"></span><span class="hs-comment">--     instances are running, but instances can\'t be added or removed.</span><span>
-</span><span id="line-135"></span><span class="hs-comment">--</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- -   @TERMINATING@&#8212;The instance fleet is terminating EC2 instances.</span><span>
-</span><span id="line-137"></span><span class="hs-comment">--</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- -   @TERMINATED@&#8212;The instance fleet is no longer active, and all EC2</span><span>
-</span><span id="line-139"></span><span class="hs-comment">--     instances have been terminated.</span><span>
-</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#instanceFleetStatus_state"><span class="hs-identifier hs-type">instanceFleetStatus_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetState.html#InstanceFleetState"><span class="hs-identifier hs-type">InstanceFleetState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span id="instanceFleetStatus_state"><span class="annot"><span class="annottext">instanceFleetStatus_state :: (Maybe InstanceFleetState -&gt; f (Maybe InstanceFleetState))
--&gt; InstanceFleetStatus -&gt; f InstanceFleetStatus
-</span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#instanceFleetStatus_state"><span class="hs-identifier hs-var hs-var">instanceFleetStatus_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleetStatus -&gt; Maybe InstanceFleetState)
--&gt; (InstanceFleetStatus
-    -&gt; Maybe InstanceFleetState -&gt; InstanceFleetStatus)
--&gt; Lens
-     InstanceFleetStatus
-     InstanceFleetStatus
-     (Maybe InstanceFleetState)
-     (Maybe InstanceFleetState)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus%27"><span class="hs-identifier hs-type">InstanceFleetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369216"><span class="annot"><span class="annottext">Maybe InstanceFleetState
-state :: Maybe InstanceFleetState
-$sel:state:InstanceFleetStatus' :: InstanceFleetStatus -&gt; Maybe InstanceFleetState
-</span><a href="#local-6989586621679369216"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetState
-</span><a href="#local-6989586621679369216"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369215"><span class="annot"><span class="annottext">s :: InstanceFleetStatus
-</span><a href="#local-6989586621679369215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus%27"><span class="hs-identifier hs-type">InstanceFleetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369214"><span class="annot"><span class="annottext">Maybe InstanceFleetState
-</span><a href="#local-6989586621679369214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleetStatus
-</span><a href="#local-6989586621679369215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:InstanceFleetStatus' :: Maybe InstanceFleetState
-</span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#%24sel%3Astate%3AInstanceFleetStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetState
-</span><a href="#local-6989586621679369214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- | Provides historical timestamps for the instance fleet, including the</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- time of creation, the time it became ready to run jobs, and the time of</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- termination.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#instanceFleetStatus_timeline"><span class="hs-identifier hs-type">instanceFleetStatus_timeline</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="instanceFleetStatus_timeline"><span class="annot"><span class="annottext">instanceFleetStatus_timeline :: (Maybe InstanceFleetTimeline -&gt; f (Maybe InstanceFleetTimeline))
+</span><a href="#local-6989586621679369563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | Provides historical timestamps for the instance fleet, including the</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- time of creation, the time it became ready to run jobs, and the time of</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- termination.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#instanceFleetStatus_timeline"><span class="hs-identifier hs-type">instanceFleetStatus_timeline</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetTimeline.html#InstanceFleetTimeline"><span class="hs-identifier hs-type">InstanceFleetTimeline</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="instanceFleetStatus_timeline"><span class="annot"><span class="annottext">instanceFleetStatus_timeline :: (Maybe InstanceFleetTimeline -&gt; f (Maybe InstanceFleetTimeline))
 -&gt; InstanceFleetStatus -&gt; f InstanceFleetStatus
 </span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#instanceFleetStatus_timeline"><span class="hs-identifier hs-var hs-var">instanceFleetStatus_timeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleetStatus -&gt; Maybe InstanceFleetTimeline)
 -&gt; (InstanceFleetStatus
@@ -266,72 +265,72 @@ $sel:state:InstanceFleetStatus' :: InstanceFleetStatus -&gt; Maybe InstanceFleet
      (Maybe InstanceFleetTimeline)
      (Maybe InstanceFleetTimeline)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus%27"><span class="hs-identifier hs-type">InstanceFleetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369212"><span class="annot"><span class="annottext">Maybe InstanceFleetTimeline
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus%27"><span class="hs-identifier hs-type">InstanceFleetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369561"><span class="annot"><span class="annottext">Maybe InstanceFleetTimeline
 timeline :: Maybe InstanceFleetTimeline
 $sel:timeline:InstanceFleetStatus' :: InstanceFleetStatus -&gt; Maybe InstanceFleetTimeline
-</span><a href="#local-6989586621679369212"><span class="hs-identifier hs-var hs-var">timeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetTimeline
-</span><a href="#local-6989586621679369212"><span class="hs-identifier hs-var">timeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369211"><span class="annot"><span class="annottext">s :: InstanceFleetStatus
-</span><a href="#local-6989586621679369211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus%27"><span class="hs-identifier hs-type">InstanceFleetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369210"><span class="annot"><span class="annottext">Maybe InstanceFleetTimeline
-</span><a href="#local-6989586621679369210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleetStatus
-</span><a href="#local-6989586621679369211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeline:InstanceFleetStatus' :: Maybe InstanceFleetTimeline
+</span><a href="#local-6989586621679369561"><span class="hs-identifier hs-var hs-var">timeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetTimeline
+</span><a href="#local-6989586621679369561"><span class="hs-identifier hs-var">timeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369560"><span class="annot"><span class="annottext">s :: InstanceFleetStatus
+</span><a href="#local-6989586621679369560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus%27"><span class="hs-identifier hs-type">InstanceFleetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369559"><span class="annot"><span class="annottext">Maybe InstanceFleetTimeline
+</span><a href="#local-6989586621679369559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleetStatus
+</span><a href="#local-6989586621679369560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeline:InstanceFleetStatus' :: Maybe InstanceFleetTimeline
 </span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#%24sel%3Atimeline%3AInstanceFleetStatus%27"><span class="hs-identifier hs-var">timeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetTimeline
-</span><a href="#local-6989586621679369210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369207"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679369205"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceFleetStatus
+</span><a href="#local-6989586621679369559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369556"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679369554"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceFleetStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InstanceFleetStatus)
 -&gt; Value
 -&gt; Parser InstanceFleetStatus
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InstanceFleetStatus&quot;</span></span><span>
-</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369202"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369202"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe InstanceFleetStateChangeReason
--&gt; Maybe InstanceFleetState
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369551"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369551"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe InstanceFleetState
+-&gt; Maybe InstanceFleetStateChangeReason
 -&gt; Maybe InstanceFleetTimeline
 -&gt; InstanceFleetStatus
 </span><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus%27"><span class="hs-identifier hs-var">InstanceFleetStatus'</span></a></span><span>
-</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InstanceFleetStateChangeReason
- -&gt; Maybe InstanceFleetState
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InstanceFleetState
+ -&gt; Maybe InstanceFleetStateChangeReason
  -&gt; Maybe InstanceFleetTimeline
  -&gt; InstanceFleetStatus)
--&gt; Parser (Maybe InstanceFleetStateChangeReason)
+-&gt; Parser (Maybe InstanceFleetState)
 -&gt; Parser
-     (Maybe InstanceFleetState
+     (Maybe InstanceFleetStateChangeReason
       -&gt; Maybe InstanceFleetTimeline -&gt; InstanceFleetStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceFleetStateChangeReason)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StateChangeReason&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe InstanceFleetState
-   -&gt; Maybe InstanceFleetTimeline -&gt; InstanceFleetStatus)
--&gt; Parser (Maybe InstanceFleetState)
--&gt; Parser (Maybe InstanceFleetTimeline -&gt; InstanceFleetStatus)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceFleetState)
+</span><a href="#local-6989586621679369551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceFleetState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe InstanceFleetTimeline -&gt; InstanceFleetStatus)
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InstanceFleetStateChangeReason
+   -&gt; Maybe InstanceFleetTimeline -&gt; InstanceFleetStatus)
+-&gt; Parser (Maybe InstanceFleetStateChangeReason)
+-&gt; Parser (Maybe InstanceFleetTimeline -&gt; InstanceFleetStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceFleetStateChangeReason)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StateChangeReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe InstanceFleetTimeline -&gt; InstanceFleetStatus)
 -&gt; Parser (Maybe InstanceFleetTimeline)
 -&gt; Parser InstanceFleetStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceFleetTimeline)
+</span><a href="#local-6989586621679369551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceFleetTimeline)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timeline&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369196"><span id="local-6989586621679369198"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span></span></span><span>
-</span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369193"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span></span><span>
-</span><span id="line-163"></span></pre></body></html>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369545"><span id="local-6989586621679369547"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369542"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span></span><span>
+</span><span id="line-162"></span></pre></body></html>

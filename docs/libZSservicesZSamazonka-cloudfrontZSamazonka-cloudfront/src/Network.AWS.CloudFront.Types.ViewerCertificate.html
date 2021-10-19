@@ -83,7 +83,7 @@
 </span><span id="line-83"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- /See:/ 'newViewerCertificate' smart constructor.</span><span>
-</span><span id="line-86"></span><span id="local-6989586621679404805"><span id="local-6989586621679404806"></span></span><span class="hs-keyword">data</span><span> </span><span id="ViewerCertificate"><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-var">ViewerCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ViewerCertificate%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-var">ViewerCertificate'</span></a></span></span><span>
+</span><span id="line-86"></span><span id="local-6989586621679405081"><span id="local-6989586621679405082"></span></span><span class="hs-keyword">data</span><span> </span><span id="ViewerCertificate"><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-var">ViewerCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ViewerCertificate%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-var">ViewerCertificate'</span></a></span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs),</span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-comment">-- specify which viewers the distribution accepts HTTPS connections from.</span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -106,87 +106,87 @@
 </span><span id="line-106"></span><span>    </span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@, don&#8217;t set a value for this field.</span><span>
 </span><span id="line-107"></span><span>    </span><span id="%24sel%3AsSLSupportMethod%3AViewerCertificate%27"><span class="annot"><span class="annottext">ViewerCertificate -&gt; Maybe SSLSupportMethod
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AsSLSupportMethod%3AViewerCertificate%27"><span class="hs-identifier hs-var hs-var">sSLSupportMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.SSLSupportMethod.html#SSLSupportMethod"><span class="hs-identifier hs-type">SSLSupportMethod</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | If the distribution uses the CloudFront domain name such as</span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@, set this field to @true@.</span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- If the distribution uses @Aliases@ (alternate domain names or CNAMEs),</span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- set this field to @false@ and specify values for the following fields:</span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- -   @ACMCertificateArn@ or @IAMCertificateId@ (specify a value for one,</span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-comment">--     not both)</span><span>
-</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- -   @MinimumProtocolVersion@</span><span>
-</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- -   @SSLSupportMethod@</span><span>
-</span><span id="line-120"></span><span>    </span><span id="%24sel%3AcloudFrontDefaultCertificate%3AViewerCertificate%27"><span class="annot"><span class="annottext">ViewerCertificate -&gt; Maybe Bool
-</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AcloudFrontDefaultCertificate%3AViewerCertificate%27"><span class="hs-identifier hs-var hs-var">cloudFrontDefaultCertificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs)</span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- and the SSL\/TLS certificate is stored in</span><span>
-</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Identity and Access Management (IAM)&gt;,</span><span>
-</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- provide the ID of the IAM certificate.</span><span>
-</span><span id="line-125"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- If you specify an IAM certificate ID, you must also specify values for</span><span>
-</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- @MinimumProtocolVersion@ and @SSLSupportMethod@.</span><span>
-</span><span id="line-128"></span><span>    </span><span id="%24sel%3AiAMCertificateId%3AViewerCertificate%27"><span class="annot"><span class="annottext">ViewerCertificate -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AiAMCertificateId%3AViewerCertificate%27"><span class="hs-identifier hs-var hs-var">iAMCertificateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs)</span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- and the SSL\/TLS certificate is stored in</span><span>
-</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html Certificate Manager (ACM)&gt;,</span><span>
-</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- provide the Amazon Resource Name (ARN) of the ACM certificate.</span><span>
-</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- CloudFront only supports ACM certificates in the US East (N. Virginia)</span><span>
-</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- Region (@us-east-1@).</span><span>
-</span><span id="line-135"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- If you specify an ACM certificate ARN, you must also specify values for</span><span>
-</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- @MinimumProtocolVersion@ and @SSLSupportMethod@.</span><span>
-</span><span id="line-138"></span><span>    </span><span id="%24sel%3AaCMCertificateArn%3AViewerCertificate%27"><span class="annot"><span class="annottext">ViewerCertificate -&gt; Maybe Text
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs)</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- and the SSL\/TLS certificate is stored in</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html Certificate Manager (ACM)&gt;,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- provide the Amazon Resource Name (ARN) of the ACM certificate.</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- CloudFront only supports ACM certificates in the US East (N. Virginia)</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- Region (@us-east-1@).</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- If you specify an ACM certificate ARN, you must also specify values for</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- @MinimumProtocolVersion@ and @SSLSupportMethod@.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3AaCMCertificateArn%3AViewerCertificate%27"><span class="annot"><span class="annottext">ViewerCertificate -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AaCMCertificateArn%3AViewerCertificate%27"><span class="hs-identifier hs-var hs-var">aCMCertificateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | This field is deprecated. Use one of the following fields instead:</span><span>
-</span><span id="line-140"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- -   @ACMCertificateArn@</span><span>
-</span><span id="line-142"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- -   @IAMCertificateId@</span><span>
-</span><span id="line-144"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- -   @CloudFrontDefaultCertificate@</span><span>
-</span><span id="line-146"></span><span>    </span><span id="%24sel%3AcertificateSource%3AViewerCertificate%27"><span class="annot"><span class="annottext">ViewerCertificate -&gt; Maybe CertificateSource
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | This field is deprecated. Use one of the following fields instead:</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- -   @ACMCertificateArn@</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- -   @IAMCertificateId@</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- -   @CloudFrontDefaultCertificate@</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AcertificateSource%3AViewerCertificate%27"><span class="annot"><span class="annottext">ViewerCertificate -&gt; Maybe CertificateSource
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AcertificateSource%3AViewerCertificate%27"><span class="hs-identifier hs-var hs-var">certificateSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CertificateSource.html#CertificateSource"><span class="hs-identifier hs-type">CertificateSource</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | This field is deprecated. Use one of the following fields instead:</span><span>
-</span><span id="line-148"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- -   @ACMCertificateArn@</span><span>
-</span><span id="line-150"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- -   @IAMCertificateId@</span><span>
-</span><span id="line-152"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- -   @CloudFrontDefaultCertificate@</span><span>
-</span><span id="line-154"></span><span>    </span><span id="%24sel%3Acertificate%3AViewerCertificate%27"><span class="annot"><span class="annottext">ViewerCertificate -&gt; Maybe Text
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs),</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- specify the security policy that you want CloudFront to use for HTTPS</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- connections with viewers. The security policy determines two settings:</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- -   The minimum SSL\/TLS protocol that CloudFront can use to communicate</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--     with viewers.</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- -   The ciphers that CloudFront can use to encrypt the content that it</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">--     returns to viewers.</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy Security Policy&gt;</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- and</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers Supported Protocols and Ciphers Between Viewers and CloudFront&gt;</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- On the CloudFront console, this setting is called __Security Policy__.</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- When you&#8217;re using SNI only (you set @SSLSupportMethod@ to @sni-only@),</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- you must specify @TLSv1@ or higher.</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- If the distribution uses the CloudFront domain name such as</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@ (you set @CloudFrontDefaultCertificate@</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- to @true@), CloudFront automatically sets the security policy to @TLSv1@</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- regardless of the value that you set here.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AminimumProtocolVersion%3AViewerCertificate%27"><span class="annot"><span class="annottext">ViewerCertificate -&gt; Maybe MinimumProtocolVersion
+</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AminimumProtocolVersion%3AViewerCertificate%27"><span class="hs-identifier hs-var hs-var">minimumProtocolVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion"><span class="hs-identifier hs-type">MinimumProtocolVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | This field is deprecated. Use one of the following fields instead:</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- -   @ACMCertificateArn@</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- -   @IAMCertificateId@</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- -   @CloudFrontDefaultCertificate@</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3Acertificate%3AViewerCertificate%27"><span class="annot"><span class="annottext">ViewerCertificate -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3Acertificate%3AViewerCertificate%27"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs),</span><span>
-</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- specify the security policy that you want CloudFront to use for HTTPS</span><span>
-</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- connections with viewers. The security policy determines two settings:</span><span>
-</span><span id="line-158"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- -   The minimum SSL\/TLS protocol that CloudFront can use to communicate</span><span>
-</span><span id="line-160"></span><span>    </span><span class="hs-comment">--     with viewers.</span><span>
-</span><span id="line-161"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- -   The ciphers that CloudFront can use to encrypt the content that it</span><span>
-</span><span id="line-163"></span><span>    </span><span class="hs-comment">--     returns to viewers.</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs)</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- and the SSL\/TLS certificate is stored in</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Identity and Access Management (IAM)&gt;,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- provide the ID of the IAM certificate.</span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy Security Policy&gt;</span><span>
-</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- and</span><span>
-</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers Supported Protocols and Ciphers Between Viewers and CloudFront&gt;</span><span>
-</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- If you specify an IAM certificate ID, you must also specify values for</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- @MinimumProtocolVersion@ and @SSLSupportMethod@.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AiAMCertificateId%3AViewerCertificate%27"><span class="annot"><span class="annottext">ViewerCertificate -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AiAMCertificateId%3AViewerCertificate%27"><span class="hs-identifier hs-var hs-var">iAMCertificateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- | If the distribution uses the CloudFront domain name such as</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@, set this field to @true@.</span><span>
 </span><span id="line-170"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- On the CloudFront console, this setting is called __Security Policy__.</span><span>
-</span><span id="line-172"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- When you&#8217;re using SNI only (you set @SSLSupportMethod@ to @sni-only@),</span><span>
-</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- you must specify @TLSv1@ or higher.</span><span>
-</span><span id="line-175"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- If the distribution uses the CloudFront domain name such as</span><span>
-</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@ (you set @CloudFrontDefaultCertificate@</span><span>
-</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- to @true@), CloudFront automatically sets the security policy to @TLSv1@</span><span>
-</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- regardless of the value that you set here.</span><span>
-</span><span id="line-180"></span><span>    </span><span id="%24sel%3AminimumProtocolVersion%3AViewerCertificate%27"><span class="annot"><span class="annottext">ViewerCertificate -&gt; Maybe MinimumProtocolVersion
-</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AminimumProtocolVersion%3AViewerCertificate%27"><span class="hs-identifier hs-var hs-var">minimumProtocolVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion"><span class="hs-identifier hs-type">MinimumProtocolVersion</span></a></span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- If the distribution uses @Aliases@ (alternate domain names or CNAMEs),</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- set this field to @false@ and specify values for the following fields:</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- -   @ACMCertificateArn@ or @IAMCertificateId@ (specify a value for one,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">--     not both)</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- -   @MinimumProtocolVersion@</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- -   @SSLSupportMethod@</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3AcloudFrontDefaultCertificate%3AViewerCertificate%27"><span class="annot"><span class="annottext">ViewerCertificate -&gt; Maybe Bool
+</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AcloudFrontDefaultCertificate%3AViewerCertificate%27"><span class="hs-identifier hs-var hs-var">cloudFrontDefaultCertificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679404793"><span id="local-6989586621679404795"><span class="annot"><span class="annottext">ViewerCertificate -&gt; ViewerCertificate -&gt; Bool
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679405069"><span id="local-6989586621679405071"><span class="annot"><span class="annottext">ViewerCertificate -&gt; ViewerCertificate -&gt; Bool
 (ViewerCertificate -&gt; ViewerCertificate -&gt; Bool)
 -&gt; (ViewerCertificate -&gt; ViewerCertificate -&gt; Bool)
 -&gt; Eq ViewerCertificate
@@ -195,7 +195,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ViewerCertificate -&gt; ViewerCertificate -&gt; Bool
 == :: ViewerCertificate -&gt; ViewerCertificate -&gt; Bool
 $c== :: ViewerCertificate -&gt; ViewerCertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404784"><span id="local-6989586621679404786"><span id="local-6989586621679404788"><span id="local-6989586621679404790"><span class="annot"><span class="annottext">ReadPrec [ViewerCertificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405060"><span id="local-6989586621679405062"><span id="local-6989586621679405064"><span id="local-6989586621679405066"><span class="annot"><span class="annottext">ReadPrec [ViewerCertificate]
 ReadPrec ViewerCertificate
 Int -&gt; ReadS ViewerCertificate
 ReadS [ViewerCertificate]
@@ -215,7 +215,7 @@ readList :: ReadS [ViewerCertificate]
 $creadList :: ReadS [ViewerCertificate]
 readsPrec :: Int -&gt; ReadS ViewerCertificate
 $creadsPrec :: Int -&gt; ReadS ViewerCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404777"><span id="local-6989586621679404779"><span id="local-6989586621679404781"><span class="annot"><span class="annottext">Int -&gt; ViewerCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405053"><span id="local-6989586621679405055"><span id="local-6989586621679405057"><span class="annot"><span class="annottext">Int -&gt; ViewerCertificate -&gt; ShowS
 [ViewerCertificate] -&gt; ShowS
 ViewerCertificate -&gt; String
 (Int -&gt; ViewerCertificate -&gt; ShowS)
@@ -270,89 +270,89 @@ $cfrom :: forall x. ViewerCertificate -&gt; Rep ViewerCertificate x
 </span><span id="line-210"></span><span class="hs-comment">-- If the distribution uses the CloudFront domain name such as</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@, don&#8217;t set a value for this field.</span><span>
 </span><span id="line-212"></span><span class="hs-comment">--</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- 'cloudFrontDefaultCertificate', 'viewerCertificate_cloudFrontDefaultCertificate' - If the distribution uses the CloudFront domain name such as</span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@, set this field to @true@.</span><span>
-</span><span id="line-215"></span><span class="hs-comment">--</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- If the distribution uses @Aliases@ (alternate domain names or CNAMEs),</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- set this field to @false@ and specify values for the following fields:</span><span>
-</span><span id="line-218"></span><span class="hs-comment">--</span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- -   @ACMCertificateArn@ or @IAMCertificateId@ (specify a value for one,</span><span>
-</span><span id="line-220"></span><span class="hs-comment">--     not both)</span><span>
-</span><span id="line-221"></span><span class="hs-comment">--</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- -   @MinimumProtocolVersion@</span><span>
-</span><span id="line-223"></span><span class="hs-comment">--</span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- -   @SSLSupportMethod@</span><span>
-</span><span id="line-225"></span><span class="hs-comment">--</span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- 'iAMCertificateId', 'viewerCertificate_iAMCertificateId' - If the distribution uses @Aliases@ (alternate domain names or CNAMEs)</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- and the SSL\/TLS certificate is stored in</span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Identity and Access Management (IAM)&gt;,</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- provide the ID of the IAM certificate.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'aCMCertificateArn', 'viewerCertificate_aCMCertificateArn' - If the distribution uses @Aliases@ (alternate domain names or CNAMEs)</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- and the SSL\/TLS certificate is stored in</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html Certificate Manager (ACM)&gt;,</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- provide the Amazon Resource Name (ARN) of the ACM certificate.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- CloudFront only supports ACM certificates in the US East (N. Virginia)</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Region (@us-east-1@).</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- If you specify an ACM certificate ARN, you must also specify values for</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- @MinimumProtocolVersion@ and @SSLSupportMethod@.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'certificateSource', 'viewerCertificate_certificateSource' - This field is deprecated. Use one of the following fields instead:</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- -   @ACMCertificateArn@</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- -   @IAMCertificateId@</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- -   @CloudFrontDefaultCertificate@</span><span>
 </span><span id="line-230"></span><span class="hs-comment">--</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- If you specify an IAM certificate ID, you must also specify values for</span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- @MinimumProtocolVersion@ and @SSLSupportMethod@.</span><span>
-</span><span id="line-233"></span><span class="hs-comment">--</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- 'aCMCertificateArn', 'viewerCertificate_aCMCertificateArn' - If the distribution uses @Aliases@ (alternate domain names or CNAMEs)</span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- and the SSL\/TLS certificate is stored in</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html Certificate Manager (ACM)&gt;,</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- provide the Amazon Resource Name (ARN) of the ACM certificate.</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- CloudFront only supports ACM certificates in the US East (N. Virginia)</span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- Region (@us-east-1@).</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- 'minimumProtocolVersion', 'viewerCertificate_minimumProtocolVersion' - If the distribution uses @Aliases@ (alternate domain names or CNAMEs),</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- specify the security policy that you want CloudFront to use for HTTPS</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- connections with viewers. The security policy determines two settings:</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- -   The minimum SSL\/TLS protocol that CloudFront can use to communicate</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--     with viewers.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- -   The ciphers that CloudFront can use to encrypt the content that it</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--     returns to viewers.</span><span>
 </span><span id="line-240"></span><span class="hs-comment">--</span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- If you specify an ACM certificate ARN, you must also specify values for</span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- @MinimumProtocolVersion@ and @SSLSupportMethod@.</span><span>
-</span><span id="line-243"></span><span class="hs-comment">--</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- 'certificateSource', 'viewerCertificate_certificateSource' - This field is deprecated. Use one of the following fields instead:</span><span>
-</span><span id="line-245"></span><span class="hs-comment">--</span><span>
-</span><span id="line-246"></span><span class="hs-comment">-- -   @ACMCertificateArn@</span><span>
-</span><span id="line-247"></span><span class="hs-comment">--</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- -   @IAMCertificateId@</span><span>
-</span><span id="line-249"></span><span class="hs-comment">--</span><span>
-</span><span id="line-250"></span><span class="hs-comment">-- -   @CloudFrontDefaultCertificate@</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy Security Policy&gt;</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers Supported Protocols and Ciphers Between Viewers and CloudFront&gt;</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- On the CloudFront console, this setting is called __Security Policy__.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- When you&#8217;re using SNI only (you set @SSLSupportMethod@ to @sni-only@),</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- you must specify @TLSv1@ or higher.</span><span>
 </span><span id="line-251"></span><span class="hs-comment">--</span><span>
-</span><span id="line-252"></span><span class="hs-comment">-- 'certificate', 'viewerCertificate_certificate' - This field is deprecated. Use one of the following fields instead:</span><span>
-</span><span id="line-253"></span><span class="hs-comment">--</span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- -   @ACMCertificateArn@</span><span>
-</span><span id="line-255"></span><span class="hs-comment">--</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- -   @IAMCertificateId@</span><span>
-</span><span id="line-257"></span><span class="hs-comment">--</span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- -   @CloudFrontDefaultCertificate@</span><span>
-</span><span id="line-259"></span><span class="hs-comment">--</span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- 'minimumProtocolVersion', 'viewerCertificate_minimumProtocolVersion' - If the distribution uses @Aliases@ (alternate domain names or CNAMEs),</span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- specify the security policy that you want CloudFront to use for HTTPS</span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- connections with viewers. The security policy determines two settings:</span><span>
-</span><span id="line-263"></span><span class="hs-comment">--</span><span>
-</span><span id="line-264"></span><span class="hs-comment">-- -   The minimum SSL\/TLS protocol that CloudFront can use to communicate</span><span>
-</span><span id="line-265"></span><span class="hs-comment">--     with viewers.</span><span>
-</span><span id="line-266"></span><span class="hs-comment">--</span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- -   The ciphers that CloudFront can use to encrypt the content that it</span><span>
-</span><span id="line-268"></span><span class="hs-comment">--     returns to viewers.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- If the distribution uses the CloudFront domain name such as</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@ (you set @CloudFrontDefaultCertificate@</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- to @true@), CloudFront automatically sets the security policy to @TLSv1@</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- regardless of the value that you set here.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'certificate', 'viewerCertificate_certificate' - This field is deprecated. Use one of the following fields instead:</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- -   @ACMCertificateArn@</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- -   @IAMCertificateId@</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- -   @CloudFrontDefaultCertificate@</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- 'iAMCertificateId', 'viewerCertificate_iAMCertificateId' - If the distribution uses @Aliases@ (alternate domain names or CNAMEs)</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- and the SSL\/TLS certificate is stored in</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Identity and Access Management (IAM)&gt;,</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- provide the ID of the IAM certificate.</span><span>
 </span><span id="line-269"></span><span class="hs-comment">--</span><span>
-</span><span id="line-270"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-271"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy Security Policy&gt;</span><span>
-</span><span id="line-272"></span><span class="hs-comment">-- and</span><span>
-</span><span id="line-273"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers Supported Protocols and Ciphers Between Viewers and CloudFront&gt;</span><span>
-</span><span id="line-274"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- If you specify an IAM certificate ID, you must also specify values for</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- @MinimumProtocolVersion@ and @SSLSupportMethod@.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- 'cloudFrontDefaultCertificate', 'viewerCertificate_cloudFrontDefaultCertificate' - If the distribution uses the CloudFront domain name such as</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@, set this field to @true@.</span><span>
 </span><span id="line-275"></span><span class="hs-comment">--</span><span>
-</span><span id="line-276"></span><span class="hs-comment">-- On the CloudFront console, this setting is called __Security Policy__.</span><span>
-</span><span id="line-277"></span><span class="hs-comment">--</span><span>
-</span><span id="line-278"></span><span class="hs-comment">-- When you&#8217;re using SNI only (you set @SSLSupportMethod@ to @sni-only@),</span><span>
-</span><span id="line-279"></span><span class="hs-comment">-- you must specify @TLSv1@ or higher.</span><span>
-</span><span id="line-280"></span><span class="hs-comment">--</span><span>
-</span><span id="line-281"></span><span class="hs-comment">-- If the distribution uses the CloudFront domain name such as</span><span>
-</span><span id="line-282"></span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@ (you set @CloudFrontDefaultCertificate@</span><span>
-</span><span id="line-283"></span><span class="hs-comment">-- to @true@), CloudFront automatically sets the security policy to @TLSv1@</span><span>
-</span><span id="line-284"></span><span class="hs-comment">-- regardless of the value that you set here.</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- If the distribution uses @Aliases@ (alternate domain names or CNAMEs),</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- set this field to @false@ and specify values for the following fields:</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- -   @ACMCertificateArn@ or @IAMCertificateId@ (specify a value for one,</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--     not both)</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- -   @MinimumProtocolVersion@</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- -   @SSLSupportMethod@</span><span>
 </span><span id="line-285"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#newViewerCertificate"><span class="hs-identifier hs-type">newViewerCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-286"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span>
 </span><span id="line-287"></span><span id="newViewerCertificate"><span class="annot"><span class="annottext">newViewerCertificate :: ViewerCertificate
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#newViewerCertificate"><span class="hs-identifier hs-var hs-var">newViewerCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-288"></span><span>  </span><span class="annot"><span class="annottext">ViewerCertificate' :: Maybe SSLSupportMethod
--&gt; Maybe Bool
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe CertificateSource
--&gt; Maybe Text
 -&gt; Maybe MinimumProtocolVersion
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; ViewerCertificate
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span>
 </span><span id="line-289"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sSLSupportMethod:ViewerCertificate' :: Maybe SSLSupportMethod
@@ -360,28 +360,28 @@ $cfrom :: forall x. ViewerCertificate -&gt; Rep ViewerCertificate x
 </span><span id="line-290"></span><span>        </span><span class="annot"><span class="annottext">Maybe SSLSupportMethod
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-291"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudFrontDefaultCertificate:ViewerCertificate' :: Maybe Bool
-</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AcloudFrontDefaultCertificate%3AViewerCertificate%27"><span class="hs-identifier hs-var">cloudFrontDefaultCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:iAMCertificateId:ViewerCertificate' :: Maybe Text
-</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AiAMCertificateId%3AViewerCertificate%27"><span class="hs-identifier hs-var">iAMCertificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-293"></span><span>      </span><span class="annot"><span class="annottext">$sel:aCMCertificateArn:ViewerCertificate' :: Maybe Text
+</span><span id="line-291"></span><span>      </span><span class="annot"><span class="annottext">$sel:aCMCertificateArn:ViewerCertificate' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AaCMCertificateArn%3AViewerCertificate%27"><span class="hs-identifier hs-var">aCMCertificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-294"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateSource:ViewerCertificate' :: Maybe CertificateSource
+</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateSource:ViewerCertificate' :: Maybe CertificateSource
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AcertificateSource%3AViewerCertificate%27"><span class="hs-identifier hs-var">certificateSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateSource
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-295"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificate:ViewerCertificate' :: Maybe Text
+</span><span id="line-293"></span><span>      </span><span class="annot"><span class="annottext">$sel:minimumProtocolVersion:ViewerCertificate' :: Maybe MinimumProtocolVersion
+</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AminimumProtocolVersion%3AViewerCertificate%27"><span class="hs-identifier hs-var">minimumProtocolVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificate:ViewerCertificate' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3Acertificate%3AViewerCertificate%27"><span class="hs-identifier hs-var">certificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-296"></span><span>      </span><span class="annot"><span class="annottext">$sel:minimumProtocolVersion:ViewerCertificate' :: Maybe MinimumProtocolVersion
-</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AminimumProtocolVersion%3AViewerCertificate%27"><span class="hs-identifier hs-var">minimumProtocolVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
+</span><span id="line-295"></span><span>      </span><span class="annot"><span class="annottext">$sel:iAMCertificateId:ViewerCertificate' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AiAMCertificateId%3AViewerCertificate%27"><span class="hs-identifier hs-var">iAMCertificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudFrontDefaultCertificate:ViewerCertificate' :: Maybe Bool
+</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AcloudFrontDefaultCertificate%3AViewerCertificate%27"><span class="hs-identifier hs-var">cloudFrontDefaultCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-297"></span><span>    </span><span class="hs-special">}</span><span>
@@ -418,111 +418,54 @@ forall a. Maybe a
      (Maybe SSLSupportMethod)
      (Maybe SSLSupportMethod)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404768"><span class="annot"><span class="annottext">Maybe SSLSupportMethod
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405044"><span class="annot"><span class="annottext">Maybe SSLSupportMethod
 sSLSupportMethod :: Maybe SSLSupportMethod
 $sel:sSLSupportMethod:ViewerCertificate' :: ViewerCertificate -&gt; Maybe SSLSupportMethod
-</span><a href="#local-6989586621679404768"><span class="hs-identifier hs-var hs-var">sSLSupportMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSLSupportMethod
-</span><a href="#local-6989586621679404768"><span class="hs-identifier hs-var">sSLSupportMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404767"><span class="annot"><span class="annottext">s :: ViewerCertificate
-</span><a href="#local-6989586621679404767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404766"><span class="annot"><span class="annottext">Maybe SSLSupportMethod
-</span><a href="#local-6989586621679404766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
-</span><a href="#local-6989586621679404767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSLSupportMethod:ViewerCertificate' :: Maybe SSLSupportMethod
+</span><a href="#local-6989586621679405044"><span class="hs-identifier hs-var hs-var">sSLSupportMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSLSupportMethod
+</span><a href="#local-6989586621679405044"><span class="hs-identifier hs-var">sSLSupportMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405043"><span class="annot"><span class="annottext">s :: ViewerCertificate
+</span><a href="#local-6989586621679405043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405042"><span class="annot"><span class="annottext">Maybe SSLSupportMethod
+</span><a href="#local-6989586621679405042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSLSupportMethod:ViewerCertificate' :: Maybe SSLSupportMethod
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AsSLSupportMethod%3AViewerCertificate%27"><span class="hs-identifier hs-var">sSLSupportMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSLSupportMethod
-</span><a href="#local-6989586621679404766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-321"></span><span>
-</span><span id="line-322"></span><span class="hs-comment">-- | If the distribution uses the CloudFront domain name such as</span><span>
-</span><span id="line-323"></span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@, set this field to @true@.</span><span>
-</span><span id="line-324"></span><span class="hs-comment">--</span><span>
-</span><span id="line-325"></span><span class="hs-comment">-- If the distribution uses @Aliases@ (alternate domain names or CNAMEs),</span><span>
-</span><span id="line-326"></span><span class="hs-comment">-- set this field to @false@ and specify values for the following fields:</span><span>
-</span><span id="line-327"></span><span class="hs-comment">--</span><span>
-</span><span id="line-328"></span><span class="hs-comment">-- -   @ACMCertificateArn@ or @IAMCertificateId@ (specify a value for one,</span><span>
-</span><span id="line-329"></span><span class="hs-comment">--     not both)</span><span>
-</span><span id="line-330"></span><span class="hs-comment">--</span><span>
-</span><span id="line-331"></span><span class="hs-comment">-- -   @MinimumProtocolVersion@</span><span>
-</span><span id="line-332"></span><span class="hs-comment">--</span><span>
-</span><span id="line-333"></span><span class="hs-comment">-- -   @SSLSupportMethod@</span><span>
-</span><span id="line-334"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_cloudFrontDefaultCertificate"><span class="hs-identifier hs-type">viewerCertificate_cloudFrontDefaultCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-335"></span><span id="viewerCertificate_cloudFrontDefaultCertificate"><span class="annot"><span class="annottext">viewerCertificate_cloudFrontDefaultCertificate :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ViewerCertificate -&gt; f ViewerCertificate
-</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_cloudFrontDefaultCertificate"><span class="hs-identifier hs-var hs-var">viewerCertificate_cloudFrontDefaultCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ViewerCertificate -&gt; Maybe Bool)
--&gt; (ViewerCertificate -&gt; Maybe Bool -&gt; ViewerCertificate)
--&gt; Lens
-     ViewerCertificate ViewerCertificate (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404764"><span class="annot"><span class="annottext">Maybe Bool
-cloudFrontDefaultCertificate :: Maybe Bool
-$sel:cloudFrontDefaultCertificate:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Bool
-</span><a href="#local-6989586621679404764"><span class="hs-identifier hs-var hs-var">cloudFrontDefaultCertificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679404764"><span class="hs-identifier hs-var">cloudFrontDefaultCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404763"><span class="annot"><span class="annottext">s :: ViewerCertificate
-</span><a href="#local-6989586621679404763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404762"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679404762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
-</span><a href="#local-6989586621679404763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudFrontDefaultCertificate:ViewerCertificate' :: Maybe Bool
-</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AcloudFrontDefaultCertificate%3AViewerCertificate%27"><span class="hs-identifier hs-var">cloudFrontDefaultCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679404762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-336"></span><span>
-</span><span id="line-337"></span><span class="hs-comment">-- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs)</span><span>
-</span><span id="line-338"></span><span class="hs-comment">-- and the SSL\/TLS certificate is stored in</span><span>
-</span><span id="line-339"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Identity and Access Management (IAM)&gt;,</span><span>
-</span><span id="line-340"></span><span class="hs-comment">-- provide the ID of the IAM certificate.</span><span>
-</span><span id="line-341"></span><span class="hs-comment">--</span><span>
-</span><span id="line-342"></span><span class="hs-comment">-- If you specify an IAM certificate ID, you must also specify values for</span><span>
-</span><span id="line-343"></span><span class="hs-comment">-- @MinimumProtocolVersion@ and @SSLSupportMethod@.</span><span>
-</span><span id="line-344"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_iAMCertificateId"><span class="hs-identifier hs-type">viewerCertificate_iAMCertificateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-345"></span><span id="viewerCertificate_iAMCertificateId"><span class="annot"><span class="annottext">viewerCertificate_iAMCertificateId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ViewerCertificate -&gt; f ViewerCertificate
-</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_iAMCertificateId"><span class="hs-identifier hs-var hs-var">viewerCertificate_iAMCertificateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ViewerCertificate -&gt; Maybe Text)
--&gt; (ViewerCertificate -&gt; Maybe Text -&gt; ViewerCertificate)
--&gt; Lens
-     ViewerCertificate ViewerCertificate (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404760"><span class="annot"><span class="annottext">Maybe Text
-iAMCertificateId :: Maybe Text
-$sel:iAMCertificateId:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679404760"><span class="hs-identifier hs-var hs-var">iAMCertificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404760"><span class="hs-identifier hs-var">iAMCertificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404759"><span class="annot"><span class="annottext">s :: ViewerCertificate
-</span><a href="#local-6989586621679404759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404758"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
-</span><a href="#local-6989586621679404759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iAMCertificateId:ViewerCertificate' :: Maybe Text
-</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AiAMCertificateId%3AViewerCertificate%27"><span class="hs-identifier hs-var">iAMCertificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-346"></span><span>
-</span><span id="line-347"></span><span class="hs-comment">-- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs)</span><span>
-</span><span id="line-348"></span><span class="hs-comment">-- and the SSL\/TLS certificate is stored in</span><span>
-</span><span id="line-349"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html Certificate Manager (ACM)&gt;,</span><span>
-</span><span id="line-350"></span><span class="hs-comment">-- provide the Amazon Resource Name (ARN) of the ACM certificate.</span><span>
-</span><span id="line-351"></span><span class="hs-comment">-- CloudFront only supports ACM certificates in the US East (N. Virginia)</span><span>
-</span><span id="line-352"></span><span class="hs-comment">-- Region (@us-east-1@).</span><span>
-</span><span id="line-353"></span><span class="hs-comment">--</span><span>
-</span><span id="line-354"></span><span class="hs-comment">-- If you specify an ACM certificate ARN, you must also specify values for</span><span>
-</span><span id="line-355"></span><span class="hs-comment">-- @MinimumProtocolVersion@ and @SSLSupportMethod@.</span><span>
-</span><span id="line-356"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_aCMCertificateArn"><span class="hs-identifier hs-type">viewerCertificate_aCMCertificateArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-357"></span><span id="viewerCertificate_aCMCertificateArn"><span class="annot"><span class="annottext">viewerCertificate_aCMCertificateArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-322"></span><span class="hs-comment">-- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs)</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- and the SSL\/TLS certificate is stored in</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html Certificate Manager (ACM)&gt;,</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- provide the Amazon Resource Name (ARN) of the ACM certificate.</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- CloudFront only supports ACM certificates in the US East (N. Virginia)</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- Region (@us-east-1@).</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- If you specify an ACM certificate ARN, you must also specify values for</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- @MinimumProtocolVersion@ and @SSLSupportMethod@.</span><span>
+</span><span id="line-331"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_aCMCertificateArn"><span class="hs-identifier hs-type">viewerCertificate_aCMCertificateArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span id="viewerCertificate_aCMCertificateArn"><span class="annot"><span class="annottext">viewerCertificate_aCMCertificateArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ViewerCertificate -&gt; f ViewerCertificate
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_aCMCertificateArn"><span class="hs-identifier hs-var hs-var">viewerCertificate_aCMCertificateArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ViewerCertificate -&gt; Maybe Text)
 -&gt; (ViewerCertificate -&gt; Maybe Text -&gt; ViewerCertificate)
 -&gt; Lens
      ViewerCertificate ViewerCertificate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404756"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405040"><span class="annot"><span class="annottext">Maybe Text
 aCMCertificateArn :: Maybe Text
 $sel:aCMCertificateArn:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679404756"><span class="hs-identifier hs-var hs-var">aCMCertificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404756"><span class="hs-identifier hs-var">aCMCertificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404755"><span class="annot"><span class="annottext">s :: ViewerCertificate
-</span><a href="#local-6989586621679404755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404754"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
-</span><a href="#local-6989586621679404755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aCMCertificateArn:ViewerCertificate' :: Maybe Text
+</span><a href="#local-6989586621679405040"><span class="hs-identifier hs-var hs-var">aCMCertificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405040"><span class="hs-identifier hs-var">aCMCertificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405039"><span class="annot"><span class="annottext">s :: ViewerCertificate
+</span><a href="#local-6989586621679405039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405038"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aCMCertificateArn:ViewerCertificate' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AaCMCertificateArn%3AViewerCertificate%27"><span class="hs-identifier hs-var">aCMCertificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-358"></span><span>
-</span><span id="line-359"></span><span class="hs-comment">-- | This field is deprecated. Use one of the following fields instead:</span><span>
-</span><span id="line-360"></span><span class="hs-comment">--</span><span>
-</span><span id="line-361"></span><span class="hs-comment">-- -   @ACMCertificateArn@</span><span>
-</span><span id="line-362"></span><span class="hs-comment">--</span><span>
-</span><span id="line-363"></span><span class="hs-comment">-- -   @IAMCertificateId@</span><span>
-</span><span id="line-364"></span><span class="hs-comment">--</span><span>
-</span><span id="line-365"></span><span class="hs-comment">-- -   @CloudFrontDefaultCertificate@</span><span>
-</span><span id="line-366"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_certificateSource"><span class="hs-identifier hs-type">viewerCertificate_certificateSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CertificateSource.html#CertificateSource"><span class="hs-identifier hs-type">CertificateSource</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-367"></span><span id="viewerCertificate_certificateSource"><span class="annot"><span class="annottext">viewerCertificate_certificateSource :: (Maybe CertificateSource -&gt; f (Maybe CertificateSource))
+</span><a href="#local-6989586621679405038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-333"></span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- | This field is deprecated. Use one of the following fields instead:</span><span>
+</span><span id="line-335"></span><span class="hs-comment">--</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- -   @ACMCertificateArn@</span><span>
+</span><span id="line-337"></span><span class="hs-comment">--</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- -   @IAMCertificateId@</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- -   @CloudFrontDefaultCertificate@</span><span>
+</span><span id="line-341"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_certificateSource"><span class="hs-identifier hs-type">viewerCertificate_certificateSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CertificateSource.html#CertificateSource"><span class="hs-identifier hs-type">CertificateSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span id="viewerCertificate_certificateSource"><span class="annot"><span class="annottext">viewerCertificate_certificateSource :: (Maybe CertificateSource -&gt; f (Maybe CertificateSource))
 -&gt; ViewerCertificate -&gt; f ViewerCertificate
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_certificateSource"><span class="hs-identifier hs-var hs-var">viewerCertificate_certificateSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ViewerCertificate -&gt; Maybe CertificateSource)
 -&gt; (ViewerCertificate
@@ -533,70 +476,44 @@ $sel:aCMCertificateArn:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Text
      (Maybe CertificateSource)
      (Maybe CertificateSource)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404752"><span class="annot"><span class="annottext">Maybe CertificateSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405036"><span class="annot"><span class="annottext">Maybe CertificateSource
 certificateSource :: Maybe CertificateSource
 $sel:certificateSource:ViewerCertificate' :: ViewerCertificate -&gt; Maybe CertificateSource
-</span><a href="#local-6989586621679404752"><span class="hs-identifier hs-var hs-var">certificateSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateSource
-</span><a href="#local-6989586621679404752"><span class="hs-identifier hs-var">certificateSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404751"><span class="annot"><span class="annottext">s :: ViewerCertificate
-</span><a href="#local-6989586621679404751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404750"><span class="annot"><span class="annottext">Maybe CertificateSource
-</span><a href="#local-6989586621679404750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
-</span><a href="#local-6989586621679404751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateSource:ViewerCertificate' :: Maybe CertificateSource
+</span><a href="#local-6989586621679405036"><span class="hs-identifier hs-var hs-var">certificateSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateSource
+</span><a href="#local-6989586621679405036"><span class="hs-identifier hs-var">certificateSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405035"><span class="annot"><span class="annottext">s :: ViewerCertificate
+</span><a href="#local-6989586621679405035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405034"><span class="annot"><span class="annottext">Maybe CertificateSource
+</span><a href="#local-6989586621679405034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateSource:ViewerCertificate' :: Maybe CertificateSource
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AcertificateSource%3AViewerCertificate%27"><span class="hs-identifier hs-var">certificateSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateSource
-</span><a href="#local-6989586621679404750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-368"></span><span>
-</span><span id="line-369"></span><span class="hs-comment">-- | This field is deprecated. Use one of the following fields instead:</span><span>
-</span><span id="line-370"></span><span class="hs-comment">--</span><span>
-</span><span id="line-371"></span><span class="hs-comment">-- -   @ACMCertificateArn@</span><span>
-</span><span id="line-372"></span><span class="hs-comment">--</span><span>
-</span><span id="line-373"></span><span class="hs-comment">-- -   @IAMCertificateId@</span><span>
-</span><span id="line-374"></span><span class="hs-comment">--</span><span>
-</span><span id="line-375"></span><span class="hs-comment">-- -   @CloudFrontDefaultCertificate@</span><span>
-</span><span id="line-376"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_certificate"><span class="hs-identifier hs-type">viewerCertificate_certificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-377"></span><span id="viewerCertificate_certificate"><span class="annot"><span class="annottext">viewerCertificate_certificate :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ViewerCertificate -&gt; f ViewerCertificate
-</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_certificate"><span class="hs-identifier hs-var hs-var">viewerCertificate_certificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ViewerCertificate -&gt; Maybe Text)
--&gt; (ViewerCertificate -&gt; Maybe Text -&gt; ViewerCertificate)
--&gt; Lens
-     ViewerCertificate ViewerCertificate (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404748"><span class="annot"><span class="annottext">Maybe Text
-certificate :: Maybe Text
-$sel:certificate:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679404748"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404748"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404747"><span class="annot"><span class="annottext">s :: ViewerCertificate
-</span><a href="#local-6989586621679404747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404746"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
-</span><a href="#local-6989586621679404747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:ViewerCertificate' :: Maybe Text
-</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3Acertificate%3AViewerCertificate%27"><span class="hs-identifier hs-var">certificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-378"></span><span>
-</span><span id="line-379"></span><span class="hs-comment">-- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs),</span><span>
-</span><span id="line-380"></span><span class="hs-comment">-- specify the security policy that you want CloudFront to use for HTTPS</span><span>
-</span><span id="line-381"></span><span class="hs-comment">-- connections with viewers. The security policy determines two settings:</span><span>
-</span><span id="line-382"></span><span class="hs-comment">--</span><span>
-</span><span id="line-383"></span><span class="hs-comment">-- -   The minimum SSL\/TLS protocol that CloudFront can use to communicate</span><span>
-</span><span id="line-384"></span><span class="hs-comment">--     with viewers.</span><span>
-</span><span id="line-385"></span><span class="hs-comment">--</span><span>
-</span><span id="line-386"></span><span class="hs-comment">-- -   The ciphers that CloudFront can use to encrypt the content that it</span><span>
-</span><span id="line-387"></span><span class="hs-comment">--     returns to viewers.</span><span>
-</span><span id="line-388"></span><span class="hs-comment">--</span><span>
-</span><span id="line-389"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-390"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy Security Policy&gt;</span><span>
-</span><span id="line-391"></span><span class="hs-comment">-- and</span><span>
-</span><span id="line-392"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers Supported Protocols and Ciphers Between Viewers and CloudFront&gt;</span><span>
-</span><span id="line-393"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
-</span><span id="line-394"></span><span class="hs-comment">--</span><span>
-</span><span id="line-395"></span><span class="hs-comment">-- On the CloudFront console, this setting is called __Security Policy__.</span><span>
-</span><span id="line-396"></span><span class="hs-comment">--</span><span>
-</span><span id="line-397"></span><span class="hs-comment">-- When you&#8217;re using SNI only (you set @SSLSupportMethod@ to @sni-only@),</span><span>
-</span><span id="line-398"></span><span class="hs-comment">-- you must specify @TLSv1@ or higher.</span><span>
-</span><span id="line-399"></span><span class="hs-comment">--</span><span>
-</span><span id="line-400"></span><span class="hs-comment">-- If the distribution uses the CloudFront domain name such as</span><span>
-</span><span id="line-401"></span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@ (you set @CloudFrontDefaultCertificate@</span><span>
-</span><span id="line-402"></span><span class="hs-comment">-- to @true@), CloudFront automatically sets the security policy to @TLSv1@</span><span>
-</span><span id="line-403"></span><span class="hs-comment">-- regardless of the value that you set here.</span><span>
-</span><span id="line-404"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_minimumProtocolVersion"><span class="hs-identifier hs-type">viewerCertificate_minimumProtocolVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion"><span class="hs-identifier hs-type">MinimumProtocolVersion</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-405"></span><span id="viewerCertificate_minimumProtocolVersion"><span class="annot"><span class="annottext">viewerCertificate_minimumProtocolVersion :: (Maybe MinimumProtocolVersion -&gt; f (Maybe MinimumProtocolVersion))
+</span><a href="#local-6989586621679405034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs),</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- specify the security policy that you want CloudFront to use for HTTPS</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- connections with viewers. The security policy determines two settings:</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- -   The minimum SSL\/TLS protocol that CloudFront can use to communicate</span><span>
+</span><span id="line-349"></span><span class="hs-comment">--     with viewers.</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- -   The ciphers that CloudFront can use to encrypt the content that it</span><span>
+</span><span id="line-352"></span><span class="hs-comment">--     returns to viewers.</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy Security Policy&gt;</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers Supported Protocols and Ciphers Between Viewers and CloudFront&gt;</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-359"></span><span class="hs-comment">--</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- On the CloudFront console, this setting is called __Security Policy__.</span><span>
+</span><span id="line-361"></span><span class="hs-comment">--</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- When you&#8217;re using SNI only (you set @SSLSupportMethod@ to @sni-only@),</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- you must specify @TLSv1@ or higher.</span><span>
+</span><span id="line-364"></span><span class="hs-comment">--</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- If the distribution uses the CloudFront domain name such as</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@ (you set @CloudFrontDefaultCertificate@</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- to @true@), CloudFront automatically sets the security policy to @TLSv1@</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- regardless of the value that you set here.</span><span>
+</span><span id="line-369"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_minimumProtocolVersion"><span class="hs-identifier hs-type">viewerCertificate_minimumProtocolVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion"><span class="hs-identifier hs-type">MinimumProtocolVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-370"></span><span id="viewerCertificate_minimumProtocolVersion"><span class="annot"><span class="annottext">viewerCertificate_minimumProtocolVersion :: (Maybe MinimumProtocolVersion -&gt; f (Maybe MinimumProtocolVersion))
 -&gt; ViewerCertificate -&gt; f ViewerCertificate
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_minimumProtocolVersion"><span class="hs-identifier hs-var hs-var">viewerCertificate_minimumProtocolVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ViewerCertificate -&gt; Maybe MinimumProtocolVersion)
 -&gt; (ViewerCertificate
@@ -607,180 +524,249 @@ $sel:certificate:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Text
      (Maybe MinimumProtocolVersion)
      (Maybe MinimumProtocolVersion)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404744"><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405032"><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
 minimumProtocolVersion :: Maybe MinimumProtocolVersion
 $sel:minimumProtocolVersion:ViewerCertificate' :: ViewerCertificate -&gt; Maybe MinimumProtocolVersion
-</span><a href="#local-6989586621679404744"><span class="hs-identifier hs-var hs-var">minimumProtocolVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
-</span><a href="#local-6989586621679404744"><span class="hs-identifier hs-var">minimumProtocolVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404743"><span class="annot"><span class="annottext">s :: ViewerCertificate
-</span><a href="#local-6989586621679404743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404742"><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
-</span><a href="#local-6989586621679404742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
-</span><a href="#local-6989586621679404743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumProtocolVersion:ViewerCertificate' :: Maybe MinimumProtocolVersion
+</span><a href="#local-6989586621679405032"><span class="hs-identifier hs-var hs-var">minimumProtocolVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
+</span><a href="#local-6989586621679405032"><span class="hs-identifier hs-var">minimumProtocolVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405031"><span class="annot"><span class="annottext">s :: ViewerCertificate
+</span><a href="#local-6989586621679405031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405030"><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
+</span><a href="#local-6989586621679405030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumProtocolVersion:ViewerCertificate' :: Maybe MinimumProtocolVersion
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AminimumProtocolVersion%3AViewerCertificate%27"><span class="hs-identifier hs-var">minimumProtocolVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
-</span><a href="#local-6989586621679404742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-371"></span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- | This field is deprecated. Use one of the following fields instead:</span><span>
+</span><span id="line-373"></span><span class="hs-comment">--</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- -   @ACMCertificateArn@</span><span>
+</span><span id="line-375"></span><span class="hs-comment">--</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- -   @IAMCertificateId@</span><span>
+</span><span id="line-377"></span><span class="hs-comment">--</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- -   @CloudFrontDefaultCertificate@</span><span>
+</span><span id="line-379"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_certificate"><span class="hs-identifier hs-type">viewerCertificate_certificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-380"></span><span id="viewerCertificate_certificate"><span class="annot"><span class="annottext">viewerCertificate_certificate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ViewerCertificate -&gt; f ViewerCertificate
+</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_certificate"><span class="hs-identifier hs-var hs-var">viewerCertificate_certificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ViewerCertificate -&gt; Maybe Text)
+-&gt; (ViewerCertificate -&gt; Maybe Text -&gt; ViewerCertificate)
+-&gt; Lens
+     ViewerCertificate ViewerCertificate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405028"><span class="annot"><span class="annottext">Maybe Text
+certificate :: Maybe Text
+$sel:certificate:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Text
+</span><a href="#local-6989586621679405028"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405028"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405027"><span class="annot"><span class="annottext">s :: ViewerCertificate
+</span><a href="#local-6989586621679405027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405026"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:ViewerCertificate' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3Acertificate%3AViewerCertificate%27"><span class="hs-identifier hs-var">certificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-381"></span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs)</span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- and the SSL\/TLS certificate is stored in</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Identity and Access Management (IAM)&gt;,</span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- provide the ID of the IAM certificate.</span><span>
+</span><span id="line-386"></span><span class="hs-comment">--</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- If you specify an IAM certificate ID, you must also specify values for</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- @MinimumProtocolVersion@ and @SSLSupportMethod@.</span><span>
+</span><span id="line-389"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_iAMCertificateId"><span class="hs-identifier hs-type">viewerCertificate_iAMCertificateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-390"></span><span id="viewerCertificate_iAMCertificateId"><span class="annot"><span class="annottext">viewerCertificate_iAMCertificateId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ViewerCertificate -&gt; f ViewerCertificate
+</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_iAMCertificateId"><span class="hs-identifier hs-var hs-var">viewerCertificate_iAMCertificateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ViewerCertificate -&gt; Maybe Text)
+-&gt; (ViewerCertificate -&gt; Maybe Text -&gt; ViewerCertificate)
+-&gt; Lens
+     ViewerCertificate ViewerCertificate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405024"><span class="annot"><span class="annottext">Maybe Text
+iAMCertificateId :: Maybe Text
+$sel:iAMCertificateId:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Text
+</span><a href="#local-6989586621679405024"><span class="hs-identifier hs-var hs-var">iAMCertificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405024"><span class="hs-identifier hs-var">iAMCertificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405023"><span class="annot"><span class="annottext">s :: ViewerCertificate
+</span><a href="#local-6989586621679405023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405022"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iAMCertificateId:ViewerCertificate' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AiAMCertificateId%3AViewerCertificate%27"><span class="hs-identifier hs-var">iAMCertificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-391"></span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- | If the distribution uses the CloudFront domain name such as</span><span>
+</span><span id="line-393"></span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@, set this field to @true@.</span><span>
+</span><span id="line-394"></span><span class="hs-comment">--</span><span>
+</span><span id="line-395"></span><span class="hs-comment">-- If the distribution uses @Aliases@ (alternate domain names or CNAMEs),</span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- set this field to @false@ and specify values for the following fields:</span><span>
+</span><span id="line-397"></span><span class="hs-comment">--</span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- -   @ACMCertificateArn@ or @IAMCertificateId@ (specify a value for one,</span><span>
+</span><span id="line-399"></span><span class="hs-comment">--     not both)</span><span>
+</span><span id="line-400"></span><span class="hs-comment">--</span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- -   @MinimumProtocolVersion@</span><span>
+</span><span id="line-402"></span><span class="hs-comment">--</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- -   @SSLSupportMethod@</span><span>
+</span><span id="line-404"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_cloudFrontDefaultCertificate"><span class="hs-identifier hs-type">viewerCertificate_cloudFrontDefaultCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-405"></span><span id="viewerCertificate_cloudFrontDefaultCertificate"><span class="annot"><span class="annottext">viewerCertificate_cloudFrontDefaultCertificate :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ViewerCertificate -&gt; f ViewerCertificate
+</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#viewerCertificate_cloudFrontDefaultCertificate"><span class="hs-identifier hs-var hs-var">viewerCertificate_cloudFrontDefaultCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ViewerCertificate -&gt; Maybe Bool)
+-&gt; (ViewerCertificate -&gt; Maybe Bool -&gt; ViewerCertificate)
+-&gt; Lens
+     ViewerCertificate ViewerCertificate (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405020"><span class="annot"><span class="annottext">Maybe Bool
+cloudFrontDefaultCertificate :: Maybe Bool
+$sel:cloudFrontDefaultCertificate:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Bool
+</span><a href="#local-6989586621679405020"><span class="hs-identifier hs-var hs-var">cloudFrontDefaultCertificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405020"><span class="hs-identifier hs-var">cloudFrontDefaultCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405019"><span class="annot"><span class="annottext">s :: ViewerCertificate
+</span><a href="#local-6989586621679405019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405018"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudFrontDefaultCertificate:ViewerCertificate' :: Maybe Bool
+</span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AcloudFrontDefaultCertificate%3AViewerCertificate%27"><span class="hs-identifier hs-var">cloudFrontDefaultCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-406"></span><span>
 </span><span id="line-407"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-408"></span><span>  </span><span id="local-6989586621679404739"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ViewerCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679404737"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679404737"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-408"></span><span>  </span><span id="local-6989586621679405015"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ViewerCertificate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679405013"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405013"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-409"></span><span>    </span><span class="annot"><span class="annottext">Maybe SSLSupportMethod
--&gt; Maybe Bool
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe CertificateSource
--&gt; Maybe Text
 -&gt; Maybe MinimumProtocolVersion
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; ViewerCertificate
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-var">ViewerCertificate'</span></a></span><span>
 </span><span id="line-410"></span><span>      </span><span class="annot"><span class="annottext">(Maybe SSLSupportMethod
- -&gt; Maybe Bool
- -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe CertificateSource
- -&gt; Maybe Text
  -&gt; Maybe MinimumProtocolVersion
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
  -&gt; ViewerCertificate)
 -&gt; Either String (Maybe SSLSupportMethod)
 -&gt; Either
      String
-     (Maybe Bool
-      -&gt; Maybe Text
-      -&gt; Maybe Text
+     (Maybe Text
       -&gt; Maybe CertificateSource
-      -&gt; Maybe Text
       -&gt; Maybe MinimumProtocolVersion
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
       -&gt; ViewerCertificate)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679404737"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SSLSupportMethod)
+</span><a href="#local-6989586621679405013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SSLSupportMethod)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SSLSupportMethod&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-411"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Bool
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe CertificateSource
-   -&gt; Maybe Text
-   -&gt; Maybe MinimumProtocolVersion
-   -&gt; ViewerCertificate)
--&gt; Either String (Maybe Bool)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe CertificateSource
-      -&gt; Maybe Text
-      -&gt; Maybe MinimumProtocolVersion
-      -&gt; ViewerCertificate)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679404737"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CloudFrontDefaultCertificate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-412"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe CertificateSource
-   -&gt; Maybe Text
-   -&gt; Maybe MinimumProtocolVersion
-   -&gt; ViewerCertificate)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe CertificateSource
-      -&gt; Maybe Text
-      -&gt; Maybe MinimumProtocolVersion
-      -&gt; ViewerCertificate)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679404737"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IAMCertificateId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-413"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
   (Maybe Text
    -&gt; Maybe CertificateSource
-   -&gt; Maybe Text
    -&gt; Maybe MinimumProtocolVersion
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
    -&gt; ViewerCertificate)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe CertificateSource
-      -&gt; Maybe Text -&gt; Maybe MinimumProtocolVersion -&gt; ViewerCertificate)
+      -&gt; Maybe MinimumProtocolVersion
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; ViewerCertificate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679404737"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679405013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ACMCertificateArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-414"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-412"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe CertificateSource
-   -&gt; Maybe Text -&gt; Maybe MinimumProtocolVersion -&gt; ViewerCertificate)
+   -&gt; Maybe MinimumProtocolVersion
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; ViewerCertificate)
 -&gt; Either String (Maybe CertificateSource)
 -&gt; Either
      String
-     (Maybe Text -&gt; Maybe MinimumProtocolVersion -&gt; ViewerCertificate)
+     (Maybe MinimumProtocolVersion
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; ViewerCertificate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679404737"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CertificateSource)
+</span><a href="#local-6989586621679405013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CertificateSource)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CertificateSource&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-415"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-413"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text -&gt; Maybe MinimumProtocolVersion -&gt; ViewerCertificate)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe MinimumProtocolVersion -&gt; ViewerCertificate)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679404737"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Certificate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-416"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe MinimumProtocolVersion -&gt; ViewerCertificate)
+  (Maybe MinimumProtocolVersion
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; ViewerCertificate)
 -&gt; Either String (Maybe MinimumProtocolVersion)
--&gt; Either String ViewerCertificate
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; ViewerCertificate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679404737"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe MinimumProtocolVersion)
+</span><a href="#local-6989586621679405013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe MinimumProtocolVersion)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinimumProtocolVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-414"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; ViewerCertificate)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Maybe Bool -&gt; ViewerCertificate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Certificate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-415"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Bool -&gt; ViewerCertificate)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Bool -&gt; ViewerCertificate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IAMCertificateId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-416"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; ViewerCertificate)
+-&gt; Either String (Maybe Bool) -&gt; Either String ViewerCertificate
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudFrontDefaultCertificate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-417"></span><span>
-</span><span id="line-418"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404731"><span id="local-6989586621679404733"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span></span></span><span>
+</span><span id="line-418"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405007"><span id="local-6989586621679405009"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span></span></span><span>
 </span><span id="line-419"></span><span>
-</span><span id="line-420"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404728"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span></span><span>
+</span><span id="line-420"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405004"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span></span><span>
 </span><span id="line-421"></span><span>
 </span><span id="line-422"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-423"></span><span>  </span><span id="local-6989586621679404724"><span class="annot"><span class="annottext">toXML :: ViewerCertificate -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404716"><span id="local-6989586621679404717"><span id="local-6989586621679404718"><span id="local-6989586621679404719"><span id="local-6989586621679404720"><span id="local-6989586621679404721"><span id="local-6989586621679404722"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-423"></span><span>  </span><span id="local-6989586621679405000"><span class="annot"><span class="annottext">toXML :: ViewerCertificate -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404992"><span id="local-6989586621679404993"><span id="local-6989586621679404994"><span id="local-6989586621679404995"><span id="local-6989586621679404996"><span id="local-6989586621679404997"><span id="local-6989586621679404998"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe CertificateSource
 Maybe MinimumProtocolVersion
 Maybe SSLSupportMethod
-minimumProtocolVersion :: Maybe MinimumProtocolVersion
+cloudFrontDefaultCertificate :: Maybe Bool
+iAMCertificateId :: Maybe Text
 certificate :: Maybe Text
+minimumProtocolVersion :: Maybe MinimumProtocolVersion
 certificateSource :: Maybe CertificateSource
 aCMCertificateArn :: Maybe Text
-iAMCertificateId :: Maybe Text
-cloudFrontDefaultCertificate :: Maybe Bool
 sSLSupportMethod :: Maybe SSLSupportMethod
-$sel:minimumProtocolVersion:ViewerCertificate' :: ViewerCertificate -&gt; Maybe MinimumProtocolVersion
+$sel:cloudFrontDefaultCertificate:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Bool
+$sel:iAMCertificateId:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Text
 $sel:certificate:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Text
+$sel:minimumProtocolVersion:ViewerCertificate' :: ViewerCertificate -&gt; Maybe MinimumProtocolVersion
 $sel:certificateSource:ViewerCertificate' :: ViewerCertificate -&gt; Maybe CertificateSource
 $sel:aCMCertificateArn:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Text
-$sel:iAMCertificateId:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Text
-$sel:cloudFrontDefaultCertificate:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Bool
 $sel:sSLSupportMethod:ViewerCertificate' :: ViewerCertificate -&gt; Maybe SSLSupportMethod
-</span><a href="#local-6989586621679404716"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679404992"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-424"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -788,38 +774,38 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;SSLSupportMethod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe SSLSupportMethod -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe SSLSupportMethod
-</span><a href="#local-6989586621679404722"><span class="hs-identifier hs-var">sSLSupportMethod</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679404998"><span class="hs-identifier hs-var">sSLSupportMethod</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-426"></span><span>        </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;CloudFrontDefaultCertificate&quot;</span></span><span>
-</span><span id="line-427"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe Bool -&gt; XML
-forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679404721"><span class="hs-identifier hs-var">cloudFrontDefaultCertificate</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-428"></span><span>        </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;IAMCertificateId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
-forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404720"><span class="hs-identifier hs-var">iAMCertificateId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-429"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ACMCertificateArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404719"><span class="hs-identifier hs-var">aCMCertificateArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-430"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><a href="#local-6989586621679404997"><span class="hs-identifier hs-var">aCMCertificateArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-427"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;CertificateSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe CertificateSource -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe CertificateSource
-</span><a href="#local-6989586621679404718"><span class="hs-identifier hs-var">certificateSource</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-431"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><a href="#local-6989586621679404996"><span class="hs-identifier hs-var">certificateSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-428"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;MinimumProtocolVersion&quot;</span></span><span>
+</span><span id="line-429"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe MinimumProtocolVersion -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
+</span><a href="#local-6989586621679404995"><span class="hs-identifier hs-var">minimumProtocolVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-430"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Certificate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404717"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-432"></span><span>        </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;MinimumProtocolVersion&quot;</span></span><span>
-</span><span id="line-433"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe MinimumProtocolVersion -&gt; XML
+</span><a href="#local-6989586621679404994"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-431"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;IAMCertificateId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
-</span><a href="#local-6989586621679404716"><span class="hs-identifier hs-var">minimumProtocolVersion</span></a></span><span>
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404993"><span class="hs-identifier hs-var">iAMCertificateId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-432"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;CloudFrontDefaultCertificate&quot;</span></span><span>
+</span><span id="line-433"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe Bool -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679404992"><span class="hs-identifier hs-var">cloudFrontDefaultCertificate</span></a></span><span>
 </span><span id="line-434"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-435"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Defines the predicate of the trigger, which determines when it fires.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newPredicate' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679692229"><span id="local-6989586621679692230"></span></span><span class="hs-keyword">data</span><span> </span><span id="Predicate"><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate"><span class="hs-identifier hs-var">Predicate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Predicate%27"><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate%27"><span class="hs-identifier hs-var">Predicate'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679693897"><span id="local-6989586621679693898"></span></span><span class="hs-keyword">data</span><span> </span><span id="Predicate"><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate"><span class="hs-identifier hs-var">Predicate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Predicate%27"><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate%27"><span class="hs-identifier hs-var">Predicate'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional field if only one condition is listed. If multiple</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- conditions are listed, then this field is required.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Alogical%3APredicate%27"><span class="annot"><span class="annottext">Predicate -&gt; Maybe Logical
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aconditions%3APredicate%27"><span class="annot"><span class="annottext">Predicate -&gt; Maybe [Condition]
 </span><a href="Network.AWS.Glue.Types.Predicate.html#%24sel%3Aconditions%3APredicate%27"><span class="hs-identifier hs-var hs-var">conditions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679692222"><span id="local-6989586621679692224"><span class="annot"><span class="annottext">Predicate -&gt; Predicate -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679693890"><span id="local-6989586621679693892"><span class="annot"><span class="annottext">Predicate -&gt; Predicate -&gt; Bool
 (Predicate -&gt; Predicate -&gt; Bool)
 -&gt; (Predicate -&gt; Predicate -&gt; Bool) -&gt; Eq Predicate
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Predicate -&gt; Predicate -&gt; Bool
 == :: Predicate -&gt; Predicate -&gt; Bool
 $c== :: Predicate -&gt; Predicate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692213"><span id="local-6989586621679692215"><span id="local-6989586621679692217"><span id="local-6989586621679692219"><span class="annot"><span class="annottext">ReadPrec [Predicate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679693881"><span id="local-6989586621679693883"><span id="local-6989586621679693885"><span id="local-6989586621679693887"><span class="annot"><span class="annottext">ReadPrec [Predicate]
 ReadPrec Predicate
 Int -&gt; ReadS Predicate
 ReadS [Predicate]
@@ -65,7 +65,7 @@ readList :: ReadS [Predicate]
 $creadList :: ReadS [Predicate]
 readsPrec :: Int -&gt; ReadS Predicate
 $creadsPrec :: Int -&gt; ReadS Predicate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692206"><span id="local-6989586621679692208"><span id="local-6989586621679692210"><span class="annot"><span class="annottext">Int -&gt; Predicate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679693874"><span id="local-6989586621679693876"><span id="local-6989586621679693878"><span class="annot"><span class="annottext">Int -&gt; Predicate -&gt; ShowS
 [Predicate] -&gt; ShowS
 Predicate -&gt; String
 (Int -&gt; Predicate -&gt; ShowS)
@@ -126,16 +126,16 @@ forall a. Maybe a
 -&gt; (Predicate -&gt; Maybe Logical -&gt; Predicate)
 -&gt; Lens Predicate Predicate (Maybe Logical) (Maybe Logical)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate%27"><span class="hs-identifier hs-type">Predicate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692197"><span class="annot"><span class="annottext">Maybe Logical
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate%27"><span class="hs-identifier hs-type">Predicate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693865"><span class="annot"><span class="annottext">Maybe Logical
 logical :: Maybe Logical
 $sel:logical:Predicate' :: Predicate -&gt; Maybe Logical
-</span><a href="#local-6989586621679692197"><span class="hs-identifier hs-var hs-var">logical</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Logical
-</span><a href="#local-6989586621679692197"><span class="hs-identifier hs-var">logical</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692196"><span class="annot"><span class="annottext">s :: Predicate
-</span><a href="#local-6989586621679692196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate%27"><span class="hs-identifier hs-type">Predicate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692195"><span class="annot"><span class="annottext">Maybe Logical
-</span><a href="#local-6989586621679692195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Predicate
-</span><a href="#local-6989586621679692196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logical:Predicate' :: Maybe Logical
+</span><a href="#local-6989586621679693865"><span class="hs-identifier hs-var hs-var">logical</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Logical
+</span><a href="#local-6989586621679693865"><span class="hs-identifier hs-var">logical</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679693864"><span class="annot"><span class="annottext">s :: Predicate
+</span><a href="#local-6989586621679693864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate%27"><span class="hs-identifier hs-type">Predicate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679693863"><span class="annot"><span class="annottext">Maybe Logical
+</span><a href="#local-6989586621679693863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Predicate
+</span><a href="#local-6989586621679693864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logical:Predicate' :: Maybe Logical
 </span><a href="Network.AWS.Glue.Types.Predicate.html#%24sel%3Alogical%3APredicate%27"><span class="hs-identifier hs-var">logical</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Logical
-</span><a href="#local-6989586621679692195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate"><span class="hs-identifier hs-type">Predicate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679693863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate"><span class="hs-identifier hs-type">Predicate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | A list of the conditions that determine when the trigger will fire.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#predicate_conditions"><span class="hs-identifier hs-type">predicate_conditions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate"><span class="hs-identifier hs-type">Predicate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -145,16 +145,16 @@ $sel:logical:Predicate' :: Predicate -&gt; Maybe Logical
 -&gt; (Predicate -&gt; Maybe [Condition] -&gt; Predicate)
 -&gt; Lens Predicate Predicate (Maybe [Condition]) (Maybe [Condition])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate%27"><span class="hs-identifier hs-type">Predicate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692193"><span class="annot"><span class="annottext">Maybe [Condition]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate%27"><span class="hs-identifier hs-type">Predicate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693861"><span class="annot"><span class="annottext">Maybe [Condition]
 conditions :: Maybe [Condition]
 $sel:conditions:Predicate' :: Predicate -&gt; Maybe [Condition]
-</span><a href="#local-6989586621679692193"><span class="hs-identifier hs-var hs-var">conditions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Condition]
-</span><a href="#local-6989586621679692193"><span class="hs-identifier hs-var">conditions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692192"><span class="annot"><span class="annottext">s :: Predicate
-</span><a href="#local-6989586621679692192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate%27"><span class="hs-identifier hs-type">Predicate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692191"><span class="annot"><span class="annottext">Maybe [Condition]
-</span><a href="#local-6989586621679692191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Predicate
-</span><a href="#local-6989586621679692192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditions:Predicate' :: Maybe [Condition]
+</span><a href="#local-6989586621679693861"><span class="hs-identifier hs-var hs-var">conditions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Condition]
+</span><a href="#local-6989586621679693861"><span class="hs-identifier hs-var">conditions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679693860"><span class="annot"><span class="annottext">s :: Predicate
+</span><a href="#local-6989586621679693860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate%27"><span class="hs-identifier hs-type">Predicate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679693859"><span class="annot"><span class="annottext">Maybe [Condition]
+</span><a href="#local-6989586621679693859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Predicate
+</span><a href="#local-6989586621679693860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditions:Predicate' :: Maybe [Condition]
 </span><a href="Network.AWS.Glue.Types.Predicate.html#%24sel%3Aconditions%3APredicate%27"><span class="hs-identifier hs-var">conditions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Condition]
-</span><a href="#local-6989586621679692191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate"><span class="hs-identifier hs-type">Predicate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Condition] -&gt; f (Maybe [Condition]))
+</span><a href="#local-6989586621679693859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate"><span class="hs-identifier hs-type">Predicate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Condition] -&gt; f (Maybe [Condition]))
  -&gt; Predicate -&gt; f Predicate)
 -&gt; ((Maybe [Condition] -&gt; f (Maybe [Condition]))
     -&gt; Maybe [Condition] -&gt; f (Maybe [Condition]))
@@ -172,19 +172,19 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Condition] [Condition] [Condition] [Condition]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692185"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate"><span class="hs-identifier hs-type">Predicate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679692183"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Predicate
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693853"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate"><span class="hs-identifier hs-type">Predicate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679693851"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Predicate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Predicate) -&gt; Value -&gt; Parser Predicate
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Predicate&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679692180"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679692180"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679693848"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679693848"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Logical -&gt; Maybe [Condition] -&gt; Predicate
 </span><a href="Network.AWS.Glue.Types.Predicate.html#Predicate%27"><span class="hs-identifier hs-var">Predicate'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Logical -&gt; Maybe [Condition] -&gt; Predicate)
@@ -192,7 +192,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [Condition] -&gt; Predicate)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679692180"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Logical)
+</span><a href="#local-6989586621679693848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Logical)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Logical&quot;</span></span><span class="hs-special">)</span><span>
@@ -200,7 +200,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Condition]) -&gt; Parser Predicate
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679692180"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Condition]))
+</span><a href="#local-6989586621679693848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Condition]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Conditions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Condition]))
@@ -211,19 +211,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692173"><span id="local-6989586621679692175"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate"><span class="hs-identifier hs-type">Predicate</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693841"><span id="local-6989586621679693843"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate"><span class="hs-identifier hs-type">Predicate</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692170"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate"><span class="hs-identifier hs-type">Predicate</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693838"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate"><span class="hs-identifier hs-type">Predicate</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692162"><span id="local-6989586621679692164"><span id="local-6989586621679692166"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate"><span class="hs-identifier hs-type">Predicate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679692160"><span class="annot"><span class="annottext">toJSON :: Predicate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate%27"><span class="hs-identifier hs-type">Predicate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692157"><span id="local-6989586621679692158"><span class="annot"><span class="annottext">Maybe [Condition]
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693830"><span id="local-6989586621679693832"><span id="local-6989586621679693834"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate"><span class="hs-identifier hs-type">Predicate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679693828"><span class="annot"><span class="annottext">toJSON :: Predicate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predicate.html#Predicate%27"><span class="hs-identifier hs-type">Predicate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693825"><span id="local-6989586621679693826"><span class="annot"><span class="annottext">Maybe [Condition]
 Maybe Logical
 conditions :: Maybe [Condition]
 logical :: Maybe Logical
 $sel:conditions:Predicate' :: Predicate -&gt; Maybe [Condition]
 $sel:logical:Predicate' :: Predicate -&gt; Maybe Logical
-</span><a href="#local-6989586621679692157"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679693825"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -235,14 +235,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Logical -&gt; Pair) -&gt; Maybe Logical -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Logical
-</span><a href="#local-6989586621679692158"><span class="hs-identifier hs-var">logical</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679693826"><span class="hs-identifier hs-var">logical</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Conditions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Condition] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Condition] -&gt; Pair) -&gt; Maybe [Condition] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Condition]
-</span><a href="#local-6989586621679692157"><span class="hs-identifier hs-var">conditions</span></a></span><span>
+</span><a href="#local-6989586621679693825"><span class="hs-identifier hs-var">conditions</span></a></span><span>
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span></pre></body></html>

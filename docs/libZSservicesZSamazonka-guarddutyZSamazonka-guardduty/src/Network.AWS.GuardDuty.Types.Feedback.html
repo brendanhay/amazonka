@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679295557"><span id="local-6989586621679295558"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Feedback"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Feedback.html#Feedback"><span class="hs-identifier hs-var">Feedback</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Feedback%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Feedback.html#Feedback%27"><span class="hs-identifier hs-var">Feedback'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679295840"><span id="local-6989586621679295841"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Feedback"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Feedback.html#Feedback"><span class="hs-identifier hs-var">Feedback</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Feedback%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Feedback.html#Feedback%27"><span class="hs-identifier hs-var">Feedback'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFeedback"><span class="annot"><span class="annottext">Feedback -&gt; Text
 </span><a href="Network.AWS.GuardDuty.Types.Feedback.html#fromFeedback"><span class="hs-identifier hs-var hs-var">fromFeedback</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295549"><span id="local-6989586621679295551"><span id="local-6989586621679295553"><span class="annot"><span class="annottext">Int -&gt; Feedback -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295832"><span id="local-6989586621679295834"><span id="local-6989586621679295836"><span class="annot"><span class="annottext">Int -&gt; Feedback -&gt; ShowS
 [Feedback] -&gt; ShowS
 Feedback -&gt; String
 (Int -&gt; Feedback -&gt; ShowS)
@@ -49,7 +49,7 @@ $cshow :: Feedback -&gt; String
 showsPrec :: Int -&gt; Feedback -&gt; ShowS
 $cshowsPrec :: Int -&gt; Feedback -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679295540"><span id="local-6989586621679295542"><span id="local-6989586621679295544"><span id="local-6989586621679295546"><span class="annot"><span class="annottext">ReadPrec [Feedback]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679295823"><span id="local-6989586621679295825"><span id="local-6989586621679295827"><span id="local-6989586621679295829"><span class="annot"><span class="annottext">ReadPrec [Feedback]
 ReadPrec Feedback
 Int -&gt; ReadS Feedback
 ReadS [Feedback]
@@ -70,7 +70,7 @@ $creadList :: ReadS [Feedback]
 readsPrec :: Int -&gt; ReadS Feedback
 $creadsPrec :: Int -&gt; ReadS Feedback
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679295535"><span id="local-6989586621679295537"><span class="annot"><span class="annottext">Feedback -&gt; Feedback -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679295818"><span id="local-6989586621679295820"><span class="annot"><span class="annottext">Feedback -&gt; Feedback -&gt; Bool
 (Feedback -&gt; Feedback -&gt; Bool)
 -&gt; (Feedback -&gt; Feedback -&gt; Bool) -&gt; Eq Feedback
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -79,7 +79,7 @@ $c/= :: Feedback -&gt; Feedback -&gt; Bool
 == :: Feedback -&gt; Feedback -&gt; Bool
 $c== :: Feedback -&gt; Feedback -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679295519"><span id="local-6989586621679295521"><span id="local-6989586621679295523"><span id="local-6989586621679295525"><span id="local-6989586621679295527"><span id="local-6989586621679295529"><span id="local-6989586621679295531"><span class="annot"><span class="annottext">Eq Feedback
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679295802"><span id="local-6989586621679295804"><span id="local-6989586621679295806"><span id="local-6989586621679295808"><span id="local-6989586621679295810"><span id="local-6989586621679295812"><span id="local-6989586621679295814"><span class="annot"><span class="annottext">Eq Feedback
 Eq Feedback
 -&gt; (Feedback -&gt; Feedback -&gt; Ordering)
 -&gt; (Feedback -&gt; Feedback -&gt; Bool)
@@ -129,7 +129,7 @@ $cfrom :: forall x. Feedback -&gt; Rep Feedback x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295511"><span id="local-6989586621679295513"><span class="annot"><span class="annottext">Int -&gt; Feedback -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295794"><span id="local-6989586621679295796"><span class="annot"><span class="annottext">Int -&gt; Feedback -&gt; Int
 Feedback -&gt; Int
 (Int -&gt; Feedback -&gt; Int) -&gt; (Feedback -&gt; Int) -&gt; Hashable Feedback
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -138,49 +138,49 @@ $chash :: Feedback -&gt; Int
 hashWithSalt :: Int -&gt; Feedback -&gt; Int
 $chashWithSalt :: Int -&gt; Feedback -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679295508"><span class="annot"><span class="annottext">Feedback -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679295791"><span class="annot"><span class="annottext">Feedback -&gt; ()
 (Feedback -&gt; ()) -&gt; NFData Feedback
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Feedback -&gt; ()
 $crnf :: Feedback -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679295505"><span class="annot"><span class="annottext">Text -&gt; Either String Feedback
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679295788"><span class="annot"><span class="annottext">Text -&gt; Either String Feedback
 (Text -&gt; Either String Feedback) -&gt; FromText Feedback
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Feedback
 $cfromText :: Text -&gt; Either String Feedback
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295502"><span class="annot"><span class="annottext">Feedback -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295785"><span class="annot"><span class="annottext">Feedback -&gt; Text
 (Feedback -&gt; Text) -&gt; ToText Feedback
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Feedback -&gt; Text
 $ctoText :: Feedback -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295499"><span class="annot"><span class="annottext">Feedback -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295782"><span class="annot"><span class="annottext">Feedback -&gt; ByteString
 (Feedback -&gt; ByteString) -&gt; ToByteString Feedback
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Feedback -&gt; ByteString
 $ctoBS :: Feedback -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295496"><span class="annot"><span class="annottext">Feedback -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295779"><span class="annot"><span class="annottext">Feedback -&gt; ByteStringBuilder
 (Feedback -&gt; ByteStringBuilder) -&gt; ToLog Feedback
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Feedback -&gt; ByteStringBuilder
 $cbuild :: Feedback -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679295493"><span class="annot"><span class="annottext">HeaderName -&gt; Feedback -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679295776"><span class="annot"><span class="annottext">HeaderName -&gt; Feedback -&gt; [Header]
 (HeaderName -&gt; Feedback -&gt; [Header]) -&gt; ToHeader Feedback
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Feedback -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Feedback -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679295490"><span class="annot"><span class="annottext">Feedback -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679295773"><span class="annot"><span class="annottext">Feedback -&gt; QueryString
 (Feedback -&gt; QueryString) -&gt; ToQuery Feedback
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Feedback -&gt; QueryString
 $ctoQuery :: Feedback -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679295485"><span id="local-6989586621679295487"><span class="annot"><span class="annottext">Value -&gt; Parser [Feedback]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679295768"><span id="local-6989586621679295770"><span class="annot"><span class="annottext">Value -&gt; Parser [Feedback]
 Value -&gt; Parser Feedback
 (Value -&gt; Parser Feedback)
 -&gt; (Value -&gt; Parser [Feedback]) -&gt; FromJSON Feedback
@@ -191,7 +191,7 @@ $cparseJSONList :: Value -&gt; Parser [Feedback]
 parseJSON :: Value -&gt; Parser Feedback
 $cparseJSON :: Value -&gt; Parser Feedback
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679295480"><span id="local-6989586621679295482"><span class="annot"><span class="annottext">FromJSONKeyFunction [Feedback]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679295763"><span id="local-6989586621679295765"><span class="annot"><span class="annottext">FromJSONKeyFunction [Feedback]
 FromJSONKeyFunction Feedback
 FromJSONKeyFunction Feedback
 -&gt; FromJSONKeyFunction [Feedback] -&gt; FromJSONKey Feedback
@@ -202,7 +202,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Feedback]
 fromJSONKey :: FromJSONKeyFunction Feedback
 $cfromJSONKey :: FromJSONKeyFunction Feedback
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295471"><span id="local-6989586621679295473"><span id="local-6989586621679295475"><span id="local-6989586621679295477"><span class="annot"><span class="annottext">[Feedback] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295754"><span id="local-6989586621679295756"><span id="local-6989586621679295758"><span id="local-6989586621679295760"><span class="annot"><span class="annottext">[Feedback] -&gt; Encoding
 [Feedback] -&gt; Value
 Feedback -&gt; Encoding
 Feedback -&gt; Value
@@ -226,7 +226,7 @@ $ctoEncoding :: Feedback -&gt; Encoding
 toJSON :: Feedback -&gt; Value
 $ctoJSON :: Feedback -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295466"><span id="local-6989586621679295468"><span class="annot"><span class="annottext">ToJSONKeyFunction [Feedback]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295749"><span id="local-6989586621679295751"><span class="annot"><span class="annottext">ToJSONKeyFunction [Feedback]
 ToJSONKeyFunction Feedback
 ToJSONKeyFunction Feedback
 -&gt; ToJSONKeyFunction [Feedback] -&gt; ToJSONKey Feedback
@@ -237,13 +237,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Feedback]
 toJSONKey :: ToJSONKeyFunction Feedback
 $ctoJSONKey :: ToJSONKeyFunction Feedback
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295463"><span class="annot"><span class="annottext">[Node] -&gt; Either String Feedback
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295746"><span class="annot"><span class="annottext">[Node] -&gt; Either String Feedback
 ([Node] -&gt; Either String Feedback) -&gt; FromXML Feedback
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Feedback
 $cparseXML :: [Node] -&gt; Either String Feedback
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679295460"><span class="annot"><span class="annottext">Feedback -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679295743"><span class="annot"><span class="annottext">Feedback -&gt; XML
 (Feedback -&gt; XML) -&gt; ToXML Feedback
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Feedback -&gt; XML

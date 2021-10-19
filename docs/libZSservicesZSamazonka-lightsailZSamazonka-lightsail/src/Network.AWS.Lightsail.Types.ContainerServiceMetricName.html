@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679606745"><span id="local-6989586621679606746"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerServiceMetricName"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceMetricName.html#ContainerServiceMetricName"><span class="hs-identifier hs-var">ContainerServiceMetricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerServiceMetricName%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceMetricName.html#ContainerServiceMetricName%27"><span class="hs-identifier hs-var">ContainerServiceMetricName'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679607632"><span id="local-6989586621679607633"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerServiceMetricName"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceMetricName.html#ContainerServiceMetricName"><span class="hs-identifier hs-var">ContainerServiceMetricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerServiceMetricName%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceMetricName.html#ContainerServiceMetricName%27"><span class="hs-identifier hs-var">ContainerServiceMetricName'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContainerServiceMetricName"><span class="annot"><span class="annottext">ContainerServiceMetricName -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceMetricName.html#fromContainerServiceMetricName"><span class="hs-identifier hs-var hs-var">fromContainerServiceMetricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679606737"><span id="local-6989586621679606739"><span id="local-6989586621679606741"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceMetricName -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679607624"><span id="local-6989586621679607626"><span id="local-6989586621679607628"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceMetricName -&gt; ShowS
 [ContainerServiceMetricName] -&gt; ShowS
 ContainerServiceMetricName -&gt; String
 (Int -&gt; ContainerServiceMetricName -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ContainerServiceMetricName -&gt; String
 showsPrec :: Int -&gt; ContainerServiceMetricName -&gt; ShowS
 $cshowsPrec :: Int -&gt; ContainerServiceMetricName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679606728"><span id="local-6989586621679606730"><span id="local-6989586621679606732"><span id="local-6989586621679606734"><span class="annot"><span class="annottext">ReadPrec [ContainerServiceMetricName]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679607615"><span id="local-6989586621679607617"><span id="local-6989586621679607619"><span id="local-6989586621679607621"><span class="annot"><span class="annottext">ReadPrec [ContainerServiceMetricName]
 ReadPrec ContainerServiceMetricName
 Int -&gt; ReadS ContainerServiceMetricName
 ReadS [ContainerServiceMetricName]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ContainerServiceMetricName]
 readsPrec :: Int -&gt; ReadS ContainerServiceMetricName
 $creadsPrec :: Int -&gt; ReadS ContainerServiceMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679606723"><span id="local-6989586621679606725"><span class="annot"><span class="annottext">ContainerServiceMetricName -&gt; ContainerServiceMetricName -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679607610"><span id="local-6989586621679607612"><span class="annot"><span class="annottext">ContainerServiceMetricName -&gt; ContainerServiceMetricName -&gt; Bool
 (ContainerServiceMetricName -&gt; ContainerServiceMetricName -&gt; Bool)
 -&gt; (ContainerServiceMetricName
     -&gt; ContainerServiceMetricName -&gt; Bool)
@@ -83,7 +83,7 @@ $c/= :: ContainerServiceMetricName -&gt; ContainerServiceMetricName -&gt; Bool
 == :: ContainerServiceMetricName -&gt; ContainerServiceMetricName -&gt; Bool
 $c== :: ContainerServiceMetricName -&gt; ContainerServiceMetricName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679606707"><span id="local-6989586621679606709"><span id="local-6989586621679606711"><span id="local-6989586621679606713"><span id="local-6989586621679606715"><span id="local-6989586621679606717"><span id="local-6989586621679606719"><span class="annot"><span class="annottext">Eq ContainerServiceMetricName
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679607594"><span id="local-6989586621679607596"><span id="local-6989586621679607598"><span id="local-6989586621679607600"><span id="local-6989586621679607602"><span id="local-6989586621679607604"><span id="local-6989586621679607606"><span class="annot"><span class="annottext">Eq ContainerServiceMetricName
 Eq ContainerServiceMetricName
 -&gt; (ContainerServiceMetricName
     -&gt; ContainerServiceMetricName -&gt; Ordering)
@@ -155,7 +155,7 @@ ContainerServiceMetricName -&gt; Rep ContainerServiceMetricName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679606699"><span id="local-6989586621679606701"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceMetricName -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679607586"><span id="local-6989586621679607588"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceMetricName -&gt; Int
 ContainerServiceMetricName -&gt; Int
 (Int -&gt; ContainerServiceMetricName -&gt; Int)
 -&gt; (ContainerServiceMetricName -&gt; Int)
@@ -166,56 +166,56 @@ $chash :: ContainerServiceMetricName -&gt; Int
 hashWithSalt :: Int -&gt; ContainerServiceMetricName -&gt; Int
 $chashWithSalt :: Int -&gt; ContainerServiceMetricName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679606696"><span class="annot"><span class="annottext">ContainerServiceMetricName -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679607583"><span class="annot"><span class="annottext">ContainerServiceMetricName -&gt; ()
 (ContainerServiceMetricName -&gt; ())
 -&gt; NFData ContainerServiceMetricName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ContainerServiceMetricName -&gt; ()
 $crnf :: ContainerServiceMetricName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679606693"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerServiceMetricName
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679607580"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerServiceMetricName
 (Text -&gt; Either String ContainerServiceMetricName)
 -&gt; FromText ContainerServiceMetricName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ContainerServiceMetricName
 $cfromText :: Text -&gt; Either String ContainerServiceMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679606690"><span class="annot"><span class="annottext">ContainerServiceMetricName -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679607577"><span class="annot"><span class="annottext">ContainerServiceMetricName -&gt; Text
 (ContainerServiceMetricName -&gt; Text)
 -&gt; ToText ContainerServiceMetricName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ContainerServiceMetricName -&gt; Text
 $ctoText :: ContainerServiceMetricName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679606687"><span class="annot"><span class="annottext">ContainerServiceMetricName -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679607574"><span class="annot"><span class="annottext">ContainerServiceMetricName -&gt; ByteString
 (ContainerServiceMetricName -&gt; ByteString)
 -&gt; ToByteString ContainerServiceMetricName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ContainerServiceMetricName -&gt; ByteString
 $ctoBS :: ContainerServiceMetricName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679606684"><span class="annot"><span class="annottext">ContainerServiceMetricName -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679607571"><span class="annot"><span class="annottext">ContainerServiceMetricName -&gt; ByteStringBuilder
 (ContainerServiceMetricName -&gt; ByteStringBuilder)
 -&gt; ToLog ContainerServiceMetricName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ContainerServiceMetricName -&gt; ByteStringBuilder
 $cbuild :: ContainerServiceMetricName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679606681"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerServiceMetricName -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679607568"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerServiceMetricName -&gt; [Header]
 (HeaderName -&gt; ContainerServiceMetricName -&gt; [Header])
 -&gt; ToHeader ContainerServiceMetricName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ContainerServiceMetricName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ContainerServiceMetricName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679606678"><span class="annot"><span class="annottext">ContainerServiceMetricName -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679607565"><span class="annot"><span class="annottext">ContainerServiceMetricName -&gt; QueryString
 (ContainerServiceMetricName -&gt; QueryString)
 -&gt; ToQuery ContainerServiceMetricName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ContainerServiceMetricName -&gt; QueryString
 $ctoQuery :: ContainerServiceMetricName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679606673"><span id="local-6989586621679606675"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerServiceMetricName]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679607560"><span id="local-6989586621679607562"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerServiceMetricName]
 Value -&gt; Parser ContainerServiceMetricName
 (Value -&gt; Parser ContainerServiceMetricName)
 -&gt; (Value -&gt; Parser [ContainerServiceMetricName])
@@ -227,7 +227,7 @@ $cparseJSONList :: Value -&gt; Parser [ContainerServiceMetricName]
 parseJSON :: Value -&gt; Parser ContainerServiceMetricName
 $cparseJSON :: Value -&gt; Parser ContainerServiceMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679606668"><span id="local-6989586621679606670"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerServiceMetricName]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679607555"><span id="local-6989586621679607557"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerServiceMetricName]
 FromJSONKeyFunction ContainerServiceMetricName
 FromJSONKeyFunction ContainerServiceMetricName
 -&gt; FromJSONKeyFunction [ContainerServiceMetricName]
@@ -239,7 +239,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ContainerServiceMetricName]
 fromJSONKey :: FromJSONKeyFunction ContainerServiceMetricName
 $cfromJSONKey :: FromJSONKeyFunction ContainerServiceMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679606659"><span id="local-6989586621679606661"><span id="local-6989586621679606663"><span id="local-6989586621679606665"><span class="annot"><span class="annottext">[ContainerServiceMetricName] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679607546"><span id="local-6989586621679607548"><span id="local-6989586621679607550"><span id="local-6989586621679607552"><span class="annot"><span class="annottext">[ContainerServiceMetricName] -&gt; Encoding
 [ContainerServiceMetricName] -&gt; Value
 ContainerServiceMetricName -&gt; Encoding
 ContainerServiceMetricName -&gt; Value
@@ -263,7 +263,7 @@ $ctoEncoding :: ContainerServiceMetricName -&gt; Encoding
 toJSON :: ContainerServiceMetricName -&gt; Value
 $ctoJSON :: ContainerServiceMetricName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679606654"><span id="local-6989586621679606656"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerServiceMetricName]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679607541"><span id="local-6989586621679607543"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerServiceMetricName]
 ToJSONKeyFunction ContainerServiceMetricName
 ToJSONKeyFunction ContainerServiceMetricName
 -&gt; ToJSONKeyFunction [ContainerServiceMetricName]
@@ -275,14 +275,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ContainerServiceMetricName]
 toJSONKey :: ToJSONKeyFunction ContainerServiceMetricName
 $ctoJSONKey :: ToJSONKeyFunction ContainerServiceMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679606651"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerServiceMetricName
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679607538"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerServiceMetricName
 ([Node] -&gt; Either String ContainerServiceMetricName)
 -&gt; FromXML ContainerServiceMetricName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ContainerServiceMetricName
 $cparseXML :: [Node] -&gt; Either String ContainerServiceMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679606648"><span class="annot"><span class="annottext">ContainerServiceMetricName -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679607535"><span class="annot"><span class="annottext">ContainerServiceMetricName -&gt; XML
 (ContainerServiceMetricName -&gt; XML)
 -&gt; ToXML ContainerServiceMetricName
 forall a. (a -&gt; XML) -&gt; ToXML a

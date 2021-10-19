@@ -29,19 +29,19 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | The amount of instance usage that a reservation covered.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCoverage' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679328255"><span id="local-6989586621679328256"></span></span><span class="hs-keyword">data</span><span> </span><span id="Coverage"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-var">Coverage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Coverage%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage%27"><span class="hs-identifier hs-var">Coverage'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount of cost that the reservation covered.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcoverageCost%3ACoverage%27"><span class="annot"><span class="annottext">Coverage -&gt; Maybe CoverageCost
-</span><a href="Network.AWS.CostExplorer.Types.Coverage.html#%24sel%3AcoverageCost%3ACoverage%27"><span class="hs-identifier hs-var hs-var">coverageCost</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost"><span class="hs-identifier hs-type">CoverageCost</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The amount of instance usage that the reservation covered, in hours.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcoverageHours%3ACoverage%27"><span class="annot"><span class="annottext">Coverage -&gt; Maybe CoverageHours
+</span><span id="line-32"></span><span id="local-6989586621679328584"><span id="local-6989586621679328585"></span></span><span class="hs-keyword">data</span><span> </span><span id="Coverage"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-var">Coverage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Coverage%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage%27"><span class="hs-identifier hs-var">Coverage'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount of instance usage that the reservation covered, in normalized</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- units.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcoverageNormalizedUnits%3ACoverage%27"><span class="annot"><span class="annottext">Coverage -&gt; Maybe CoverageNormalizedUnits
+</span><a href="Network.AWS.CostExplorer.Types.Coverage.html#%24sel%3AcoverageNormalizedUnits%3ACoverage%27"><span class="hs-identifier hs-var hs-var">coverageNormalizedUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageNormalizedUnits.html#CoverageNormalizedUnits"><span class="hs-identifier hs-type">CoverageNormalizedUnits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The amount of instance usage that the reservation covered, in hours.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcoverageHours%3ACoverage%27"><span class="annot"><span class="annottext">Coverage -&gt; Maybe CoverageHours
 </span><a href="Network.AWS.CostExplorer.Types.Coverage.html#%24sel%3AcoverageHours%3ACoverage%27"><span class="hs-identifier hs-var hs-var">coverageHours</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageHours.html#CoverageHours"><span class="hs-identifier hs-type">CoverageHours</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The amount of instance usage that the reservation covered, in normalized</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- units.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcoverageNormalizedUnits%3ACoverage%27"><span class="annot"><span class="annottext">Coverage -&gt; Maybe CoverageNormalizedUnits
-</span><a href="Network.AWS.CostExplorer.Types.Coverage.html#%24sel%3AcoverageNormalizedUnits%3ACoverage%27"><span class="hs-identifier hs-var hs-var">coverageNormalizedUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageNormalizedUnits.html#CoverageNormalizedUnits"><span class="hs-identifier hs-type">CoverageNormalizedUnits</span></a></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The amount of cost that the reservation covered.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcoverageCost%3ACoverage%27"><span class="annot"><span class="annottext">Coverage -&gt; Maybe CoverageCost
+</span><a href="Network.AWS.CostExplorer.Types.Coverage.html#%24sel%3AcoverageCost%3ACoverage%27"><span class="hs-identifier hs-var hs-var">coverageCost</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost"><span class="hs-identifier hs-type">CoverageCost</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679328247"><span id="local-6989586621679328249"><span class="annot"><span class="annottext">Coverage -&gt; Coverage -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679328576"><span id="local-6989586621679328578"><span class="annot"><span class="annottext">Coverage -&gt; Coverage -&gt; Bool
 (Coverage -&gt; Coverage -&gt; Bool)
 -&gt; (Coverage -&gt; Coverage -&gt; Bool) -&gt; Eq Coverage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Coverage -&gt; Coverage -&gt; Bool
 == :: Coverage -&gt; Coverage -&gt; Bool
 $c== :: Coverage -&gt; Coverage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328238"><span id="local-6989586621679328240"><span id="local-6989586621679328242"><span id="local-6989586621679328244"><span class="annot"><span class="annottext">ReadPrec [Coverage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328567"><span id="local-6989586621679328569"><span id="local-6989586621679328571"><span id="local-6989586621679328573"><span class="annot"><span class="annottext">ReadPrec [Coverage]
 ReadPrec Coverage
 Int -&gt; ReadS Coverage
 ReadS [Coverage]
@@ -69,7 +69,7 @@ readList :: ReadS [Coverage]
 $creadList :: ReadS [Coverage]
 readsPrec :: Int -&gt; ReadS Coverage
 $creadsPrec :: Int -&gt; ReadS Coverage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328231"><span id="local-6989586621679328233"><span id="local-6989586621679328235"><span class="annot"><span class="annottext">Int -&gt; Coverage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328560"><span id="local-6989586621679328562"><span id="local-6989586621679328564"><span class="annot"><span class="annottext">Int -&gt; Coverage -&gt; ShowS
 [Coverage] -&gt; ShowS
 Coverage -&gt; String
 (Int -&gt; Coverage -&gt; ShowS)
@@ -100,76 +100,38 @@ $cfrom :: forall x. Coverage -&gt; Rep Coverage x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'coverageCost', 'coverage_coverageCost' - The amount of cost that the reservation covered.</span><span>
-</span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'coverageHours', 'coverage_coverageHours' - The amount of instance usage that the reservation covered, in hours.</span><span>
-</span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'coverageNormalizedUnits', 'coverage_coverageNormalizedUnits' - The amount of instance usage that the reservation covered, in normalized</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- units.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'coverageNormalizedUnits', 'coverage_coverageNormalizedUnits' - The amount of instance usage that the reservation covered, in normalized</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- units.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'coverageHours', 'coverage_coverageHours' - The amount of instance usage that the reservation covered, in hours.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'coverageCost', 'coverage_coverageCost' - The amount of cost that the reservation covered.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#newCoverage"><span class="hs-identifier hs-type">newCoverage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span><span>
 </span><span id="line-59"></span><span id="newCoverage"><span class="annot"><span class="annottext">newCoverage :: Coverage
 </span><a href="Network.AWS.CostExplorer.Types.Coverage.html#newCoverage"><span class="hs-identifier hs-var hs-var">newCoverage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">Coverage' :: Maybe CoverageCost
--&gt; Maybe CoverageHours -&gt; Maybe CoverageNormalizedUnits -&gt; Coverage
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">Coverage' :: Maybe CoverageNormalizedUnits
+-&gt; Maybe CoverageHours -&gt; Maybe CoverageCost -&gt; Coverage
 </span><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage%27"><span class="hs-identifier hs-type">Coverage'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:coverageCost:Coverage' :: Maybe CoverageCost
-</span><a href="Network.AWS.CostExplorer.Types.Coverage.html#%24sel%3AcoverageCost%3ACoverage%27"><span class="hs-identifier hs-var">coverageCost</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CoverageCost
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:coverageNormalizedUnits:Coverage' :: Maybe CoverageNormalizedUnits
+</span><a href="Network.AWS.CostExplorer.Types.Coverage.html#%24sel%3AcoverageNormalizedUnits%3ACoverage%27"><span class="hs-identifier hs-var">coverageNormalizedUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe CoverageNormalizedUnits
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:coverageHours:Coverage' :: Maybe CoverageHours
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:coverageHours:Coverage' :: Maybe CoverageHours
 </span><a href="Network.AWS.CostExplorer.Types.Coverage.html#%24sel%3AcoverageHours%3ACoverage%27"><span class="hs-identifier hs-var">coverageHours</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CoverageHours
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:coverageNormalizedUnits:Coverage' :: Maybe CoverageNormalizedUnits
-</span><a href="Network.AWS.CostExplorer.Types.Coverage.html#%24sel%3AcoverageNormalizedUnits%3ACoverage%27"><span class="hs-identifier hs-var">coverageNormalizedUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CoverageNormalizedUnits
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:coverageCost:Coverage' :: Maybe CoverageCost
+</span><a href="Network.AWS.CostExplorer.Types.Coverage.html#%24sel%3AcoverageCost%3ACoverage%27"><span class="hs-identifier hs-var">coverageCost</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CoverageCost
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | The amount of cost that the reservation covered.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#coverage_coverageCost"><span class="hs-identifier hs-type">coverage_coverageCost</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost"><span class="hs-identifier hs-type">CoverageCost</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="coverage_coverageCost"><span class="annot"><span class="annottext">coverage_coverageCost :: (Maybe CoverageCost -&gt; f (Maybe CoverageCost))
--&gt; Coverage -&gt; f Coverage
-</span><a href="Network.AWS.CostExplorer.Types.Coverage.html#coverage_coverageCost"><span class="hs-identifier hs-var hs-var">coverage_coverageCost</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Coverage -&gt; Maybe CoverageCost)
--&gt; (Coverage -&gt; Maybe CoverageCost -&gt; Coverage)
--&gt; Lens Coverage Coverage (Maybe CoverageCost) (Maybe CoverageCost)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage%27"><span class="hs-identifier hs-type">Coverage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328222"><span class="annot"><span class="annottext">Maybe CoverageCost
-coverageCost :: Maybe CoverageCost
-$sel:coverageCost:Coverage' :: Coverage -&gt; Maybe CoverageCost
-</span><a href="#local-6989586621679328222"><span class="hs-identifier hs-var hs-var">coverageCost</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CoverageCost
-</span><a href="#local-6989586621679328222"><span class="hs-identifier hs-var">coverageCost</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328221"><span class="annot"><span class="annottext">s :: Coverage
-</span><a href="#local-6989586621679328221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage%27"><span class="hs-identifier hs-type">Coverage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328220"><span class="annot"><span class="annottext">Maybe CoverageCost
-</span><a href="#local-6989586621679328220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Coverage
-</span><a href="#local-6989586621679328221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coverageCost:Coverage' :: Maybe CoverageCost
-</span><a href="Network.AWS.CostExplorer.Types.Coverage.html#%24sel%3AcoverageCost%3ACoverage%27"><span class="hs-identifier hs-var">coverageCost</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CoverageCost
-</span><a href="#local-6989586621679328220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | The amount of instance usage that the reservation covered, in hours.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#coverage_coverageHours"><span class="hs-identifier hs-type">coverage_coverageHours</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageHours.html#CoverageHours"><span class="hs-identifier hs-type">CoverageHours</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="coverage_coverageHours"><span class="annot"><span class="annottext">coverage_coverageHours :: (Maybe CoverageHours -&gt; f (Maybe CoverageHours))
--&gt; Coverage -&gt; f Coverage
-</span><a href="Network.AWS.CostExplorer.Types.Coverage.html#coverage_coverageHours"><span class="hs-identifier hs-var hs-var">coverage_coverageHours</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Coverage -&gt; Maybe CoverageHours)
--&gt; (Coverage -&gt; Maybe CoverageHours -&gt; Coverage)
--&gt; Lens
-     Coverage Coverage (Maybe CoverageHours) (Maybe CoverageHours)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage%27"><span class="hs-identifier hs-type">Coverage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328218"><span class="annot"><span class="annottext">Maybe CoverageHours
-coverageHours :: Maybe CoverageHours
-$sel:coverageHours:Coverage' :: Coverage -&gt; Maybe CoverageHours
-</span><a href="#local-6989586621679328218"><span class="hs-identifier hs-var hs-var">coverageHours</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CoverageHours
-</span><a href="#local-6989586621679328218"><span class="hs-identifier hs-var">coverageHours</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328217"><span class="annot"><span class="annottext">s :: Coverage
-</span><a href="#local-6989586621679328217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage%27"><span class="hs-identifier hs-type">Coverage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328216"><span class="annot"><span class="annottext">Maybe CoverageHours
-</span><a href="#local-6989586621679328216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Coverage
-</span><a href="#local-6989586621679328217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coverageHours:Coverage' :: Maybe CoverageHours
-</span><a href="Network.AWS.CostExplorer.Types.Coverage.html#%24sel%3AcoverageHours%3ACoverage%27"><span class="hs-identifier hs-var">coverageHours</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CoverageHours
-</span><a href="#local-6989586621679328216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | The amount of instance usage that the reservation covered, in normalized</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- units.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#coverage_coverageNormalizedUnits"><span class="hs-identifier hs-type">coverage_coverageNormalizedUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageNormalizedUnits.html#CoverageNormalizedUnits"><span class="hs-identifier hs-type">CoverageNormalizedUnits</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="coverage_coverageNormalizedUnits"><span class="annot"><span class="annottext">coverage_coverageNormalizedUnits :: (Maybe CoverageNormalizedUnits
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The amount of instance usage that the reservation covered, in normalized</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- units.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#coverage_coverageNormalizedUnits"><span class="hs-identifier hs-type">coverage_coverageNormalizedUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageNormalizedUnits.html#CoverageNormalizedUnits"><span class="hs-identifier hs-type">CoverageNormalizedUnits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="coverage_coverageNormalizedUnits"><span class="annot"><span class="annottext">coverage_coverageNormalizedUnits :: (Maybe CoverageNormalizedUnits
  -&gt; f (Maybe CoverageNormalizedUnits))
 -&gt; Coverage -&gt; f Coverage
 </span><a href="Network.AWS.CostExplorer.Types.Coverage.html#coverage_coverageNormalizedUnits"><span class="hs-identifier hs-var hs-var">coverage_coverageNormalizedUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Coverage -&gt; Maybe CoverageNormalizedUnits)
@@ -180,64 +142,99 @@ $sel:coverageHours:Coverage' :: Coverage -&gt; Maybe CoverageHours
      (Maybe CoverageNormalizedUnits)
      (Maybe CoverageNormalizedUnits)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage%27"><span class="hs-identifier hs-type">Coverage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328214"><span class="annot"><span class="annottext">Maybe CoverageNormalizedUnits
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage%27"><span class="hs-identifier hs-type">Coverage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328551"><span class="annot"><span class="annottext">Maybe CoverageNormalizedUnits
 coverageNormalizedUnits :: Maybe CoverageNormalizedUnits
 $sel:coverageNormalizedUnits:Coverage' :: Coverage -&gt; Maybe CoverageNormalizedUnits
-</span><a href="#local-6989586621679328214"><span class="hs-identifier hs-var hs-var">coverageNormalizedUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CoverageNormalizedUnits
-</span><a href="#local-6989586621679328214"><span class="hs-identifier hs-var">coverageNormalizedUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328213"><span class="annot"><span class="annottext">s :: Coverage
-</span><a href="#local-6989586621679328213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage%27"><span class="hs-identifier hs-type">Coverage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328212"><span class="annot"><span class="annottext">Maybe CoverageNormalizedUnits
-</span><a href="#local-6989586621679328212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Coverage
-</span><a href="#local-6989586621679328213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coverageNormalizedUnits:Coverage' :: Maybe CoverageNormalizedUnits
+</span><a href="#local-6989586621679328551"><span class="hs-identifier hs-var hs-var">coverageNormalizedUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CoverageNormalizedUnits
+</span><a href="#local-6989586621679328551"><span class="hs-identifier hs-var">coverageNormalizedUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328550"><span class="annot"><span class="annottext">s :: Coverage
+</span><a href="#local-6989586621679328550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage%27"><span class="hs-identifier hs-type">Coverage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328549"><span class="annot"><span class="annottext">Maybe CoverageNormalizedUnits
+</span><a href="#local-6989586621679328549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Coverage
+</span><a href="#local-6989586621679328550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coverageNormalizedUnits:Coverage' :: Maybe CoverageNormalizedUnits
 </span><a href="Network.AWS.CostExplorer.Types.Coverage.html#%24sel%3AcoverageNormalizedUnits%3ACoverage%27"><span class="hs-identifier hs-var">coverageNormalizedUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CoverageNormalizedUnits
-</span><a href="#local-6989586621679328212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328209"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679328207"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Coverage
+</span><a href="#local-6989586621679328549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The amount of instance usage that the reservation covered, in hours.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#coverage_coverageHours"><span class="hs-identifier hs-type">coverage_coverageHours</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageHours.html#CoverageHours"><span class="hs-identifier hs-type">CoverageHours</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="coverage_coverageHours"><span class="annot"><span class="annottext">coverage_coverageHours :: (Maybe CoverageHours -&gt; f (Maybe CoverageHours))
+-&gt; Coverage -&gt; f Coverage
+</span><a href="Network.AWS.CostExplorer.Types.Coverage.html#coverage_coverageHours"><span class="hs-identifier hs-var hs-var">coverage_coverageHours</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Coverage -&gt; Maybe CoverageHours)
+-&gt; (Coverage -&gt; Maybe CoverageHours -&gt; Coverage)
+-&gt; Lens
+     Coverage Coverage (Maybe CoverageHours) (Maybe CoverageHours)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage%27"><span class="hs-identifier hs-type">Coverage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328547"><span class="annot"><span class="annottext">Maybe CoverageHours
+coverageHours :: Maybe CoverageHours
+$sel:coverageHours:Coverage' :: Coverage -&gt; Maybe CoverageHours
+</span><a href="#local-6989586621679328547"><span class="hs-identifier hs-var hs-var">coverageHours</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CoverageHours
+</span><a href="#local-6989586621679328547"><span class="hs-identifier hs-var">coverageHours</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328546"><span class="annot"><span class="annottext">s :: Coverage
+</span><a href="#local-6989586621679328546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage%27"><span class="hs-identifier hs-type">Coverage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328545"><span class="annot"><span class="annottext">Maybe CoverageHours
+</span><a href="#local-6989586621679328545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Coverage
+</span><a href="#local-6989586621679328546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coverageHours:Coverage' :: Maybe CoverageHours
+</span><a href="Network.AWS.CostExplorer.Types.Coverage.html#%24sel%3AcoverageHours%3ACoverage%27"><span class="hs-identifier hs-var">coverageHours</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CoverageHours
+</span><a href="#local-6989586621679328545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The amount of cost that the reservation covered.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#coverage_coverageCost"><span class="hs-identifier hs-type">coverage_coverageCost</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost"><span class="hs-identifier hs-type">CoverageCost</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="coverage_coverageCost"><span class="annot"><span class="annottext">coverage_coverageCost :: (Maybe CoverageCost -&gt; f (Maybe CoverageCost))
+-&gt; Coverage -&gt; f Coverage
+</span><a href="Network.AWS.CostExplorer.Types.Coverage.html#coverage_coverageCost"><span class="hs-identifier hs-var hs-var">coverage_coverageCost</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Coverage -&gt; Maybe CoverageCost)
+-&gt; (Coverage -&gt; Maybe CoverageCost -&gt; Coverage)
+-&gt; Lens Coverage Coverage (Maybe CoverageCost) (Maybe CoverageCost)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage%27"><span class="hs-identifier hs-type">Coverage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328543"><span class="annot"><span class="annottext">Maybe CoverageCost
+coverageCost :: Maybe CoverageCost
+$sel:coverageCost:Coverage' :: Coverage -&gt; Maybe CoverageCost
+</span><a href="#local-6989586621679328543"><span class="hs-identifier hs-var hs-var">coverageCost</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CoverageCost
+</span><a href="#local-6989586621679328543"><span class="hs-identifier hs-var">coverageCost</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328542"><span class="annot"><span class="annottext">s :: Coverage
+</span><a href="#local-6989586621679328542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage%27"><span class="hs-identifier hs-type">Coverage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328541"><span class="annot"><span class="annottext">Maybe CoverageCost
+</span><a href="#local-6989586621679328541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Coverage
+</span><a href="#local-6989586621679328542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coverageCost:Coverage' :: Maybe CoverageCost
+</span><a href="Network.AWS.CostExplorer.Types.Coverage.html#%24sel%3AcoverageCost%3ACoverage%27"><span class="hs-identifier hs-var">coverageCost</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CoverageCost
+</span><a href="#local-6989586621679328541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328538"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679328536"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Coverage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Coverage) -&gt; Value -&gt; Parser Coverage
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Coverage) -&gt; Value -&gt; Parser Coverage
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Coverage&quot;</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679328204"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328204"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe CoverageCost
--&gt; Maybe CoverageHours -&gt; Maybe CoverageNormalizedUnits -&gt; Coverage
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679328533"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679328533"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe CoverageNormalizedUnits
+-&gt; Maybe CoverageHours -&gt; Maybe CoverageCost -&gt; Coverage
 </span><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage%27"><span class="hs-identifier hs-var">Coverage'</span></a></span><span>
-</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CoverageCost
- -&gt; Maybe CoverageHours
- -&gt; Maybe CoverageNormalizedUnits
- -&gt; Coverage)
--&gt; Parser (Maybe CoverageCost)
--&gt; Parser
-     (Maybe CoverageHours -&gt; Maybe CoverageNormalizedUnits -&gt; Coverage)
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CoverageNormalizedUnits
+ -&gt; Maybe CoverageHours -&gt; Maybe CoverageCost -&gt; Coverage)
+-&gt; Parser (Maybe CoverageNormalizedUnits)
+-&gt; Parser (Maybe CoverageHours -&gt; Maybe CoverageCost -&gt; Coverage)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328204"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CoverageCost)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CoverageCost&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe CoverageHours -&gt; Maybe CoverageNormalizedUnits -&gt; Coverage)
--&gt; Parser (Maybe CoverageHours)
--&gt; Parser (Maybe CoverageNormalizedUnits -&gt; Coverage)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328204"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CoverageHours)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CoverageHours&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe CoverageNormalizedUnits -&gt; Coverage)
--&gt; Parser (Maybe CoverageNormalizedUnits) -&gt; Parser Coverage
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328204"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CoverageNormalizedUnits)
+</span><a href="#local-6989586621679328533"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CoverageNormalizedUnits)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CoverageNormalizedUnits&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328198"><span id="local-6989586621679328200"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span></span></span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328195"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span></span><span>
-</span><span id="line-93"></span></pre></body></html>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe CoverageHours -&gt; Maybe CoverageCost -&gt; Coverage)
+-&gt; Parser (Maybe CoverageHours)
+-&gt; Parser (Maybe CoverageCost -&gt; Coverage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679328533"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CoverageHours)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CoverageHours&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe CoverageCost -&gt; Coverage)
+-&gt; Parser (Maybe CoverageCost) -&gt; Parser Coverage
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679328533"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CoverageCost)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CoverageCost&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328527"><span id="local-6989586621679328529"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328524"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Coverage.html#Coverage"><span class="hs-identifier hs-type">Coverage</span></a></span></span><span>
+</span><span id="line-94"></span></pre></body></html>

@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679679912"><span id="local-6989586621679679913"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Compatibility"><span class="annot"><a href="Network.AWS.Glue.Types.Compatibility.html#Compatibility"><span class="hs-identifier hs-var">Compatibility</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Compatibility%27"><span class="annot"><a href="Network.AWS.Glue.Types.Compatibility.html#Compatibility%27"><span class="hs-identifier hs-var">Compatibility'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679681557"><span id="local-6989586621679681558"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Compatibility"><span class="annot"><a href="Network.AWS.Glue.Types.Compatibility.html#Compatibility"><span class="hs-identifier hs-var">Compatibility</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Compatibility%27"><span class="annot"><a href="Network.AWS.Glue.Types.Compatibility.html#Compatibility%27"><span class="hs-identifier hs-var">Compatibility'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCompatibility"><span class="annot"><span class="annottext">Compatibility -&gt; Text
 </span><a href="Network.AWS.Glue.Types.Compatibility.html#fromCompatibility"><span class="hs-identifier hs-var hs-var">fromCompatibility</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679679904"><span id="local-6989586621679679906"><span id="local-6989586621679679908"><span class="annot"><span class="annottext">Int -&gt; Compatibility -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679681549"><span id="local-6989586621679681551"><span id="local-6989586621679681553"><span class="annot"><span class="annottext">Int -&gt; Compatibility -&gt; ShowS
 [Compatibility] -&gt; ShowS
 Compatibility -&gt; String
 (Int -&gt; Compatibility -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: Compatibility -&gt; String
 showsPrec :: Int -&gt; Compatibility -&gt; ShowS
 $cshowsPrec :: Int -&gt; Compatibility -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679679895"><span id="local-6989586621679679897"><span id="local-6989586621679679899"><span id="local-6989586621679679901"><span class="annot"><span class="annottext">ReadPrec [Compatibility]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679681540"><span id="local-6989586621679681542"><span id="local-6989586621679681544"><span id="local-6989586621679681546"><span class="annot"><span class="annottext">ReadPrec [Compatibility]
 ReadPrec Compatibility
 Int -&gt; ReadS Compatibility
 ReadS [Compatibility]
@@ -78,7 +78,7 @@ $creadList :: ReadS [Compatibility]
 readsPrec :: Int -&gt; ReadS Compatibility
 $creadsPrec :: Int -&gt; ReadS Compatibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679679890"><span id="local-6989586621679679892"><span class="annot"><span class="annottext">Compatibility -&gt; Compatibility -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679681535"><span id="local-6989586621679681537"><span class="annot"><span class="annottext">Compatibility -&gt; Compatibility -&gt; Bool
 (Compatibility -&gt; Compatibility -&gt; Bool)
 -&gt; (Compatibility -&gt; Compatibility -&gt; Bool) -&gt; Eq Compatibility
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ $c/= :: Compatibility -&gt; Compatibility -&gt; Bool
 == :: Compatibility -&gt; Compatibility -&gt; Bool
 $c== :: Compatibility -&gt; Compatibility -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679679874"><span id="local-6989586621679679876"><span id="local-6989586621679679878"><span id="local-6989586621679679880"><span id="local-6989586621679679882"><span id="local-6989586621679679884"><span id="local-6989586621679679886"><span class="annot"><span class="annottext">Eq Compatibility
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679681519"><span id="local-6989586621679681521"><span id="local-6989586621679681523"><span id="local-6989586621679681525"><span id="local-6989586621679681527"><span id="local-6989586621679681529"><span id="local-6989586621679681531"><span class="annot"><span class="annottext">Eq Compatibility
 Eq Compatibility
 -&gt; (Compatibility -&gt; Compatibility -&gt; Ordering)
 -&gt; (Compatibility -&gt; Compatibility -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. Compatibility -&gt; Rep Compatibility x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679679866"><span id="local-6989586621679679868"><span class="annot"><span class="annottext">Int -&gt; Compatibility -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679681511"><span id="local-6989586621679681513"><span class="annot"><span class="annottext">Int -&gt; Compatibility -&gt; Int
 Compatibility -&gt; Int
 (Int -&gt; Compatibility -&gt; Int)
 -&gt; (Compatibility -&gt; Int) -&gt; Hashable Compatibility
@@ -148,49 +148,49 @@ $chash :: Compatibility -&gt; Int
 hashWithSalt :: Int -&gt; Compatibility -&gt; Int
 $chashWithSalt :: Int -&gt; Compatibility -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679679863"><span class="annot"><span class="annottext">Compatibility -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679681508"><span class="annot"><span class="annottext">Compatibility -&gt; ()
 (Compatibility -&gt; ()) -&gt; NFData Compatibility
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Compatibility -&gt; ()
 $crnf :: Compatibility -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679679860"><span class="annot"><span class="annottext">Text -&gt; Either String Compatibility
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679681505"><span class="annot"><span class="annottext">Text -&gt; Either String Compatibility
 (Text -&gt; Either String Compatibility) -&gt; FromText Compatibility
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Compatibility
 $cfromText :: Text -&gt; Either String Compatibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679679857"><span class="annot"><span class="annottext">Compatibility -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679681502"><span class="annot"><span class="annottext">Compatibility -&gt; Text
 (Compatibility -&gt; Text) -&gt; ToText Compatibility
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Compatibility -&gt; Text
 $ctoText :: Compatibility -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679679854"><span class="annot"><span class="annottext">Compatibility -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679681499"><span class="annot"><span class="annottext">Compatibility -&gt; ByteString
 (Compatibility -&gt; ByteString) -&gt; ToByteString Compatibility
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Compatibility -&gt; ByteString
 $ctoBS :: Compatibility -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679679851"><span class="annot"><span class="annottext">Compatibility -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679681496"><span class="annot"><span class="annottext">Compatibility -&gt; ByteStringBuilder
 (Compatibility -&gt; ByteStringBuilder) -&gt; ToLog Compatibility
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Compatibility -&gt; ByteStringBuilder
 $cbuild :: Compatibility -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679679848"><span class="annot"><span class="annottext">HeaderName -&gt; Compatibility -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679681493"><span class="annot"><span class="annottext">HeaderName -&gt; Compatibility -&gt; [Header]
 (HeaderName -&gt; Compatibility -&gt; [Header]) -&gt; ToHeader Compatibility
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Compatibility -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Compatibility -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679679845"><span class="annot"><span class="annottext">Compatibility -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679681490"><span class="annot"><span class="annottext">Compatibility -&gt; QueryString
 (Compatibility -&gt; QueryString) -&gt; ToQuery Compatibility
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Compatibility -&gt; QueryString
 $ctoQuery :: Compatibility -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679679840"><span id="local-6989586621679679842"><span class="annot"><span class="annottext">Value -&gt; Parser [Compatibility]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679681485"><span id="local-6989586621679681487"><span class="annot"><span class="annottext">Value -&gt; Parser [Compatibility]
 Value -&gt; Parser Compatibility
 (Value -&gt; Parser Compatibility)
 -&gt; (Value -&gt; Parser [Compatibility]) -&gt; FromJSON Compatibility
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [Compatibility]
 parseJSON :: Value -&gt; Parser Compatibility
 $cparseJSON :: Value -&gt; Parser Compatibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679679835"><span id="local-6989586621679679837"><span class="annot"><span class="annottext">FromJSONKeyFunction [Compatibility]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679681480"><span id="local-6989586621679681482"><span class="annot"><span class="annottext">FromJSONKeyFunction [Compatibility]
 FromJSONKeyFunction Compatibility
 FromJSONKeyFunction Compatibility
 -&gt; FromJSONKeyFunction [Compatibility] -&gt; FromJSONKey Compatibility
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Compatibility]
 fromJSONKey :: FromJSONKeyFunction Compatibility
 $cfromJSONKey :: FromJSONKeyFunction Compatibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679679826"><span id="local-6989586621679679828"><span id="local-6989586621679679830"><span id="local-6989586621679679832"><span class="annot"><span class="annottext">[Compatibility] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679681471"><span id="local-6989586621679681473"><span id="local-6989586621679681475"><span id="local-6989586621679681477"><span class="annot"><span class="annottext">[Compatibility] -&gt; Encoding
 [Compatibility] -&gt; Value
 Compatibility -&gt; Encoding
 Compatibility -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: Compatibility -&gt; Encoding
 toJSON :: Compatibility -&gt; Value
 $ctoJSON :: Compatibility -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679679821"><span id="local-6989586621679679823"><span class="annot"><span class="annottext">ToJSONKeyFunction [Compatibility]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679681466"><span id="local-6989586621679681468"><span class="annot"><span class="annottext">ToJSONKeyFunction [Compatibility]
 ToJSONKeyFunction Compatibility
 ToJSONKeyFunction Compatibility
 -&gt; ToJSONKeyFunction [Compatibility] -&gt; ToJSONKey Compatibility
@@ -247,13 +247,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Compatibility]
 toJSONKey :: ToJSONKeyFunction Compatibility
 $ctoJSONKey :: ToJSONKeyFunction Compatibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679679818"><span class="annot"><span class="annottext">[Node] -&gt; Either String Compatibility
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679681463"><span class="annot"><span class="annottext">[Node] -&gt; Either String Compatibility
 ([Node] -&gt; Either String Compatibility) -&gt; FromXML Compatibility
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Compatibility
 $cparseXML :: [Node] -&gt; Either String Compatibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679679815"><span class="annot"><span class="annottext">Compatibility -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679681460"><span class="annot"><span class="annottext">Compatibility -&gt; XML
 (Compatibility -&gt; XML) -&gt; ToXML Compatibility
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Compatibility -&gt; XML

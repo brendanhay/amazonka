@@ -50,13 +50,13 @@
 </span><span id="line-50"></span><span class="hs-comment">-- | The input for the GetStackPolicy action.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newGetStackPolicy' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679435923"><span id="local-6989586621679435924"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetStackPolicy"><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy"><span class="hs-identifier hs-var">GetStackPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetStackPolicy%27"><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy%27"><span class="hs-identifier hs-var">GetStackPolicy'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679436354"><span id="local-6989586621679436355"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetStackPolicy"><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy"><span class="hs-identifier hs-var">GetStackPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetStackPolicy%27"><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy%27"><span class="hs-identifier hs-var">GetStackPolicy'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name or unique stack ID that is associated with the stack whose</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- policy you want to get.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AstackName%3AGetStackPolicy%27"><span class="annot"><span class="annottext">GetStackPolicy -&gt; Text
 </span><a href="Network.AWS.CloudFormation.GetStackPolicy.html#%24sel%3AstackName%3AGetStackPolicy%27"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435917"><span id="local-6989586621679435919"><span class="annot"><span class="annottext">GetStackPolicy -&gt; GetStackPolicy -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679436348"><span id="local-6989586621679436350"><span class="annot"><span class="annottext">GetStackPolicy -&gt; GetStackPolicy -&gt; Bool
 (GetStackPolicy -&gt; GetStackPolicy -&gt; Bool)
 -&gt; (GetStackPolicy -&gt; GetStackPolicy -&gt; Bool) -&gt; Eq GetStackPolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetStackPolicy -&gt; GetStackPolicy -&gt; Bool
 == :: GetStackPolicy -&gt; GetStackPolicy -&gt; Bool
 $c== :: GetStackPolicy -&gt; GetStackPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435908"><span id="local-6989586621679435910"><span id="local-6989586621679435912"><span id="local-6989586621679435914"><span class="annot"><span class="annottext">ReadPrec [GetStackPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436339"><span id="local-6989586621679436341"><span id="local-6989586621679436343"><span id="local-6989586621679436345"><span class="annot"><span class="annottext">ReadPrec [GetStackPolicy]
 ReadPrec GetStackPolicy
 Int -&gt; ReadS GetStackPolicy
 ReadS [GetStackPolicy]
@@ -84,7 +84,7 @@ readList :: ReadS [GetStackPolicy]
 $creadList :: ReadS [GetStackPolicy]
 readsPrec :: Int -&gt; ReadS GetStackPolicy
 $creadsPrec :: Int -&gt; ReadS GetStackPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435901"><span id="local-6989586621679435903"><span id="local-6989586621679435905"><span class="annot"><span class="annottext">Int -&gt; GetStackPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436332"><span id="local-6989586621679436334"><span id="local-6989586621679436336"><span class="annot"><span class="annottext">Int -&gt; GetStackPolicy -&gt; ShowS
 [GetStackPolicy] -&gt; ShowS
 GetStackPolicy -&gt; String
 (Int -&gt; GetStackPolicy -&gt; ShowS)
@@ -125,12 +125,12 @@ $cfrom :: forall x. GetStackPolicy -&gt; Rep GetStackPolicy x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy"><span class="hs-identifier hs-type">GetStackPolicy</span></a></span><span>
 </span><span id="line-74"></span><span id="newGetStackPolicy"><span class="annot"><span class="annottext">newGetStackPolicy :: Text -&gt; GetStackPolicy
-</span><a href="Network.AWS.CloudFormation.GetStackPolicy.html#newGetStackPolicy"><span class="hs-identifier hs-var hs-var">newGetStackPolicy</span></a></span></span><span> </span><span id="local-6989586621679435896"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679435896"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFormation.GetStackPolicy.html#newGetStackPolicy"><span class="hs-identifier hs-var hs-var">newGetStackPolicy</span></a></span></span><span> </span><span id="local-6989586621679436327"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679436327"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">GetStackPolicy' :: Text -&gt; GetStackPolicy
 </span><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy%27"><span class="hs-identifier hs-type">GetStackPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:GetStackPolicy' :: Text
 </span><a href="Network.AWS.CloudFormation.GetStackPolicy.html#%24sel%3AstackName%3AGetStackPolicy%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679435896"><span class="hs-identifier hs-var">pStackName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679436327"><span class="hs-identifier hs-var">pStackName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The name or unique stack ID that is associated with the stack whose</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- policy you want to get.</span><span>
@@ -140,27 +140,27 @@ $cfrom :: forall x. GetStackPolicy -&gt; Rep GetStackPolicy x
 -&gt; (GetStackPolicy -&gt; Text -&gt; GetStackPolicy)
 -&gt; Lens GetStackPolicy GetStackPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy%27"><span class="hs-identifier hs-type">GetStackPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435893"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy%27"><span class="hs-identifier hs-type">GetStackPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436324"><span class="annot"><span class="annottext">Text
 stackName :: Text
 $sel:stackName:GetStackPolicy' :: GetStackPolicy -&gt; Text
-</span><a href="#local-6989586621679435893"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679435893"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435892"><span class="annot"><span class="annottext">s :: GetStackPolicy
-</span><a href="#local-6989586621679435892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy%27"><span class="hs-identifier hs-type">GetStackPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435891"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679435891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStackPolicy
-</span><a href="#local-6989586621679435892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:GetStackPolicy' :: Text
+</span><a href="#local-6989586621679436324"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679436324"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436323"><span class="annot"><span class="annottext">s :: GetStackPolicy
+</span><a href="#local-6989586621679436323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy%27"><span class="hs-identifier hs-type">GetStackPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436322"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679436322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStackPolicy
+</span><a href="#local-6989586621679436323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:GetStackPolicy' :: Text
 </span><a href="Network.AWS.CloudFormation.GetStackPolicy.html#%24sel%3AstackName%3AGetStackPolicy%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679435891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy"><span class="hs-identifier hs-type">GetStackPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy"><span class="hs-identifier hs-type">GetStackPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy"><span class="hs-identifier hs-type">GetStackPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy"><span class="hs-identifier hs-type">GetStackPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse"><span class="hs-identifier hs-type">GetStackPolicyResponse</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679435887"><span class="annot"><span class="annottext">request :: GetStackPolicy -&gt; Request GetStackPolicy
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679436318"><span class="annot"><span class="annottext">request :: GetStackPolicy -&gt; Request GetStackPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetStackPolicy -&gt; Request GetStackPolicy
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFormation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679435883"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679436314"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetStackPolicy
 -&gt; ClientResponse ClientBody
@@ -189,10 +189,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GetStackPolicyResult&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679435880"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679435880"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679435879"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679435879"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679435878"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679435878"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679436311"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679436311"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679436310"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679436310"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679436309"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679436309"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; GetStackPolicyResponse
 </span><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse%27"><span class="hs-identifier hs-var">GetStackPolicyResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; GetStackPolicyResponse)
@@ -200,7 +200,7 @@ Text
 -&gt; Either String (Int -&gt; GetStackPolicyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679435878"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679436309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackPolicyBody&quot;</span></span><span class="hs-special">)</span><span>
@@ -212,15 +212,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679435880"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436311"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435870"><span id="local-6989586621679435872"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy"><span class="hs-identifier hs-type">GetStackPolicy</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436301"><span id="local-6989586621679436303"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy"><span class="hs-identifier hs-type">GetStackPolicy</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435867"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy"><span class="hs-identifier hs-type">GetStackPolicy</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436298"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy"><span class="hs-identifier hs-type">GetStackPolicy</span></a></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy"><span class="hs-identifier hs-type">GetStackPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679435863"><span class="annot"><span class="annottext">toHeaders :: GetStackPolicy -&gt; ResponseHeaders
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679436294"><span class="annot"><span class="annottext">toHeaders :: GetStackPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetStackPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -228,18 +228,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy"><span class="hs-identifier hs-type">GetStackPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679435858"><span class="annot"><span class="annottext">toPath :: GetStackPolicy -&gt; ByteString
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679436289"><span class="annot"><span class="annottext">toPath :: GetStackPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetStackPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy"><span class="hs-identifier hs-type">GetStackPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679435854"><span class="annot"><span class="annottext">toQuery :: GetStackPolicy -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy%27"><span class="hs-identifier hs-type">GetStackPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435852"><span class="annot"><span class="annottext">Text
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679436285"><span class="annot"><span class="annottext">toQuery :: GetStackPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicy%27"><span class="hs-identifier hs-type">GetStackPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436283"><span class="annot"><span class="annottext">Text
 stackName :: Text
 $sel:stackName:GetStackPolicy' :: GetStackPolicy -&gt; Text
-</span><a href="#local-6989586621679435852"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679436283"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -259,13 +259,13 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;StackName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679435852"><span class="hs-identifier hs-var">stackName</span></a></span><span>
+</span><a href="#local-6989586621679436283"><span class="hs-identifier hs-var">stackName</span></a></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The output for the GetStackPolicy action.</span><span>
 </span><span id="line-117"></span><span class="hs-comment">--</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- /See:/ 'newGetStackPolicyResponse' smart constructor.</span><span>
-</span><span id="line-119"></span><span id="local-6989586621679435849"><span id="local-6989586621679435850"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetStackPolicyResponse"><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse"><span class="hs-identifier hs-var">GetStackPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetStackPolicyResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse%27"><span class="hs-identifier hs-var">GetStackPolicyResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span id="local-6989586621679436280"><span id="local-6989586621679436281"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetStackPolicyResponse"><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse"><span class="hs-identifier hs-var">GetStackPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetStackPolicyResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse%27"><span class="hs-identifier hs-var">GetStackPolicyResponse'</span></a></span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Structure containing the stack policy body. (For more information, go to</span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources&gt;</span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-comment">-- in the CloudFormation User Guide.)</span><span>
@@ -275,7 +275,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetStackPolicyResponse%27"><span class="annot"><span class="annottext">GetStackPolicyResponse -&gt; Int
 </span><a href="Network.AWS.CloudFormation.GetStackPolicy.html#%24sel%3AhttpStatus%3AGetStackPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435843"><span id="local-6989586621679435845"><span class="annot"><span class="annottext">GetStackPolicyResponse -&gt; GetStackPolicyResponse -&gt; Bool
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679436274"><span id="local-6989586621679436276"><span class="annot"><span class="annottext">GetStackPolicyResponse -&gt; GetStackPolicyResponse -&gt; Bool
 (GetStackPolicyResponse -&gt; GetStackPolicyResponse -&gt; Bool)
 -&gt; (GetStackPolicyResponse -&gt; GetStackPolicyResponse -&gt; Bool)
 -&gt; Eq GetStackPolicyResponse
@@ -284,7 +284,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetStackPolicyResponse -&gt; GetStackPolicyResponse -&gt; Bool
 == :: GetStackPolicyResponse -&gt; GetStackPolicyResponse -&gt; Bool
 $c== :: GetStackPolicyResponse -&gt; GetStackPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435835"><span id="local-6989586621679435837"><span id="local-6989586621679435839"><span id="local-6989586621679435841"><span class="annot"><span class="annottext">ReadPrec [GetStackPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436266"><span id="local-6989586621679436268"><span id="local-6989586621679436270"><span id="local-6989586621679436272"><span class="annot"><span class="annottext">ReadPrec [GetStackPolicyResponse]
 ReadPrec GetStackPolicyResponse
 Int -&gt; ReadS GetStackPolicyResponse
 ReadS [GetStackPolicyResponse]
@@ -304,7 +304,7 @@ readList :: ReadS [GetStackPolicyResponse]
 $creadList :: ReadS [GetStackPolicyResponse]
 readsPrec :: Int -&gt; ReadS GetStackPolicyResponse
 $creadsPrec :: Int -&gt; ReadS GetStackPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435829"><span id="local-6989586621679435831"><span id="local-6989586621679435833"><span class="annot"><span class="annottext">Int -&gt; GetStackPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436260"><span id="local-6989586621679436262"><span id="local-6989586621679436264"><span class="annot"><span class="annottext">Int -&gt; GetStackPolicyResponse -&gt; ShowS
 [GetStackPolicyResponse] -&gt; ShowS
 GetStackPolicyResponse -&gt; String
 (Int -&gt; GetStackPolicyResponse -&gt; ShowS)
@@ -349,8 +349,8 @@ $cfrom :: forall x. GetStackPolicyResponse -&gt; Rep GetStackPolicyResponse x
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse"><span class="hs-identifier hs-type">GetStackPolicyResponse</span></a></span><span>
 </span><span id="line-146"></span><span id="newGetStackPolicyResponse"><span class="annot"><span class="annottext">newGetStackPolicyResponse :: Int -&gt; GetStackPolicyResponse
-</span><a href="Network.AWS.CloudFormation.GetStackPolicy.html#newGetStackPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetStackPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679435826"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679435826"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFormation.GetStackPolicy.html#newGetStackPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetStackPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679436257"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679436257"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">GetStackPolicyResponse' :: Maybe Text -&gt; Int -&gt; GetStackPolicyResponse
 </span><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse%27"><span class="hs-identifier hs-type">GetStackPolicyResponse'</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stackPolicyBody:GetStackPolicyResponse' :: Maybe Text
@@ -360,7 +360,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetStackPolicyResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.GetStackPolicy.html#%24sel%3AhttpStatus%3AGetStackPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679435826"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679436257"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | Structure containing the stack policy body. (For more information, go to</span><span>
@@ -377,16 +377,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse%27"><span class="hs-identifier hs-type">GetStackPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435825"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse%27"><span class="hs-identifier hs-type">GetStackPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436256"><span class="annot"><span class="annottext">Maybe Text
 stackPolicyBody :: Maybe Text
 $sel:stackPolicyBody:GetStackPolicyResponse' :: GetStackPolicyResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679435825"><span class="hs-identifier hs-var hs-var">stackPolicyBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679435825"><span class="hs-identifier hs-var">stackPolicyBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435824"><span class="annot"><span class="annottext">s :: GetStackPolicyResponse
-</span><a href="#local-6989586621679435824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse%27"><span class="hs-identifier hs-type">GetStackPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435823"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679435823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStackPolicyResponse
-</span><a href="#local-6989586621679435824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackPolicyBody:GetStackPolicyResponse' :: Maybe Text
+</span><a href="#local-6989586621679436256"><span class="hs-identifier hs-var hs-var">stackPolicyBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436256"><span class="hs-identifier hs-var">stackPolicyBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436255"><span class="annot"><span class="annottext">s :: GetStackPolicyResponse
+</span><a href="#local-6989586621679436255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse%27"><span class="hs-identifier hs-type">GetStackPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436254"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStackPolicyResponse
+</span><a href="#local-6989586621679436255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackPolicyBody:GetStackPolicyResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.GetStackPolicy.html#%24sel%3AstackPolicyBody%3AGetStackPolicyResponse%27"><span class="hs-identifier hs-var">stackPolicyBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679435823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse"><span class="hs-identifier hs-type">GetStackPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse"><span class="hs-identifier hs-type">GetStackPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-160"></span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#getStackPolicyResponse_httpStatus"><span class="hs-identifier hs-type">getStackPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse"><span class="hs-identifier hs-type">GetStackPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -396,16 +396,16 @@ $sel:stackPolicyBody:GetStackPolicyResponse' :: GetStackPolicyResponse -&gt; May
 -&gt; (GetStackPolicyResponse -&gt; Int -&gt; GetStackPolicyResponse)
 -&gt; Lens GetStackPolicyResponse GetStackPolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse%27"><span class="hs-identifier hs-type">GetStackPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435822"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse%27"><span class="hs-identifier hs-type">GetStackPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436253"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetStackPolicyResponse' :: GetStackPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679435822"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679435822"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435821"><span class="annot"><span class="annottext">s :: GetStackPolicyResponse
-</span><a href="#local-6989586621679435821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse%27"><span class="hs-identifier hs-type">GetStackPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435820"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679435820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStackPolicyResponse
-</span><a href="#local-6989586621679435821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetStackPolicyResponse' :: Int
+</span><a href="#local-6989586621679436253"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679436253"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436252"><span class="annot"><span class="annottext">s :: GetStackPolicyResponse
+</span><a href="#local-6989586621679436252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse%27"><span class="hs-identifier hs-type">GetStackPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436251"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679436251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStackPolicyResponse
+</span><a href="#local-6989586621679436252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetStackPolicyResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.GetStackPolicy.html#%24sel%3AhttpStatus%3AGetStackPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679435820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse"><span class="hs-identifier hs-type">GetStackPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse"><span class="hs-identifier hs-type">GetStackPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435818"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse"><span class="hs-identifier hs-type">GetStackPolicyResponse</span></a></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436249"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.GetStackPolicy.html#GetStackPolicyResponse"><span class="hs-identifier hs-type">GetStackPolicyResponse</span></a></span></span><span>
 </span><span id="line-164"></span></pre></body></html>

@@ -29,21 +29,21 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes an IPv6 address pool.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newIpv6Pool' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681126031"><span id="local-6989586621681126032"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ipv6Pool"><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-var">Ipv6Pool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ipv6Pool%27"><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-var">Ipv6Pool'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the address pool.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3ApoolId%3AIpv6Pool%27"><span class="annot"><span class="annottext">Ipv6Pool -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3ApoolId%3AIpv6Pool%27"><span class="hs-identifier hs-var hs-var">poolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The CIDR blocks for the address pool.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3ApoolCidrBlocks%3AIpv6Pool%27"><span class="annot"><span class="annottext">Ipv6Pool -&gt; Maybe [PoolCidrBlock]
+</span><span id="line-32"></span><span id="local-6989586621681160915"><span id="local-6989586621681160916"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ipv6Pool"><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-var">Ipv6Pool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ipv6Pool%27"><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-var">Ipv6Pool'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The CIDR blocks for the address pool.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3ApoolCidrBlocks%3AIpv6Pool%27"><span class="annot"><span class="annottext">Ipv6Pool -&gt; Maybe [PoolCidrBlock]
 </span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3ApoolCidrBlocks%3AIpv6Pool%27"><span class="hs-identifier hs-var hs-var">poolCidrBlocks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PoolCidrBlock.html#PoolCidrBlock"><span class="hs-identifier hs-type">PoolCidrBlock</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Any tags for the address pool.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Atags%3AIpv6Pool%27"><span class="annot"><span class="annottext">Ipv6Pool -&gt; Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3Atags%3AIpv6Pool%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The description for the address pool.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Adescription%3AIpv6Pool%27"><span class="annot"><span class="annottext">Ipv6Pool -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3Adescription%3AIpv6Pool%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ID of the address pool.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3ApoolId%3AIpv6Pool%27"><span class="annot"><span class="annottext">Ipv6Pool -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3ApoolId%3AIpv6Pool%27"><span class="hs-identifier hs-var hs-var">poolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The description for the address pool.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Adescription%3AIpv6Pool%27"><span class="annot"><span class="annottext">Ipv6Pool -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3Adescription%3AIpv6Pool%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Any tags for the address pool.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Atags%3AIpv6Pool%27"><span class="annot"><span class="annottext">Ipv6Pool -&gt; Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3Atags%3AIpv6Pool%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681126022"><span id="local-6989586621681126024"><span class="annot"><span class="annottext">Ipv6Pool -&gt; Ipv6Pool -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681160906"><span id="local-6989586621681160908"><span class="annot"><span class="annottext">Ipv6Pool -&gt; Ipv6Pool -&gt; Bool
 (Ipv6Pool -&gt; Ipv6Pool -&gt; Bool)
 -&gt; (Ipv6Pool -&gt; Ipv6Pool -&gt; Bool) -&gt; Eq Ipv6Pool
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Ipv6Pool -&gt; Ipv6Pool -&gt; Bool
 == :: Ipv6Pool -&gt; Ipv6Pool -&gt; Bool
 $c== :: Ipv6Pool -&gt; Ipv6Pool -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681126013"><span id="local-6989586621681126015"><span id="local-6989586621681126017"><span id="local-6989586621681126019"><span class="annot"><span class="annottext">ReadPrec [Ipv6Pool]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681160897"><span id="local-6989586621681160899"><span id="local-6989586621681160901"><span id="local-6989586621681160903"><span class="annot"><span class="annottext">ReadPrec [Ipv6Pool]
 ReadPrec Ipv6Pool
 Int -&gt; ReadS Ipv6Pool
 ReadS [Ipv6Pool]
@@ -71,7 +71,7 @@ readList :: ReadS [Ipv6Pool]
 $creadList :: ReadS [Ipv6Pool]
 readsPrec :: Int -&gt; ReadS Ipv6Pool
 $creadsPrec :: Int -&gt; ReadS Ipv6Pool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681126006"><span id="local-6989586621681126008"><span id="local-6989586621681126010"><span class="annot"><span class="annottext">Int -&gt; Ipv6Pool -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681160890"><span id="local-6989586621681160892"><span id="local-6989586621681160894"><span class="annot"><span class="annottext">Int -&gt; Ipv6Pool -&gt; ShowS
 [Ipv6Pool] -&gt; ShowS
 Ipv6Pool -&gt; String
 (Int -&gt; Ipv6Pool -&gt; ShowS)
@@ -102,75 +102,57 @@ $cfrom :: forall x. Ipv6Pool -&gt; Rep Ipv6Pool x
 </span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'poolId', 'ipv6Pool_poolId' - The ID of the address pool.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'poolCidrBlocks', 'ipv6Pool_poolCidrBlocks' - The CIDR blocks for the address pool.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'poolCidrBlocks', 'ipv6Pool_poolCidrBlocks' - The CIDR blocks for the address pool.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'poolId', 'ipv6Pool_poolId' - The ID of the address pool.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'tags', 'ipv6Pool_tags' - Any tags for the address pool.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'description', 'ipv6Pool_description' - The description for the address pool.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'description', 'ipv6Pool_description' - The description for the address pool.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'tags', 'ipv6Pool_tags' - Any tags for the address pool.</span><span>
 </span><span id="line-59"></span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#newIpv6Pool"><span class="hs-identifier hs-type">newIpv6Pool</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span><span>
 </span><span id="line-61"></span><span id="newIpv6Pool"><span class="annot"><span class="annottext">newIpv6Pool :: Ipv6Pool
 </span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#newIpv6Pool"><span class="hs-identifier hs-var hs-var">newIpv6Pool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">Ipv6Pool' :: Maybe Text
--&gt; Maybe [PoolCidrBlock] -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; Ipv6Pool
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">Ipv6Pool' :: Maybe [PoolCidrBlock]
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Ipv6Pool
 </span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-type">Ipv6Pool'</span></a></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:poolId:Ipv6Pool' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3ApoolId%3AIpv6Pool%27"><span class="hs-identifier hs-var">poolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:poolCidrBlocks:Ipv6Pool' :: Maybe [PoolCidrBlock]
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:poolCidrBlocks:Ipv6Pool' :: Maybe [PoolCidrBlock]
 </span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3ApoolCidrBlocks%3AIpv6Pool%27"><span class="hs-identifier hs-var">poolCidrBlocks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PoolCidrBlock]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Ipv6Pool' :: Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3Atags%3AIpv6Pool%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:poolId:Ipv6Pool' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3ApoolId%3AIpv6Pool%27"><span class="hs-identifier hs-var">poolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Ipv6Pool' :: Maybe Text
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Ipv6Pool' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3Adescription%3AIpv6Pool%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Ipv6Pool' :: Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3Atags%3AIpv6Pool%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | The ID of the address pool.</span><span>
-</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#ipv6Pool_poolId"><span class="hs-identifier hs-type">ipv6Pool_poolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span id="ipv6Pool_poolId"><span class="annot"><span class="annottext">ipv6Pool_poolId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Ipv6Pool -&gt; f Ipv6Pool
-</span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#ipv6Pool_poolId"><span class="hs-identifier hs-var hs-var">ipv6Pool_poolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ipv6Pool -&gt; Maybe Text)
--&gt; (Ipv6Pool -&gt; Maybe Text -&gt; Ipv6Pool)
--&gt; Lens Ipv6Pool Ipv6Pool (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-type">Ipv6Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125997"><span class="annot"><span class="annottext">Maybe Text
-poolId :: Maybe Text
-$sel:poolId:Ipv6Pool' :: Ipv6Pool -&gt; Maybe Text
-</span><a href="#local-6989586621681125997"><span class="hs-identifier hs-var hs-var">poolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125997"><span class="hs-identifier hs-var">poolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125996"><span class="annot"><span class="annottext">s :: Ipv6Pool
-</span><a href="#local-6989586621681125996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-type">Ipv6Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125995"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ipv6Pool
-</span><a href="#local-6989586621681125996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolId:Ipv6Pool' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3ApoolId%3AIpv6Pool%27"><span class="hs-identifier hs-var">poolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | The CIDR blocks for the address pool.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#ipv6Pool_poolCidrBlocks"><span class="hs-identifier hs-type">ipv6Pool_poolCidrBlocks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PoolCidrBlock.html#PoolCidrBlock"><span class="hs-identifier hs-type">PoolCidrBlock</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="ipv6Pool_poolCidrBlocks"><span class="annot"><span class="annottext">ipv6Pool_poolCidrBlocks :: (Maybe [PoolCidrBlock] -&gt; f (Maybe [PoolCidrBlock]))
+</span><span id="line-69"></span><span class="hs-comment">-- | The CIDR blocks for the address pool.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#ipv6Pool_poolCidrBlocks"><span class="hs-identifier hs-type">ipv6Pool_poolCidrBlocks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PoolCidrBlock.html#PoolCidrBlock"><span class="hs-identifier hs-type">PoolCidrBlock</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="ipv6Pool_poolCidrBlocks"><span class="annot"><span class="annottext">ipv6Pool_poolCidrBlocks :: (Maybe [PoolCidrBlock] -&gt; f (Maybe [PoolCidrBlock]))
 -&gt; Ipv6Pool -&gt; f Ipv6Pool
 </span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#ipv6Pool_poolCidrBlocks"><span class="hs-identifier hs-var hs-var">ipv6Pool_poolCidrBlocks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ipv6Pool -&gt; Maybe [PoolCidrBlock])
 -&gt; (Ipv6Pool -&gt; Maybe [PoolCidrBlock] -&gt; Ipv6Pool)
 -&gt; Lens
      Ipv6Pool Ipv6Pool (Maybe [PoolCidrBlock]) (Maybe [PoolCidrBlock])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-type">Ipv6Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125993"><span class="annot"><span class="annottext">Maybe [PoolCidrBlock]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-type">Ipv6Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160881"><span class="annot"><span class="annottext">Maybe [PoolCidrBlock]
 poolCidrBlocks :: Maybe [PoolCidrBlock]
 $sel:poolCidrBlocks:Ipv6Pool' :: Ipv6Pool -&gt; Maybe [PoolCidrBlock]
-</span><a href="#local-6989586621681125993"><span class="hs-identifier hs-var hs-var">poolCidrBlocks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PoolCidrBlock]
-</span><a href="#local-6989586621681125993"><span class="hs-identifier hs-var">poolCidrBlocks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125992"><span class="annot"><span class="annottext">s :: Ipv6Pool
-</span><a href="#local-6989586621681125992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-type">Ipv6Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125991"><span class="annot"><span class="annottext">Maybe [PoolCidrBlock]
-</span><a href="#local-6989586621681125991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ipv6Pool
-</span><a href="#local-6989586621681125992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolCidrBlocks:Ipv6Pool' :: Maybe [PoolCidrBlock]
+</span><a href="#local-6989586621681160881"><span class="hs-identifier hs-var hs-var">poolCidrBlocks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PoolCidrBlock]
+</span><a href="#local-6989586621681160881"><span class="hs-identifier hs-var">poolCidrBlocks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160880"><span class="annot"><span class="annottext">s :: Ipv6Pool
+</span><a href="#local-6989586621681160880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-type">Ipv6Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160879"><span class="annot"><span class="annottext">Maybe [PoolCidrBlock]
+</span><a href="#local-6989586621681160879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ipv6Pool
+</span><a href="#local-6989586621681160880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolCidrBlocks:Ipv6Pool' :: Maybe [PoolCidrBlock]
 </span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3ApoolCidrBlocks%3AIpv6Pool%27"><span class="hs-identifier hs-var">poolCidrBlocks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PoolCidrBlock]
-</span><a href="#local-6989586621681125991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PoolCidrBlock] -&gt; f (Maybe [PoolCidrBlock]))
+</span><a href="#local-6989586621681160879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PoolCidrBlock] -&gt; f (Maybe [PoolCidrBlock]))
  -&gt; Ipv6Pool -&gt; f Ipv6Pool)
 -&gt; ((Maybe [PoolCidrBlock] -&gt; f (Maybe [PoolCidrBlock]))
     -&gt; Maybe [PoolCidrBlock] -&gt; f (Maybe [PoolCidrBlock]))
@@ -190,26 +172,62 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [PoolCidrBlock] [PoolCidrBlock] [PoolCidrBlock] [PoolCidrBlock]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The ID of the address pool.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#ipv6Pool_poolId"><span class="hs-identifier hs-type">ipv6Pool_poolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="ipv6Pool_poolId"><span class="annot"><span class="annottext">ipv6Pool_poolId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Ipv6Pool -&gt; f Ipv6Pool
+</span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#ipv6Pool_poolId"><span class="hs-identifier hs-var hs-var">ipv6Pool_poolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ipv6Pool -&gt; Maybe Text)
+-&gt; (Ipv6Pool -&gt; Maybe Text -&gt; Ipv6Pool)
+-&gt; Lens Ipv6Pool Ipv6Pool (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-type">Ipv6Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160874"><span class="annot"><span class="annottext">Maybe Text
+poolId :: Maybe Text
+$sel:poolId:Ipv6Pool' :: Ipv6Pool -&gt; Maybe Text
+</span><a href="#local-6989586621681160874"><span class="hs-identifier hs-var hs-var">poolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160874"><span class="hs-identifier hs-var">poolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160873"><span class="annot"><span class="annottext">s :: Ipv6Pool
+</span><a href="#local-6989586621681160873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-type">Ipv6Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160872"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ipv6Pool
+</span><a href="#local-6989586621681160873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolId:Ipv6Pool' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3ApoolId%3AIpv6Pool%27"><span class="hs-identifier hs-var">poolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | Any tags for the address pool.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#ipv6Pool_tags"><span class="hs-identifier hs-type">ipv6Pool_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="ipv6Pool_tags"><span class="annot"><span class="annottext">ipv6Pool_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Ipv6Pool -&gt; f Ipv6Pool
+</span><span id="line-77"></span><span class="hs-comment">-- | The description for the address pool.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#ipv6Pool_description"><span class="hs-identifier hs-type">ipv6Pool_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="ipv6Pool_description"><span class="annot"><span class="annottext">ipv6Pool_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Ipv6Pool -&gt; f Ipv6Pool
+</span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#ipv6Pool_description"><span class="hs-identifier hs-var hs-var">ipv6Pool_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ipv6Pool -&gt; Maybe Text)
+-&gt; (Ipv6Pool -&gt; Maybe Text -&gt; Ipv6Pool)
+-&gt; Lens Ipv6Pool Ipv6Pool (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-type">Ipv6Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160870"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:Ipv6Pool' :: Ipv6Pool -&gt; Maybe Text
+</span><a href="#local-6989586621681160870"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160870"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160869"><span class="annot"><span class="annottext">s :: Ipv6Pool
+</span><a href="#local-6989586621681160869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-type">Ipv6Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160868"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ipv6Pool
+</span><a href="#local-6989586621681160869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Ipv6Pool' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3Adescription%3AIpv6Pool%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | Any tags for the address pool.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#ipv6Pool_tags"><span class="hs-identifier hs-type">ipv6Pool_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="ipv6Pool_tags"><span class="annot"><span class="annottext">ipv6Pool_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Ipv6Pool -&gt; f Ipv6Pool
 </span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#ipv6Pool_tags"><span class="hs-identifier hs-var hs-var">ipv6Pool_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ipv6Pool -&gt; Maybe [Tag])
 -&gt; (Ipv6Pool -&gt; Maybe [Tag] -&gt; Ipv6Pool)
 -&gt; Lens Ipv6Pool Ipv6Pool (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-type">Ipv6Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125986"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-type">Ipv6Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160866"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:Ipv6Pool' :: Ipv6Pool -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681125986"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681125986"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125985"><span class="annot"><span class="annottext">s :: Ipv6Pool
-</span><a href="#local-6989586621681125985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-type">Ipv6Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125984"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681125984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ipv6Pool
-</span><a href="#local-6989586621681125985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Ipv6Pool' :: Maybe [Tag]
+</span><a href="#local-6989586621681160866"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681160866"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160865"><span class="annot"><span class="annottext">s :: Ipv6Pool
+</span><a href="#local-6989586621681160865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-type">Ipv6Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160864"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681160864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ipv6Pool
+</span><a href="#local-6989586621681160865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Ipv6Pool' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3Atags%3AIpv6Pool%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681125984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Ipv6Pool -&gt; f Ipv6Pool)
+</span><a href="#local-6989586621681160864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Ipv6Pool -&gt; f Ipv6Pool)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -222,63 +240,33 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The description for the address pool.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#ipv6Pool_description"><span class="hs-identifier hs-type">ipv6Pool_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="ipv6Pool_description"><span class="annot"><span class="annottext">ipv6Pool_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Ipv6Pool -&gt; f Ipv6Pool
-</span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#ipv6Pool_description"><span class="hs-identifier hs-var hs-var">ipv6Pool_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ipv6Pool -&gt; Maybe Text)
--&gt; (Ipv6Pool -&gt; Maybe Text -&gt; Ipv6Pool)
--&gt; Lens Ipv6Pool Ipv6Pool (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-type">Ipv6Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125982"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:Ipv6Pool' :: Ipv6Pool -&gt; Maybe Text
-</span><a href="#local-6989586621681125982"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125982"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125981"><span class="annot"><span class="annottext">s :: Ipv6Pool
-</span><a href="#local-6989586621681125981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-type">Ipv6Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125980"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ipv6Pool
-</span><a href="#local-6989586621681125981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Ipv6Pool' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#%24sel%3Adescription%3AIpv6Pool%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621681125977"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Ipv6Pool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681125975"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681125975"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [PoolCidrBlock] -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; Ipv6Pool
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621681160861"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Ipv6Pool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681160859"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681160859"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">Maybe [PoolCidrBlock]
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Ipv6Pool
 </span><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool%27"><span class="hs-identifier hs-var">Ipv6Pool'</span></a></span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [PoolCidrBlock] -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; Ipv6Pool)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [PoolCidrBlock] -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; Ipv6Pool)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681125975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;poolId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [PoolCidrBlock] -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; Ipv6Pool)
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [PoolCidrBlock]
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Ipv6Pool)
 -&gt; Either String (Maybe [PoolCidrBlock])
--&gt; Either String (Maybe [Tag] -&gt; Maybe Text -&gt; Ipv6Pool)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681125975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Ipv6Pool)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681160859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;poolCidrBlockSet&quot;</span></span><span>
-</span><span id="line-90"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-89"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-91"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-90"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [PoolCidrBlock]))
 -&gt; Either String (Maybe [PoolCidrBlock])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -291,13 +279,30 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; Maybe Text -&gt; Ipv6Pool)
--&gt; Either String (Maybe [Tag])
--&gt; Either String (Maybe Text -&gt; Ipv6Pool)
+</span><span id="line-91"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Ipv6Pool)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Maybe [Tag] -&gt; Ipv6Pool)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681160859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;poolId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe [Tag] -&gt; Ipv6Pool)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Tag] -&gt; Ipv6Pool)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681160859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; Ipv6Pool)
+-&gt; Either String (Maybe [Tag]) -&gt; Either String Ipv6Pool
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681125975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681160859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -305,7 +310,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-94"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-95"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Tag]))
 -&gt; Either String (Maybe [Tag])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -318,17 +323,9 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Ipv6Pool)
--&gt; Either String (Maybe Text) -&gt; Either String Ipv6Pool
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681125975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681125966"><span id="local-6989586621681125968"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681160850"><span id="local-6989586621681160852"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681125963"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681160847"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6Pool.html#Ipv6Pool"><span class="hs-identifier hs-type">Ipv6Pool</span></a></span></span><span>
 </span><span id="line-101"></span></pre></body></html>

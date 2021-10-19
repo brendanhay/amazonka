@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- that capacity forecast, along with the timestamps of those data points.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCapacityForecast' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679324921"><span id="local-6989586621679324922"></span></span><span class="hs-keyword">data</span><span> </span><span id="CapacityForecast"><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast"><span class="hs-identifier hs-var">CapacityForecast</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CapacityForecast%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast%27"><span class="hs-identifier hs-var">CapacityForecast'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679325570"><span id="local-6989586621679325571"></span></span><span class="hs-keyword">data</span><span> </span><span id="CapacityForecast"><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast"><span class="hs-identifier hs-var">CapacityForecast</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CapacityForecast%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast%27"><span class="hs-identifier hs-var">CapacityForecast'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time stamps for the data points, in UTC format.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Atimestamps%3ACapacityForecast%27"><span class="annot"><span class="annottext">CapacityForecast -&gt; [ISO8601]
 </span><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#%24sel%3Atimestamps%3ACapacityForecast%27"><span class="hs-identifier hs-var hs-var">timestamps</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Avalues%3ACapacityForecast%27"><span class="annot"><span class="annottext">CapacityForecast -&gt; [Double]
 </span><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#%24sel%3Avalues%3ACapacityForecast%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324914"><span id="local-6989586621679324916"><span class="annot"><span class="annottext">CapacityForecast -&gt; CapacityForecast -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325563"><span id="local-6989586621679325565"><span class="annot"><span class="annottext">CapacityForecast -&gt; CapacityForecast -&gt; Bool
 (CapacityForecast -&gt; CapacityForecast -&gt; Bool)
 -&gt; (CapacityForecast -&gt; CapacityForecast -&gt; Bool)
 -&gt; Eq CapacityForecast
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CapacityForecast -&gt; CapacityForecast -&gt; Bool
 == :: CapacityForecast -&gt; CapacityForecast -&gt; Bool
 $c== :: CapacityForecast -&gt; CapacityForecast -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324905"><span id="local-6989586621679324907"><span id="local-6989586621679324909"><span id="local-6989586621679324911"><span class="annot"><span class="annottext">ReadPrec [CapacityForecast]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325554"><span id="local-6989586621679325556"><span id="local-6989586621679325558"><span id="local-6989586621679325560"><span class="annot"><span class="annottext">ReadPrec [CapacityForecast]
 ReadPrec CapacityForecast
 Int -&gt; ReadS CapacityForecast
 ReadS [CapacityForecast]
@@ -65,7 +65,7 @@ readList :: ReadS [CapacityForecast]
 $creadList :: ReadS [CapacityForecast]
 readsPrec :: Int -&gt; ReadS CapacityForecast
 $creadsPrec :: Int -&gt; ReadS CapacityForecast
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324898"><span id="local-6989586621679324900"><span id="local-6989586621679324902"><span class="annot"><span class="annottext">Int -&gt; CapacityForecast -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325547"><span id="local-6989586621679325549"><span id="local-6989586621679325551"><span class="annot"><span class="annottext">Int -&gt; CapacityForecast -&gt; ShowS
 [CapacityForecast] -&gt; ShowS
 CapacityForecast -&gt; String
 (Int -&gt; CapacityForecast -&gt; ShowS)
@@ -126,16 +126,16 @@ forall a. Monoid a =&gt; a
 -&gt; (CapacityForecast -&gt; [ISO8601] -&gt; CapacityForecast)
 -&gt; Lens CapacityForecast CapacityForecast [ISO8601] [ISO8601]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast%27"><span class="hs-identifier hs-type">CapacityForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324889"><span class="annot"><span class="annottext">[ISO8601]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast%27"><span class="hs-identifier hs-type">CapacityForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325538"><span class="annot"><span class="annottext">[ISO8601]
 timestamps :: [ISO8601]
 $sel:timestamps:CapacityForecast' :: CapacityForecast -&gt; [ISO8601]
-</span><a href="#local-6989586621679324889"><span class="hs-identifier hs-var hs-var">timestamps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ISO8601]
-</span><a href="#local-6989586621679324889"><span class="hs-identifier hs-var">timestamps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324888"><span class="annot"><span class="annottext">s :: CapacityForecast
-</span><a href="#local-6989586621679324888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast%27"><span class="hs-identifier hs-type">CapacityForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324887"><span class="annot"><span class="annottext">[ISO8601]
-</span><a href="#local-6989586621679324887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityForecast
-</span><a href="#local-6989586621679324888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamps:CapacityForecast' :: [ISO8601]
+</span><a href="#local-6989586621679325538"><span class="hs-identifier hs-var hs-var">timestamps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ISO8601]
+</span><a href="#local-6989586621679325538"><span class="hs-identifier hs-var">timestamps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325537"><span class="annot"><span class="annottext">s :: CapacityForecast
+</span><a href="#local-6989586621679325537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast%27"><span class="hs-identifier hs-type">CapacityForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325536"><span class="annot"><span class="annottext">[ISO8601]
+</span><a href="#local-6989586621679325536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityForecast
+</span><a href="#local-6989586621679325537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamps:CapacityForecast' :: [ISO8601]
 </span><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#%24sel%3Atimestamps%3ACapacityForecast%27"><span class="hs-identifier hs-var">timestamps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ISO8601]
-</span><a href="#local-6989586621679324887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast"><span class="hs-identifier hs-type">CapacityForecast</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ISO8601] -&gt; f [ISO8601])
+</span><a href="#local-6989586621679325536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast"><span class="hs-identifier hs-type">CapacityForecast</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ISO8601] -&gt; f [ISO8601])
  -&gt; CapacityForecast -&gt; f CapacityForecast)
 -&gt; (([UTCTime] -&gt; f [UTCTime]) -&gt; [ISO8601] -&gt; f [ISO8601])
 -&gt; ([UTCTime] -&gt; f [UTCTime])
@@ -143,8 +143,8 @@ $sel:timestamps:CapacityForecast' :: CapacityForecast -&gt; [ISO8601]
 -&gt; f CapacityForecast
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([UTCTime] -&gt; f [UTCTime]) -&gt; [ISO8601] -&gt; f [ISO8601]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The values of the data points.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#capacityForecast_values"><span class="hs-identifier hs-type">capacityForecast_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast"><span class="hs-identifier hs-type">CapacityForecast</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">]</span><span>
@@ -153,16 +153,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CapacityForecast -&gt; [Double] -&gt; CapacityForecast)
 -&gt; Lens CapacityForecast CapacityForecast [Double] [Double]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast%27"><span class="hs-identifier hs-type">CapacityForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324883"><span class="annot"><span class="annottext">[Double]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast%27"><span class="hs-identifier hs-type">CapacityForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325532"><span class="annot"><span class="annottext">[Double]
 values :: [Double]
 $sel:values:CapacityForecast' :: CapacityForecast -&gt; [Double]
-</span><a href="#local-6989586621679324883"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Double]
-</span><a href="#local-6989586621679324883"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324882"><span class="annot"><span class="annottext">s :: CapacityForecast
-</span><a href="#local-6989586621679324882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast%27"><span class="hs-identifier hs-type">CapacityForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324881"><span class="annot"><span class="annottext">[Double]
-</span><a href="#local-6989586621679324881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityForecast
-</span><a href="#local-6989586621679324882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:CapacityForecast' :: [Double]
+</span><a href="#local-6989586621679325532"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Double]
+</span><a href="#local-6989586621679325532"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325531"><span class="annot"><span class="annottext">s :: CapacityForecast
+</span><a href="#local-6989586621679325531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast%27"><span class="hs-identifier hs-type">CapacityForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325530"><span class="annot"><span class="annottext">[Double]
+</span><a href="#local-6989586621679325530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityForecast
+</span><a href="#local-6989586621679325531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:CapacityForecast' :: [Double]
 </span><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#%24sel%3Avalues%3ACapacityForecast%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Double]
-</span><a href="#local-6989586621679324881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast"><span class="hs-identifier hs-type">CapacityForecast</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Double] -&gt; f [Double])
+</span><a href="#local-6989586621679325530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast"><span class="hs-identifier hs-type">CapacityForecast</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Double] -&gt; f [Double])
  -&gt; CapacityForecast -&gt; f CapacityForecast)
 -&gt; (([Double] -&gt; f [Double]) -&gt; [Double] -&gt; f [Double])
 -&gt; ([Double] -&gt; f [Double])
@@ -170,13 +170,13 @@ $sel:values:CapacityForecast' :: CapacityForecast -&gt; [Double]
 -&gt; f CapacityForecast
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Double] -&gt; f [Double]) -&gt; [Double] -&gt; f [Double]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast"><span class="hs-identifier hs-type">CapacityForecast</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679324878"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CapacityForecast
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679324876"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679324876"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679325527"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CapacityForecast
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679325525"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679325525"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">[ISO8601] -&gt; [Double] -&gt; CapacityForecast
 </span><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast%27"><span class="hs-identifier hs-var">CapacityForecast'</span></a></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">([ISO8601] -&gt; [Double] -&gt; CapacityForecast)
@@ -184,7 +184,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Either String ([Double] -&gt; CapacityForecast)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679324876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679325525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timestamps&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -204,7 +204,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String [Double] -&gt; Either String CapacityForecast
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679324876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679325525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -221,7 +221,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;member&quot;</span></span><span>
 </span><span id="line-74"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324868"><span id="local-6989586621679324870"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast"><span class="hs-identifier hs-type">CapacityForecast</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325517"><span id="local-6989586621679325519"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast"><span class="hs-identifier hs-type">CapacityForecast</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324865"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast"><span class="hs-identifier hs-type">CapacityForecast</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325514"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.CapacityForecast.html#CapacityForecast"><span class="hs-identifier hs-type">CapacityForecast</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

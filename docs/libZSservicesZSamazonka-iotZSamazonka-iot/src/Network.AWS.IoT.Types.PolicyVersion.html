@@ -26,18 +26,18 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes a policy version.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPolicyVersion' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679791977"><span id="local-6989586621679791978"></span></span><span class="hs-keyword">data</span><span> </span><span id="PolicyVersion"><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-var">PolicyVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyVersion%27"><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-var">PolicyVersion'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time the policy was created.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AcreateDate%3APolicyVersion%27"><span class="annot"><span class="annottext">PolicyVersion -&gt; Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.PolicyVersion.html#%24sel%3AcreateDate%3APolicyVersion%27"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The policy version ID.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AversionId%3APolicyVersion%27"><span class="annot"><span class="annottext">PolicyVersion -&gt; Maybe Text
+</span><span id="line-29"></span><span id="local-6989586621679792840"><span id="local-6989586621679792841"></span></span><span class="hs-keyword">data</span><span> </span><span id="PolicyVersion"><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-var">PolicyVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyVersion%27"><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-var">PolicyVersion'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The policy version ID.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AversionId%3APolicyVersion%27"><span class="annot"><span class="annottext">PolicyVersion -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.PolicyVersion.html#%24sel%3AversionId%3APolicyVersion%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The date and time the policy was created.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcreateDate%3APolicyVersion%27"><span class="annot"><span class="annottext">PolicyVersion -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.PolicyVersion.html#%24sel%3AcreateDate%3APolicyVersion%27"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Specifies whether the policy version is the default.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AisDefaultVersion%3APolicyVersion%27"><span class="annot"><span class="annottext">PolicyVersion -&gt; Maybe Bool
 </span><a href="Network.AWS.IoT.Types.PolicyVersion.html#%24sel%3AisDefaultVersion%3APolicyVersion%27"><span class="hs-identifier hs-var hs-var">isDefaultVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679791969"><span id="local-6989586621679791971"><span class="annot"><span class="annottext">PolicyVersion -&gt; PolicyVersion -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679792832"><span id="local-6989586621679792834"><span class="annot"><span class="annottext">PolicyVersion -&gt; PolicyVersion -&gt; Bool
 (PolicyVersion -&gt; PolicyVersion -&gt; Bool)
 -&gt; (PolicyVersion -&gt; PolicyVersion -&gt; Bool) -&gt; Eq PolicyVersion
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PolicyVersion -&gt; PolicyVersion -&gt; Bool
 == :: PolicyVersion -&gt; PolicyVersion -&gt; Bool
 $c== :: PolicyVersion -&gt; PolicyVersion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791960"><span id="local-6989586621679791962"><span id="local-6989586621679791964"><span id="local-6989586621679791966"><span class="annot"><span class="annottext">ReadPrec [PolicyVersion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679792823"><span id="local-6989586621679792825"><span id="local-6989586621679792827"><span id="local-6989586621679792829"><span class="annot"><span class="annottext">ReadPrec [PolicyVersion]
 ReadPrec PolicyVersion
 Int -&gt; ReadS PolicyVersion
 ReadS [PolicyVersion]
@@ -65,7 +65,7 @@ readList :: ReadS [PolicyVersion]
 $creadList :: ReadS [PolicyVersion]
 readsPrec :: Int -&gt; ReadS PolicyVersion
 $creadsPrec :: Int -&gt; ReadS PolicyVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791953"><span id="local-6989586621679791955"><span id="local-6989586621679791957"><span class="annot"><span class="annottext">Int -&gt; PolicyVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679792816"><span id="local-6989586621679792818"><span id="local-6989586621679792820"><span class="annot"><span class="annottext">Int -&gt; PolicyVersion -&gt; ShowS
 [PolicyVersion] -&gt; ShowS
 PolicyVersion -&gt; String
 (Int -&gt; PolicyVersion -&gt; ShowS)
@@ -99,23 +99,23 @@ $cfrom :: forall x. PolicyVersion -&gt; Rep PolicyVersion x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'createDate', 'policyVersion_createDate' - The date and time the policy was created.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'versionId', 'policyVersion_versionId' - The policy version ID.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'versionId', 'policyVersion_versionId' - The policy version ID.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'createDate', 'policyVersion_createDate' - The date and time the policy was created.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- 'isDefaultVersion', 'policyVersion_isDefaultVersion' - Specifies whether the policy version is the default.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#newPolicyVersion"><span class="hs-identifier hs-type">newPolicyVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span>
 </span><span id="line-54"></span><span id="newPolicyVersion"><span class="annot"><span class="annottext">newPolicyVersion :: PolicyVersion
 </span><a href="Network.AWS.IoT.Types.PolicyVersion.html#newPolicyVersion"><span class="hs-identifier hs-var hs-var">newPolicyVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">PolicyVersion' :: Maybe POSIX -&gt; Maybe Text -&gt; Maybe Bool -&gt; PolicyVersion
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">PolicyVersion' :: Maybe Text -&gt; Maybe POSIX -&gt; Maybe Bool -&gt; PolicyVersion
 </span><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createDate:PolicyVersion' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.PolicyVersion.html#%24sel%3AcreateDate%3APolicyVersion%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:versionId:PolicyVersion' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.PolicyVersion.html#%24sel%3AversionId%3APolicyVersion%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionId:PolicyVersion' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.PolicyVersion.html#%24sel%3AversionId%3APolicyVersion%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:createDate:PolicyVersion' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.PolicyVersion.html#%24sel%3AcreateDate%3APolicyVersion%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:isDefaultVersion:PolicyVersion' :: Maybe Bool
@@ -124,24 +124,42 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | The date and time the policy was created.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#policyVersion_createDate"><span class="hs-identifier hs-type">policyVersion_createDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="policyVersion_createDate"><span class="annot"><span class="annottext">policyVersion_createDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-61"></span><span class="hs-comment">-- | The policy version ID.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#policyVersion_versionId"><span class="hs-identifier hs-type">policyVersion_versionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="policyVersion_versionId"><span class="annot"><span class="annottext">policyVersion_versionId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PolicyVersion -&gt; f PolicyVersion
+</span><a href="Network.AWS.IoT.Types.PolicyVersion.html#policyVersion_versionId"><span class="hs-identifier hs-var hs-var">policyVersion_versionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyVersion -&gt; Maybe Text)
+-&gt; (PolicyVersion -&gt; Maybe Text -&gt; PolicyVersion)
+-&gt; Lens PolicyVersion PolicyVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792807"><span class="annot"><span class="annottext">Maybe Text
+versionId :: Maybe Text
+$sel:versionId:PolicyVersion' :: PolicyVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679792807"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679792807"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679792806"><span class="annot"><span class="annottext">s :: PolicyVersion
+</span><a href="#local-6989586621679792806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679792805"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679792805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyVersion
+</span><a href="#local-6989586621679792806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:PolicyVersion' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.PolicyVersion.html#%24sel%3AversionId%3APolicyVersion%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679792805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The date and time the policy was created.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#policyVersion_createDate"><span class="hs-identifier hs-type">policyVersion_createDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="policyVersion_createDate"><span class="annot"><span class="annottext">policyVersion_createDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; PolicyVersion -&gt; f PolicyVersion
 </span><a href="Network.AWS.IoT.Types.PolicyVersion.html#policyVersion_createDate"><span class="hs-identifier hs-var hs-var">policyVersion_createDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyVersion -&gt; Maybe POSIX)
 -&gt; (PolicyVersion -&gt; Maybe POSIX -&gt; PolicyVersion)
 -&gt; Lens PolicyVersion PolicyVersion (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791944"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792803"><span class="annot"><span class="annottext">Maybe POSIX
 createDate :: Maybe POSIX
 $sel:createDate:PolicyVersion' :: PolicyVersion -&gt; Maybe POSIX
-</span><a href="#local-6989586621679791944"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679791944"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791943"><span class="annot"><span class="annottext">s :: PolicyVersion
-</span><a href="#local-6989586621679791943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791942"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679791942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyVersion
-</span><a href="#local-6989586621679791943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:PolicyVersion' :: Maybe POSIX
+</span><a href="#local-6989586621679792803"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679792803"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679792802"><span class="annot"><span class="annottext">s :: PolicyVersion
+</span><a href="#local-6989586621679792802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679792801"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679792801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyVersion
+</span><a href="#local-6989586621679792802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:PolicyVersion' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.PolicyVersion.html#%24sel%3AcreateDate%3APolicyVersion%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679791942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679792801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; PolicyVersion -&gt; f PolicyVersion)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -157,24 +175,6 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | The policy version ID.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#policyVersion_versionId"><span class="hs-identifier hs-type">policyVersion_versionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="policyVersion_versionId"><span class="annot"><span class="annottext">policyVersion_versionId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PolicyVersion -&gt; f PolicyVersion
-</span><a href="Network.AWS.IoT.Types.PolicyVersion.html#policyVersion_versionId"><span class="hs-identifier hs-var hs-var">policyVersion_versionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyVersion -&gt; Maybe Text)
--&gt; (PolicyVersion -&gt; Maybe Text -&gt; PolicyVersion)
--&gt; Lens PolicyVersion PolicyVersion (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791937"><span class="annot"><span class="annottext">Maybe Text
-versionId :: Maybe Text
-$sel:versionId:PolicyVersion' :: PolicyVersion -&gt; Maybe Text
-</span><a href="#local-6989586621679791937"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791937"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791936"><span class="annot"><span class="annottext">s :: PolicyVersion
-</span><a href="#local-6989586621679791936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791935"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyVersion
-</span><a href="#local-6989586621679791936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:PolicyVersion' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.PolicyVersion.html#%24sel%3AversionId%3APolicyVersion%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | Specifies whether the policy version is the default.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#policyVersion_isDefaultVersion"><span class="hs-identifier hs-type">policyVersion_isDefaultVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -183,19 +183,19 @@ $sel:versionId:PolicyVersion' :: PolicyVersion -&gt; Maybe Text
 -&gt; (PolicyVersion -&gt; Maybe Bool -&gt; PolicyVersion)
 -&gt; Lens PolicyVersion PolicyVersion (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791933"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792796"><span class="annot"><span class="annottext">Maybe Bool
 isDefaultVersion :: Maybe Bool
 $sel:isDefaultVersion:PolicyVersion' :: PolicyVersion -&gt; Maybe Bool
-</span><a href="#local-6989586621679791933"><span class="hs-identifier hs-var hs-var">isDefaultVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679791933"><span class="hs-identifier hs-var">isDefaultVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791932"><span class="annot"><span class="annottext">s :: PolicyVersion
-</span><a href="#local-6989586621679791932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791931"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679791931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyVersion
-</span><a href="#local-6989586621679791932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isDefaultVersion:PolicyVersion' :: Maybe Bool
+</span><a href="#local-6989586621679792796"><span class="hs-identifier hs-var hs-var">isDefaultVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679792796"><span class="hs-identifier hs-var">isDefaultVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679792795"><span class="annot"><span class="annottext">s :: PolicyVersion
+</span><a href="#local-6989586621679792795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679792794"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679792794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyVersion
+</span><a href="#local-6989586621679792795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isDefaultVersion:PolicyVersion' :: Maybe Bool
 </span><a href="Network.AWS.IoT.Types.PolicyVersion.html#%24sel%3AisDefaultVersion%3APolicyVersion%27"><span class="hs-identifier hs-var">isDefaultVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679791931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679792794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791928"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679791926"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PolicyVersion
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792791"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679792789"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PolicyVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PolicyVersion)
@@ -205,38 +205,38 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PolicyVersion&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679791923"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679791923"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe Text -&gt; Maybe Bool -&gt; PolicyVersion
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679792786"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679792786"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe POSIX -&gt; Maybe Bool -&gt; PolicyVersion
 </span><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-var">PolicyVersion'</span></a></span><span>
-</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe Text -&gt; Maybe Bool -&gt; PolicyVersion)
--&gt; Parser (Maybe POSIX)
--&gt; Parser (Maybe Text -&gt; Maybe Bool -&gt; PolicyVersion)
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe POSIX -&gt; Maybe Bool -&gt; PolicyVersion)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Bool -&gt; PolicyVersion)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679791923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;createDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Bool -&gt; PolicyVersion)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe Bool -&gt; PolicyVersion)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679791923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679792786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;versionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Bool -&gt; PolicyVersion)
+-&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Bool -&gt; PolicyVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679792786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; PolicyVersion)
 -&gt; Parser (Maybe Bool) -&gt; Parser PolicyVersion
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679791923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679792786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;isDefaultVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791917"><span id="local-6989586621679791919"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792780"><span id="local-6989586621679792782"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791914"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

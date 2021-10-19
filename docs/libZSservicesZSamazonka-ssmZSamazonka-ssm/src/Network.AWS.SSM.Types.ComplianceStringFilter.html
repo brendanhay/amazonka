@@ -28,19 +28,19 @@
 </span><span id="line-28"></span><span class="hs-comment">-- results.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newComplianceStringFilter' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679790107"><span id="local-6989586621679790108"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComplianceStringFilter"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-var">ComplianceStringFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComplianceStringFilter%27"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter%27"><span class="hs-identifier hs-var">ComplianceStringFilter'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the filter.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Akey%3AComplianceStringFilter%27"><span class="annot"><span class="annottext">ComplianceStringFilter -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#%24sel%3Akey%3AComplianceStringFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The value for which to search.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Avalues%3AComplianceStringFilter%27"><span class="annot"><span class="annottext">ComplianceStringFilter -&gt; Maybe (NonEmpty Text)
+</span><span id="line-31"></span><span id="local-6989586621679791730"><span id="local-6989586621679791731"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComplianceStringFilter"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-var">ComplianceStringFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComplianceStringFilter%27"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter%27"><span class="hs-identifier hs-var">ComplianceStringFilter'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value for which to search.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Avalues%3AComplianceStringFilter%27"><span class="annot"><span class="annottext">ComplianceStringFilter -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#%24sel%3Avalues%3AComplianceStringFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the filter.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Akey%3AComplianceStringFilter%27"><span class="annot"><span class="annottext">ComplianceStringFilter -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#%24sel%3Akey%3AComplianceStringFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The type of comparison that should be performed for the value: Equal,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- NotEqual, BeginWith, LessThan, or GreaterThan.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Atype%27%3AComplianceStringFilter%27"><span class="annot"><span class="annottext">ComplianceStringFilter -&gt; Maybe ComplianceQueryOperatorType
 </span><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#%24sel%3Atype%27%3AComplianceStringFilter%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceQueryOperatorType.html#ComplianceQueryOperatorType"><span class="hs-identifier hs-type">ComplianceQueryOperatorType</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679790099"><span id="local-6989586621679790101"><span class="annot"><span class="annottext">ComplianceStringFilter -&gt; ComplianceStringFilter -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679791722"><span id="local-6989586621679791724"><span class="annot"><span class="annottext">ComplianceStringFilter -&gt; ComplianceStringFilter -&gt; Bool
 (ComplianceStringFilter -&gt; ComplianceStringFilter -&gt; Bool)
 -&gt; (ComplianceStringFilter -&gt; ComplianceStringFilter -&gt; Bool)
 -&gt; Eq ComplianceStringFilter
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ComplianceStringFilter -&gt; ComplianceStringFilter -&gt; Bool
 == :: ComplianceStringFilter -&gt; ComplianceStringFilter -&gt; Bool
 $c== :: ComplianceStringFilter -&gt; ComplianceStringFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790090"><span id="local-6989586621679790092"><span id="local-6989586621679790094"><span id="local-6989586621679790096"><span class="annot"><span class="annottext">ReadPrec [ComplianceStringFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791713"><span id="local-6989586621679791715"><span id="local-6989586621679791717"><span id="local-6989586621679791719"><span class="annot"><span class="annottext">ReadPrec [ComplianceStringFilter]
 ReadPrec ComplianceStringFilter
 Int -&gt; ReadS ComplianceStringFilter
 ReadS [ComplianceStringFilter]
@@ -69,7 +69,7 @@ readList :: ReadS [ComplianceStringFilter]
 $creadList :: ReadS [ComplianceStringFilter]
 readsPrec :: Int -&gt; ReadS ComplianceStringFilter
 $creadsPrec :: Int -&gt; ReadS ComplianceStringFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790083"><span id="local-6989586621679790085"><span id="local-6989586621679790087"><span class="annot"><span class="annottext">Int -&gt; ComplianceStringFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791706"><span id="local-6989586621679791708"><span id="local-6989586621679791710"><span class="annot"><span class="annottext">Int -&gt; ComplianceStringFilter -&gt; ShowS
 [ComplianceStringFilter] -&gt; ShowS
 ComplianceStringFilter -&gt; String
 (Int -&gt; ComplianceStringFilter -&gt; ShowS)
@@ -104,9 +104,9 @@ $cfrom :: forall x. ComplianceStringFilter -&gt; Rep ComplianceStringFilter x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'key', 'complianceStringFilter_key' - The name of the filter.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'values', 'complianceStringFilter_values' - The value for which to search.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'values', 'complianceStringFilter_values' - The value for which to search.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'key', 'complianceStringFilter_key' - The name of the filter.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- 'type'', 'complianceStringFilter_type' - The type of comparison that should be performed for the value: Equal,</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- NotEqual, BeginWith, LessThan, or GreaterThan.</span><span>
@@ -114,17 +114,17 @@ $cfrom :: forall x. ComplianceStringFilter -&gt; Rep ComplianceStringFilter x
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span><span>
 </span><span id="line-58"></span><span id="newComplianceStringFilter"><span class="annot"><span class="annottext">newComplianceStringFilter :: ComplianceStringFilter
 </span><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#newComplianceStringFilter"><span class="hs-identifier hs-var hs-var">newComplianceStringFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ComplianceStringFilter' :: Maybe Text
--&gt; Maybe (NonEmpty Text)
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ComplianceStringFilter' :: Maybe (NonEmpty Text)
+-&gt; Maybe Text
 -&gt; Maybe ComplianceQueryOperatorType
 -&gt; ComplianceStringFilter
 </span><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter%27"><span class="hs-identifier hs-type">ComplianceStringFilter'</span></a></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:ComplianceStringFilter' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#%24sel%3Akey%3AComplianceStringFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:values:ComplianceStringFilter' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#%24sel%3Avalues%3AComplianceStringFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:ComplianceStringFilter' :: Maybe (NonEmpty Text)
-</span><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#%24sel%3Avalues%3AComplianceStringFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:ComplianceStringFilter' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#%24sel%3Akey%3AComplianceStringFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ComplianceStringFilter' :: Maybe ComplianceQueryOperatorType
@@ -133,32 +133,9 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | The name of the filter.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#complianceStringFilter_key"><span class="hs-identifier hs-type">complianceStringFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="complianceStringFilter_key"><span class="annot"><span class="annottext">complianceStringFilter_key :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ComplianceStringFilter -&gt; f ComplianceStringFilter
-</span><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#complianceStringFilter_key"><span class="hs-identifier hs-var hs-var">complianceStringFilter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComplianceStringFilter -&gt; Maybe Text)
--&gt; (ComplianceStringFilter -&gt; Maybe Text -&gt; ComplianceStringFilter)
--&gt; Lens
-     ComplianceStringFilter
-     ComplianceStringFilter
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter%27"><span class="hs-identifier hs-type">ComplianceStringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790074"><span class="annot"><span class="annottext">Maybe Text
-key :: Maybe Text
-$sel:key:ComplianceStringFilter' :: ComplianceStringFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679790074"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790074"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790073"><span class="annot"><span class="annottext">s :: ComplianceStringFilter
-</span><a href="#local-6989586621679790073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter%27"><span class="hs-identifier hs-type">ComplianceStringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790072"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceStringFilter
-</span><a href="#local-6989586621679790073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ComplianceStringFilter' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#%24sel%3Akey%3AComplianceStringFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | The value for which to search.</span><span>
-</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#complianceStringFilter_values"><span class="hs-identifier hs-type">complianceStringFilter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span id="complianceStringFilter_values"><span class="annot"><span class="annottext">complianceStringFilter_values :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><span id="line-65"></span><span class="hs-comment">-- | The value for which to search.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#complianceStringFilter_values"><span class="hs-identifier hs-type">complianceStringFilter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="complianceStringFilter_values"><span class="annot"><span class="annottext">complianceStringFilter_values :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
 -&gt; ComplianceStringFilter -&gt; f ComplianceStringFilter
 </span><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#complianceStringFilter_values"><span class="hs-identifier hs-var hs-var">complianceStringFilter_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComplianceStringFilter -&gt; Maybe (NonEmpty Text))
 -&gt; (ComplianceStringFilter
@@ -169,16 +146,16 @@ $sel:key:ComplianceStringFilter' :: ComplianceStringFilter -&gt; Maybe Text
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter%27"><span class="hs-identifier hs-type">ComplianceStringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790070"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter%27"><span class="hs-identifier hs-type">ComplianceStringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791697"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 values :: Maybe (NonEmpty Text)
 $sel:values:ComplianceStringFilter' :: ComplianceStringFilter -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679790070"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679790070"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790069"><span class="annot"><span class="annottext">s :: ComplianceStringFilter
-</span><a href="#local-6989586621679790069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter%27"><span class="hs-identifier hs-type">ComplianceStringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790068"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679790068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceStringFilter
-</span><a href="#local-6989586621679790069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:ComplianceStringFilter' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679791697"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679791697"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791696"><span class="annot"><span class="annottext">s :: ComplianceStringFilter
+</span><a href="#local-6989586621679791696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter%27"><span class="hs-identifier hs-type">ComplianceStringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791695"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679791695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceStringFilter
+</span><a href="#local-6989586621679791696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:ComplianceStringFilter' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#%24sel%3Avalues%3AComplianceStringFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679790068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679791695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; ComplianceStringFilter -&gt; f ComplianceStringFilter)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -198,8 +175,31 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The name of the filter.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#complianceStringFilter_key"><span class="hs-identifier hs-type">complianceStringFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="complianceStringFilter_key"><span class="annot"><span class="annottext">complianceStringFilter_key :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ComplianceStringFilter -&gt; f ComplianceStringFilter
+</span><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#complianceStringFilter_key"><span class="hs-identifier hs-var hs-var">complianceStringFilter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComplianceStringFilter -&gt; Maybe Text)
+-&gt; (ComplianceStringFilter -&gt; Maybe Text -&gt; ComplianceStringFilter)
+-&gt; Lens
+     ComplianceStringFilter
+     ComplianceStringFilter
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter%27"><span class="hs-identifier hs-type">ComplianceStringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791690"><span class="annot"><span class="annottext">Maybe Text
+key :: Maybe Text
+$sel:key:ComplianceStringFilter' :: ComplianceStringFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679791690"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791690"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791689"><span class="annot"><span class="annottext">s :: ComplianceStringFilter
+</span><a href="#local-6989586621679791689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter%27"><span class="hs-identifier hs-type">ComplianceStringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791688"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceStringFilter
+</span><a href="#local-6989586621679791689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ComplianceStringFilter' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#%24sel%3Akey%3AComplianceStringFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The type of comparison that should be performed for the value: Equal,</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- NotEqual, BeginWith, LessThan, or GreaterThan.</span><span>
@@ -216,52 +216,52 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe ComplianceQueryOperatorType)
      (Maybe ComplianceQueryOperatorType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter%27"><span class="hs-identifier hs-type">ComplianceStringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790063"><span class="annot"><span class="annottext">Maybe ComplianceQueryOperatorType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter%27"><span class="hs-identifier hs-type">ComplianceStringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791686"><span class="annot"><span class="annottext">Maybe ComplianceQueryOperatorType
 type' :: Maybe ComplianceQueryOperatorType
 $sel:type':ComplianceStringFilter' :: ComplianceStringFilter -&gt; Maybe ComplianceQueryOperatorType
-</span><a href="#local-6989586621679790063"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceQueryOperatorType
-</span><a href="#local-6989586621679790063"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790062"><span class="annot"><span class="annottext">s :: ComplianceStringFilter
-</span><a href="#local-6989586621679790062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter%27"><span class="hs-identifier hs-type">ComplianceStringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790061"><span class="annot"><span class="annottext">Maybe ComplianceQueryOperatorType
-</span><a href="#local-6989586621679790061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceStringFilter
-</span><a href="#local-6989586621679790062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ComplianceStringFilter' :: Maybe ComplianceQueryOperatorType
+</span><a href="#local-6989586621679791686"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceQueryOperatorType
+</span><a href="#local-6989586621679791686"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791685"><span class="annot"><span class="annottext">s :: ComplianceStringFilter
+</span><a href="#local-6989586621679791685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter%27"><span class="hs-identifier hs-type">ComplianceStringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791684"><span class="annot"><span class="annottext">Maybe ComplianceQueryOperatorType
+</span><a href="#local-6989586621679791684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceStringFilter
+</span><a href="#local-6989586621679791685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ComplianceStringFilter' :: Maybe ComplianceQueryOperatorType
 </span><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#%24sel%3Atype%27%3AComplianceStringFilter%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceQueryOperatorType
-</span><a href="#local-6989586621679790061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790057"><span id="local-6989586621679790059"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791680"><span id="local-6989586621679791682"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790054"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791677"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790046"><span id="local-6989586621679790048"><span id="local-6989586621679790050"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679790044"><span class="annot"><span class="annottext">toJSON :: ComplianceStringFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter%27"><span class="hs-identifier hs-type">ComplianceStringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790040"><span id="local-6989586621679790041"><span id="local-6989586621679790042"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791669"><span id="local-6989586621679791671"><span id="local-6989586621679791673"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679791667"><span class="annot"><span class="annottext">toJSON :: ComplianceStringFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter%27"><span class="hs-identifier hs-type">ComplianceStringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791663"><span id="local-6989586621679791664"><span id="local-6989586621679791665"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 Maybe Text
 Maybe ComplianceQueryOperatorType
 type' :: Maybe ComplianceQueryOperatorType
-values :: Maybe (NonEmpty Text)
 key :: Maybe Text
+values :: Maybe (NonEmpty Text)
 $sel:type':ComplianceStringFilter' :: ComplianceStringFilter -&gt; Maybe ComplianceQueryOperatorType
-$sel:values:ComplianceStringFilter' :: ComplianceStringFilter -&gt; Maybe (NonEmpty Text)
 $sel:key:ComplianceStringFilter' :: ComplianceStringFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679790040"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:values:ComplianceStringFilter' :: ComplianceStringFilter -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679791663"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-86"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790042"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679790041"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679791665"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791664"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComplianceQueryOperatorType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -269,7 +269,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ComplianceQueryOperatorType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceQueryOperatorType
-</span><a href="#local-6989586621679790040"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><a href="#local-6989586621679791663"><span class="hs-identifier hs-var">type'</span></a></span><span>
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span></pre></body></html>

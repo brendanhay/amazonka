@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a launch permission.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLaunchPermission' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681098723"><span id="local-6989586621681098724"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchPermission"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission"><span class="hs-identifier hs-var">LaunchPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchPermission%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission%27"><span class="hs-identifier hs-var">LaunchPermission'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681133420"><span id="local-6989586621681133421"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchPermission"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission"><span class="hs-identifier hs-var">LaunchPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchPermission%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission%27"><span class="hs-identifier hs-var">LaunchPermission'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the group.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Agroup%27%3ALaunchPermission%27"><span class="annot"><span class="annottext">LaunchPermission -&gt; Maybe PermissionGroup
 </span><a href="Network.AWS.EC2.Types.LaunchPermission.html#%24sel%3Agroup%27%3ALaunchPermission%27"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PermissionGroup.html#PermissionGroup"><span class="hs-identifier hs-type">PermissionGroup</span></a></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AuserId%3ALaunchPermission%27"><span class="annot"><span class="annottext">LaunchPermission -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.LaunchPermission.html#%24sel%3AuserId%3ALaunchPermission%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681098716"><span id="local-6989586621681098718"><span class="annot"><span class="annottext">LaunchPermission -&gt; LaunchPermission -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681133413"><span id="local-6989586621681133415"><span class="annot"><span class="annottext">LaunchPermission -&gt; LaunchPermission -&gt; Bool
 (LaunchPermission -&gt; LaunchPermission -&gt; Bool)
 -&gt; (LaunchPermission -&gt; LaunchPermission -&gt; Bool)
 -&gt; Eq LaunchPermission
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LaunchPermission -&gt; LaunchPermission -&gt; Bool
 == :: LaunchPermission -&gt; LaunchPermission -&gt; Bool
 $c== :: LaunchPermission -&gt; LaunchPermission -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681098707"><span id="local-6989586621681098709"><span id="local-6989586621681098711"><span id="local-6989586621681098713"><span class="annot"><span class="annottext">ReadPrec [LaunchPermission]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681133404"><span id="local-6989586621681133406"><span id="local-6989586621681133408"><span id="local-6989586621681133410"><span class="annot"><span class="annottext">ReadPrec [LaunchPermission]
 ReadPrec LaunchPermission
 Int -&gt; ReadS LaunchPermission
 ReadS [LaunchPermission]
@@ -68,7 +68,7 @@ readList :: ReadS [LaunchPermission]
 $creadList :: ReadS [LaunchPermission]
 readsPrec :: Int -&gt; ReadS LaunchPermission
 $creadsPrec :: Int -&gt; ReadS LaunchPermission
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681098700"><span id="local-6989586621681098702"><span id="local-6989586621681098704"><span class="annot"><span class="annottext">Int -&gt; LaunchPermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681133397"><span id="local-6989586621681133399"><span id="local-6989586621681133401"><span class="annot"><span class="annottext">Int -&gt; LaunchPermission -&gt; ShowS
 [LaunchPermission] -&gt; ShowS
 LaunchPermission -&gt; String
 (Int -&gt; LaunchPermission -&gt; ShowS)
@@ -136,16 +136,16 @@ forall a. Maybe a
      (Maybe PermissionGroup)
      (Maybe PermissionGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission%27"><span class="hs-identifier hs-type">LaunchPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681098691"><span class="annot"><span class="annottext">Maybe PermissionGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission%27"><span class="hs-identifier hs-type">LaunchPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681133388"><span class="annot"><span class="annottext">Maybe PermissionGroup
 group' :: Maybe PermissionGroup
 $sel:group':LaunchPermission' :: LaunchPermission -&gt; Maybe PermissionGroup
-</span><a href="#local-6989586621681098691"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionGroup
-</span><a href="#local-6989586621681098691"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681098690"><span class="annot"><span class="annottext">s :: LaunchPermission
-</span><a href="#local-6989586621681098690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission%27"><span class="hs-identifier hs-type">LaunchPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681098689"><span class="annot"><span class="annottext">Maybe PermissionGroup
-</span><a href="#local-6989586621681098689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchPermission
-</span><a href="#local-6989586621681098690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':LaunchPermission' :: Maybe PermissionGroup
+</span><a href="#local-6989586621681133388"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionGroup
+</span><a href="#local-6989586621681133388"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681133387"><span class="annot"><span class="annottext">s :: LaunchPermission
+</span><a href="#local-6989586621681133387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission%27"><span class="hs-identifier hs-type">LaunchPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681133386"><span class="annot"><span class="annottext">Maybe PermissionGroup
+</span><a href="#local-6989586621681133386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchPermission
+</span><a href="#local-6989586621681133387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':LaunchPermission' :: Maybe PermissionGroup
 </span><a href="Network.AWS.EC2.Types.LaunchPermission.html#%24sel%3Agroup%27%3ALaunchPermission%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionGroup
-</span><a href="#local-6989586621681098689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission"><span class="hs-identifier hs-type">LaunchPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681133386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission"><span class="hs-identifier hs-type">LaunchPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The Amazon Web Services account ID.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
@@ -158,21 +158,21 @@ $sel:group':LaunchPermission' :: LaunchPermission -&gt; Maybe PermissionGroup
 -&gt; (LaunchPermission -&gt; Maybe Text -&gt; LaunchPermission)
 -&gt; Lens LaunchPermission LaunchPermission (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission%27"><span class="hs-identifier hs-type">LaunchPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681098687"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission%27"><span class="hs-identifier hs-type">LaunchPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681133384"><span class="annot"><span class="annottext">Maybe Text
 userId :: Maybe Text
 $sel:userId:LaunchPermission' :: LaunchPermission -&gt; Maybe Text
-</span><a href="#local-6989586621681098687"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681098687"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681098686"><span class="annot"><span class="annottext">s :: LaunchPermission
-</span><a href="#local-6989586621681098686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission%27"><span class="hs-identifier hs-type">LaunchPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681098685"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681098685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchPermission
-</span><a href="#local-6989586621681098686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:LaunchPermission' :: Maybe Text
+</span><a href="#local-6989586621681133384"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681133384"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681133383"><span class="annot"><span class="annottext">s :: LaunchPermission
+</span><a href="#local-6989586621681133383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission%27"><span class="hs-identifier hs-type">LaunchPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681133382"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681133382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchPermission
+</span><a href="#local-6989586621681133383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:LaunchPermission' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.LaunchPermission.html#%24sel%3AuserId%3ALaunchPermission%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681098685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission"><span class="hs-identifier hs-type">LaunchPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681133382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission"><span class="hs-identifier hs-type">LaunchPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission"><span class="hs-identifier hs-type">LaunchPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621681098682"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LaunchPermission
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681098680"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681098680"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621681133379"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LaunchPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681133377"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681133377"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">Maybe PermissionGroup -&gt; Maybe Text -&gt; LaunchPermission
 </span><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission%27"><span class="hs-identifier hs-var">LaunchPermission'</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">(Maybe PermissionGroup -&gt; Maybe Text -&gt; LaunchPermission)
@@ -180,7 +180,7 @@ $sel:userId:LaunchPermission' :: LaunchPermission -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; LaunchPermission)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681098680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PermissionGroup)
+</span><a href="#local-6989586621681133377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PermissionGroup)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;group&quot;</span></span><span class="hs-special">)</span><span>
@@ -188,24 +188,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String LaunchPermission
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681098680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681133377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;userId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681098674"><span id="local-6989586621681098676"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission"><span class="hs-identifier hs-type">LaunchPermission</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681133371"><span id="local-6989586621681133373"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission"><span class="hs-identifier hs-type">LaunchPermission</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681098671"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission"><span class="hs-identifier hs-type">LaunchPermission</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681133368"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission"><span class="hs-identifier hs-type">LaunchPermission</span></a></span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission"><span class="hs-identifier hs-type">LaunchPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621681098667"><span class="annot"><span class="annottext">toQuery :: LaunchPermission -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission%27"><span class="hs-identifier hs-type">LaunchPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681098664"><span id="local-6989586621681098665"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621681133364"><span class="annot"><span class="annottext">toQuery :: LaunchPermission -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchPermission.html#LaunchPermission%27"><span class="hs-identifier hs-type">LaunchPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681133361"><span id="local-6989586621681133362"><span class="annot"><span class="annottext">Maybe Text
 Maybe PermissionGroup
 userId :: Maybe Text
 group' :: Maybe PermissionGroup
 $sel:userId:LaunchPermission' :: LaunchPermission -&gt; Maybe Text
 $sel:group':LaunchPermission' :: LaunchPermission -&gt; Maybe PermissionGroup
-</span><a href="#local-6989586621681098664"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681133361"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -213,9 +213,9 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Group&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe PermissionGroup -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PermissionGroup
-</span><a href="#local-6989586621681098665"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621681133362"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;UserId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681098664"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621681133361"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span></pre></body></html>

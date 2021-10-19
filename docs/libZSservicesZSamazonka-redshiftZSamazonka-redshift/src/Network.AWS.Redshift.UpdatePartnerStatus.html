@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUpdatePartnerStatus' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679529673"><span id="local-6989586621679529674"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePartnerStatus"><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-var">UpdatePartnerStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePartnerStatus%27"><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-var">UpdatePartnerStatus'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679530425"><span id="local-6989586621679530426"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePartnerStatus"><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-var">UpdatePartnerStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePartnerStatus%27"><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-var">UpdatePartnerStatus'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status message provided by the partner.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AstatusMessage%3AUpdatePartnerStatus%27"><span class="annot"><span class="annottext">UpdatePartnerStatus -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#%24sel%3AstatusMessage%3AUpdatePartnerStatus%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3Astatus%3AUpdatePartnerStatus%27"><span class="annot"><span class="annottext">UpdatePartnerStatus -&gt; PartnerIntegrationStatus
 </span><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#%24sel%3Astatus%3AUpdatePartnerStatus%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PartnerIntegrationStatus.html#PartnerIntegrationStatus"><span class="hs-identifier hs-type">PartnerIntegrationStatus</span></a></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679529662"><span id="local-6989586621679529664"><span class="annot"><span class="annottext">UpdatePartnerStatus -&gt; UpdatePartnerStatus -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679530414"><span id="local-6989586621679530416"><span class="annot"><span class="annottext">UpdatePartnerStatus -&gt; UpdatePartnerStatus -&gt; Bool
 (UpdatePartnerStatus -&gt; UpdatePartnerStatus -&gt; Bool)
 -&gt; (UpdatePartnerStatus -&gt; UpdatePartnerStatus -&gt; Bool)
 -&gt; Eq UpdatePartnerStatus
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdatePartnerStatus -&gt; UpdatePartnerStatus -&gt; Bool
 == :: UpdatePartnerStatus -&gt; UpdatePartnerStatus -&gt; Bool
 $c== :: UpdatePartnerStatus -&gt; UpdatePartnerStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529653"><span id="local-6989586621679529655"><span id="local-6989586621679529657"><span id="local-6989586621679529659"><span class="annot"><span class="annottext">ReadPrec [UpdatePartnerStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679530405"><span id="local-6989586621679530407"><span id="local-6989586621679530409"><span id="local-6989586621679530411"><span class="annot"><span class="annottext">ReadPrec [UpdatePartnerStatus]
 ReadPrec UpdatePartnerStatus
 Int -&gt; ReadS UpdatePartnerStatus
 ReadS [UpdatePartnerStatus]
@@ -103,7 +103,7 @@ readList :: ReadS [UpdatePartnerStatus]
 $creadList :: ReadS [UpdatePartnerStatus]
 readsPrec :: Int -&gt; ReadS UpdatePartnerStatus
 $creadsPrec :: Int -&gt; ReadS UpdatePartnerStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529646"><span id="local-6989586621679529648"><span id="local-6989586621679529650"><span class="annot"><span class="annottext">Int -&gt; UpdatePartnerStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679530398"><span id="local-6989586621679530400"><span id="local-6989586621679530402"><span class="annot"><span class="annottext">Int -&gt; UpdatePartnerStatus -&gt; ShowS
 [UpdatePartnerStatus] -&gt; ShowS
 UpdatePartnerStatus -&gt; String
 (Int -&gt; UpdatePartnerStatus -&gt; ShowS)
@@ -169,16 +169,16 @@ $cfrom :: forall x. UpdatePartnerStatus -&gt; Rep UpdatePartnerStatus x
 -&gt; PartnerIntegrationStatus
 -&gt; UpdatePartnerStatus
 </span><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#newUpdatePartnerStatus"><span class="hs-identifier hs-var hs-var">newUpdatePartnerStatus</span></a></span></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679529641"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529641"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679529640"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529640"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679529639"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529639"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679529638"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529638"><span class="hs-identifier hs-var">pPartnerName_</span></a></span></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679529637"><span class="annot"><span class="annottext">PartnerIntegrationStatus
-</span><a href="#local-6989586621679529637"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679530393"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679530393"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679530392"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679530392"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679530391"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679530391"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679530390"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679530390"><span class="hs-identifier hs-var">pPartnerName_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679530389"><span class="annot"><span class="annottext">PartnerIntegrationStatus
+</span><a href="#local-6989586621679530389"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">UpdatePartnerStatus' :: Maybe Text
 -&gt; Text
 -&gt; Text
@@ -194,19 +194,19 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:accountId:UpdatePartnerStatus' :: Text
 </span><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#%24sel%3AaccountId%3AUpdatePartnerStatus%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529641"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679530393"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:UpdatePartnerStatus' :: Text
 </span><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#%24sel%3AclusterIdentifier%3AUpdatePartnerStatus%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529640"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679530392"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:databaseName:UpdatePartnerStatus' :: Text
 </span><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#%24sel%3AdatabaseName%3AUpdatePartnerStatus%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529639"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679530391"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:partnerName:UpdatePartnerStatus' :: Text
 </span><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#%24sel%3ApartnerName%3AUpdatePartnerStatus%27"><span class="hs-identifier hs-var">partnerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529638"><span class="hs-identifier hs-var">pPartnerName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679530390"><span class="hs-identifier hs-var">pPartnerName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:UpdatePartnerStatus' :: PartnerIntegrationStatus
 </span><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#%24sel%3Astatus%3AUpdatePartnerStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PartnerIntegrationStatus
-</span><a href="#local-6989586621679529637"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621679530389"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The status message provided by the partner.</span><span>
@@ -218,16 +218,16 @@ forall a. Maybe a
 -&gt; Lens
      UpdatePartnerStatus UpdatePartnerStatus (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529634"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679530386"><span class="annot"><span class="annottext">Maybe Text
 statusMessage :: Maybe Text
 $sel:statusMessage:UpdatePartnerStatus' :: UpdatePartnerStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679529634"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679529634"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529633"><span class="annot"><span class="annottext">s :: UpdatePartnerStatus
-</span><a href="#local-6989586621679529633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529632"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679529632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePartnerStatus
-</span><a href="#local-6989586621679529633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:UpdatePartnerStatus' :: Maybe Text
+</span><a href="#local-6989586621679530386"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679530386"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679530385"><span class="annot"><span class="annottext">s :: UpdatePartnerStatus
+</span><a href="#local-6989586621679530385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679530384"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679530384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePartnerStatus
+</span><a href="#local-6989586621679530385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:UpdatePartnerStatus' :: Maybe Text
 </span><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#%24sel%3AstatusMessage%3AUpdatePartnerStatus%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679529632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679530384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The Amazon Web Services account ID that owns the cluster.</span><span>
 </span><span id="line-127"></span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#updatePartnerStatus_accountId"><span class="hs-identifier hs-type">updatePartnerStatus_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -236,16 +236,16 @@ $sel:statusMessage:UpdatePartnerStatus' :: UpdatePartnerStatus -&gt; Maybe Text
 -&gt; (UpdatePartnerStatus -&gt; Text -&gt; UpdatePartnerStatus)
 -&gt; Lens UpdatePartnerStatus UpdatePartnerStatus Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529631"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679530383"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:UpdatePartnerStatus' :: UpdatePartnerStatus -&gt; Text
-</span><a href="#local-6989586621679529631"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529631"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529630"><span class="annot"><span class="annottext">s :: UpdatePartnerStatus
-</span><a href="#local-6989586621679529630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529629"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePartnerStatus
-</span><a href="#local-6989586621679529630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:UpdatePartnerStatus' :: Text
+</span><a href="#local-6989586621679530383"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679530383"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679530382"><span class="annot"><span class="annottext">s :: UpdatePartnerStatus
+</span><a href="#local-6989586621679530382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679530381"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679530381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePartnerStatus
+</span><a href="#local-6989586621679530382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:UpdatePartnerStatus' :: Text
 </span><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#%24sel%3AaccountId%3AUpdatePartnerStatus%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679530381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The cluster identifier of the cluster whose partner integration status</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- is being updated.</span><span>
@@ -255,16 +255,16 @@ $sel:accountId:UpdatePartnerStatus' :: UpdatePartnerStatus -&gt; Text
 -&gt; (UpdatePartnerStatus -&gt; Text -&gt; UpdatePartnerStatus)
 -&gt; Lens UpdatePartnerStatus UpdatePartnerStatus Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529628"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679530380"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 $sel:clusterIdentifier:UpdatePartnerStatus' :: UpdatePartnerStatus -&gt; Text
-</span><a href="#local-6989586621679529628"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529628"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529627"><span class="annot"><span class="annottext">s :: UpdatePartnerStatus
-</span><a href="#local-6989586621679529627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529626"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePartnerStatus
-</span><a href="#local-6989586621679529627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:UpdatePartnerStatus' :: Text
+</span><a href="#local-6989586621679530380"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679530380"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679530379"><span class="annot"><span class="annottext">s :: UpdatePartnerStatus
+</span><a href="#local-6989586621679530379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679530378"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679530378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePartnerStatus
+</span><a href="#local-6989586621679530379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:UpdatePartnerStatus' :: Text
 </span><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#%24sel%3AclusterIdentifier%3AUpdatePartnerStatus%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679530378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The name of the database whose partner integration status is being</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- updated.</span><span>
@@ -274,16 +274,16 @@ $sel:clusterIdentifier:UpdatePartnerStatus' :: UpdatePartnerStatus -&gt; Text
 -&gt; (UpdatePartnerStatus -&gt; Text -&gt; UpdatePartnerStatus)
 -&gt; Lens UpdatePartnerStatus UpdatePartnerStatus Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529625"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679530377"><span class="annot"><span class="annottext">Text
 databaseName :: Text
 $sel:databaseName:UpdatePartnerStatus' :: UpdatePartnerStatus -&gt; Text
-</span><a href="#local-6989586621679529625"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529625"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529624"><span class="annot"><span class="annottext">s :: UpdatePartnerStatus
-</span><a href="#local-6989586621679529624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529623"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePartnerStatus
-</span><a href="#local-6989586621679529624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:UpdatePartnerStatus' :: Text
+</span><a href="#local-6989586621679530377"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679530377"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679530376"><span class="annot"><span class="annottext">s :: UpdatePartnerStatus
+</span><a href="#local-6989586621679530376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679530375"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679530375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePartnerStatus
+</span><a href="#local-6989586621679530376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:UpdatePartnerStatus' :: Text
 </span><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#%24sel%3AdatabaseName%3AUpdatePartnerStatus%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679530375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | The name of the partner whose integration status is being updated.</span><span>
 </span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#updatePartnerStatus_partnerName"><span class="hs-identifier hs-type">updatePartnerStatus_partnerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -292,16 +292,16 @@ $sel:databaseName:UpdatePartnerStatus' :: UpdatePartnerStatus -&gt; Text
 -&gt; (UpdatePartnerStatus -&gt; Text -&gt; UpdatePartnerStatus)
 -&gt; Lens UpdatePartnerStatus UpdatePartnerStatus Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529622"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679530374"><span class="annot"><span class="annottext">Text
 partnerName :: Text
 $sel:partnerName:UpdatePartnerStatus' :: UpdatePartnerStatus -&gt; Text
-</span><a href="#local-6989586621679529622"><span class="hs-identifier hs-var hs-var">partnerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529622"><span class="hs-identifier hs-var">partnerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529621"><span class="annot"><span class="annottext">s :: UpdatePartnerStatus
-</span><a href="#local-6989586621679529621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529620"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePartnerStatus
-</span><a href="#local-6989586621679529621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partnerName:UpdatePartnerStatus' :: Text
+</span><a href="#local-6989586621679530374"><span class="hs-identifier hs-var hs-var">partnerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679530374"><span class="hs-identifier hs-var">partnerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679530373"><span class="annot"><span class="annottext">s :: UpdatePartnerStatus
+</span><a href="#local-6989586621679530373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679530372"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679530372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePartnerStatus
+</span><a href="#local-6989586621679530373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partnerName:UpdatePartnerStatus' :: Text
 </span><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#%24sel%3ApartnerName%3AUpdatePartnerStatus%27"><span class="hs-identifier hs-var">partnerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679530372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The value of the updated status.</span><span>
 </span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#updatePartnerStatus_status"><span class="hs-identifier hs-type">updatePartnerStatus_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PartnerIntegrationStatus.html#PartnerIntegrationStatus"><span class="hs-identifier hs-type">PartnerIntegrationStatus</span></a></span><span>
@@ -316,27 +316,27 @@ $sel:partnerName:UpdatePartnerStatus' :: UpdatePartnerStatus -&gt; Text
      PartnerIntegrationStatus
      PartnerIntegrationStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529619"><span class="annot"><span class="annottext">PartnerIntegrationStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679530371"><span class="annot"><span class="annottext">PartnerIntegrationStatus
 status :: PartnerIntegrationStatus
 $sel:status:UpdatePartnerStatus' :: UpdatePartnerStatus -&gt; PartnerIntegrationStatus
-</span><a href="#local-6989586621679529619"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartnerIntegrationStatus
-</span><a href="#local-6989586621679529619"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529618"><span class="annot"><span class="annottext">s :: UpdatePartnerStatus
-</span><a href="#local-6989586621679529618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529617"><span class="annot"><span class="annottext">PartnerIntegrationStatus
-</span><a href="#local-6989586621679529617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePartnerStatus
-</span><a href="#local-6989586621679529618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UpdatePartnerStatus' :: PartnerIntegrationStatus
+</span><a href="#local-6989586621679530371"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartnerIntegrationStatus
+</span><a href="#local-6989586621679530371"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679530370"><span class="annot"><span class="annottext">s :: UpdatePartnerStatus
+</span><a href="#local-6989586621679530370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679530369"><span class="annot"><span class="annottext">PartnerIntegrationStatus
+</span><a href="#local-6989586621679530369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePartnerStatus
+</span><a href="#local-6989586621679530370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UpdatePartnerStatus' :: PartnerIntegrationStatus
 </span><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#%24sel%3Astatus%3AUpdatePartnerStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PartnerIntegrationStatus
-</span><a href="#local-6989586621679529617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679530369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-150"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.Types.PartnerIntegrationOutputMessage.html#PartnerIntegrationOutputMessage"><span class="hs-identifier hs-type">PartnerIntegrationOutputMessage</span></a></span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679529613"><span class="annot"><span class="annottext">request :: UpdatePartnerStatus -&gt; Request UpdatePartnerStatus
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679530365"><span class="annot"><span class="annottext">request :: UpdatePartnerStatus -&gt; Request UpdatePartnerStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdatePartnerStatus -&gt; Request UpdatePartnerStatus
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679529609"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679530361"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdatePartnerStatus
 -&gt; ClientResponse ClientBody
@@ -367,20 +367,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UpdatePartnerStatusResult&quot;</span></span><span>
-</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529606"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679529606"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679529605"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679529605"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679529604"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679529604"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String PartnerIntegrationOutputMessage
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679530358"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679530358"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679530357"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679530357"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679530356"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679530356"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String PartnerIntegrationOutputMessage
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679529604"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679530356"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679529599"><span id="local-6989586621679529601"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679530351"><span id="local-6989586621679530353"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679529596"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679530348"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679529592"><span class="annot"><span class="annottext">toHeaders :: UpdatePartnerStatus -&gt; ResponseHeaders
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679530344"><span class="annot"><span class="annottext">toHeaders :: UpdatePartnerStatus -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdatePartnerStatus -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -388,15 +388,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679529587"><span class="annot"><span class="annottext">toPath :: UpdatePartnerStatus -&gt; ByteString
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679530339"><span class="annot"><span class="annottext">toPath :: UpdatePartnerStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdatePartnerStatus -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus"><span class="hs-identifier hs-type">UpdatePartnerStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679529583"><span class="annot"><span class="annottext">toQuery :: UpdatePartnerStatus -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529576"><span id="local-6989586621679529577"><span id="local-6989586621679529578"><span id="local-6989586621679529579"><span id="local-6989586621679529580"><span id="local-6989586621679529581"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679530335"><span class="annot"><span class="annottext">toQuery :: UpdatePartnerStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.UpdatePartnerStatus.html#UpdatePartnerStatus%27"><span class="hs-identifier hs-type">UpdatePartnerStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679530328"><span id="local-6989586621679530329"><span id="local-6989586621679530330"><span id="local-6989586621679530331"><span id="local-6989586621679530332"><span id="local-6989586621679530333"><span class="annot"><span class="annottext">Maybe Text
 Text
 PartnerIntegrationStatus
 status :: PartnerIntegrationStatus
@@ -411,7 +411,7 @@ $sel:databaseName:UpdatePartnerStatus' :: UpdatePartnerStatus -&gt; Text
 $sel:clusterIdentifier:UpdatePartnerStatus' :: UpdatePartnerStatus -&gt; Text
 $sel:accountId:UpdatePartnerStatus' :: UpdatePartnerStatus -&gt; Text
 $sel:statusMessage:UpdatePartnerStatus' :: UpdatePartnerStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679529576"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679530328"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -431,31 +431,31 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679529581"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679530333"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529580"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679530332"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529579"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679530331"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529578"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679530330"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PartnerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529577"><span class="hs-identifier hs-var">partnerName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679530329"><span class="hs-identifier hs-var">partnerName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PartnerIntegrationStatus -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">PartnerIntegrationStatus
-</span><a href="#local-6989586621679529576"><span class="hs-identifier hs-var">status</span></a></span><span>
+</span><a href="#local-6989586621679530328"><span class="hs-identifier hs-var">status</span></a></span><span>
 </span><span id="line-181"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-182"></span></pre></body></html>

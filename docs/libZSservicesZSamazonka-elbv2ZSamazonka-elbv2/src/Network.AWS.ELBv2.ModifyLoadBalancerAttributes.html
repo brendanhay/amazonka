@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newModifyLoadBalancerAttributes' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679255503"><span id="local-6989586621679255504"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyLoadBalancerAttributes"><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes"><span class="hs-identifier hs-var">ModifyLoadBalancerAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyLoadBalancerAttributes%27"><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-var">ModifyLoadBalancerAttributes'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679258413"><span id="local-6989586621679258414"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyLoadBalancerAttributes"><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes"><span class="hs-identifier hs-var">ModifyLoadBalancerAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyLoadBalancerAttributes%27"><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-var">ModifyLoadBalancerAttributes'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the load balancer.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AloadBalancerArn%3AModifyLoadBalancerAttributes%27"><span class="annot"><span class="annottext">ModifyLoadBalancerAttributes -&gt; Text
 </span><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#%24sel%3AloadBalancerArn%3AModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-var hs-var">loadBalancerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3Aattributes%3AModifyLoadBalancerAttributes%27"><span class="annot"><span class="annottext">ModifyLoadBalancerAttributes -&gt; [LoadBalancerAttribute]
 </span><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#%24sel%3Aattributes%3AModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerAttribute.html#LoadBalancerAttribute"><span class="hs-identifier hs-type">LoadBalancerAttribute</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255496"><span id="local-6989586621679255498"><span class="annot"><span class="annottext">ModifyLoadBalancerAttributes
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258406"><span id="local-6989586621679258408"><span class="annot"><span class="annottext">ModifyLoadBalancerAttributes
 -&gt; ModifyLoadBalancerAttributes -&gt; Bool
 (ModifyLoadBalancerAttributes
  -&gt; ModifyLoadBalancerAttributes -&gt; Bool)
@@ -77,7 +77,7 @@ $c/= :: ModifyLoadBalancerAttributes
 -&gt; ModifyLoadBalancerAttributes -&gt; Bool
 $c== :: ModifyLoadBalancerAttributes
 -&gt; ModifyLoadBalancerAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255487"><span id="local-6989586621679255489"><span id="local-6989586621679255491"><span id="local-6989586621679255493"><span class="annot"><span class="annottext">ReadPrec [ModifyLoadBalancerAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258397"><span id="local-6989586621679258399"><span id="local-6989586621679258401"><span id="local-6989586621679258403"><span class="annot"><span class="annottext">ReadPrec [ModifyLoadBalancerAttributes]
 ReadPrec ModifyLoadBalancerAttributes
 Int -&gt; ReadS ModifyLoadBalancerAttributes
 ReadS [ModifyLoadBalancerAttributes]
@@ -97,7 +97,7 @@ readList :: ReadS [ModifyLoadBalancerAttributes]
 $creadList :: ReadS [ModifyLoadBalancerAttributes]
 readsPrec :: Int -&gt; ReadS ModifyLoadBalancerAttributes
 $creadsPrec :: Int -&gt; ReadS ModifyLoadBalancerAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255480"><span id="local-6989586621679255482"><span id="local-6989586621679255484"><span class="annot"><span class="annottext">Int -&gt; ModifyLoadBalancerAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258390"><span id="local-6989586621679258392"><span id="local-6989586621679258394"><span class="annot"><span class="annottext">Int -&gt; ModifyLoadBalancerAttributes -&gt; ShowS
 [ModifyLoadBalancerAttributes] -&gt; ShowS
 ModifyLoadBalancerAttributes -&gt; String
 (Int -&gt; ModifyLoadBalancerAttributes -&gt; ShowS)
@@ -145,14 +145,14 @@ ModifyLoadBalancerAttributes -&gt; Rep ModifyLoadBalancerAttributes x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes</span></a></span><span>
 </span><span id="line-79"></span><span id="newModifyLoadBalancerAttributes"><span class="annot"><span class="annottext">newModifyLoadBalancerAttributes :: Text -&gt; ModifyLoadBalancerAttributes
-</span><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#newModifyLoadBalancerAttributes"><span class="hs-identifier hs-var hs-var">newModifyLoadBalancerAttributes</span></a></span></span><span> </span><span id="local-6989586621679255475"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255475"><span class="hs-identifier hs-var">pLoadBalancerArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#newModifyLoadBalancerAttributes"><span class="hs-identifier hs-var hs-var">newModifyLoadBalancerAttributes</span></a></span></span><span> </span><span id="local-6989586621679258385"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258385"><span class="hs-identifier hs-var">pLoadBalancerArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">ModifyLoadBalancerAttributes' :: Text -&gt; [LoadBalancerAttribute] -&gt; ModifyLoadBalancerAttributes
 </span><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loadBalancerArn:ModifyLoadBalancerAttributes' :: Text
 </span><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#%24sel%3AloadBalancerArn%3AModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255475"><span class="hs-identifier hs-var">pLoadBalancerArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679258385"><span class="hs-identifier hs-var">pLoadBalancerArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:ModifyLoadBalancerAttributes' :: [LoadBalancerAttribute]
 </span><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#%24sel%3Aattributes%3AModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[LoadBalancerAttribute]
 forall a. Monoid a =&gt; a
@@ -169,16 +169,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      ModifyLoadBalancerAttributes ModifyLoadBalancerAttributes Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255472"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258382"><span class="annot"><span class="annottext">Text
 loadBalancerArn :: Text
 $sel:loadBalancerArn:ModifyLoadBalancerAttributes' :: ModifyLoadBalancerAttributes -&gt; Text
-</span><a href="#local-6989586621679255472"><span class="hs-identifier hs-var hs-var">loadBalancerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255472"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255471"><span class="annot"><span class="annottext">s :: ModifyLoadBalancerAttributes
-</span><a href="#local-6989586621679255471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255470"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyLoadBalancerAttributes
-</span><a href="#local-6989586621679255471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerArn:ModifyLoadBalancerAttributes' :: Text
+</span><a href="#local-6989586621679258382"><span class="hs-identifier hs-var hs-var">loadBalancerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258382"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258381"><span class="annot"><span class="annottext">s :: ModifyLoadBalancerAttributes
+</span><a href="#local-6989586621679258381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258380"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyLoadBalancerAttributes
+</span><a href="#local-6989586621679258381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerArn:ModifyLoadBalancerAttributes' :: Text
 </span><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#%24sel%3AloadBalancerArn%3AModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The load balancer attributes.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#modifyLoadBalancerAttributes_attributes"><span class="hs-identifier hs-type">modifyLoadBalancerAttributes_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerAttribute.html#LoadBalancerAttribute"><span class="hs-identifier hs-type">LoadBalancerAttribute</span></a></span><span class="hs-special">]</span><span>
@@ -193,16 +193,16 @@ $sel:loadBalancerArn:ModifyLoadBalancerAttributes' :: ModifyLoadBalancerAttribut
      [LoadBalancerAttribute]
      [LoadBalancerAttribute]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255469"><span class="annot"><span class="annottext">[LoadBalancerAttribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258379"><span class="annot"><span class="annottext">[LoadBalancerAttribute]
 attributes :: [LoadBalancerAttribute]
 $sel:attributes:ModifyLoadBalancerAttributes' :: ModifyLoadBalancerAttributes -&gt; [LoadBalancerAttribute]
-</span><a href="#local-6989586621679255469"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[LoadBalancerAttribute]
-</span><a href="#local-6989586621679255469"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255468"><span class="annot"><span class="annottext">s :: ModifyLoadBalancerAttributes
-</span><a href="#local-6989586621679255468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255467"><span class="annot"><span class="annottext">[LoadBalancerAttribute]
-</span><a href="#local-6989586621679255467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyLoadBalancerAttributes
-</span><a href="#local-6989586621679255468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:ModifyLoadBalancerAttributes' :: [LoadBalancerAttribute]
+</span><a href="#local-6989586621679258379"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[LoadBalancerAttribute]
+</span><a href="#local-6989586621679258379"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258378"><span class="annot"><span class="annottext">s :: ModifyLoadBalancerAttributes
+</span><a href="#local-6989586621679258378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258377"><span class="annot"><span class="annottext">[LoadBalancerAttribute]
+</span><a href="#local-6989586621679258377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyLoadBalancerAttributes
+</span><a href="#local-6989586621679258378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:ModifyLoadBalancerAttributes' :: [LoadBalancerAttribute]
 </span><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#%24sel%3Aattributes%3AModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[LoadBalancerAttribute]
-</span><a href="#local-6989586621679255467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([LoadBalancerAttribute] -&gt; f [LoadBalancerAttribute])
+</span><a href="#local-6989586621679258377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([LoadBalancerAttribute] -&gt; f [LoadBalancerAttribute])
  -&gt; ModifyLoadBalancerAttributes -&gt; f ModifyLoadBalancerAttributes)
 -&gt; (([LoadBalancerAttribute] -&gt; f [LoadBalancerAttribute])
     -&gt; [LoadBalancerAttribute] -&gt; f [LoadBalancerAttribute])
@@ -212,14 +212,14 @@ $sel:attributes:ModifyLoadBalancerAttributes' :: ModifyLoadBalancerAttributes -&
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([LoadBalancerAttribute] -&gt; f [LoadBalancerAttribute])
 -&gt; [LoadBalancerAttribute] -&gt; f [LoadBalancerAttribute]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributesResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679255461"><span class="annot"><span class="annottext">request :: ModifyLoadBalancerAttributes
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679258371"><span class="annot"><span class="annottext">request :: ModifyLoadBalancerAttributes
 -&gt; Request ModifyLoadBalancerAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ModifyLoadBalancerAttributes
@@ -227,7 +227,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ELBv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679255457"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679258367"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyLoadBalancerAttributes
 -&gt; ClientResponse ClientBody
@@ -258,10 +258,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModifyLoadBalancerAttributesResult&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255454"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255454"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679255453"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679255453"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679255452"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679255452"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258364"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258364"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679258363"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679258363"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679258362"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679258362"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe [LoadBalancerAttribute]
 -&gt; Int -&gt; ModifyLoadBalancerAttributesResponse
 </span><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse%27"><span class="hs-identifier hs-var">ModifyLoadBalancerAttributesResponse'</span></a></span><span>
@@ -271,7 +271,7 @@ Text
 -&gt; Either String (Int -&gt; ModifyLoadBalancerAttributesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679255452"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679258362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -302,17 +302,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255454"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258364"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679255441"><span id="local-6989586621679255443"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679258351"><span id="local-6989586621679258353"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255438"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258348"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679255434"><span class="annot"><span class="annottext">toHeaders :: ModifyLoadBalancerAttributes -&gt; ResponseHeaders
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679258344"><span class="annot"><span class="annottext">toHeaders :: ModifyLoadBalancerAttributes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyLoadBalancerAttributes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -320,21 +320,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679255429"><span class="annot"><span class="annottext">toPath :: ModifyLoadBalancerAttributes -&gt; ByteString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679258339"><span class="annot"><span class="annottext">toPath :: ModifyLoadBalancerAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyLoadBalancerAttributes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679255425"><span class="annot"><span class="annottext">toQuery :: ModifyLoadBalancerAttributes -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255422"><span id="local-6989586621679255423"><span class="annot"><span class="annottext">[LoadBalancerAttribute]
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679258335"><span class="annot"><span class="annottext">toQuery :: ModifyLoadBalancerAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributes%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258332"><span id="local-6989586621679258333"><span class="annot"><span class="annottext">[LoadBalancerAttribute]
 Text
 attributes :: [LoadBalancerAttribute]
 loadBalancerArn :: Text
 $sel:attributes:ModifyLoadBalancerAttributes' :: ModifyLoadBalancerAttributes -&gt; [LoadBalancerAttribute]
 $sel:loadBalancerArn:ModifyLoadBalancerAttributes' :: ModifyLoadBalancerAttributes -&gt; Text
-</span><a href="#local-6989586621679255422"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679258332"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -356,7 +356,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;LoadBalancerArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255423"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679258333"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -367,11 +367,11 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[LoadBalancerAttribute]
-</span><a href="#local-6989586621679255422"><span class="hs-identifier hs-var">attributes</span></a></span><span>
+</span><a href="#local-6989586621679258332"><span class="hs-identifier hs-var">attributes</span></a></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newModifyLoadBalancerAttributesResponse' smart constructor.</span><span>
-</span><span id="line-137"></span><span id="local-6989586621679255418"><span id="local-6989586621679255419"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyLoadBalancerAttributesResponse"><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse"><span class="hs-identifier hs-var">ModifyLoadBalancerAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyLoadBalancerAttributesResponse%27"><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse%27"><span class="hs-identifier hs-var">ModifyLoadBalancerAttributesResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span id="local-6989586621679258328"><span id="local-6989586621679258329"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyLoadBalancerAttributesResponse"><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse"><span class="hs-identifier hs-var">ModifyLoadBalancerAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyLoadBalancerAttributesResponse%27"><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse%27"><span class="hs-identifier hs-var">ModifyLoadBalancerAttributesResponse'</span></a></span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the load balancer attributes.</span><span>
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3Aattributes%3AModifyLoadBalancerAttributesResponse%27"><span class="annot"><span class="annottext">ModifyLoadBalancerAttributesResponse
 -&gt; Maybe [LoadBalancerAttribute]
@@ -380,7 +380,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyLoadBalancerAttributesResponse%27"><span class="annot"><span class="annottext">ModifyLoadBalancerAttributesResponse -&gt; Int
 </span><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#%24sel%3AhttpStatus%3AModifyLoadBalancerAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255412"><span id="local-6989586621679255414"><span class="annot"><span class="annottext">ModifyLoadBalancerAttributesResponse
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258322"><span id="local-6989586621679258324"><span class="annot"><span class="annottext">ModifyLoadBalancerAttributesResponse
 -&gt; ModifyLoadBalancerAttributesResponse -&gt; Bool
 (ModifyLoadBalancerAttributesResponse
  -&gt; ModifyLoadBalancerAttributesResponse -&gt; Bool)
@@ -396,7 +396,7 @@ $c/= :: ModifyLoadBalancerAttributesResponse
 -&gt; ModifyLoadBalancerAttributesResponse -&gt; Bool
 $c== :: ModifyLoadBalancerAttributesResponse
 -&gt; ModifyLoadBalancerAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255404"><span id="local-6989586621679255406"><span id="local-6989586621679255408"><span id="local-6989586621679255410"><span class="annot"><span class="annottext">ReadPrec [ModifyLoadBalancerAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258314"><span id="local-6989586621679258316"><span id="local-6989586621679258318"><span id="local-6989586621679258320"><span class="annot"><span class="annottext">ReadPrec [ModifyLoadBalancerAttributesResponse]
 ReadPrec ModifyLoadBalancerAttributesResponse
 Int -&gt; ReadS ModifyLoadBalancerAttributesResponse
 ReadS [ModifyLoadBalancerAttributesResponse]
@@ -416,7 +416,7 @@ readList :: ReadS [ModifyLoadBalancerAttributesResponse]
 $creadList :: ReadS [ModifyLoadBalancerAttributesResponse]
 readsPrec :: Int -&gt; ReadS ModifyLoadBalancerAttributesResponse
 $creadsPrec :: Int -&gt; ReadS ModifyLoadBalancerAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255398"><span id="local-6989586621679255400"><span id="local-6989586621679255402"><span class="annot"><span class="annottext">Int -&gt; ModifyLoadBalancerAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258308"><span id="local-6989586621679258310"><span id="local-6989586621679258312"><span class="annot"><span class="annottext">Int -&gt; ModifyLoadBalancerAttributesResponse -&gt; ShowS
 [ModifyLoadBalancerAttributesResponse] -&gt; ShowS
 ModifyLoadBalancerAttributesResponse -&gt; String
 (Int -&gt; ModifyLoadBalancerAttributesResponse -&gt; ShowS)
@@ -470,8 +470,8 @@ ModifyLoadBalancerAttributesResponse
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributesResponse</span></a></span><span>
 </span><span id="line-160"></span><span id="newModifyLoadBalancerAttributesResponse"><span class="annot"><span class="annottext">newModifyLoadBalancerAttributesResponse :: Int -&gt; ModifyLoadBalancerAttributesResponse
-</span><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#newModifyLoadBalancerAttributesResponse"><span class="hs-identifier hs-var hs-var">newModifyLoadBalancerAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679255395"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255395"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#newModifyLoadBalancerAttributesResponse"><span class="hs-identifier hs-var hs-var">newModifyLoadBalancerAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679258305"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258305"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">ModifyLoadBalancerAttributesResponse' :: Maybe [LoadBalancerAttribute]
 -&gt; Int -&gt; ModifyLoadBalancerAttributesResponse
 </span><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributesResponse'</span></a></span><span>
@@ -482,7 +482,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyLoadBalancerAttributesResponse' :: Int
 </span><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#%24sel%3AhttpStatus%3AModifyLoadBalancerAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255395"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679258305"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | Information about the load balancer attributes.</span><span>
@@ -502,17 +502,17 @@ forall a. Maybe a
      (Maybe [LoadBalancerAttribute])
      (Maybe [LoadBalancerAttribute])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255394"><span class="annot"><span class="annottext">Maybe [LoadBalancerAttribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258304"><span class="annot"><span class="annottext">Maybe [LoadBalancerAttribute]
 attributes :: Maybe [LoadBalancerAttribute]
 $sel:attributes:ModifyLoadBalancerAttributesResponse' :: ModifyLoadBalancerAttributesResponse
 -&gt; Maybe [LoadBalancerAttribute]
-</span><a href="#local-6989586621679255394"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LoadBalancerAttribute]
-</span><a href="#local-6989586621679255394"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255393"><span class="annot"><span class="annottext">s :: ModifyLoadBalancerAttributesResponse
-</span><a href="#local-6989586621679255393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255392"><span class="annot"><span class="annottext">Maybe [LoadBalancerAttribute]
-</span><a href="#local-6989586621679255392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyLoadBalancerAttributesResponse
-</span><a href="#local-6989586621679255393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:ModifyLoadBalancerAttributesResponse' :: Maybe [LoadBalancerAttribute]
+</span><a href="#local-6989586621679258304"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LoadBalancerAttribute]
+</span><a href="#local-6989586621679258304"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258303"><span class="annot"><span class="annottext">s :: ModifyLoadBalancerAttributesResponse
+</span><a href="#local-6989586621679258303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258302"><span class="annot"><span class="annottext">Maybe [LoadBalancerAttribute]
+</span><a href="#local-6989586621679258302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyLoadBalancerAttributesResponse
+</span><a href="#local-6989586621679258303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:ModifyLoadBalancerAttributesResponse' :: Maybe [LoadBalancerAttribute]
 </span><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#%24sel%3Aattributes%3AModifyLoadBalancerAttributesResponse%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LoadBalancerAttribute]
-</span><a href="#local-6989586621679255392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LoadBalancerAttribute]
+</span><a href="#local-6989586621679258302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LoadBalancerAttribute]
   -&gt; f (Maybe [LoadBalancerAttribute]))
  -&gt; ModifyLoadBalancerAttributesResponse
  -&gt; f ModifyLoadBalancerAttributesResponse)
@@ -543,8 +543,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [LoadBalancerAttribute]
   [LoadBalancerAttribute]
   [LoadBalancerAttribute]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#modifyLoadBalancerAttributesResponse_httpStatus"><span class="hs-identifier hs-type">modifyLoadBalancerAttributesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -560,18 +560,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255390"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258300"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ModifyLoadBalancerAttributesResponse' :: ModifyLoadBalancerAttributesResponse -&gt; Int
-</span><a href="#local-6989586621679255390"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255390"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255389"><span class="annot"><span class="annottext">s :: ModifyLoadBalancerAttributesResponse
-</span><a href="#local-6989586621679255389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255388"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyLoadBalancerAttributesResponse
-</span><a href="#local-6989586621679255389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyLoadBalancerAttributesResponse' :: Int
+</span><a href="#local-6989586621679258300"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258300"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258299"><span class="annot"><span class="annottext">s :: ModifyLoadBalancerAttributesResponse
+</span><a href="#local-6989586621679258299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse%27"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258298"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyLoadBalancerAttributesResponse
+</span><a href="#local-6989586621679258299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyLoadBalancerAttributesResponse' :: Int
 </span><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#%24sel%3AhttpStatus%3AModifyLoadBalancerAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679255386"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679258296"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.ModifyLoadBalancerAttributes.html#ModifyLoadBalancerAttributesResponse"><span class="hs-identifier hs-type">ModifyLoadBalancerAttributesResponse</span></a></span></span><span>
 </span><span id="line-178"></span></pre></body></html>

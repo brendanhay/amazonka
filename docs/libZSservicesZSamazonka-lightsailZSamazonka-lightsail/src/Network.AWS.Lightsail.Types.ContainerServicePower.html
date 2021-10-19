@@ -30,28 +30,28 @@
 </span><span id="line-30"></span><span class="hs-comment">-- price of the container service.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newContainerServicePower' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679606882"><span id="local-6989586621679606883"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerServicePower"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-var">ContainerServicePower</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerServicePower%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-var">ContainerServicePower'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount of RAM (in GB) of the power.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AramSizeInGb%3AContainerServicePower%27"><span class="annot"><span class="annottext">ContainerServicePower -&gt; Maybe Double
-</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3AramSizeInGb%3AContainerServicePower%27"><span class="hs-identifier hs-var hs-var">ramSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A Boolean value indicating whether the power is active and can be</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- specified for container services.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AisActive%3AContainerServicePower%27"><span class="annot"><span class="annottext">ContainerServicePower -&gt; Maybe Bool
-</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3AisActive%3AContainerServicePower%27"><span class="hs-identifier hs-var hs-var">isActive</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The friendly name of the power (e.g., @nano@).</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aname%3AContainerServicePower%27"><span class="annot"><span class="annottext">ContainerServicePower -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3Aname%3AContainerServicePower%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The number of vCPUs included in the power.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcpuCount%3AContainerServicePower%27"><span class="annot"><span class="annottext">ContainerServicePower -&gt; Maybe Double
+</span><span id="line-33"></span><span id="local-6989586621679607769"><span id="local-6989586621679607770"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerServicePower"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-var">ContainerServicePower</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerServicePower%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-var">ContainerServicePower'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the power (e.g., @nano-1@).</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3ApowerId%3AContainerServicePower%27"><span class="annot"><span class="annottext">ContainerServicePower -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3ApowerId%3AContainerServicePower%27"><span class="hs-identifier hs-var hs-var">powerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The number of vCPUs included in the power.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcpuCount%3AContainerServicePower%27"><span class="annot"><span class="annottext">ContainerServicePower -&gt; Maybe Double
 </span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3AcpuCount%3AContainerServicePower%27"><span class="hs-identifier hs-var hs-var">cpuCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The monthly price of the power in USD.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aprice%3AContainerServicePower%27"><span class="annot"><span class="annottext">ContainerServicePower -&gt; Maybe Double
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The friendly name of the power (e.g., @nano@).</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aname%3AContainerServicePower%27"><span class="annot"><span class="annottext">ContainerServicePower -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3Aname%3AContainerServicePower%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The monthly price of the power in USD.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aprice%3AContainerServicePower%27"><span class="annot"><span class="annottext">ContainerServicePower -&gt; Maybe Double
 </span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3Aprice%3AContainerServicePower%27"><span class="hs-identifier hs-var hs-var">price</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The ID of the power (e.g., @nano-1@).</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3ApowerId%3AContainerServicePower%27"><span class="annot"><span class="annottext">ContainerServicePower -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3ApowerId%3AContainerServicePower%27"><span class="hs-identifier hs-var hs-var">powerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A Boolean value indicating whether the power is active and can be</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- specified for container services.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AisActive%3AContainerServicePower%27"><span class="annot"><span class="annottext">ContainerServicePower -&gt; Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3AisActive%3AContainerServicePower%27"><span class="hs-identifier hs-var hs-var">isActive</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The amount of RAM (in GB) of the power.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AramSizeInGb%3AContainerServicePower%27"><span class="annot"><span class="annottext">ContainerServicePower -&gt; Maybe Double
+</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3AramSizeInGb%3AContainerServicePower%27"><span class="hs-identifier hs-var hs-var">ramSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679606871"><span id="local-6989586621679606873"><span class="annot"><span class="annottext">ContainerServicePower -&gt; ContainerServicePower -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679607758"><span id="local-6989586621679607760"><span class="annot"><span class="annottext">ContainerServicePower -&gt; ContainerServicePower -&gt; Bool
 (ContainerServicePower -&gt; ContainerServicePower -&gt; Bool)
 -&gt; (ContainerServicePower -&gt; ContainerServicePower -&gt; Bool)
 -&gt; Eq ContainerServicePower
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ContainerServicePower -&gt; ContainerServicePower -&gt; Bool
 == :: ContainerServicePower -&gt; ContainerServicePower -&gt; Bool
 $c== :: ContainerServicePower -&gt; ContainerServicePower -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679606862"><span id="local-6989586621679606864"><span id="local-6989586621679606866"><span id="local-6989586621679606868"><span class="annot"><span class="annottext">ReadPrec [ContainerServicePower]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679607749"><span id="local-6989586621679607751"><span id="local-6989586621679607753"><span id="local-6989586621679607755"><span class="annot"><span class="annottext">ReadPrec [ContainerServicePower]
 ReadPrec ContainerServicePower
 Int -&gt; ReadS ContainerServicePower
 ReadS [ContainerServicePower]
@@ -80,7 +80,7 @@ readList :: ReadS [ContainerServicePower]
 $creadList :: ReadS [ContainerServicePower]
 readsPrec :: Int -&gt; ReadS ContainerServicePower
 $creadsPrec :: Int -&gt; ReadS ContainerServicePower
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679606855"><span id="local-6989586621679606857"><span id="local-6989586621679606859"><span class="annot"><span class="annottext">Int -&gt; ContainerServicePower -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679607742"><span id="local-6989586621679607744"><span id="local-6989586621679607746"><span class="annot"><span class="annottext">Int -&gt; ContainerServicePower -&gt; ShowS
 [ContainerServicePower] -&gt; ShowS
 ContainerServicePower -&gt; String
 (Int -&gt; ContainerServicePower -&gt; ShowS)
@@ -114,176 +114,59 @@ $cfrom :: forall x. ContainerServicePower -&gt; Rep ContainerServicePower x
 </span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'ramSizeInGb', 'containerServicePower_ramSizeInGb' - The amount of RAM (in GB) of the power.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'powerId', 'containerServicePower_powerId' - The ID of the power (e.g., @nano-1@).</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'isActive', 'containerServicePower_isActive' - A Boolean value indicating whether the power is active and can be</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- specified for container services.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'name', 'containerServicePower_name' - The friendly name of the power (e.g., @nano@).</span><span>
-</span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'cpuCount', 'containerServicePower_cpuCount' - The number of vCPUs included in the power.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'price', 'containerServicePower_price' - The monthly price of the power in USD.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'cpuCount', 'containerServicePower_cpuCount' - The number of vCPUs included in the power.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'name', 'containerServicePower_name' - The friendly name of the power (e.g., @nano@).</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'price', 'containerServicePower_price' - The monthly price of the power in USD.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'isActive', 'containerServicePower_isActive' - A Boolean value indicating whether the power is active and can be</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- specified for container services.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'powerId', 'containerServicePower_powerId' - The ID of the power (e.g., @nano-1@).</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'ramSizeInGb', 'containerServicePower_ramSizeInGb' - The amount of RAM (in GB) of the power.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#newContainerServicePower"><span class="hs-identifier hs-type">newContainerServicePower</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span>
 </span><span id="line-72"></span><span id="newContainerServicePower"><span class="annot"><span class="annottext">newContainerServicePower :: ContainerServicePower
 </span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#newContainerServicePower"><span class="hs-identifier hs-var hs-var">newContainerServicePower</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">ContainerServicePower' :: Maybe Double
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">ContainerServicePower' :: Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe Text
+-&gt; Maybe Double
 -&gt; Maybe Bool
--&gt; Maybe Text
 -&gt; Maybe Double
--&gt; Maybe Double
--&gt; Maybe Text
 -&gt; ContainerServicePower
 </span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ramSizeInGb:ContainerServicePower' :: Maybe Double
-</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3AramSizeInGb%3AContainerServicePower%27"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe Double
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:isActive:ContainerServicePower' :: Maybe Bool
-</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3AisActive%3AContainerServicePower%27"><span class="hs-identifier hs-var">isActive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ContainerServicePower' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3Aname%3AContainerServicePower%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:cpuCount:ContainerServicePower' :: Maybe Double
-</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3AcpuCount%3AContainerServicePower%27"><span class="hs-identifier hs-var">cpuCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:price:ContainerServicePower' :: Maybe Double
-</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3Aprice%3AContainerServicePower%27"><span class="hs-identifier hs-var">price</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:powerId:ContainerServicePower' :: Maybe Text
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:powerId:ContainerServicePower' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3ApowerId%3AContainerServicePower%27"><span class="hs-identifier hs-var">powerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | The amount of RAM (in GB) of the power.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_ramSizeInGb"><span class="hs-identifier hs-type">containerServicePower_ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="containerServicePower_ramSizeInGb"><span class="annot"><span class="annottext">containerServicePower_ramSizeInGb :: (Maybe Double -&gt; f (Maybe Double))
--&gt; ContainerServicePower -&gt; f ContainerServicePower
-</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_ramSizeInGb"><span class="hs-identifier hs-var hs-var">containerServicePower_ramSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServicePower -&gt; Maybe Double)
--&gt; (ContainerServicePower -&gt; Maybe Double -&gt; ContainerServicePower)
--&gt; Lens
-     ContainerServicePower
-     ContainerServicePower
-     (Maybe Double)
-     (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606846"><span class="annot"><span class="annottext">Maybe Double
-ramSizeInGb :: Maybe Double
-$sel:ramSizeInGb:ContainerServicePower' :: ContainerServicePower -&gt; Maybe Double
-</span><a href="#local-6989586621679606846"><span class="hs-identifier hs-var hs-var">ramSizeInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679606846"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679606845"><span class="annot"><span class="annottext">s :: ContainerServicePower
-</span><a href="#local-6989586621679606845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679606844"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679606844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServicePower
-</span><a href="#local-6989586621679606845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ramSizeInGb:ContainerServicePower' :: Maybe Double
-</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3AramSizeInGb%3AContainerServicePower%27"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679606844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | A Boolean value indicating whether the power is active and can be</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- specified for container services.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_isActive"><span class="hs-identifier hs-type">containerServicePower_isActive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="containerServicePower_isActive"><span class="annot"><span class="annottext">containerServicePower_isActive :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ContainerServicePower -&gt; f ContainerServicePower
-</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_isActive"><span class="hs-identifier hs-var hs-var">containerServicePower_isActive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServicePower -&gt; Maybe Bool)
--&gt; (ContainerServicePower -&gt; Maybe Bool -&gt; ContainerServicePower)
--&gt; Lens
-     ContainerServicePower
-     ContainerServicePower
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606842"><span class="annot"><span class="annottext">Maybe Bool
-isActive :: Maybe Bool
-$sel:isActive:ContainerServicePower' :: ContainerServicePower -&gt; Maybe Bool
-</span><a href="#local-6989586621679606842"><span class="hs-identifier hs-var hs-var">isActive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679606842"><span class="hs-identifier hs-var">isActive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679606841"><span class="annot"><span class="annottext">s :: ContainerServicePower
-</span><a href="#local-6989586621679606841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679606840"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679606840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServicePower
-</span><a href="#local-6989586621679606841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isActive:ContainerServicePower' :: Maybe Bool
-</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3AisActive%3AContainerServicePower%27"><span class="hs-identifier hs-var">isActive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679606840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | The friendly name of the power (e.g., @nano@).</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_name"><span class="hs-identifier hs-type">containerServicePower_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="containerServicePower_name"><span class="annot"><span class="annottext">containerServicePower_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ContainerServicePower -&gt; f ContainerServicePower
-</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_name"><span class="hs-identifier hs-var hs-var">containerServicePower_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServicePower -&gt; Maybe Text)
--&gt; (ContainerServicePower -&gt; Maybe Text -&gt; ContainerServicePower)
--&gt; Lens
-     ContainerServicePower
-     ContainerServicePower
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606838"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:ContainerServicePower' :: ContainerServicePower -&gt; Maybe Text
-</span><a href="#local-6989586621679606838"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679606838"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679606837"><span class="annot"><span class="annottext">s :: ContainerServicePower
-</span><a href="#local-6989586621679606837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679606836"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679606836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServicePower
-</span><a href="#local-6989586621679606837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ContainerServicePower' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3Aname%3AContainerServicePower%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679606836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The number of vCPUs included in the power.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_cpuCount"><span class="hs-identifier hs-type">containerServicePower_cpuCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="containerServicePower_cpuCount"><span class="annot"><span class="annottext">containerServicePower_cpuCount :: (Maybe Double -&gt; f (Maybe Double))
--&gt; ContainerServicePower -&gt; f ContainerServicePower
-</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_cpuCount"><span class="hs-identifier hs-var hs-var">containerServicePower_cpuCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServicePower -&gt; Maybe Double)
--&gt; (ContainerServicePower -&gt; Maybe Double -&gt; ContainerServicePower)
--&gt; Lens
-     ContainerServicePower
-     ContainerServicePower
-     (Maybe Double)
-     (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606834"><span class="annot"><span class="annottext">Maybe Double
-cpuCount :: Maybe Double
-$sel:cpuCount:ContainerServicePower' :: ContainerServicePower -&gt; Maybe Double
-</span><a href="#local-6989586621679606834"><span class="hs-identifier hs-var hs-var">cpuCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679606834"><span class="hs-identifier hs-var">cpuCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679606833"><span class="annot"><span class="annottext">s :: ContainerServicePower
-</span><a href="#local-6989586621679606833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679606832"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679606832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServicePower
-</span><a href="#local-6989586621679606833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cpuCount:ContainerServicePower' :: Maybe Double
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:cpuCount:ContainerServicePower' :: Maybe Double
 </span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3AcpuCount%3AContainerServicePower%27"><span class="hs-identifier hs-var">cpuCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679606832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The monthly price of the power in USD.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_price"><span class="hs-identifier hs-type">containerServicePower_price</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="containerServicePower_price"><span class="annot"><span class="annottext">containerServicePower_price :: (Maybe Double -&gt; f (Maybe Double))
--&gt; ContainerServicePower -&gt; f ContainerServicePower
-</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_price"><span class="hs-identifier hs-var hs-var">containerServicePower_price</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServicePower -&gt; Maybe Double)
--&gt; (ContainerServicePower -&gt; Maybe Double -&gt; ContainerServicePower)
--&gt; Lens
-     ContainerServicePower
-     ContainerServicePower
-     (Maybe Double)
-     (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606830"><span class="annot"><span class="annottext">Maybe Double
-price :: Maybe Double
-$sel:price:ContainerServicePower' :: ContainerServicePower -&gt; Maybe Double
-</span><a href="#local-6989586621679606830"><span class="hs-identifier hs-var hs-var">price</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679606830"><span class="hs-identifier hs-var">price</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679606829"><span class="annot"><span class="annottext">s :: ContainerServicePower
-</span><a href="#local-6989586621679606829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679606828"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679606828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServicePower
-</span><a href="#local-6989586621679606829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:price:ContainerServicePower' :: Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ContainerServicePower' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3Aname%3AContainerServicePower%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:price:ContainerServicePower' :: Maybe Double
 </span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3Aprice%3AContainerServicePower%27"><span class="hs-identifier hs-var">price</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679606828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | The ID of the power (e.g., @nano-1@).</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_powerId"><span class="hs-identifier hs-type">containerServicePower_powerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="containerServicePower_powerId"><span class="annot"><span class="annottext">containerServicePower_powerId :: (Maybe Text -&gt; f (Maybe Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:isActive:ContainerServicePower' :: Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3AisActive%3AContainerServicePower%27"><span class="hs-identifier hs-var">isActive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:ramSizeInGb:ContainerServicePower' :: Maybe Double
+</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3AramSizeInGb%3AContainerServicePower%27"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The ID of the power (e.g., @nano-1@).</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_powerId"><span class="hs-identifier hs-type">containerServicePower_powerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="containerServicePower_powerId"><span class="annot"><span class="annottext">containerServicePower_powerId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ContainerServicePower -&gt; f ContainerServicePower
 </span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_powerId"><span class="hs-identifier hs-var hs-var">containerServicePower_powerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServicePower -&gt; Maybe Text)
 -&gt; (ContainerServicePower -&gt; Maybe Text -&gt; ContainerServicePower)
@@ -293,126 +176,242 @@ $sel:price:ContainerServicePower' :: ContainerServicePower -&gt; Maybe Double
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606826"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607733"><span class="annot"><span class="annottext">Maybe Text
 powerId :: Maybe Text
 $sel:powerId:ContainerServicePower' :: ContainerServicePower -&gt; Maybe Text
-</span><a href="#local-6989586621679606826"><span class="hs-identifier hs-var hs-var">powerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679606826"><span class="hs-identifier hs-var">powerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679606825"><span class="annot"><span class="annottext">s :: ContainerServicePower
-</span><a href="#local-6989586621679606825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679606824"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679606824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServicePower
-</span><a href="#local-6989586621679606825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:powerId:ContainerServicePower' :: Maybe Text
+</span><a href="#local-6989586621679607733"><span class="hs-identifier hs-var hs-var">powerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679607733"><span class="hs-identifier hs-var">powerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607732"><span class="annot"><span class="annottext">s :: ContainerServicePower
+</span><a href="#local-6989586621679607732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607731"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679607731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServicePower
+</span><a href="#local-6989586621679607732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:powerId:ContainerServicePower' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3ApowerId%3AContainerServicePower%27"><span class="hs-identifier hs-var">powerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679606824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606821"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679606819"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContainerServicePower
+</span><a href="#local-6989586621679607731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The number of vCPUs included in the power.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_cpuCount"><span class="hs-identifier hs-type">containerServicePower_cpuCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="containerServicePower_cpuCount"><span class="annot"><span class="annottext">containerServicePower_cpuCount :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; ContainerServicePower -&gt; f ContainerServicePower
+</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_cpuCount"><span class="hs-identifier hs-var hs-var">containerServicePower_cpuCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServicePower -&gt; Maybe Double)
+-&gt; (ContainerServicePower -&gt; Maybe Double -&gt; ContainerServicePower)
+-&gt; Lens
+     ContainerServicePower
+     ContainerServicePower
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607729"><span class="annot"><span class="annottext">Maybe Double
+cpuCount :: Maybe Double
+$sel:cpuCount:ContainerServicePower' :: ContainerServicePower -&gt; Maybe Double
+</span><a href="#local-6989586621679607729"><span class="hs-identifier hs-var hs-var">cpuCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679607729"><span class="hs-identifier hs-var">cpuCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607728"><span class="annot"><span class="annottext">s :: ContainerServicePower
+</span><a href="#local-6989586621679607728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607727"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679607727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServicePower
+</span><a href="#local-6989586621679607728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cpuCount:ContainerServicePower' :: Maybe Double
+</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3AcpuCount%3AContainerServicePower%27"><span class="hs-identifier hs-var">cpuCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679607727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The friendly name of the power (e.g., @nano@).</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_name"><span class="hs-identifier hs-type">containerServicePower_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="containerServicePower_name"><span class="annot"><span class="annottext">containerServicePower_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContainerServicePower -&gt; f ContainerServicePower
+</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_name"><span class="hs-identifier hs-var hs-var">containerServicePower_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServicePower -&gt; Maybe Text)
+-&gt; (ContainerServicePower -&gt; Maybe Text -&gt; ContainerServicePower)
+-&gt; Lens
+     ContainerServicePower
+     ContainerServicePower
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607725"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ContainerServicePower' :: ContainerServicePower -&gt; Maybe Text
+</span><a href="#local-6989586621679607725"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679607725"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607724"><span class="annot"><span class="annottext">s :: ContainerServicePower
+</span><a href="#local-6989586621679607724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607723"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679607723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServicePower
+</span><a href="#local-6989586621679607724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ContainerServicePower' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3Aname%3AContainerServicePower%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679607723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The monthly price of the power in USD.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_price"><span class="hs-identifier hs-type">containerServicePower_price</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="containerServicePower_price"><span class="annot"><span class="annottext">containerServicePower_price :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; ContainerServicePower -&gt; f ContainerServicePower
+</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_price"><span class="hs-identifier hs-var hs-var">containerServicePower_price</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServicePower -&gt; Maybe Double)
+-&gt; (ContainerServicePower -&gt; Maybe Double -&gt; ContainerServicePower)
+-&gt; Lens
+     ContainerServicePower
+     ContainerServicePower
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607721"><span class="annot"><span class="annottext">Maybe Double
+price :: Maybe Double
+$sel:price:ContainerServicePower' :: ContainerServicePower -&gt; Maybe Double
+</span><a href="#local-6989586621679607721"><span class="hs-identifier hs-var hs-var">price</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679607721"><span class="hs-identifier hs-var">price</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607720"><span class="annot"><span class="annottext">s :: ContainerServicePower
+</span><a href="#local-6989586621679607720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607719"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679607719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServicePower
+</span><a href="#local-6989586621679607720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:price:ContainerServicePower' :: Maybe Double
+</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3Aprice%3AContainerServicePower%27"><span class="hs-identifier hs-var">price</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679607719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | A Boolean value indicating whether the power is active and can be</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- specified for container services.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_isActive"><span class="hs-identifier hs-type">containerServicePower_isActive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="containerServicePower_isActive"><span class="annot"><span class="annottext">containerServicePower_isActive :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ContainerServicePower -&gt; f ContainerServicePower
+</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_isActive"><span class="hs-identifier hs-var hs-var">containerServicePower_isActive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServicePower -&gt; Maybe Bool)
+-&gt; (ContainerServicePower -&gt; Maybe Bool -&gt; ContainerServicePower)
+-&gt; Lens
+     ContainerServicePower
+     ContainerServicePower
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607717"><span class="annot"><span class="annottext">Maybe Bool
+isActive :: Maybe Bool
+$sel:isActive:ContainerServicePower' :: ContainerServicePower -&gt; Maybe Bool
+</span><a href="#local-6989586621679607717"><span class="hs-identifier hs-var hs-var">isActive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679607717"><span class="hs-identifier hs-var">isActive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607716"><span class="annot"><span class="annottext">s :: ContainerServicePower
+</span><a href="#local-6989586621679607716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607715"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679607715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServicePower
+</span><a href="#local-6989586621679607716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isActive:ContainerServicePower' :: Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3AisActive%3AContainerServicePower%27"><span class="hs-identifier hs-var">isActive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679607715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The amount of RAM (in GB) of the power.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_ramSizeInGb"><span class="hs-identifier hs-type">containerServicePower_ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="containerServicePower_ramSizeInGb"><span class="annot"><span class="annottext">containerServicePower_ramSizeInGb :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; ContainerServicePower -&gt; f ContainerServicePower
+</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#containerServicePower_ramSizeInGb"><span class="hs-identifier hs-var hs-var">containerServicePower_ramSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServicePower -&gt; Maybe Double)
+-&gt; (ContainerServicePower -&gt; Maybe Double -&gt; ContainerServicePower)
+-&gt; Lens
+     ContainerServicePower
+     ContainerServicePower
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607713"><span class="annot"><span class="annottext">Maybe Double
+ramSizeInGb :: Maybe Double
+$sel:ramSizeInGb:ContainerServicePower' :: ContainerServicePower -&gt; Maybe Double
+</span><a href="#local-6989586621679607713"><span class="hs-identifier hs-var hs-var">ramSizeInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679607713"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607712"><span class="annot"><span class="annottext">s :: ContainerServicePower
+</span><a href="#local-6989586621679607712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-type">ContainerServicePower'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607711"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679607711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServicePower
+</span><a href="#local-6989586621679607712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ramSizeInGb:ContainerServicePower' :: Maybe Double
+</span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#%24sel%3AramSizeInGb%3AContainerServicePower%27"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679607711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607708"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679607706"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContainerServicePower
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ContainerServicePower)
 -&gt; Value
 -&gt; Parser ContainerServicePower
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ContainerServicePower&quot;</span></span><span>
-</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679606816"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606816"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679607703"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607703"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe Text
+-&gt; Maybe Double
 -&gt; Maybe Bool
--&gt; Maybe Text
 -&gt; Maybe Double
--&gt; Maybe Double
--&gt; Maybe Text
 -&gt; ContainerServicePower
 </span><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower%27"><span class="hs-identifier hs-var">ContainerServicePower'</span></a></span><span>
-</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Double
+ -&gt; Maybe Text
+ -&gt; Maybe Double
  -&gt; Maybe Bool
- -&gt; Maybe Text
  -&gt; Maybe Double
- -&gt; Maybe Double
- -&gt; Maybe Text
  -&gt; ContainerServicePower)
--&gt; Parser (Maybe Double)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Bool
+     (Maybe Double
       -&gt; Maybe Text
       -&gt; Maybe Double
+      -&gt; Maybe Bool
       -&gt; Maybe Double
-      -&gt; Maybe Text
       -&gt; ContainerServicePower)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679607703"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ramSizeInGb&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Bool
+</span><span class="hs-string">&quot;powerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
    -&gt; Maybe Text
    -&gt; Maybe Double
+   -&gt; Maybe Bool
    -&gt; Maybe Double
-   -&gt; Maybe Text
    -&gt; ContainerServicePower)
--&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe Double)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Double
+      -&gt; Maybe Bool
       -&gt; Maybe Double
-      -&gt; Maybe Text
       -&gt; ContainerServicePower)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679607703"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;isActive&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;cpuCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Double
+   -&gt; Maybe Bool
    -&gt; Maybe Double
-   -&gt; Maybe Text
    -&gt; ContainerServicePower)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Double
-      -&gt; Maybe Double -&gt; Maybe Text -&gt; ContainerServicePower)
+      -&gt; Maybe Bool -&gt; Maybe Double -&gt; ContainerServicePower)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679607703"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Double
-   -&gt; Maybe Double -&gt; Maybe Text -&gt; ContainerServicePower)
+   -&gt; Maybe Bool -&gt; Maybe Double -&gt; ContainerServicePower)
 -&gt; Parser (Maybe Double)
--&gt; Parser (Maybe Double -&gt; Maybe Text -&gt; ContainerServicePower)
+-&gt; Parser (Maybe Bool -&gt; Maybe Double -&gt; ContainerServicePower)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;cpuCount&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Maybe Text -&gt; ContainerServicePower)
--&gt; Parser (Maybe Double)
--&gt; Parser (Maybe Text -&gt; ContainerServicePower)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679607703"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;price&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ContainerServicePower)
--&gt; Parser (Maybe Text) -&gt; Parser ContainerServicePower
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Double -&gt; ContainerServicePower)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe Double -&gt; ContainerServicePower)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679607703"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;powerId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606810"><span id="local-6989586621679606812"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span></span></span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606807"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span></span><span>
-</span><span id="line-125"></span></pre></body></html>
+</span><span class="hs-string">&quot;isActive&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; ContainerServicePower)
+-&gt; Parser (Maybe Double) -&gt; Parser ContainerServicePower
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607703"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ramSizeInGb&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607697"><span id="local-6989586621679607699"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607694"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePower.html#ContainerServicePower"><span class="hs-identifier hs-type">ContainerServicePower</span></a></span></span><span>
+</span><span id="line-124"></span></pre></body></html>

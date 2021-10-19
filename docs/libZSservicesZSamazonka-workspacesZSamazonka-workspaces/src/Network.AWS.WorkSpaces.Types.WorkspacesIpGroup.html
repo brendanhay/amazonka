@@ -27,21 +27,21 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes an IP access control group.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newWorkspacesIpGroup' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679274568"><span id="local-6989586621679274569"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkspacesIpGroup"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-var">WorkspacesIpGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspacesIpGroup%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-var">WorkspacesIpGroup'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The rules.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AuserRules%3AWorkspacesIpGroup%27"><span class="annot"><span class="annottext">WorkspacesIpGroup -&gt; Maybe [IpRuleItem]
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AuserRules%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var hs-var">userRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.IpRuleItem.html#IpRuleItem"><span class="hs-identifier hs-type">IpRuleItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The description of the group.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AgroupDesc%3AWorkspacesIpGroup%27"><span class="annot"><span class="annottext">WorkspacesIpGroup -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679277406"><span id="local-6989586621679277407"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkspacesIpGroup"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-var">WorkspacesIpGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspacesIpGroup%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-var">WorkspacesIpGroup'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the group.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AgroupDesc%3AWorkspacesIpGroup%27"><span class="annot"><span class="annottext">WorkspacesIpGroup -&gt; Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AgroupDesc%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var hs-var">groupDesc</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the group.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AgroupName%3AWorkspacesIpGroup%27"><span class="annot"><span class="annottext">WorkspacesIpGroup -&gt; Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AgroupName%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The identifier of the group.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AgroupId%3AWorkspacesIpGroup%27"><span class="annot"><span class="annottext">WorkspacesIpGroup -&gt; Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AgroupId%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The rules.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AuserRules%3AWorkspacesIpGroup%27"><span class="annot"><span class="annottext">WorkspacesIpGroup -&gt; Maybe [IpRuleItem]
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AuserRules%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var hs-var">userRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.IpRuleItem.html#IpRuleItem"><span class="hs-identifier hs-type">IpRuleItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The identifier of the group.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AgroupId%3AWorkspacesIpGroup%27"><span class="annot"><span class="annottext">WorkspacesIpGroup -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AgroupId%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the group.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AgroupName%3AWorkspacesIpGroup%27"><span class="annot"><span class="annottext">WorkspacesIpGroup -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AgroupName%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274559"><span id="local-6989586621679274561"><span class="annot"><span class="annottext">WorkspacesIpGroup -&gt; WorkspacesIpGroup -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277397"><span id="local-6989586621679277399"><span class="annot"><span class="annottext">WorkspacesIpGroup -&gt; WorkspacesIpGroup -&gt; Bool
 (WorkspacesIpGroup -&gt; WorkspacesIpGroup -&gt; Bool)
 -&gt; (WorkspacesIpGroup -&gt; WorkspacesIpGroup -&gt; Bool)
 -&gt; Eq WorkspacesIpGroup
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WorkspacesIpGroup -&gt; WorkspacesIpGroup -&gt; Bool
 == :: WorkspacesIpGroup -&gt; WorkspacesIpGroup -&gt; Bool
 $c== :: WorkspacesIpGroup -&gt; WorkspacesIpGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274550"><span id="local-6989586621679274552"><span id="local-6989586621679274554"><span id="local-6989586621679274556"><span class="annot"><span class="annottext">ReadPrec [WorkspacesIpGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277388"><span id="local-6989586621679277390"><span id="local-6989586621679277392"><span id="local-6989586621679277394"><span class="annot"><span class="annottext">ReadPrec [WorkspacesIpGroup]
 ReadPrec WorkspacesIpGroup
 Int -&gt; ReadS WorkspacesIpGroup
 ReadS [WorkspacesIpGroup]
@@ -70,7 +70,7 @@ readList :: ReadS [WorkspacesIpGroup]
 $creadList :: ReadS [WorkspacesIpGroup]
 readsPrec :: Int -&gt; ReadS WorkspacesIpGroup
 $creadsPrec :: Int -&gt; ReadS WorkspacesIpGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274543"><span id="local-6989586621679274545"><span id="local-6989586621679274547"><span class="annot"><span class="annottext">Int -&gt; WorkspacesIpGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277381"><span id="local-6989586621679277383"><span id="local-6989586621679277385"><span class="annot"><span class="annottext">Int -&gt; WorkspacesIpGroup -&gt; ShowS
 [WorkspacesIpGroup] -&gt; ShowS
 WorkspacesIpGroup -&gt; String
 (Int -&gt; WorkspacesIpGroup -&gt; ShowS)
@@ -104,41 +104,64 @@ $cfrom :: forall x. WorkspacesIpGroup -&gt; Rep WorkspacesIpGroup x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'userRules', 'workspacesIpGroup_userRules' - The rules.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'groupDesc', 'workspacesIpGroup_groupDesc' - The description of the group.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'groupDesc', 'workspacesIpGroup_groupDesc' - The description of the group.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'userRules', 'workspacesIpGroup_userRules' - The rules.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'groupName', 'workspacesIpGroup_groupName' - The name of the group.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'groupId', 'workspacesIpGroup_groupId' - The identifier of the group.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'groupId', 'workspacesIpGroup_groupId' - The identifier of the group.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'groupName', 'workspacesIpGroup_groupName' - The name of the group.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#newWorkspacesIpGroup"><span class="hs-identifier hs-type">newWorkspacesIpGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span><span>
 </span><span id="line-59"></span><span id="newWorkspacesIpGroup"><span class="annot"><span class="annottext">newWorkspacesIpGroup :: WorkspacesIpGroup
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#newWorkspacesIpGroup"><span class="hs-identifier hs-var hs-var">newWorkspacesIpGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">WorkspacesIpGroup' :: Maybe [IpRuleItem]
--&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; WorkspacesIpGroup
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">WorkspacesIpGroup' :: Maybe Text
+-&gt; Maybe [IpRuleItem]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; WorkspacesIpGroup
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-type">WorkspacesIpGroup'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userRules:WorkspacesIpGroup' :: Maybe [IpRuleItem]
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AuserRules%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var">userRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IpRuleItem]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupDesc:WorkspacesIpGroup' :: Maybe Text
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupDesc:WorkspacesIpGroup' :: Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AgroupDesc%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var">groupDesc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:WorkspacesIpGroup' :: Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AgroupName%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:userRules:WorkspacesIpGroup' :: Maybe [IpRuleItem]
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AuserRules%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var">userRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IpRuleItem]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupId:WorkspacesIpGroup' :: Maybe Text
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupId:WorkspacesIpGroup' :: Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AgroupId%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:WorkspacesIpGroup' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AgroupName%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The rules.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#workspacesIpGroup_userRules"><span class="hs-identifier hs-type">workspacesIpGroup_userRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.IpRuleItem.html#IpRuleItem"><span class="hs-identifier hs-type">IpRuleItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="workspacesIpGroup_userRules"><span class="annot"><span class="annottext">workspacesIpGroup_userRules :: (Maybe [IpRuleItem] -&gt; f (Maybe [IpRuleItem]))
+</span><span id="line-67"></span><span class="hs-comment">-- | The description of the group.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#workspacesIpGroup_groupDesc"><span class="hs-identifier hs-type">workspacesIpGroup_groupDesc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="workspacesIpGroup_groupDesc"><span class="annot"><span class="annottext">workspacesIpGroup_groupDesc :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspacesIpGroup -&gt; f WorkspacesIpGroup
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#workspacesIpGroup_groupDesc"><span class="hs-identifier hs-var hs-var">workspacesIpGroup_groupDesc</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspacesIpGroup -&gt; Maybe Text)
+-&gt; (WorkspacesIpGroup -&gt; Maybe Text -&gt; WorkspacesIpGroup)
+-&gt; Lens
+     WorkspacesIpGroup WorkspacesIpGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-type">WorkspacesIpGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277372"><span class="annot"><span class="annottext">Maybe Text
+groupDesc :: Maybe Text
+$sel:groupDesc:WorkspacesIpGroup' :: WorkspacesIpGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679277372"><span class="hs-identifier hs-var hs-var">groupDesc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277372"><span class="hs-identifier hs-var">groupDesc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277371"><span class="annot"><span class="annottext">s :: WorkspacesIpGroup
+</span><a href="#local-6989586621679277371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-type">WorkspacesIpGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277370"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspacesIpGroup
+</span><a href="#local-6989586621679277371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupDesc:WorkspacesIpGroup' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AgroupDesc%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var">groupDesc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The rules.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#workspacesIpGroup_userRules"><span class="hs-identifier hs-type">workspacesIpGroup_userRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.IpRuleItem.html#IpRuleItem"><span class="hs-identifier hs-type">IpRuleItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="workspacesIpGroup_userRules"><span class="annot"><span class="annottext">workspacesIpGroup_userRules :: (Maybe [IpRuleItem] -&gt; f (Maybe [IpRuleItem]))
 -&gt; WorkspacesIpGroup -&gt; f WorkspacesIpGroup
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#workspacesIpGroup_userRules"><span class="hs-identifier hs-var hs-var">workspacesIpGroup_userRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspacesIpGroup -&gt; Maybe [IpRuleItem])
 -&gt; (WorkspacesIpGroup -&gt; Maybe [IpRuleItem] -&gt; WorkspacesIpGroup)
@@ -148,16 +171,16 @@ forall a. Maybe a
      (Maybe [IpRuleItem])
      (Maybe [IpRuleItem])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-type">WorkspacesIpGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274534"><span class="annot"><span class="annottext">Maybe [IpRuleItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-type">WorkspacesIpGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277368"><span class="annot"><span class="annottext">Maybe [IpRuleItem]
 userRules :: Maybe [IpRuleItem]
 $sel:userRules:WorkspacesIpGroup' :: WorkspacesIpGroup -&gt; Maybe [IpRuleItem]
-</span><a href="#local-6989586621679274534"><span class="hs-identifier hs-var hs-var">userRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IpRuleItem]
-</span><a href="#local-6989586621679274534"><span class="hs-identifier hs-var">userRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274533"><span class="annot"><span class="annottext">s :: WorkspacesIpGroup
-</span><a href="#local-6989586621679274533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-type">WorkspacesIpGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274532"><span class="annot"><span class="annottext">Maybe [IpRuleItem]
-</span><a href="#local-6989586621679274532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspacesIpGroup
-</span><a href="#local-6989586621679274533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userRules:WorkspacesIpGroup' :: Maybe [IpRuleItem]
+</span><a href="#local-6989586621679277368"><span class="hs-identifier hs-var hs-var">userRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IpRuleItem]
+</span><a href="#local-6989586621679277368"><span class="hs-identifier hs-var">userRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277367"><span class="annot"><span class="annottext">s :: WorkspacesIpGroup
+</span><a href="#local-6989586621679277367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-type">WorkspacesIpGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277366"><span class="annot"><span class="annottext">Maybe [IpRuleItem]
+</span><a href="#local-6989586621679277366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspacesIpGroup
+</span><a href="#local-6989586621679277367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userRules:WorkspacesIpGroup' :: Maybe [IpRuleItem]
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AuserRules%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var">userRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IpRuleItem]
-</span><a href="#local-6989586621679274532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IpRuleItem] -&gt; f (Maybe [IpRuleItem]))
+</span><a href="#local-6989586621679277366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IpRuleItem] -&gt; f (Maybe [IpRuleItem]))
  -&gt; WorkspacesIpGroup -&gt; f WorkspacesIpGroup)
 -&gt; ((Maybe [IpRuleItem] -&gt; f (Maybe [IpRuleItem]))
     -&gt; Maybe [IpRuleItem] -&gt; f (Maybe [IpRuleItem]))
@@ -175,71 +198,51 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [IpRuleItem] [IpRuleItem] [IpRuleItem] [IpRuleItem]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | The description of the group.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#workspacesIpGroup_groupDesc"><span class="hs-identifier hs-type">workspacesIpGroup_groupDesc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="workspacesIpGroup_groupDesc"><span class="annot"><span class="annottext">workspacesIpGroup_groupDesc :: (Maybe Text -&gt; f (Maybe Text))
--&gt; WorkspacesIpGroup -&gt; f WorkspacesIpGroup
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#workspacesIpGroup_groupDesc"><span class="hs-identifier hs-var hs-var">workspacesIpGroup_groupDesc</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspacesIpGroup -&gt; Maybe Text)
--&gt; (WorkspacesIpGroup -&gt; Maybe Text -&gt; WorkspacesIpGroup)
--&gt; Lens
-     WorkspacesIpGroup WorkspacesIpGroup (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-type">WorkspacesIpGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274527"><span class="annot"><span class="annottext">Maybe Text
-groupDesc :: Maybe Text
-$sel:groupDesc:WorkspacesIpGroup' :: WorkspacesIpGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679274527"><span class="hs-identifier hs-var hs-var">groupDesc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274527"><span class="hs-identifier hs-var">groupDesc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274526"><span class="annot"><span class="annottext">s :: WorkspacesIpGroup
-</span><a href="#local-6989586621679274526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-type">WorkspacesIpGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274525"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspacesIpGroup
-</span><a href="#local-6989586621679274526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupDesc:WorkspacesIpGroup' :: Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AgroupDesc%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var">groupDesc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | The name of the group.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#workspacesIpGroup_groupName"><span class="hs-identifier hs-type">workspacesIpGroup_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="workspacesIpGroup_groupName"><span class="annot"><span class="annottext">workspacesIpGroup_groupName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; WorkspacesIpGroup -&gt; f WorkspacesIpGroup
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#workspacesIpGroup_groupName"><span class="hs-identifier hs-var hs-var">workspacesIpGroup_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspacesIpGroup -&gt; Maybe Text)
--&gt; (WorkspacesIpGroup -&gt; Maybe Text -&gt; WorkspacesIpGroup)
--&gt; Lens
-     WorkspacesIpGroup WorkspacesIpGroup (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-type">WorkspacesIpGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274523"><span class="annot"><span class="annottext">Maybe Text
-groupName :: Maybe Text
-$sel:groupName:WorkspacesIpGroup' :: WorkspacesIpGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679274523"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274523"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274522"><span class="annot"><span class="annottext">s :: WorkspacesIpGroup
-</span><a href="#local-6989586621679274522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-type">WorkspacesIpGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274521"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspacesIpGroup
-</span><a href="#local-6989586621679274522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:WorkspacesIpGroup' :: Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AgroupName%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | The identifier of the group.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#workspacesIpGroup_groupId"><span class="hs-identifier hs-type">workspacesIpGroup_groupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="workspacesIpGroup_groupId"><span class="annot"><span class="annottext">workspacesIpGroup_groupId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-75"></span><span class="hs-comment">-- | The identifier of the group.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#workspacesIpGroup_groupId"><span class="hs-identifier hs-type">workspacesIpGroup_groupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="workspacesIpGroup_groupId"><span class="annot"><span class="annottext">workspacesIpGroup_groupId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; WorkspacesIpGroup -&gt; f WorkspacesIpGroup
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#workspacesIpGroup_groupId"><span class="hs-identifier hs-var hs-var">workspacesIpGroup_groupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspacesIpGroup -&gt; Maybe Text)
 -&gt; (WorkspacesIpGroup -&gt; Maybe Text -&gt; WorkspacesIpGroup)
 -&gt; Lens
      WorkspacesIpGroup WorkspacesIpGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-type">WorkspacesIpGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274519"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-type">WorkspacesIpGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277361"><span class="annot"><span class="annottext">Maybe Text
 groupId :: Maybe Text
 $sel:groupId:WorkspacesIpGroup' :: WorkspacesIpGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679274519"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274519"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274518"><span class="annot"><span class="annottext">s :: WorkspacesIpGroup
-</span><a href="#local-6989586621679274518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-type">WorkspacesIpGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274517"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspacesIpGroup
-</span><a href="#local-6989586621679274518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:WorkspacesIpGroup' :: Maybe Text
+</span><a href="#local-6989586621679277361"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277361"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277360"><span class="annot"><span class="annottext">s :: WorkspacesIpGroup
+</span><a href="#local-6989586621679277360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-type">WorkspacesIpGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277359"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspacesIpGroup
+</span><a href="#local-6989586621679277360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:WorkspacesIpGroup' :: Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AgroupId%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The name of the group.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#workspacesIpGroup_groupName"><span class="hs-identifier hs-type">workspacesIpGroup_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="workspacesIpGroup_groupName"><span class="annot"><span class="annottext">workspacesIpGroup_groupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspacesIpGroup -&gt; f WorkspacesIpGroup
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#workspacesIpGroup_groupName"><span class="hs-identifier hs-var hs-var">workspacesIpGroup_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspacesIpGroup -&gt; Maybe Text)
+-&gt; (WorkspacesIpGroup -&gt; Maybe Text -&gt; WorkspacesIpGroup)
+-&gt; Lens
+     WorkspacesIpGroup WorkspacesIpGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-type">WorkspacesIpGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277357"><span class="annot"><span class="annottext">Maybe Text
+groupName :: Maybe Text
+$sel:groupName:WorkspacesIpGroup' :: WorkspacesIpGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679277357"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277357"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277356"><span class="annot"><span class="annottext">s :: WorkspacesIpGroup
+</span><a href="#local-6989586621679277356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-type">WorkspacesIpGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277355"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspacesIpGroup
+</span><a href="#local-6989586621679277356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:WorkspacesIpGroup' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#%24sel%3AgroupName%3AWorkspacesIpGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274514"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679274512"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkspacesIpGroup
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277352"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679277350"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkspacesIpGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser WorkspacesIpGroup)
@@ -249,19 +252,37 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WorkspacesIpGroup&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274509"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274509"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe [IpRuleItem]
--&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; WorkspacesIpGroup
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679277347"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277347"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [IpRuleItem]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; WorkspacesIpGroup
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup%27"><span class="hs-identifier hs-var">WorkspacesIpGroup'</span></a></span><span>
-</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [IpRuleItem]
- -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; WorkspacesIpGroup)
--&gt; Parser (Maybe [IpRuleItem])
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [IpRuleItem]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; WorkspacesIpGroup)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; WorkspacesIpGroup)
+     (Maybe [IpRuleItem]
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; WorkspacesIpGroup)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [IpRuleItem]))
+</span><a href="#local-6989586621679277347"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;groupDesc&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [IpRuleItem]
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; WorkspacesIpGroup)
+-&gt; Parser (Maybe [IpRuleItem])
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; WorkspacesIpGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277347"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [IpRuleItem]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;userRules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [IpRuleItem]))
@@ -270,35 +291,25 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [IpRuleItem]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; WorkspacesIpGroup)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; WorkspacesIpGroup)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;groupDesc&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; WorkspacesIpGroup)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; WorkspacesIpGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679277347"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;groupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;groupId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; WorkspacesIpGroup)
 -&gt; Parser (Maybe Text) -&gt; Parser WorkspacesIpGroup
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679277347"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;groupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;groupName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274502"><span id="local-6989586621679274504"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277340"><span id="local-6989586621679277342"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274499"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277337"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspacesIpGroup.html#WorkspacesIpGroup"><span class="hs-identifier hs-type">WorkspacesIpGroup</span></a></span></span><span>
 </span><span id="line-98"></span></pre></body></html>

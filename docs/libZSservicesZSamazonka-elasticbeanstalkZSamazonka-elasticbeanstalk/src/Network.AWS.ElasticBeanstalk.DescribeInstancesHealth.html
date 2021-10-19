@@ -30,9 +30,9 @@
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealth_nextToken"><span class="hs-identifier">describeInstancesHealth_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealth_environmentId"><span class="hs-identifier">describeInstancesHealth_environmentId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealth_environmentName"><span class="hs-identifier">describeInstancesHealth_environmentName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealth_attributeNames"><span class="hs-identifier">describeInstancesHealth_attributeNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealth_environmentName"><span class="hs-identifier">describeInstancesHealth_environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealth_attributeNames"><span class="hs-identifier">describeInstancesHealth_attributeNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealth_environmentId"><span class="hs-identifier">describeInstancesHealth_environmentId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse"><span class="hs-identifier">DescribeInstancesHealthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -56,23 +56,23 @@
 </span><span id="line-56"></span><span class="hs-comment">-- | Parameters for a call to @DescribeInstancesHealth@.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newDescribeInstancesHealth' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679311887"><span id="local-6989586621679311888"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstancesHealth"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-var">DescribeInstancesHealth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstancesHealth%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-var">DescribeInstancesHealth'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679312189"><span id="local-6989586621679312190"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstancesHealth"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-var">DescribeInstancesHealth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstancesHealth%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-var">DescribeInstancesHealth'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the pagination token returned by a previous call.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeInstancesHealth%27"><span class="annot"><span class="annottext">DescribeInstancesHealth -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AnextToken%3ADescribeInstancesHealth%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Specify the AWS Elastic Beanstalk environment by ID.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AenvironmentId%3ADescribeInstancesHealth%27"><span class="annot"><span class="annottext">DescribeInstancesHealth -&gt; Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AenvironmentId%3ADescribeInstancesHealth%27"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Specify the AWS Elastic Beanstalk environment by name.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AenvironmentName%3ADescribeInstancesHealth%27"><span class="annot"><span class="annottext">DescribeInstancesHealth -&gt; Maybe Text
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Specify the AWS Elastic Beanstalk environment by name.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AenvironmentName%3ADescribeInstancesHealth%27"><span class="annot"><span class="annottext">DescribeInstancesHealth -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AenvironmentName%3ADescribeInstancesHealth%27"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Specifies the response elements you wish to receive. To retrieve all</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- attributes, set to @All@. If no attribute names are specified, returns a</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- list of instances.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AattributeNames%3ADescribeInstancesHealth%27"><span class="annot"><span class="annottext">DescribeInstancesHealth -&gt; Maybe [InstancesHealthAttribute]
-</span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AattributeNames%3ADescribeInstancesHealth%27"><span class="hs-identifier hs-var hs-var">attributeNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.InstancesHealthAttribute.html#InstancesHealthAttribute"><span class="hs-identifier hs-type">InstancesHealthAttribute</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Specifies the response elements you wish to receive. To retrieve all</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- attributes, set to @All@. If no attribute names are specified, returns a</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- list of instances.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AattributeNames%3ADescribeInstancesHealth%27"><span class="annot"><span class="annottext">DescribeInstancesHealth -&gt; Maybe [InstancesHealthAttribute]
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AattributeNames%3ADescribeInstancesHealth%27"><span class="hs-identifier hs-var hs-var">attributeNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.InstancesHealthAttribute.html#InstancesHealthAttribute"><span class="hs-identifier hs-type">InstancesHealthAttribute</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Specify the AWS Elastic Beanstalk environment by ID.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AenvironmentId%3ADescribeInstancesHealth%27"><span class="annot"><span class="annottext">DescribeInstancesHealth -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AenvironmentId%3ADescribeInstancesHealth%27"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311878"><span id="local-6989586621679311880"><span class="annot"><span class="annottext">DescribeInstancesHealth -&gt; DescribeInstancesHealth -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312180"><span id="local-6989586621679312182"><span class="annot"><span class="annottext">DescribeInstancesHealth -&gt; DescribeInstancesHealth -&gt; Bool
 (DescribeInstancesHealth -&gt; DescribeInstancesHealth -&gt; Bool)
 -&gt; (DescribeInstancesHealth -&gt; DescribeInstancesHealth -&gt; Bool)
 -&gt; Eq DescribeInstancesHealth
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeInstancesHealth -&gt; DescribeInstancesHealth -&gt; Bool
 == :: DescribeInstancesHealth -&gt; DescribeInstancesHealth -&gt; Bool
 $c== :: DescribeInstancesHealth -&gt; DescribeInstancesHealth -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311869"><span id="local-6989586621679311871"><span id="local-6989586621679311873"><span id="local-6989586621679311875"><span class="annot"><span class="annottext">ReadPrec [DescribeInstancesHealth]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312171"><span id="local-6989586621679312173"><span id="local-6989586621679312175"><span id="local-6989586621679312177"><span class="annot"><span class="annottext">ReadPrec [DescribeInstancesHealth]
 ReadPrec DescribeInstancesHealth
 Int -&gt; ReadS DescribeInstancesHealth
 ReadS [DescribeInstancesHealth]
@@ -101,7 +101,7 @@ readList :: ReadS [DescribeInstancesHealth]
 $creadList :: ReadS [DescribeInstancesHealth]
 readsPrec :: Int -&gt; ReadS DescribeInstancesHealth
 $creadsPrec :: Int -&gt; ReadS DescribeInstancesHealth
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311862"><span id="local-6989586621679311864"><span id="local-6989586621679311866"><span class="annot"><span class="annottext">Int -&gt; DescribeInstancesHealth -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312164"><span id="local-6989586621679312166"><span id="local-6989586621679312168"><span class="annot"><span class="annottext">Int -&gt; DescribeInstancesHealth -&gt; ShowS
 [DescribeInstancesHealth] -&gt; ShowS
 DescribeInstancesHealth -&gt; String
 (Int -&gt; DescribeInstancesHealth -&gt; ShowS)
@@ -139,21 +139,21 @@ $cfrom :: forall x. DescribeInstancesHealth -&gt; Rep DescribeInstancesHealth x
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- 'nextToken', 'describeInstancesHealth_nextToken' - Specify the pagination token returned by a previous call.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'environmentId', 'describeInstancesHealth_environmentId' - Specify the AWS Elastic Beanstalk environment by ID.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'environmentName', 'describeInstancesHealth_environmentName' - Specify the AWS Elastic Beanstalk environment by name.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'environmentName', 'describeInstancesHealth_environmentName' - Specify the AWS Elastic Beanstalk environment by name.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'attributeNames', 'describeInstancesHealth_attributeNames' - Specifies the response elements you wish to receive. To retrieve all</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- attributes, set to @All@. If no attribute names are specified, returns a</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- list of instances.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'attributeNames', 'describeInstancesHealth_attributeNames' - Specifies the response elements you wish to receive. To retrieve all</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- attributes, set to @All@. If no attribute names are specified, returns a</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- list of instances.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'environmentId', 'describeInstancesHealth_environmentId' - Specify the AWS Elastic Beanstalk environment by ID.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#newDescribeInstancesHealth"><span class="hs-identifier hs-type">newDescribeInstancesHealth</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span>
 </span><span id="line-92"></span><span id="newDescribeInstancesHealth"><span class="annot"><span class="annottext">newDescribeInstancesHealth :: DescribeInstancesHealth
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#newDescribeInstancesHealth"><span class="hs-identifier hs-var hs-var">newDescribeInstancesHealth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">DescribeInstancesHealth' :: Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe [InstancesHealthAttribute]
+-&gt; Maybe Text
 -&gt; DescribeInstancesHealth
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstancesHealth' :: Maybe Text
@@ -161,16 +161,16 @@ $cfrom :: forall x. DescribeInstancesHealth -&gt; Rep DescribeInstancesHealth x
 </span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentId:DescribeInstancesHealth' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AenvironmentId%3ADescribeInstancesHealth%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentName:DescribeInstancesHealth' :: Maybe Text
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentName:DescribeInstancesHealth' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AenvironmentName%3ADescribeInstancesHealth%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeNames:DescribeInstancesHealth' :: Maybe [InstancesHealthAttribute]
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeNames:DescribeInstancesHealth' :: Maybe [InstancesHealthAttribute]
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AattributeNames%3ADescribeInstancesHealth%27"><span class="hs-identifier hs-var">attributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancesHealthAttribute]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentId:DescribeInstancesHealth' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AenvironmentId%3ADescribeInstancesHealth%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
@@ -188,44 +188,20 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311855"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312157"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeInstancesHealth' :: DescribeInstancesHealth -&gt; Maybe Text
-</span><a href="#local-6989586621679311855"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311855"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311854"><span class="annot"><span class="annottext">s :: DescribeInstancesHealth
-</span><a href="#local-6989586621679311854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311853"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesHealth
-</span><a href="#local-6989586621679311854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstancesHealth' :: Maybe Text
+</span><a href="#local-6989586621679312157"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312157"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312156"><span class="annot"><span class="annottext">s :: DescribeInstancesHealth
+</span><a href="#local-6989586621679312156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312155"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesHealth
+</span><a href="#local-6989586621679312156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstancesHealth' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AnextToken%3ADescribeInstancesHealth%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | Specify the AWS Elastic Beanstalk environment by ID.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealth_environmentId"><span class="hs-identifier hs-type">describeInstancesHealth_environmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="describeInstancesHealth_environmentId"><span class="annot"><span class="annottext">describeInstancesHealth_environmentId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeInstancesHealth -&gt; f DescribeInstancesHealth
-</span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealth_environmentId"><span class="hs-identifier hs-var hs-var">describeInstancesHealth_environmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstancesHealth -&gt; Maybe Text)
--&gt; (DescribeInstancesHealth
-    -&gt; Maybe Text -&gt; DescribeInstancesHealth)
--&gt; Lens
-     DescribeInstancesHealth
-     DescribeInstancesHealth
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311852"><span class="annot"><span class="annottext">Maybe Text
-environmentId :: Maybe Text
-$sel:environmentId:DescribeInstancesHealth' :: DescribeInstancesHealth -&gt; Maybe Text
-</span><a href="#local-6989586621679311852"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311852"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311851"><span class="annot"><span class="annottext">s :: DescribeInstancesHealth
-</span><a href="#local-6989586621679311851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311850"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesHealth
-</span><a href="#local-6989586621679311851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentId:DescribeInstancesHealth' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AenvironmentId%3ADescribeInstancesHealth%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | Specify the AWS Elastic Beanstalk environment by name.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealth_environmentName"><span class="hs-identifier hs-type">describeInstancesHealth_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="describeInstancesHealth_environmentName"><span class="annot"><span class="annottext">describeInstancesHealth_environmentName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-105"></span><span class="hs-comment">-- | Specify the AWS Elastic Beanstalk environment by name.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealth_environmentName"><span class="hs-identifier hs-type">describeInstancesHealth_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="describeInstancesHealth_environmentName"><span class="annot"><span class="annottext">describeInstancesHealth_environmentName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeInstancesHealth -&gt; f DescribeInstancesHealth
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealth_environmentName"><span class="hs-identifier hs-var hs-var">describeInstancesHealth_environmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstancesHealth -&gt; Maybe Text)
 -&gt; (DescribeInstancesHealth
@@ -236,22 +212,22 @@ $sel:environmentId:DescribeInstancesHealth' :: DescribeInstancesHealth -&gt; May
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311849"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312154"><span class="annot"><span class="annottext">Maybe Text
 environmentName :: Maybe Text
 $sel:environmentName:DescribeInstancesHealth' :: DescribeInstancesHealth -&gt; Maybe Text
-</span><a href="#local-6989586621679311849"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311849"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311848"><span class="annot"><span class="annottext">s :: DescribeInstancesHealth
-</span><a href="#local-6989586621679311848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311847"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesHealth
-</span><a href="#local-6989586621679311848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:DescribeInstancesHealth' :: Maybe Text
+</span><a href="#local-6989586621679312154"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312154"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312153"><span class="annot"><span class="annottext">s :: DescribeInstancesHealth
+</span><a href="#local-6989586621679312153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312152"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesHealth
+</span><a href="#local-6989586621679312153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:DescribeInstancesHealth' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AenvironmentName%3ADescribeInstancesHealth%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | Specifies the response elements you wish to receive. To retrieve all</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- attributes, set to @All@. If no attribute names are specified, returns a</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- list of instances.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealth_attributeNames"><span class="hs-identifier hs-type">describeInstancesHealth_attributeNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.InstancesHealthAttribute.html#InstancesHealthAttribute"><span class="hs-identifier hs-type">InstancesHealthAttribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="describeInstancesHealth_attributeNames"><span class="annot"><span class="annottext">describeInstancesHealth_attributeNames :: (Maybe [InstancesHealthAttribute]
+</span><a href="#local-6989586621679312152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | Specifies the response elements you wish to receive. To retrieve all</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- attributes, set to @All@. If no attribute names are specified, returns a</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- list of instances.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealth_attributeNames"><span class="hs-identifier hs-type">describeInstancesHealth_attributeNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.InstancesHealthAttribute.html#InstancesHealthAttribute"><span class="hs-identifier hs-type">InstancesHealthAttribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="describeInstancesHealth_attributeNames"><span class="annot"><span class="annottext">describeInstancesHealth_attributeNames :: (Maybe [InstancesHealthAttribute]
  -&gt; f (Maybe [InstancesHealthAttribute]))
 -&gt; DescribeInstancesHealth -&gt; f DescribeInstancesHealth
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealth_attributeNames"><span class="hs-identifier hs-var hs-var">describeInstancesHealth_attributeNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstancesHealth -&gt; Maybe [InstancesHealthAttribute])
@@ -263,16 +239,16 @@ $sel:environmentName:DescribeInstancesHealth' :: DescribeInstancesHealth -&gt; M
      (Maybe [InstancesHealthAttribute])
      (Maybe [InstancesHealthAttribute])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311846"><span class="annot"><span class="annottext">Maybe [InstancesHealthAttribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312151"><span class="annot"><span class="annottext">Maybe [InstancesHealthAttribute]
 attributeNames :: Maybe [InstancesHealthAttribute]
 $sel:attributeNames:DescribeInstancesHealth' :: DescribeInstancesHealth -&gt; Maybe [InstancesHealthAttribute]
-</span><a href="#local-6989586621679311846"><span class="hs-identifier hs-var hs-var">attributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancesHealthAttribute]
-</span><a href="#local-6989586621679311846"><span class="hs-identifier hs-var">attributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311845"><span class="annot"><span class="annottext">s :: DescribeInstancesHealth
-</span><a href="#local-6989586621679311845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311844"><span class="annot"><span class="annottext">Maybe [InstancesHealthAttribute]
-</span><a href="#local-6989586621679311844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesHealth
-</span><a href="#local-6989586621679311845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeNames:DescribeInstancesHealth' :: Maybe [InstancesHealthAttribute]
+</span><a href="#local-6989586621679312151"><span class="hs-identifier hs-var hs-var">attributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancesHealthAttribute]
+</span><a href="#local-6989586621679312151"><span class="hs-identifier hs-var">attributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312150"><span class="annot"><span class="annottext">s :: DescribeInstancesHealth
+</span><a href="#local-6989586621679312150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312149"><span class="annot"><span class="annottext">Maybe [InstancesHealthAttribute]
+</span><a href="#local-6989586621679312149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesHealth
+</span><a href="#local-6989586621679312150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeNames:DescribeInstancesHealth' :: Maybe [InstancesHealthAttribute]
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AattributeNames%3ADescribeInstancesHealth%27"><span class="hs-identifier hs-var">attributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancesHealthAttribute]
-</span><a href="#local-6989586621679311844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstancesHealthAttribute]
+</span><a href="#local-6989586621679312149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstancesHealthAttribute]
   -&gt; f (Maybe [InstancesHealthAttribute]))
  -&gt; DescribeInstancesHealth -&gt; f DescribeInstancesHealth)
 -&gt; ((Maybe [InstancesHealthAttribute]
@@ -302,20 +278,44 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [InstancesHealthAttribute]
   [InstancesHealthAttribute]
   [InstancesHealthAttribute]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Specify the AWS Elastic Beanstalk environment by ID.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealth_environmentId"><span class="hs-identifier hs-type">describeInstancesHealth_environmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="describeInstancesHealth_environmentId"><span class="annot"><span class="annottext">describeInstancesHealth_environmentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeInstancesHealth -&gt; f DescribeInstancesHealth
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealth_environmentId"><span class="hs-identifier hs-var hs-var">describeInstancesHealth_environmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstancesHealth -&gt; Maybe Text)
+-&gt; (DescribeInstancesHealth
+    -&gt; Maybe Text -&gt; DescribeInstancesHealth)
+-&gt; Lens
+     DescribeInstancesHealth
+     DescribeInstancesHealth
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312145"><span class="annot"><span class="annottext">Maybe Text
+environmentId :: Maybe Text
+$sel:environmentId:DescribeInstancesHealth' :: DescribeInstancesHealth -&gt; Maybe Text
+</span><a href="#local-6989586621679312145"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312145"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312144"><span class="annot"><span class="annottext">s :: DescribeInstancesHealth
+</span><a href="#local-6989586621679312144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312143"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesHealth
+</span><a href="#local-6989586621679312144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentId:DescribeInstancesHealth' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AenvironmentId%3ADescribeInstancesHealth%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679311837"><span class="annot"><span class="annottext">request :: DescribeInstancesHealth -&gt; Request DescribeInstancesHealth
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679312139"><span class="annot"><span class="annottext">request :: DescribeInstancesHealth -&gt; Request DescribeInstancesHealth
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeInstancesHealth -&gt; Request DescribeInstancesHealth
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElasticBeanstalk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679311833"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679312135"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeInstancesHealth
 -&gt; ClientResponse ClientBody
@@ -346,10 +346,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeInstancesHealthResult&quot;</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311830"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311830"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311829"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679311829"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311828"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679311828"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312132"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312132"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312131"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312131"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312130"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679312130"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SingleInstanceHealth]
 -&gt; Maybe Text
 -&gt; Maybe ISO8601
@@ -368,7 +368,7 @@ Text
       -&gt; Maybe ISO8601 -&gt; Int -&gt; DescribeInstancesHealthResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679311828"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679312130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceHealthList&quot;</span></span><span>
@@ -400,7 +400,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
      String (Maybe ISO8601 -&gt; Int -&gt; DescribeInstancesHealthResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679311828"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679312130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -410,7 +410,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeInstancesHealthResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679311828"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679312130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RefreshedAt&quot;</span></span><span class="hs-special">)</span><span>
@@ -423,15 +423,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311830"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312132"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311817"><span id="local-6989586621679311819"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312119"><span id="local-6989586621679312121"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311814"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312116"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679311810"><span class="annot"><span class="annottext">toHeaders :: DescribeInstancesHealth -&gt; ResponseHeaders
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679312112"><span class="annot"><span class="annottext">toHeaders :: DescribeInstancesHealth -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeInstancesHealth -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -439,25 +439,25 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679311805"><span class="annot"><span class="annottext">toPath :: DescribeInstancesHealth -&gt; ByteString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679312107"><span class="annot"><span class="annottext">toPath :: DescribeInstancesHealth -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeInstancesHealth -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth"><span class="hs-identifier hs-type">DescribeInstancesHealth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679311801"><span class="annot"><span class="annottext">toQuery :: DescribeInstancesHealth -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311796"><span id="local-6989586621679311797"><span id="local-6989586621679311798"><span id="local-6989586621679311799"><span class="annot"><span class="annottext">Maybe [InstancesHealthAttribute]
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679312103"><span class="annot"><span class="annottext">toQuery :: DescribeInstancesHealth -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealth%27"><span class="hs-identifier hs-type">DescribeInstancesHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312098"><span id="local-6989586621679312099"><span id="local-6989586621679312100"><span id="local-6989586621679312101"><span class="annot"><span class="annottext">Maybe [InstancesHealthAttribute]
 Maybe Text
+environmentId :: Maybe Text
 attributeNames :: Maybe [InstancesHealthAttribute]
 environmentName :: Maybe Text
-environmentId :: Maybe Text
 nextToken :: Maybe Text
+$sel:environmentId:DescribeInstancesHealth' :: DescribeInstancesHealth -&gt; Maybe Text
 $sel:attributeNames:DescribeInstancesHealth' :: DescribeInstancesHealth -&gt; Maybe [InstancesHealthAttribute]
 $sel:environmentName:DescribeInstancesHealth' :: DescribeInstancesHealth -&gt; Maybe Text
-$sel:environmentId:DescribeInstancesHealth' :: DescribeInstancesHealth -&gt; Maybe Text
 $sel:nextToken:DescribeInstancesHealth' :: DescribeInstancesHealth -&gt; Maybe Text
-</span><a href="#local-6989586621679311796"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679312098"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -477,43 +477,43 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311799"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312101"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;EnvironmentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311798"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;EnvironmentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311797"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679312100"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AttributeNames&quot;</span></span><span>
-</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [InstancesHealthAttribute] -&gt; QueryString
+</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [InstancesHealthAttribute] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span>
-</span><span id="line-161"></span><span>                </span><span class="annot"><span class="annottext">([InstancesHealthAttribute] -&gt; QueryString)
+</span><span id="line-160"></span><span>                </span><span class="annot"><span class="annottext">([InstancesHealthAttribute] -&gt; QueryString)
 -&gt; Maybe [InstancesHealthAttribute] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InstancesHealthAttribute]
-</span><a href="#local-6989586621679311796"><span class="hs-identifier hs-var">attributeNames</span></a></span><span>
-</span><span id="line-162"></span><span>            </span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312099"><span class="hs-identifier hs-var">attributeNames</span></a></span><span>
+</span><span id="line-161"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnvironmentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312098"><span class="hs-identifier hs-var">environmentId</span></a></span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | Detailed health information about the Amazon EC2 instances in an AWS</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- Elastic Beanstalk environment.</span><span>
 </span><span id="line-167"></span><span class="hs-comment">--</span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- /See:/ 'newDescribeInstancesHealthResponse' smart constructor.</span><span>
-</span><span id="line-169"></span><span id="local-6989586621679311792"><span id="local-6989586621679311793"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstancesHealthResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse"><span class="hs-identifier hs-var">DescribeInstancesHealthResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstancesHealthResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse%27"><span class="hs-identifier hs-var">DescribeInstancesHealthResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span id="local-6989586621679312094"><span id="local-6989586621679312095"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstancesHealthResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse"><span class="hs-identifier hs-var">DescribeInstancesHealthResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstancesHealthResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse%27"><span class="hs-identifier hs-var">DescribeInstancesHealthResponse'</span></a></span></span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Detailed health information about each instance.</span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-comment">-- The output differs slightly between Linux and Windows environments.</span><span>
@@ -531,7 +531,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeInstancesHealthResponse%27"><span class="annot"><span class="annottext">DescribeInstancesHealthResponse -&gt; Int
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AhttpStatus%3ADescribeInstancesHealthResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311784"><span id="local-6989586621679311786"><span class="annot"><span class="annottext">DescribeInstancesHealthResponse
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312086"><span id="local-6989586621679312088"><span class="annot"><span class="annottext">DescribeInstancesHealthResponse
 -&gt; DescribeInstancesHealthResponse -&gt; Bool
 (DescribeInstancesHealthResponse
  -&gt; DescribeInstancesHealthResponse -&gt; Bool)
@@ -547,7 +547,7 @@ $c/= :: DescribeInstancesHealthResponse
 -&gt; DescribeInstancesHealthResponse -&gt; Bool
 $c== :: DescribeInstancesHealthResponse
 -&gt; DescribeInstancesHealthResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311776"><span id="local-6989586621679311778"><span id="local-6989586621679311780"><span id="local-6989586621679311782"><span class="annot"><span class="annottext">ReadPrec [DescribeInstancesHealthResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312078"><span id="local-6989586621679312080"><span id="local-6989586621679312082"><span id="local-6989586621679312084"><span class="annot"><span class="annottext">ReadPrec [DescribeInstancesHealthResponse]
 ReadPrec DescribeInstancesHealthResponse
 Int -&gt; ReadS DescribeInstancesHealthResponse
 ReadS [DescribeInstancesHealthResponse]
@@ -567,7 +567,7 @@ readList :: ReadS [DescribeInstancesHealthResponse]
 $creadList :: ReadS [DescribeInstancesHealthResponse]
 readsPrec :: Int -&gt; ReadS DescribeInstancesHealthResponse
 $creadsPrec :: Int -&gt; ReadS DescribeInstancesHealthResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311770"><span id="local-6989586621679311772"><span id="local-6989586621679311774"><span class="annot"><span class="annottext">Int -&gt; DescribeInstancesHealthResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312072"><span id="local-6989586621679312074"><span id="local-6989586621679312076"><span class="annot"><span class="annottext">Int -&gt; DescribeInstancesHealthResponse -&gt; ShowS
 [DescribeInstancesHealthResponse] -&gt; ShowS
 DescribeInstancesHealthResponse -&gt; String
 (Int -&gt; DescribeInstancesHealthResponse -&gt; ShowS)
@@ -629,8 +629,8 @@ DescribeInstancesHealthResponse
 </span><span id="line-206"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-207"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse</span></a></span><span>
 </span><span id="line-208"></span><span id="newDescribeInstancesHealthResponse"><span class="annot"><span class="annottext">newDescribeInstancesHealthResponse :: Int -&gt; DescribeInstancesHealthResponse
-</span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#newDescribeInstancesHealthResponse"><span class="hs-identifier hs-var hs-var">newDescribeInstancesHealthResponse</span></a></span></span><span> </span><span id="local-6989586621679311767"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311767"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#newDescribeInstancesHealthResponse"><span class="hs-identifier hs-var hs-var">newDescribeInstancesHealthResponse</span></a></span></span><span> </span><span id="local-6989586621679312069"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312069"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-209"></span><span>  </span><span class="annot"><span class="annottext">DescribeInstancesHealthResponse' :: Maybe [SingleInstanceHealth]
 -&gt; Maybe Text
 -&gt; Maybe ISO8601
@@ -652,7 +652,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstancesHealthResponse' :: Int
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AhttpStatus%3ADescribeInstancesHealthResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311767"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679312069"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-215"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | Detailed health information about each instance.</span><span>
@@ -673,16 +673,16 @@ forall a. Maybe a
      (Maybe [SingleInstanceHealth])
      (Maybe [SingleInstanceHealth])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse%27"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311766"><span class="annot"><span class="annottext">Maybe [SingleInstanceHealth]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse%27"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312068"><span class="annot"><span class="annottext">Maybe [SingleInstanceHealth]
 instanceHealthList :: Maybe [SingleInstanceHealth]
 $sel:instanceHealthList:DescribeInstancesHealthResponse' :: DescribeInstancesHealthResponse -&gt; Maybe [SingleInstanceHealth]
-</span><a href="#local-6989586621679311766"><span class="hs-identifier hs-var hs-var">instanceHealthList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SingleInstanceHealth]
-</span><a href="#local-6989586621679311766"><span class="hs-identifier hs-var">instanceHealthList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311765"><span class="annot"><span class="annottext">s :: DescribeInstancesHealthResponse
-</span><a href="#local-6989586621679311765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse%27"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311764"><span class="annot"><span class="annottext">Maybe [SingleInstanceHealth]
-</span><a href="#local-6989586621679311764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesHealthResponse
-</span><a href="#local-6989586621679311765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceHealthList:DescribeInstancesHealthResponse' :: Maybe [SingleInstanceHealth]
+</span><a href="#local-6989586621679312068"><span class="hs-identifier hs-var hs-var">instanceHealthList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SingleInstanceHealth]
+</span><a href="#local-6989586621679312068"><span class="hs-identifier hs-var">instanceHealthList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312067"><span class="annot"><span class="annottext">s :: DescribeInstancesHealthResponse
+</span><a href="#local-6989586621679312067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse%27"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312066"><span class="annot"><span class="annottext">Maybe [SingleInstanceHealth]
+</span><a href="#local-6989586621679312066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesHealthResponse
+</span><a href="#local-6989586621679312067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceHealthList:DescribeInstancesHealthResponse' :: Maybe [SingleInstanceHealth]
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AinstanceHealthList%3ADescribeInstancesHealthResponse%27"><span class="hs-identifier hs-var">instanceHealthList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SingleInstanceHealth]
-</span><a href="#local-6989586621679311764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SingleInstanceHealth] -&gt; f (Maybe [SingleInstanceHealth]))
+</span><a href="#local-6989586621679312066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SingleInstanceHealth] -&gt; f (Maybe [SingleInstanceHealth]))
  -&gt; DescribeInstancesHealthResponse
  -&gt; f DescribeInstancesHealthResponse)
 -&gt; ((Maybe [SingleInstanceHealth]
@@ -712,8 +712,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [SingleInstanceHealth]
   [SingleInstanceHealth]
   [SingleInstanceHealth]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | Pagination token for the next page of results, if available.</span><span>
 </span><span id="line-226"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealthResponse_nextToken"><span class="hs-identifier hs-type">describeInstancesHealthResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -729,16 +729,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse%27"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311763"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse%27"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312065"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeInstancesHealthResponse' :: DescribeInstancesHealthResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679311763"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311763"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311762"><span class="annot"><span class="annottext">s :: DescribeInstancesHealthResponse
-</span><a href="#local-6989586621679311762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse%27"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311761"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesHealthResponse
-</span><a href="#local-6989586621679311762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstancesHealthResponse' :: Maybe Text
+</span><a href="#local-6989586621679312065"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312065"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312064"><span class="annot"><span class="annottext">s :: DescribeInstancesHealthResponse
+</span><a href="#local-6989586621679312064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse%27"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312063"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesHealthResponse
+</span><a href="#local-6989586621679312064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstancesHealthResponse' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AnextToken%3ADescribeInstancesHealthResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | The date and time that the health information was retrieved.</span><span>
 </span><span id="line-230"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#describeInstancesHealthResponse_refreshedAt"><span class="hs-identifier hs-type">describeInstancesHealthResponse_refreshedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -754,16 +754,16 @@ $sel:nextToken:DescribeInstancesHealthResponse' :: DescribeInstancesHealthRespon
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse%27"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311760"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse%27"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312062"><span class="annot"><span class="annottext">Maybe ISO8601
 refreshedAt :: Maybe ISO8601
 $sel:refreshedAt:DescribeInstancesHealthResponse' :: DescribeInstancesHealthResponse -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679311760"><span class="hs-identifier hs-var hs-var">refreshedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679311760"><span class="hs-identifier hs-var">refreshedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311759"><span class="annot"><span class="annottext">s :: DescribeInstancesHealthResponse
-</span><a href="#local-6989586621679311759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse%27"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311758"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679311758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesHealthResponse
-</span><a href="#local-6989586621679311759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:refreshedAt:DescribeInstancesHealthResponse' :: Maybe ISO8601
+</span><a href="#local-6989586621679312062"><span class="hs-identifier hs-var hs-var">refreshedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679312062"><span class="hs-identifier hs-var">refreshedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312061"><span class="annot"><span class="annottext">s :: DescribeInstancesHealthResponse
+</span><a href="#local-6989586621679312061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse%27"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312060"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679312060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesHealthResponse
+</span><a href="#local-6989586621679312061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:refreshedAt:DescribeInstancesHealthResponse' :: Maybe ISO8601
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3ArefreshedAt%3ADescribeInstancesHealthResponse%27"><span class="hs-identifier hs-var">refreshedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679311758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679312060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; DescribeInstancesHealthResponse
  -&gt; f DescribeInstancesHealthResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -796,18 +796,18 @@ forall (a :: Format). Iso' (Time a) UTCTime
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse%27"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311756"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse%27"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312058"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeInstancesHealthResponse' :: DescribeInstancesHealthResponse -&gt; Int
-</span><a href="#local-6989586621679311756"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311756"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311755"><span class="annot"><span class="annottext">s :: DescribeInstancesHealthResponse
-</span><a href="#local-6989586621679311755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse%27"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311754"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesHealthResponse
-</span><a href="#local-6989586621679311755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstancesHealthResponse' :: Int
+</span><a href="#local-6989586621679312058"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312058"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312057"><span class="annot"><span class="annottext">s :: DescribeInstancesHealthResponse
+</span><a href="#local-6989586621679312057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse%27"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312056"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesHealthResponse
+</span><a href="#local-6989586621679312057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstancesHealthResponse' :: Int
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#%24sel%3AhttpStatus%3ADescribeInstancesHealthResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-238"></span><span>  </span><span id="local-6989586621679311752"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679312054"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-239"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeInstancesHealth.html#DescribeInstancesHealthResponse"><span class="hs-identifier hs-type">DescribeInstancesHealthResponse</span></a></span></span><span>
 </span><span id="line-240"></span></pre></body></html>

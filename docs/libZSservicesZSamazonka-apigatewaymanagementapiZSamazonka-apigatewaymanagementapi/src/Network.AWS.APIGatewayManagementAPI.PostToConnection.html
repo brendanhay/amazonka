@@ -44,7 +44,7 @@
 </span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- | /See:/ 'newPostToConnection' smart constructor.</span><span>
-</span><span id="line-47"></span><span id="local-6989586621679136778"><span id="local-6989586621679136779"></span></span><span class="hs-keyword">data</span><span> </span><span id="PostToConnection"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection"><span class="hs-identifier hs-var">PostToConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PostToConnection%27"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection%27"><span class="hs-identifier hs-var">PostToConnection'</span></a></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679136777"><span id="local-6989586621679136778"></span></span><span class="hs-keyword">data</span><span> </span><span id="PostToConnection"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection"><span class="hs-identifier hs-var">PostToConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PostToConnection%27"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection%27"><span class="hs-identifier hs-var">PostToConnection'</span></a></span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the connection that a specific client is using.</span><span>
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AconnectionId%3APostToConnection%27"><span class="annot"><span class="annottext">PostToConnection -&gt; Text
 </span><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#%24sel%3AconnectionId%3APostToConnection%27"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3Adata%27%3APostToConnection%27"><span class="annot"><span class="annottext">PostToConnection -&gt; ByteString
 </span><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#%24sel%3Adata%27%3APostToConnection%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679136771"><span id="local-6989586621679136773"><span class="annot"><span class="annottext">PostToConnection -&gt; PostToConnection -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679136770"><span id="local-6989586621679136772"><span class="annot"><span class="annottext">PostToConnection -&gt; PostToConnection -&gt; Bool
 (PostToConnection -&gt; PostToConnection -&gt; Bool)
 -&gt; (PostToConnection -&gt; PostToConnection -&gt; Bool)
 -&gt; Eq PostToConnection
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PostToConnection -&gt; PostToConnection -&gt; Bool
 == :: PostToConnection -&gt; PostToConnection -&gt; Bool
 $c== :: PostToConnection -&gt; PostToConnection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136762"><span id="local-6989586621679136764"><span id="local-6989586621679136766"><span id="local-6989586621679136768"><span class="annot"><span class="annottext">ReadPrec [PostToConnection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136761"><span id="local-6989586621679136763"><span id="local-6989586621679136765"><span id="local-6989586621679136767"><span class="annot"><span class="annottext">ReadPrec [PostToConnection]
 ReadPrec PostToConnection
 Int -&gt; ReadS PostToConnection
 ReadS [PostToConnection]
@@ -81,7 +81,7 @@ readList :: ReadS [PostToConnection]
 $creadList :: ReadS [PostToConnection]
 readsPrec :: Int -&gt; ReadS PostToConnection
 $creadsPrec :: Int -&gt; ReadS PostToConnection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136755"><span id="local-6989586621679136757"><span id="local-6989586621679136759"><span class="annot"><span class="annottext">Int -&gt; PostToConnection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136754"><span id="local-6989586621679136756"><span id="local-6989586621679136758"><span class="annot"><span class="annottext">Int -&gt; PostToConnection -&gt; ShowS
 [PostToConnection] -&gt; ShowS
 PostToConnection -&gt; String
 (Int -&gt; PostToConnection -&gt; ShowS)
@@ -125,17 +125,17 @@ $cfrom :: forall x. PostToConnection -&gt; Rep PostToConnection x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection"><span class="hs-identifier hs-type">PostToConnection</span></a></span><span>
 </span><span id="line-72"></span><span id="newPostToConnection"><span class="annot"><span class="annottext">newPostToConnection :: Text -&gt; ByteString -&gt; PostToConnection
-</span><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#newPostToConnection"><span class="hs-identifier hs-var hs-var">newPostToConnection</span></a></span></span><span> </span><span id="local-6989586621679136750"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136750"><span class="hs-identifier hs-var">pConnectionId_</span></a></span></span><span> </span><span id="local-6989586621679136749"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679136749"><span class="hs-identifier hs-var">pData_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#newPostToConnection"><span class="hs-identifier hs-var hs-var">newPostToConnection</span></a></span></span><span> </span><span id="local-6989586621679136749"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679136749"><span class="hs-identifier hs-var">pConnectionId_</span></a></span></span><span> </span><span id="local-6989586621679136748"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679136748"><span class="hs-identifier hs-var">pData_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">PostToConnection' :: Text -&gt; ByteString -&gt; PostToConnection
 </span><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection%27"><span class="hs-identifier hs-type">PostToConnection'</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:connectionId:PostToConnection' :: Text
 </span><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#%24sel%3AconnectionId%3APostToConnection%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136750"><span class="hs-identifier hs-var">pConnectionId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679136749"><span class="hs-identifier hs-var">pConnectionId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:data':PostToConnection' :: ByteString
 </span><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#%24sel%3Adata%27%3APostToConnection%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679136749"><span class="hs-identifier hs-var">pData_</span></a></span><span>
+</span><a href="#local-6989586621679136748"><span class="hs-identifier hs-var">pData_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The identifier of the connection that a specific client is using.</span><span>
@@ -145,16 +145,16 @@ $cfrom :: forall x. PostToConnection -&gt; Rep PostToConnection x
 -&gt; (PostToConnection -&gt; Text -&gt; PostToConnection)
 -&gt; Lens PostToConnection PostToConnection Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection%27"><span class="hs-identifier hs-type">PostToConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136746"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection%27"><span class="hs-identifier hs-type">PostToConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136745"><span class="annot"><span class="annottext">Text
 connectionId :: Text
 $sel:connectionId:PostToConnection' :: PostToConnection -&gt; Text
-</span><a href="#local-6989586621679136746"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136746"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136745"><span class="annot"><span class="annottext">s :: PostToConnection
-</span><a href="#local-6989586621679136745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection%27"><span class="hs-identifier hs-type">PostToConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136744"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PostToConnection
-</span><a href="#local-6989586621679136745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:PostToConnection' :: Text
+</span><a href="#local-6989586621679136745"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679136745"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136744"><span class="annot"><span class="annottext">s :: PostToConnection
+</span><a href="#local-6989586621679136744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection%27"><span class="hs-identifier hs-type">PostToConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136743"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679136743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PostToConnection
+</span><a href="#local-6989586621679136744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:PostToConnection' :: Text
 </span><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#%24sel%3AconnectionId%3APostToConnection%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection"><span class="hs-identifier hs-type">PostToConnection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679136743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection"><span class="hs-identifier hs-type">PostToConnection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The data to be sent to the client specified by its connection id.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#postToConnection_data"><span class="hs-identifier hs-type">postToConnection_data</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection"><span class="hs-identifier hs-type">PostToConnection</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
@@ -164,27 +164,27 @@ $sel:connectionId:PostToConnection' :: PostToConnection -&gt; Text
 -&gt; (PostToConnection -&gt; ByteString -&gt; PostToConnection)
 -&gt; Lens PostToConnection PostToConnection ByteString ByteString
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection%27"><span class="hs-identifier hs-type">PostToConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136743"><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection%27"><span class="hs-identifier hs-type">PostToConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136742"><span class="annot"><span class="annottext">ByteString
 data' :: ByteString
 $sel:data':PostToConnection' :: PostToConnection -&gt; ByteString
-</span><a href="#local-6989586621679136743"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679136743"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136742"><span class="annot"><span class="annottext">s :: PostToConnection
-</span><a href="#local-6989586621679136742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection%27"><span class="hs-identifier hs-type">PostToConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136741"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679136741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PostToConnection
-</span><a href="#local-6989586621679136742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':PostToConnection' :: ByteString
+</span><a href="#local-6989586621679136742"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679136742"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679136741"><span class="annot"><span class="annottext">s :: PostToConnection
+</span><a href="#local-6989586621679136741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection%27"><span class="hs-identifier hs-type">PostToConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679136740"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679136740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PostToConnection
+</span><a href="#local-6989586621679136741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':PostToConnection' :: ByteString
 </span><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#%24sel%3Adata%27%3APostToConnection%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679136741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection"><span class="hs-identifier hs-type">PostToConnection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679136740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection"><span class="hs-identifier hs-type">PostToConnection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection"><span class="hs-identifier hs-type">PostToConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection"><span class="hs-identifier hs-type">PostToConnection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnectionResponse"><span class="hs-identifier hs-type">PostToConnectionResponse</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679136737"><span class="annot"><span class="annottext">request :: PostToConnection -&gt; Request PostToConnection
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679136736"><span class="annot"><span class="annottext">request :: PostToConnection -&gt; Request PostToConnection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PostToConnection -&gt; Request PostToConnection
 forall a. (ToRequest a, ToBody a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postBody</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGatewayManagementAPI.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679136733"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679136732"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PostToConnection
 -&gt; ClientResponse ClientBody
@@ -208,25 +208,25 @@ AWSResponse a
 PostToConnectionResponse
 </span><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnectionResponse%27"><span class="hs-identifier hs-var">PostToConnectionResponse'</span></a></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136726"><span id="local-6989586621679136728"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection"><span class="hs-identifier hs-type">PostToConnection</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136725"><span id="local-6989586621679136727"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection"><span class="hs-identifier hs-type">PostToConnection</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136723"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection"><span class="hs-identifier hs-type">PostToConnection</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136722"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection"><span class="hs-identifier hs-type">PostToConnection</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToBody</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection"><span class="hs-identifier hs-type">PostToConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679136719"><span class="annot"><span class="annottext">toBody :: PostToConnection -&gt; RequestBody
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toBody</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection%27"><span class="hs-identifier hs-type">PostToConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136716"><span id="local-6989586621679136717"><span class="annot"><span class="annottext">ByteString
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679136718"><span class="annot"><span class="annottext">toBody :: PostToConnection -&gt; RequestBody
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toBody</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection%27"><span class="hs-identifier hs-type">PostToConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136715"><span id="local-6989586621679136716"><span class="annot"><span class="annottext">ByteString
 Text
 data' :: ByteString
 connectionId :: Text
 $sel:data':PostToConnection' :: PostToConnection -&gt; ByteString
 $sel:connectionId:PostToConnection' :: PostToConnection -&gt; Text
-</span><a href="#local-6989586621679136716"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RequestBody
+</span><a href="#local-6989586621679136715"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RequestBody
 forall a. ToBody a =&gt; a -&gt; RequestBody
 </span><span class="hs-identifier hs-var">Core.toBody</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679136716"><span class="hs-identifier hs-var">data'</span></a></span><span>
+</span><a href="#local-6989586621679136715"><span class="hs-identifier hs-var">data'</span></a></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection"><span class="hs-identifier hs-type">PostToConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679136713"><span class="annot"><span class="annottext">toHeaders :: PostToConnection -&gt; [Header]
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679136712"><span class="annot"><span class="annottext">toHeaders :: PostToConnection -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; PostToConnection -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -246,14 +246,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection"><span class="hs-identifier hs-type">PostToConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679136707"><span class="annot"><span class="annottext">toPath :: PostToConnection -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection%27"><span class="hs-identifier hs-type">PostToConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136704"><span id="local-6989586621679136705"><span class="annot"><span class="annottext">ByteString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679136706"><span class="annot"><span class="annottext">toPath :: PostToConnection -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection%27"><span class="hs-identifier hs-type">PostToConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679136703"><span id="local-6989586621679136704"><span class="annot"><span class="annottext">ByteString
 Text
 data' :: ByteString
 connectionId :: Text
 $sel:data':PostToConnection' :: PostToConnection -&gt; ByteString
 $sel:connectionId:PostToConnection' :: PostToConnection -&gt; Text
-</span><a href="#local-6989586621679136704"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679136703"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -261,10 +261,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/@connections/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679136705"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679136704"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnection"><span class="hs-identifier hs-type">PostToConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679136700"><span class="annot"><span class="annottext">toQuery :: PostToConnection -&gt; QueryString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679136699"><span class="annot"><span class="annottext">toQuery :: PostToConnection -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PostToConnection -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -272,10 +272,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newPostToConnectionResponse' smart constructor.</span><span>
-</span><span id="line-121"></span><span id="local-6989586621679136697"><span id="local-6989586621679136698"></span></span><span class="hs-keyword">data</span><span> </span><span id="PostToConnectionResponse"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnectionResponse"><span class="hs-identifier hs-var">PostToConnectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PostToConnectionResponse%27"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnectionResponse%27"><span class="hs-identifier hs-var">PostToConnectionResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span id="local-6989586621679136696"><span id="local-6989586621679136697"></span></span><span class="hs-keyword">data</span><span> </span><span id="PostToConnectionResponse"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnectionResponse"><span class="hs-identifier hs-var">PostToConnectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PostToConnectionResponse%27"><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnectionResponse%27"><span class="hs-identifier hs-var">PostToConnectionResponse'</span></a></span></span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679136693"><span id="local-6989586621679136695"><span class="annot"><span class="annottext">PostToConnectionResponse -&gt; PostToConnectionResponse -&gt; Bool
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679136692"><span id="local-6989586621679136694"><span class="annot"><span class="annottext">PostToConnectionResponse -&gt; PostToConnectionResponse -&gt; Bool
 (PostToConnectionResponse -&gt; PostToConnectionResponse -&gt; Bool)
 -&gt; (PostToConnectionResponse -&gt; PostToConnectionResponse -&gt; Bool)
 -&gt; Eq PostToConnectionResponse
@@ -284,7 +284,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PostToConnectionResponse -&gt; PostToConnectionResponse -&gt; Bool
 == :: PostToConnectionResponse -&gt; PostToConnectionResponse -&gt; Bool
 $c== :: PostToConnectionResponse -&gt; PostToConnectionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136685"><span id="local-6989586621679136687"><span id="local-6989586621679136689"><span id="local-6989586621679136691"><span class="annot"><span class="annottext">ReadPrec [PostToConnectionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136684"><span id="local-6989586621679136686"><span id="local-6989586621679136688"><span id="local-6989586621679136690"><span class="annot"><span class="annottext">ReadPrec [PostToConnectionResponse]
 ReadPrec PostToConnectionResponse
 Int -&gt; ReadS PostToConnectionResponse
 ReadS [PostToConnectionResponse]
@@ -304,7 +304,7 @@ readList :: ReadS [PostToConnectionResponse]
 $creadList :: ReadS [PostToConnectionResponse]
 readsPrec :: Int -&gt; ReadS PostToConnectionResponse
 $creadsPrec :: Int -&gt; ReadS PostToConnectionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136679"><span id="local-6989586621679136681"><span id="local-6989586621679136683"><span class="annot"><span class="annottext">Int -&gt; PostToConnectionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679136678"><span id="local-6989586621679136680"><span id="local-6989586621679136682"><span class="annot"><span class="annottext">Int -&gt; PostToConnectionResponse -&gt; ShowS
 [PostToConnectionResponse] -&gt; ShowS
 PostToConnectionResponse -&gt; String
 (Int -&gt; PostToConnectionResponse -&gt; ShowS)
@@ -347,5 +347,5 @@ PostToConnectionResponse -&gt; Rep PostToConnectionResponse x
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">PostToConnectionResponse
 </span><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnectionResponse%27"><span class="hs-identifier hs-var">PostToConnectionResponse'</span></a></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136675"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnectionResponse"><span class="hs-identifier hs-type">PostToConnectionResponse</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679136674"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGatewayManagementAPI.PostToConnection.html#PostToConnectionResponse"><span class="hs-identifier hs-type">PostToConnectionResponse</span></a></span></span><span>
 </span><span id="line-136"></span></pre></body></html>

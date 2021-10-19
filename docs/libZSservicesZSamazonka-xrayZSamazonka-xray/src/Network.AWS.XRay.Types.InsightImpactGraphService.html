@@ -29,42 +29,42 @@
 </span><span id="line-29"></span><span class="hs-comment">-- an application used.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newInsightImpactGraphService' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679251916"><span id="local-6989586621679251917"></span></span><span class="hs-keyword">data</span><span> </span><span id="InsightImpactGraphService"><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-var">InsightImpactGraphService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InsightImpactGraphService%27"><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-var">InsightImpactGraphService'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifier of the Amazon Web Services account in which the service runs.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AaccountId%3AInsightImpactGraphService%27"><span class="annot"><span class="annottext">InsightImpactGraphService -&gt; Maybe Text
-</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3AaccountId%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A list of names for the service, including the canonical name.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Anames%3AInsightImpactGraphService%27"><span class="annot"><span class="annottext">InsightImpactGraphService -&gt; Maybe [Text]
-</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3Anames%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Identifier for the service. Unique within the service map.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AreferenceId%3AInsightImpactGraphService%27"><span class="annot"><span class="annottext">InsightImpactGraphService -&gt; Maybe Int
+</span><span id="line-32"></span><span id="local-6989586621679252187"><span id="local-6989586621679252188"></span></span><span class="hs-keyword">data</span><span> </span><span id="InsightImpactGraphService"><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-var">InsightImpactGraphService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InsightImpactGraphService%27"><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-var">InsightImpactGraphService'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifier for the service. Unique within the service map.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AreferenceId%3AInsightImpactGraphService%27"><span class="annot"><span class="annottext">InsightImpactGraphService -&gt; Maybe Int
 </span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3AreferenceId%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var hs-var">referenceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Connections to downstream services.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aedges%3AInsightImpactGraphService%27"><span class="annot"><span class="annottext">InsightImpactGraphService -&gt; Maybe [InsightImpactGraphEdge]
-</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3Aedges%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var hs-var">edges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphEdge.html#InsightImpactGraphEdge"><span class="hs-identifier hs-type">InsightImpactGraphEdge</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The canonical name of the service.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aname%3AInsightImpactGraphService%27"><span class="annot"><span class="annottext">InsightImpactGraphService -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Identifier of the Amazon Web Services account in which the service runs.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AaccountId%3AInsightImpactGraphService%27"><span class="annot"><span class="annottext">InsightImpactGraphService -&gt; Maybe Text
+</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3AaccountId%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A list of names for the service, including the canonical name.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Anames%3AInsightImpactGraphService%27"><span class="annot"><span class="annottext">InsightImpactGraphService -&gt; Maybe [Text]
+</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3Anames%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The canonical name of the service.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aname%3AInsightImpactGraphService%27"><span class="annot"><span class="annottext">InsightImpactGraphService -&gt; Maybe Text
 </span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3Aname%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Identifier for the service. Unique within the service map.</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   Amazon Web Services Resource - The type of an Amazon Web Services</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     resource. For example, AWS::EC2::Instance for an application running</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     on Amazon EC2 or AWS::DynamoDB::Table for an Amazon DynamoDB table</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     that the application used.</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   Amazon Web Services Service - The type of an Amazon Web Services</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     service. For example, AWS::DynamoDB for downstream calls to Amazon</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     DynamoDB that didn\'t target a specific table.</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- -   Amazon Web Services Service - The type of an Amazon Web Services</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     service. For example, AWS::DynamoDB for downstream calls to Amazon</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     DynamoDB that didn\'t target a specific table.</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   remote - A downstream service of indeterminate type.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3Atype%27%3AInsightImpactGraphService%27"><span class="annot"><span class="annottext">InsightImpactGraphService -&gt; Maybe Text
-</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3Atype%27%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Identifier for the service. Unique within the service map.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   Amazon Web Services Resource - The type of an Amazon Web Services</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     resource. For example, AWS::EC2::Instance for an application running</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     on Amazon EC2 or AWS::DynamoDB::Table for an Amazon DynamoDB table</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     that the application used.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   Amazon Web Services Service - The type of an Amazon Web Services</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     service. For example, AWS::DynamoDB for downstream calls to Amazon</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     DynamoDB that didn\'t target a specific table.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- -   Amazon Web Services Service - The type of an Amazon Web Services</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     service. For example, AWS::DynamoDB for downstream calls to Amazon</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     DynamoDB that didn\'t target a specific table.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   remote - A downstream service of indeterminate type.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Atype%27%3AInsightImpactGraphService%27"><span class="annot"><span class="annottext">InsightImpactGraphService -&gt; Maybe Text
+</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3Atype%27%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Connections to downstream services.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aedges%3AInsightImpactGraphService%27"><span class="annot"><span class="annottext">InsightImpactGraphService -&gt; Maybe [InsightImpactGraphEdge]
+</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3Aedges%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var hs-var">edges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphEdge.html#InsightImpactGraphEdge"><span class="hs-identifier hs-type">InsightImpactGraphEdge</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251905"><span id="local-6989586621679251907"><span class="annot"><span class="annottext">InsightImpactGraphService -&gt; InsightImpactGraphService -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252176"><span id="local-6989586621679252178"><span class="annot"><span class="annottext">InsightImpactGraphService -&gt; InsightImpactGraphService -&gt; Bool
 (InsightImpactGraphService -&gt; InsightImpactGraphService -&gt; Bool)
 -&gt; (InsightImpactGraphService -&gt; InsightImpactGraphService -&gt; Bool)
 -&gt; Eq InsightImpactGraphService
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InsightImpactGraphService -&gt; InsightImpactGraphService -&gt; Bool
 == :: InsightImpactGraphService -&gt; InsightImpactGraphService -&gt; Bool
 $c== :: InsightImpactGraphService -&gt; InsightImpactGraphService -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251896"><span id="local-6989586621679251898"><span id="local-6989586621679251900"><span id="local-6989586621679251902"><span class="annot"><span class="annottext">ReadPrec [InsightImpactGraphService]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252167"><span id="local-6989586621679252169"><span id="local-6989586621679252171"><span id="local-6989586621679252173"><span class="annot"><span class="annottext">ReadPrec [InsightImpactGraphService]
 ReadPrec InsightImpactGraphService
 Int -&gt; ReadS InsightImpactGraphService
 ReadS [InsightImpactGraphService]
@@ -93,7 +93,7 @@ readList :: ReadS [InsightImpactGraphService]
 $creadList :: ReadS [InsightImpactGraphService]
 readsPrec :: Int -&gt; ReadS InsightImpactGraphService
 $creadsPrec :: Int -&gt; ReadS InsightImpactGraphService
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251889"><span id="local-6989586621679251891"><span id="local-6989586621679251893"><span class="annot"><span class="annottext">Int -&gt; InsightImpactGraphService -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252160"><span id="local-6989586621679252162"><span id="local-6989586621679252164"><span class="annot"><span class="annottext">Int -&gt; InsightImpactGraphService -&gt; ShowS
 [InsightImpactGraphService] -&gt; ShowS
 InsightImpactGraphService -&gt; String
 (Int -&gt; InsightImpactGraphService -&gt; ShowS)
@@ -133,74 +133,98 @@ InsightImpactGraphService -&gt; Rep InsightImpactGraphService x
 </span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'accountId', 'insightImpactGraphService_accountId' - Identifier of the Amazon Web Services account in which the service runs.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'referenceId', 'insightImpactGraphService_referenceId' - Identifier for the service. Unique within the service map.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'names', 'insightImpactGraphService_names' - A list of names for the service, including the canonical name.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'accountId', 'insightImpactGraphService_accountId' - Identifier of the Amazon Web Services account in which the service runs.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'referenceId', 'insightImpactGraphService_referenceId' - Identifier for the service. Unique within the service map.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'names', 'insightImpactGraphService_names' - A list of names for the service, including the canonical name.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'edges', 'insightImpactGraphService_edges' - Connections to downstream services.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'name', 'insightImpactGraphService_name' - The canonical name of the service.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'name', 'insightImpactGraphService_name' - The canonical name of the service.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'type'', 'insightImpactGraphService_type' - Identifier for the service. Unique within the service map.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'type'', 'insightImpactGraphService_type' - Identifier for the service. Unique within the service map.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- -   Amazon Web Services Resource - The type of an Amazon Web Services</span><span>
-</span><span id="line-84"></span><span class="hs-comment">--     resource. For example, AWS::EC2::Instance for an application running</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--     on Amazon EC2 or AWS::DynamoDB::Table for an Amazon DynamoDB table</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--     that the application used.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- -   Amazon Web Services Service - The type of an Amazon Web Services</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--     service. For example, AWS::DynamoDB for downstream calls to Amazon</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--     DynamoDB that didn\'t target a specific table.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- -   Amazon Web Services Service - The type of an Amazon Web Services</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--     service. For example, AWS::DynamoDB for downstream calls to Amazon</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--     DynamoDB that didn\'t target a specific table.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- -   Amazon Web Services Resource - The type of an Amazon Web Services</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--     resource. For example, AWS::EC2::Instance for an application running</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--     on Amazon EC2 or AWS::DynamoDB::Table for an Amazon DynamoDB table</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--     that the application used.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- -   Amazon Web Services Service - The type of an Amazon Web Services</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--     service. For example, AWS::DynamoDB for downstream calls to Amazon</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--     DynamoDB that didn\'t target a specific table.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- -   Amazon Web Services Service - The type of an Amazon Web Services</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--     service. For example, AWS::DynamoDB for downstream calls to Amazon</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--     DynamoDB that didn\'t target a specific table.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   remote - A downstream service of indeterminate type.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- -   remote - A downstream service of indeterminate type.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'edges', 'insightImpactGraphService_edges' - Connections to downstream services.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#newInsightImpactGraphService"><span class="hs-identifier hs-type">newInsightImpactGraphService</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span>
 </span><span id="line-99"></span><span id="newInsightImpactGraphService"><span class="annot"><span class="annottext">newInsightImpactGraphService :: InsightImpactGraphService
 </span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#newInsightImpactGraphService"><span class="hs-identifier hs-var hs-var">newInsightImpactGraphService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">InsightImpactGraphService' :: Maybe Text
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">InsightImpactGraphService' :: Maybe Int
+-&gt; Maybe Text
 -&gt; Maybe [Text]
--&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe [InsightImpactGraphEdge]
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; InsightImpactGraphService
 </span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:InsightImpactGraphService' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3AaccountId%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:referenceId:InsightImpactGraphService' :: Maybe Int
+</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3AreferenceId%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var">referenceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:names:InsightImpactGraphService' :: Maybe [Text]
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:InsightImpactGraphService' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3AaccountId%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:names:InsightImpactGraphService' :: Maybe [Text]
 </span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3Anames%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:referenceId:InsightImpactGraphService' :: Maybe Int
-</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3AreferenceId%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var">referenceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:edges:InsightImpactGraphService' :: Maybe [InsightImpactGraphEdge]
-</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3Aedges%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var">edges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InsightImpactGraphEdge]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:InsightImpactGraphService' :: Maybe Text
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:InsightImpactGraphService' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3Aname%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':InsightImpactGraphService' :: Maybe Text
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':InsightImpactGraphService' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3Atype%27%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:edges:InsightImpactGraphService' :: Maybe [InsightImpactGraphEdge]
+</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3Aedges%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var">edges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InsightImpactGraphEdge]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | Identifier of the Amazon Web Services account in which the service runs.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_accountId"><span class="hs-identifier hs-type">insightImpactGraphService_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="insightImpactGraphService_accountId"><span class="annot"><span class="annottext">insightImpactGraphService_accountId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-110"></span><span class="hs-comment">-- | Identifier for the service. Unique within the service map.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_referenceId"><span class="hs-identifier hs-type">insightImpactGraphService_referenceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="insightImpactGraphService_referenceId"><span class="annot"><span class="annottext">insightImpactGraphService_referenceId :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; InsightImpactGraphService -&gt; f InsightImpactGraphService
+</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_referenceId"><span class="hs-identifier hs-var hs-var">insightImpactGraphService_referenceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsightImpactGraphService -&gt; Maybe Int)
+-&gt; (InsightImpactGraphService
+    -&gt; Maybe Int -&gt; InsightImpactGraphService)
+-&gt; Lens
+     InsightImpactGraphService
+     InsightImpactGraphService
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252151"><span class="annot"><span class="annottext">Maybe Int
+referenceId :: Maybe Int
+$sel:referenceId:InsightImpactGraphService' :: InsightImpactGraphService -&gt; Maybe Int
+</span><a href="#local-6989586621679252151"><span class="hs-identifier hs-var hs-var">referenceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679252151"><span class="hs-identifier hs-var">referenceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252150"><span class="annot"><span class="annottext">s :: InsightImpactGraphService
+</span><a href="#local-6989586621679252150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252149"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679252149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightImpactGraphService
+</span><a href="#local-6989586621679252150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceId:InsightImpactGraphService' :: Maybe Int
+</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3AreferenceId%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var">referenceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679252149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Identifier of the Amazon Web Services account in which the service runs.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_accountId"><span class="hs-identifier hs-type">insightImpactGraphService_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="insightImpactGraphService_accountId"><span class="annot"><span class="annottext">insightImpactGraphService_accountId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; InsightImpactGraphService -&gt; f InsightImpactGraphService
 </span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_accountId"><span class="hs-identifier hs-var hs-var">insightImpactGraphService_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsightImpactGraphService -&gt; Maybe Text)
 -&gt; (InsightImpactGraphService
@@ -211,20 +235,20 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251880"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252147"><span class="annot"><span class="annottext">Maybe Text
 accountId :: Maybe Text
 $sel:accountId:InsightImpactGraphService' :: InsightImpactGraphService -&gt; Maybe Text
-</span><a href="#local-6989586621679251880"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251880"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251879"><span class="annot"><span class="annottext">s :: InsightImpactGraphService
-</span><a href="#local-6989586621679251879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251878"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightImpactGraphService
-</span><a href="#local-6989586621679251879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:InsightImpactGraphService' :: Maybe Text
+</span><a href="#local-6989586621679252147"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252147"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252146"><span class="annot"><span class="annottext">s :: InsightImpactGraphService
+</span><a href="#local-6989586621679252146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252145"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightImpactGraphService
+</span><a href="#local-6989586621679252146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:InsightImpactGraphService' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3AaccountId%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | A list of names for the service, including the canonical name.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_names"><span class="hs-identifier hs-type">insightImpactGraphService_names</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="insightImpactGraphService_names"><span class="annot"><span class="annottext">insightImpactGraphService_names :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679252145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | A list of names for the service, including the canonical name.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_names"><span class="hs-identifier hs-type">insightImpactGraphService_names</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="insightImpactGraphService_names"><span class="annot"><span class="annottext">insightImpactGraphService_names :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; InsightImpactGraphService -&gt; f InsightImpactGraphService
 </span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_names"><span class="hs-identifier hs-var hs-var">insightImpactGraphService_names</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsightImpactGraphService -&gt; Maybe [Text])
 -&gt; (InsightImpactGraphService
@@ -235,16 +259,16 @@ $sel:accountId:InsightImpactGraphService' :: InsightImpactGraphService -&gt; May
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251876"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252143"><span class="annot"><span class="annottext">Maybe [Text]
 names :: Maybe [Text]
 $sel:names:InsightImpactGraphService' :: InsightImpactGraphService -&gt; Maybe [Text]
-</span><a href="#local-6989586621679251876"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679251876"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251875"><span class="annot"><span class="annottext">s :: InsightImpactGraphService
-</span><a href="#local-6989586621679251875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251874"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679251874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightImpactGraphService
-</span><a href="#local-6989586621679251875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:InsightImpactGraphService' :: Maybe [Text]
+</span><a href="#local-6989586621679252143"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679252143"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252142"><span class="annot"><span class="annottext">s :: InsightImpactGraphService
+</span><a href="#local-6989586621679252142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252141"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679252141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightImpactGraphService
+</span><a href="#local-6989586621679252142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:InsightImpactGraphService' :: Maybe [Text]
 </span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3Anames%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679251874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679252141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; InsightImpactGraphService -&gt; f InsightImpactGraphService)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -258,36 +282,75 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | Identifier for the service. Unique within the service map.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_referenceId"><span class="hs-identifier hs-type">insightImpactGraphService_referenceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="insightImpactGraphService_referenceId"><span class="annot"><span class="annottext">insightImpactGraphService_referenceId :: (Maybe Int -&gt; f (Maybe Int))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The canonical name of the service.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_name"><span class="hs-identifier hs-type">insightImpactGraphService_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="insightImpactGraphService_name"><span class="annot"><span class="annottext">insightImpactGraphService_name :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; InsightImpactGraphService -&gt; f InsightImpactGraphService
-</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_referenceId"><span class="hs-identifier hs-var hs-var">insightImpactGraphService_referenceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsightImpactGraphService -&gt; Maybe Int)
+</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_name"><span class="hs-identifier hs-var hs-var">insightImpactGraphService_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsightImpactGraphService -&gt; Maybe Text)
 -&gt; (InsightImpactGraphService
-    -&gt; Maybe Int -&gt; InsightImpactGraphService)
+    -&gt; Maybe Text -&gt; InsightImpactGraphService)
 -&gt; Lens
      InsightImpactGraphService
      InsightImpactGraphService
-     (Maybe Int)
-     (Maybe Int)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251869"><span class="annot"><span class="annottext">Maybe Int
-referenceId :: Maybe Int
-$sel:referenceId:InsightImpactGraphService' :: InsightImpactGraphService -&gt; Maybe Int
-</span><a href="#local-6989586621679251869"><span class="hs-identifier hs-var hs-var">referenceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679251869"><span class="hs-identifier hs-var">referenceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251868"><span class="annot"><span class="annottext">s :: InsightImpactGraphService
-</span><a href="#local-6989586621679251868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251867"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679251867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightImpactGraphService
-</span><a href="#local-6989586621679251868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceId:InsightImpactGraphService' :: Maybe Int
-</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3AreferenceId%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var">referenceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679251867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | Connections to downstream services.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_edges"><span class="hs-identifier hs-type">insightImpactGraphService_edges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphEdge.html#InsightImpactGraphEdge"><span class="hs-identifier hs-type">InsightImpactGraphEdge</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="insightImpactGraphService_edges"><span class="annot"><span class="annottext">insightImpactGraphService_edges :: (Maybe [InsightImpactGraphEdge]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252136"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:InsightImpactGraphService' :: InsightImpactGraphService -&gt; Maybe Text
+</span><a href="#local-6989586621679252136"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252136"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252135"><span class="annot"><span class="annottext">s :: InsightImpactGraphService
+</span><a href="#local-6989586621679252135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252134"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightImpactGraphService
+</span><a href="#local-6989586621679252135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InsightImpactGraphService' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3Aname%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | Identifier for the service. Unique within the service map.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   Amazon Web Services Resource - The type of an Amazon Web Services</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--     resource. For example, AWS::EC2::Instance for an application running</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--     on Amazon EC2 or AWS::DynamoDB::Table for an Amazon DynamoDB table</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--     that the application used.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- -   Amazon Web Services Service - The type of an Amazon Web Services</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--     service. For example, AWS::DynamoDB for downstream calls to Amazon</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--     DynamoDB that didn\'t target a specific table.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- -   Amazon Web Services Service - The type of an Amazon Web Services</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--     service. For example, AWS::DynamoDB for downstream calls to Amazon</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--     DynamoDB that didn\'t target a specific table.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- -   remote - A downstream service of indeterminate type.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_type"><span class="hs-identifier hs-type">insightImpactGraphService_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="insightImpactGraphService_type"><span class="annot"><span class="annottext">insightImpactGraphService_type :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InsightImpactGraphService -&gt; f InsightImpactGraphService
+</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_type"><span class="hs-identifier hs-var hs-var">insightImpactGraphService_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsightImpactGraphService -&gt; Maybe Text)
+-&gt; (InsightImpactGraphService
+    -&gt; Maybe Text -&gt; InsightImpactGraphService)
+-&gt; Lens
+     InsightImpactGraphService
+     InsightImpactGraphService
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252132"><span class="annot"><span class="annottext">Maybe Text
+type' :: Maybe Text
+$sel:type':InsightImpactGraphService' :: InsightImpactGraphService -&gt; Maybe Text
+</span><a href="#local-6989586621679252132"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252132"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252131"><span class="annot"><span class="annottext">s :: InsightImpactGraphService
+</span><a href="#local-6989586621679252131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252130"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightImpactGraphService
+</span><a href="#local-6989586621679252131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':InsightImpactGraphService' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3Atype%27%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | Connections to downstream services.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_edges"><span class="hs-identifier hs-type">insightImpactGraphService_edges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphEdge.html#InsightImpactGraphEdge"><span class="hs-identifier hs-type">InsightImpactGraphEdge</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="insightImpactGraphService_edges"><span class="annot"><span class="annottext">insightImpactGraphService_edges :: (Maybe [InsightImpactGraphEdge]
  -&gt; f (Maybe [InsightImpactGraphEdge]))
 -&gt; InsightImpactGraphService -&gt; f InsightImpactGraphService
 </span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_edges"><span class="hs-identifier hs-var hs-var">insightImpactGraphService_edges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsightImpactGraphService -&gt; Maybe [InsightImpactGraphEdge])
@@ -299,16 +362,16 @@ $sel:referenceId:InsightImpactGraphService' :: InsightImpactGraphService -&gt; M
      (Maybe [InsightImpactGraphEdge])
      (Maybe [InsightImpactGraphEdge])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251865"><span class="annot"><span class="annottext">Maybe [InsightImpactGraphEdge]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252128"><span class="annot"><span class="annottext">Maybe [InsightImpactGraphEdge]
 edges :: Maybe [InsightImpactGraphEdge]
 $sel:edges:InsightImpactGraphService' :: InsightImpactGraphService -&gt; Maybe [InsightImpactGraphEdge]
-</span><a href="#local-6989586621679251865"><span class="hs-identifier hs-var hs-var">edges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InsightImpactGraphEdge]
-</span><a href="#local-6989586621679251865"><span class="hs-identifier hs-var">edges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251864"><span class="annot"><span class="annottext">s :: InsightImpactGraphService
-</span><a href="#local-6989586621679251864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251863"><span class="annot"><span class="annottext">Maybe [InsightImpactGraphEdge]
-</span><a href="#local-6989586621679251863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightImpactGraphService
-</span><a href="#local-6989586621679251864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:edges:InsightImpactGraphService' :: Maybe [InsightImpactGraphEdge]
+</span><a href="#local-6989586621679252128"><span class="hs-identifier hs-var hs-var">edges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InsightImpactGraphEdge]
+</span><a href="#local-6989586621679252128"><span class="hs-identifier hs-var">edges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252127"><span class="annot"><span class="annottext">s :: InsightImpactGraphService
+</span><a href="#local-6989586621679252127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252126"><span class="annot"><span class="annottext">Maybe [InsightImpactGraphEdge]
+</span><a href="#local-6989586621679252126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightImpactGraphService
+</span><a href="#local-6989586621679252127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:edges:InsightImpactGraphService' :: Maybe [InsightImpactGraphEdge]
 </span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3Aedges%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var">edges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InsightImpactGraphEdge]
-</span><a href="#local-6989586621679251863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InsightImpactGraphEdge]
+</span><a href="#local-6989586621679252126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InsightImpactGraphEdge]
   -&gt; f (Maybe [InsightImpactGraphEdge]))
  -&gt; InsightImpactGraphService -&gt; f InsightImpactGraphService)
 -&gt; ((Maybe [InsightImpactGraphEdge]
@@ -338,74 +401,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [InsightImpactGraphEdge]
   [InsightImpactGraphEdge]
   [InsightImpactGraphEdge]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The canonical name of the service.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_name"><span class="hs-identifier hs-type">insightImpactGraphService_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="insightImpactGraphService_name"><span class="annot"><span class="annottext">insightImpactGraphService_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InsightImpactGraphService -&gt; f InsightImpactGraphService
-</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_name"><span class="hs-identifier hs-var hs-var">insightImpactGraphService_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsightImpactGraphService -&gt; Maybe Text)
--&gt; (InsightImpactGraphService
-    -&gt; Maybe Text -&gt; InsightImpactGraphService)
--&gt; Lens
-     InsightImpactGraphService
-     InsightImpactGraphService
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251861"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:InsightImpactGraphService' :: InsightImpactGraphService -&gt; Maybe Text
-</span><a href="#local-6989586621679251861"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251861"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251860"><span class="annot"><span class="annottext">s :: InsightImpactGraphService
-</span><a href="#local-6989586621679251860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251859"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightImpactGraphService
-</span><a href="#local-6989586621679251860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InsightImpactGraphService' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3Aname%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | Identifier for the service. Unique within the service map.</span><span>
-</span><span id="line-131"></span><span class="hs-comment">--</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- -   Amazon Web Services Resource - The type of an Amazon Web Services</span><span>
-</span><span id="line-133"></span><span class="hs-comment">--     resource. For example, AWS::EC2::Instance for an application running</span><span>
-</span><span id="line-134"></span><span class="hs-comment">--     on Amazon EC2 or AWS::DynamoDB::Table for an Amazon DynamoDB table</span><span>
-</span><span id="line-135"></span><span class="hs-comment">--     that the application used.</span><span>
-</span><span id="line-136"></span><span class="hs-comment">--</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- -   Amazon Web Services Service - The type of an Amazon Web Services</span><span>
-</span><span id="line-138"></span><span class="hs-comment">--     service. For example, AWS::DynamoDB for downstream calls to Amazon</span><span>
-</span><span id="line-139"></span><span class="hs-comment">--     DynamoDB that didn\'t target a specific table.</span><span>
-</span><span id="line-140"></span><span class="hs-comment">--</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- -   Amazon Web Services Service - The type of an Amazon Web Services</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--     service. For example, AWS::DynamoDB for downstream calls to Amazon</span><span>
-</span><span id="line-143"></span><span class="hs-comment">--     DynamoDB that didn\'t target a specific table.</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- -   remote - A downstream service of indeterminate type.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_type"><span class="hs-identifier hs-type">insightImpactGraphService_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="insightImpactGraphService_type"><span class="annot"><span class="annottext">insightImpactGraphService_type :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InsightImpactGraphService -&gt; f InsightImpactGraphService
-</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#insightImpactGraphService_type"><span class="hs-identifier hs-var hs-var">insightImpactGraphService_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InsightImpactGraphService -&gt; Maybe Text)
--&gt; (InsightImpactGraphService
-    -&gt; Maybe Text -&gt; InsightImpactGraphService)
--&gt; Lens
-     InsightImpactGraphService
-     InsightImpactGraphService
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251857"><span class="annot"><span class="annottext">Maybe Text
-type' :: Maybe Text
-$sel:type':InsightImpactGraphService' :: InsightImpactGraphService -&gt; Maybe Text
-</span><a href="#local-6989586621679251857"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251857"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251856"><span class="annot"><span class="annottext">s :: InsightImpactGraphService
-</span><a href="#local-6989586621679251856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-type">InsightImpactGraphService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251855"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightImpactGraphService
-</span><a href="#local-6989586621679251856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':InsightImpactGraphService' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#%24sel%3Atype%27%3AInsightImpactGraphService%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251852"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679251850"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InsightImpactGraphService
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252123"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679252121"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InsightImpactGraphService
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InsightImpactGraphService)
@@ -415,54 +415,72 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InsightImpactGraphService&quot;</span></span><span>
-</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251847"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251847"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252118"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252118"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Text
 -&gt; Maybe [Text]
--&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe [InsightImpactGraphEdge]
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; InsightImpactGraphService
 </span><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService%27"><span class="hs-identifier hs-var">InsightImpactGraphService'</span></a></span><span>
-</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Text
  -&gt; Maybe [Text]
- -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe [InsightImpactGraphEdge]
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; InsightImpactGraphService)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Int)
 -&gt; Parser
-     (Maybe [Text]
-      -&gt; Maybe Int
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe [InsightImpactGraphEdge]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; InsightImpactGraphService)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679252118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ReferenceId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [Text]
-   -&gt; Maybe Int
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe [InsightImpactGraphEdge]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; InsightImpactGraphService)
--&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Int
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe [InsightImpactGraphEdge]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; InsightImpactGraphService)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679252118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [InsightImpactGraphEdge]
+   -&gt; InsightImpactGraphService)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [InsightImpactGraphEdge]
+      -&gt; InsightImpactGraphService)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Names&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -471,30 +489,40 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Int
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe [InsightImpactGraphEdge]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; InsightImpactGraphService)
--&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe [InsightImpactGraphEdge]
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; InsightImpactGraphService)
+     (Maybe Text
+      -&gt; Maybe [InsightImpactGraphEdge] -&gt; InsightImpactGraphService)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679252118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReferenceId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [InsightImpactGraphEdge]
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; InsightImpactGraphService)
--&gt; Parser (Maybe [InsightImpactGraphEdge])
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; InsightImpactGraphService)
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [InsightImpactGraphEdge] -&gt; InsightImpactGraphService)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [InsightImpactGraphEdge] -&gt; InsightImpactGraphService)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InsightImpactGraphEdge]))
+</span><a href="#local-6989586621679252118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [InsightImpactGraphEdge] -&gt; InsightImpactGraphService)
+-&gt; Parser (Maybe [InsightImpactGraphEdge])
+-&gt; Parser InsightImpactGraphService
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InsightImpactGraphEdge]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Edges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [InsightImpactGraphEdge]))
@@ -504,26 +532,9 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InsightImpactGraphEdge]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; InsightImpactGraphService)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; InsightImpactGraphService)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; InsightImpactGraphService)
--&gt; Parser (Maybe Text) -&gt; Parser InsightImpactGraphService
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251840"><span id="local-6989586621679251842"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252111"><span id="local-6989586621679252113"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span></span></span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251837"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252108"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightImpactGraphService.html#InsightImpactGraphService"><span class="hs-identifier hs-type">InsightImpactGraphService</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

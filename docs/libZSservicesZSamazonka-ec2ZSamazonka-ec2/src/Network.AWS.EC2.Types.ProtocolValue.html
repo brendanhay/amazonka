@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621681106368"><span id="local-6989586621681106369"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProtocolValue"><span class="annot"><a href="Network.AWS.EC2.Types.ProtocolValue.html#ProtocolValue"><span class="hs-identifier hs-var">ProtocolValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProtocolValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.ProtocolValue.html#ProtocolValue%27"><span class="hs-identifier hs-var">ProtocolValue'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681141082"><span id="local-6989586621681141083"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProtocolValue"><span class="annot"><a href="Network.AWS.EC2.Types.ProtocolValue.html#ProtocolValue"><span class="hs-identifier hs-var">ProtocolValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProtocolValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.ProtocolValue.html#ProtocolValue%27"><span class="hs-identifier hs-var">ProtocolValue'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProtocolValue"><span class="annot"><span class="annottext">ProtocolValue -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ProtocolValue.html#fromProtocolValue"><span class="hs-identifier hs-var hs-var">fromProtocolValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681106360"><span id="local-6989586621681106362"><span id="local-6989586621681106364"><span class="annot"><span class="annottext">Int -&gt; ProtocolValue -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681141074"><span id="local-6989586621681141076"><span id="local-6989586621681141078"><span class="annot"><span class="annottext">Int -&gt; ProtocolValue -&gt; ShowS
 [ProtocolValue] -&gt; ShowS
 ProtocolValue -&gt; String
 (Int -&gt; ProtocolValue -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ProtocolValue -&gt; String
 showsPrec :: Int -&gt; ProtocolValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; ProtocolValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621681106351"><span id="local-6989586621681106353"><span id="local-6989586621681106355"><span id="local-6989586621681106357"><span class="annot"><span class="annottext">ReadPrec [ProtocolValue]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621681141065"><span id="local-6989586621681141067"><span id="local-6989586621681141069"><span id="local-6989586621681141071"><span class="annot"><span class="annottext">ReadPrec [ProtocolValue]
 ReadPrec ProtocolValue
 Int -&gt; ReadS ProtocolValue
 ReadS [ProtocolValue]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ProtocolValue]
 readsPrec :: Int -&gt; ReadS ProtocolValue
 $creadsPrec :: Int -&gt; ReadS ProtocolValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681106346"><span id="local-6989586621681106348"><span class="annot"><span class="annottext">ProtocolValue -&gt; ProtocolValue -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681141060"><span id="local-6989586621681141062"><span class="annot"><span class="annottext">ProtocolValue -&gt; ProtocolValue -&gt; Bool
 (ProtocolValue -&gt; ProtocolValue -&gt; Bool)
 -&gt; (ProtocolValue -&gt; ProtocolValue -&gt; Bool) -&gt; Eq ProtocolValue
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: ProtocolValue -&gt; ProtocolValue -&gt; Bool
 == :: ProtocolValue -&gt; ProtocolValue -&gt; Bool
 $c== :: ProtocolValue -&gt; ProtocolValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681106330"><span id="local-6989586621681106332"><span id="local-6989586621681106334"><span id="local-6989586621681106336"><span id="local-6989586621681106338"><span id="local-6989586621681106340"><span id="local-6989586621681106342"><span class="annot"><span class="annottext">Eq ProtocolValue
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681141044"><span id="local-6989586621681141046"><span id="local-6989586621681141048"><span id="local-6989586621681141050"><span id="local-6989586621681141052"><span id="local-6989586621681141054"><span id="local-6989586621681141056"><span class="annot"><span class="annottext">Eq ProtocolValue
 Eq ProtocolValue
 -&gt; (ProtocolValue -&gt; ProtocolValue -&gt; Ordering)
 -&gt; (ProtocolValue -&gt; ProtocolValue -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ProtocolValue -&gt; Rep ProtocolValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681106322"><span id="local-6989586621681106324"><span class="annot"><span class="annottext">Int -&gt; ProtocolValue -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681141036"><span id="local-6989586621681141038"><span class="annot"><span class="annottext">Int -&gt; ProtocolValue -&gt; Int
 ProtocolValue -&gt; Int
 (Int -&gt; ProtocolValue -&gt; Int)
 -&gt; (ProtocolValue -&gt; Int) -&gt; Hashable ProtocolValue
@@ -142,49 +142,49 @@ $chash :: ProtocolValue -&gt; Int
 hashWithSalt :: Int -&gt; ProtocolValue -&gt; Int
 $chashWithSalt :: Int -&gt; ProtocolValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681106319"><span class="annot"><span class="annottext">ProtocolValue -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681141033"><span class="annot"><span class="annottext">ProtocolValue -&gt; ()
 (ProtocolValue -&gt; ()) -&gt; NFData ProtocolValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ProtocolValue -&gt; ()
 $crnf :: ProtocolValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681106316"><span class="annot"><span class="annottext">Text -&gt; Either String ProtocolValue
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681141030"><span class="annot"><span class="annottext">Text -&gt; Either String ProtocolValue
 (Text -&gt; Either String ProtocolValue) -&gt; FromText ProtocolValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ProtocolValue
 $cfromText :: Text -&gt; Either String ProtocolValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681106313"><span class="annot"><span class="annottext">ProtocolValue -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681141027"><span class="annot"><span class="annottext">ProtocolValue -&gt; Text
 (ProtocolValue -&gt; Text) -&gt; ToText ProtocolValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ProtocolValue -&gt; Text
 $ctoText :: ProtocolValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681106310"><span class="annot"><span class="annottext">ProtocolValue -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681141024"><span class="annot"><span class="annottext">ProtocolValue -&gt; ByteString
 (ProtocolValue -&gt; ByteString) -&gt; ToByteString ProtocolValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ProtocolValue -&gt; ByteString
 $ctoBS :: ProtocolValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681106307"><span class="annot"><span class="annottext">ProtocolValue -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681141021"><span class="annot"><span class="annottext">ProtocolValue -&gt; ByteStringBuilder
 (ProtocolValue -&gt; ByteStringBuilder) -&gt; ToLog ProtocolValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ProtocolValue -&gt; ByteStringBuilder
 $cbuild :: ProtocolValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681106304"><span class="annot"><span class="annottext">HeaderName -&gt; ProtocolValue -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681141018"><span class="annot"><span class="annottext">HeaderName -&gt; ProtocolValue -&gt; [Header]
 (HeaderName -&gt; ProtocolValue -&gt; [Header]) -&gt; ToHeader ProtocolValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ProtocolValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ProtocolValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681106301"><span class="annot"><span class="annottext">ProtocolValue -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681141015"><span class="annot"><span class="annottext">ProtocolValue -&gt; QueryString
 (ProtocolValue -&gt; QueryString) -&gt; ToQuery ProtocolValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ProtocolValue -&gt; QueryString
 $ctoQuery :: ProtocolValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681106296"><span id="local-6989586621681106298"><span class="annot"><span class="annottext">Value -&gt; Parser [ProtocolValue]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681141010"><span id="local-6989586621681141012"><span class="annot"><span class="annottext">Value -&gt; Parser [ProtocolValue]
 Value -&gt; Parser ProtocolValue
 (Value -&gt; Parser ProtocolValue)
 -&gt; (Value -&gt; Parser [ProtocolValue]) -&gt; FromJSON ProtocolValue
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [ProtocolValue]
 parseJSON :: Value -&gt; Parser ProtocolValue
 $cparseJSON :: Value -&gt; Parser ProtocolValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681106291"><span id="local-6989586621681106293"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProtocolValue]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681141005"><span id="local-6989586621681141007"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProtocolValue]
 FromJSONKeyFunction ProtocolValue
 FromJSONKeyFunction ProtocolValue
 -&gt; FromJSONKeyFunction [ProtocolValue] -&gt; FromJSONKey ProtocolValue
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ProtocolValue]
 fromJSONKey :: FromJSONKeyFunction ProtocolValue
 $cfromJSONKey :: FromJSONKeyFunction ProtocolValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681106282"><span id="local-6989586621681106284"><span id="local-6989586621681106286"><span id="local-6989586621681106288"><span class="annot"><span class="annottext">[ProtocolValue] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681140996"><span id="local-6989586621681140998"><span id="local-6989586621681141000"><span id="local-6989586621681141002"><span class="annot"><span class="annottext">[ProtocolValue] -&gt; Encoding
 [ProtocolValue] -&gt; Value
 ProtocolValue -&gt; Encoding
 ProtocolValue -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: ProtocolValue -&gt; Encoding
 toJSON :: ProtocolValue -&gt; Value
 $ctoJSON :: ProtocolValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681106277"><span id="local-6989586621681106279"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProtocolValue]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681140991"><span id="local-6989586621681140993"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProtocolValue]
 ToJSONKeyFunction ProtocolValue
 ToJSONKeyFunction ProtocolValue
 -&gt; ToJSONKeyFunction [ProtocolValue] -&gt; ToJSONKey ProtocolValue
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ProtocolValue]
 toJSONKey :: ToJSONKeyFunction ProtocolValue
 $ctoJSONKey :: ToJSONKeyFunction ProtocolValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681106274"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProtocolValue
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681140988"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProtocolValue
 ([Node] -&gt; Either String ProtocolValue) -&gt; FromXML ProtocolValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ProtocolValue
 $cparseXML :: [Node] -&gt; Either String ProtocolValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681106271"><span class="annot"><span class="annottext">ProtocolValue -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681140985"><span class="annot"><span class="annottext">ProtocolValue -&gt; XML
 (ProtocolValue -&gt; XML) -&gt; ToXML ProtocolValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ProtocolValue -&gt; XML

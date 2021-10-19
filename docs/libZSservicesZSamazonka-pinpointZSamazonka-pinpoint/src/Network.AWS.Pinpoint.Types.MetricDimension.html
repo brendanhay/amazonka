@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- define for endpoints.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMetricDimension' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679603755"><span id="local-6989586621679603756"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricDimension"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-var">MetricDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricDimension%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-var">MetricDimension'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679604222"><span id="local-6989586621679604223"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricDimension"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-var">MetricDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricDimension%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-var">MetricDimension'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The operator to use when comparing metric values. Valid values are:</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, and</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- EQUAL.</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Avalue%3AMetricDimension%27"><span class="annot"><span class="annottext">MetricDimension -&gt; Double
 </span><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#%24sel%3Avalue%3AMetricDimension%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679603748"><span id="local-6989586621679603750"><span class="annot"><span class="annottext">MetricDimension -&gt; MetricDimension -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679604215"><span id="local-6989586621679604217"><span class="annot"><span class="annottext">MetricDimension -&gt; MetricDimension -&gt; Bool
 (MetricDimension -&gt; MetricDimension -&gt; Bool)
 -&gt; (MetricDimension -&gt; MetricDimension -&gt; Bool)
 -&gt; Eq MetricDimension
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MetricDimension -&gt; MetricDimension -&gt; Bool
 == :: MetricDimension -&gt; MetricDimension -&gt; Bool
 $c== :: MetricDimension -&gt; MetricDimension -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603739"><span id="local-6989586621679603741"><span id="local-6989586621679603743"><span id="local-6989586621679603745"><span class="annot"><span class="annottext">ReadPrec [MetricDimension]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679604206"><span id="local-6989586621679604208"><span id="local-6989586621679604210"><span id="local-6989586621679604212"><span class="annot"><span class="annottext">ReadPrec [MetricDimension]
 ReadPrec MetricDimension
 Int -&gt; ReadS MetricDimension
 ReadS [MetricDimension]
@@ -67,7 +67,7 @@ readList :: ReadS [MetricDimension]
 $creadList :: ReadS [MetricDimension]
 readsPrec :: Int -&gt; ReadS MetricDimension
 $creadsPrec :: Int -&gt; ReadS MetricDimension
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603732"><span id="local-6989586621679603734"><span id="local-6989586621679603736"><span class="annot"><span class="annottext">Int -&gt; MetricDimension -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679604199"><span id="local-6989586621679604201"><span id="local-6989586621679604203"><span class="annot"><span class="annottext">Int -&gt; MetricDimension -&gt; ShowS
 [MetricDimension] -&gt; ShowS
 MetricDimension -&gt; String
 (Int -&gt; MetricDimension -&gt; ShowS)
@@ -113,18 +113,18 @@ $cfrom :: forall x. MetricDimension -&gt; Rep MetricDimension x
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span>
 </span><span id="line-60"></span><span id="newMetricDimension"><span class="annot"><span class="annottext">newMetricDimension :: Text -&gt; Double -&gt; MetricDimension
-</span><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#newMetricDimension"><span class="hs-identifier hs-var hs-var">newMetricDimension</span></a></span></span><span> </span><span id="local-6989586621679603726"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679603726"><span class="hs-identifier hs-var">pComparisonOperator_</span></a></span></span><span> </span><span id="local-6989586621679603725"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679603725"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#newMetricDimension"><span class="hs-identifier hs-var hs-var">newMetricDimension</span></a></span></span><span> </span><span id="local-6989586621679604193"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679604193"><span class="hs-identifier hs-var">pComparisonOperator_</span></a></span></span><span> </span><span id="local-6989586621679604192"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679604192"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">MetricDimension' :: Text -&gt; Double -&gt; MetricDimension
 </span><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:comparisonOperator:MetricDimension' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#%24sel%3AcomparisonOperator%3AMetricDimension%27"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679603726"><span class="hs-identifier hs-var">pComparisonOperator_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679604193"><span class="hs-identifier hs-var">pComparisonOperator_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:MetricDimension' :: Double
 </span><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#%24sel%3Avalue%3AMetricDimension%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679603725"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
+</span><a href="#local-6989586621679604192"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The operator to use when comparing metric values. Valid values are:</span><span>
@@ -136,16 +136,16 @@ $cfrom :: forall x. MetricDimension -&gt; Rep MetricDimension x
 -&gt; (MetricDimension -&gt; Text -&gt; MetricDimension)
 -&gt; Lens MetricDimension MetricDimension Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603721"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604188"><span class="annot"><span class="annottext">Text
 comparisonOperator :: Text
 $sel:comparisonOperator:MetricDimension' :: MetricDimension -&gt; Text
-</span><a href="#local-6989586621679603721"><span class="hs-identifier hs-var hs-var">comparisonOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679603721"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603720"><span class="annot"><span class="annottext">s :: MetricDimension
-</span><a href="#local-6989586621679603720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603719"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679603719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDimension
-</span><a href="#local-6989586621679603720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comparisonOperator:MetricDimension' :: Text
+</span><a href="#local-6989586621679604188"><span class="hs-identifier hs-var hs-var">comparisonOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679604188"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679604187"><span class="annot"><span class="annottext">s :: MetricDimension
+</span><a href="#local-6989586621679604187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679604186"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679604186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDimension
+</span><a href="#local-6989586621679604187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comparisonOperator:MetricDimension' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#%24sel%3AcomparisonOperator%3AMetricDimension%27"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679603719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679604186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The value to compare.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#metricDimension_value"><span class="hs-identifier hs-type">metricDimension_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
@@ -154,19 +154,19 @@ $sel:comparisonOperator:MetricDimension' :: MetricDimension -&gt; Text
 -&gt; (MetricDimension -&gt; Double -&gt; MetricDimension)
 -&gt; Lens MetricDimension MetricDimension Double Double
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603717"><span class="annot"><span class="annottext">Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604184"><span class="annot"><span class="annottext">Double
 value :: Double
 $sel:value:MetricDimension' :: MetricDimension -&gt; Double
-</span><a href="#local-6989586621679603717"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679603717"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603716"><span class="annot"><span class="annottext">s :: MetricDimension
-</span><a href="#local-6989586621679603716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603715"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679603715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDimension
-</span><a href="#local-6989586621679603716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:MetricDimension' :: Double
+</span><a href="#local-6989586621679604184"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679604184"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679604183"><span class="annot"><span class="annottext">s :: MetricDimension
+</span><a href="#local-6989586621679604183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679604182"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679604182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDimension
+</span><a href="#local-6989586621679604183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:MetricDimension' :: Double
 </span><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#%24sel%3Avalue%3AMetricDimension%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679603715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679604182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603712"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679603710"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricDimension
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679604179"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679604177"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricDimension
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MetricDimension)
@@ -176,15 +176,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MetricDimension&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679603707"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603707"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679604174"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679604174"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; MetricDimension
 </span><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-var">MetricDimension'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Double -&gt; MetricDimension)
 -&gt; Parser Text -&gt; Parser (Double -&gt; MetricDimension)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679604174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComparisonOperator&quot;</span></span><span class="hs-special">)</span><span>
@@ -192,25 +192,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Double -&gt; Parser MetricDimension
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+</span><a href="#local-6989586621679604174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603701"><span id="local-6989586621679603703"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679604168"><span id="local-6989586621679604170"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603698"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679604165"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603690"><span id="local-6989586621679603692"><span id="local-6989586621679603694"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679603688"><span class="annot"><span class="annottext">toJSON :: MetricDimension -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603685"><span id="local-6989586621679603686"><span class="annot"><span class="annottext">Double
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679604157"><span id="local-6989586621679604159"><span id="local-6989586621679604161"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679604155"><span class="annot"><span class="annottext">toJSON :: MetricDimension -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604152"><span id="local-6989586621679604153"><span class="annot"><span class="annottext">Double
 Text
 value :: Double
 comparisonOperator :: Text
 $sel:value:MetricDimension' :: MetricDimension -&gt; Double
 $sel:comparisonOperator:MetricDimension' :: MetricDimension -&gt; Text
-</span><a href="#local-6989586621679603685"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679604152"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -223,14 +223,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ComparisonOperator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679603686"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679604153"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679603685"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679604152"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span></pre></body></html>

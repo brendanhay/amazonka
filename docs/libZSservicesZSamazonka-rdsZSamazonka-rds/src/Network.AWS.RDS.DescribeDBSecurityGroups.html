@@ -31,10 +31,10 @@
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#newDescribeDBSecurityGroups"><span class="hs-identifier">newDescribeDBSecurityGroups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_dbSecurityGroupName"><span class="hs-identifier">describeDBSecurityGroups_dbSecurityGroupName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_filters"><span class="hs-identifier">describeDBSecurityGroups_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_filters"><span class="hs-identifier">describeDBSecurityGroups_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_marker"><span class="hs-identifier">describeDBSecurityGroups_marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_maxRecords"><span class="hs-identifier">describeDBSecurityGroups_maxRecords</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_marker"><span class="hs-identifier">describeDBSecurityGroups_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_dbSecurityGroupName"><span class="hs-identifier">describeDBSecurityGroups_dbSecurityGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse"><span class="hs-identifier">DescribeDBSecurityGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -57,31 +57,31 @@
 </span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newDescribeDBSecurityGroups' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679790020"><span id="local-6989586621679790021"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBSecurityGroups"><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-var">DescribeDBSecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBSecurityGroups%27"><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-var">DescribeDBSecurityGroups'</span></a></span></span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the DB security group to return details for.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AdbSecurityGroupName%3ADescribeDBSecurityGroups%27"><span class="annot"><span class="annottext">DescribeDBSecurityGroups -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3AdbSecurityGroupName%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var hs-var">dbSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | This parameter isn\'t currently supported.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeDBSecurityGroups%27"><span class="annot"><span class="annottext">DescribeDBSecurityGroups -&gt; Maybe [Filter]
+</span><span id="line-60"></span><span id="local-6989586621679791154"><span id="local-6989586621679791155"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBSecurityGroups"><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-var">DescribeDBSecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBSecurityGroups%27"><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-var">DescribeDBSecurityGroups'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This parameter isn\'t currently supported.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeDBSecurityGroups%27"><span class="annot"><span class="annottext">DescribeDBSecurityGroups -&gt; Maybe [Filter]
 </span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3Afilters%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- called a marker is included in the response so that you can retrieve the</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- remaining results.</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Default: 100</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeDBSecurityGroups%27"><span class="annot"><span class="annottext">DescribeDBSecurityGroups -&gt; Maybe Int
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @DescribeDBSecurityGroups@ request. If this parameter is specified, the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- response includes only records beyond the marker, up to the value</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- specified by @MaxRecords@.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeDBSecurityGroups%27"><span class="annot"><span class="annottext">DescribeDBSecurityGroups -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3Amarker%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- called a marker is included in the response so that you can retrieve the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- remaining results.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeDBSecurityGroups%27"><span class="annot"><span class="annottext">DescribeDBSecurityGroups -&gt; Maybe Int
 </span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3AmaxRecords%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- @DescribeDBSecurityGroups@ request. If this parameter is specified, the</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- response includes only records beyond the marker, up to the value</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- specified by @MaxRecords@.</span><span>
-</span><span id="line-78"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeDBSecurityGroups%27"><span class="annot"><span class="annottext">DescribeDBSecurityGroups -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3Amarker%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The name of the DB security group to return details for.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AdbSecurityGroupName%3ADescribeDBSecurityGroups%27"><span class="annot"><span class="annottext">DescribeDBSecurityGroups -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3AdbSecurityGroupName%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var hs-var">dbSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679790011"><span id="local-6989586621679790013"><span class="annot"><span class="annottext">DescribeDBSecurityGroups -&gt; DescribeDBSecurityGroups -&gt; Bool
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679791145"><span id="local-6989586621679791147"><span class="annot"><span class="annottext">DescribeDBSecurityGroups -&gt; DescribeDBSecurityGroups -&gt; Bool
 (DescribeDBSecurityGroups -&gt; DescribeDBSecurityGroups -&gt; Bool)
 -&gt; (DescribeDBSecurityGroups -&gt; DescribeDBSecurityGroups -&gt; Bool)
 -&gt; Eq DescribeDBSecurityGroups
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeDBSecurityGroups -&gt; DescribeDBSecurityGroups -&gt; Bool
 == :: DescribeDBSecurityGroups -&gt; DescribeDBSecurityGroups -&gt; Bool
 $c== :: DescribeDBSecurityGroups -&gt; DescribeDBSecurityGroups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790002"><span id="local-6989586621679790004"><span id="local-6989586621679790006"><span id="local-6989586621679790008"><span class="annot"><span class="annottext">ReadPrec [DescribeDBSecurityGroups]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791136"><span id="local-6989586621679791138"><span id="local-6989586621679791140"><span id="local-6989586621679791142"><span class="annot"><span class="annottext">ReadPrec [DescribeDBSecurityGroups]
 ReadPrec DescribeDBSecurityGroups
 Int -&gt; ReadS DescribeDBSecurityGroups
 ReadS [DescribeDBSecurityGroups]
@@ -110,7 +110,7 @@ readList :: ReadS [DescribeDBSecurityGroups]
 $creadList :: ReadS [DescribeDBSecurityGroups]
 readsPrec :: Int -&gt; ReadS DescribeDBSecurityGroups
 $creadsPrec :: Int -&gt; ReadS DescribeDBSecurityGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789995"><span id="local-6989586621679789997"><span id="local-6989586621679789999"><span class="annot"><span class="annottext">Int -&gt; DescribeDBSecurityGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791129"><span id="local-6989586621679791131"><span id="local-6989586621679791133"><span class="annot"><span class="annottext">Int -&gt; DescribeDBSecurityGroups -&gt; ShowS
 [DescribeDBSecurityGroups] -&gt; ShowS
 DescribeDBSecurityGroups -&gt; String
 (Int -&gt; DescribeDBSecurityGroups -&gt; ShowS)
@@ -150,79 +150,55 @@ DescribeDBSecurityGroups -&gt; Rep DescribeDBSecurityGroups x
 </span><span id="line-87"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'dbSecurityGroupName', 'describeDBSecurityGroups_dbSecurityGroupName' - The name of the DB security group to return details for.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'filters', 'describeDBSecurityGroups_filters' - This parameter isn\'t currently supported.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'filters', 'describeDBSecurityGroups_filters' - This parameter isn\'t currently supported.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'maxRecords', 'describeDBSecurityGroups_maxRecords' - The maximum number of records to include in the response. If more</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- called a marker is included in the response so that you can retrieve the</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- remaining results.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- Default: 100</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'marker', 'describeDBSecurityGroups_marker' - An optional pagination token provided by a previous</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- @DescribeDBSecurityGroups@ request. If this parameter is specified, the</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- response includes only records beyond the marker, up to the value</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- specified by @MaxRecords@.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'marker', 'describeDBSecurityGroups_marker' - An optional pagination token provided by a previous</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- @DescribeDBSecurityGroups@ request. If this parameter is specified, the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- response includes only records beyond the marker, up to the value</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- specified by @MaxRecords@.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'maxRecords', 'describeDBSecurityGroups_maxRecords' - The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- called a marker is included in the response so that you can retrieve the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- remaining results.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'dbSecurityGroupName', 'describeDBSecurityGroups_dbSecurityGroupName' - The name of the DB security group to return details for.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#newDescribeDBSecurityGroups"><span class="hs-identifier hs-type">newDescribeDBSecurityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span>
 </span><span id="line-109"></span><span id="newDescribeDBSecurityGroups"><span class="annot"><span class="annottext">newDescribeDBSecurityGroups :: DescribeDBSecurityGroups
 </span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#newDescribeDBSecurityGroups"><span class="hs-identifier hs-var hs-var">newDescribeDBSecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-110"></span><span>  </span><span class="annot"><span class="annottext">DescribeDBSecurityGroups' :: Maybe Text
--&gt; Maybe [Filter]
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="annottext">DescribeDBSecurityGroups' :: Maybe [Filter]
+-&gt; Maybe Text
 -&gt; Maybe Int
 -&gt; Maybe Text
 -&gt; DescribeDBSecurityGroups
 </span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbSecurityGroupName:DescribeDBSecurityGroups' :: Maybe Text
-</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3AdbSecurityGroupName%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-111"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:DescribeDBSecurityGroups' :: Maybe [Filter]
+</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3Afilters%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Filter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeDBSecurityGroups' :: Maybe [Filter]
-</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3Afilters%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeDBSecurityGroups' :: Maybe Text
+</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3Amarker%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeDBSecurityGroups' :: Maybe Int
 </span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3AmaxRecords%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeDBSecurityGroups' :: Maybe Text
-</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3Amarker%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbSecurityGroupName:DescribeDBSecurityGroups' :: Maybe Text
+</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3AdbSecurityGroupName%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The name of the DB security group to return details for.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_dbSecurityGroupName"><span class="hs-identifier hs-type">describeDBSecurityGroups_dbSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="describeDBSecurityGroups_dbSecurityGroupName"><span class="annot"><span class="annottext">describeDBSecurityGroups_dbSecurityGroupName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeDBSecurityGroups -&gt; f DescribeDBSecurityGroups
-</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_dbSecurityGroupName"><span class="hs-identifier hs-var hs-var">describeDBSecurityGroups_dbSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBSecurityGroups -&gt; Maybe Text)
--&gt; (DescribeDBSecurityGroups
-    -&gt; Maybe Text -&gt; DescribeDBSecurityGroups)
--&gt; Lens
-     DescribeDBSecurityGroups
-     DescribeDBSecurityGroups
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789989"><span class="annot"><span class="annottext">Maybe Text
-dbSecurityGroupName :: Maybe Text
-$sel:dbSecurityGroupName:DescribeDBSecurityGroups' :: DescribeDBSecurityGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679789989"><span class="hs-identifier hs-var hs-var">dbSecurityGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789989"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789988"><span class="annot"><span class="annottext">s :: DescribeDBSecurityGroups
-</span><a href="#local-6989586621679789988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789987"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBSecurityGroups
-</span><a href="#local-6989586621679789988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSecurityGroupName:DescribeDBSecurityGroups' :: Maybe Text
-</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3AdbSecurityGroupName%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | This parameter isn\'t currently supported.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_filters"><span class="hs-identifier hs-type">describeDBSecurityGroups_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="describeDBSecurityGroups_filters"><span class="annot"><span class="annottext">describeDBSecurityGroups_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><span id="line-118"></span><span class="hs-comment">-- | This parameter isn\'t currently supported.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_filters"><span class="hs-identifier hs-type">describeDBSecurityGroups_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="describeDBSecurityGroups_filters"><span class="annot"><span class="annottext">describeDBSecurityGroups_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
 -&gt; DescribeDBSecurityGroups -&gt; f DescribeDBSecurityGroups
 </span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_filters"><span class="hs-identifier hs-var hs-var">describeDBSecurityGroups_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBSecurityGroups -&gt; Maybe [Filter])
 -&gt; (DescribeDBSecurityGroups
@@ -233,16 +209,16 @@ $sel:dbSecurityGroupName:DescribeDBSecurityGroups' :: DescribeDBSecurityGroups -
      (Maybe [Filter])
      (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789986"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791123"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeDBSecurityGroups' :: DescribeDBSecurityGroups -&gt; Maybe [Filter]
-</span><a href="#local-6989586621679789986"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679789986"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789985"><span class="annot"><span class="annottext">s :: DescribeDBSecurityGroups
-</span><a href="#local-6989586621679789985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789984"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679789984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBSecurityGroups
-</span><a href="#local-6989586621679789985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeDBSecurityGroups' :: Maybe [Filter]
+</span><a href="#local-6989586621679791123"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679791123"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791122"><span class="annot"><span class="annottext">s :: DescribeDBSecurityGroups
+</span><a href="#local-6989586621679791122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791121"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679791121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBSecurityGroups
+</span><a href="#local-6989586621679791122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeDBSecurityGroups' :: Maybe [Filter]
 </span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3Afilters%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679789984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621679791121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeDBSecurityGroups -&gt; f DescribeDBSecurityGroups)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -257,46 +233,15 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- called a marker is included in the response so that you can retrieve the</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- remaining results.</span><span>
-</span><span id="line-130"></span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- Default: 100</span><span>
-</span><span id="line-132"></span><span class="hs-comment">--</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_maxRecords"><span class="hs-identifier hs-type">describeDBSecurityGroups_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="describeDBSecurityGroups_maxRecords"><span class="annot"><span class="annottext">describeDBSecurityGroups_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
--&gt; DescribeDBSecurityGroups -&gt; f DescribeDBSecurityGroups
-</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_maxRecords"><span class="hs-identifier hs-var hs-var">describeDBSecurityGroups_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBSecurityGroups -&gt; Maybe Int)
--&gt; (DescribeDBSecurityGroups
-    -&gt; Maybe Int -&gt; DescribeDBSecurityGroups)
--&gt; Lens
-     DescribeDBSecurityGroups
-     DescribeDBSecurityGroups
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789980"><span class="annot"><span class="annottext">Maybe Int
-maxRecords :: Maybe Int
-$sel:maxRecords:DescribeDBSecurityGroups' :: DescribeDBSecurityGroups -&gt; Maybe Int
-</span><a href="#local-6989586621679789980"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679789980"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789979"><span class="annot"><span class="annottext">s :: DescribeDBSecurityGroups
-</span><a href="#local-6989586621679789979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789978"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679789978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBSecurityGroups
-</span><a href="#local-6989586621679789979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeDBSecurityGroups' :: Maybe Int
-</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3AmaxRecords%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679789978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | An optional pagination token provided by a previous</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- @DescribeDBSecurityGroups@ request. If this parameter is specified, the</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- response includes only records beyond the marker, up to the value</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- specified by @MaxRecords@.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_marker"><span class="hs-identifier hs-type">describeDBSecurityGroups_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="describeDBSecurityGroups_marker"><span class="annot"><span class="annottext">describeDBSecurityGroups_marker :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | An optional pagination token provided by a previous</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- @DescribeDBSecurityGroups@ request. If this parameter is specified, the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- response includes only records beyond the marker, up to the value</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- specified by @MaxRecords@.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_marker"><span class="hs-identifier hs-type">describeDBSecurityGroups_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="describeDBSecurityGroups_marker"><span class="annot"><span class="annottext">describeDBSecurityGroups_marker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeDBSecurityGroups -&gt; f DescribeDBSecurityGroups
 </span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_marker"><span class="hs-identifier hs-var hs-var">describeDBSecurityGroups_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBSecurityGroups -&gt; Maybe Text)
 -&gt; (DescribeDBSecurityGroups
@@ -307,30 +252,85 @@ $sel:maxRecords:DescribeDBSecurityGroups' :: DescribeDBSecurityGroups -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789977"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791117"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeDBSecurityGroups' :: DescribeDBSecurityGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679789977"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789977"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789976"><span class="annot"><span class="annottext">s :: DescribeDBSecurityGroups
-</span><a href="#local-6989586621679789976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789975"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBSecurityGroups
-</span><a href="#local-6989586621679789976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeDBSecurityGroups' :: Maybe Text
+</span><a href="#local-6989586621679791117"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791117"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791116"><span class="annot"><span class="annottext">s :: DescribeDBSecurityGroups
+</span><a href="#local-6989586621679791116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791115"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBSecurityGroups
+</span><a href="#local-6989586621679791116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeDBSecurityGroups' :: Maybe Text
 </span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3Amarker%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- called a marker is included in the response so that you can retrieve the</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- remaining results.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_maxRecords"><span class="hs-identifier hs-type">describeDBSecurityGroups_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="describeDBSecurityGroups_maxRecords"><span class="annot"><span class="annottext">describeDBSecurityGroups_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeDBSecurityGroups -&gt; f DescribeDBSecurityGroups
+</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_maxRecords"><span class="hs-identifier hs-var hs-var">describeDBSecurityGroups_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBSecurityGroups -&gt; Maybe Int)
+-&gt; (DescribeDBSecurityGroups
+    -&gt; Maybe Int -&gt; DescribeDBSecurityGroups)
+-&gt; Lens
+     DescribeDBSecurityGroups
+     DescribeDBSecurityGroups
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791114"><span class="annot"><span class="annottext">Maybe Int
+maxRecords :: Maybe Int
+$sel:maxRecords:DescribeDBSecurityGroups' :: DescribeDBSecurityGroups -&gt; Maybe Int
+</span><a href="#local-6989586621679791114"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679791114"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791113"><span class="annot"><span class="annottext">s :: DescribeDBSecurityGroups
+</span><a href="#local-6989586621679791113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791112"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679791112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBSecurityGroups
+</span><a href="#local-6989586621679791113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeDBSecurityGroups' :: Maybe Int
+</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3AmaxRecords%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679791112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The name of the DB security group to return details for.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_dbSecurityGroupName"><span class="hs-identifier hs-type">describeDBSecurityGroups_dbSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="describeDBSecurityGroups_dbSecurityGroupName"><span class="annot"><span class="annottext">describeDBSecurityGroups_dbSecurityGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDBSecurityGroups -&gt; f DescribeDBSecurityGroups
+</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroups_dbSecurityGroupName"><span class="hs-identifier hs-var hs-var">describeDBSecurityGroups_dbSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBSecurityGroups -&gt; Maybe Text)
+-&gt; (DescribeDBSecurityGroups
+    -&gt; Maybe Text -&gt; DescribeDBSecurityGroups)
+-&gt; Lens
+     DescribeDBSecurityGroups
+     DescribeDBSecurityGroups
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791111"><span class="annot"><span class="annottext">Maybe Text
+dbSecurityGroupName :: Maybe Text
+$sel:dbSecurityGroupName:DescribeDBSecurityGroups' :: DescribeDBSecurityGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679791111"><span class="hs-identifier hs-var hs-var">dbSecurityGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791111"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791110"><span class="annot"><span class="annottext">s :: DescribeDBSecurityGroups
+</span><a href="#local-6989586621679791110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791109"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBSecurityGroups
+</span><a href="#local-6989586621679791110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSecurityGroupName:DescribeDBSecurityGroups' :: Maybe Text
+</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3AdbSecurityGroupName%3ADescribeDBSecurityGroups%27"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679789971"><span class="annot"><span class="annottext">page :: DescribeDBSecurityGroups
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679791105"><span class="annot"><span class="annottext">page :: DescribeDBSecurityGroups
 -&gt; AWSResponse DescribeDBSecurityGroups
 -&gt; Maybe DescribeDBSecurityGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679789969"><span class="annot"><span class="annottext">DescribeDBSecurityGroups
-</span><a href="#local-6989586621679789969"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679789968"><span class="annot"><span class="annottext">AWSResponse DescribeDBSecurityGroups
-</span><a href="#local-6989586621679789968"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679791103"><span class="annot"><span class="annottext">DescribeDBSecurityGroups
+</span><a href="#local-6989586621679791103"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679791102"><span class="annot"><span class="annottext">AWSResponse DescribeDBSecurityGroups
+</span><a href="#local-6989586621679791102"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-147"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeDBSecurityGroups
 DescribeDBSecurityGroupsResponse
-</span><a href="#local-6989586621679789968"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679791102"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">DescribeDBSecurityGroupsResponse
 -&gt; Getting (First Text) DescribeDBSecurityGroupsResponse Text
 -&gt; Maybe Text
@@ -360,7 +360,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-153"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeDBSecurityGroups
 DescribeDBSecurityGroupsResponse
-</span><a href="#local-6989586621679789968"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679791102"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">DescribeDBSecurityGroupsResponse
 -&gt; Getting
      (First [DBSecurityGroup])
@@ -407,7 +407,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">DescribeDBSecurityGroups
-</span><a href="#local-6989586621679789969"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679791103"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">DescribeDBSecurityGroups
 -&gt; (DescribeDBSecurityGroups -&gt; DescribeDBSecurityGroups)
 -&gt; DescribeDBSecurityGroups
@@ -428,7 +428,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeDBSecurityGroups
 DescribeDBSecurityGroupsResponse
-</span><a href="#local-6989586621679789968"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679791102"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">DescribeDBSecurityGroupsResponse
 -&gt; Getting (First Text) DescribeDBSecurityGroupsResponse Text
 -&gt; Maybe Text
@@ -454,13 +454,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-167"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-168"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse</span></a></span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679789959"><span class="annot"><span class="annottext">request :: DescribeDBSecurityGroups -&gt; Request DescribeDBSecurityGroups
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679791093"><span class="annot"><span class="annottext">request :: DescribeDBSecurityGroups -&gt; Request DescribeDBSecurityGroups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeDBSecurityGroups -&gt; Request DescribeDBSecurityGroups
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679789955"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679791089"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeDBSecurityGroups
 -&gt; ClientResponse ClientBody
@@ -491,10 +491,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeDBSecurityGroupsResult&quot;</span></span><span>
-</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679789952"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679789952"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679789951"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679789951"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679789950"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679789950"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679791086"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679791086"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679791085"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679791085"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679791084"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679791084"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DBSecurityGroup]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeDBSecurityGroupsResponse
 </span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-var">DescribeDBSecurityGroupsResponse'</span></a></span><span>
@@ -505,7 +505,7 @@ Text
      String (Maybe Text -&gt; Int -&gt; DescribeDBSecurityGroupsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679789950"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679791084"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DBSecurityGroups&quot;</span></span><span>
@@ -534,7 +534,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; DescribeDBSecurityGroupsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679789950"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679791084"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -547,15 +547,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679789952"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791086"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789939"><span id="local-6989586621679789941"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791073"><span id="local-6989586621679791075"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span></span></span><span>
 </span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789936"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791070"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span></span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679789932"><span class="annot"><span class="annottext">toHeaders :: DescribeDBSecurityGroups -&gt; ResponseHeaders
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679791066"><span class="annot"><span class="annottext">toHeaders :: DescribeDBSecurityGroups -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeDBSecurityGroups -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -563,26 +563,26 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679789927"><span class="annot"><span class="annottext">toPath :: DescribeDBSecurityGroups -&gt; ByteString
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679791061"><span class="annot"><span class="annottext">toPath :: DescribeDBSecurityGroups -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeDBSecurityGroups -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups"><span class="hs-identifier hs-type">DescribeDBSecurityGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679789923"><span class="annot"><span class="annottext">toQuery :: DescribeDBSecurityGroups -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789918"><span id="local-6989586621679789919"><span id="local-6989586621679789920"><span id="local-6989586621679789921"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679791057"><span class="annot"><span class="annottext">toQuery :: DescribeDBSecurityGroups -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroups%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791052"><span id="local-6989586621679791053"><span id="local-6989586621679791054"><span id="local-6989586621679791055"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Filter]
 Maybe Text
-marker :: Maybe Text
-maxRecords :: Maybe Int
-filters :: Maybe [Filter]
 dbSecurityGroupName :: Maybe Text
-$sel:marker:DescribeDBSecurityGroups' :: DescribeDBSecurityGroups -&gt; Maybe Text
-$sel:maxRecords:DescribeDBSecurityGroups' :: DescribeDBSecurityGroups -&gt; Maybe Int
-$sel:filters:DescribeDBSecurityGroups' :: DescribeDBSecurityGroups -&gt; Maybe [Filter]
+maxRecords :: Maybe Int
+marker :: Maybe Text
+filters :: Maybe [Filter]
 $sel:dbSecurityGroupName:DescribeDBSecurityGroups' :: DescribeDBSecurityGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679789918"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:maxRecords:DescribeDBSecurityGroups' :: DescribeDBSecurityGroups -&gt; Maybe Int
+$sel:marker:DescribeDBSecurityGroups' :: DescribeDBSecurityGroups -&gt; Maybe Text
+$sel:filters:DescribeDBSecurityGroups' :: DescribeDBSecurityGroups -&gt; Maybe [Filter]
+</span><a href="#local-6989586621679791052"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -599,18 +599,13 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DBSecurityGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789921"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Filters&quot;</span></span><span>
-</span><span id="line-203"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+</span><span id="line-202"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+</span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
@@ -618,24 +613,29 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679789920"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679791055"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791054"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679789919"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679791053"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+</span><span class="hs-string">&quot;DBSecurityGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789918"><span class="hs-identifier hs-var">marker</span></a></span><span>
+</span><a href="#local-6989586621679791052"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | Contains the result of a successful invocation of the</span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- @DescribeDBSecurityGroups@ action.</span><span>
 </span><span id="line-211"></span><span class="hs-comment">--</span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- /See:/ 'newDescribeDBSecurityGroupsResponse' smart constructor.</span><span>
-</span><span id="line-213"></span><span id="local-6989586621679789914"><span id="local-6989586621679789915"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBSecurityGroupsResponse"><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse"><span class="hs-identifier hs-var">DescribeDBSecurityGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBSecurityGroupsResponse%27"><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-var">DescribeDBSecurityGroupsResponse'</span></a></span></span><span>
+</span><span id="line-213"></span><span id="local-6989586621679791048"><span id="local-6989586621679791049"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBSecurityGroupsResponse"><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse"><span class="hs-identifier hs-var">DescribeDBSecurityGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBSecurityGroupsResponse%27"><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-var">DescribeDBSecurityGroupsResponse'</span></a></span></span><span>
 </span><span id="line-214"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of @DBSecurityGroup@ instances.</span><span>
 </span><span id="line-215"></span><span>    </span><span id="%24sel%3AdbSecurityGroups%3ADescribeDBSecurityGroupsResponse%27"><span class="annot"><span class="annottext">DescribeDBSecurityGroupsResponse -&gt; Maybe [DBSecurityGroup]
 </span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3AdbSecurityGroups%3ADescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-var hs-var">dbSecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -648,7 +648,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-221"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeDBSecurityGroupsResponse%27"><span class="annot"><span class="annottext">DescribeDBSecurityGroupsResponse -&gt; Int
 </span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3AhttpStatus%3ADescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-222"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679789907"><span id="local-6989586621679789909"><span class="annot"><span class="annottext">DescribeDBSecurityGroupsResponse
+</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679791041"><span id="local-6989586621679791043"><span class="annot"><span class="annottext">DescribeDBSecurityGroupsResponse
 -&gt; DescribeDBSecurityGroupsResponse -&gt; Bool
 (DescribeDBSecurityGroupsResponse
  -&gt; DescribeDBSecurityGroupsResponse -&gt; Bool)
@@ -664,7 +664,7 @@ $c/= :: DescribeDBSecurityGroupsResponse
 -&gt; DescribeDBSecurityGroupsResponse -&gt; Bool
 $c== :: DescribeDBSecurityGroupsResponse
 -&gt; DescribeDBSecurityGroupsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789899"><span id="local-6989586621679789901"><span id="local-6989586621679789903"><span id="local-6989586621679789905"><span class="annot"><span class="annottext">ReadPrec [DescribeDBSecurityGroupsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791033"><span id="local-6989586621679791035"><span id="local-6989586621679791037"><span id="local-6989586621679791039"><span class="annot"><span class="annottext">ReadPrec [DescribeDBSecurityGroupsResponse]
 ReadPrec DescribeDBSecurityGroupsResponse
 Int -&gt; ReadS DescribeDBSecurityGroupsResponse
 ReadS [DescribeDBSecurityGroupsResponse]
@@ -684,7 +684,7 @@ readList :: ReadS [DescribeDBSecurityGroupsResponse]
 $creadList :: ReadS [DescribeDBSecurityGroupsResponse]
 readsPrec :: Int -&gt; ReadS DescribeDBSecurityGroupsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeDBSecurityGroupsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789893"><span id="local-6989586621679789895"><span id="local-6989586621679789897"><span class="annot"><span class="annottext">Int -&gt; DescribeDBSecurityGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791027"><span id="local-6989586621679791029"><span id="local-6989586621679791031"><span class="annot"><span class="annottext">Int -&gt; DescribeDBSecurityGroupsResponse -&gt; ShowS
 [DescribeDBSecurityGroupsResponse] -&gt; ShowS
 DescribeDBSecurityGroupsResponse -&gt; String
 (Int -&gt; DescribeDBSecurityGroupsResponse -&gt; ShowS)
@@ -742,8 +742,8 @@ DescribeDBSecurityGroupsResponse
 </span><span id="line-242"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-243"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse</span></a></span><span>
 </span><span id="line-244"></span><span id="newDescribeDBSecurityGroupsResponse"><span class="annot"><span class="annottext">newDescribeDBSecurityGroupsResponse :: Int -&gt; DescribeDBSecurityGroupsResponse
-</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#newDescribeDBSecurityGroupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeDBSecurityGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679789890"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679789890"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#newDescribeDBSecurityGroupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeDBSecurityGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679791024"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679791024"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-245"></span><span>  </span><span class="annot"><span class="annottext">DescribeDBSecurityGroupsResponse' :: Maybe [DBSecurityGroup]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeDBSecurityGroupsResponse
 </span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse'</span></a></span><span>
@@ -758,7 +758,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDBSecurityGroupsResponse' :: Int
 </span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3AhttpStatus%3ADescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679789890"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679791024"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-250"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- | A list of @DBSecurityGroup@ instances.</span><span>
@@ -771,16 +771,16 @@ forall a. Maybe a
     -&gt; Maybe [DBSecurityGroup] -&gt; DescribeDBSecurityGroupsResponse)
 -&gt; Lens' DescribeDBSecurityGroupsResponse (Maybe [DBSecurityGroup])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789889"><span class="annot"><span class="annottext">Maybe [DBSecurityGroup]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791023"><span class="annot"><span class="annottext">Maybe [DBSecurityGroup]
 dbSecurityGroups :: Maybe [DBSecurityGroup]
 $sel:dbSecurityGroups:DescribeDBSecurityGroupsResponse' :: DescribeDBSecurityGroupsResponse -&gt; Maybe [DBSecurityGroup]
-</span><a href="#local-6989586621679789889"><span class="hs-identifier hs-var hs-var">dbSecurityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DBSecurityGroup]
-</span><a href="#local-6989586621679789889"><span class="hs-identifier hs-var">dbSecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789888"><span class="annot"><span class="annottext">s :: DescribeDBSecurityGroupsResponse
-</span><a href="#local-6989586621679789888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789887"><span class="annot"><span class="annottext">Maybe [DBSecurityGroup]
-</span><a href="#local-6989586621679789887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBSecurityGroupsResponse
-</span><a href="#local-6989586621679789888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSecurityGroups:DescribeDBSecurityGroupsResponse' :: Maybe [DBSecurityGroup]
+</span><a href="#local-6989586621679791023"><span class="hs-identifier hs-var hs-var">dbSecurityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DBSecurityGroup]
+</span><a href="#local-6989586621679791023"><span class="hs-identifier hs-var">dbSecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791022"><span class="annot"><span class="annottext">s :: DescribeDBSecurityGroupsResponse
+</span><a href="#local-6989586621679791022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791021"><span class="annot"><span class="annottext">Maybe [DBSecurityGroup]
+</span><a href="#local-6989586621679791021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBSecurityGroupsResponse
+</span><a href="#local-6989586621679791022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSecurityGroups:DescribeDBSecurityGroupsResponse' :: Maybe [DBSecurityGroup]
 </span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3AdbSecurityGroups%3ADescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-var">dbSecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DBSecurityGroup]
-</span><a href="#local-6989586621679789887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DBSecurityGroup] -&gt; f (Maybe [DBSecurityGroup]))
+</span><a href="#local-6989586621679791021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DBSecurityGroup] -&gt; f (Maybe [DBSecurityGroup]))
  -&gt; DescribeDBSecurityGroupsResponse
  -&gt; f DescribeDBSecurityGroupsResponse)
 -&gt; ((Maybe [DBSecurityGroup] -&gt; f (Maybe [DBSecurityGroup]))
@@ -807,8 +807,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [DBSecurityGroup]
   [DBSecurityGroup]
   [DBSecurityGroup]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
 </span><span id="line-257"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
@@ -822,16 +822,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
     -&gt; Maybe Text -&gt; DescribeDBSecurityGroupsResponse)
 -&gt; Lens' DescribeDBSecurityGroupsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789886"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791020"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeDBSecurityGroupsResponse' :: DescribeDBSecurityGroupsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679789886"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789886"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789885"><span class="annot"><span class="annottext">s :: DescribeDBSecurityGroupsResponse
-</span><a href="#local-6989586621679789885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789884"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBSecurityGroupsResponse
-</span><a href="#local-6989586621679789885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeDBSecurityGroupsResponse' :: Maybe Text
+</span><a href="#local-6989586621679791020"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791020"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791019"><span class="annot"><span class="annottext">s :: DescribeDBSecurityGroupsResponse
+</span><a href="#local-6989586621679791019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791018"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBSecurityGroupsResponse
+</span><a href="#local-6989586621679791019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeDBSecurityGroupsResponse' :: Maybe Text
 </span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3Amarker%3ADescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-263"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#describeDBSecurityGroupsResponse_httpStatus"><span class="hs-identifier hs-type">describeDBSecurityGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -847,18 +847,18 @@ $sel:marker:DescribeDBSecurityGroupsResponse' :: DescribeDBSecurityGroupsRespons
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789883"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791017"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeDBSecurityGroupsResponse' :: DescribeDBSecurityGroupsResponse -&gt; Int
-</span><a href="#local-6989586621679789883"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679789883"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789882"><span class="annot"><span class="annottext">s :: DescribeDBSecurityGroupsResponse
-</span><a href="#local-6989586621679789882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789881"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679789881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBSecurityGroupsResponse
-</span><a href="#local-6989586621679789882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDBSecurityGroupsResponse' :: Int
+</span><a href="#local-6989586621679791017"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679791017"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791016"><span class="annot"><span class="annottext">s :: DescribeDBSecurityGroupsResponse
+</span><a href="#local-6989586621679791016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791015"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679791015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBSecurityGroupsResponse
+</span><a href="#local-6989586621679791016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDBSecurityGroupsResponse' :: Int
 </span><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#%24sel%3AhttpStatus%3ADescribeDBSecurityGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679789881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-265"></span><span>
 </span><span id="line-266"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-267"></span><span>  </span><span id="local-6989586621679789879"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679791013"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-268"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBSecurityGroups.html#DescribeDBSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeDBSecurityGroupsResponse</span></a></span></span><span>
 </span><span id="line-269"></span></pre></body></html>

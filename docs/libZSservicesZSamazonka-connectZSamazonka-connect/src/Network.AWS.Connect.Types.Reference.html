@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- to 4,096 UTF-8 bytes across all references for a contact.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newReference' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679403167"><span id="local-6989586621679403168"></span></span><span class="hs-keyword">data</span><span> </span><span id="Reference"><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference"><span class="hs-identifier hs-var">Reference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Reference%27"><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference%27"><span class="hs-identifier hs-var">Reference'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679403450"><span id="local-6989586621679403451"></span></span><span class="hs-keyword">data</span><span> </span><span id="Reference"><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference"><span class="hs-identifier hs-var">Reference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Reference%27"><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference%27"><span class="hs-identifier hs-var">Reference'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A formatted URL that displays to an agent in the Contact Control Panel</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- (CCP)</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3AReference%27"><span class="annot"><span class="annottext">Reference -&gt; Text
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Atype%27%3AReference%27"><span class="annot"><span class="annottext">Reference -&gt; ReferenceType
 </span><a href="Network.AWS.Connect.Types.Reference.html#%24sel%3Atype%27%3AReference%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ReferenceType.html#ReferenceType"><span class="hs-identifier hs-type">ReferenceType</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679403160"><span id="local-6989586621679403162"><span class="annot"><span class="annottext">Reference -&gt; Reference -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679403443"><span id="local-6989586621679403445"><span class="annot"><span class="annottext">Reference -&gt; Reference -&gt; Bool
 (Reference -&gt; Reference -&gt; Bool)
 -&gt; (Reference -&gt; Reference -&gt; Bool) -&gt; Eq Reference
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Reference -&gt; Reference -&gt; Bool
 == :: Reference -&gt; Reference -&gt; Bool
 $c== :: Reference -&gt; Reference -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403151"><span id="local-6989586621679403153"><span id="local-6989586621679403155"><span id="local-6989586621679403157"><span class="annot"><span class="annottext">ReadPrec [Reference]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403434"><span id="local-6989586621679403436"><span id="local-6989586621679403438"><span id="local-6989586621679403440"><span class="annot"><span class="annottext">ReadPrec [Reference]
 ReadPrec Reference
 Int -&gt; ReadS Reference
 ReadS [Reference]
@@ -65,7 +65,7 @@ readList :: ReadS [Reference]
 $creadList :: ReadS [Reference]
 readsPrec :: Int -&gt; ReadS Reference
 $creadsPrec :: Int -&gt; ReadS Reference
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403144"><span id="local-6989586621679403146"><span id="local-6989586621679403148"><span class="annot"><span class="annottext">Int -&gt; Reference -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403427"><span id="local-6989586621679403429"><span id="local-6989586621679403431"><span class="annot"><span class="annottext">Int -&gt; Reference -&gt; ShowS
 [Reference] -&gt; ShowS
 Reference -&gt; String
 (Int -&gt; Reference -&gt; ShowS)
@@ -109,15 +109,15 @@ $cfrom :: forall x. Reference -&gt; Rep Reference x
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.ReferenceType.html#ReferenceType"><span class="hs-identifier hs-type">ReferenceType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference"><span class="hs-identifier hs-type">Reference</span></a></span><span>
 </span><span id="line-58"></span><span id="newReference"><span class="annot"><span class="annottext">newReference :: Text -&gt; ReferenceType -&gt; Reference
-</span><a href="Network.AWS.Connect.Types.Reference.html#newReference"><span class="hs-identifier hs-var hs-var">newReference</span></a></span></span><span> </span><span id="local-6989586621679403138"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679403138"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span id="local-6989586621679403137"><span class="annot"><span class="annottext">ReferenceType
-</span><a href="#local-6989586621679403137"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.Types.Reference.html#newReference"><span class="hs-identifier hs-var hs-var">newReference</span></a></span></span><span> </span><span id="local-6989586621679403421"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679403421"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span id="local-6989586621679403420"><span class="annot"><span class="annottext">ReferenceType
+</span><a href="#local-6989586621679403420"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">Reference' :: Text -&gt; ReferenceType -&gt; Reference
 </span><a href="Network.AWS.Connect.Types.Reference.html#Reference%27"><span class="hs-identifier hs-type">Reference'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Reference' :: Text
 </span><a href="Network.AWS.Connect.Types.Reference.html#%24sel%3Avalue%3AReference%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679403138"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:type':Reference' :: ReferenceType
+</span><a href="#local-6989586621679403421"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:type':Reference' :: ReferenceType
 </span><a href="Network.AWS.Connect.Types.Reference.html#%24sel%3Atype%27%3AReference%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReferenceType
-</span><a href="#local-6989586621679403137"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679403420"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | A formatted URL that displays to an agent in the Contact Control Panel</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- (CCP)</span><span>
@@ -127,16 +127,16 @@ $cfrom :: forall x. Reference -&gt; Rep Reference x
 -&gt; (Reference -&gt; Text -&gt; Reference)
 -&gt; Lens Reference Reference Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference%27"><span class="hs-identifier hs-type">Reference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403133"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference%27"><span class="hs-identifier hs-type">Reference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403416"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:Reference' :: Reference -&gt; Text
-</span><a href="#local-6989586621679403133"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679403133"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403132"><span class="annot"><span class="annottext">s :: Reference
-</span><a href="#local-6989586621679403132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference%27"><span class="hs-identifier hs-type">Reference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403131"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679403131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Reference
-</span><a href="#local-6989586621679403132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Reference' :: Text
+</span><a href="#local-6989586621679403416"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679403416"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403415"><span class="annot"><span class="annottext">s :: Reference
+</span><a href="#local-6989586621679403415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference%27"><span class="hs-identifier hs-type">Reference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403414"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679403414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Reference
+</span><a href="#local-6989586621679403415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Reference' :: Text
 </span><a href="Network.AWS.Connect.Types.Reference.html#%24sel%3Avalue%3AReference%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679403131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference"><span class="hs-identifier hs-type">Reference</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679403414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference"><span class="hs-identifier hs-type">Reference</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | A valid URL.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#reference_type"><span class="hs-identifier hs-type">reference_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference"><span class="hs-identifier hs-type">Reference</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ReferenceType.html#ReferenceType"><span class="hs-identifier hs-type">ReferenceType</span></a></span><span>
@@ -145,30 +145,30 @@ $sel:value:Reference' :: Reference -&gt; Text
 -&gt; (Reference -&gt; ReferenceType -&gt; Reference)
 -&gt; Lens Reference Reference ReferenceType ReferenceType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference%27"><span class="hs-identifier hs-type">Reference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403129"><span class="annot"><span class="annottext">ReferenceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference%27"><span class="hs-identifier hs-type">Reference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403412"><span class="annot"><span class="annottext">ReferenceType
 type' :: ReferenceType
 $sel:type':Reference' :: Reference -&gt; ReferenceType
-</span><a href="#local-6989586621679403129"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferenceType
-</span><a href="#local-6989586621679403129"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403128"><span class="annot"><span class="annottext">s :: Reference
-</span><a href="#local-6989586621679403128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference%27"><span class="hs-identifier hs-type">Reference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403127"><span class="annot"><span class="annottext">ReferenceType
-</span><a href="#local-6989586621679403127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Reference
-</span><a href="#local-6989586621679403128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Reference' :: ReferenceType
+</span><a href="#local-6989586621679403412"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferenceType
+</span><a href="#local-6989586621679403412"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403411"><span class="annot"><span class="annottext">s :: Reference
+</span><a href="#local-6989586621679403411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference%27"><span class="hs-identifier hs-type">Reference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403410"><span class="annot"><span class="annottext">ReferenceType
+</span><a href="#local-6989586621679403410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Reference
+</span><a href="#local-6989586621679403411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Reference' :: ReferenceType
 </span><a href="Network.AWS.Connect.Types.Reference.html#%24sel%3Atype%27%3AReference%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReferenceType
-</span><a href="#local-6989586621679403127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference"><span class="hs-identifier hs-type">Reference</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679403410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference"><span class="hs-identifier hs-type">Reference</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403123"><span id="local-6989586621679403125"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference"><span class="hs-identifier hs-type">Reference</span></a></span></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403406"><span id="local-6989586621679403408"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference"><span class="hs-identifier hs-type">Reference</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403120"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference"><span class="hs-identifier hs-type">Reference</span></a></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403403"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference"><span class="hs-identifier hs-type">Reference</span></a></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403112"><span id="local-6989586621679403114"><span id="local-6989586621679403116"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference"><span class="hs-identifier hs-type">Reference</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679403110"><span class="annot"><span class="annottext">toJSON :: Reference -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference%27"><span class="hs-identifier hs-type">Reference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403107"><span id="local-6989586621679403108"><span class="annot"><span class="annottext">Text
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403395"><span id="local-6989586621679403397"><span id="local-6989586621679403399"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference"><span class="hs-identifier hs-type">Reference</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679403393"><span class="annot"><span class="annottext">toJSON :: Reference -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Reference.html#Reference%27"><span class="hs-identifier hs-type">Reference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403390"><span id="local-6989586621679403391"><span class="annot"><span class="annottext">Text
 ReferenceType
 type' :: ReferenceType
 value :: Text
 $sel:type':Reference' :: Reference -&gt; ReferenceType
 $sel:value:Reference' :: Reference -&gt; Text
-</span><a href="#local-6989586621679403107"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679403390"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -180,14 +180,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679403108"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679403391"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReferenceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ReferenceType
-</span><a href="#local-6989586621679403107"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679403390"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span></pre></body></html>

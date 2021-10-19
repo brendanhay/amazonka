@@ -46,8 +46,8 @@
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#newStopEntitiesDetectionJobResponse"><span class="hs-identifier">newStopEntitiesDetectionJobResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#stopEntitiesDetectionJobResponse_jobStatus"><span class="hs-identifier">stopEntitiesDetectionJobResponse_jobStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#stopEntitiesDetectionJobResponse_jobId"><span class="hs-identifier">stopEntitiesDetectionJobResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#stopEntitiesDetectionJobResponse_jobId"><span class="hs-identifier">stopEntitiesDetectionJobResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#stopEntitiesDetectionJobResponse_jobStatus"><span class="hs-identifier">stopEntitiesDetectionJobResponse_jobStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#stopEntitiesDetectionJobResponse_httpStatus"><span class="hs-identifier">stopEntitiesDetectionJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span class="hs-keyword">where</span><span>
@@ -60,12 +60,12 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newStopEntitiesDetectionJob' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679353892"><span id="local-6989586621679353893"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopEntitiesDetectionJob"><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob"><span class="hs-identifier hs-var">StopEntitiesDetectionJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopEntitiesDetectionJob%27"><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob%27"><span class="hs-identifier hs-var">StopEntitiesDetectionJob'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679354171"><span id="local-6989586621679354172"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopEntitiesDetectionJob"><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob"><span class="hs-identifier hs-var">StopEntitiesDetectionJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopEntitiesDetectionJob%27"><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob%27"><span class="hs-identifier hs-var">StopEntitiesDetectionJob'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the entities detection job to stop.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AjobId%3AStopEntitiesDetectionJob%27"><span class="annot"><span class="annottext">StopEntitiesDetectionJob -&gt; Text
 </span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#%24sel%3AjobId%3AStopEntitiesDetectionJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353886"><span id="local-6989586621679353888"><span class="annot"><span class="annottext">StopEntitiesDetectionJob -&gt; StopEntitiesDetectionJob -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354165"><span id="local-6989586621679354167"><span class="annot"><span class="annottext">StopEntitiesDetectionJob -&gt; StopEntitiesDetectionJob -&gt; Bool
 (StopEntitiesDetectionJob -&gt; StopEntitiesDetectionJob -&gt; Bool)
 -&gt; (StopEntitiesDetectionJob -&gt; StopEntitiesDetectionJob -&gt; Bool)
 -&gt; Eq StopEntitiesDetectionJob
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopEntitiesDetectionJob -&gt; StopEntitiesDetectionJob -&gt; Bool
 == :: StopEntitiesDetectionJob -&gt; StopEntitiesDetectionJob -&gt; Bool
 $c== :: StopEntitiesDetectionJob -&gt; StopEntitiesDetectionJob -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353877"><span id="local-6989586621679353879"><span id="local-6989586621679353881"><span id="local-6989586621679353883"><span class="annot"><span class="annottext">ReadPrec [StopEntitiesDetectionJob]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354156"><span id="local-6989586621679354158"><span id="local-6989586621679354160"><span id="local-6989586621679354162"><span class="annot"><span class="annottext">ReadPrec [StopEntitiesDetectionJob]
 ReadPrec StopEntitiesDetectionJob
 Int -&gt; ReadS StopEntitiesDetectionJob
 ReadS [StopEntitiesDetectionJob]
@@ -94,7 +94,7 @@ readList :: ReadS [StopEntitiesDetectionJob]
 $creadList :: ReadS [StopEntitiesDetectionJob]
 readsPrec :: Int -&gt; ReadS StopEntitiesDetectionJob
 $creadsPrec :: Int -&gt; ReadS StopEntitiesDetectionJob
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353870"><span id="local-6989586621679353872"><span id="local-6989586621679353874"><span class="annot"><span class="annottext">Int -&gt; StopEntitiesDetectionJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354149"><span id="local-6989586621679354151"><span id="local-6989586621679354153"><span class="annot"><span class="annottext">Int -&gt; StopEntitiesDetectionJob -&gt; ShowS
 [StopEntitiesDetectionJob] -&gt; ShowS
 StopEntitiesDetectionJob -&gt; String
 (Int -&gt; StopEntitiesDetectionJob -&gt; ShowS)
@@ -140,12 +140,12 @@ StopEntitiesDetectionJob -&gt; Rep StopEntitiesDetectionJob x
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob"><span class="hs-identifier hs-type">StopEntitiesDetectionJob</span></a></span><span>
 </span><span id="line-82"></span><span id="newStopEntitiesDetectionJob"><span class="annot"><span class="annottext">newStopEntitiesDetectionJob :: Text -&gt; StopEntitiesDetectionJob
-</span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#newStopEntitiesDetectionJob"><span class="hs-identifier hs-var hs-var">newStopEntitiesDetectionJob</span></a></span></span><span> </span><span id="local-6989586621679353865"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679353865"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#newStopEntitiesDetectionJob"><span class="hs-identifier hs-var hs-var">newStopEntitiesDetectionJob</span></a></span></span><span> </span><span id="local-6989586621679354144"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354144"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">StopEntitiesDetectionJob' :: Text -&gt; StopEntitiesDetectionJob
 </span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StopEntitiesDetectionJob' :: Text
 </span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#%24sel%3AjobId%3AStopEntitiesDetectionJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679353865"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679354144"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The identifier of the entities detection job to stop.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#stopEntitiesDetectionJob_jobId"><span class="hs-identifier hs-type">stopEntitiesDetectionJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob"><span class="hs-identifier hs-type">StopEntitiesDetectionJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -155,28 +155,28 @@ StopEntitiesDetectionJob -&gt; Rep StopEntitiesDetectionJob x
 -&gt; (StopEntitiesDetectionJob -&gt; Text -&gt; StopEntitiesDetectionJob)
 -&gt; Lens StopEntitiesDetectionJob StopEntitiesDetectionJob Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353862"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354141"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:StopEntitiesDetectionJob' :: StopEntitiesDetectionJob -&gt; Text
-</span><a href="#local-6989586621679353862"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679353862"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353861"><span class="annot"><span class="annottext">s :: StopEntitiesDetectionJob
-</span><a href="#local-6989586621679353861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353860"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679353860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopEntitiesDetectionJob
-</span><a href="#local-6989586621679353861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StopEntitiesDetectionJob' :: Text
+</span><a href="#local-6989586621679354141"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354141"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354140"><span class="annot"><span class="annottext">s :: StopEntitiesDetectionJob
+</span><a href="#local-6989586621679354140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354139"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopEntitiesDetectionJob
+</span><a href="#local-6989586621679354140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StopEntitiesDetectionJob' :: Text
 </span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#%24sel%3AjobId%3AStopEntitiesDetectionJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679353860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob"><span class="hs-identifier hs-type">StopEntitiesDetectionJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob"><span class="hs-identifier hs-type">StopEntitiesDetectionJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob"><span class="hs-identifier hs-type">StopEntitiesDetectionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob"><span class="hs-identifier hs-type">StopEntitiesDetectionJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679353856"><span class="annot"><span class="annottext">request :: StopEntitiesDetectionJob -&gt; Request StopEntitiesDetectionJob
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679354135"><span class="annot"><span class="annottext">request :: StopEntitiesDetectionJob -&gt; Request StopEntitiesDetectionJob
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; StopEntitiesDetectionJob -&gt; Request StopEntitiesDetectionJob
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Comprehend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679353852"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679354131"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopEntitiesDetectionJob
 -&gt; ClientResponse ClientBody
@@ -202,34 +202,34 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679353849"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679353849"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679353848"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679353848"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679353847"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353847"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe JobStatus
--&gt; Maybe Text -&gt; Int -&gt; StopEntitiesDetectionJobResponse
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679354128"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354128"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679354127"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679354127"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679354126"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354126"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe JobStatus -&gt; Int -&gt; StopEntitiesDetectionJobResponse
 </span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var">StopEntitiesDetectionJobResponse'</span></a></span><span>
-</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe JobStatus
- -&gt; Maybe Text -&gt; Int -&gt; StopEntitiesDetectionJobResponse)
--&gt; Either String (Maybe JobStatus)
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe JobStatus -&gt; Int -&gt; StopEntitiesDetectionJobResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; StopEntitiesDetectionJobResponse)
+     String (Maybe JobStatus -&gt; Int -&gt; StopEntitiesDetectionJobResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe JobStatus)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;JobStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Int -&gt; StopEntitiesDetectionJobResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; StopEntitiesDetectionJobResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679354126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe JobStatus -&gt; Int -&gt; StopEntitiesDetectionJobResponse)
+-&gt; Either String (Maybe JobStatus)
+-&gt; Either String (Int -&gt; StopEntitiesDetectionJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe JobStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StopEntitiesDetectionJobResponse)
 -&gt; Either String Int
 -&gt; Either String StopEntitiesDetectionJobResponse
@@ -239,15 +239,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679353849"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354128"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353839"><span id="local-6989586621679353841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob"><span class="hs-identifier hs-type">StopEntitiesDetectionJob</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354118"><span id="local-6989586621679354120"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob"><span class="hs-identifier hs-type">StopEntitiesDetectionJob</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob"><span class="hs-identifier hs-type">StopEntitiesDetectionJob</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob"><span class="hs-identifier hs-type">StopEntitiesDetectionJob</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob"><span class="hs-identifier hs-type">StopEntitiesDetectionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679353832"><span class="annot"><span class="annottext">toHeaders :: StopEntitiesDetectionJob -&gt; ResponseHeaders
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679354111"><span class="annot"><span class="annottext">toHeaders :: StopEntitiesDetectionJob -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopEntitiesDetectionJob -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -274,12 +274,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353822"><span id="local-6989586621679353824"><span id="local-6989586621679353826"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob"><span class="hs-identifier hs-type">StopEntitiesDetectionJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679353820"><span class="annot"><span class="annottext">toJSON :: StopEntitiesDetectionJob -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353818"><span class="annot"><span class="annottext">Text
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354101"><span id="local-6989586621679354103"><span id="local-6989586621679354105"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob"><span class="hs-identifier hs-type">StopEntitiesDetectionJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679354099"><span class="annot"><span class="annottext">toJSON :: StopEntitiesDetectionJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354097"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:StopEntitiesDetectionJob' :: StopEntitiesDetectionJob -&gt; Text
-</span><a href="#local-6989586621679353818"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679354097"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -291,18 +291,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;JobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679353818"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679354097"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob"><span class="hs-identifier hs-type">StopEntitiesDetectionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679353812"><span class="annot"><span class="annottext">toPath :: StopEntitiesDetectionJob -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679354091"><span class="annot"><span class="annottext">toPath :: StopEntitiesDetectionJob -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopEntitiesDetectionJob -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJob"><span class="hs-identifier hs-type">StopEntitiesDetectionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679353808"><span class="annot"><span class="annottext">toQuery :: StopEntitiesDetectionJob -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679354087"><span class="annot"><span class="annottext">toQuery :: StopEntitiesDetectionJob -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopEntitiesDetectionJob -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -310,20 +310,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newStopEntitiesDetectionJobResponse' smart constructor.</span><span>
-</span><span id="line-136"></span><span id="local-6989586621679353805"><span id="local-6989586621679353806"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopEntitiesDetectionJobResponse"><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse"><span class="hs-identifier hs-var">StopEntitiesDetectionJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopEntitiesDetectionJobResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var">StopEntitiesDetectionJobResponse'</span></a></span></span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if</span><span>
-</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- the job was previously stopped with the @StopEntitiesDetectionJob@</span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- operation.</span><span>
-</span><span id="line-140"></span><span>    </span><span id="%24sel%3AjobStatus%3AStopEntitiesDetectionJobResponse%27"><span class="annot"><span class="annottext">StopEntitiesDetectionJobResponse -&gt; Maybe JobStatus
-</span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#%24sel%3AjobStatus%3AStopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The identifier of the entities detection job to stop.</span><span>
-</span><span id="line-142"></span><span>    </span><span id="%24sel%3AjobId%3AStopEntitiesDetectionJobResponse%27"><span class="annot"><span class="annottext">StopEntitiesDetectionJobResponse -&gt; Maybe Text
+</span><span id="line-136"></span><span id="local-6989586621679354084"><span id="local-6989586621679354085"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopEntitiesDetectionJobResponse"><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse"><span class="hs-identifier hs-var">StopEntitiesDetectionJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopEntitiesDetectionJobResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var">StopEntitiesDetectionJobResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the entities detection job to stop.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AjobId%3AStopEntitiesDetectionJobResponse%27"><span class="annot"><span class="annottext">StopEntitiesDetectionJobResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#%24sel%3AjobId%3AStopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- the job was previously stopped with the @StopEntitiesDetectionJob@</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AjobStatus%3AStopEntitiesDetectionJobResponse%27"><span class="annot"><span class="annottext">StopEntitiesDetectionJobResponse -&gt; Maybe JobStatus
+</span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#%24sel%3AjobStatus%3AStopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopEntitiesDetectionJobResponse%27"><span class="annot"><span class="annottext">StopEntitiesDetectionJobResponse -&gt; Int
 </span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#%24sel%3AhttpStatus%3AStopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353798"><span id="local-6989586621679353800"><span class="annot"><span class="annottext">StopEntitiesDetectionJobResponse
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354077"><span id="local-6989586621679354079"><span class="annot"><span class="annottext">StopEntitiesDetectionJobResponse
 -&gt; StopEntitiesDetectionJobResponse -&gt; Bool
 (StopEntitiesDetectionJobResponse
  -&gt; StopEntitiesDetectionJobResponse -&gt; Bool)
@@ -339,7 +339,7 @@ $c/= :: StopEntitiesDetectionJobResponse
 -&gt; StopEntitiesDetectionJobResponse -&gt; Bool
 $c== :: StopEntitiesDetectionJobResponse
 -&gt; StopEntitiesDetectionJobResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353790"><span id="local-6989586621679353792"><span id="local-6989586621679353794"><span id="local-6989586621679353796"><span class="annot"><span class="annottext">ReadPrec [StopEntitiesDetectionJobResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354069"><span id="local-6989586621679354071"><span id="local-6989586621679354073"><span id="local-6989586621679354075"><span class="annot"><span class="annottext">ReadPrec [StopEntitiesDetectionJobResponse]
 ReadPrec StopEntitiesDetectionJobResponse
 Int -&gt; ReadS StopEntitiesDetectionJobResponse
 ReadS [StopEntitiesDetectionJobResponse]
@@ -359,7 +359,7 @@ readList :: ReadS [StopEntitiesDetectionJobResponse]
 $creadList :: ReadS [StopEntitiesDetectionJobResponse]
 readsPrec :: Int -&gt; ReadS StopEntitiesDetectionJobResponse
 $creadsPrec :: Int -&gt; ReadS StopEntitiesDetectionJobResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353784"><span id="local-6989586621679353786"><span id="local-6989586621679353788"><span class="annot"><span class="annottext">Int -&gt; StopEntitiesDetectionJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354063"><span id="local-6989586621679354065"><span id="local-6989586621679354067"><span class="annot"><span class="annottext">Int -&gt; StopEntitiesDetectionJobResponse -&gt; ShowS
 [StopEntitiesDetectionJobResponse] -&gt; ShowS
 StopEntitiesDetectionJobResponse -&gt; String
 (Int -&gt; StopEntitiesDetectionJobResponse -&gt; ShowS)
@@ -405,11 +405,11 @@ StopEntitiesDetectionJobResponse
 </span><span id="line-153"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-155"></span><span class="hs-comment">--</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- 'jobStatus', 'stopEntitiesDetectionJobResponse_jobStatus' - Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- the job was previously stopped with the @StopEntitiesDetectionJob@</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- operation.</span><span>
-</span><span id="line-159"></span><span class="hs-comment">--</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- 'jobId', 'stopEntitiesDetectionJobResponse_jobId' - The identifier of the entities detection job to stop.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'jobId', 'stopEntitiesDetectionJobResponse_jobId' - The identifier of the entities detection job to stop.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'jobStatus', 'stopEntitiesDetectionJobResponse_jobStatus' - Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- the job was previously stopped with the @StopEntitiesDetectionJob@</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- operation.</span><span>
 </span><span id="line-161"></span><span class="hs-comment">--</span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- 'httpStatus', 'stopEntitiesDetectionJobResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-163"></span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#newStopEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">newStopEntitiesDetectionJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -417,55 +417,28 @@ StopEntitiesDetectionJobResponse
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse</span></a></span><span>
 </span><span id="line-167"></span><span id="newStopEntitiesDetectionJobResponse"><span class="annot"><span class="annottext">newStopEntitiesDetectionJobResponse :: Int -&gt; StopEntitiesDetectionJobResponse
-</span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#newStopEntitiesDetectionJobResponse"><span class="hs-identifier hs-var hs-var">newStopEntitiesDetectionJobResponse</span></a></span></span><span> </span><span id="local-6989586621679353781"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679353781"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">StopEntitiesDetectionJobResponse' :: Maybe JobStatus
--&gt; Maybe Text -&gt; Int -&gt; StopEntitiesDetectionJobResponse
+</span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#newStopEntitiesDetectionJobResponse"><span class="hs-identifier hs-var hs-var">newStopEntitiesDetectionJobResponse</span></a></span></span><span> </span><span id="local-6989586621679354060"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354060"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">StopEntitiesDetectionJobResponse' :: Maybe Text
+-&gt; Maybe JobStatus -&gt; Int -&gt; StopEntitiesDetectionJobResponse
 </span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse'</span></a></span><span>
-</span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobStatus:StopEntitiesDetectionJobResponse' :: Maybe JobStatus
-</span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#%24sel%3AjobStatus%3AStopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobId:StopEntitiesDetectionJobResponse' :: Maybe Text
+</span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#%24sel%3AjobId%3AStopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:StopEntitiesDetectionJobResponse' :: Maybe Text
-</span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#%24sel%3AjobId%3AStopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobStatus:StopEntitiesDetectionJobResponse' :: Maybe JobStatus
+</span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#%24sel%3AjobStatus%3AStopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopEntitiesDetectionJobResponse' :: Int
 </span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#%24sel%3AhttpStatus%3AStopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679353781"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679354060"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- the job was previously stopped with the @StopEntitiesDetectionJob@</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- operation.</span><span>
-</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#stopEntitiesDetectionJobResponse_jobStatus"><span class="hs-identifier hs-type">stopEntitiesDetectionJobResponse_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-179"></span><span id="stopEntitiesDetectionJobResponse_jobStatus"><span class="annot"><span class="annottext">stopEntitiesDetectionJobResponse_jobStatus :: (Maybe JobStatus -&gt; f (Maybe JobStatus))
--&gt; StopEntitiesDetectionJobResponse
--&gt; f StopEntitiesDetectionJobResponse
-</span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#stopEntitiesDetectionJobResponse_jobStatus"><span class="hs-identifier hs-var hs-var">stopEntitiesDetectionJobResponse_jobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopEntitiesDetectionJobResponse -&gt; Maybe JobStatus)
--&gt; (StopEntitiesDetectionJobResponse
-    -&gt; Maybe JobStatus -&gt; StopEntitiesDetectionJobResponse)
--&gt; Lens
-     StopEntitiesDetectionJobResponse
-     StopEntitiesDetectionJobResponse
-     (Maybe JobStatus)
-     (Maybe JobStatus)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353780"><span class="annot"><span class="annottext">Maybe JobStatus
-jobStatus :: Maybe JobStatus
-$sel:jobStatus:StopEntitiesDetectionJobResponse' :: StopEntitiesDetectionJobResponse -&gt; Maybe JobStatus
-</span><a href="#local-6989586621679353780"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
-</span><a href="#local-6989586621679353780"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353779"><span class="annot"><span class="annottext">s :: StopEntitiesDetectionJobResponse
-</span><a href="#local-6989586621679353779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353778"><span class="annot"><span class="annottext">Maybe JobStatus
-</span><a href="#local-6989586621679353778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopEntitiesDetectionJobResponse
-</span><a href="#local-6989586621679353779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:StopEntitiesDetectionJobResponse' :: Maybe JobStatus
-</span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#%24sel%3AjobStatus%3AStopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
-</span><a href="#local-6989586621679353778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- | The identifier of the entities detection job to stop.</span><span>
-</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#stopEntitiesDetectionJobResponse_jobId"><span class="hs-identifier hs-type">stopEntitiesDetectionJobResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span id="stopEntitiesDetectionJobResponse_jobId"><span class="annot"><span class="annottext">stopEntitiesDetectionJobResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-175"></span><span class="hs-comment">-- | The identifier of the entities detection job to stop.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#stopEntitiesDetectionJobResponse_jobId"><span class="hs-identifier hs-type">stopEntitiesDetectionJobResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="stopEntitiesDetectionJobResponse_jobId"><span class="annot"><span class="annottext">stopEntitiesDetectionJobResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; StopEntitiesDetectionJobResponse
 -&gt; f StopEntitiesDetectionJobResponse
 </span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#stopEntitiesDetectionJobResponse_jobId"><span class="hs-identifier hs-var hs-var">stopEntitiesDetectionJobResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopEntitiesDetectionJobResponse -&gt; Maybe Text)
@@ -477,16 +450,43 @@ $sel:jobStatus:StopEntitiesDetectionJobResponse' :: StopEntitiesDetectionJobResp
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353777"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354059"><span class="annot"><span class="annottext">Maybe Text
 jobId :: Maybe Text
 $sel:jobId:StopEntitiesDetectionJobResponse' :: StopEntitiesDetectionJobResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679353777"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353777"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353776"><span class="annot"><span class="annottext">s :: StopEntitiesDetectionJobResponse
-</span><a href="#local-6989586621679353776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353775"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopEntitiesDetectionJobResponse
-</span><a href="#local-6989586621679353776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StopEntitiesDetectionJobResponse' :: Maybe Text
+</span><a href="#local-6989586621679354059"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354059"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354058"><span class="annot"><span class="annottext">s :: StopEntitiesDetectionJobResponse
+</span><a href="#local-6989586621679354058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354057"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopEntitiesDetectionJobResponse
+</span><a href="#local-6989586621679354058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StopEntitiesDetectionJobResponse' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#%24sel%3AjobId%3AStopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- the job was previously stopped with the @StopEntitiesDetectionJob@</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#stopEntitiesDetectionJobResponse_jobStatus"><span class="hs-identifier hs-type">stopEntitiesDetectionJobResponse_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="stopEntitiesDetectionJobResponse_jobStatus"><span class="annot"><span class="annottext">stopEntitiesDetectionJobResponse_jobStatus :: (Maybe JobStatus -&gt; f (Maybe JobStatus))
+-&gt; StopEntitiesDetectionJobResponse
+-&gt; f StopEntitiesDetectionJobResponse
+</span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#stopEntitiesDetectionJobResponse_jobStatus"><span class="hs-identifier hs-var hs-var">stopEntitiesDetectionJobResponse_jobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopEntitiesDetectionJobResponse -&gt; Maybe JobStatus)
+-&gt; (StopEntitiesDetectionJobResponse
+    -&gt; Maybe JobStatus -&gt; StopEntitiesDetectionJobResponse)
+-&gt; Lens
+     StopEntitiesDetectionJobResponse
+     StopEntitiesDetectionJobResponse
+     (Maybe JobStatus)
+     (Maybe JobStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354056"><span class="annot"><span class="annottext">Maybe JobStatus
+jobStatus :: Maybe JobStatus
+$sel:jobStatus:StopEntitiesDetectionJobResponse' :: StopEntitiesDetectionJobResponse -&gt; Maybe JobStatus
+</span><a href="#local-6989586621679354056"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679354056"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354055"><span class="annot"><span class="annottext">s :: StopEntitiesDetectionJobResponse
+</span><a href="#local-6989586621679354055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354054"><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679354054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopEntitiesDetectionJobResponse
+</span><a href="#local-6989586621679354055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:StopEntitiesDetectionJobResponse' :: Maybe JobStatus
+</span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#%24sel%3AjobStatus%3AStopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679354054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#stopEntitiesDetectionJobResponse_httpStatus"><span class="hs-identifier hs-type">stopEntitiesDetectionJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -502,18 +502,18 @@ $sel:jobId:StopEntitiesDetectionJobResponse' :: StopEntitiesDetectionJobResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353774"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354053"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopEntitiesDetectionJobResponse' :: StopEntitiesDetectionJobResponse -&gt; Int
-</span><a href="#local-6989586621679353774"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679353774"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353773"><span class="annot"><span class="annottext">s :: StopEntitiesDetectionJobResponse
-</span><a href="#local-6989586621679353773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353772"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679353772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopEntitiesDetectionJobResponse
-</span><a href="#local-6989586621679353773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopEntitiesDetectionJobResponse' :: Int
+</span><a href="#local-6989586621679354053"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354053"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354052"><span class="annot"><span class="annottext">s :: StopEntitiesDetectionJobResponse
+</span><a href="#local-6989586621679354052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354051"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopEntitiesDetectionJobResponse
+</span><a href="#local-6989586621679354052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopEntitiesDetectionJobResponse' :: Int
 </span><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#%24sel%3AhttpStatus%3AStopEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679353772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679353770"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679354049"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.StopEntitiesDetectionJob.html#StopEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">StopEntitiesDetectionJobResponse</span></a></span></span><span>
 </span><span id="line-192"></span></pre></body></html>

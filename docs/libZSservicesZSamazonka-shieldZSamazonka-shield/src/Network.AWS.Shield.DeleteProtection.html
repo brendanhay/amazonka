@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.html"><span class="hs-identifier">Network.AWS.Shield.Types</span></a></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteProtection' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679209982"><span id="local-6989586621679209983"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteProtection"><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection"><span class="hs-identifier hs-var">DeleteProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteProtection%27"><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection%27"><span class="hs-identifier hs-var">DeleteProtection'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679210132"><span id="local-6989586621679210133"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteProtection"><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection"><span class="hs-identifier hs-var">DeleteProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteProtection%27"><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection%27"><span class="hs-identifier hs-var">DeleteProtection'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier (ID) for the Protection object to be deleted.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AprotectionId%3ADeleteProtection%27"><span class="annot"><span class="annottext">DeleteProtection -&gt; Text
 </span><a href="Network.AWS.Shield.DeleteProtection.html#%24sel%3AprotectionId%3ADeleteProtection%27"><span class="hs-identifier hs-var hs-var">protectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209976"><span id="local-6989586621679209978"><span class="annot"><span class="annottext">DeleteProtection -&gt; DeleteProtection -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210126"><span id="local-6989586621679210128"><span class="annot"><span class="annottext">DeleteProtection -&gt; DeleteProtection -&gt; Bool
 (DeleteProtection -&gt; DeleteProtection -&gt; Bool)
 -&gt; (DeleteProtection -&gt; DeleteProtection -&gt; Bool)
 -&gt; Eq DeleteProtection
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteProtection -&gt; DeleteProtection -&gt; Bool
 == :: DeleteProtection -&gt; DeleteProtection -&gt; Bool
 $c== :: DeleteProtection -&gt; DeleteProtection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209967"><span id="local-6989586621679209969"><span id="local-6989586621679209971"><span id="local-6989586621679209973"><span class="annot"><span class="annottext">ReadPrec [DeleteProtection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210117"><span id="local-6989586621679210119"><span id="local-6989586621679210121"><span id="local-6989586621679210123"><span class="annot"><span class="annottext">ReadPrec [DeleteProtection]
 ReadPrec DeleteProtection
 Int -&gt; ReadS DeleteProtection
 ReadS [DeleteProtection]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteProtection]
 $creadList :: ReadS [DeleteProtection]
 readsPrec :: Int -&gt; ReadS DeleteProtection
 $creadsPrec :: Int -&gt; ReadS DeleteProtection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209960"><span id="local-6989586621679209962"><span id="local-6989586621679209964"><span class="annot"><span class="annottext">Int -&gt; DeleteProtection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210110"><span id="local-6989586621679210112"><span id="local-6989586621679210114"><span class="annot"><span class="annottext">Int -&gt; DeleteProtection -&gt; ShowS
 [DeleteProtection] -&gt; ShowS
 DeleteProtection -&gt; String
 (Int -&gt; DeleteProtection -&gt; ShowS)
@@ -120,12 +120,12 @@ $cfrom :: forall x. DeleteProtection -&gt; Rep DeleteProtection x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection"><span class="hs-identifier hs-type">DeleteProtection</span></a></span><span>
 </span><span id="line-68"></span><span id="newDeleteProtection"><span class="annot"><span class="annottext">newDeleteProtection :: Text -&gt; DeleteProtection
-</span><a href="Network.AWS.Shield.DeleteProtection.html#newDeleteProtection"><span class="hs-identifier hs-var hs-var">newDeleteProtection</span></a></span></span><span> </span><span id="local-6989586621679209955"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209955"><span class="hs-identifier hs-var">pProtectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Shield.DeleteProtection.html#newDeleteProtection"><span class="hs-identifier hs-var hs-var">newDeleteProtection</span></a></span></span><span> </span><span id="local-6989586621679210105"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210105"><span class="hs-identifier hs-var">pProtectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteProtection' :: Text -&gt; DeleteProtection
 </span><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection%27"><span class="hs-identifier hs-type">DeleteProtection'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protectionId:DeleteProtection' :: Text
 </span><a href="Network.AWS.Shield.DeleteProtection.html#%24sel%3AprotectionId%3ADeleteProtection%27"><span class="hs-identifier hs-var">protectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209955"><span class="hs-identifier hs-var">pProtectionId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679210105"><span class="hs-identifier hs-var">pProtectionId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The unique identifier (ID) for the Protection object to be deleted.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#deleteProtection_protectionId"><span class="hs-identifier hs-type">deleteProtection_protectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection"><span class="hs-identifier hs-type">DeleteProtection</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -134,27 +134,27 @@ $cfrom :: forall x. DeleteProtection -&gt; Rep DeleteProtection x
 -&gt; (DeleteProtection -&gt; Text -&gt; DeleteProtection)
 -&gt; Lens DeleteProtection DeleteProtection Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection%27"><span class="hs-identifier hs-type">DeleteProtection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209952"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection%27"><span class="hs-identifier hs-type">DeleteProtection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210102"><span class="annot"><span class="annottext">Text
 protectionId :: Text
 $sel:protectionId:DeleteProtection' :: DeleteProtection -&gt; Text
-</span><a href="#local-6989586621679209952"><span class="hs-identifier hs-var hs-var">protectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209952"><span class="hs-identifier hs-var">protectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209951"><span class="annot"><span class="annottext">s :: DeleteProtection
-</span><a href="#local-6989586621679209951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection%27"><span class="hs-identifier hs-type">DeleteProtection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209950"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProtection
-</span><a href="#local-6989586621679209951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protectionId:DeleteProtection' :: Text
+</span><a href="#local-6989586621679210102"><span class="hs-identifier hs-var hs-var">protectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210102"><span class="hs-identifier hs-var">protectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210101"><span class="annot"><span class="annottext">s :: DeleteProtection
+</span><a href="#local-6989586621679210101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection%27"><span class="hs-identifier hs-type">DeleteProtection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210100"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProtection
+</span><a href="#local-6989586621679210101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protectionId:DeleteProtection' :: Text
 </span><a href="Network.AWS.Shield.DeleteProtection.html#%24sel%3AprotectionId%3ADeleteProtection%27"><span class="hs-identifier hs-var">protectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection"><span class="hs-identifier hs-type">DeleteProtection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection"><span class="hs-identifier hs-type">DeleteProtection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection"><span class="hs-identifier hs-type">DeleteProtection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection"><span class="hs-identifier hs-type">DeleteProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtectionResponse"><span class="hs-identifier hs-type">DeleteProtectionResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679209946"><span class="annot"><span class="annottext">request :: DeleteProtection -&gt; Request DeleteProtection
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679210096"><span class="annot"><span class="annottext">request :: DeleteProtection -&gt; Request DeleteProtection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteProtection -&gt; Request DeleteProtection
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Shield.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679209942"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679210092"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteProtection
 -&gt; ClientResponse ClientBody
@@ -178,10 +178,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209939"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209939"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679209938"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679209938"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679209937"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679209937"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210089"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210089"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679210088"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679210088"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679210087"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679210087"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteProtectionResponse
 </span><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtectionResponse%27"><span class="hs-identifier hs-var">DeleteProtectionResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteProtectionResponse)
@@ -192,15 +192,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209939"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210089"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209930"><span id="local-6989586621679209932"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection"><span class="hs-identifier hs-type">DeleteProtection</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210080"><span id="local-6989586621679210082"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection"><span class="hs-identifier hs-type">DeleteProtection</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209927"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection"><span class="hs-identifier hs-type">DeleteProtection</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210077"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection"><span class="hs-identifier hs-type">DeleteProtection</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection"><span class="hs-identifier hs-type">DeleteProtection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679209923"><span class="annot"><span class="annottext">toHeaders :: DeleteProtection -&gt; ResponseHeaders
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679210073"><span class="annot"><span class="annottext">toHeaders :: DeleteProtection -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteProtection -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -227,12 +227,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209913"><span id="local-6989586621679209915"><span id="local-6989586621679209917"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection"><span class="hs-identifier hs-type">DeleteProtection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679209911"><span class="annot"><span class="annottext">toJSON :: DeleteProtection -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection%27"><span class="hs-identifier hs-type">DeleteProtection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209909"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210063"><span id="local-6989586621679210065"><span id="local-6989586621679210067"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection"><span class="hs-identifier hs-type">DeleteProtection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679210061"><span class="annot"><span class="annottext">toJSON :: DeleteProtection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection%27"><span class="hs-identifier hs-type">DeleteProtection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210059"><span class="annot"><span class="annottext">Text
 protectionId :: Text
 $sel:protectionId:DeleteProtection' :: DeleteProtection -&gt; Text
-</span><a href="#local-6989586621679209909"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679210059"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -244,18 +244,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ProtectionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209909"><span class="hs-identifier hs-var">protectionId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679210059"><span class="hs-identifier hs-var">protectionId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection"><span class="hs-identifier hs-type">DeleteProtection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679209903"><span class="annot"><span class="annottext">toPath :: DeleteProtection -&gt; ByteString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679210053"><span class="annot"><span class="annottext">toPath :: DeleteProtection -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteProtection -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtection"><span class="hs-identifier hs-type">DeleteProtection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679209899"><span class="annot"><span class="annottext">toQuery :: DeleteProtection -&gt; QueryString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679210049"><span class="annot"><span class="annottext">toQuery :: DeleteProtection -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteProtection -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -263,12 +263,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newDeleteProtectionResponse' smart constructor.</span><span>
-</span><span id="line-120"></span><span id="local-6989586621679209896"><span id="local-6989586621679209897"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteProtectionResponse"><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtectionResponse"><span class="hs-identifier hs-var">DeleteProtectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteProtectionResponse%27"><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtectionResponse%27"><span class="hs-identifier hs-var">DeleteProtectionResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span id="local-6989586621679210046"><span id="local-6989586621679210047"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteProtectionResponse"><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtectionResponse"><span class="hs-identifier hs-var">DeleteProtectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteProtectionResponse%27"><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtectionResponse%27"><span class="hs-identifier hs-var">DeleteProtectionResponse'</span></a></span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteProtectionResponse%27"><span class="annot"><span class="annottext">DeleteProtectionResponse -&gt; Int
 </span><a href="Network.AWS.Shield.DeleteProtection.html#%24sel%3AhttpStatus%3ADeleteProtectionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209891"><span id="local-6989586621679209893"><span class="annot"><span class="annottext">DeleteProtectionResponse -&gt; DeleteProtectionResponse -&gt; Bool
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210041"><span id="local-6989586621679210043"><span class="annot"><span class="annottext">DeleteProtectionResponse -&gt; DeleteProtectionResponse -&gt; Bool
 (DeleteProtectionResponse -&gt; DeleteProtectionResponse -&gt; Bool)
 -&gt; (DeleteProtectionResponse -&gt; DeleteProtectionResponse -&gt; Bool)
 -&gt; Eq DeleteProtectionResponse
@@ -277,7 +277,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteProtectionResponse -&gt; DeleteProtectionResponse -&gt; Bool
 == :: DeleteProtectionResponse -&gt; DeleteProtectionResponse -&gt; Bool
 $c== :: DeleteProtectionResponse -&gt; DeleteProtectionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209883"><span id="local-6989586621679209885"><span id="local-6989586621679209887"><span id="local-6989586621679209889"><span class="annot"><span class="annottext">ReadPrec [DeleteProtectionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210033"><span id="local-6989586621679210035"><span id="local-6989586621679210037"><span id="local-6989586621679210039"><span class="annot"><span class="annottext">ReadPrec [DeleteProtectionResponse]
 ReadPrec DeleteProtectionResponse
 Int -&gt; ReadS DeleteProtectionResponse
 ReadS [DeleteProtectionResponse]
@@ -297,7 +297,7 @@ readList :: ReadS [DeleteProtectionResponse]
 $creadList :: ReadS [DeleteProtectionResponse]
 readsPrec :: Int -&gt; ReadS DeleteProtectionResponse
 $creadsPrec :: Int -&gt; ReadS DeleteProtectionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209877"><span id="local-6989586621679209879"><span id="local-6989586621679209881"><span class="annot"><span class="annottext">Int -&gt; DeleteProtectionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210027"><span id="local-6989586621679210029"><span id="local-6989586621679210031"><span class="annot"><span class="annottext">Int -&gt; DeleteProtectionResponse -&gt; ShowS
 [DeleteProtectionResponse] -&gt; ShowS
 DeleteProtectionResponse -&gt; String
 (Int -&gt; DeleteProtectionResponse -&gt; ShowS)
@@ -343,14 +343,14 @@ DeleteProtectionResponse -&gt; Rep DeleteProtectionResponse x
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtectionResponse"><span class="hs-identifier hs-type">DeleteProtectionResponse</span></a></span><span>
 </span><span id="line-139"></span><span id="newDeleteProtectionResponse"><span class="annot"><span class="annottext">newDeleteProtectionResponse :: Int -&gt; DeleteProtectionResponse
-</span><a href="Network.AWS.Shield.DeleteProtection.html#newDeleteProtectionResponse"><span class="hs-identifier hs-var hs-var">newDeleteProtectionResponse</span></a></span></span><span> </span><span id="local-6989586621679209874"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209874"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Shield.DeleteProtection.html#newDeleteProtectionResponse"><span class="hs-identifier hs-var hs-var">newDeleteProtectionResponse</span></a></span></span><span> </span><span id="local-6989586621679210024"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210024"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">DeleteProtectionResponse' :: Int -&gt; DeleteProtectionResponse
 </span><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtectionResponse%27"><span class="hs-identifier hs-type">DeleteProtectionResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteProtectionResponse' :: Int
 </span><a href="Network.AWS.Shield.DeleteProtection.html#%24sel%3AhttpStatus%3ADeleteProtectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209874"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679210024"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -361,16 +361,16 @@ DeleteProtectionResponse -&gt; Rep DeleteProtectionResponse x
 -&gt; (DeleteProtectionResponse -&gt; Int -&gt; DeleteProtectionResponse)
 -&gt; Lens DeleteProtectionResponse DeleteProtectionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtectionResponse%27"><span class="hs-identifier hs-type">DeleteProtectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209873"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtectionResponse%27"><span class="hs-identifier hs-type">DeleteProtectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210023"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteProtectionResponse' :: DeleteProtectionResponse -&gt; Int
-</span><a href="#local-6989586621679209873"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209873"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209872"><span class="annot"><span class="annottext">s :: DeleteProtectionResponse
-</span><a href="#local-6989586621679209872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtectionResponse%27"><span class="hs-identifier hs-type">DeleteProtectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209871"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProtectionResponse
-</span><a href="#local-6989586621679209872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteProtectionResponse' :: Int
+</span><a href="#local-6989586621679210023"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210023"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210022"><span class="annot"><span class="annottext">s :: DeleteProtectionResponse
+</span><a href="#local-6989586621679210022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtectionResponse%27"><span class="hs-identifier hs-type">DeleteProtectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210021"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProtectionResponse
+</span><a href="#local-6989586621679210022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteProtectionResponse' :: Int
 </span><a href="Network.AWS.Shield.DeleteProtection.html#%24sel%3AhttpStatus%3ADeleteProtectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtectionResponse"><span class="hs-identifier hs-type">DeleteProtectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtectionResponse"><span class="hs-identifier hs-type">DeleteProtectionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209869"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtectionResponse"><span class="hs-identifier hs-type">DeleteProtectionResponse</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210019"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DeleteProtection.html#DeleteProtectionResponse"><span class="hs-identifier hs-type">DeleteProtectionResponse</span></a></span></span><span>
 </span><span id="line-150"></span></pre></body></html>

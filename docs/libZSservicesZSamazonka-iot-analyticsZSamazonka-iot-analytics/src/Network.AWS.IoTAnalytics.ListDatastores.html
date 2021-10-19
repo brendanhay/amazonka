@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListDatastores' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679265412"><span id="local-6989586621679265413"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDatastores"><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores"><span class="hs-identifier hs-var">ListDatastores</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDatastores%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores%27"><span class="hs-identifier hs-var">ListDatastores'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679265637"><span id="local-6989586621679265638"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDatastores"><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores"><span class="hs-identifier hs-var">ListDatastores</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDatastores%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores%27"><span class="hs-identifier hs-var">ListDatastores'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AListDatastores%27"><span class="annot"><span class="annottext">ListDatastores -&gt; Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.ListDatastores.html#%24sel%3AnextToken%3AListDatastores%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3AListDatastores%27"><span class="annot"><span class="annottext">ListDatastores -&gt; Maybe Natural
 </span><a href="Network.AWS.IoTAnalytics.ListDatastores.html#%24sel%3AmaxResults%3AListDatastores%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265405"><span id="local-6989586621679265407"><span class="annot"><span class="annottext">ListDatastores -&gt; ListDatastores -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265630"><span id="local-6989586621679265632"><span class="annot"><span class="annottext">ListDatastores -&gt; ListDatastores -&gt; Bool
 (ListDatastores -&gt; ListDatastores -&gt; Bool)
 -&gt; (ListDatastores -&gt; ListDatastores -&gt; Bool) -&gt; Eq ListDatastores
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListDatastores -&gt; ListDatastores -&gt; Bool
 == :: ListDatastores -&gt; ListDatastores -&gt; Bool
 $c== :: ListDatastores -&gt; ListDatastores -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265396"><span id="local-6989586621679265398"><span id="local-6989586621679265400"><span id="local-6989586621679265402"><span class="annot"><span class="annottext">ReadPrec [ListDatastores]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265621"><span id="local-6989586621679265623"><span id="local-6989586621679265625"><span id="local-6989586621679265627"><span class="annot"><span class="annottext">ReadPrec [ListDatastores]
 ReadPrec ListDatastores
 Int -&gt; ReadS ListDatastores
 ReadS [ListDatastores]
@@ -89,7 +89,7 @@ readList :: ReadS [ListDatastores]
 $creadList :: ReadS [ListDatastores]
 readsPrec :: Int -&gt; ReadS ListDatastores
 $creadsPrec :: Int -&gt; ReadS ListDatastores
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265389"><span id="local-6989586621679265391"><span id="local-6989586621679265393"><span class="annot"><span class="annottext">Int -&gt; ListDatastores -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265614"><span id="local-6989586621679265616"><span id="local-6989586621679265618"><span class="annot"><span class="annottext">Int -&gt; ListDatastores -&gt; ShowS
 [ListDatastores] -&gt; ShowS
 ListDatastores -&gt; String
 (Int -&gt; ListDatastores -&gt; ShowS)
@@ -152,16 +152,16 @@ forall a. Maybe a
 -&gt; (ListDatastores -&gt; Maybe Text -&gt; ListDatastores)
 -&gt; Lens ListDatastores ListDatastores (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores%27"><span class="hs-identifier hs-type">ListDatastores'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265383"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores%27"><span class="hs-identifier hs-type">ListDatastores'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265608"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListDatastores' :: ListDatastores -&gt; Maybe Text
-</span><a href="#local-6989586621679265383"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265383"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265382"><span class="annot"><span class="annottext">s :: ListDatastores
-</span><a href="#local-6989586621679265382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores%27"><span class="hs-identifier hs-type">ListDatastores'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265381"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatastores
-</span><a href="#local-6989586621679265382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDatastores' :: Maybe Text
+</span><a href="#local-6989586621679265608"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265608"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265607"><span class="annot"><span class="annottext">s :: ListDatastores
+</span><a href="#local-6989586621679265607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores%27"><span class="hs-identifier hs-type">ListDatastores'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265606"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatastores
+</span><a href="#local-6989586621679265607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDatastores' :: Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.ListDatastores.html#%24sel%3AnextToken%3AListDatastores%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores"><span class="hs-identifier hs-type">ListDatastores</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores"><span class="hs-identifier hs-type">ListDatastores</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The maximum number of results to return in this request.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
@@ -174,29 +174,29 @@ $sel:nextToken:ListDatastores' :: ListDatastores -&gt; Maybe Text
 -&gt; Lens
      ListDatastores ListDatastores (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores%27"><span class="hs-identifier hs-type">ListDatastores'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265380"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores%27"><span class="hs-identifier hs-type">ListDatastores'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265605"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListDatastores' :: ListDatastores -&gt; Maybe Natural
-</span><a href="#local-6989586621679265380"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679265380"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265379"><span class="annot"><span class="annottext">s :: ListDatastores
-</span><a href="#local-6989586621679265379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores%27"><span class="hs-identifier hs-type">ListDatastores'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265378"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679265378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatastores
-</span><a href="#local-6989586621679265379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDatastores' :: Maybe Natural
+</span><a href="#local-6989586621679265605"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679265605"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265604"><span class="annot"><span class="annottext">s :: ListDatastores
+</span><a href="#local-6989586621679265604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores%27"><span class="hs-identifier hs-type">ListDatastores'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265603"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679265603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatastores
+</span><a href="#local-6989586621679265604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDatastores' :: Maybe Natural
 </span><a href="Network.AWS.IoTAnalytics.ListDatastores.html#%24sel%3AmaxResults%3AListDatastores%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679265378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores"><span class="hs-identifier hs-type">ListDatastores</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores"><span class="hs-identifier hs-type">ListDatastores</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores"><span class="hs-identifier hs-type">ListDatastores</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679265374"><span class="annot"><span class="annottext">page :: ListDatastores
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679265599"><span class="annot"><span class="annottext">page :: ListDatastores
 -&gt; AWSResponse ListDatastores -&gt; Maybe ListDatastores
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679265372"><span class="annot"><span class="annottext">ListDatastores
-</span><a href="#local-6989586621679265372"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679265371"><span class="annot"><span class="annottext">AWSResponse ListDatastores
-</span><a href="#local-6989586621679265371"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679265597"><span class="annot"><span class="annottext">ListDatastores
+</span><a href="#local-6989586621679265597"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679265596"><span class="annot"><span class="annottext">AWSResponse ListDatastores
+</span><a href="#local-6989586621679265596"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-98"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDatastores
 ListDatastoresResponse
-</span><a href="#local-6989586621679265371"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679265596"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">ListDatastoresResponse
 -&gt; Getting (First Text) ListDatastoresResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -225,7 +225,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-104"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDatastores
 ListDatastoresResponse
-</span><a href="#local-6989586621679265371"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679265596"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">ListDatastoresResponse
 -&gt; Getting
      (First [DatastoreSummary])
@@ -271,7 +271,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">ListDatastores
-</span><a href="#local-6989586621679265372"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679265597"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ListDatastores
 -&gt; (ListDatastores -&gt; ListDatastores) -&gt; ListDatastores
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -285,7 +285,7 @@ Lens ListDatastores ListDatastores (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDatastores
 ListDatastoresResponse
-</span><a href="#local-6989586621679265371"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679265596"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">ListDatastoresResponse
 -&gt; Getting (First Text) ListDatastoresResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -309,12 +309,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-117"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-118"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores"><span class="hs-identifier hs-type">ListDatastores</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse"><span class="hs-identifier hs-type">ListDatastoresResponse</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679265361"><span class="annot"><span class="annottext">request :: ListDatastores -&gt; Request ListDatastores
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679265586"><span class="annot"><span class="annottext">request :: ListDatastores -&gt; Request ListDatastores
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListDatastores -&gt; Request ListDatastores
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679265357"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679265582"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListDatastores
 -&gt; ClientResponse ClientBody
@@ -338,10 +338,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265354"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679265354"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679265353"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679265353"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679265352"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265352"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265579"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265579"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679265578"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679265578"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679265577"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265577"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [DatastoreSummary] -&gt; Int -&gt; ListDatastoresResponse
 </span><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse%27"><span class="hs-identifier hs-var">ListDatastoresResponse'</span></a></span><span>
@@ -352,7 +352,7 @@ MonadResource m =&gt;
      String (Maybe [DatastoreSummary] -&gt; Int -&gt; ListDatastoresResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265352"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679265577"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -362,7 +362,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListDatastoresResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265352"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DatastoreSummary]))
+</span><a href="#local-6989586621679265577"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DatastoreSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;datastoreSummaries&quot;</span></span><span>
@@ -382,15 +382,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679265354"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265579"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265343"><span id="local-6989586621679265345"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores"><span class="hs-identifier hs-type">ListDatastores</span></a></span></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265568"><span id="local-6989586621679265570"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores"><span class="hs-identifier hs-type">ListDatastores</span></a></span></span></span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265340"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores"><span class="hs-identifier hs-type">ListDatastores</span></a></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265565"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores"><span class="hs-identifier hs-type">ListDatastores</span></a></span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores"><span class="hs-identifier hs-type">ListDatastores</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679265336"><span class="annot"><span class="annottext">toHeaders :: ListDatastores -&gt; ResponseHeaders
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679265561"><span class="annot"><span class="annottext">toHeaders :: ListDatastores -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListDatastores -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -398,21 +398,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores"><span class="hs-identifier hs-type">ListDatastores</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679265331"><span class="annot"><span class="annottext">toPath :: ListDatastores -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679265556"><span class="annot"><span class="annottext">toPath :: ListDatastores -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListDatastores -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/datastores&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores"><span class="hs-identifier hs-type">ListDatastores</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679265327"><span class="annot"><span class="annottext">toQuery :: ListDatastores -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores%27"><span class="hs-identifier hs-type">ListDatastores'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265324"><span id="local-6989586621679265325"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679265552"><span class="annot"><span class="annottext">toQuery :: ListDatastores -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastores%27"><span class="hs-identifier hs-type">ListDatastores'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265549"><span id="local-6989586621679265550"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListDatastores' :: ListDatastores -&gt; Maybe Natural
 $sel:nextToken:ListDatastores' :: ListDatastores -&gt; Maybe Text
-</span><a href="#local-6989586621679265324"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679265549"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -420,16 +420,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265325"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265550"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679265324"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679265549"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newListDatastoresResponse' smart constructor.</span><span>
-</span><span id="line-150"></span><span id="local-6989586621679265321"><span id="local-6989586621679265322"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDatastoresResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse"><span class="hs-identifier hs-var">ListDatastoresResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDatastoresResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse%27"><span class="hs-identifier hs-var">ListDatastoresResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span id="local-6989586621679265546"><span id="local-6989586621679265547"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDatastoresResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse"><span class="hs-identifier hs-var">ListDatastoresResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDatastoresResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse%27"><span class="hs-identifier hs-var">ListDatastoresResponse'</span></a></span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to retrieve the next set of results, or @null@ if there are no</span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-comment">-- more results.</span><span>
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AnextToken%3AListDatastoresResponse%27"><span class="annot"><span class="annottext">ListDatastoresResponse -&gt; Maybe Text
@@ -441,7 +441,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-157"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListDatastoresResponse%27"><span class="annot"><span class="annottext">ListDatastoresResponse -&gt; Int
 </span><a href="Network.AWS.IoTAnalytics.ListDatastores.html#%24sel%3AhttpStatus%3AListDatastoresResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265314"><span id="local-6989586621679265316"><span class="annot"><span class="annottext">ListDatastoresResponse -&gt; ListDatastoresResponse -&gt; Bool
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265539"><span id="local-6989586621679265541"><span class="annot"><span class="annottext">ListDatastoresResponse -&gt; ListDatastoresResponse -&gt; Bool
 (ListDatastoresResponse -&gt; ListDatastoresResponse -&gt; Bool)
 -&gt; (ListDatastoresResponse -&gt; ListDatastoresResponse -&gt; Bool)
 -&gt; Eq ListDatastoresResponse
@@ -450,7 +450,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListDatastoresResponse -&gt; ListDatastoresResponse -&gt; Bool
 == :: ListDatastoresResponse -&gt; ListDatastoresResponse -&gt; Bool
 $c== :: ListDatastoresResponse -&gt; ListDatastoresResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265306"><span id="local-6989586621679265308"><span id="local-6989586621679265310"><span id="local-6989586621679265312"><span class="annot"><span class="annottext">ReadPrec [ListDatastoresResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265531"><span id="local-6989586621679265533"><span id="local-6989586621679265535"><span id="local-6989586621679265537"><span class="annot"><span class="annottext">ReadPrec [ListDatastoresResponse]
 ReadPrec ListDatastoresResponse
 Int -&gt; ReadS ListDatastoresResponse
 ReadS [ListDatastoresResponse]
@@ -470,7 +470,7 @@ readList :: ReadS [ListDatastoresResponse]
 $creadList :: ReadS [ListDatastoresResponse]
 readsPrec :: Int -&gt; ReadS ListDatastoresResponse
 $creadsPrec :: Int -&gt; ReadS ListDatastoresResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265300"><span id="local-6989586621679265302"><span id="local-6989586621679265304"><span class="annot"><span class="annottext">Int -&gt; ListDatastoresResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265525"><span id="local-6989586621679265527"><span id="local-6989586621679265529"><span class="annot"><span class="annottext">Int -&gt; ListDatastoresResponse -&gt; ShowS
 [ListDatastoresResponse] -&gt; ShowS
 ListDatastoresResponse -&gt; String
 (Int -&gt; ListDatastoresResponse -&gt; ShowS)
@@ -516,8 +516,8 @@ $cfrom :: forall x. ListDatastoresResponse -&gt; Rep ListDatastoresResponse x
 </span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse"><span class="hs-identifier hs-type">ListDatastoresResponse</span></a></span><span>
 </span><span id="line-179"></span><span id="newListDatastoresResponse"><span class="annot"><span class="annottext">newListDatastoresResponse :: Int -&gt; ListDatastoresResponse
-</span><a href="Network.AWS.IoTAnalytics.ListDatastores.html#newListDatastoresResponse"><span class="hs-identifier hs-var hs-var">newListDatastoresResponse</span></a></span></span><span> </span><span id="local-6989586621679265297"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679265297"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.ListDatastores.html#newListDatastoresResponse"><span class="hs-identifier hs-var hs-var">newListDatastoresResponse</span></a></span></span><span> </span><span id="local-6989586621679265522"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265522"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">ListDatastoresResponse' :: Maybe Text
 -&gt; Maybe [DatastoreSummary] -&gt; Int -&gt; ListDatastoresResponse
 </span><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse%27"><span class="hs-identifier hs-type">ListDatastoresResponse'</span></a></span><span>
@@ -532,7 +532,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListDatastoresResponse' :: Int
 </span><a href="Network.AWS.IoTAnalytics.ListDatastores.html#%24sel%3AhttpStatus%3AListDatastoresResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679265297"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679265522"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The token to retrieve the next set of results, or @null@ if there are no</span><span>
@@ -544,16 +544,16 @@ forall a. Maybe a
 -&gt; (ListDatastoresResponse -&gt; Maybe Text -&gt; ListDatastoresResponse)
 -&gt; Lens' ListDatastoresResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse%27"><span class="hs-identifier hs-type">ListDatastoresResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265296"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse%27"><span class="hs-identifier hs-type">ListDatastoresResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265521"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListDatastoresResponse' :: ListDatastoresResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679265296"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265296"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265295"><span class="annot"><span class="annottext">s :: ListDatastoresResponse
-</span><a href="#local-6989586621679265295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse%27"><span class="hs-identifier hs-type">ListDatastoresResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265294"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatastoresResponse
-</span><a href="#local-6989586621679265295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDatastoresResponse' :: Maybe Text
+</span><a href="#local-6989586621679265521"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265521"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265520"><span class="annot"><span class="annottext">s :: ListDatastoresResponse
+</span><a href="#local-6989586621679265520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse%27"><span class="hs-identifier hs-type">ListDatastoresResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265519"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatastoresResponse
+</span><a href="#local-6989586621679265520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDatastoresResponse' :: Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.ListDatastores.html#%24sel%3AnextToken%3AListDatastoresResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse"><span class="hs-identifier hs-type">ListDatastoresResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse"><span class="hs-identifier hs-type">ListDatastoresResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | A list of @DatastoreSummary@ objects.</span><span>
 </span><span id="line-193"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#listDatastoresResponse_datastoreSummaries"><span class="hs-identifier hs-type">listDatastoresResponse_datastoreSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse"><span class="hs-identifier hs-type">ListDatastoresResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreSummary.html#DatastoreSummary"><span class="hs-identifier hs-type">DatastoreSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -564,16 +564,16 @@ $sel:nextToken:ListDatastoresResponse' :: ListDatastoresResponse -&gt; Maybe Tex
     -&gt; Maybe [DatastoreSummary] -&gt; ListDatastoresResponse)
 -&gt; Lens' ListDatastoresResponse (Maybe [DatastoreSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse%27"><span class="hs-identifier hs-type">ListDatastoresResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265293"><span class="annot"><span class="annottext">Maybe [DatastoreSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse%27"><span class="hs-identifier hs-type">ListDatastoresResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265518"><span class="annot"><span class="annottext">Maybe [DatastoreSummary]
 datastoreSummaries :: Maybe [DatastoreSummary]
 $sel:datastoreSummaries:ListDatastoresResponse' :: ListDatastoresResponse -&gt; Maybe [DatastoreSummary]
-</span><a href="#local-6989586621679265293"><span class="hs-identifier hs-var hs-var">datastoreSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DatastoreSummary]
-</span><a href="#local-6989586621679265293"><span class="hs-identifier hs-var">datastoreSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265292"><span class="annot"><span class="annottext">s :: ListDatastoresResponse
-</span><a href="#local-6989586621679265292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse%27"><span class="hs-identifier hs-type">ListDatastoresResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265291"><span class="annot"><span class="annottext">Maybe [DatastoreSummary]
-</span><a href="#local-6989586621679265291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatastoresResponse
-</span><a href="#local-6989586621679265292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreSummaries:ListDatastoresResponse' :: Maybe [DatastoreSummary]
+</span><a href="#local-6989586621679265518"><span class="hs-identifier hs-var hs-var">datastoreSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DatastoreSummary]
+</span><a href="#local-6989586621679265518"><span class="hs-identifier hs-var">datastoreSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265517"><span class="annot"><span class="annottext">s :: ListDatastoresResponse
+</span><a href="#local-6989586621679265517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse%27"><span class="hs-identifier hs-type">ListDatastoresResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265516"><span class="annot"><span class="annottext">Maybe [DatastoreSummary]
+</span><a href="#local-6989586621679265516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatastoresResponse
+</span><a href="#local-6989586621679265517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreSummaries:ListDatastoresResponse' :: Maybe [DatastoreSummary]
 </span><a href="Network.AWS.IoTAnalytics.ListDatastores.html#%24sel%3AdatastoreSummaries%3AListDatastoresResponse%27"><span class="hs-identifier hs-var">datastoreSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DatastoreSummary]
-</span><a href="#local-6989586621679265291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse"><span class="hs-identifier hs-type">ListDatastoresResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DatastoreSummary] -&gt; f (Maybe [DatastoreSummary]))
+</span><a href="#local-6989586621679265516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse"><span class="hs-identifier hs-type">ListDatastoresResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DatastoreSummary] -&gt; f (Maybe [DatastoreSummary]))
  -&gt; ListDatastoresResponse -&gt; f ListDatastoresResponse)
 -&gt; ((Maybe [DatastoreSummary] -&gt; f (Maybe [DatastoreSummary]))
     -&gt; Maybe [DatastoreSummary] -&gt; f (Maybe [DatastoreSummary]))
@@ -599,8 +599,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [DatastoreSummary]
   [DatastoreSummary]
   [DatastoreSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-197"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#listDatastoresResponse_httpStatus"><span class="hs-identifier hs-type">listDatastoresResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse"><span class="hs-identifier hs-type">ListDatastoresResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -610,16 +610,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListDatastoresResponse -&gt; Int -&gt; ListDatastoresResponse)
 -&gt; Lens ListDatastoresResponse ListDatastoresResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse%27"><span class="hs-identifier hs-type">ListDatastoresResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265288"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse%27"><span class="hs-identifier hs-type">ListDatastoresResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265513"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListDatastoresResponse' :: ListDatastoresResponse -&gt; Int
-</span><a href="#local-6989586621679265288"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679265288"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265287"><span class="annot"><span class="annottext">s :: ListDatastoresResponse
-</span><a href="#local-6989586621679265287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse%27"><span class="hs-identifier hs-type">ListDatastoresResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265286"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679265286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatastoresResponse
-</span><a href="#local-6989586621679265287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDatastoresResponse' :: Int
+</span><a href="#local-6989586621679265513"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265513"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265512"><span class="annot"><span class="annottext">s :: ListDatastoresResponse
+</span><a href="#local-6989586621679265512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse%27"><span class="hs-identifier hs-type">ListDatastoresResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265511"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatastoresResponse
+</span><a href="#local-6989586621679265512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDatastoresResponse' :: Int
 </span><a href="Network.AWS.IoTAnalytics.ListDatastores.html#%24sel%3AhttpStatus%3AListDatastoresResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679265286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse"><span class="hs-identifier hs-type">ListDatastoresResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse"><span class="hs-identifier hs-type">ListDatastoresResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265284"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse"><span class="hs-identifier hs-type">ListDatastoresResponse</span></a></span></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListDatastores.html#ListDatastoresResponse"><span class="hs-identifier hs-type">ListDatastoresResponse</span></a></span></span><span>
 </span><span id="line-201"></span></pre></body></html>

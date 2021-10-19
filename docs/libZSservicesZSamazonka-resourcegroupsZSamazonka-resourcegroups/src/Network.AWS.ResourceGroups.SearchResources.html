@@ -52,9 +52,9 @@
 </span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#newSearchResourcesResponse"><span class="hs-identifier">newSearchResourcesResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#searchResourcesResponse_nextToken"><span class="hs-identifier">searchResourcesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#searchResourcesResponse_resourceIdentifiers"><span class="hs-identifier">searchResourcesResponse_resourceIdentifiers</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#searchResourcesResponse_queryErrors"><span class="hs-identifier">searchResourcesResponse_queryErrors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#searchResourcesResponse_queryErrors"><span class="hs-identifier">searchResourcesResponse_queryErrors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#searchResourcesResponse_nextToken"><span class="hs-identifier">searchResourcesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#searchResourcesResponse_resourceIdentifiers"><span class="hs-identifier">searchResourcesResponse_resourceIdentifiers</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#searchResourcesResponse_httpStatus"><span class="hs-identifier">searchResourcesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span class="hs-keyword">where</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newSearchResources' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679178197"><span id="local-6989586621679178198"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchResources"><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-var">SearchResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchResources%27"><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources%27"><span class="hs-identifier hs-var">SearchResources'</span></a></span></span><span>
+</span><span id="line-70"></span><span id="local-6989586621679178331"><span id="local-6989586621679178332"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchResources"><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-var">SearchResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchResources%27"><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources%27"><span class="hs-identifier hs-var">SearchResources'</span></a></span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The parameter for receiving additional results if you receive a</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">-- @NextToken@ response in a previous request. A @NextToken@ response</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- indicates that more output is available. Set this parameter to the value</span><span>
@@ -92,7 +92,7 @@
 </span><span id="line-90"></span><span>    </span><span id="%24sel%3AresourceQuery%3ASearchResources%27"><span class="annot"><span class="annottext">SearchResources -&gt; ResourceQuery
 </span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AresourceQuery%3ASearchResources%27"><span class="hs-identifier hs-var hs-var">resourceQuery</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178189"><span id="local-6989586621679178191"><span class="annot"><span class="annottext">SearchResources -&gt; SearchResources -&gt; Bool
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178323"><span id="local-6989586621679178325"><span class="annot"><span class="annottext">SearchResources -&gt; SearchResources -&gt; Bool
 (SearchResources -&gt; SearchResources -&gt; Bool)
 -&gt; (SearchResources -&gt; SearchResources -&gt; Bool)
 -&gt; Eq SearchResources
@@ -101,7 +101,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SearchResources -&gt; SearchResources -&gt; Bool
 == :: SearchResources -&gt; SearchResources -&gt; Bool
 $c== :: SearchResources -&gt; SearchResources -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178180"><span id="local-6989586621679178182"><span id="local-6989586621679178184"><span id="local-6989586621679178186"><span class="annot"><span class="annottext">ReadPrec [SearchResources]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178314"><span id="local-6989586621679178316"><span id="local-6989586621679178318"><span id="local-6989586621679178320"><span class="annot"><span class="annottext">ReadPrec [SearchResources]
 ReadPrec SearchResources
 Int -&gt; ReadS SearchResources
 ReadS [SearchResources]
@@ -121,7 +121,7 @@ readList :: ReadS [SearchResources]
 $creadList :: ReadS [SearchResources]
 readsPrec :: Int -&gt; ReadS SearchResources
 $creadsPrec :: Int -&gt; ReadS SearchResources
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178173"><span id="local-6989586621679178175"><span id="local-6989586621679178177"><span class="annot"><span class="annottext">Int -&gt; SearchResources -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178307"><span id="local-6989586621679178309"><span id="local-6989586621679178311"><span class="annot"><span class="annottext">Int -&gt; SearchResources -&gt; ShowS
 [SearchResources] -&gt; ShowS
 SearchResources -&gt; String
 (Int -&gt; SearchResources -&gt; ShowS)
@@ -179,8 +179,8 @@ $cfrom :: forall x. SearchResources -&gt; Rep SearchResources x
 </span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-type">SearchResources</span></a></span><span>
 </span><span id="line-125"></span><span id="newSearchResources"><span class="annot"><span class="annottext">newSearchResources :: ResourceQuery -&gt; SearchResources
-</span><a href="Network.AWS.ResourceGroups.SearchResources.html#newSearchResources"><span class="hs-identifier hs-var hs-var">newSearchResources</span></a></span></span><span> </span><span id="local-6989586621679178168"><span class="annot"><span class="annottext">ResourceQuery
-</span><a href="#local-6989586621679178168"><span class="hs-identifier hs-var">pResourceQuery_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ResourceGroups.SearchResources.html#newSearchResources"><span class="hs-identifier hs-var hs-var">newSearchResources</span></a></span></span><span> </span><span id="local-6989586621679178302"><span class="annot"><span class="annottext">ResourceQuery
+</span><a href="#local-6989586621679178302"><span class="hs-identifier hs-var">pResourceQuery_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>  </span><span class="annot"><span class="annottext">SearchResources' :: Maybe Text -&gt; Maybe Natural -&gt; ResourceQuery -&gt; SearchResources
 </span><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources%27"><span class="hs-identifier hs-type">SearchResources'</span></a></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:SearchResources' :: Maybe Text
@@ -193,7 +193,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceQuery:SearchResources' :: ResourceQuery
 </span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AresourceQuery%3ASearchResources%27"><span class="hs-identifier hs-var">resourceQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceQuery
-</span><a href="#local-6989586621679178168"><span class="hs-identifier hs-var">pResourceQuery_</span></a></span><span>
+</span><a href="#local-6989586621679178302"><span class="hs-identifier hs-var">pResourceQuery_</span></a></span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | The parameter for receiving additional results if you receive a</span><span>
@@ -208,16 +208,16 @@ forall a. Maybe a
 -&gt; (SearchResources -&gt; Maybe Text -&gt; SearchResources)
 -&gt; Lens SearchResources SearchResources (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources%27"><span class="hs-identifier hs-type">SearchResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178166"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources%27"><span class="hs-identifier hs-type">SearchResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178300"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:SearchResources' :: SearchResources -&gt; Maybe Text
-</span><a href="#local-6989586621679178166"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178166"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178165"><span class="annot"><span class="annottext">s :: SearchResources
-</span><a href="#local-6989586621679178165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources%27"><span class="hs-identifier hs-type">SearchResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178164"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResources
-</span><a href="#local-6989586621679178165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchResources' :: Maybe Text
+</span><a href="#local-6989586621679178300"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178300"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178299"><span class="annot"><span class="annottext">s :: SearchResources
+</span><a href="#local-6989586621679178299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources%27"><span class="hs-identifier hs-type">SearchResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178298"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResources
+</span><a href="#local-6989586621679178299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchResources' :: Maybe Text
 </span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AnextToken%3ASearchResources%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-type">SearchResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-type">SearchResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | The total number of results that you want included on each page of the</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- response. If you do not include this parameter, it defaults to a value</span><span>
@@ -237,16 +237,16 @@ $sel:nextToken:SearchResources' :: SearchResources -&gt; Maybe Text
 -&gt; Lens
      SearchResources SearchResources (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources%27"><span class="hs-identifier hs-type">SearchResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178163"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources%27"><span class="hs-identifier hs-type">SearchResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178297"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:SearchResources' :: SearchResources -&gt; Maybe Natural
-</span><a href="#local-6989586621679178163"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679178163"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178162"><span class="annot"><span class="annottext">s :: SearchResources
-</span><a href="#local-6989586621679178162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources%27"><span class="hs-identifier hs-type">SearchResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178161"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679178161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResources
-</span><a href="#local-6989586621679178162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:SearchResources' :: Maybe Natural
+</span><a href="#local-6989586621679178297"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679178297"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178296"><span class="annot"><span class="annottext">s :: SearchResources
+</span><a href="#local-6989586621679178296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources%27"><span class="hs-identifier hs-type">SearchResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178295"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679178295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResources
+</span><a href="#local-6989586621679178296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:SearchResources' :: Maybe Natural
 </span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AmaxResults%3ASearchResources%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679178161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-type">SearchResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-type">SearchResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The search query, using the same formats that are supported for resource</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- group definition. For more information, see CreateGroup.</span><span>
@@ -257,29 +257,29 @@ $sel:maxResults:SearchResources' :: SearchResources -&gt; Maybe Natural
 -&gt; (SearchResources -&gt; ResourceQuery -&gt; SearchResources)
 -&gt; Lens SearchResources SearchResources ResourceQuery ResourceQuery
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources%27"><span class="hs-identifier hs-type">SearchResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178160"><span class="annot"><span class="annottext">ResourceQuery
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources%27"><span class="hs-identifier hs-type">SearchResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178294"><span class="annot"><span class="annottext">ResourceQuery
 resourceQuery :: ResourceQuery
 $sel:resourceQuery:SearchResources' :: SearchResources -&gt; ResourceQuery
-</span><a href="#local-6989586621679178160"><span class="hs-identifier hs-var hs-var">resourceQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceQuery
-</span><a href="#local-6989586621679178160"><span class="hs-identifier hs-var">resourceQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178159"><span class="annot"><span class="annottext">s :: SearchResources
-</span><a href="#local-6989586621679178159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources%27"><span class="hs-identifier hs-type">SearchResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178158"><span class="annot"><span class="annottext">ResourceQuery
-</span><a href="#local-6989586621679178158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResources
-</span><a href="#local-6989586621679178159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceQuery:SearchResources' :: ResourceQuery
+</span><a href="#local-6989586621679178294"><span class="hs-identifier hs-var hs-var">resourceQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceQuery
+</span><a href="#local-6989586621679178294"><span class="hs-identifier hs-var">resourceQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178293"><span class="annot"><span class="annottext">s :: SearchResources
+</span><a href="#local-6989586621679178293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources%27"><span class="hs-identifier hs-type">SearchResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178292"><span class="annot"><span class="annottext">ResourceQuery
+</span><a href="#local-6989586621679178292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResources
+</span><a href="#local-6989586621679178293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceQuery:SearchResources' :: ResourceQuery
 </span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AresourceQuery%3ASearchResources%27"><span class="hs-identifier hs-var">resourceQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceQuery
-</span><a href="#local-6989586621679178158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-type">SearchResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-type">SearchResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-type">SearchResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679178154"><span class="annot"><span class="annottext">page :: SearchResources
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679178288"><span class="annot"><span class="annottext">page :: SearchResources
 -&gt; AWSResponse SearchResources -&gt; Maybe SearchResources
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679178152"><span class="annot"><span class="annottext">SearchResources
-</span><a href="#local-6989586621679178152"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679178151"><span class="annot"><span class="annottext">AWSResponse SearchResources
-</span><a href="#local-6989586621679178151"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679178286"><span class="annot"><span class="annottext">SearchResources
+</span><a href="#local-6989586621679178286"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679178285"><span class="annot"><span class="annottext">AWSResponse SearchResources
+</span><a href="#local-6989586621679178285"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-160"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-161"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchResources
 SearchResourcesResponse
-</span><a href="#local-6989586621679178151"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679178285"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">SearchResourcesResponse
 -&gt; Getting (First Text) SearchResourcesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -308,7 +308,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-167"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchResources
 SearchResourcesResponse
-</span><a href="#local-6989586621679178151"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679178285"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">SearchResourcesResponse
 -&gt; Getting
      (First [ResourceIdentifier])
@@ -354,7 +354,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">SearchResources
-</span><a href="#local-6989586621679178152"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679178286"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">SearchResources
 -&gt; (SearchResources -&gt; SearchResources) -&gt; SearchResources
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -368,7 +368,7 @@ Lens SearchResources SearchResources (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchResources
 SearchResourcesResponse
-</span><a href="#local-6989586621679178151"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679178285"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">SearchResourcesResponse
 -&gt; Getting (First Text) SearchResourcesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -393,12 +393,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-181"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-182"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-type">SearchResources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>      </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679178141"><span class="annot"><span class="annottext">request :: SearchResources -&gt; Request SearchResources
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679178275"><span class="annot"><span class="annottext">request :: SearchResources -&gt; Request SearchResources
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SearchResources -&gt; Request SearchResources
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ResourceGroups.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679178137"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679178271"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SearchResources
 -&gt; ClientResponse ClientBody
@@ -422,61 +422,29 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178134"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178134"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178133"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679178133"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178132"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178132"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178268"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178268"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178267"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679178267"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178266"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178266"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">Maybe [QueryError]
+-&gt; Maybe Text
 -&gt; Maybe [ResourceIdentifier]
--&gt; Maybe [QueryError]
 -&gt; Int
 -&gt; SearchResourcesResponse
 </span><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-var">SearchResourcesResponse'</span></a></span><span>
-</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [QueryError]
+ -&gt; Maybe Text
  -&gt; Maybe [ResourceIdentifier]
- -&gt; Maybe [QueryError]
  -&gt; Int
  -&gt; SearchResourcesResponse)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [QueryError])
 -&gt; Either
      String
-     (Maybe [ResourceIdentifier]
-      -&gt; Maybe [QueryError] -&gt; Int -&gt; SearchResourcesResponse)
+     (Maybe Text
+      -&gt; Maybe [ResourceIdentifier] -&gt; Int -&gt; SearchResourcesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178132"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [ResourceIdentifier]
-   -&gt; Maybe [QueryError] -&gt; Int -&gt; SearchResourcesResponse)
--&gt; Either String (Maybe [ResourceIdentifier])
--&gt; Either
-     String (Maybe [QueryError] -&gt; Int -&gt; SearchResourcesResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178132"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
--&gt; Text -&gt; Either String (Maybe (Maybe [ResourceIdentifier]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ResourceIdentifiers&quot;</span></span><span>
-</span><span id="line-191"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ResourceIdentifier]))
--&gt; Maybe [ResourceIdentifier]
--&gt; Either String (Maybe [ResourceIdentifier])
-forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
-</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-192"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe [QueryError] -&gt; Int -&gt; SearchResourcesResponse)
--&gt; Either String (Maybe [QueryError])
--&gt; Either String (Int -&gt; SearchResourcesResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178132"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [QueryError]))
+</span><a href="#local-6989586621679178266"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [QueryError]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QueryErrors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [QueryError]))
@@ -485,6 +453,40 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [QueryError]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [ResourceIdentifier] -&gt; Int -&gt; SearchResourcesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ResourceIdentifier] -&gt; Int -&gt; SearchResourcesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178266"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ResourceIdentifier] -&gt; Int -&gt; SearchResourcesResponse)
+-&gt; Either String (Maybe [ResourceIdentifier])
+-&gt; Either String (Int -&gt; SearchResourcesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178266"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [ResourceIdentifier]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceIdentifiers&quot;</span></span><span>
+</span><span id="line-192"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ResourceIdentifier]))
+-&gt; Maybe [ResourceIdentifier]
+-&gt; Either String (Maybe [ResourceIdentifier])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-193"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; SearchResourcesResponse)
 -&gt; Either String Int -&gt; Either String SearchResourcesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -493,24 +495,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178134"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178268"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178123"><span id="local-6989586621679178125"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-type">SearchResources</span></a></span></span></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178257"><span id="local-6989586621679178259"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-type">SearchResources</span></a></span></span></span><span>
 </span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178120"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-type">SearchResources</span></a></span></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178254"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-type">SearchResources</span></a></span></span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-type">SearchResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-202"></span><span>  </span><span id="local-6989586621679178116"><span class="annot"><span class="annottext">toHeaders :: SearchResources -&gt; ResponseHeaders
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679178250"><span class="annot"><span class="annottext">toHeaders :: SearchResources -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SearchResources -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178107"><span id="local-6989586621679178109"><span id="local-6989586621679178111"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-type">SearchResources</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-205"></span><span>  </span><span id="local-6989586621679178105"><span class="annot"><span class="annottext">toJSON :: SearchResources -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources%27"><span class="hs-identifier hs-type">SearchResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178101"><span id="local-6989586621679178102"><span id="local-6989586621679178103"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178241"><span id="local-6989586621679178243"><span id="local-6989586621679178245"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-type">SearchResources</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679178239"><span class="annot"><span class="annottext">toJSON :: SearchResources -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources%27"><span class="hs-identifier hs-type">SearchResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178235"><span id="local-6989586621679178236"><span id="local-6989586621679178237"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 ResourceQuery
 resourceQuery :: ResourceQuery
@@ -519,7 +521,7 @@ nextToken :: Maybe Text
 $sel:resourceQuery:SearchResources' :: SearchResources -&gt; ResourceQuery
 $sel:maxResults:SearchResources' :: SearchResources -&gt; Maybe Natural
 $sel:nextToken:SearchResources' :: SearchResources -&gt; Maybe Text
-</span><a href="#local-6989586621679178101"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679178235"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -531,14 +533,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178103"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679178237"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679178102"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679178236"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -546,19 +548,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ResourceQuery&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceQuery -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ResourceQuery
-</span><a href="#local-6989586621679178101"><span class="hs-identifier hs-var">resourceQuery</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178235"><span class="hs-identifier hs-var">resourceQuery</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-213"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-type">SearchResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679178095"><span class="annot"><span class="annottext">toPath :: SearchResources -&gt; ByteString
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679178229"><span class="annot"><span class="annottext">toPath :: SearchResources -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SearchResources -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/resources/search&quot;</span></span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResources"><span class="hs-identifier hs-type">SearchResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-219"></span><span>  </span><span id="local-6989586621679178091"><span class="annot"><span class="annottext">toQuery :: SearchResources -&gt; QueryString
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679178225"><span class="annot"><span class="annottext">toQuery :: SearchResources -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SearchResources -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -566,29 +568,29 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | /See:/ 'newSearchResourcesResponse' smart constructor.</span><span>
-</span><span id="line-222"></span><span id="local-6989586621679178088"><span id="local-6989586621679178089"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchResourcesResponse"><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-var">SearchResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchResourcesResponse%27"><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-var">SearchResourcesResponse'</span></a></span></span><span>
-</span><span id="line-223"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If present, indicates that more output is available than is included in</span><span>
-</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
-</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
-</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
-</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- element comes back as @null@.</span><span>
-</span><span id="line-228"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchResourcesResponse%27"><span class="annot"><span class="annottext">SearchResourcesResponse -&gt; Maybe Text
-</span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AnextToken%3ASearchResourcesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- | The ARNs and resource types of resources that are members of the group</span><span>
-</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- that you specified.</span><span>
-</span><span id="line-231"></span><span>    </span><span id="%24sel%3AresourceIdentifiers%3ASearchResourcesResponse%27"><span class="annot"><span class="annottext">SearchResourcesResponse -&gt; Maybe [ResourceIdentifier]
-</span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AresourceIdentifiers%3ASearchResourcesResponse%27"><span class="hs-identifier hs-var hs-var">resourceIdentifiers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceIdentifier.html#ResourceIdentifier"><span class="hs-identifier hs-type">ResourceIdentifier</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-232"></span><span>    </span><span class="hs-comment">-- | A list of @QueryError@ objects. Each error is an object that contains</span><span>
-</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@</span><span>
-</span><span id="line-234"></span><span>    </span><span class="hs-comment">-- are @CLOUDFORMATION_STACK_INACTIVE@ and</span><span>
-</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- @CLOUDFORMATION_STACK_NOT_EXISTING@.</span><span>
-</span><span id="line-236"></span><span>    </span><span id="%24sel%3AqueryErrors%3ASearchResourcesResponse%27"><span class="annot"><span class="annottext">SearchResourcesResponse -&gt; Maybe [QueryError]
+</span><span id="line-222"></span><span id="local-6989586621679178222"><span id="local-6989586621679178223"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchResourcesResponse"><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-var">SearchResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchResourcesResponse%27"><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-var">SearchResourcesResponse'</span></a></span></span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of @QueryError@ objects. Each error is an object that contains</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@</span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- are @CLOUDFORMATION_STACK_INACTIVE@ and</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- @CLOUDFORMATION_STACK_NOT_EXISTING@.</span><span>
+</span><span id="line-227"></span><span>    </span><span id="%24sel%3AqueryErrors%3ASearchResourcesResponse%27"><span class="annot"><span class="annottext">SearchResourcesResponse -&gt; Maybe [QueryError]
 </span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AqueryErrors%3ASearchResourcesResponse%27"><span class="hs-identifier hs-var hs-var">queryErrors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.QueryError.html#QueryError"><span class="hs-identifier hs-type">QueryError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- | If present, indicates that more output is available than is included in</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">-- element comes back as @null@.</span><span>
+</span><span id="line-233"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchResourcesResponse%27"><span class="annot"><span class="annottext">SearchResourcesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AnextToken%3ASearchResourcesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-comment">-- | The ARNs and resource types of resources that are members of the group</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- that you specified.</span><span>
+</span><span id="line-236"></span><span>    </span><span id="%24sel%3AresourceIdentifiers%3ASearchResourcesResponse%27"><span class="annot"><span class="annottext">SearchResourcesResponse -&gt; Maybe [ResourceIdentifier]
+</span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AresourceIdentifiers%3ASearchResourcesResponse%27"><span class="hs-identifier hs-var hs-var">resourceIdentifiers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceIdentifier.html#ResourceIdentifier"><span class="hs-identifier hs-type">ResourceIdentifier</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-237"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-238"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASearchResourcesResponse%27"><span class="annot"><span class="annottext">SearchResourcesResponse -&gt; Int
 </span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AhttpStatus%3ASearchResourcesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-239"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-240"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178080"><span id="local-6989586621679178082"><span class="annot"><span class="annottext">SearchResourcesResponse -&gt; SearchResourcesResponse -&gt; Bool
+</span><span id="line-240"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178214"><span id="local-6989586621679178216"><span class="annot"><span class="annottext">SearchResourcesResponse -&gt; SearchResourcesResponse -&gt; Bool
 (SearchResourcesResponse -&gt; SearchResourcesResponse -&gt; Bool)
 -&gt; (SearchResourcesResponse -&gt; SearchResourcesResponse -&gt; Bool)
 -&gt; Eq SearchResourcesResponse
@@ -597,7 +599,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SearchResourcesResponse -&gt; SearchResourcesResponse -&gt; Bool
 == :: SearchResourcesResponse -&gt; SearchResourcesResponse -&gt; Bool
 $c== :: SearchResourcesResponse -&gt; SearchResourcesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178072"><span id="local-6989586621679178074"><span id="local-6989586621679178076"><span id="local-6989586621679178078"><span class="annot"><span class="annottext">ReadPrec [SearchResourcesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178206"><span id="local-6989586621679178208"><span id="local-6989586621679178210"><span id="local-6989586621679178212"><span class="annot"><span class="annottext">ReadPrec [SearchResourcesResponse]
 ReadPrec SearchResourcesResponse
 Int -&gt; ReadS SearchResourcesResponse
 ReadS [SearchResourcesResponse]
@@ -617,7 +619,7 @@ readList :: ReadS [SearchResourcesResponse]
 $creadList :: ReadS [SearchResourcesResponse]
 readsPrec :: Int -&gt; ReadS SearchResourcesResponse
 $creadsPrec :: Int -&gt; ReadS SearchResourcesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178066"><span id="local-6989586621679178068"><span id="local-6989586621679178070"><span class="annot"><span class="annottext">Int -&gt; SearchResourcesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178200"><span id="local-6989586621679178202"><span id="local-6989586621679178204"><span class="annot"><span class="annottext">Int -&gt; SearchResourcesResponse -&gt; ShowS
 [SearchResourcesResponse] -&gt; ShowS
 SearchResourcesResponse -&gt; String
 (Int -&gt; SearchResourcesResponse -&gt; ShowS)
@@ -653,19 +655,19 @@ $cfrom :: forall x. SearchResourcesResponse -&gt; Rep SearchResourcesResponse x
 </span><span id="line-247"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-249"></span><span class="hs-comment">--</span><span>
-</span><span id="line-250"></span><span class="hs-comment">-- 'nextToken', 'searchResourcesResponse_nextToken' - If present, indicates that more output is available than is included in</span><span>
-</span><span id="line-251"></span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
-</span><span id="line-252"></span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- element comes back as @null@.</span><span>
-</span><span id="line-255"></span><span class="hs-comment">--</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- 'resourceIdentifiers', 'searchResourcesResponse_resourceIdentifiers' - The ARNs and resource types of resources that are members of the group</span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- that you specified.</span><span>
-</span><span id="line-258"></span><span class="hs-comment">--</span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- 'queryErrors', 'searchResourcesResponse_queryErrors' - A list of @QueryError@ objects. Each error is an object that contains</span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@</span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- are @CLOUDFORMATION_STACK_INACTIVE@ and</span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- @CLOUDFORMATION_STACK_NOT_EXISTING@.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- 'queryErrors', 'searchResourcesResponse_queryErrors' - A list of @QueryError@ objects. Each error is an object that contains</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- are @CLOUDFORMATION_STACK_INACTIVE@ and</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- @CLOUDFORMATION_STACK_NOT_EXISTING@.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- 'nextToken', 'searchResourcesResponse_nextToken' - If present, indicates that more output is available than is included in</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- element comes back as @null@.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- 'resourceIdentifiers', 'searchResourcesResponse_resourceIdentifiers' - The ARNs and resource types of resources that are members of the group</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- that you specified.</span><span>
 </span><span id="line-263"></span><span class="hs-comment">--</span><span>
 </span><span id="line-264"></span><span class="hs-comment">-- 'httpStatus', 'searchResourcesResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-265"></span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#newSearchResourcesResponse"><span class="hs-identifier hs-type">newSearchResourcesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -673,76 +675,122 @@ $cfrom :: forall x. SearchResourcesResponse -&gt; Rep SearchResourcesResponse x
 </span><span id="line-267"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-268"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span><span>
 </span><span id="line-269"></span><span id="newSearchResourcesResponse"><span class="annot"><span class="annottext">newSearchResourcesResponse :: Int -&gt; SearchResourcesResponse
-</span><a href="Network.AWS.ResourceGroups.SearchResources.html#newSearchResourcesResponse"><span class="hs-identifier hs-var hs-var">newSearchResourcesResponse</span></a></span></span><span> </span><span id="local-6989586621679178063"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178063"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-270"></span><span>  </span><span class="annot"><span class="annottext">SearchResourcesResponse' :: Maybe Text
+</span><a href="Network.AWS.ResourceGroups.SearchResources.html#newSearchResourcesResponse"><span class="hs-identifier hs-var hs-var">newSearchResourcesResponse</span></a></span></span><span> </span><span id="local-6989586621679178197"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178197"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>  </span><span class="annot"><span class="annottext">SearchResourcesResponse' :: Maybe [QueryError]
+-&gt; Maybe Text
 -&gt; Maybe [ResourceIdentifier]
--&gt; Maybe [QueryError]
 -&gt; Int
 -&gt; SearchResourcesResponse
 </span><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-type">SearchResourcesResponse'</span></a></span><span>
-</span><span id="line-271"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:SearchResourcesResponse' :: Maybe Text
-</span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AnextToken%3ASearchResourcesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-271"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queryErrors:SearchResourcesResponse' :: Maybe [QueryError]
+</span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AqueryErrors%3ASearchResourcesResponse%27"><span class="hs-identifier hs-var">queryErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">Maybe [QueryError]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-273"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceIdentifiers:SearchResourcesResponse' :: Maybe [ResourceIdentifier]
+</span><span id="line-273"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:SearchResourcesResponse' :: Maybe Text
+</span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AnextToken%3ASearchResourcesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceIdentifiers:SearchResourcesResponse' :: Maybe [ResourceIdentifier]
 </span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AresourceIdentifiers%3ASearchResourcesResponse%27"><span class="hs-identifier hs-var">resourceIdentifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryErrors:SearchResourcesResponse' :: Maybe [QueryError]
-</span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AqueryErrors%3ASearchResourcesResponse%27"><span class="hs-identifier hs-var">queryErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [QueryError]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SearchResourcesResponse' :: Int
 </span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AhttpStatus%3ASearchResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178063"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679178197"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-276"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-277"></span><span>
-</span><span id="line-278"></span><span class="hs-comment">-- | If present, indicates that more output is available than is included in</span><span>
-</span><span id="line-279"></span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
-</span><span id="line-280"></span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
-</span><span id="line-281"></span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
-</span><span id="line-282"></span><span class="hs-comment">-- element comes back as @null@.</span><span>
-</span><span id="line-283"></span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#searchResourcesResponse_nextToken"><span class="hs-identifier hs-type">searchResourcesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-284"></span><span id="searchResourcesResponse_nextToken"><span class="annot"><span class="annottext">searchResourcesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-278"></span><span class="hs-comment">-- | A list of @QueryError@ objects. Each error is an object that contains</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- are @CLOUDFORMATION_STACK_INACTIVE@ and</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- @CLOUDFORMATION_STACK_NOT_EXISTING@.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#searchResourcesResponse_queryErrors"><span class="hs-identifier hs-type">searchResourcesResponse_queryErrors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.QueryError.html#QueryError"><span class="hs-identifier hs-type">QueryError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="searchResourcesResponse_queryErrors"><span class="annot"><span class="annottext">searchResourcesResponse_queryErrors :: (Maybe [QueryError] -&gt; f (Maybe [QueryError]))
+-&gt; SearchResourcesResponse -&gt; f SearchResourcesResponse
+</span><a href="Network.AWS.ResourceGroups.SearchResources.html#searchResourcesResponse_queryErrors"><span class="hs-identifier hs-var hs-var">searchResourcesResponse_queryErrors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchResourcesResponse -&gt; Maybe [QueryError])
+-&gt; (SearchResourcesResponse
+    -&gt; Maybe [QueryError] -&gt; SearchResourcesResponse)
+-&gt; Lens
+     SearchResourcesResponse
+     SearchResourcesResponse
+     (Maybe [QueryError])
+     (Maybe [QueryError])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-type">SearchResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178196"><span class="annot"><span class="annottext">Maybe [QueryError]
+queryErrors :: Maybe [QueryError]
+$sel:queryErrors:SearchResourcesResponse' :: SearchResourcesResponse -&gt; Maybe [QueryError]
+</span><a href="#local-6989586621679178196"><span class="hs-identifier hs-var hs-var">queryErrors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [QueryError]
+</span><a href="#local-6989586621679178196"><span class="hs-identifier hs-var">queryErrors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178195"><span class="annot"><span class="annottext">s :: SearchResourcesResponse
+</span><a href="#local-6989586621679178195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-type">SearchResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178194"><span class="annot"><span class="annottext">Maybe [QueryError]
+</span><a href="#local-6989586621679178194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResourcesResponse
+</span><a href="#local-6989586621679178195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryErrors:SearchResourcesResponse' :: Maybe [QueryError]
+</span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AqueryErrors%3ASearchResourcesResponse%27"><span class="hs-identifier hs-var">queryErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [QueryError]
+</span><a href="#local-6989586621679178194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [QueryError] -&gt; f (Maybe [QueryError]))
+ -&gt; SearchResourcesResponse -&gt; f SearchResourcesResponse)
+-&gt; ((Maybe [QueryError] -&gt; f (Maybe [QueryError]))
+    -&gt; Maybe [QueryError] -&gt; f (Maybe [QueryError]))
+-&gt; (Maybe [QueryError] -&gt; f (Maybe [QueryError]))
+-&gt; SearchResourcesResponse
+-&gt; f SearchResourcesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [QueryError] [QueryError] [QueryError] [QueryError]
+-&gt; Iso
+     (Maybe [QueryError])
+     (Maybe [QueryError])
+     (Maybe [QueryError])
+     (Maybe [QueryError])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [QueryError] [QueryError] [QueryError] [QueryError]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | If present, indicates that more output is available than is included in</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- the current response. Use this value in the @NextToken@ request</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- parameter in a subsequent call to the operation to get the next part of</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- the output. You should repeat this until the @NextToken@ response</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- element comes back as @null@.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#searchResourcesResponse_nextToken"><span class="hs-identifier hs-type">searchResourcesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span id="searchResourcesResponse_nextToken"><span class="annot"><span class="annottext">searchResourcesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; SearchResourcesResponse -&gt; f SearchResourcesResponse
 </span><a href="Network.AWS.ResourceGroups.SearchResources.html#searchResourcesResponse_nextToken"><span class="hs-identifier hs-var hs-var">searchResourcesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchResourcesResponse -&gt; Maybe Text)
 -&gt; (SearchResourcesResponse
     -&gt; Maybe Text -&gt; SearchResourcesResponse)
 -&gt; Lens' SearchResourcesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-type">SearchResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178062"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-type">SearchResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178191"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:SearchResourcesResponse' :: SearchResourcesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679178062"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178062"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178061"><span class="annot"><span class="annottext">s :: SearchResourcesResponse
-</span><a href="#local-6989586621679178061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-type">SearchResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178060"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResourcesResponse
-</span><a href="#local-6989586621679178061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchResourcesResponse' :: Maybe Text
+</span><a href="#local-6989586621679178191"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178191"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178190"><span class="annot"><span class="annottext">s :: SearchResourcesResponse
+</span><a href="#local-6989586621679178190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-type">SearchResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178189"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResourcesResponse
+</span><a href="#local-6989586621679178190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchResourcesResponse' :: Maybe Text
 </span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AnextToken%3ASearchResourcesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-285"></span><span>
-</span><span id="line-286"></span><span class="hs-comment">-- | The ARNs and resource types of resources that are members of the group</span><span>
-</span><span id="line-287"></span><span class="hs-comment">-- that you specified.</span><span>
-</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#searchResourcesResponse_resourceIdentifiers"><span class="hs-identifier hs-type">searchResourcesResponse_resourceIdentifiers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceIdentifier.html#ResourceIdentifier"><span class="hs-identifier hs-type">ResourceIdentifier</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-289"></span><span id="searchResourcesResponse_resourceIdentifiers"><span class="annot"><span class="annottext">searchResourcesResponse_resourceIdentifiers :: (Maybe [ResourceIdentifier] -&gt; f (Maybe [ResourceIdentifier]))
+</span><a href="#local-6989586621679178189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | The ARNs and resource types of resources that are members of the group</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- that you specified.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#searchResourcesResponse_resourceIdentifiers"><span class="hs-identifier hs-type">searchResourcesResponse_resourceIdentifiers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceIdentifier.html#ResourceIdentifier"><span class="hs-identifier hs-type">ResourceIdentifier</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span id="searchResourcesResponse_resourceIdentifiers"><span class="annot"><span class="annottext">searchResourcesResponse_resourceIdentifiers :: (Maybe [ResourceIdentifier] -&gt; f (Maybe [ResourceIdentifier]))
 -&gt; SearchResourcesResponse -&gt; f SearchResourcesResponse
 </span><a href="Network.AWS.ResourceGroups.SearchResources.html#searchResourcesResponse_resourceIdentifiers"><span class="hs-identifier hs-var hs-var">searchResourcesResponse_resourceIdentifiers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchResourcesResponse -&gt; Maybe [ResourceIdentifier])
 -&gt; (SearchResourcesResponse
     -&gt; Maybe [ResourceIdentifier] -&gt; SearchResourcesResponse)
 -&gt; Lens' SearchResourcesResponse (Maybe [ResourceIdentifier])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-type">SearchResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178059"><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-type">SearchResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178188"><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
 resourceIdentifiers :: Maybe [ResourceIdentifier]
 $sel:resourceIdentifiers:SearchResourcesResponse' :: SearchResourcesResponse -&gt; Maybe [ResourceIdentifier]
-</span><a href="#local-6989586621679178059"><span class="hs-identifier hs-var hs-var">resourceIdentifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
-</span><a href="#local-6989586621679178059"><span class="hs-identifier hs-var">resourceIdentifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178058"><span class="annot"><span class="annottext">s :: SearchResourcesResponse
-</span><a href="#local-6989586621679178058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-type">SearchResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178057"><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
-</span><a href="#local-6989586621679178057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResourcesResponse
-</span><a href="#local-6989586621679178058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdentifiers:SearchResourcesResponse' :: Maybe [ResourceIdentifier]
+</span><a href="#local-6989586621679178188"><span class="hs-identifier hs-var hs-var">resourceIdentifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
+</span><a href="#local-6989586621679178188"><span class="hs-identifier hs-var">resourceIdentifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178187"><span class="annot"><span class="annottext">s :: SearchResourcesResponse
+</span><a href="#local-6989586621679178187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-type">SearchResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178186"><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
+</span><a href="#local-6989586621679178186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResourcesResponse
+</span><a href="#local-6989586621679178187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdentifiers:SearchResourcesResponse' :: Maybe [ResourceIdentifier]
 </span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AresourceIdentifiers%3ASearchResourcesResponse%27"><span class="hs-identifier hs-var">resourceIdentifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceIdentifier]
-</span><a href="#local-6989586621679178057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceIdentifier] -&gt; f (Maybe [ResourceIdentifier]))
+</span><a href="#local-6989586621679178186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceIdentifier] -&gt; f (Maybe [ResourceIdentifier]))
  -&gt; SearchResourcesResponse -&gt; f SearchResourcesResponse)
 -&gt; ((Maybe [ResourceIdentifier] -&gt; f (Maybe [ResourceIdentifier]))
     -&gt; Maybe [ResourceIdentifier] -&gt; f (Maybe [ResourceIdentifier]))
@@ -768,54 +816,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ResourceIdentifier]
   [ResourceIdentifier]
   [ResourceIdentifier]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-290"></span><span>
-</span><span id="line-291"></span><span class="hs-comment">-- | A list of @QueryError@ objects. Each error is an object that contains</span><span>
-</span><span id="line-292"></span><span class="hs-comment">-- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@</span><span>
-</span><span id="line-293"></span><span class="hs-comment">-- are @CLOUDFORMATION_STACK_INACTIVE@ and</span><span>
-</span><span id="line-294"></span><span class="hs-comment">-- @CLOUDFORMATION_STACK_NOT_EXISTING@.</span><span>
-</span><span id="line-295"></span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#searchResourcesResponse_queryErrors"><span class="hs-identifier hs-type">searchResourcesResponse_queryErrors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.QueryError.html#QueryError"><span class="hs-identifier hs-type">QueryError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-296"></span><span id="searchResourcesResponse_queryErrors"><span class="annot"><span class="annottext">searchResourcesResponse_queryErrors :: (Maybe [QueryError] -&gt; f (Maybe [QueryError]))
--&gt; SearchResourcesResponse -&gt; f SearchResourcesResponse
-</span><a href="Network.AWS.ResourceGroups.SearchResources.html#searchResourcesResponse_queryErrors"><span class="hs-identifier hs-var hs-var">searchResourcesResponse_queryErrors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchResourcesResponse -&gt; Maybe [QueryError])
--&gt; (SearchResourcesResponse
-    -&gt; Maybe [QueryError] -&gt; SearchResourcesResponse)
--&gt; Lens
-     SearchResourcesResponse
-     SearchResourcesResponse
-     (Maybe [QueryError])
-     (Maybe [QueryError])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-type">SearchResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178054"><span class="annot"><span class="annottext">Maybe [QueryError]
-queryErrors :: Maybe [QueryError]
-$sel:queryErrors:SearchResourcesResponse' :: SearchResourcesResponse -&gt; Maybe [QueryError]
-</span><a href="#local-6989586621679178054"><span class="hs-identifier hs-var hs-var">queryErrors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [QueryError]
-</span><a href="#local-6989586621679178054"><span class="hs-identifier hs-var">queryErrors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178053"><span class="annot"><span class="annottext">s :: SearchResourcesResponse
-</span><a href="#local-6989586621679178053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-type">SearchResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178052"><span class="annot"><span class="annottext">Maybe [QueryError]
-</span><a href="#local-6989586621679178052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResourcesResponse
-</span><a href="#local-6989586621679178053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryErrors:SearchResourcesResponse' :: Maybe [QueryError]
-</span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AqueryErrors%3ASearchResourcesResponse%27"><span class="hs-identifier hs-var">queryErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [QueryError]
-</span><a href="#local-6989586621679178052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [QueryError] -&gt; f (Maybe [QueryError]))
- -&gt; SearchResourcesResponse -&gt; f SearchResourcesResponse)
--&gt; ((Maybe [QueryError] -&gt; f (Maybe [QueryError]))
-    -&gt; Maybe [QueryError] -&gt; f (Maybe [QueryError]))
--&gt; (Maybe [QueryError] -&gt; f (Maybe [QueryError]))
--&gt; SearchResourcesResponse
--&gt; f SearchResourcesResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [QueryError] [QueryError] [QueryError] [QueryError]
--&gt; Iso
-     (Maybe [QueryError])
-     (Maybe [QueryError])
-     (Maybe [QueryError])
-     (Maybe [QueryError])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [QueryError] [QueryError] [QueryError] [QueryError]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-297"></span><span>
 </span><span id="line-298"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-299"></span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#searchResourcesResponse_httpStatus"><span class="hs-identifier hs-type">searchResourcesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -825,16 +827,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (SearchResourcesResponse -&gt; Int -&gt; SearchResourcesResponse)
 -&gt; Lens SearchResourcesResponse SearchResourcesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-type">SearchResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178051"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-type">SearchResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178185"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SearchResourcesResponse' :: SearchResourcesResponse -&gt; Int
-</span><a href="#local-6989586621679178051"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178051"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178050"><span class="annot"><span class="annottext">s :: SearchResourcesResponse
-</span><a href="#local-6989586621679178050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-type">SearchResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178049"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResourcesResponse
-</span><a href="#local-6989586621679178050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SearchResourcesResponse' :: Int
+</span><a href="#local-6989586621679178185"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178185"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178184"><span class="annot"><span class="annottext">s :: SearchResourcesResponse
+</span><a href="#local-6989586621679178184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse%27"><span class="hs-identifier hs-type">SearchResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178183"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResourcesResponse
+</span><a href="#local-6989586621679178184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SearchResourcesResponse' :: Int
 </span><a href="Network.AWS.ResourceGroups.SearchResources.html#%24sel%3AhttpStatus%3ASearchResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-301"></span><span>
-</span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178047"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span></span><span>
+</span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178181"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.SearchResources.html#SearchResourcesResponse"><span class="hs-identifier hs-type">SearchResourcesResponse</span></a></span></span><span>
 </span><span id="line-303"></span></pre></body></html>

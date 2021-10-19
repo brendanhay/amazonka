@@ -27,11 +27,11 @@
 </span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#newCreateRoom"><span class="hs-identifier">newCreateRoom</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_tags"><span class="hs-identifier">createRoom_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_profileArn"><span class="hs-identifier">createRoom_profileArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_description"><span class="hs-identifier">createRoom_description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_providerCalendarId"><span class="hs-identifier">createRoom_providerCalendarId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_clientRequestToken"><span class="hs-identifier">createRoom_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_profileArn"><span class="hs-identifier">createRoom_profileArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_providerCalendarId"><span class="hs-identifier">createRoom_providerCalendarId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_clientRequestToken"><span class="hs-identifier">createRoom_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_description"><span class="hs-identifier">createRoom_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_tags"><span class="hs-identifier">createRoom_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_roomName"><span class="hs-identifier">createRoom_roomName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -52,28 +52,28 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCreateRoom' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679390757"><span id="local-6989586621679390758"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRoom"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-var">CreateRoom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRoom%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-var">CreateRoom'</span></a></span></span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags for the room.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3Atags%3ACreateRoom%27"><span class="annot"><span class="annottext">CreateRoom -&gt; Maybe [Tag]
-</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3Atags%3ACreateRoom%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The profile ARN for the room. This is required.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AprofileArn%3ACreateRoom%27"><span class="annot"><span class="annottext">CreateRoom -&gt; Maybe Text
+</span><span id="line-55"></span><span id="local-6989586621679391118"><span id="local-6989586621679391119"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRoom"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-var">CreateRoom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRoom%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-var">CreateRoom'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The profile ARN for the room. This is required.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AprofileArn%3ACreateRoom%27"><span class="annot"><span class="annottext">CreateRoom -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AprofileArn%3ACreateRoom%27"><span class="hs-identifier hs-var hs-var">profileArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The description for the room.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3Adescription%3ACreateRoom%27"><span class="annot"><span class="annottext">CreateRoom -&gt; Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3Adescription%3ACreateRoom%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The calendar ARN for the room.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AproviderCalendarId%3ACreateRoom%27"><span class="annot"><span class="annottext">CreateRoom -&gt; Maybe Text
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The calendar ARN for the room.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AproviderCalendarId%3ACreateRoom%27"><span class="annot"><span class="annottext">CreateRoom -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AproviderCalendarId%3ACreateRoom%27"><span class="hs-identifier hs-var hs-var">providerCalendarId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A unique, user-specified identifier for this request that ensures</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- idempotency.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ACreateRoom%27"><span class="annot"><span class="annottext">CreateRoom -&gt; Maybe Text
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A unique, user-specified identifier for this request that ensures</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- idempotency.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ACreateRoom%27"><span class="annot"><span class="annottext">CreateRoom -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AclientRequestToken%3ACreateRoom%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The description for the room.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Adescription%3ACreateRoom%27"><span class="annot"><span class="annottext">CreateRoom -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3Adescription%3ACreateRoom%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The tags for the room.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Atags%3ACreateRoom%27"><span class="annot"><span class="annottext">CreateRoom -&gt; Maybe [Tag]
+</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3Atags%3ACreateRoom%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The name for the room.</span><span>
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AroomName%3ACreateRoom%27"><span class="annot"><span class="annottext">CreateRoom -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AroomName%3ACreateRoom%27"><span class="hs-identifier hs-var hs-var">roomName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390746"><span id="local-6989586621679390748"><span class="annot"><span class="annottext">CreateRoom -&gt; CreateRoom -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391107"><span id="local-6989586621679391109"><span class="annot"><span class="annottext">CreateRoom -&gt; CreateRoom -&gt; Bool
 (CreateRoom -&gt; CreateRoom -&gt; Bool)
 -&gt; (CreateRoom -&gt; CreateRoom -&gt; Bool) -&gt; Eq CreateRoom
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateRoom -&gt; CreateRoom -&gt; Bool
 == :: CreateRoom -&gt; CreateRoom -&gt; Bool
 $c== :: CreateRoom -&gt; CreateRoom -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390737"><span id="local-6989586621679390739"><span id="local-6989586621679390741"><span id="local-6989586621679390743"><span class="annot"><span class="annottext">ReadPrec [CreateRoom]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391098"><span id="local-6989586621679391100"><span id="local-6989586621679391102"><span id="local-6989586621679391104"><span class="annot"><span class="annottext">ReadPrec [CreateRoom]
 ReadPrec CreateRoom
 Int -&gt; ReadS CreateRoom
 ReadS [CreateRoom]
@@ -101,7 +101,7 @@ readList :: ReadS [CreateRoom]
 $creadList :: ReadS [CreateRoom]
 readsPrec :: Int -&gt; ReadS CreateRoom
 $creadsPrec :: Int -&gt; ReadS CreateRoom
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390730"><span id="local-6989586621679390732"><span id="local-6989586621679390734"><span class="annot"><span class="annottext">Int -&gt; CreateRoom -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391091"><span id="local-6989586621679391093"><span id="local-6989586621679391095"><span class="annot"><span class="annottext">Int -&gt; CreateRoom -&gt; ShowS
 [CreateRoom] -&gt; ShowS
 CreateRoom -&gt; String
 (Int -&gt; CreateRoom -&gt; ShowS)
@@ -134,16 +134,16 @@ $cfrom :: forall x. CreateRoom -&gt; Rep CreateRoom x
 </span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'tags', 'createRoom_tags' - The tags for the room.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'profileArn', 'createRoom_profileArn' - The profile ARN for the room. This is required.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'profileArn', 'createRoom_profileArn' - The profile ARN for the room. This is required.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'providerCalendarId', 'createRoom_providerCalendarId' - The calendar ARN for the room.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'description', 'createRoom_description' - The description for the room.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'providerCalendarId', 'createRoom_providerCalendarId' - The calendar ARN for the room.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'clientRequestToken', 'createRoom_clientRequestToken' - A unique, user-specified identifier for this request that ensures</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- idempotency.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'clientRequestToken', 'createRoom_clientRequestToken' - A unique, user-specified identifier for this request that ensures</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- idempotency.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'description', 'createRoom_description' - The description for the room.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'tags', 'createRoom_tags' - The tags for the room.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- 'roomName', 'createRoom_roomName' - The name for the room.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#newCreateRoom"><span class="hs-identifier hs-type">newCreateRoom</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -151,58 +151,131 @@ $cfrom :: forall x. CreateRoom -&gt; Rep CreateRoom x
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span>
 </span><span id="line-96"></span><span id="newCreateRoom"><span class="annot"><span class="annottext">newCreateRoom :: Text -&gt; CreateRoom
-</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#newCreateRoom"><span class="hs-identifier hs-var hs-var">newCreateRoom</span></a></span></span><span> </span><span id="local-6989586621679390725"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390725"><span class="hs-identifier hs-var">pRoomName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">CreateRoom' :: Maybe [Tag]
+</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#newCreateRoom"><span class="hs-identifier hs-var hs-var">newCreateRoom</span></a></span></span><span> </span><span id="local-6989586621679391086"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391086"><span class="hs-identifier hs-var">pRoomName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">CreateRoom' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe [Tag]
 -&gt; Text
 -&gt; CreateRoom
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateRoom' :: Maybe [Tag]
-</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3Atags%3ACreateRoom%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:profileArn:CreateRoom' :: Maybe Text
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:profileArn:CreateRoom' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AprofileArn%3ACreateRoom%27"><span class="hs-identifier hs-var">profileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateRoom' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3Adescription%3ACreateRoom%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:providerCalendarId:CreateRoom' :: Maybe Text
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:providerCalendarId:CreateRoom' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AproviderCalendarId%3ACreateRoom%27"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateRoom' :: Maybe Text
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateRoom' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AclientRequestToken%3ACreateRoom%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateRoom' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3Adescription%3ACreateRoom%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateRoom' :: Maybe [Tag]
+</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3Atags%3ACreateRoom%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:roomName:CreateRoom' :: Text
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AroomName%3ACreateRoom%27"><span class="hs-identifier hs-var">roomName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390725"><span class="hs-identifier hs-var">pRoomName_</span></a></span><span>
+</span><a href="#local-6989586621679391086"><span class="hs-identifier hs-var">pRoomName_</span></a></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | The tags for the room.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_tags"><span class="hs-identifier hs-type">createRoom_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="createRoom_tags"><span class="annot"><span class="annottext">createRoom_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateRoom -&gt; f CreateRoom
+</span><span id="line-106"></span><span class="hs-comment">-- | The profile ARN for the room. This is required.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_profileArn"><span class="hs-identifier hs-type">createRoom_profileArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="createRoom_profileArn"><span class="annot"><span class="annottext">createRoom_profileArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRoom -&gt; f CreateRoom
+</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_profileArn"><span class="hs-identifier hs-var hs-var">createRoom_profileArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoom -&gt; Maybe Text)
+-&gt; (CreateRoom -&gt; Maybe Text -&gt; CreateRoom)
+-&gt; Lens CreateRoom CreateRoom (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391083"><span class="annot"><span class="annottext">Maybe Text
+profileArn :: Maybe Text
+$sel:profileArn:CreateRoom' :: CreateRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679391083"><span class="hs-identifier hs-var hs-var">profileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391083"><span class="hs-identifier hs-var">profileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391082"><span class="annot"><span class="annottext">s :: CreateRoom
+</span><a href="#local-6989586621679391082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391081"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoom
+</span><a href="#local-6989586621679391082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileArn:CreateRoom' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AprofileArn%3ACreateRoom%27"><span class="hs-identifier hs-var">profileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The calendar ARN for the room.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_providerCalendarId"><span class="hs-identifier hs-type">createRoom_providerCalendarId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="createRoom_providerCalendarId"><span class="annot"><span class="annottext">createRoom_providerCalendarId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRoom -&gt; f CreateRoom
+</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_providerCalendarId"><span class="hs-identifier hs-var hs-var">createRoom_providerCalendarId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoom -&gt; Maybe Text)
+-&gt; (CreateRoom -&gt; Maybe Text -&gt; CreateRoom)
+-&gt; Lens CreateRoom CreateRoom (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391080"><span class="annot"><span class="annottext">Maybe Text
+providerCalendarId :: Maybe Text
+$sel:providerCalendarId:CreateRoom' :: CreateRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679391080"><span class="hs-identifier hs-var hs-var">providerCalendarId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391080"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391079"><span class="annot"><span class="annottext">s :: CreateRoom
+</span><a href="#local-6989586621679391079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391078"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoom
+</span><a href="#local-6989586621679391079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerCalendarId:CreateRoom' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AproviderCalendarId%3ACreateRoom%27"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | A unique, user-specified identifier for this request that ensures</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- idempotency.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_clientRequestToken"><span class="hs-identifier hs-type">createRoom_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="createRoom_clientRequestToken"><span class="annot"><span class="annottext">createRoom_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRoom -&gt; f CreateRoom
+</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_clientRequestToken"><span class="hs-identifier hs-var hs-var">createRoom_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoom -&gt; Maybe Text)
+-&gt; (CreateRoom -&gt; Maybe Text -&gt; CreateRoom)
+-&gt; Lens CreateRoom CreateRoom (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391077"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:CreateRoom' :: CreateRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679391077"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391077"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391076"><span class="annot"><span class="annottext">s :: CreateRoom
+</span><a href="#local-6989586621679391076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391075"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoom
+</span><a href="#local-6989586621679391076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateRoom' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AclientRequestToken%3ACreateRoom%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The description for the room.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_description"><span class="hs-identifier hs-type">createRoom_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="createRoom_description"><span class="annot"><span class="annottext">createRoom_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRoom -&gt; f CreateRoom
+</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_description"><span class="hs-identifier hs-var hs-var">createRoom_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoom -&gt; Maybe Text)
+-&gt; (CreateRoom -&gt; Maybe Text -&gt; CreateRoom)
+-&gt; Lens CreateRoom CreateRoom (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391074"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateRoom' :: CreateRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679391074"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391074"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391073"><span class="annot"><span class="annottext">s :: CreateRoom
+</span><a href="#local-6989586621679391073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391072"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoom
+</span><a href="#local-6989586621679391073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateRoom' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3Adescription%3ACreateRoom%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The tags for the room.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_tags"><span class="hs-identifier hs-type">createRoom_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="createRoom_tags"><span class="annot"><span class="annottext">createRoom_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateRoom -&gt; f CreateRoom
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_tags"><span class="hs-identifier hs-var hs-var">createRoom_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoom -&gt; Maybe [Tag])
 -&gt; (CreateRoom -&gt; Maybe [Tag] -&gt; CreateRoom)
 -&gt; Lens CreateRoom CreateRoom (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390722"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391071"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateRoom' :: CreateRoom -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679390722"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679390722"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390721"><span class="annot"><span class="annottext">s :: CreateRoom
-</span><a href="#local-6989586621679390721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390720"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679390720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoom
-</span><a href="#local-6989586621679390721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateRoom' :: Maybe [Tag]
+</span><a href="#local-6989586621679391071"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679391071"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391070"><span class="annot"><span class="annottext">s :: CreateRoom
+</span><a href="#local-6989586621679391070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391069"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679391069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoom
+</span><a href="#local-6989586621679391070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateRoom' :: Maybe [Tag]
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3Atags%3ACreateRoom%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679390720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateRoom -&gt; f CreateRoom)
+</span><a href="#local-6989586621679391069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateRoom -&gt; f CreateRoom)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -215,81 +288,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The profile ARN for the room. This is required.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_profileArn"><span class="hs-identifier hs-type">createRoom_profileArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="createRoom_profileArn"><span class="annot"><span class="annottext">createRoom_profileArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRoom -&gt; f CreateRoom
-</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_profileArn"><span class="hs-identifier hs-var hs-var">createRoom_profileArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoom -&gt; Maybe Text)
--&gt; (CreateRoom -&gt; Maybe Text -&gt; CreateRoom)
--&gt; Lens CreateRoom CreateRoom (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390716"><span class="annot"><span class="annottext">Maybe Text
-profileArn :: Maybe Text
-$sel:profileArn:CreateRoom' :: CreateRoom -&gt; Maybe Text
-</span><a href="#local-6989586621679390716"><span class="hs-identifier hs-var hs-var">profileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390716"><span class="hs-identifier hs-var">profileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390715"><span class="annot"><span class="annottext">s :: CreateRoom
-</span><a href="#local-6989586621679390715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390714"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoom
-</span><a href="#local-6989586621679390715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileArn:CreateRoom' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AprofileArn%3ACreateRoom%27"><span class="hs-identifier hs-var">profileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The description for the room.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_description"><span class="hs-identifier hs-type">createRoom_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="createRoom_description"><span class="annot"><span class="annottext">createRoom_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRoom -&gt; f CreateRoom
-</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_description"><span class="hs-identifier hs-var hs-var">createRoom_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoom -&gt; Maybe Text)
--&gt; (CreateRoom -&gt; Maybe Text -&gt; CreateRoom)
--&gt; Lens CreateRoom CreateRoom (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390713"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:CreateRoom' :: CreateRoom -&gt; Maybe Text
-</span><a href="#local-6989586621679390713"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390713"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390712"><span class="annot"><span class="annottext">s :: CreateRoom
-</span><a href="#local-6989586621679390712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390711"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoom
-</span><a href="#local-6989586621679390712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateRoom' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3Adescription%3ACreateRoom%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The calendar ARN for the room.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_providerCalendarId"><span class="hs-identifier hs-type">createRoom_providerCalendarId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="createRoom_providerCalendarId"><span class="annot"><span class="annottext">createRoom_providerCalendarId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRoom -&gt; f CreateRoom
-</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_providerCalendarId"><span class="hs-identifier hs-var hs-var">createRoom_providerCalendarId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoom -&gt; Maybe Text)
--&gt; (CreateRoom -&gt; Maybe Text -&gt; CreateRoom)
--&gt; Lens CreateRoom CreateRoom (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390710"><span class="annot"><span class="annottext">Maybe Text
-providerCalendarId :: Maybe Text
-$sel:providerCalendarId:CreateRoom' :: CreateRoom -&gt; Maybe Text
-</span><a href="#local-6989586621679390710"><span class="hs-identifier hs-var hs-var">providerCalendarId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390710"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390709"><span class="annot"><span class="annottext">s :: CreateRoom
-</span><a href="#local-6989586621679390709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390708"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoom
-</span><a href="#local-6989586621679390709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerCalendarId:CreateRoom' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AproviderCalendarId%3ACreateRoom%27"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | A unique, user-specified identifier for this request that ensures</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- idempotency.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_clientRequestToken"><span class="hs-identifier hs-type">createRoom_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="createRoom_clientRequestToken"><span class="annot"><span class="annottext">createRoom_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRoom -&gt; f CreateRoom
-</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_clientRequestToken"><span class="hs-identifier hs-var hs-var">createRoom_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRoom -&gt; Maybe Text)
--&gt; (CreateRoom -&gt; Maybe Text -&gt; CreateRoom)
--&gt; Lens CreateRoom CreateRoom (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390707"><span class="annot"><span class="annottext">Maybe Text
-clientRequestToken :: Maybe Text
-$sel:clientRequestToken:CreateRoom' :: CreateRoom -&gt; Maybe Text
-</span><a href="#local-6989586621679390707"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390707"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390706"><span class="annot"><span class="annottext">s :: CreateRoom
-</span><a href="#local-6989586621679390706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390705"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoom
-</span><a href="#local-6989586621679390706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateRoom' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AclientRequestToken%3ACreateRoom%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The name for the room.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoom_roomName"><span class="hs-identifier hs-type">createRoom_roomName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -298,25 +298,25 @@ $sel:clientRequestToken:CreateRoom' :: CreateRoom -&gt; Maybe Text
 -&gt; (CreateRoom -&gt; Text -&gt; CreateRoom)
 -&gt; Lens CreateRoom CreateRoom Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390704"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391065"><span class="annot"><span class="annottext">Text
 roomName :: Text
 $sel:roomName:CreateRoom' :: CreateRoom -&gt; Text
-</span><a href="#local-6989586621679390704"><span class="hs-identifier hs-var hs-var">roomName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390704"><span class="hs-identifier hs-var">roomName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390703"><span class="annot"><span class="annottext">s :: CreateRoom
-</span><a href="#local-6989586621679390703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390702"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoom
-</span><a href="#local-6989586621679390703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomName:CreateRoom' :: Text
+</span><a href="#local-6989586621679391065"><span class="hs-identifier hs-var hs-var">roomName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391065"><span class="hs-identifier hs-var">roomName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391064"><span class="annot"><span class="annottext">s :: CreateRoom
+</span><a href="#local-6989586621679391064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391063"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoom
+</span><a href="#local-6989586621679391064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomName:CreateRoom' :: Text
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AroomName%3ACreateRoom%27"><span class="hs-identifier hs-var">roomName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse"><span class="hs-identifier hs-type">CreateRoomResponse</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679390698"><span class="annot"><span class="annottext">request :: CreateRoom -&gt; Request CreateRoom
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679391059"><span class="annot"><span class="annottext">request :: CreateRoom -&gt; Request CreateRoom
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateRoom -&gt; Request CreateRoom
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679390694"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679391055"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateRoom
 -&gt; ClientResponse ClientBody
@@ -340,10 +340,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679390691"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390691"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679390690"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679390690"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679390689"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679390689"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679391052"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391052"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391051"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679391051"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391050"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391050"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateRoomResponse
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse%27"><span class="hs-identifier hs-var">CreateRoomResponse'</span></a></span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateRoomResponse)
@@ -351,7 +351,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateRoomResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679390689"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679391050"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoomArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -363,15 +363,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390691"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391052"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390681"><span id="local-6989586621679390683"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391042"><span id="local-6989586621679391044"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390678"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391039"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679390674"><span class="annot"><span class="annottext">toHeaders :: CreateRoom -&gt; ResponseHeaders
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679391035"><span class="annot"><span class="annottext">toHeaders :: CreateRoom -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateRoom -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -398,85 +398,85 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390664"><span id="local-6989586621679390666"><span id="local-6989586621679390668"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679390662"><span class="annot"><span class="annottext">toJSON :: CreateRoom -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390655"><span id="local-6989586621679390656"><span id="local-6989586621679390657"><span id="local-6989586621679390658"><span id="local-6989586621679390659"><span id="local-6989586621679390660"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391025"><span id="local-6989586621679391027"><span id="local-6989586621679391029"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679391023"><span class="annot"><span class="annottext">toJSON :: CreateRoom -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom%27"><span class="hs-identifier hs-type">CreateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391016"><span id="local-6989586621679391017"><span id="local-6989586621679391018"><span id="local-6989586621679391019"><span id="local-6989586621679391020"><span id="local-6989586621679391021"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe Text
 Text
 roomName :: Text
+tags :: Maybe [Tag]
+description :: Maybe Text
 clientRequestToken :: Maybe Text
 providerCalendarId :: Maybe Text
-description :: Maybe Text
 profileArn :: Maybe Text
-tags :: Maybe [Tag]
 $sel:roomName:CreateRoom' :: CreateRoom -&gt; Text
+$sel:tags:CreateRoom' :: CreateRoom -&gt; Maybe [Tag]
+$sel:description:CreateRoom' :: CreateRoom -&gt; Maybe Text
 $sel:clientRequestToken:CreateRoom' :: CreateRoom -&gt; Maybe Text
 $sel:providerCalendarId:CreateRoom' :: CreateRoom -&gt; Maybe Text
-$sel:description:CreateRoom' :: CreateRoom -&gt; Maybe Text
 $sel:profileArn:CreateRoom' :: CreateRoom -&gt; Maybe Text
-$sel:tags:CreateRoom' :: CreateRoom -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679390655"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679391016"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-165"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679390660"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProfileArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390659"><span class="hs-identifier hs-var">profileArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><a href="#local-6989586621679391021"><span class="hs-identifier hs-var">profileArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProviderCalendarId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390658"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679391020"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProviderCalendarId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390657"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679391019"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390656"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679391018"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679391017"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoomName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390655"><span class="hs-identifier hs-var">roomName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391016"><span class="hs-identifier hs-var">roomName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679390649"><span class="annot"><span class="annottext">toPath :: CreateRoom -&gt; ByteString
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679391010"><span class="annot"><span class="annottext">toPath :: CreateRoom -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateRoom -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoom"><span class="hs-identifier hs-type">CreateRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679390645"><span class="annot"><span class="annottext">toQuery :: CreateRoom -&gt; QueryString
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679391006"><span class="annot"><span class="annottext">toQuery :: CreateRoom -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateRoom -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -484,7 +484,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newCreateRoomResponse' smart constructor.</span><span>
-</span><span id="line-183"></span><span id="local-6989586621679390642"><span id="local-6989586621679390643"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRoomResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse"><span class="hs-identifier hs-var">CreateRoomResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRoomResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse%27"><span class="hs-identifier hs-var">CreateRoomResponse'</span></a></span></span><span>
+</span><span id="line-183"></span><span id="local-6989586621679391003"><span id="local-6989586621679391004"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRoomResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse"><span class="hs-identifier hs-var">CreateRoomResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRoomResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse%27"><span class="hs-identifier hs-var">CreateRoomResponse'</span></a></span></span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the newly created room in the response.</span><span>
 </span><span id="line-185"></span><span>    </span><span id="%24sel%3AroomArn%3ACreateRoomResponse%27"><span class="annot"><span class="annottext">CreateRoomResponse -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AroomArn%3ACreateRoomResponse%27"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -492,7 +492,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-187"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateRoomResponse%27"><span class="annot"><span class="annottext">CreateRoomResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AhttpStatus%3ACreateRoomResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390636"><span id="local-6989586621679390638"><span class="annot"><span class="annottext">CreateRoomResponse -&gt; CreateRoomResponse -&gt; Bool
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390997"><span id="local-6989586621679390999"><span class="annot"><span class="annottext">CreateRoomResponse -&gt; CreateRoomResponse -&gt; Bool
 (CreateRoomResponse -&gt; CreateRoomResponse -&gt; Bool)
 -&gt; (CreateRoomResponse -&gt; CreateRoomResponse -&gt; Bool)
 -&gt; Eq CreateRoomResponse
@@ -501,7 +501,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateRoomResponse -&gt; CreateRoomResponse -&gt; Bool
 == :: CreateRoomResponse -&gt; CreateRoomResponse -&gt; Bool
 $c== :: CreateRoomResponse -&gt; CreateRoomResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390628"><span id="local-6989586621679390630"><span id="local-6989586621679390632"><span id="local-6989586621679390634"><span class="annot"><span class="annottext">ReadPrec [CreateRoomResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390989"><span id="local-6989586621679390991"><span id="local-6989586621679390993"><span id="local-6989586621679390995"><span class="annot"><span class="annottext">ReadPrec [CreateRoomResponse]
 ReadPrec CreateRoomResponse
 Int -&gt; ReadS CreateRoomResponse
 ReadS [CreateRoomResponse]
@@ -521,7 +521,7 @@ readList :: ReadS [CreateRoomResponse]
 $creadList :: ReadS [CreateRoomResponse]
 readsPrec :: Int -&gt; ReadS CreateRoomResponse
 $creadsPrec :: Int -&gt; ReadS CreateRoomResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390622"><span id="local-6989586621679390624"><span id="local-6989586621679390626"><span class="annot"><span class="annottext">Int -&gt; CreateRoomResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390983"><span id="local-6989586621679390985"><span id="local-6989586621679390987"><span class="annot"><span class="annottext">Int -&gt; CreateRoomResponse -&gt; ShowS
 [CreateRoomResponse] -&gt; ShowS
 CreateRoomResponse -&gt; String
 (Int -&gt; CreateRoomResponse -&gt; ShowS)
@@ -563,8 +563,8 @@ $cfrom :: forall x. CreateRoomResponse -&gt; Rep CreateRoomResponse x
 </span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-205"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse"><span class="hs-identifier hs-type">CreateRoomResponse</span></a></span><span>
 </span><span id="line-206"></span><span id="newCreateRoomResponse"><span class="annot"><span class="annottext">newCreateRoomResponse :: Int -&gt; CreateRoomResponse
-</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#newCreateRoomResponse"><span class="hs-identifier hs-var hs-var">newCreateRoomResponse</span></a></span></span><span> </span><span id="local-6989586621679390619"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390619"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#newCreateRoomResponse"><span class="hs-identifier hs-var hs-var">newCreateRoomResponse</span></a></span></span><span> </span><span id="local-6989586621679390980"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390980"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-207"></span><span>  </span><span class="annot"><span class="annottext">CreateRoomResponse' :: Maybe Text -&gt; Int -&gt; CreateRoomResponse
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse%27"><span class="hs-identifier hs-type">CreateRoomResponse'</span></a></span><span>
 </span><span id="line-208"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roomArn:CreateRoomResponse' :: Maybe Text
@@ -573,7 +573,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRoomResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AhttpStatus%3ACreateRoomResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390619"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679390980"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | The ARN of the newly created room in the response.</span><span>
@@ -585,16 +585,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateRoomResponse CreateRoomResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse%27"><span class="hs-identifier hs-type">CreateRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390618"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse%27"><span class="hs-identifier hs-type">CreateRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390979"><span class="annot"><span class="annottext">Maybe Text
 roomArn :: Maybe Text
 $sel:roomArn:CreateRoomResponse' :: CreateRoomResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679390618"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390618"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390617"><span class="annot"><span class="annottext">s :: CreateRoomResponse
-</span><a href="#local-6989586621679390617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse%27"><span class="hs-identifier hs-type">CreateRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390616"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoomResponse
-</span><a href="#local-6989586621679390617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomArn:CreateRoomResponse' :: Maybe Text
+</span><a href="#local-6989586621679390979"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390979"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390978"><span class="annot"><span class="annottext">s :: CreateRoomResponse
+</span><a href="#local-6989586621679390978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse%27"><span class="hs-identifier hs-type">CreateRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390977"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoomResponse
+</span><a href="#local-6989586621679390978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomArn:CreateRoomResponse' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AroomArn%3ACreateRoomResponse%27"><span class="hs-identifier hs-var">roomArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse"><span class="hs-identifier hs-type">CreateRoomResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse"><span class="hs-identifier hs-type">CreateRoomResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-217"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#createRoomResponse_httpStatus"><span class="hs-identifier hs-type">createRoomResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse"><span class="hs-identifier hs-type">CreateRoomResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -603,16 +603,16 @@ $sel:roomArn:CreateRoomResponse' :: CreateRoomResponse -&gt; Maybe Text
 -&gt; (CreateRoomResponse -&gt; Int -&gt; CreateRoomResponse)
 -&gt; Lens CreateRoomResponse CreateRoomResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse%27"><span class="hs-identifier hs-type">CreateRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390615"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse%27"><span class="hs-identifier hs-type">CreateRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390976"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateRoomResponse' :: CreateRoomResponse -&gt; Int
-</span><a href="#local-6989586621679390615"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390615"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390614"><span class="annot"><span class="annottext">s :: CreateRoomResponse
-</span><a href="#local-6989586621679390614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse%27"><span class="hs-identifier hs-type">CreateRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390613"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoomResponse
-</span><a href="#local-6989586621679390614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRoomResponse' :: Int
+</span><a href="#local-6989586621679390976"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390976"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390975"><span class="annot"><span class="annottext">s :: CreateRoomResponse
+</span><a href="#local-6989586621679390975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse%27"><span class="hs-identifier hs-type">CreateRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390974"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoomResponse
+</span><a href="#local-6989586621679390975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRoomResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.CreateRoom.html#%24sel%3AhttpStatus%3ACreateRoomResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse"><span class="hs-identifier hs-type">CreateRoomResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse"><span class="hs-identifier hs-type">CreateRoomResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390611"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse"><span class="hs-identifier hs-type">CreateRoomResponse</span></a></span></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390972"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateRoom.html#CreateRoomResponse"><span class="hs-identifier hs-type">CreateRoomResponse</span></a></span></span><span>
 </span><span id="line-221"></span></pre></body></html>

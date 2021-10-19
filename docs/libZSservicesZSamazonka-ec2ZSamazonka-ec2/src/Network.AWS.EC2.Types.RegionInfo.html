@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes a Region.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRegionInfo' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681107776"><span id="local-6989586621681107777"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegionInfo"><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-var">RegionInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegionInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-var">RegionInfo'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681142491"><span id="local-6989586621681142492"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegionInfo"><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-var">RegionInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegionInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-var">RegionInfo'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Region.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AregionName%3ARegionInfo%27"><span class="annot"><span class="annottext">RegionInfo -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.RegionInfo.html#%24sel%3AregionName%3ARegionInfo%27"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Aendpoint%3ARegionInfo%27"><span class="annot"><span class="annottext">RegionInfo -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.RegionInfo.html#%24sel%3Aendpoint%3ARegionInfo%27"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681107768"><span id="local-6989586621681107770"><span class="annot"><span class="annottext">RegionInfo -&gt; RegionInfo -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681142483"><span id="local-6989586621681142485"><span class="annot"><span class="annottext">RegionInfo -&gt; RegionInfo -&gt; Bool
 (RegionInfo -&gt; RegionInfo -&gt; Bool)
 -&gt; (RegionInfo -&gt; RegionInfo -&gt; Bool) -&gt; Eq RegionInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegionInfo -&gt; RegionInfo -&gt; Bool
 == :: RegionInfo -&gt; RegionInfo -&gt; Bool
 $c== :: RegionInfo -&gt; RegionInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681107759"><span id="local-6989586621681107761"><span id="local-6989586621681107763"><span id="local-6989586621681107765"><span class="annot"><span class="annottext">ReadPrec [RegionInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681142474"><span id="local-6989586621681142476"><span id="local-6989586621681142478"><span id="local-6989586621681142480"><span class="annot"><span class="annottext">ReadPrec [RegionInfo]
 ReadPrec RegionInfo
 Int -&gt; ReadS RegionInfo
 ReadS [RegionInfo]
@@ -67,7 +67,7 @@ readList :: ReadS [RegionInfo]
 $creadList :: ReadS [RegionInfo]
 readsPrec :: Int -&gt; ReadS RegionInfo
 $creadsPrec :: Int -&gt; ReadS RegionInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681107752"><span id="local-6989586621681107754"><span id="local-6989586621681107756"><span class="annot"><span class="annottext">Int -&gt; RegionInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681142467"><span id="local-6989586621681142469"><span id="local-6989586621681142471"><span class="annot"><span class="annottext">Int -&gt; RegionInfo -&gt; ShowS
 [RegionInfo] -&gt; ShowS
 RegionInfo -&gt; String
 (Int -&gt; RegionInfo -&gt; ShowS)
@@ -133,16 +133,16 @@ forall a. Maybe a
 -&gt; (RegionInfo -&gt; Maybe Text -&gt; RegionInfo)
 -&gt; Lens RegionInfo RegionInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681107743"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681142458"><span class="annot"><span class="annottext">Maybe Text
 regionName :: Maybe Text
 $sel:regionName:RegionInfo' :: RegionInfo -&gt; Maybe Text
-</span><a href="#local-6989586621681107743"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681107743"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681107742"><span class="annot"><span class="annottext">s :: RegionInfo
-</span><a href="#local-6989586621681107742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681107741"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681107741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegionInfo
-</span><a href="#local-6989586621681107742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionName:RegionInfo' :: Maybe Text
+</span><a href="#local-6989586621681142458"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142458"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681142457"><span class="annot"><span class="annottext">s :: RegionInfo
+</span><a href="#local-6989586621681142457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681142456"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegionInfo
+</span><a href="#local-6989586621681142457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionName:RegionInfo' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.RegionInfo.html#%24sel%3AregionName%3ARegionInfo%27"><span class="hs-identifier hs-var">regionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681107741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681142456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The Region opt-in status. The possible values are @opt-in-not-required@,</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- @opted-in@, and @not-opted-in@.</span><span>
@@ -152,16 +152,16 @@ $sel:regionName:RegionInfo' :: RegionInfo -&gt; Maybe Text
 -&gt; (RegionInfo -&gt; Maybe Text -&gt; RegionInfo)
 -&gt; Lens RegionInfo RegionInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681107739"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681142454"><span class="annot"><span class="annottext">Maybe Text
 optInStatus :: Maybe Text
 $sel:optInStatus:RegionInfo' :: RegionInfo -&gt; Maybe Text
-</span><a href="#local-6989586621681107739"><span class="hs-identifier hs-var hs-var">optInStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681107739"><span class="hs-identifier hs-var">optInStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681107738"><span class="annot"><span class="annottext">s :: RegionInfo
-</span><a href="#local-6989586621681107738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681107737"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681107737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegionInfo
-</span><a href="#local-6989586621681107738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optInStatus:RegionInfo' :: Maybe Text
+</span><a href="#local-6989586621681142454"><span class="hs-identifier hs-var hs-var">optInStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142454"><span class="hs-identifier hs-var">optInStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681142453"><span class="annot"><span class="annottext">s :: RegionInfo
+</span><a href="#local-6989586621681142453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681142452"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegionInfo
+</span><a href="#local-6989586621681142453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optInStatus:RegionInfo' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.RegionInfo.html#%24sel%3AoptInStatus%3ARegionInfo%27"><span class="hs-identifier hs-var">optInStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681107737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681142452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The Region service endpoint.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#regionInfo_endpoint"><span class="hs-identifier hs-type">regionInfo_endpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -170,21 +170,21 @@ $sel:optInStatus:RegionInfo' :: RegionInfo -&gt; Maybe Text
 -&gt; (RegionInfo -&gt; Maybe Text -&gt; RegionInfo)
 -&gt; Lens RegionInfo RegionInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681107735"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681142450"><span class="annot"><span class="annottext">Maybe Text
 endpoint :: Maybe Text
 $sel:endpoint:RegionInfo' :: RegionInfo -&gt; Maybe Text
-</span><a href="#local-6989586621681107735"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681107735"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681107734"><span class="annot"><span class="annottext">s :: RegionInfo
-</span><a href="#local-6989586621681107734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681107733"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681107733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegionInfo
-</span><a href="#local-6989586621681107734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:RegionInfo' :: Maybe Text
+</span><a href="#local-6989586621681142450"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142450"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681142449"><span class="annot"><span class="annottext">s :: RegionInfo
+</span><a href="#local-6989586621681142449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-type">RegionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681142448"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681142448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegionInfo
+</span><a href="#local-6989586621681142449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:RegionInfo' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.RegionInfo.html#%24sel%3Aendpoint%3ARegionInfo%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681107733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681142448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621681107730"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RegionInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681107728"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681107728"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621681142445"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RegionInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681142443"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681142443"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RegionInfo
 </span><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo%27"><span class="hs-identifier hs-var">RegionInfo'</span></a></span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; RegionInfo)
@@ -192,7 +192,7 @@ $sel:endpoint:RegionInfo' :: RegionInfo -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; RegionInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681107728"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681142443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;regionName&quot;</span></span><span class="hs-special">)</span><span>
@@ -201,7 +201,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; RegionInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681107728"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681142443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;optInStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -209,12 +209,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String RegionInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681107728"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681142443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;regionEndpoint&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681107722"><span id="local-6989586621681107724"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681142437"><span id="local-6989586621681142439"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681107719"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681142434"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RegionInfo.html#RegionInfo"><span class="hs-identifier hs-type">RegionInfo</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

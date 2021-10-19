@@ -30,26 +30,26 @@
 </span><span id="line-30"></span><span class="hs-comment">-- result.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newPutRecordsResultEntry' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679197550"><span id="local-6989586621679197551"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRecordsResultEntry"><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-var">PutRecordsResultEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRecordsResultEntry%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-var">PutRecordsResultEntry'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679197645"><span id="local-6989586621679197646"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRecordsResultEntry"><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-var">PutRecordsResultEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRecordsResultEntry%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-var">PutRecordsResultEntry'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The sequence number for an individual record result.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AsequenceNumber%3APutRecordsResultEntry%27"><span class="annot"><span class="annottext">PutRecordsResultEntry -&gt; Maybe Text
 </span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#%24sel%3AsequenceNumber%3APutRecordsResultEntry%27"><span class="hs-identifier hs-var hs-var">sequenceNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The shard ID for an individual record result.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AshardId%3APutRecordsResultEntry%27"><span class="annot"><span class="annottext">PutRecordsResultEntry -&gt; Maybe Text
-</span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#%24sel%3AshardId%3APutRecordsResultEntry%27"><span class="hs-identifier hs-var hs-var">shardId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The error message for an individual record result. An @ErrorCode@ value</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- of @ProvisionedThroughputExceededException@ has an error message that</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- includes the account ID, stream name, and shard ID. An @ErrorCode@ value</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- of @InternalFailure@ has the error message</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- @\&quot;Internal Service Failure\&quot;@.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AerrorMessage%3APutRecordsResultEntry%27"><span class="annot"><span class="annottext">PutRecordsResultEntry -&gt; Maybe Text
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The error code for an individual record result. @ErrorCodes@ can be</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- either @ProvisionedThroughputExceededException@ or @InternalFailure@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AerrorCode%3APutRecordsResultEntry%27"><span class="annot"><span class="annottext">PutRecordsResultEntry -&gt; Maybe Text
+</span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#%24sel%3AerrorCode%3APutRecordsResultEntry%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The error message for an individual record result. An @ErrorCode@ value</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- of @ProvisionedThroughputExceededException@ has an error message that</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- includes the account ID, stream name, and shard ID. An @ErrorCode@ value</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- of @InternalFailure@ has the error message</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @\&quot;Internal Service Failure\&quot;@.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AerrorMessage%3APutRecordsResultEntry%27"><span class="annot"><span class="annottext">PutRecordsResultEntry -&gt; Maybe Text
 </span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#%24sel%3AerrorMessage%3APutRecordsResultEntry%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The error code for an individual record result. @ErrorCodes@ can be</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- either @ProvisionedThroughputExceededException@ or @InternalFailure@.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AerrorCode%3APutRecordsResultEntry%27"><span class="annot"><span class="annottext">PutRecordsResultEntry -&gt; Maybe Text
-</span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#%24sel%3AerrorCode%3APutRecordsResultEntry%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The shard ID for an individual record result.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AshardId%3APutRecordsResultEntry%27"><span class="annot"><span class="annottext">PutRecordsResultEntry -&gt; Maybe Text
+</span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#%24sel%3AshardId%3APutRecordsResultEntry%27"><span class="hs-identifier hs-var hs-var">shardId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197541"><span id="local-6989586621679197543"><span class="annot"><span class="annottext">PutRecordsResultEntry -&gt; PutRecordsResultEntry -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197636"><span id="local-6989586621679197638"><span class="annot"><span class="annottext">PutRecordsResultEntry -&gt; PutRecordsResultEntry -&gt; Bool
 (PutRecordsResultEntry -&gt; PutRecordsResultEntry -&gt; Bool)
 -&gt; (PutRecordsResultEntry -&gt; PutRecordsResultEntry -&gt; Bool)
 -&gt; Eq PutRecordsResultEntry
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutRecordsResultEntry -&gt; PutRecordsResultEntry -&gt; Bool
 == :: PutRecordsResultEntry -&gt; PutRecordsResultEntry -&gt; Bool
 $c== :: PutRecordsResultEntry -&gt; PutRecordsResultEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197532"><span id="local-6989586621679197534"><span id="local-6989586621679197536"><span id="local-6989586621679197538"><span class="annot"><span class="annottext">ReadPrec [PutRecordsResultEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197627"><span id="local-6989586621679197629"><span id="local-6989586621679197631"><span id="local-6989586621679197633"><span class="annot"><span class="annottext">ReadPrec [PutRecordsResultEntry]
 ReadPrec PutRecordsResultEntry
 Int -&gt; ReadS PutRecordsResultEntry
 ReadS [PutRecordsResultEntry]
@@ -78,7 +78,7 @@ readList :: ReadS [PutRecordsResultEntry]
 $creadList :: ReadS [PutRecordsResultEntry]
 readsPrec :: Int -&gt; ReadS PutRecordsResultEntry
 $creadsPrec :: Int -&gt; ReadS PutRecordsResultEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197525"><span id="local-6989586621679197527"><span id="local-6989586621679197529"><span class="annot"><span class="annottext">Int -&gt; PutRecordsResultEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197620"><span id="local-6989586621679197622"><span id="local-6989586621679197624"><span class="annot"><span class="annottext">Int -&gt; PutRecordsResultEntry -&gt; ShowS
 [PutRecordsResultEntry] -&gt; ShowS
 PutRecordsResultEntry -&gt; String
 (Int -&gt; PutRecordsResultEntry -&gt; ShowS)
@@ -114,16 +114,16 @@ $cfrom :: forall x. PutRecordsResultEntry -&gt; Rep PutRecordsResultEntry x
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- 'sequenceNumber', 'putRecordsResultEntry_sequenceNumber' - The sequence number for an individual record result.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'shardId', 'putRecordsResultEntry_shardId' - The shard ID for an individual record result.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'errorMessage', 'putRecordsResultEntry_errorMessage' - The error message for an individual record result. An @ErrorCode@ value</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- of @ProvisionedThroughputExceededException@ has an error message that</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- includes the account ID, stream name, and shard ID. An @ErrorCode@ value</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- of @InternalFailure@ has the error message</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- @\&quot;Internal Service Failure\&quot;@.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'errorCode', 'putRecordsResultEntry_errorCode' - The error code for an individual record result. @ErrorCodes@ can be</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- either @ProvisionedThroughputExceededException@ or @InternalFailure@.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'errorCode', 'putRecordsResultEntry_errorCode' - The error code for an individual record result. @ErrorCodes@ can be</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- either @ProvisionedThroughputExceededException@ or @InternalFailure@.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'errorMessage', 'putRecordsResultEntry_errorMessage' - The error message for an individual record result. An @ErrorCode@ value</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- of @ProvisionedThroughputExceededException@ has an error message that</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- includes the account ID, stream name, and shard ID. An @ErrorCode@ value</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- of @InternalFailure@ has the error message</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- @\&quot;Internal Service Failure\&quot;@.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'shardId', 'putRecordsResultEntry_shardId' - The shard ID for an individual record result.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#newPutRecordsResultEntry"><span class="hs-identifier hs-type">newPutRecordsResultEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span><span>
 </span><span id="line-72"></span><span id="newPutRecordsResultEntry"><span class="annot"><span class="annottext">newPutRecordsResultEntry :: PutRecordsResultEntry
@@ -136,16 +136,16 @@ $cfrom :: forall x. PutRecordsResultEntry -&gt; Rep PutRecordsResultEntry x
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:shardId:PutRecordsResultEntry' :: Maybe Text
-</span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#%24sel%3AshardId%3APutRecordsResultEntry%27"><span class="hs-identifier hs-var">shardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:PutRecordsResultEntry' :: Maybe Text
+</span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#%24sel%3AerrorCode%3APutRecordsResultEntry%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:PutRecordsResultEntry' :: Maybe Text
 </span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#%24sel%3AerrorMessage%3APutRecordsResultEntry%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:PutRecordsResultEntry' :: Maybe Text
-</span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#%24sel%3AerrorCode%3APutRecordsResultEntry%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:shardId:PutRecordsResultEntry' :: Maybe Text
+</span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#%24sel%3AshardId%3APutRecordsResultEntry%27"><span class="hs-identifier hs-var">shardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
@@ -162,71 +162,21 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-type">PutRecordsResultEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197516"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-type">PutRecordsResultEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197611"><span class="annot"><span class="annottext">Maybe Text
 sequenceNumber :: Maybe Text
 $sel:sequenceNumber:PutRecordsResultEntry' :: PutRecordsResultEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679197516"><span class="hs-identifier hs-var hs-var">sequenceNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197516"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197515"><span class="annot"><span class="annottext">s :: PutRecordsResultEntry
-</span><a href="#local-6989586621679197515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-type">PutRecordsResultEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197514"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordsResultEntry
-</span><a href="#local-6989586621679197515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sequenceNumber:PutRecordsResultEntry' :: Maybe Text
+</span><a href="#local-6989586621679197611"><span class="hs-identifier hs-var hs-var">sequenceNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197611"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197610"><span class="annot"><span class="annottext">s :: PutRecordsResultEntry
+</span><a href="#local-6989586621679197610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-type">PutRecordsResultEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197609"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordsResultEntry
+</span><a href="#local-6989586621679197610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sequenceNumber:PutRecordsResultEntry' :: Maybe Text
 </span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#%24sel%3AsequenceNumber%3APutRecordsResultEntry%27"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The shard ID for an individual record result.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#putRecordsResultEntry_shardId"><span class="hs-identifier hs-type">putRecordsResultEntry_shardId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="putRecordsResultEntry_shardId"><span class="annot"><span class="annottext">putRecordsResultEntry_shardId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PutRecordsResultEntry -&gt; f PutRecordsResultEntry
-</span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#putRecordsResultEntry_shardId"><span class="hs-identifier hs-var hs-var">putRecordsResultEntry_shardId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRecordsResultEntry -&gt; Maybe Text)
--&gt; (PutRecordsResultEntry -&gt; Maybe Text -&gt; PutRecordsResultEntry)
--&gt; Lens
-     PutRecordsResultEntry
-     PutRecordsResultEntry
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-type">PutRecordsResultEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197512"><span class="annot"><span class="annottext">Maybe Text
-shardId :: Maybe Text
-$sel:shardId:PutRecordsResultEntry' :: PutRecordsResultEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679197512"><span class="hs-identifier hs-var hs-var">shardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197512"><span class="hs-identifier hs-var">shardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197511"><span class="annot"><span class="annottext">s :: PutRecordsResultEntry
-</span><a href="#local-6989586621679197511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-type">PutRecordsResultEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197510"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordsResultEntry
-</span><a href="#local-6989586621679197511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardId:PutRecordsResultEntry' :: Maybe Text
-</span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#%24sel%3AshardId%3APutRecordsResultEntry%27"><span class="hs-identifier hs-var">shardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The error message for an individual record result. An @ErrorCode@ value</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- of @ProvisionedThroughputExceededException@ has an error message that</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- includes the account ID, stream name, and shard ID. An @ErrorCode@ value</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- of @InternalFailure@ has the error message</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- @\&quot;Internal Service Failure\&quot;@.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#putRecordsResultEntry_errorMessage"><span class="hs-identifier hs-type">putRecordsResultEntry_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="putRecordsResultEntry_errorMessage"><span class="annot"><span class="annottext">putRecordsResultEntry_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PutRecordsResultEntry -&gt; f PutRecordsResultEntry
-</span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#putRecordsResultEntry_errorMessage"><span class="hs-identifier hs-var hs-var">putRecordsResultEntry_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRecordsResultEntry -&gt; Maybe Text)
--&gt; (PutRecordsResultEntry -&gt; Maybe Text -&gt; PutRecordsResultEntry)
--&gt; Lens
-     PutRecordsResultEntry
-     PutRecordsResultEntry
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-type">PutRecordsResultEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197508"><span class="annot"><span class="annottext">Maybe Text
-errorMessage :: Maybe Text
-$sel:errorMessage:PutRecordsResultEntry' :: PutRecordsResultEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679197508"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197508"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197507"><span class="annot"><span class="annottext">s :: PutRecordsResultEntry
-</span><a href="#local-6989586621679197507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-type">PutRecordsResultEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197506"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordsResultEntry
-</span><a href="#local-6989586621679197507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:PutRecordsResultEntry' :: Maybe Text
-</span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#%24sel%3AerrorMessage%3APutRecordsResultEntry%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The error code for an individual record result. @ErrorCodes@ can be</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- either @ProvisionedThroughputExceededException@ or @InternalFailure@.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#putRecordsResultEntry_errorCode"><span class="hs-identifier hs-type">putRecordsResultEntry_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="putRecordsResultEntry_errorCode"><span class="annot"><span class="annottext">putRecordsResultEntry_errorCode :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-85"></span><span class="hs-comment">-- | The error code for an individual record result. @ErrorCodes@ can be</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- either @ProvisionedThroughputExceededException@ or @InternalFailure@.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#putRecordsResultEntry_errorCode"><span class="hs-identifier hs-type">putRecordsResultEntry_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="putRecordsResultEntry_errorCode"><span class="annot"><span class="annottext">putRecordsResultEntry_errorCode :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PutRecordsResultEntry -&gt; f PutRecordsResultEntry
 </span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#putRecordsResultEntry_errorCode"><span class="hs-identifier hs-var hs-var">putRecordsResultEntry_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRecordsResultEntry -&gt; Maybe Text)
 -&gt; (PutRecordsResultEntry -&gt; Maybe Text -&gt; PutRecordsResultEntry)
@@ -236,19 +186,69 @@ $sel:errorMessage:PutRecordsResultEntry' :: PutRecordsResultEntry -&gt; Maybe Te
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-type">PutRecordsResultEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197504"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-type">PutRecordsResultEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197607"><span class="annot"><span class="annottext">Maybe Text
 errorCode :: Maybe Text
 $sel:errorCode:PutRecordsResultEntry' :: PutRecordsResultEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679197504"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197504"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197503"><span class="annot"><span class="annottext">s :: PutRecordsResultEntry
-</span><a href="#local-6989586621679197503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-type">PutRecordsResultEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197502"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordsResultEntry
-</span><a href="#local-6989586621679197503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:PutRecordsResultEntry' :: Maybe Text
+</span><a href="#local-6989586621679197607"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197607"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197606"><span class="annot"><span class="annottext">s :: PutRecordsResultEntry
+</span><a href="#local-6989586621679197606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-type">PutRecordsResultEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197605"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordsResultEntry
+</span><a href="#local-6989586621679197606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:PutRecordsResultEntry' :: Maybe Text
 </span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#%24sel%3AerrorCode%3APutRecordsResultEntry%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The error message for an individual record result. An @ErrorCode@ value</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- of @ProvisionedThroughputExceededException@ has an error message that</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- includes the account ID, stream name, and shard ID. An @ErrorCode@ value</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- of @InternalFailure@ has the error message</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- @\&quot;Internal Service Failure\&quot;@.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#putRecordsResultEntry_errorMessage"><span class="hs-identifier hs-type">putRecordsResultEntry_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="putRecordsResultEntry_errorMessage"><span class="annot"><span class="annottext">putRecordsResultEntry_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutRecordsResultEntry -&gt; f PutRecordsResultEntry
+</span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#putRecordsResultEntry_errorMessage"><span class="hs-identifier hs-var hs-var">putRecordsResultEntry_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRecordsResultEntry -&gt; Maybe Text)
+-&gt; (PutRecordsResultEntry -&gt; Maybe Text -&gt; PutRecordsResultEntry)
+-&gt; Lens
+     PutRecordsResultEntry
+     PutRecordsResultEntry
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-type">PutRecordsResultEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197603"><span class="annot"><span class="annottext">Maybe Text
+errorMessage :: Maybe Text
+$sel:errorMessage:PutRecordsResultEntry' :: PutRecordsResultEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679197603"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197603"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197602"><span class="annot"><span class="annottext">s :: PutRecordsResultEntry
+</span><a href="#local-6989586621679197602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-type">PutRecordsResultEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197601"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordsResultEntry
+</span><a href="#local-6989586621679197602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:PutRecordsResultEntry' :: Maybe Text
+</span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#%24sel%3AerrorMessage%3APutRecordsResultEntry%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The shard ID for an individual record result.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#putRecordsResultEntry_shardId"><span class="hs-identifier hs-type">putRecordsResultEntry_shardId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="putRecordsResultEntry_shardId"><span class="annot"><span class="annottext">putRecordsResultEntry_shardId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutRecordsResultEntry -&gt; f PutRecordsResultEntry
+</span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#putRecordsResultEntry_shardId"><span class="hs-identifier hs-var hs-var">putRecordsResultEntry_shardId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRecordsResultEntry -&gt; Maybe Text)
+-&gt; (PutRecordsResultEntry -&gt; Maybe Text -&gt; PutRecordsResultEntry)
+-&gt; Lens
+     PutRecordsResultEntry
+     PutRecordsResultEntry
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-type">PutRecordsResultEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197599"><span class="annot"><span class="annottext">Maybe Text
+shardId :: Maybe Text
+$sel:shardId:PutRecordsResultEntry' :: PutRecordsResultEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679197599"><span class="hs-identifier hs-var hs-var">shardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197599"><span class="hs-identifier hs-var">shardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197598"><span class="annot"><span class="annottext">s :: PutRecordsResultEntry
+</span><a href="#local-6989586621679197598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-type">PutRecordsResultEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197597"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordsResultEntry
+</span><a href="#local-6989586621679197598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardId:PutRecordsResultEntry' :: Maybe Text
+</span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#%24sel%3AshardId%3APutRecordsResultEntry%27"><span class="hs-identifier hs-var">shardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197499"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679197497"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PutRecordsResultEntry
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197594"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679197592"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PutRecordsResultEntry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PutRecordsResultEntry)
@@ -258,8 +258,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PutRecordsResultEntry&quot;</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197494"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679197494"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197589"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197589"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PutRecordsResultEntry
 </span><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry%27"><span class="hs-identifier hs-var">PutRecordsResultEntry'</span></a></span><span>
@@ -270,7 +270,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PutRecordsResultEntry)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679197494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679197589"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SequenceNumber&quot;</span></span><span class="hs-special">)</span><span>
@@ -280,16 +280,16 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; PutRecordsResultEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679197494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679197589"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ShardId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; PutRecordsResultEntry)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; PutRecordsResultEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679197494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679197589"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
@@ -297,13 +297,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser PutRecordsResultEntry
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679197494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679197589"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ShardId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197488"><span id="local-6989586621679197490"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197583"><span id="local-6989586621679197585"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197485"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197580"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span></span><span>
 </span><span id="line-117"></span></pre></body></html>

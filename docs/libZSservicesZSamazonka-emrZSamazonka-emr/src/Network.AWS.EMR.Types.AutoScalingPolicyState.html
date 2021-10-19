@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679364915"><span id="local-6989586621679364916"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoScalingPolicyState"><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyState.html#AutoScalingPolicyState"><span class="hs-identifier hs-var">AutoScalingPolicyState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingPolicyState%27"><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyState.html#AutoScalingPolicyState%27"><span class="hs-identifier hs-var">AutoScalingPolicyState'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679365260"><span id="local-6989586621679365261"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoScalingPolicyState"><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyState.html#AutoScalingPolicyState"><span class="hs-identifier hs-var">AutoScalingPolicyState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingPolicyState%27"><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyState.html#AutoScalingPolicyState%27"><span class="hs-identifier hs-var">AutoScalingPolicyState'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutoScalingPolicyState"><span class="annot"><span class="annottext">AutoScalingPolicyState -&gt; Text
 </span><a href="Network.AWS.EMR.Types.AutoScalingPolicyState.html#fromAutoScalingPolicyState"><span class="hs-identifier hs-var hs-var">fromAutoScalingPolicyState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364907"><span id="local-6989586621679364909"><span id="local-6989586621679364911"><span class="annot"><span class="annottext">Int -&gt; AutoScalingPolicyState -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365252"><span id="local-6989586621679365254"><span id="local-6989586621679365256"><span class="annot"><span class="annottext">Int -&gt; AutoScalingPolicyState -&gt; ShowS
 [AutoScalingPolicyState] -&gt; ShowS
 AutoScalingPolicyState -&gt; String
 (Int -&gt; AutoScalingPolicyState -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: AutoScalingPolicyState -&gt; String
 showsPrec :: Int -&gt; AutoScalingPolicyState -&gt; ShowS
 $cshowsPrec :: Int -&gt; AutoScalingPolicyState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679364898"><span id="local-6989586621679364900"><span id="local-6989586621679364902"><span id="local-6989586621679364904"><span class="annot"><span class="annottext">ReadPrec [AutoScalingPolicyState]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679365243"><span id="local-6989586621679365245"><span id="local-6989586621679365247"><span id="local-6989586621679365249"><span class="annot"><span class="annottext">ReadPrec [AutoScalingPolicyState]
 ReadPrec AutoScalingPolicyState
 Int -&gt; ReadS AutoScalingPolicyState
 ReadS [AutoScalingPolicyState]
@@ -76,7 +76,7 @@ $creadList :: ReadS [AutoScalingPolicyState]
 readsPrec :: Int -&gt; ReadS AutoScalingPolicyState
 $creadsPrec :: Int -&gt; ReadS AutoScalingPolicyState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679364893"><span id="local-6989586621679364895"><span class="annot"><span class="annottext">AutoScalingPolicyState -&gt; AutoScalingPolicyState -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679365238"><span id="local-6989586621679365240"><span class="annot"><span class="annottext">AutoScalingPolicyState -&gt; AutoScalingPolicyState -&gt; Bool
 (AutoScalingPolicyState -&gt; AutoScalingPolicyState -&gt; Bool)
 -&gt; (AutoScalingPolicyState -&gt; AutoScalingPolicyState -&gt; Bool)
 -&gt; Eq AutoScalingPolicyState
@@ -86,7 +86,7 @@ $c/= :: AutoScalingPolicyState -&gt; AutoScalingPolicyState -&gt; Bool
 == :: AutoScalingPolicyState -&gt; AutoScalingPolicyState -&gt; Bool
 $c== :: AutoScalingPolicyState -&gt; AutoScalingPolicyState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679364877"><span id="local-6989586621679364879"><span id="local-6989586621679364881"><span id="local-6989586621679364883"><span id="local-6989586621679364885"><span id="local-6989586621679364887"><span id="local-6989586621679364889"><span class="annot"><span class="annottext">Eq AutoScalingPolicyState
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679365222"><span id="local-6989586621679365224"><span id="local-6989586621679365226"><span id="local-6989586621679365228"><span id="local-6989586621679365230"><span id="local-6989586621679365232"><span id="local-6989586621679365234"><span class="annot"><span class="annottext">Eq AutoScalingPolicyState
 Eq AutoScalingPolicyState
 -&gt; (AutoScalingPolicyState -&gt; AutoScalingPolicyState -&gt; Ordering)
 -&gt; (AutoScalingPolicyState -&gt; AutoScalingPolicyState -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. AutoScalingPolicyState -&gt; Rep AutoScalingPolicyState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364869"><span id="local-6989586621679364871"><span class="annot"><span class="annottext">Int -&gt; AutoScalingPolicyState -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365214"><span id="local-6989586621679365216"><span class="annot"><span class="annottext">Int -&gt; AutoScalingPolicyState -&gt; Int
 AutoScalingPolicyState -&gt; Int
 (Int -&gt; AutoScalingPolicyState -&gt; Int)
 -&gt; (AutoScalingPolicyState -&gt; Int)
@@ -156,54 +156,54 @@ $chash :: AutoScalingPolicyState -&gt; Int
 hashWithSalt :: Int -&gt; AutoScalingPolicyState -&gt; Int
 $chashWithSalt :: Int -&gt; AutoScalingPolicyState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679364866"><span class="annot"><span class="annottext">AutoScalingPolicyState -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679365211"><span class="annot"><span class="annottext">AutoScalingPolicyState -&gt; ()
 (AutoScalingPolicyState -&gt; ()) -&gt; NFData AutoScalingPolicyState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AutoScalingPolicyState -&gt; ()
 $crnf :: AutoScalingPolicyState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679364863"><span class="annot"><span class="annottext">Text -&gt; Either String AutoScalingPolicyState
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679365208"><span class="annot"><span class="annottext">Text -&gt; Either String AutoScalingPolicyState
 (Text -&gt; Either String AutoScalingPolicyState)
 -&gt; FromText AutoScalingPolicyState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AutoScalingPolicyState
 $cfromText :: Text -&gt; Either String AutoScalingPolicyState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679364860"><span class="annot"><span class="annottext">AutoScalingPolicyState -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679365205"><span class="annot"><span class="annottext">AutoScalingPolicyState -&gt; Text
 (AutoScalingPolicyState -&gt; Text) -&gt; ToText AutoScalingPolicyState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AutoScalingPolicyState -&gt; Text
 $ctoText :: AutoScalingPolicyState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679364857"><span class="annot"><span class="annottext">AutoScalingPolicyState -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679365202"><span class="annot"><span class="annottext">AutoScalingPolicyState -&gt; ByteString
 (AutoScalingPolicyState -&gt; ByteString)
 -&gt; ToByteString AutoScalingPolicyState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AutoScalingPolicyState -&gt; ByteString
 $ctoBS :: AutoScalingPolicyState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679364854"><span class="annot"><span class="annottext">AutoScalingPolicyState -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679365199"><span class="annot"><span class="annottext">AutoScalingPolicyState -&gt; ByteStringBuilder
 (AutoScalingPolicyState -&gt; ByteStringBuilder)
 -&gt; ToLog AutoScalingPolicyState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AutoScalingPolicyState -&gt; ByteStringBuilder
 $cbuild :: AutoScalingPolicyState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679364851"><span class="annot"><span class="annottext">HeaderName -&gt; AutoScalingPolicyState -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679365196"><span class="annot"><span class="annottext">HeaderName -&gt; AutoScalingPolicyState -&gt; [Header]
 (HeaderName -&gt; AutoScalingPolicyState -&gt; [Header])
 -&gt; ToHeader AutoScalingPolicyState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AutoScalingPolicyState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AutoScalingPolicyState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679364848"><span class="annot"><span class="annottext">AutoScalingPolicyState -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679365193"><span class="annot"><span class="annottext">AutoScalingPolicyState -&gt; QueryString
 (AutoScalingPolicyState -&gt; QueryString)
 -&gt; ToQuery AutoScalingPolicyState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AutoScalingPolicyState -&gt; QueryString
 $ctoQuery :: AutoScalingPolicyState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679364843"><span id="local-6989586621679364845"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoScalingPolicyState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679365188"><span id="local-6989586621679365190"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoScalingPolicyState]
 Value -&gt; Parser AutoScalingPolicyState
 (Value -&gt; Parser AutoScalingPolicyState)
 -&gt; (Value -&gt; Parser [AutoScalingPolicyState])
@@ -215,7 +215,7 @@ $cparseJSONList :: Value -&gt; Parser [AutoScalingPolicyState]
 parseJSON :: Value -&gt; Parser AutoScalingPolicyState
 $cparseJSON :: Value -&gt; Parser AutoScalingPolicyState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679364838"><span id="local-6989586621679364840"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoScalingPolicyState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679365183"><span id="local-6989586621679365185"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoScalingPolicyState]
 FromJSONKeyFunction AutoScalingPolicyState
 FromJSONKeyFunction AutoScalingPolicyState
 -&gt; FromJSONKeyFunction [AutoScalingPolicyState]
@@ -227,7 +227,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AutoScalingPolicyState]
 fromJSONKey :: FromJSONKeyFunction AutoScalingPolicyState
 $cfromJSONKey :: FromJSONKeyFunction AutoScalingPolicyState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679364829"><span id="local-6989586621679364831"><span id="local-6989586621679364833"><span id="local-6989586621679364835"><span class="annot"><span class="annottext">[AutoScalingPolicyState] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679365174"><span id="local-6989586621679365176"><span id="local-6989586621679365178"><span id="local-6989586621679365180"><span class="annot"><span class="annottext">[AutoScalingPolicyState] -&gt; Encoding
 [AutoScalingPolicyState] -&gt; Value
 AutoScalingPolicyState -&gt; Encoding
 AutoScalingPolicyState -&gt; Value
@@ -251,7 +251,7 @@ $ctoEncoding :: AutoScalingPolicyState -&gt; Encoding
 toJSON :: AutoScalingPolicyState -&gt; Value
 $ctoJSON :: AutoScalingPolicyState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679364824"><span id="local-6989586621679364826"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoScalingPolicyState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679365169"><span id="local-6989586621679365171"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoScalingPolicyState]
 ToJSONKeyFunction AutoScalingPolicyState
 ToJSONKeyFunction AutoScalingPolicyState
 -&gt; ToJSONKeyFunction [AutoScalingPolicyState]
@@ -263,14 +263,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AutoScalingPolicyState]
 toJSONKey :: ToJSONKeyFunction AutoScalingPolicyState
 $ctoJSONKey :: ToJSONKeyFunction AutoScalingPolicyState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679364821"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoScalingPolicyState
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679365166"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoScalingPolicyState
 ([Node] -&gt; Either String AutoScalingPolicyState)
 -&gt; FromXML AutoScalingPolicyState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AutoScalingPolicyState
 $cparseXML :: [Node] -&gt; Either String AutoScalingPolicyState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679364818"><span class="annot"><span class="annottext">AutoScalingPolicyState -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679365163"><span class="annot"><span class="annottext">AutoScalingPolicyState -&gt; XML
 (AutoScalingPolicyState -&gt; XML) -&gt; ToXML AutoScalingPolicyState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AutoScalingPolicyState -&gt; XML

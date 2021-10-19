@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679769786"><span id="local-6989586621679769787"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WriteForwardingStatus"><span class="annot"><a href="Network.AWS.RDS.Types.WriteForwardingStatus.html#WriteForwardingStatus"><span class="hs-identifier hs-var">WriteForwardingStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WriteForwardingStatus%27"><span class="annot"><a href="Network.AWS.RDS.Types.WriteForwardingStatus.html#WriteForwardingStatus%27"><span class="hs-identifier hs-var">WriteForwardingStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679770867"><span id="local-6989586621679770868"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WriteForwardingStatus"><span class="annot"><a href="Network.AWS.RDS.Types.WriteForwardingStatus.html#WriteForwardingStatus"><span class="hs-identifier hs-var">WriteForwardingStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WriteForwardingStatus%27"><span class="annot"><a href="Network.AWS.RDS.Types.WriteForwardingStatus.html#WriteForwardingStatus%27"><span class="hs-identifier hs-var">WriteForwardingStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWriteForwardingStatus"><span class="annot"><span class="annottext">WriteForwardingStatus -&gt; Text
 </span><a href="Network.AWS.RDS.Types.WriteForwardingStatus.html#fromWriteForwardingStatus"><span class="hs-identifier hs-var hs-var">fromWriteForwardingStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679769778"><span id="local-6989586621679769780"><span id="local-6989586621679769782"><span class="annot"><span class="annottext">Int -&gt; WriteForwardingStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679770859"><span id="local-6989586621679770861"><span id="local-6989586621679770863"><span class="annot"><span class="annottext">Int -&gt; WriteForwardingStatus -&gt; ShowS
 [WriteForwardingStatus] -&gt; ShowS
 WriteForwardingStatus -&gt; String
 (Int -&gt; WriteForwardingStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: WriteForwardingStatus -&gt; String
 showsPrec :: Int -&gt; WriteForwardingStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; WriteForwardingStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679769769"><span id="local-6989586621679769771"><span id="local-6989586621679769773"><span id="local-6989586621679769775"><span class="annot"><span class="annottext">ReadPrec [WriteForwardingStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679770850"><span id="local-6989586621679770852"><span id="local-6989586621679770854"><span id="local-6989586621679770856"><span class="annot"><span class="annottext">ReadPrec [WriteForwardingStatus]
 ReadPrec WriteForwardingStatus
 Int -&gt; ReadS WriteForwardingStatus
 ReadS [WriteForwardingStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [WriteForwardingStatus]
 readsPrec :: Int -&gt; ReadS WriteForwardingStatus
 $creadsPrec :: Int -&gt; ReadS WriteForwardingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679769764"><span id="local-6989586621679769766"><span class="annot"><span class="annottext">WriteForwardingStatus -&gt; WriteForwardingStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679770845"><span id="local-6989586621679770847"><span class="annot"><span class="annottext">WriteForwardingStatus -&gt; WriteForwardingStatus -&gt; Bool
 (WriteForwardingStatus -&gt; WriteForwardingStatus -&gt; Bool)
 -&gt; (WriteForwardingStatus -&gt; WriteForwardingStatus -&gt; Bool)
 -&gt; Eq WriteForwardingStatus
@@ -85,7 +85,7 @@ $c/= :: WriteForwardingStatus -&gt; WriteForwardingStatus -&gt; Bool
 == :: WriteForwardingStatus -&gt; WriteForwardingStatus -&gt; Bool
 $c== :: WriteForwardingStatus -&gt; WriteForwardingStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679769748"><span id="local-6989586621679769750"><span id="local-6989586621679769752"><span id="local-6989586621679769754"><span id="local-6989586621679769756"><span id="local-6989586621679769758"><span id="local-6989586621679769760"><span class="annot"><span class="annottext">Eq WriteForwardingStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679770829"><span id="local-6989586621679770831"><span id="local-6989586621679770833"><span id="local-6989586621679770835"><span id="local-6989586621679770837"><span id="local-6989586621679770839"><span id="local-6989586621679770841"><span class="annot"><span class="annottext">Eq WriteForwardingStatus
 Eq WriteForwardingStatus
 -&gt; (WriteForwardingStatus -&gt; WriteForwardingStatus -&gt; Ordering)
 -&gt; (WriteForwardingStatus -&gt; WriteForwardingStatus -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. WriteForwardingStatus -&gt; Rep WriteForwardingStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679769740"><span id="local-6989586621679769742"><span class="annot"><span class="annottext">Int -&gt; WriteForwardingStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679770821"><span id="local-6989586621679770823"><span class="annot"><span class="annottext">Int -&gt; WriteForwardingStatus -&gt; Int
 WriteForwardingStatus -&gt; Int
 (Int -&gt; WriteForwardingStatus -&gt; Int)
 -&gt; (WriteForwardingStatus -&gt; Int) -&gt; Hashable WriteForwardingStatus
@@ -153,54 +153,54 @@ $chash :: WriteForwardingStatus -&gt; Int
 hashWithSalt :: Int -&gt; WriteForwardingStatus -&gt; Int
 $chashWithSalt :: Int -&gt; WriteForwardingStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679769737"><span class="annot"><span class="annottext">WriteForwardingStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679770818"><span class="annot"><span class="annottext">WriteForwardingStatus -&gt; ()
 (WriteForwardingStatus -&gt; ()) -&gt; NFData WriteForwardingStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WriteForwardingStatus -&gt; ()
 $crnf :: WriteForwardingStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679769734"><span class="annot"><span class="annottext">Text -&gt; Either String WriteForwardingStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679770815"><span class="annot"><span class="annottext">Text -&gt; Either String WriteForwardingStatus
 (Text -&gt; Either String WriteForwardingStatus)
 -&gt; FromText WriteForwardingStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WriteForwardingStatus
 $cfromText :: Text -&gt; Either String WriteForwardingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679769731"><span class="annot"><span class="annottext">WriteForwardingStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679770812"><span class="annot"><span class="annottext">WriteForwardingStatus -&gt; Text
 (WriteForwardingStatus -&gt; Text) -&gt; ToText WriteForwardingStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WriteForwardingStatus -&gt; Text
 $ctoText :: WriteForwardingStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679769728"><span class="annot"><span class="annottext">WriteForwardingStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679770809"><span class="annot"><span class="annottext">WriteForwardingStatus -&gt; ByteString
 (WriteForwardingStatus -&gt; ByteString)
 -&gt; ToByteString WriteForwardingStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WriteForwardingStatus -&gt; ByteString
 $ctoBS :: WriteForwardingStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679769725"><span class="annot"><span class="annottext">WriteForwardingStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679770806"><span class="annot"><span class="annottext">WriteForwardingStatus -&gt; ByteStringBuilder
 (WriteForwardingStatus -&gt; ByteStringBuilder)
 -&gt; ToLog WriteForwardingStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WriteForwardingStatus -&gt; ByteStringBuilder
 $cbuild :: WriteForwardingStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679769722"><span class="annot"><span class="annottext">HeaderName -&gt; WriteForwardingStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679770803"><span class="annot"><span class="annottext">HeaderName -&gt; WriteForwardingStatus -&gt; [Header]
 (HeaderName -&gt; WriteForwardingStatus -&gt; [Header])
 -&gt; ToHeader WriteForwardingStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WriteForwardingStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WriteForwardingStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679769719"><span class="annot"><span class="annottext">WriteForwardingStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679770800"><span class="annot"><span class="annottext">WriteForwardingStatus -&gt; QueryString
 (WriteForwardingStatus -&gt; QueryString)
 -&gt; ToQuery WriteForwardingStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WriteForwardingStatus -&gt; QueryString
 $ctoQuery :: WriteForwardingStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679769714"><span id="local-6989586621679769716"><span class="annot"><span class="annottext">Value -&gt; Parser [WriteForwardingStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679770795"><span id="local-6989586621679770797"><span class="annot"><span class="annottext">Value -&gt; Parser [WriteForwardingStatus]
 Value -&gt; Parser WriteForwardingStatus
 (Value -&gt; Parser WriteForwardingStatus)
 -&gt; (Value -&gt; Parser [WriteForwardingStatus])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [WriteForwardingStatus]
 parseJSON :: Value -&gt; Parser WriteForwardingStatus
 $cparseJSON :: Value -&gt; Parser WriteForwardingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679769709"><span id="local-6989586621679769711"><span class="annot"><span class="annottext">FromJSONKeyFunction [WriteForwardingStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679770790"><span id="local-6989586621679770792"><span class="annot"><span class="annottext">FromJSONKeyFunction [WriteForwardingStatus]
 FromJSONKeyFunction WriteForwardingStatus
 FromJSONKeyFunction WriteForwardingStatus
 -&gt; FromJSONKeyFunction [WriteForwardingStatus]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WriteForwardingStatus]
 fromJSONKey :: FromJSONKeyFunction WriteForwardingStatus
 $cfromJSONKey :: FromJSONKeyFunction WriteForwardingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679769700"><span id="local-6989586621679769702"><span id="local-6989586621679769704"><span id="local-6989586621679769706"><span class="annot"><span class="annottext">[WriteForwardingStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679770781"><span id="local-6989586621679770783"><span id="local-6989586621679770785"><span id="local-6989586621679770787"><span class="annot"><span class="annottext">[WriteForwardingStatus] -&gt; Encoding
 [WriteForwardingStatus] -&gt; Value
 WriteForwardingStatus -&gt; Encoding
 WriteForwardingStatus -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: WriteForwardingStatus -&gt; Encoding
 toJSON :: WriteForwardingStatus -&gt; Value
 $ctoJSON :: WriteForwardingStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679769695"><span id="local-6989586621679769697"><span class="annot"><span class="annottext">ToJSONKeyFunction [WriteForwardingStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679770776"><span id="local-6989586621679770778"><span class="annot"><span class="annottext">ToJSONKeyFunction [WriteForwardingStatus]
 ToJSONKeyFunction WriteForwardingStatus
 ToJSONKeyFunction WriteForwardingStatus
 -&gt; ToJSONKeyFunction [WriteForwardingStatus]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WriteForwardingStatus]
 toJSONKey :: ToJSONKeyFunction WriteForwardingStatus
 $ctoJSONKey :: ToJSONKeyFunction WriteForwardingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679769692"><span class="annot"><span class="annottext">[Node] -&gt; Either String WriteForwardingStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679770773"><span class="annot"><span class="annottext">[Node] -&gt; Either String WriteForwardingStatus
 ([Node] -&gt; Either String WriteForwardingStatus)
 -&gt; FromXML WriteForwardingStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WriteForwardingStatus
 $cparseXML :: [Node] -&gt; Either String WriteForwardingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679769689"><span class="annot"><span class="annottext">WriteForwardingStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679770770"><span class="annot"><span class="annottext">WriteForwardingStatus -&gt; XML
 (WriteForwardingStatus -&gt; XML) -&gt; ToXML WriteForwardingStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: WriteForwardingStatus -&gt; XML

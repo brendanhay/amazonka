@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621681063278"><span id="local-6989586621681063279"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConversionTaskState"><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTaskState.html#ConversionTaskState"><span class="hs-identifier hs-var">ConversionTaskState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConversionTaskState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTaskState.html#ConversionTaskState%27"><span class="hs-identifier hs-var">ConversionTaskState'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681096853"><span id="local-6989586621681096854"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConversionTaskState"><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTaskState.html#ConversionTaskState"><span class="hs-identifier hs-var">ConversionTaskState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConversionTaskState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTaskState.html#ConversionTaskState%27"><span class="hs-identifier hs-var">ConversionTaskState'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConversionTaskState"><span class="annot"><span class="annottext">ConversionTaskState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ConversionTaskState.html#fromConversionTaskState"><span class="hs-identifier hs-var hs-var">fromConversionTaskState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681063270"><span id="local-6989586621681063272"><span id="local-6989586621681063274"><span class="annot"><span class="annottext">Int -&gt; ConversionTaskState -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681096845"><span id="local-6989586621681096847"><span id="local-6989586621681096849"><span class="annot"><span class="annottext">Int -&gt; ConversionTaskState -&gt; ShowS
 [ConversionTaskState] -&gt; ShowS
 ConversionTaskState -&gt; String
 (Int -&gt; ConversionTaskState -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ConversionTaskState -&gt; String
 showsPrec :: Int -&gt; ConversionTaskState -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConversionTaskState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681063261"><span id="local-6989586621681063263"><span id="local-6989586621681063265"><span id="local-6989586621681063267"><span class="annot"><span class="annottext">ReadPrec [ConversionTaskState]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681096836"><span id="local-6989586621681096838"><span id="local-6989586621681096840"><span id="local-6989586621681096842"><span class="annot"><span class="annottext">ReadPrec [ConversionTaskState]
 ReadPrec ConversionTaskState
 Int -&gt; ReadS ConversionTaskState
 ReadS [ConversionTaskState]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ConversionTaskState]
 readsPrec :: Int -&gt; ReadS ConversionTaskState
 $creadsPrec :: Int -&gt; ReadS ConversionTaskState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681063256"><span id="local-6989586621681063258"><span class="annot"><span class="annottext">ConversionTaskState -&gt; ConversionTaskState -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681096831"><span id="local-6989586621681096833"><span class="annot"><span class="annottext">ConversionTaskState -&gt; ConversionTaskState -&gt; Bool
 (ConversionTaskState -&gt; ConversionTaskState -&gt; Bool)
 -&gt; (ConversionTaskState -&gt; ConversionTaskState -&gt; Bool)
 -&gt; Eq ConversionTaskState
@@ -85,7 +85,7 @@ $c/= :: ConversionTaskState -&gt; ConversionTaskState -&gt; Bool
 == :: ConversionTaskState -&gt; ConversionTaskState -&gt; Bool
 $c== :: ConversionTaskState -&gt; ConversionTaskState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681063240"><span id="local-6989586621681063242"><span id="local-6989586621681063244"><span id="local-6989586621681063246"><span id="local-6989586621681063248"><span id="local-6989586621681063250"><span id="local-6989586621681063252"><span class="annot"><span class="annottext">Eq ConversionTaskState
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681096815"><span id="local-6989586621681096817"><span id="local-6989586621681096819"><span id="local-6989586621681096821"><span id="local-6989586621681096823"><span id="local-6989586621681096825"><span id="local-6989586621681096827"><span class="annot"><span class="annottext">Eq ConversionTaskState
 Eq ConversionTaskState
 -&gt; (ConversionTaskState -&gt; ConversionTaskState -&gt; Ordering)
 -&gt; (ConversionTaskState -&gt; ConversionTaskState -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. ConversionTaskState -&gt; Rep ConversionTaskState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681063232"><span id="local-6989586621681063234"><span class="annot"><span class="annottext">Int -&gt; ConversionTaskState -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681096807"><span id="local-6989586621681096809"><span class="annot"><span class="annottext">Int -&gt; ConversionTaskState -&gt; Int
 ConversionTaskState -&gt; Int
 (Int -&gt; ConversionTaskState -&gt; Int)
 -&gt; (ConversionTaskState -&gt; Int) -&gt; Hashable ConversionTaskState
@@ -148,53 +148,53 @@ $chash :: ConversionTaskState -&gt; Int
 hashWithSalt :: Int -&gt; ConversionTaskState -&gt; Int
 $chashWithSalt :: Int -&gt; ConversionTaskState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681063229"><span class="annot"><span class="annottext">ConversionTaskState -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681096804"><span class="annot"><span class="annottext">ConversionTaskState -&gt; ()
 (ConversionTaskState -&gt; ()) -&gt; NFData ConversionTaskState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConversionTaskState -&gt; ()
 $crnf :: ConversionTaskState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681063226"><span class="annot"><span class="annottext">Text -&gt; Either String ConversionTaskState
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681096801"><span class="annot"><span class="annottext">Text -&gt; Either String ConversionTaskState
 (Text -&gt; Either String ConversionTaskState)
 -&gt; FromText ConversionTaskState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConversionTaskState
 $cfromText :: Text -&gt; Either String ConversionTaskState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681063223"><span class="annot"><span class="annottext">ConversionTaskState -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681096798"><span class="annot"><span class="annottext">ConversionTaskState -&gt; Text
 (ConversionTaskState -&gt; Text) -&gt; ToText ConversionTaskState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConversionTaskState -&gt; Text
 $ctoText :: ConversionTaskState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681063220"><span class="annot"><span class="annottext">ConversionTaskState -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681096795"><span class="annot"><span class="annottext">ConversionTaskState -&gt; ByteString
 (ConversionTaskState -&gt; ByteString)
 -&gt; ToByteString ConversionTaskState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConversionTaskState -&gt; ByteString
 $ctoBS :: ConversionTaskState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681063217"><span class="annot"><span class="annottext">ConversionTaskState -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681096792"><span class="annot"><span class="annottext">ConversionTaskState -&gt; ByteStringBuilder
 (ConversionTaskState -&gt; ByteStringBuilder)
 -&gt; ToLog ConversionTaskState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConversionTaskState -&gt; ByteStringBuilder
 $cbuild :: ConversionTaskState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681063214"><span class="annot"><span class="annottext">HeaderName -&gt; ConversionTaskState -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681096789"><span class="annot"><span class="annottext">HeaderName -&gt; ConversionTaskState -&gt; [Header]
 (HeaderName -&gt; ConversionTaskState -&gt; [Header])
 -&gt; ToHeader ConversionTaskState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConversionTaskState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConversionTaskState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681063211"><span class="annot"><span class="annottext">ConversionTaskState -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681096786"><span class="annot"><span class="annottext">ConversionTaskState -&gt; QueryString
 (ConversionTaskState -&gt; QueryString) -&gt; ToQuery ConversionTaskState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConversionTaskState -&gt; QueryString
 $ctoQuery :: ConversionTaskState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681063206"><span id="local-6989586621681063208"><span class="annot"><span class="annottext">Value -&gt; Parser [ConversionTaskState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681096781"><span id="local-6989586621681096783"><span class="annot"><span class="annottext">Value -&gt; Parser [ConversionTaskState]
 Value -&gt; Parser ConversionTaskState
 (Value -&gt; Parser ConversionTaskState)
 -&gt; (Value -&gt; Parser [ConversionTaskState])
@@ -206,7 +206,7 @@ $cparseJSONList :: Value -&gt; Parser [ConversionTaskState]
 parseJSON :: Value -&gt; Parser ConversionTaskState
 $cparseJSON :: Value -&gt; Parser ConversionTaskState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681063201"><span id="local-6989586621681063203"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConversionTaskState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681096776"><span id="local-6989586621681096778"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConversionTaskState]
 FromJSONKeyFunction ConversionTaskState
 FromJSONKeyFunction ConversionTaskState
 -&gt; FromJSONKeyFunction [ConversionTaskState]
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConversionTaskState]
 fromJSONKey :: FromJSONKeyFunction ConversionTaskState
 $cfromJSONKey :: FromJSONKeyFunction ConversionTaskState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681063192"><span id="local-6989586621681063194"><span id="local-6989586621681063196"><span id="local-6989586621681063198"><span class="annot"><span class="annottext">[ConversionTaskState] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681096767"><span id="local-6989586621681096769"><span id="local-6989586621681096771"><span id="local-6989586621681096773"><span class="annot"><span class="annottext">[ConversionTaskState] -&gt; Encoding
 [ConversionTaskState] -&gt; Value
 ConversionTaskState -&gt; Encoding
 ConversionTaskState -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: ConversionTaskState -&gt; Encoding
 toJSON :: ConversionTaskState -&gt; Value
 $ctoJSON :: ConversionTaskState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681063187"><span id="local-6989586621681063189"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConversionTaskState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681096762"><span id="local-6989586621681096764"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConversionTaskState]
 ToJSONKeyFunction ConversionTaskState
 ToJSONKeyFunction ConversionTaskState
 -&gt; ToJSONKeyFunction [ConversionTaskState]
@@ -254,14 +254,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConversionTaskState]
 toJSONKey :: ToJSONKeyFunction ConversionTaskState
 $ctoJSONKey :: ToJSONKeyFunction ConversionTaskState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681063184"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConversionTaskState
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681096759"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConversionTaskState
 ([Node] -&gt; Either String ConversionTaskState)
 -&gt; FromXML ConversionTaskState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConversionTaskState
 $cparseXML :: [Node] -&gt; Either String ConversionTaskState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681063181"><span class="annot"><span class="annottext">ConversionTaskState -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681096756"><span class="annot"><span class="annottext">ConversionTaskState -&gt; XML
 (ConversionTaskState -&gt; XML) -&gt; ToXML ConversionTaskState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ConversionTaskState -&gt; XML

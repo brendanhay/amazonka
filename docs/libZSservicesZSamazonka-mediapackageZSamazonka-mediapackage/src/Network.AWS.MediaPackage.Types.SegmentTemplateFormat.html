@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679237532"><span id="local-6989586621679237533"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SegmentTemplateFormat"><span class="annot"><a href="Network.AWS.MediaPackage.Types.SegmentTemplateFormat.html#SegmentTemplateFormat"><span class="hs-identifier hs-var">SegmentTemplateFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SegmentTemplateFormat%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.SegmentTemplateFormat.html#SegmentTemplateFormat%27"><span class="hs-identifier hs-var">SegmentTemplateFormat'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679237659"><span id="local-6989586621679237660"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SegmentTemplateFormat"><span class="annot"><a href="Network.AWS.MediaPackage.Types.SegmentTemplateFormat.html#SegmentTemplateFormat"><span class="hs-identifier hs-var">SegmentTemplateFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SegmentTemplateFormat%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.SegmentTemplateFormat.html#SegmentTemplateFormat%27"><span class="hs-identifier hs-var">SegmentTemplateFormat'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSegmentTemplateFormat"><span class="annot"><span class="annottext">SegmentTemplateFormat -&gt; Text
 </span><a href="Network.AWS.MediaPackage.Types.SegmentTemplateFormat.html#fromSegmentTemplateFormat"><span class="hs-identifier hs-var hs-var">fromSegmentTemplateFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237524"><span id="local-6989586621679237526"><span id="local-6989586621679237528"><span class="annot"><span class="annottext">Int -&gt; SegmentTemplateFormat -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237651"><span id="local-6989586621679237653"><span id="local-6989586621679237655"><span class="annot"><span class="annottext">Int -&gt; SegmentTemplateFormat -&gt; ShowS
 [SegmentTemplateFormat] -&gt; ShowS
 SegmentTemplateFormat -&gt; String
 (Int -&gt; SegmentTemplateFormat -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: SegmentTemplateFormat -&gt; String
 showsPrec :: Int -&gt; SegmentTemplateFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; SegmentTemplateFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679237515"><span id="local-6989586621679237517"><span id="local-6989586621679237519"><span id="local-6989586621679237521"><span class="annot"><span class="annottext">ReadPrec [SegmentTemplateFormat]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679237642"><span id="local-6989586621679237644"><span id="local-6989586621679237646"><span id="local-6989586621679237648"><span class="annot"><span class="annottext">ReadPrec [SegmentTemplateFormat]
 ReadPrec SegmentTemplateFormat
 Int -&gt; ReadS SegmentTemplateFormat
 ReadS [SegmentTemplateFormat]
@@ -73,7 +73,7 @@ $creadList :: ReadS [SegmentTemplateFormat]
 readsPrec :: Int -&gt; ReadS SegmentTemplateFormat
 $creadsPrec :: Int -&gt; ReadS SegmentTemplateFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679237510"><span id="local-6989586621679237512"><span class="annot"><span class="annottext">SegmentTemplateFormat -&gt; SegmentTemplateFormat -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679237637"><span id="local-6989586621679237639"><span class="annot"><span class="annottext">SegmentTemplateFormat -&gt; SegmentTemplateFormat -&gt; Bool
 (SegmentTemplateFormat -&gt; SegmentTemplateFormat -&gt; Bool)
 -&gt; (SegmentTemplateFormat -&gt; SegmentTemplateFormat -&gt; Bool)
 -&gt; Eq SegmentTemplateFormat
@@ -83,7 +83,7 @@ $c/= :: SegmentTemplateFormat -&gt; SegmentTemplateFormat -&gt; Bool
 == :: SegmentTemplateFormat -&gt; SegmentTemplateFormat -&gt; Bool
 $c== :: SegmentTemplateFormat -&gt; SegmentTemplateFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679237494"><span id="local-6989586621679237496"><span id="local-6989586621679237498"><span id="local-6989586621679237500"><span id="local-6989586621679237502"><span id="local-6989586621679237504"><span id="local-6989586621679237506"><span class="annot"><span class="annottext">Eq SegmentTemplateFormat
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679237621"><span id="local-6989586621679237623"><span id="local-6989586621679237625"><span id="local-6989586621679237627"><span id="local-6989586621679237629"><span id="local-6989586621679237631"><span id="local-6989586621679237633"><span class="annot"><span class="annottext">Eq SegmentTemplateFormat
 Eq SegmentTemplateFormat
 -&gt; (SegmentTemplateFormat -&gt; SegmentTemplateFormat -&gt; Ordering)
 -&gt; (SegmentTemplateFormat -&gt; SegmentTemplateFormat -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. SegmentTemplateFormat -&gt; Rep SegmentTemplateFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237486"><span id="local-6989586621679237488"><span class="annot"><span class="annottext">Int -&gt; SegmentTemplateFormat -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237613"><span id="local-6989586621679237615"><span class="annot"><span class="annottext">Int -&gt; SegmentTemplateFormat -&gt; Int
 SegmentTemplateFormat -&gt; Int
 (Int -&gt; SegmentTemplateFormat -&gt; Int)
 -&gt; (SegmentTemplateFormat -&gt; Int) -&gt; Hashable SegmentTemplateFormat
@@ -151,54 +151,54 @@ $chash :: SegmentTemplateFormat -&gt; Int
 hashWithSalt :: Int -&gt; SegmentTemplateFormat -&gt; Int
 $chashWithSalt :: Int -&gt; SegmentTemplateFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679237483"><span class="annot"><span class="annottext">SegmentTemplateFormat -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679237610"><span class="annot"><span class="annottext">SegmentTemplateFormat -&gt; ()
 (SegmentTemplateFormat -&gt; ()) -&gt; NFData SegmentTemplateFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SegmentTemplateFormat -&gt; ()
 $crnf :: SegmentTemplateFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679237480"><span class="annot"><span class="annottext">Text -&gt; Either String SegmentTemplateFormat
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679237607"><span class="annot"><span class="annottext">Text -&gt; Either String SegmentTemplateFormat
 (Text -&gt; Either String SegmentTemplateFormat)
 -&gt; FromText SegmentTemplateFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SegmentTemplateFormat
 $cfromText :: Text -&gt; Either String SegmentTemplateFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679237477"><span class="annot"><span class="annottext">SegmentTemplateFormat -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679237604"><span class="annot"><span class="annottext">SegmentTemplateFormat -&gt; Text
 (SegmentTemplateFormat -&gt; Text) -&gt; ToText SegmentTemplateFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SegmentTemplateFormat -&gt; Text
 $ctoText :: SegmentTemplateFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679237474"><span class="annot"><span class="annottext">SegmentTemplateFormat -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679237601"><span class="annot"><span class="annottext">SegmentTemplateFormat -&gt; ByteString
 (SegmentTemplateFormat -&gt; ByteString)
 -&gt; ToByteString SegmentTemplateFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SegmentTemplateFormat -&gt; ByteString
 $ctoBS :: SegmentTemplateFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679237471"><span class="annot"><span class="annottext">SegmentTemplateFormat -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679237598"><span class="annot"><span class="annottext">SegmentTemplateFormat -&gt; ByteStringBuilder
 (SegmentTemplateFormat -&gt; ByteStringBuilder)
 -&gt; ToLog SegmentTemplateFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SegmentTemplateFormat -&gt; ByteStringBuilder
 $cbuild :: SegmentTemplateFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679237468"><span class="annot"><span class="annottext">HeaderName -&gt; SegmentTemplateFormat -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679237595"><span class="annot"><span class="annottext">HeaderName -&gt; SegmentTemplateFormat -&gt; [Header]
 (HeaderName -&gt; SegmentTemplateFormat -&gt; [Header])
 -&gt; ToHeader SegmentTemplateFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SegmentTemplateFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SegmentTemplateFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679237465"><span class="annot"><span class="annottext">SegmentTemplateFormat -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679237592"><span class="annot"><span class="annottext">SegmentTemplateFormat -&gt; QueryString
 (SegmentTemplateFormat -&gt; QueryString)
 -&gt; ToQuery SegmentTemplateFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SegmentTemplateFormat -&gt; QueryString
 $ctoQuery :: SegmentTemplateFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679237460"><span id="local-6989586621679237462"><span class="annot"><span class="annottext">Value -&gt; Parser [SegmentTemplateFormat]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679237587"><span id="local-6989586621679237589"><span class="annot"><span class="annottext">Value -&gt; Parser [SegmentTemplateFormat]
 Value -&gt; Parser SegmentTemplateFormat
 (Value -&gt; Parser SegmentTemplateFormat)
 -&gt; (Value -&gt; Parser [SegmentTemplateFormat])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [SegmentTemplateFormat]
 parseJSON :: Value -&gt; Parser SegmentTemplateFormat
 $cparseJSON :: Value -&gt; Parser SegmentTemplateFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679237455"><span id="local-6989586621679237457"><span class="annot"><span class="annottext">FromJSONKeyFunction [SegmentTemplateFormat]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679237582"><span id="local-6989586621679237584"><span class="annot"><span class="annottext">FromJSONKeyFunction [SegmentTemplateFormat]
 FromJSONKeyFunction SegmentTemplateFormat
 FromJSONKeyFunction SegmentTemplateFormat
 -&gt; FromJSONKeyFunction [SegmentTemplateFormat]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SegmentTemplateFormat]
 fromJSONKey :: FromJSONKeyFunction SegmentTemplateFormat
 $cfromJSONKey :: FromJSONKeyFunction SegmentTemplateFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679237446"><span id="local-6989586621679237448"><span id="local-6989586621679237450"><span id="local-6989586621679237452"><span class="annot"><span class="annottext">[SegmentTemplateFormat] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679237573"><span id="local-6989586621679237575"><span id="local-6989586621679237577"><span id="local-6989586621679237579"><span class="annot"><span class="annottext">[SegmentTemplateFormat] -&gt; Encoding
 [SegmentTemplateFormat] -&gt; Value
 SegmentTemplateFormat -&gt; Encoding
 SegmentTemplateFormat -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: SegmentTemplateFormat -&gt; Encoding
 toJSON :: SegmentTemplateFormat -&gt; Value
 $ctoJSON :: SegmentTemplateFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679237441"><span id="local-6989586621679237443"><span class="annot"><span class="annottext">ToJSONKeyFunction [SegmentTemplateFormat]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679237568"><span id="local-6989586621679237570"><span class="annot"><span class="annottext">ToJSONKeyFunction [SegmentTemplateFormat]
 ToJSONKeyFunction SegmentTemplateFormat
 ToJSONKeyFunction SegmentTemplateFormat
 -&gt; ToJSONKeyFunction [SegmentTemplateFormat]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SegmentTemplateFormat]
 toJSONKey :: ToJSONKeyFunction SegmentTemplateFormat
 $ctoJSONKey :: ToJSONKeyFunction SegmentTemplateFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679237438"><span class="annot"><span class="annottext">[Node] -&gt; Either String SegmentTemplateFormat
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679237565"><span class="annot"><span class="annottext">[Node] -&gt; Either String SegmentTemplateFormat
 ([Node] -&gt; Either String SegmentTemplateFormat)
 -&gt; FromXML SegmentTemplateFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SegmentTemplateFormat
 $cparseXML :: [Node] -&gt; Either String SegmentTemplateFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679237435"><span class="annot"><span class="annottext">SegmentTemplateFormat -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679237562"><span class="annot"><span class="annottext">SegmentTemplateFormat -&gt; XML
 (SegmentTemplateFormat -&gt; XML) -&gt; ToXML SegmentTemplateFormat
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SegmentTemplateFormat -&gt; XML

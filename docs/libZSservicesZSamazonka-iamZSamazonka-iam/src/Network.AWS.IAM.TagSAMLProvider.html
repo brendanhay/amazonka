@@ -76,7 +76,7 @@
 </span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | /See:/ 'newTagSAMLProvider' smart constructor.</span><span>
-</span><span id="line-79"></span><span id="local-6989586621679434729"><span id="local-6989586621679434730"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagSAMLProvider"><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider"><span class="hs-identifier hs-var">TagSAMLProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagSAMLProvider%27"><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider%27"><span class="hs-identifier hs-var">TagSAMLProvider'</span></a></span></span><span>
+</span><span id="line-79"></span><span id="local-6989586621679435265"><span id="local-6989586621679435266"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagSAMLProvider"><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider"><span class="hs-identifier hs-var">TagSAMLProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagSAMLProvider%27"><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider%27"><span class="hs-identifier hs-var">TagSAMLProvider'</span></a></span></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the SAML identity provider in IAM to which you want to add</span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-comment">-- tags.</span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -91,7 +91,7 @@
 </span><span id="line-90"></span><span>    </span><span id="%24sel%3Atags%3ATagSAMLProvider%27"><span class="annot"><span class="annottext">TagSAMLProvider -&gt; [Tag]
 </span><a href="Network.AWS.IAM.TagSAMLProvider.html#%24sel%3Atags%3ATagSAMLProvider%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434722"><span id="local-6989586621679434724"><span class="annot"><span class="annottext">TagSAMLProvider -&gt; TagSAMLProvider -&gt; Bool
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435258"><span id="local-6989586621679435260"><span class="annot"><span class="annottext">TagSAMLProvider -&gt; TagSAMLProvider -&gt; Bool
 (TagSAMLProvider -&gt; TagSAMLProvider -&gt; Bool)
 -&gt; (TagSAMLProvider -&gt; TagSAMLProvider -&gt; Bool)
 -&gt; Eq TagSAMLProvider
@@ -100,7 +100,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagSAMLProvider -&gt; TagSAMLProvider -&gt; Bool
 == :: TagSAMLProvider -&gt; TagSAMLProvider -&gt; Bool
 $c== :: TagSAMLProvider -&gt; TagSAMLProvider -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434713"><span id="local-6989586621679434715"><span id="local-6989586621679434717"><span id="local-6989586621679434719"><span class="annot"><span class="annottext">ReadPrec [TagSAMLProvider]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435249"><span id="local-6989586621679435251"><span id="local-6989586621679435253"><span id="local-6989586621679435255"><span class="annot"><span class="annottext">ReadPrec [TagSAMLProvider]
 ReadPrec TagSAMLProvider
 Int -&gt; ReadS TagSAMLProvider
 ReadS [TagSAMLProvider]
@@ -120,7 +120,7 @@ readList :: ReadS [TagSAMLProvider]
 $creadList :: ReadS [TagSAMLProvider]
 readsPrec :: Int -&gt; ReadS TagSAMLProvider
 $creadsPrec :: Int -&gt; ReadS TagSAMLProvider
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434706"><span id="local-6989586621679434708"><span id="local-6989586621679434710"><span class="annot"><span class="annottext">Int -&gt; TagSAMLProvider -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435242"><span id="local-6989586621679435244"><span id="local-6989586621679435246"><span class="annot"><span class="annottext">Int -&gt; TagSAMLProvider -&gt; ShowS
 [TagSAMLProvider] -&gt; ShowS
 TagSAMLProvider -&gt; String
 (Int -&gt; TagSAMLProvider -&gt; ShowS)
@@ -169,14 +169,14 @@ $cfrom :: forall x. TagSAMLProvider -&gt; Rep TagSAMLProvider x
 </span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider"><span class="hs-identifier hs-type">TagSAMLProvider</span></a></span><span>
 </span><span id="line-116"></span><span id="newTagSAMLProvider"><span class="annot"><span class="annottext">newTagSAMLProvider :: Text -&gt; TagSAMLProvider
-</span><a href="Network.AWS.IAM.TagSAMLProvider.html#newTagSAMLProvider"><span class="hs-identifier hs-var hs-var">newTagSAMLProvider</span></a></span></span><span> </span><span id="local-6989586621679434701"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434701"><span class="hs-identifier hs-var">pSAMLProviderArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.TagSAMLProvider.html#newTagSAMLProvider"><span class="hs-identifier hs-var hs-var">newTagSAMLProvider</span></a></span></span><span> </span><span id="local-6989586621679435237"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435237"><span class="hs-identifier hs-var">pSAMLProviderArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">TagSAMLProvider' :: Text -&gt; [Tag] -&gt; TagSAMLProvider
 </span><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider%27"><span class="hs-identifier hs-type">TagSAMLProvider'</span></a></span><span>
 </span><span id="line-118"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sAMLProviderArn:TagSAMLProvider' :: Text
 </span><a href="Network.AWS.IAM.TagSAMLProvider.html#%24sel%3AsAMLProviderArn%3ATagSAMLProvider%27"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434701"><span class="hs-identifier hs-var">pSAMLProviderArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679435237"><span class="hs-identifier hs-var">pSAMLProviderArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:TagSAMLProvider' :: [Tag]
 </span><a href="Network.AWS.IAM.TagSAMLProvider.html#%24sel%3Atags%3ATagSAMLProvider%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
 forall a. Monoid a =&gt; a
@@ -196,16 +196,16 @@ forall a. Monoid a =&gt; a
 -&gt; (TagSAMLProvider -&gt; Text -&gt; TagSAMLProvider)
 -&gt; Lens TagSAMLProvider TagSAMLProvider Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider%27"><span class="hs-identifier hs-type">TagSAMLProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434698"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider%27"><span class="hs-identifier hs-type">TagSAMLProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435234"><span class="annot"><span class="annottext">Text
 sAMLProviderArn :: Text
 $sel:sAMLProviderArn:TagSAMLProvider' :: TagSAMLProvider -&gt; Text
-</span><a href="#local-6989586621679434698"><span class="hs-identifier hs-var hs-var">sAMLProviderArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434698"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434697"><span class="annot"><span class="annottext">s :: TagSAMLProvider
-</span><a href="#local-6989586621679434697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider%27"><span class="hs-identifier hs-type">TagSAMLProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434696"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagSAMLProvider
-</span><a href="#local-6989586621679434697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sAMLProviderArn:TagSAMLProvider' :: Text
+</span><a href="#local-6989586621679435234"><span class="hs-identifier hs-var hs-var">sAMLProviderArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435234"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435233"><span class="annot"><span class="annottext">s :: TagSAMLProvider
+</span><a href="#local-6989586621679435233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider%27"><span class="hs-identifier hs-type">TagSAMLProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435232"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagSAMLProvider
+</span><a href="#local-6989586621679435233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sAMLProviderArn:TagSAMLProvider' :: Text
 </span><a href="Network.AWS.IAM.TagSAMLProvider.html#%24sel%3AsAMLProviderArn%3ATagSAMLProvider%27"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider"><span class="hs-identifier hs-type">TagSAMLProvider</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679435232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider"><span class="hs-identifier hs-type">TagSAMLProvider</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The list of tags that you want to attach to the SAML identity provider</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- in IAM. Each tag consists of a key name and an associated value.</span><span>
@@ -215,35 +215,35 @@ $sel:sAMLProviderArn:TagSAMLProvider' :: TagSAMLProvider -&gt; Text
 -&gt; (TagSAMLProvider -&gt; [Tag] -&gt; TagSAMLProvider)
 -&gt; Lens TagSAMLProvider TagSAMLProvider [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider%27"><span class="hs-identifier hs-type">TagSAMLProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434695"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider%27"><span class="hs-identifier hs-type">TagSAMLProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435231"><span class="annot"><span class="annottext">[Tag]
 tags :: [Tag]
 $sel:tags:TagSAMLProvider' :: TagSAMLProvider -&gt; [Tag]
-</span><a href="#local-6989586621679434695"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679434695"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434694"><span class="annot"><span class="annottext">s :: TagSAMLProvider
-</span><a href="#local-6989586621679434694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider%27"><span class="hs-identifier hs-type">TagSAMLProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434693"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679434693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagSAMLProvider
-</span><a href="#local-6989586621679434694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagSAMLProvider' :: [Tag]
+</span><a href="#local-6989586621679435231"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679435231"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435230"><span class="annot"><span class="annottext">s :: TagSAMLProvider
+</span><a href="#local-6989586621679435230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider%27"><span class="hs-identifier hs-type">TagSAMLProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435229"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679435229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagSAMLProvider
+</span><a href="#local-6989586621679435230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagSAMLProvider' :: [Tag]
 </span><a href="Network.AWS.IAM.TagSAMLProvider.html#%24sel%3Atags%3ATagSAMLProvider%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679434693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider"><span class="hs-identifier hs-type">TagSAMLProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; TagSAMLProvider -&gt; f TagSAMLProvider)
+</span><a href="#local-6989586621679435229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider"><span class="hs-identifier hs-type">TagSAMLProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; TagSAMLProvider -&gt; f TagSAMLProvider)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
 -&gt; TagSAMLProvider
 -&gt; f TagSAMLProvider
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider"><span class="hs-identifier hs-type">TagSAMLProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-140"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider"><span class="hs-identifier hs-type">TagSAMLProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProviderResponse"><span class="hs-identifier hs-type">TagSAMLProviderResponse</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679434687"><span class="annot"><span class="annottext">request :: TagSAMLProvider -&gt; Request TagSAMLProvider
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679435223"><span class="annot"><span class="annottext">request :: TagSAMLProvider -&gt; Request TagSAMLProvider
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TagSAMLProvider -&gt; Request TagSAMLProvider
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679434683"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679435219"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TagSAMLProvider
 -&gt; ClientResponse ClientBody
@@ -267,12 +267,12 @@ AWSResponse a
 TagSAMLProviderResponse
 </span><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProviderResponse%27"><span class="hs-identifier hs-var">TagSAMLProviderResponse'</span></a></span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434676"><span id="local-6989586621679434678"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider"><span class="hs-identifier hs-type">TagSAMLProvider</span></a></span></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435212"><span id="local-6989586621679435214"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider"><span class="hs-identifier hs-type">TagSAMLProvider</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434673"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider"><span class="hs-identifier hs-type">TagSAMLProvider</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435209"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider"><span class="hs-identifier hs-type">TagSAMLProvider</span></a></span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider"><span class="hs-identifier hs-type">TagSAMLProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679434669"><span class="annot"><span class="annottext">toHeaders :: TagSAMLProvider -&gt; [Header]
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679435205"><span class="annot"><span class="annottext">toHeaders :: TagSAMLProvider -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; TagSAMLProvider -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -280,21 +280,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider"><span class="hs-identifier hs-type">TagSAMLProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679434664"><span class="annot"><span class="annottext">toPath :: TagSAMLProvider -&gt; ByteString
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679435200"><span class="annot"><span class="annottext">toPath :: TagSAMLProvider -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TagSAMLProvider -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider"><span class="hs-identifier hs-type">TagSAMLProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679434660"><span class="annot"><span class="annottext">toQuery :: TagSAMLProvider -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider%27"><span class="hs-identifier hs-type">TagSAMLProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434657"><span id="local-6989586621679434658"><span class="annot"><span class="annottext">[Tag]
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679435196"><span class="annot"><span class="annottext">toQuery :: TagSAMLProvider -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProvider%27"><span class="hs-identifier hs-type">TagSAMLProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435193"><span id="local-6989586621679435194"><span class="annot"><span class="annottext">[Tag]
 Text
 tags :: [Tag]
 sAMLProviderArn :: Text
 $sel:tags:TagSAMLProvider' :: TagSAMLProvider -&gt; [Tag]
 $sel:sAMLProviderArn:TagSAMLProvider' :: TagSAMLProvider -&gt; Text
-</span><a href="#local-6989586621679434657"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679435193"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -314,7 +314,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;SAMLProviderArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434658"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679435194"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
@@ -324,14 +324,14 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679434657"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><a href="#local-6989586621679435193"><span class="hs-identifier hs-var">tags</span></a></span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | /See:/ 'newTagSAMLProviderResponse' smart constructor.</span><span>
-</span><span id="line-168"></span><span id="local-6989586621679434653"><span id="local-6989586621679434654"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagSAMLProviderResponse"><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProviderResponse"><span class="hs-identifier hs-var">TagSAMLProviderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagSAMLProviderResponse%27"><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProviderResponse%27"><span class="hs-identifier hs-var">TagSAMLProviderResponse'</span></a></span></span><span>
+</span><span id="line-168"></span><span id="local-6989586621679435189"><span id="local-6989586621679435190"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagSAMLProviderResponse"><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProviderResponse"><span class="hs-identifier hs-var">TagSAMLProviderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagSAMLProviderResponse%27"><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProviderResponse%27"><span class="hs-identifier hs-var">TagSAMLProviderResponse'</span></a></span></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434649"><span id="local-6989586621679434651"><span class="annot"><span class="annottext">TagSAMLProviderResponse -&gt; TagSAMLProviderResponse -&gt; Bool
+</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435185"><span id="local-6989586621679435187"><span class="annot"><span class="annottext">TagSAMLProviderResponse -&gt; TagSAMLProviderResponse -&gt; Bool
 (TagSAMLProviderResponse -&gt; TagSAMLProviderResponse -&gt; Bool)
 -&gt; (TagSAMLProviderResponse -&gt; TagSAMLProviderResponse -&gt; Bool)
 -&gt; Eq TagSAMLProviderResponse
@@ -340,7 +340,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagSAMLProviderResponse -&gt; TagSAMLProviderResponse -&gt; Bool
 == :: TagSAMLProviderResponse -&gt; TagSAMLProviderResponse -&gt; Bool
 $c== :: TagSAMLProviderResponse -&gt; TagSAMLProviderResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434641"><span id="local-6989586621679434643"><span id="local-6989586621679434645"><span id="local-6989586621679434647"><span class="annot"><span class="annottext">ReadPrec [TagSAMLProviderResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435177"><span id="local-6989586621679435179"><span id="local-6989586621679435181"><span id="local-6989586621679435183"><span class="annot"><span class="annottext">ReadPrec [TagSAMLProviderResponse]
 ReadPrec TagSAMLProviderResponse
 Int -&gt; ReadS TagSAMLProviderResponse
 ReadS [TagSAMLProviderResponse]
@@ -360,7 +360,7 @@ readList :: ReadS [TagSAMLProviderResponse]
 $creadList :: ReadS [TagSAMLProviderResponse]
 readsPrec :: Int -&gt; ReadS TagSAMLProviderResponse
 $creadsPrec :: Int -&gt; ReadS TagSAMLProviderResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434635"><span id="local-6989586621679434637"><span id="local-6989586621679434639"><span class="annot"><span class="annottext">Int -&gt; TagSAMLProviderResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435171"><span id="local-6989586621679435173"><span id="local-6989586621679435175"><span class="annot"><span class="annottext">Int -&gt; TagSAMLProviderResponse -&gt; ShowS
 [TagSAMLProviderResponse] -&gt; ShowS
 TagSAMLProviderResponse -&gt; String
 (Int -&gt; TagSAMLProviderResponse -&gt; ShowS)
@@ -398,5 +398,5 @@ $cfrom :: forall x. TagSAMLProviderResponse -&gt; Rep TagSAMLProviderResponse x
 </span><a href="Network.AWS.IAM.TagSAMLProvider.html#newTagSAMLProviderResponse"><span class="hs-identifier hs-var hs-var">newTagSAMLProviderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TagSAMLProviderResponse
 </span><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProviderResponse%27"><span class="hs-identifier hs-var">TagSAMLProviderResponse'</span></a></span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434631"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProviderResponse"><span class="hs-identifier hs-type">TagSAMLProviderResponse</span></a></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435167"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagSAMLProvider.html#TagSAMLProviderResponse"><span class="hs-identifier hs-type">TagSAMLProviderResponse</span></a></span></span><span>
 </span><span id="line-182"></span></pre></body></html>

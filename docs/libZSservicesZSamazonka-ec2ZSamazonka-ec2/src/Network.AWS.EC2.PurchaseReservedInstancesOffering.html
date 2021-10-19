@@ -43,9 +43,9 @@
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#newPurchaseReservedInstancesOffering"><span class="hs-identifier">newPurchaseReservedInstancesOffering</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_dryRun"><span class="hs-identifier">purchaseReservedInstancesOffering_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_purchaseTime"><span class="hs-identifier">purchaseReservedInstancesOffering_purchaseTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_limitPrice"><span class="hs-identifier">purchaseReservedInstancesOffering_limitPrice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_purchaseTime"><span class="hs-identifier">purchaseReservedInstancesOffering_purchaseTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_limitPrice"><span class="hs-identifier">purchaseReservedInstancesOffering_limitPrice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_dryRun"><span class="hs-identifier">purchaseReservedInstancesOffering_dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_instanceCount"><span class="hs-identifier">purchaseReservedInstancesOffering_instanceCount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_reservedInstancesOfferingId"><span class="hs-identifier">purchaseReservedInstancesOffering_reservedInstancesOfferingId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>
@@ -69,23 +69,23 @@
 </span><span id="line-69"></span><span class="hs-comment">-- | Contains the parameters for PurchaseReservedInstancesOffering.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- /See:/ 'newPurchaseReservedInstancesOffering' smart constructor.</span><span>
-</span><span id="line-72"></span><span id="local-6989586621681176451"><span id="local-6989586621681176452"></span></span><span class="hs-keyword">data</span><span> </span><span id="PurchaseReservedInstancesOffering"><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-var">PurchaseReservedInstancesOffering</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PurchaseReservedInstancesOffering%27"><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var">PurchaseReservedInstancesOffering'</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-77"></span><span>    </span><span id="%24sel%3AdryRun%3APurchaseReservedInstancesOffering%27"><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AdryRun%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The time at which to purchase the Reserved Instance, in UTC format (for</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).</span><span>
-</span><span id="line-80"></span><span>    </span><span id="%24sel%3ApurchaseTime%3APurchaseReservedInstancesOffering%27"><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering -&gt; Maybe ISO8601
+</span><span id="line-72"></span><span id="local-6989586621681211826"><span id="local-6989586621681211827"></span></span><span class="hs-keyword">data</span><span> </span><span id="PurchaseReservedInstancesOffering"><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-var">PurchaseReservedInstancesOffering</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PurchaseReservedInstancesOffering%27"><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var">PurchaseReservedInstancesOffering'</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time at which to purchase the Reserved Instance, in UTC format (for</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3ApurchaseTime%3APurchaseReservedInstancesOffering%27"><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering -&gt; Maybe ISO8601
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3ApurchaseTime%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var hs-var">purchaseTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Specified for Reserved Instance Marketplace offerings to limit the total</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- order and ensure that the Reserved Instances are not purchased at</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- unexpected prices.</span><span>
-</span><span id="line-84"></span><span>    </span><span id="%24sel%3AlimitPrice%3APurchaseReservedInstancesOffering%27"><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | Specified for Reserved Instance Marketplace offerings to limit the total</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- order and ensure that the Reserved Instances are not purchased at</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- unexpected prices.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AlimitPrice%3APurchaseReservedInstancesOffering%27"><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering
 -&gt; Maybe ReservedInstanceLimitPrice
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AlimitPrice%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var hs-var">limitPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceLimitPrice.html#ReservedInstanceLimitPrice"><span class="hs-identifier hs-type">ReservedInstanceLimitPrice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AdryRun%3APurchaseReservedInstancesOffering%27"><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AdryRun%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The number of Reserved Instances to purchase.</span><span>
 </span><span id="line-86"></span><span>    </span><span id="%24sel%3AinstanceCount%3APurchaseReservedInstancesOffering%27"><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering -&gt; Int
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AinstanceCount%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -93,7 +93,7 @@
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3AreservedInstancesOfferingId%3APurchaseReservedInstancesOffering%27"><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering -&gt; Text
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AreservedInstancesOfferingId%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var hs-var">reservedInstancesOfferingId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681176441"><span id="local-6989586621681176443"><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681211816"><span id="local-6989586621681211818"><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering
 -&gt; PurchaseReservedInstancesOffering -&gt; Bool
 (PurchaseReservedInstancesOffering
  -&gt; PurchaseReservedInstancesOffering -&gt; Bool)
@@ -109,7 +109,7 @@ $c/= :: PurchaseReservedInstancesOffering
 -&gt; PurchaseReservedInstancesOffering -&gt; Bool
 $c== :: PurchaseReservedInstancesOffering
 -&gt; PurchaseReservedInstancesOffering -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681176432"><span id="local-6989586621681176434"><span id="local-6989586621681176436"><span id="local-6989586621681176438"><span class="annot"><span class="annottext">ReadPrec [PurchaseReservedInstancesOffering]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681211807"><span id="local-6989586621681211809"><span id="local-6989586621681211811"><span id="local-6989586621681211813"><span class="annot"><span class="annottext">ReadPrec [PurchaseReservedInstancesOffering]
 ReadPrec PurchaseReservedInstancesOffering
 Int -&gt; ReadS PurchaseReservedInstancesOffering
 ReadS [PurchaseReservedInstancesOffering]
@@ -129,7 +129,7 @@ readList :: ReadS [PurchaseReservedInstancesOffering]
 $creadList :: ReadS [PurchaseReservedInstancesOffering]
 readsPrec :: Int -&gt; ReadS PurchaseReservedInstancesOffering
 $creadsPrec :: Int -&gt; ReadS PurchaseReservedInstancesOffering
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681176425"><span id="local-6989586621681176427"><span id="local-6989586621681176429"><span class="annot"><span class="annottext">Int -&gt; PurchaseReservedInstancesOffering -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681211800"><span id="local-6989586621681211802"><span id="local-6989586621681211804"><span class="annot"><span class="annottext">Int -&gt; PurchaseReservedInstancesOffering -&gt; ShowS
 [PurchaseReservedInstancesOffering] -&gt; ShowS
 PurchaseReservedInstancesOffering -&gt; String
 (Int -&gt; PurchaseReservedInstancesOffering -&gt; ShowS)
@@ -175,17 +175,17 @@ PurchaseReservedInstancesOffering
 </span><span id="line-97"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- 'dryRun', 'purchaseReservedInstancesOffering_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 'purchaseTime', 'purchaseReservedInstancesOffering_purchaseTime' - The time at which to purchase the Reserved Instance, in UTC format (for</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).</span><span>
-</span><span id="line-107"></span><span class="hs-comment">--</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- 'limitPrice', 'purchaseReservedInstancesOffering_limitPrice' - Specified for Reserved Instance Marketplace offerings to limit the total</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- order and ensure that the Reserved Instances are not purchased at</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- unexpected prices.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'purchaseTime', 'purchaseReservedInstancesOffering_purchaseTime' - The time at which to purchase the Reserved Instance, in UTC format (for</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'limitPrice', 'purchaseReservedInstancesOffering_limitPrice' - Specified for Reserved Instance Marketplace offerings to limit the total</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- order and ensure that the Reserved Instances are not purchased at</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- unexpected prices.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'dryRun', 'purchaseReservedInstancesOffering_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
 </span><span id="line-111"></span><span class="hs-comment">--</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- 'instanceCount', 'purchaseReservedInstancesOffering_instanceCount' - The number of Reserved Instances to purchase.</span><span>
 </span><span id="line-113"></span><span class="hs-comment">--</span><span>
@@ -198,71 +198,43 @@ PurchaseReservedInstancesOffering
 </span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span>
 </span><span id="line-121"></span><span id="newPurchaseReservedInstancesOffering"><span class="annot"><span class="annottext">newPurchaseReservedInstancesOffering :: Int -&gt; Text -&gt; PurchaseReservedInstancesOffering
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#newPurchaseReservedInstancesOffering"><span class="hs-identifier hs-var hs-var">newPurchaseReservedInstancesOffering</span></a></span></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621681176420"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681176420"><span class="hs-identifier hs-var">pInstanceCount_</span></a></span></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621681176419"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681176419"><span class="hs-identifier hs-var">pReservedInstancesOfferingId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering' :: Maybe Bool
--&gt; Maybe ISO8601
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621681211795"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681211795"><span class="hs-identifier hs-var">pInstanceCount_</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621681211794"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681211794"><span class="hs-identifier hs-var">pReservedInstancesOfferingId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering' :: Maybe ISO8601
 -&gt; Maybe ReservedInstanceLimitPrice
+-&gt; Maybe Bool
 -&gt; Int
 -&gt; Text
 -&gt; PurchaseReservedInstancesOffering
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span>
-</span><span id="line-125"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:PurchaseReservedInstancesOffering' :: Maybe Bool
-</span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AdryRun%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-125"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:purchaseTime:PurchaseReservedInstancesOffering' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3ApurchaseTime%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var">purchaseTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:purchaseTime:PurchaseReservedInstancesOffering' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3ApurchaseTime%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var">purchaseTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:limitPrice:PurchaseReservedInstancesOffering' :: Maybe ReservedInstanceLimitPrice
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:limitPrice:PurchaseReservedInstancesOffering' :: Maybe ReservedInstanceLimitPrice
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AlimitPrice%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var">limitPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservedInstanceLimitPrice
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:dryRun:PurchaseReservedInstancesOffering' :: Maybe Bool
+</span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AdryRun%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceCount:PurchaseReservedInstancesOffering' :: Int
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AinstanceCount%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var">instanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681176420"><span class="hs-identifier hs-var">pInstanceCount_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681211795"><span class="hs-identifier hs-var">pInstanceCount_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:reservedInstancesOfferingId:PurchaseReservedInstancesOffering' :: Text
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AreservedInstancesOfferingId%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var">reservedInstancesOfferingId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681176419"><span class="hs-identifier hs-var">pReservedInstancesOfferingId_</span></a></span><span>
+</span><a href="#local-6989586621681211794"><span class="hs-identifier hs-var">pReservedInstancesOfferingId_</span></a></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_dryRun"><span class="hs-identifier hs-type">purchaseReservedInstancesOffering_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="purchaseReservedInstancesOffering_dryRun"><span class="annot"><span class="annottext">purchaseReservedInstancesOffering_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; PurchaseReservedInstancesOffering
--&gt; f PurchaseReservedInstancesOffering
-</span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_dryRun"><span class="hs-identifier hs-var hs-var">purchaseReservedInstancesOffering_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PurchaseReservedInstancesOffering -&gt; Maybe Bool)
--&gt; (PurchaseReservedInstancesOffering
-    -&gt; Maybe Bool -&gt; PurchaseReservedInstancesOffering)
--&gt; Lens
-     PurchaseReservedInstancesOffering
-     PurchaseReservedInstancesOffering
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681176416"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:PurchaseReservedInstancesOffering' :: PurchaseReservedInstancesOffering -&gt; Maybe Bool
-</span><a href="#local-6989586621681176416"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681176416"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681176415"><span class="annot"><span class="annottext">s :: PurchaseReservedInstancesOffering
-</span><a href="#local-6989586621681176415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681176414"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681176414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering
-</span><a href="#local-6989586621681176415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:PurchaseReservedInstancesOffering' :: Maybe Bool
-</span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AdryRun%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681176414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | The time at which to purchase the Reserved Instance, in UTC format (for</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_purchaseTime"><span class="hs-identifier hs-type">purchaseReservedInstancesOffering_purchaseTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="purchaseReservedInstancesOffering_purchaseTime"><span class="annot"><span class="annottext">purchaseReservedInstancesOffering_purchaseTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-134"></span><span class="hs-comment">-- | The time at which to purchase the Reserved Instance, in UTC format (for</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_purchaseTime"><span class="hs-identifier hs-type">purchaseReservedInstancesOffering_purchaseTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="purchaseReservedInstancesOffering_purchaseTime"><span class="annot"><span class="annottext">purchaseReservedInstancesOffering_purchaseTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; PurchaseReservedInstancesOffering
 -&gt; f PurchaseReservedInstancesOffering
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_purchaseTime"><span class="hs-identifier hs-var hs-var">purchaseReservedInstancesOffering_purchaseTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PurchaseReservedInstancesOffering -&gt; Maybe ISO8601)
@@ -274,16 +246,16 @@ $sel:dryRun:PurchaseReservedInstancesOffering' :: PurchaseReservedInstancesOffer
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681176413"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211791"><span class="annot"><span class="annottext">Maybe ISO8601
 purchaseTime :: Maybe ISO8601
 $sel:purchaseTime:PurchaseReservedInstancesOffering' :: PurchaseReservedInstancesOffering -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681176413"><span class="hs-identifier hs-var hs-var">purchaseTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681176413"><span class="hs-identifier hs-var">purchaseTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681176412"><span class="annot"><span class="annottext">s :: PurchaseReservedInstancesOffering
-</span><a href="#local-6989586621681176412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681176411"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681176411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering
-</span><a href="#local-6989586621681176412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:purchaseTime:PurchaseReservedInstancesOffering' :: Maybe ISO8601
+</span><a href="#local-6989586621681211791"><span class="hs-identifier hs-var hs-var">purchaseTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681211791"><span class="hs-identifier hs-var">purchaseTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681211790"><span class="annot"><span class="annottext">s :: PurchaseReservedInstancesOffering
+</span><a href="#local-6989586621681211790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681211789"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681211789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering
+</span><a href="#local-6989586621681211790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:purchaseTime:PurchaseReservedInstancesOffering' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3ApurchaseTime%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var">purchaseTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681176411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621681211789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; PurchaseReservedInstancesOffering
  -&gt; f PurchaseReservedInstancesOffering)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -301,12 +273,12 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- | Specified for Reserved Instance Marketplace offerings to limit the total</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- order and ensure that the Reserved Instances are not purchased at</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- unexpected prices.</span><span>
-</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_limitPrice"><span class="hs-identifier hs-type">purchaseReservedInstancesOffering_limitPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceLimitPrice.html#ReservedInstanceLimitPrice"><span class="hs-identifier hs-type">ReservedInstanceLimitPrice</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span id="purchaseReservedInstancesOffering_limitPrice"><span class="annot"><span class="annottext">purchaseReservedInstancesOffering_limitPrice :: (Maybe ReservedInstanceLimitPrice
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | Specified for Reserved Instance Marketplace offerings to limit the total</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- order and ensure that the Reserved Instances are not purchased at</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- unexpected prices.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_limitPrice"><span class="hs-identifier hs-type">purchaseReservedInstancesOffering_limitPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstanceLimitPrice.html#ReservedInstanceLimitPrice"><span class="hs-identifier hs-type">ReservedInstanceLimitPrice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="purchaseReservedInstancesOffering_limitPrice"><span class="annot"><span class="annottext">purchaseReservedInstancesOffering_limitPrice :: (Maybe ReservedInstanceLimitPrice
  -&gt; f (Maybe ReservedInstanceLimitPrice))
 -&gt; PurchaseReservedInstancesOffering
 -&gt; f PurchaseReservedInstancesOffering
@@ -321,17 +293,45 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe ReservedInstanceLimitPrice)
      (Maybe ReservedInstanceLimitPrice)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681176407"><span class="annot"><span class="annottext">Maybe ReservedInstanceLimitPrice
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211785"><span class="annot"><span class="annottext">Maybe ReservedInstanceLimitPrice
 limitPrice :: Maybe ReservedInstanceLimitPrice
 $sel:limitPrice:PurchaseReservedInstancesOffering' :: PurchaseReservedInstancesOffering
 -&gt; Maybe ReservedInstanceLimitPrice
-</span><a href="#local-6989586621681176407"><span class="hs-identifier hs-var hs-var">limitPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservedInstanceLimitPrice
-</span><a href="#local-6989586621681176407"><span class="hs-identifier hs-var">limitPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681176406"><span class="annot"><span class="annottext">s :: PurchaseReservedInstancesOffering
-</span><a href="#local-6989586621681176406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681176405"><span class="annot"><span class="annottext">Maybe ReservedInstanceLimitPrice
-</span><a href="#local-6989586621681176405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering
-</span><a href="#local-6989586621681176406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limitPrice:PurchaseReservedInstancesOffering' :: Maybe ReservedInstanceLimitPrice
+</span><a href="#local-6989586621681211785"><span class="hs-identifier hs-var hs-var">limitPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservedInstanceLimitPrice
+</span><a href="#local-6989586621681211785"><span class="hs-identifier hs-var">limitPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681211784"><span class="annot"><span class="annottext">s :: PurchaseReservedInstancesOffering
+</span><a href="#local-6989586621681211784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681211783"><span class="annot"><span class="annottext">Maybe ReservedInstanceLimitPrice
+</span><a href="#local-6989586621681211783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering
+</span><a href="#local-6989586621681211784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limitPrice:PurchaseReservedInstancesOffering' :: Maybe ReservedInstanceLimitPrice
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AlimitPrice%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var">limitPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservedInstanceLimitPrice
-</span><a href="#local-6989586621681176405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681211783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_dryRun"><span class="hs-identifier hs-type">purchaseReservedInstancesOffering_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="purchaseReservedInstancesOffering_dryRun"><span class="annot"><span class="annottext">purchaseReservedInstancesOffering_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; PurchaseReservedInstancesOffering
+-&gt; f PurchaseReservedInstancesOffering
+</span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_dryRun"><span class="hs-identifier hs-var hs-var">purchaseReservedInstancesOffering_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PurchaseReservedInstancesOffering -&gt; Maybe Bool)
+-&gt; (PurchaseReservedInstancesOffering
+    -&gt; Maybe Bool -&gt; PurchaseReservedInstancesOffering)
+-&gt; Lens
+     PurchaseReservedInstancesOffering
+     PurchaseReservedInstancesOffering
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211782"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:PurchaseReservedInstancesOffering' :: PurchaseReservedInstancesOffering -&gt; Maybe Bool
+</span><a href="#local-6989586621681211782"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681211782"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681211781"><span class="annot"><span class="annottext">s :: PurchaseReservedInstancesOffering
+</span><a href="#local-6989586621681211781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681211780"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681211780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering
+</span><a href="#local-6989586621681211781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:PurchaseReservedInstancesOffering' :: Maybe Bool
+</span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AdryRun%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681211780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The number of Reserved Instances to purchase.</span><span>
 </span><span id="line-153"></span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_instanceCount"><span class="hs-identifier hs-type">purchaseReservedInstancesOffering_instanceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -347,16 +347,16 @@ $sel:limitPrice:PurchaseReservedInstancesOffering' :: PurchaseReservedInstancesO
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681176404"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211779"><span class="annot"><span class="annottext">Int
 instanceCount :: Int
 $sel:instanceCount:PurchaseReservedInstancesOffering' :: PurchaseReservedInstancesOffering -&gt; Int
-</span><a href="#local-6989586621681176404"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681176404"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681176403"><span class="annot"><span class="annottext">s :: PurchaseReservedInstancesOffering
-</span><a href="#local-6989586621681176403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681176402"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681176402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering
-</span><a href="#local-6989586621681176403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCount:PurchaseReservedInstancesOffering' :: Int
+</span><a href="#local-6989586621681211779"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681211779"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681211778"><span class="annot"><span class="annottext">s :: PurchaseReservedInstancesOffering
+</span><a href="#local-6989586621681211778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681211777"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681211777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering
+</span><a href="#local-6989586621681211778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCount:PurchaseReservedInstancesOffering' :: Int
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AinstanceCount%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var">instanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681176402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681211777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The ID of the Reserved Instance offering to purchase.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOffering_reservedInstancesOfferingId"><span class="hs-identifier hs-type">purchaseReservedInstancesOffering_reservedInstancesOfferingId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -372,16 +372,16 @@ $sel:instanceCount:PurchaseReservedInstancesOffering' :: PurchaseReservedInstanc
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681176401"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211776"><span class="annot"><span class="annottext">Text
 reservedInstancesOfferingId :: Text
 $sel:reservedInstancesOfferingId:PurchaseReservedInstancesOffering' :: PurchaseReservedInstancesOffering -&gt; Text
-</span><a href="#local-6989586621681176401"><span class="hs-identifier hs-var hs-var">reservedInstancesOfferingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681176401"><span class="hs-identifier hs-var">reservedInstancesOfferingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681176400"><span class="annot"><span class="annottext">s :: PurchaseReservedInstancesOffering
-</span><a href="#local-6989586621681176400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681176399"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681176399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering
-</span><a href="#local-6989586621681176400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedInstancesOfferingId:PurchaseReservedInstancesOffering' :: Text
+</span><a href="#local-6989586621681211776"><span class="hs-identifier hs-var hs-var">reservedInstancesOfferingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681211776"><span class="hs-identifier hs-var">reservedInstancesOfferingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681211775"><span class="annot"><span class="annottext">s :: PurchaseReservedInstancesOffering
+</span><a href="#local-6989586621681211775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681211774"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681211774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedInstancesOffering
+</span><a href="#local-6989586621681211775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedInstancesOfferingId:PurchaseReservedInstancesOffering' :: Text
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AreservedInstancesOfferingId%3APurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-var">reservedInstancesOfferingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681176399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681211774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -390,7 +390,7 @@ $sel:reservedInstancesOfferingId:PurchaseReservedInstancesOffering' :: PurchaseR
 </span><span id="line-164"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-165"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse"><span class="hs-identifier hs-type">PurchaseReservedInstancesOfferingResponse</span></a></span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621681176395"><span class="annot"><span class="annottext">request :: PurchaseReservedInstancesOffering
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621681211770"><span class="annot"><span class="annottext">request :: PurchaseReservedInstancesOffering
 -&gt; Request PurchaseReservedInstancesOffering
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; PurchaseReservedInstancesOffering
@@ -398,7 +398,7 @@ $sel:reservedInstancesOfferingId:PurchaseReservedInstancesOffering' :: PurchaseR
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621681176391"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621681211766"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PurchaseReservedInstancesOffering
 -&gt; ClientResponse ClientBody
@@ -426,10 +426,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681176388"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681176388"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681176387"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681176387"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681176386"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681176386"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681211763"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681211763"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681211762"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681211762"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681211761"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681211761"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; PurchaseReservedInstancesOfferingResponse
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse%27"><span class="hs-identifier hs-var">PurchaseReservedInstancesOfferingResponse'</span></a></span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; PurchaseReservedInstancesOfferingResponse)
@@ -437,7 +437,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; PurchaseReservedInstancesOfferingResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681176386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681211761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;reservedInstancesId&quot;</span></span><span class="hs-special">)</span><span>
@@ -450,22 +450,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681176388"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681211763"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621681176378"><span id="local-6989586621681176380"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621681211753"><span id="local-6989586621681211755"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span></span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621681176375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621681211750"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span></span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-186"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621681176371"><span class="annot"><span class="annottext">toHeaders :: PurchaseReservedInstancesOffering -&gt; ResponseHeaders
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621681211746"><span class="annot"><span class="annottext">toHeaders :: PurchaseReservedInstancesOffering -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; PurchaseReservedInstancesOffering -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -477,7 +477,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621681176366"><span class="annot"><span class="annottext">toPath :: PurchaseReservedInstancesOffering -&gt; ByteString
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621681211741"><span class="annot"><span class="annottext">toPath :: PurchaseReservedInstancesOffering -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PurchaseReservedInstancesOffering -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -487,24 +487,24 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering</span></a></span><span>
 </span><span id="line-199"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621681176362"><span class="annot"><span class="annottext">toQuery :: PurchaseReservedInstancesOffering -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681176356"><span id="local-6989586621681176357"><span id="local-6989586621681176358"><span id="local-6989586621681176359"><span id="local-6989586621681176360"><span class="annot"><span class="annottext">Int
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621681211737"><span class="annot"><span class="annottext">toQuery :: PurchaseReservedInstancesOffering -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOffering%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211731"><span id="local-6989586621681211732"><span id="local-6989586621681211733"><span id="local-6989586621681211734"><span id="local-6989586621681211735"><span class="annot"><span class="annottext">Int
 Maybe Bool
 Maybe ISO8601
 Maybe ReservedInstanceLimitPrice
 Text
 reservedInstancesOfferingId :: Text
 instanceCount :: Int
+dryRun :: Maybe Bool
 limitPrice :: Maybe ReservedInstanceLimitPrice
 purchaseTime :: Maybe ISO8601
-dryRun :: Maybe Bool
 $sel:reservedInstancesOfferingId:PurchaseReservedInstancesOffering' :: PurchaseReservedInstancesOffering -&gt; Text
 $sel:instanceCount:PurchaseReservedInstancesOffering' :: PurchaseReservedInstancesOffering -&gt; Int
+$sel:dryRun:PurchaseReservedInstancesOffering' :: PurchaseReservedInstancesOffering -&gt; Maybe Bool
 $sel:limitPrice:PurchaseReservedInstancesOffering' :: PurchaseReservedInstancesOffering
 -&gt; Maybe ReservedInstanceLimitPrice
 $sel:purchaseTime:PurchaseReservedInstancesOffering' :: PurchaseReservedInstancesOffering -&gt; Maybe ISO8601
-$sel:dryRun:PurchaseReservedInstancesOffering' :: PurchaseReservedInstancesOffering -&gt; Maybe Bool
-</span><a href="#local-6989586621681176356"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681211731"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -523,37 +523,37 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681176360"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PurchaseTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ISO8601 -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681176359"><span class="hs-identifier hs-var">purchaseTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621681211735"><span class="hs-identifier hs-var">purchaseTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;LimitPrice&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ReservedInstanceLimitPrice -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReservedInstanceLimitPrice
-</span><a href="#local-6989586621681176358"><span class="hs-identifier hs-var">limitPrice</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681211734"><span class="hs-identifier hs-var">limitPrice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681211733"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;InstanceCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681176357"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681211732"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReservedInstancesOfferingId&quot;</span></span><span>
 </span><span id="line-213"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681176356"><span class="hs-identifier hs-var">reservedInstancesOfferingId</span></a></span><span>
+</span><a href="#local-6989586621681211731"><span class="hs-identifier hs-var">reservedInstancesOfferingId</span></a></span><span>
 </span><span id="line-214"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | Contains the output of PurchaseReservedInstancesOffering.</span><span>
 </span><span id="line-217"></span><span class="hs-comment">--</span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- /See:/ 'newPurchaseReservedInstancesOfferingResponse' smart constructor.</span><span>
-</span><span id="line-219"></span><span id="local-6989586621681176353"><span id="local-6989586621681176354"></span></span><span class="hs-keyword">data</span><span> </span><span id="PurchaseReservedInstancesOfferingResponse"><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse"><span class="hs-identifier hs-var">PurchaseReservedInstancesOfferingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PurchaseReservedInstancesOfferingResponse%27"><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse%27"><span class="hs-identifier hs-var">PurchaseReservedInstancesOfferingResponse'</span></a></span></span><span>
+</span><span id="line-219"></span><span id="local-6989586621681211728"><span id="local-6989586621681211729"></span></span><span class="hs-keyword">data</span><span> </span><span id="PurchaseReservedInstancesOfferingResponse"><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse"><span class="hs-identifier hs-var">PurchaseReservedInstancesOfferingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PurchaseReservedInstancesOfferingResponse%27"><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse%27"><span class="hs-identifier hs-var">PurchaseReservedInstancesOfferingResponse'</span></a></span></span><span>
 </span><span id="line-220"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the purchased Reserved Instances. If your purchase crosses</span><span>
 </span><span id="line-221"></span><span>    </span><span class="hs-comment">-- into a discounted pricing tier, the final Reserved Instances IDs might</span><span>
 </span><span id="line-222"></span><span>    </span><span class="hs-comment">-- change. For more information, see</span><span>
@@ -565,7 +565,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-227"></span><span>    </span><span id="%24sel%3AhttpStatus%3APurchaseReservedInstancesOfferingResponse%27"><span class="annot"><span class="annottext">PurchaseReservedInstancesOfferingResponse -&gt; Int
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AhttpStatus%3APurchaseReservedInstancesOfferingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-228"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-229"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681176347"><span id="local-6989586621681176349"><span class="annot"><span class="annottext">PurchaseReservedInstancesOfferingResponse
+</span><span id="line-229"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681211722"><span id="local-6989586621681211724"><span class="annot"><span class="annottext">PurchaseReservedInstancesOfferingResponse
 -&gt; PurchaseReservedInstancesOfferingResponse -&gt; Bool
 (PurchaseReservedInstancesOfferingResponse
  -&gt; PurchaseReservedInstancesOfferingResponse -&gt; Bool)
@@ -581,7 +581,7 @@ $c/= :: PurchaseReservedInstancesOfferingResponse
 -&gt; PurchaseReservedInstancesOfferingResponse -&gt; Bool
 $c== :: PurchaseReservedInstancesOfferingResponse
 -&gt; PurchaseReservedInstancesOfferingResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681176339"><span id="local-6989586621681176341"><span id="local-6989586621681176343"><span id="local-6989586621681176345"><span class="annot"><span class="annottext">ReadPrec [PurchaseReservedInstancesOfferingResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681211714"><span id="local-6989586621681211716"><span id="local-6989586621681211718"><span id="local-6989586621681211720"><span class="annot"><span class="annottext">ReadPrec [PurchaseReservedInstancesOfferingResponse]
 ReadPrec PurchaseReservedInstancesOfferingResponse
 Int -&gt; ReadS PurchaseReservedInstancesOfferingResponse
 ReadS [PurchaseReservedInstancesOfferingResponse]
@@ -601,7 +601,7 @@ readList :: ReadS [PurchaseReservedInstancesOfferingResponse]
 $creadList :: ReadS [PurchaseReservedInstancesOfferingResponse]
 readsPrec :: Int -&gt; ReadS PurchaseReservedInstancesOfferingResponse
 $creadsPrec :: Int -&gt; ReadS PurchaseReservedInstancesOfferingResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681176333"><span id="local-6989586621681176335"><span id="local-6989586621681176337"><span class="annot"><span class="annottext">Int -&gt; PurchaseReservedInstancesOfferingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681211708"><span id="local-6989586621681211710"><span id="local-6989586621681211712"><span class="annot"><span class="annottext">Int -&gt; PurchaseReservedInstancesOfferingResponse -&gt; ShowS
 [PurchaseReservedInstancesOfferingResponse] -&gt; ShowS
 PurchaseReservedInstancesOfferingResponse -&gt; String
 (Int -&gt; PurchaseReservedInstancesOfferingResponse -&gt; ShowS)
@@ -660,8 +660,8 @@ PurchaseReservedInstancesOfferingResponse
 </span><span id="line-249"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse"><span class="hs-identifier hs-type">PurchaseReservedInstancesOfferingResponse</span></a></span><span>
 </span><span id="line-250"></span><span id="newPurchaseReservedInstancesOfferingResponse"><span class="annot"><span class="annottext">newPurchaseReservedInstancesOfferingResponse :: Int -&gt; PurchaseReservedInstancesOfferingResponse
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#newPurchaseReservedInstancesOfferingResponse"><span class="hs-identifier hs-var hs-var">newPurchaseReservedInstancesOfferingResponse</span></a></span></span><span>
-</span><span id="line-251"></span><span>  </span><span id="local-6989586621681176330"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681176330"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621681211705"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681211705"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-252"></span><span>    </span><span class="annot"><span class="annottext">PurchaseReservedInstancesOfferingResponse' :: Maybe Text -&gt; Int -&gt; PurchaseReservedInstancesOfferingResponse
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOfferingResponse'</span></a></span><span>
 </span><span id="line-253"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reservedInstancesId:PurchaseReservedInstancesOfferingResponse' :: Maybe Text
@@ -671,7 +671,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:PurchaseReservedInstancesOfferingResponse' :: Int
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AhttpStatus%3APurchaseReservedInstancesOfferingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681176330"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681211705"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-256"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-257"></span><span>
 </span><span id="line-258"></span><span class="hs-comment">-- | The IDs of the purchased Reserved Instances. If your purchase crosses</span><span>
@@ -692,16 +692,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681176329"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211704"><span class="annot"><span class="annottext">Maybe Text
 reservedInstancesId :: Maybe Text
 $sel:reservedInstancesId:PurchaseReservedInstancesOfferingResponse' :: PurchaseReservedInstancesOfferingResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681176329"><span class="hs-identifier hs-var hs-var">reservedInstancesId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681176329"><span class="hs-identifier hs-var">reservedInstancesId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681176328"><span class="annot"><span class="annottext">s :: PurchaseReservedInstancesOfferingResponse
-</span><a href="#local-6989586621681176328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681176327"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681176327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedInstancesOfferingResponse
-</span><a href="#local-6989586621681176328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedInstancesId:PurchaseReservedInstancesOfferingResponse' :: Maybe Text
+</span><a href="#local-6989586621681211704"><span class="hs-identifier hs-var hs-var">reservedInstancesId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681211704"><span class="hs-identifier hs-var">reservedInstancesId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681211703"><span class="annot"><span class="annottext">s :: PurchaseReservedInstancesOfferingResponse
+</span><a href="#local-6989586621681211703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681211702"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681211702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedInstancesOfferingResponse
+</span><a href="#local-6989586621681211703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedInstancesId:PurchaseReservedInstancesOfferingResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AreservedInstancesId%3APurchaseReservedInstancesOfferingResponse%27"><span class="hs-identifier hs-var">reservedInstancesId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681176327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse"><span class="hs-identifier hs-type">PurchaseReservedInstancesOfferingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681211702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse"><span class="hs-identifier hs-type">PurchaseReservedInstancesOfferingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-265"></span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-267"></span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#purchaseReservedInstancesOfferingResponse_httpStatus"><span class="hs-identifier hs-type">purchaseReservedInstancesOfferingResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse"><span class="hs-identifier hs-type">PurchaseReservedInstancesOfferingResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -717,18 +717,18 @@ $sel:reservedInstancesId:PurchaseReservedInstancesOfferingResponse' :: PurchaseR
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681176326"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211701"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PurchaseReservedInstancesOfferingResponse' :: PurchaseReservedInstancesOfferingResponse -&gt; Int
-</span><a href="#local-6989586621681176326"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681176326"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681176325"><span class="annot"><span class="annottext">s :: PurchaseReservedInstancesOfferingResponse
-</span><a href="#local-6989586621681176325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681176324"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681176324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedInstancesOfferingResponse
-</span><a href="#local-6989586621681176325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PurchaseReservedInstancesOfferingResponse' :: Int
+</span><a href="#local-6989586621681211701"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681211701"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681211700"><span class="annot"><span class="annottext">s :: PurchaseReservedInstancesOfferingResponse
+</span><a href="#local-6989586621681211700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse%27"><span class="hs-identifier hs-type">PurchaseReservedInstancesOfferingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681211699"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681211699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseReservedInstancesOfferingResponse
+</span><a href="#local-6989586621681211700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PurchaseReservedInstancesOfferingResponse' :: Int
 </span><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#%24sel%3AhttpStatus%3APurchaseReservedInstancesOfferingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681176324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse"><span class="hs-identifier hs-type">PurchaseReservedInstancesOfferingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681211699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse"><span class="hs-identifier hs-type">PurchaseReservedInstancesOfferingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-271"></span><span>  </span><span id="local-6989586621681176322"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621681211697"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-272"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.PurchaseReservedInstancesOffering.html#PurchaseReservedInstancesOfferingResponse"><span class="hs-identifier hs-type">PurchaseReservedInstancesOfferingResponse</span></a></span></span><span>
 </span><span id="line-273"></span></pre></body></html>

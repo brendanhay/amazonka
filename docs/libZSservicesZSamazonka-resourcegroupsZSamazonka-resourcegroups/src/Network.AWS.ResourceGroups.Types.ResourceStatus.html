@@ -30,12 +30,12 @@
 </span><span id="line-30"></span><span class="hs-comment">-- this resource, that the process isn\'t completed yet.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newResourceStatus' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679177446"><span id="local-6989586621679177447"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceStatus"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-var">ResourceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceStatus%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#ResourceStatus%27"><span class="hs-identifier hs-var">ResourceStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679177579"><span id="local-6989586621679177580"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceStatus"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-var">ResourceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceStatus%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#ResourceStatus%27"><span class="hs-identifier hs-var">ResourceStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aname%3AResourceStatus%27"><span class="annot"><span class="annottext">ResourceStatus -&gt; Maybe ResourceStatusValue
 </span><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#%24sel%3Aname%3AResourceStatus%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceStatusValue.html#ResourceStatusValue"><span class="hs-identifier hs-type">ResourceStatusValue</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177440"><span id="local-6989586621679177442"><span class="annot"><span class="annottext">ResourceStatus -&gt; ResourceStatus -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177573"><span id="local-6989586621679177575"><span class="annot"><span class="annottext">ResourceStatus -&gt; ResourceStatus -&gt; Bool
 (ResourceStatus -&gt; ResourceStatus -&gt; Bool)
 -&gt; (ResourceStatus -&gt; ResourceStatus -&gt; Bool) -&gt; Eq ResourceStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceStatus -&gt; ResourceStatus -&gt; Bool
 == :: ResourceStatus -&gt; ResourceStatus -&gt; Bool
 $c== :: ResourceStatus -&gt; ResourceStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177431"><span id="local-6989586621679177433"><span id="local-6989586621679177435"><span id="local-6989586621679177437"><span class="annot"><span class="annottext">ReadPrec [ResourceStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177564"><span id="local-6989586621679177566"><span id="local-6989586621679177568"><span id="local-6989586621679177570"><span class="annot"><span class="annottext">ReadPrec [ResourceStatus]
 ReadPrec ResourceStatus
 Int -&gt; ReadS ResourceStatus
 ReadS [ResourceStatus]
@@ -63,7 +63,7 @@ readList :: ReadS [ResourceStatus]
 $creadList :: ReadS [ResourceStatus]
 readsPrec :: Int -&gt; ReadS ResourceStatus
 $creadsPrec :: Int -&gt; ReadS ResourceStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177424"><span id="local-6989586621679177426"><span id="local-6989586621679177428"><span class="annot"><span class="annottext">Int -&gt; ResourceStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177557"><span id="local-6989586621679177559"><span id="local-6989586621679177561"><span class="annot"><span class="annottext">Int -&gt; ResourceStatus -&gt; ShowS
 [ResourceStatus] -&gt; ShowS
 ResourceStatus -&gt; String
 (Int -&gt; ResourceStatus -&gt; ShowS)
@@ -120,19 +120,19 @@ forall a. Maybe a
      (Maybe ResourceStatusValue)
      (Maybe ResourceStatusValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#ResourceStatus%27"><span class="hs-identifier hs-type">ResourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177415"><span class="annot"><span class="annottext">Maybe ResourceStatusValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#ResourceStatus%27"><span class="hs-identifier hs-type">ResourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177548"><span class="annot"><span class="annottext">Maybe ResourceStatusValue
 name :: Maybe ResourceStatusValue
 $sel:name:ResourceStatus' :: ResourceStatus -&gt; Maybe ResourceStatusValue
-</span><a href="#local-6989586621679177415"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceStatusValue
-</span><a href="#local-6989586621679177415"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177414"><span class="annot"><span class="annottext">s :: ResourceStatus
-</span><a href="#local-6989586621679177414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#ResourceStatus%27"><span class="hs-identifier hs-type">ResourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177413"><span class="annot"><span class="annottext">Maybe ResourceStatusValue
-</span><a href="#local-6989586621679177413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceStatus
-</span><a href="#local-6989586621679177414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ResourceStatus' :: Maybe ResourceStatusValue
+</span><a href="#local-6989586621679177548"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceStatusValue
+</span><a href="#local-6989586621679177548"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177547"><span class="annot"><span class="annottext">s :: ResourceStatus
+</span><a href="#local-6989586621679177547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#ResourceStatus%27"><span class="hs-identifier hs-type">ResourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177546"><span class="annot"><span class="annottext">Maybe ResourceStatusValue
+</span><a href="#local-6989586621679177546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceStatus
+</span><a href="#local-6989586621679177547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ResourceStatus' :: Maybe ResourceStatusValue
 </span><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#%24sel%3Aname%3AResourceStatus%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceStatusValue
-</span><a href="#local-6989586621679177413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177410"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679177408"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceStatus
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177543"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679177541"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceStatus)
@@ -142,20 +142,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceStatus&quot;</span></span><span>
-</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177405"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177405"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177538"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177538"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResourceStatusValue -&gt; ResourceStatus
 </span><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#ResourceStatus%27"><span class="hs-identifier hs-var">ResourceStatus'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe ResourceStatusValue -&gt; ResourceStatus)
 -&gt; Parser (Maybe ResourceStatusValue) -&gt; Parser ResourceStatus
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceStatusValue)
+</span><a href="#local-6989586621679177538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceStatusValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177399"><span id="local-6989586621679177401"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177532"><span id="local-6989586621679177534"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177396"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177529"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span></span><span>
 </span><span id="line-68"></span></pre></body></html>

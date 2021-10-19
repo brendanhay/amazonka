@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679201368"><span id="local-6989586621679201369"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AgentStatus"><span class="annot"><a href="Network.AWS.Discovery.Types.AgentStatus.html#AgentStatus"><span class="hs-identifier hs-var">AgentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AgentStatus%27"><span class="annot"><a href="Network.AWS.Discovery.Types.AgentStatus.html#AgentStatus%27"><span class="hs-identifier hs-var">AgentStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679201561"><span id="local-6989586621679201562"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AgentStatus"><span class="annot"><a href="Network.AWS.Discovery.Types.AgentStatus.html#AgentStatus"><span class="hs-identifier hs-var">AgentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AgentStatus%27"><span class="annot"><a href="Network.AWS.Discovery.Types.AgentStatus.html#AgentStatus%27"><span class="hs-identifier hs-var">AgentStatus'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAgentStatus"><span class="annot"><span class="annottext">AgentStatus -&gt; Text
 </span><a href="Network.AWS.Discovery.Types.AgentStatus.html#fromAgentStatus"><span class="hs-identifier hs-var hs-var">fromAgentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201360"><span id="local-6989586621679201362"><span id="local-6989586621679201364"><span class="annot"><span class="annottext">Int -&gt; AgentStatus -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201553"><span id="local-6989586621679201555"><span id="local-6989586621679201557"><span class="annot"><span class="annottext">Int -&gt; AgentStatus -&gt; ShowS
 [AgentStatus] -&gt; ShowS
 AgentStatus -&gt; String
 (Int -&gt; AgentStatus -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: AgentStatus -&gt; String
 showsPrec :: Int -&gt; AgentStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; AgentStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679201351"><span id="local-6989586621679201353"><span id="local-6989586621679201355"><span id="local-6989586621679201357"><span class="annot"><span class="annottext">ReadPrec [AgentStatus]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679201544"><span id="local-6989586621679201546"><span id="local-6989586621679201548"><span id="local-6989586621679201550"><span class="annot"><span class="annottext">ReadPrec [AgentStatus]
 ReadPrec AgentStatus
 Int -&gt; ReadS AgentStatus
 ReadS [AgentStatus]
@@ -76,7 +76,7 @@ $creadList :: ReadS [AgentStatus]
 readsPrec :: Int -&gt; ReadS AgentStatus
 $creadsPrec :: Int -&gt; ReadS AgentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679201346"><span id="local-6989586621679201348"><span class="annot"><span class="annottext">AgentStatus -&gt; AgentStatus -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679201539"><span id="local-6989586621679201541"><span class="annot"><span class="annottext">AgentStatus -&gt; AgentStatus -&gt; Bool
 (AgentStatus -&gt; AgentStatus -&gt; Bool)
 -&gt; (AgentStatus -&gt; AgentStatus -&gt; Bool) -&gt; Eq AgentStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: AgentStatus -&gt; AgentStatus -&gt; Bool
 == :: AgentStatus -&gt; AgentStatus -&gt; Bool
 $c== :: AgentStatus -&gt; AgentStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679201330"><span id="local-6989586621679201332"><span id="local-6989586621679201334"><span id="local-6989586621679201336"><span id="local-6989586621679201338"><span id="local-6989586621679201340"><span id="local-6989586621679201342"><span class="annot"><span class="annottext">Eq AgentStatus
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679201523"><span id="local-6989586621679201525"><span id="local-6989586621679201527"><span id="local-6989586621679201529"><span id="local-6989586621679201531"><span id="local-6989586621679201533"><span id="local-6989586621679201535"><span class="annot"><span class="annottext">Eq AgentStatus
 Eq AgentStatus
 -&gt; (AgentStatus -&gt; AgentStatus -&gt; Ordering)
 -&gt; (AgentStatus -&gt; AgentStatus -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. AgentStatus -&gt; Rep AgentStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201322"><span id="local-6989586621679201324"><span class="annot"><span class="annottext">Int -&gt; AgentStatus -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201515"><span id="local-6989586621679201517"><span class="annot"><span class="annottext">Int -&gt; AgentStatus -&gt; Int
 AgentStatus -&gt; Int
 (Int -&gt; AgentStatus -&gt; Int)
 -&gt; (AgentStatus -&gt; Int) -&gt; Hashable AgentStatus
@@ -146,49 +146,49 @@ $chash :: AgentStatus -&gt; Int
 hashWithSalt :: Int -&gt; AgentStatus -&gt; Int
 $chashWithSalt :: Int -&gt; AgentStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679201319"><span class="annot"><span class="annottext">AgentStatus -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679201512"><span class="annot"><span class="annottext">AgentStatus -&gt; ()
 (AgentStatus -&gt; ()) -&gt; NFData AgentStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AgentStatus -&gt; ()
 $crnf :: AgentStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679201316"><span class="annot"><span class="annottext">Text -&gt; Either String AgentStatus
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679201509"><span class="annot"><span class="annottext">Text -&gt; Either String AgentStatus
 (Text -&gt; Either String AgentStatus) -&gt; FromText AgentStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AgentStatus
 $cfromText :: Text -&gt; Either String AgentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679201313"><span class="annot"><span class="annottext">AgentStatus -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679201506"><span class="annot"><span class="annottext">AgentStatus -&gt; Text
 (AgentStatus -&gt; Text) -&gt; ToText AgentStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AgentStatus -&gt; Text
 $ctoText :: AgentStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679201310"><span class="annot"><span class="annottext">AgentStatus -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679201503"><span class="annot"><span class="annottext">AgentStatus -&gt; ByteString
 (AgentStatus -&gt; ByteString) -&gt; ToByteString AgentStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AgentStatus -&gt; ByteString
 $ctoBS :: AgentStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679201307"><span class="annot"><span class="annottext">AgentStatus -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679201500"><span class="annot"><span class="annottext">AgentStatus -&gt; ByteStringBuilder
 (AgentStatus -&gt; ByteStringBuilder) -&gt; ToLog AgentStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AgentStatus -&gt; ByteStringBuilder
 $cbuild :: AgentStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679201304"><span class="annot"><span class="annottext">HeaderName -&gt; AgentStatus -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679201497"><span class="annot"><span class="annottext">HeaderName -&gt; AgentStatus -&gt; [Header]
 (HeaderName -&gt; AgentStatus -&gt; [Header]) -&gt; ToHeader AgentStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AgentStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AgentStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679201301"><span class="annot"><span class="annottext">AgentStatus -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679201494"><span class="annot"><span class="annottext">AgentStatus -&gt; QueryString
 (AgentStatus -&gt; QueryString) -&gt; ToQuery AgentStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AgentStatus -&gt; QueryString
 $ctoQuery :: AgentStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679201296"><span id="local-6989586621679201298"><span class="annot"><span class="annottext">Value -&gt; Parser [AgentStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679201489"><span id="local-6989586621679201491"><span class="annot"><span class="annottext">Value -&gt; Parser [AgentStatus]
 Value -&gt; Parser AgentStatus
 (Value -&gt; Parser AgentStatus)
 -&gt; (Value -&gt; Parser [AgentStatus]) -&gt; FromJSON AgentStatus
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [AgentStatus]
 parseJSON :: Value -&gt; Parser AgentStatus
 $cparseJSON :: Value -&gt; Parser AgentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679201291"><span id="local-6989586621679201293"><span class="annot"><span class="annottext">FromJSONKeyFunction [AgentStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679201484"><span id="local-6989586621679201486"><span class="annot"><span class="annottext">FromJSONKeyFunction [AgentStatus]
 FromJSONKeyFunction AgentStatus
 FromJSONKeyFunction AgentStatus
 -&gt; FromJSONKeyFunction [AgentStatus] -&gt; FromJSONKey AgentStatus
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AgentStatus]
 fromJSONKey :: FromJSONKeyFunction AgentStatus
 $cfromJSONKey :: FromJSONKeyFunction AgentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679201282"><span id="local-6989586621679201284"><span id="local-6989586621679201286"><span id="local-6989586621679201288"><span class="annot"><span class="annottext">[AgentStatus] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679201475"><span id="local-6989586621679201477"><span id="local-6989586621679201479"><span id="local-6989586621679201481"><span class="annot"><span class="annottext">[AgentStatus] -&gt; Encoding
 [AgentStatus] -&gt; Value
 AgentStatus -&gt; Encoding
 AgentStatus -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: AgentStatus -&gt; Encoding
 toJSON :: AgentStatus -&gt; Value
 $ctoJSON :: AgentStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679201277"><span id="local-6989586621679201279"><span class="annot"><span class="annottext">ToJSONKeyFunction [AgentStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679201470"><span id="local-6989586621679201472"><span class="annot"><span class="annottext">ToJSONKeyFunction [AgentStatus]
 ToJSONKeyFunction AgentStatus
 ToJSONKeyFunction AgentStatus
 -&gt; ToJSONKeyFunction [AgentStatus] -&gt; ToJSONKey AgentStatus
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AgentStatus]
 toJSONKey :: ToJSONKeyFunction AgentStatus
 $ctoJSONKey :: ToJSONKeyFunction AgentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679201274"><span class="annot"><span class="annottext">[Node] -&gt; Either String AgentStatus
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679201467"><span class="annot"><span class="annottext">[Node] -&gt; Either String AgentStatus
 ([Node] -&gt; Either String AgentStatus) -&gt; FromXML AgentStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AgentStatus
 $cparseXML :: [Node] -&gt; Either String AgentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679201271"><span class="annot"><span class="annottext">AgentStatus -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679201464"><span class="annot"><span class="annottext">AgentStatus -&gt; XML
 (AgentStatus -&gt; XML) -&gt; ToXML AgentStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AgentStatus -&gt; XML

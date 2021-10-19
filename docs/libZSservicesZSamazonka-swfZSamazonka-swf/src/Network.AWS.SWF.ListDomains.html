@@ -57,8 +57,8 @@
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#listDomains_nextPageToken"><span class="hs-identifier">listDomains_nextPageToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#listDomains_maximumPageSize"><span class="hs-identifier">listDomains_maximumPageSize</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#listDomains_reverseOrder"><span class="hs-identifier">listDomains_reverseOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#listDomains_reverseOrder"><span class="hs-identifier">listDomains_reverseOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#listDomains_maximumPageSize"><span class="hs-identifier">listDomains_maximumPageSize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#listDomains_registrationStatus"><span class="hs-identifier">listDomains_registrationStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -80,7 +80,7 @@
 </span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.html"><span class="hs-identifier">Network.AWS.SWF.Types</span></a></span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | /See:/ 'newListDomains' smart constructor.</span><span>
-</span><span id="line-83"></span><span id="local-6989586621679363102"><span id="local-6989586621679363103"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDomains"><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-var">ListDomains</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDomains%27"><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-var">ListDomains'</span></a></span></span><span>
+</span><span id="line-83"></span><span id="local-6989586621679363197"><span id="local-6989586621679363198"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDomains"><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-var">ListDomains</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDomains%27"><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-var">ListDomains'</span></a></span></span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If @NextPageToken@ is returned there are more results available. The</span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-comment">-- value of @NextPageToken@ is a unique pagination token for each page.</span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-comment">-- Make the call again using the returned token to retrieve the next page.</span><span>
@@ -92,20 +92,20 @@
 </span><span id="line-92"></span><span>    </span><span class="hs-comment">-- returned in a single call.</span><span>
 </span><span id="line-93"></span><span>    </span><span id="%24sel%3AnextPageToken%3AListDomains%27"><span class="annot"><span class="annottext">ListDomains -&gt; Maybe Text
 </span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AnextPageToken%3AListDomains%27"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The maximum number of results that are returned per call. Use</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- @nextPageToken@ to obtain further pages of results.</span><span>
-</span><span id="line-96"></span><span>    </span><span id="%24sel%3AmaximumPageSize%3AListDomains%27"><span class="annot"><span class="annottext">ListDomains -&gt; Maybe Natural
-</span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AmaximumPageSize%3AListDomains%27"><span class="hs-identifier hs-var hs-var">maximumPageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | When set to @true@, returns the results in reverse order. By default,</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- the results are returned in ascending alphabetical order by @name@ of</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- the domains.</span><span>
-</span><span id="line-100"></span><span>    </span><span id="%24sel%3AreverseOrder%3AListDomains%27"><span class="annot"><span class="annottext">ListDomains -&gt; Maybe Bool
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | When set to @true@, returns the results in reverse order. By default,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- the results are returned in ascending alphabetical order by @name@ of</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- the domains.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AreverseOrder%3AListDomains%27"><span class="annot"><span class="annottext">ListDomains -&gt; Maybe Bool
 </span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AreverseOrder%3AListDomains%27"><span class="hs-identifier hs-var hs-var">reverseOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | The maximum number of results that are returned per call. Use</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- @nextPageToken@ to obtain further pages of results.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AmaximumPageSize%3AListDomains%27"><span class="annot"><span class="annottext">ListDomains -&gt; Maybe Natural
+</span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AmaximumPageSize%3AListDomains%27"><span class="hs-identifier hs-var hs-var">maximumPageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | Specifies the registration status of the domains to list.</span><span>
 </span><span id="line-102"></span><span>    </span><span id="%24sel%3AregistrationStatus%3AListDomains%27"><span class="annot"><span class="annottext">ListDomains -&gt; RegistrationStatus
 </span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AregistrationStatus%3AListDomains%27"><span class="hs-identifier hs-var hs-var">registrationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.RegistrationStatus.html#RegistrationStatus"><span class="hs-identifier hs-type">RegistrationStatus</span></a></span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679363093"><span id="local-6989586621679363095"><span class="annot"><span class="annottext">ListDomains -&gt; ListDomains -&gt; Bool
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679363188"><span id="local-6989586621679363190"><span class="annot"><span class="annottext">ListDomains -&gt; ListDomains -&gt; Bool
 (ListDomains -&gt; ListDomains -&gt; Bool)
 -&gt; (ListDomains -&gt; ListDomains -&gt; Bool) -&gt; Eq ListDomains
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -113,7 +113,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListDomains -&gt; ListDomains -&gt; Bool
 == :: ListDomains -&gt; ListDomains -&gt; Bool
 $c== :: ListDomains -&gt; ListDomains -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363084"><span id="local-6989586621679363086"><span id="local-6989586621679363088"><span id="local-6989586621679363090"><span class="annot"><span class="annottext">ReadPrec [ListDomains]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363179"><span id="local-6989586621679363181"><span id="local-6989586621679363183"><span id="local-6989586621679363185"><span class="annot"><span class="annottext">ReadPrec [ListDomains]
 ReadPrec ListDomains
 Int -&gt; ReadS ListDomains
 ReadS [ListDomains]
@@ -133,7 +133,7 @@ readList :: ReadS [ListDomains]
 $creadList :: ReadS [ListDomains]
 readsPrec :: Int -&gt; ReadS ListDomains
 $creadsPrec :: Int -&gt; ReadS ListDomains
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363077"><span id="local-6989586621679363079"><span id="local-6989586621679363081"><span class="annot"><span class="annottext">Int -&gt; ListDomains -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363172"><span id="local-6989586621679363174"><span id="local-6989586621679363176"><span class="annot"><span class="annottext">Int -&gt; ListDomains -&gt; ShowS
 [ListDomains] -&gt; ShowS
 ListDomains -&gt; String
 (Int -&gt; ListDomains -&gt; ShowS)
@@ -177,12 +177,12 @@ $cfrom :: forall x. ListDomains -&gt; Rep ListDomains x
 </span><span id="line-121"></span><span class="hs-comment">-- The configured @maximumPageSize@ determines how many results can be</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- returned in a single call.</span><span>
 </span><span id="line-123"></span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- 'maximumPageSize', 'listDomains_maximumPageSize' - The maximum number of results that are returned per call. Use</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- @nextPageToken@ to obtain further pages of results.</span><span>
-</span><span id="line-126"></span><span class="hs-comment">--</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- 'reverseOrder', 'listDomains_reverseOrder' - When set to @true@, returns the results in reverse order. By default,</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- the results are returned in ascending alphabetical order by @name@ of</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- the domains.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'reverseOrder', 'listDomains_reverseOrder' - When set to @true@, returns the results in reverse order. By default,</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- the results are returned in ascending alphabetical order by @name@ of</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- the domains.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'maximumPageSize', 'listDomains_maximumPageSize' - The maximum number of results that are returned per call. Use</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- @nextPageToken@ to obtain further pages of results.</span><span>
 </span><span id="line-130"></span><span class="hs-comment">--</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- 'registrationStatus', 'listDomains_registrationStatus' - Specifies the registration status of the domains to list.</span><span>
 </span><span id="line-132"></span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#newListDomains"><span class="hs-identifier hs-type">newListDomains</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -190,26 +190,26 @@ $cfrom :: forall x. ListDomains -&gt; Rep ListDomains x
 </span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.RegistrationStatus.html#RegistrationStatus"><span class="hs-identifier hs-type">RegistrationStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span>
 </span><span id="line-136"></span><span id="newListDomains"><span class="annot"><span class="annottext">newListDomains :: RegistrationStatus -&gt; ListDomains
-</span><a href="Network.AWS.SWF.ListDomains.html#newListDomains"><span class="hs-identifier hs-var hs-var">newListDomains</span></a></span></span><span> </span><span id="local-6989586621679363072"><span class="annot"><span class="annottext">RegistrationStatus
-</span><a href="#local-6989586621679363072"><span class="hs-identifier hs-var">pRegistrationStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SWF.ListDomains.html#newListDomains"><span class="hs-identifier hs-var hs-var">newListDomains</span></a></span></span><span> </span><span id="local-6989586621679363167"><span class="annot"><span class="annottext">RegistrationStatus
+</span><a href="#local-6989586621679363167"><span class="hs-identifier hs-var">pRegistrationStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="annottext">ListDomains' :: Maybe Text
--&gt; Maybe Natural -&gt; Maybe Bool -&gt; RegistrationStatus -&gt; ListDomains
+-&gt; Maybe Bool -&gt; Maybe Natural -&gt; RegistrationStatus -&gt; ListDomains
 </span><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextPageToken:ListDomains' :: Maybe Text
 </span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AnextPageToken%3AListDomains%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:maximumPageSize:ListDomains' :: Maybe Natural
-</span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AmaximumPageSize%3AListDomains%27"><span class="hs-identifier hs-var">maximumPageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:reverseOrder:ListDomains' :: Maybe Bool
+</span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AreverseOrder%3AListDomains%27"><span class="hs-identifier hs-var">reverseOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:reverseOrder:ListDomains' :: Maybe Bool
-</span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AreverseOrder%3AListDomains%27"><span class="hs-identifier hs-var">reverseOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:maximumPageSize:ListDomains' :: Maybe Natural
+</span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AmaximumPageSize%3AListDomains%27"><span class="hs-identifier hs-var">maximumPageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:registrationStatus:ListDomains' :: RegistrationStatus
 </span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AregistrationStatus%3AListDomains%27"><span class="hs-identifier hs-var">registrationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RegistrationStatus
-</span><a href="#local-6989586621679363072"><span class="hs-identifier hs-var">pRegistrationStatus_</span></a></span><span>
+</span><a href="#local-6989586621679363167"><span class="hs-identifier hs-var">pRegistrationStatus_</span></a></span><span>
 </span><span id="line-142"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | If @NextPageToken@ is returned there are more results available. The</span><span>
@@ -227,56 +227,56 @@ forall a. Maybe a
 -&gt; (ListDomains -&gt; Maybe Text -&gt; ListDomains)
 -&gt; Lens ListDomains ListDomains (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363070"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363165"><span class="annot"><span class="annottext">Maybe Text
 nextPageToken :: Maybe Text
 $sel:nextPageToken:ListDomains' :: ListDomains -&gt; Maybe Text
-</span><a href="#local-6989586621679363070"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363070"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363069"><span class="annot"><span class="annottext">s :: ListDomains
-</span><a href="#local-6989586621679363069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363068"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomains
-</span><a href="#local-6989586621679363069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:ListDomains' :: Maybe Text
+</span><a href="#local-6989586621679363165"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363165"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363164"><span class="annot"><span class="annottext">s :: ListDomains
+</span><a href="#local-6989586621679363164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363163"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomains
+</span><a href="#local-6989586621679363164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:ListDomains' :: Maybe Text
 </span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AnextPageToken%3AListDomains%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679363163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- | The maximum number of results that are returned per call. Use</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- @nextPageToken@ to obtain further pages of results.</span><span>
-</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#listDomains_maximumPageSize"><span class="hs-identifier hs-type">listDomains_maximumPageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span id="listDomains_maximumPageSize"><span class="annot"><span class="annottext">listDomains_maximumPageSize :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-156"></span><span class="hs-comment">-- | When set to @true@, returns the results in reverse order. By default,</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- the results are returned in ascending alphabetical order by @name@ of</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- the domains.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#listDomains_reverseOrder"><span class="hs-identifier hs-type">listDomains_reverseOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="listDomains_reverseOrder"><span class="annot"><span class="annottext">listDomains_reverseOrder :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; ListDomains -&gt; f ListDomains
+</span><a href="Network.AWS.SWF.ListDomains.html#listDomains_reverseOrder"><span class="hs-identifier hs-var hs-var">listDomains_reverseOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDomains -&gt; Maybe Bool)
+-&gt; (ListDomains -&gt; Maybe Bool -&gt; ListDomains)
+-&gt; Lens ListDomains ListDomains (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363162"><span class="annot"><span class="annottext">Maybe Bool
+reverseOrder :: Maybe Bool
+$sel:reverseOrder:ListDomains' :: ListDomains -&gt; Maybe Bool
+</span><a href="#local-6989586621679363162"><span class="hs-identifier hs-var hs-var">reverseOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679363162"><span class="hs-identifier hs-var">reverseOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363161"><span class="annot"><span class="annottext">s :: ListDomains
+</span><a href="#local-6989586621679363161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363160"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679363160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomains
+</span><a href="#local-6989586621679363161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reverseOrder:ListDomains' :: Maybe Bool
+</span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AreverseOrder%3AListDomains%27"><span class="hs-identifier hs-var">reverseOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679363160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The maximum number of results that are returned per call. Use</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- @nextPageToken@ to obtain further pages of results.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#listDomains_maximumPageSize"><span class="hs-identifier hs-type">listDomains_maximumPageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="listDomains_maximumPageSize"><span class="annot"><span class="annottext">listDomains_maximumPageSize :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; ListDomains -&gt; f ListDomains
 </span><a href="Network.AWS.SWF.ListDomains.html#listDomains_maximumPageSize"><span class="hs-identifier hs-var hs-var">listDomains_maximumPageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDomains -&gt; Maybe Natural)
 -&gt; (ListDomains -&gt; Maybe Natural -&gt; ListDomains)
 -&gt; Lens ListDomains ListDomains (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363067"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363159"><span class="annot"><span class="annottext">Maybe Natural
 maximumPageSize :: Maybe Natural
 $sel:maximumPageSize:ListDomains' :: ListDomains -&gt; Maybe Natural
-</span><a href="#local-6989586621679363067"><span class="hs-identifier hs-var hs-var">maximumPageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679363067"><span class="hs-identifier hs-var">maximumPageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363066"><span class="annot"><span class="annottext">s :: ListDomains
-</span><a href="#local-6989586621679363066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363065"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679363065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomains
-</span><a href="#local-6989586621679363066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumPageSize:ListDomains' :: Maybe Natural
+</span><a href="#local-6989586621679363159"><span class="hs-identifier hs-var hs-var">maximumPageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679363159"><span class="hs-identifier hs-var">maximumPageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363158"><span class="annot"><span class="annottext">s :: ListDomains
+</span><a href="#local-6989586621679363158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363157"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679363157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomains
+</span><a href="#local-6989586621679363158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumPageSize:ListDomains' :: Maybe Natural
 </span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AmaximumPageSize%3AListDomains%27"><span class="hs-identifier hs-var">maximumPageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679363065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- | When set to @true@, returns the results in reverse order. By default,</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- the results are returned in ascending alphabetical order by @name@ of</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- the domains.</span><span>
-</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#listDomains_reverseOrder"><span class="hs-identifier hs-type">listDomains_reverseOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span id="listDomains_reverseOrder"><span class="annot"><span class="annottext">listDomains_reverseOrder :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; ListDomains -&gt; f ListDomains
-</span><a href="Network.AWS.SWF.ListDomains.html#listDomains_reverseOrder"><span class="hs-identifier hs-var hs-var">listDomains_reverseOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDomains -&gt; Maybe Bool)
--&gt; (ListDomains -&gt; Maybe Bool -&gt; ListDomains)
--&gt; Lens ListDomains ListDomains (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363064"><span class="annot"><span class="annottext">Maybe Bool
-reverseOrder :: Maybe Bool
-$sel:reverseOrder:ListDomains' :: ListDomains -&gt; Maybe Bool
-</span><a href="#local-6989586621679363064"><span class="hs-identifier hs-var hs-var">reverseOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679363064"><span class="hs-identifier hs-var">reverseOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363063"><span class="annot"><span class="annottext">s :: ListDomains
-</span><a href="#local-6989586621679363063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363062"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679363062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomains
-</span><a href="#local-6989586621679363063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reverseOrder:ListDomains' :: Maybe Bool
-</span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AreverseOrder%3AListDomains%27"><span class="hs-identifier hs-var">reverseOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679363062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679363157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | Specifies the registration status of the domains to list.</span><span>
 </span><span id="line-168"></span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#listDomains_registrationStatus"><span class="hs-identifier hs-type">listDomains_registrationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.RegistrationStatus.html#RegistrationStatus"><span class="hs-identifier hs-type">RegistrationStatus</span></a></span><span>
@@ -287,28 +287,28 @@ $sel:reverseOrder:ListDomains' :: ListDomains -&gt; Maybe Bool
 -&gt; Lens
      ListDomains ListDomains RegistrationStatus RegistrationStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363061"><span class="annot"><span class="annottext">RegistrationStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363156"><span class="annot"><span class="annottext">RegistrationStatus
 registrationStatus :: RegistrationStatus
 $sel:registrationStatus:ListDomains' :: ListDomains -&gt; RegistrationStatus
-</span><a href="#local-6989586621679363061"><span class="hs-identifier hs-var hs-var">registrationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistrationStatus
-</span><a href="#local-6989586621679363061"><span class="hs-identifier hs-var">registrationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363060"><span class="annot"><span class="annottext">s :: ListDomains
-</span><a href="#local-6989586621679363060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363059"><span class="annot"><span class="annottext">RegistrationStatus
-</span><a href="#local-6989586621679363059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomains
-</span><a href="#local-6989586621679363060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registrationStatus:ListDomains' :: RegistrationStatus
+</span><a href="#local-6989586621679363156"><span class="hs-identifier hs-var hs-var">registrationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistrationStatus
+</span><a href="#local-6989586621679363156"><span class="hs-identifier hs-var">registrationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363155"><span class="annot"><span class="annottext">s :: ListDomains
+</span><a href="#local-6989586621679363155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363154"><span class="annot"><span class="annottext">RegistrationStatus
+</span><a href="#local-6989586621679363154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomains
+</span><a href="#local-6989586621679363155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registrationStatus:ListDomains' :: RegistrationStatus
 </span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AregistrationStatus%3AListDomains%27"><span class="hs-identifier hs-var">registrationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RegistrationStatus
-</span><a href="#local-6989586621679363059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679363154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679363055"><span class="annot"><span class="annottext">page :: ListDomains -&gt; AWSResponse ListDomains -&gt; Maybe ListDomains
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679363053"><span class="annot"><span class="annottext">ListDomains
-</span><a href="#local-6989586621679363053"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679363052"><span class="annot"><span class="annottext">AWSResponse ListDomains
-</span><a href="#local-6989586621679363052"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679363150"><span class="annot"><span class="annottext">page :: ListDomains -&gt; AWSResponse ListDomains -&gt; Maybe ListDomains
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679363148"><span class="annot"><span class="annottext">ListDomains
+</span><a href="#local-6989586621679363148"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679363147"><span class="annot"><span class="annottext">AWSResponse ListDomains
+</span><a href="#local-6989586621679363147"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-174"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDomains
 ListDomainsResponse
-</span><a href="#local-6989586621679363052"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679363147"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">ListDomainsResponse
 -&gt; Getting (First Text) ListDomainsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -335,7 +335,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-180"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse ListDomains
 ListDomainsResponse
-</span><a href="#local-6989586621679363052"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListDomainsResponse
+</span><a href="#local-6989586621679363147"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListDomainsResponse
 -&gt; Getting [DomainInfo] ListDomainsResponse [DomainInfo]
 -&gt; [DomainInfo]
 forall s a. s -&gt; Getting a s a -&gt; a
@@ -354,7 +354,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">ListDomains
-</span><a href="#local-6989586621679363053"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679363148"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">ListDomains -&gt; (ListDomains -&gt; ListDomains) -&gt; ListDomains
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -367,7 +367,7 @@ Lens ListDomains ListDomains (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDomains
 ListDomainsResponse
-</span><a href="#local-6989586621679363052"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679363147"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">ListDomainsResponse
 -&gt; Getting (First Text) ListDomainsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -388,12 +388,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-191"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse"><span class="hs-identifier hs-type">ListDomainsResponse</span></a></span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679363041"><span class="annot"><span class="annottext">request :: ListDomains -&gt; Request ListDomains
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679363136"><span class="annot"><span class="annottext">request :: ListDomains -&gt; Request ListDomains
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListDomains -&gt; Request ListDomains
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SWF.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679363037"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679363132"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListDomains
 -&gt; ClientResponse ClientBody
@@ -417,10 +417,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-195"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679363034"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679363034"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679363033"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679363033"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679363032"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363032"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679363129"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679363129"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679363128"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679363128"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679363127"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679363127"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-196"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [DomainInfo] -&gt; ListDomainsResponse
 </span><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse%27"><span class="hs-identifier hs-var">ListDomainsResponse'</span></a></span><span>
 </span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; [DomainInfo] -&gt; ListDomainsResponse)
@@ -428,7 +428,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; [DomainInfo] -&gt; ListDomainsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679363127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextPageToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -441,12 +441,12 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679363034"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679363129"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Either String ([DomainInfo] -&gt; ListDomainsResponse)
 -&gt; Either String [DomainInfo] -&gt; Either String ListDomainsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [DomainInfo])
+</span><a href="#local-6989586621679363127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [DomainInfo])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;domainInfos&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [DomainInfo])
@@ -457,12 +457,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363023"><span id="local-6989586621679363025"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363118"><span id="local-6989586621679363120"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span></span></span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363020"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span></span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-207"></span><span>  </span><span id="local-6989586621679363016"><span class="annot"><span class="annottext">toHeaders :: ListDomains -&gt; ResponseHeaders
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679363111"><span class="annot"><span class="annottext">toHeaders :: ListDomains -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListDomains -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -489,21 +489,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-218"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-219"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363006"><span id="local-6989586621679363008"><span id="local-6989586621679363010"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-222"></span><span>  </span><span id="local-6989586621679363004"><span class="annot"><span class="annottext">toJSON :: ListDomains -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362999"><span id="local-6989586621679363000"><span id="local-6989586621679363001"><span id="local-6989586621679363002"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363101"><span id="local-6989586621679363103"><span id="local-6989586621679363105"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679363099"><span class="annot"><span class="annottext">toJSON :: ListDomains -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains%27"><span class="hs-identifier hs-type">ListDomains'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363094"><span id="local-6989586621679363095"><span id="local-6989586621679363096"><span id="local-6989586621679363097"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe Text
 RegistrationStatus
 registrationStatus :: RegistrationStatus
-reverseOrder :: Maybe Bool
 maximumPageSize :: Maybe Natural
+reverseOrder :: Maybe Bool
 nextPageToken :: Maybe Text
 $sel:registrationStatus:ListDomains' :: ListDomains -&gt; RegistrationStatus
-$sel:reverseOrder:ListDomains' :: ListDomains -&gt; Maybe Bool
 $sel:maximumPageSize:ListDomains' :: ListDomains -&gt; Maybe Natural
+$sel:reverseOrder:ListDomains' :: ListDomains -&gt; Maybe Bool
 $sel:nextPageToken:ListDomains' :: ListDomains -&gt; Maybe Text
-</span><a href="#local-6989586621679362999"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679363094"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -515,22 +515,22 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363002"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679363097"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;maximumPageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-227"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679363001"><span class="hs-identifier hs-var">maximumPageSize</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;reverseOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679363000"><span class="hs-identifier hs-var">reverseOrder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679363096"><span class="hs-identifier hs-var">reverseOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maximumPageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679363095"><span class="hs-identifier hs-var">maximumPageSize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -538,19 +538,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;registrationStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RegistrationStatus -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RegistrationStatus
-</span><a href="#local-6989586621679362999"><span class="hs-identifier hs-var">registrationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679363094"><span class="hs-identifier hs-var">registrationStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-232"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-235"></span><span>  </span><span id="local-6989586621679362993"><span class="annot"><span class="annottext">toPath :: ListDomains -&gt; ByteString
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679363088"><span class="annot"><span class="annottext">toPath :: ListDomains -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListDomains -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomains"><span class="hs-identifier hs-type">ListDomains</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-238"></span><span>  </span><span id="local-6989586621679362989"><span class="annot"><span class="annottext">toQuery :: ListDomains -&gt; QueryString
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679363084"><span class="annot"><span class="annottext">toQuery :: ListDomains -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListDomains -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -560,7 +560,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-240"></span><span class="hs-comment">-- | Contains a paginated collection of DomainInfo structures.</span><span>
 </span><span id="line-241"></span><span class="hs-comment">--</span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- /See:/ 'newListDomainsResponse' smart constructor.</span><span>
-</span><span id="line-243"></span><span id="local-6989586621679362986"><span id="local-6989586621679362987"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDomainsResponse"><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse"><span class="hs-identifier hs-var">ListDomainsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDomainsResponse%27"><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse%27"><span class="hs-identifier hs-var">ListDomainsResponse'</span></a></span></span><span>
+</span><span id="line-243"></span><span id="local-6989586621679363081"><span id="local-6989586621679363082"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDomainsResponse"><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse"><span class="hs-identifier hs-var">ListDomainsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDomainsResponse%27"><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse%27"><span class="hs-identifier hs-var">ListDomainsResponse'</span></a></span></span><span>
 </span><span id="line-244"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If a @NextPageToken@ was returned by a previous call, there are more</span><span>
 </span><span id="line-245"></span><span>    </span><span class="hs-comment">-- results available. To retrieve the next page of results, make the call</span><span>
 </span><span id="line-246"></span><span>    </span><span class="hs-comment">-- again using the returned token in @nextPageToken@. Keep all other</span><span>
@@ -577,7 +577,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-255"></span><span>    </span><span id="%24sel%3AdomainInfos%3AListDomainsResponse%27"><span class="annot"><span class="annottext">ListDomainsResponse -&gt; [DomainInfo]
 </span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AdomainInfos%3AListDomainsResponse%27"><span class="hs-identifier hs-var hs-var">domainInfos</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SWF.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-type">DomainInfo</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-256"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-257"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679362979"><span id="local-6989586621679362981"><span class="annot"><span class="annottext">ListDomainsResponse -&gt; ListDomainsResponse -&gt; Bool
+</span><span id="line-257"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679363074"><span id="local-6989586621679363076"><span class="annot"><span class="annottext">ListDomainsResponse -&gt; ListDomainsResponse -&gt; Bool
 (ListDomainsResponse -&gt; ListDomainsResponse -&gt; Bool)
 -&gt; (ListDomainsResponse -&gt; ListDomainsResponse -&gt; Bool)
 -&gt; Eq ListDomainsResponse
@@ -586,7 +586,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListDomainsResponse -&gt; ListDomainsResponse -&gt; Bool
 == :: ListDomainsResponse -&gt; ListDomainsResponse -&gt; Bool
 $c== :: ListDomainsResponse -&gt; ListDomainsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362971"><span id="local-6989586621679362973"><span id="local-6989586621679362975"><span id="local-6989586621679362977"><span class="annot"><span class="annottext">ReadPrec [ListDomainsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363066"><span id="local-6989586621679363068"><span id="local-6989586621679363070"><span id="local-6989586621679363072"><span class="annot"><span class="annottext">ReadPrec [ListDomainsResponse]
 ReadPrec ListDomainsResponse
 Int -&gt; ReadS ListDomainsResponse
 ReadS [ListDomainsResponse]
@@ -606,7 +606,7 @@ readList :: ReadS [ListDomainsResponse]
 $creadList :: ReadS [ListDomainsResponse]
 readsPrec :: Int -&gt; ReadS ListDomainsResponse
 $creadsPrec :: Int -&gt; ReadS ListDomainsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362965"><span id="local-6989586621679362967"><span id="local-6989586621679362969"><span class="annot"><span class="annottext">Int -&gt; ListDomainsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363060"><span id="local-6989586621679363062"><span id="local-6989586621679363064"><span class="annot"><span class="annottext">Int -&gt; ListDomainsResponse -&gt; ShowS
 [ListDomainsResponse] -&gt; ShowS
 ListDomainsResponse -&gt; String
 (Int -&gt; ListDomainsResponse -&gt; ShowS)
@@ -656,8 +656,8 @@ $cfrom :: forall x. ListDomainsResponse -&gt; Rep ListDomainsResponse x
 </span><span id="line-280"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-281"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse"><span class="hs-identifier hs-type">ListDomainsResponse</span></a></span><span>
 </span><span id="line-282"></span><span id="newListDomainsResponse"><span class="annot"><span class="annottext">newListDomainsResponse :: Int -&gt; ListDomainsResponse
-</span><a href="Network.AWS.SWF.ListDomains.html#newListDomainsResponse"><span class="hs-identifier hs-var hs-var">newListDomainsResponse</span></a></span></span><span> </span><span id="local-6989586621679362962"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679362962"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SWF.ListDomains.html#newListDomainsResponse"><span class="hs-identifier hs-var hs-var">newListDomainsResponse</span></a></span></span><span> </span><span id="local-6989586621679363057"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679363057"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-283"></span><span>  </span><span class="annot"><span class="annottext">ListDomainsResponse' :: Maybe Text -&gt; Int -&gt; [DomainInfo] -&gt; ListDomainsResponse
 </span><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse%27"><span class="hs-identifier hs-type">ListDomainsResponse'</span></a></span><span>
 </span><span id="line-284"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextPageToken:ListDomainsResponse' :: Maybe Text
@@ -667,7 +667,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListDomainsResponse' :: Int
 </span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AhttpStatus%3AListDomainsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679362962"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679363057"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-287"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainInfos:ListDomainsResponse' :: [DomainInfo]
 </span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AdomainInfos%3AListDomainsResponse%27"><span class="hs-identifier hs-var">domainInfos</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[DomainInfo]
 forall a. Monoid a =&gt; a
@@ -688,16 +688,16 @@ forall a. Monoid a =&gt; a
 -&gt; (ListDomainsResponse -&gt; Maybe Text -&gt; ListDomainsResponse)
 -&gt; Lens' ListDomainsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse%27"><span class="hs-identifier hs-type">ListDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362961"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse%27"><span class="hs-identifier hs-type">ListDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363056"><span class="annot"><span class="annottext">Maybe Text
 nextPageToken :: Maybe Text
 $sel:nextPageToken:ListDomainsResponse' :: ListDomainsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679362961"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679362961"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362960"><span class="annot"><span class="annottext">s :: ListDomainsResponse
-</span><a href="#local-6989586621679362960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse%27"><span class="hs-identifier hs-type">ListDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362959"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679362959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainsResponse
-</span><a href="#local-6989586621679362960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:ListDomainsResponse' :: Maybe Text
+</span><a href="#local-6989586621679363056"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363056"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363055"><span class="annot"><span class="annottext">s :: ListDomainsResponse
+</span><a href="#local-6989586621679363055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse%27"><span class="hs-identifier hs-type">ListDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363054"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainsResponse
+</span><a href="#local-6989586621679363055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:ListDomainsResponse' :: Maybe Text
 </span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AnextPageToken%3AListDomainsResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679362959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse"><span class="hs-identifier hs-type">ListDomainsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679363054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse"><span class="hs-identifier hs-type">ListDomainsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-299"></span><span>
 </span><span id="line-300"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-301"></span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#listDomainsResponse_httpStatus"><span class="hs-identifier hs-type">listDomainsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse"><span class="hs-identifier hs-type">ListDomainsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -706,16 +706,16 @@ $sel:nextPageToken:ListDomainsResponse' :: ListDomainsResponse -&gt; Maybe Text
 -&gt; (ListDomainsResponse -&gt; Int -&gt; ListDomainsResponse)
 -&gt; Lens ListDomainsResponse ListDomainsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse%27"><span class="hs-identifier hs-type">ListDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362958"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse%27"><span class="hs-identifier hs-type">ListDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363053"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListDomainsResponse' :: ListDomainsResponse -&gt; Int
-</span><a href="#local-6989586621679362958"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679362958"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362957"><span class="annot"><span class="annottext">s :: ListDomainsResponse
-</span><a href="#local-6989586621679362957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse%27"><span class="hs-identifier hs-type">ListDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362956"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679362956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainsResponse
-</span><a href="#local-6989586621679362957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDomainsResponse' :: Int
+</span><a href="#local-6989586621679363053"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679363053"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363052"><span class="annot"><span class="annottext">s :: ListDomainsResponse
+</span><a href="#local-6989586621679363052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse%27"><span class="hs-identifier hs-type">ListDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363051"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679363051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainsResponse
+</span><a href="#local-6989586621679363052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDomainsResponse' :: Int
 </span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AhttpStatus%3AListDomainsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679362956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse"><span class="hs-identifier hs-type">ListDomainsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679363051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse"><span class="hs-identifier hs-type">ListDomainsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-303"></span><span>
 </span><span id="line-304"></span><span class="hs-comment">-- | A list of DomainInfo structures.</span><span>
 </span><span id="line-305"></span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#listDomainsResponse_domainInfos"><span class="hs-identifier hs-type">listDomainsResponse_domainInfos</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse"><span class="hs-identifier hs-type">ListDomainsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SWF.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-type">DomainInfo</span></a></span><span class="hs-special">]</span><span>
@@ -725,16 +725,16 @@ $sel:httpStatus:ListDomainsResponse' :: ListDomainsResponse -&gt; Int
 -&gt; (ListDomainsResponse -&gt; [DomainInfo] -&gt; ListDomainsResponse)
 -&gt; Lens' ListDomainsResponse [DomainInfo]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse%27"><span class="hs-identifier hs-type">ListDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362955"><span class="annot"><span class="annottext">[DomainInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse%27"><span class="hs-identifier hs-type">ListDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363050"><span class="annot"><span class="annottext">[DomainInfo]
 domainInfos :: [DomainInfo]
 $sel:domainInfos:ListDomainsResponse' :: ListDomainsResponse -&gt; [DomainInfo]
-</span><a href="#local-6989586621679362955"><span class="hs-identifier hs-var hs-var">domainInfos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[DomainInfo]
-</span><a href="#local-6989586621679362955"><span class="hs-identifier hs-var">domainInfos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362954"><span class="annot"><span class="annottext">s :: ListDomainsResponse
-</span><a href="#local-6989586621679362954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse%27"><span class="hs-identifier hs-type">ListDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362953"><span class="annot"><span class="annottext">[DomainInfo]
-</span><a href="#local-6989586621679362953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainsResponse
-</span><a href="#local-6989586621679362954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainInfos:ListDomainsResponse' :: [DomainInfo]
+</span><a href="#local-6989586621679363050"><span class="hs-identifier hs-var hs-var">domainInfos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[DomainInfo]
+</span><a href="#local-6989586621679363050"><span class="hs-identifier hs-var">domainInfos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363049"><span class="annot"><span class="annottext">s :: ListDomainsResponse
+</span><a href="#local-6989586621679363049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse%27"><span class="hs-identifier hs-type">ListDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363048"><span class="annot"><span class="annottext">[DomainInfo]
+</span><a href="#local-6989586621679363048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainsResponse
+</span><a href="#local-6989586621679363049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainInfos:ListDomainsResponse' :: [DomainInfo]
 </span><a href="Network.AWS.SWF.ListDomains.html#%24sel%3AdomainInfos%3AListDomainsResponse%27"><span class="hs-identifier hs-var">domainInfos</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[DomainInfo]
-</span><a href="#local-6989586621679362953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse"><span class="hs-identifier hs-type">ListDomainsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([DomainInfo] -&gt; f [DomainInfo])
+</span><a href="#local-6989586621679363048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse"><span class="hs-identifier hs-type">ListDomainsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([DomainInfo] -&gt; f [DomainInfo])
  -&gt; ListDomainsResponse -&gt; f ListDomainsResponse)
 -&gt; (([DomainInfo] -&gt; f [DomainInfo])
     -&gt; [DomainInfo] -&gt; f [DomainInfo])
@@ -743,8 +743,8 @@ $sel:domainInfos:ListDomainsResponse' :: ListDomainsResponse -&gt; [DomainInfo]
 -&gt; f ListDomainsResponse
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([DomainInfo] -&gt; f [DomainInfo]) -&gt; [DomainInfo] -&gt; f [DomainInfo]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-307"></span><span>
-</span><span id="line-308"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679362950"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse"><span class="hs-identifier hs-type">ListDomainsResponse</span></a></span></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363045"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.ListDomains.html#ListDomainsResponse"><span class="hs-identifier hs-type">ListDomainsResponse</span></a></span></span><span>
 </span><span id="line-309"></span></pre></body></html>

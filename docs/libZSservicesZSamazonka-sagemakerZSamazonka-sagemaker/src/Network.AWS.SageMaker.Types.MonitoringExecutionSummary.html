@@ -28,22 +28,22 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Summary of information about the last monitoring job to run.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMonitoringExecutionSummary' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680321311"><span id="local-6989586621680321312"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonitoringExecutionSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-var">MonitoringExecutionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringExecutionSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-var">MonitoringExecutionSummary'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the endpoint used to run the monitoring job.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AendpointName%3AMonitoringExecutionSummary%27"><span class="annot"><span class="annottext">MonitoringExecutionSummary -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AendpointName%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The type of the monitoring job.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AmonitoringType%3AMonitoringExecutionSummary%27"><span class="annot"><span class="annottext">MonitoringExecutionSummary -&gt; Maybe MonitoringType
+</span><span id="line-31"></span><span id="local-6989586621680322696"><span id="local-6989586621680322697"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonitoringExecutionSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-var">MonitoringExecutionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringExecutionSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-var">MonitoringExecutionSummary'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of the monitoring job.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AmonitoringType%3AMonitoringExecutionSummary%27"><span class="annot"><span class="annottext">MonitoringExecutionSummary -&gt; Maybe MonitoringType
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AmonitoringType%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var hs-var">monitoringType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType"><span class="hs-identifier hs-type">MonitoringType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the monitoring job.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AmonitoringJobDefinitionName%3AMonitoringExecutionSummary%27"><span class="annot"><span class="annottext">MonitoringExecutionSummary -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AmonitoringJobDefinitionName%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var hs-var">monitoringJobDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Contains the reason a monitoring job failed, if it failed.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AfailureReason%3AMonitoringExecutionSummary%27"><span class="annot"><span class="annottext">MonitoringExecutionSummary -&gt; Maybe Text
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Contains the reason a monitoring job failed, if it failed.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AfailureReason%3AMonitoringExecutionSummary%27"><span class="annot"><span class="annottext">MonitoringExecutionSummary -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AfailureReason%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the monitoring job.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AprocessingJobArn%3AMonitoringExecutionSummary%27"><span class="annot"><span class="annottext">MonitoringExecutionSummary -&gt; Maybe Text
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the endpoint used to run the monitoring job.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AendpointName%3AMonitoringExecutionSummary%27"><span class="annot"><span class="annottext">MonitoringExecutionSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AendpointName%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the monitoring job.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AprocessingJobArn%3AMonitoringExecutionSummary%27"><span class="annot"><span class="annottext">MonitoringExecutionSummary -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AprocessingJobArn%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var hs-var">processingJobArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the monitoring job.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AmonitoringJobDefinitionName%3AMonitoringExecutionSummary%27"><span class="annot"><span class="annottext">MonitoringExecutionSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AmonitoringJobDefinitionName%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var hs-var">monitoringJobDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of the monitoring schedule.</span><span>
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AmonitoringScheduleName%3AMonitoringExecutionSummary%27"><span class="annot"><span class="annottext">MonitoringExecutionSummary -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AmonitoringScheduleName%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var hs-var">monitoringScheduleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AmonitoringExecutionStatus%3AMonitoringExecutionSummary%27"><span class="annot"><span class="annottext">MonitoringExecutionSummary -&gt; ExecutionStatus
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AmonitoringExecutionStatus%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var hs-var">monitoringExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-type">ExecutionStatus</span></a></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680321296"><span id="local-6989586621680321298"><span class="annot"><span class="annottext">MonitoringExecutionSummary -&gt; MonitoringExecutionSummary -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680322681"><span id="local-6989586621680322683"><span class="annot"><span class="annottext">MonitoringExecutionSummary -&gt; MonitoringExecutionSummary -&gt; Bool
 (MonitoringExecutionSummary -&gt; MonitoringExecutionSummary -&gt; Bool)
 -&gt; (MonitoringExecutionSummary
     -&gt; MonitoringExecutionSummary -&gt; Bool)
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MonitoringExecutionSummary -&gt; MonitoringExecutionSummary -&gt; Bool
 == :: MonitoringExecutionSummary -&gt; MonitoringExecutionSummary -&gt; Bool
 $c== :: MonitoringExecutionSummary -&gt; MonitoringExecutionSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680321287"><span id="local-6989586621680321289"><span id="local-6989586621680321291"><span id="local-6989586621680321293"><span class="annot"><span class="annottext">ReadPrec [MonitoringExecutionSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680322672"><span id="local-6989586621680322674"><span id="local-6989586621680322676"><span id="local-6989586621680322678"><span class="annot"><span class="annottext">ReadPrec [MonitoringExecutionSummary]
 ReadPrec MonitoringExecutionSummary
 Int -&gt; ReadS MonitoringExecutionSummary
 ReadS [MonitoringExecutionSummary]
@@ -91,7 +91,7 @@ readList :: ReadS [MonitoringExecutionSummary]
 $creadList :: ReadS [MonitoringExecutionSummary]
 readsPrec :: Int -&gt; ReadS MonitoringExecutionSummary
 $creadsPrec :: Int -&gt; ReadS MonitoringExecutionSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680321280"><span id="local-6989586621680321282"><span id="local-6989586621680321284"><span class="annot"><span class="annottext">Int -&gt; MonitoringExecutionSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680322665"><span id="local-6989586621680322667"><span id="local-6989586621680322669"><span class="annot"><span class="annottext">Int -&gt; MonitoringExecutionSummary -&gt; ShowS
 [MonitoringExecutionSummary] -&gt; ShowS
 MonitoringExecutionSummary -&gt; String
 (Int -&gt; MonitoringExecutionSummary -&gt; ShowS)
@@ -131,15 +131,15 @@ MonitoringExecutionSummary -&gt; Rep MonitoringExecutionSummary x
 </span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'endpointName', 'monitoringExecutionSummary_endpointName' - The name of the endpoint used to run the monitoring job.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'monitoringType', 'monitoringExecutionSummary_monitoringType' - The type of the monitoring job.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'monitoringType', 'monitoringExecutionSummary_monitoringType' - The type of the monitoring job.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'failureReason', 'monitoringExecutionSummary_failureReason' - Contains the reason a monitoring job failed, if it failed.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'monitoringJobDefinitionName', 'monitoringExecutionSummary_monitoringJobDefinitionName' - The name of the monitoring job.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'endpointName', 'monitoringExecutionSummary_endpointName' - The name of the endpoint used to run the monitoring job.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'failureReason', 'monitoringExecutionSummary_failureReason' - Contains the reason a monitoring job failed, if it failed.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'processingJobArn', 'monitoringExecutionSummary_processingJobArn' - The Amazon Resource Name (ARN) of the monitoring job.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'processingJobArn', 'monitoringExecutionSummary_processingJobArn' - The Amazon Resource Name (ARN) of the monitoring job.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'monitoringJobDefinitionName', 'monitoringExecutionSummary_monitoringJobDefinitionName' - The name of the monitoring job.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- 'monitoringScheduleName', 'monitoringExecutionSummary_monitoringScheduleName' - The name of the monitoring schedule.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
@@ -170,18 +170,18 @@ MonitoringExecutionSummary -&gt; Rep MonitoringExecutionSummary x
 -&gt; ExecutionStatus
 -&gt; MonitoringExecutionSummary
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#newMonitoringExecutionSummary"><span class="hs-identifier hs-var hs-var">newMonitoringExecutionSummary</span></a></span></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621680321274"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680321274"><span class="hs-identifier hs-var">pMonitoringScheduleName_</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621680321273"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680321273"><span class="hs-identifier hs-var">pScheduledTime_</span></a></span></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621680321272"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680321272"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621680321271"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680321271"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621680321270"><span class="annot"><span class="annottext">ExecutionStatus
-</span><a href="#local-6989586621680321270"><span class="hs-identifier hs-var">pMonitoringExecutionStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">MonitoringExecutionSummary' :: Maybe Text
--&gt; Maybe MonitoringType
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621680322659"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680322659"><span class="hs-identifier hs-var">pMonitoringScheduleName_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621680322658"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680322658"><span class="hs-identifier hs-var">pScheduledTime_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621680322657"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680322657"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621680322656"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680322656"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621680322655"><span class="annot"><span class="annottext">ExecutionStatus
+</span><a href="#local-6989586621680322655"><span class="hs-identifier hs-var">pMonitoringExecutionStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">MonitoringExecutionSummary' :: Maybe MonitoringType
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -192,31 +192,31 @@ MonitoringExecutionSummary -&gt; Rep MonitoringExecutionSummary x
 -&gt; ExecutionStatus
 -&gt; MonitoringExecutionSummary
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endpointName:MonitoringExecutionSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AendpointName%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-103"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:monitoringType:MonitoringExecutionSummary' :: Maybe MonitoringType
+</span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AmonitoringType%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">monitoringType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe MonitoringType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:monitoringType:MonitoringExecutionSummary' :: Maybe MonitoringType
-</span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AmonitoringType%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">monitoringType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringType
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:monitoringJobDefinitionName:MonitoringExecutionSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AmonitoringJobDefinitionName%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">monitoringJobDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:failureReason:MonitoringExecutionSummary' :: Maybe Text
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:failureReason:MonitoringExecutionSummary' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AfailureReason%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:processingJobArn:MonitoringExecutionSummary' :: Maybe Text
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:endpointName:MonitoringExecutionSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AendpointName%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:processingJobArn:MonitoringExecutionSummary' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AprocessingJobArn%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">processingJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:monitoringJobDefinitionName:MonitoringExecutionSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AmonitoringJobDefinitionName%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">monitoringJobDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:monitoringScheduleName:MonitoringExecutionSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AmonitoringScheduleName%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">monitoringScheduleName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680321274"><span class="hs-identifier hs-var">pMonitoringScheduleName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680322659"><span class="hs-identifier hs-var">pMonitoringScheduleName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:scheduledTime:MonitoringExecutionSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AscheduledTime%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">scheduledTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
@@ -226,7 +226,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680321273"><span class="hs-identifier hs-var">pScheduledTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680322658"><span class="hs-identifier hs-var">pScheduledTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationTime:MonitoringExecutionSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AcreationTime%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -235,7 +235,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680321272"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680322657"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:MonitoringExecutionSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AlastModifiedTime%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
@@ -245,40 +245,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680321271"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680322656"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:monitoringExecutionStatus:MonitoringExecutionSummary' :: ExecutionStatus
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AmonitoringExecutionStatus%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">monitoringExecutionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">ExecutionStatus
-</span><a href="#local-6989586621680321270"><span class="hs-identifier hs-var">pMonitoringExecutionStatus_</span></a></span><span>
+</span><a href="#local-6989586621680322655"><span class="hs-identifier hs-var">pMonitoringExecutionStatus_</span></a></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | The name of the endpoint used to run the monitoring job.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_endpointName"><span class="hs-identifier hs-type">monitoringExecutionSummary_endpointName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="monitoringExecutionSummary_endpointName"><span class="annot"><span class="annottext">monitoringExecutionSummary_endpointName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MonitoringExecutionSummary -&gt; f MonitoringExecutionSummary
-</span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_endpointName"><span class="hs-identifier hs-var hs-var">monitoringExecutionSummary_endpointName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringExecutionSummary -&gt; Maybe Text)
--&gt; (MonitoringExecutionSummary
-    -&gt; Maybe Text -&gt; MonitoringExecutionSummary)
--&gt; Lens
-     MonitoringExecutionSummary
-     MonitoringExecutionSummary
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321264"><span class="annot"><span class="annottext">Maybe Text
-endpointName :: Maybe Text
-$sel:endpointName:MonitoringExecutionSummary' :: MonitoringExecutionSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680321264"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680321264"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321263"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
-</span><a href="#local-6989586621680321263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321262"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680321262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
-</span><a href="#local-6989586621680321263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointName:MonitoringExecutionSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AendpointName%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680321262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | The type of the monitoring job.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_monitoringType"><span class="hs-identifier hs-type">monitoringExecutionSummary_monitoringType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType"><span class="hs-identifier hs-type">MonitoringType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="monitoringExecutionSummary_monitoringType"><span class="annot"><span class="annottext">monitoringExecutionSummary_monitoringType :: (Maybe MonitoringType -&gt; f (Maybe MonitoringType))
+</span><span id="line-120"></span><span class="hs-comment">-- | The type of the monitoring job.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_monitoringType"><span class="hs-identifier hs-type">monitoringExecutionSummary_monitoringType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType"><span class="hs-identifier hs-type">MonitoringType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="monitoringExecutionSummary_monitoringType"><span class="annot"><span class="annottext">monitoringExecutionSummary_monitoringType :: (Maybe MonitoringType -&gt; f (Maybe MonitoringType))
 -&gt; MonitoringExecutionSummary -&gt; f MonitoringExecutionSummary
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_monitoringType"><span class="hs-identifier hs-var hs-var">monitoringExecutionSummary_monitoringType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringExecutionSummary -&gt; Maybe MonitoringType)
 -&gt; (MonitoringExecutionSummary
@@ -289,44 +265,20 @@ $sel:endpointName:MonitoringExecutionSummary' :: MonitoringExecutionSummary -&gt
      (Maybe MonitoringType)
      (Maybe MonitoringType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321260"><span class="annot"><span class="annottext">Maybe MonitoringType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680322649"><span class="annot"><span class="annottext">Maybe MonitoringType
 monitoringType :: Maybe MonitoringType
 $sel:monitoringType:MonitoringExecutionSummary' :: MonitoringExecutionSummary -&gt; Maybe MonitoringType
-</span><a href="#local-6989586621680321260"><span class="hs-identifier hs-var hs-var">monitoringType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringType
-</span><a href="#local-6989586621680321260"><span class="hs-identifier hs-var">monitoringType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321259"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
-</span><a href="#local-6989586621680321259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321258"><span class="annot"><span class="annottext">Maybe MonitoringType
-</span><a href="#local-6989586621680321258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
-</span><a href="#local-6989586621680321259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringType:MonitoringExecutionSummary' :: Maybe MonitoringType
+</span><a href="#local-6989586621680322649"><span class="hs-identifier hs-var hs-var">monitoringType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringType
+</span><a href="#local-6989586621680322649"><span class="hs-identifier hs-var">monitoringType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680322648"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
+</span><a href="#local-6989586621680322648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680322647"><span class="annot"><span class="annottext">Maybe MonitoringType
+</span><a href="#local-6989586621680322647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
+</span><a href="#local-6989586621680322648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringType:MonitoringExecutionSummary' :: Maybe MonitoringType
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AmonitoringType%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">monitoringType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringType
-</span><a href="#local-6989586621680321258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | The name of the monitoring job.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_monitoringJobDefinitionName"><span class="hs-identifier hs-type">monitoringExecutionSummary_monitoringJobDefinitionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="monitoringExecutionSummary_monitoringJobDefinitionName"><span class="annot"><span class="annottext">monitoringExecutionSummary_monitoringJobDefinitionName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MonitoringExecutionSummary -&gt; f MonitoringExecutionSummary
-</span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_monitoringJobDefinitionName"><span class="hs-identifier hs-var hs-var">monitoringExecutionSummary_monitoringJobDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringExecutionSummary -&gt; Maybe Text)
--&gt; (MonitoringExecutionSummary
-    -&gt; Maybe Text -&gt; MonitoringExecutionSummary)
--&gt; Lens
-     MonitoringExecutionSummary
-     MonitoringExecutionSummary
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321256"><span class="annot"><span class="annottext">Maybe Text
-monitoringJobDefinitionName :: Maybe Text
-$sel:monitoringJobDefinitionName:MonitoringExecutionSummary' :: MonitoringExecutionSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680321256"><span class="hs-identifier hs-var hs-var">monitoringJobDefinitionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680321256"><span class="hs-identifier hs-var">monitoringJobDefinitionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321255"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
-</span><a href="#local-6989586621680321255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321254"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680321254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
-</span><a href="#local-6989586621680321255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringJobDefinitionName:MonitoringExecutionSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AmonitoringJobDefinitionName%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">monitoringJobDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680321254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | Contains the reason a monitoring job failed, if it failed.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_failureReason"><span class="hs-identifier hs-type">monitoringExecutionSummary_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="monitoringExecutionSummary_failureReason"><span class="annot"><span class="annottext">monitoringExecutionSummary_failureReason :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621680322647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | Contains the reason a monitoring job failed, if it failed.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_failureReason"><span class="hs-identifier hs-type">monitoringExecutionSummary_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="monitoringExecutionSummary_failureReason"><span class="annot"><span class="annottext">monitoringExecutionSummary_failureReason :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; MonitoringExecutionSummary -&gt; f MonitoringExecutionSummary
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_failureReason"><span class="hs-identifier hs-var hs-var">monitoringExecutionSummary_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringExecutionSummary -&gt; Maybe Text)
 -&gt; (MonitoringExecutionSummary
@@ -337,20 +289,44 @@ $sel:monitoringJobDefinitionName:MonitoringExecutionSummary' :: MonitoringExecut
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321252"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680322645"><span class="annot"><span class="annottext">Maybe Text
 failureReason :: Maybe Text
 $sel:failureReason:MonitoringExecutionSummary' :: MonitoringExecutionSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680321252"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680321252"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321251"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
-</span><a href="#local-6989586621680321251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321250"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680321250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
-</span><a href="#local-6989586621680321251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:MonitoringExecutionSummary' :: Maybe Text
+</span><a href="#local-6989586621680322645"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680322645"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680322644"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
+</span><a href="#local-6989586621680322644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680322643"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680322643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
+</span><a href="#local-6989586621680322644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:MonitoringExecutionSummary' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AfailureReason%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680321250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the monitoring job.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_processingJobArn"><span class="hs-identifier hs-type">monitoringExecutionSummary_processingJobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="monitoringExecutionSummary_processingJobArn"><span class="annot"><span class="annottext">monitoringExecutionSummary_processingJobArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621680322643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The name of the endpoint used to run the monitoring job.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_endpointName"><span class="hs-identifier hs-type">monitoringExecutionSummary_endpointName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="monitoringExecutionSummary_endpointName"><span class="annot"><span class="annottext">monitoringExecutionSummary_endpointName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MonitoringExecutionSummary -&gt; f MonitoringExecutionSummary
+</span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_endpointName"><span class="hs-identifier hs-var hs-var">monitoringExecutionSummary_endpointName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringExecutionSummary -&gt; Maybe Text)
+-&gt; (MonitoringExecutionSummary
+    -&gt; Maybe Text -&gt; MonitoringExecutionSummary)
+-&gt; Lens
+     MonitoringExecutionSummary
+     MonitoringExecutionSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680322641"><span class="annot"><span class="annottext">Maybe Text
+endpointName :: Maybe Text
+$sel:endpointName:MonitoringExecutionSummary' :: MonitoringExecutionSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680322641"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680322641"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680322640"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
+</span><a href="#local-6989586621680322640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680322639"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680322639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
+</span><a href="#local-6989586621680322640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointName:MonitoringExecutionSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AendpointName%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680322639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the monitoring job.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_processingJobArn"><span class="hs-identifier hs-type">monitoringExecutionSummary_processingJobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="monitoringExecutionSummary_processingJobArn"><span class="annot"><span class="annottext">monitoringExecutionSummary_processingJobArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; MonitoringExecutionSummary -&gt; f MonitoringExecutionSummary
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_processingJobArn"><span class="hs-identifier hs-var hs-var">monitoringExecutionSummary_processingJobArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringExecutionSummary -&gt; Maybe Text)
 -&gt; (MonitoringExecutionSummary
@@ -361,16 +337,40 @@ $sel:failureReason:MonitoringExecutionSummary' :: MonitoringExecutionSummary -&g
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321248"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680322637"><span class="annot"><span class="annottext">Maybe Text
 processingJobArn :: Maybe Text
 $sel:processingJobArn:MonitoringExecutionSummary' :: MonitoringExecutionSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680321248"><span class="hs-identifier hs-var hs-var">processingJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680321248"><span class="hs-identifier hs-var">processingJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321247"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
-</span><a href="#local-6989586621680321247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321246"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680321246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
-</span><a href="#local-6989586621680321247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processingJobArn:MonitoringExecutionSummary' :: Maybe Text
+</span><a href="#local-6989586621680322637"><span class="hs-identifier hs-var hs-var">processingJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680322637"><span class="hs-identifier hs-var">processingJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680322636"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
+</span><a href="#local-6989586621680322636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680322635"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680322635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
+</span><a href="#local-6989586621680322636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processingJobArn:MonitoringExecutionSummary' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AprocessingJobArn%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">processingJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680321246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680322635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The name of the monitoring job.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_monitoringJobDefinitionName"><span class="hs-identifier hs-type">monitoringExecutionSummary_monitoringJobDefinitionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="monitoringExecutionSummary_monitoringJobDefinitionName"><span class="annot"><span class="annottext">monitoringExecutionSummary_monitoringJobDefinitionName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MonitoringExecutionSummary -&gt; f MonitoringExecutionSummary
+</span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_monitoringJobDefinitionName"><span class="hs-identifier hs-var hs-var">monitoringExecutionSummary_monitoringJobDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringExecutionSummary -&gt; Maybe Text)
+-&gt; (MonitoringExecutionSummary
+    -&gt; Maybe Text -&gt; MonitoringExecutionSummary)
+-&gt; Lens
+     MonitoringExecutionSummary
+     MonitoringExecutionSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680322633"><span class="annot"><span class="annottext">Maybe Text
+monitoringJobDefinitionName :: Maybe Text
+$sel:monitoringJobDefinitionName:MonitoringExecutionSummary' :: MonitoringExecutionSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680322633"><span class="hs-identifier hs-var hs-var">monitoringJobDefinitionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680322633"><span class="hs-identifier hs-var">monitoringJobDefinitionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680322632"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
+</span><a href="#local-6989586621680322632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680322631"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680322631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
+</span><a href="#local-6989586621680322632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringJobDefinitionName:MonitoringExecutionSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AmonitoringJobDefinitionName%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">monitoringJobDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680322631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | The name of the monitoring schedule.</span><span>
 </span><span id="line-141"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_monitoringScheduleName"><span class="hs-identifier hs-type">monitoringExecutionSummary_monitoringScheduleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -382,16 +382,16 @@ $sel:processingJobArn:MonitoringExecutionSummary' :: MonitoringExecutionSummary 
 -&gt; Lens
      MonitoringExecutionSummary MonitoringExecutionSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321244"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680322629"><span class="annot"><span class="annottext">Text
 monitoringScheduleName :: Text
 $sel:monitoringScheduleName:MonitoringExecutionSummary' :: MonitoringExecutionSummary -&gt; Text
-</span><a href="#local-6989586621680321244"><span class="hs-identifier hs-var hs-var">monitoringScheduleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680321244"><span class="hs-identifier hs-var">monitoringScheduleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321243"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
-</span><a href="#local-6989586621680321243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321242"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680321242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
-</span><a href="#local-6989586621680321243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringScheduleName:MonitoringExecutionSummary' :: Text
+</span><a href="#local-6989586621680322629"><span class="hs-identifier hs-var hs-var">monitoringScheduleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680322629"><span class="hs-identifier hs-var">monitoringScheduleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680322628"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
+</span><a href="#local-6989586621680322628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680322627"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680322627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
+</span><a href="#local-6989586621680322628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringScheduleName:MonitoringExecutionSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AmonitoringScheduleName%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">monitoringScheduleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680321242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680322627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The time the monitoring job was scheduled.</span><span>
 </span><span id="line-145"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#monitoringExecutionSummary_scheduledTime"><span class="hs-identifier hs-type">monitoringExecutionSummary_scheduledTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -403,16 +403,16 @@ $sel:monitoringScheduleName:MonitoringExecutionSummary' :: MonitoringExecutionSu
 -&gt; Lens
      MonitoringExecutionSummary MonitoringExecutionSummary POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321240"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680322625"><span class="annot"><span class="annottext">POSIX
 scheduledTime :: POSIX
 $sel:scheduledTime:MonitoringExecutionSummary' :: MonitoringExecutionSummary -&gt; POSIX
-</span><a href="#local-6989586621680321240"><span class="hs-identifier hs-var hs-var">scheduledTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680321240"><span class="hs-identifier hs-var">scheduledTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321239"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
-</span><a href="#local-6989586621680321239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321238"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680321238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
-</span><a href="#local-6989586621680321239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledTime:MonitoringExecutionSummary' :: POSIX
+</span><a href="#local-6989586621680322625"><span class="hs-identifier hs-var hs-var">scheduledTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680322625"><span class="hs-identifier hs-var">scheduledTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680322624"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
+</span><a href="#local-6989586621680322624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680322623"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680322623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
+</span><a href="#local-6989586621680322624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledTime:MonitoringExecutionSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AscheduledTime%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">scheduledTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680321238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+</span><a href="#local-6989586621680322623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
  -&gt; MonitoringExecutionSummary -&gt; f MonitoringExecutionSummary)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -433,16 +433,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      MonitoringExecutionSummary MonitoringExecutionSummary POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321235"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680322620"><span class="annot"><span class="annottext">POSIX
 creationTime :: POSIX
 $sel:creationTime:MonitoringExecutionSummary' :: MonitoringExecutionSummary -&gt; POSIX
-</span><a href="#local-6989586621680321235"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680321235"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321234"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
-</span><a href="#local-6989586621680321234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321233"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680321233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
-</span><a href="#local-6989586621680321234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:MonitoringExecutionSummary' :: POSIX
+</span><a href="#local-6989586621680322620"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680322620"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680322619"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
+</span><a href="#local-6989586621680322619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680322618"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680322618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
+</span><a href="#local-6989586621680322619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:MonitoringExecutionSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AcreationTime%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680321233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+</span><a href="#local-6989586621680322618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
  -&gt; MonitoringExecutionSummary -&gt; f MonitoringExecutionSummary)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -464,16 +464,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      MonitoringExecutionSummary MonitoringExecutionSummary POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321231"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680322616"><span class="annot"><span class="annottext">POSIX
 lastModifiedTime :: POSIX
 $sel:lastModifiedTime:MonitoringExecutionSummary' :: MonitoringExecutionSummary -&gt; POSIX
-</span><a href="#local-6989586621680321231"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680321231"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321230"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
-</span><a href="#local-6989586621680321230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321229"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680321229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
-</span><a href="#local-6989586621680321230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:MonitoringExecutionSummary' :: POSIX
+</span><a href="#local-6989586621680322616"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680322616"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680322615"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
+</span><a href="#local-6989586621680322615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680322614"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680322614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
+</span><a href="#local-6989586621680322615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:MonitoringExecutionSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AlastModifiedTime%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680321229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+</span><a href="#local-6989586621680322614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
  -&gt; MonitoringExecutionSummary -&gt; f MonitoringExecutionSummary)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -497,19 +497,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
      ExecutionStatus
      ExecutionStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321227"><span class="annot"><span class="annottext">ExecutionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680322612"><span class="annot"><span class="annottext">ExecutionStatus
 monitoringExecutionStatus :: ExecutionStatus
 $sel:monitoringExecutionStatus:MonitoringExecutionSummary' :: MonitoringExecutionSummary -&gt; ExecutionStatus
-</span><a href="#local-6989586621680321227"><span class="hs-identifier hs-var hs-var">monitoringExecutionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionStatus
-</span><a href="#local-6989586621680321227"><span class="hs-identifier hs-var">monitoringExecutionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321226"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
-</span><a href="#local-6989586621680321226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321225"><span class="annot"><span class="annottext">ExecutionStatus
-</span><a href="#local-6989586621680321225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
-</span><a href="#local-6989586621680321226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringExecutionStatus:MonitoringExecutionSummary' :: ExecutionStatus
+</span><a href="#local-6989586621680322612"><span class="hs-identifier hs-var hs-var">monitoringExecutionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionStatus
+</span><a href="#local-6989586621680322612"><span class="hs-identifier hs-var">monitoringExecutionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680322611"><span class="annot"><span class="annottext">s :: MonitoringExecutionSummary
+</span><a href="#local-6989586621680322611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-type">MonitoringExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680322610"><span class="annot"><span class="annottext">ExecutionStatus
+</span><a href="#local-6989586621680322610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringExecutionSummary
+</span><a href="#local-6989586621680322611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringExecutionStatus:MonitoringExecutionSummary' :: ExecutionStatus
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#%24sel%3AmonitoringExecutionStatus%3AMonitoringExecutionSummary%27"><span class="hs-identifier hs-var">monitoringExecutionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExecutionStatus
-</span><a href="#local-6989586621680321225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680322610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680321222"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621680321220"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonitoringExecutionSummary
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680322607"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621680322605"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonitoringExecutionSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MonitoringExecutionSummary)
@@ -519,10 +519,10 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MonitoringExecutionSummary&quot;</span></span><span>
-</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680321217"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680321217"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe MonitoringType
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680322602"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680322602"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Maybe MonitoringType
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -533,8 +533,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; ExecutionStatus
 -&gt; MonitoringExecutionSummary
 </span><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary%27"><span class="hs-identifier hs-var">MonitoringExecutionSummary'</span></a></span><span>
-</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe MonitoringType
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MonitoringType
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
@@ -544,9 +544,9 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
  -&gt; POSIX
  -&gt; ExecutionStatus
  -&gt; MonitoringExecutionSummary)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe MonitoringType)
 -&gt; Parser
-     (Maybe MonitoringType
+     (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
@@ -558,12 +558,12 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; MonitoringExecutionSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680321217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680322602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MonitoringType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EndpointName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;MonitoringType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe MonitoringType
+  (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
@@ -573,7 +573,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
    -&gt; POSIX
    -&gt; ExecutionStatus
    -&gt; MonitoringExecutionSummary)
--&gt; Parser (Maybe MonitoringType)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
@@ -586,10 +586,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MonitoringExecutionSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680321217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MonitoringType)
+</span><a href="#local-6989586621680322602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MonitoringType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
@@ -612,10 +612,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MonitoringExecutionSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680321217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680322602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MonitoringJobDefinitionName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;EndpointName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
@@ -636,10 +636,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MonitoringExecutionSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680321217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680322602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ProcessingJobArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Text
@@ -658,10 +658,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MonitoringExecutionSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680321217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680322602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProcessingJobArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;MonitoringJobDefinitionName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Text
    -&gt; POSIX
@@ -675,7 +675,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; POSIX -&gt; POSIX -&gt; ExecutionStatus -&gt; MonitoringExecutionSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680321217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680322602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MonitoringScheduleName&quot;</span></span><span class="hs-special">)</span><span>
@@ -687,7 +687,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
      (POSIX -&gt; POSIX -&gt; ExecutionStatus -&gt; MonitoringExecutionSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680321217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621680322602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScheduledTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -697,7 +697,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (POSIX -&gt; ExecutionStatus -&gt; MonitoringExecutionSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680321217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621680322602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -706,7 +706,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (ExecutionStatus -&gt; MonitoringExecutionSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680321217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621680322602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -714,13 +714,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ExecutionStatus -&gt; Parser MonitoringExecutionSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680321217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ExecutionStatus
+</span><a href="#local-6989586621680322602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ExecutionStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MonitoringExecutionStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680321210"><span id="local-6989586621680321212"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680322595"><span id="local-6989586621680322597"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span></span></span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680321207"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680322592"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringExecutionSummary.html#MonitoringExecutionSummary"><span class="hs-identifier hs-type">MonitoringExecutionSummary</span></a></span></span><span>
 </span><span id="line-182"></span></pre></body></html>

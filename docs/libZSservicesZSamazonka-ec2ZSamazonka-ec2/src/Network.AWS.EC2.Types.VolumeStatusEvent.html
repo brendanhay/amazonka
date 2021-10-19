@@ -27,27 +27,27 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes a volume status event.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newVolumeStatusEvent' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681146774"><span id="local-6989586621681146775"></span></span><span class="hs-keyword">data</span><span> </span><span id="VolumeStatusEvent"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-var">VolumeStatusEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VolumeStatusEvent%27"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-var">VolumeStatusEvent'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681181940"><span id="local-6989586621681181941"></span></span><span class="hs-keyword">data</span><span> </span><span id="VolumeStatusEvent"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-var">VolumeStatusEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VolumeStatusEvent%27"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-var">VolumeStatusEvent'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the instance associated with the event.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AinstanceId%3AVolumeStatusEvent%27"><span class="annot"><span class="annottext">VolumeStatusEvent -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AinstanceId%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The type of this event.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AeventType%3AVolumeStatusEvent%27"><span class="annot"><span class="annottext">VolumeStatusEvent -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AeventType%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The earliest start time of the event.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AnotBefore%3AVolumeStatusEvent%27"><span class="annot"><span class="annottext">VolumeStatusEvent -&gt; Maybe ISO8601
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The earliest start time of the event.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AnotBefore%3AVolumeStatusEvent%27"><span class="annot"><span class="annottext">VolumeStatusEvent -&gt; Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AnotBefore%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var hs-var">notBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ID of this event.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AeventId%3AVolumeStatusEvent%27"><span class="annot"><span class="annottext">VolumeStatusEvent -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AeventId%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var hs-var">eventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The type of this event.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AeventType%3AVolumeStatusEvent%27"><span class="annot"><span class="annottext">VolumeStatusEvent -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AeventType%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A description of the event.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Adescription%3AVolumeStatusEvent%27"><span class="annot"><span class="annottext">VolumeStatusEvent -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3Adescription%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The latest end time of the event.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AnotAfter%3AVolumeStatusEvent%27"><span class="annot"><span class="annottext">VolumeStatusEvent -&gt; Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AnotAfter%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var hs-var">notAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A description of the event.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Adescription%3AVolumeStatusEvent%27"><span class="annot"><span class="annottext">VolumeStatusEvent -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3Adescription%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The ID of this event.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AeventId%3AVolumeStatusEvent%27"><span class="annot"><span class="annottext">VolumeStatusEvent -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AeventId%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var hs-var">eventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681146763"><span id="local-6989586621681146765"><span class="annot"><span class="annottext">VolumeStatusEvent -&gt; VolumeStatusEvent -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681181929"><span id="local-6989586621681181931"><span class="annot"><span class="annottext">VolumeStatusEvent -&gt; VolumeStatusEvent -&gt; Bool
 (VolumeStatusEvent -&gt; VolumeStatusEvent -&gt; Bool)
 -&gt; (VolumeStatusEvent -&gt; VolumeStatusEvent -&gt; Bool)
 -&gt; Eq VolumeStatusEvent
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VolumeStatusEvent -&gt; VolumeStatusEvent -&gt; Bool
 == :: VolumeStatusEvent -&gt; VolumeStatusEvent -&gt; Bool
 $c== :: VolumeStatusEvent -&gt; VolumeStatusEvent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681146754"><span id="local-6989586621681146756"><span id="local-6989586621681146758"><span id="local-6989586621681146760"><span class="annot"><span class="annottext">ReadPrec [VolumeStatusEvent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681181920"><span id="local-6989586621681181922"><span id="local-6989586621681181924"><span id="local-6989586621681181926"><span class="annot"><span class="annottext">ReadPrec [VolumeStatusEvent]
 ReadPrec VolumeStatusEvent
 Int -&gt; ReadS VolumeStatusEvent
 ReadS [VolumeStatusEvent]
@@ -76,7 +76,7 @@ readList :: ReadS [VolumeStatusEvent]
 $creadList :: ReadS [VolumeStatusEvent]
 readsPrec :: Int -&gt; ReadS VolumeStatusEvent
 $creadsPrec :: Int -&gt; ReadS VolumeStatusEvent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681146747"><span id="local-6989586621681146749"><span id="local-6989586621681146751"><span class="annot"><span class="annottext">Int -&gt; VolumeStatusEvent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681181913"><span id="local-6989586621681181915"><span id="local-6989586621681181917"><span class="annot"><span class="annottext">Int -&gt; VolumeStatusEvent -&gt; ShowS
 [VolumeStatusEvent] -&gt; ShowS
 VolumeStatusEvent -&gt; String
 (Int -&gt; VolumeStatusEvent -&gt; ShowS)
@@ -112,22 +112,22 @@ $cfrom :: forall x. VolumeStatusEvent -&gt; Rep VolumeStatusEvent x
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- 'instanceId', 'volumeStatusEvent_instanceId' - The ID of the instance associated with the event.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'eventType', 'volumeStatusEvent_eventType' - The type of this event.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'notBefore', 'volumeStatusEvent_notBefore' - The earliest start time of the event.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'notBefore', 'volumeStatusEvent_notBefore' - The earliest start time of the event.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'eventType', 'volumeStatusEvent_eventType' - The type of this event.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'eventId', 'volumeStatusEvent_eventId' - The ID of this event.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'description', 'volumeStatusEvent_description' - A description of the event.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- 'notAfter', 'volumeStatusEvent_notAfter' - The latest end time of the event.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'description', 'volumeStatusEvent_description' - A description of the event.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'eventId', 'volumeStatusEvent_eventId' - The ID of this event.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#newVolumeStatusEvent"><span class="hs-identifier hs-type">newVolumeStatusEvent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span>
 </span><span id="line-67"></span><span id="newVolumeStatusEvent"><span class="annot"><span class="annottext">newVolumeStatusEvent :: VolumeStatusEvent
 </span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#newVolumeStatusEvent"><span class="hs-identifier hs-var hs-var">newVolumeStatusEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">VolumeStatusEvent' :: Maybe Text
--&gt; Maybe Text
 -&gt; Maybe ISO8601
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe ISO8601
 -&gt; Maybe Text
@@ -137,24 +137,24 @@ $cfrom :: forall x. VolumeStatusEvent -&gt; Rep VolumeStatusEvent x
 </span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AinstanceId%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventType:VolumeStatusEvent' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AeventType%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var">eventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:notBefore:VolumeStatusEvent' :: Maybe ISO8601
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:notBefore:VolumeStatusEvent' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AnotBefore%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var">notBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventId:VolumeStatusEvent' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AeventId%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var">eventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventType:VolumeStatusEvent' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AeventType%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var">eventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:VolumeStatusEvent' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3Adescription%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:notAfter:VolumeStatusEvent' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AnotAfter%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var">notAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:VolumeStatusEvent' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3Adescription%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventId:VolumeStatusEvent' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AeventId%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var">eventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
@@ -168,56 +168,36 @@ forall a. Maybe a
 -&gt; Lens
      VolumeStatusEvent VolumeStatusEvent (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146738"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181904"><span class="annot"><span class="annottext">Maybe Text
 instanceId :: Maybe Text
 $sel:instanceId:VolumeStatusEvent' :: VolumeStatusEvent -&gt; Maybe Text
-</span><a href="#local-6989586621681146738"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146738"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146737"><span class="annot"><span class="annottext">s :: VolumeStatusEvent
-</span><a href="#local-6989586621681146737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146736"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatusEvent
-</span><a href="#local-6989586621681146737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:VolumeStatusEvent' :: Maybe Text
+</span><a href="#local-6989586621681181904"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181904"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181903"><span class="annot"><span class="annottext">s :: VolumeStatusEvent
+</span><a href="#local-6989586621681181903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181902"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatusEvent
+</span><a href="#local-6989586621681181903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:VolumeStatusEvent' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AinstanceId%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681181902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The type of this event.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#volumeStatusEvent_eventType"><span class="hs-identifier hs-type">volumeStatusEvent_eventType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="volumeStatusEvent_eventType"><span class="annot"><span class="annottext">volumeStatusEvent_eventType :: (Maybe Text -&gt; f (Maybe Text))
--&gt; VolumeStatusEvent -&gt; f VolumeStatusEvent
-</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#volumeStatusEvent_eventType"><span class="hs-identifier hs-var hs-var">volumeStatusEvent_eventType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeStatusEvent -&gt; Maybe Text)
--&gt; (VolumeStatusEvent -&gt; Maybe Text -&gt; VolumeStatusEvent)
--&gt; Lens
-     VolumeStatusEvent VolumeStatusEvent (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146734"><span class="annot"><span class="annottext">Maybe Text
-eventType :: Maybe Text
-$sel:eventType:VolumeStatusEvent' :: VolumeStatusEvent -&gt; Maybe Text
-</span><a href="#local-6989586621681146734"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146734"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146733"><span class="annot"><span class="annottext">s :: VolumeStatusEvent
-</span><a href="#local-6989586621681146733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146732"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatusEvent
-</span><a href="#local-6989586621681146733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventType:VolumeStatusEvent' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AeventType%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var">eventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The earliest start time of the event.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#volumeStatusEvent_notBefore"><span class="hs-identifier hs-type">volumeStatusEvent_notBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="volumeStatusEvent_notBefore"><span class="annot"><span class="annottext">volumeStatusEvent_notBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-81"></span><span class="hs-comment">-- | The earliest start time of the event.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#volumeStatusEvent_notBefore"><span class="hs-identifier hs-type">volumeStatusEvent_notBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="volumeStatusEvent_notBefore"><span class="annot"><span class="annottext">volumeStatusEvent_notBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; VolumeStatusEvent -&gt; f VolumeStatusEvent
 </span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#volumeStatusEvent_notBefore"><span class="hs-identifier hs-var hs-var">volumeStatusEvent_notBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeStatusEvent -&gt; Maybe ISO8601)
 -&gt; (VolumeStatusEvent -&gt; Maybe ISO8601 -&gt; VolumeStatusEvent)
 -&gt; Lens
      VolumeStatusEvent VolumeStatusEvent (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146730"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181900"><span class="annot"><span class="annottext">Maybe ISO8601
 notBefore :: Maybe ISO8601
 $sel:notBefore:VolumeStatusEvent' :: VolumeStatusEvent -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681146730"><span class="hs-identifier hs-var hs-var">notBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681146730"><span class="hs-identifier hs-var">notBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146729"><span class="annot"><span class="annottext">s :: VolumeStatusEvent
-</span><a href="#local-6989586621681146729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146728"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681146728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatusEvent
-</span><a href="#local-6989586621681146729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notBefore:VolumeStatusEvent' :: Maybe ISO8601
+</span><a href="#local-6989586621681181900"><span class="hs-identifier hs-var hs-var">notBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681181900"><span class="hs-identifier hs-var">notBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181899"><span class="annot"><span class="annottext">s :: VolumeStatusEvent
+</span><a href="#local-6989586621681181899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181898"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681181898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatusEvent
+</span><a href="#local-6989586621681181899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notBefore:VolumeStatusEvent' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AnotBefore%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var">notBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681146728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621681181898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; VolumeStatusEvent -&gt; f VolumeStatusEvent)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -234,26 +214,46 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The ID of this event.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#volumeStatusEvent_eventId"><span class="hs-identifier hs-type">volumeStatusEvent_eventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="volumeStatusEvent_eventId"><span class="annot"><span class="annottext">volumeStatusEvent_eventId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The type of this event.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#volumeStatusEvent_eventType"><span class="hs-identifier hs-type">volumeStatusEvent_eventType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="volumeStatusEvent_eventType"><span class="annot"><span class="annottext">volumeStatusEvent_eventType :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; VolumeStatusEvent -&gt; f VolumeStatusEvent
-</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#volumeStatusEvent_eventId"><span class="hs-identifier hs-var hs-var">volumeStatusEvent_eventId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeStatusEvent -&gt; Maybe Text)
+</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#volumeStatusEvent_eventType"><span class="hs-identifier hs-var hs-var">volumeStatusEvent_eventType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeStatusEvent -&gt; Maybe Text)
 -&gt; (VolumeStatusEvent -&gt; Maybe Text -&gt; VolumeStatusEvent)
 -&gt; Lens
      VolumeStatusEvent VolumeStatusEvent (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146723"><span class="annot"><span class="annottext">Maybe Text
-eventId :: Maybe Text
-$sel:eventId:VolumeStatusEvent' :: VolumeStatusEvent -&gt; Maybe Text
-</span><a href="#local-6989586621681146723"><span class="hs-identifier hs-var hs-var">eventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146723"><span class="hs-identifier hs-var">eventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146722"><span class="annot"><span class="annottext">s :: VolumeStatusEvent
-</span><a href="#local-6989586621681146722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146721"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatusEvent
-</span><a href="#local-6989586621681146722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventId:VolumeStatusEvent' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AeventId%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var">eventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181893"><span class="annot"><span class="annottext">Maybe Text
+eventType :: Maybe Text
+$sel:eventType:VolumeStatusEvent' :: VolumeStatusEvent -&gt; Maybe Text
+</span><a href="#local-6989586621681181893"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181893"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181892"><span class="annot"><span class="annottext">s :: VolumeStatusEvent
+</span><a href="#local-6989586621681181892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181891"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatusEvent
+</span><a href="#local-6989586621681181892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventType:VolumeStatusEvent' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AeventType%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var">eventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | A description of the event.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#volumeStatusEvent_description"><span class="hs-identifier hs-type">volumeStatusEvent_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="volumeStatusEvent_description"><span class="annot"><span class="annottext">volumeStatusEvent_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; VolumeStatusEvent -&gt; f VolumeStatusEvent
+</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#volumeStatusEvent_description"><span class="hs-identifier hs-var hs-var">volumeStatusEvent_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeStatusEvent -&gt; Maybe Text)
+-&gt; (VolumeStatusEvent -&gt; Maybe Text -&gt; VolumeStatusEvent)
+-&gt; Lens
+     VolumeStatusEvent VolumeStatusEvent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181889"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:VolumeStatusEvent' :: VolumeStatusEvent -&gt; Maybe Text
+</span><a href="#local-6989586621681181889"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181889"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181888"><span class="annot"><span class="annottext">s :: VolumeStatusEvent
+</span><a href="#local-6989586621681181888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181887"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatusEvent
+</span><a href="#local-6989586621681181888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:VolumeStatusEvent' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3Adescription%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The latest end time of the event.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#volumeStatusEvent_notAfter"><span class="hs-identifier hs-type">volumeStatusEvent_notAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -264,16 +264,16 @@ $sel:eventId:VolumeStatusEvent' :: VolumeStatusEvent -&gt; Maybe Text
 -&gt; Lens
      VolumeStatusEvent VolumeStatusEvent (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146719"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181885"><span class="annot"><span class="annottext">Maybe ISO8601
 notAfter :: Maybe ISO8601
 $sel:notAfter:VolumeStatusEvent' :: VolumeStatusEvent -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681146719"><span class="hs-identifier hs-var hs-var">notAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681146719"><span class="hs-identifier hs-var">notAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146718"><span class="annot"><span class="annottext">s :: VolumeStatusEvent
-</span><a href="#local-6989586621681146718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146717"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681146717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatusEvent
-</span><a href="#local-6989586621681146718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notAfter:VolumeStatusEvent' :: Maybe ISO8601
+</span><a href="#local-6989586621681181885"><span class="hs-identifier hs-var hs-var">notAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681181885"><span class="hs-identifier hs-var">notAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181884"><span class="annot"><span class="annottext">s :: VolumeStatusEvent
+</span><a href="#local-6989586621681181884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181883"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681181883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatusEvent
+</span><a href="#local-6989586621681181884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notAfter:VolumeStatusEvent' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AnotAfter%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var">notAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681146717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621681181883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; VolumeStatusEvent -&gt; f VolumeStatusEvent)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -291,41 +291,41 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | A description of the event.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#volumeStatusEvent_description"><span class="hs-identifier hs-type">volumeStatusEvent_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="volumeStatusEvent_description"><span class="annot"><span class="annottext">volumeStatusEvent_description :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-97"></span><span class="hs-comment">-- | The ID of this event.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#volumeStatusEvent_eventId"><span class="hs-identifier hs-type">volumeStatusEvent_eventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="volumeStatusEvent_eventId"><span class="annot"><span class="annottext">volumeStatusEvent_eventId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; VolumeStatusEvent -&gt; f VolumeStatusEvent
-</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#volumeStatusEvent_description"><span class="hs-identifier hs-var hs-var">volumeStatusEvent_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeStatusEvent -&gt; Maybe Text)
+</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#volumeStatusEvent_eventId"><span class="hs-identifier hs-var hs-var">volumeStatusEvent_eventId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeStatusEvent -&gt; Maybe Text)
 -&gt; (VolumeStatusEvent -&gt; Maybe Text -&gt; VolumeStatusEvent)
 -&gt; Lens
      VolumeStatusEvent VolumeStatusEvent (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146715"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:VolumeStatusEvent' :: VolumeStatusEvent -&gt; Maybe Text
-</span><a href="#local-6989586621681146715"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146715"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146714"><span class="annot"><span class="annottext">s :: VolumeStatusEvent
-</span><a href="#local-6989586621681146714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146713"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatusEvent
-</span><a href="#local-6989586621681146714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:VolumeStatusEvent' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3Adescription%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181881"><span class="annot"><span class="annottext">Maybe Text
+eventId :: Maybe Text
+$sel:eventId:VolumeStatusEvent' :: VolumeStatusEvent -&gt; Maybe Text
+</span><a href="#local-6989586621681181881"><span class="hs-identifier hs-var hs-var">eventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181881"><span class="hs-identifier hs-var">eventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181880"><span class="annot"><span class="annottext">s :: VolumeStatusEvent
+</span><a href="#local-6989586621681181880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-type">VolumeStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181879"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatusEvent
+</span><a href="#local-6989586621681181880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventId:VolumeStatusEvent' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#%24sel%3AeventId%3AVolumeStatusEvent%27"><span class="hs-identifier hs-var">eventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681181879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621681146710"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String VolumeStatusEvent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681146708"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681146708"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621681181876"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String VolumeStatusEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681181874"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681181874"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
 -&gt; Maybe ISO8601
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe ISO8601
 -&gt; Maybe Text
 -&gt; VolumeStatusEvent
 </span><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent%27"><span class="hs-identifier hs-var">VolumeStatusEvent'</span></a></span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe ISO8601
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe ISO8601
  -&gt; Maybe Text
@@ -333,51 +333,51 @@ $sel:description:VolumeStatusEvent' :: VolumeStatusEvent -&gt; Maybe Text
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe ISO8601
+     (Maybe ISO8601
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe ISO8601
       -&gt; Maybe Text
       -&gt; VolumeStatusEvent)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681146708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681181874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
-   -&gt; Maybe ISO8601
+  (Maybe ISO8601
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe ISO8601
    -&gt; Maybe Text
    -&gt; VolumeStatusEvent)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe ISO8601)
 -&gt; Either
      String
-     (Maybe ISO8601
+     (Maybe Text
       -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; VolumeStatusEvent)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681146708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681181874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;eventType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;notBefore&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe ISO8601
+  (Maybe Text
    -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; VolumeStatusEvent)
--&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe Text -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; VolumeStatusEvent)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681146708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621681181874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;notBefore&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;eventType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; VolumeStatusEvent)
@@ -385,16 +385,16 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe ISO8601 -&gt; Maybe Text -&gt; VolumeStatusEvent)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681146708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681181874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;eventId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; Maybe Text -&gt; VolumeStatusEvent)
 -&gt; Either String (Maybe ISO8601)
 -&gt; Either String (Maybe Text -&gt; VolumeStatusEvent)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681146708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621681181874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;notAfter&quot;</span></span><span class="hs-special">)</span><span>
@@ -402,12 +402,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String VolumeStatusEvent
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681146708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681181874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;eventId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681146702"><span id="local-6989586621681146704"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681181868"><span id="local-6989586621681181870"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681146699"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681181865"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusEvent.html#VolumeStatusEvent"><span class="hs-identifier hs-type">VolumeStatusEvent</span></a></span></span><span>
 </span><span id="line-114"></span></pre></body></html>

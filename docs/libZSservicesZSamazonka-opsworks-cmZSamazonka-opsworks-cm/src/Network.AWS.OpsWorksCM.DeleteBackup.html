@@ -52,14 +52,14 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDeleteBackup' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679194712"><span id="local-6989586621679194713"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBackup"><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-var">DeleteBackup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBackup%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup%27"><span class="hs-identifier hs-var">DeleteBackup'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679194818"><span id="local-6989586621679194819"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBackup"><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-var">DeleteBackup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBackup%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup%27"><span class="hs-identifier hs-var">DeleteBackup'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the backup to delete. Run the DescribeBackups command to get a</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- list of backup IDs. Backup IDs are in the format</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- @ServerName-yyyyMMddHHmmssSSS@.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AbackupId%3ADeleteBackup%27"><span class="annot"><span class="annottext">DeleteBackup -&gt; Text
 </span><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#%24sel%3AbackupId%3ADeleteBackup%27"><span class="hs-identifier hs-var hs-var">backupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194706"><span id="local-6989586621679194708"><span class="annot"><span class="annottext">DeleteBackup -&gt; DeleteBackup -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194812"><span id="local-6989586621679194814"><span class="annot"><span class="annottext">DeleteBackup -&gt; DeleteBackup -&gt; Bool
 (DeleteBackup -&gt; DeleteBackup -&gt; Bool)
 -&gt; (DeleteBackup -&gt; DeleteBackup -&gt; Bool) -&gt; Eq DeleteBackup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBackup -&gt; DeleteBackup -&gt; Bool
 == :: DeleteBackup -&gt; DeleteBackup -&gt; Bool
 $c== :: DeleteBackup -&gt; DeleteBackup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194697"><span id="local-6989586621679194699"><span id="local-6989586621679194701"><span id="local-6989586621679194703"><span class="annot"><span class="annottext">ReadPrec [DeleteBackup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194803"><span id="local-6989586621679194805"><span id="local-6989586621679194807"><span id="local-6989586621679194809"><span class="annot"><span class="annottext">ReadPrec [DeleteBackup]
 ReadPrec DeleteBackup
 Int -&gt; ReadS DeleteBackup
 ReadS [DeleteBackup]
@@ -87,7 +87,7 @@ readList :: ReadS [DeleteBackup]
 $creadList :: ReadS [DeleteBackup]
 readsPrec :: Int -&gt; ReadS DeleteBackup
 $creadsPrec :: Int -&gt; ReadS DeleteBackup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194690"><span id="local-6989586621679194692"><span id="local-6989586621679194694"><span class="annot"><span class="annottext">Int -&gt; DeleteBackup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194796"><span id="local-6989586621679194798"><span id="local-6989586621679194800"><span class="annot"><span class="annottext">Int -&gt; DeleteBackup -&gt; ShowS
 [DeleteBackup] -&gt; ShowS
 DeleteBackup -&gt; String
 (Int -&gt; DeleteBackup -&gt; ShowS)
@@ -129,12 +129,12 @@ $cfrom :: forall x. DeleteBackup -&gt; Rep DeleteBackup x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span><span>
 </span><span id="line-78"></span><span id="newDeleteBackup"><span class="annot"><span class="annottext">newDeleteBackup :: Text -&gt; DeleteBackup
-</span><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#newDeleteBackup"><span class="hs-identifier hs-var hs-var">newDeleteBackup</span></a></span></span><span> </span><span id="local-6989586621679194685"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194685"><span class="hs-identifier hs-var">pBackupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#newDeleteBackup"><span class="hs-identifier hs-var hs-var">newDeleteBackup</span></a></span></span><span> </span><span id="local-6989586621679194791"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194791"><span class="hs-identifier hs-var">pBackupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DeleteBackup' :: Text -&gt; DeleteBackup
 </span><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup%27"><span class="hs-identifier hs-type">DeleteBackup'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupId:DeleteBackup' :: Text
 </span><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#%24sel%3AbackupId%3ADeleteBackup%27"><span class="hs-identifier hs-var">backupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194685"><span class="hs-identifier hs-var">pBackupId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679194791"><span class="hs-identifier hs-var">pBackupId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The ID of the backup to delete. Run the DescribeBackups command to get a</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- list of backup IDs. Backup IDs are in the format</span><span>
@@ -145,25 +145,25 @@ $cfrom :: forall x. DeleteBackup -&gt; Rep DeleteBackup x
 -&gt; (DeleteBackup -&gt; Text -&gt; DeleteBackup)
 -&gt; Lens DeleteBackup DeleteBackup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup%27"><span class="hs-identifier hs-type">DeleteBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194682"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup%27"><span class="hs-identifier hs-type">DeleteBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194788"><span class="annot"><span class="annottext">Text
 backupId :: Text
 $sel:backupId:DeleteBackup' :: DeleteBackup -&gt; Text
-</span><a href="#local-6989586621679194682"><span class="hs-identifier hs-var hs-var">backupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194682"><span class="hs-identifier hs-var">backupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194681"><span class="annot"><span class="annottext">s :: DeleteBackup
-</span><a href="#local-6989586621679194681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup%27"><span class="hs-identifier hs-type">DeleteBackup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194680"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBackup
-</span><a href="#local-6989586621679194681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupId:DeleteBackup' :: Text
+</span><a href="#local-6989586621679194788"><span class="hs-identifier hs-var hs-var">backupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194788"><span class="hs-identifier hs-var">backupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194787"><span class="annot"><span class="annottext">s :: DeleteBackup
+</span><a href="#local-6989586621679194787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup%27"><span class="hs-identifier hs-type">DeleteBackup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194786"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBackup
+</span><a href="#local-6989586621679194787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupId:DeleteBackup' :: Text
 </span><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#%24sel%3AbackupId%3ADeleteBackup%27"><span class="hs-identifier hs-var">backupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackupResponse"><span class="hs-identifier hs-type">DeleteBackupResponse</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679194676"><span class="annot"><span class="annottext">request :: DeleteBackup -&gt; Request DeleteBackup
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679194782"><span class="annot"><span class="annottext">request :: DeleteBackup -&gt; Request DeleteBackup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteBackup -&gt; Request DeleteBackup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorksCM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679194672"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679194778"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteBackup
 -&gt; ClientResponse ClientBody
@@ -187,10 +187,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679194669"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194669"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679194668"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679194668"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679194667"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679194667"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679194775"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194775"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679194774"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679194774"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679194773"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679194773"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteBackupResponse
 </span><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackupResponse%27"><span class="hs-identifier hs-var">DeleteBackupResponse'</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteBackupResponse)
@@ -201,15 +201,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194669"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194775"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194660"><span id="local-6989586621679194662"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194766"><span id="local-6989586621679194768"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194657"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194763"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679194653"><span class="annot"><span class="annottext">toHeaders :: DeleteBackup -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679194759"><span class="annot"><span class="annottext">toHeaders :: DeleteBackup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteBackup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -236,12 +236,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194643"><span id="local-6989586621679194645"><span id="local-6989586621679194647"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679194641"><span class="annot"><span class="annottext">toJSON :: DeleteBackup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup%27"><span class="hs-identifier hs-type">DeleteBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194639"><span class="annot"><span class="annottext">Text
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194749"><span id="local-6989586621679194751"><span id="local-6989586621679194753"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679194747"><span class="annot"><span class="annottext">toJSON :: DeleteBackup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup%27"><span class="hs-identifier hs-type">DeleteBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194745"><span class="annot"><span class="annottext">Text
 backupId :: Text
 $sel:backupId:DeleteBackup' :: DeleteBackup -&gt; Text
-</span><a href="#local-6989586621679194639"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679194745"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -253,18 +253,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;BackupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194639"><span class="hs-identifier hs-var">backupId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679194745"><span class="hs-identifier hs-var">backupId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679194633"><span class="annot"><span class="annottext">toPath :: DeleteBackup -&gt; ByteString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679194739"><span class="annot"><span class="annottext">toPath :: DeleteBackup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteBackup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackup"><span class="hs-identifier hs-type">DeleteBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679194629"><span class="annot"><span class="annottext">toQuery :: DeleteBackup -&gt; QueryString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679194735"><span class="annot"><span class="annottext">toQuery :: DeleteBackup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteBackup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -272,12 +272,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newDeleteBackupResponse' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679194626"><span id="local-6989586621679194627"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBackupResponse"><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackupResponse"><span class="hs-identifier hs-var">DeleteBackupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBackupResponse%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackupResponse%27"><span class="hs-identifier hs-var">DeleteBackupResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span id="local-6989586621679194732"><span id="local-6989586621679194733"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBackupResponse"><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackupResponse"><span class="hs-identifier hs-var">DeleteBackupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBackupResponse%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackupResponse%27"><span class="hs-identifier hs-var">DeleteBackupResponse'</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteBackupResponse%27"><span class="annot"><span class="annottext">DeleteBackupResponse -&gt; Int
 </span><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#%24sel%3AhttpStatus%3ADeleteBackupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194621"><span id="local-6989586621679194623"><span class="annot"><span class="annottext">DeleteBackupResponse -&gt; DeleteBackupResponse -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194727"><span id="local-6989586621679194729"><span class="annot"><span class="annottext">DeleteBackupResponse -&gt; DeleteBackupResponse -&gt; Bool
 (DeleteBackupResponse -&gt; DeleteBackupResponse -&gt; Bool)
 -&gt; (DeleteBackupResponse -&gt; DeleteBackupResponse -&gt; Bool)
 -&gt; Eq DeleteBackupResponse
@@ -286,7 +286,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBackupResponse -&gt; DeleteBackupResponse -&gt; Bool
 == :: DeleteBackupResponse -&gt; DeleteBackupResponse -&gt; Bool
 $c== :: DeleteBackupResponse -&gt; DeleteBackupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194613"><span id="local-6989586621679194615"><span id="local-6989586621679194617"><span id="local-6989586621679194619"><span class="annot"><span class="annottext">ReadPrec [DeleteBackupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194719"><span id="local-6989586621679194721"><span id="local-6989586621679194723"><span id="local-6989586621679194725"><span class="annot"><span class="annottext">ReadPrec [DeleteBackupResponse]
 ReadPrec DeleteBackupResponse
 Int -&gt; ReadS DeleteBackupResponse
 ReadS [DeleteBackupResponse]
@@ -306,7 +306,7 @@ readList :: ReadS [DeleteBackupResponse]
 $creadList :: ReadS [DeleteBackupResponse]
 readsPrec :: Int -&gt; ReadS DeleteBackupResponse
 $creadsPrec :: Int -&gt; ReadS DeleteBackupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194607"><span id="local-6989586621679194609"><span id="local-6989586621679194611"><span class="annot"><span class="annottext">Int -&gt; DeleteBackupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194713"><span id="local-6989586621679194715"><span id="local-6989586621679194717"><span class="annot"><span class="annottext">Int -&gt; DeleteBackupResponse -&gt; ShowS
 [DeleteBackupResponse] -&gt; ShowS
 DeleteBackupResponse -&gt; String
 (Int -&gt; DeleteBackupResponse -&gt; ShowS)
@@ -346,12 +346,12 @@ $cfrom :: forall x. DeleteBackupResponse -&gt; Rep DeleteBackupResponse x
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackupResponse"><span class="hs-identifier hs-type">DeleteBackupResponse</span></a></span><span>
 </span><span id="line-149"></span><span id="newDeleteBackupResponse"><span class="annot"><span class="annottext">newDeleteBackupResponse :: Int -&gt; DeleteBackupResponse
-</span><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#newDeleteBackupResponse"><span class="hs-identifier hs-var hs-var">newDeleteBackupResponse</span></a></span></span><span> </span><span id="local-6989586621679194604"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194604"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#newDeleteBackupResponse"><span class="hs-identifier hs-var hs-var">newDeleteBackupResponse</span></a></span></span><span> </span><span id="local-6989586621679194710"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194710"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">DeleteBackupResponse' :: Int -&gt; DeleteBackupResponse
 </span><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackupResponse%27"><span class="hs-identifier hs-type">DeleteBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBackupResponse' :: Int
 </span><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#%24sel%3AhttpStatus%3ADeleteBackupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194604"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679194710"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-153"></span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#deleteBackupResponse_httpStatus"><span class="hs-identifier hs-type">deleteBackupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackupResponse"><span class="hs-identifier hs-type">DeleteBackupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -360,16 +360,16 @@ $cfrom :: forall x. DeleteBackupResponse -&gt; Rep DeleteBackupResponse x
 -&gt; (DeleteBackupResponse -&gt; Int -&gt; DeleteBackupResponse)
 -&gt; Lens DeleteBackupResponse DeleteBackupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackupResponse%27"><span class="hs-identifier hs-type">DeleteBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194603"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackupResponse%27"><span class="hs-identifier hs-type">DeleteBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194709"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteBackupResponse' :: DeleteBackupResponse -&gt; Int
-</span><a href="#local-6989586621679194603"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194603"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194602"><span class="annot"><span class="annottext">s :: DeleteBackupResponse
-</span><a href="#local-6989586621679194602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackupResponse%27"><span class="hs-identifier hs-type">DeleteBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194601"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBackupResponse
-</span><a href="#local-6989586621679194602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBackupResponse' :: Int
+</span><a href="#local-6989586621679194709"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194709"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194708"><span class="annot"><span class="annottext">s :: DeleteBackupResponse
+</span><a href="#local-6989586621679194708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackupResponse%27"><span class="hs-identifier hs-type">DeleteBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194707"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBackupResponse
+</span><a href="#local-6989586621679194708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBackupResponse' :: Int
 </span><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#%24sel%3AhttpStatus%3ADeleteBackupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackupResponse"><span class="hs-identifier hs-type">DeleteBackupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackupResponse"><span class="hs-identifier hs-type">DeleteBackupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackupResponse"><span class="hs-identifier hs-type">DeleteBackupResponse</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194705"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteBackup.html#DeleteBackupResponse"><span class="hs-identifier hs-type">DeleteBackupResponse</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

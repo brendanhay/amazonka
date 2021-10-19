@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newUpdateDomainEntry' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679664839"><span id="local-6989586621679664840"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainEntry"><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry"><span class="hs-identifier hs-var">UpdateDomainEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainEntry%27"><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry%27"><span class="hs-identifier hs-var">UpdateDomainEntry'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679665907"><span id="local-6989586621679665908"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainEntry"><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry"><span class="hs-identifier hs-var">UpdateDomainEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainEntry%27"><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry%27"><span class="hs-identifier hs-var">UpdateDomainEntry'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the domain recordset to update.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdomainName%3AUpdateDomainEntry%27"><span class="annot"><span class="annottext">UpdateDomainEntry -&gt; Text
 </span><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#%24sel%3AdomainName%3AUpdateDomainEntry%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AdomainEntry%3AUpdateDomainEntry%27"><span class="annot"><span class="annottext">UpdateDomainEntry -&gt; DomainEntry
 </span><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#%24sel%3AdomainEntry%3AUpdateDomainEntry%27"><span class="hs-identifier hs-var hs-var">domainEntry</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679664832"><span id="local-6989586621679664834"><span class="annot"><span class="annottext">UpdateDomainEntry -&gt; UpdateDomainEntry -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679665900"><span id="local-6989586621679665902"><span class="annot"><span class="annottext">UpdateDomainEntry -&gt; UpdateDomainEntry -&gt; Bool
 (UpdateDomainEntry -&gt; UpdateDomainEntry -&gt; Bool)
 -&gt; (UpdateDomainEntry -&gt; UpdateDomainEntry -&gt; Bool)
 -&gt; Eq UpdateDomainEntry
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDomainEntry -&gt; UpdateDomainEntry -&gt; Bool
 == :: UpdateDomainEntry -&gt; UpdateDomainEntry -&gt; Bool
 $c== :: UpdateDomainEntry -&gt; UpdateDomainEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679664823"><span id="local-6989586621679664825"><span id="local-6989586621679664827"><span id="local-6989586621679664829"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679665891"><span id="local-6989586621679665893"><span id="local-6989586621679665895"><span id="local-6989586621679665897"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainEntry]
 ReadPrec UpdateDomainEntry
 Int -&gt; ReadS UpdateDomainEntry
 ReadS [UpdateDomainEntry]
@@ -91,7 +91,7 @@ readList :: ReadS [UpdateDomainEntry]
 $creadList :: ReadS [UpdateDomainEntry]
 readsPrec :: Int -&gt; ReadS UpdateDomainEntry
 $creadsPrec :: Int -&gt; ReadS UpdateDomainEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679664816"><span id="local-6989586621679664818"><span id="local-6989586621679664820"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679665884"><span id="local-6989586621679665886"><span id="local-6989586621679665888"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainEntry -&gt; ShowS
 [UpdateDomainEntry] -&gt; ShowS
 UpdateDomainEntry -&gt; String
 (Int -&gt; UpdateDomainEntry -&gt; ShowS)
@@ -136,17 +136,17 @@ $cfrom :: forall x. UpdateDomainEntry -&gt; Rep UpdateDomainEntry x
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry"><span class="hs-identifier hs-type">UpdateDomainEntry</span></a></span><span>
 </span><span id="line-83"></span><span id="newUpdateDomainEntry"><span class="annot"><span class="annottext">newUpdateDomainEntry :: Text -&gt; DomainEntry -&gt; UpdateDomainEntry
-</span><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#newUpdateDomainEntry"><span class="hs-identifier hs-var hs-var">newUpdateDomainEntry</span></a></span></span><span> </span><span id="local-6989586621679664811"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679664811"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679664810"><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679664810"><span class="hs-identifier hs-var">pDomainEntry_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#newUpdateDomainEntry"><span class="hs-identifier hs-var hs-var">newUpdateDomainEntry</span></a></span></span><span> </span><span id="local-6989586621679665879"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679665879"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679665878"><span class="annot"><span class="annottext">DomainEntry
+</span><a href="#local-6989586621679665878"><span class="hs-identifier hs-var">pDomainEntry_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">UpdateDomainEntry' :: Text -&gt; DomainEntry -&gt; UpdateDomainEntry
 </span><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry%27"><span class="hs-identifier hs-type">UpdateDomainEntry'</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainName:UpdateDomainEntry' :: Text
 </span><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#%24sel%3AdomainName%3AUpdateDomainEntry%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679664811"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679665879"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainEntry:UpdateDomainEntry' :: DomainEntry
 </span><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#%24sel%3AdomainEntry%3AUpdateDomainEntry%27"><span class="hs-identifier hs-var">domainEntry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679664810"><span class="hs-identifier hs-var">pDomainEntry_</span></a></span><span>
+</span><a href="#local-6989586621679665878"><span class="hs-identifier hs-var">pDomainEntry_</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The name of the domain recordset to update.</span><span>
@@ -156,16 +156,16 @@ $cfrom :: forall x. UpdateDomainEntry -&gt; Rep UpdateDomainEntry x
 -&gt; (UpdateDomainEntry -&gt; Text -&gt; UpdateDomainEntry)
 -&gt; Lens UpdateDomainEntry UpdateDomainEntry Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry%27"><span class="hs-identifier hs-type">UpdateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679664807"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry%27"><span class="hs-identifier hs-type">UpdateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679665875"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:UpdateDomainEntry' :: UpdateDomainEntry -&gt; Text
-</span><a href="#local-6989586621679664807"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679664807"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679664806"><span class="annot"><span class="annottext">s :: UpdateDomainEntry
-</span><a href="#local-6989586621679664806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry%27"><span class="hs-identifier hs-type">UpdateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679664805"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679664805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainEntry
-</span><a href="#local-6989586621679664806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:UpdateDomainEntry' :: Text
+</span><a href="#local-6989586621679665875"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679665875"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679665874"><span class="annot"><span class="annottext">s :: UpdateDomainEntry
+</span><a href="#local-6989586621679665874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry%27"><span class="hs-identifier hs-type">UpdateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679665873"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679665873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainEntry
+</span><a href="#local-6989586621679665874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:UpdateDomainEntry' :: Text
 </span><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#%24sel%3AdomainName%3AUpdateDomainEntry%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679664805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry"><span class="hs-identifier hs-type">UpdateDomainEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679665873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry"><span class="hs-identifier hs-type">UpdateDomainEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | An array of key-value pairs containing information about the domain</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- entry.</span><span>
@@ -176,27 +176,27 @@ $sel:domainName:UpdateDomainEntry' :: UpdateDomainEntry -&gt; Text
 -&gt; (UpdateDomainEntry -&gt; DomainEntry -&gt; UpdateDomainEntry)
 -&gt; Lens UpdateDomainEntry UpdateDomainEntry DomainEntry DomainEntry
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry%27"><span class="hs-identifier hs-type">UpdateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679664804"><span class="annot"><span class="annottext">DomainEntry
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry%27"><span class="hs-identifier hs-type">UpdateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679665872"><span class="annot"><span class="annottext">DomainEntry
 domainEntry :: DomainEntry
 $sel:domainEntry:UpdateDomainEntry' :: UpdateDomainEntry -&gt; DomainEntry
-</span><a href="#local-6989586621679664804"><span class="hs-identifier hs-var hs-var">domainEntry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679664804"><span class="hs-identifier hs-var">domainEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679664803"><span class="annot"><span class="annottext">s :: UpdateDomainEntry
-</span><a href="#local-6989586621679664803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry%27"><span class="hs-identifier hs-type">UpdateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679664802"><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679664802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainEntry
-</span><a href="#local-6989586621679664803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainEntry:UpdateDomainEntry' :: DomainEntry
+</span><a href="#local-6989586621679665872"><span class="hs-identifier hs-var hs-var">domainEntry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEntry
+</span><a href="#local-6989586621679665872"><span class="hs-identifier hs-var">domainEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679665871"><span class="annot"><span class="annottext">s :: UpdateDomainEntry
+</span><a href="#local-6989586621679665871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry%27"><span class="hs-identifier hs-type">UpdateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679665870"><span class="annot"><span class="annottext">DomainEntry
+</span><a href="#local-6989586621679665870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainEntry
+</span><a href="#local-6989586621679665871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainEntry:UpdateDomainEntry' :: DomainEntry
 </span><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#%24sel%3AdomainEntry%3AUpdateDomainEntry%27"><span class="hs-identifier hs-var">domainEntry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679664802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry"><span class="hs-identifier hs-type">UpdateDomainEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679665870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry"><span class="hs-identifier hs-type">UpdateDomainEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry"><span class="hs-identifier hs-type">UpdateDomainEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry"><span class="hs-identifier hs-type">UpdateDomainEntry</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse"><span class="hs-identifier hs-type">UpdateDomainEntryResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679664798"><span class="annot"><span class="annottext">request :: UpdateDomainEntry -&gt; Request UpdateDomainEntry
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679665866"><span class="annot"><span class="annottext">request :: UpdateDomainEntry -&gt; Request UpdateDomainEntry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDomainEntry -&gt; Request UpdateDomainEntry
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679664794"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679665862"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateDomainEntry
 -&gt; ClientResponse ClientBody
@@ -222,10 +222,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679664791"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679664791"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679664790"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679664790"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679664789"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679664789"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679665859"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679665859"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679665858"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679665858"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679665857"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679665857"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; UpdateDomainEntryResponse
 </span><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse%27"><span class="hs-identifier hs-var">UpdateDomainEntryResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; UpdateDomainEntryResponse)
@@ -233,7 +233,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateDomainEntryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679664789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679665857"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -250,15 +250,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679664791"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679665859"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679664780"><span id="local-6989586621679664782"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry"><span class="hs-identifier hs-type">UpdateDomainEntry</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679665848"><span id="local-6989586621679665850"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry"><span class="hs-identifier hs-type">UpdateDomainEntry</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679664777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry"><span class="hs-identifier hs-type">UpdateDomainEntry</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679665845"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry"><span class="hs-identifier hs-type">UpdateDomainEntry</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry"><span class="hs-identifier hs-type">UpdateDomainEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679664773"><span class="annot"><span class="annottext">toHeaders :: UpdateDomainEntry -&gt; ResponseHeaders
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679665841"><span class="annot"><span class="annottext">toHeaders :: UpdateDomainEntry -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateDomainEntry -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -285,15 +285,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679664763"><span id="local-6989586621679664765"><span id="local-6989586621679664767"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry"><span class="hs-identifier hs-type">UpdateDomainEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679664761"><span class="annot"><span class="annottext">toJSON :: UpdateDomainEntry -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry%27"><span class="hs-identifier hs-type">UpdateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679664758"><span id="local-6989586621679664759"><span class="annot"><span class="annottext">Text
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679665831"><span id="local-6989586621679665833"><span id="local-6989586621679665835"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry"><span class="hs-identifier hs-type">UpdateDomainEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679665829"><span class="annot"><span class="annottext">toJSON :: UpdateDomainEntry -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry%27"><span class="hs-identifier hs-type">UpdateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679665826"><span id="local-6989586621679665827"><span class="annot"><span class="annottext">Text
 DomainEntry
 domainEntry :: DomainEntry
 domainName :: Text
 $sel:domainEntry:UpdateDomainEntry' :: UpdateDomainEntry -&gt; DomainEntry
 $sel:domainName:UpdateDomainEntry' :: UpdateDomainEntry -&gt; Text
-</span><a href="#local-6989586621679664758"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679665826"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -305,26 +305,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;domainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679664759"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679665827"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;domainEntry&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DomainEntry -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679664758"><span class="hs-identifier hs-var">domainEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679665826"><span class="hs-identifier hs-var">domainEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry"><span class="hs-identifier hs-type">UpdateDomainEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679664752"><span class="annot"><span class="annottext">toPath :: UpdateDomainEntry -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679665820"><span class="annot"><span class="annottext">toPath :: UpdateDomainEntry -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateDomainEntry -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntry"><span class="hs-identifier hs-type">UpdateDomainEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679664748"><span class="annot"><span class="annottext">toQuery :: UpdateDomainEntry -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679665816"><span class="annot"><span class="annottext">toQuery :: UpdateDomainEntry -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDomainEntry -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -332,7 +332,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newUpdateDomainEntryResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679664745"><span id="local-6989586621679664746"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainEntryResponse"><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse"><span class="hs-identifier hs-var">UpdateDomainEntryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainEntryResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse%27"><span class="hs-identifier hs-var">UpdateDomainEntryResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679665813"><span id="local-6989586621679665814"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainEntryResponse"><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse"><span class="hs-identifier hs-var">UpdateDomainEntryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainEntryResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse%27"><span class="hs-identifier hs-var">UpdateDomainEntryResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -342,7 +342,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateDomainEntryResponse%27"><span class="annot"><span class="annottext">UpdateDomainEntryResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#%24sel%3AhttpStatus%3AUpdateDomainEntryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679664739"><span id="local-6989586621679664741"><span class="annot"><span class="annottext">UpdateDomainEntryResponse -&gt; UpdateDomainEntryResponse -&gt; Bool
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679665807"><span id="local-6989586621679665809"><span class="annot"><span class="annottext">UpdateDomainEntryResponse -&gt; UpdateDomainEntryResponse -&gt; Bool
 (UpdateDomainEntryResponse -&gt; UpdateDomainEntryResponse -&gt; Bool)
 -&gt; (UpdateDomainEntryResponse -&gt; UpdateDomainEntryResponse -&gt; Bool)
 -&gt; Eq UpdateDomainEntryResponse
@@ -351,7 +351,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDomainEntryResponse -&gt; UpdateDomainEntryResponse -&gt; Bool
 == :: UpdateDomainEntryResponse -&gt; UpdateDomainEntryResponse -&gt; Bool
 $c== :: UpdateDomainEntryResponse -&gt; UpdateDomainEntryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679664731"><span id="local-6989586621679664733"><span id="local-6989586621679664735"><span id="local-6989586621679664737"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainEntryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679665799"><span id="local-6989586621679665801"><span id="local-6989586621679665803"><span id="local-6989586621679665805"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainEntryResponse]
 ReadPrec UpdateDomainEntryResponse
 Int -&gt; ReadS UpdateDomainEntryResponse
 ReadS [UpdateDomainEntryResponse]
@@ -371,7 +371,7 @@ readList :: ReadS [UpdateDomainEntryResponse]
 $creadList :: ReadS [UpdateDomainEntryResponse]
 readsPrec :: Int -&gt; ReadS UpdateDomainEntryResponse
 $creadsPrec :: Int -&gt; ReadS UpdateDomainEntryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679664725"><span id="local-6989586621679664727"><span id="local-6989586621679664729"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainEntryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679665793"><span id="local-6989586621679665795"><span id="local-6989586621679665797"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainEntryResponse -&gt; ShowS
 [UpdateDomainEntryResponse] -&gt; ShowS
 UpdateDomainEntryResponse -&gt; String
 (Int -&gt; UpdateDomainEntryResponse -&gt; ShowS)
@@ -421,8 +421,8 @@ UpdateDomainEntryResponse -&gt; Rep UpdateDomainEntryResponse x
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse"><span class="hs-identifier hs-type">UpdateDomainEntryResponse</span></a></span><span>
 </span><span id="line-173"></span><span id="newUpdateDomainEntryResponse"><span class="annot"><span class="annottext">newUpdateDomainEntryResponse :: Int -&gt; UpdateDomainEntryResponse
-</span><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#newUpdateDomainEntryResponse"><span class="hs-identifier hs-var hs-var">newUpdateDomainEntryResponse</span></a></span></span><span> </span><span id="local-6989586621679664722"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679664722"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#newUpdateDomainEntryResponse"><span class="hs-identifier hs-var hs-var">newUpdateDomainEntryResponse</span></a></span></span><span> </span><span id="local-6989586621679665790"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679665790"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">UpdateDomainEntryResponse' :: Maybe [Operation] -&gt; Int -&gt; UpdateDomainEntryResponse
 </span><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse%27"><span class="hs-identifier hs-type">UpdateDomainEntryResponse'</span></a></span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:UpdateDomainEntryResponse' :: Maybe [Operation]
@@ -432,7 +432,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDomainEntryResponse' :: Int
 </span><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#%24sel%3AhttpStatus%3AUpdateDomainEntryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679664722"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679665790"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -450,16 +450,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse%27"><span class="hs-identifier hs-type">UpdateDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679664721"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse%27"><span class="hs-identifier hs-type">UpdateDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679665789"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:UpdateDomainEntryResponse' :: UpdateDomainEntryResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679664721"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679664721"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679664720"><span class="annot"><span class="annottext">s :: UpdateDomainEntryResponse
-</span><a href="#local-6989586621679664720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse%27"><span class="hs-identifier hs-type">UpdateDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679664719"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679664719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainEntryResponse
-</span><a href="#local-6989586621679664720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:UpdateDomainEntryResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679665789"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679665789"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679665788"><span class="annot"><span class="annottext">s :: UpdateDomainEntryResponse
+</span><a href="#local-6989586621679665788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse%27"><span class="hs-identifier hs-type">UpdateDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679665787"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679665787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainEntryResponse
+</span><a href="#local-6989586621679665788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:UpdateDomainEntryResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#%24sel%3Aoperations%3AUpdateDomainEntryResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679664719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse"><span class="hs-identifier hs-type">UpdateDomainEntryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679665787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse"><span class="hs-identifier hs-type">UpdateDomainEntryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; UpdateDomainEntryResponse -&gt; f UpdateDomainEntryResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
     -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -477,8 +477,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Operation] [Operation] [Operation] [Operation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-187"></span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#updateDomainEntryResponse_httpStatus"><span class="hs-identifier hs-type">updateDomainEntryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse"><span class="hs-identifier hs-type">UpdateDomainEntryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -488,16 +488,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (UpdateDomainEntryResponse -&gt; Int -&gt; UpdateDomainEntryResponse)
 -&gt; Lens UpdateDomainEntryResponse UpdateDomainEntryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse%27"><span class="hs-identifier hs-type">UpdateDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679664715"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse%27"><span class="hs-identifier hs-type">UpdateDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679665783"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateDomainEntryResponse' :: UpdateDomainEntryResponse -&gt; Int
-</span><a href="#local-6989586621679664715"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679664715"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679664714"><span class="annot"><span class="annottext">s :: UpdateDomainEntryResponse
-</span><a href="#local-6989586621679664714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse%27"><span class="hs-identifier hs-type">UpdateDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679664713"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679664713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainEntryResponse
-</span><a href="#local-6989586621679664714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDomainEntryResponse' :: Int
+</span><a href="#local-6989586621679665783"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679665783"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679665782"><span class="annot"><span class="annottext">s :: UpdateDomainEntryResponse
+</span><a href="#local-6989586621679665782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse%27"><span class="hs-identifier hs-type">UpdateDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679665781"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679665781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainEntryResponse
+</span><a href="#local-6989586621679665782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDomainEntryResponse' :: Int
 </span><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#%24sel%3AhttpStatus%3AUpdateDomainEntryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679664713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse"><span class="hs-identifier hs-type">UpdateDomainEntryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679665781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse"><span class="hs-identifier hs-type">UpdateDomainEntryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679664711"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse"><span class="hs-identifier hs-type">UpdateDomainEntryResponse</span></a></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679665779"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UpdateDomainEntry.html#UpdateDomainEntryResponse"><span class="hs-identifier hs-type">UpdateDomainEntryResponse</span></a></span></span><span>
 </span><span id="line-191"></span></pre></body></html>

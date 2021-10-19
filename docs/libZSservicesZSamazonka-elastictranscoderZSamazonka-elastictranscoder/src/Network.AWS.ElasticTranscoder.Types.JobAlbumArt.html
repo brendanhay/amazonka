@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The .jpg or .png file associated with an audio file.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newJobAlbumArt' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679211055"><span id="local-6989586621679211056"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobAlbumArt"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt"><span class="hs-identifier hs-var">JobAlbumArt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobAlbumArt%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt%27"><span class="hs-identifier hs-var">JobAlbumArt'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679211172"><span id="local-6989586621679211173"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobAlbumArt"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt"><span class="hs-identifier hs-var">JobAlbumArt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobAlbumArt%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt%27"><span class="hs-identifier hs-var">JobAlbumArt'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A policy that determines how Elastic Transcoder handles the existence of</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- multiple album artwork files.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3Aartwork%3AJobAlbumArt%27"><span class="annot"><span class="annottext">JobAlbumArt -&gt; Maybe [Artwork]
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#%24sel%3Aartwork%3AJobAlbumArt%27"><span class="hs-identifier hs-var hs-var">artwork</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Artwork.html#Artwork"><span class="hs-identifier hs-type">Artwork</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679211048"><span id="local-6989586621679211050"><span class="annot"><span class="annottext">JobAlbumArt -&gt; JobAlbumArt -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679211165"><span id="local-6989586621679211167"><span class="annot"><span class="annottext">JobAlbumArt -&gt; JobAlbumArt -&gt; Bool
 (JobAlbumArt -&gt; JobAlbumArt -&gt; Bool)
 -&gt; (JobAlbumArt -&gt; JobAlbumArt -&gt; Bool) -&gt; Eq JobAlbumArt
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JobAlbumArt -&gt; JobAlbumArt -&gt; Bool
 == :: JobAlbumArt -&gt; JobAlbumArt -&gt; Bool
 $c== :: JobAlbumArt -&gt; JobAlbumArt -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211039"><span id="local-6989586621679211041"><span id="local-6989586621679211043"><span id="local-6989586621679211045"><span class="annot"><span class="annottext">ReadPrec [JobAlbumArt]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211156"><span id="local-6989586621679211158"><span id="local-6989586621679211160"><span id="local-6989586621679211162"><span class="annot"><span class="annottext">ReadPrec [JobAlbumArt]
 ReadPrec JobAlbumArt
 Int -&gt; ReadS JobAlbumArt
 ReadS [JobAlbumArt]
@@ -79,7 +79,7 @@ readList :: ReadS [JobAlbumArt]
 $creadList :: ReadS [JobAlbumArt]
 readsPrec :: Int -&gt; ReadS JobAlbumArt
 $creadsPrec :: Int -&gt; ReadS JobAlbumArt
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211032"><span id="local-6989586621679211034"><span id="local-6989586621679211036"><span class="annot"><span class="annottext">Int -&gt; JobAlbumArt -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211149"><span id="local-6989586621679211151"><span id="local-6989586621679211153"><span class="annot"><span class="annottext">Int -&gt; JobAlbumArt -&gt; ShowS
 [JobAlbumArt] -&gt; ShowS
 JobAlbumArt -&gt; String
 (Int -&gt; JobAlbumArt -&gt; ShowS)
@@ -169,16 +169,16 @@ forall a. Maybe a
 -&gt; (JobAlbumArt -&gt; Maybe Text -&gt; JobAlbumArt)
 -&gt; Lens JobAlbumArt JobAlbumArt (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt%27"><span class="hs-identifier hs-type">JobAlbumArt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211023"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt%27"><span class="hs-identifier hs-type">JobAlbumArt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211140"><span class="annot"><span class="annottext">Maybe Text
 mergePolicy :: Maybe Text
 $sel:mergePolicy:JobAlbumArt' :: JobAlbumArt -&gt; Maybe Text
-</span><a href="#local-6989586621679211023"><span class="hs-identifier hs-var hs-var">mergePolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211023"><span class="hs-identifier hs-var">mergePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211022"><span class="annot"><span class="annottext">s :: JobAlbumArt
-</span><a href="#local-6989586621679211022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt%27"><span class="hs-identifier hs-type">JobAlbumArt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211021"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobAlbumArt
-</span><a href="#local-6989586621679211022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergePolicy:JobAlbumArt' :: Maybe Text
+</span><a href="#local-6989586621679211140"><span class="hs-identifier hs-var hs-var">mergePolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679211140"><span class="hs-identifier hs-var">mergePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211139"><span class="annot"><span class="annottext">s :: JobAlbumArt
+</span><a href="#local-6989586621679211139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt%27"><span class="hs-identifier hs-type">JobAlbumArt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211138"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679211138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobAlbumArt
+</span><a href="#local-6989586621679211139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergePolicy:JobAlbumArt' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#%24sel%3AmergePolicy%3AJobAlbumArt%27"><span class="hs-identifier hs-var">mergePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt"><span class="hs-identifier hs-type">JobAlbumArt</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt"><span class="hs-identifier hs-type">JobAlbumArt</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The file to be used as album art. There can be multiple artworks</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- associated with an audio file, to a maximum of 20. Valid formats are</span><span>
@@ -190,16 +190,16 @@ $sel:mergePolicy:JobAlbumArt' :: JobAlbumArt -&gt; Maybe Text
 -&gt; (JobAlbumArt -&gt; Maybe [Artwork] -&gt; JobAlbumArt)
 -&gt; Lens JobAlbumArt JobAlbumArt (Maybe [Artwork]) (Maybe [Artwork])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt%27"><span class="hs-identifier hs-type">JobAlbumArt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211019"><span class="annot"><span class="annottext">Maybe [Artwork]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt%27"><span class="hs-identifier hs-type">JobAlbumArt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211136"><span class="annot"><span class="annottext">Maybe [Artwork]
 artwork :: Maybe [Artwork]
 $sel:artwork:JobAlbumArt' :: JobAlbumArt -&gt; Maybe [Artwork]
-</span><a href="#local-6989586621679211019"><span class="hs-identifier hs-var hs-var">artwork</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Artwork]
-</span><a href="#local-6989586621679211019"><span class="hs-identifier hs-var">artwork</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211018"><span class="annot"><span class="annottext">s :: JobAlbumArt
-</span><a href="#local-6989586621679211018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt%27"><span class="hs-identifier hs-type">JobAlbumArt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211017"><span class="annot"><span class="annottext">Maybe [Artwork]
-</span><a href="#local-6989586621679211017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobAlbumArt
-</span><a href="#local-6989586621679211018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artwork:JobAlbumArt' :: Maybe [Artwork]
+</span><a href="#local-6989586621679211136"><span class="hs-identifier hs-var hs-var">artwork</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Artwork]
+</span><a href="#local-6989586621679211136"><span class="hs-identifier hs-var">artwork</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211135"><span class="annot"><span class="annottext">s :: JobAlbumArt
+</span><a href="#local-6989586621679211135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt%27"><span class="hs-identifier hs-type">JobAlbumArt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211134"><span class="annot"><span class="annottext">Maybe [Artwork]
+</span><a href="#local-6989586621679211134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobAlbumArt
+</span><a href="#local-6989586621679211135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artwork:JobAlbumArt' :: Maybe [Artwork]
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#%24sel%3Aartwork%3AJobAlbumArt%27"><span class="hs-identifier hs-var">artwork</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Artwork]
-</span><a href="#local-6989586621679211017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt"><span class="hs-identifier hs-type">JobAlbumArt</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Artwork] -&gt; f (Maybe [Artwork]))
+</span><a href="#local-6989586621679211134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt"><span class="hs-identifier hs-type">JobAlbumArt</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Artwork] -&gt; f (Maybe [Artwork]))
  -&gt; JobAlbumArt -&gt; f JobAlbumArt)
 -&gt; ((Maybe [Artwork] -&gt; f (Maybe [Artwork]))
     -&gt; Maybe [Artwork] -&gt; f (Maybe [Artwork]))
@@ -217,11 +217,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Artwork] [Artwork] [Artwork] [Artwork]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211011"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt"><span class="hs-identifier hs-type">JobAlbumArt</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679211009"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobAlbumArt
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211128"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt"><span class="hs-identifier hs-type">JobAlbumArt</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679211126"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobAlbumArt
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JobAlbumArt) -&gt; Value -&gt; Parser JobAlbumArt
@@ -229,15 +229,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JobAlbumArt&quot;</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679211006"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679211006"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679211123"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679211123"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Artwork] -&gt; JobAlbumArt
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt%27"><span class="hs-identifier hs-var">JobAlbumArt'</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Artwork] -&gt; JobAlbumArt)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe [Artwork] -&gt; JobAlbumArt)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679211006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679211123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MergePolicy&quot;</span></span><span class="hs-special">)</span><span>
@@ -245,7 +245,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Artwork]) -&gt; Parser JobAlbumArt
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679211006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Artwork]))
+</span><a href="#local-6989586621679211123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Artwork]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Artwork&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Artwork]))
@@ -256,19 +256,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210999"><span id="local-6989586621679211001"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt"><span class="hs-identifier hs-type">JobAlbumArt</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211116"><span id="local-6989586621679211118"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt"><span class="hs-identifier hs-type">JobAlbumArt</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210996"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt"><span class="hs-identifier hs-type">JobAlbumArt</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt"><span class="hs-identifier hs-type">JobAlbumArt</span></a></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210988"><span id="local-6989586621679210990"><span id="local-6989586621679210992"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt"><span class="hs-identifier hs-type">JobAlbumArt</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679210986"><span class="annot"><span class="annottext">toJSON :: JobAlbumArt -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt%27"><span class="hs-identifier hs-type">JobAlbumArt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210983"><span id="local-6989586621679210984"><span class="annot"><span class="annottext">Maybe [Artwork]
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211105"><span id="local-6989586621679211107"><span id="local-6989586621679211109"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt"><span class="hs-identifier hs-type">JobAlbumArt</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679211103"><span class="annot"><span class="annottext">toJSON :: JobAlbumArt -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobAlbumArt.html#JobAlbumArt%27"><span class="hs-identifier hs-type">JobAlbumArt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211100"><span id="local-6989586621679211101"><span class="annot"><span class="annottext">Maybe [Artwork]
 Maybe Text
 artwork :: Maybe [Artwork]
 mergePolicy :: Maybe Text
 $sel:artwork:JobAlbumArt' :: JobAlbumArt -&gt; Maybe [Artwork]
 $sel:mergePolicy:JobAlbumArt' :: JobAlbumArt -&gt; Maybe Text
-</span><a href="#local-6989586621679210983"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679211100"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -280,14 +280,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210984"><span class="hs-identifier hs-var">mergePolicy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211101"><span class="hs-identifier hs-var">mergePolicy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Artwork&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Artwork] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Artwork] -&gt; Pair) -&gt; Maybe [Artwork] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Artwork]
-</span><a href="#local-6989586621679210983"><span class="hs-identifier hs-var">artwork</span></a></span><span>
+</span><a href="#local-6989586621679211100"><span class="hs-identifier hs-var">artwork</span></a></span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span></pre></body></html>

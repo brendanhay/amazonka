@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679182178"><span id="local-6989586621679182179"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EncryptionKeyType"><span class="annot"><a href="Network.AWS.Translate.Types.EncryptionKeyType.html#EncryptionKeyType"><span class="hs-identifier hs-var">EncryptionKeyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionKeyType%27"><span class="annot"><a href="Network.AWS.Translate.Types.EncryptionKeyType.html#EncryptionKeyType%27"><span class="hs-identifier hs-var">EncryptionKeyType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679182235"><span id="local-6989586621679182236"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EncryptionKeyType"><span class="annot"><a href="Network.AWS.Translate.Types.EncryptionKeyType.html#EncryptionKeyType"><span class="hs-identifier hs-var">EncryptionKeyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionKeyType%27"><span class="annot"><a href="Network.AWS.Translate.Types.EncryptionKeyType.html#EncryptionKeyType%27"><span class="hs-identifier hs-var">EncryptionKeyType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEncryptionKeyType"><span class="annot"><span class="annottext">EncryptionKeyType -&gt; Text
 </span><a href="Network.AWS.Translate.Types.EncryptionKeyType.html#fromEncryptionKeyType"><span class="hs-identifier hs-var hs-var">fromEncryptionKeyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182170"><span id="local-6989586621679182172"><span id="local-6989586621679182174"><span class="annot"><span class="annottext">Int -&gt; EncryptionKeyType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182227"><span id="local-6989586621679182229"><span id="local-6989586621679182231"><span class="annot"><span class="annottext">Int -&gt; EncryptionKeyType -&gt; ShowS
 [EncryptionKeyType] -&gt; ShowS
 EncryptionKeyType -&gt; String
 (Int -&gt; EncryptionKeyType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: EncryptionKeyType -&gt; String
 showsPrec :: Int -&gt; EncryptionKeyType -&gt; ShowS
 $cshowsPrec :: Int -&gt; EncryptionKeyType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679182161"><span id="local-6989586621679182163"><span id="local-6989586621679182165"><span id="local-6989586621679182167"><span class="annot"><span class="annottext">ReadPrec [EncryptionKeyType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679182218"><span id="local-6989586621679182220"><span id="local-6989586621679182222"><span id="local-6989586621679182224"><span class="annot"><span class="annottext">ReadPrec [EncryptionKeyType]
 ReadPrec EncryptionKeyType
 Int -&gt; ReadS EncryptionKeyType
 ReadS [EncryptionKeyType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [EncryptionKeyType]
 readsPrec :: Int -&gt; ReadS EncryptionKeyType
 $creadsPrec :: Int -&gt; ReadS EncryptionKeyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679182156"><span id="local-6989586621679182158"><span class="annot"><span class="annottext">EncryptionKeyType -&gt; EncryptionKeyType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679182213"><span id="local-6989586621679182215"><span class="annot"><span class="annottext">EncryptionKeyType -&gt; EncryptionKeyType -&gt; Bool
 (EncryptionKeyType -&gt; EncryptionKeyType -&gt; Bool)
 -&gt; (EncryptionKeyType -&gt; EncryptionKeyType -&gt; Bool)
 -&gt; Eq EncryptionKeyType
@@ -81,7 +81,7 @@ $c/= :: EncryptionKeyType -&gt; EncryptionKeyType -&gt; Bool
 == :: EncryptionKeyType -&gt; EncryptionKeyType -&gt; Bool
 $c== :: EncryptionKeyType -&gt; EncryptionKeyType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679182140"><span id="local-6989586621679182142"><span id="local-6989586621679182144"><span id="local-6989586621679182146"><span id="local-6989586621679182148"><span id="local-6989586621679182150"><span id="local-6989586621679182152"><span class="annot"><span class="annottext">Eq EncryptionKeyType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679182197"><span id="local-6989586621679182199"><span id="local-6989586621679182201"><span id="local-6989586621679182203"><span id="local-6989586621679182205"><span id="local-6989586621679182207"><span id="local-6989586621679182209"><span class="annot"><span class="annottext">Eq EncryptionKeyType
 Eq EncryptionKeyType
 -&gt; (EncryptionKeyType -&gt; EncryptionKeyType -&gt; Ordering)
 -&gt; (EncryptionKeyType -&gt; EncryptionKeyType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. EncryptionKeyType -&gt; Rep EncryptionKeyType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182132"><span id="local-6989586621679182134"><span class="annot"><span class="annottext">Int -&gt; EncryptionKeyType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182189"><span id="local-6989586621679182191"><span class="annot"><span class="annottext">Int -&gt; EncryptionKeyType -&gt; Int
 EncryptionKeyType -&gt; Int
 (Int -&gt; EncryptionKeyType -&gt; Int)
 -&gt; (EncryptionKeyType -&gt; Int) -&gt; Hashable EncryptionKeyType
@@ -142,51 +142,51 @@ $chash :: EncryptionKeyType -&gt; Int
 hashWithSalt :: Int -&gt; EncryptionKeyType -&gt; Int
 $chashWithSalt :: Int -&gt; EncryptionKeyType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679182129"><span class="annot"><span class="annottext">EncryptionKeyType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679182186"><span class="annot"><span class="annottext">EncryptionKeyType -&gt; ()
 (EncryptionKeyType -&gt; ()) -&gt; NFData EncryptionKeyType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EncryptionKeyType -&gt; ()
 $crnf :: EncryptionKeyType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679182126"><span class="annot"><span class="annottext">Text -&gt; Either String EncryptionKeyType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679182183"><span class="annot"><span class="annottext">Text -&gt; Either String EncryptionKeyType
 (Text -&gt; Either String EncryptionKeyType)
 -&gt; FromText EncryptionKeyType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EncryptionKeyType
 $cfromText :: Text -&gt; Either String EncryptionKeyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679182123"><span class="annot"><span class="annottext">EncryptionKeyType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679182180"><span class="annot"><span class="annottext">EncryptionKeyType -&gt; Text
 (EncryptionKeyType -&gt; Text) -&gt; ToText EncryptionKeyType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EncryptionKeyType -&gt; Text
 $ctoText :: EncryptionKeyType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679182120"><span class="annot"><span class="annottext">EncryptionKeyType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679182177"><span class="annot"><span class="annottext">EncryptionKeyType -&gt; ByteString
 (EncryptionKeyType -&gt; ByteString) -&gt; ToByteString EncryptionKeyType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EncryptionKeyType -&gt; ByteString
 $ctoBS :: EncryptionKeyType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679182117"><span class="annot"><span class="annottext">EncryptionKeyType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679182174"><span class="annot"><span class="annottext">EncryptionKeyType -&gt; ByteStringBuilder
 (EncryptionKeyType -&gt; ByteStringBuilder) -&gt; ToLog EncryptionKeyType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EncryptionKeyType -&gt; ByteStringBuilder
 $cbuild :: EncryptionKeyType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679182114"><span class="annot"><span class="annottext">HeaderName -&gt; EncryptionKeyType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679182171"><span class="annot"><span class="annottext">HeaderName -&gt; EncryptionKeyType -&gt; [Header]
 (HeaderName -&gt; EncryptionKeyType -&gt; [Header])
 -&gt; ToHeader EncryptionKeyType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EncryptionKeyType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EncryptionKeyType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679182111"><span class="annot"><span class="annottext">EncryptionKeyType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679182168"><span class="annot"><span class="annottext">EncryptionKeyType -&gt; QueryString
 (EncryptionKeyType -&gt; QueryString) -&gt; ToQuery EncryptionKeyType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EncryptionKeyType -&gt; QueryString
 $ctoQuery :: EncryptionKeyType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679182106"><span id="local-6989586621679182108"><span class="annot"><span class="annottext">Value -&gt; Parser [EncryptionKeyType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679182163"><span id="local-6989586621679182165"><span class="annot"><span class="annottext">Value -&gt; Parser [EncryptionKeyType]
 Value -&gt; Parser EncryptionKeyType
 (Value -&gt; Parser EncryptionKeyType)
 -&gt; (Value -&gt; Parser [EncryptionKeyType])
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [EncryptionKeyType]
 parseJSON :: Value -&gt; Parser EncryptionKeyType
 $cparseJSON :: Value -&gt; Parser EncryptionKeyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679182101"><span id="local-6989586621679182103"><span class="annot"><span class="annottext">FromJSONKeyFunction [EncryptionKeyType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679182158"><span id="local-6989586621679182160"><span class="annot"><span class="annottext">FromJSONKeyFunction [EncryptionKeyType]
 FromJSONKeyFunction EncryptionKeyType
 FromJSONKeyFunction EncryptionKeyType
 -&gt; FromJSONKeyFunction [EncryptionKeyType]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EncryptionKeyType]
 fromJSONKey :: FromJSONKeyFunction EncryptionKeyType
 $cfromJSONKey :: FromJSONKeyFunction EncryptionKeyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679182092"><span id="local-6989586621679182094"><span id="local-6989586621679182096"><span id="local-6989586621679182098"><span class="annot"><span class="annottext">[EncryptionKeyType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679182149"><span id="local-6989586621679182151"><span id="local-6989586621679182153"><span id="local-6989586621679182155"><span class="annot"><span class="annottext">[EncryptionKeyType] -&gt; Encoding
 [EncryptionKeyType] -&gt; Value
 EncryptionKeyType -&gt; Encoding
 EncryptionKeyType -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: EncryptionKeyType -&gt; Encoding
 toJSON :: EncryptionKeyType -&gt; Value
 $ctoJSON :: EncryptionKeyType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679182087"><span id="local-6989586621679182089"><span class="annot"><span class="annottext">ToJSONKeyFunction [EncryptionKeyType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679182144"><span id="local-6989586621679182146"><span class="annot"><span class="annottext">ToJSONKeyFunction [EncryptionKeyType]
 ToJSONKeyFunction EncryptionKeyType
 ToJSONKeyFunction EncryptionKeyType
 -&gt; ToJSONKeyFunction [EncryptionKeyType]
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EncryptionKeyType]
 toJSONKey :: ToJSONKeyFunction EncryptionKeyType
 $ctoJSONKey :: ToJSONKeyFunction EncryptionKeyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679182084"><span class="annot"><span class="annottext">[Node] -&gt; Either String EncryptionKeyType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679182141"><span class="annot"><span class="annottext">[Node] -&gt; Either String EncryptionKeyType
 ([Node] -&gt; Either String EncryptionKeyType)
 -&gt; FromXML EncryptionKeyType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EncryptionKeyType
 $cparseXML :: [Node] -&gt; Either String EncryptionKeyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679182081"><span class="annot"><span class="annottext">EncryptionKeyType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679182138"><span class="annot"><span class="annottext">EncryptionKeyType -&gt; XML
 (EncryptionKeyType -&gt; XML) -&gt; ToXML EncryptionKeyType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EncryptionKeyType -&gt; XML

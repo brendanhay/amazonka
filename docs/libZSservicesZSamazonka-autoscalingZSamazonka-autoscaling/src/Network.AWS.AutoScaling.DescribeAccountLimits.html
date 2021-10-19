@@ -23,41 +23,42 @@
 </span><span id="line-23"></span><span class="hs-comment">-- Describes the current Amazon EC2 Auto Scaling resource quotas for your</span><span>
 </span><span id="line-24"></span><span class="hs-comment">-- account.</span><span>
 </span><span id="line-25"></span><span class="hs-comment">--</span><span>
-</span><span id="line-26"></span><span class="hs-comment">-- When you establish an account, the account has initial quotas on the</span><span>
-</span><span id="line-27"></span><span class="hs-comment">-- maximum number of Auto Scaling groups and launch configurations that you</span><span>
-</span><span id="line-28"></span><span class="hs-comment">-- can create in a given Region. For more information, see</span><span>
-</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html Amazon EC2 Auto Scaling service quotas&gt;</span><span>
-</span><span id="line-30"></span><span class="hs-comment">-- in the /Amazon EC2 Auto Scaling User Guide/.</span><span>
-</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AutoScaling.DescribeAccountLimits</span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier">DescribeAccountLimits</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#newDescribeAccountLimits"><span class="hs-identifier">newDescribeAccountLimits</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier">DescribeAccountLimitsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#newDescribeAccountLimitsResponse"><span class="hs-identifier">newDescribeAccountLimitsResponse</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_numberOfAutoScalingGroups"><span class="hs-identifier">describeAccountLimitsResponse_numberOfAutoScalingGroups</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_maxNumberOfLaunchConfigurations"><span class="hs-identifier">describeAccountLimitsResponse_maxNumberOfLaunchConfigurations</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_numberOfLaunchConfigurations"><span class="hs-identifier">describeAccountLimitsResponse_numberOfLaunchConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- When you establish an Amazon Web Services account, the account has</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- initial quotas on the maximum number of Auto Scaling groups and launch</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- configurations that you can create in a given Region. For more</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html Amazon EC2 Auto Scaling service quotas&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the /Amazon EC2 Auto Scaling User Guide/.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AutoScaling.DescribeAccountLimits</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier">DescribeAccountLimits</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#newDescribeAccountLimits"><span class="hs-identifier">newDescribeAccountLimits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier">DescribeAccountLimitsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#newDescribeAccountLimitsResponse"><span class="hs-identifier">newDescribeAccountLimitsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_numberOfLaunchConfigurations"><span class="hs-identifier">describeAccountLimitsResponse_numberOfLaunchConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_numberOfAutoScalingGroups"><span class="hs-identifier">describeAccountLimitsResponse_numberOfAutoScalingGroups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_maxNumberOfAutoScalingGroups"><span class="hs-identifier">describeAccountLimitsResponse_maxNumberOfAutoScalingGroups</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_httpStatus"><span class="hs-identifier">describeAccountLimitsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
-</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
-</span><span id="line-48"></span><span>
-</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.html"><span class="hs-identifier">Network.AWS.AutoScaling.Types</span></a></span><span>
-</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
-</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
-</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
-</span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeAccountLimits' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679344042"><span id="local-6989586621679344043"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAccountLimits"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier hs-var">DescribeAccountLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAccountLimits%27"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits%27"><span class="hs-identifier hs-var">DescribeAccountLimits'</span></a></span></span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344037"><span id="local-6989586621679344039"><span class="annot"><span class="annottext">DescribeAccountLimits -&gt; DescribeAccountLimits -&gt; Bool
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_maxNumberOfLaunchConfigurations"><span class="hs-identifier">describeAccountLimitsResponse_maxNumberOfLaunchConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_httpStatus"><span class="hs-identifier">describeAccountLimitsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.html"><span class="hs-identifier">Network.AWS.AutoScaling.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDescribeAccountLimits' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679344755"><span id="local-6989586621679344756"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAccountLimits"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier hs-var">DescribeAccountLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAccountLimits%27"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits%27"><span class="hs-identifier hs-var">DescribeAccountLimits'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344750"><span id="local-6989586621679344752"><span class="annot"><span class="annottext">DescribeAccountLimits -&gt; DescribeAccountLimits -&gt; Bool
 (DescribeAccountLimits -&gt; DescribeAccountLimits -&gt; Bool)
 -&gt; (DescribeAccountLimits -&gt; DescribeAccountLimits -&gt; Bool)
 -&gt; Eq DescribeAccountLimits
@@ -66,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeAccountLimits -&gt; DescribeAccountLimits -&gt; Bool
 == :: DescribeAccountLimits -&gt; DescribeAccountLimits -&gt; Bool
 $c== :: DescribeAccountLimits -&gt; DescribeAccountLimits -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344028"><span id="local-6989586621679344030"><span id="local-6989586621679344032"><span id="local-6989586621679344034"><span class="annot"><span class="annottext">ReadPrec [DescribeAccountLimits]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344741"><span id="local-6989586621679344743"><span id="local-6989586621679344745"><span id="local-6989586621679344747"><span class="annot"><span class="annottext">ReadPrec [DescribeAccountLimits]
 ReadPrec DescribeAccountLimits
 Int -&gt; ReadS DescribeAccountLimits
 ReadS [DescribeAccountLimits]
@@ -86,7 +87,7 @@ readList :: ReadS [DescribeAccountLimits]
 $creadList :: ReadS [DescribeAccountLimits]
 readsPrec :: Int -&gt; ReadS DescribeAccountLimits
 $creadsPrec :: Int -&gt; ReadS DescribeAccountLimits
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344021"><span id="local-6989586621679344023"><span id="local-6989586621679344025"><span class="annot"><span class="annottext">Int -&gt; DescribeAccountLimits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344734"><span id="local-6989586621679344736"><span id="local-6989586621679344738"><span class="annot"><span class="annottext">Int -&gt; DescribeAccountLimits -&gt; ShowS
 [DescribeAccountLimits] -&gt; ShowS
 DescribeAccountLimits -&gt; String
 (Int -&gt; DescribeAccountLimits -&gt; ShowS)
@@ -111,34 +112,34 @@ forall a.
 $cto :: forall x. Rep DescribeAccountLimits x -&gt; DescribeAccountLimits
 $cfrom :: forall x. DescribeAccountLimits -&gt; Rep DescribeAccountLimits x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'DescribeAccountLimits' with all optional fields omitted.</span><span>
-</span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#newDescribeAccountLimits"><span class="hs-identifier hs-type">newDescribeAccountLimits</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier hs-type">DescribeAccountLimits</span></a></span><span>
-</span><span id="line-68"></span><span id="newDescribeAccountLimits"><span class="annot"><span class="annottext">newDescribeAccountLimits :: DescribeAccountLimits
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'DescribeAccountLimits' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#newDescribeAccountLimits"><span class="hs-identifier hs-type">newDescribeAccountLimits</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier hs-type">DescribeAccountLimits</span></a></span><span>
+</span><span id="line-69"></span><span id="newDescribeAccountLimits"><span class="annot"><span class="annottext">newDescribeAccountLimits :: DescribeAccountLimits
 </span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#newDescribeAccountLimits"><span class="hs-identifier hs-var hs-var">newDescribeAccountLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DescribeAccountLimits
 </span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits%27"><span class="hs-identifier hs-var">DescribeAccountLimits'</span></a></span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier hs-type">DescribeAccountLimits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-72"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier hs-type">DescribeAccountLimits</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679344013"><span class="annot"><span class="annottext">request :: DescribeAccountLimits -&gt; Request DescribeAccountLimits
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier hs-type">DescribeAccountLimits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-73"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier hs-type">DescribeAccountLimits</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679344726"><span class="annot"><span class="annottext">request :: DescribeAccountLimits -&gt; Request DescribeAccountLimits
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeAccountLimits -&gt; Request DescribeAccountLimits
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679344009"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679344722"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeAccountLimits
 -&gt; ClientResponse ClientBody
 -&gt; m (Either
         Error (ClientResponse (AWSResponse DescribeAccountLimits)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">Text
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">Text
 -&gt; (Int
     -&gt; ResponseHeaders
     -&gt; [Node]
@@ -160,20 +161,20 @@ Text
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeAccountLimitsResult&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679344006"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344006"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679344005"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679344005"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679344004"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679344004"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679344719"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344719"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679344718"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679344718"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679344717"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679344717"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe Int
 -&gt; Maybe Int
 -&gt; Maybe Int
 -&gt; Int
 -&gt; DescribeAccountLimitsResponse
 </span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var">DescribeAccountLimitsResponse'</span></a></span><span>
-</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
  -&gt; Maybe Int
  -&gt; Maybe Int
  -&gt; Maybe Int
@@ -186,11 +187,11 @@ Text
       -&gt; Maybe Int -&gt; Maybe Int -&gt; Int -&gt; DescribeAccountLimitsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679344004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679344717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NumberOfAutoScalingGroups&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;NumberOfLaunchConfigurations&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Int
    -&gt; Maybe Int -&gt; Maybe Int -&gt; Int -&gt; DescribeAccountLimitsResponse)
@@ -200,11 +201,11 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (Maybe Int -&gt; Maybe Int -&gt; Int -&gt; DescribeAccountLimitsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679344004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679344717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxNumberOfLaunchConfigurations&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;NumberOfAutoScalingGroups&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Int -&gt; Maybe Int -&gt; Int -&gt; DescribeAccountLimitsResponse)
 -&gt; Either String (Maybe Int)
@@ -212,20 +213,20 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Int -&gt; Int -&gt; DescribeAccountLimitsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679344004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679344717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NumberOfLaunchConfigurations&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; Int -&gt; DescribeAccountLimitsResponse)
+</span><span class="hs-string">&quot;MaxNumberOfAutoScalingGroups&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; Int -&gt; DescribeAccountLimitsResponse)
 -&gt; Either String (Maybe Int)
 -&gt; Either String (Int -&gt; DescribeAccountLimitsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679344004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679344717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxNumberOfAutoScalingGroups&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeAccountLimitsResponse)
+</span><span class="hs-string">&quot;MaxNumberOfLaunchConfigurations&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeAccountLimitsResponse)
 -&gt; Either String Int -&gt; Either String DescribeAccountLimitsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
@@ -233,73 +234,73 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344006"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343996"><span id="local-6989586621679343998"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier hs-type">DescribeAccountLimits</span></a></span></span></span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343993"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier hs-type">DescribeAccountLimits</span></a></span></span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier hs-type">DescribeAccountLimits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679343989"><span class="annot"><span class="annottext">toHeaders :: DescribeAccountLimits -&gt; ResponseHeaders
+</span><a href="#local-6989586621679344719"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344709"><span id="local-6989586621679344711"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier hs-type">DescribeAccountLimits</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344706"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier hs-type">DescribeAccountLimits</span></a></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier hs-type">DescribeAccountLimits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679344702"><span class="annot"><span class="annottext">toHeaders :: DescribeAccountLimits -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAccountLimits -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier hs-type">DescribeAccountLimits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679343984"><span class="annot"><span class="annottext">toPath :: DescribeAccountLimits -&gt; ByteString
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier hs-type">DescribeAccountLimits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679344697"><span class="annot"><span class="annottext">toPath :: DescribeAccountLimits -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeAccountLimits -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier hs-type">DescribeAccountLimits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679343980"><span class="annot"><span class="annottext">toQuery :: DescribeAccountLimits -&gt; QueryString
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimits"><span class="hs-identifier hs-type">DescribeAccountLimits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679344693"><span class="annot"><span class="annottext">toQuery :: DescribeAccountLimits -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeAccountLimits -&gt; QueryString
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeAccountLimits -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-101"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-102"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Action&quot;</span></span><span>
-</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DescribeAccountLimits&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Version&quot;</span></span><span>
-</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2011-01-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | /See:/ 'newDescribeAccountLimitsResponse' smart constructor.</span><span>
-</span><span id="line-109"></span><span id="local-6989586621679343976"><span id="local-6989586621679343977"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAccountLimitsResponse"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-var">DescribeAccountLimitsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAccountLimitsResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var">DescribeAccountLimitsResponse'</span></a></span></span><span>
-</span><span id="line-110"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current number of groups for your account.</span><span>
-</span><span id="line-111"></span><span>    </span><span id="%24sel%3AnumberOfAutoScalingGroups%3ADescribeAccountLimitsResponse%27"><span class="annot"><span class="annottext">DescribeAccountLimitsResponse -&gt; Maybe Int
-</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AnumberOfAutoScalingGroups%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var hs-var">numberOfAutoScalingGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The maximum number of launch configurations allowed for your account.</span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- The default is 200 launch configurations per Region.</span><span>
-</span><span id="line-114"></span><span>    </span><span id="%24sel%3AmaxNumberOfLaunchConfigurations%3ADescribeAccountLimitsResponse%27"><span class="annot"><span class="annottext">DescribeAccountLimitsResponse -&gt; Maybe Int
-</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AmaxNumberOfLaunchConfigurations%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var hs-var">maxNumberOfLaunchConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | The current number of launch configurations for your account.</span><span>
-</span><span id="line-116"></span><span>    </span><span id="%24sel%3AnumberOfLaunchConfigurations%3ADescribeAccountLimitsResponse%27"><span class="annot"><span class="annottext">DescribeAccountLimitsResponse -&gt; Maybe Int
+</span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | /See:/ 'newDescribeAccountLimitsResponse' smart constructor.</span><span>
+</span><span id="line-110"></span><span id="local-6989586621679344689"><span id="local-6989586621679344690"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAccountLimitsResponse"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-var">DescribeAccountLimitsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAccountLimitsResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var">DescribeAccountLimitsResponse'</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current number of launch configurations for your account.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3AnumberOfLaunchConfigurations%3ADescribeAccountLimitsResponse%27"><span class="annot"><span class="annottext">DescribeAccountLimitsResponse -&gt; Maybe Int
 </span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AnumberOfLaunchConfigurations%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var hs-var">numberOfLaunchConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The maximum number of groups allowed for your account. The default is</span><span>
-</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- 200 groups per Region.</span><span>
-</span><span id="line-119"></span><span>    </span><span id="%24sel%3AmaxNumberOfAutoScalingGroups%3ADescribeAccountLimitsResponse%27"><span class="annot"><span class="annottext">DescribeAccountLimitsResponse -&gt; Maybe Int
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | The current number of groups for your account.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AnumberOfAutoScalingGroups%3ADescribeAccountLimitsResponse%27"><span class="annot"><span class="annottext">DescribeAccountLimitsResponse -&gt; Maybe Int
+</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AnumberOfAutoScalingGroups%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var hs-var">numberOfAutoScalingGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | The maximum number of groups allowed for your account. The default is</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- 200 groups per Region.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3AmaxNumberOfAutoScalingGroups%3ADescribeAccountLimitsResponse%27"><span class="annot"><span class="annottext">DescribeAccountLimitsResponse -&gt; Maybe Int
 </span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AmaxNumberOfAutoScalingGroups%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var hs-var">maxNumberOfAutoScalingGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-121"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAccountLimitsResponse%27"><span class="annot"><span class="annottext">DescribeAccountLimitsResponse -&gt; Int
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | The maximum number of launch configurations allowed for your account.</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- The default is 200 launch configurations per Region.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AmaxNumberOfLaunchConfigurations%3ADescribeAccountLimitsResponse%27"><span class="annot"><span class="annottext">DescribeAccountLimitsResponse -&gt; Maybe Int
+</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AmaxNumberOfLaunchConfigurations%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var hs-var">maxNumberOfLaunchConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAccountLimitsResponse%27"><span class="annot"><span class="annottext">DescribeAccountLimitsResponse -&gt; Int
 </span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AhttpStatus%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-122"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343967"><span id="local-6989586621679343969"><span class="annot"><span class="annottext">DescribeAccountLimitsResponse
+</span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344680"><span id="local-6989586621679344682"><span class="annot"><span class="annottext">DescribeAccountLimitsResponse
 -&gt; DescribeAccountLimitsResponse -&gt; Bool
 (DescribeAccountLimitsResponse
  -&gt; DescribeAccountLimitsResponse -&gt; Bool)
@@ -315,7 +316,7 @@ $c/= :: DescribeAccountLimitsResponse
 -&gt; DescribeAccountLimitsResponse -&gt; Bool
 $c== :: DescribeAccountLimitsResponse
 -&gt; DescribeAccountLimitsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343959"><span id="local-6989586621679343961"><span id="local-6989586621679343963"><span id="local-6989586621679343965"><span class="annot"><span class="annottext">ReadPrec [DescribeAccountLimitsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344672"><span id="local-6989586621679344674"><span id="local-6989586621679344676"><span id="local-6989586621679344678"><span class="annot"><span class="annottext">ReadPrec [DescribeAccountLimitsResponse]
 ReadPrec DescribeAccountLimitsResponse
 Int -&gt; ReadS DescribeAccountLimitsResponse
 ReadS [DescribeAccountLimitsResponse]
@@ -335,7 +336,7 @@ readList :: ReadS [DescribeAccountLimitsResponse]
 $creadList :: ReadS [DescribeAccountLimitsResponse]
 readsPrec :: Int -&gt; ReadS DescribeAccountLimitsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeAccountLimitsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343953"><span id="local-6989586621679343955"><span id="local-6989586621679343957"><span class="annot"><span class="annottext">Int -&gt; DescribeAccountLimitsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344666"><span id="local-6989586621679344668"><span id="local-6989586621679344670"><span class="annot"><span class="annottext">Int -&gt; DescribeAccountLimitsResponse -&gt; ShowS
 [DescribeAccountLimitsResponse] -&gt; ShowS
 DescribeAccountLimitsResponse -&gt; String
 (Int -&gt; DescribeAccountLimitsResponse -&gt; ShowS)
@@ -372,117 +373,67 @@ $cfrom :: forall x.
 DescribeAccountLimitsResponse
 -&gt; Rep DescribeAccountLimitsResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- Create a value of 'DescribeAccountLimitsResponse' with all optional fields omitted.</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-129"></span><span class="hs-comment">--</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-132"></span><span class="hs-comment">--</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- 'numberOfAutoScalingGroups', 'describeAccountLimitsResponse_numberOfAutoScalingGroups' - The current number of groups for your account.</span><span>
-</span><span id="line-134"></span><span class="hs-comment">--</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- 'maxNumberOfLaunchConfigurations', 'describeAccountLimitsResponse_maxNumberOfLaunchConfigurations' - The maximum number of launch configurations allowed for your account.</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- The default is 200 launch configurations per Region.</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Create a value of 'DescribeAccountLimitsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'numberOfLaunchConfigurations', 'describeAccountLimitsResponse_numberOfLaunchConfigurations' - The current number of launch configurations for your account.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'numberOfAutoScalingGroups', 'describeAccountLimitsResponse_numberOfAutoScalingGroups' - The current number of groups for your account.</span><span>
 </span><span id="line-137"></span><span class="hs-comment">--</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- 'numberOfLaunchConfigurations', 'describeAccountLimitsResponse_numberOfLaunchConfigurations' - The current number of launch configurations for your account.</span><span>
-</span><span id="line-139"></span><span class="hs-comment">--</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- 'maxNumberOfAutoScalingGroups', 'describeAccountLimitsResponse_maxNumberOfAutoScalingGroups' - The maximum number of groups allowed for your account. The default is</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- 200 groups per Region.</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- 'httpStatus', 'describeAccountLimitsResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#newDescribeAccountLimitsResponse"><span class="hs-identifier hs-type">newDescribeAccountLimitsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-145"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span>
-</span><span id="line-148"></span><span id="newDescribeAccountLimitsResponse"><span class="annot"><span class="annottext">newDescribeAccountLimitsResponse :: Int -&gt; DescribeAccountLimitsResponse
-</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#newDescribeAccountLimitsResponse"><span class="hs-identifier hs-var hs-var">newDescribeAccountLimitsResponse</span></a></span></span><span> </span><span id="local-6989586621679343950"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679343950"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-149"></span><span>  </span><span class="annot"><span class="annottext">DescribeAccountLimitsResponse' :: Maybe Int
+</span><span id="line-138"></span><span class="hs-comment">-- 'maxNumberOfAutoScalingGroups', 'describeAccountLimitsResponse_maxNumberOfAutoScalingGroups' - The maximum number of groups allowed for your account. The default is</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 200 groups per Region.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'maxNumberOfLaunchConfigurations', 'describeAccountLimitsResponse_maxNumberOfLaunchConfigurations' - The maximum number of launch configurations allowed for your account.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- The default is 200 launch configurations per Region.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'httpStatus', 'describeAccountLimitsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#newDescribeAccountLimitsResponse"><span class="hs-identifier hs-type">newDescribeAccountLimitsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span>
+</span><span id="line-149"></span><span id="newDescribeAccountLimitsResponse"><span class="annot"><span class="annottext">newDescribeAccountLimitsResponse :: Int -&gt; DescribeAccountLimitsResponse
+</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#newDescribeAccountLimitsResponse"><span class="hs-identifier hs-var hs-var">newDescribeAccountLimitsResponse</span></a></span></span><span> </span><span id="local-6989586621679344663"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344663"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">DescribeAccountLimitsResponse' :: Maybe Int
 -&gt; Maybe Int
 -&gt; Maybe Int
 -&gt; Maybe Int
 -&gt; Int
 -&gt; DescribeAccountLimitsResponse
 </span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span>
-</span><span id="line-150"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:numberOfAutoScalingGroups:DescribeAccountLimitsResponse' :: Maybe Int
-</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AnumberOfAutoScalingGroups%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var">numberOfAutoScalingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxNumberOfLaunchConfigurations:DescribeAccountLimitsResponse' :: Maybe Int
-</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AmaxNumberOfLaunchConfigurations%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var">maxNumberOfLaunchConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:numberOfLaunchConfigurations:DescribeAccountLimitsResponse' :: Maybe Int
+</span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:numberOfLaunchConfigurations:DescribeAccountLimitsResponse' :: Maybe Int
 </span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AnumberOfLaunchConfigurations%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var">numberOfLaunchConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:numberOfAutoScalingGroups:DescribeAccountLimitsResponse' :: Maybe Int
+</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AnumberOfAutoScalingGroups%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var">numberOfAutoScalingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxNumberOfAutoScalingGroups:DescribeAccountLimitsResponse' :: Maybe Int
+</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AmaxNumberOfAutoScalingGroups%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var">maxNumberOfAutoScalingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxNumberOfAutoScalingGroups:DescribeAccountLimitsResponse' :: Maybe Int
-</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AmaxNumberOfAutoScalingGroups%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var">maxNumberOfAutoScalingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxNumberOfLaunchConfigurations:DescribeAccountLimitsResponse' :: Maybe Int
+</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AmaxNumberOfLaunchConfigurations%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var">maxNumberOfLaunchConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAccountLimitsResponse' :: Int
 </span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AhttpStatus%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679343950"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679344663"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- | The current number of groups for your account.</span><span>
-</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_numberOfAutoScalingGroups"><span class="hs-identifier hs-type">describeAccountLimitsResponse_numberOfAutoScalingGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span id="describeAccountLimitsResponse_numberOfAutoScalingGroups"><span class="annot"><span class="annottext">describeAccountLimitsResponse_numberOfAutoScalingGroups :: (Maybe Int -&gt; f (Maybe Int))
--&gt; DescribeAccountLimitsResponse -&gt; f DescribeAccountLimitsResponse
-</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_numberOfAutoScalingGroups"><span class="hs-identifier hs-var hs-var">describeAccountLimitsResponse_numberOfAutoScalingGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountLimitsResponse -&gt; Maybe Int)
--&gt; (DescribeAccountLimitsResponse
-    -&gt; Maybe Int -&gt; DescribeAccountLimitsResponse)
--&gt; Lens
-     DescribeAccountLimitsResponse
-     DescribeAccountLimitsResponse
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343947"><span class="annot"><span class="annottext">Maybe Int
-numberOfAutoScalingGroups :: Maybe Int
-$sel:numberOfAutoScalingGroups:DescribeAccountLimitsResponse' :: DescribeAccountLimitsResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679343947"><span class="hs-identifier hs-var hs-var">numberOfAutoScalingGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679343947"><span class="hs-identifier hs-var">numberOfAutoScalingGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343946"><span class="annot"><span class="annottext">s :: DescribeAccountLimitsResponse
-</span><a href="#local-6989586621679343946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343945"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679343945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountLimitsResponse
-</span><a href="#local-6989586621679343946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfAutoScalingGroups:DescribeAccountLimitsResponse' :: Maybe Int
-</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AnumberOfAutoScalingGroups%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var">numberOfAutoScalingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679343945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- | The maximum number of launch configurations allowed for your account.</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- The default is 200 launch configurations per Region.</span><span>
-</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_maxNumberOfLaunchConfigurations"><span class="hs-identifier hs-type">describeAccountLimitsResponse_maxNumberOfLaunchConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span id="describeAccountLimitsResponse_maxNumberOfLaunchConfigurations"><span class="annot"><span class="annottext">describeAccountLimitsResponse_maxNumberOfLaunchConfigurations :: (Maybe Int -&gt; f (Maybe Int))
--&gt; DescribeAccountLimitsResponse -&gt; f DescribeAccountLimitsResponse
-</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_maxNumberOfLaunchConfigurations"><span class="hs-identifier hs-var hs-var">describeAccountLimitsResponse_maxNumberOfLaunchConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountLimitsResponse -&gt; Maybe Int)
--&gt; (DescribeAccountLimitsResponse
-    -&gt; Maybe Int -&gt; DescribeAccountLimitsResponse)
--&gt; Lens
-     DescribeAccountLimitsResponse
-     DescribeAccountLimitsResponse
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343944"><span class="annot"><span class="annottext">Maybe Int
-maxNumberOfLaunchConfigurations :: Maybe Int
-$sel:maxNumberOfLaunchConfigurations:DescribeAccountLimitsResponse' :: DescribeAccountLimitsResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679343944"><span class="hs-identifier hs-var hs-var">maxNumberOfLaunchConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679343944"><span class="hs-identifier hs-var">maxNumberOfLaunchConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343943"><span class="annot"><span class="annottext">s :: DescribeAccountLimitsResponse
-</span><a href="#local-6989586621679343943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343942"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679343942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountLimitsResponse
-</span><a href="#local-6989586621679343943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxNumberOfLaunchConfigurations:DescribeAccountLimitsResponse' :: Maybe Int
-</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AmaxNumberOfLaunchConfigurations%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var">maxNumberOfLaunchConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679343942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- | The current number of launch configurations for your account.</span><span>
-</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_numberOfLaunchConfigurations"><span class="hs-identifier hs-type">describeAccountLimitsResponse_numberOfLaunchConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span id="describeAccountLimitsResponse_numberOfLaunchConfigurations"><span class="annot"><span class="annottext">describeAccountLimitsResponse_numberOfLaunchConfigurations :: (Maybe Int -&gt; f (Maybe Int))
+</span><span id="line-161"></span><span class="hs-comment">-- | The current number of launch configurations for your account.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_numberOfLaunchConfigurations"><span class="hs-identifier hs-type">describeAccountLimitsResponse_numberOfLaunchConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="describeAccountLimitsResponse_numberOfLaunchConfigurations"><span class="annot"><span class="annottext">describeAccountLimitsResponse_numberOfLaunchConfigurations :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; DescribeAccountLimitsResponse -&gt; f DescribeAccountLimitsResponse
 </span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_numberOfLaunchConfigurations"><span class="hs-identifier hs-var hs-var">describeAccountLimitsResponse_numberOfLaunchConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountLimitsResponse -&gt; Maybe Int)
 -&gt; (DescribeAccountLimitsResponse
@@ -493,21 +444,45 @@ $sel:maxNumberOfLaunchConfigurations:DescribeAccountLimitsResponse' :: DescribeA
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343941"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344660"><span class="annot"><span class="annottext">Maybe Int
 numberOfLaunchConfigurations :: Maybe Int
 $sel:numberOfLaunchConfigurations:DescribeAccountLimitsResponse' :: DescribeAccountLimitsResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679343941"><span class="hs-identifier hs-var hs-var">numberOfLaunchConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679343941"><span class="hs-identifier hs-var">numberOfLaunchConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343940"><span class="annot"><span class="annottext">s :: DescribeAccountLimitsResponse
-</span><a href="#local-6989586621679343940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343939"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679343939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountLimitsResponse
-</span><a href="#local-6989586621679343940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfLaunchConfigurations:DescribeAccountLimitsResponse' :: Maybe Int
+</span><a href="#local-6989586621679344660"><span class="hs-identifier hs-var hs-var">numberOfLaunchConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679344660"><span class="hs-identifier hs-var">numberOfLaunchConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344659"><span class="annot"><span class="annottext">s :: DescribeAccountLimitsResponse
+</span><a href="#local-6989586621679344659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344658"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679344658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountLimitsResponse
+</span><a href="#local-6989586621679344659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfLaunchConfigurations:DescribeAccountLimitsResponse' :: Maybe Int
 </span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AnumberOfLaunchConfigurations%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var">numberOfLaunchConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679343939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- | The maximum number of groups allowed for your account. The default is</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- 200 groups per Region.</span><span>
-</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_maxNumberOfAutoScalingGroups"><span class="hs-identifier hs-type">describeAccountLimitsResponse_maxNumberOfAutoScalingGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span id="describeAccountLimitsResponse_maxNumberOfAutoScalingGroups"><span class="annot"><span class="annottext">describeAccountLimitsResponse_maxNumberOfAutoScalingGroups :: (Maybe Int -&gt; f (Maybe Int))
+</span><a href="#local-6989586621679344658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The current number of groups for your account.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_numberOfAutoScalingGroups"><span class="hs-identifier hs-type">describeAccountLimitsResponse_numberOfAutoScalingGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="describeAccountLimitsResponse_numberOfAutoScalingGroups"><span class="annot"><span class="annottext">describeAccountLimitsResponse_numberOfAutoScalingGroups :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeAccountLimitsResponse -&gt; f DescribeAccountLimitsResponse
+</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_numberOfAutoScalingGroups"><span class="hs-identifier hs-var hs-var">describeAccountLimitsResponse_numberOfAutoScalingGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountLimitsResponse -&gt; Maybe Int)
+-&gt; (DescribeAccountLimitsResponse
+    -&gt; Maybe Int -&gt; DescribeAccountLimitsResponse)
+-&gt; Lens
+     DescribeAccountLimitsResponse
+     DescribeAccountLimitsResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344657"><span class="annot"><span class="annottext">Maybe Int
+numberOfAutoScalingGroups :: Maybe Int
+$sel:numberOfAutoScalingGroups:DescribeAccountLimitsResponse' :: DescribeAccountLimitsResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679344657"><span class="hs-identifier hs-var hs-var">numberOfAutoScalingGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679344657"><span class="hs-identifier hs-var">numberOfAutoScalingGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344656"><span class="annot"><span class="annottext">s :: DescribeAccountLimitsResponse
+</span><a href="#local-6989586621679344656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344655"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679344655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountLimitsResponse
+</span><a href="#local-6989586621679344656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfAutoScalingGroups:DescribeAccountLimitsResponse' :: Maybe Int
+</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AnumberOfAutoScalingGroups%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var">numberOfAutoScalingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679344655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The maximum number of groups allowed for your account. The default is</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 200 groups per Region.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_maxNumberOfAutoScalingGroups"><span class="hs-identifier hs-type">describeAccountLimitsResponse_maxNumberOfAutoScalingGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="describeAccountLimitsResponse_maxNumberOfAutoScalingGroups"><span class="annot"><span class="annottext">describeAccountLimitsResponse_maxNumberOfAutoScalingGroups :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; DescribeAccountLimitsResponse -&gt; f DescribeAccountLimitsResponse
 </span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_maxNumberOfAutoScalingGroups"><span class="hs-identifier hs-var hs-var">describeAccountLimitsResponse_maxNumberOfAutoScalingGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountLimitsResponse -&gt; Maybe Int)
 -&gt; (DescribeAccountLimitsResponse
@@ -518,16 +493,41 @@ $sel:numberOfLaunchConfigurations:DescribeAccountLimitsResponse' :: DescribeAcco
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343938"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344654"><span class="annot"><span class="annottext">Maybe Int
 maxNumberOfAutoScalingGroups :: Maybe Int
 $sel:maxNumberOfAutoScalingGroups:DescribeAccountLimitsResponse' :: DescribeAccountLimitsResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679343938"><span class="hs-identifier hs-var hs-var">maxNumberOfAutoScalingGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679343938"><span class="hs-identifier hs-var">maxNumberOfAutoScalingGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343937"><span class="annot"><span class="annottext">s :: DescribeAccountLimitsResponse
-</span><a href="#local-6989586621679343937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343936"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679343936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountLimitsResponse
-</span><a href="#local-6989586621679343937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxNumberOfAutoScalingGroups:DescribeAccountLimitsResponse' :: Maybe Int
+</span><a href="#local-6989586621679344654"><span class="hs-identifier hs-var hs-var">maxNumberOfAutoScalingGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679344654"><span class="hs-identifier hs-var">maxNumberOfAutoScalingGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344653"><span class="annot"><span class="annottext">s :: DescribeAccountLimitsResponse
+</span><a href="#local-6989586621679344653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344652"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679344652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountLimitsResponse
+</span><a href="#local-6989586621679344653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxNumberOfAutoScalingGroups:DescribeAccountLimitsResponse' :: Maybe Int
 </span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AmaxNumberOfAutoScalingGroups%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var">maxNumberOfAutoScalingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679343936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The maximum number of launch configurations allowed for your account.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- The default is 200 launch configurations per Region.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_maxNumberOfLaunchConfigurations"><span class="hs-identifier hs-type">describeAccountLimitsResponse_maxNumberOfLaunchConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="describeAccountLimitsResponse_maxNumberOfLaunchConfigurations"><span class="annot"><span class="annottext">describeAccountLimitsResponse_maxNumberOfLaunchConfigurations :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeAccountLimitsResponse -&gt; f DescribeAccountLimitsResponse
+</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_maxNumberOfLaunchConfigurations"><span class="hs-identifier hs-var hs-var">describeAccountLimitsResponse_maxNumberOfLaunchConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAccountLimitsResponse -&gt; Maybe Int)
+-&gt; (DescribeAccountLimitsResponse
+    -&gt; Maybe Int -&gt; DescribeAccountLimitsResponse)
+-&gt; Lens
+     DescribeAccountLimitsResponse
+     DescribeAccountLimitsResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344651"><span class="annot"><span class="annottext">Maybe Int
+maxNumberOfLaunchConfigurations :: Maybe Int
+$sel:maxNumberOfLaunchConfigurations:DescribeAccountLimitsResponse' :: DescribeAccountLimitsResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679344651"><span class="hs-identifier hs-var hs-var">maxNumberOfLaunchConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679344651"><span class="hs-identifier hs-var">maxNumberOfLaunchConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344650"><span class="annot"><span class="annottext">s :: DescribeAccountLimitsResponse
+</span><a href="#local-6989586621679344650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344649"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679344649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountLimitsResponse
+</span><a href="#local-6989586621679344650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxNumberOfLaunchConfigurations:DescribeAccountLimitsResponse' :: Maybe Int
+</span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AmaxNumberOfLaunchConfigurations%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var">maxNumberOfLaunchConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679344649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-180"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#describeAccountLimitsResponse_httpStatus"><span class="hs-identifier hs-type">describeAccountLimitsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -539,16 +539,16 @@ $sel:maxNumberOfAutoScalingGroups:DescribeAccountLimitsResponse' :: DescribeAcco
 -&gt; Lens
      DescribeAccountLimitsResponse DescribeAccountLimitsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343935"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344648"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeAccountLimitsResponse' :: DescribeAccountLimitsResponse -&gt; Int
-</span><a href="#local-6989586621679343935"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679343935"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343934"><span class="annot"><span class="annottext">s :: DescribeAccountLimitsResponse
-</span><a href="#local-6989586621679343934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343933"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679343933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountLimitsResponse
-</span><a href="#local-6989586621679343934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAccountLimitsResponse' :: Int
+</span><a href="#local-6989586621679344648"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344648"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344647"><span class="annot"><span class="annottext">s :: DescribeAccountLimitsResponse
+</span><a href="#local-6989586621679344647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse%27"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344646"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountLimitsResponse
+</span><a href="#local-6989586621679344647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAccountLimitsResponse' :: Int
 </span><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#%24sel%3AhttpStatus%3ADescribeAccountLimitsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679343933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343931"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344644"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeAccountLimits.html#DescribeAccountLimitsResponse"><span class="hs-identifier hs-type">DescribeAccountLimitsResponse</span></a></span></span><span>
 </span><span id="line-184"></span></pre></body></html>

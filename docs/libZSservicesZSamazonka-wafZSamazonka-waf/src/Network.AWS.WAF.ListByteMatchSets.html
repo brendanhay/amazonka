@@ -46,8 +46,8 @@
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#newListByteMatchSetsResponse"><span class="hs-identifier">newListByteMatchSetsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#listByteMatchSetsResponse_nextMarker"><span class="hs-identifier">listByteMatchSetsResponse_nextMarker</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#listByteMatchSetsResponse_byteMatchSets"><span class="hs-identifier">listByteMatchSetsResponse_byteMatchSets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#listByteMatchSetsResponse_byteMatchSets"><span class="hs-identifier">listByteMatchSetsResponse_byteMatchSets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#listByteMatchSetsResponse_nextMarker"><span class="hs-identifier">listByteMatchSetsResponse_nextMarker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#listByteMatchSetsResponse_httpStatus"><span class="hs-identifier">listByteMatchSetsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span class="hs-keyword">where</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.html"><span class="hs-identifier">Network.AWS.WAF.Types</span></a></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newListByteMatchSets' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679313694"><span id="local-6989586621679313695"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListByteMatchSets"><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets"><span class="hs-identifier hs-var">ListByteMatchSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListByteMatchSets%27"><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets%27"><span class="hs-identifier hs-var">ListByteMatchSets'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679313962"><span id="local-6989586621679313963"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListByteMatchSets"><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets"><span class="hs-identifier hs-var">ListByteMatchSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListByteMatchSets%27"><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets%27"><span class="hs-identifier hs-var">ListByteMatchSets'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you specify a value for @Limit@ and you have more @ByteMatchSets@</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- than the value of @Limit@, AWS WAF returns a @NextMarker@ value in the</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- response that allows you to list another group of @ByteMatchSets@. For</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3Alimit%3AListByteMatchSets%27"><span class="annot"><span class="annottext">ListByteMatchSets -&gt; Maybe Natural
 </span><a href="Network.AWS.WAF.ListByteMatchSets.html#%24sel%3Alimit%3AListByteMatchSets%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313687"><span id="local-6989586621679313689"><span class="annot"><span class="annottext">ListByteMatchSets -&gt; ListByteMatchSets -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313955"><span id="local-6989586621679313957"><span class="annot"><span class="annottext">ListByteMatchSets -&gt; ListByteMatchSets -&gt; Bool
 (ListByteMatchSets -&gt; ListByteMatchSets -&gt; Bool)
 -&gt; (ListByteMatchSets -&gt; ListByteMatchSets -&gt; Bool)
 -&gt; Eq ListByteMatchSets
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListByteMatchSets -&gt; ListByteMatchSets -&gt; Bool
 == :: ListByteMatchSets -&gt; ListByteMatchSets -&gt; Bool
 $c== :: ListByteMatchSets -&gt; ListByteMatchSets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313678"><span id="local-6989586621679313680"><span id="local-6989586621679313682"><span id="local-6989586621679313684"><span class="annot"><span class="annottext">ReadPrec [ListByteMatchSets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313946"><span id="local-6989586621679313948"><span id="local-6989586621679313950"><span id="local-6989586621679313952"><span class="annot"><span class="annottext">ReadPrec [ListByteMatchSets]
 ReadPrec ListByteMatchSets
 Int -&gt; ReadS ListByteMatchSets
 ReadS [ListByteMatchSets]
@@ -105,7 +105,7 @@ readList :: ReadS [ListByteMatchSets]
 $creadList :: ReadS [ListByteMatchSets]
 readsPrec :: Int -&gt; ReadS ListByteMatchSets
 $creadsPrec :: Int -&gt; ReadS ListByteMatchSets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313671"><span id="local-6989586621679313673"><span id="local-6989586621679313675"><span class="annot"><span class="annottext">Int -&gt; ListByteMatchSets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313939"><span id="local-6989586621679313941"><span id="local-6989586621679313943"><span class="annot"><span class="annottext">Int -&gt; ListByteMatchSets -&gt; ShowS
 [ListByteMatchSets] -&gt; ShowS
 ListByteMatchSets -&gt; String
 (Int -&gt; ListByteMatchSets -&gt; ShowS)
@@ -180,16 +180,16 @@ forall a. Maybe a
 -&gt; Lens
      ListByteMatchSets ListByteMatchSets (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets%27"><span class="hs-identifier hs-type">ListByteMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313665"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets%27"><span class="hs-identifier hs-type">ListByteMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313933"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListByteMatchSets' :: ListByteMatchSets -&gt; Maybe Text
-</span><a href="#local-6989586621679313665"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313665"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313664"><span class="annot"><span class="annottext">s :: ListByteMatchSets
-</span><a href="#local-6989586621679313664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets%27"><span class="hs-identifier hs-type">ListByteMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313663"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListByteMatchSets
-</span><a href="#local-6989586621679313664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListByteMatchSets' :: Maybe Text
+</span><a href="#local-6989586621679313933"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313933"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313932"><span class="annot"><span class="annottext">s :: ListByteMatchSets
+</span><a href="#local-6989586621679313932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets%27"><span class="hs-identifier hs-type">ListByteMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313931"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListByteMatchSets
+</span><a href="#local-6989586621679313932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListByteMatchSets' :: Maybe Text
 </span><a href="Network.AWS.WAF.ListByteMatchSets.html#%24sel%3AnextMarker%3AListByteMatchSets%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets"><span class="hs-identifier hs-type">ListByteMatchSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets"><span class="hs-identifier hs-type">ListByteMatchSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | Specifies the number of @ByteMatchSet@ objects that you want AWS WAF to</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- return for this request. If you have more @ByteMatchSets@ objects than</span><span>
@@ -203,29 +203,29 @@ $sel:nextMarker:ListByteMatchSets' :: ListByteMatchSets -&gt; Maybe Text
 -&gt; Lens
      ListByteMatchSets ListByteMatchSets (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets%27"><span class="hs-identifier hs-type">ListByteMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313662"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets%27"><span class="hs-identifier hs-type">ListByteMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313930"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListByteMatchSets' :: ListByteMatchSets -&gt; Maybe Natural
-</span><a href="#local-6989586621679313662"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679313662"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313661"><span class="annot"><span class="annottext">s :: ListByteMatchSets
-</span><a href="#local-6989586621679313661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets%27"><span class="hs-identifier hs-type">ListByteMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313660"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679313660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListByteMatchSets
-</span><a href="#local-6989586621679313661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListByteMatchSets' :: Maybe Natural
+</span><a href="#local-6989586621679313930"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679313930"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313929"><span class="annot"><span class="annottext">s :: ListByteMatchSets
+</span><a href="#local-6989586621679313929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets%27"><span class="hs-identifier hs-type">ListByteMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313928"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679313928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListByteMatchSets
+</span><a href="#local-6989586621679313929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListByteMatchSets' :: Maybe Natural
 </span><a href="Network.AWS.WAF.ListByteMatchSets.html#%24sel%3Alimit%3AListByteMatchSets%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679313660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets"><span class="hs-identifier hs-type">ListByteMatchSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets"><span class="hs-identifier hs-type">ListByteMatchSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets"><span class="hs-identifier hs-type">ListByteMatchSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679313656"><span class="annot"><span class="annottext">page :: ListByteMatchSets
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679313924"><span class="annot"><span class="annottext">page :: ListByteMatchSets
 -&gt; AWSResponse ListByteMatchSets -&gt; Maybe ListByteMatchSets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679313654"><span class="annot"><span class="annottext">ListByteMatchSets
-</span><a href="#local-6989586621679313654"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679313653"><span class="annot"><span class="annottext">AWSResponse ListByteMatchSets
-</span><a href="#local-6989586621679313653"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679313922"><span class="annot"><span class="annottext">ListByteMatchSets
+</span><a href="#local-6989586621679313922"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679313921"><span class="annot"><span class="annottext">AWSResponse ListByteMatchSets
+</span><a href="#local-6989586621679313921"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-125"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListByteMatchSets
 ListByteMatchSetsResponse
-</span><a href="#local-6989586621679313653"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679313921"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">ListByteMatchSetsResponse
 -&gt; Getting (First Text) ListByteMatchSetsResponse Text
 -&gt; Maybe Text
@@ -255,7 +255,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-131"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListByteMatchSets
 ListByteMatchSetsResponse
-</span><a href="#local-6989586621679313653"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679313921"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">ListByteMatchSetsResponse
 -&gt; Getting
      (First [ByteMatchSetSummary])
@@ -305,7 +305,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">ListByteMatchSets
-</span><a href="#local-6989586621679313654"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679313922"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">ListByteMatchSets
 -&gt; (ListByteMatchSets -&gt; ListByteMatchSets) -&gt; ListByteMatchSets
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -319,7 +319,7 @@ Lens ListByteMatchSets ListByteMatchSets (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListByteMatchSets
 ListByteMatchSetsResponse
-</span><a href="#local-6989586621679313653"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679313921"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">ListByteMatchSetsResponse
 -&gt; Getting (First Text) ListByteMatchSetsResponse Text
 -&gt; Maybe Text
@@ -345,12 +345,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-145"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-146"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets"><span class="hs-identifier hs-type">ListByteMatchSets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>      </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse"><span class="hs-identifier hs-type">ListByteMatchSetsResponse</span></a></span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679313643"><span class="annot"><span class="annottext">request :: ListByteMatchSets -&gt; Request ListByteMatchSets
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679313911"><span class="annot"><span class="annottext">request :: ListByteMatchSets -&gt; Request ListByteMatchSets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListByteMatchSets -&gt; Request ListByteMatchSets
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WAF.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679313639"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679313907"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListByteMatchSets
 -&gt; ClientResponse ClientBody
@@ -376,33 +376,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313636"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313636"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313635"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679313635"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313634"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313634"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [ByteMatchSetSummary] -&gt; Int -&gt; ListByteMatchSetsResponse
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313904"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313904"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313903"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679313903"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313902"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313902"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ByteMatchSetSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListByteMatchSetsResponse
 </span><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse%27"><span class="hs-identifier hs-var">ListByteMatchSetsResponse'</span></a></span><span>
-</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [ByteMatchSetSummary] -&gt; Int -&gt; ListByteMatchSetsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [ByteMatchSetSummary] -&gt; Int -&gt; ListByteMatchSetsResponse)
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ByteMatchSetSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListByteMatchSetsResponse)
+-&gt; Either String (Maybe [ByteMatchSetSummary])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListByteMatchSetsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [ByteMatchSetSummary] -&gt; Int -&gt; ListByteMatchSetsResponse)
--&gt; Either String (Maybe [ByteMatchSetSummary])
--&gt; Either String (Int -&gt; ListByteMatchSetsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [ByteMatchSetSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -413,6 +400,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ByteMatchSetSummary]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListByteMatchSetsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListByteMatchSetsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListByteMatchSetsResponse)
 -&gt; Either String Int -&gt; Either String ListByteMatchSetsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -421,15 +417,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313636"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313904"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313625"><span id="local-6989586621679313627"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets"><span class="hs-identifier hs-type">ListByteMatchSets</span></a></span></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313893"><span id="local-6989586621679313895"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets"><span class="hs-identifier hs-type">ListByteMatchSets</span></a></span></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313622"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets"><span class="hs-identifier hs-type">ListByteMatchSets</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313890"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets"><span class="hs-identifier hs-type">ListByteMatchSets</span></a></span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets"><span class="hs-identifier hs-type">ListByteMatchSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679313618"><span class="annot"><span class="annottext">toHeaders :: ListByteMatchSets -&gt; ResponseHeaders
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679313886"><span class="annot"><span class="annottext">toHeaders :: ListByteMatchSets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListByteMatchSets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -456,15 +452,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313608"><span id="local-6989586621679313610"><span id="local-6989586621679313612"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets"><span class="hs-identifier hs-type">ListByteMatchSets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679313606"><span class="annot"><span class="annottext">toJSON :: ListByteMatchSets -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets%27"><span class="hs-identifier hs-type">ListByteMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313603"><span id="local-6989586621679313604"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313876"><span id="local-6989586621679313878"><span id="local-6989586621679313880"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets"><span class="hs-identifier hs-type">ListByteMatchSets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679313874"><span class="annot"><span class="annottext">toJSON :: ListByteMatchSets -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets%27"><span class="hs-identifier hs-type">ListByteMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313871"><span id="local-6989586621679313872"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 limit :: Maybe Natural
 nextMarker :: Maybe Text
 $sel:limit:ListByteMatchSets' :: ListByteMatchSets -&gt; Maybe Natural
 $sel:nextMarker:ListByteMatchSets' :: ListByteMatchSets -&gt; Maybe Text
-</span><a href="#local-6989586621679313603"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679313871"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -476,26 +472,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313604"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313872"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679313603"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><a href="#local-6989586621679313871"><span class="hs-identifier hs-var">limit</span></a></span><span>
 </span><span id="line-183"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets"><span class="hs-identifier hs-type">ListByteMatchSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679313597"><span class="annot"><span class="annottext">toPath :: ListByteMatchSets -&gt; ByteString
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679313865"><span class="annot"><span class="annottext">toPath :: ListByteMatchSets -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListByteMatchSets -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSets"><span class="hs-identifier hs-type">ListByteMatchSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679313593"><span class="annot"><span class="annottext">toQuery :: ListByteMatchSets -&gt; QueryString
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679313861"><span class="annot"><span class="annottext">toQuery :: ListByteMatchSets -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListByteMatchSets -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -503,22 +499,22 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | /See:/ 'newListByteMatchSetsResponse' smart constructor.</span><span>
-</span><span id="line-193"></span><span id="local-6989586621679313590"><span id="local-6989586621679313591"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListByteMatchSetsResponse"><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse"><span class="hs-identifier hs-var">ListByteMatchSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListByteMatchSetsResponse%27"><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse%27"><span class="hs-identifier hs-var">ListByteMatchSetsResponse'</span></a></span></span><span>
-</span><span id="line-194"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you have more @ByteMatchSet@ objects than the number that you</span><span>
-</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- specified for @Limit@ in the request, the response includes a</span><span>
-</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- @NextMarker@ value. To list more @ByteMatchSet@ objects, submit another</span><span>
-</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- @ListByteMatchSets@ request, and specify the @NextMarker@ value from the</span><span>
-</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- response in the @NextMarker@ value in the next request.</span><span>
-</span><span id="line-199"></span><span>    </span><span id="%24sel%3AnextMarker%3AListByteMatchSetsResponse%27"><span class="annot"><span class="annottext">ListByteMatchSetsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.WAF.ListByteMatchSets.html#%24sel%3AnextMarker%3AListByteMatchSetsResponse%27"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- | An array of ByteMatchSetSummary objects.</span><span>
-</span><span id="line-201"></span><span>    </span><span id="%24sel%3AbyteMatchSets%3AListByteMatchSetsResponse%27"><span class="annot"><span class="annottext">ListByteMatchSetsResponse -&gt; Maybe [ByteMatchSetSummary]
+</span><span id="line-193"></span><span id="local-6989586621679313858"><span id="local-6989586621679313859"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListByteMatchSetsResponse"><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse"><span class="hs-identifier hs-var">ListByteMatchSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListByteMatchSetsResponse%27"><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse%27"><span class="hs-identifier hs-var">ListByteMatchSetsResponse'</span></a></span></span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of ByteMatchSetSummary objects.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AbyteMatchSets%3AListByteMatchSetsResponse%27"><span class="annot"><span class="annottext">ListByteMatchSetsResponse -&gt; Maybe [ByteMatchSetSummary]
 </span><a href="Network.AWS.WAF.ListByteMatchSets.html#%24sel%3AbyteMatchSets%3AListByteMatchSetsResponse%27"><span class="hs-identifier hs-var hs-var">byteMatchSets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAF.Types.ByteMatchSetSummary.html#ByteMatchSetSummary"><span class="hs-identifier hs-type">ByteMatchSetSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | If you have more @ByteMatchSet@ objects than the number that you</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- specified for @Limit@ in the request, the response includes a</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- @NextMarker@ value. To list more @ByteMatchSet@ objects, submit another</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- @ListByteMatchSets@ request, and specify the @NextMarker@ value from the</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- response in the @NextMarker@ value in the next request.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AnextMarker%3AListByteMatchSetsResponse%27"><span class="annot"><span class="annottext">ListByteMatchSetsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WAF.ListByteMatchSets.html#%24sel%3AnextMarker%3AListByteMatchSetsResponse%27"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-203"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListByteMatchSetsResponse%27"><span class="annot"><span class="annottext">ListByteMatchSetsResponse -&gt; Int
 </span><a href="Network.AWS.WAF.ListByteMatchSets.html#%24sel%3AhttpStatus%3AListByteMatchSetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-204"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-205"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313583"><span id="local-6989586621679313585"><span class="annot"><span class="annottext">ListByteMatchSetsResponse -&gt; ListByteMatchSetsResponse -&gt; Bool
+</span><span id="line-205"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313851"><span id="local-6989586621679313853"><span class="annot"><span class="annottext">ListByteMatchSetsResponse -&gt; ListByteMatchSetsResponse -&gt; Bool
 (ListByteMatchSetsResponse -&gt; ListByteMatchSetsResponse -&gt; Bool)
 -&gt; (ListByteMatchSetsResponse -&gt; ListByteMatchSetsResponse -&gt; Bool)
 -&gt; Eq ListByteMatchSetsResponse
@@ -527,7 +523,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListByteMatchSetsResponse -&gt; ListByteMatchSetsResponse -&gt; Bool
 == :: ListByteMatchSetsResponse -&gt; ListByteMatchSetsResponse -&gt; Bool
 $c== :: ListByteMatchSetsResponse -&gt; ListByteMatchSetsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313575"><span id="local-6989586621679313577"><span id="local-6989586621679313579"><span id="local-6989586621679313581"><span class="annot"><span class="annottext">ReadPrec [ListByteMatchSetsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313843"><span id="local-6989586621679313845"><span id="local-6989586621679313847"><span id="local-6989586621679313849"><span class="annot"><span class="annottext">ReadPrec [ListByteMatchSetsResponse]
 ReadPrec ListByteMatchSetsResponse
 Int -&gt; ReadS ListByteMatchSetsResponse
 ReadS [ListByteMatchSetsResponse]
@@ -547,7 +543,7 @@ readList :: ReadS [ListByteMatchSetsResponse]
 $creadList :: ReadS [ListByteMatchSetsResponse]
 readsPrec :: Int -&gt; ReadS ListByteMatchSetsResponse
 $creadsPrec :: Int -&gt; ReadS ListByteMatchSetsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313569"><span id="local-6989586621679313571"><span id="local-6989586621679313573"><span class="annot"><span class="annottext">Int -&gt; ListByteMatchSetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313837"><span id="local-6989586621679313839"><span id="local-6989586621679313841"><span class="annot"><span class="annottext">Int -&gt; ListByteMatchSetsResponse -&gt; ShowS
 [ListByteMatchSetsResponse] -&gt; ShowS
 ListByteMatchSetsResponse -&gt; String
 (Int -&gt; ListByteMatchSetsResponse -&gt; ShowS)
@@ -587,13 +583,13 @@ ListByteMatchSetsResponse -&gt; Rep ListByteMatchSetsResponse x
 </span><span id="line-212"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-214"></span><span class="hs-comment">--</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- 'nextMarker', 'listByteMatchSetsResponse_nextMarker' - If you have more @ByteMatchSet@ objects than the number that you</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- specified for @Limit@ in the request, the response includes a</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- @NextMarker@ value. To list more @ByteMatchSet@ objects, submit another</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- @ListByteMatchSets@ request, and specify the @NextMarker@ value from the</span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- response in the @NextMarker@ value in the next request.</span><span>
-</span><span id="line-220"></span><span class="hs-comment">--</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- 'byteMatchSets', 'listByteMatchSetsResponse_byteMatchSets' - An array of ByteMatchSetSummary objects.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'byteMatchSets', 'listByteMatchSetsResponse_byteMatchSets' - An array of ByteMatchSetSummary objects.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'nextMarker', 'listByteMatchSetsResponse_nextMarker' - If you have more @ByteMatchSet@ objects than the number that you</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- specified for @Limit@ in the request, the response includes a</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- @NextMarker@ value. To list more @ByteMatchSet@ objects, submit another</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- @ListByteMatchSets@ request, and specify the @NextMarker@ value from the</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- response in the @NextMarker@ value in the next request.</span><span>
 </span><span id="line-222"></span><span class="hs-comment">--</span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- 'httpStatus', 'listByteMatchSetsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-224"></span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#newListByteMatchSetsResponse"><span class="hs-identifier hs-type">newListByteMatchSetsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -601,68 +597,44 @@ ListByteMatchSetsResponse -&gt; Rep ListByteMatchSetsResponse x
 </span><span id="line-226"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-227"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse"><span class="hs-identifier hs-type">ListByteMatchSetsResponse</span></a></span><span>
 </span><span id="line-228"></span><span id="newListByteMatchSetsResponse"><span class="annot"><span class="annottext">newListByteMatchSetsResponse :: Int -&gt; ListByteMatchSetsResponse
-</span><a href="Network.AWS.WAF.ListByteMatchSets.html#newListByteMatchSetsResponse"><span class="hs-identifier hs-var hs-var">newListByteMatchSetsResponse</span></a></span></span><span> </span><span id="local-6989586621679313566"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313566"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-229"></span><span>  </span><span class="annot"><span class="annottext">ListByteMatchSetsResponse' :: Maybe Text
--&gt; Maybe [ByteMatchSetSummary] -&gt; Int -&gt; ListByteMatchSetsResponse
+</span><a href="Network.AWS.WAF.ListByteMatchSets.html#newListByteMatchSetsResponse"><span class="hs-identifier hs-var hs-var">newListByteMatchSetsResponse</span></a></span></span><span> </span><span id="local-6989586621679313834"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313834"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>  </span><span class="annot"><span class="annottext">ListByteMatchSetsResponse' :: Maybe [ByteMatchSetSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListByteMatchSetsResponse
 </span><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse%27"><span class="hs-identifier hs-type">ListByteMatchSetsResponse'</span></a></span><span>
-</span><span id="line-230"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextMarker:ListByteMatchSetsResponse' :: Maybe Text
-</span><a href="Network.AWS.WAF.ListByteMatchSets.html#%24sel%3AnextMarker%3AListByteMatchSetsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-230"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:byteMatchSets:ListByteMatchSetsResponse' :: Maybe [ByteMatchSetSummary]
+</span><a href="Network.AWS.WAF.ListByteMatchSets.html#%24sel%3AbyteMatchSets%3AListByteMatchSetsResponse%27"><span class="hs-identifier hs-var">byteMatchSets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ByteMatchSetSummary]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:byteMatchSets:ListByteMatchSetsResponse' :: Maybe [ByteMatchSetSummary]
-</span><a href="Network.AWS.WAF.ListByteMatchSets.html#%24sel%3AbyteMatchSets%3AListByteMatchSetsResponse%27"><span class="hs-identifier hs-var">byteMatchSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ByteMatchSetSummary]
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextMarker:ListByteMatchSetsResponse' :: Maybe Text
+</span><a href="Network.AWS.WAF.ListByteMatchSets.html#%24sel%3AnextMarker%3AListByteMatchSetsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListByteMatchSetsResponse' :: Int
 </span><a href="Network.AWS.WAF.ListByteMatchSets.html#%24sel%3AhttpStatus%3AListByteMatchSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313566"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679313834"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-234"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- | If you have more @ByteMatchSet@ objects than the number that you</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- specified for @Limit@ in the request, the response includes a</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- @NextMarker@ value. To list more @ByteMatchSet@ objects, submit another</span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- @ListByteMatchSets@ request, and specify the @NextMarker@ value from the</span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- response in the @NextMarker@ value in the next request.</span><span>
-</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#listByteMatchSetsResponse_nextMarker"><span class="hs-identifier hs-type">listByteMatchSetsResponse_nextMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse"><span class="hs-identifier hs-type">ListByteMatchSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-242"></span><span id="listByteMatchSetsResponse_nextMarker"><span class="annot"><span class="annottext">listByteMatchSetsResponse_nextMarker :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListByteMatchSetsResponse -&gt; f ListByteMatchSetsResponse
-</span><a href="Network.AWS.WAF.ListByteMatchSets.html#listByteMatchSetsResponse_nextMarker"><span class="hs-identifier hs-var hs-var">listByteMatchSetsResponse_nextMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListByteMatchSetsResponse -&gt; Maybe Text)
--&gt; (ListByteMatchSetsResponse
-    -&gt; Maybe Text -&gt; ListByteMatchSetsResponse)
--&gt; Lens' ListByteMatchSetsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse%27"><span class="hs-identifier hs-type">ListByteMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313565"><span class="annot"><span class="annottext">Maybe Text
-nextMarker :: Maybe Text
-$sel:nextMarker:ListByteMatchSetsResponse' :: ListByteMatchSetsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679313565"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313565"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313564"><span class="annot"><span class="annottext">s :: ListByteMatchSetsResponse
-</span><a href="#local-6989586621679313564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse%27"><span class="hs-identifier hs-type">ListByteMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313563"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListByteMatchSetsResponse
-</span><a href="#local-6989586621679313564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListByteMatchSetsResponse' :: Maybe Text
-</span><a href="Network.AWS.WAF.ListByteMatchSets.html#%24sel%3AnextMarker%3AListByteMatchSetsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse"><span class="hs-identifier hs-type">ListByteMatchSetsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-243"></span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- | An array of ByteMatchSetSummary objects.</span><span>
-</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#listByteMatchSetsResponse_byteMatchSets"><span class="hs-identifier hs-type">listByteMatchSetsResponse_byteMatchSets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse"><span class="hs-identifier hs-type">ListByteMatchSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAF.Types.ByteMatchSetSummary.html#ByteMatchSetSummary"><span class="hs-identifier hs-type">ByteMatchSetSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-246"></span><span id="listByteMatchSetsResponse_byteMatchSets"><span class="annot"><span class="annottext">listByteMatchSetsResponse_byteMatchSets :: (Maybe [ByteMatchSetSummary] -&gt; f (Maybe [ByteMatchSetSummary]))
+</span><span id="line-236"></span><span class="hs-comment">-- | An array of ByteMatchSetSummary objects.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#listByteMatchSetsResponse_byteMatchSets"><span class="hs-identifier hs-type">listByteMatchSetsResponse_byteMatchSets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse"><span class="hs-identifier hs-type">ListByteMatchSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAF.Types.ByteMatchSetSummary.html#ByteMatchSetSummary"><span class="hs-identifier hs-type">ByteMatchSetSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="listByteMatchSetsResponse_byteMatchSets"><span class="annot"><span class="annottext">listByteMatchSetsResponse_byteMatchSets :: (Maybe [ByteMatchSetSummary] -&gt; f (Maybe [ByteMatchSetSummary]))
 -&gt; ListByteMatchSetsResponse -&gt; f ListByteMatchSetsResponse
 </span><a href="Network.AWS.WAF.ListByteMatchSets.html#listByteMatchSetsResponse_byteMatchSets"><span class="hs-identifier hs-var hs-var">listByteMatchSetsResponse_byteMatchSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListByteMatchSetsResponse -&gt; Maybe [ByteMatchSetSummary])
 -&gt; (ListByteMatchSetsResponse
     -&gt; Maybe [ByteMatchSetSummary] -&gt; ListByteMatchSetsResponse)
 -&gt; Lens' ListByteMatchSetsResponse (Maybe [ByteMatchSetSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse%27"><span class="hs-identifier hs-type">ListByteMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313562"><span class="annot"><span class="annottext">Maybe [ByteMatchSetSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse%27"><span class="hs-identifier hs-type">ListByteMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313833"><span class="annot"><span class="annottext">Maybe [ByteMatchSetSummary]
 byteMatchSets :: Maybe [ByteMatchSetSummary]
 $sel:byteMatchSets:ListByteMatchSetsResponse' :: ListByteMatchSetsResponse -&gt; Maybe [ByteMatchSetSummary]
-</span><a href="#local-6989586621679313562"><span class="hs-identifier hs-var hs-var">byteMatchSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ByteMatchSetSummary]
-</span><a href="#local-6989586621679313562"><span class="hs-identifier hs-var">byteMatchSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313561"><span class="annot"><span class="annottext">s :: ListByteMatchSetsResponse
-</span><a href="#local-6989586621679313561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse%27"><span class="hs-identifier hs-type">ListByteMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313560"><span class="annot"><span class="annottext">Maybe [ByteMatchSetSummary]
-</span><a href="#local-6989586621679313560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListByteMatchSetsResponse
-</span><a href="#local-6989586621679313561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:byteMatchSets:ListByteMatchSetsResponse' :: Maybe [ByteMatchSetSummary]
+</span><a href="#local-6989586621679313833"><span class="hs-identifier hs-var hs-var">byteMatchSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ByteMatchSetSummary]
+</span><a href="#local-6989586621679313833"><span class="hs-identifier hs-var">byteMatchSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313832"><span class="annot"><span class="annottext">s :: ListByteMatchSetsResponse
+</span><a href="#local-6989586621679313832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse%27"><span class="hs-identifier hs-type">ListByteMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313831"><span class="annot"><span class="annottext">Maybe [ByteMatchSetSummary]
+</span><a href="#local-6989586621679313831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListByteMatchSetsResponse
+</span><a href="#local-6989586621679313832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:byteMatchSets:ListByteMatchSetsResponse' :: Maybe [ByteMatchSetSummary]
 </span><a href="Network.AWS.WAF.ListByteMatchSets.html#%24sel%3AbyteMatchSets%3AListByteMatchSetsResponse%27"><span class="hs-identifier hs-var">byteMatchSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ByteMatchSetSummary]
-</span><a href="#local-6989586621679313560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse"><span class="hs-identifier hs-type">ListByteMatchSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ByteMatchSetSummary] -&gt; f (Maybe [ByteMatchSetSummary]))
+</span><a href="#local-6989586621679313831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse"><span class="hs-identifier hs-type">ListByteMatchSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ByteMatchSetSummary] -&gt; f (Maybe [ByteMatchSetSummary]))
  -&gt; ListByteMatchSetsResponse -&gt; f ListByteMatchSetsResponse)
 -&gt; ((Maybe [ByteMatchSetSummary]
      -&gt; f (Maybe [ByteMatchSetSummary]))
@@ -689,8 +661,32 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ByteMatchSetSummary]
   [ByteMatchSetSummary]
   [ByteMatchSetSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | If you have more @ByteMatchSet@ objects than the number that you</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- specified for @Limit@ in the request, the response includes a</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- @NextMarker@ value. To list more @ByteMatchSet@ objects, submit another</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- @ListByteMatchSets@ request, and specify the @NextMarker@ value from the</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- response in the @NextMarker@ value in the next request.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#listByteMatchSetsResponse_nextMarker"><span class="hs-identifier hs-type">listByteMatchSetsResponse_nextMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse"><span class="hs-identifier hs-type">ListByteMatchSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="listByteMatchSetsResponse_nextMarker"><span class="annot"><span class="annottext">listByteMatchSetsResponse_nextMarker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListByteMatchSetsResponse -&gt; f ListByteMatchSetsResponse
+</span><a href="Network.AWS.WAF.ListByteMatchSets.html#listByteMatchSetsResponse_nextMarker"><span class="hs-identifier hs-var hs-var">listByteMatchSetsResponse_nextMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListByteMatchSetsResponse -&gt; Maybe Text)
+-&gt; (ListByteMatchSetsResponse
+    -&gt; Maybe Text -&gt; ListByteMatchSetsResponse)
+-&gt; Lens' ListByteMatchSetsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse%27"><span class="hs-identifier hs-type">ListByteMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313828"><span class="annot"><span class="annottext">Maybe Text
+nextMarker :: Maybe Text
+$sel:nextMarker:ListByteMatchSetsResponse' :: ListByteMatchSetsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679313828"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313828"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313827"><span class="annot"><span class="annottext">s :: ListByteMatchSetsResponse
+</span><a href="#local-6989586621679313827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse%27"><span class="hs-identifier hs-type">ListByteMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313826"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListByteMatchSetsResponse
+</span><a href="#local-6989586621679313827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListByteMatchSetsResponse' :: Maybe Text
+</span><a href="Network.AWS.WAF.ListByteMatchSets.html#%24sel%3AnextMarker%3AListByteMatchSetsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse"><span class="hs-identifier hs-type">ListByteMatchSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-249"></span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#listByteMatchSetsResponse_httpStatus"><span class="hs-identifier hs-type">listByteMatchSetsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse"><span class="hs-identifier hs-type">ListByteMatchSetsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -700,16 +696,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListByteMatchSetsResponse -&gt; Int -&gt; ListByteMatchSetsResponse)
 -&gt; Lens ListByteMatchSetsResponse ListByteMatchSetsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse%27"><span class="hs-identifier hs-type">ListByteMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313557"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse%27"><span class="hs-identifier hs-type">ListByteMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313825"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListByteMatchSetsResponse' :: ListByteMatchSetsResponse -&gt; Int
-</span><a href="#local-6989586621679313557"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313557"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313556"><span class="annot"><span class="annottext">s :: ListByteMatchSetsResponse
-</span><a href="#local-6989586621679313556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse%27"><span class="hs-identifier hs-type">ListByteMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313555"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListByteMatchSetsResponse
-</span><a href="#local-6989586621679313556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListByteMatchSetsResponse' :: Int
+</span><a href="#local-6989586621679313825"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313825"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313824"><span class="annot"><span class="annottext">s :: ListByteMatchSetsResponse
+</span><a href="#local-6989586621679313824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse%27"><span class="hs-identifier hs-type">ListByteMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313823"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListByteMatchSetsResponse
+</span><a href="#local-6989586621679313824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListByteMatchSetsResponse' :: Int
 </span><a href="Network.AWS.WAF.ListByteMatchSets.html#%24sel%3AhttpStatus%3AListByteMatchSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse"><span class="hs-identifier hs-type">ListByteMatchSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse"><span class="hs-identifier hs-type">ListByteMatchSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
-</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313553"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse"><span class="hs-identifier hs-type">ListByteMatchSetsResponse</span></a></span></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313821"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListByteMatchSets.html#ListByteMatchSetsResponse"><span class="hs-identifier hs-type">ListByteMatchSetsResponse</span></a></span></span><span>
 </span><span id="line-253"></span></pre></body></html>

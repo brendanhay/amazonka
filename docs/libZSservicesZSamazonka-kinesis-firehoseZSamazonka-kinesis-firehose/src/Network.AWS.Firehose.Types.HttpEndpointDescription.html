@@ -26,15 +26,15 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes the HTTP endpoint selected as the destination.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newHttpEndpointDescription' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679257388"><span id="local-6989586621679257389"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpEndpointDescription"><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription"><span class="hs-identifier hs-var">HttpEndpointDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpEndpointDescription%27"><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription%27"><span class="hs-identifier hs-var">HttpEndpointDescription'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the HTTP endpoint selected as the destination.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3AHttpEndpointDescription%27"><span class="annot"><span class="annottext">HttpEndpointDescription -&gt; Maybe Text
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#%24sel%3Aname%3AHttpEndpointDescription%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The URL of the HTTP endpoint selected as the destination.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aurl%3AHttpEndpointDescription%27"><span class="annot"><span class="annottext">HttpEndpointDescription -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#%24sel%3Aurl%3AHttpEndpointDescription%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679271611"><span id="local-6989586621679271612"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpEndpointDescription"><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription"><span class="hs-identifier hs-var">HttpEndpointDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpEndpointDescription%27"><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription%27"><span class="hs-identifier hs-var">HttpEndpointDescription'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The URL of the HTTP endpoint selected as the destination.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aurl%3AHttpEndpointDescription%27"><span class="annot"><span class="annottext">HttpEndpointDescription -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#%24sel%3Aurl%3AHttpEndpointDescription%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The name of the HTTP endpoint selected as the destination.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3AHttpEndpointDescription%27"><span class="annot"><span class="annottext">HttpEndpointDescription -&gt; Maybe Text
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#%24sel%3Aname%3AHttpEndpointDescription%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257381"><span id="local-6989586621679257383"><span class="annot"><span class="annottext">HttpEndpointDescription -&gt; HttpEndpointDescription -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271604"><span id="local-6989586621679271606"><span class="annot"><span class="annottext">HttpEndpointDescription -&gt; HttpEndpointDescription -&gt; Bool
 (HttpEndpointDescription -&gt; HttpEndpointDescription -&gt; Bool)
 -&gt; (HttpEndpointDescription -&gt; HttpEndpointDescription -&gt; Bool)
 -&gt; Eq HttpEndpointDescription
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HttpEndpointDescription -&gt; HttpEndpointDescription -&gt; Bool
 == :: HttpEndpointDescription -&gt; HttpEndpointDescription -&gt; Bool
 $c== :: HttpEndpointDescription -&gt; HttpEndpointDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257374"><span id="local-6989586621679257376"><span id="local-6989586621679257378"><span class="annot"><span class="annottext">Int -&gt; HttpEndpointDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271597"><span id="local-6989586621679271599"><span id="local-6989586621679271601"><span class="annot"><span class="annottext">Int -&gt; HttpEndpointDescription -&gt; ShowS
 [HttpEndpointDescription] -&gt; ShowS
 HttpEndpointDescription -&gt; String
 (Int -&gt; HttpEndpointDescription -&gt; ShowS)
@@ -79,52 +79,28 @@ $cfrom :: forall x. HttpEndpointDescription -&gt; Rep HttpEndpointDescription x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'name', 'httpEndpointDescription_name' - The name of the HTTP endpoint selected as the destination.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'url', 'httpEndpointDescription_url' - The URL of the HTTP endpoint selected as the destination.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'url', 'httpEndpointDescription_url' - The URL of the HTTP endpoint selected as the destination.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'name', 'httpEndpointDescription_name' - The name of the HTTP endpoint selected as the destination.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#newHttpEndpointDescription"><span class="hs-identifier hs-type">newHttpEndpointDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription"><span class="hs-identifier hs-type">HttpEndpointDescription</span></a></span><span>
 </span><span id="line-50"></span><span id="newHttpEndpointDescription"><span class="annot"><span class="annottext">newHttpEndpointDescription :: HttpEndpointDescription
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#newHttpEndpointDescription"><span class="hs-identifier hs-var hs-var">newHttpEndpointDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">HttpEndpointDescription' :: Maybe Text -&gt; Maybe (Sensitive Text) -&gt; HttpEndpointDescription
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">HttpEndpointDescription' :: Maybe (Sensitive Text) -&gt; Maybe Text -&gt; HttpEndpointDescription
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription%27"><span class="hs-identifier hs-type">HttpEndpointDescription'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:HttpEndpointDescription' :: Maybe Text
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#%24sel%3Aname%3AHttpEndpointDescription%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:url:HttpEndpointDescription' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#%24sel%3Aurl%3AHttpEndpointDescription%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:HttpEndpointDescription' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#%24sel%3Aurl%3AHttpEndpointDescription%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:HttpEndpointDescription' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#%24sel%3Aname%3AHttpEndpointDescription%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- | The name of the HTTP endpoint selected as the destination.</span><span>
-</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#httpEndpointDescription_name"><span class="hs-identifier hs-type">httpEndpointDescription_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription"><span class="hs-identifier hs-type">HttpEndpointDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-58"></span><span id="httpEndpointDescription_name"><span class="annot"><span class="annottext">httpEndpointDescription_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; HttpEndpointDescription -&gt; f HttpEndpointDescription
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#httpEndpointDescription_name"><span class="hs-identifier hs-var hs-var">httpEndpointDescription_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpEndpointDescription -&gt; Maybe Text)
--&gt; (HttpEndpointDescription
-    -&gt; Maybe Text -&gt; HttpEndpointDescription)
--&gt; Lens
-     HttpEndpointDescription
-     HttpEndpointDescription
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription%27"><span class="hs-identifier hs-type">HttpEndpointDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257365"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:HttpEndpointDescription' :: HttpEndpointDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679257365"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257365"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257364"><span class="annot"><span class="annottext">s :: HttpEndpointDescription
-</span><a href="#local-6989586621679257364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription%27"><span class="hs-identifier hs-type">HttpEndpointDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257363"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDescription
-</span><a href="#local-6989586621679257364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:HttpEndpointDescription' :: Maybe Text
-</span><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#%24sel%3Aname%3AHttpEndpointDescription%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription"><span class="hs-identifier hs-type">HttpEndpointDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | The URL of the HTTP endpoint selected as the destination.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#httpEndpointDescription_url"><span class="hs-identifier hs-type">httpEndpointDescription_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription"><span class="hs-identifier hs-type">HttpEndpointDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="httpEndpointDescription_url"><span class="annot"><span class="annottext">httpEndpointDescription_url :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-56"></span><span class="hs-comment">-- | The URL of the HTTP endpoint selected as the destination.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#httpEndpointDescription_url"><span class="hs-identifier hs-type">httpEndpointDescription_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription"><span class="hs-identifier hs-type">HttpEndpointDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="httpEndpointDescription_url"><span class="annot"><span class="annottext">httpEndpointDescription_url :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; HttpEndpointDescription -&gt; f HttpEndpointDescription
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#httpEndpointDescription_url"><span class="hs-identifier hs-var hs-var">httpEndpointDescription_url</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpEndpointDescription -&gt; Maybe (Sensitive Text))
 -&gt; (HttpEndpointDescription
@@ -135,16 +111,16 @@ $sel:name:HttpEndpointDescription' :: HttpEndpointDescription -&gt; Maybe Text
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription%27"><span class="hs-identifier hs-type">HttpEndpointDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257361"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription%27"><span class="hs-identifier hs-type">HttpEndpointDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271588"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 url :: Maybe (Sensitive Text)
 $sel:url:HttpEndpointDescription' :: HttpEndpointDescription -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679257361"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679257361"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257360"><span class="annot"><span class="annottext">s :: HttpEndpointDescription
-</span><a href="#local-6989586621679257360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription%27"><span class="hs-identifier hs-type">HttpEndpointDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257359"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679257359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDescription
-</span><a href="#local-6989586621679257360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:HttpEndpointDescription' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679271588"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679271588"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271587"><span class="annot"><span class="annottext">s :: HttpEndpointDescription
+</span><a href="#local-6989586621679271587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription%27"><span class="hs-identifier hs-type">HttpEndpointDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271586"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679271586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDescription
+</span><a href="#local-6989586621679271587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:HttpEndpointDescription' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#%24sel%3Aurl%3AHttpEndpointDescription%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679257359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription"><span class="hs-identifier hs-type">HttpEndpointDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679271586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription"><span class="hs-identifier hs-type">HttpEndpointDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; HttpEndpointDescription -&gt; f HttpEndpointDescription)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -164,9 +140,33 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The name of the HTTP endpoint selected as the destination.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#httpEndpointDescription_name"><span class="hs-identifier hs-type">httpEndpointDescription_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription"><span class="hs-identifier hs-type">HttpEndpointDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="httpEndpointDescription_name"><span class="annot"><span class="annottext">httpEndpointDescription_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; HttpEndpointDescription -&gt; f HttpEndpointDescription
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#httpEndpointDescription_name"><span class="hs-identifier hs-var hs-var">httpEndpointDescription_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpEndpointDescription -&gt; Maybe Text)
+-&gt; (HttpEndpointDescription
+    -&gt; Maybe Text -&gt; HttpEndpointDescription)
+-&gt; Lens
+     HttpEndpointDescription
+     HttpEndpointDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription%27"><span class="hs-identifier hs-type">HttpEndpointDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271581"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:HttpEndpointDescription' :: HttpEndpointDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679271581"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271581"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271580"><span class="annot"><span class="annottext">s :: HttpEndpointDescription
+</span><a href="#local-6989586621679271580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription%27"><span class="hs-identifier hs-type">HttpEndpointDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271579"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointDescription
+</span><a href="#local-6989586621679271580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:HttpEndpointDescription' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#%24sel%3Aname%3AHttpEndpointDescription%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription"><span class="hs-identifier hs-type">HttpEndpointDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257353"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription"><span class="hs-identifier hs-type">HttpEndpointDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679257351"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HttpEndpointDescription
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271576"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription"><span class="hs-identifier hs-type">HttpEndpointDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679271574"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HttpEndpointDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HttpEndpointDescription)
@@ -176,30 +176,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HttpEndpointDescription&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257348"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257348"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe (Sensitive Text) -&gt; HttpEndpointDescription
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271571"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271571"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text) -&gt; Maybe Text -&gt; HttpEndpointDescription
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription%27"><span class="hs-identifier hs-var">HttpEndpointDescription'</span></a></span><span>
-</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe (Sensitive Text) -&gt; HttpEndpointDescription)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe (Sensitive Text) -&gt; HttpEndpointDescription)
+</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (Sensitive Text) -&gt; Maybe Text -&gt; HttpEndpointDescription)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser (Maybe Text -&gt; HttpEndpointDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257348"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679271571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Sensitive Text) -&gt; HttpEndpointDescription)
--&gt; Parser (Maybe (Sensitive Text))
--&gt; Parser HttpEndpointDescription
+</span><span class="hs-string">&quot;Url&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; HttpEndpointDescription)
+-&gt; Parser (Maybe Text) -&gt; Parser HttpEndpointDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257348"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679271571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Url&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257342"><span id="local-6989586621679257344"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription"><span class="hs-identifier hs-type">HttpEndpointDescription</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271565"><span id="local-6989586621679271567"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription"><span class="hs-identifier hs-type">HttpEndpointDescription</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257339"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription"><span class="hs-identifier hs-type">HttpEndpointDescription</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271562"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointDescription.html#HttpEndpointDescription"><span class="hs-identifier hs-type">HttpEndpointDescription</span></a></span></span><span>
 </span><span id="line-76"></span></pre></body></html>

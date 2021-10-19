@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679272483"><span id="local-6989586621679272484"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MedicalContentIdentificationType"><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalContentIdentificationType.html#MedicalContentIdentificationType"><span class="hs-identifier hs-var">MedicalContentIdentificationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MedicalContentIdentificationType%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalContentIdentificationType.html#MedicalContentIdentificationType%27"><span class="hs-identifier hs-var">MedicalContentIdentificationType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679272646"><span id="local-6989586621679272647"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MedicalContentIdentificationType"><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalContentIdentificationType.html#MedicalContentIdentificationType"><span class="hs-identifier hs-var">MedicalContentIdentificationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MedicalContentIdentificationType%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalContentIdentificationType.html#MedicalContentIdentificationType%27"><span class="hs-identifier hs-var">MedicalContentIdentificationType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMedicalContentIdentificationType"><span class="annot"><span class="annottext">MedicalContentIdentificationType -&gt; Text
 </span><a href="Network.AWS.Transcribe.Types.MedicalContentIdentificationType.html#fromMedicalContentIdentificationType"><span class="hs-identifier hs-var hs-var">fromMedicalContentIdentificationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272475"><span id="local-6989586621679272477"><span id="local-6989586621679272479"><span class="annot"><span class="annottext">Int -&gt; MedicalContentIdentificationType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272638"><span id="local-6989586621679272640"><span id="local-6989586621679272642"><span class="annot"><span class="annottext">Int -&gt; MedicalContentIdentificationType -&gt; ShowS
 [MedicalContentIdentificationType] -&gt; ShowS
 MedicalContentIdentificationType -&gt; String
 (Int -&gt; MedicalContentIdentificationType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: MedicalContentIdentificationType -&gt; String
 showsPrec :: Int -&gt; MedicalContentIdentificationType -&gt; ShowS
 $cshowsPrec :: Int -&gt; MedicalContentIdentificationType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679272466"><span id="local-6989586621679272468"><span id="local-6989586621679272470"><span id="local-6989586621679272472"><span class="annot"><span class="annottext">ReadPrec [MedicalContentIdentificationType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679272629"><span id="local-6989586621679272631"><span id="local-6989586621679272633"><span id="local-6989586621679272635"><span class="annot"><span class="annottext">ReadPrec [MedicalContentIdentificationType]
 ReadPrec MedicalContentIdentificationType
 Int -&gt; ReadS MedicalContentIdentificationType
 ReadS [MedicalContentIdentificationType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [MedicalContentIdentificationType]
 readsPrec :: Int -&gt; ReadS MedicalContentIdentificationType
 $creadsPrec :: Int -&gt; ReadS MedicalContentIdentificationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679272461"><span id="local-6989586621679272463"><span class="annot"><span class="annottext">MedicalContentIdentificationType
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679272624"><span id="local-6989586621679272626"><span class="annot"><span class="annottext">MedicalContentIdentificationType
 -&gt; MedicalContentIdentificationType -&gt; Bool
 (MedicalContentIdentificationType
  -&gt; MedicalContentIdentificationType -&gt; Bool)
@@ -88,7 +88,7 @@ $c/= :: MedicalContentIdentificationType
 $c== :: MedicalContentIdentificationType
 -&gt; MedicalContentIdentificationType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679272445"><span id="local-6989586621679272447"><span id="local-6989586621679272449"><span id="local-6989586621679272451"><span id="local-6989586621679272453"><span id="local-6989586621679272455"><span id="local-6989586621679272457"><span class="annot"><span class="annottext">Eq MedicalContentIdentificationType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679272608"><span id="local-6989586621679272610"><span id="local-6989586621679272612"><span id="local-6989586621679272614"><span id="local-6989586621679272616"><span id="local-6989586621679272618"><span id="local-6989586621679272620"><span class="annot"><span class="annottext">Eq MedicalContentIdentificationType
 Eq MedicalContentIdentificationType
 -&gt; (MedicalContentIdentificationType
     -&gt; MedicalContentIdentificationType -&gt; Ordering)
@@ -182,7 +182,7 @@ MedicalContentIdentificationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272437"><span id="local-6989586621679272439"><span class="annot"><span class="annottext">Int -&gt; MedicalContentIdentificationType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272600"><span id="local-6989586621679272602"><span class="annot"><span class="annottext">Int -&gt; MedicalContentIdentificationType -&gt; Int
 MedicalContentIdentificationType -&gt; Int
 (Int -&gt; MedicalContentIdentificationType -&gt; Int)
 -&gt; (MedicalContentIdentificationType -&gt; Int)
@@ -193,56 +193,56 @@ $chash :: MedicalContentIdentificationType -&gt; Int
 hashWithSalt :: Int -&gt; MedicalContentIdentificationType -&gt; Int
 $chashWithSalt :: Int -&gt; MedicalContentIdentificationType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679272434"><span class="annot"><span class="annottext">MedicalContentIdentificationType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679272597"><span class="annot"><span class="annottext">MedicalContentIdentificationType -&gt; ()
 (MedicalContentIdentificationType -&gt; ())
 -&gt; NFData MedicalContentIdentificationType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MedicalContentIdentificationType -&gt; ()
 $crnf :: MedicalContentIdentificationType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679272431"><span class="annot"><span class="annottext">Text -&gt; Either String MedicalContentIdentificationType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679272594"><span class="annot"><span class="annottext">Text -&gt; Either String MedicalContentIdentificationType
 (Text -&gt; Either String MedicalContentIdentificationType)
 -&gt; FromText MedicalContentIdentificationType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MedicalContentIdentificationType
 $cfromText :: Text -&gt; Either String MedicalContentIdentificationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679272428"><span class="annot"><span class="annottext">MedicalContentIdentificationType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679272591"><span class="annot"><span class="annottext">MedicalContentIdentificationType -&gt; Text
 (MedicalContentIdentificationType -&gt; Text)
 -&gt; ToText MedicalContentIdentificationType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MedicalContentIdentificationType -&gt; Text
 $ctoText :: MedicalContentIdentificationType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679272425"><span class="annot"><span class="annottext">MedicalContentIdentificationType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679272588"><span class="annot"><span class="annottext">MedicalContentIdentificationType -&gt; ByteString
 (MedicalContentIdentificationType -&gt; ByteString)
 -&gt; ToByteString MedicalContentIdentificationType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MedicalContentIdentificationType -&gt; ByteString
 $ctoBS :: MedicalContentIdentificationType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679272422"><span class="annot"><span class="annottext">MedicalContentIdentificationType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679272585"><span class="annot"><span class="annottext">MedicalContentIdentificationType -&gt; ByteStringBuilder
 (MedicalContentIdentificationType -&gt; ByteStringBuilder)
 -&gt; ToLog MedicalContentIdentificationType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MedicalContentIdentificationType -&gt; ByteStringBuilder
 $cbuild :: MedicalContentIdentificationType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679272419"><span class="annot"><span class="annottext">HeaderName -&gt; MedicalContentIdentificationType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679272582"><span class="annot"><span class="annottext">HeaderName -&gt; MedicalContentIdentificationType -&gt; [Header]
 (HeaderName -&gt; MedicalContentIdentificationType -&gt; [Header])
 -&gt; ToHeader MedicalContentIdentificationType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MedicalContentIdentificationType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MedicalContentIdentificationType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679272416"><span class="annot"><span class="annottext">MedicalContentIdentificationType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679272579"><span class="annot"><span class="annottext">MedicalContentIdentificationType -&gt; QueryString
 (MedicalContentIdentificationType -&gt; QueryString)
 -&gt; ToQuery MedicalContentIdentificationType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MedicalContentIdentificationType -&gt; QueryString
 $ctoQuery :: MedicalContentIdentificationType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679272411"><span id="local-6989586621679272413"><span class="annot"><span class="annottext">Value -&gt; Parser [MedicalContentIdentificationType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679272574"><span id="local-6989586621679272576"><span class="annot"><span class="annottext">Value -&gt; Parser [MedicalContentIdentificationType]
 Value -&gt; Parser MedicalContentIdentificationType
 (Value -&gt; Parser MedicalContentIdentificationType)
 -&gt; (Value -&gt; Parser [MedicalContentIdentificationType])
@@ -254,7 +254,7 @@ $cparseJSONList :: Value -&gt; Parser [MedicalContentIdentificationType]
 parseJSON :: Value -&gt; Parser MedicalContentIdentificationType
 $cparseJSON :: Value -&gt; Parser MedicalContentIdentificationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679272406"><span id="local-6989586621679272408"><span class="annot"><span class="annottext">FromJSONKeyFunction [MedicalContentIdentificationType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679272569"><span id="local-6989586621679272571"><span class="annot"><span class="annottext">FromJSONKeyFunction [MedicalContentIdentificationType]
 FromJSONKeyFunction MedicalContentIdentificationType
 FromJSONKeyFunction MedicalContentIdentificationType
 -&gt; FromJSONKeyFunction [MedicalContentIdentificationType]
@@ -266,7 +266,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MedicalContentIdentificationType]
 fromJSONKey :: FromJSONKeyFunction MedicalContentIdentificationType
 $cfromJSONKey :: FromJSONKeyFunction MedicalContentIdentificationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679272397"><span id="local-6989586621679272399"><span id="local-6989586621679272401"><span id="local-6989586621679272403"><span class="annot"><span class="annottext">[MedicalContentIdentificationType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679272560"><span id="local-6989586621679272562"><span id="local-6989586621679272564"><span id="local-6989586621679272566"><span class="annot"><span class="annottext">[MedicalContentIdentificationType] -&gt; Encoding
 [MedicalContentIdentificationType] -&gt; Value
 MedicalContentIdentificationType -&gt; Encoding
 MedicalContentIdentificationType -&gt; Value
@@ -290,7 +290,7 @@ $ctoEncoding :: MedicalContentIdentificationType -&gt; Encoding
 toJSON :: MedicalContentIdentificationType -&gt; Value
 $ctoJSON :: MedicalContentIdentificationType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679272392"><span id="local-6989586621679272394"><span class="annot"><span class="annottext">ToJSONKeyFunction [MedicalContentIdentificationType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679272555"><span id="local-6989586621679272557"><span class="annot"><span class="annottext">ToJSONKeyFunction [MedicalContentIdentificationType]
 ToJSONKeyFunction MedicalContentIdentificationType
 ToJSONKeyFunction MedicalContentIdentificationType
 -&gt; ToJSONKeyFunction [MedicalContentIdentificationType]
@@ -302,14 +302,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MedicalContentIdentificationType]
 toJSONKey :: ToJSONKeyFunction MedicalContentIdentificationType
 $ctoJSONKey :: ToJSONKeyFunction MedicalContentIdentificationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679272389"><span class="annot"><span class="annottext">[Node] -&gt; Either String MedicalContentIdentificationType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679272552"><span class="annot"><span class="annottext">[Node] -&gt; Either String MedicalContentIdentificationType
 ([Node] -&gt; Either String MedicalContentIdentificationType)
 -&gt; FromXML MedicalContentIdentificationType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MedicalContentIdentificationType
 $cparseXML :: [Node] -&gt; Either String MedicalContentIdentificationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679272386"><span class="annot"><span class="annottext">MedicalContentIdentificationType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679272549"><span class="annot"><span class="annottext">MedicalContentIdentificationType -&gt; XML
 (MedicalContentIdentificationType -&gt; XML)
 -&gt; ToXML MedicalContentIdentificationType
 forall a. (a -&gt; XML) -&gt; ToXML a

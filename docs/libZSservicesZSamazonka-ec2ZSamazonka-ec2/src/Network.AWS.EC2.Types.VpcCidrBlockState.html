@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the state of a CIDR block.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newVpcCidrBlockState' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681151789"><span id="local-6989586621681151790"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcCidrBlockState"><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-var">VpcCidrBlockState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcCidrBlockState%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState%27"><span class="hs-identifier hs-var">VpcCidrBlockState'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A message about the status of the CIDR block, if applicable.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AstatusMessage%3AVpcCidrBlockState%27"><span class="annot"><span class="annottext">VpcCidrBlockState -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#%24sel%3AstatusMessage%3AVpcCidrBlockState%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The state of the CIDR block.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astate%3AVpcCidrBlockState%27"><span class="annot"><span class="annottext">VpcCidrBlockState -&gt; Maybe VpcCidrBlockStateCode
-</span><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#%24sel%3Astate%3AVpcCidrBlockState%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode"><span class="hs-identifier hs-type">VpcCidrBlockStateCode</span></a></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681186971"><span id="local-6989586621681186972"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcCidrBlockState"><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-var">VpcCidrBlockState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcCidrBlockState%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState%27"><span class="hs-identifier hs-var">VpcCidrBlockState'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the CIDR block.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astate%3AVpcCidrBlockState%27"><span class="annot"><span class="annottext">VpcCidrBlockState -&gt; Maybe VpcCidrBlockStateCode
+</span><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#%24sel%3Astate%3AVpcCidrBlockState%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode"><span class="hs-identifier hs-type">VpcCidrBlockStateCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A message about the status of the CIDR block, if applicable.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AstatusMessage%3AVpcCidrBlockState%27"><span class="annot"><span class="annottext">VpcCidrBlockState -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#%24sel%3AstatusMessage%3AVpcCidrBlockState%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681151782"><span id="local-6989586621681151784"><span class="annot"><span class="annottext">VpcCidrBlockState -&gt; VpcCidrBlockState -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681186964"><span id="local-6989586621681186966"><span class="annot"><span class="annottext">VpcCidrBlockState -&gt; VpcCidrBlockState -&gt; Bool
 (VpcCidrBlockState -&gt; VpcCidrBlockState -&gt; Bool)
 -&gt; (VpcCidrBlockState -&gt; VpcCidrBlockState -&gt; Bool)
 -&gt; Eq VpcCidrBlockState
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VpcCidrBlockState -&gt; VpcCidrBlockState -&gt; Bool
 == :: VpcCidrBlockState -&gt; VpcCidrBlockState -&gt; Bool
 $c== :: VpcCidrBlockState -&gt; VpcCidrBlockState -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681151773"><span id="local-6989586621681151775"><span id="local-6989586621681151777"><span id="local-6989586621681151779"><span class="annot"><span class="annottext">ReadPrec [VpcCidrBlockState]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681186955"><span id="local-6989586621681186957"><span id="local-6989586621681186959"><span id="local-6989586621681186961"><span class="annot"><span class="annottext">ReadPrec [VpcCidrBlockState]
 ReadPrec VpcCidrBlockState
 Int -&gt; ReadS VpcCidrBlockState
 ReadS [VpcCidrBlockState]
@@ -65,7 +65,7 @@ readList :: ReadS [VpcCidrBlockState]
 $creadList :: ReadS [VpcCidrBlockState]
 readsPrec :: Int -&gt; ReadS VpcCidrBlockState
 $creadsPrec :: Int -&gt; ReadS VpcCidrBlockState
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681151766"><span id="local-6989586621681151768"><span id="local-6989586621681151770"><span class="annot"><span class="annottext">Int -&gt; VpcCidrBlockState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681186948"><span id="local-6989586621681186950"><span id="local-6989586621681186952"><span class="annot"><span class="annottext">Int -&gt; VpcCidrBlockState -&gt; ShowS
 [VpcCidrBlockState] -&gt; ShowS
 VpcCidrBlockState -&gt; String
 (Int -&gt; VpcCidrBlockState -&gt; ShowS)
@@ -99,48 +99,28 @@ $cfrom :: forall x. VpcCidrBlockState -&gt; Rep VpcCidrBlockState x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'statusMessage', 'vpcCidrBlockState_statusMessage' - A message about the status of the CIDR block, if applicable.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'state', 'vpcCidrBlockState_state' - The state of the CIDR block.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'state', 'vpcCidrBlockState_state' - The state of the CIDR block.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'statusMessage', 'vpcCidrBlockState_statusMessage' - A message about the status of the CIDR block, if applicable.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#newVpcCidrBlockState"><span class="hs-identifier hs-type">newVpcCidrBlockState</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-type">VpcCidrBlockState</span></a></span><span>
 </span><span id="line-52"></span><span id="newVpcCidrBlockState"><span class="annot"><span class="annottext">newVpcCidrBlockState :: VpcCidrBlockState
 </span><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#newVpcCidrBlockState"><span class="hs-identifier hs-var hs-var">newVpcCidrBlockState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">VpcCidrBlockState' :: Maybe Text -&gt; Maybe VpcCidrBlockStateCode -&gt; VpcCidrBlockState
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">VpcCidrBlockState' :: Maybe VpcCidrBlockStateCode -&gt; Maybe Text -&gt; VpcCidrBlockState
 </span><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState%27"><span class="hs-identifier hs-type">VpcCidrBlockState'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statusMessage:VpcCidrBlockState' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#%24sel%3AstatusMessage%3AVpcCidrBlockState%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:VpcCidrBlockState' :: Maybe VpcCidrBlockStateCode
+</span><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#%24sel%3Astate%3AVpcCidrBlockState%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcCidrBlockStateCode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:VpcCidrBlockState' :: Maybe VpcCidrBlockStateCode
-</span><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#%24sel%3Astate%3AVpcCidrBlockState%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcCidrBlockStateCode
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusMessage:VpcCidrBlockState' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#%24sel%3AstatusMessage%3AVpcCidrBlockState%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | A message about the status of the CIDR block, if applicable.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#vpcCidrBlockState_statusMessage"><span class="hs-identifier hs-type">vpcCidrBlockState_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-type">VpcCidrBlockState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="vpcCidrBlockState_statusMessage"><span class="annot"><span class="annottext">vpcCidrBlockState_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
--&gt; VpcCidrBlockState -&gt; f VpcCidrBlockState
-</span><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#vpcCidrBlockState_statusMessage"><span class="hs-identifier hs-var hs-var">vpcCidrBlockState_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcCidrBlockState -&gt; Maybe Text)
--&gt; (VpcCidrBlockState -&gt; Maybe Text -&gt; VpcCidrBlockState)
--&gt; Lens
-     VpcCidrBlockState VpcCidrBlockState (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState%27"><span class="hs-identifier hs-type">VpcCidrBlockState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681151757"><span class="annot"><span class="annottext">Maybe Text
-statusMessage :: Maybe Text
-$sel:statusMessage:VpcCidrBlockState' :: VpcCidrBlockState -&gt; Maybe Text
-</span><a href="#local-6989586621681151757"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681151757"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681151756"><span class="annot"><span class="annottext">s :: VpcCidrBlockState
-</span><a href="#local-6989586621681151756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState%27"><span class="hs-identifier hs-type">VpcCidrBlockState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681151755"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681151755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcCidrBlockState
-</span><a href="#local-6989586621681151756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:VpcCidrBlockState' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#%24sel%3AstatusMessage%3AVpcCidrBlockState%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681151755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-type">VpcCidrBlockState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The state of the CIDR block.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#vpcCidrBlockState_state"><span class="hs-identifier hs-type">vpcCidrBlockState_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-type">VpcCidrBlockState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode"><span class="hs-identifier hs-type">VpcCidrBlockStateCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="vpcCidrBlockState_state"><span class="annot"><span class="annottext">vpcCidrBlockState_state :: (Maybe VpcCidrBlockStateCode -&gt; f (Maybe VpcCidrBlockStateCode))
+</span><span id="line-58"></span><span class="hs-comment">-- | The state of the CIDR block.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#vpcCidrBlockState_state"><span class="hs-identifier hs-type">vpcCidrBlockState_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-type">VpcCidrBlockState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockStateCode.html#VpcCidrBlockStateCode"><span class="hs-identifier hs-type">VpcCidrBlockStateCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="vpcCidrBlockState_state"><span class="annot"><span class="annottext">vpcCidrBlockState_state :: (Maybe VpcCidrBlockStateCode -&gt; f (Maybe VpcCidrBlockStateCode))
 -&gt; VpcCidrBlockState -&gt; f VpcCidrBlockState
 </span><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#vpcCidrBlockState_state"><span class="hs-identifier hs-var hs-var">vpcCidrBlockState_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcCidrBlockState -&gt; Maybe VpcCidrBlockStateCode)
 -&gt; (VpcCidrBlockState
@@ -151,43 +131,62 @@ $sel:statusMessage:VpcCidrBlockState' :: VpcCidrBlockState -&gt; Maybe Text
      (Maybe VpcCidrBlockStateCode)
      (Maybe VpcCidrBlockStateCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState%27"><span class="hs-identifier hs-type">VpcCidrBlockState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681151753"><span class="annot"><span class="annottext">Maybe VpcCidrBlockStateCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState%27"><span class="hs-identifier hs-type">VpcCidrBlockState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681186939"><span class="annot"><span class="annottext">Maybe VpcCidrBlockStateCode
 state :: Maybe VpcCidrBlockStateCode
 $sel:state:VpcCidrBlockState' :: VpcCidrBlockState -&gt; Maybe VpcCidrBlockStateCode
-</span><a href="#local-6989586621681151753"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcCidrBlockStateCode
-</span><a href="#local-6989586621681151753"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681151752"><span class="annot"><span class="annottext">s :: VpcCidrBlockState
-</span><a href="#local-6989586621681151752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState%27"><span class="hs-identifier hs-type">VpcCidrBlockState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681151751"><span class="annot"><span class="annottext">Maybe VpcCidrBlockStateCode
-</span><a href="#local-6989586621681151751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcCidrBlockState
-</span><a href="#local-6989586621681151752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:VpcCidrBlockState' :: Maybe VpcCidrBlockStateCode
+</span><a href="#local-6989586621681186939"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcCidrBlockStateCode
+</span><a href="#local-6989586621681186939"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681186938"><span class="annot"><span class="annottext">s :: VpcCidrBlockState
+</span><a href="#local-6989586621681186938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState%27"><span class="hs-identifier hs-type">VpcCidrBlockState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681186937"><span class="annot"><span class="annottext">Maybe VpcCidrBlockStateCode
+</span><a href="#local-6989586621681186937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcCidrBlockState
+</span><a href="#local-6989586621681186938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:VpcCidrBlockState' :: Maybe VpcCidrBlockStateCode
 </span><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#%24sel%3Astate%3AVpcCidrBlockState%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcCidrBlockStateCode
-</span><a href="#local-6989586621681151751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-type">VpcCidrBlockState</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681186937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-type">VpcCidrBlockState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | A message about the status of the CIDR block, if applicable.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#vpcCidrBlockState_statusMessage"><span class="hs-identifier hs-type">vpcCidrBlockState_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-type">VpcCidrBlockState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="vpcCidrBlockState_statusMessage"><span class="annot"><span class="annottext">vpcCidrBlockState_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; VpcCidrBlockState -&gt; f VpcCidrBlockState
+</span><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#vpcCidrBlockState_statusMessage"><span class="hs-identifier hs-var hs-var">vpcCidrBlockState_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcCidrBlockState -&gt; Maybe Text)
+-&gt; (VpcCidrBlockState -&gt; Maybe Text -&gt; VpcCidrBlockState)
+-&gt; Lens
+     VpcCidrBlockState VpcCidrBlockState (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState%27"><span class="hs-identifier hs-type">VpcCidrBlockState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681186935"><span class="annot"><span class="annottext">Maybe Text
+statusMessage :: Maybe Text
+$sel:statusMessage:VpcCidrBlockState' :: VpcCidrBlockState -&gt; Maybe Text
+</span><a href="#local-6989586621681186935"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681186935"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681186934"><span class="annot"><span class="annottext">s :: VpcCidrBlockState
+</span><a href="#local-6989586621681186934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState%27"><span class="hs-identifier hs-type">VpcCidrBlockState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681186933"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681186933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcCidrBlockState
+</span><a href="#local-6989586621681186934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:VpcCidrBlockState' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#%24sel%3AstatusMessage%3AVpcCidrBlockState%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681186933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-type">VpcCidrBlockState</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-type">VpcCidrBlockState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621681151748"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String VpcCidrBlockState
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681151746"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681151746"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe VpcCidrBlockStateCode -&gt; VpcCidrBlockState
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621681186930"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String VpcCidrBlockState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681186928"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681186928"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Maybe VpcCidrBlockStateCode -&gt; Maybe Text -&gt; VpcCidrBlockState
 </span><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState%27"><span class="hs-identifier hs-var">VpcCidrBlockState'</span></a></span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe VpcCidrBlockStateCode -&gt; VpcCidrBlockState)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe VpcCidrBlockStateCode -&gt; VpcCidrBlockState)
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">(Maybe VpcCidrBlockStateCode -&gt; Maybe Text -&gt; VpcCidrBlockState)
+-&gt; Either String (Maybe VpcCidrBlockStateCode)
+-&gt; Either String (Maybe Text -&gt; VpcCidrBlockState)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681151746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;statusMessage&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe VpcCidrBlockStateCode -&gt; VpcCidrBlockState)
--&gt; Either String (Maybe VpcCidrBlockStateCode)
--&gt; Either String VpcCidrBlockState
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681151746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VpcCidrBlockStateCode)
+</span><a href="#local-6989586621681186928"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VpcCidrBlockStateCode)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; VpcCidrBlockState)
+-&gt; Either String (Maybe Text) -&gt; Either String VpcCidrBlockState
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681186928"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681151740"><span id="local-6989586621681151742"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-type">VpcCidrBlockState</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681186922"><span id="local-6989586621681186924"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-type">VpcCidrBlockState</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681151737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-type">VpcCidrBlockState</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681186919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-type">VpcCidrBlockState</span></a></span></span><span>
 </span><span id="line-75"></span></pre></body></html>

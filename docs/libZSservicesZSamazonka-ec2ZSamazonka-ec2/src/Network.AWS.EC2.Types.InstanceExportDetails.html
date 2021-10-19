@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes an instance to export.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInstanceExportDetails' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681081204"><span id="local-6989586621681081205"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceExportDetails"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails"><span class="hs-identifier hs-var">InstanceExportDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceExportDetails%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails%27"><span class="hs-identifier hs-var">InstanceExportDetails'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the resource being exported.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AinstanceId%3AInstanceExportDetails%27"><span class="annot"><span class="annottext">InstanceExportDetails -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#%24sel%3AinstanceId%3AInstanceExportDetails%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The target virtualization environment.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AtargetEnvironment%3AInstanceExportDetails%27"><span class="annot"><span class="annottext">InstanceExportDetails -&gt; Maybe ExportEnvironment
-</span><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#%24sel%3AtargetEnvironment%3AInstanceExportDetails%27"><span class="hs-identifier hs-var hs-var">targetEnvironment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportEnvironment.html#ExportEnvironment"><span class="hs-identifier hs-type">ExportEnvironment</span></a></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681115556"><span id="local-6989586621681115557"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceExportDetails"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails"><span class="hs-identifier hs-var">InstanceExportDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceExportDetails%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails%27"><span class="hs-identifier hs-var">InstanceExportDetails'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The target virtualization environment.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AtargetEnvironment%3AInstanceExportDetails%27"><span class="annot"><span class="annottext">InstanceExportDetails -&gt; Maybe ExportEnvironment
+</span><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#%24sel%3AtargetEnvironment%3AInstanceExportDetails%27"><span class="hs-identifier hs-var hs-var">targetEnvironment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportEnvironment.html#ExportEnvironment"><span class="hs-identifier hs-type">ExportEnvironment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the resource being exported.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AinstanceId%3AInstanceExportDetails%27"><span class="annot"><span class="annottext">InstanceExportDetails -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#%24sel%3AinstanceId%3AInstanceExportDetails%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681081197"><span id="local-6989586621681081199"><span class="annot"><span class="annottext">InstanceExportDetails -&gt; InstanceExportDetails -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681115549"><span id="local-6989586621681115551"><span class="annot"><span class="annottext">InstanceExportDetails -&gt; InstanceExportDetails -&gt; Bool
 (InstanceExportDetails -&gt; InstanceExportDetails -&gt; Bool)
 -&gt; (InstanceExportDetails -&gt; InstanceExportDetails -&gt; Bool)
 -&gt; Eq InstanceExportDetails
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceExportDetails -&gt; InstanceExportDetails -&gt; Bool
 == :: InstanceExportDetails -&gt; InstanceExportDetails -&gt; Bool
 $c== :: InstanceExportDetails -&gt; InstanceExportDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681081188"><span id="local-6989586621681081190"><span id="local-6989586621681081192"><span id="local-6989586621681081194"><span class="annot"><span class="annottext">ReadPrec [InstanceExportDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681115540"><span id="local-6989586621681115542"><span id="local-6989586621681115544"><span id="local-6989586621681115546"><span class="annot"><span class="annottext">ReadPrec [InstanceExportDetails]
 ReadPrec InstanceExportDetails
 Int -&gt; ReadS InstanceExportDetails
 ReadS [InstanceExportDetails]
@@ -65,7 +65,7 @@ readList :: ReadS [InstanceExportDetails]
 $creadList :: ReadS [InstanceExportDetails]
 readsPrec :: Int -&gt; ReadS InstanceExportDetails
 $creadsPrec :: Int -&gt; ReadS InstanceExportDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681081181"><span id="local-6989586621681081183"><span id="local-6989586621681081185"><span class="annot"><span class="annottext">Int -&gt; InstanceExportDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681115533"><span id="local-6989586621681115535"><span id="local-6989586621681115537"><span class="annot"><span class="annottext">Int -&gt; InstanceExportDetails -&gt; ShowS
 [InstanceExportDetails] -&gt; ShowS
 InstanceExportDetails -&gt; String
 (Int -&gt; InstanceExportDetails -&gt; ShowS)
@@ -99,52 +99,29 @@ $cfrom :: forall x. InstanceExportDetails -&gt; Rep InstanceExportDetails x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'instanceId', 'instanceExportDetails_instanceId' - The ID of the resource being exported.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'targetEnvironment', 'instanceExportDetails_targetEnvironment' - The target virtualization environment.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'targetEnvironment', 'instanceExportDetails_targetEnvironment' - The target virtualization environment.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'instanceId', 'instanceExportDetails_instanceId' - The ID of the resource being exported.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#newInstanceExportDetails"><span class="hs-identifier hs-type">newInstanceExportDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails"><span class="hs-identifier hs-type">InstanceExportDetails</span></a></span><span>
 </span><span id="line-52"></span><span id="newInstanceExportDetails"><span class="annot"><span class="annottext">newInstanceExportDetails :: InstanceExportDetails
 </span><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#newInstanceExportDetails"><span class="hs-identifier hs-var hs-var">newInstanceExportDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">InstanceExportDetails' :: Maybe Text -&gt; Maybe ExportEnvironment -&gt; InstanceExportDetails
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">InstanceExportDetails' :: Maybe ExportEnvironment -&gt; Maybe Text -&gt; InstanceExportDetails
 </span><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails%27"><span class="hs-identifier hs-type">InstanceExportDetails'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceId:InstanceExportDetails' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#%24sel%3AinstanceId%3AInstanceExportDetails%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetEnvironment:InstanceExportDetails' :: Maybe ExportEnvironment
+</span><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#%24sel%3AtargetEnvironment%3AInstanceExportDetails%27"><span class="hs-identifier hs-var">targetEnvironment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe ExportEnvironment
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetEnvironment:InstanceExportDetails' :: Maybe ExportEnvironment
-</span><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#%24sel%3AtargetEnvironment%3AInstanceExportDetails%27"><span class="hs-identifier hs-var">targetEnvironment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExportEnvironment
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:InstanceExportDetails' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#%24sel%3AinstanceId%3AInstanceExportDetails%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | The ID of the resource being exported.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#instanceExportDetails_instanceId"><span class="hs-identifier hs-type">instanceExportDetails_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails"><span class="hs-identifier hs-type">InstanceExportDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="instanceExportDetails_instanceId"><span class="annot"><span class="annottext">instanceExportDetails_instanceId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InstanceExportDetails -&gt; f InstanceExportDetails
-</span><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#instanceExportDetails_instanceId"><span class="hs-identifier hs-var hs-var">instanceExportDetails_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceExportDetails -&gt; Maybe Text)
--&gt; (InstanceExportDetails -&gt; Maybe Text -&gt; InstanceExportDetails)
--&gt; Lens
-     InstanceExportDetails
-     InstanceExportDetails
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails%27"><span class="hs-identifier hs-type">InstanceExportDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681081172"><span class="annot"><span class="annottext">Maybe Text
-instanceId :: Maybe Text
-$sel:instanceId:InstanceExportDetails' :: InstanceExportDetails -&gt; Maybe Text
-</span><a href="#local-6989586621681081172"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681081172"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681081171"><span class="annot"><span class="annottext">s :: InstanceExportDetails
-</span><a href="#local-6989586621681081171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails%27"><span class="hs-identifier hs-type">InstanceExportDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681081170"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681081170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceExportDetails
-</span><a href="#local-6989586621681081171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:InstanceExportDetails' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#%24sel%3AinstanceId%3AInstanceExportDetails%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681081170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails"><span class="hs-identifier hs-type">InstanceExportDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The target virtualization environment.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#instanceExportDetails_targetEnvironment"><span class="hs-identifier hs-type">instanceExportDetails_targetEnvironment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails"><span class="hs-identifier hs-type">InstanceExportDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportEnvironment.html#ExportEnvironment"><span class="hs-identifier hs-type">ExportEnvironment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="instanceExportDetails_targetEnvironment"><span class="annot"><span class="annottext">instanceExportDetails_targetEnvironment :: (Maybe ExportEnvironment -&gt; f (Maybe ExportEnvironment))
+</span><span id="line-59"></span><span class="hs-comment">-- | The target virtualization environment.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#instanceExportDetails_targetEnvironment"><span class="hs-identifier hs-type">instanceExportDetails_targetEnvironment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails"><span class="hs-identifier hs-type">InstanceExportDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportEnvironment.html#ExportEnvironment"><span class="hs-identifier hs-type">ExportEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="instanceExportDetails_targetEnvironment"><span class="annot"><span class="annottext">instanceExportDetails_targetEnvironment :: (Maybe ExportEnvironment -&gt; f (Maybe ExportEnvironment))
 -&gt; InstanceExportDetails -&gt; f InstanceExportDetails
 </span><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#instanceExportDetails_targetEnvironment"><span class="hs-identifier hs-var hs-var">instanceExportDetails_targetEnvironment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceExportDetails -&gt; Maybe ExportEnvironment)
 -&gt; (InstanceExportDetails
@@ -155,43 +132,66 @@ $sel:instanceId:InstanceExportDetails' :: InstanceExportDetails -&gt; Maybe Text
      (Maybe ExportEnvironment)
      (Maybe ExportEnvironment)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails%27"><span class="hs-identifier hs-type">InstanceExportDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681081168"><span class="annot"><span class="annottext">Maybe ExportEnvironment
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails%27"><span class="hs-identifier hs-type">InstanceExportDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681115524"><span class="annot"><span class="annottext">Maybe ExportEnvironment
 targetEnvironment :: Maybe ExportEnvironment
 $sel:targetEnvironment:InstanceExportDetails' :: InstanceExportDetails -&gt; Maybe ExportEnvironment
-</span><a href="#local-6989586621681081168"><span class="hs-identifier hs-var hs-var">targetEnvironment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExportEnvironment
-</span><a href="#local-6989586621681081168"><span class="hs-identifier hs-var">targetEnvironment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681081167"><span class="annot"><span class="annottext">s :: InstanceExportDetails
-</span><a href="#local-6989586621681081167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails%27"><span class="hs-identifier hs-type">InstanceExportDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681081166"><span class="annot"><span class="annottext">Maybe ExportEnvironment
-</span><a href="#local-6989586621681081166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceExportDetails
-</span><a href="#local-6989586621681081167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetEnvironment:InstanceExportDetails' :: Maybe ExportEnvironment
+</span><a href="#local-6989586621681115524"><span class="hs-identifier hs-var hs-var">targetEnvironment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExportEnvironment
+</span><a href="#local-6989586621681115524"><span class="hs-identifier hs-var">targetEnvironment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681115523"><span class="annot"><span class="annottext">s :: InstanceExportDetails
+</span><a href="#local-6989586621681115523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails%27"><span class="hs-identifier hs-type">InstanceExportDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681115522"><span class="annot"><span class="annottext">Maybe ExportEnvironment
+</span><a href="#local-6989586621681115522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceExportDetails
+</span><a href="#local-6989586621681115523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetEnvironment:InstanceExportDetails' :: Maybe ExportEnvironment
 </span><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#%24sel%3AtargetEnvironment%3AInstanceExportDetails%27"><span class="hs-identifier hs-var">targetEnvironment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExportEnvironment
-</span><a href="#local-6989586621681081166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails"><span class="hs-identifier hs-type">InstanceExportDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681115522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails"><span class="hs-identifier hs-type">InstanceExportDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The ID of the resource being exported.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#instanceExportDetails_instanceId"><span class="hs-identifier hs-type">instanceExportDetails_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails"><span class="hs-identifier hs-type">InstanceExportDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="instanceExportDetails_instanceId"><span class="annot"><span class="annottext">instanceExportDetails_instanceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceExportDetails -&gt; f InstanceExportDetails
+</span><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#instanceExportDetails_instanceId"><span class="hs-identifier hs-var hs-var">instanceExportDetails_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceExportDetails -&gt; Maybe Text)
+-&gt; (InstanceExportDetails -&gt; Maybe Text -&gt; InstanceExportDetails)
+-&gt; Lens
+     InstanceExportDetails
+     InstanceExportDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails%27"><span class="hs-identifier hs-type">InstanceExportDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681115520"><span class="annot"><span class="annottext">Maybe Text
+instanceId :: Maybe Text
+$sel:instanceId:InstanceExportDetails' :: InstanceExportDetails -&gt; Maybe Text
+</span><a href="#local-6989586621681115520"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681115520"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681115519"><span class="annot"><span class="annottext">s :: InstanceExportDetails
+</span><a href="#local-6989586621681115519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails%27"><span class="hs-identifier hs-type">InstanceExportDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681115518"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681115518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceExportDetails
+</span><a href="#local-6989586621681115519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:InstanceExportDetails' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#%24sel%3AinstanceId%3AInstanceExportDetails%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681115518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails"><span class="hs-identifier hs-type">InstanceExportDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails"><span class="hs-identifier hs-type">InstanceExportDetails</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621681081163"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceExportDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681081161"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681081161"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe ExportEnvironment -&gt; InstanceExportDetails
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621681115515"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceExportDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681115513"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681115513"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe ExportEnvironment -&gt; Maybe Text -&gt; InstanceExportDetails
 </span><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails%27"><span class="hs-identifier hs-var">InstanceExportDetails'</span></a></span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe ExportEnvironment -&gt; InstanceExportDetails)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe ExportEnvironment -&gt; InstanceExportDetails)
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ExportEnvironment -&gt; Maybe Text -&gt; InstanceExportDetails)
+-&gt; Either String (Maybe ExportEnvironment)
+-&gt; Either String (Maybe Text -&gt; InstanceExportDetails)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681081161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;instanceId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ExportEnvironment -&gt; InstanceExportDetails)
--&gt; Either String (Maybe ExportEnvironment)
--&gt; Either String InstanceExportDetails
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681081161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ExportEnvironment)
+</span><a href="#local-6989586621681115513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ExportEnvironment)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetEnvironment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; InstanceExportDetails)
+-&gt; Either String (Maybe Text)
+-&gt; Either String InstanceExportDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681115513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681081155"><span id="local-6989586621681081157"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails"><span class="hs-identifier hs-type">InstanceExportDetails</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681115507"><span id="local-6989586621681115509"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails"><span class="hs-identifier hs-type">InstanceExportDetails</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681081152"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails"><span class="hs-identifier hs-type">InstanceExportDetails</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681115504"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails"><span class="hs-identifier hs-type">InstanceExportDetails</span></a></span></span><span>
 </span><span id="line-76"></span></pre></body></html>

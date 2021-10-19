@@ -59,12 +59,12 @@
 </span><span id="line-59"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newVerifyDomainIdentity' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679291085"><span id="local-6989586621679291086"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifyDomainIdentity"><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity"><span class="hs-identifier hs-var">VerifyDomainIdentity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifyDomainIdentity%27"><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity%27"><span class="hs-identifier hs-var">VerifyDomainIdentity'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679291320"><span id="local-6989586621679291321"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifyDomainIdentity"><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity"><span class="hs-identifier hs-var">VerifyDomainIdentity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifyDomainIdentity%27"><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity%27"><span class="hs-identifier hs-var">VerifyDomainIdentity'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The domain to be verified.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3Adomain%3AVerifyDomainIdentity%27"><span class="annot"><span class="annottext">VerifyDomainIdentity -&gt; Text
 </span><a href="Network.AWS.SES.VerifyDomainIdentity.html#%24sel%3Adomain%3AVerifyDomainIdentity%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291079"><span id="local-6989586621679291081"><span class="annot"><span class="annottext">VerifyDomainIdentity -&gt; VerifyDomainIdentity -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291314"><span id="local-6989586621679291316"><span class="annot"><span class="annottext">VerifyDomainIdentity -&gt; VerifyDomainIdentity -&gt; Bool
 (VerifyDomainIdentity -&gt; VerifyDomainIdentity -&gt; Bool)
 -&gt; (VerifyDomainIdentity -&gt; VerifyDomainIdentity -&gt; Bool)
 -&gt; Eq VerifyDomainIdentity
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VerifyDomainIdentity -&gt; VerifyDomainIdentity -&gt; Bool
 == :: VerifyDomainIdentity -&gt; VerifyDomainIdentity -&gt; Bool
 $c== :: VerifyDomainIdentity -&gt; VerifyDomainIdentity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291070"><span id="local-6989586621679291072"><span id="local-6989586621679291074"><span id="local-6989586621679291076"><span class="annot"><span class="annottext">ReadPrec [VerifyDomainIdentity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291305"><span id="local-6989586621679291307"><span id="local-6989586621679291309"><span id="local-6989586621679291311"><span class="annot"><span class="annottext">ReadPrec [VerifyDomainIdentity]
 ReadPrec VerifyDomainIdentity
 Int -&gt; ReadS VerifyDomainIdentity
 ReadS [VerifyDomainIdentity]
@@ -93,7 +93,7 @@ readList :: ReadS [VerifyDomainIdentity]
 $creadList :: ReadS [VerifyDomainIdentity]
 readsPrec :: Int -&gt; ReadS VerifyDomainIdentity
 $creadsPrec :: Int -&gt; ReadS VerifyDomainIdentity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291063"><span id="local-6989586621679291065"><span id="local-6989586621679291067"><span class="annot"><span class="annottext">Int -&gt; VerifyDomainIdentity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291298"><span id="local-6989586621679291300"><span id="local-6989586621679291302"><span class="annot"><span class="annottext">Int -&gt; VerifyDomainIdentity -&gt; ShowS
 [VerifyDomainIdentity] -&gt; ShowS
 VerifyDomainIdentity -&gt; String
 (Int -&gt; VerifyDomainIdentity -&gt; ShowS)
@@ -133,12 +133,12 @@ $cfrom :: forall x. VerifyDomainIdentity -&gt; Rep VerifyDomainIdentity x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity"><span class="hs-identifier hs-type">VerifyDomainIdentity</span></a></span><span>
 </span><span id="line-81"></span><span id="newVerifyDomainIdentity"><span class="annot"><span class="annottext">newVerifyDomainIdentity :: Text -&gt; VerifyDomainIdentity
-</span><a href="Network.AWS.SES.VerifyDomainIdentity.html#newVerifyDomainIdentity"><span class="hs-identifier hs-var hs-var">newVerifyDomainIdentity</span></a></span></span><span> </span><span id="local-6989586621679291058"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291058"><span class="hs-identifier hs-var">pDomain_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.VerifyDomainIdentity.html#newVerifyDomainIdentity"><span class="hs-identifier hs-var hs-var">newVerifyDomainIdentity</span></a></span></span><span> </span><span id="local-6989586621679291293"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291293"><span class="hs-identifier hs-var">pDomain_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">VerifyDomainIdentity' :: Text -&gt; VerifyDomainIdentity
 </span><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity%27"><span class="hs-identifier hs-type">VerifyDomainIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:VerifyDomainIdentity' :: Text
 </span><a href="Network.AWS.SES.VerifyDomainIdentity.html#%24sel%3Adomain%3AVerifyDomainIdentity%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291058"><span class="hs-identifier hs-var">pDomain_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679291293"><span class="hs-identifier hs-var">pDomain_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The domain to be verified.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#verifyDomainIdentity_domain"><span class="hs-identifier hs-type">verifyDomainIdentity_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity"><span class="hs-identifier hs-type">VerifyDomainIdentity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -147,27 +147,27 @@ $cfrom :: forall x. VerifyDomainIdentity -&gt; Rep VerifyDomainIdentity x
 -&gt; (VerifyDomainIdentity -&gt; Text -&gt; VerifyDomainIdentity)
 -&gt; Lens VerifyDomainIdentity VerifyDomainIdentity Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity%27"><span class="hs-identifier hs-type">VerifyDomainIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291055"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity%27"><span class="hs-identifier hs-type">VerifyDomainIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291290"><span class="annot"><span class="annottext">Text
 domain :: Text
 $sel:domain:VerifyDomainIdentity' :: VerifyDomainIdentity -&gt; Text
-</span><a href="#local-6989586621679291055"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291055"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291054"><span class="annot"><span class="annottext">s :: VerifyDomainIdentity
-</span><a href="#local-6989586621679291054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity%27"><span class="hs-identifier hs-type">VerifyDomainIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291053"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyDomainIdentity
-</span><a href="#local-6989586621679291054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:VerifyDomainIdentity' :: Text
+</span><a href="#local-6989586621679291290"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291290"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291289"><span class="annot"><span class="annottext">s :: VerifyDomainIdentity
+</span><a href="#local-6989586621679291289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity%27"><span class="hs-identifier hs-type">VerifyDomainIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291288"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyDomainIdentity
+</span><a href="#local-6989586621679291289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:VerifyDomainIdentity' :: Text
 </span><a href="Network.AWS.SES.VerifyDomainIdentity.html#%24sel%3Adomain%3AVerifyDomainIdentity%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity"><span class="hs-identifier hs-type">VerifyDomainIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity"><span class="hs-identifier hs-type">VerifyDomainIdentity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity"><span class="hs-identifier hs-type">VerifyDomainIdentity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity"><span class="hs-identifier hs-type">VerifyDomainIdentity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse"><span class="hs-identifier hs-type">VerifyDomainIdentityResponse</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679291049"><span class="annot"><span class="annottext">request :: VerifyDomainIdentity -&gt; Request VerifyDomainIdentity
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679291284"><span class="annot"><span class="annottext">request :: VerifyDomainIdentity -&gt; Request VerifyDomainIdentity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; VerifyDomainIdentity -&gt; Request VerifyDomainIdentity
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679291045"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679291280"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy VerifyDomainIdentity
 -&gt; ClientResponse ClientBody
@@ -198,10 +198,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VerifyDomainIdentityResult&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679291042"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679291042"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679291041"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679291041"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679291040"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679291040"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679291277"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291277"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679291276"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679291276"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679291275"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679291275"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; VerifyDomainIdentityResponse
 </span><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse%27"><span class="hs-identifier hs-var">VerifyDomainIdentityResponse'</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; VerifyDomainIdentityResponse)
@@ -213,23 +213,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679291042"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291277"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; VerifyDomainIdentityResponse)
 -&gt; Either String Text -&gt; Either String VerifyDomainIdentityResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679291040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679291275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VerificationToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291032"><span id="local-6989586621679291034"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity"><span class="hs-identifier hs-type">VerifyDomainIdentity</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291267"><span id="local-6989586621679291269"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity"><span class="hs-identifier hs-type">VerifyDomainIdentity</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291029"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity"><span class="hs-identifier hs-type">VerifyDomainIdentity</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291264"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity"><span class="hs-identifier hs-type">VerifyDomainIdentity</span></a></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity"><span class="hs-identifier hs-type">VerifyDomainIdentity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679291025"><span class="annot"><span class="annottext">toHeaders :: VerifyDomainIdentity -&gt; ResponseHeaders
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679291260"><span class="annot"><span class="annottext">toHeaders :: VerifyDomainIdentity -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; VerifyDomainIdentity -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -237,18 +237,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity"><span class="hs-identifier hs-type">VerifyDomainIdentity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679291020"><span class="annot"><span class="annottext">toPath :: VerifyDomainIdentity -&gt; ByteString
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679291255"><span class="annot"><span class="annottext">toPath :: VerifyDomainIdentity -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; VerifyDomainIdentity -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity"><span class="hs-identifier hs-type">VerifyDomainIdentity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679291016"><span class="annot"><span class="annottext">toQuery :: VerifyDomainIdentity -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity%27"><span class="hs-identifier hs-type">VerifyDomainIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291014"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679291251"><span class="annot"><span class="annottext">toQuery :: VerifyDomainIdentity -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentity%27"><span class="hs-identifier hs-type">VerifyDomainIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291249"><span class="annot"><span class="annottext">Text
 domain :: Text
 $sel:domain:VerifyDomainIdentity' :: VerifyDomainIdentity -&gt; Text
-</span><a href="#local-6989586621679291014"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679291249"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -268,14 +268,14 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Domain&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291014"><span class="hs-identifier hs-var">domain</span></a></span><span>
+</span><a href="#local-6989586621679291249"><span class="hs-identifier hs-var">domain</span></a></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | Returns a TXT record that you must publish to the DNS server of your</span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- domain to complete domain verification with Amazon SES.</span><span>
 </span><span id="line-124"></span><span class="hs-comment">--</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- /See:/ 'newVerifyDomainIdentityResponse' smart constructor.</span><span>
-</span><span id="line-126"></span><span id="local-6989586621679291011"><span id="local-6989586621679291012"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifyDomainIdentityResponse"><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse"><span class="hs-identifier hs-var">VerifyDomainIdentityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifyDomainIdentityResponse%27"><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse%27"><span class="hs-identifier hs-var">VerifyDomainIdentityResponse'</span></a></span></span><span>
+</span><span id="line-126"></span><span id="local-6989586621679291246"><span id="local-6989586621679291247"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifyDomainIdentityResponse"><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse"><span class="hs-identifier hs-var">VerifyDomainIdentityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifyDomainIdentityResponse%27"><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse%27"><span class="hs-identifier hs-var">VerifyDomainIdentityResponse'</span></a></span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3AhttpStatus%3AVerifyDomainIdentityResponse%27"><span class="annot"><span class="annottext">VerifyDomainIdentityResponse -&gt; Int
 </span><a href="Network.AWS.SES.VerifyDomainIdentity.html#%24sel%3AhttpStatus%3AVerifyDomainIdentityResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -291,7 +291,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3AverificationToken%3AVerifyDomainIdentityResponse%27"><span class="annot"><span class="annottext">VerifyDomainIdentityResponse -&gt; Text
 </span><a href="Network.AWS.SES.VerifyDomainIdentity.html#%24sel%3AverificationToken%3AVerifyDomainIdentityResponse%27"><span class="hs-identifier hs-var hs-var">verificationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291005"><span id="local-6989586621679291007"><span class="annot"><span class="annottext">VerifyDomainIdentityResponse
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291240"><span id="local-6989586621679291242"><span class="annot"><span class="annottext">VerifyDomainIdentityResponse
 -&gt; VerifyDomainIdentityResponse -&gt; Bool
 (VerifyDomainIdentityResponse
  -&gt; VerifyDomainIdentityResponse -&gt; Bool)
@@ -307,7 +307,7 @@ $c/= :: VerifyDomainIdentityResponse
 -&gt; VerifyDomainIdentityResponse -&gt; Bool
 $c== :: VerifyDomainIdentityResponse
 -&gt; VerifyDomainIdentityResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290997"><span id="local-6989586621679290999"><span id="local-6989586621679291001"><span id="local-6989586621679291003"><span class="annot"><span class="annottext">ReadPrec [VerifyDomainIdentityResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291232"><span id="local-6989586621679291234"><span id="local-6989586621679291236"><span id="local-6989586621679291238"><span class="annot"><span class="annottext">ReadPrec [VerifyDomainIdentityResponse]
 ReadPrec VerifyDomainIdentityResponse
 Int -&gt; ReadS VerifyDomainIdentityResponse
 ReadS [VerifyDomainIdentityResponse]
@@ -327,7 +327,7 @@ readList :: ReadS [VerifyDomainIdentityResponse]
 $creadList :: ReadS [VerifyDomainIdentityResponse]
 readsPrec :: Int -&gt; ReadS VerifyDomainIdentityResponse
 $creadsPrec :: Int -&gt; ReadS VerifyDomainIdentityResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290991"><span id="local-6989586621679290993"><span id="local-6989586621679290995"><span class="annot"><span class="annottext">Int -&gt; VerifyDomainIdentityResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291226"><span id="local-6989586621679291228"><span id="local-6989586621679291230"><span class="annot"><span class="annottext">Int -&gt; VerifyDomainIdentityResponse -&gt; ShowS
 [VerifyDomainIdentityResponse] -&gt; ShowS
 VerifyDomainIdentityResponse -&gt; String
 (Int -&gt; VerifyDomainIdentityResponse -&gt; ShowS)
@@ -386,19 +386,19 @@ VerifyDomainIdentityResponse -&gt; Rep VerifyDomainIdentityResponse x
 </span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse"><span class="hs-identifier hs-type">VerifyDomainIdentityResponse</span></a></span><span>
 </span><span id="line-167"></span><span id="newVerifyDomainIdentityResponse"><span class="annot"><span class="annottext">newVerifyDomainIdentityResponse :: Int -&gt; Text -&gt; VerifyDomainIdentityResponse
 </span><a href="Network.AWS.SES.VerifyDomainIdentity.html#newVerifyDomainIdentityResponse"><span class="hs-identifier hs-var hs-var">newVerifyDomainIdentityResponse</span></a></span></span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679290988"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290988"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679290987"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679290987"><span class="hs-identifier hs-var">pVerificationToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679291223"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291223"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679291222"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291222"><span class="hs-identifier hs-var">pVerificationToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">VerifyDomainIdentityResponse' :: Int -&gt; Text -&gt; VerifyDomainIdentityResponse
 </span><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse%27"><span class="hs-identifier hs-type">VerifyDomainIdentityResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:VerifyDomainIdentityResponse' :: Int
 </span><a href="Network.AWS.SES.VerifyDomainIdentity.html#%24sel%3AhttpStatus%3AVerifyDomainIdentityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290988"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679291223"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">$sel:verificationToken:VerifyDomainIdentityResponse' :: Text
 </span><a href="Network.AWS.SES.VerifyDomainIdentity.html#%24sel%3AverificationToken%3AVerifyDomainIdentityResponse%27"><span class="hs-identifier hs-var">verificationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679290987"><span class="hs-identifier hs-var">pVerificationToken_</span></a></span><span>
+</span><a href="#local-6989586621679291222"><span class="hs-identifier hs-var">pVerificationToken_</span></a></span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -411,16 +411,16 @@ VerifyDomainIdentityResponse -&gt; Rep VerifyDomainIdentityResponse x
 -&gt; Lens
      VerifyDomainIdentityResponse VerifyDomainIdentityResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse%27"><span class="hs-identifier hs-type">VerifyDomainIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290986"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse%27"><span class="hs-identifier hs-type">VerifyDomainIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291221"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:VerifyDomainIdentityResponse' :: VerifyDomainIdentityResponse -&gt; Int
-</span><a href="#local-6989586621679290986"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290986"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290985"><span class="annot"><span class="annottext">s :: VerifyDomainIdentityResponse
-</span><a href="#local-6989586621679290985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse%27"><span class="hs-identifier hs-type">VerifyDomainIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290984"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyDomainIdentityResponse
-</span><a href="#local-6989586621679290985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:VerifyDomainIdentityResponse' :: Int
+</span><a href="#local-6989586621679291221"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291221"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291220"><span class="annot"><span class="annottext">s :: VerifyDomainIdentityResponse
+</span><a href="#local-6989586621679291220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse%27"><span class="hs-identifier hs-type">VerifyDomainIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291219"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyDomainIdentityResponse
+</span><a href="#local-6989586621679291220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:VerifyDomainIdentityResponse' :: Int
 </span><a href="Network.AWS.SES.VerifyDomainIdentity.html#%24sel%3AhttpStatus%3AVerifyDomainIdentityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse"><span class="hs-identifier hs-type">VerifyDomainIdentityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse"><span class="hs-identifier hs-type">VerifyDomainIdentityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | A TXT record that you must place in the DNS settings of the domain to</span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- complete domain verification with Amazon SES.</span><span>
@@ -440,16 +440,16 @@ $sel:httpStatus:VerifyDomainIdentityResponse' :: VerifyDomainIdentityResponse -&
 -&gt; Lens
      VerifyDomainIdentityResponse VerifyDomainIdentityResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse%27"><span class="hs-identifier hs-type">VerifyDomainIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290983"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse%27"><span class="hs-identifier hs-type">VerifyDomainIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291218"><span class="annot"><span class="annottext">Text
 verificationToken :: Text
 $sel:verificationToken:VerifyDomainIdentityResponse' :: VerifyDomainIdentityResponse -&gt; Text
-</span><a href="#local-6989586621679290983"><span class="hs-identifier hs-var hs-var">verificationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679290983"><span class="hs-identifier hs-var">verificationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290982"><span class="annot"><span class="annottext">s :: VerifyDomainIdentityResponse
-</span><a href="#local-6989586621679290982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse%27"><span class="hs-identifier hs-type">VerifyDomainIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290981"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679290981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyDomainIdentityResponse
-</span><a href="#local-6989586621679290982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verificationToken:VerifyDomainIdentityResponse' :: Text
+</span><a href="#local-6989586621679291218"><span class="hs-identifier hs-var hs-var">verificationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291218"><span class="hs-identifier hs-var">verificationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291217"><span class="annot"><span class="annottext">s :: VerifyDomainIdentityResponse
+</span><a href="#local-6989586621679291217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse%27"><span class="hs-identifier hs-type">VerifyDomainIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291216"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyDomainIdentityResponse
+</span><a href="#local-6989586621679291217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verificationToken:VerifyDomainIdentityResponse' :: Text
 </span><a href="Network.AWS.SES.VerifyDomainIdentity.html#%24sel%3AverificationToken%3AVerifyDomainIdentityResponse%27"><span class="hs-identifier hs-var">verificationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679290981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse"><span class="hs-identifier hs-type">VerifyDomainIdentityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse"><span class="hs-identifier hs-type">VerifyDomainIdentityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290979"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse"><span class="hs-identifier hs-type">VerifyDomainIdentityResponse</span></a></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291214"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.VerifyDomainIdentity.html#VerifyDomainIdentityResponse"><span class="hs-identifier hs-type">VerifyDomainIdentityResponse</span></a></span></span><span>
 </span><span id="line-193"></span></pre></body></html>

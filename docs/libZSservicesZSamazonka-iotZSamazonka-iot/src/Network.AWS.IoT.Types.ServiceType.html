@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679796823"><span id="local-6989586621679796824"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServiceType"><span class="annot"><a href="Network.AWS.IoT.Types.ServiceType.html#ServiceType"><span class="hs-identifier hs-var">ServiceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceType%27"><span class="annot"><a href="Network.AWS.IoT.Types.ServiceType.html#ServiceType%27"><span class="hs-identifier hs-var">ServiceType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679797694"><span id="local-6989586621679797695"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServiceType"><span class="annot"><a href="Network.AWS.IoT.Types.ServiceType.html#ServiceType"><span class="hs-identifier hs-var">ServiceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceType%27"><span class="annot"><a href="Network.AWS.IoT.Types.ServiceType.html#ServiceType%27"><span class="hs-identifier hs-var">ServiceType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromServiceType"><span class="annot"><span class="annottext">ServiceType -&gt; Text
 </span><a href="Network.AWS.IoT.Types.ServiceType.html#fromServiceType"><span class="hs-identifier hs-var hs-var">fromServiceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679796815"><span id="local-6989586621679796817"><span id="local-6989586621679796819"><span class="annot"><span class="annottext">Int -&gt; ServiceType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679797686"><span id="local-6989586621679797688"><span id="local-6989586621679797690"><span class="annot"><span class="annottext">Int -&gt; ServiceType -&gt; ShowS
 [ServiceType] -&gt; ShowS
 ServiceType -&gt; String
 (Int -&gt; ServiceType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ServiceType -&gt; String
 showsPrec :: Int -&gt; ServiceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ServiceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679796806"><span id="local-6989586621679796808"><span id="local-6989586621679796810"><span id="local-6989586621679796812"><span class="annot"><span class="annottext">ReadPrec [ServiceType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679797677"><span id="local-6989586621679797679"><span id="local-6989586621679797681"><span id="local-6989586621679797683"><span class="annot"><span class="annottext">ReadPrec [ServiceType]
 ReadPrec ServiceType
 Int -&gt; ReadS ServiceType
 ReadS [ServiceType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ServiceType]
 readsPrec :: Int -&gt; ReadS ServiceType
 $creadsPrec :: Int -&gt; ReadS ServiceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679796801"><span id="local-6989586621679796803"><span class="annot"><span class="annottext">ServiceType -&gt; ServiceType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679797672"><span id="local-6989586621679797674"><span class="annot"><span class="annottext">ServiceType -&gt; ServiceType -&gt; Bool
 (ServiceType -&gt; ServiceType -&gt; Bool)
 -&gt; (ServiceType -&gt; ServiceType -&gt; Bool) -&gt; Eq ServiceType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: ServiceType -&gt; ServiceType -&gt; Bool
 == :: ServiceType -&gt; ServiceType -&gt; Bool
 $c== :: ServiceType -&gt; ServiceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679796785"><span id="local-6989586621679796787"><span id="local-6989586621679796789"><span id="local-6989586621679796791"><span id="local-6989586621679796793"><span id="local-6989586621679796795"><span id="local-6989586621679796797"><span class="annot"><span class="annottext">Eq ServiceType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679797656"><span id="local-6989586621679797658"><span id="local-6989586621679797660"><span id="local-6989586621679797662"><span id="local-6989586621679797664"><span id="local-6989586621679797666"><span id="local-6989586621679797668"><span class="annot"><span class="annottext">Eq ServiceType
 Eq ServiceType
 -&gt; (ServiceType -&gt; ServiceType -&gt; Ordering)
 -&gt; (ServiceType -&gt; ServiceType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ServiceType -&gt; Rep ServiceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679796777"><span id="local-6989586621679796779"><span class="annot"><span class="annottext">Int -&gt; ServiceType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679797648"><span id="local-6989586621679797650"><span class="annot"><span class="annottext">Int -&gt; ServiceType -&gt; Int
 ServiceType -&gt; Int
 (Int -&gt; ServiceType -&gt; Int)
 -&gt; (ServiceType -&gt; Int) -&gt; Hashable ServiceType
@@ -143,49 +143,49 @@ $chash :: ServiceType -&gt; Int
 hashWithSalt :: Int -&gt; ServiceType -&gt; Int
 $chashWithSalt :: Int -&gt; ServiceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679796774"><span class="annot"><span class="annottext">ServiceType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679797645"><span class="annot"><span class="annottext">ServiceType -&gt; ()
 (ServiceType -&gt; ()) -&gt; NFData ServiceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ServiceType -&gt; ()
 $crnf :: ServiceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679796771"><span class="annot"><span class="annottext">Text -&gt; Either String ServiceType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679797642"><span class="annot"><span class="annottext">Text -&gt; Either String ServiceType
 (Text -&gt; Either String ServiceType) -&gt; FromText ServiceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ServiceType
 $cfromText :: Text -&gt; Either String ServiceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679796768"><span class="annot"><span class="annottext">ServiceType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679797639"><span class="annot"><span class="annottext">ServiceType -&gt; Text
 (ServiceType -&gt; Text) -&gt; ToText ServiceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ServiceType -&gt; Text
 $ctoText :: ServiceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679796765"><span class="annot"><span class="annottext">ServiceType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679797636"><span class="annot"><span class="annottext">ServiceType -&gt; ByteString
 (ServiceType -&gt; ByteString) -&gt; ToByteString ServiceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ServiceType -&gt; ByteString
 $ctoBS :: ServiceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679796762"><span class="annot"><span class="annottext">ServiceType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679797633"><span class="annot"><span class="annottext">ServiceType -&gt; ByteStringBuilder
 (ServiceType -&gt; ByteStringBuilder) -&gt; ToLog ServiceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ServiceType -&gt; ByteStringBuilder
 $cbuild :: ServiceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679796759"><span class="annot"><span class="annottext">HeaderName -&gt; ServiceType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679797630"><span class="annot"><span class="annottext">HeaderName -&gt; ServiceType -&gt; [Header]
 (HeaderName -&gt; ServiceType -&gt; [Header]) -&gt; ToHeader ServiceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ServiceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ServiceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679796756"><span class="annot"><span class="annottext">ServiceType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679797627"><span class="annot"><span class="annottext">ServiceType -&gt; QueryString
 (ServiceType -&gt; QueryString) -&gt; ToQuery ServiceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ServiceType -&gt; QueryString
 $ctoQuery :: ServiceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679796751"><span id="local-6989586621679796753"><span class="annot"><span class="annottext">Value -&gt; Parser [ServiceType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679797622"><span id="local-6989586621679797624"><span class="annot"><span class="annottext">Value -&gt; Parser [ServiceType]
 Value -&gt; Parser ServiceType
 (Value -&gt; Parser ServiceType)
 -&gt; (Value -&gt; Parser [ServiceType]) -&gt; FromJSON ServiceType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [ServiceType]
 parseJSON :: Value -&gt; Parser ServiceType
 $cparseJSON :: Value -&gt; Parser ServiceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679796746"><span id="local-6989586621679796748"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServiceType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679797617"><span id="local-6989586621679797619"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServiceType]
 FromJSONKeyFunction ServiceType
 FromJSONKeyFunction ServiceType
 -&gt; FromJSONKeyFunction [ServiceType] -&gt; FromJSONKey ServiceType
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ServiceType]
 fromJSONKey :: FromJSONKeyFunction ServiceType
 $cfromJSONKey :: FromJSONKeyFunction ServiceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679796737"><span id="local-6989586621679796739"><span id="local-6989586621679796741"><span id="local-6989586621679796743"><span class="annot"><span class="annottext">[ServiceType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679797608"><span id="local-6989586621679797610"><span id="local-6989586621679797612"><span id="local-6989586621679797614"><span class="annot"><span class="annottext">[ServiceType] -&gt; Encoding
 [ServiceType] -&gt; Value
 ServiceType -&gt; Encoding
 ServiceType -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: ServiceType -&gt; Encoding
 toJSON :: ServiceType -&gt; Value
 $ctoJSON :: ServiceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679796732"><span id="local-6989586621679796734"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServiceType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679797603"><span id="local-6989586621679797605"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServiceType]
 ToJSONKeyFunction ServiceType
 ToJSONKeyFunction ServiceType
 -&gt; ToJSONKeyFunction [ServiceType] -&gt; ToJSONKey ServiceType
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ServiceType]
 toJSONKey :: ToJSONKeyFunction ServiceType
 $ctoJSONKey :: ToJSONKeyFunction ServiceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679796729"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServiceType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679797600"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServiceType
 ([Node] -&gt; Either String ServiceType) -&gt; FromXML ServiceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ServiceType
 $cparseXML :: [Node] -&gt; Either String ServiceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679796726"><span class="annot"><span class="annottext">ServiceType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679797597"><span class="annot"><span class="annottext">ServiceType -&gt; XML
 (ServiceType -&gt; XML) -&gt; ToXML ServiceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ServiceType -&gt; XML

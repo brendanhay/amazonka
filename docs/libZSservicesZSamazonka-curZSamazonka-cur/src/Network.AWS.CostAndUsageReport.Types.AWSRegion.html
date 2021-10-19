@@ -51,13 +51,13 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | The region of the S3 bucket that AWS delivers the report into.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679150248"><span id="local-6989586621679150249"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AWSRegion"><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-var">AWSRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AWSRegion%27"><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-var">AWSRegion'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679150259"><span id="local-6989586621679150260"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AWSRegion"><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-var">AWSRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AWSRegion%27"><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.AWSRegion.html#AWSRegion%27"><span class="hs-identifier hs-var">AWSRegion'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAWSRegion"><span class="annot"><span class="annottext">AWSRegion -&gt; Text
 </span><a href="Network.AWS.CostAndUsageReport.Types.AWSRegion.html#fromAWSRegion"><span class="hs-identifier hs-var hs-var">fromAWSRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679150240"><span id="local-6989586621679150242"><span id="local-6989586621679150244"><span class="annot"><span class="annottext">Int -&gt; AWSRegion -&gt; ShowS
+</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679150251"><span id="local-6989586621679150253"><span id="local-6989586621679150255"><span class="annot"><span class="annottext">Int -&gt; AWSRegion -&gt; ShowS
 [AWSRegion] -&gt; ShowS
 AWSRegion -&gt; String
 (Int -&gt; AWSRegion -&gt; ShowS)
@@ -73,7 +73,7 @@ $cshow :: AWSRegion -&gt; String
 showsPrec :: Int -&gt; AWSRegion -&gt; ShowS
 $cshowsPrec :: Int -&gt; AWSRegion -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679150231"><span id="local-6989586621679150233"><span id="local-6989586621679150235"><span id="local-6989586621679150237"><span class="annot"><span class="annottext">ReadPrec [AWSRegion]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679150242"><span id="local-6989586621679150244"><span id="local-6989586621679150246"><span id="local-6989586621679150248"><span class="annot"><span class="annottext">ReadPrec [AWSRegion]
 ReadPrec AWSRegion
 Int -&gt; ReadS AWSRegion
 ReadS [AWSRegion]
@@ -94,7 +94,7 @@ $creadList :: ReadS [AWSRegion]
 readsPrec :: Int -&gt; ReadS AWSRegion
 $creadsPrec :: Int -&gt; ReadS AWSRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679150226"><span id="local-6989586621679150228"><span class="annot"><span class="annottext">AWSRegion -&gt; AWSRegion -&gt; Bool
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679150237"><span id="local-6989586621679150239"><span class="annot"><span class="annottext">AWSRegion -&gt; AWSRegion -&gt; Bool
 (AWSRegion -&gt; AWSRegion -&gt; Bool)
 -&gt; (AWSRegion -&gt; AWSRegion -&gt; Bool) -&gt; Eq AWSRegion
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -103,7 +103,7 @@ $c/= :: AWSRegion -&gt; AWSRegion -&gt; Bool
 == :: AWSRegion -&gt; AWSRegion -&gt; Bool
 $c== :: AWSRegion -&gt; AWSRegion -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679150210"><span id="local-6989586621679150212"><span id="local-6989586621679150214"><span id="local-6989586621679150216"><span id="local-6989586621679150218"><span id="local-6989586621679150220"><span id="local-6989586621679150222"><span class="annot"><span class="annottext">Eq AWSRegion
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679150221"><span id="local-6989586621679150223"><span id="local-6989586621679150225"><span id="local-6989586621679150227"><span id="local-6989586621679150229"><span id="local-6989586621679150231"><span id="local-6989586621679150233"><span class="annot"><span class="annottext">Eq AWSRegion
 Eq AWSRegion
 -&gt; (AWSRegion -&gt; AWSRegion -&gt; Ordering)
 -&gt; (AWSRegion -&gt; AWSRegion -&gt; Bool)
@@ -153,7 +153,7 @@ $cfrom :: forall x. AWSRegion -&gt; Rep AWSRegion x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679150202"><span id="local-6989586621679150204"><span class="annot"><span class="annottext">Int -&gt; AWSRegion -&gt; Int
+</span><span id="line-66"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679150213"><span id="local-6989586621679150215"><span class="annot"><span class="annottext">Int -&gt; AWSRegion -&gt; Int
 AWSRegion -&gt; Int
 (Int -&gt; AWSRegion -&gt; Int)
 -&gt; (AWSRegion -&gt; Int) -&gt; Hashable AWSRegion
@@ -163,49 +163,49 @@ $chash :: AWSRegion -&gt; Int
 hashWithSalt :: Int -&gt; AWSRegion -&gt; Int
 $chashWithSalt :: Int -&gt; AWSRegion -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679150199"><span class="annot"><span class="annottext">AWSRegion -&gt; ()
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679150210"><span class="annot"><span class="annottext">AWSRegion -&gt; ()
 (AWSRegion -&gt; ()) -&gt; NFData AWSRegion
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AWSRegion -&gt; ()
 $crnf :: AWSRegion -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679150196"><span class="annot"><span class="annottext">Text -&gt; Either String AWSRegion
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679150207"><span class="annot"><span class="annottext">Text -&gt; Either String AWSRegion
 (Text -&gt; Either String AWSRegion) -&gt; FromText AWSRegion
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AWSRegion
 $cfromText :: Text -&gt; Either String AWSRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679150193"><span class="annot"><span class="annottext">AWSRegion -&gt; Text
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679150204"><span class="annot"><span class="annottext">AWSRegion -&gt; Text
 (AWSRegion -&gt; Text) -&gt; ToText AWSRegion
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AWSRegion -&gt; Text
 $ctoText :: AWSRegion -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679150190"><span class="annot"><span class="annottext">AWSRegion -&gt; ByteString
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679150201"><span class="annot"><span class="annottext">AWSRegion -&gt; ByteString
 (AWSRegion -&gt; ByteString) -&gt; ToByteString AWSRegion
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AWSRegion -&gt; ByteString
 $ctoBS :: AWSRegion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679150187"><span class="annot"><span class="annottext">AWSRegion -&gt; ByteStringBuilder
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679150198"><span class="annot"><span class="annottext">AWSRegion -&gt; ByteStringBuilder
 (AWSRegion -&gt; ByteStringBuilder) -&gt; ToLog AWSRegion
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AWSRegion -&gt; ByteStringBuilder
 $cbuild :: AWSRegion -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679150184"><span class="annot"><span class="annottext">HeaderName -&gt; AWSRegion -&gt; [Header]
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679150195"><span class="annot"><span class="annottext">HeaderName -&gt; AWSRegion -&gt; [Header]
 (HeaderName -&gt; AWSRegion -&gt; [Header]) -&gt; ToHeader AWSRegion
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AWSRegion -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AWSRegion -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679150181"><span class="annot"><span class="annottext">AWSRegion -&gt; QueryString
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679150192"><span class="annot"><span class="annottext">AWSRegion -&gt; QueryString
 (AWSRegion -&gt; QueryString) -&gt; ToQuery AWSRegion
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AWSRegion -&gt; QueryString
 $ctoQuery :: AWSRegion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679150176"><span id="local-6989586621679150178"><span class="annot"><span class="annottext">Value -&gt; Parser [AWSRegion]
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679150187"><span id="local-6989586621679150189"><span class="annot"><span class="annottext">Value -&gt; Parser [AWSRegion]
 Value -&gt; Parser AWSRegion
 (Value -&gt; Parser AWSRegion)
 -&gt; (Value -&gt; Parser [AWSRegion]) -&gt; FromJSON AWSRegion
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [AWSRegion]
 parseJSON :: Value -&gt; Parser AWSRegion
 $cparseJSON :: Value -&gt; Parser AWSRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679150171"><span id="local-6989586621679150173"><span class="annot"><span class="annottext">FromJSONKeyFunction [AWSRegion]
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679150182"><span id="local-6989586621679150184"><span class="annot"><span class="annottext">FromJSONKeyFunction [AWSRegion]
 FromJSONKeyFunction AWSRegion
 FromJSONKeyFunction AWSRegion
 -&gt; FromJSONKeyFunction [AWSRegion] -&gt; FromJSONKey AWSRegion
@@ -227,7 +227,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AWSRegion]
 fromJSONKey :: FromJSONKeyFunction AWSRegion
 $cfromJSONKey :: FromJSONKeyFunction AWSRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679150162"><span id="local-6989586621679150164"><span id="local-6989586621679150166"><span id="local-6989586621679150168"><span class="annot"><span class="annottext">[AWSRegion] -&gt; Encoding
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679150173"><span id="local-6989586621679150175"><span id="local-6989586621679150177"><span id="local-6989586621679150179"><span class="annot"><span class="annottext">[AWSRegion] -&gt; Encoding
 [AWSRegion] -&gt; Value
 AWSRegion -&gt; Encoding
 AWSRegion -&gt; Value
@@ -251,7 +251,7 @@ $ctoEncoding :: AWSRegion -&gt; Encoding
 toJSON :: AWSRegion -&gt; Value
 $ctoJSON :: AWSRegion -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679150157"><span id="local-6989586621679150159"><span class="annot"><span class="annottext">ToJSONKeyFunction [AWSRegion]
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679150168"><span id="local-6989586621679150170"><span class="annot"><span class="annottext">ToJSONKeyFunction [AWSRegion]
 ToJSONKeyFunction AWSRegion
 ToJSONKeyFunction AWSRegion
 -&gt; ToJSONKeyFunction [AWSRegion] -&gt; ToJSONKey AWSRegion
@@ -262,13 +262,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AWSRegion]
 toJSONKey :: ToJSONKeyFunction AWSRegion
 $ctoJSONKey :: ToJSONKeyFunction AWSRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621679150154"><span class="annot"><span class="annottext">[Node] -&gt; Either String AWSRegion
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679150165"><span class="annot"><span class="annottext">[Node] -&gt; Either String AWSRegion
 ([Node] -&gt; Either String AWSRegion) -&gt; FromXML AWSRegion
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AWSRegion
 $cparseXML :: [Node] -&gt; Either String AWSRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span id="local-6989586621679150151"><span class="annot"><span class="annottext">AWSRegion -&gt; XML
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679150162"><span class="annot"><span class="annottext">AWSRegion -&gt; XML
 (AWSRegion -&gt; XML) -&gt; ToXML AWSRegion
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AWSRegion -&gt; XML

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679350220"><span id="local-6989586621679350221"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectTypeEnum"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypeEnum.html#ObjectTypeEnum"><span class="hs-identifier hs-var">ObjectTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectTypeEnum%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypeEnum.html#ObjectTypeEnum%27"><span class="hs-identifier hs-var">ObjectTypeEnum'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679350491"><span id="local-6989586621679350492"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectTypeEnum"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypeEnum.html#ObjectTypeEnum"><span class="hs-identifier hs-var">ObjectTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectTypeEnum%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ObjectTypeEnum.html#ObjectTypeEnum%27"><span class="hs-identifier hs-var">ObjectTypeEnum'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromObjectTypeEnum"><span class="annot"><span class="annottext">ObjectTypeEnum -&gt; Text
 </span><a href="Network.AWS.CodeCommit.Types.ObjectTypeEnum.html#fromObjectTypeEnum"><span class="hs-identifier hs-var hs-var">fromObjectTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679350212"><span id="local-6989586621679350214"><span id="local-6989586621679350216"><span class="annot"><span class="annottext">Int -&gt; ObjectTypeEnum -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679350483"><span id="local-6989586621679350485"><span id="local-6989586621679350487"><span class="annot"><span class="annottext">Int -&gt; ObjectTypeEnum -&gt; ShowS
 [ObjectTypeEnum] -&gt; ShowS
 ObjectTypeEnum -&gt; String
 (Int -&gt; ObjectTypeEnum -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: ObjectTypeEnum -&gt; String
 showsPrec :: Int -&gt; ObjectTypeEnum -&gt; ShowS
 $cshowsPrec :: Int -&gt; ObjectTypeEnum -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679350203"><span id="local-6989586621679350205"><span id="local-6989586621679350207"><span id="local-6989586621679350209"><span class="annot"><span class="annottext">ReadPrec [ObjectTypeEnum]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679350474"><span id="local-6989586621679350476"><span id="local-6989586621679350478"><span id="local-6989586621679350480"><span class="annot"><span class="annottext">ReadPrec [ObjectTypeEnum]
 ReadPrec ObjectTypeEnum
 Int -&gt; ReadS ObjectTypeEnum
 ReadS [ObjectTypeEnum]
@@ -74,7 +74,7 @@ $creadList :: ReadS [ObjectTypeEnum]
 readsPrec :: Int -&gt; ReadS ObjectTypeEnum
 $creadsPrec :: Int -&gt; ReadS ObjectTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679350198"><span id="local-6989586621679350200"><span class="annot"><span class="annottext">ObjectTypeEnum -&gt; ObjectTypeEnum -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679350469"><span id="local-6989586621679350471"><span class="annot"><span class="annottext">ObjectTypeEnum -&gt; ObjectTypeEnum -&gt; Bool
 (ObjectTypeEnum -&gt; ObjectTypeEnum -&gt; Bool)
 -&gt; (ObjectTypeEnum -&gt; ObjectTypeEnum -&gt; Bool) -&gt; Eq ObjectTypeEnum
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: ObjectTypeEnum -&gt; ObjectTypeEnum -&gt; Bool
 == :: ObjectTypeEnum -&gt; ObjectTypeEnum -&gt; Bool
 $c== :: ObjectTypeEnum -&gt; ObjectTypeEnum -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679350182"><span id="local-6989586621679350184"><span id="local-6989586621679350186"><span id="local-6989586621679350188"><span id="local-6989586621679350190"><span id="local-6989586621679350192"><span id="local-6989586621679350194"><span class="annot"><span class="annottext">Eq ObjectTypeEnum
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679350453"><span id="local-6989586621679350455"><span id="local-6989586621679350457"><span id="local-6989586621679350459"><span id="local-6989586621679350461"><span id="local-6989586621679350463"><span id="local-6989586621679350465"><span class="annot"><span class="annottext">Eq ObjectTypeEnum
 Eq ObjectTypeEnum
 -&gt; (ObjectTypeEnum -&gt; ObjectTypeEnum -&gt; Ordering)
 -&gt; (ObjectTypeEnum -&gt; ObjectTypeEnum -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ObjectTypeEnum -&gt; Rep ObjectTypeEnum x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679350174"><span id="local-6989586621679350176"><span class="annot"><span class="annottext">Int -&gt; ObjectTypeEnum -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679350445"><span id="local-6989586621679350447"><span class="annot"><span class="annottext">Int -&gt; ObjectTypeEnum -&gt; Int
 ObjectTypeEnum -&gt; Int
 (Int -&gt; ObjectTypeEnum -&gt; Int)
 -&gt; (ObjectTypeEnum -&gt; Int) -&gt; Hashable ObjectTypeEnum
@@ -144,50 +144,50 @@ $chash :: ObjectTypeEnum -&gt; Int
 hashWithSalt :: Int -&gt; ObjectTypeEnum -&gt; Int
 $chashWithSalt :: Int -&gt; ObjectTypeEnum -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679350171"><span class="annot"><span class="annottext">ObjectTypeEnum -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679350442"><span class="annot"><span class="annottext">ObjectTypeEnum -&gt; ()
 (ObjectTypeEnum -&gt; ()) -&gt; NFData ObjectTypeEnum
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ObjectTypeEnum -&gt; ()
 $crnf :: ObjectTypeEnum -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679350168"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectTypeEnum
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679350439"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectTypeEnum
 (Text -&gt; Either String ObjectTypeEnum) -&gt; FromText ObjectTypeEnum
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ObjectTypeEnum
 $cfromText :: Text -&gt; Either String ObjectTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679350165"><span class="annot"><span class="annottext">ObjectTypeEnum -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679350436"><span class="annot"><span class="annottext">ObjectTypeEnum -&gt; Text
 (ObjectTypeEnum -&gt; Text) -&gt; ToText ObjectTypeEnum
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ObjectTypeEnum -&gt; Text
 $ctoText :: ObjectTypeEnum -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679350162"><span class="annot"><span class="annottext">ObjectTypeEnum -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679350433"><span class="annot"><span class="annottext">ObjectTypeEnum -&gt; ByteString
 (ObjectTypeEnum -&gt; ByteString) -&gt; ToByteString ObjectTypeEnum
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ObjectTypeEnum -&gt; ByteString
 $ctoBS :: ObjectTypeEnum -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679350159"><span class="annot"><span class="annottext">ObjectTypeEnum -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679350430"><span class="annot"><span class="annottext">ObjectTypeEnum -&gt; ByteStringBuilder
 (ObjectTypeEnum -&gt; ByteStringBuilder) -&gt; ToLog ObjectTypeEnum
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ObjectTypeEnum -&gt; ByteStringBuilder
 $cbuild :: ObjectTypeEnum -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679350156"><span class="annot"><span class="annottext">HeaderName -&gt; ObjectTypeEnum -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679350427"><span class="annot"><span class="annottext">HeaderName -&gt; ObjectTypeEnum -&gt; [Header]
 (HeaderName -&gt; ObjectTypeEnum -&gt; [Header])
 -&gt; ToHeader ObjectTypeEnum
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ObjectTypeEnum -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ObjectTypeEnum -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679350153"><span class="annot"><span class="annottext">ObjectTypeEnum -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679350424"><span class="annot"><span class="annottext">ObjectTypeEnum -&gt; QueryString
 (ObjectTypeEnum -&gt; QueryString) -&gt; ToQuery ObjectTypeEnum
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ObjectTypeEnum -&gt; QueryString
 $ctoQuery :: ObjectTypeEnum -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679350148"><span id="local-6989586621679350150"><span class="annot"><span class="annottext">Value -&gt; Parser [ObjectTypeEnum]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679350419"><span id="local-6989586621679350421"><span class="annot"><span class="annottext">Value -&gt; Parser [ObjectTypeEnum]
 Value -&gt; Parser ObjectTypeEnum
 (Value -&gt; Parser ObjectTypeEnum)
 -&gt; (Value -&gt; Parser [ObjectTypeEnum]) -&gt; FromJSON ObjectTypeEnum
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [ObjectTypeEnum]
 parseJSON :: Value -&gt; Parser ObjectTypeEnum
 $cparseJSON :: Value -&gt; Parser ObjectTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679350143"><span id="local-6989586621679350145"><span class="annot"><span class="annottext">FromJSONKeyFunction [ObjectTypeEnum]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679350414"><span id="local-6989586621679350416"><span class="annot"><span class="annottext">FromJSONKeyFunction [ObjectTypeEnum]
 FromJSONKeyFunction ObjectTypeEnum
 FromJSONKeyFunction ObjectTypeEnum
 -&gt; FromJSONKeyFunction [ObjectTypeEnum]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ObjectTypeEnum]
 fromJSONKey :: FromJSONKeyFunction ObjectTypeEnum
 $cfromJSONKey :: FromJSONKeyFunction ObjectTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679350134"><span id="local-6989586621679350136"><span id="local-6989586621679350138"><span id="local-6989586621679350140"><span class="annot"><span class="annottext">[ObjectTypeEnum] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679350405"><span id="local-6989586621679350407"><span id="local-6989586621679350409"><span id="local-6989586621679350411"><span class="annot"><span class="annottext">[ObjectTypeEnum] -&gt; Encoding
 [ObjectTypeEnum] -&gt; Value
 ObjectTypeEnum -&gt; Encoding
 ObjectTypeEnum -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: ObjectTypeEnum -&gt; Encoding
 toJSON :: ObjectTypeEnum -&gt; Value
 $ctoJSON :: ObjectTypeEnum -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679350129"><span id="local-6989586621679350131"><span class="annot"><span class="annottext">ToJSONKeyFunction [ObjectTypeEnum]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679350400"><span id="local-6989586621679350402"><span class="annot"><span class="annottext">ToJSONKeyFunction [ObjectTypeEnum]
 ToJSONKeyFunction ObjectTypeEnum
 ToJSONKeyFunction ObjectTypeEnum
 -&gt; ToJSONKeyFunction [ObjectTypeEnum] -&gt; ToJSONKey ObjectTypeEnum
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ObjectTypeEnum]
 toJSONKey :: ToJSONKeyFunction ObjectTypeEnum
 $ctoJSONKey :: ToJSONKeyFunction ObjectTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679350126"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectTypeEnum
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679350397"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectTypeEnum
 ([Node] -&gt; Either String ObjectTypeEnum) -&gt; FromXML ObjectTypeEnum
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ObjectTypeEnum
 $cparseXML :: [Node] -&gt; Either String ObjectTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679350123"><span class="annot"><span class="annottext">ObjectTypeEnum -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679350394"><span class="annot"><span class="annottext">ObjectTypeEnum -&gt; XML
 (ObjectTypeEnum -&gt; XML) -&gt; ToXML ObjectTypeEnum
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ObjectTypeEnum -&gt; XML

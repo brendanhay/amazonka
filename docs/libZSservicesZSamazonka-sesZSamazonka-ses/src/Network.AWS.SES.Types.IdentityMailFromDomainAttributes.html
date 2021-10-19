@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- (email address or domain).</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newIdentityMailFromDomainAttributes' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679272282"><span id="local-6989586621679272283"></span></span><span class="hs-keyword">data</span><span> </span><span id="IdentityMailFromDomainAttributes"><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes"><span class="hs-identifier hs-var">IdentityMailFromDomainAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IdentityMailFromDomainAttributes%27"><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-var">IdentityMailFromDomainAttributes'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679272474"><span id="local-6989586621679272475"></span></span><span class="hs-keyword">data</span><span> </span><span id="IdentityMailFromDomainAttributes"><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes"><span class="hs-identifier hs-var">IdentityMailFromDomainAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IdentityMailFromDomainAttributes%27"><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-var">IdentityMailFromDomainAttributes'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The custom MAIL FROM domain that the identity is configured to use.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AmailFromDomain%3AIdentityMailFromDomainAttributes%27"><span class="annot"><span class="annottext">IdentityMailFromDomainAttributes -&gt; Text
 </span><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#%24sel%3AmailFromDomain%3AIdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-var hs-var">mailFromDomain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AbehaviorOnMXFailure%3AIdentityMailFromDomainAttributes%27"><span class="annot"><span class="annottext">IdentityMailFromDomainAttributes -&gt; BehaviorOnMXFailure
 </span><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#%24sel%3AbehaviorOnMXFailure%3AIdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-var hs-var">behaviorOnMXFailure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BehaviorOnMXFailure.html#BehaviorOnMXFailure"><span class="hs-identifier hs-type">BehaviorOnMXFailure</span></a></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272274"><span id="local-6989586621679272276"><span class="annot"><span class="annottext">IdentityMailFromDomainAttributes
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272466"><span id="local-6989586621679272468"><span class="annot"><span class="annottext">IdentityMailFromDomainAttributes
 -&gt; IdentityMailFromDomainAttributes -&gt; Bool
 (IdentityMailFromDomainAttributes
  -&gt; IdentityMailFromDomainAttributes -&gt; Bool)
@@ -69,7 +69,7 @@ $c/= :: IdentityMailFromDomainAttributes
 -&gt; IdentityMailFromDomainAttributes -&gt; Bool
 $c== :: IdentityMailFromDomainAttributes
 -&gt; IdentityMailFromDomainAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272265"><span id="local-6989586621679272267"><span id="local-6989586621679272269"><span id="local-6989586621679272271"><span class="annot"><span class="annottext">ReadPrec [IdentityMailFromDomainAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272457"><span id="local-6989586621679272459"><span id="local-6989586621679272461"><span id="local-6989586621679272463"><span class="annot"><span class="annottext">ReadPrec [IdentityMailFromDomainAttributes]
 ReadPrec IdentityMailFromDomainAttributes
 Int -&gt; ReadS IdentityMailFromDomainAttributes
 ReadS [IdentityMailFromDomainAttributes]
@@ -89,7 +89,7 @@ readList :: ReadS [IdentityMailFromDomainAttributes]
 $creadList :: ReadS [IdentityMailFromDomainAttributes]
 readsPrec :: Int -&gt; ReadS IdentityMailFromDomainAttributes
 $creadsPrec :: Int -&gt; ReadS IdentityMailFromDomainAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272258"><span id="local-6989586621679272260"><span id="local-6989586621679272262"><span class="annot"><span class="annottext">Int -&gt; IdentityMailFromDomainAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272450"><span id="local-6989586621679272452"><span id="local-6989586621679272454"><span class="annot"><span class="annottext">Int -&gt; IdentityMailFromDomainAttributes -&gt; ShowS
 [IdentityMailFromDomainAttributes] -&gt; ShowS
 IdentityMailFromDomainAttributes -&gt; String
 (Int -&gt; IdentityMailFromDomainAttributes -&gt; ShowS)
@@ -166,12 +166,12 @@ IdentityMailFromDomainAttributes
 -&gt; BehaviorOnMXFailure
 -&gt; IdentityMailFromDomainAttributes
 </span><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#newIdentityMailFromDomainAttributes"><span class="hs-identifier hs-var hs-var">newIdentityMailFromDomainAttributes</span></a></span></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679272252"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272252"><span class="hs-identifier hs-var">pMailFromDomain_</span></a></span></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679272251"><span class="annot"><span class="annottext">CustomMailFromStatus
-</span><a href="#local-6989586621679272251"><span class="hs-identifier hs-var">pMailFromDomainStatus_</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679272250"><span class="annot"><span class="annottext">BehaviorOnMXFailure
-</span><a href="#local-6989586621679272250"><span class="hs-identifier hs-var">pBehaviorOnMXFailure_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679272444"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272444"><span class="hs-identifier hs-var">pMailFromDomain_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679272443"><span class="annot"><span class="annottext">CustomMailFromStatus
+</span><a href="#local-6989586621679272443"><span class="hs-identifier hs-var">pMailFromDomainStatus_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679272442"><span class="annot"><span class="annottext">BehaviorOnMXFailure
+</span><a href="#local-6989586621679272442"><span class="hs-identifier hs-var">pBehaviorOnMXFailure_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">IdentityMailFromDomainAttributes' :: Text
 -&gt; CustomMailFromStatus
 -&gt; BehaviorOnMXFailure
@@ -180,15 +180,15 @@ IdentityMailFromDomainAttributes
 </span><span id="line-94"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mailFromDomain:IdentityMailFromDomainAttributes' :: Text
 </span><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#%24sel%3AmailFromDomain%3AIdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-var">mailFromDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272252"><span class="hs-identifier hs-var">pMailFromDomain_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679272444"><span class="hs-identifier hs-var">pMailFromDomain_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:mailFromDomainStatus:IdentityMailFromDomainAttributes' :: CustomMailFromStatus
 </span><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#%24sel%3AmailFromDomainStatus%3AIdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-var">mailFromDomainStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">CustomMailFromStatus
-</span><a href="#local-6989586621679272251"><span class="hs-identifier hs-var">pMailFromDomainStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679272443"><span class="hs-identifier hs-var">pMailFromDomainStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:behaviorOnMXFailure:IdentityMailFromDomainAttributes' :: BehaviorOnMXFailure
 </span><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#%24sel%3AbehaviorOnMXFailure%3AIdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-var">behaviorOnMXFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">BehaviorOnMXFailure
-</span><a href="#local-6989586621679272250"><span class="hs-identifier hs-var">pBehaviorOnMXFailure_</span></a></span><span>
+</span><a href="#local-6989586621679272442"><span class="hs-identifier hs-var">pBehaviorOnMXFailure_</span></a></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The custom MAIL FROM domain that the identity is configured to use.</span><span>
@@ -205,16 +205,16 @@ IdentityMailFromDomainAttributes
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272246"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272438"><span class="annot"><span class="annottext">Text
 mailFromDomain :: Text
 $sel:mailFromDomain:IdentityMailFromDomainAttributes' :: IdentityMailFromDomainAttributes -&gt; Text
-</span><a href="#local-6989586621679272246"><span class="hs-identifier hs-var hs-var">mailFromDomain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272246"><span class="hs-identifier hs-var">mailFromDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272245"><span class="annot"><span class="annottext">s :: IdentityMailFromDomainAttributes
-</span><a href="#local-6989586621679272245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272244"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityMailFromDomainAttributes
-</span><a href="#local-6989586621679272245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mailFromDomain:IdentityMailFromDomainAttributes' :: Text
+</span><a href="#local-6989586621679272438"><span class="hs-identifier hs-var hs-var">mailFromDomain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272438"><span class="hs-identifier hs-var">mailFromDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272437"><span class="annot"><span class="annottext">s :: IdentityMailFromDomainAttributes
+</span><a href="#local-6989586621679272437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272436"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityMailFromDomainAttributes
+</span><a href="#local-6989586621679272437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mailFromDomain:IdentityMailFromDomainAttributes' :: Text
 </span><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#%24sel%3AmailFromDomain%3AIdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-var">mailFromDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The state that indicates whether Amazon SES has successfully read the MX</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- record required for custom MAIL FROM domain setup. If the state is</span><span>
@@ -234,16 +234,16 @@ $sel:mailFromDomain:IdentityMailFromDomainAttributes' :: IdentityMailFromDomainA
      CustomMailFromStatus
      CustomMailFromStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272242"><span class="annot"><span class="annottext">CustomMailFromStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272434"><span class="annot"><span class="annottext">CustomMailFromStatus
 mailFromDomainStatus :: CustomMailFromStatus
 $sel:mailFromDomainStatus:IdentityMailFromDomainAttributes' :: IdentityMailFromDomainAttributes -&gt; CustomMailFromStatus
-</span><a href="#local-6989586621679272242"><span class="hs-identifier hs-var hs-var">mailFromDomainStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomMailFromStatus
-</span><a href="#local-6989586621679272242"><span class="hs-identifier hs-var">mailFromDomainStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272241"><span class="annot"><span class="annottext">s :: IdentityMailFromDomainAttributes
-</span><a href="#local-6989586621679272241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272240"><span class="annot"><span class="annottext">CustomMailFromStatus
-</span><a href="#local-6989586621679272240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityMailFromDomainAttributes
-</span><a href="#local-6989586621679272241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mailFromDomainStatus:IdentityMailFromDomainAttributes' :: CustomMailFromStatus
+</span><a href="#local-6989586621679272434"><span class="hs-identifier hs-var hs-var">mailFromDomainStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomMailFromStatus
+</span><a href="#local-6989586621679272434"><span class="hs-identifier hs-var">mailFromDomainStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272433"><span class="annot"><span class="annottext">s :: IdentityMailFromDomainAttributes
+</span><a href="#local-6989586621679272433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272432"><span class="annot"><span class="annottext">CustomMailFromStatus
+</span><a href="#local-6989586621679272432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityMailFromDomainAttributes
+</span><a href="#local-6989586621679272433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mailFromDomainStatus:IdentityMailFromDomainAttributes' :: CustomMailFromStatus
 </span><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#%24sel%3AmailFromDomainStatus%3AIdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-var">mailFromDomainStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CustomMailFromStatus
-</span><a href="#local-6989586621679272240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The action that Amazon SES takes if it cannot successfully read the</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- required MX record when you send an email. A value of @UseDefaultValue@</span><span>
@@ -268,24 +268,24 @@ $sel:mailFromDomainStatus:IdentityMailFromDomainAttributes' :: IdentityMailFromD
      BehaviorOnMXFailure
      BehaviorOnMXFailure
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272238"><span class="annot"><span class="annottext">BehaviorOnMXFailure
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272430"><span class="annot"><span class="annottext">BehaviorOnMXFailure
 behaviorOnMXFailure :: BehaviorOnMXFailure
 $sel:behaviorOnMXFailure:IdentityMailFromDomainAttributes' :: IdentityMailFromDomainAttributes -&gt; BehaviorOnMXFailure
-</span><a href="#local-6989586621679272238"><span class="hs-identifier hs-var hs-var">behaviorOnMXFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BehaviorOnMXFailure
-</span><a href="#local-6989586621679272238"><span class="hs-identifier hs-var">behaviorOnMXFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272237"><span class="annot"><span class="annottext">s :: IdentityMailFromDomainAttributes
-</span><a href="#local-6989586621679272237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272236"><span class="annot"><span class="annottext">BehaviorOnMXFailure
-</span><a href="#local-6989586621679272236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityMailFromDomainAttributes
-</span><a href="#local-6989586621679272237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:behaviorOnMXFailure:IdentityMailFromDomainAttributes' :: BehaviorOnMXFailure
+</span><a href="#local-6989586621679272430"><span class="hs-identifier hs-var hs-var">behaviorOnMXFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BehaviorOnMXFailure
+</span><a href="#local-6989586621679272430"><span class="hs-identifier hs-var">behaviorOnMXFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272429"><span class="annot"><span class="annottext">s :: IdentityMailFromDomainAttributes
+</span><a href="#local-6989586621679272429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272428"><span class="annot"><span class="annottext">BehaviorOnMXFailure
+</span><a href="#local-6989586621679272428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityMailFromDomainAttributes
+</span><a href="#local-6989586621679272429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:behaviorOnMXFailure:IdentityMailFromDomainAttributes' :: BehaviorOnMXFailure
 </span><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#%24sel%3AbehaviorOnMXFailure%3AIdentityMailFromDomainAttributes%27"><span class="hs-identifier hs-var">behaviorOnMXFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BehaviorOnMXFailure
-</span><a href="#local-6989586621679272236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes</span></a></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679272233"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IdentityMailFromDomainAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679272231"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679272231"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679272425"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IdentityMailFromDomainAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679272423"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679272423"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">Text
 -&gt; CustomMailFromStatus
 -&gt; BehaviorOnMXFailure
@@ -302,7 +302,7 @@ $sel:behaviorOnMXFailure:IdentityMailFromDomainAttributes' :: IdentityMailFromDo
       -&gt; BehaviorOnMXFailure -&gt; IdentityMailFromDomainAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679272231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679272423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MailFromDomain&quot;</span></span><span class="hs-special">)</span><span>
@@ -315,7 +315,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
      String (BehaviorOnMXFailure -&gt; IdentityMailFromDomainAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679272231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String CustomMailFromStatus
+</span><a href="#local-6989586621679272423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String CustomMailFromStatus
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MailFromDomainStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -325,16 +325,16 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String IdentityMailFromDomainAttributes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679272231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String BehaviorOnMXFailure
+</span><a href="#local-6989586621679272423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String BehaviorOnMXFailure
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BehaviorOnMXFailure&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679272225"><span id="local-6989586621679272227"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679272417"><span id="local-6989586621679272419"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes</span></a></span></span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679272222"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679272414"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityMailFromDomainAttributes.html#IdentityMailFromDomainAttributes"><span class="hs-identifier hs-type">IdentityMailFromDomainAttributes</span></a></span></span><span>
 </span><span id="line-144"></span></pre></body></html>

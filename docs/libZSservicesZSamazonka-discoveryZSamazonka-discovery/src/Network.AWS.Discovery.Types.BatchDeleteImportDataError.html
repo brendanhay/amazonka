@@ -28,18 +28,18 @@
 </span><span id="line-28"></span><span class="hs-comment">-- response for this command.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newBatchDeleteImportDataError' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679201827"><span id="local-6989586621679201828"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteImportDataError"><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-var">BatchDeleteImportDataError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteImportDataError%27"><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError%27"><span class="hs-identifier hs-var">BatchDeleteImportDataError'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the error that occurred for a specific import task.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AerrorDescription%3ABatchDeleteImportDataError%27"><span class="annot"><span class="annottext">BatchDeleteImportDataError -&gt; Maybe Text
-</span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#%24sel%3AerrorDescription%3ABatchDeleteImportDataError%27"><span class="hs-identifier hs-var hs-var">errorDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The unique import ID associated with the error that occurred.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AimportTaskId%3ABatchDeleteImportDataError%27"><span class="annot"><span class="annottext">BatchDeleteImportDataError -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621679202021"><span id="local-6989586621679202022"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteImportDataError"><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-var">BatchDeleteImportDataError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteImportDataError%27"><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError%27"><span class="hs-identifier hs-var">BatchDeleteImportDataError'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique import ID associated with the error that occurred.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AimportTaskId%3ABatchDeleteImportDataError%27"><span class="annot"><span class="annottext">BatchDeleteImportDataError -&gt; Maybe Text
 </span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#%24sel%3AimportTaskId%3ABatchDeleteImportDataError%27"><span class="hs-identifier hs-var hs-var">importTaskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The type of error that occurred for a specific import task.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AerrorCode%3ABatchDeleteImportDataError%27"><span class="annot"><span class="annottext">BatchDeleteImportDataError -&gt; Maybe BatchDeleteImportDataErrorCode
-</span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#%24sel%3AerrorCode%3ABatchDeleteImportDataError%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.html#BatchDeleteImportDataErrorCode"><span class="hs-identifier hs-type">BatchDeleteImportDataErrorCode</span></a></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The type of error that occurred for a specific import task.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AerrorCode%3ABatchDeleteImportDataError%27"><span class="annot"><span class="annottext">BatchDeleteImportDataError -&gt; Maybe BatchDeleteImportDataErrorCode
+</span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#%24sel%3AerrorCode%3ABatchDeleteImportDataError%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.html#BatchDeleteImportDataErrorCode"><span class="hs-identifier hs-type">BatchDeleteImportDataErrorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The description of the error that occurred for a specific import task.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AerrorDescription%3ABatchDeleteImportDataError%27"><span class="annot"><span class="annottext">BatchDeleteImportDataError -&gt; Maybe Text
+</span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#%24sel%3AerrorDescription%3ABatchDeleteImportDataError%27"><span class="hs-identifier hs-var hs-var">errorDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201819"><span id="local-6989586621679201821"><span class="annot"><span class="annottext">BatchDeleteImportDataError -&gt; BatchDeleteImportDataError -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202013"><span id="local-6989586621679202015"><span class="annot"><span class="annottext">BatchDeleteImportDataError -&gt; BatchDeleteImportDataError -&gt; Bool
 (BatchDeleteImportDataError -&gt; BatchDeleteImportDataError -&gt; Bool)
 -&gt; (BatchDeleteImportDataError
     -&gt; BatchDeleteImportDataError -&gt; Bool)
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchDeleteImportDataError -&gt; BatchDeleteImportDataError -&gt; Bool
 == :: BatchDeleteImportDataError -&gt; BatchDeleteImportDataError -&gt; Bool
 $c== :: BatchDeleteImportDataError -&gt; BatchDeleteImportDataError -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201810"><span id="local-6989586621679201812"><span id="local-6989586621679201814"><span id="local-6989586621679201816"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteImportDataError]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202004"><span id="local-6989586621679202006"><span id="local-6989586621679202008"><span id="local-6989586621679202010"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteImportDataError]
 ReadPrec BatchDeleteImportDataError
 Int -&gt; ReadS BatchDeleteImportDataError
 ReadS [BatchDeleteImportDataError]
@@ -69,7 +69,7 @@ readList :: ReadS [BatchDeleteImportDataError]
 $creadList :: ReadS [BatchDeleteImportDataError]
 readsPrec :: Int -&gt; ReadS BatchDeleteImportDataError
 $creadsPrec :: Int -&gt; ReadS BatchDeleteImportDataError
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201803"><span id="local-6989586621679201805"><span id="local-6989586621679201807"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteImportDataError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201997"><span id="local-6989586621679201999"><span id="local-6989586621679202001"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteImportDataError -&gt; ShowS
 [BatchDeleteImportDataError] -&gt; ShowS
 BatchDeleteImportDataError -&gt; String
 (Int -&gt; BatchDeleteImportDataError -&gt; ShowS)
@@ -109,62 +109,38 @@ BatchDeleteImportDataError -&gt; Rep BatchDeleteImportDataError x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'errorDescription', 'batchDeleteImportDataError_errorDescription' - The description of the error that occurred for a specific import task.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'importTaskId', 'batchDeleteImportDataError_importTaskId' - The unique import ID associated with the error that occurred.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'importTaskId', 'batchDeleteImportDataError_importTaskId' - The unique import ID associated with the error that occurred.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'errorCode', 'batchDeleteImportDataError_errorCode' - The type of error that occurred for a specific import task.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'errorCode', 'batchDeleteImportDataError_errorCode' - The type of error that occurred for a specific import task.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'errorDescription', 'batchDeleteImportDataError_errorDescription' - The description of the error that occurred for a specific import task.</span><span>
 </span><span id="line-54"></span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#newBatchDeleteImportDataError"><span class="hs-identifier hs-type">newBatchDeleteImportDataError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span><span>
 </span><span id="line-56"></span><span id="newBatchDeleteImportDataError"><span class="annot"><span class="annottext">newBatchDeleteImportDataError :: BatchDeleteImportDataError
 </span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#newBatchDeleteImportDataError"><span class="hs-identifier hs-var hs-var">newBatchDeleteImportDataError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">BatchDeleteImportDataError' :: Maybe Text
--&gt; Maybe Text
 -&gt; Maybe BatchDeleteImportDataErrorCode
+-&gt; Maybe Text
 -&gt; BatchDeleteImportDataError
 </span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError%27"><span class="hs-identifier hs-type">BatchDeleteImportDataError'</span></a></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errorDescription:BatchDeleteImportDataError' :: Maybe Text
-</span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#%24sel%3AerrorDescription%3ABatchDeleteImportDataError%27"><span class="hs-identifier hs-var">errorDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:importTaskId:BatchDeleteImportDataError' :: Maybe Text
+</span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#%24sel%3AimportTaskId%3ABatchDeleteImportDataError%27"><span class="hs-identifier hs-var">importTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:importTaskId:BatchDeleteImportDataError' :: Maybe Text
-</span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#%24sel%3AimportTaskId%3ABatchDeleteImportDataError%27"><span class="hs-identifier hs-var">importTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:BatchDeleteImportDataError' :: Maybe BatchDeleteImportDataErrorCode
+</span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#%24sel%3AerrorCode%3ABatchDeleteImportDataError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchDeleteImportDataErrorCode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:BatchDeleteImportDataError' :: Maybe BatchDeleteImportDataErrorCode
-</span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#%24sel%3AerrorCode%3ABatchDeleteImportDataError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchDeleteImportDataErrorCode
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorDescription:BatchDeleteImportDataError' :: Maybe Text
+</span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#%24sel%3AerrorDescription%3ABatchDeleteImportDataError%27"><span class="hs-identifier hs-var">errorDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | The description of the error that occurred for a specific import task.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#batchDeleteImportDataError_errorDescription"><span class="hs-identifier hs-type">batchDeleteImportDataError_errorDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="batchDeleteImportDataError_errorDescription"><span class="annot"><span class="annottext">batchDeleteImportDataError_errorDescription :: (Maybe Text -&gt; f (Maybe Text))
--&gt; BatchDeleteImportDataError -&gt; f BatchDeleteImportDataError
-</span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#batchDeleteImportDataError_errorDescription"><span class="hs-identifier hs-var hs-var">batchDeleteImportDataError_errorDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteImportDataError -&gt; Maybe Text)
--&gt; (BatchDeleteImportDataError
-    -&gt; Maybe Text -&gt; BatchDeleteImportDataError)
--&gt; Lens
-     BatchDeleteImportDataError
-     BatchDeleteImportDataError
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError%27"><span class="hs-identifier hs-type">BatchDeleteImportDataError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201794"><span class="annot"><span class="annottext">Maybe Text
-errorDescription :: Maybe Text
-$sel:errorDescription:BatchDeleteImportDataError' :: BatchDeleteImportDataError -&gt; Maybe Text
-</span><a href="#local-6989586621679201794"><span class="hs-identifier hs-var hs-var">errorDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201794"><span class="hs-identifier hs-var">errorDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201793"><span class="annot"><span class="annottext">s :: BatchDeleteImportDataError
-</span><a href="#local-6989586621679201793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError%27"><span class="hs-identifier hs-type">BatchDeleteImportDataError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201792"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteImportDataError
-</span><a href="#local-6989586621679201793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorDescription:BatchDeleteImportDataError' :: Maybe Text
-</span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#%24sel%3AerrorDescription%3ABatchDeleteImportDataError%27"><span class="hs-identifier hs-var">errorDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | The unique import ID associated with the error that occurred.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#batchDeleteImportDataError_importTaskId"><span class="hs-identifier hs-type">batchDeleteImportDataError_importTaskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="batchDeleteImportDataError_importTaskId"><span class="annot"><span class="annottext">batchDeleteImportDataError_importTaskId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-64"></span><span class="hs-comment">-- | The unique import ID associated with the error that occurred.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#batchDeleteImportDataError_importTaskId"><span class="hs-identifier hs-type">batchDeleteImportDataError_importTaskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="batchDeleteImportDataError_importTaskId"><span class="annot"><span class="annottext">batchDeleteImportDataError_importTaskId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; BatchDeleteImportDataError -&gt; f BatchDeleteImportDataError
 </span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#batchDeleteImportDataError_importTaskId"><span class="hs-identifier hs-var hs-var">batchDeleteImportDataError_importTaskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteImportDataError -&gt; Maybe Text)
 -&gt; (BatchDeleteImportDataError
@@ -175,20 +151,20 @@ $sel:errorDescription:BatchDeleteImportDataError' :: BatchDeleteImportDataError 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError%27"><span class="hs-identifier hs-type">BatchDeleteImportDataError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201790"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError%27"><span class="hs-identifier hs-type">BatchDeleteImportDataError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201988"><span class="annot"><span class="annottext">Maybe Text
 importTaskId :: Maybe Text
 $sel:importTaskId:BatchDeleteImportDataError' :: BatchDeleteImportDataError -&gt; Maybe Text
-</span><a href="#local-6989586621679201790"><span class="hs-identifier hs-var hs-var">importTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201790"><span class="hs-identifier hs-var">importTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201789"><span class="annot"><span class="annottext">s :: BatchDeleteImportDataError
-</span><a href="#local-6989586621679201789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError%27"><span class="hs-identifier hs-type">BatchDeleteImportDataError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201788"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteImportDataError
-</span><a href="#local-6989586621679201789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importTaskId:BatchDeleteImportDataError' :: Maybe Text
+</span><a href="#local-6989586621679201988"><span class="hs-identifier hs-var hs-var">importTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201988"><span class="hs-identifier hs-var">importTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201987"><span class="annot"><span class="annottext">s :: BatchDeleteImportDataError
+</span><a href="#local-6989586621679201987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError%27"><span class="hs-identifier hs-type">BatchDeleteImportDataError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201986"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteImportDataError
+</span><a href="#local-6989586621679201987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importTaskId:BatchDeleteImportDataError' :: Maybe Text
 </span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#%24sel%3AimportTaskId%3ABatchDeleteImportDataError%27"><span class="hs-identifier hs-var">importTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The type of error that occurred for a specific import task.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#batchDeleteImportDataError_errorCode"><span class="hs-identifier hs-type">batchDeleteImportDataError_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.html#BatchDeleteImportDataErrorCode"><span class="hs-identifier hs-type">BatchDeleteImportDataErrorCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="batchDeleteImportDataError_errorCode"><span class="annot"><span class="annottext">batchDeleteImportDataError_errorCode :: (Maybe BatchDeleteImportDataErrorCode
+</span><a href="#local-6989586621679201986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The type of error that occurred for a specific import task.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#batchDeleteImportDataError_errorCode"><span class="hs-identifier hs-type">batchDeleteImportDataError_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode.html#BatchDeleteImportDataErrorCode"><span class="hs-identifier hs-type">BatchDeleteImportDataErrorCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="batchDeleteImportDataError_errorCode"><span class="annot"><span class="annottext">batchDeleteImportDataError_errorCode :: (Maybe BatchDeleteImportDataErrorCode
  -&gt; f (Maybe BatchDeleteImportDataErrorCode))
 -&gt; BatchDeleteImportDataError -&gt; f BatchDeleteImportDataError
 </span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#batchDeleteImportDataError_errorCode"><span class="hs-identifier hs-var hs-var">batchDeleteImportDataError_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteImportDataError
@@ -202,19 +178,43 @@ $sel:importTaskId:BatchDeleteImportDataError' :: BatchDeleteImportDataError -&gt
      (Maybe BatchDeleteImportDataErrorCode)
      (Maybe BatchDeleteImportDataErrorCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError%27"><span class="hs-identifier hs-type">BatchDeleteImportDataError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201786"><span class="annot"><span class="annottext">Maybe BatchDeleteImportDataErrorCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError%27"><span class="hs-identifier hs-type">BatchDeleteImportDataError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201984"><span class="annot"><span class="annottext">Maybe BatchDeleteImportDataErrorCode
 errorCode :: Maybe BatchDeleteImportDataErrorCode
 $sel:errorCode:BatchDeleteImportDataError' :: BatchDeleteImportDataError -&gt; Maybe BatchDeleteImportDataErrorCode
-</span><a href="#local-6989586621679201786"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BatchDeleteImportDataErrorCode
-</span><a href="#local-6989586621679201786"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201785"><span class="annot"><span class="annottext">s :: BatchDeleteImportDataError
-</span><a href="#local-6989586621679201785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError%27"><span class="hs-identifier hs-type">BatchDeleteImportDataError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201784"><span class="annot"><span class="annottext">Maybe BatchDeleteImportDataErrorCode
-</span><a href="#local-6989586621679201784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteImportDataError
-</span><a href="#local-6989586621679201785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:BatchDeleteImportDataError' :: Maybe BatchDeleteImportDataErrorCode
+</span><a href="#local-6989586621679201984"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BatchDeleteImportDataErrorCode
+</span><a href="#local-6989586621679201984"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201983"><span class="annot"><span class="annottext">s :: BatchDeleteImportDataError
+</span><a href="#local-6989586621679201983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError%27"><span class="hs-identifier hs-type">BatchDeleteImportDataError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201982"><span class="annot"><span class="annottext">Maybe BatchDeleteImportDataErrorCode
+</span><a href="#local-6989586621679201982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteImportDataError
+</span><a href="#local-6989586621679201983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:BatchDeleteImportDataError' :: Maybe BatchDeleteImportDataErrorCode
 </span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#%24sel%3AerrorCode%3ABatchDeleteImportDataError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchDeleteImportDataErrorCode
-</span><a href="#local-6989586621679201784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The description of the error that occurred for a specific import task.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#batchDeleteImportDataError_errorDescription"><span class="hs-identifier hs-type">batchDeleteImportDataError_errorDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="batchDeleteImportDataError_errorDescription"><span class="annot"><span class="annottext">batchDeleteImportDataError_errorDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchDeleteImportDataError -&gt; f BatchDeleteImportDataError
+</span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#batchDeleteImportDataError_errorDescription"><span class="hs-identifier hs-var hs-var">batchDeleteImportDataError_errorDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteImportDataError -&gt; Maybe Text)
+-&gt; (BatchDeleteImportDataError
+    -&gt; Maybe Text -&gt; BatchDeleteImportDataError)
+-&gt; Lens
+     BatchDeleteImportDataError
+     BatchDeleteImportDataError
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError%27"><span class="hs-identifier hs-type">BatchDeleteImportDataError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201980"><span class="annot"><span class="annottext">Maybe Text
+errorDescription :: Maybe Text
+$sel:errorDescription:BatchDeleteImportDataError' :: BatchDeleteImportDataError -&gt; Maybe Text
+</span><a href="#local-6989586621679201980"><span class="hs-identifier hs-var hs-var">errorDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201980"><span class="hs-identifier hs-var">errorDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201979"><span class="annot"><span class="annottext">s :: BatchDeleteImportDataError
+</span><a href="#local-6989586621679201979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError%27"><span class="hs-identifier hs-type">BatchDeleteImportDataError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201978"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteImportDataError
+</span><a href="#local-6989586621679201979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorDescription:BatchDeleteImportDataError' :: Maybe Text
+</span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#%24sel%3AerrorDescription%3ABatchDeleteImportDataError%27"><span class="hs-identifier hs-var">errorDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201781"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679201779"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchDeleteImportDataError
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201975"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679201973"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchDeleteImportDataError
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BatchDeleteImportDataError)
@@ -224,56 +224,49 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BatchDeleteImportDataError&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201776"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201776"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201970"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201970"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
 -&gt; Maybe BatchDeleteImportDataErrorCode
+-&gt; Maybe Text
 -&gt; BatchDeleteImportDataError
 </span><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError%27"><span class="hs-identifier hs-var">BatchDeleteImportDataError'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe BatchDeleteImportDataErrorCode
+ -&gt; Maybe Text
  -&gt; BatchDeleteImportDataError)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe BatchDeleteImportDataErrorCode
-      -&gt; BatchDeleteImportDataError)
+     (Maybe BatchDeleteImportDataErrorCode
+      -&gt; Maybe Text -&gt; BatchDeleteImportDataError)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201776"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;errorDescription&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe BatchDeleteImportDataErrorCode
-   -&gt; BatchDeleteImportDataError)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe BatchDeleteImportDataErrorCode
-      -&gt; BatchDeleteImportDataError)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201776"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679201970"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;importTaskId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe BatchDeleteImportDataErrorCode
-   -&gt; BatchDeleteImportDataError)
+   -&gt; Maybe Text -&gt; BatchDeleteImportDataError)
 -&gt; Parser (Maybe BatchDeleteImportDataErrorCode)
--&gt; Parser BatchDeleteImportDataError
+-&gt; Parser (Maybe Text -&gt; BatchDeleteImportDataError)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201776"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BatchDeleteImportDataErrorCode)
+</span><a href="#local-6989586621679201970"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BatchDeleteImportDataErrorCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;errorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; BatchDeleteImportDataError)
+-&gt; Parser (Maybe Text) -&gt; Parser BatchDeleteImportDataError
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201970"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errorDescription&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201770"><span id="local-6989586621679201772"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201964"><span id="local-6989586621679201966"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201767"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201961"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.BatchDeleteImportDataError.html#BatchDeleteImportDataError"><span class="hs-identifier hs-type">BatchDeleteImportDataError</span></a></span></span><span>
 </span><span id="line-90"></span></pre></body></html>

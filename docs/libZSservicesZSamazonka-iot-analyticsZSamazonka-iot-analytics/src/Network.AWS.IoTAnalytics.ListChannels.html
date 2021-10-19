@@ -37,8 +37,8 @@
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#newListChannelsResponse"><span class="hs-identifier">newListChannelsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#listChannelsResponse_nextToken"><span class="hs-identifier">listChannelsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#listChannelsResponse_channelSummaries"><span class="hs-identifier">listChannelsResponse_channelSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#listChannelsResponse_channelSummaries"><span class="hs-identifier">listChannelsResponse_channelSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#listChannelsResponse_nextToken"><span class="hs-identifier">listChannelsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#listChannelsResponse_httpStatus"><span class="hs-identifier">listChannelsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span class="hs-keyword">where</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListChannels' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679266201"><span id="local-6989586621679266202"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListChannels"><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels"><span class="hs-identifier hs-var">ListChannels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListChannels%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-var">ListChannels'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679266430"><span id="local-6989586621679266431"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListChannels"><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels"><span class="hs-identifier hs-var">ListChannels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListChannels%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-var">ListChannels'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AListChannels%27"><span class="annot"><span class="annottext">ListChannels -&gt; Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.ListChannels.html#%24sel%3AnextToken%3AListChannels%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3AListChannels%27"><span class="annot"><span class="annottext">ListChannels -&gt; Maybe Natural
 </span><a href="Network.AWS.IoTAnalytics.ListChannels.html#%24sel%3AmaxResults%3AListChannels%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266194"><span id="local-6989586621679266196"><span class="annot"><span class="annottext">ListChannels -&gt; ListChannels -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266423"><span id="local-6989586621679266425"><span class="annot"><span class="annottext">ListChannels -&gt; ListChannels -&gt; Bool
 (ListChannels -&gt; ListChannels -&gt; Bool)
 -&gt; (ListChannels -&gt; ListChannels -&gt; Bool) -&gt; Eq ListChannels
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListChannels -&gt; ListChannels -&gt; Bool
 == :: ListChannels -&gt; ListChannels -&gt; Bool
 $c== :: ListChannels -&gt; ListChannels -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266185"><span id="local-6989586621679266187"><span id="local-6989586621679266189"><span id="local-6989586621679266191"><span class="annot"><span class="annottext">ReadPrec [ListChannels]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266414"><span id="local-6989586621679266416"><span id="local-6989586621679266418"><span id="local-6989586621679266420"><span class="annot"><span class="annottext">ReadPrec [ListChannels]
 ReadPrec ListChannels
 Int -&gt; ReadS ListChannels
 ReadS [ListChannels]
@@ -89,7 +89,7 @@ readList :: ReadS [ListChannels]
 $creadList :: ReadS [ListChannels]
 readsPrec :: Int -&gt; ReadS ListChannels
 $creadsPrec :: Int -&gt; ReadS ListChannels
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266178"><span id="local-6989586621679266180"><span id="local-6989586621679266182"><span class="annot"><span class="annottext">Int -&gt; ListChannels -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266407"><span id="local-6989586621679266409"><span id="local-6989586621679266411"><span class="annot"><span class="annottext">Int -&gt; ListChannels -&gt; ShowS
 [ListChannels] -&gt; ShowS
 ListChannels -&gt; String
 (Int -&gt; ListChannels -&gt; ShowS)
@@ -151,16 +151,16 @@ forall a. Maybe a
 -&gt; (ListChannels -&gt; Maybe Text -&gt; ListChannels)
 -&gt; Lens ListChannels ListChannels (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266172"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266401"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListChannels' :: ListChannels -&gt; Maybe Text
-</span><a href="#local-6989586621679266172"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266172"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266171"><span class="annot"><span class="annottext">s :: ListChannels
-</span><a href="#local-6989586621679266171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266170"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannels
-</span><a href="#local-6989586621679266171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListChannels' :: Maybe Text
+</span><a href="#local-6989586621679266401"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266401"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266400"><span class="annot"><span class="annottext">s :: ListChannels
+</span><a href="#local-6989586621679266400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266399"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannels
+</span><a href="#local-6989586621679266400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListChannels' :: Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.ListChannels.html#%24sel%3AnextToken%3AListChannels%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The maximum number of results to return in this request.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
@@ -172,28 +172,28 @@ $sel:nextToken:ListChannels' :: ListChannels -&gt; Maybe Text
 -&gt; (ListChannels -&gt; Maybe Natural -&gt; ListChannels)
 -&gt; Lens ListChannels ListChannels (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266169"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266398"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListChannels' :: ListChannels -&gt; Maybe Natural
-</span><a href="#local-6989586621679266169"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679266169"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266168"><span class="annot"><span class="annottext">s :: ListChannels
-</span><a href="#local-6989586621679266168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266167"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679266167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannels
-</span><a href="#local-6989586621679266168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListChannels' :: Maybe Natural
+</span><a href="#local-6989586621679266398"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679266398"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266397"><span class="annot"><span class="annottext">s :: ListChannels
+</span><a href="#local-6989586621679266397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266396"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679266396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannels
+</span><a href="#local-6989586621679266397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListChannels' :: Maybe Natural
 </span><a href="Network.AWS.IoTAnalytics.ListChannels.html#%24sel%3AmaxResults%3AListChannels%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679266167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679266163"><span class="annot"><span class="annottext">page :: ListChannels -&gt; AWSResponse ListChannels -&gt; Maybe ListChannels
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679266161"><span class="annot"><span class="annottext">ListChannels
-</span><a href="#local-6989586621679266161"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679266160"><span class="annot"><span class="annottext">AWSResponse ListChannels
-</span><a href="#local-6989586621679266160"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679266392"><span class="annot"><span class="annottext">page :: ListChannels -&gt; AWSResponse ListChannels -&gt; Maybe ListChannels
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679266390"><span class="annot"><span class="annottext">ListChannels
+</span><a href="#local-6989586621679266390"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679266389"><span class="annot"><span class="annottext">AWSResponse ListChannels
+</span><a href="#local-6989586621679266389"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-98"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListChannels
 ListChannelsResponse
-</span><a href="#local-6989586621679266160"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679266389"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">ListChannelsResponse
 -&gt; Getting (First Text) ListChannelsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -219,7 +219,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-103"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListChannels
 ListChannelsResponse
-</span><a href="#local-6989586621679266160"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679266389"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">ListChannelsResponse
 -&gt; Getting
      (First [ChannelSummary]) ListChannelsResponse [ChannelSummary]
@@ -261,7 +261,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">ListChannels
-</span><a href="#local-6989586621679266161"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679266390"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">ListChannels -&gt; (ListChannels -&gt; ListChannels) -&gt; ListChannels
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -274,7 +274,7 @@ Lens ListChannels ListChannels (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListChannels
 ListChannelsResponse
-</span><a href="#local-6989586621679266160"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679266389"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">ListChannelsResponse
 -&gt; Getting (First Text) ListChannelsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -294,12 +294,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679266150"><span class="annot"><span class="annottext">request :: ListChannels -&gt; Request ListChannels
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679266379"><span class="annot"><span class="annottext">request :: ListChannels -&gt; Request ListChannels
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListChannels -&gt; Request ListChannels
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679266146"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679266375"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListChannels
 -&gt; ClientResponse ClientBody
@@ -323,40 +323,38 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266143"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266143"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679266142"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679266142"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679266141"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679266141"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [ChannelSummary] -&gt; Int -&gt; ListChannelsResponse
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266372"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266372"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679266371"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679266371"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679266370"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266370"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ChannelSummary] -&gt; Maybe Text -&gt; Int -&gt; ListChannelsResponse
 </span><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-var">ListChannelsResponse'</span></a></span><span>
-</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [ChannelSummary] -&gt; Int -&gt; ListChannelsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe [ChannelSummary] -&gt; Int -&gt; ListChannelsResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679266141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe [ChannelSummary] -&gt; Int -&gt; ListChannelsResponse)
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ChannelSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListChannelsResponse)
 -&gt; Either String (Maybe [ChannelSummary])
--&gt; Either String (Int -&gt; ListChannelsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679266141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ChannelSummary]))
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListChannelsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ChannelSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;channelSummaries&quot;</span></span><span>
-</span><span id="line-124"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ChannelSummary]))
+</span><span id="line-123"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ChannelSummary]))
 -&gt; Maybe [ChannelSummary] -&gt; Either String (Maybe [ChannelSummary])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ChannelSummary]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-125"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListChannelsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListChannelsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListChannelsResponse)
 -&gt; Either String Int -&gt; Either String ListChannelsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -365,15 +363,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266143"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266372"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266132"><span id="local-6989586621679266134"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266361"><span id="local-6989586621679266363"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266129"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266358"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679266125"><span class="annot"><span class="annottext">toHeaders :: ListChannels -&gt; ResponseHeaders
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679266354"><span class="annot"><span class="annottext">toHeaders :: ListChannels -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListChannels -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -381,21 +379,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679266120"><span class="annot"><span class="annottext">toPath :: ListChannels -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679266349"><span class="annot"><span class="annottext">toPath :: ListChannels -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListChannels -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/channels&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679266116"><span class="annot"><span class="annottext">toQuery :: ListChannels -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266113"><span id="local-6989586621679266114"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679266345"><span class="annot"><span class="annottext">toQuery :: ListChannels -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266342"><span id="local-6989586621679266343"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListChannels' :: ListChannels -&gt; Maybe Natural
 $sel:nextToken:ListChannels' :: ListChannels -&gt; Maybe Text
-</span><a href="#local-6989586621679266113"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679266342"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -403,28 +401,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266114"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679266343"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679266113"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679266342"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | /See:/ 'newListChannelsResponse' smart constructor.</span><span>
-</span><span id="line-147"></span><span id="local-6989586621679266110"><span id="local-6989586621679266111"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListChannelsResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-var">ListChannelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListChannelsResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-var">ListChannelsResponse'</span></a></span></span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to retrieve the next set of results, or @null@ if there are no</span><span>
-</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- more results.</span><span>
-</span><span id="line-150"></span><span>    </span><span id="%24sel%3AnextToken%3AListChannelsResponse%27"><span class="annot"><span class="annottext">ListChannelsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.IoTAnalytics.ListChannels.html#%24sel%3AnextToken%3AListChannelsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | A list of @ChannelSummary@ objects.</span><span>
-</span><span id="line-152"></span><span>    </span><span id="%24sel%3AchannelSummaries%3AListChannelsResponse%27"><span class="annot"><span class="annottext">ListChannelsResponse -&gt; Maybe [ChannelSummary]
+</span><span id="line-147"></span><span id="local-6989586621679266339"><span id="local-6989586621679266340"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListChannelsResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-var">ListChannelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListChannelsResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-var">ListChannelsResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of @ChannelSummary@ objects.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AchannelSummaries%3AListChannelsResponse%27"><span class="annot"><span class="annottext">ListChannelsResponse -&gt; Maybe [ChannelSummary]
 </span><a href="Network.AWS.IoTAnalytics.ListChannels.html#%24sel%3AchannelSummaries%3AListChannelsResponse%27"><span class="hs-identifier hs-var hs-var">channelSummaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The token to retrieve the next set of results, or @null@ if there are no</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- more results.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AnextToken%3AListChannelsResponse%27"><span class="annot"><span class="annottext">ListChannelsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoTAnalytics.ListChannels.html#%24sel%3AnextToken%3AListChannelsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListChannelsResponse%27"><span class="annot"><span class="annottext">ListChannelsResponse -&gt; Int
 </span><a href="Network.AWS.IoTAnalytics.ListChannels.html#%24sel%3AhttpStatus%3AListChannelsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266103"><span id="local-6989586621679266105"><span class="annot"><span class="annottext">ListChannelsResponse -&gt; ListChannelsResponse -&gt; Bool
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266332"><span id="local-6989586621679266334"><span class="annot"><span class="annottext">ListChannelsResponse -&gt; ListChannelsResponse -&gt; Bool
 (ListChannelsResponse -&gt; ListChannelsResponse -&gt; Bool)
 -&gt; (ListChannelsResponse -&gt; ListChannelsResponse -&gt; Bool)
 -&gt; Eq ListChannelsResponse
@@ -433,7 +431,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListChannelsResponse -&gt; ListChannelsResponse -&gt; Bool
 == :: ListChannelsResponse -&gt; ListChannelsResponse -&gt; Bool
 $c== :: ListChannelsResponse -&gt; ListChannelsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266095"><span id="local-6989586621679266097"><span id="local-6989586621679266099"><span id="local-6989586621679266101"><span class="annot"><span class="annottext">ReadPrec [ListChannelsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266324"><span id="local-6989586621679266326"><span id="local-6989586621679266328"><span id="local-6989586621679266330"><span class="annot"><span class="annottext">ReadPrec [ListChannelsResponse]
 ReadPrec ListChannelsResponse
 Int -&gt; ReadS ListChannelsResponse
 ReadS [ListChannelsResponse]
@@ -453,7 +451,7 @@ readList :: ReadS [ListChannelsResponse]
 $creadList :: ReadS [ListChannelsResponse]
 readsPrec :: Int -&gt; ReadS ListChannelsResponse
 $creadsPrec :: Int -&gt; ReadS ListChannelsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266089"><span id="local-6989586621679266091"><span id="local-6989586621679266093"><span class="annot"><span class="annottext">Int -&gt; ListChannelsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266318"><span id="local-6989586621679266320"><span id="local-6989586621679266322"><span class="annot"><span class="annottext">Int -&gt; ListChannelsResponse -&gt; ShowS
 [ListChannelsResponse] -&gt; ShowS
 ListChannelsResponse -&gt; String
 (Int -&gt; ListChannelsResponse -&gt; ShowS)
@@ -487,10 +485,10 @@ $cfrom :: forall x. ListChannelsResponse -&gt; Rep ListChannelsResponse x
 </span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- 'nextToken', 'listChannelsResponse_nextToken' - The token to retrieve the next set of results, or @null@ if there are no</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- more results.</span><span>
-</span><span id="line-168"></span><span class="hs-comment">--</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- 'channelSummaries', 'listChannelsResponse_channelSummaries' - A list of @ChannelSummary@ objects.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'channelSummaries', 'listChannelsResponse_channelSummaries' - A list of @ChannelSummary@ objects.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'nextToken', 'listChannelsResponse_nextToken' - The token to retrieve the next set of results, or @null@ if there are no</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- more results.</span><span>
 </span><span id="line-170"></span><span class="hs-comment">--</span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- 'httpStatus', 'listChannelsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#newListChannelsResponse"><span class="hs-identifier hs-type">newListChannelsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -498,62 +496,43 @@ $cfrom :: forall x. ListChannelsResponse -&gt; Rep ListChannelsResponse x
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span>
 </span><span id="line-176"></span><span id="newListChannelsResponse"><span class="annot"><span class="annottext">newListChannelsResponse :: Int -&gt; ListChannelsResponse
-</span><a href="Network.AWS.IoTAnalytics.ListChannels.html#newListChannelsResponse"><span class="hs-identifier hs-var hs-var">newListChannelsResponse</span></a></span></span><span> </span><span id="local-6989586621679266086"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266086"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">ListChannelsResponse' :: Maybe Text -&gt; Maybe [ChannelSummary] -&gt; Int -&gt; ListChannelsResponse
+</span><a href="Network.AWS.IoTAnalytics.ListChannels.html#newListChannelsResponse"><span class="hs-identifier hs-var hs-var">newListChannelsResponse</span></a></span></span><span> </span><span id="local-6989586621679266315"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266315"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">ListChannelsResponse' :: Maybe [ChannelSummary] -&gt; Maybe Text -&gt; Int -&gt; ListChannelsResponse
 </span><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span>
-</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListChannelsResponse' :: Maybe Text
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:channelSummaries:ListChannelsResponse' :: Maybe [ChannelSummary]
+</span><a href="Network.AWS.IoTAnalytics.ListChannels.html#%24sel%3AchannelSummaries%3AListChannelsResponse%27"><span class="hs-identifier hs-var">channelSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ChannelSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListChannelsResponse' :: Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.ListChannels.html#%24sel%3AnextToken%3AListChannelsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelSummaries:ListChannelsResponse' :: Maybe [ChannelSummary]
-</span><a href="Network.AWS.IoTAnalytics.ListChannels.html#%24sel%3AchannelSummaries%3AListChannelsResponse%27"><span class="hs-identifier hs-var">channelSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ChannelSummary]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListChannelsResponse' :: Int
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListChannelsResponse' :: Int
 </span><a href="Network.AWS.IoTAnalytics.ListChannels.html#%24sel%3AhttpStatus%3AListChannelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266086"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- | The token to retrieve the next set of results, or @null@ if there are no</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- more results.</span><span>
-</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#listChannelsResponse_nextToken"><span class="hs-identifier hs-type">listChannelsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span id="listChannelsResponse_nextToken"><span class="annot"><span class="annottext">listChannelsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListChannelsResponse -&gt; f ListChannelsResponse
-</span><a href="Network.AWS.IoTAnalytics.ListChannels.html#listChannelsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listChannelsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListChannelsResponse -&gt; Maybe Text)
--&gt; (ListChannelsResponse -&gt; Maybe Text -&gt; ListChannelsResponse)
--&gt; Lens' ListChannelsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266085"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListChannelsResponse' :: ListChannelsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679266085"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266085"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266084"><span class="annot"><span class="annottext">s :: ListChannelsResponse
-</span><a href="#local-6989586621679266084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266083"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannelsResponse
-</span><a href="#local-6989586621679266084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListChannelsResponse' :: Maybe Text
-</span><a href="Network.AWS.IoTAnalytics.ListChannels.html#%24sel%3AnextToken%3AListChannelsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- | A list of @ChannelSummary@ objects.</span><span>
-</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#listChannelsResponse_channelSummaries"><span class="hs-identifier hs-type">listChannelsResponse_channelSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span id="listChannelsResponse_channelSummaries"><span class="annot"><span class="annottext">listChannelsResponse_channelSummaries :: (Maybe [ChannelSummary] -&gt; f (Maybe [ChannelSummary]))
+</span><a href="#local-6989586621679266315"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | A list of @ChannelSummary@ objects.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#listChannelsResponse_channelSummaries"><span class="hs-identifier hs-type">listChannelsResponse_channelSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="listChannelsResponse_channelSummaries"><span class="annot"><span class="annottext">listChannelsResponse_channelSummaries :: (Maybe [ChannelSummary] -&gt; f (Maybe [ChannelSummary]))
 -&gt; ListChannelsResponse -&gt; f ListChannelsResponse
 </span><a href="Network.AWS.IoTAnalytics.ListChannels.html#listChannelsResponse_channelSummaries"><span class="hs-identifier hs-var hs-var">listChannelsResponse_channelSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListChannelsResponse -&gt; Maybe [ChannelSummary])
 -&gt; (ListChannelsResponse
     -&gt; Maybe [ChannelSummary] -&gt; ListChannelsResponse)
 -&gt; Lens' ListChannelsResponse (Maybe [ChannelSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266082"><span class="annot"><span class="annottext">Maybe [ChannelSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266314"><span class="annot"><span class="annottext">Maybe [ChannelSummary]
 channelSummaries :: Maybe [ChannelSummary]
 $sel:channelSummaries:ListChannelsResponse' :: ListChannelsResponse -&gt; Maybe [ChannelSummary]
-</span><a href="#local-6989586621679266082"><span class="hs-identifier hs-var hs-var">channelSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ChannelSummary]
-</span><a href="#local-6989586621679266082"><span class="hs-identifier hs-var">channelSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266081"><span class="annot"><span class="annottext">s :: ListChannelsResponse
-</span><a href="#local-6989586621679266081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266080"><span class="annot"><span class="annottext">Maybe [ChannelSummary]
-</span><a href="#local-6989586621679266080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannelsResponse
-</span><a href="#local-6989586621679266081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelSummaries:ListChannelsResponse' :: Maybe [ChannelSummary]
+</span><a href="#local-6989586621679266314"><span class="hs-identifier hs-var hs-var">channelSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ChannelSummary]
+</span><a href="#local-6989586621679266314"><span class="hs-identifier hs-var">channelSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266313"><span class="annot"><span class="annottext">s :: ListChannelsResponse
+</span><a href="#local-6989586621679266313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266312"><span class="annot"><span class="annottext">Maybe [ChannelSummary]
+</span><a href="#local-6989586621679266312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannelsResponse
+</span><a href="#local-6989586621679266313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelSummaries:ListChannelsResponse' :: Maybe [ChannelSummary]
 </span><a href="Network.AWS.IoTAnalytics.ListChannels.html#%24sel%3AchannelSummaries%3AListChannelsResponse%27"><span class="hs-identifier hs-var">channelSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ChannelSummary]
-</span><a href="#local-6989586621679266080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ChannelSummary] -&gt; f (Maybe [ChannelSummary]))
+</span><a href="#local-6989586621679266312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ChannelSummary] -&gt; f (Maybe [ChannelSummary]))
  -&gt; ListChannelsResponse -&gt; f ListChannelsResponse)
 -&gt; ((Maybe [ChannelSummary] -&gt; f (Maybe [ChannelSummary]))
     -&gt; Maybe [ChannelSummary] -&gt; f (Maybe [ChannelSummary]))
@@ -573,26 +552,46 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [ChannelSummary] [ChannelSummary] [ChannelSummary] [ChannelSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#listChannelsResponse_httpStatus"><span class="hs-identifier hs-type">listChannelsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-194"></span><span id="listChannelsResponse_httpStatus"><span class="annot"><span class="annottext">listChannelsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListChannelsResponse -&gt; f ListChannelsResponse
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The token to retrieve the next set of results, or @null@ if there are no</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- more results.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#listChannelsResponse_nextToken"><span class="hs-identifier hs-type">listChannelsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="listChannelsResponse_nextToken"><span class="annot"><span class="annottext">listChannelsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListChannelsResponse -&gt; f ListChannelsResponse
+</span><a href="Network.AWS.IoTAnalytics.ListChannels.html#listChannelsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listChannelsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListChannelsResponse -&gt; Maybe Text)
+-&gt; (ListChannelsResponse -&gt; Maybe Text -&gt; ListChannelsResponse)
+-&gt; Lens' ListChannelsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266309"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListChannelsResponse' :: ListChannelsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679266309"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266309"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266308"><span class="annot"><span class="annottext">s :: ListChannelsResponse
+</span><a href="#local-6989586621679266308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266307"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannelsResponse
+</span><a href="#local-6989586621679266308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListChannelsResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTAnalytics.ListChannels.html#%24sel%3AnextToken%3AListChannelsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#listChannelsResponse_httpStatus"><span class="hs-identifier hs-type">listChannelsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-195"></span><span id="listChannelsResponse_httpStatus"><span class="annot"><span class="annottext">listChannelsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListChannelsResponse -&gt; f ListChannelsResponse
 </span><a href="Network.AWS.IoTAnalytics.ListChannels.html#listChannelsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listChannelsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListChannelsResponse -&gt; Int)
 -&gt; (ListChannelsResponse -&gt; Int -&gt; ListChannelsResponse)
 -&gt; Lens ListChannelsResponse ListChannelsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266077"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266306"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListChannelsResponse' :: ListChannelsResponse -&gt; Int
-</span><a href="#local-6989586621679266077"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266077"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266076"><span class="annot"><span class="annottext">s :: ListChannelsResponse
-</span><a href="#local-6989586621679266076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266075"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannelsResponse
-</span><a href="#local-6989586621679266076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListChannelsResponse' :: Int
+</span><a href="#local-6989586621679266306"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266306"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266305"><span class="annot"><span class="annottext">s :: ListChannelsResponse
+</span><a href="#local-6989586621679266305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266304"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannelsResponse
+</span><a href="#local-6989586621679266305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListChannelsResponse' :: Int
 </span><a href="Network.AWS.IoTAnalytics.ListChannels.html#%24sel%3AhttpStatus%3AListChannelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266073"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span></span><span>
-</span><span id="line-197"></span></pre></body></html>
+</span><a href="#local-6989586621679266304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266302"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span></span><span>
+</span><span id="line-198"></span></pre></body></html>

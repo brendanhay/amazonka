@@ -26,25 +26,25 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The details of the gateway.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newGateway' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679368206"><span id="local-6989586621679368207"></span></span><span class="hs-keyword">data</span><span> </span><span id="Gateway"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-var">Gateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Gateway%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-var">Gateway'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679368524"><span id="local-6989586621679368525"></span></span><span class="hs-keyword">data</span><span> </span><span id="Gateway"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-var">Gateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Gateway%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-var">Gateway'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the gateway.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aarn%3AGateway%27"><span class="annot"><span class="annottext">Gateway -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3Aarn%3AGateway%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The ARN of the gateway group that the gateway is associated to.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AgatewayGroupArn%3AGateway%27"><span class="annot"><span class="annottext">Gateway -&gt; Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3AgatewayGroupArn%3AGateway%27"><span class="hs-identifier hs-var hs-var">gatewayGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the gateway.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aname%3AGateway%27"><span class="annot"><span class="annottext">Gateway -&gt; Maybe Text
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The name of the gateway.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3AGateway%27"><span class="annot"><span class="annottext">Gateway -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3Aname%3AGateway%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The description of the gateway.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Adescription%3AGateway%27"><span class="annot"><span class="annottext">Gateway -&gt; Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3Adescription%3AGateway%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The software version of the gateway. The gateway automatically updates</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- its software version during normal operation.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AsoftwareVersion%3AGateway%27"><span class="annot"><span class="annottext">Gateway -&gt; Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3AsoftwareVersion%3AGateway%27"><span class="hs-identifier hs-var hs-var">softwareVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ARN of the gateway group that the gateway is associated to.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AgatewayGroupArn%3AGateway%27"><span class="annot"><span class="annottext">Gateway -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3AgatewayGroupArn%3AGateway%27"><span class="hs-identifier hs-var hs-var">gatewayGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The software version of the gateway. The gateway automatically updates</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- its software version during normal operation.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsoftwareVersion%3AGateway%27"><span class="annot"><span class="annottext">Gateway -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3AsoftwareVersion%3AGateway%27"><span class="hs-identifier hs-var hs-var">softwareVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The description of the gateway.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Adescription%3AGateway%27"><span class="annot"><span class="annottext">Gateway -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3Adescription%3AGateway%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368196"><span id="local-6989586621679368198"><span class="annot"><span class="annottext">Gateway -&gt; Gateway -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368514"><span id="local-6989586621679368516"><span class="annot"><span class="annottext">Gateway -&gt; Gateway -&gt; Bool
 (Gateway -&gt; Gateway -&gt; Bool)
 -&gt; (Gateway -&gt; Gateway -&gt; Bool) -&gt; Eq Gateway
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Gateway -&gt; Gateway -&gt; Bool
 == :: Gateway -&gt; Gateway -&gt; Bool
 $c== :: Gateway -&gt; Gateway -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368187"><span id="local-6989586621679368189"><span id="local-6989586621679368191"><span id="local-6989586621679368193"><span class="annot"><span class="annottext">ReadPrec [Gateway]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368505"><span id="local-6989586621679368507"><span id="local-6989586621679368509"><span id="local-6989586621679368511"><span class="annot"><span class="annottext">ReadPrec [Gateway]
 ReadPrec Gateway
 Int -&gt; ReadS Gateway
 ReadS [Gateway]
@@ -72,7 +72,7 @@ readList :: ReadS [Gateway]
 $creadList :: ReadS [Gateway]
 readsPrec :: Int -&gt; ReadS Gateway
 $creadsPrec :: Int -&gt; ReadS Gateway
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368180"><span id="local-6989586621679368182"><span id="local-6989586621679368184"><span class="annot"><span class="annottext">Int -&gt; Gateway -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368498"><span id="local-6989586621679368500"><span id="local-6989586621679368502"><span class="annot"><span class="annottext">Int -&gt; Gateway -&gt; ShowS
 [Gateway] -&gt; ShowS
 Gateway -&gt; String
 (Int -&gt; Gateway -&gt; ShowS)
@@ -105,14 +105,14 @@ $cfrom :: forall x. Gateway -&gt; Rep Gateway x
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- 'arn', 'gateway_arn' - The ARN of the gateway.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'gatewayGroupArn', 'gateway_gatewayGroupArn' - The ARN of the gateway group that the gateway is associated to.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'name', 'gateway_name' - The name of the gateway.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'name', 'gateway_name' - The name of the gateway.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'gatewayGroupArn', 'gateway_gatewayGroupArn' - The ARN of the gateway group that the gateway is associated to.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'description', 'gateway_description' - The description of the gateway.</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'softwareVersion', 'gateway_softwareVersion' - The software version of the gateway. The gateway automatically updates</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- its software version during normal operation.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'softwareVersion', 'gateway_softwareVersion' - The software version of the gateway. The gateway automatically updates</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- its software version during normal operation.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'description', 'gateway_description' - The description of the gateway.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#newGateway"><span class="hs-identifier hs-type">newGateway</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span>
 </span><span id="line-64"></span><span id="newGateway"><span class="annot"><span class="annottext">newGateway :: Gateway
@@ -124,20 +124,20 @@ $cfrom :: forall x. Gateway -&gt; Rep Gateway x
 </span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3Aarn%3AGateway%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:gatewayGroupArn:Gateway' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3AgatewayGroupArn%3AGateway%27"><span class="hs-identifier hs-var">gatewayGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Gateway' :: Maybe Text
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Gateway' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3Aname%3AGateway%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Gateway' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3Adescription%3AGateway%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:gatewayGroupArn:Gateway' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3AgatewayGroupArn%3AGateway%27"><span class="hs-identifier hs-var">gatewayGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:softwareVersion:Gateway' :: Maybe Text
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:softwareVersion:Gateway' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3AsoftwareVersion%3AGateway%27"><span class="hs-identifier hs-var">softwareVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Gateway' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3Adescription%3AGateway%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
@@ -149,100 +149,100 @@ forall a. Maybe a
 -&gt; (Gateway -&gt; Maybe Text -&gt; Gateway)
 -&gt; Lens Gateway Gateway (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368171"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368489"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:Gateway' :: Gateway -&gt; Maybe Text
-</span><a href="#local-6989586621679368171"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368171"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368170"><span class="annot"><span class="annottext">s :: Gateway
-</span><a href="#local-6989586621679368170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368169"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Gateway
-</span><a href="#local-6989586621679368170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Gateway' :: Maybe Text
+</span><a href="#local-6989586621679368489"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368489"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368488"><span class="annot"><span class="annottext">s :: Gateway
+</span><a href="#local-6989586621679368488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368487"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Gateway
+</span><a href="#local-6989586621679368488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Gateway' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3Aarn%3AGateway%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | The ARN of the gateway group that the gateway is associated to.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#gateway_gatewayGroupArn"><span class="hs-identifier hs-type">gateway_gatewayGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="gateway_gatewayGroupArn"><span class="annot"><span class="annottext">gateway_gatewayGroupArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Gateway -&gt; f Gateway
-</span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#gateway_gatewayGroupArn"><span class="hs-identifier hs-var hs-var">gateway_gatewayGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Gateway -&gt; Maybe Text)
--&gt; (Gateway -&gt; Maybe Text -&gt; Gateway)
--&gt; Lens Gateway Gateway (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368167"><span class="annot"><span class="annottext">Maybe Text
-gatewayGroupArn :: Maybe Text
-$sel:gatewayGroupArn:Gateway' :: Gateway -&gt; Maybe Text
-</span><a href="#local-6989586621679368167"><span class="hs-identifier hs-var hs-var">gatewayGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368167"><span class="hs-identifier hs-var">gatewayGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368166"><span class="annot"><span class="annottext">s :: Gateway
-</span><a href="#local-6989586621679368166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368165"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Gateway
-</span><a href="#local-6989586621679368166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayGroupArn:Gateway' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3AgatewayGroupArn%3AGateway%27"><span class="hs-identifier hs-var">gatewayGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The name of the gateway.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#gateway_name"><span class="hs-identifier hs-type">gateway_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="gateway_name"><span class="annot"><span class="annottext">gateway_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Gateway -&gt; f Gateway
+</span><span id="line-77"></span><span class="hs-comment">-- | The name of the gateway.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#gateway_name"><span class="hs-identifier hs-type">gateway_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="gateway_name"><span class="annot"><span class="annottext">gateway_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Gateway -&gt; f Gateway
 </span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#gateway_name"><span class="hs-identifier hs-var hs-var">gateway_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Gateway -&gt; Maybe Text)
 -&gt; (Gateway -&gt; Maybe Text -&gt; Gateway)
 -&gt; Lens Gateway Gateway (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368163"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368485"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Gateway' :: Gateway -&gt; Maybe Text
-</span><a href="#local-6989586621679368163"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368163"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368162"><span class="annot"><span class="annottext">s :: Gateway
-</span><a href="#local-6989586621679368162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368161"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Gateway
-</span><a href="#local-6989586621679368162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Gateway' :: Maybe Text
+</span><a href="#local-6989586621679368485"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368485"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368484"><span class="annot"><span class="annottext">s :: Gateway
+</span><a href="#local-6989586621679368484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368483"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Gateway
+</span><a href="#local-6989586621679368484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Gateway' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3Aname%3AGateway%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The description of the gateway.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#gateway_description"><span class="hs-identifier hs-type">gateway_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="gateway_description"><span class="annot"><span class="annottext">gateway_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Gateway -&gt; f Gateway
-</span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#gateway_description"><span class="hs-identifier hs-var hs-var">gateway_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Gateway -&gt; Maybe Text)
+</span><a href="#local-6989586621679368483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The ARN of the gateway group that the gateway is associated to.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#gateway_gatewayGroupArn"><span class="hs-identifier hs-type">gateway_gatewayGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="gateway_gatewayGroupArn"><span class="annot"><span class="annottext">gateway_gatewayGroupArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Gateway -&gt; f Gateway
+</span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#gateway_gatewayGroupArn"><span class="hs-identifier hs-var hs-var">gateway_gatewayGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Gateway -&gt; Maybe Text)
 -&gt; (Gateway -&gt; Maybe Text -&gt; Gateway)
 -&gt; Lens Gateway Gateway (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368159"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:Gateway' :: Gateway -&gt; Maybe Text
-</span><a href="#local-6989586621679368159"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368159"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368158"><span class="annot"><span class="annottext">s :: Gateway
-</span><a href="#local-6989586621679368158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368157"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Gateway
-</span><a href="#local-6989586621679368158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Gateway' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3Adescription%3AGateway%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The software version of the gateway. The gateway automatically updates</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- its software version during normal operation.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#gateway_softwareVersion"><span class="hs-identifier hs-type">gateway_softwareVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="gateway_softwareVersion"><span class="annot"><span class="annottext">gateway_softwareVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Gateway -&gt; f Gateway
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368481"><span class="annot"><span class="annottext">Maybe Text
+gatewayGroupArn :: Maybe Text
+$sel:gatewayGroupArn:Gateway' :: Gateway -&gt; Maybe Text
+</span><a href="#local-6989586621679368481"><span class="hs-identifier hs-var hs-var">gatewayGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368481"><span class="hs-identifier hs-var">gatewayGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368480"><span class="annot"><span class="annottext">s :: Gateway
+</span><a href="#local-6989586621679368480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368479"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Gateway
+</span><a href="#local-6989586621679368480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayGroupArn:Gateway' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3AgatewayGroupArn%3AGateway%27"><span class="hs-identifier hs-var">gatewayGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The software version of the gateway. The gateway automatically updates</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- its software version during normal operation.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#gateway_softwareVersion"><span class="hs-identifier hs-type">gateway_softwareVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="gateway_softwareVersion"><span class="annot"><span class="annottext">gateway_softwareVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Gateway -&gt; f Gateway
 </span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#gateway_softwareVersion"><span class="hs-identifier hs-var hs-var">gateway_softwareVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Gateway -&gt; Maybe Text)
 -&gt; (Gateway -&gt; Maybe Text -&gt; Gateway)
 -&gt; Lens Gateway Gateway (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368155"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368477"><span class="annot"><span class="annottext">Maybe Text
 softwareVersion :: Maybe Text
 $sel:softwareVersion:Gateway' :: Gateway -&gt; Maybe Text
-</span><a href="#local-6989586621679368155"><span class="hs-identifier hs-var hs-var">softwareVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368155"><span class="hs-identifier hs-var">softwareVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368154"><span class="annot"><span class="annottext">s :: Gateway
-</span><a href="#local-6989586621679368154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368153"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Gateway
-</span><a href="#local-6989586621679368154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:softwareVersion:Gateway' :: Maybe Text
+</span><a href="#local-6989586621679368477"><span class="hs-identifier hs-var hs-var">softwareVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368477"><span class="hs-identifier hs-var">softwareVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368476"><span class="annot"><span class="annottext">s :: Gateway
+</span><a href="#local-6989586621679368476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368475"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Gateway
+</span><a href="#local-6989586621679368476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:softwareVersion:Gateway' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3AsoftwareVersion%3AGateway%27"><span class="hs-identifier hs-var">softwareVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The description of the gateway.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#gateway_description"><span class="hs-identifier hs-type">gateway_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="gateway_description"><span class="annot"><span class="annottext">gateway_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Gateway -&gt; f Gateway
+</span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#gateway_description"><span class="hs-identifier hs-var hs-var">gateway_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Gateway -&gt; Maybe Text)
+-&gt; (Gateway -&gt; Maybe Text -&gt; Gateway)
+-&gt; Lens Gateway Gateway (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368473"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:Gateway' :: Gateway -&gt; Maybe Text
+</span><a href="#local-6989586621679368473"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368473"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368472"><span class="annot"><span class="annottext">s :: Gateway
+</span><a href="#local-6989586621679368472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-type">Gateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368471"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Gateway
+</span><a href="#local-6989586621679368472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Gateway' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#%24sel%3Adescription%3AGateway%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368150"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679368148"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Gateway
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368468"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679368466"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Gateway
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Gateway) -&gt; Value -&gt; Parser Gateway
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Gateway&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368145"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368145"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368463"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368463"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Gateway
 </span><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway%27"><span class="hs-identifier hs-var">Gateway'</span></a></span><span>
@@ -253,7 +253,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Gateway)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368145"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679368463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
@@ -263,38 +263,38 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Gateway)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368145"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679368463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;GatewayGroupArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Gateway)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Gateway)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368145"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679368463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;GatewayGroupArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Gateway)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Gateway)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368145"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679368463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SoftwareVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Gateway)
 -&gt; Parser (Maybe Text) -&gt; Parser Gateway
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368145"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679368463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SoftwareVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368139"><span id="local-6989586621679368141"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368457"><span id="local-6989586621679368459"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368136"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368454"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Gateway.html#Gateway"><span class="hs-identifier hs-type">Gateway</span></a></span></span><span>
 </span><span id="line-110"></span></pre></body></html>

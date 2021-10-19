@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679309669"><span id="local-6989586621679309670"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LifecycleErrorCode"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode"><span class="hs-identifier hs-var">LifecycleErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifecycleErrorCode%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode%27"><span class="hs-identifier hs-var">LifecycleErrorCode'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679309955"><span id="local-6989586621679309956"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LifecycleErrorCode"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode"><span class="hs-identifier hs-var">LifecycleErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifecycleErrorCode%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LifecycleErrorCode.html#LifecycleErrorCode%27"><span class="hs-identifier hs-var">LifecycleErrorCode'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLifecycleErrorCode"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; Text
 </span><a href="Network.AWS.CodeDeploy.Types.LifecycleErrorCode.html#fromLifecycleErrorCode"><span class="hs-identifier hs-var hs-var">fromLifecycleErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679309661"><span id="local-6989586621679309663"><span id="local-6989586621679309665"><span class="annot"><span class="annottext">Int -&gt; LifecycleErrorCode -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679309947"><span id="local-6989586621679309949"><span id="local-6989586621679309951"><span class="annot"><span class="annottext">Int -&gt; LifecycleErrorCode -&gt; ShowS
 [LifecycleErrorCode] -&gt; ShowS
 LifecycleErrorCode -&gt; String
 (Int -&gt; LifecycleErrorCode -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: LifecycleErrorCode -&gt; String
 showsPrec :: Int -&gt; LifecycleErrorCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; LifecycleErrorCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679309652"><span id="local-6989586621679309654"><span id="local-6989586621679309656"><span id="local-6989586621679309658"><span class="annot"><span class="annottext">ReadPrec [LifecycleErrorCode]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679309938"><span id="local-6989586621679309940"><span id="local-6989586621679309942"><span id="local-6989586621679309944"><span class="annot"><span class="annottext">ReadPrec [LifecycleErrorCode]
 ReadPrec LifecycleErrorCode
 Int -&gt; ReadS LifecycleErrorCode
 ReadS [LifecycleErrorCode]
@@ -76,7 +76,7 @@ $creadList :: ReadS [LifecycleErrorCode]
 readsPrec :: Int -&gt; ReadS LifecycleErrorCode
 $creadsPrec :: Int -&gt; ReadS LifecycleErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679309647"><span id="local-6989586621679309649"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679309933"><span id="local-6989586621679309935"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
 (LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool)
 -&gt; (LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool)
 -&gt; Eq LifecycleErrorCode
@@ -86,7 +86,7 @@ $c/= :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
 == :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
 $c== :: LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679309631"><span id="local-6989586621679309633"><span id="local-6989586621679309635"><span id="local-6989586621679309637"><span id="local-6989586621679309639"><span id="local-6989586621679309641"><span id="local-6989586621679309643"><span class="annot"><span class="annottext">Eq LifecycleErrorCode
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679309917"><span id="local-6989586621679309919"><span id="local-6989586621679309921"><span id="local-6989586621679309923"><span id="local-6989586621679309925"><span id="local-6989586621679309927"><span id="local-6989586621679309929"><span class="annot"><span class="annottext">Eq LifecycleErrorCode
 Eq LifecycleErrorCode
 -&gt; (LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Ordering)
 -&gt; (LifecycleErrorCode -&gt; LifecycleErrorCode -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. LifecycleErrorCode -&gt; Rep LifecycleErrorCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679309623"><span id="local-6989586621679309625"><span class="annot"><span class="annottext">Int -&gt; LifecycleErrorCode -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679309909"><span id="local-6989586621679309911"><span class="annot"><span class="annottext">Int -&gt; LifecycleErrorCode -&gt; Int
 LifecycleErrorCode -&gt; Int
 (Int -&gt; LifecycleErrorCode -&gt; Int)
 -&gt; (LifecycleErrorCode -&gt; Int) -&gt; Hashable LifecycleErrorCode
@@ -147,53 +147,53 @@ $chash :: LifecycleErrorCode -&gt; Int
 hashWithSalt :: Int -&gt; LifecycleErrorCode -&gt; Int
 $chashWithSalt :: Int -&gt; LifecycleErrorCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679309620"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679309906"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; ()
 (LifecycleErrorCode -&gt; ()) -&gt; NFData LifecycleErrorCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LifecycleErrorCode -&gt; ()
 $crnf :: LifecycleErrorCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679309617"><span class="annot"><span class="annottext">Text -&gt; Either String LifecycleErrorCode
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679309903"><span class="annot"><span class="annottext">Text -&gt; Either String LifecycleErrorCode
 (Text -&gt; Either String LifecycleErrorCode)
 -&gt; FromText LifecycleErrorCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LifecycleErrorCode
 $cfromText :: Text -&gt; Either String LifecycleErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679309614"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679309900"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; Text
 (LifecycleErrorCode -&gt; Text) -&gt; ToText LifecycleErrorCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LifecycleErrorCode -&gt; Text
 $ctoText :: LifecycleErrorCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679309611"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679309897"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; ByteString
 (LifecycleErrorCode -&gt; ByteString)
 -&gt; ToByteString LifecycleErrorCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LifecycleErrorCode -&gt; ByteString
 $ctoBS :: LifecycleErrorCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679309608"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679309894"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; ByteStringBuilder
 (LifecycleErrorCode -&gt; ByteStringBuilder)
 -&gt; ToLog LifecycleErrorCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LifecycleErrorCode -&gt; ByteStringBuilder
 $cbuild :: LifecycleErrorCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679309605"><span class="annot"><span class="annottext">HeaderName -&gt; LifecycleErrorCode -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679309891"><span class="annot"><span class="annottext">HeaderName -&gt; LifecycleErrorCode -&gt; [Header]
 (HeaderName -&gt; LifecycleErrorCode -&gt; [Header])
 -&gt; ToHeader LifecycleErrorCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LifecycleErrorCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LifecycleErrorCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679309602"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679309888"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; QueryString
 (LifecycleErrorCode -&gt; QueryString) -&gt; ToQuery LifecycleErrorCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LifecycleErrorCode -&gt; QueryString
 $ctoQuery :: LifecycleErrorCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679309597"><span id="local-6989586621679309599"><span class="annot"><span class="annottext">Value -&gt; Parser [LifecycleErrorCode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679309883"><span id="local-6989586621679309885"><span class="annot"><span class="annottext">Value -&gt; Parser [LifecycleErrorCode]
 Value -&gt; Parser LifecycleErrorCode
 (Value -&gt; Parser LifecycleErrorCode)
 -&gt; (Value -&gt; Parser [LifecycleErrorCode])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [LifecycleErrorCode]
 parseJSON :: Value -&gt; Parser LifecycleErrorCode
 $cparseJSON :: Value -&gt; Parser LifecycleErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679309592"><span id="local-6989586621679309594"><span class="annot"><span class="annottext">FromJSONKeyFunction [LifecycleErrorCode]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679309878"><span id="local-6989586621679309880"><span class="annot"><span class="annottext">FromJSONKeyFunction [LifecycleErrorCode]
 FromJSONKeyFunction LifecycleErrorCode
 FromJSONKeyFunction LifecycleErrorCode
 -&gt; FromJSONKeyFunction [LifecycleErrorCode]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LifecycleErrorCode]
 fromJSONKey :: FromJSONKeyFunction LifecycleErrorCode
 $cfromJSONKey :: FromJSONKeyFunction LifecycleErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679309583"><span id="local-6989586621679309585"><span id="local-6989586621679309587"><span id="local-6989586621679309589"><span class="annot"><span class="annottext">[LifecycleErrorCode] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679309869"><span id="local-6989586621679309871"><span id="local-6989586621679309873"><span id="local-6989586621679309875"><span class="annot"><span class="annottext">[LifecycleErrorCode] -&gt; Encoding
 [LifecycleErrorCode] -&gt; Value
 LifecycleErrorCode -&gt; Encoding
 LifecycleErrorCode -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: LifecycleErrorCode -&gt; Encoding
 toJSON :: LifecycleErrorCode -&gt; Value
 $ctoJSON :: LifecycleErrorCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679309578"><span id="local-6989586621679309580"><span class="annot"><span class="annottext">ToJSONKeyFunction [LifecycleErrorCode]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679309864"><span id="local-6989586621679309866"><span class="annot"><span class="annottext">ToJSONKeyFunction [LifecycleErrorCode]
 ToJSONKeyFunction LifecycleErrorCode
 ToJSONKeyFunction LifecycleErrorCode
 -&gt; ToJSONKeyFunction [LifecycleErrorCode]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LifecycleErrorCode]
 toJSONKey :: ToJSONKeyFunction LifecycleErrorCode
 $ctoJSONKey :: ToJSONKeyFunction LifecycleErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679309575"><span class="annot"><span class="annottext">[Node] -&gt; Either String LifecycleErrorCode
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679309861"><span class="annot"><span class="annottext">[Node] -&gt; Either String LifecycleErrorCode
 ([Node] -&gt; Either String LifecycleErrorCode)
 -&gt; FromXML LifecycleErrorCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LifecycleErrorCode
 $cparseXML :: [Node] -&gt; Either String LifecycleErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679309572"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679309858"><span class="annot"><span class="annottext">LifecycleErrorCode -&gt; XML
 (LifecycleErrorCode -&gt; XML) -&gt; ToXML LifecycleErrorCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LifecycleErrorCode -&gt; XML

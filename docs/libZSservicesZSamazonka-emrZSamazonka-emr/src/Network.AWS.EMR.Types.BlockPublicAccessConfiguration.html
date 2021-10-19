@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- @PermittedPublicSecurityGroupRuleRanges@.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newBlockPublicAccessConfiguration' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679373931"><span id="local-6989586621679373932"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlockPublicAccessConfiguration"><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration"><span class="hs-identifier hs-var">BlockPublicAccessConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlockPublicAccessConfiguration%27"><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration%27"><span class="hs-identifier hs-var">BlockPublicAccessConfiguration'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679374284"><span id="local-6989586621679374285"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlockPublicAccessConfiguration"><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration"><span class="hs-identifier hs-var">BlockPublicAccessConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlockPublicAccessConfiguration%27"><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration%27"><span class="hs-identifier hs-var">BlockPublicAccessConfiguration'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies ports and port ranges that are permitted to have security</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- group rules that allow inbound traffic from all public sources. For</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- example, if Port 23 (Telnet) is specified for</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AblockPublicSecurityGroupRules%3ABlockPublicAccessConfiguration%27"><span class="annot"><span class="annottext">BlockPublicAccessConfiguration -&gt; Bool
 </span><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#%24sel%3AblockPublicSecurityGroupRules%3ABlockPublicAccessConfiguration%27"><span class="hs-identifier hs-var hs-var">blockPublicSecurityGroupRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373924"><span id="local-6989586621679373926"><span class="annot"><span class="annottext">BlockPublicAccessConfiguration
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374277"><span id="local-6989586621679374279"><span class="annot"><span class="annottext">BlockPublicAccessConfiguration
 -&gt; BlockPublicAccessConfiguration -&gt; Bool
 (BlockPublicAccessConfiguration
  -&gt; BlockPublicAccessConfiguration -&gt; Bool)
@@ -68,7 +68,7 @@ $c/= :: BlockPublicAccessConfiguration
 -&gt; BlockPublicAccessConfiguration -&gt; Bool
 $c== :: BlockPublicAccessConfiguration
 -&gt; BlockPublicAccessConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373915"><span id="local-6989586621679373917"><span id="local-6989586621679373919"><span id="local-6989586621679373921"><span class="annot"><span class="annottext">ReadPrec [BlockPublicAccessConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374268"><span id="local-6989586621679374270"><span id="local-6989586621679374272"><span id="local-6989586621679374274"><span class="annot"><span class="annottext">ReadPrec [BlockPublicAccessConfiguration]
 ReadPrec BlockPublicAccessConfiguration
 Int -&gt; ReadS BlockPublicAccessConfiguration
 ReadS [BlockPublicAccessConfiguration]
@@ -88,7 +88,7 @@ readList :: ReadS [BlockPublicAccessConfiguration]
 $creadList :: ReadS [BlockPublicAccessConfiguration]
 readsPrec :: Int -&gt; ReadS BlockPublicAccessConfiguration
 $creadsPrec :: Int -&gt; ReadS BlockPublicAccessConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373908"><span id="local-6989586621679373910"><span id="local-6989586621679373912"><span class="annot"><span class="annottext">Int -&gt; BlockPublicAccessConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374261"><span id="local-6989586621679374263"><span id="local-6989586621679374265"><span class="annot"><span class="annottext">Int -&gt; BlockPublicAccessConfiguration -&gt; ShowS
 [BlockPublicAccessConfiguration] -&gt; ShowS
 BlockPublicAccessConfiguration -&gt; String
 (Int -&gt; BlockPublicAccessConfiguration -&gt; ShowS)
@@ -155,8 +155,8 @@ BlockPublicAccessConfiguration
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration</span></a></span><span>
 </span><span id="line-82"></span><span id="newBlockPublicAccessConfiguration"><span class="annot"><span class="annottext">newBlockPublicAccessConfiguration :: Bool -&gt; BlockPublicAccessConfiguration
 </span><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#newBlockPublicAccessConfiguration"><span class="hs-identifier hs-var hs-var">newBlockPublicAccessConfiguration</span></a></span></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679373902"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679373902"><span class="hs-identifier hs-var">pBlockPublicSecurityGroupRules_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679374255"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679374255"><span class="hs-identifier hs-var">pBlockPublicSecurityGroupRules_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">BlockPublicAccessConfiguration' :: Maybe [PortRange] -&gt; Bool -&gt; BlockPublicAccessConfiguration
 </span><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration%27"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration'</span></a></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:permittedPublicSecurityGroupRuleRanges:BlockPublicAccessConfiguration' :: Maybe [PortRange]
@@ -167,7 +167,7 @@ forall a. Maybe a
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:blockPublicSecurityGroupRules:BlockPublicAccessConfiguration' :: Bool
 </span><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#%24sel%3AblockPublicSecurityGroupRules%3ABlockPublicAccessConfiguration%27"><span class="hs-identifier hs-var">blockPublicSecurityGroupRules</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679373902"><span class="hs-identifier hs-var">pBlockPublicSecurityGroupRules_</span></a></span><span>
+</span><a href="#local-6989586621679374255"><span class="hs-identifier hs-var">pBlockPublicSecurityGroupRules_</span></a></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | Specifies ports and port ranges that are permitted to have security</span><span>
@@ -193,16 +193,16 @@ forall a. Maybe a
      (Maybe [PortRange])
      (Maybe [PortRange])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration%27"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373898"><span class="annot"><span class="annottext">Maybe [PortRange]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration%27"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374251"><span class="annot"><span class="annottext">Maybe [PortRange]
 permittedPublicSecurityGroupRuleRanges :: Maybe [PortRange]
 $sel:permittedPublicSecurityGroupRuleRanges:BlockPublicAccessConfiguration' :: BlockPublicAccessConfiguration -&gt; Maybe [PortRange]
-</span><a href="#local-6989586621679373898"><span class="hs-identifier hs-var hs-var">permittedPublicSecurityGroupRuleRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PortRange]
-</span><a href="#local-6989586621679373898"><span class="hs-identifier hs-var">permittedPublicSecurityGroupRuleRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373897"><span class="annot"><span class="annottext">s :: BlockPublicAccessConfiguration
-</span><a href="#local-6989586621679373897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration%27"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373896"><span class="annot"><span class="annottext">Maybe [PortRange]
-</span><a href="#local-6989586621679373896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlockPublicAccessConfiguration
-</span><a href="#local-6989586621679373897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permittedPublicSecurityGroupRuleRanges:BlockPublicAccessConfiguration' :: Maybe [PortRange]
+</span><a href="#local-6989586621679374251"><span class="hs-identifier hs-var hs-var">permittedPublicSecurityGroupRuleRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PortRange]
+</span><a href="#local-6989586621679374251"><span class="hs-identifier hs-var">permittedPublicSecurityGroupRuleRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374250"><span class="annot"><span class="annottext">s :: BlockPublicAccessConfiguration
+</span><a href="#local-6989586621679374250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration%27"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374249"><span class="annot"><span class="annottext">Maybe [PortRange]
+</span><a href="#local-6989586621679374249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlockPublicAccessConfiguration
+</span><a href="#local-6989586621679374250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permittedPublicSecurityGroupRuleRanges:BlockPublicAccessConfiguration' :: Maybe [PortRange]
 </span><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#%24sel%3ApermittedPublicSecurityGroupRuleRanges%3ABlockPublicAccessConfiguration%27"><span class="hs-identifier hs-var">permittedPublicSecurityGroupRuleRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PortRange]
-</span><a href="#local-6989586621679373896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PortRange] -&gt; f (Maybe [PortRange]))
+</span><a href="#local-6989586621679374249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PortRange] -&gt; f (Maybe [PortRange]))
  -&gt; BlockPublicAccessConfiguration
  -&gt; f BlockPublicAccessConfiguration)
 -&gt; ((Maybe [PortRange] -&gt; f (Maybe [PortRange]))
@@ -221,8 +221,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PortRange] [PortRange] [PortRange] [PortRange]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | Indicates whether Amazon EMR block public access is enabled (@true@) or</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- disabled (@false@). By default, the value is @false@ for accounts that</span><span>
@@ -241,19 +241,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Bool
      Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration%27"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373891"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration%27"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374244"><span class="annot"><span class="annottext">Bool
 blockPublicSecurityGroupRules :: Bool
 $sel:blockPublicSecurityGroupRules:BlockPublicAccessConfiguration' :: BlockPublicAccessConfiguration -&gt; Bool
-</span><a href="#local-6989586621679373891"><span class="hs-identifier hs-var hs-var">blockPublicSecurityGroupRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679373891"><span class="hs-identifier hs-var">blockPublicSecurityGroupRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373890"><span class="annot"><span class="annottext">s :: BlockPublicAccessConfiguration
-</span><a href="#local-6989586621679373890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration%27"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373889"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679373889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlockPublicAccessConfiguration
-</span><a href="#local-6989586621679373890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockPublicSecurityGroupRules:BlockPublicAccessConfiguration' :: Bool
+</span><a href="#local-6989586621679374244"><span class="hs-identifier hs-var hs-var">blockPublicSecurityGroupRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679374244"><span class="hs-identifier hs-var">blockPublicSecurityGroupRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374243"><span class="annot"><span class="annottext">s :: BlockPublicAccessConfiguration
+</span><a href="#local-6989586621679374243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration%27"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374242"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679374242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlockPublicAccessConfiguration
+</span><a href="#local-6989586621679374243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockPublicSecurityGroupRules:BlockPublicAccessConfiguration' :: Bool
 </span><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#%24sel%3AblockPublicSecurityGroupRules%3ABlockPublicAccessConfiguration%27"><span class="hs-identifier hs-var">blockPublicSecurityGroupRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679373889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373886"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679373884"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BlockPublicAccessConfiguration
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374239"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679374237"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BlockPublicAccessConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BlockPublicAccessConfiguration)
@@ -263,8 +263,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BlockPublicAccessConfiguration&quot;</span></span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373881"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373881"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374234"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374234"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PortRange] -&gt; Bool -&gt; BlockPublicAccessConfiguration
 </span><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration%27"><span class="hs-identifier hs-var">BlockPublicAccessConfiguration'</span></a></span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PortRange] -&gt; Bool -&gt; BlockPublicAccessConfiguration)
@@ -272,7 +272,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Bool -&gt; BlockPublicAccessConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PortRange]))
+</span><a href="#local-6989586621679374234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PortRange]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PermittedPublicSecurityGroupRuleRanges&quot;</span></span><span>
@@ -287,29 +287,29 @@ forall a. Monoid a =&gt; a
 -&gt; Parser Bool -&gt; Parser BlockPublicAccessConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+</span><a href="#local-6989586621679374234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BlockPublicSecurityGroupRules&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679373873"><span id="local-6989586621679373875"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679374226"><span id="local-6989586621679374228"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679373870"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679374223"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration</span></a></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373862"><span id="local-6989586621679373864"><span id="local-6989586621679373866"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679373860"><span class="annot"><span class="annottext">toJSON :: BlockPublicAccessConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration%27"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373857"><span id="local-6989586621679373858"><span class="annot"><span class="annottext">Bool
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374215"><span id="local-6989586621679374217"><span id="local-6989586621679374219"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679374213"><span class="annot"><span class="annottext">toJSON :: BlockPublicAccessConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.BlockPublicAccessConfiguration.html#BlockPublicAccessConfiguration%27"><span class="hs-identifier hs-type">BlockPublicAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374210"><span id="local-6989586621679374211"><span class="annot"><span class="annottext">Bool
 Maybe [PortRange]
 blockPublicSecurityGroupRules :: Bool
 permittedPublicSecurityGroupRuleRanges :: Maybe [PortRange]
 $sel:blockPublicSecurityGroupRules:BlockPublicAccessConfiguration' :: BlockPublicAccessConfiguration -&gt; Bool
 $sel:permittedPublicSecurityGroupRuleRanges:BlockPublicAccessConfiguration' :: BlockPublicAccessConfiguration -&gt; Maybe [PortRange]
-</span><a href="#local-6989586621679373857"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679374210"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -322,7 +322,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">([PortRange] -&gt; Pair) -&gt; Maybe [PortRange] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PortRange]
-</span><a href="#local-6989586621679373858"><span class="hs-identifier hs-var">permittedPublicSecurityGroupRuleRanges</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374211"><span class="hs-identifier hs-var">permittedPublicSecurityGroupRuleRanges</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -331,7 +331,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-139"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679373857"><span class="hs-identifier hs-var">blockPublicSecurityGroupRules</span></a></span><span>
+</span><a href="#local-6989586621679374210"><span class="hs-identifier hs-var">blockPublicSecurityGroupRules</span></a></span><span>
 </span><span id="line-140"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>

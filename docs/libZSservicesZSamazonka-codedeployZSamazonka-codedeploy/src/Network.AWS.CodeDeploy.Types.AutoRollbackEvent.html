@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679304863"><span id="local-6989586621679304864"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoRollbackEvent"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.AutoRollbackEvent.html#AutoRollbackEvent"><span class="hs-identifier hs-var">AutoRollbackEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoRollbackEvent%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.AutoRollbackEvent.html#AutoRollbackEvent%27"><span class="hs-identifier hs-var">AutoRollbackEvent'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679305145"><span id="local-6989586621679305146"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoRollbackEvent"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.AutoRollbackEvent.html#AutoRollbackEvent"><span class="hs-identifier hs-var">AutoRollbackEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoRollbackEvent%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.AutoRollbackEvent.html#AutoRollbackEvent%27"><span class="hs-identifier hs-var">AutoRollbackEvent'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutoRollbackEvent"><span class="annot"><span class="annottext">AutoRollbackEvent -&gt; Text
 </span><a href="Network.AWS.CodeDeploy.Types.AutoRollbackEvent.html#fromAutoRollbackEvent"><span class="hs-identifier hs-var hs-var">fromAutoRollbackEvent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679304855"><span id="local-6989586621679304857"><span id="local-6989586621679304859"><span class="annot"><span class="annottext">Int -&gt; AutoRollbackEvent -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679305137"><span id="local-6989586621679305139"><span id="local-6989586621679305141"><span class="annot"><span class="annottext">Int -&gt; AutoRollbackEvent -&gt; ShowS
 [AutoRollbackEvent] -&gt; ShowS
 AutoRollbackEvent -&gt; String
 (Int -&gt; AutoRollbackEvent -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AutoRollbackEvent -&gt; String
 showsPrec :: Int -&gt; AutoRollbackEvent -&gt; ShowS
 $cshowsPrec :: Int -&gt; AutoRollbackEvent -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679304846"><span id="local-6989586621679304848"><span id="local-6989586621679304850"><span id="local-6989586621679304852"><span class="annot"><span class="annottext">ReadPrec [AutoRollbackEvent]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679305128"><span id="local-6989586621679305130"><span id="local-6989586621679305132"><span id="local-6989586621679305134"><span class="annot"><span class="annottext">ReadPrec [AutoRollbackEvent]
 ReadPrec AutoRollbackEvent
 Int -&gt; ReadS AutoRollbackEvent
 ReadS [AutoRollbackEvent]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AutoRollbackEvent]
 readsPrec :: Int -&gt; ReadS AutoRollbackEvent
 $creadsPrec :: Int -&gt; ReadS AutoRollbackEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679304841"><span id="local-6989586621679304843"><span class="annot"><span class="annottext">AutoRollbackEvent -&gt; AutoRollbackEvent -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679305123"><span id="local-6989586621679305125"><span class="annot"><span class="annottext">AutoRollbackEvent -&gt; AutoRollbackEvent -&gt; Bool
 (AutoRollbackEvent -&gt; AutoRollbackEvent -&gt; Bool)
 -&gt; (AutoRollbackEvent -&gt; AutoRollbackEvent -&gt; Bool)
 -&gt; Eq AutoRollbackEvent
@@ -83,7 +83,7 @@ $c/= :: AutoRollbackEvent -&gt; AutoRollbackEvent -&gt; Bool
 == :: AutoRollbackEvent -&gt; AutoRollbackEvent -&gt; Bool
 $c== :: AutoRollbackEvent -&gt; AutoRollbackEvent -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679304825"><span id="local-6989586621679304827"><span id="local-6989586621679304829"><span id="local-6989586621679304831"><span id="local-6989586621679304833"><span id="local-6989586621679304835"><span id="local-6989586621679304837"><span class="annot"><span class="annottext">Eq AutoRollbackEvent
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679305107"><span id="local-6989586621679305109"><span id="local-6989586621679305111"><span id="local-6989586621679305113"><span id="local-6989586621679305115"><span id="local-6989586621679305117"><span id="local-6989586621679305119"><span class="annot"><span class="annottext">Eq AutoRollbackEvent
 Eq AutoRollbackEvent
 -&gt; (AutoRollbackEvent -&gt; AutoRollbackEvent -&gt; Ordering)
 -&gt; (AutoRollbackEvent -&gt; AutoRollbackEvent -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. AutoRollbackEvent -&gt; Rep AutoRollbackEvent x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679304817"><span id="local-6989586621679304819"><span class="annot"><span class="annottext">Int -&gt; AutoRollbackEvent -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679305099"><span id="local-6989586621679305101"><span class="annot"><span class="annottext">Int -&gt; AutoRollbackEvent -&gt; Int
 AutoRollbackEvent -&gt; Int
 (Int -&gt; AutoRollbackEvent -&gt; Int)
 -&gt; (AutoRollbackEvent -&gt; Int) -&gt; Hashable AutoRollbackEvent
@@ -144,51 +144,51 @@ $chash :: AutoRollbackEvent -&gt; Int
 hashWithSalt :: Int -&gt; AutoRollbackEvent -&gt; Int
 $chashWithSalt :: Int -&gt; AutoRollbackEvent -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679304814"><span class="annot"><span class="annottext">AutoRollbackEvent -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679305096"><span class="annot"><span class="annottext">AutoRollbackEvent -&gt; ()
 (AutoRollbackEvent -&gt; ()) -&gt; NFData AutoRollbackEvent
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AutoRollbackEvent -&gt; ()
 $crnf :: AutoRollbackEvent -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679304811"><span class="annot"><span class="annottext">Text -&gt; Either String AutoRollbackEvent
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679305093"><span class="annot"><span class="annottext">Text -&gt; Either String AutoRollbackEvent
 (Text -&gt; Either String AutoRollbackEvent)
 -&gt; FromText AutoRollbackEvent
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AutoRollbackEvent
 $cfromText :: Text -&gt; Either String AutoRollbackEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679304808"><span class="annot"><span class="annottext">AutoRollbackEvent -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679305090"><span class="annot"><span class="annottext">AutoRollbackEvent -&gt; Text
 (AutoRollbackEvent -&gt; Text) -&gt; ToText AutoRollbackEvent
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AutoRollbackEvent -&gt; Text
 $ctoText :: AutoRollbackEvent -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679304805"><span class="annot"><span class="annottext">AutoRollbackEvent -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679305087"><span class="annot"><span class="annottext">AutoRollbackEvent -&gt; ByteString
 (AutoRollbackEvent -&gt; ByteString) -&gt; ToByteString AutoRollbackEvent
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AutoRollbackEvent -&gt; ByteString
 $ctoBS :: AutoRollbackEvent -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679304802"><span class="annot"><span class="annottext">AutoRollbackEvent -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679305084"><span class="annot"><span class="annottext">AutoRollbackEvent -&gt; ByteStringBuilder
 (AutoRollbackEvent -&gt; ByteStringBuilder) -&gt; ToLog AutoRollbackEvent
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AutoRollbackEvent -&gt; ByteStringBuilder
 $cbuild :: AutoRollbackEvent -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679304799"><span class="annot"><span class="annottext">HeaderName -&gt; AutoRollbackEvent -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679305081"><span class="annot"><span class="annottext">HeaderName -&gt; AutoRollbackEvent -&gt; [Header]
 (HeaderName -&gt; AutoRollbackEvent -&gt; [Header])
 -&gt; ToHeader AutoRollbackEvent
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AutoRollbackEvent -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AutoRollbackEvent -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679304796"><span class="annot"><span class="annottext">AutoRollbackEvent -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679305078"><span class="annot"><span class="annottext">AutoRollbackEvent -&gt; QueryString
 (AutoRollbackEvent -&gt; QueryString) -&gt; ToQuery AutoRollbackEvent
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AutoRollbackEvent -&gt; QueryString
 $ctoQuery :: AutoRollbackEvent -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679304791"><span id="local-6989586621679304793"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoRollbackEvent]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679305073"><span id="local-6989586621679305075"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoRollbackEvent]
 Value -&gt; Parser AutoRollbackEvent
 (Value -&gt; Parser AutoRollbackEvent)
 -&gt; (Value -&gt; Parser [AutoRollbackEvent])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [AutoRollbackEvent]
 parseJSON :: Value -&gt; Parser AutoRollbackEvent
 $cparseJSON :: Value -&gt; Parser AutoRollbackEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679304786"><span id="local-6989586621679304788"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoRollbackEvent]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679305068"><span id="local-6989586621679305070"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoRollbackEvent]
 FromJSONKeyFunction AutoRollbackEvent
 FromJSONKeyFunction AutoRollbackEvent
 -&gt; FromJSONKeyFunction [AutoRollbackEvent]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AutoRollbackEvent]
 fromJSONKey :: FromJSONKeyFunction AutoRollbackEvent
 $cfromJSONKey :: FromJSONKeyFunction AutoRollbackEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679304777"><span id="local-6989586621679304779"><span id="local-6989586621679304781"><span id="local-6989586621679304783"><span class="annot"><span class="annottext">[AutoRollbackEvent] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679305059"><span id="local-6989586621679305061"><span id="local-6989586621679305063"><span id="local-6989586621679305065"><span class="annot"><span class="annottext">[AutoRollbackEvent] -&gt; Encoding
 [AutoRollbackEvent] -&gt; Value
 AutoRollbackEvent -&gt; Encoding
 AutoRollbackEvent -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: AutoRollbackEvent -&gt; Encoding
 toJSON :: AutoRollbackEvent -&gt; Value
 $ctoJSON :: AutoRollbackEvent -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679304772"><span id="local-6989586621679304774"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoRollbackEvent]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679305054"><span id="local-6989586621679305056"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoRollbackEvent]
 ToJSONKeyFunction AutoRollbackEvent
 ToJSONKeyFunction AutoRollbackEvent
 -&gt; ToJSONKeyFunction [AutoRollbackEvent]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AutoRollbackEvent]
 toJSONKey :: ToJSONKeyFunction AutoRollbackEvent
 $ctoJSONKey :: ToJSONKeyFunction AutoRollbackEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679304769"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoRollbackEvent
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679305051"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoRollbackEvent
 ([Node] -&gt; Either String AutoRollbackEvent)
 -&gt; FromXML AutoRollbackEvent
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AutoRollbackEvent
 $cparseXML :: [Node] -&gt; Either String AutoRollbackEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679304766"><span class="annot"><span class="annottext">AutoRollbackEvent -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679305048"><span class="annot"><span class="annottext">AutoRollbackEvent -&gt; XML
 (AutoRollbackEvent -&gt; XML) -&gt; ToXML AutoRollbackEvent
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AutoRollbackEvent -&gt; XML

@@ -26,13 +26,13 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Provides information to verify the integrity of stored model artifacts.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newModelDigests' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680316487"><span id="local-6989586621680316488"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelDigests"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDigests.html#ModelDigests"><span class="hs-identifier hs-var">ModelDigests</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelDigests%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDigests.html#ModelDigests%27"><span class="hs-identifier hs-var">ModelDigests'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680317867"><span id="local-6989586621680317868"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelDigests"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDigests.html#ModelDigests"><span class="hs-identifier hs-var">ModelDigests</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelDigests%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDigests.html#ModelDigests%27"><span class="hs-identifier hs-var">ModelDigests'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Provides a hash value that uniquely identifies the stored model</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- artifacts.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AartifactDigest%3AModelDigests%27"><span class="annot"><span class="annottext">ModelDigests -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ModelDigests.html#%24sel%3AartifactDigest%3AModelDigests%27"><span class="hs-identifier hs-var hs-var">artifactDigest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680316481"><span id="local-6989586621680316483"><span class="annot"><span class="annottext">ModelDigests -&gt; ModelDigests -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680317861"><span id="local-6989586621680317863"><span class="annot"><span class="annottext">ModelDigests -&gt; ModelDigests -&gt; Bool
 (ModelDigests -&gt; ModelDigests -&gt; Bool)
 -&gt; (ModelDigests -&gt; ModelDigests -&gt; Bool) -&gt; Eq ModelDigests
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModelDigests -&gt; ModelDigests -&gt; Bool
 == :: ModelDigests -&gt; ModelDigests -&gt; Bool
 $c== :: ModelDigests -&gt; ModelDigests -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680316472"><span id="local-6989586621680316474"><span id="local-6989586621680316476"><span id="local-6989586621680316478"><span class="annot"><span class="annottext">ReadPrec [ModelDigests]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317852"><span id="local-6989586621680317854"><span id="local-6989586621680317856"><span id="local-6989586621680317858"><span class="annot"><span class="annottext">ReadPrec [ModelDigests]
 ReadPrec ModelDigests
 Int -&gt; ReadS ModelDigests
 ReadS [ModelDigests]
@@ -60,7 +60,7 @@ readList :: ReadS [ModelDigests]
 $creadList :: ReadS [ModelDigests]
 readsPrec :: Int -&gt; ReadS ModelDigests
 $creadsPrec :: Int -&gt; ReadS ModelDigests
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680316465"><span id="local-6989586621680316467"><span id="local-6989586621680316469"><span class="annot"><span class="annottext">Int -&gt; ModelDigests -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317845"><span id="local-6989586621680317847"><span id="local-6989586621680317849"><span class="annot"><span class="annottext">Int -&gt; ModelDigests -&gt; ShowS
 [ModelDigests] -&gt; ShowS
 ModelDigests -&gt; String
 (Int -&gt; ModelDigests -&gt; ShowS)
@@ -114,19 +114,19 @@ forall a. Maybe a
 -&gt; (ModelDigests -&gt; Maybe Text -&gt; ModelDigests)
 -&gt; Lens ModelDigests ModelDigests (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDigests.html#ModelDigests%27"><span class="hs-identifier hs-type">ModelDigests'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680316456"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDigests.html#ModelDigests%27"><span class="hs-identifier hs-type">ModelDigests'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317836"><span class="annot"><span class="annottext">Maybe Text
 artifactDigest :: Maybe Text
 $sel:artifactDigest:ModelDigests' :: ModelDigests -&gt; Maybe Text
-</span><a href="#local-6989586621680316456"><span class="hs-identifier hs-var hs-var">artifactDigest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680316456"><span class="hs-identifier hs-var">artifactDigest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680316455"><span class="annot"><span class="annottext">s :: ModelDigests
-</span><a href="#local-6989586621680316455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDigests.html#ModelDigests%27"><span class="hs-identifier hs-type">ModelDigests'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680316454"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680316454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelDigests
-</span><a href="#local-6989586621680316455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactDigest:ModelDigests' :: Maybe Text
+</span><a href="#local-6989586621680317836"><span class="hs-identifier hs-var hs-var">artifactDigest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680317836"><span class="hs-identifier hs-var">artifactDigest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317835"><span class="annot"><span class="annottext">s :: ModelDigests
+</span><a href="#local-6989586621680317835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDigests.html#ModelDigests%27"><span class="hs-identifier hs-type">ModelDigests'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317834"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680317834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelDigests
+</span><a href="#local-6989586621680317835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactDigest:ModelDigests' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ModelDigests.html#%24sel%3AartifactDigest%3AModelDigests%27"><span class="hs-identifier hs-var">artifactDigest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680316454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDigests.html#ModelDigests"><span class="hs-identifier hs-type">ModelDigests</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680317834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDigests.html#ModelDigests"><span class="hs-identifier hs-type">ModelDigests</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316451"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDigests.html#ModelDigests"><span class="hs-identifier hs-type">ModelDigests</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621680316449"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelDigests
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317831"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDigests.html#ModelDigests"><span class="hs-identifier hs-type">ModelDigests</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621680317829"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelDigests
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ModelDigests) -&gt; Value -&gt; Parser ModelDigests
@@ -134,21 +134,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ModelDigests&quot;</span></span><span>
-</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680316446"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680316446"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680317826"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680317826"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; ModelDigests
 </span><a href="Network.AWS.SageMaker.Types.ModelDigests.html#ModelDigests%27"><span class="hs-identifier hs-var">ModelDigests'</span></a></span><span>
 </span><span id="line-62"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; ModelDigests)
 -&gt; Parser (Maybe Text) -&gt; Parser ModelDigests
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680316446"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680317826"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ArtifactDigest&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316440"><span id="local-6989586621680316442"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDigests.html#ModelDigests"><span class="hs-identifier hs-type">ModelDigests</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317820"><span id="local-6989586621680317822"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDigests.html#ModelDigests"><span class="hs-identifier hs-type">ModelDigests</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316437"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDigests.html#ModelDigests"><span class="hs-identifier hs-type">ModelDigests</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317817"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelDigests.html#ModelDigests"><span class="hs-identifier hs-type">ModelDigests</span></a></span></span><span>
 </span><span id="line-68"></span></pre></body></html>

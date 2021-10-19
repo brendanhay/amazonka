@@ -67,7 +67,7 @@
 </span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- /See:/ 'newDeleteMessage' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679179791"><span id="local-6989586621679179792"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMessage"><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage"><span class="hs-identifier hs-var">DeleteMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMessage%27"><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage%27"><span class="hs-identifier hs-var">DeleteMessage'</span></a></span></span><span>
+</span><span id="line-70"></span><span id="local-6989586621679179947"><span id="local-6989586621679179948"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMessage"><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage"><span class="hs-identifier hs-var">DeleteMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMessage%27"><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage%27"><span class="hs-identifier hs-var">DeleteMessage'</span></a></span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The URL of the Amazon SQS queue from which messages are deleted.</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- Queue URLs and names are case-sensitive.</span><span>
@@ -77,7 +77,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3AreceiptHandle%3ADeleteMessage%27"><span class="annot"><span class="annottext">DeleteMessage -&gt; Text
 </span><a href="Network.AWS.SQS.DeleteMessage.html#%24sel%3AreceiptHandle%3ADeleteMessage%27"><span class="hs-identifier hs-var hs-var">receiptHandle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179784"><span id="local-6989586621679179786"><span class="annot"><span class="annottext">DeleteMessage -&gt; DeleteMessage -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179940"><span id="local-6989586621679179942"><span class="annot"><span class="annottext">DeleteMessage -&gt; DeleteMessage -&gt; Bool
 (DeleteMessage -&gt; DeleteMessage -&gt; Bool)
 -&gt; (DeleteMessage -&gt; DeleteMessage -&gt; Bool) -&gt; Eq DeleteMessage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteMessage -&gt; DeleteMessage -&gt; Bool
 == :: DeleteMessage -&gt; DeleteMessage -&gt; Bool
 $c== :: DeleteMessage -&gt; DeleteMessage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179775"><span id="local-6989586621679179777"><span id="local-6989586621679179779"><span id="local-6989586621679179781"><span class="annot"><span class="annottext">ReadPrec [DeleteMessage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179931"><span id="local-6989586621679179933"><span id="local-6989586621679179935"><span id="local-6989586621679179937"><span class="annot"><span class="annottext">ReadPrec [DeleteMessage]
 ReadPrec DeleteMessage
 Int -&gt; ReadS DeleteMessage
 ReadS [DeleteMessage]
@@ -105,7 +105,7 @@ readList :: ReadS [DeleteMessage]
 $creadList :: ReadS [DeleteMessage]
 readsPrec :: Int -&gt; ReadS DeleteMessage
 $creadsPrec :: Int -&gt; ReadS DeleteMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179768"><span id="local-6989586621679179770"><span id="local-6989586621679179772"><span class="annot"><span class="annottext">Int -&gt; DeleteMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179924"><span id="local-6989586621679179926"><span id="local-6989586621679179928"><span class="annot"><span class="annottext">Int -&gt; DeleteMessage -&gt; ShowS
 [DeleteMessage] -&gt; ShowS
 DeleteMessage -&gt; String
 (Int -&gt; DeleteMessage -&gt; ShowS)
@@ -151,17 +151,17 @@ $cfrom :: forall x. DeleteMessage -&gt; Rep DeleteMessage x
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage"><span class="hs-identifier hs-type">DeleteMessage</span></a></span><span>
 </span><span id="line-99"></span><span id="newDeleteMessage"><span class="annot"><span class="annottext">newDeleteMessage :: Text -&gt; Text -&gt; DeleteMessage
-</span><a href="Network.AWS.SQS.DeleteMessage.html#newDeleteMessage"><span class="hs-identifier hs-var hs-var">newDeleteMessage</span></a></span></span><span> </span><span id="local-6989586621679179763"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179763"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span></span><span> </span><span id="local-6989586621679179762"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179762"><span class="hs-identifier hs-var">pReceiptHandle_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SQS.DeleteMessage.html#newDeleteMessage"><span class="hs-identifier hs-var hs-var">newDeleteMessage</span></a></span></span><span> </span><span id="local-6989586621679179919"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179919"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span></span><span> </span><span id="local-6989586621679179918"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179918"><span class="hs-identifier hs-var">pReceiptHandle_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">DeleteMessage' :: Text -&gt; Text -&gt; DeleteMessage
 </span><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage%27"><span class="hs-identifier hs-type">DeleteMessage'</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queueUrl:DeleteMessage' :: Text
 </span><a href="Network.AWS.SQS.DeleteMessage.html#%24sel%3AqueueUrl%3ADeleteMessage%27"><span class="hs-identifier hs-var">queueUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179763"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679179919"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:receiptHandle:DeleteMessage' :: Text
 </span><a href="Network.AWS.SQS.DeleteMessage.html#%24sel%3AreceiptHandle%3ADeleteMessage%27"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179762"><span class="hs-identifier hs-var">pReceiptHandle_</span></a></span><span>
+</span><a href="#local-6989586621679179918"><span class="hs-identifier hs-var">pReceiptHandle_</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The URL of the Amazon SQS queue from which messages are deleted.</span><span>
@@ -173,16 +173,16 @@ $cfrom :: forall x. DeleteMessage -&gt; Rep DeleteMessage x
 -&gt; (DeleteMessage -&gt; Text -&gt; DeleteMessage)
 -&gt; Lens DeleteMessage DeleteMessage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage%27"><span class="hs-identifier hs-type">DeleteMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179759"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage%27"><span class="hs-identifier hs-type">DeleteMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179915"><span class="annot"><span class="annottext">Text
 queueUrl :: Text
 $sel:queueUrl:DeleteMessage' :: DeleteMessage -&gt; Text
-</span><a href="#local-6989586621679179759"><span class="hs-identifier hs-var hs-var">queueUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179759"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179758"><span class="annot"><span class="annottext">s :: DeleteMessage
-</span><a href="#local-6989586621679179758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage%27"><span class="hs-identifier hs-type">DeleteMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179757"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMessage
-</span><a href="#local-6989586621679179758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueUrl:DeleteMessage' :: Text
+</span><a href="#local-6989586621679179915"><span class="hs-identifier hs-var hs-var">queueUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179915"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179914"><span class="annot"><span class="annottext">s :: DeleteMessage
+</span><a href="#local-6989586621679179914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage%27"><span class="hs-identifier hs-type">DeleteMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179913"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMessage
+</span><a href="#local-6989586621679179914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueUrl:DeleteMessage' :: Text
 </span><a href="Network.AWS.SQS.DeleteMessage.html#%24sel%3AqueueUrl%3ADeleteMessage%27"><span class="hs-identifier hs-var">queueUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage"><span class="hs-identifier hs-type">DeleteMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage"><span class="hs-identifier hs-type">DeleteMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The receipt handle associated with the message to delete.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#deleteMessage_receiptHandle"><span class="hs-identifier hs-type">deleteMessage_receiptHandle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage"><span class="hs-identifier hs-type">DeleteMessage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -191,27 +191,27 @@ $sel:queueUrl:DeleteMessage' :: DeleteMessage -&gt; Text
 -&gt; (DeleteMessage -&gt; Text -&gt; DeleteMessage)
 -&gt; Lens DeleteMessage DeleteMessage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage%27"><span class="hs-identifier hs-type">DeleteMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179756"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage%27"><span class="hs-identifier hs-type">DeleteMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179912"><span class="annot"><span class="annottext">Text
 receiptHandle :: Text
 $sel:receiptHandle:DeleteMessage' :: DeleteMessage -&gt; Text
-</span><a href="#local-6989586621679179756"><span class="hs-identifier hs-var hs-var">receiptHandle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179756"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179755"><span class="annot"><span class="annottext">s :: DeleteMessage
-</span><a href="#local-6989586621679179755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage%27"><span class="hs-identifier hs-type">DeleteMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179754"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMessage
-</span><a href="#local-6989586621679179755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:receiptHandle:DeleteMessage' :: Text
+</span><a href="#local-6989586621679179912"><span class="hs-identifier hs-var hs-var">receiptHandle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179912"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179911"><span class="annot"><span class="annottext">s :: DeleteMessage
+</span><a href="#local-6989586621679179911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage%27"><span class="hs-identifier hs-type">DeleteMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179910"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMessage
+</span><a href="#local-6989586621679179911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:receiptHandle:DeleteMessage' :: Text
 </span><a href="Network.AWS.SQS.DeleteMessage.html#%24sel%3AreceiptHandle%3ADeleteMessage%27"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage"><span class="hs-identifier hs-type">DeleteMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage"><span class="hs-identifier hs-type">DeleteMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage"><span class="hs-identifier hs-type">DeleteMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage"><span class="hs-identifier hs-type">DeleteMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessageResponse"><span class="hs-identifier hs-type">DeleteMessageResponse</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679179750"><span class="annot"><span class="annottext">request :: DeleteMessage -&gt; Request DeleteMessage
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679179906"><span class="annot"><span class="annottext">request :: DeleteMessage -&gt; Request DeleteMessage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteMessage -&gt; Request DeleteMessage
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SQS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679179746"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679179902"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteMessage
 -&gt; ClientResponse ClientBody
@@ -235,12 +235,12 @@ AWSResponse a
 DeleteMessageResponse
 </span><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessageResponse%27"><span class="hs-identifier hs-var">DeleteMessageResponse'</span></a></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179739"><span id="local-6989586621679179741"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage"><span class="hs-identifier hs-type">DeleteMessage</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179895"><span id="local-6989586621679179897"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage"><span class="hs-identifier hs-type">DeleteMessage</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179736"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage"><span class="hs-identifier hs-type">DeleteMessage</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179892"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage"><span class="hs-identifier hs-type">DeleteMessage</span></a></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage"><span class="hs-identifier hs-type">DeleteMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679179732"><span class="annot"><span class="annottext">toHeaders :: DeleteMessage -&gt; [Header]
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679179888"><span class="annot"><span class="annottext">toHeaders :: DeleteMessage -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteMessage -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -248,20 +248,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage"><span class="hs-identifier hs-type">DeleteMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679179727"><span class="annot"><span class="annottext">toPath :: DeleteMessage -&gt; ByteString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679179883"><span class="annot"><span class="annottext">toPath :: DeleteMessage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteMessage -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage"><span class="hs-identifier hs-type">DeleteMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679179723"><span class="annot"><span class="annottext">toQuery :: DeleteMessage -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage%27"><span class="hs-identifier hs-type">DeleteMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179720"><span id="local-6989586621679179721"><span class="annot"><span class="annottext">Text
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679179879"><span class="annot"><span class="annottext">toQuery :: DeleteMessage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessage%27"><span class="hs-identifier hs-type">DeleteMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179876"><span id="local-6989586621679179877"><span class="annot"><span class="annottext">Text
 receiptHandle :: Text
 queueUrl :: Text
 $sel:receiptHandle:DeleteMessage' :: DeleteMessage -&gt; Text
 $sel:queueUrl:DeleteMessage' :: DeleteMessage -&gt; Text
-</span><a href="#local-6989586621679179720"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679179876"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -281,19 +281,19 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;QueueUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179721"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679179877"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReceiptHandle&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179720"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span>
+</span><a href="#local-6989586621679179876"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newDeleteMessageResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679179717"><span id="local-6989586621679179718"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMessageResponse"><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessageResponse"><span class="hs-identifier hs-var">DeleteMessageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMessageResponse%27"><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessageResponse%27"><span class="hs-identifier hs-var">DeleteMessageResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span id="local-6989586621679179873"><span id="local-6989586621679179874"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMessageResponse"><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessageResponse"><span class="hs-identifier hs-var">DeleteMessageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMessageResponse%27"><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessageResponse%27"><span class="hs-identifier hs-var">DeleteMessageResponse'</span></a></span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179713"><span id="local-6989586621679179715"><span class="annot"><span class="annottext">DeleteMessageResponse -&gt; DeleteMessageResponse -&gt; Bool
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179869"><span id="local-6989586621679179871"><span class="annot"><span class="annottext">DeleteMessageResponse -&gt; DeleteMessageResponse -&gt; Bool
 (DeleteMessageResponse -&gt; DeleteMessageResponse -&gt; Bool)
 -&gt; (DeleteMessageResponse -&gt; DeleteMessageResponse -&gt; Bool)
 -&gt; Eq DeleteMessageResponse
@@ -302,7 +302,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteMessageResponse -&gt; DeleteMessageResponse -&gt; Bool
 == :: DeleteMessageResponse -&gt; DeleteMessageResponse -&gt; Bool
 $c== :: DeleteMessageResponse -&gt; DeleteMessageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179705"><span id="local-6989586621679179707"><span id="local-6989586621679179709"><span id="local-6989586621679179711"><span class="annot"><span class="annottext">ReadPrec [DeleteMessageResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179861"><span id="local-6989586621679179863"><span id="local-6989586621679179865"><span id="local-6989586621679179867"><span class="annot"><span class="annottext">ReadPrec [DeleteMessageResponse]
 ReadPrec DeleteMessageResponse
 Int -&gt; ReadS DeleteMessageResponse
 ReadS [DeleteMessageResponse]
@@ -322,7 +322,7 @@ readList :: ReadS [DeleteMessageResponse]
 $creadList :: ReadS [DeleteMessageResponse]
 readsPrec :: Int -&gt; ReadS DeleteMessageResponse
 $creadsPrec :: Int -&gt; ReadS DeleteMessageResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179699"><span id="local-6989586621679179701"><span id="local-6989586621679179703"><span class="annot"><span class="annottext">Int -&gt; DeleteMessageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179855"><span id="local-6989586621679179857"><span id="local-6989586621679179859"><span class="annot"><span class="annottext">Int -&gt; DeleteMessageResponse -&gt; ShowS
 [DeleteMessageResponse] -&gt; ShowS
 DeleteMessageResponse -&gt; String
 (Int -&gt; DeleteMessageResponse -&gt; ShowS)
@@ -358,5 +358,5 @@ $cfrom :: forall x. DeleteMessageResponse -&gt; Rep DeleteMessageResponse x
 </span><a href="Network.AWS.SQS.DeleteMessage.html#newDeleteMessageResponse"><span class="hs-identifier hs-var hs-var">newDeleteMessageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteMessageResponse
 </span><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessageResponse%27"><span class="hs-identifier hs-var">DeleteMessageResponse'</span></a></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179695"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessageResponse"><span class="hs-identifier hs-type">DeleteMessageResponse</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179851"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.DeleteMessage.html#DeleteMessageResponse"><span class="hs-identifier hs-type">DeleteMessageResponse</span></a></span></span><span>
 </span><span id="line-159"></span></pre></body></html>

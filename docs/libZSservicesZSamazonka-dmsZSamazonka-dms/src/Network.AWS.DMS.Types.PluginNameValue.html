@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679434890"><span id="local-6989586621679434891"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PluginNameValue"><span class="annot"><a href="Network.AWS.DMS.Types.PluginNameValue.html#PluginNameValue"><span class="hs-identifier hs-var">PluginNameValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PluginNameValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.PluginNameValue.html#PluginNameValue%27"><span class="hs-identifier hs-var">PluginNameValue'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679435168"><span id="local-6989586621679435169"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PluginNameValue"><span class="annot"><a href="Network.AWS.DMS.Types.PluginNameValue.html#PluginNameValue"><span class="hs-identifier hs-var">PluginNameValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PluginNameValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.PluginNameValue.html#PluginNameValue%27"><span class="hs-identifier hs-var">PluginNameValue'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPluginNameValue"><span class="annot"><span class="annottext">PluginNameValue -&gt; Text
 </span><a href="Network.AWS.DMS.Types.PluginNameValue.html#fromPluginNameValue"><span class="hs-identifier hs-var hs-var">fromPluginNameValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679434882"><span id="local-6989586621679434884"><span id="local-6989586621679434886"><span class="annot"><span class="annottext">Int -&gt; PluginNameValue -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679435160"><span id="local-6989586621679435162"><span id="local-6989586621679435164"><span class="annot"><span class="annottext">Int -&gt; PluginNameValue -&gt; ShowS
 [PluginNameValue] -&gt; ShowS
 PluginNameValue -&gt; String
 (Int -&gt; PluginNameValue -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: PluginNameValue -&gt; String
 showsPrec :: Int -&gt; PluginNameValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; PluginNameValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679434873"><span id="local-6989586621679434875"><span id="local-6989586621679434877"><span id="local-6989586621679434879"><span class="annot"><span class="annottext">ReadPrec [PluginNameValue]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679435151"><span id="local-6989586621679435153"><span id="local-6989586621679435155"><span id="local-6989586621679435157"><span class="annot"><span class="annottext">ReadPrec [PluginNameValue]
 ReadPrec PluginNameValue
 Int -&gt; ReadS PluginNameValue
 ReadS [PluginNameValue]
@@ -73,7 +73,7 @@ $creadList :: ReadS [PluginNameValue]
 readsPrec :: Int -&gt; ReadS PluginNameValue
 $creadsPrec :: Int -&gt; ReadS PluginNameValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679434868"><span id="local-6989586621679434870"><span class="annot"><span class="annottext">PluginNameValue -&gt; PluginNameValue -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679435146"><span id="local-6989586621679435148"><span class="annot"><span class="annottext">PluginNameValue -&gt; PluginNameValue -&gt; Bool
 (PluginNameValue -&gt; PluginNameValue -&gt; Bool)
 -&gt; (PluginNameValue -&gt; PluginNameValue -&gt; Bool)
 -&gt; Eq PluginNameValue
@@ -83,7 +83,7 @@ $c/= :: PluginNameValue -&gt; PluginNameValue -&gt; Bool
 == :: PluginNameValue -&gt; PluginNameValue -&gt; Bool
 $c== :: PluginNameValue -&gt; PluginNameValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679434852"><span id="local-6989586621679434854"><span id="local-6989586621679434856"><span id="local-6989586621679434858"><span id="local-6989586621679434860"><span id="local-6989586621679434862"><span id="local-6989586621679434864"><span class="annot"><span class="annottext">Eq PluginNameValue
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679435130"><span id="local-6989586621679435132"><span id="local-6989586621679435134"><span id="local-6989586621679435136"><span id="local-6989586621679435138"><span id="local-6989586621679435140"><span id="local-6989586621679435142"><span class="annot"><span class="annottext">Eq PluginNameValue
 Eq PluginNameValue
 -&gt; (PluginNameValue -&gt; PluginNameValue -&gt; Ordering)
 -&gt; (PluginNameValue -&gt; PluginNameValue -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. PluginNameValue -&gt; Rep PluginNameValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679434844"><span id="local-6989586621679434846"><span class="annot"><span class="annottext">Int -&gt; PluginNameValue -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679435122"><span id="local-6989586621679435124"><span class="annot"><span class="annottext">Int -&gt; PluginNameValue -&gt; Int
 PluginNameValue -&gt; Int
 (Int -&gt; PluginNameValue -&gt; Int)
 -&gt; (PluginNameValue -&gt; Int) -&gt; Hashable PluginNameValue
@@ -144,50 +144,50 @@ $chash :: PluginNameValue -&gt; Int
 hashWithSalt :: Int -&gt; PluginNameValue -&gt; Int
 $chashWithSalt :: Int -&gt; PluginNameValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679434841"><span class="annot"><span class="annottext">PluginNameValue -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679435119"><span class="annot"><span class="annottext">PluginNameValue -&gt; ()
 (PluginNameValue -&gt; ()) -&gt; NFData PluginNameValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PluginNameValue -&gt; ()
 $crnf :: PluginNameValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679434838"><span class="annot"><span class="annottext">Text -&gt; Either String PluginNameValue
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679435116"><span class="annot"><span class="annottext">Text -&gt; Either String PluginNameValue
 (Text -&gt; Either String PluginNameValue) -&gt; FromText PluginNameValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PluginNameValue
 $cfromText :: Text -&gt; Either String PluginNameValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679434835"><span class="annot"><span class="annottext">PluginNameValue -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679435113"><span class="annot"><span class="annottext">PluginNameValue -&gt; Text
 (PluginNameValue -&gt; Text) -&gt; ToText PluginNameValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PluginNameValue -&gt; Text
 $ctoText :: PluginNameValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679434832"><span class="annot"><span class="annottext">PluginNameValue -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679435110"><span class="annot"><span class="annottext">PluginNameValue -&gt; ByteString
 (PluginNameValue -&gt; ByteString) -&gt; ToByteString PluginNameValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PluginNameValue -&gt; ByteString
 $ctoBS :: PluginNameValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679434829"><span class="annot"><span class="annottext">PluginNameValue -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679435107"><span class="annot"><span class="annottext">PluginNameValue -&gt; ByteStringBuilder
 (PluginNameValue -&gt; ByteStringBuilder) -&gt; ToLog PluginNameValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PluginNameValue -&gt; ByteStringBuilder
 $cbuild :: PluginNameValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679434826"><span class="annot"><span class="annottext">HeaderName -&gt; PluginNameValue -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679435104"><span class="annot"><span class="annottext">HeaderName -&gt; PluginNameValue -&gt; [Header]
 (HeaderName -&gt; PluginNameValue -&gt; [Header])
 -&gt; ToHeader PluginNameValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PluginNameValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PluginNameValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679434823"><span class="annot"><span class="annottext">PluginNameValue -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679435101"><span class="annot"><span class="annottext">PluginNameValue -&gt; QueryString
 (PluginNameValue -&gt; QueryString) -&gt; ToQuery PluginNameValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PluginNameValue -&gt; QueryString
 $ctoQuery :: PluginNameValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679434818"><span id="local-6989586621679434820"><span class="annot"><span class="annottext">Value -&gt; Parser [PluginNameValue]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679435096"><span id="local-6989586621679435098"><span class="annot"><span class="annottext">Value -&gt; Parser [PluginNameValue]
 Value -&gt; Parser PluginNameValue
 (Value -&gt; Parser PluginNameValue)
 -&gt; (Value -&gt; Parser [PluginNameValue]) -&gt; FromJSON PluginNameValue
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [PluginNameValue]
 parseJSON :: Value -&gt; Parser PluginNameValue
 $cparseJSON :: Value -&gt; Parser PluginNameValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679434813"><span id="local-6989586621679434815"><span class="annot"><span class="annottext">FromJSONKeyFunction [PluginNameValue]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679435091"><span id="local-6989586621679435093"><span class="annot"><span class="annottext">FromJSONKeyFunction [PluginNameValue]
 FromJSONKeyFunction PluginNameValue
 FromJSONKeyFunction PluginNameValue
 -&gt; FromJSONKeyFunction [PluginNameValue]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PluginNameValue]
 fromJSONKey :: FromJSONKeyFunction PluginNameValue
 $cfromJSONKey :: FromJSONKeyFunction PluginNameValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679434804"><span id="local-6989586621679434806"><span id="local-6989586621679434808"><span id="local-6989586621679434810"><span class="annot"><span class="annottext">[PluginNameValue] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679435082"><span id="local-6989586621679435084"><span id="local-6989586621679435086"><span id="local-6989586621679435088"><span class="annot"><span class="annottext">[PluginNameValue] -&gt; Encoding
 [PluginNameValue] -&gt; Value
 PluginNameValue -&gt; Encoding
 PluginNameValue -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: PluginNameValue -&gt; Encoding
 toJSON :: PluginNameValue -&gt; Value
 $ctoJSON :: PluginNameValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679434799"><span id="local-6989586621679434801"><span class="annot"><span class="annottext">ToJSONKeyFunction [PluginNameValue]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679435077"><span id="local-6989586621679435079"><span class="annot"><span class="annottext">ToJSONKeyFunction [PluginNameValue]
 ToJSONKeyFunction PluginNameValue
 ToJSONKeyFunction PluginNameValue
 -&gt; ToJSONKeyFunction [PluginNameValue] -&gt; ToJSONKey PluginNameValue
@@ -245,14 +245,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PluginNameValue]
 toJSONKey :: ToJSONKeyFunction PluginNameValue
 $ctoJSONKey :: ToJSONKeyFunction PluginNameValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679434796"><span class="annot"><span class="annottext">[Node] -&gt; Either String PluginNameValue
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679435074"><span class="annot"><span class="annottext">[Node] -&gt; Either String PluginNameValue
 ([Node] -&gt; Either String PluginNameValue)
 -&gt; FromXML PluginNameValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PluginNameValue
 $cparseXML :: [Node] -&gt; Either String PluginNameValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679434793"><span class="annot"><span class="annottext">PluginNameValue -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679435071"><span class="annot"><span class="annottext">PluginNameValue -&gt; XML
 (PluginNameValue -&gt; XML) -&gt; ToXML PluginNameValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PluginNameValue -&gt; XML

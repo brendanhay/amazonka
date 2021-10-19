@@ -24,186 +24,186 @@
 </span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
 </span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-26"></span><span>
-</span><span id="line-27"></span><span class="hs-comment">-- | Polls 'Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.</span><span>
-</span><span id="line-28"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Waiters.html#newAuditReportCreated"><span class="hs-identifier hs-type">newAuditReportCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport</span></a></span><span>
-</span><span id="line-29"></span><span id="newAuditReportCreated"><span class="annot"><span class="annottext">newAuditReportCreated :: Wait DescribeCertificateAuthorityAuditReport
-</span><a href="Network.AWS.CertificateManagerPCA.Waiters.html#newAuditReportCreated"><span class="hs-identifier hs-var hs-var">newAuditReportCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Polls 'Network.AWS.CertificateManagerPCA.GetCertificate' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.</span><span>
+</span><span id="line-28"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Waiters.html#newCertificateIssued"><span class="hs-identifier hs-type">newCertificateIssued</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificate.html#GetCertificate"><span class="hs-identifier hs-type">GetCertificate</span></a></span><span>
+</span><span id="line-29"></span><span id="newCertificateIssued"><span class="annot"><span class="annottext">newCertificateIssued :: Wait GetCertificate
+</span><a href="Network.AWS.CertificateManagerPCA.Waiters.html#newCertificateIssued"><span class="hs-identifier hs-var hs-var">newCertificateIssued</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-30"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
 </span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
 </span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;AuditReportCreated&quot;</span></span><span class="hs-special">,</span><span>
+</span><span class="hs-string">&quot;CertificateIssued&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
 </span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">60</span></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
 </span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
 </span><span class="hs-number">3</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeCertificateAuthorityAuditReport]
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetCertificate]
 </span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-35"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
--&gt; Accept
--&gt; Fold
-     (AWSResponse DescribeCertificateAuthorityAuditReport) (CI Text)
--&gt; Acceptor DescribeCertificateAuthorityAuditReport
-forall b a.
-Eq b =&gt;
-b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
-</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
-</span><span id="line-36"></span><span>            </span><span class="annot"><span class="annottext">CI Text
-</span><span class="hs-string">&quot;SUCCESS&quot;</span></span><span>
-</span><span id="line-37"></span><span>            </span><span class="annot"><span class="annottext">Accept
-</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
-</span><span id="line-38"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus))
--&gt; DescribeCertificateAuthorityAuditReportResponse
--&gt; f DescribeCertificateAuthorityAuditReportResponse
-Lens'
-  DescribeCertificateAuthorityAuditReportResponse
-  (Maybe AuditReportStatus)
-</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_auditReportStatus"><span class="hs-identifier hs-var">describeCertificateAuthorityAuditReportResponse_auditReportStatus</span></a></span><span>
-</span><span id="line-39"></span><span>                </span><span class="annot"><span class="annottext">((Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus))
- -&gt; DescribeCertificateAuthorityAuditReportResponse
- -&gt; f DescribeCertificateAuthorityAuditReportResponse)
--&gt; ((CI Text -&gt; f (CI Text))
-    -&gt; Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus))
--&gt; (CI Text -&gt; f (CI Text))
--&gt; DescribeCertificateAuthorityAuditReportResponse
--&gt; f DescribeCertificateAuthorityAuditReportResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(AuditReportStatus -&gt; f AuditReportStatus)
--&gt; Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus)
-forall a b. Prism (Maybe a) (Maybe b) a b
-</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
-</span><span id="line-40"></span><span>                </span><span class="annot"><span class="annottext">((AuditReportStatus -&gt; f AuditReportStatus)
- -&gt; Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus))
--&gt; ((CI Text -&gt; f (CI Text))
-    -&gt; AuditReportStatus -&gt; f AuditReportStatus)
--&gt; (CI Text -&gt; f (CI Text))
--&gt; Maybe AuditReportStatus
--&gt; f (Maybe AuditReportStatus)
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(AuditReportStatus -&gt; CI Text)
--&gt; (CI Text -&gt; f (CI Text))
--&gt; AuditReportStatus
--&gt; f AuditReportStatus
-forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
-(Profunctor p, Contravariant f) =&gt;
-(s -&gt; a) -&gt; Optic' p f s a
-</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">AuditReportStatus -&gt; CI Text
-forall a. ToText a =&gt; a -&gt; CI Text
-</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
-</span><span id="line-41"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>          </span><span class="annot"><span class="annottext">CI Text
--&gt; Accept
--&gt; Fold
-     (AWSResponse DescribeCertificateAuthorityAuditReport) (CI Text)
--&gt; Acceptor DescribeCertificateAuthorityAuditReport
-forall b a.
-Eq b =&gt;
-b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
-</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
-</span><span id="line-43"></span><span>            </span><span class="annot"><span class="annottext">CI Text
-</span><span class="hs-string">&quot;FAILED&quot;</span></span><span>
-</span><span id="line-44"></span><span>            </span><span class="annot"><span class="annottext">Accept
-</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
-</span><span id="line-45"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus))
--&gt; DescribeCertificateAuthorityAuditReportResponse
--&gt; f DescribeCertificateAuthorityAuditReportResponse
-Lens'
-  DescribeCertificateAuthorityAuditReportResponse
-  (Maybe AuditReportStatus)
-</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_auditReportStatus"><span class="hs-identifier hs-var">describeCertificateAuthorityAuditReportResponse_auditReportStatus</span></a></span><span>
-</span><span id="line-46"></span><span>                </span><span class="annot"><span class="annottext">((Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus))
- -&gt; DescribeCertificateAuthorityAuditReportResponse
- -&gt; f DescribeCertificateAuthorityAuditReportResponse)
--&gt; ((CI Text -&gt; f (CI Text))
-    -&gt; Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus))
--&gt; (CI Text -&gt; f (CI Text))
--&gt; DescribeCertificateAuthorityAuditReportResponse
--&gt; f DescribeCertificateAuthorityAuditReportResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(AuditReportStatus -&gt; f AuditReportStatus)
--&gt; Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus)
-forall a b. Prism (Maybe a) (Maybe b) a b
-</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
-</span><span id="line-47"></span><span>                </span><span class="annot"><span class="annottext">((AuditReportStatus -&gt; f AuditReportStatus)
- -&gt; Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus))
--&gt; ((CI Text -&gt; f (CI Text))
-    -&gt; AuditReportStatus -&gt; f AuditReportStatus)
--&gt; (CI Text -&gt; f (CI Text))
--&gt; Maybe AuditReportStatus
--&gt; f (Maybe AuditReportStatus)
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(AuditReportStatus -&gt; CI Text)
--&gt; (CI Text -&gt; f (CI Text))
--&gt; AuditReportStatus
--&gt; f AuditReportStatus
-forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
-(Profunctor p, Contravariant f) =&gt;
-(s -&gt; a) -&gt; Optic' p f s a
-</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">AuditReportStatus -&gt; CI Text
-forall a. ToText a =&gt; a -&gt; CI Text
-</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
-</span><span id="line-48"></span><span>            </span><span class="hs-special">)</span><span>
-</span><span id="line-49"></span><span>        </span><span class="hs-special">]</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- | Polls 'Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.</span><span>
-</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Waiters.html#newCertificateAuthorityCSRCreated"><span class="hs-identifier hs-type">newCertificateAuthorityCSRCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr</span></a></span><span>
-</span><span id="line-54"></span><span id="newCertificateAuthorityCSRCreated"><span class="annot"><span class="annottext">newCertificateAuthorityCSRCreated :: Wait GetCertificateAuthorityCsr
-</span><a href="Network.AWS.CertificateManagerPCA.Waiters.html#newCertificateAuthorityCSRCreated"><span class="hs-identifier hs-var hs-var">newCertificateAuthorityCSRCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
-</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
-</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;CertificateAuthorityCSRCreated&quot;</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
-</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">60</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
-</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
-</span><span class="hs-number">3</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetCertificateAuthorityCsr]
-</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-61"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor GetCertificateAuthorityCsr
+</span><span id="line-35"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor GetCertificate
 forall a. Int -&gt; Accept -&gt; Acceptor a
 </span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">200</span></span><span> </span><span class="annot"><span class="annottext">Accept
 </span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">ErrorCode -&gt; Accept -&gt; Acceptor GetCertificateAuthorityCsr
+</span><span id="line-36"></span><span>          </span><span class="annot"><span class="annottext">ErrorCode -&gt; Accept -&gt; Acceptor GetCertificate
 forall a. ErrorCode -&gt; Accept -&gt; Acceptor a
 </span><span class="hs-identifier hs-var">Core.matchError</span></span><span>
-</span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">ErrorCode
+</span><span id="line-37"></span><span>            </span><span class="annot"><span class="annottext">ErrorCode
 </span><span class="hs-string">&quot;RequestInProgressException&quot;</span></span><span>
-</span><span id="line-64"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span id="line-38"></span><span>            </span><span class="annot"><span class="annottext">Accept
 </span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
-</span><span id="line-65"></span><span>        </span><span class="hs-special">]</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | Polls 'Network.AWS.CertificateManagerPCA.GetCertificate' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Waiters.html#newCertificateIssued"><span class="hs-identifier hs-type">newCertificateIssued</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificate.html#GetCertificate"><span class="hs-identifier hs-type">GetCertificate</span></a></span><span>
-</span><span id="line-70"></span><span id="newCertificateIssued"><span class="annot"><span class="annottext">newCertificateIssued :: Wait GetCertificate
-</span><a href="Network.AWS.CertificateManagerPCA.Waiters.html#newCertificateIssued"><span class="hs-identifier hs-var hs-var">newCertificateIssued</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span id="line-39"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- | Polls 'Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.</span><span>
+</span><span id="line-43"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Waiters.html#newAuditReportCreated"><span class="hs-identifier hs-type">newAuditReportCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport</span></a></span><span>
+</span><span id="line-44"></span><span id="newAuditReportCreated"><span class="annot"><span class="annottext">newAuditReportCreated :: Wait DescribeCertificateAuthorityAuditReport
+</span><a href="Network.AWS.CertificateManagerPCA.Waiters.html#newAuditReportCreated"><span class="hs-identifier hs-var hs-var">newAuditReportCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-45"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
 </span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span id="line-46"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
 </span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;CertificateIssued&quot;</span></span><span class="hs-special">,</span><span>
+</span><span class="hs-string">&quot;AuditReportCreated&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">60</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">3</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor DescribeCertificateAuthorityAuditReport]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-50"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold
+     (AWSResponse DescribeCertificateAuthorityAuditReport) (CI Text)
+-&gt; Acceptor DescribeCertificateAuthorityAuditReport
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-51"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;SUCCESS&quot;</span></span><span>
+</span><span id="line-52"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-53"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus))
+-&gt; DescribeCertificateAuthorityAuditReportResponse
+-&gt; f DescribeCertificateAuthorityAuditReportResponse
+Lens'
+  DescribeCertificateAuthorityAuditReportResponse
+  (Maybe AuditReportStatus)
+</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_auditReportStatus"><span class="hs-identifier hs-var">describeCertificateAuthorityAuditReportResponse_auditReportStatus</span></a></span><span>
+</span><span id="line-54"></span><span>                </span><span class="annot"><span class="annottext">((Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus))
+ -&gt; DescribeCertificateAuthorityAuditReportResponse
+ -&gt; f DescribeCertificateAuthorityAuditReportResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeCertificateAuthorityAuditReportResponse
+-&gt; f DescribeCertificateAuthorityAuditReportResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(AuditReportStatus -&gt; f AuditReportStatus)
+-&gt; Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-55"></span><span>                </span><span class="annot"><span class="annottext">((AuditReportStatus -&gt; f AuditReportStatus)
+ -&gt; Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus))
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; AuditReportStatus -&gt; f AuditReportStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe AuditReportStatus
+-&gt; f (Maybe AuditReportStatus)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(AuditReportStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; AuditReportStatus
+-&gt; f AuditReportStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">AuditReportStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-56"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold
+     (AWSResponse DescribeCertificateAuthorityAuditReport) (CI Text)
+-&gt; Acceptor DescribeCertificateAuthorityAuditReport
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-58"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-59"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-60"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus))
+-&gt; DescribeCertificateAuthorityAuditReportResponse
+-&gt; f DescribeCertificateAuthorityAuditReportResponse
+Lens'
+  DescribeCertificateAuthorityAuditReportResponse
+  (Maybe AuditReportStatus)
+</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_auditReportStatus"><span class="hs-identifier hs-var">describeCertificateAuthorityAuditReportResponse_auditReportStatus</span></a></span><span>
+</span><span id="line-61"></span><span>                </span><span class="annot"><span class="annottext">((Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus))
+ -&gt; DescribeCertificateAuthorityAuditReportResponse
+ -&gt; f DescribeCertificateAuthorityAuditReportResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DescribeCertificateAuthorityAuditReportResponse
+-&gt; f DescribeCertificateAuthorityAuditReportResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(AuditReportStatus -&gt; f AuditReportStatus)
+-&gt; Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-62"></span><span>                </span><span class="annot"><span class="annottext">((AuditReportStatus -&gt; f AuditReportStatus)
+ -&gt; Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus))
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; AuditReportStatus -&gt; f AuditReportStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe AuditReportStatus
+-&gt; f (Maybe AuditReportStatus)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(AuditReportStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; AuditReportStatus
+-&gt; f AuditReportStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">AuditReportStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-63"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | Polls 'Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Waiters.html#newCertificateAuthorityCSRCreated"><span class="hs-identifier hs-type">newCertificateAuthorityCSRCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr</span></a></span><span>
+</span><span id="line-69"></span><span id="newCertificateAuthorityCSRCreated"><span class="annot"><span class="annottext">newCertificateAuthorityCSRCreated :: Wait GetCertificateAuthorityCsr
+</span><a href="Network.AWS.CertificateManagerPCA.Waiters.html#newCertificateAuthorityCSRCreated"><span class="hs-identifier hs-var hs-var">newCertificateAuthorityCSRCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CertificateAuthorityCSRCreated&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
 </span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">60</span></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
 </span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
 </span><span class="hs-number">3</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetCertificate]
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetCertificateAuthorityCsr]
 </span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-76"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor GetCertificate
+</span><span id="line-76"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor GetCertificateAuthorityCsr
 forall a. Int -&gt; Accept -&gt; Acceptor a
 </span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">200</span></span><span> </span><span class="annot"><span class="annottext">Accept
 </span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">ErrorCode -&gt; Accept -&gt; Acceptor GetCertificate
+</span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">ErrorCode -&gt; Accept -&gt; Acceptor GetCertificateAuthorityCsr
 forall a. ErrorCode -&gt; Accept -&gt; Acceptor a
 </span><span class="hs-identifier hs-var">Core.matchError</span></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">ErrorCode

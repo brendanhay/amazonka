@@ -29,17 +29,17 @@
 </span><span id="line-29"></span><span class="hs-comment">-- If your email contains links, those links are changed slightly in order</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- to track when recipients click them.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
-</span><span id="line-32"></span><span class="hs-comment">-- These images and links include references to a domain operated by AWS.</span><span>
-</span><span id="line-33"></span><span class="hs-comment">-- You can optionally configure the Amazon SES to use a domain that you</span><span>
-</span><span id="line-34"></span><span class="hs-comment">-- operate for these images and links.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- These images and links include references to a domain operated by Amazon</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- Web Services. You can optionally configure the Amazon SES to use a</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- domain that you operate for these images and links.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newTrackingOptions' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679332567"><span id="local-6989586621679332568"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrackingOptions"><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions"><span class="hs-identifier hs-var">TrackingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrackingOptions%27"><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions%27"><span class="hs-identifier hs-var">TrackingOptions'</span></a></span></span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The domain that you want to use for tracking open and click events.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679335085"><span id="local-6989586621679335086"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrackingOptions"><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions"><span class="hs-identifier hs-var">TrackingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrackingOptions%27"><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions%27"><span class="hs-identifier hs-var">TrackingOptions'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The domain to use for tracking open and click events.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AcustomRedirectDomain%3ATrackingOptions%27"><span class="annot"><span class="annottext">TrackingOptions -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.TrackingOptions.html#%24sel%3AcustomRedirectDomain%3ATrackingOptions%27"><span class="hs-identifier hs-var hs-var">customRedirectDomain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332561"><span id="local-6989586621679332563"><span class="annot"><span class="annottext">TrackingOptions -&gt; TrackingOptions -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679335079"><span id="local-6989586621679335081"><span class="annot"><span class="annottext">TrackingOptions -&gt; TrackingOptions -&gt; Bool
 (TrackingOptions -&gt; TrackingOptions -&gt; Bool)
 -&gt; (TrackingOptions -&gt; TrackingOptions -&gt; Bool)
 -&gt; Eq TrackingOptions
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TrackingOptions -&gt; TrackingOptions -&gt; Bool
 == :: TrackingOptions -&gt; TrackingOptions -&gt; Bool
 $c== :: TrackingOptions -&gt; TrackingOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332552"><span id="local-6989586621679332554"><span id="local-6989586621679332556"><span id="local-6989586621679332558"><span class="annot"><span class="annottext">ReadPrec [TrackingOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335070"><span id="local-6989586621679335072"><span id="local-6989586621679335074"><span id="local-6989586621679335076"><span class="annot"><span class="annottext">ReadPrec [TrackingOptions]
 ReadPrec TrackingOptions
 Int -&gt; ReadS TrackingOptions
 ReadS [TrackingOptions]
@@ -68,7 +68,7 @@ readList :: ReadS [TrackingOptions]
 $creadList :: ReadS [TrackingOptions]
 readsPrec :: Int -&gt; ReadS TrackingOptions
 $creadsPrec :: Int -&gt; ReadS TrackingOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332545"><span id="local-6989586621679332547"><span id="local-6989586621679332549"><span class="annot"><span class="annottext">Int -&gt; TrackingOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335063"><span id="local-6989586621679335065"><span id="local-6989586621679335067"><span class="annot"><span class="annottext">Int -&gt; TrackingOptions -&gt; ShowS
 [TrackingOptions] -&gt; ShowS
 TrackingOptions -&gt; String
 (Int -&gt; TrackingOptions -&gt; ShowS)
@@ -102,42 +102,42 @@ $cfrom :: forall x. TrackingOptions -&gt; Rep TrackingOptions x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'customRedirectDomain', 'trackingOptions_customRedirectDomain' - The domain that you want to use for tracking open and click events.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'customRedirectDomain', 'trackingOptions_customRedirectDomain' - The domain to use for tracking open and click events.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#newTrackingOptions"><span class="hs-identifier hs-type">newTrackingOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-comment">-- | 'customRedirectDomain'</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions"><span class="hs-identifier hs-type">TrackingOptions</span></a></span><span>
 </span><span id="line-56"></span><span id="newTrackingOptions"><span class="annot"><span class="annottext">newTrackingOptions :: Text -&gt; TrackingOptions
-</span><a href="Network.AWS.SESv2.Types.TrackingOptions.html#newTrackingOptions"><span class="hs-identifier hs-var hs-var">newTrackingOptions</span></a></span></span><span> </span><span id="local-6989586621679332539"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679332539"><span class="hs-identifier hs-var">pCustomRedirectDomain_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.Types.TrackingOptions.html#newTrackingOptions"><span class="hs-identifier hs-var hs-var">newTrackingOptions</span></a></span></span><span> </span><span id="local-6989586621679335057"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335057"><span class="hs-identifier hs-var">pCustomRedirectDomain_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">TrackingOptions' :: Text -&gt; TrackingOptions
 </span><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions%27"><span class="hs-identifier hs-type">TrackingOptions'</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:customRedirectDomain:TrackingOptions' :: Text
 </span><a href="Network.AWS.SESv2.Types.TrackingOptions.html#%24sel%3AcustomRedirectDomain%3ATrackingOptions%27"><span class="hs-identifier hs-var">customRedirectDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679332539"><span class="hs-identifier hs-var">pCustomRedirectDomain_</span></a></span><span>
+</span><a href="#local-6989586621679335057"><span class="hs-identifier hs-var">pCustomRedirectDomain_</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The domain that you want to use for tracking open and click events.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The domain to use for tracking open and click events.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#trackingOptions_customRedirectDomain"><span class="hs-identifier hs-type">trackingOptions_customRedirectDomain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions"><span class="hs-identifier hs-type">TrackingOptions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span id="trackingOptions_customRedirectDomain"><span class="annot"><span class="annottext">trackingOptions_customRedirectDomain :: (Text -&gt; f Text) -&gt; TrackingOptions -&gt; f TrackingOptions
 </span><a href="Network.AWS.SESv2.Types.TrackingOptions.html#trackingOptions_customRedirectDomain"><span class="hs-identifier hs-var hs-var">trackingOptions_customRedirectDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TrackingOptions -&gt; Text)
 -&gt; (TrackingOptions -&gt; Text -&gt; TrackingOptions)
 -&gt; Lens TrackingOptions TrackingOptions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions%27"><span class="hs-identifier hs-type">TrackingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332535"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions%27"><span class="hs-identifier hs-type">TrackingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335053"><span class="annot"><span class="annottext">Text
 customRedirectDomain :: Text
 $sel:customRedirectDomain:TrackingOptions' :: TrackingOptions -&gt; Text
-</span><a href="#local-6989586621679332535"><span class="hs-identifier hs-var hs-var">customRedirectDomain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679332535"><span class="hs-identifier hs-var">customRedirectDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332534"><span class="annot"><span class="annottext">s :: TrackingOptions
-</span><a href="#local-6989586621679332534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions%27"><span class="hs-identifier hs-type">TrackingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332533"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679332533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrackingOptions
-</span><a href="#local-6989586621679332534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customRedirectDomain:TrackingOptions' :: Text
+</span><a href="#local-6989586621679335053"><span class="hs-identifier hs-var hs-var">customRedirectDomain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335053"><span class="hs-identifier hs-var">customRedirectDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335052"><span class="annot"><span class="annottext">s :: TrackingOptions
+</span><a href="#local-6989586621679335052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions%27"><span class="hs-identifier hs-type">TrackingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335051"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrackingOptions
+</span><a href="#local-6989586621679335052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customRedirectDomain:TrackingOptions' :: Text
 </span><a href="Network.AWS.SESv2.Types.TrackingOptions.html#%24sel%3AcustomRedirectDomain%3ATrackingOptions%27"><span class="hs-identifier hs-var">customRedirectDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679332533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions"><span class="hs-identifier hs-type">TrackingOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679335051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions"><span class="hs-identifier hs-type">TrackingOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332530"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions"><span class="hs-identifier hs-type">TrackingOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679332528"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrackingOptions
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335048"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions"><span class="hs-identifier hs-type">TrackingOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679335046"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrackingOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TrackingOptions)
@@ -147,29 +147,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TrackingOptions&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679332525"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332525"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679335043"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679335043"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; TrackingOptions
 </span><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions%27"><span class="hs-identifier hs-var">TrackingOptions'</span></a></span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; TrackingOptions) -&gt; Parser Text -&gt; Parser TrackingOptions
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679335043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomRedirectDomain&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332519"><span id="local-6989586621679332521"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions"><span class="hs-identifier hs-type">TrackingOptions</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335037"><span id="local-6989586621679335039"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions"><span class="hs-identifier hs-type">TrackingOptions</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332516"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions"><span class="hs-identifier hs-type">TrackingOptions</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335034"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions"><span class="hs-identifier hs-type">TrackingOptions</span></a></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332508"><span id="local-6989586621679332510"><span id="local-6989586621679332512"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions"><span class="hs-identifier hs-type">TrackingOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679332506"><span class="annot"><span class="annottext">toJSON :: TrackingOptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions%27"><span class="hs-identifier hs-type">TrackingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332504"><span class="annot"><span class="annottext">Text
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335026"><span id="local-6989586621679335028"><span id="local-6989586621679335030"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions"><span class="hs-identifier hs-type">TrackingOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679335024"><span class="annot"><span class="annottext">toJSON :: TrackingOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TrackingOptions.html#TrackingOptions%27"><span class="hs-identifier hs-type">TrackingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335022"><span class="annot"><span class="annottext">Text
 customRedirectDomain :: Text
 $sel:customRedirectDomain:TrackingOptions' :: TrackingOptions -&gt; Text
-</span><a href="#local-6989586621679332504"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679335022"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -183,7 +183,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-85"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679332504"><span class="hs-identifier hs-var">customRedirectDomain</span></a></span><span>
+</span><a href="#local-6989586621679335022"><span class="hs-identifier hs-var">customRedirectDomain</span></a></span><span>
 </span><span id="line-86"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>

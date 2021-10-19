@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newCreatePublishingDestination' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679313409"><span id="local-6989586621679313410"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePublishingDestination"><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-var">CreatePublishingDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePublishingDestination%27"><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-var">CreatePublishingDestination'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679313750"><span id="local-6989586621679313751"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePublishingDestination"><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-var">CreatePublishingDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePublishingDestination%27"><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-var">CreatePublishingDestination'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The idempotency token for the request.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AclientToken%3ACreatePublishingDestination%27"><span class="annot"><span class="annottext">CreatePublishingDestination -&gt; Maybe Text
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#%24sel%3AclientToken%3ACreatePublishingDestination%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AdestinationProperties%3ACreatePublishingDestination%27"><span class="annot"><span class="annottext">CreatePublishingDestination -&gt; DestinationProperties
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#%24sel%3AdestinationProperties%3ACreatePublishingDestination%27"><span class="hs-identifier hs-var hs-var">destinationProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-type">DestinationProperties</span></a></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313400"><span id="local-6989586621679313402"><span class="annot"><span class="annottext">CreatePublishingDestination -&gt; CreatePublishingDestination -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313741"><span id="local-6989586621679313743"><span class="annot"><span class="annottext">CreatePublishingDestination -&gt; CreatePublishingDestination -&gt; Bool
 (CreatePublishingDestination
  -&gt; CreatePublishingDestination -&gt; Bool)
 -&gt; (CreatePublishingDestination
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreatePublishingDestination -&gt; CreatePublishingDestination -&gt; Bool
 == :: CreatePublishingDestination -&gt; CreatePublishingDestination -&gt; Bool
 $c== :: CreatePublishingDestination -&gt; CreatePublishingDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313391"><span id="local-6989586621679313393"><span id="local-6989586621679313395"><span id="local-6989586621679313397"><span class="annot"><span class="annottext">ReadPrec [CreatePublishingDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313732"><span id="local-6989586621679313734"><span id="local-6989586621679313736"><span id="local-6989586621679313738"><span class="annot"><span class="annottext">ReadPrec [CreatePublishingDestination]
 ReadPrec CreatePublishingDestination
 Int -&gt; ReadS CreatePublishingDestination
 ReadS [CreatePublishingDestination]
@@ -99,7 +99,7 @@ readList :: ReadS [CreatePublishingDestination]
 $creadList :: ReadS [CreatePublishingDestination]
 readsPrec :: Int -&gt; ReadS CreatePublishingDestination
 $creadsPrec :: Int -&gt; ReadS CreatePublishingDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313384"><span id="local-6989586621679313386"><span id="local-6989586621679313388"><span class="annot"><span class="annottext">Int -&gt; CreatePublishingDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313725"><span id="local-6989586621679313727"><span id="local-6989586621679313729"><span class="annot"><span class="annottext">Int -&gt; CreatePublishingDestination -&gt; ShowS
 [CreatePublishingDestination] -&gt; ShowS
 CreatePublishingDestination -&gt; String
 (Int -&gt; CreatePublishingDestination -&gt; ShowS)
@@ -162,12 +162,12 @@ CreatePublishingDestination -&gt; Rep CreatePublishingDestination x
 -&gt; DestinationProperties
 -&gt; CreatePublishingDestination
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#newCreatePublishingDestination"><span class="hs-identifier hs-var hs-var">newCreatePublishingDestination</span></a></span></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679313379"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313379"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679313378"><span class="annot"><span class="annottext">DestinationType
-</span><a href="#local-6989586621679313378"><span class="hs-identifier hs-var">pDestinationType_</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679313377"><span class="annot"><span class="annottext">DestinationProperties
-</span><a href="#local-6989586621679313377"><span class="hs-identifier hs-var">pDestinationProperties_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679313720"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313720"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679313719"><span class="annot"><span class="annottext">DestinationType
+</span><a href="#local-6989586621679313719"><span class="hs-identifier hs-var">pDestinationType_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679313718"><span class="annot"><span class="annottext">DestinationProperties
+</span><a href="#local-6989586621679313718"><span class="hs-identifier hs-var">pDestinationProperties_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">CreatePublishingDestination' :: Maybe Text
 -&gt; Text
 -&gt; DestinationType
@@ -181,14 +181,14 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:detectorId:CreatePublishingDestination' :: Text
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#%24sel%3AdetectorId%3ACreatePublishingDestination%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313379"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313720"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationType:CreatePublishingDestination' :: DestinationType
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#%24sel%3AdestinationType%3ACreatePublishingDestination%27"><span class="hs-identifier hs-var">destinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DestinationType
-</span><a href="#local-6989586621679313378"><span class="hs-identifier hs-var">pDestinationType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313719"><span class="hs-identifier hs-var">pDestinationType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationProperties:CreatePublishingDestination' :: DestinationProperties
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#%24sel%3AdestinationProperties%3ACreatePublishingDestination%27"><span class="hs-identifier hs-var">destinationProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">DestinationProperties
-</span><a href="#local-6989586621679313377"><span class="hs-identifier hs-var">pDestinationProperties_</span></a></span><span>
+</span><a href="#local-6989586621679313718"><span class="hs-identifier hs-var">pDestinationProperties_</span></a></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The idempotency token for the request.</span><span>
@@ -204,16 +204,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313374"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313715"><span class="annot"><span class="annottext">Maybe Text
 clientToken :: Maybe Text
 $sel:clientToken:CreatePublishingDestination' :: CreatePublishingDestination -&gt; Maybe Text
-</span><a href="#local-6989586621679313374"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313374"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313373"><span class="annot"><span class="annottext">s :: CreatePublishingDestination
-</span><a href="#local-6989586621679313373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313372"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublishingDestination
-</span><a href="#local-6989586621679313373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreatePublishingDestination' :: Maybe Text
+</span><a href="#local-6989586621679313715"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313715"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313714"><span class="annot"><span class="annottext">s :: CreatePublishingDestination
+</span><a href="#local-6989586621679313714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313713"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublishingDestination
+</span><a href="#local-6989586621679313714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreatePublishingDestination' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#%24sel%3AclientToken%3ACreatePublishingDestination%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The ID of the GuardDuty detector associated with the publishing</span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- destination.</span><span>
@@ -226,16 +226,16 @@ $sel:clientToken:CreatePublishingDestination' :: CreatePublishingDestination -&g
 -&gt; Lens
      CreatePublishingDestination CreatePublishingDestination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313371"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313712"><span class="annot"><span class="annottext">Text
 detectorId :: Text
 $sel:detectorId:CreatePublishingDestination' :: CreatePublishingDestination -&gt; Text
-</span><a href="#local-6989586621679313371"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313371"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313370"><span class="annot"><span class="annottext">s :: CreatePublishingDestination
-</span><a href="#local-6989586621679313370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313369"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublishingDestination
-</span><a href="#local-6989586621679313370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:CreatePublishingDestination' :: Text
+</span><a href="#local-6989586621679313712"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313712"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313711"><span class="annot"><span class="annottext">s :: CreatePublishingDestination
+</span><a href="#local-6989586621679313711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313710"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublishingDestination
+</span><a href="#local-6989586621679313711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:CreatePublishingDestination' :: Text
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#%24sel%3AdetectorId%3ACreatePublishingDestination%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The type of resource for the publishing destination. Currently only</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- Amazon S3 buckets are supported.</span><span>
@@ -251,16 +251,16 @@ $sel:detectorId:CreatePublishingDestination' :: CreatePublishingDestination -&gt
      DestinationType
      DestinationType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313368"><span class="annot"><span class="annottext">DestinationType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313709"><span class="annot"><span class="annottext">DestinationType
 destinationType :: DestinationType
 $sel:destinationType:CreatePublishingDestination' :: CreatePublishingDestination -&gt; DestinationType
-</span><a href="#local-6989586621679313368"><span class="hs-identifier hs-var hs-var">destinationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DestinationType
-</span><a href="#local-6989586621679313368"><span class="hs-identifier hs-var">destinationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313367"><span class="annot"><span class="annottext">s :: CreatePublishingDestination
-</span><a href="#local-6989586621679313367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313366"><span class="annot"><span class="annottext">DestinationType
-</span><a href="#local-6989586621679313366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublishingDestination
-</span><a href="#local-6989586621679313367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationType:CreatePublishingDestination' :: DestinationType
+</span><a href="#local-6989586621679313709"><span class="hs-identifier hs-var hs-var">destinationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DestinationType
+</span><a href="#local-6989586621679313709"><span class="hs-identifier hs-var">destinationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313708"><span class="annot"><span class="annottext">s :: CreatePublishingDestination
+</span><a href="#local-6989586621679313708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313707"><span class="annot"><span class="annottext">DestinationType
+</span><a href="#local-6989586621679313707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublishingDestination
+</span><a href="#local-6989586621679313708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationType:CreatePublishingDestination' :: DestinationType
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#%24sel%3AdestinationType%3ACreatePublishingDestination%27"><span class="hs-identifier hs-var">destinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DestinationType
-</span><a href="#local-6989586621679313366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The properties of the publishing destination, including the ARNs for the</span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- destination and the KMS key used for encryption.</span><span>
@@ -276,29 +276,29 @@ $sel:destinationType:CreatePublishingDestination' :: CreatePublishingDestination
      DestinationProperties
      DestinationProperties
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313365"><span class="annot"><span class="annottext">DestinationProperties
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313706"><span class="annot"><span class="annottext">DestinationProperties
 destinationProperties :: DestinationProperties
 $sel:destinationProperties:CreatePublishingDestination' :: CreatePublishingDestination -&gt; DestinationProperties
-</span><a href="#local-6989586621679313365"><span class="hs-identifier hs-var hs-var">destinationProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DestinationProperties
-</span><a href="#local-6989586621679313365"><span class="hs-identifier hs-var">destinationProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313364"><span class="annot"><span class="annottext">s :: CreatePublishingDestination
-</span><a href="#local-6989586621679313364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313363"><span class="annot"><span class="annottext">DestinationProperties
-</span><a href="#local-6989586621679313363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublishingDestination
-</span><a href="#local-6989586621679313364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationProperties:CreatePublishingDestination' :: DestinationProperties
+</span><a href="#local-6989586621679313706"><span class="hs-identifier hs-var hs-var">destinationProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DestinationProperties
+</span><a href="#local-6989586621679313706"><span class="hs-identifier hs-var">destinationProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313705"><span class="annot"><span class="annottext">s :: CreatePublishingDestination
+</span><a href="#local-6989586621679313705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313704"><span class="annot"><span class="annottext">DestinationProperties
+</span><a href="#local-6989586621679313704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublishingDestination
+</span><a href="#local-6989586621679313705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationProperties:CreatePublishingDestination' :: DestinationProperties
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#%24sel%3AdestinationProperties%3ACreatePublishingDestination%27"><span class="hs-identifier hs-var">destinationProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DestinationProperties
-</span><a href="#local-6989586621679313363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-129"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse"><span class="hs-identifier hs-type">CreatePublishingDestinationResponse</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679313359"><span class="annot"><span class="annottext">request :: CreatePublishingDestination -&gt; Request CreatePublishingDestination
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679313700"><span class="annot"><span class="annottext">request :: CreatePublishingDestination -&gt; Request CreatePublishingDestination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CreatePublishingDestination
 -&gt; Request CreatePublishingDestination
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679313355"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679313696"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreatePublishingDestination
 -&gt; ClientResponse ClientBody
@@ -324,10 +324,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313352"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313352"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313351"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679313351"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313350"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313350"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313693"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313693"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313692"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679313692"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313691"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313691"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreatePublishingDestinationResponse
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse%27"><span class="hs-identifier hs-var">CreatePublishingDestinationResponse'</span></a></span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreatePublishingDestinationResponse)
@@ -339,24 +339,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313352"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313693"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreatePublishingDestinationResponse)
 -&gt; Either String Text
 -&gt; Either String CreatePublishingDestinationResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313350"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679313691"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destinationId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313342"><span id="local-6989586621679313344"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313683"><span id="local-6989586621679313685"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313339"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313680"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679313335"><span class="annot"><span class="annottext">toHeaders :: CreatePublishingDestination -&gt; ResponseHeaders
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679313676"><span class="annot"><span class="annottext">toHeaders :: CreatePublishingDestination -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreatePublishingDestination -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -375,9 +375,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313325"><span id="local-6989586621679313327"><span id="local-6989586621679313329"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679313323"><span class="annot"><span class="annottext">toJSON :: CreatePublishingDestination -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313318"><span id="local-6989586621679313319"><span id="local-6989586621679313320"><span id="local-6989586621679313321"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313666"><span id="local-6989586621679313668"><span id="local-6989586621679313670"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679313664"><span class="annot"><span class="annottext">toJSON :: CreatePublishingDestination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313659"><span id="local-6989586621679313660"><span id="local-6989586621679313661"><span id="local-6989586621679313662"><span class="annot"><span class="annottext">Maybe Text
 Text
 DestinationProperties
 DestinationType
@@ -389,7 +389,7 @@ $sel:destinationProperties:CreatePublishingDestination' :: CreatePublishingDesti
 $sel:destinationType:CreatePublishingDestination' :: CreatePublishingDestination -&gt; DestinationType
 $sel:detectorId:CreatePublishingDestination' :: CreatePublishingDestination -&gt; Text
 $sel:clientToken:CreatePublishingDestination' :: CreatePublishingDestination -&gt; Maybe Text
-</span><a href="#local-6989586621679313318"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679313659"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -401,7 +401,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313321"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313662"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -409,7 +409,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;destinationType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DestinationType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DestinationType
-</span><a href="#local-6989586621679313319"><span class="hs-identifier hs-var">destinationType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313660"><span class="hs-identifier hs-var">destinationType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -418,14 +418,14 @@ forall a. a -&gt; Maybe a
 </span><span id="line-164"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; DestinationProperties -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DestinationProperties
-</span><a href="#local-6989586621679313318"><span class="hs-identifier hs-var">destinationProperties</span></a></span><span>
+</span><a href="#local-6989586621679313659"><span class="hs-identifier hs-var">destinationProperties</span></a></span><span>
 </span><span id="line-165"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679313312"><span class="annot"><span class="annottext">toPath :: CreatePublishingDestination -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313307"><span id="local-6989586621679313308"><span id="local-6989586621679313309"><span id="local-6989586621679313310"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679313653"><span class="annot"><span class="annottext">toPath :: CreatePublishingDestination -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination%27"><span class="hs-identifier hs-type">CreatePublishingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313648"><span id="local-6989586621679313649"><span id="local-6989586621679313650"><span id="local-6989586621679313651"><span class="annot"><span class="annottext">Maybe Text
 Text
 DestinationProperties
 DestinationType
@@ -437,7 +437,7 @@ $sel:destinationProperties:CreatePublishingDestination' :: CreatePublishingDesti
 $sel:destinationType:CreatePublishingDestination' :: CreatePublishingDestination -&gt; DestinationType
 $sel:detectorId:CreatePublishingDestination' :: CreatePublishingDestination -&gt; Text
 $sel:clientToken:CreatePublishingDestination' :: CreatePublishingDestination -&gt; Maybe Text
-</span><a href="#local-6989586621679313307"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679313648"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -446,13 +446,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313309"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313650"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/publishingDestination&quot;</span></span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestination"><span class="hs-identifier hs-type">CreatePublishingDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679313303"><span class="annot"><span class="annottext">toQuery :: CreatePublishingDestination -&gt; QueryString
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679313644"><span class="annot"><span class="annottext">toQuery :: CreatePublishingDestination -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreatePublishingDestination -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -460,7 +460,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | /See:/ 'newCreatePublishingDestinationResponse' smart constructor.</span><span>
-</span><span id="line-181"></span><span id="local-6989586621679313300"><span id="local-6989586621679313301"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePublishingDestinationResponse"><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse"><span class="hs-identifier hs-var">CreatePublishingDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePublishingDestinationResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse%27"><span class="hs-identifier hs-var">CreatePublishingDestinationResponse'</span></a></span></span><span>
+</span><span id="line-181"></span><span id="local-6989586621679313641"><span id="local-6989586621679313642"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePublishingDestinationResponse"><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse"><span class="hs-identifier hs-var">CreatePublishingDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePublishingDestinationResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse%27"><span class="hs-identifier hs-var">CreatePublishingDestinationResponse'</span></a></span></span><span>
 </span><span id="line-182"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-183"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreatePublishingDestinationResponse%27"><span class="annot"><span class="annottext">CreatePublishingDestinationResponse -&gt; Int
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#%24sel%3AhttpStatus%3ACreatePublishingDestinationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -468,7 +468,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-185"></span><span>    </span><span id="%24sel%3AdestinationId%3ACreatePublishingDestinationResponse%27"><span class="annot"><span class="annottext">CreatePublishingDestinationResponse -&gt; Text
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#%24sel%3AdestinationId%3ACreatePublishingDestinationResponse%27"><span class="hs-identifier hs-var hs-var">destinationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313294"><span id="local-6989586621679313296"><span class="annot"><span class="annottext">CreatePublishingDestinationResponse
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313635"><span id="local-6989586621679313637"><span class="annot"><span class="annottext">CreatePublishingDestinationResponse
 -&gt; CreatePublishingDestinationResponse -&gt; Bool
 (CreatePublishingDestinationResponse
  -&gt; CreatePublishingDestinationResponse -&gt; Bool)
@@ -484,7 +484,7 @@ $c/= :: CreatePublishingDestinationResponse
 -&gt; CreatePublishingDestinationResponse -&gt; Bool
 $c== :: CreatePublishingDestinationResponse
 -&gt; CreatePublishingDestinationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313286"><span id="local-6989586621679313288"><span id="local-6989586621679313290"><span id="local-6989586621679313292"><span class="annot"><span class="annottext">ReadPrec [CreatePublishingDestinationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313627"><span id="local-6989586621679313629"><span id="local-6989586621679313631"><span id="local-6989586621679313633"><span class="annot"><span class="annottext">ReadPrec [CreatePublishingDestinationResponse]
 ReadPrec CreatePublishingDestinationResponse
 Int -&gt; ReadS CreatePublishingDestinationResponse
 ReadS [CreatePublishingDestinationResponse]
@@ -504,7 +504,7 @@ readList :: ReadS [CreatePublishingDestinationResponse]
 $creadList :: ReadS [CreatePublishingDestinationResponse]
 readsPrec :: Int -&gt; ReadS CreatePublishingDestinationResponse
 $creadsPrec :: Int -&gt; ReadS CreatePublishingDestinationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313280"><span id="local-6989586621679313282"><span id="local-6989586621679313284"><span class="annot"><span class="annottext">Int -&gt; CreatePublishingDestinationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313621"><span id="local-6989586621679313623"><span id="local-6989586621679313625"><span class="annot"><span class="annottext">Int -&gt; CreatePublishingDestinationResponse -&gt; ShowS
 [CreatePublishingDestinationResponse] -&gt; ShowS
 CreatePublishingDestinationResponse -&gt; String
 (Int -&gt; CreatePublishingDestinationResponse -&gt; ShowS)
@@ -561,19 +561,19 @@ CreatePublishingDestinationResponse
 </span><span id="line-205"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse"><span class="hs-identifier hs-type">CreatePublishingDestinationResponse</span></a></span><span>
 </span><span id="line-206"></span><span id="newCreatePublishingDestinationResponse"><span class="annot"><span class="annottext">newCreatePublishingDestinationResponse :: Int -&gt; Text -&gt; CreatePublishingDestinationResponse
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#newCreatePublishingDestinationResponse"><span class="hs-identifier hs-var hs-var">newCreatePublishingDestinationResponse</span></a></span></span><span>
-</span><span id="line-207"></span><span>  </span><span id="local-6989586621679313277"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313277"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679313276"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313276"><span class="hs-identifier hs-var">pDestinationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679313618"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313618"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679313617"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313617"><span class="hs-identifier hs-var">pDestinationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">CreatePublishingDestinationResponse' :: Int -&gt; Text -&gt; CreatePublishingDestinationResponse
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse%27"><span class="hs-identifier hs-type">CreatePublishingDestinationResponse'</span></a></span><span>
 </span><span id="line-210"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePublishingDestinationResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#%24sel%3AhttpStatus%3ACreatePublishingDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313277"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313618"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationId:CreatePublishingDestinationResponse' :: Text
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#%24sel%3AdestinationId%3ACreatePublishingDestinationResponse%27"><span class="hs-identifier hs-var">destinationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313276"><span class="hs-identifier hs-var">pDestinationId_</span></a></span><span>
+</span><a href="#local-6989586621679313617"><span class="hs-identifier hs-var">pDestinationId_</span></a></span><span>
 </span><span id="line-213"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -590,16 +590,16 @@ CreatePublishingDestinationResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse%27"><span class="hs-identifier hs-type">CreatePublishingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313275"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse%27"><span class="hs-identifier hs-type">CreatePublishingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313616"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreatePublishingDestinationResponse' :: CreatePublishingDestinationResponse -&gt; Int
-</span><a href="#local-6989586621679313275"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313275"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313274"><span class="annot"><span class="annottext">s :: CreatePublishingDestinationResponse
-</span><a href="#local-6989586621679313274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse%27"><span class="hs-identifier hs-type">CreatePublishingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313273"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublishingDestinationResponse
-</span><a href="#local-6989586621679313274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePublishingDestinationResponse' :: Int
+</span><a href="#local-6989586621679313616"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313616"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313615"><span class="annot"><span class="annottext">s :: CreatePublishingDestinationResponse
+</span><a href="#local-6989586621679313615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse%27"><span class="hs-identifier hs-type">CreatePublishingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313614"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublishingDestinationResponse
+</span><a href="#local-6989586621679313615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePublishingDestinationResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#%24sel%3AhttpStatus%3ACreatePublishingDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse"><span class="hs-identifier hs-type">CreatePublishingDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse"><span class="hs-identifier hs-type">CreatePublishingDestinationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The ID of the publishing destination that is created.</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#createPublishingDestinationResponse_destinationId"><span class="hs-identifier hs-type">createPublishingDestinationResponse_destinationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse"><span class="hs-identifier hs-type">CreatePublishingDestinationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -615,18 +615,18 @@ $sel:httpStatus:CreatePublishingDestinationResponse' :: CreatePublishingDestinat
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse%27"><span class="hs-identifier hs-type">CreatePublishingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313272"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse%27"><span class="hs-identifier hs-type">CreatePublishingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313613"><span class="annot"><span class="annottext">Text
 destinationId :: Text
 $sel:destinationId:CreatePublishingDestinationResponse' :: CreatePublishingDestinationResponse -&gt; Text
-</span><a href="#local-6989586621679313272"><span class="hs-identifier hs-var hs-var">destinationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313272"><span class="hs-identifier hs-var">destinationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313271"><span class="annot"><span class="annottext">s :: CreatePublishingDestinationResponse
-</span><a href="#local-6989586621679313271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse%27"><span class="hs-identifier hs-type">CreatePublishingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313270"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublishingDestinationResponse
-</span><a href="#local-6989586621679313271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationId:CreatePublishingDestinationResponse' :: Text
+</span><a href="#local-6989586621679313613"><span class="hs-identifier hs-var hs-var">destinationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313613"><span class="hs-identifier hs-var">destinationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313612"><span class="annot"><span class="annottext">s :: CreatePublishingDestinationResponse
+</span><a href="#local-6989586621679313612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse%27"><span class="hs-identifier hs-type">CreatePublishingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313611"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublishingDestinationResponse
+</span><a href="#local-6989586621679313612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationId:CreatePublishingDestinationResponse' :: Text
 </span><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#%24sel%3AdestinationId%3ACreatePublishingDestinationResponse%27"><span class="hs-identifier hs-var">destinationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse"><span class="hs-identifier hs-type">CreatePublishingDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse"><span class="hs-identifier hs-type">CreatePublishingDestinationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679313268"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679313609"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-225"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.CreatePublishingDestination.html#CreatePublishingDestinationResponse"><span class="hs-identifier hs-type">CreatePublishingDestinationResponse</span></a></span></span><span>
 </span><span id="line-226"></span></pre></body></html>

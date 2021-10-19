@@ -28,16 +28,16 @@
 </span><span id="line-28"></span><span class="hs-comment">-- time the label was detected in the video.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLabelDetection' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679326864"><span id="local-6989586621679326865"></span></span><span class="hs-keyword">data</span><span> </span><span id="LabelDetection"><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection"><span class="hs-identifier hs-var">LabelDetection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LabelDetection%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection%27"><span class="hs-identifier hs-var">LabelDetection'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Time, in milliseconds from the start of the video, that the label was</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- detected.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Atimestamp%3ALabelDetection%27"><span class="annot"><span class="annottext">LabelDetection -&gt; Maybe Integer
-</span><a href="Network.AWS.Rekognition.Types.LabelDetection.html#%24sel%3Atimestamp%3ALabelDetection%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Details about the detected label.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Alabel%3ALabelDetection%27"><span class="annot"><span class="annottext">LabelDetection -&gt; Maybe Label
-</span><a href="Network.AWS.Rekognition.Types.LabelDetection.html#%24sel%3Alabel%3ALabelDetection%27"><span class="hs-keyword hs-var hs-var">label</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679327144"><span id="local-6989586621679327145"></span></span><span class="hs-keyword">data</span><span> </span><span id="LabelDetection"><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection"><span class="hs-identifier hs-var">LabelDetection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LabelDetection%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection%27"><span class="hs-identifier hs-var">LabelDetection'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about the detected label.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Alabel%3ALabelDetection%27"><span class="annot"><span class="annottext">LabelDetection -&gt; Maybe Label
+</span><a href="Network.AWS.Rekognition.Types.LabelDetection.html#%24sel%3Alabel%3ALabelDetection%27"><span class="hs-keyword hs-var hs-var">label</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Time, in milliseconds from the start of the video, that the label was</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- detected.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Atimestamp%3ALabelDetection%27"><span class="annot"><span class="annottext">LabelDetection -&gt; Maybe Integer
+</span><a href="Network.AWS.Rekognition.Types.LabelDetection.html#%24sel%3Atimestamp%3ALabelDetection%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326857"><span id="local-6989586621679326859"><span class="annot"><span class="annottext">LabelDetection -&gt; LabelDetection -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327137"><span id="local-6989586621679327139"><span class="annot"><span class="annottext">LabelDetection -&gt; LabelDetection -&gt; Bool
 (LabelDetection -&gt; LabelDetection -&gt; Bool)
 -&gt; (LabelDetection -&gt; LabelDetection -&gt; Bool) -&gt; Eq LabelDetection
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LabelDetection -&gt; LabelDetection -&gt; Bool
 == :: LabelDetection -&gt; LabelDetection -&gt; Bool
 $c== :: LabelDetection -&gt; LabelDetection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326848"><span id="local-6989586621679326850"><span id="local-6989586621679326852"><span id="local-6989586621679326854"><span class="annot"><span class="annottext">ReadPrec [LabelDetection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327128"><span id="local-6989586621679327130"><span id="local-6989586621679327132"><span id="local-6989586621679327134"><span class="annot"><span class="annottext">ReadPrec [LabelDetection]
 ReadPrec LabelDetection
 Int -&gt; ReadS LabelDetection
 ReadS [LabelDetection]
@@ -65,7 +65,7 @@ readList :: ReadS [LabelDetection]
 $creadList :: ReadS [LabelDetection]
 readsPrec :: Int -&gt; ReadS LabelDetection
 $creadsPrec :: Int -&gt; ReadS LabelDetection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326841"><span id="local-6989586621679326843"><span id="local-6989586621679326845"><span class="annot"><span class="annottext">Int -&gt; LabelDetection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327121"><span id="local-6989586621679327123"><span id="local-6989586621679327125"><span class="annot"><span class="annottext">Int -&gt; LabelDetection -&gt; ShowS
 [LabelDetection] -&gt; ShowS
 LabelDetection -&gt; String
 (Int -&gt; LabelDetection -&gt; ShowS)
@@ -99,68 +99,68 @@ $cfrom :: forall x. LabelDetection -&gt; Rep LabelDetection x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'timestamp', 'labelDetection_timestamp' - Time, in milliseconds from the start of the video, that the label was</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- detected.</span><span>
-</span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'label', 'labelDetection_label' - Details about the detected label.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'label', 'labelDetection_label' - Details about the detected label.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'timestamp', 'labelDetection_timestamp' - Time, in milliseconds from the start of the video, that the label was</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- detected.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#newLabelDetection"><span class="hs-identifier hs-type">newLabelDetection</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection"><span class="hs-identifier hs-type">LabelDetection</span></a></span><span>
 </span><span id="line-54"></span><span id="newLabelDetection"><span class="annot"><span class="annottext">newLabelDetection :: LabelDetection
 </span><a href="Network.AWS.Rekognition.Types.LabelDetection.html#newLabelDetection"><span class="hs-identifier hs-var hs-var">newLabelDetection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">LabelDetection' :: Maybe Integer -&gt; Maybe Label -&gt; LabelDetection
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">LabelDetection' :: Maybe Label -&gt; Maybe Integer -&gt; LabelDetection
 </span><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection%27"><span class="hs-identifier hs-type">LabelDetection'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timestamp:LabelDetection' :: Maybe Integer
-</span><a href="Network.AWS.Rekognition.Types.LabelDetection.html#%24sel%3Atimestamp%3ALabelDetection%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:label:LabelDetection' :: Maybe Label
+</span><a href="Network.AWS.Rekognition.Types.LabelDetection.html#%24sel%3Alabel%3ALabelDetection%27"><span class="hs-keyword hs-var">label</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Label
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:label:LabelDetection' :: Maybe Label
-</span><a href="Network.AWS.Rekognition.Types.LabelDetection.html#%24sel%3Alabel%3ALabelDetection%27"><span class="hs-keyword hs-var">label</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Label
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:timestamp:LabelDetection' :: Maybe Integer
+</span><a href="Network.AWS.Rekognition.Types.LabelDetection.html#%24sel%3Atimestamp%3ALabelDetection%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | Time, in milliseconds from the start of the video, that the label was</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- detected.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#labelDetection_timestamp"><span class="hs-identifier hs-type">labelDetection_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection"><span class="hs-identifier hs-type">LabelDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="labelDetection_timestamp"><span class="annot"><span class="annottext">labelDetection_timestamp :: (Maybe Integer -&gt; f (Maybe Integer))
+</span><span id="line-60"></span><span class="hs-comment">-- | Details about the detected label.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#labelDetection_label"><span class="hs-identifier hs-type">labelDetection_label</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection"><span class="hs-identifier hs-type">LabelDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="labelDetection_label"><span class="annot"><span class="annottext">labelDetection_label :: (Maybe Label -&gt; f (Maybe Label))
+-&gt; LabelDetection -&gt; f LabelDetection
+</span><a href="Network.AWS.Rekognition.Types.LabelDetection.html#labelDetection_label"><span class="hs-identifier hs-var hs-var">labelDetection_label</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LabelDetection -&gt; Maybe Label)
+-&gt; (LabelDetection -&gt; Maybe Label -&gt; LabelDetection)
+-&gt; Lens LabelDetection LabelDetection (Maybe Label) (Maybe Label)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection%27"><span class="hs-identifier hs-type">LabelDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327112"><span class="annot"><span class="annottext">Maybe Label
+label :: Maybe Label
+$sel:label:LabelDetection' :: LabelDetection -&gt; Maybe Label
+</span><a href="#local-6989586621679327112"><span class="hs-keyword hs-var hs-var">label</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Label
+</span><a href="#local-6989586621679327112"><span class="hs-keyword hs-var">label</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327111"><span class="annot"><span class="annottext">s :: LabelDetection
+</span><a href="#local-6989586621679327111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection%27"><span class="hs-identifier hs-type">LabelDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327110"><span class="annot"><span class="annottext">Maybe Label
+</span><a href="#local-6989586621679327110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelDetection
+</span><a href="#local-6989586621679327111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:label:LabelDetection' :: Maybe Label
+</span><a href="Network.AWS.Rekognition.Types.LabelDetection.html#%24sel%3Alabel%3ALabelDetection%27"><span class="hs-keyword hs-var">label</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Label
+</span><a href="#local-6989586621679327110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection"><span class="hs-identifier hs-type">LabelDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Time, in milliseconds from the start of the video, that the label was</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- detected.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#labelDetection_timestamp"><span class="hs-identifier hs-type">labelDetection_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection"><span class="hs-identifier hs-type">LabelDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="labelDetection_timestamp"><span class="annot"><span class="annottext">labelDetection_timestamp :: (Maybe Integer -&gt; f (Maybe Integer))
 -&gt; LabelDetection -&gt; f LabelDetection
 </span><a href="Network.AWS.Rekognition.Types.LabelDetection.html#labelDetection_timestamp"><span class="hs-identifier hs-var hs-var">labelDetection_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LabelDetection -&gt; Maybe Integer)
 -&gt; (LabelDetection -&gt; Maybe Integer -&gt; LabelDetection)
 -&gt; Lens
      LabelDetection LabelDetection (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection%27"><span class="hs-identifier hs-type">LabelDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326832"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection%27"><span class="hs-identifier hs-type">LabelDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327108"><span class="annot"><span class="annottext">Maybe Integer
 timestamp :: Maybe Integer
 $sel:timestamp:LabelDetection' :: LabelDetection -&gt; Maybe Integer
-</span><a href="#local-6989586621679326832"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679326832"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326831"><span class="annot"><span class="annottext">s :: LabelDetection
-</span><a href="#local-6989586621679326831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection%27"><span class="hs-identifier hs-type">LabelDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326830"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679326830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelDetection
-</span><a href="#local-6989586621679326831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:LabelDetection' :: Maybe Integer
+</span><a href="#local-6989586621679327108"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679327108"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327107"><span class="annot"><span class="annottext">s :: LabelDetection
+</span><a href="#local-6989586621679327107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection%27"><span class="hs-identifier hs-type">LabelDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327106"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679327106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelDetection
+</span><a href="#local-6989586621679327107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:LabelDetection' :: Maybe Integer
 </span><a href="Network.AWS.Rekognition.Types.LabelDetection.html#%24sel%3Atimestamp%3ALabelDetection%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679326830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection"><span class="hs-identifier hs-type">LabelDetection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | Details about the detected label.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#labelDetection_label"><span class="hs-identifier hs-type">labelDetection_label</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection"><span class="hs-identifier hs-type">LabelDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Label.html#Label"><span class="hs-identifier hs-type">Label</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="labelDetection_label"><span class="annot"><span class="annottext">labelDetection_label :: (Maybe Label -&gt; f (Maybe Label))
--&gt; LabelDetection -&gt; f LabelDetection
-</span><a href="Network.AWS.Rekognition.Types.LabelDetection.html#labelDetection_label"><span class="hs-identifier hs-var hs-var">labelDetection_label</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LabelDetection -&gt; Maybe Label)
--&gt; (LabelDetection -&gt; Maybe Label -&gt; LabelDetection)
--&gt; Lens LabelDetection LabelDetection (Maybe Label) (Maybe Label)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection%27"><span class="hs-identifier hs-type">LabelDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326828"><span class="annot"><span class="annottext">Maybe Label
-label :: Maybe Label
-$sel:label:LabelDetection' :: LabelDetection -&gt; Maybe Label
-</span><a href="#local-6989586621679326828"><span class="hs-keyword hs-var hs-var">label</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Label
-</span><a href="#local-6989586621679326828"><span class="hs-keyword hs-var">label</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326827"><span class="annot"><span class="annottext">s :: LabelDetection
-</span><a href="#local-6989586621679326827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection%27"><span class="hs-identifier hs-type">LabelDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326826"><span class="annot"><span class="annottext">Maybe Label
-</span><a href="#local-6989586621679326826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelDetection
-</span><a href="#local-6989586621679326827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:label:LabelDetection' :: Maybe Label
-</span><a href="Network.AWS.Rekognition.Types.LabelDetection.html#%24sel%3Alabel%3ALabelDetection%27"><span class="hs-keyword hs-var">label</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Label
-</span><a href="#local-6989586621679326826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection"><span class="hs-identifier hs-type">LabelDetection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679327106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection"><span class="hs-identifier hs-type">LabelDetection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326823"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection"><span class="hs-identifier hs-type">LabelDetection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679326821"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LabelDetection
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327103"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection"><span class="hs-identifier hs-type">LabelDetection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679327101"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LabelDetection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LabelDetection)
@@ -170,29 +170,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LabelDetection&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326818"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326818"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer -&gt; Maybe Label -&gt; LabelDetection
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679327098"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327098"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Label -&gt; Maybe Integer -&gt; LabelDetection
 </span><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection%27"><span class="hs-identifier hs-var">LabelDetection'</span></a></span><span>
-</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer -&gt; Maybe Label -&gt; LabelDetection)
--&gt; Parser (Maybe Integer) -&gt; Parser (Maybe Label -&gt; LabelDetection)
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Label -&gt; Maybe Integer -&gt; LabelDetection)
+-&gt; Parser (Maybe Label) -&gt; Parser (Maybe Integer -&gt; LabelDetection)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Label -&gt; LabelDetection)
--&gt; Parser (Maybe Label) -&gt; Parser LabelDetection
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Label)
+</span><a href="#local-6989586621679327098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Label)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Label&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; LabelDetection)
+-&gt; Parser (Maybe Integer) -&gt; Parser LabelDetection
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326812"><span id="local-6989586621679326814"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection"><span class="hs-identifier hs-type">LabelDetection</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327092"><span id="local-6989586621679327094"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection"><span class="hs-identifier hs-type">LabelDetection</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection"><span class="hs-identifier hs-type">LabelDetection</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327089"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LabelDetection.html#LabelDetection"><span class="hs-identifier hs-type">LabelDetection</span></a></span></span><span>
 </span><span id="line-82"></span></pre></body></html>

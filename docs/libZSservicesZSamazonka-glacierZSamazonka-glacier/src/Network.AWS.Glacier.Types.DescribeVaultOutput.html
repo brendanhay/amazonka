@@ -26,35 +26,35 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains the Amazon S3 Glacier response to your request.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDescribeVaultOutput' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679215428"><span id="local-6989586621679215429"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVaultOutput"><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-var">DescribeVaultOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVaultOutput%27"><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-var">DescribeVaultOutput'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Universal Coordinated Time (UTC) date when Amazon S3 Glacier</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- completed the last vault inventory. This value should be a string in the</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AlastInventoryDate%3ADescribeVaultOutput%27"><span class="annot"><span class="annottext">DescribeVaultOutput -&gt; Maybe Text
-</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AlastInventoryDate%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var hs-var">lastInventoryDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The Universal Coordinated Time (UTC) date when the vault was created.</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- This value should be a string in the ISO 8601 date format, for example</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @2012-03-20T17:03:43.221Z@.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcreationDate%3ADescribeVaultOutput%27"><span class="annot"><span class="annottext">DescribeVaultOutput -&gt; Maybe Text
-</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AcreationDate%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the vault.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AvaultName%3ADescribeVaultOutput%27"><span class="annot"><span class="annottext">DescribeVaultOutput -&gt; Maybe Text
+</span><span id="line-29"></span><span id="local-6989586621679215478"><span id="local-6989586621679215479"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVaultOutput"><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-var">DescribeVaultOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVaultOutput%27"><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-var">DescribeVaultOutput'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the vault.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AvaultName%3ADescribeVaultOutput%27"><span class="annot"><span class="annottext">DescribeVaultOutput -&gt; Maybe Text
 </span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AvaultName%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Total size, in bytes, of the archives in the vault as of the last</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- inventory date. This field will return null if an inventory has not yet</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- run on the vault, for example if you just created the vault.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsizeInBytes%3ADescribeVaultOutput%27"><span class="annot"><span class="annottext">DescribeVaultOutput -&gt; Maybe Integer
+</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AsizeInBytes%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var hs-var">sizeInBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Universal Coordinated Time (UTC) date when Amazon S3 Glacier</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- completed the last vault inventory. This value should be a string in the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlastInventoryDate%3ADescribeVaultOutput%27"><span class="annot"><span class="annottext">DescribeVaultOutput -&gt; Maybe Text
+</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AlastInventoryDate%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var hs-var">lastInventoryDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the vault.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AvaultARN%3ADescribeVaultOutput%27"><span class="annot"><span class="annottext">DescribeVaultOutput -&gt; Maybe Text
 </span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AvaultARN%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var hs-var">vaultARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Total size, in bytes, of the archives in the vault as of the last</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- inventory date. This field will return null if an inventory has not yet</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- run on the vault, for example if you just created the vault.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AsizeInBytes%3ADescribeVaultOutput%27"><span class="annot"><span class="annottext">DescribeVaultOutput -&gt; Maybe Integer
-</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AsizeInBytes%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var hs-var">sizeInBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Universal Coordinated Time (UTC) date when the vault was created.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- This value should be a string in the ISO 8601 date format, for example</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- @2012-03-20T17:03:43.221Z@.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcreationDate%3ADescribeVaultOutput%27"><span class="annot"><span class="annottext">DescribeVaultOutput -&gt; Maybe Text
+</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AcreationDate%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The number of archives in the vault as of the last inventory date. This</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- field will return @null@ if an inventory has not yet run on the vault,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- for example if you just created the vault.</span><span>
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AnumberOfArchives%3ADescribeVaultOutput%27"><span class="annot"><span class="annottext">DescribeVaultOutput -&gt; Maybe Integer
 </span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AnumberOfArchives%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var hs-var">numberOfArchives</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215417"><span id="local-6989586621679215419"><span class="annot"><span class="annottext">DescribeVaultOutput -&gt; DescribeVaultOutput -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215467"><span id="local-6989586621679215469"><span class="annot"><span class="annottext">DescribeVaultOutput -&gt; DescribeVaultOutput -&gt; Bool
 (DescribeVaultOutput -&gt; DescribeVaultOutput -&gt; Bool)
 -&gt; (DescribeVaultOutput -&gt; DescribeVaultOutput -&gt; Bool)
 -&gt; Eq DescribeVaultOutput
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeVaultOutput -&gt; DescribeVaultOutput -&gt; Bool
 == :: DescribeVaultOutput -&gt; DescribeVaultOutput -&gt; Bool
 $c== :: DescribeVaultOutput -&gt; DescribeVaultOutput -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215408"><span id="local-6989586621679215410"><span id="local-6989586621679215412"><span id="local-6989586621679215414"><span class="annot"><span class="annottext">ReadPrec [DescribeVaultOutput]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215458"><span id="local-6989586621679215460"><span id="local-6989586621679215462"><span id="local-6989586621679215464"><span class="annot"><span class="annottext">ReadPrec [DescribeVaultOutput]
 ReadPrec DescribeVaultOutput
 Int -&gt; ReadS DescribeVaultOutput
 ReadS [DescribeVaultOutput]
@@ -83,7 +83,7 @@ readList :: ReadS [DescribeVaultOutput]
 $creadList :: ReadS [DescribeVaultOutput]
 readsPrec :: Int -&gt; ReadS DescribeVaultOutput
 $creadsPrec :: Int -&gt; ReadS DescribeVaultOutput
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215401"><span id="local-6989586621679215403"><span id="local-6989586621679215405"><span class="annot"><span class="annottext">Int -&gt; DescribeVaultOutput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215451"><span id="local-6989586621679215453"><span id="local-6989586621679215455"><span class="annot"><span class="annottext">Int -&gt; DescribeVaultOutput -&gt; ShowS
 [DescribeVaultOutput] -&gt; ShowS
 DescribeVaultOutput -&gt; String
 (Int -&gt; DescribeVaultOutput -&gt; ShowS)
@@ -117,21 +117,21 @@ $cfrom :: forall x. DescribeVaultOutput -&gt; Rep DescribeVaultOutput x
 </span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'lastInventoryDate', 'describeVaultOutput_lastInventoryDate' - The Universal Coordinated Time (UTC) date when Amazon S3 Glacier</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- completed the last vault inventory. This value should be a string in the</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@.</span><span>
-</span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'creationDate', 'describeVaultOutput_creationDate' - The Universal Coordinated Time (UTC) date when the vault was created.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- This value should be a string in the ISO 8601 date format, for example</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- @2012-03-20T17:03:43.221Z@.</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'vaultName', 'describeVaultOutput_vaultName' - The name of the vault.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'vaultName', 'describeVaultOutput_vaultName' - The name of the vault.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'sizeInBytes', 'describeVaultOutput_sizeInBytes' - Total size, in bytes, of the archives in the vault as of the last</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- inventory date. This field will return null if an inventory has not yet</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- run on the vault, for example if you just created the vault.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'lastInventoryDate', 'describeVaultOutput_lastInventoryDate' - The Universal Coordinated Time (UTC) date when Amazon S3 Glacier</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- completed the last vault inventory. This value should be a string in the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- 'vaultARN', 'describeVaultOutput_vaultARN' - The Amazon Resource Name (ARN) of the vault.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'sizeInBytes', 'describeVaultOutput_sizeInBytes' - Total size, in bytes, of the archives in the vault as of the last</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- inventory date. This field will return null if an inventory has not yet</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- run on the vault, for example if you just created the vault.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'creationDate', 'describeVaultOutput_creationDate' - The Universal Coordinated Time (UTC) date when the vault was created.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- This value should be a string in the ISO 8601 date format, for example</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- @2012-03-20T17:03:43.221Z@.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- 'numberOfArchives', 'describeVaultOutput_numberOfArchives' - The number of archives in the vault as of the last inventory date. This</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- field will return @null@ if an inventory has not yet run on the vault,</span><span>
@@ -141,129 +141,64 @@ $cfrom :: forall x. DescribeVaultOutput -&gt; Rep DescribeVaultOutput x
 </span><span id="line-82"></span><span id="newDescribeVaultOutput"><span class="annot"><span class="annottext">newDescribeVaultOutput :: DescribeVaultOutput
 </span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#newDescribeVaultOutput"><span class="hs-identifier hs-var hs-var">newDescribeVaultOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">DescribeVaultOutput' :: Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Integer
 -&gt; DescribeVaultOutput
 </span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastInventoryDate:DescribeVaultOutput' :: Maybe Text
-</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AlastInventoryDate%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var">lastInventoryDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:DescribeVaultOutput' :: Maybe Text
-</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AcreationDate%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultName:DescribeVaultOutput' :: Maybe Text
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vaultName:DescribeVaultOutput' :: Maybe Text
 </span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AvaultName%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultARN:DescribeVaultOutput' :: Maybe Text
-</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AvaultARN%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var">vaultARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:sizeInBytes:DescribeVaultOutput' :: Maybe Integer
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:sizeInBytes:DescribeVaultOutput' :: Maybe Integer
 </span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AsizeInBytes%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var">sizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:numberOfArchives:DescribeVaultOutput' :: Maybe Integer
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastInventoryDate:DescribeVaultOutput' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AlastInventoryDate%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var">lastInventoryDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultARN:DescribeVaultOutput' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AvaultARN%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var">vaultARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:DescribeVaultOutput' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AcreationDate%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:numberOfArchives:DescribeVaultOutput' :: Maybe Integer
 </span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AnumberOfArchives%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var">numberOfArchives</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The Universal Coordinated Time (UTC) date when Amazon S3 Glacier</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- completed the last vault inventory. This value should be a string in the</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_lastInventoryDate"><span class="hs-identifier hs-type">describeVaultOutput_lastInventoryDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="describeVaultOutput_lastInventoryDate"><span class="annot"><span class="annottext">describeVaultOutput_lastInventoryDate :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeVaultOutput -&gt; f DescribeVaultOutput
-</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_lastInventoryDate"><span class="hs-identifier hs-var hs-var">describeVaultOutput_lastInventoryDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVaultOutput -&gt; Maybe Text)
--&gt; (DescribeVaultOutput -&gt; Maybe Text -&gt; DescribeVaultOutput)
--&gt; Lens
-     DescribeVaultOutput DescribeVaultOutput (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215392"><span class="annot"><span class="annottext">Maybe Text
-lastInventoryDate :: Maybe Text
-$sel:lastInventoryDate:DescribeVaultOutput' :: DescribeVaultOutput -&gt; Maybe Text
-</span><a href="#local-6989586621679215392"><span class="hs-identifier hs-var hs-var">lastInventoryDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215392"><span class="hs-identifier hs-var">lastInventoryDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215391"><span class="annot"><span class="annottext">s :: DescribeVaultOutput
-</span><a href="#local-6989586621679215391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215390"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVaultOutput
-</span><a href="#local-6989586621679215391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastInventoryDate:DescribeVaultOutput' :: Maybe Text
-</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AlastInventoryDate%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var">lastInventoryDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | The Universal Coordinated Time (UTC) date when the vault was created.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- This value should be a string in the ISO 8601 date format, for example</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- @2012-03-20T17:03:43.221Z@.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_creationDate"><span class="hs-identifier hs-type">describeVaultOutput_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="describeVaultOutput_creationDate"><span class="annot"><span class="annottext">describeVaultOutput_creationDate :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeVaultOutput -&gt; f DescribeVaultOutput
-</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_creationDate"><span class="hs-identifier hs-var hs-var">describeVaultOutput_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVaultOutput -&gt; Maybe Text)
--&gt; (DescribeVaultOutput -&gt; Maybe Text -&gt; DescribeVaultOutput)
--&gt; Lens
-     DescribeVaultOutput DescribeVaultOutput (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215388"><span class="annot"><span class="annottext">Maybe Text
-creationDate :: Maybe Text
-$sel:creationDate:DescribeVaultOutput' :: DescribeVaultOutput -&gt; Maybe Text
-</span><a href="#local-6989586621679215388"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215388"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215387"><span class="annot"><span class="annottext">s :: DescribeVaultOutput
-</span><a href="#local-6989586621679215387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215386"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVaultOutput
-</span><a href="#local-6989586621679215387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:DescribeVaultOutput' :: Maybe Text
-</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AcreationDate%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The name of the vault.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_vaultName"><span class="hs-identifier hs-type">describeVaultOutput_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="describeVaultOutput_vaultName"><span class="annot"><span class="annottext">describeVaultOutput_vaultName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The name of the vault.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_vaultName"><span class="hs-identifier hs-type">describeVaultOutput_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="describeVaultOutput_vaultName"><span class="annot"><span class="annottext">describeVaultOutput_vaultName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeVaultOutput -&gt; f DescribeVaultOutput
 </span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_vaultName"><span class="hs-identifier hs-var hs-var">describeVaultOutput_vaultName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVaultOutput -&gt; Maybe Text)
 -&gt; (DescribeVaultOutput -&gt; Maybe Text -&gt; DescribeVaultOutput)
 -&gt; Lens
      DescribeVaultOutput DescribeVaultOutput (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215384"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215442"><span class="annot"><span class="annottext">Maybe Text
 vaultName :: Maybe Text
 $sel:vaultName:DescribeVaultOutput' :: DescribeVaultOutput -&gt; Maybe Text
-</span><a href="#local-6989586621679215384"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215384"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215383"><span class="annot"><span class="annottext">s :: DescribeVaultOutput
-</span><a href="#local-6989586621679215383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215382"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVaultOutput
-</span><a href="#local-6989586621679215383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:DescribeVaultOutput' :: Maybe Text
+</span><a href="#local-6989586621679215442"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215442"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215441"><span class="annot"><span class="annottext">s :: DescribeVaultOutput
+</span><a href="#local-6989586621679215441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215440"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVaultOutput
+</span><a href="#local-6989586621679215441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:DescribeVaultOutput' :: Maybe Text
 </span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AvaultName%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the vault.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_vaultARN"><span class="hs-identifier hs-type">describeVaultOutput_vaultARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="describeVaultOutput_vaultARN"><span class="annot"><span class="annottext">describeVaultOutput_vaultARN :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeVaultOutput -&gt; f DescribeVaultOutput
-</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_vaultARN"><span class="hs-identifier hs-var hs-var">describeVaultOutput_vaultARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVaultOutput -&gt; Maybe Text)
--&gt; (DescribeVaultOutput -&gt; Maybe Text -&gt; DescribeVaultOutput)
--&gt; Lens
-     DescribeVaultOutput DescribeVaultOutput (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215380"><span class="annot"><span class="annottext">Maybe Text
-vaultARN :: Maybe Text
-$sel:vaultARN:DescribeVaultOutput' :: DescribeVaultOutput -&gt; Maybe Text
-</span><a href="#local-6989586621679215380"><span class="hs-identifier hs-var hs-var">vaultARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215380"><span class="hs-identifier hs-var">vaultARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215379"><span class="annot"><span class="annottext">s :: DescribeVaultOutput
-</span><a href="#local-6989586621679215379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215378"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVaultOutput
-</span><a href="#local-6989586621679215379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultARN:DescribeVaultOutput' :: Maybe Text
-</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AvaultARN%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var">vaultARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | Total size, in bytes, of the archives in the vault as of the last</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- inventory date. This field will return null if an inventory has not yet</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- run on the vault, for example if you just created the vault.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_sizeInBytes"><span class="hs-identifier hs-type">describeVaultOutput_sizeInBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="describeVaultOutput_sizeInBytes"><span class="annot"><span class="annottext">describeVaultOutput_sizeInBytes :: (Maybe Integer -&gt; f (Maybe Integer))
+</span><a href="#local-6989586621679215440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | Total size, in bytes, of the archives in the vault as of the last</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- inventory date. This field will return null if an inventory has not yet</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- run on the vault, for example if you just created the vault.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_sizeInBytes"><span class="hs-identifier hs-type">describeVaultOutput_sizeInBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="describeVaultOutput_sizeInBytes"><span class="annot"><span class="annottext">describeVaultOutput_sizeInBytes :: (Maybe Integer -&gt; f (Maybe Integer))
 -&gt; DescribeVaultOutput -&gt; f DescribeVaultOutput
 </span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_sizeInBytes"><span class="hs-identifier hs-var hs-var">describeVaultOutput_sizeInBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVaultOutput -&gt; Maybe Integer)
 -&gt; (DescribeVaultOutput -&gt; Maybe Integer -&gt; DescribeVaultOutput)
@@ -273,22 +208,86 @@ $sel:vaultARN:DescribeVaultOutput' :: DescribeVaultOutput -&gt; Maybe Text
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215376"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215438"><span class="annot"><span class="annottext">Maybe Integer
 sizeInBytes :: Maybe Integer
 $sel:sizeInBytes:DescribeVaultOutput' :: DescribeVaultOutput -&gt; Maybe Integer
-</span><a href="#local-6989586621679215376"><span class="hs-identifier hs-var hs-var">sizeInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679215376"><span class="hs-identifier hs-var">sizeInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215375"><span class="annot"><span class="annottext">s :: DescribeVaultOutput
-</span><a href="#local-6989586621679215375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215374"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679215374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVaultOutput
-</span><a href="#local-6989586621679215375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeInBytes:DescribeVaultOutput' :: Maybe Integer
+</span><a href="#local-6989586621679215438"><span class="hs-identifier hs-var hs-var">sizeInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679215438"><span class="hs-identifier hs-var">sizeInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215437"><span class="annot"><span class="annottext">s :: DescribeVaultOutput
+</span><a href="#local-6989586621679215437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215436"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679215436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVaultOutput
+</span><a href="#local-6989586621679215437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeInBytes:DescribeVaultOutput' :: Maybe Integer
 </span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AsizeInBytes%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var">sizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679215374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The number of archives in the vault as of the last inventory date. This</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- field will return @null@ if an inventory has not yet run on the vault,</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- for example if you just created the vault.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_numberOfArchives"><span class="hs-identifier hs-type">describeVaultOutput_numberOfArchives</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="describeVaultOutput_numberOfArchives"><span class="annot"><span class="annottext">describeVaultOutput_numberOfArchives :: (Maybe Integer -&gt; f (Maybe Integer))
+</span><a href="#local-6989586621679215436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The Universal Coordinated Time (UTC) date when Amazon S3 Glacier</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- completed the last vault inventory. This value should be a string in the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_lastInventoryDate"><span class="hs-identifier hs-type">describeVaultOutput_lastInventoryDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="describeVaultOutput_lastInventoryDate"><span class="annot"><span class="annottext">describeVaultOutput_lastInventoryDate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeVaultOutput -&gt; f DescribeVaultOutput
+</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_lastInventoryDate"><span class="hs-identifier hs-var hs-var">describeVaultOutput_lastInventoryDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVaultOutput -&gt; Maybe Text)
+-&gt; (DescribeVaultOutput -&gt; Maybe Text -&gt; DescribeVaultOutput)
+-&gt; Lens
+     DescribeVaultOutput DescribeVaultOutput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215434"><span class="annot"><span class="annottext">Maybe Text
+lastInventoryDate :: Maybe Text
+$sel:lastInventoryDate:DescribeVaultOutput' :: DescribeVaultOutput -&gt; Maybe Text
+</span><a href="#local-6989586621679215434"><span class="hs-identifier hs-var hs-var">lastInventoryDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215434"><span class="hs-identifier hs-var">lastInventoryDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215433"><span class="annot"><span class="annottext">s :: DescribeVaultOutput
+</span><a href="#local-6989586621679215433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215432"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVaultOutput
+</span><a href="#local-6989586621679215433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastInventoryDate:DescribeVaultOutput' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AlastInventoryDate%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var">lastInventoryDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the vault.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_vaultARN"><span class="hs-identifier hs-type">describeVaultOutput_vaultARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="describeVaultOutput_vaultARN"><span class="annot"><span class="annottext">describeVaultOutput_vaultARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeVaultOutput -&gt; f DescribeVaultOutput
+</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_vaultARN"><span class="hs-identifier hs-var hs-var">describeVaultOutput_vaultARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVaultOutput -&gt; Maybe Text)
+-&gt; (DescribeVaultOutput -&gt; Maybe Text -&gt; DescribeVaultOutput)
+-&gt; Lens
+     DescribeVaultOutput DescribeVaultOutput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215430"><span class="annot"><span class="annottext">Maybe Text
+vaultARN :: Maybe Text
+$sel:vaultARN:DescribeVaultOutput' :: DescribeVaultOutput -&gt; Maybe Text
+</span><a href="#local-6989586621679215430"><span class="hs-identifier hs-var hs-var">vaultARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215430"><span class="hs-identifier hs-var">vaultARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215429"><span class="annot"><span class="annottext">s :: DescribeVaultOutput
+</span><a href="#local-6989586621679215429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215428"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVaultOutput
+</span><a href="#local-6989586621679215429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultARN:DescribeVaultOutput' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AvaultARN%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var">vaultARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The Universal Coordinated Time (UTC) date when the vault was created.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- This value should be a string in the ISO 8601 date format, for example</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- @2012-03-20T17:03:43.221Z@.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_creationDate"><span class="hs-identifier hs-type">describeVaultOutput_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="describeVaultOutput_creationDate"><span class="annot"><span class="annottext">describeVaultOutput_creationDate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeVaultOutput -&gt; f DescribeVaultOutput
+</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_creationDate"><span class="hs-identifier hs-var hs-var">describeVaultOutput_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVaultOutput -&gt; Maybe Text)
+-&gt; (DescribeVaultOutput -&gt; Maybe Text -&gt; DescribeVaultOutput)
+-&gt; Lens
+     DescribeVaultOutput DescribeVaultOutput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215426"><span class="annot"><span class="annottext">Maybe Text
+creationDate :: Maybe Text
+$sel:creationDate:DescribeVaultOutput' :: DescribeVaultOutput -&gt; Maybe Text
+</span><a href="#local-6989586621679215426"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215426"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215425"><span class="annot"><span class="annottext">s :: DescribeVaultOutput
+</span><a href="#local-6989586621679215425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215424"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVaultOutput
+</span><a href="#local-6989586621679215425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:DescribeVaultOutput' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AcreationDate%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The number of archives in the vault as of the last inventory date. This</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- field will return @null@ if an inventory has not yet run on the vault,</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- for example if you just created the vault.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_numberOfArchives"><span class="hs-identifier hs-type">describeVaultOutput_numberOfArchives</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="describeVaultOutput_numberOfArchives"><span class="annot"><span class="annottext">describeVaultOutput_numberOfArchives :: (Maybe Integer -&gt; f (Maybe Integer))
 -&gt; DescribeVaultOutput -&gt; f DescribeVaultOutput
 </span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#describeVaultOutput_numberOfArchives"><span class="hs-identifier hs-var hs-var">describeVaultOutput_numberOfArchives</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVaultOutput -&gt; Maybe Integer)
 -&gt; (DescribeVaultOutput -&gt; Maybe Integer -&gt; DescribeVaultOutput)
@@ -298,126 +297,124 @@ $sel:sizeInBytes:DescribeVaultOutput' :: DescribeVaultOutput -&gt; Maybe Integer
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215372"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215422"><span class="annot"><span class="annottext">Maybe Integer
 numberOfArchives :: Maybe Integer
 $sel:numberOfArchives:DescribeVaultOutput' :: DescribeVaultOutput -&gt; Maybe Integer
-</span><a href="#local-6989586621679215372"><span class="hs-identifier hs-var hs-var">numberOfArchives</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679215372"><span class="hs-identifier hs-var">numberOfArchives</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215371"><span class="annot"><span class="annottext">s :: DescribeVaultOutput
-</span><a href="#local-6989586621679215371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215370"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679215370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVaultOutput
-</span><a href="#local-6989586621679215371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfArchives:DescribeVaultOutput' :: Maybe Integer
+</span><a href="#local-6989586621679215422"><span class="hs-identifier hs-var hs-var">numberOfArchives</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679215422"><span class="hs-identifier hs-var">numberOfArchives</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215421"><span class="annot"><span class="annottext">s :: DescribeVaultOutput
+</span><a href="#local-6989586621679215421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-type">DescribeVaultOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215420"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679215420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVaultOutput
+</span><a href="#local-6989586621679215421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfArchives:DescribeVaultOutput' :: Maybe Integer
 </span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#%24sel%3AnumberOfArchives%3ADescribeVaultOutput%27"><span class="hs-identifier hs-var">numberOfArchives</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679215370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215367"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679215365"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DescribeVaultOutput
+</span><a href="#local-6989586621679215420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215417"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679215415"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DescribeVaultOutput
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DescribeVaultOutput)
 -&gt; Value
 -&gt; Parser DescribeVaultOutput
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DescribeVaultOutput&quot;</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215362"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215362"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215412"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215412"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Integer
 -&gt; DescribeVaultOutput
 </span><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput%27"><span class="hs-identifier hs-var">DescribeVaultOutput'</span></a></span><span>
-</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Integer
  -&gt; DescribeVaultOutput)
 -&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; DescribeVaultOutput)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VaultName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; DescribeVaultOutput)
+-&gt; Parser (Maybe Integer)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Integer
-      -&gt; Maybe Integer
       -&gt; DescribeVaultOutput)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastInventoryDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SizeInBytes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Integer
-   -&gt; Maybe Integer
    -&gt; DescribeVaultOutput)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Integer
-      -&gt; Maybe Integer
-      -&gt; DescribeVaultOutput)
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Integer -&gt; DescribeVaultOutput)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679215412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LastInventoryDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Integer
-   -&gt; Maybe Integer
-   -&gt; DescribeVaultOutput)
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Integer -&gt; DescribeVaultOutput)
 -&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Integer -&gt; Maybe Integer -&gt; DescribeVaultOutput)
+-&gt; Parser (Maybe Text -&gt; Maybe Integer -&gt; DescribeVaultOutput)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;VaultName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Integer -&gt; Maybe Integer -&gt; DescribeVaultOutput)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Integer -&gt; Maybe Integer -&gt; DescribeVaultOutput)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679215412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VaultARN&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; Maybe Integer -&gt; DescribeVaultOutput)
--&gt; Parser (Maybe Integer)
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Integer -&gt; DescribeVaultOutput)
+-&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Integer -&gt; DescribeVaultOutput)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679215412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SizeInBytes&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; DescribeVaultOutput)
+</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; DescribeVaultOutput)
 -&gt; Parser (Maybe Integer) -&gt; Parser DescribeVaultOutput
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679215412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfArchives&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215356"><span id="local-6989586621679215358"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span></span></span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215353"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span></span><span>
-</span><span id="line-142"></span></pre></body></html>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215406"><span id="local-6989586621679215408"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215403"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span></span><span>
+</span><span id="line-141"></span></pre></body></html>

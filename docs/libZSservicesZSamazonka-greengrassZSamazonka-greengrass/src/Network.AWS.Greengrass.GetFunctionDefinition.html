@@ -35,14 +35,14 @@
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#newGetFunctionDefinitionResponse"><span class="hs-identifier">newGetFunctionDefinitionResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_creationTimestamp"><span class="hs-identifier">getFunctionDefinitionResponse_creationTimestamp</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_latestVersionArn"><span class="hs-identifier">getFunctionDefinitionResponse_latestVersionArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_latestVersion"><span class="hs-identifier">getFunctionDefinitionResponse_latestVersion</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_arn"><span class="hs-identifier">getFunctionDefinitionResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_latestVersionArn"><span class="hs-identifier">getFunctionDefinitionResponse_latestVersionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_arn"><span class="hs-identifier">getFunctionDefinitionResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_name"><span class="hs-identifier">getFunctionDefinitionResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_creationTimestamp"><span class="hs-identifier">getFunctionDefinitionResponse_creationTimestamp</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_id"><span class="hs-identifier">getFunctionDefinitionResponse_id</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_name"><span class="hs-identifier">getFunctionDefinitionResponse_name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_tags"><span class="hs-identifier">getFunctionDefinitionResponse_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_lastUpdatedTimestamp"><span class="hs-identifier">getFunctionDefinitionResponse_lastUpdatedTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_latestVersion"><span class="hs-identifier">getFunctionDefinitionResponse_latestVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_lastUpdatedTimestamp"><span class="hs-identifier">getFunctionDefinitionResponse_lastUpdatedTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_tags"><span class="hs-identifier">getFunctionDefinitionResponse_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_httpStatus"><span class="hs-identifier">getFunctionDefinitionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span class="hs-keyword">where</span><span>
@@ -55,12 +55,12 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newGetFunctionDefinition' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679358172"><span id="local-6989586621679358173"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFunctionDefinition"><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition"><span class="hs-identifier hs-var">GetFunctionDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFunctionDefinition%27"><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition%27"><span class="hs-identifier hs-var">GetFunctionDefinition'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679358460"><span id="local-6989586621679358461"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFunctionDefinition"><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition"><span class="hs-identifier hs-var">GetFunctionDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFunctionDefinition%27"><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition%27"><span class="hs-identifier hs-var">GetFunctionDefinition'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Lambda function definition.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AfunctionDefinitionId%3AGetFunctionDefinition%27"><span class="annot"><span class="annottext">GetFunctionDefinition -&gt; Text
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AfunctionDefinitionId%3AGetFunctionDefinition%27"><span class="hs-identifier hs-var hs-var">functionDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358166"><span id="local-6989586621679358168"><span class="annot"><span class="annottext">GetFunctionDefinition -&gt; GetFunctionDefinition -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358454"><span id="local-6989586621679358456"><span class="annot"><span class="annottext">GetFunctionDefinition -&gt; GetFunctionDefinition -&gt; Bool
 (GetFunctionDefinition -&gt; GetFunctionDefinition -&gt; Bool)
 -&gt; (GetFunctionDefinition -&gt; GetFunctionDefinition -&gt; Bool)
 -&gt; Eq GetFunctionDefinition
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetFunctionDefinition -&gt; GetFunctionDefinition -&gt; Bool
 == :: GetFunctionDefinition -&gt; GetFunctionDefinition -&gt; Bool
 $c== :: GetFunctionDefinition -&gt; GetFunctionDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358157"><span id="local-6989586621679358159"><span id="local-6989586621679358161"><span id="local-6989586621679358163"><span class="annot"><span class="annottext">ReadPrec [GetFunctionDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358445"><span id="local-6989586621679358447"><span id="local-6989586621679358449"><span id="local-6989586621679358451"><span class="annot"><span class="annottext">ReadPrec [GetFunctionDefinition]
 ReadPrec GetFunctionDefinition
 Int -&gt; ReadS GetFunctionDefinition
 ReadS [GetFunctionDefinition]
@@ -89,7 +89,7 @@ readList :: ReadS [GetFunctionDefinition]
 $creadList :: ReadS [GetFunctionDefinition]
 readsPrec :: Int -&gt; ReadS GetFunctionDefinition
 $creadsPrec :: Int -&gt; ReadS GetFunctionDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358150"><span id="local-6989586621679358152"><span id="local-6989586621679358154"><span class="annot"><span class="annottext">Int -&gt; GetFunctionDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358438"><span id="local-6989586621679358440"><span id="local-6989586621679358442"><span class="annot"><span class="annottext">Int -&gt; GetFunctionDefinition -&gt; ShowS
 [GetFunctionDefinition] -&gt; ShowS
 GetFunctionDefinition -&gt; String
 (Int -&gt; GetFunctionDefinition -&gt; ShowS)
@@ -129,14 +129,14 @@ $cfrom :: forall x. GetFunctionDefinition -&gt; Rep GetFunctionDefinition x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition"><span class="hs-identifier hs-type">GetFunctionDefinition</span></a></span><span>
 </span><span id="line-77"></span><span id="newGetFunctionDefinition"><span class="annot"><span class="annottext">newGetFunctionDefinition :: Text -&gt; GetFunctionDefinition
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#newGetFunctionDefinition"><span class="hs-identifier hs-var hs-var">newGetFunctionDefinition</span></a></span></span><span> </span><span id="local-6989586621679358145"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679358145"><span class="hs-identifier hs-var">pFunctionDefinitionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#newGetFunctionDefinition"><span class="hs-identifier hs-var hs-var">newGetFunctionDefinition</span></a></span></span><span> </span><span id="local-6989586621679358433"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358433"><span class="hs-identifier hs-var">pFunctionDefinitionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">GetFunctionDefinition' :: Text -&gt; GetFunctionDefinition
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition%27"><span class="hs-identifier hs-type">GetFunctionDefinition'</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:functionDefinitionId:GetFunctionDefinition' :: Text
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AfunctionDefinitionId%3AGetFunctionDefinition%27"><span class="hs-identifier hs-var">functionDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679358145"><span class="hs-identifier hs-var">pFunctionDefinitionId_</span></a></span><span>
+</span><a href="#local-6989586621679358433"><span class="hs-identifier hs-var">pFunctionDefinitionId_</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The ID of the Lambda function definition.</span><span>
@@ -147,27 +147,27 @@ $cfrom :: forall x. GetFunctionDefinition -&gt; Rep GetFunctionDefinition x
 -&gt; (GetFunctionDefinition -&gt; Text -&gt; GetFunctionDefinition)
 -&gt; Lens GetFunctionDefinition GetFunctionDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition%27"><span class="hs-identifier hs-type">GetFunctionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358142"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition%27"><span class="hs-identifier hs-type">GetFunctionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358430"><span class="annot"><span class="annottext">Text
 functionDefinitionId :: Text
 $sel:functionDefinitionId:GetFunctionDefinition' :: GetFunctionDefinition -&gt; Text
-</span><a href="#local-6989586621679358142"><span class="hs-identifier hs-var hs-var">functionDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679358142"><span class="hs-identifier hs-var">functionDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358141"><span class="annot"><span class="annottext">s :: GetFunctionDefinition
-</span><a href="#local-6989586621679358141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition%27"><span class="hs-identifier hs-type">GetFunctionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358140"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679358140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinition
-</span><a href="#local-6989586621679358141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionDefinitionId:GetFunctionDefinition' :: Text
+</span><a href="#local-6989586621679358430"><span class="hs-identifier hs-var hs-var">functionDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358430"><span class="hs-identifier hs-var">functionDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358429"><span class="annot"><span class="annottext">s :: GetFunctionDefinition
+</span><a href="#local-6989586621679358429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition%27"><span class="hs-identifier hs-type">GetFunctionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358428"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinition
+</span><a href="#local-6989586621679358429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionDefinitionId:GetFunctionDefinition' :: Text
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AfunctionDefinitionId%3AGetFunctionDefinition%27"><span class="hs-identifier hs-var">functionDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679358140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition"><span class="hs-identifier hs-type">GetFunctionDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition"><span class="hs-identifier hs-type">GetFunctionDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition"><span class="hs-identifier hs-type">GetFunctionDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-89"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition"><span class="hs-identifier hs-type">GetFunctionDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679358136"><span class="annot"><span class="annottext">request :: GetFunctionDefinition -&gt; Request GetFunctionDefinition
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679358424"><span class="annot"><span class="annottext">request :: GetFunctionDefinition -&gt; Request GetFunctionDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetFunctionDefinition -&gt; Request GetFunctionDefinition
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679358132"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679358420"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetFunctionDefinition
 -&gt; ClientResponse ClientBody
@@ -193,18 +193,18 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679358129"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358129"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679358128"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679358128"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679358127"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679358127"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679358417"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358417"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679358416"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679358416"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679358415"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679358415"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe (HashMap Text Text)
 -&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
 -&gt; Int
 -&gt; GetFunctionDefinitionResponse
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">GetFunctionDefinitionResponse'</span></a></span><span>
@@ -214,8 +214,8 @@ MonadResource m =&gt;
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe (HashMap Text Text)
  -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
  -&gt; Int
  -&gt; GetFunctionDefinitionResponse)
 -&gt; Either String (Maybe Text)
@@ -226,16 +226,16 @@ MonadResource m =&gt;
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe (HashMap Text Text)
       -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
       -&gt; Int
       -&gt; GetFunctionDefinitionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679358127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679358415"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LatestVersionArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
@@ -243,8 +243,8 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe (HashMap Text Text)
    -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
    -&gt; Int
    -&gt; GetFunctionDefinitionResponse)
 -&gt; Either String (Maybe Text)
@@ -254,24 +254,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe (HashMap Text Text)
       -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
       -&gt; Int
       -&gt; GetFunctionDefinitionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679358127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679358415"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LatestVersionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe (HashMap Text Text)
    -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
    -&gt; Int
    -&gt; GetFunctionDefinitionResponse)
 -&gt; Either String (Maybe Text)
@@ -280,23 +280,23 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe (HashMap Text Text)
       -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
       -&gt; Int
       -&gt; GetFunctionDefinitionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679358127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679358415"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LatestVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe (HashMap Text Text)
    -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
    -&gt; Int
    -&gt; GetFunctionDefinitionResponse)
 -&gt; Either String (Maybe Text)
@@ -304,66 +304,82 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe (HashMap Text Text)
       -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
       -&gt; Int
       -&gt; GetFunctionDefinitionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679358127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679358415"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;CreationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe (HashMap Text Text)
    -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
    -&gt; Int
    -&gt; GetFunctionDefinitionResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe (HashMap Text Text)
       -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
       -&gt; Int
       -&gt; GetFunctionDefinitionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679358127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679358415"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
-   -&gt; Maybe (HashMap Text Text)
    -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
    -&gt; Int
    -&gt; GetFunctionDefinitionResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe (HashMap Text Text)
-      -&gt; Maybe Text -&gt; Int -&gt; GetFunctionDefinitionResponse)
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetFunctionDefinitionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679358127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679358415"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LatestVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe (HashMap Text Text)
-   -&gt; Maybe Text -&gt; Int -&gt; GetFunctionDefinitionResponse)
--&gt; Either String (Maybe (HashMap Text Text))
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetFunctionDefinitionResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; GetFunctionDefinitionResponse)
+     String
+     (Maybe (HashMap Text Text) -&gt; Int -&gt; GetFunctionDefinitionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679358127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679358415"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text) -&gt; Int -&gt; GetFunctionDefinitionResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; GetFunctionDefinitionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679358415"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
@@ -373,15 +389,6 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetFunctionDefinitionResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; GetFunctionDefinitionResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679358127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastUpdatedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetFunctionDefinitionResponse)
 -&gt; Either String Int -&gt; Either String GetFunctionDefinitionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -390,15 +397,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358129"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358417"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358118"><span id="local-6989586621679358120"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition"><span class="hs-identifier hs-type">GetFunctionDefinition</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358406"><span id="local-6989586621679358408"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition"><span class="hs-identifier hs-type">GetFunctionDefinition</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition"><span class="hs-identifier hs-type">GetFunctionDefinition</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358403"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition"><span class="hs-identifier hs-type">GetFunctionDefinition</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition"><span class="hs-identifier hs-type">GetFunctionDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679358111"><span class="annot"><span class="annottext">toHeaders :: GetFunctionDefinition -&gt; ResponseHeaders
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679358399"><span class="annot"><span class="annottext">toHeaders :: GetFunctionDefinition -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetFunctionDefinition -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -418,11 +425,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition"><span class="hs-identifier hs-type">GetFunctionDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679358105"><span class="annot"><span class="annottext">toPath :: GetFunctionDefinition -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition%27"><span class="hs-identifier hs-type">GetFunctionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358103"><span class="annot"><span class="annottext">Text
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679358393"><span class="annot"><span class="annottext">toPath :: GetFunctionDefinition -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition%27"><span class="hs-identifier hs-type">GetFunctionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358391"><span class="annot"><span class="annottext">Text
 functionDefinitionId :: Text
 $sel:functionDefinitionId:GetFunctionDefinition' :: GetFunctionDefinition -&gt; Text
-</span><a href="#local-6989586621679358103"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679358391"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -431,11 +438,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679358103"><span class="hs-identifier hs-var">functionDefinitionId</span></a></span><span>
+</span><a href="#local-6989586621679358391"><span class="hs-identifier hs-var">functionDefinitionId</span></a></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinition"><span class="hs-identifier hs-type">GetFunctionDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679358099"><span class="annot"><span class="annottext">toQuery :: GetFunctionDefinition -&gt; QueryString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679358387"><span class="annot"><span class="annottext">toQuery :: GetFunctionDefinition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetFunctionDefinition -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -443,38 +450,38 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newGetFunctionDefinitionResponse' smart constructor.</span><span>
-</span><span id="line-133"></span><span id="local-6989586621679358096"><span id="local-6989586621679358097"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFunctionDefinitionResponse"><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-var">GetFunctionDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFunctionDefinitionResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">GetFunctionDefinitionResponse'</span></a></span></span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was</span><span>
-</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- created.</span><span>
-</span><span id="line-136"></span><span>    </span><span id="%24sel%3AcreationTimestamp%3AGetFunctionDefinitionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AcreationTimestamp%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The ARN of the latest version associated with the definition.</span><span>
-</span><span id="line-138"></span><span>    </span><span id="%24sel%3AlatestVersionArn%3AGetFunctionDefinitionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionResponse -&gt; Maybe Text
+</span><span id="line-133"></span><span id="local-6989586621679358384"><span id="local-6989586621679358385"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFunctionDefinitionResponse"><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-var">GetFunctionDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFunctionDefinitionResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">GetFunctionDefinitionResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the latest version associated with the definition.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AlatestVersionArn%3AGetFunctionDefinitionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AlatestVersionArn%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">latestVersionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | The ID of the latest version associated with the definition.</span><span>
-</span><span id="line-140"></span><span>    </span><span id="%24sel%3AlatestVersion%3AGetFunctionDefinitionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AlatestVersion%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">latestVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The ARN of the definition.</span><span>
-</span><span id="line-142"></span><span>    </span><span id="%24sel%3Aarn%3AGetFunctionDefinitionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionResponse -&gt; Maybe Text
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The ARN of the definition.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3Aarn%3AGetFunctionDefinitionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3Aarn%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The name of the definition.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3Aname%3AGetFunctionDefinitionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3Aname%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AcreationTimestamp%3AGetFunctionDefinitionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AcreationTimestamp%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The ID of the definition.</span><span>
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3Aid%3AGetFunctionDefinitionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3Aid%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | The name of the definition.</span><span>
-</span><span id="line-146"></span><span>    </span><span id="%24sel%3Aname%3AGetFunctionDefinitionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3Aname%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | Tag(s) attached to the resource arn.</span><span>
-</span><span id="line-148"></span><span>    </span><span id="%24sel%3Atags%3AGetFunctionDefinitionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3Atags%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was last</span><span>
-</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- updated.</span><span>
-</span><span id="line-151"></span><span>    </span><span id="%24sel%3AlastUpdatedTimestamp%3AGetFunctionDefinitionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionResponse -&gt; Maybe Text
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | The ID of the latest version associated with the definition.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AlatestVersion%3AGetFunctionDefinitionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AlatestVersion%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">latestVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was last</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AlastUpdatedTimestamp%3AGetFunctionDefinitionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AlastUpdatedTimestamp%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | Tag(s) attached to the resource arn.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3Atags%3AGetFunctionDefinitionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3Atags%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetFunctionDefinitionResponse%27"><span class="annot"><span class="annottext">GetFunctionDefinitionResponse -&gt; Int
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AhttpStatus%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358083"><span id="local-6989586621679358085"><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358371"><span id="local-6989586621679358373"><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
 -&gt; GetFunctionDefinitionResponse -&gt; Bool
 (GetFunctionDefinitionResponse
  -&gt; GetFunctionDefinitionResponse -&gt; Bool)
@@ -490,7 +497,7 @@ $c/= :: GetFunctionDefinitionResponse
 -&gt; GetFunctionDefinitionResponse -&gt; Bool
 $c== :: GetFunctionDefinitionResponse
 -&gt; GetFunctionDefinitionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358075"><span id="local-6989586621679358077"><span id="local-6989586621679358079"><span id="local-6989586621679358081"><span class="annot"><span class="annottext">ReadPrec [GetFunctionDefinitionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358363"><span id="local-6989586621679358365"><span id="local-6989586621679358367"><span id="local-6989586621679358369"><span class="annot"><span class="annottext">ReadPrec [GetFunctionDefinitionResponse]
 ReadPrec GetFunctionDefinitionResponse
 Int -&gt; ReadS GetFunctionDefinitionResponse
 ReadS [GetFunctionDefinitionResponse]
@@ -510,7 +517,7 @@ readList :: ReadS [GetFunctionDefinitionResponse]
 $creadList :: ReadS [GetFunctionDefinitionResponse]
 readsPrec :: Int -&gt; ReadS GetFunctionDefinitionResponse
 $creadsPrec :: Int -&gt; ReadS GetFunctionDefinitionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358069"><span id="local-6989586621679358071"><span id="local-6989586621679358073"><span class="annot"><span class="annottext">Int -&gt; GetFunctionDefinitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358357"><span id="local-6989586621679358359"><span id="local-6989586621679358361"><span class="annot"><span class="annottext">Int -&gt; GetFunctionDefinitionResponse -&gt; ShowS
 [GetFunctionDefinitionResponse] -&gt; ShowS
 GetFunctionDefinitionResponse -&gt; String
 (Int -&gt; GetFunctionDefinitionResponse -&gt; ShowS)
@@ -556,23 +563,23 @@ GetFunctionDefinitionResponse
 </span><span id="line-162"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-164"></span><span class="hs-comment">--</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- 'creationTimestamp', 'getFunctionDefinitionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the definition was</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- created.</span><span>
-</span><span id="line-167"></span><span class="hs-comment">--</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- 'latestVersionArn', 'getFunctionDefinitionResponse_latestVersionArn' - The ARN of the latest version associated with the definition.</span><span>
-</span><span id="line-169"></span><span class="hs-comment">--</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- 'latestVersion', 'getFunctionDefinitionResponse_latestVersion' - The ID of the latest version associated with the definition.</span><span>
-</span><span id="line-171"></span><span class="hs-comment">--</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- 'arn', 'getFunctionDefinitionResponse_arn' - The ARN of the definition.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'latestVersionArn', 'getFunctionDefinitionResponse_latestVersionArn' - The ARN of the latest version associated with the definition.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'arn', 'getFunctionDefinitionResponse_arn' - The ARN of the definition.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'name', 'getFunctionDefinitionResponse_name' - The name of the definition.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'creationTimestamp', 'getFunctionDefinitionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the definition was</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- created.</span><span>
 </span><span id="line-173"></span><span class="hs-comment">--</span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- 'id', 'getFunctionDefinitionResponse_id' - The ID of the definition.</span><span>
 </span><span id="line-175"></span><span class="hs-comment">--</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- 'name', 'getFunctionDefinitionResponse_name' - The name of the definition.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'latestVersion', 'getFunctionDefinitionResponse_latestVersion' - The ID of the latest version associated with the definition.</span><span>
 </span><span id="line-177"></span><span class="hs-comment">--</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- 'tags', 'getFunctionDefinitionResponse_tags' - Tag(s) attached to the resource arn.</span><span>
-</span><span id="line-179"></span><span class="hs-comment">--</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- 'lastUpdatedTimestamp', 'getFunctionDefinitionResponse_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'lastUpdatedTimestamp', 'getFunctionDefinitionResponse_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'tags', 'getFunctionDefinitionResponse_tags' - Tag(s) attached to the resource arn.</span><span>
 </span><span id="line-182"></span><span class="hs-comment">--</span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- 'httpStatus', 'getFunctionDefinitionResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#newGetFunctionDefinitionResponse"><span class="hs-identifier hs-type">newGetFunctionDefinitionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -580,85 +587,60 @@ GetFunctionDefinitionResponse
 </span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-187"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span>
 </span><span id="line-188"></span><span id="newGetFunctionDefinitionResponse"><span class="annot"><span class="annottext">newGetFunctionDefinitionResponse :: Int -&gt; GetFunctionDefinitionResponse
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#newGetFunctionDefinitionResponse"><span class="hs-identifier hs-var hs-var">newGetFunctionDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679358066"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358066"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#newGetFunctionDefinitionResponse"><span class="hs-identifier hs-var hs-var">newGetFunctionDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679358354"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358354"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe (HashMap Text Text)
 -&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
 -&gt; Int
 -&gt; GetFunctionDefinitionResponse
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span>
-</span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTimestamp:GetFunctionDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AcreationTimestamp%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:latestVersionArn:GetFunctionDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AlatestVersionArn%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">latestVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestVersionArn:GetFunctionDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AlatestVersionArn%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">latestVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestVersion:GetFunctionDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AlatestVersion%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">latestVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:GetFunctionDefinitionResponse' :: Maybe Text
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:GetFunctionDefinitionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3Aarn%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GetFunctionDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3Aname%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTimestamp:GetFunctionDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AcreationTimestamp%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:GetFunctionDefinitionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3Aid%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GetFunctionDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3Aname%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestVersion:GetFunctionDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AlatestVersion%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">latestVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:GetFunctionDefinitionResponse' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3Atags%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTimestamp:GetFunctionDefinitionResponse' :: Maybe Text
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTimestamp:GetFunctionDefinitionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AlastUpdatedTimestamp%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:GetFunctionDefinitionResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3Atags%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetFunctionDefinitionResponse' :: Int
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AhttpStatus%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358066"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679358354"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- created.</span><span>
-</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_creationTimestamp"><span class="hs-identifier hs-type">getFunctionDefinitionResponse_creationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span id="getFunctionDefinitionResponse_creationTimestamp"><span class="annot"><span class="annottext">getFunctionDefinitionResponse_creationTimestamp :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetFunctionDefinitionResponse -&gt; f GetFunctionDefinitionResponse
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_creationTimestamp"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionResponse_creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionResponse -&gt; Maybe Text)
--&gt; (GetFunctionDefinitionResponse
-    -&gt; Maybe Text -&gt; GetFunctionDefinitionResponse)
--&gt; Lens
-     GetFunctionDefinitionResponse
-     GetFunctionDefinitionResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358065"><span class="annot"><span class="annottext">Maybe Text
-creationTimestamp :: Maybe Text
-$sel:creationTimestamp:GetFunctionDefinitionResponse' :: GetFunctionDefinitionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679358065"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358065"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358064"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionResponse
-</span><a href="#local-6989586621679358064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358063"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
-</span><a href="#local-6989586621679358064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimestamp:GetFunctionDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AcreationTimestamp%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- | The ARN of the latest version associated with the definition.</span><span>
-</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_latestVersionArn"><span class="hs-identifier hs-type">getFunctionDefinitionResponse_latestVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span id="getFunctionDefinitionResponse_latestVersionArn"><span class="annot"><span class="annottext">getFunctionDefinitionResponse_latestVersionArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-202"></span><span class="hs-comment">-- | The ARN of the latest version associated with the definition.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_latestVersionArn"><span class="hs-identifier hs-type">getFunctionDefinitionResponse_latestVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="getFunctionDefinitionResponse_latestVersionArn"><span class="annot"><span class="annottext">getFunctionDefinitionResponse_latestVersionArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetFunctionDefinitionResponse -&gt; f GetFunctionDefinitionResponse
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_latestVersionArn"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionResponse_latestVersionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionResponse -&gt; Maybe Text)
 -&gt; (GetFunctionDefinitionResponse
@@ -669,44 +651,20 @@ $sel:creationTimestamp:GetFunctionDefinitionResponse' :: GetFunctionDefinitionRe
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358062"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358353"><span class="annot"><span class="annottext">Maybe Text
 latestVersionArn :: Maybe Text
 $sel:latestVersionArn:GetFunctionDefinitionResponse' :: GetFunctionDefinitionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679358062"><span class="hs-identifier hs-var hs-var">latestVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358062"><span class="hs-identifier hs-var">latestVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358061"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionResponse
-</span><a href="#local-6989586621679358061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358060"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
-</span><a href="#local-6989586621679358061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestVersionArn:GetFunctionDefinitionResponse' :: Maybe Text
+</span><a href="#local-6989586621679358353"><span class="hs-identifier hs-var hs-var">latestVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358353"><span class="hs-identifier hs-var">latestVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358352"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionResponse
+</span><a href="#local-6989586621679358352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358351"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
+</span><a href="#local-6989586621679358352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestVersionArn:GetFunctionDefinitionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AlatestVersionArn%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">latestVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- | The ID of the latest version associated with the definition.</span><span>
-</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_latestVersion"><span class="hs-identifier hs-type">getFunctionDefinitionResponse_latestVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-213"></span><span id="getFunctionDefinitionResponse_latestVersion"><span class="annot"><span class="annottext">getFunctionDefinitionResponse_latestVersion :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetFunctionDefinitionResponse -&gt; f GetFunctionDefinitionResponse
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_latestVersion"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionResponse_latestVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionResponse -&gt; Maybe Text)
--&gt; (GetFunctionDefinitionResponse
-    -&gt; Maybe Text -&gt; GetFunctionDefinitionResponse)
--&gt; Lens
-     GetFunctionDefinitionResponse
-     GetFunctionDefinitionResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358059"><span class="annot"><span class="annottext">Maybe Text
-latestVersion :: Maybe Text
-$sel:latestVersion:GetFunctionDefinitionResponse' :: GetFunctionDefinitionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679358059"><span class="hs-identifier hs-var hs-var">latestVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358059"><span class="hs-identifier hs-var">latestVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358058"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionResponse
-</span><a href="#local-6989586621679358058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358057"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
-</span><a href="#local-6989586621679358058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestVersion:GetFunctionDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AlatestVersion%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">latestVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- | The ARN of the definition.</span><span>
-</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_arn"><span class="hs-identifier hs-type">getFunctionDefinitionResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-217"></span><span id="getFunctionDefinitionResponse_arn"><span class="annot"><span class="annottext">getFunctionDefinitionResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679358351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The ARN of the definition.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_arn"><span class="hs-identifier hs-type">getFunctionDefinitionResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="getFunctionDefinitionResponse_arn"><span class="annot"><span class="annottext">getFunctionDefinitionResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetFunctionDefinitionResponse -&gt; f GetFunctionDefinitionResponse
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_arn"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionResponse -&gt; Maybe Text)
 -&gt; (GetFunctionDefinitionResponse
@@ -717,16 +675,65 @@ $sel:latestVersion:GetFunctionDefinitionResponse' :: GetFunctionDefinitionRespon
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358056"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358350"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:GetFunctionDefinitionResponse' :: GetFunctionDefinitionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679358056"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358056"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358055"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionResponse
-</span><a href="#local-6989586621679358055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358054"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
-</span><a href="#local-6989586621679358055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetFunctionDefinitionResponse' :: Maybe Text
+</span><a href="#local-6989586621679358350"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358350"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358349"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionResponse
+</span><a href="#local-6989586621679358349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358348"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
+</span><a href="#local-6989586621679358349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetFunctionDefinitionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3Aarn%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The name of the definition.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_name"><span class="hs-identifier hs-type">getFunctionDefinitionResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="getFunctionDefinitionResponse_name"><span class="annot"><span class="annottext">getFunctionDefinitionResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetFunctionDefinitionResponse -&gt; f GetFunctionDefinitionResponse
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_name"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionResponse -&gt; Maybe Text)
+-&gt; (GetFunctionDefinitionResponse
+    -&gt; Maybe Text -&gt; GetFunctionDefinitionResponse)
+-&gt; Lens
+     GetFunctionDefinitionResponse
+     GetFunctionDefinitionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358347"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:GetFunctionDefinitionResponse' :: GetFunctionDefinitionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679358347"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358347"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358346"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionResponse
+</span><a href="#local-6989586621679358346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358345"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
+</span><a href="#local-6989586621679358346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetFunctionDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3Aname%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_creationTimestamp"><span class="hs-identifier hs-type">getFunctionDefinitionResponse_creationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="getFunctionDefinitionResponse_creationTimestamp"><span class="annot"><span class="annottext">getFunctionDefinitionResponse_creationTimestamp :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetFunctionDefinitionResponse -&gt; f GetFunctionDefinitionResponse
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_creationTimestamp"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionResponse_creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionResponse -&gt; Maybe Text)
+-&gt; (GetFunctionDefinitionResponse
+    -&gt; Maybe Text -&gt; GetFunctionDefinitionResponse)
+-&gt; Lens
+     GetFunctionDefinitionResponse
+     GetFunctionDefinitionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358344"><span class="annot"><span class="annottext">Maybe Text
+creationTimestamp :: Maybe Text
+$sel:creationTimestamp:GetFunctionDefinitionResponse' :: GetFunctionDefinitionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679358344"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358344"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358343"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionResponse
+</span><a href="#local-6989586621679358343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358342"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
+</span><a href="#local-6989586621679358343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimestamp:GetFunctionDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AcreationTimestamp%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The ID of the definition.</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_id"><span class="hs-identifier hs-type">getFunctionDefinitionResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -741,22 +748,22 @@ $sel:arn:GetFunctionDefinitionResponse' :: GetFunctionDefinitionResponse -&gt; M
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358053"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358341"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:GetFunctionDefinitionResponse' :: GetFunctionDefinitionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679358053"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358053"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358052"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionResponse
-</span><a href="#local-6989586621679358052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358051"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
-</span><a href="#local-6989586621679358052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetFunctionDefinitionResponse' :: Maybe Text
+</span><a href="#local-6989586621679358341"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358341"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358340"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionResponse
+</span><a href="#local-6989586621679358340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358339"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
+</span><a href="#local-6989586621679358340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetFunctionDefinitionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3Aid%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- | The name of the definition.</span><span>
-</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_name"><span class="hs-identifier hs-type">getFunctionDefinitionResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-225"></span><span id="getFunctionDefinitionResponse_name"><span class="annot"><span class="annottext">getFunctionDefinitionResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-223"></span><span class="hs-comment">-- | The ID of the latest version associated with the definition.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_latestVersion"><span class="hs-identifier hs-type">getFunctionDefinitionResponse_latestVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="getFunctionDefinitionResponse_latestVersion"><span class="annot"><span class="annottext">getFunctionDefinitionResponse_latestVersion :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetFunctionDefinitionResponse -&gt; f GetFunctionDefinitionResponse
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_name"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionResponse -&gt; Maybe Text)
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_latestVersion"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionResponse_latestVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionResponse -&gt; Maybe Text)
 -&gt; (GetFunctionDefinitionResponse
     -&gt; Maybe Text -&gt; GetFunctionDefinitionResponse)
 -&gt; Lens
@@ -765,20 +772,45 @@ $sel:id:GetFunctionDefinitionResponse' :: GetFunctionDefinitionResponse -&gt; Ma
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358050"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:GetFunctionDefinitionResponse' :: GetFunctionDefinitionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679358050"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358050"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358049"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionResponse
-</span><a href="#local-6989586621679358049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358048"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
-</span><a href="#local-6989586621679358049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetFunctionDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3Aname%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358338"><span class="annot"><span class="annottext">Maybe Text
+latestVersion :: Maybe Text
+$sel:latestVersion:GetFunctionDefinitionResponse' :: GetFunctionDefinitionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679358338"><span class="hs-identifier hs-var hs-var">latestVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358338"><span class="hs-identifier hs-var">latestVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358337"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionResponse
+</span><a href="#local-6989586621679358337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358336"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
+</span><a href="#local-6989586621679358337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestVersion:GetFunctionDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AlatestVersion%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">latestVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- | Tag(s) attached to the resource arn.</span><span>
-</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_tags"><span class="hs-identifier hs-type">getFunctionDefinitionResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-229"></span><span id="getFunctionDefinitionResponse_tags"><span class="annot"><span class="annottext">getFunctionDefinitionResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span id="line-227"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was last</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_lastUpdatedTimestamp"><span class="hs-identifier hs-type">getFunctionDefinitionResponse_lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="getFunctionDefinitionResponse_lastUpdatedTimestamp"><span class="annot"><span class="annottext">getFunctionDefinitionResponse_lastUpdatedTimestamp :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetFunctionDefinitionResponse -&gt; f GetFunctionDefinitionResponse
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_lastUpdatedTimestamp"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionResponse_lastUpdatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionResponse -&gt; Maybe Text)
+-&gt; (GetFunctionDefinitionResponse
+    -&gt; Maybe Text -&gt; GetFunctionDefinitionResponse)
+-&gt; Lens
+     GetFunctionDefinitionResponse
+     GetFunctionDefinitionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358335"><span class="annot"><span class="annottext">Maybe Text
+lastUpdatedTimestamp :: Maybe Text
+$sel:lastUpdatedTimestamp:GetFunctionDefinitionResponse' :: GetFunctionDefinitionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679358335"><span class="hs-identifier hs-var hs-var">lastUpdatedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358335"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358334"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionResponse
+</span><a href="#local-6989586621679358334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358333"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
+</span><a href="#local-6989586621679358334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTimestamp:GetFunctionDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AlastUpdatedTimestamp%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | Tag(s) attached to the resource arn.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_tags"><span class="hs-identifier hs-type">getFunctionDefinitionResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="getFunctionDefinitionResponse_tags"><span class="annot"><span class="annottext">getFunctionDefinitionResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; GetFunctionDefinitionResponse -&gt; f GetFunctionDefinitionResponse
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_tags"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionResponse -&gt; Maybe (HashMap Text Text))
 -&gt; (GetFunctionDefinitionResponse
@@ -789,16 +821,16 @@ $sel:name:GetFunctionDefinitionResponse' :: GetFunctionDefinitionResponse -&gt; 
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358047"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358332"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:GetFunctionDefinitionResponse' :: GetFunctionDefinitionResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679358047"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679358047"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358046"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionResponse
-</span><a href="#local-6989586621679358046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358045"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679358045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
-</span><a href="#local-6989586621679358046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetFunctionDefinitionResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679358332"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679358332"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358331"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionResponse
+</span><a href="#local-6989586621679358331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358330"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679358330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
+</span><a href="#local-6989586621679358331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetFunctionDefinitionResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3Atags%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679358045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679358330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; GetFunctionDefinitionResponse
  -&gt; f GetFunctionDefinitionResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -825,33 +857,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was last</span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- updated.</span><span>
-</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_lastUpdatedTimestamp"><span class="hs-identifier hs-type">getFunctionDefinitionResponse_lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-234"></span><span id="getFunctionDefinitionResponse_lastUpdatedTimestamp"><span class="annot"><span class="annottext">getFunctionDefinitionResponse_lastUpdatedTimestamp :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetFunctionDefinitionResponse -&gt; f GetFunctionDefinitionResponse
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_lastUpdatedTimestamp"><span class="hs-identifier hs-var hs-var">getFunctionDefinitionResponse_lastUpdatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFunctionDefinitionResponse -&gt; Maybe Text)
--&gt; (GetFunctionDefinitionResponse
-    -&gt; Maybe Text -&gt; GetFunctionDefinitionResponse)
--&gt; Lens
-     GetFunctionDefinitionResponse
-     GetFunctionDefinitionResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358041"><span class="annot"><span class="annottext">Maybe Text
-lastUpdatedTimestamp :: Maybe Text
-$sel:lastUpdatedTimestamp:GetFunctionDefinitionResponse' :: GetFunctionDefinitionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679358041"><span class="hs-identifier hs-var hs-var">lastUpdatedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358041"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358040"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionResponse
-</span><a href="#local-6989586621679358040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358039"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
-</span><a href="#local-6989586621679358040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTimestamp:GetFunctionDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AlastUpdatedTimestamp%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-237"></span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#getFunctionDefinitionResponse_httpStatus"><span class="hs-identifier hs-type">getFunctionDefinitionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -863,16 +870,16 @@ $sel:lastUpdatedTimestamp:GetFunctionDefinitionResponse' :: GetFunctionDefinitio
 -&gt; Lens
      GetFunctionDefinitionResponse GetFunctionDefinitionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358038"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358326"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetFunctionDefinitionResponse' :: GetFunctionDefinitionResponse -&gt; Int
-</span><a href="#local-6989586621679358038"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358038"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358037"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionResponse
-</span><a href="#local-6989586621679358037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358036"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
-</span><a href="#local-6989586621679358037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetFunctionDefinitionResponse' :: Int
+</span><a href="#local-6989586621679358326"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358326"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358325"><span class="annot"><span class="annottext">s :: GetFunctionDefinitionResponse
+</span><a href="#local-6989586621679358325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse%27"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358324"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFunctionDefinitionResponse
+</span><a href="#local-6989586621679358325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetFunctionDefinitionResponse' :: Int
 </span><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#%24sel%3AhttpStatus%3AGetFunctionDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358034"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358322"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetFunctionDefinition.html#GetFunctionDefinitionResponse"><span class="hs-identifier hs-type">GetFunctionDefinitionResponse</span></a></span></span><span>
 </span><span id="line-241"></span></pre></body></html>

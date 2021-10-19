@@ -76,13 +76,13 @@
 </span><span id="line-76"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- /See:/ 'newGetIdentityDkimAttributes' smart constructor.</span><span>
-</span><span id="line-79"></span><span id="local-6989586621679284578"><span id="local-6989586621679284579"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIdentityDkimAttributes"><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-var">GetIdentityDkimAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIdentityDkimAttributes%27"><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes%27"><span class="hs-identifier hs-var">GetIdentityDkimAttributes'</span></a></span></span><span>
+</span><span id="line-79"></span><span id="local-6989586621679284806"><span id="local-6989586621679284807"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIdentityDkimAttributes"><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-var">GetIdentityDkimAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIdentityDkimAttributes%27"><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes%27"><span class="hs-identifier hs-var">GetIdentityDkimAttributes'</span></a></span></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of one or more verified identities - email addresses, domains, or</span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-comment">-- both.</span><span>
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3Aidentities%3AGetIdentityDkimAttributes%27"><span class="annot"><span class="annottext">GetIdentityDkimAttributes -&gt; [Text]
 </span><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#%24sel%3Aidentities%3AGetIdentityDkimAttributes%27"><span class="hs-identifier hs-var hs-var">identities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284572"><span id="local-6989586621679284574"><span class="annot"><span class="annottext">GetIdentityDkimAttributes -&gt; GetIdentityDkimAttributes -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284800"><span id="local-6989586621679284802"><span class="annot"><span class="annottext">GetIdentityDkimAttributes -&gt; GetIdentityDkimAttributes -&gt; Bool
 (GetIdentityDkimAttributes -&gt; GetIdentityDkimAttributes -&gt; Bool)
 -&gt; (GetIdentityDkimAttributes -&gt; GetIdentityDkimAttributes -&gt; Bool)
 -&gt; Eq GetIdentityDkimAttributes
@@ -91,7 +91,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetIdentityDkimAttributes -&gt; GetIdentityDkimAttributes -&gt; Bool
 == :: GetIdentityDkimAttributes -&gt; GetIdentityDkimAttributes -&gt; Bool
 $c== :: GetIdentityDkimAttributes -&gt; GetIdentityDkimAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284563"><span id="local-6989586621679284565"><span id="local-6989586621679284567"><span id="local-6989586621679284569"><span class="annot"><span class="annottext">ReadPrec [GetIdentityDkimAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284791"><span id="local-6989586621679284793"><span id="local-6989586621679284795"><span id="local-6989586621679284797"><span class="annot"><span class="annottext">ReadPrec [GetIdentityDkimAttributes]
 ReadPrec GetIdentityDkimAttributes
 Int -&gt; ReadS GetIdentityDkimAttributes
 ReadS [GetIdentityDkimAttributes]
@@ -111,7 +111,7 @@ readList :: ReadS [GetIdentityDkimAttributes]
 $creadList :: ReadS [GetIdentityDkimAttributes]
 readsPrec :: Int -&gt; ReadS GetIdentityDkimAttributes
 $creadsPrec :: Int -&gt; ReadS GetIdentityDkimAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284556"><span id="local-6989586621679284558"><span id="local-6989586621679284560"><span class="annot"><span class="annottext">Int -&gt; GetIdentityDkimAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284784"><span id="local-6989586621679284786"><span id="local-6989586621679284788"><span class="annot"><span class="annottext">Int -&gt; GetIdentityDkimAttributes -&gt; ShowS
 [GetIdentityDkimAttributes] -&gt; ShowS
 GetIdentityDkimAttributes -&gt; String
 (Int -&gt; GetIdentityDkimAttributes -&gt; ShowS)
@@ -177,16 +177,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      GetIdentityDkimAttributes GetIdentityDkimAttributes [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284549"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284777"><span class="annot"><span class="annottext">[Text]
 identities :: [Text]
 $sel:identities:GetIdentityDkimAttributes' :: GetIdentityDkimAttributes -&gt; [Text]
-</span><a href="#local-6989586621679284549"><span class="hs-identifier hs-var hs-var">identities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679284549"><span class="hs-identifier hs-var">identities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284548"><span class="annot"><span class="annottext">s :: GetIdentityDkimAttributes
-</span><a href="#local-6989586621679284548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284547"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679284547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIdentityDkimAttributes
-</span><a href="#local-6989586621679284548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identities:GetIdentityDkimAttributes' :: [Text]
+</span><a href="#local-6989586621679284777"><span class="hs-identifier hs-var hs-var">identities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679284777"><span class="hs-identifier hs-var">identities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284776"><span class="annot"><span class="annottext">s :: GetIdentityDkimAttributes
+</span><a href="#local-6989586621679284776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284775"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679284775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIdentityDkimAttributes
+</span><a href="#local-6989586621679284776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identities:GetIdentityDkimAttributes' :: [Text]
 </span><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#%24sel%3Aidentities%3AGetIdentityDkimAttributes%27"><span class="hs-identifier hs-var">identities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679284547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679284775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; GetIdentityDkimAttributes -&gt; f GetIdentityDkimAttributes)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -194,20 +194,20 @@ $sel:identities:GetIdentityDkimAttributes' :: GetIdentityDkimAttributes -&gt; [T
 -&gt; f GetIdentityDkimAttributes
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-111"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679284541"><span class="annot"><span class="annottext">request :: GetIdentityDkimAttributes -&gt; Request GetIdentityDkimAttributes
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679284769"><span class="annot"><span class="annottext">request :: GetIdentityDkimAttributes -&gt; Request GetIdentityDkimAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetIdentityDkimAttributes -&gt; Request GetIdentityDkimAttributes
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679284537"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679284765"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetIdentityDkimAttributes
 -&gt; ClientResponse ClientBody
@@ -238,10 +238,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GetIdentityDkimAttributesResult&quot;</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284534"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284534"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679284533"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679284533"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679284532"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679284532"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284762"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284762"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679284761"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679284761"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679284760"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679284760"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Int
 -&gt; HashMap Text IdentityDkimAttributes
 -&gt; GetIdentityDkimAttributesResponse
@@ -260,7 +260,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284534"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284762"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (HashMap Text IdentityDkimAttributes
@@ -269,7 +269,7 @@ forall a. Enum a =&gt; a -&gt; Int
 -&gt; Either String GetIdentityDkimAttributesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679284532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679284760"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DkimAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -296,12 +296,12 @@ Text -&gt; Text -&gt; Text -&gt; [Node] -&gt; Either String (HashMap k v)
 </span><span id="line-122"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284522"><span id="local-6989586621679284524"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284750"><span id="local-6989586621679284752"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284747"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679284515"><span class="annot"><span class="annottext">toHeaders :: GetIdentityDkimAttributes -&gt; ResponseHeaders
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679284743"><span class="annot"><span class="annottext">toHeaders :: GetIdentityDkimAttributes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetIdentityDkimAttributes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -309,18 +309,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679284510"><span class="annot"><span class="annottext">toPath :: GetIdentityDkimAttributes -&gt; ByteString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679284738"><span class="annot"><span class="annottext">toPath :: GetIdentityDkimAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetIdentityDkimAttributes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes"><span class="hs-identifier hs-type">GetIdentityDkimAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679284506"><span class="annot"><span class="annottext">toQuery :: GetIdentityDkimAttributes -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284504"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679284734"><span class="annot"><span class="annottext">toQuery :: GetIdentityDkimAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributes%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284732"><span class="annot"><span class="annottext">[Text]
 identities :: [Text]
 $sel:identities:GetIdentityDkimAttributes' :: GetIdentityDkimAttributes -&gt; [Text]
-</span><a href="#local-6989586621679284504"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679284732"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -346,7 +346,7 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679284504"><span class="hs-identifier hs-var">identities</span></a></span><span>
+</span><a href="#local-6989586621679284732"><span class="hs-identifier hs-var">identities</span></a></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | Represents the status of Amazon SES Easy DKIM signing for an identity.</span><span>
@@ -355,7 +355,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-149"></span><span class="hs-comment">-- verified that these tokens were published.</span><span>
 </span><span id="line-150"></span><span class="hs-comment">--</span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- /See:/ 'newGetIdentityDkimAttributesResponse' smart constructor.</span><span>
-</span><span id="line-152"></span><span id="local-6989586621679284500"><span id="local-6989586621679284501"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIdentityDkimAttributesResponse"><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier hs-var">GetIdentityDkimAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIdentityDkimAttributesResponse%27"><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var">GetIdentityDkimAttributesResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span id="local-6989586621679284728"><span id="local-6989586621679284729"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIdentityDkimAttributesResponse"><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier hs-var">GetIdentityDkimAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIdentityDkimAttributesResponse%27"><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var">GetIdentityDkimAttributesResponse'</span></a></span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetIdentityDkimAttributesResponse%27"><span class="annot"><span class="annottext">GetIdentityDkimAttributesResponse -&gt; Int
 </span><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#%24sel%3AhttpStatus%3AGetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -364,7 +364,7 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; HashMap Text IdentityDkimAttributes
 </span><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#%24sel%3AdkimAttributes%3AGetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var hs-var">dkimAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes"><span class="hs-identifier hs-type">IdentityDkimAttributes</span></a></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284494"><span id="local-6989586621679284496"><span class="annot"><span class="annottext">GetIdentityDkimAttributesResponse
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284722"><span id="local-6989586621679284724"><span class="annot"><span class="annottext">GetIdentityDkimAttributesResponse
 -&gt; GetIdentityDkimAttributesResponse -&gt; Bool
 (GetIdentityDkimAttributesResponse
  -&gt; GetIdentityDkimAttributesResponse -&gt; Bool)
@@ -380,7 +380,7 @@ $c/= :: GetIdentityDkimAttributesResponse
 -&gt; GetIdentityDkimAttributesResponse -&gt; Bool
 $c== :: GetIdentityDkimAttributesResponse
 -&gt; GetIdentityDkimAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284486"><span id="local-6989586621679284488"><span id="local-6989586621679284490"><span id="local-6989586621679284492"><span class="annot"><span class="annottext">ReadPrec [GetIdentityDkimAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284714"><span id="local-6989586621679284716"><span id="local-6989586621679284718"><span id="local-6989586621679284720"><span class="annot"><span class="annottext">ReadPrec [GetIdentityDkimAttributesResponse]
 ReadPrec GetIdentityDkimAttributesResponse
 Int -&gt; ReadS GetIdentityDkimAttributesResponse
 ReadS [GetIdentityDkimAttributesResponse]
@@ -400,7 +400,7 @@ readList :: ReadS [GetIdentityDkimAttributesResponse]
 $creadList :: ReadS [GetIdentityDkimAttributesResponse]
 readsPrec :: Int -&gt; ReadS GetIdentityDkimAttributesResponse
 $creadsPrec :: Int -&gt; ReadS GetIdentityDkimAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284480"><span id="local-6989586621679284482"><span id="local-6989586621679284484"><span class="annot"><span class="annottext">Int -&gt; GetIdentityDkimAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284708"><span id="local-6989586621679284710"><span id="local-6989586621679284712"><span class="annot"><span class="annottext">Int -&gt; GetIdentityDkimAttributesResponse -&gt; ShowS
 [GetIdentityDkimAttributesResponse] -&gt; ShowS
 GetIdentityDkimAttributesResponse -&gt; String
 (Int -&gt; GetIdentityDkimAttributesResponse -&gt; ShowS)
@@ -454,8 +454,8 @@ GetIdentityDkimAttributesResponse
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse</span></a></span><span>
 </span><span id="line-175"></span><span id="newGetIdentityDkimAttributesResponse"><span class="annot"><span class="annottext">newGetIdentityDkimAttributesResponse :: Int -&gt; GetIdentityDkimAttributesResponse
-</span><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#newGetIdentityDkimAttributesResponse"><span class="hs-identifier hs-var hs-var">newGetIdentityDkimAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679284477"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284477"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#newGetIdentityDkimAttributesResponse"><span class="hs-identifier hs-var hs-var">newGetIdentityDkimAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679284705"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284705"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">GetIdentityDkimAttributesResponse' :: Int
 -&gt; HashMap Text IdentityDkimAttributes
 -&gt; GetIdentityDkimAttributesResponse
@@ -463,7 +463,7 @@ GetIdentityDkimAttributesResponse
 </span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetIdentityDkimAttributesResponse' :: Int
 </span><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#%24sel%3AhttpStatus%3AGetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284477"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284705"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:dkimAttributes:GetIdentityDkimAttributesResponse' :: HashMap Text IdentityDkimAttributes
 </span><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#%24sel%3AdkimAttributes%3AGetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var">dkimAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text IdentityDkimAttributes
 forall a. Monoid a =&gt; a
@@ -484,16 +484,16 @@ forall a. Monoid a =&gt; a
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284476"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284704"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetIdentityDkimAttributesResponse' :: GetIdentityDkimAttributesResponse -&gt; Int
-</span><a href="#local-6989586621679284476"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284476"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284475"><span class="annot"><span class="annottext">s :: GetIdentityDkimAttributesResponse
-</span><a href="#local-6989586621679284475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284474"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIdentityDkimAttributesResponse
-</span><a href="#local-6989586621679284475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetIdentityDkimAttributesResponse' :: Int
+</span><a href="#local-6989586621679284704"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284704"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284703"><span class="annot"><span class="annottext">s :: GetIdentityDkimAttributesResponse
+</span><a href="#local-6989586621679284703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284702"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIdentityDkimAttributesResponse
+</span><a href="#local-6989586621679284703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetIdentityDkimAttributesResponse' :: Int
 </span><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#%24sel%3AhttpStatus%3AGetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | The DKIM attributes for an email address or a domain.</span><span>
 </span><span id="line-187"></span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#getIdentityDkimAttributesResponse_dkimAttributes"><span class="hs-identifier hs-type">getIdentityDkimAttributesResponse_dkimAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes"><span class="hs-identifier hs-type">IdentityDkimAttributes</span></a></span><span class="hs-special">)</span><span>
@@ -512,17 +512,17 @@ $sel:httpStatus:GetIdentityDkimAttributesResponse' :: GetIdentityDkimAttributesR
      (HashMap Text IdentityDkimAttributes)
      (HashMap Text IdentityDkimAttributes)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284473"><span class="annot"><span class="annottext">HashMap Text IdentityDkimAttributes
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284701"><span class="annot"><span class="annottext">HashMap Text IdentityDkimAttributes
 dkimAttributes :: HashMap Text IdentityDkimAttributes
 $sel:dkimAttributes:GetIdentityDkimAttributesResponse' :: GetIdentityDkimAttributesResponse
 -&gt; HashMap Text IdentityDkimAttributes
-</span><a href="#local-6989586621679284473"><span class="hs-identifier hs-var hs-var">dkimAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text IdentityDkimAttributes
-</span><a href="#local-6989586621679284473"><span class="hs-identifier hs-var">dkimAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284472"><span class="annot"><span class="annottext">s :: GetIdentityDkimAttributesResponse
-</span><a href="#local-6989586621679284472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284471"><span class="annot"><span class="annottext">HashMap Text IdentityDkimAttributes
-</span><a href="#local-6989586621679284471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIdentityDkimAttributesResponse
-</span><a href="#local-6989586621679284472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dkimAttributes:GetIdentityDkimAttributesResponse' :: HashMap Text IdentityDkimAttributes
+</span><a href="#local-6989586621679284701"><span class="hs-identifier hs-var hs-var">dkimAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text IdentityDkimAttributes
+</span><a href="#local-6989586621679284701"><span class="hs-identifier hs-var">dkimAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284700"><span class="annot"><span class="annottext">s :: GetIdentityDkimAttributesResponse
+</span><a href="#local-6989586621679284700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284699"><span class="annot"><span class="annottext">HashMap Text IdentityDkimAttributes
+</span><a href="#local-6989586621679284699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIdentityDkimAttributesResponse
+</span><a href="#local-6989586621679284700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dkimAttributes:GetIdentityDkimAttributesResponse' :: HashMap Text IdentityDkimAttributes
 </span><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#%24sel%3AdkimAttributes%3AGetIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var">dkimAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text IdentityDkimAttributes
-</span><a href="#local-6989586621679284471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text IdentityDkimAttributes
+</span><a href="#local-6989586621679284699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text IdentityDkimAttributes
   -&gt; f (HashMap Text IdentityDkimAttributes))
  -&gt; GetIdentityDkimAttributesResponse
  -&gt; f GetIdentityDkimAttributesResponse)
@@ -539,10 +539,10 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
  -&gt; f (HashMap Text IdentityDkimAttributes))
 -&gt; HashMap Text IdentityDkimAttributes
 -&gt; f (HashMap Text IdentityDkimAttributes)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679284469"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679284697"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><a href="Network.AWS.SES.GetIdentityDkimAttributes.html#GetIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">GetIdentityDkimAttributesResponse</span></a></span></span><span>
 </span><span id="line-193"></span></pre></body></html>

@@ -39,8 +39,8 @@
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#createStreamingDistributionResponse_eTag"><span class="hs-identifier">createStreamingDistributionResponse_eTag</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#createStreamingDistributionResponse_streamingDistribution"><span class="hs-identifier">createStreamingDistributionResponse_streamingDistribution</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#createStreamingDistributionResponse_location"><span class="hs-identifier">createStreamingDistributionResponse_location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#createStreamingDistributionResponse_location"><span class="hs-identifier">createStreamingDistributionResponse_location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#createStreamingDistributionResponse_streamingDistribution"><span class="hs-identifier">createStreamingDistributionResponse_streamingDistribution</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#createStreamingDistributionResponse_httpStatus"><span class="hs-identifier">createStreamingDistributionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span class="hs-keyword">where</span><span>
@@ -55,12 +55,12 @@
 </span><span id="line-55"></span><span class="hs-comment">-- | The request to create a new streaming distribution.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newCreateStreamingDistribution' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679419766"><span id="local-6989586621679419767"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStreamingDistribution"><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution"><span class="hs-identifier hs-var">CreateStreamingDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStreamingDistribution%27"><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution%27"><span class="hs-identifier hs-var">CreateStreamingDistribution'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679420048"><span id="local-6989586621679420049"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStreamingDistribution"><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution"><span class="hs-identifier hs-var">CreateStreamingDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStreamingDistribution%27"><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution%27"><span class="hs-identifier hs-var">CreateStreamingDistribution'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The streaming distribution\'s configuration information.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AstreamingDistributionConfig%3ACreateStreamingDistribution%27"><span class="annot"><span class="annottext">CreateStreamingDistribution -&gt; StreamingDistributionConfig
 </span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#%24sel%3AstreamingDistributionConfig%3ACreateStreamingDistribution%27"><span class="hs-identifier hs-var hs-var">streamingDistributionConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StreamingDistributionConfig.html#StreamingDistributionConfig"><span class="hs-identifier hs-type">StreamingDistributionConfig</span></a></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679419760"><span id="local-6989586621679419762"><span class="annot"><span class="annottext">CreateStreamingDistribution -&gt; CreateStreamingDistribution -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420042"><span id="local-6989586621679420044"><span class="annot"><span class="annottext">CreateStreamingDistribution -&gt; CreateStreamingDistribution -&gt; Bool
 (CreateStreamingDistribution
  -&gt; CreateStreamingDistribution -&gt; Bool)
 -&gt; (CreateStreamingDistribution
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateStreamingDistribution -&gt; CreateStreamingDistribution -&gt; Bool
 == :: CreateStreamingDistribution -&gt; CreateStreamingDistribution -&gt; Bool
 $c== :: CreateStreamingDistribution -&gt; CreateStreamingDistribution -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419751"><span id="local-6989586621679419753"><span id="local-6989586621679419755"><span id="local-6989586621679419757"><span class="annot"><span class="annottext">ReadPrec [CreateStreamingDistribution]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420033"><span id="local-6989586621679420035"><span id="local-6989586621679420037"><span id="local-6989586621679420039"><span class="annot"><span class="annottext">ReadPrec [CreateStreamingDistribution]
 ReadPrec CreateStreamingDistribution
 Int -&gt; ReadS CreateStreamingDistribution
 ReadS [CreateStreamingDistribution]
@@ -91,7 +91,7 @@ readList :: ReadS [CreateStreamingDistribution]
 $creadList :: ReadS [CreateStreamingDistribution]
 readsPrec :: Int -&gt; ReadS CreateStreamingDistribution
 $creadsPrec :: Int -&gt; ReadS CreateStreamingDistribution
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419744"><span id="local-6989586621679419746"><span id="local-6989586621679419748"><span class="annot"><span class="annottext">Int -&gt; CreateStreamingDistribution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420026"><span id="local-6989586621679420028"><span id="local-6989586621679420030"><span class="annot"><span class="annottext">Int -&gt; CreateStreamingDistribution -&gt; ShowS
 [CreateStreamingDistribution] -&gt; ShowS
 CreateStreamingDistribution -&gt; String
 (Int -&gt; CreateStreamingDistribution -&gt; ShowS)
@@ -138,14 +138,14 @@ CreateStreamingDistribution -&gt; Rep CreateStreamingDistribution x
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution"><span class="hs-identifier hs-type">CreateStreamingDistribution</span></a></span><span>
 </span><span id="line-77"></span><span id="newCreateStreamingDistribution"><span class="annot"><span class="annottext">newCreateStreamingDistribution :: StreamingDistributionConfig -&gt; CreateStreamingDistribution
 </span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#newCreateStreamingDistribution"><span class="hs-identifier hs-var hs-var">newCreateStreamingDistribution</span></a></span></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679419739"><span class="annot"><span class="annottext">StreamingDistributionConfig
-</span><a href="#local-6989586621679419739"><span class="hs-identifier hs-var">pStreamingDistributionConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679420021"><span class="annot"><span class="annottext">StreamingDistributionConfig
+</span><a href="#local-6989586621679420021"><span class="hs-identifier hs-var">pStreamingDistributionConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">CreateStreamingDistribution' :: StreamingDistributionConfig -&gt; CreateStreamingDistribution
 </span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution%27"><span class="hs-identifier hs-type">CreateStreamingDistribution'</span></a></span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamingDistributionConfig:CreateStreamingDistribution' :: StreamingDistributionConfig
 </span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#%24sel%3AstreamingDistributionConfig%3ACreateStreamingDistribution%27"><span class="hs-identifier hs-var">streamingDistributionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">StreamingDistributionConfig
-</span><a href="#local-6989586621679419739"><span class="hs-identifier hs-var">pStreamingDistributionConfig_</span></a></span><span>
+</span><a href="#local-6989586621679420021"><span class="hs-identifier hs-var">pStreamingDistributionConfig_</span></a></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The streaming distribution\'s configuration information.</span><span>
@@ -161,29 +161,29 @@ CreateStreamingDistribution -&gt; Rep CreateStreamingDistribution x
      StreamingDistributionConfig
      StreamingDistributionConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution%27"><span class="hs-identifier hs-type">CreateStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419736"><span class="annot"><span class="annottext">StreamingDistributionConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution%27"><span class="hs-identifier hs-type">CreateStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420018"><span class="annot"><span class="annottext">StreamingDistributionConfig
 streamingDistributionConfig :: StreamingDistributionConfig
 $sel:streamingDistributionConfig:CreateStreamingDistribution' :: CreateStreamingDistribution -&gt; StreamingDistributionConfig
-</span><a href="#local-6989586621679419736"><span class="hs-identifier hs-var hs-var">streamingDistributionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamingDistributionConfig
-</span><a href="#local-6989586621679419736"><span class="hs-identifier hs-var">streamingDistributionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419735"><span class="annot"><span class="annottext">s :: CreateStreamingDistribution
-</span><a href="#local-6989586621679419735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution%27"><span class="hs-identifier hs-type">CreateStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419734"><span class="annot"><span class="annottext">StreamingDistributionConfig
-</span><a href="#local-6989586621679419734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingDistribution
-</span><a href="#local-6989586621679419735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamingDistributionConfig:CreateStreamingDistribution' :: StreamingDistributionConfig
+</span><a href="#local-6989586621679420018"><span class="hs-identifier hs-var hs-var">streamingDistributionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamingDistributionConfig
+</span><a href="#local-6989586621679420018"><span class="hs-identifier hs-var">streamingDistributionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420017"><span class="annot"><span class="annottext">s :: CreateStreamingDistribution
+</span><a href="#local-6989586621679420017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution%27"><span class="hs-identifier hs-type">CreateStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420016"><span class="annot"><span class="annottext">StreamingDistributionConfig
+</span><a href="#local-6989586621679420016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingDistribution
+</span><a href="#local-6989586621679420017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamingDistributionConfig:CreateStreamingDistribution' :: StreamingDistributionConfig
 </span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#%24sel%3AstreamingDistributionConfig%3ACreateStreamingDistribution%27"><span class="hs-identifier hs-var">streamingDistributionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StreamingDistributionConfig
-</span><a href="#local-6989586621679419734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution"><span class="hs-identifier hs-type">CreateStreamingDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679420016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution"><span class="hs-identifier hs-type">CreateStreamingDistribution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution"><span class="hs-identifier hs-type">CreateStreamingDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution"><span class="hs-identifier hs-type">CreateStreamingDistribution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679419730"><span class="annot"><span class="annottext">request :: CreateStreamingDistribution -&gt; Request CreateStreamingDistribution
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679420012"><span class="annot"><span class="annottext">request :: CreateStreamingDistribution -&gt; Request CreateStreamingDistribution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CreateStreamingDistribution
 -&gt; Request CreateStreamingDistribution
 forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postXML</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679419726"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679420008"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateStreamingDistribution
 -&gt; ClientResponse ClientBody
@@ -209,29 +209,31 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679419723"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679419723"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679419722"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679419722"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679419721"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679419721"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679420005"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420005"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679420004"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679420004"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679420003"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679420003"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe StreamingDistribution
 -&gt; Maybe Text
+-&gt; Maybe StreamingDistribution
 -&gt; Int
 -&gt; CreateStreamingDistributionResponse
 </span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">CreateStreamingDistributionResponse'</span></a></span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe StreamingDistribution
  -&gt; Maybe Text
+ -&gt; Maybe StreamingDistribution
  -&gt; Int
  -&gt; CreateStreamingDistributionResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe StreamingDistribution
-      -&gt; Maybe Text -&gt; Int -&gt; CreateStreamingDistributionResponse)
+     (Maybe Text
+      -&gt; Maybe StreamingDistribution
+      -&gt; Int
+      -&gt; CreateStreamingDistributionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679419722"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679420004"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -239,28 +241,34 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
 </span><span class="hs-string">&quot;ETag&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe StreamingDistribution
-   -&gt; Maybe Text -&gt; Int -&gt; CreateStreamingDistributionResponse)
--&gt; Either String (Maybe StreamingDistribution)
--&gt; Either
-     String (Maybe Text -&gt; Int -&gt; CreateStreamingDistributionResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe StreamingDistribution)
-forall a. FromXML a =&gt; [Node] -&gt; Either String a
-</span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679419721"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Int -&gt; CreateStreamingDistributionResponse)
+  (Maybe Text
+   -&gt; Maybe StreamingDistribution
+   -&gt; Int
+   -&gt; CreateStreamingDistributionResponse)
 -&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; CreateStreamingDistributionResponse)
+-&gt; Either
+     String
+     (Maybe StreamingDistribution
+      -&gt; Int -&gt; CreateStreamingDistributionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679419722"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679420004"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe StreamingDistribution
+   -&gt; Int -&gt; CreateStreamingDistributionResponse)
+-&gt; Either String (Maybe StreamingDistribution)
+-&gt; Either String (Int -&gt; CreateStreamingDistributionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe StreamingDistribution)
+forall a. FromXML a =&gt; [Node] -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679420003"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateStreamingDistributionResponse)
 -&gt; Either String Int
 -&gt; Either String CreateStreamingDistributionResponse
@@ -270,29 +278,29 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679419723"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679420005"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419712"><span id="local-6989586621679419714"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution"><span class="hs-identifier hs-type">CreateStreamingDistribution</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419994"><span id="local-6989586621679419996"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution"><span class="hs-identifier hs-type">CreateStreamingDistribution</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419709"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution"><span class="hs-identifier hs-type">CreateStreamingDistribution</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419991"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution"><span class="hs-identifier hs-type">CreateStreamingDistribution</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution"><span class="hs-identifier hs-type">CreateStreamingDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679419705"><span class="annot"><span class="annottext">toElement :: CreateStreamingDistribution -&gt; Element
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution%27"><span class="hs-identifier hs-type">CreateStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419703"><span class="annot"><span class="annottext">StreamingDistributionConfig
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679419987"><span class="annot"><span class="annottext">toElement :: CreateStreamingDistribution -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution%27"><span class="hs-identifier hs-type">CreateStreamingDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419985"><span class="annot"><span class="annottext">StreamingDistributionConfig
 streamingDistributionConfig :: StreamingDistributionConfig
 $sel:streamingDistributionConfig:CreateStreamingDistribution' :: CreateStreamingDistribution -&gt; StreamingDistributionConfig
-</span><a href="#local-6989586621679419703"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679419985"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; StreamingDistributionConfig -&gt; Element
 forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
 </span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;{http://cloudfront.amazonaws.com/doc/2020-05-31/}StreamingDistributionConfig&quot;</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">StreamingDistributionConfig
-</span><a href="#local-6989586621679419703"><span class="hs-identifier hs-var">streamingDistributionConfig</span></a></span><span>
+</span><a href="#local-6989586621679419985"><span class="hs-identifier hs-var">streamingDistributionConfig</span></a></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution"><span class="hs-identifier hs-type">CreateStreamingDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679419699"><span class="annot"><span class="annottext">toHeaders :: CreateStreamingDistribution -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679419981"><span class="annot"><span class="annottext">toHeaders :: CreateStreamingDistribution -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateStreamingDistribution -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -300,7 +308,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution"><span class="hs-identifier hs-type">CreateStreamingDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679419694"><span class="annot"><span class="annottext">toPath :: CreateStreamingDistribution -&gt; ByteString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679419976"><span class="annot"><span class="annottext">toPath :: CreateStreamingDistribution -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; CreateStreamingDistribution -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -308,7 +316,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/2020-05-31/streaming-distribution&quot;</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistribution"><span class="hs-identifier hs-type">CreateStreamingDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679419690"><span class="annot"><span class="annottext">toQuery :: CreateStreamingDistribution -&gt; QueryString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679419972"><span class="annot"><span class="annottext">toQuery :: CreateStreamingDistribution -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateStreamingDistribution -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -318,22 +326,22 @@ forall a. Monoid a =&gt; a
 </span><span id="line-123"></span><span class="hs-comment">-- | The returned result of the corresponding request.</span><span>
 </span><span id="line-124"></span><span class="hs-comment">--</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- /See:/ 'newCreateStreamingDistributionResponse' smart constructor.</span><span>
-</span><span id="line-126"></span><span id="local-6989586621679419687"><span id="local-6989586621679419688"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStreamingDistributionResponse"><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse"><span class="hs-identifier hs-var">CreateStreamingDistributionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStreamingDistributionResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">CreateStreamingDistributionResponse'</span></a></span></span><span>
+</span><span id="line-126"></span><span id="local-6989586621679419969"><span id="local-6989586621679419970"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStreamingDistributionResponse"><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse"><span class="hs-identifier hs-var">CreateStreamingDistributionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStreamingDistributionResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">CreateStreamingDistributionResponse'</span></a></span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current version of the streaming distribution created.</span><span>
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3AeTag%3ACreateStreamingDistributionResponse%27"><span class="annot"><span class="annottext">CreateStreamingDistributionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#%24sel%3AeTag%3ACreateStreamingDistributionResponse%27"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The streaming distribution\'s information.</span><span>
-</span><span id="line-130"></span><span>    </span><span id="%24sel%3AstreamingDistribution%3ACreateStreamingDistributionResponse%27"><span class="annot"><span class="annottext">CreateStreamingDistributionResponse -&gt; Maybe StreamingDistribution
-</span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#%24sel%3AstreamingDistribution%3ACreateStreamingDistributionResponse%27"><span class="hs-identifier hs-var hs-var">streamingDistribution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StreamingDistribution.html#StreamingDistribution"><span class="hs-identifier hs-type">StreamingDistribution</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The fully qualified URI of the new streaming distribution resource just</span><span>
-</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- created.</span><span>
-</span><span id="line-133"></span><span>    </span><span id="%24sel%3Alocation%3ACreateStreamingDistributionResponse%27"><span class="annot"><span class="annottext">CreateStreamingDistributionResponse -&gt; Maybe Text
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The fully qualified URI of the new streaming distribution resource just</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3Alocation%3ACreateStreamingDistributionResponse%27"><span class="annot"><span class="annottext">CreateStreamingDistributionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#%24sel%3Alocation%3ACreateStreamingDistributionResponse%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The streaming distribution\'s information.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AstreamingDistribution%3ACreateStreamingDistributionResponse%27"><span class="annot"><span class="annottext">CreateStreamingDistributionResponse -&gt; Maybe StreamingDistribution
+</span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#%24sel%3AstreamingDistribution%3ACreateStreamingDistributionResponse%27"><span class="hs-identifier hs-var hs-var">streamingDistribution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StreamingDistribution.html#StreamingDistribution"><span class="hs-identifier hs-type">StreamingDistribution</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateStreamingDistributionResponse%27"><span class="annot"><span class="annottext">CreateStreamingDistributionResponse -&gt; Int
 </span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#%24sel%3AhttpStatus%3ACreateStreamingDistributionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679419679"><span id="local-6989586621679419681"><span class="annot"><span class="annottext">CreateStreamingDistributionResponse
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679419961"><span id="local-6989586621679419963"><span class="annot"><span class="annottext">CreateStreamingDistributionResponse
 -&gt; CreateStreamingDistributionResponse -&gt; Bool
 (CreateStreamingDistributionResponse
  -&gt; CreateStreamingDistributionResponse -&gt; Bool)
@@ -349,7 +357,7 @@ $c/= :: CreateStreamingDistributionResponse
 -&gt; CreateStreamingDistributionResponse -&gt; Bool
 $c== :: CreateStreamingDistributionResponse
 -&gt; CreateStreamingDistributionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419671"><span id="local-6989586621679419673"><span id="local-6989586621679419675"><span id="local-6989586621679419677"><span class="annot"><span class="annottext">ReadPrec [CreateStreamingDistributionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419953"><span id="local-6989586621679419955"><span id="local-6989586621679419957"><span id="local-6989586621679419959"><span class="annot"><span class="annottext">ReadPrec [CreateStreamingDistributionResponse]
 ReadPrec CreateStreamingDistributionResponse
 Int -&gt; ReadS CreateStreamingDistributionResponse
 ReadS [CreateStreamingDistributionResponse]
@@ -369,7 +377,7 @@ readList :: ReadS [CreateStreamingDistributionResponse]
 $creadList :: ReadS [CreateStreamingDistributionResponse]
 readsPrec :: Int -&gt; ReadS CreateStreamingDistributionResponse
 $creadsPrec :: Int -&gt; ReadS CreateStreamingDistributionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419665"><span id="local-6989586621679419667"><span id="local-6989586621679419669"><span class="annot"><span class="annottext">Int -&gt; CreateStreamingDistributionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419947"><span id="local-6989586621679419949"><span id="local-6989586621679419951"><span class="annot"><span class="annottext">Int -&gt; CreateStreamingDistributionResponse -&gt; ShowS
 [CreateStreamingDistributionResponse] -&gt; ShowS
 CreateStreamingDistributionResponse -&gt; String
 (Int -&gt; CreateStreamingDistributionResponse -&gt; ShowS)
@@ -417,10 +425,10 @@ CreateStreamingDistributionResponse
 </span><span id="line-146"></span><span class="hs-comment">--</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- 'eTag', 'createStreamingDistributionResponse_eTag' - The current version of the streaming distribution created.</span><span>
 </span><span id="line-148"></span><span class="hs-comment">--</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- 'streamingDistribution', 'createStreamingDistributionResponse_streamingDistribution' - The streaming distribution\'s information.</span><span>
-</span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- 'location', 'createStreamingDistributionResponse_location' - The fully qualified URI of the new streaming distribution resource just</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'location', 'createStreamingDistributionResponse_location' - The fully qualified URI of the new streaming distribution resource just</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'streamingDistribution', 'createStreamingDistributionResponse_streamingDistribution' - The streaming distribution\'s information.</span><span>
 </span><span id="line-153"></span><span class="hs-comment">--</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- 'httpStatus', 'createStreamingDistributionResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-155"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#newCreateStreamingDistributionResponse"><span class="hs-identifier hs-type">newCreateStreamingDistributionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -428,11 +436,11 @@ CreateStreamingDistributionResponse
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse</span></a></span><span>
 </span><span id="line-159"></span><span id="newCreateStreamingDistributionResponse"><span class="annot"><span class="annottext">newCreateStreamingDistributionResponse :: Int -&gt; CreateStreamingDistributionResponse
-</span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#newCreateStreamingDistributionResponse"><span class="hs-identifier hs-var hs-var">newCreateStreamingDistributionResponse</span></a></span></span><span> </span><span id="local-6989586621679419662"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679419662"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#newCreateStreamingDistributionResponse"><span class="hs-identifier hs-var hs-var">newCreateStreamingDistributionResponse</span></a></span></span><span> </span><span id="local-6989586621679419944"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419944"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">CreateStreamingDistributionResponse' :: Maybe Text
--&gt; Maybe StreamingDistribution
 -&gt; Maybe Text
+-&gt; Maybe StreamingDistribution
 -&gt; Int
 -&gt; CreateStreamingDistributionResponse
 </span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse'</span></a></span><span>
@@ -441,18 +449,18 @@ CreateStreamingDistributionResponse
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamingDistribution:CreateStreamingDistributionResponse' :: Maybe StreamingDistribution
-</span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#%24sel%3AstreamingDistribution%3ACreateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">streamingDistribution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Maybe StreamingDistribution
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:CreateStreamingDistributionResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#%24sel%3Alocation%3ACreateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:CreateStreamingDistributionResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#%24sel%3Alocation%3ACreateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamingDistribution:CreateStreamingDistributionResponse' :: Maybe StreamingDistribution
+</span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#%24sel%3AstreamingDistribution%3ACreateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">streamingDistribution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Maybe StreamingDistribution
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateStreamingDistributionResponse' :: Int
 </span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#%24sel%3AhttpStatus%3ACreateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679419662"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679419944"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The current version of the streaming distribution created.</span><span>
@@ -469,20 +477,46 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419661"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419943"><span class="annot"><span class="annottext">Maybe Text
 eTag :: Maybe Text
 $sel:eTag:CreateStreamingDistributionResponse' :: CreateStreamingDistributionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679419661"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679419661"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419660"><span class="annot"><span class="annottext">s :: CreateStreamingDistributionResponse
-</span><a href="#local-6989586621679419660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419659"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679419659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingDistributionResponse
-</span><a href="#local-6989586621679419660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:CreateStreamingDistributionResponse' :: Maybe Text
+</span><a href="#local-6989586621679419943"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419943"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419942"><span class="annot"><span class="annottext">s :: CreateStreamingDistributionResponse
+</span><a href="#local-6989586621679419942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419941"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingDistributionResponse
+</span><a href="#local-6989586621679419942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:CreateStreamingDistributionResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#%24sel%3AeTag%3ACreateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679419659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679419941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- | The streaming distribution\'s information.</span><span>
-</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#createStreamingDistributionResponse_streamingDistribution"><span class="hs-identifier hs-type">createStreamingDistributionResponse_streamingDistribution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StreamingDistribution.html#StreamingDistribution"><span class="hs-identifier hs-type">StreamingDistribution</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-175"></span><span id="createStreamingDistributionResponse_streamingDistribution"><span class="annot"><span class="annottext">createStreamingDistributionResponse_streamingDistribution :: (Maybe StreamingDistribution -&gt; f (Maybe StreamingDistribution))
+</span><span id="line-173"></span><span class="hs-comment">-- | The fully qualified URI of the new streaming distribution resource just</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#createStreamingDistributionResponse_location"><span class="hs-identifier hs-type">createStreamingDistributionResponse_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="createStreamingDistributionResponse_location"><span class="annot"><span class="annottext">createStreamingDistributionResponse_location :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateStreamingDistributionResponse
+-&gt; f CreateStreamingDistributionResponse
+</span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#createStreamingDistributionResponse_location"><span class="hs-identifier hs-var hs-var">createStreamingDistributionResponse_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStreamingDistributionResponse -&gt; Maybe Text)
+-&gt; (CreateStreamingDistributionResponse
+    -&gt; Maybe Text -&gt; CreateStreamingDistributionResponse)
+-&gt; Lens
+     CreateStreamingDistributionResponse
+     CreateStreamingDistributionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419940"><span class="annot"><span class="annottext">Maybe Text
+location :: Maybe Text
+$sel:location:CreateStreamingDistributionResponse' :: CreateStreamingDistributionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679419940"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419940"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419939"><span class="annot"><span class="annottext">s :: CreateStreamingDistributionResponse
+</span><a href="#local-6989586621679419939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419938"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingDistributionResponse
+</span><a href="#local-6989586621679419939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CreateStreamingDistributionResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#%24sel%3Alocation%3ACreateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The streaming distribution\'s information.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#createStreamingDistributionResponse_streamingDistribution"><span class="hs-identifier hs-type">createStreamingDistributionResponse_streamingDistribution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StreamingDistribution.html#StreamingDistribution"><span class="hs-identifier hs-type">StreamingDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="createStreamingDistributionResponse_streamingDistribution"><span class="annot"><span class="annottext">createStreamingDistributionResponse_streamingDistribution :: (Maybe StreamingDistribution -&gt; f (Maybe StreamingDistribution))
 -&gt; CreateStreamingDistributionResponse
 -&gt; f CreateStreamingDistributionResponse
 </span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#createStreamingDistributionResponse_streamingDistribution"><span class="hs-identifier hs-var hs-var">createStreamingDistributionResponse_streamingDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStreamingDistributionResponse
@@ -496,42 +530,16 @@ $sel:eTag:CreateStreamingDistributionResponse' :: CreateStreamingDistributionRes
      (Maybe StreamingDistribution)
      (Maybe StreamingDistribution)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419658"><span class="annot"><span class="annottext">Maybe StreamingDistribution
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419937"><span class="annot"><span class="annottext">Maybe StreamingDistribution
 streamingDistribution :: Maybe StreamingDistribution
 $sel:streamingDistribution:CreateStreamingDistributionResponse' :: CreateStreamingDistributionResponse -&gt; Maybe StreamingDistribution
-</span><a href="#local-6989586621679419658"><span class="hs-identifier hs-var hs-var">streamingDistribution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StreamingDistribution
-</span><a href="#local-6989586621679419658"><span class="hs-identifier hs-var">streamingDistribution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419657"><span class="annot"><span class="annottext">s :: CreateStreamingDistributionResponse
-</span><a href="#local-6989586621679419657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419656"><span class="annot"><span class="annottext">Maybe StreamingDistribution
-</span><a href="#local-6989586621679419656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingDistributionResponse
-</span><a href="#local-6989586621679419657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamingDistribution:CreateStreamingDistributionResponse' :: Maybe StreamingDistribution
+</span><a href="#local-6989586621679419937"><span class="hs-identifier hs-var hs-var">streamingDistribution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StreamingDistribution
+</span><a href="#local-6989586621679419937"><span class="hs-identifier hs-var">streamingDistribution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419936"><span class="annot"><span class="annottext">s :: CreateStreamingDistributionResponse
+</span><a href="#local-6989586621679419936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419935"><span class="annot"><span class="annottext">Maybe StreamingDistribution
+</span><a href="#local-6989586621679419935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingDistributionResponse
+</span><a href="#local-6989586621679419936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamingDistribution:CreateStreamingDistributionResponse' :: Maybe StreamingDistribution
 </span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#%24sel%3AstreamingDistribution%3ACreateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">streamingDistribution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamingDistribution
-</span><a href="#local-6989586621679419656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- | The fully qualified URI of the new streaming distribution resource just</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- created.</span><span>
-</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#createStreamingDistributionResponse_location"><span class="hs-identifier hs-type">createStreamingDistributionResponse_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span id="createStreamingDistributionResponse_location"><span class="annot"><span class="annottext">createStreamingDistributionResponse_location :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreateStreamingDistributionResponse
--&gt; f CreateStreamingDistributionResponse
-</span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#createStreamingDistributionResponse_location"><span class="hs-identifier hs-var hs-var">createStreamingDistributionResponse_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStreamingDistributionResponse -&gt; Maybe Text)
--&gt; (CreateStreamingDistributionResponse
-    -&gt; Maybe Text -&gt; CreateStreamingDistributionResponse)
--&gt; Lens
-     CreateStreamingDistributionResponse
-     CreateStreamingDistributionResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419655"><span class="annot"><span class="annottext">Maybe Text
-location :: Maybe Text
-$sel:location:CreateStreamingDistributionResponse' :: CreateStreamingDistributionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679419655"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679419655"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419654"><span class="annot"><span class="annottext">s :: CreateStreamingDistributionResponse
-</span><a href="#local-6989586621679419654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419653"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679419653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingDistributionResponse
-</span><a href="#local-6989586621679419654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CreateStreamingDistributionResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#%24sel%3Alocation%3ACreateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679419653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679419935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-183"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#createStreamingDistributionResponse_httpStatus"><span class="hs-identifier hs-type">createStreamingDistributionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -547,18 +555,18 @@ $sel:location:CreateStreamingDistributionResponse' :: CreateStreamingDistributio
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419652"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419934"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateStreamingDistributionResponse' :: CreateStreamingDistributionResponse -&gt; Int
-</span><a href="#local-6989586621679419652"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679419652"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419651"><span class="annot"><span class="annottext">s :: CreateStreamingDistributionResponse
-</span><a href="#local-6989586621679419651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419650"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679419650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingDistributionResponse
-</span><a href="#local-6989586621679419651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateStreamingDistributionResponse' :: Int
+</span><a href="#local-6989586621679419934"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419934"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419933"><span class="annot"><span class="annottext">s :: CreateStreamingDistributionResponse
+</span><a href="#local-6989586621679419933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse%27"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419932"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamingDistributionResponse
+</span><a href="#local-6989586621679419933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateStreamingDistributionResponse' :: Int
 </span><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#%24sel%3AhttpStatus%3ACreateStreamingDistributionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679419650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679419932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679419648"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679419930"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateStreamingDistribution.html#CreateStreamingDistributionResponse"><span class="hs-identifier hs-type">CreateStreamingDistributionResponse</span></a></span></span><span>
 </span><span id="line-189"></span></pre></body></html>

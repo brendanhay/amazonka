@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDeregisterInstance' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679390933"><span id="local-6989586621679390934"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterInstance"><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance"><span class="hs-identifier hs-var">DeregisterInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterInstance%27"><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance%27"><span class="hs-identifier hs-var">DeregisterInstance'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679391359"><span id="local-6989586621679391360"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterInstance"><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance"><span class="hs-identifier hs-var">DeregisterInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterInstance%27"><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance%27"><span class="hs-identifier hs-var">DeregisterInstance'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The instance ID.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AinstanceId%3ADeregisterInstance%27"><span class="annot"><span class="annottext">DeregisterInstance -&gt; Text
 </span><a href="Network.AWS.OpsWorks.DeregisterInstance.html#%24sel%3AinstanceId%3ADeregisterInstance%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390927"><span id="local-6989586621679390929"><span class="annot"><span class="annottext">DeregisterInstance -&gt; DeregisterInstance -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391353"><span id="local-6989586621679391355"><span class="annot"><span class="annottext">DeregisterInstance -&gt; DeregisterInstance -&gt; Bool
 (DeregisterInstance -&gt; DeregisterInstance -&gt; Bool)
 -&gt; (DeregisterInstance -&gt; DeregisterInstance -&gt; Bool)
 -&gt; Eq DeregisterInstance
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeregisterInstance -&gt; DeregisterInstance -&gt; Bool
 == :: DeregisterInstance -&gt; DeregisterInstance -&gt; Bool
 $c== :: DeregisterInstance -&gt; DeregisterInstance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390918"><span id="local-6989586621679390920"><span id="local-6989586621679390922"><span id="local-6989586621679390924"><span class="annot"><span class="annottext">ReadPrec [DeregisterInstance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391344"><span id="local-6989586621679391346"><span id="local-6989586621679391348"><span id="local-6989586621679391350"><span class="annot"><span class="annottext">ReadPrec [DeregisterInstance]
 ReadPrec DeregisterInstance
 Int -&gt; ReadS DeregisterInstance
 ReadS [DeregisterInstance]
@@ -86,7 +86,7 @@ readList :: ReadS [DeregisterInstance]
 $creadList :: ReadS [DeregisterInstance]
 readsPrec :: Int -&gt; ReadS DeregisterInstance
 $creadsPrec :: Int -&gt; ReadS DeregisterInstance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390911"><span id="local-6989586621679390913"><span id="local-6989586621679390915"><span class="annot"><span class="annottext">Int -&gt; DeregisterInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391337"><span id="local-6989586621679391339"><span id="local-6989586621679391341"><span class="annot"><span class="annottext">Int -&gt; DeregisterInstance -&gt; ShowS
 [DeregisterInstance] -&gt; ShowS
 DeregisterInstance -&gt; String
 (Int -&gt; DeregisterInstance -&gt; ShowS)
@@ -126,12 +126,12 @@ $cfrom :: forall x. DeregisterInstance -&gt; Rep DeregisterInstance x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance"><span class="hs-identifier hs-type">DeregisterInstance</span></a></span><span>
 </span><span id="line-74"></span><span id="newDeregisterInstance"><span class="annot"><span class="annottext">newDeregisterInstance :: Text -&gt; DeregisterInstance
-</span><a href="Network.AWS.OpsWorks.DeregisterInstance.html#newDeregisterInstance"><span class="hs-identifier hs-var hs-var">newDeregisterInstance</span></a></span></span><span> </span><span id="local-6989586621679390906"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390906"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.DeregisterInstance.html#newDeregisterInstance"><span class="hs-identifier hs-var hs-var">newDeregisterInstance</span></a></span></span><span> </span><span id="local-6989586621679391332"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391332"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">DeregisterInstance' :: Text -&gt; DeregisterInstance
 </span><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance%27"><span class="hs-identifier hs-type">DeregisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DeregisterInstance' :: Text
 </span><a href="Network.AWS.OpsWorks.DeregisterInstance.html#%24sel%3AinstanceId%3ADeregisterInstance%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390906"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679391332"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The instance ID.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#deregisterInstance_instanceId"><span class="hs-identifier hs-type">deregisterInstance_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance"><span class="hs-identifier hs-type">DeregisterInstance</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -140,27 +140,27 @@ $cfrom :: forall x. DeregisterInstance -&gt; Rep DeregisterInstance x
 -&gt; (DeregisterInstance -&gt; Text -&gt; DeregisterInstance)
 -&gt; Lens DeregisterInstance DeregisterInstance Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance%27"><span class="hs-identifier hs-type">DeregisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390903"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance%27"><span class="hs-identifier hs-type">DeregisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391329"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:DeregisterInstance' :: DeregisterInstance -&gt; Text
-</span><a href="#local-6989586621679390903"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390903"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390902"><span class="annot"><span class="annottext">s :: DeregisterInstance
-</span><a href="#local-6989586621679390902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance%27"><span class="hs-identifier hs-type">DeregisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390901"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterInstance
-</span><a href="#local-6989586621679390902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DeregisterInstance' :: Text
+</span><a href="#local-6989586621679391329"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391329"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391328"><span class="annot"><span class="annottext">s :: DeregisterInstance
+</span><a href="#local-6989586621679391328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance%27"><span class="hs-identifier hs-type">DeregisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391327"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterInstance
+</span><a href="#local-6989586621679391328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DeregisterInstance' :: Text
 </span><a href="Network.AWS.OpsWorks.DeregisterInstance.html#%24sel%3AinstanceId%3ADeregisterInstance%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance"><span class="hs-identifier hs-type">DeregisterInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance"><span class="hs-identifier hs-type">DeregisterInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance"><span class="hs-identifier hs-type">DeregisterInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance"><span class="hs-identifier hs-type">DeregisterInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstanceResponse"><span class="hs-identifier hs-type">DeregisterInstanceResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679390897"><span class="annot"><span class="annottext">request :: DeregisterInstance -&gt; Request DeregisterInstance
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679391323"><span class="annot"><span class="annottext">request :: DeregisterInstance -&gt; Request DeregisterInstance
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeregisterInstance -&gt; Request DeregisterInstance
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679390893"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679391319"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeregisterInstance
 -&gt; ClientResponse ClientBody
@@ -186,12 +186,12 @@ AWSResponse a
 DeregisterInstanceResponse
 </span><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstanceResponse%27"><span class="hs-identifier hs-var">DeregisterInstanceResponse'</span></a></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390886"><span id="local-6989586621679390888"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance"><span class="hs-identifier hs-type">DeregisterInstance</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391312"><span id="local-6989586621679391314"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance"><span class="hs-identifier hs-type">DeregisterInstance</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390883"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance"><span class="hs-identifier hs-type">DeregisterInstance</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance"><span class="hs-identifier hs-type">DeregisterInstance</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance"><span class="hs-identifier hs-type">DeregisterInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679390879"><span class="annot"><span class="annottext">toHeaders :: DeregisterInstance -&gt; [Header]
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679391305"><span class="annot"><span class="annottext">toHeaders :: DeregisterInstance -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeregisterInstance -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -218,12 +218,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390869"><span id="local-6989586621679390871"><span id="local-6989586621679390873"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance"><span class="hs-identifier hs-type">DeregisterInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679390867"><span class="annot"><span class="annottext">toJSON :: DeregisterInstance -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance%27"><span class="hs-identifier hs-type">DeregisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390865"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391295"><span id="local-6989586621679391297"><span id="local-6989586621679391299"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance"><span class="hs-identifier hs-type">DeregisterInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679391293"><span class="annot"><span class="annottext">toJSON :: DeregisterInstance -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance%27"><span class="hs-identifier hs-type">DeregisterInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391291"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:DeregisterInstance' :: DeregisterInstance -&gt; Text
-</span><a href="#local-6989586621679390865"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679391291"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -235,18 +235,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390865"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679391291"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance"><span class="hs-identifier hs-type">DeregisterInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679390859"><span class="annot"><span class="annottext">toPath :: DeregisterInstance -&gt; ByteString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679391285"><span class="annot"><span class="annottext">toPath :: DeregisterInstance -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeregisterInstance -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstance"><span class="hs-identifier hs-type">DeregisterInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679390855"><span class="annot"><span class="annottext">toQuery :: DeregisterInstance -&gt; QueryString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679391281"><span class="annot"><span class="annottext">toQuery :: DeregisterInstance -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeregisterInstance -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -254,10 +254,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newDeregisterInstanceResponse' smart constructor.</span><span>
-</span><span id="line-122"></span><span id="local-6989586621679390852"><span id="local-6989586621679390853"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterInstanceResponse"><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstanceResponse"><span class="hs-identifier hs-var">DeregisterInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterInstanceResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstanceResponse%27"><span class="hs-identifier hs-var">DeregisterInstanceResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span id="local-6989586621679391278"><span id="local-6989586621679391279"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterInstanceResponse"><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstanceResponse"><span class="hs-identifier hs-var">DeregisterInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterInstanceResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstanceResponse%27"><span class="hs-identifier hs-var">DeregisterInstanceResponse'</span></a></span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390848"><span id="local-6989586621679390850"><span class="annot"><span class="annottext">DeregisterInstanceResponse -&gt; DeregisterInstanceResponse -&gt; Bool
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391274"><span id="local-6989586621679391276"><span class="annot"><span class="annottext">DeregisterInstanceResponse -&gt; DeregisterInstanceResponse -&gt; Bool
 (DeregisterInstanceResponse -&gt; DeregisterInstanceResponse -&gt; Bool)
 -&gt; (DeregisterInstanceResponse
     -&gt; DeregisterInstanceResponse -&gt; Bool)
@@ -267,7 +267,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeregisterInstanceResponse -&gt; DeregisterInstanceResponse -&gt; Bool
 == :: DeregisterInstanceResponse -&gt; DeregisterInstanceResponse -&gt; Bool
 $c== :: DeregisterInstanceResponse -&gt; DeregisterInstanceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390840"><span id="local-6989586621679390842"><span id="local-6989586621679390844"><span id="local-6989586621679390846"><span class="annot"><span class="annottext">ReadPrec [DeregisterInstanceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391266"><span id="local-6989586621679391268"><span id="local-6989586621679391270"><span id="local-6989586621679391272"><span class="annot"><span class="annottext">ReadPrec [DeregisterInstanceResponse]
 ReadPrec DeregisterInstanceResponse
 Int -&gt; ReadS DeregisterInstanceResponse
 ReadS [DeregisterInstanceResponse]
@@ -287,7 +287,7 @@ readList :: ReadS [DeregisterInstanceResponse]
 $creadList :: ReadS [DeregisterInstanceResponse]
 readsPrec :: Int -&gt; ReadS DeregisterInstanceResponse
 $creadsPrec :: Int -&gt; ReadS DeregisterInstanceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390834"><span id="local-6989586621679390836"><span id="local-6989586621679390838"><span class="annot"><span class="annottext">Int -&gt; DeregisterInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391260"><span id="local-6989586621679391262"><span id="local-6989586621679391264"><span class="annot"><span class="annottext">Int -&gt; DeregisterInstanceResponse -&gt; ShowS
 [DeregisterInstanceResponse] -&gt; ShowS
 DeregisterInstanceResponse -&gt; String
 (Int -&gt; DeregisterInstanceResponse -&gt; ShowS)
@@ -330,5 +330,5 @@ DeregisterInstanceResponse -&gt; Rep DeregisterInstanceResponse x
 </span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">DeregisterInstanceResponse
 </span><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstanceResponse%27"><span class="hs-identifier hs-var">DeregisterInstanceResponse'</span></a></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstanceResponse"><span class="hs-identifier hs-type">DeregisterInstanceResponse</span></a></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391256"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeregisterInstance.html#DeregisterInstanceResponse"><span class="hs-identifier hs-type">DeregisterInstanceResponse</span></a></span></span><span>
 </span><span id="line-137"></span></pre></body></html>

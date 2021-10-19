@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679374262"><span id="local-6989586621679374263"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WakeWord"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord"><span class="hs-identifier hs-var">WakeWord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WakeWord%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord%27"><span class="hs-identifier hs-var">WakeWord'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679374590"><span id="local-6989586621679374591"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WakeWord"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord"><span class="hs-identifier hs-var">WakeWord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WakeWord%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#WakeWord%27"><span class="hs-identifier hs-var">WakeWord'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWakeWord"><span class="annot"><span class="annottext">WakeWord -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.Types.WakeWord.html#fromWakeWord"><span class="hs-identifier hs-var hs-var">fromWakeWord</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374254"><span id="local-6989586621679374256"><span id="local-6989586621679374258"><span class="annot"><span class="annottext">Int -&gt; WakeWord -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374582"><span id="local-6989586621679374584"><span id="local-6989586621679374586"><span class="annot"><span class="annottext">Int -&gt; WakeWord -&gt; ShowS
 [WakeWord] -&gt; ShowS
 WakeWord -&gt; String
 (Int -&gt; WakeWord -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: WakeWord -&gt; String
 showsPrec :: Int -&gt; WakeWord -&gt; ShowS
 $cshowsPrec :: Int -&gt; WakeWord -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679374245"><span id="local-6989586621679374247"><span id="local-6989586621679374249"><span id="local-6989586621679374251"><span class="annot"><span class="annottext">ReadPrec [WakeWord]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679374573"><span id="local-6989586621679374575"><span id="local-6989586621679374577"><span id="local-6989586621679374579"><span class="annot"><span class="annottext">ReadPrec [WakeWord]
 ReadPrec WakeWord
 Int -&gt; ReadS WakeWord
 ReadS [WakeWord]
@@ -72,7 +72,7 @@ $creadList :: ReadS [WakeWord]
 readsPrec :: Int -&gt; ReadS WakeWord
 $creadsPrec :: Int -&gt; ReadS WakeWord
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679374240"><span id="local-6989586621679374242"><span class="annot"><span class="annottext">WakeWord -&gt; WakeWord -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679374568"><span id="local-6989586621679374570"><span class="annot"><span class="annottext">WakeWord -&gt; WakeWord -&gt; Bool
 (WakeWord -&gt; WakeWord -&gt; Bool)
 -&gt; (WakeWord -&gt; WakeWord -&gt; Bool) -&gt; Eq WakeWord
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: WakeWord -&gt; WakeWord -&gt; Bool
 == :: WakeWord -&gt; WakeWord -&gt; Bool
 $c== :: WakeWord -&gt; WakeWord -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679374224"><span id="local-6989586621679374226"><span id="local-6989586621679374228"><span id="local-6989586621679374230"><span id="local-6989586621679374232"><span id="local-6989586621679374234"><span id="local-6989586621679374236"><span class="annot"><span class="annottext">Eq WakeWord
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679374552"><span id="local-6989586621679374554"><span id="local-6989586621679374556"><span id="local-6989586621679374558"><span id="local-6989586621679374560"><span id="local-6989586621679374562"><span id="local-6989586621679374564"><span class="annot"><span class="annottext">Eq WakeWord
 Eq WakeWord
 -&gt; (WakeWord -&gt; WakeWord -&gt; Ordering)
 -&gt; (WakeWord -&gt; WakeWord -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. WakeWord -&gt; Rep WakeWord x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374216"><span id="local-6989586621679374218"><span class="annot"><span class="annottext">Int -&gt; WakeWord -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374544"><span id="local-6989586621679374546"><span class="annot"><span class="annottext">Int -&gt; WakeWord -&gt; Int
 WakeWord -&gt; Int
 (Int -&gt; WakeWord -&gt; Int) -&gt; (WakeWord -&gt; Int) -&gt; Hashable WakeWord
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -140,49 +140,49 @@ $chash :: WakeWord -&gt; Int
 hashWithSalt :: Int -&gt; WakeWord -&gt; Int
 $chashWithSalt :: Int -&gt; WakeWord -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679374213"><span class="annot"><span class="annottext">WakeWord -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679374541"><span class="annot"><span class="annottext">WakeWord -&gt; ()
 (WakeWord -&gt; ()) -&gt; NFData WakeWord
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WakeWord -&gt; ()
 $crnf :: WakeWord -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679374210"><span class="annot"><span class="annottext">Text -&gt; Either String WakeWord
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679374538"><span class="annot"><span class="annottext">Text -&gt; Either String WakeWord
 (Text -&gt; Either String WakeWord) -&gt; FromText WakeWord
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WakeWord
 $cfromText :: Text -&gt; Either String WakeWord
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679374207"><span class="annot"><span class="annottext">WakeWord -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679374535"><span class="annot"><span class="annottext">WakeWord -&gt; Text
 (WakeWord -&gt; Text) -&gt; ToText WakeWord
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WakeWord -&gt; Text
 $ctoText :: WakeWord -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679374204"><span class="annot"><span class="annottext">WakeWord -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679374532"><span class="annot"><span class="annottext">WakeWord -&gt; ByteString
 (WakeWord -&gt; ByteString) -&gt; ToByteString WakeWord
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WakeWord -&gt; ByteString
 $ctoBS :: WakeWord -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679374201"><span class="annot"><span class="annottext">WakeWord -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679374529"><span class="annot"><span class="annottext">WakeWord -&gt; ByteStringBuilder
 (WakeWord -&gt; ByteStringBuilder) -&gt; ToLog WakeWord
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WakeWord -&gt; ByteStringBuilder
 $cbuild :: WakeWord -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679374198"><span class="annot"><span class="annottext">HeaderName -&gt; WakeWord -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679374526"><span class="annot"><span class="annottext">HeaderName -&gt; WakeWord -&gt; [Header]
 (HeaderName -&gt; WakeWord -&gt; [Header]) -&gt; ToHeader WakeWord
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WakeWord -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WakeWord -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679374195"><span class="annot"><span class="annottext">WakeWord -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679374523"><span class="annot"><span class="annottext">WakeWord -&gt; QueryString
 (WakeWord -&gt; QueryString) -&gt; ToQuery WakeWord
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WakeWord -&gt; QueryString
 $ctoQuery :: WakeWord -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679374190"><span id="local-6989586621679374192"><span class="annot"><span class="annottext">Value -&gt; Parser [WakeWord]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679374518"><span id="local-6989586621679374520"><span class="annot"><span class="annottext">Value -&gt; Parser [WakeWord]
 Value -&gt; Parser WakeWord
 (Value -&gt; Parser WakeWord)
 -&gt; (Value -&gt; Parser [WakeWord]) -&gt; FromJSON WakeWord
@@ -193,7 +193,7 @@ $cparseJSONList :: Value -&gt; Parser [WakeWord]
 parseJSON :: Value -&gt; Parser WakeWord
 $cparseJSON :: Value -&gt; Parser WakeWord
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679374185"><span id="local-6989586621679374187"><span class="annot"><span class="annottext">FromJSONKeyFunction [WakeWord]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679374513"><span id="local-6989586621679374515"><span class="annot"><span class="annottext">FromJSONKeyFunction [WakeWord]
 FromJSONKeyFunction WakeWord
 FromJSONKeyFunction WakeWord
 -&gt; FromJSONKeyFunction [WakeWord] -&gt; FromJSONKey WakeWord
@@ -204,7 +204,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WakeWord]
 fromJSONKey :: FromJSONKeyFunction WakeWord
 $cfromJSONKey :: FromJSONKeyFunction WakeWord
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679374176"><span id="local-6989586621679374178"><span id="local-6989586621679374180"><span id="local-6989586621679374182"><span class="annot"><span class="annottext">[WakeWord] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679374504"><span id="local-6989586621679374506"><span id="local-6989586621679374508"><span id="local-6989586621679374510"><span class="annot"><span class="annottext">[WakeWord] -&gt; Encoding
 [WakeWord] -&gt; Value
 WakeWord -&gt; Encoding
 WakeWord -&gt; Value
@@ -228,7 +228,7 @@ $ctoEncoding :: WakeWord -&gt; Encoding
 toJSON :: WakeWord -&gt; Value
 $ctoJSON :: WakeWord -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679374171"><span id="local-6989586621679374173"><span class="annot"><span class="annottext">ToJSONKeyFunction [WakeWord]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679374499"><span id="local-6989586621679374501"><span class="annot"><span class="annottext">ToJSONKeyFunction [WakeWord]
 ToJSONKeyFunction WakeWord
 ToJSONKeyFunction WakeWord
 -&gt; ToJSONKeyFunction [WakeWord] -&gt; ToJSONKey WakeWord
@@ -239,13 +239,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WakeWord]
 toJSONKey :: ToJSONKeyFunction WakeWord
 $ctoJSONKey :: ToJSONKeyFunction WakeWord
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679374168"><span class="annot"><span class="annottext">[Node] -&gt; Either String WakeWord
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679374496"><span class="annot"><span class="annottext">[Node] -&gt; Either String WakeWord
 ([Node] -&gt; Either String WakeWord) -&gt; FromXML WakeWord
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WakeWord
 $cparseXML :: [Node] -&gt; Either String WakeWord
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679374165"><span class="annot"><span class="annottext">WakeWord -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679374493"><span class="annot"><span class="annottext">WakeWord -&gt; XML
 (WakeWord -&gt; XML) -&gt; ToXML WakeWord
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: WakeWord -&gt; XML

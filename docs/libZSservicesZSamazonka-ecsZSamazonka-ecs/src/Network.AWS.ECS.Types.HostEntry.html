@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- ContainerDefinition.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newHostEntry' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679453345"><span id="local-6989586621679453346"></span></span><span class="hs-keyword">data</span><span> </span><span id="HostEntry"><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry"><span class="hs-identifier hs-var">HostEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HostEntry%27"><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry%27"><span class="hs-identifier hs-var">HostEntry'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679454060"><span id="local-6989586621679454061"></span></span><span class="hs-keyword">data</span><span> </span><span id="HostEntry"><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry"><span class="hs-identifier hs-var">HostEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HostEntry%27"><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry%27"><span class="hs-identifier hs-var">HostEntry'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The hostname to use in the @\/etc\/hosts@ entry.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Ahostname%3AHostEntry%27"><span class="annot"><span class="annottext">HostEntry -&gt; Text
 </span><a href="Network.AWS.ECS.Types.HostEntry.html#%24sel%3Ahostname%3AHostEntry%27"><span class="hs-identifier hs-var hs-var">hostname</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AipAddress%3AHostEntry%27"><span class="annot"><span class="annottext">HostEntry -&gt; Text
 </span><a href="Network.AWS.ECS.Types.HostEntry.html#%24sel%3AipAddress%3AHostEntry%27"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453338"><span id="local-6989586621679453340"><span class="annot"><span class="annottext">HostEntry -&gt; HostEntry -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454053"><span id="local-6989586621679454055"><span class="annot"><span class="annottext">HostEntry -&gt; HostEntry -&gt; Bool
 (HostEntry -&gt; HostEntry -&gt; Bool)
 -&gt; (HostEntry -&gt; HostEntry -&gt; Bool) -&gt; Eq HostEntry
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HostEntry -&gt; HostEntry -&gt; Bool
 == :: HostEntry -&gt; HostEntry -&gt; Bool
 $c== :: HostEntry -&gt; HostEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453329"><span id="local-6989586621679453331"><span id="local-6989586621679453333"><span id="local-6989586621679453335"><span class="annot"><span class="annottext">ReadPrec [HostEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454044"><span id="local-6989586621679454046"><span id="local-6989586621679454048"><span id="local-6989586621679454050"><span class="annot"><span class="annottext">ReadPrec [HostEntry]
 ReadPrec HostEntry
 Int -&gt; ReadS HostEntry
 ReadS [HostEntry]
@@ -64,7 +64,7 @@ readList :: ReadS [HostEntry]
 $creadList :: ReadS [HostEntry]
 readsPrec :: Int -&gt; ReadS HostEntry
 $creadsPrec :: Int -&gt; ReadS HostEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453322"><span id="local-6989586621679453324"><span id="local-6989586621679453326"><span class="annot"><span class="annottext">Int -&gt; HostEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454037"><span id="local-6989586621679454039"><span id="local-6989586621679454041"><span class="annot"><span class="annottext">Int -&gt; HostEntry -&gt; ShowS
 [HostEntry] -&gt; ShowS
 HostEntry -&gt; String
 (Int -&gt; HostEntry -&gt; ShowS)
@@ -107,17 +107,17 @@ $cfrom :: forall x. HostEntry -&gt; Rep HostEntry x
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry"><span class="hs-identifier hs-type">HostEntry</span></a></span><span>
 </span><span id="line-56"></span><span id="newHostEntry"><span class="annot"><span class="annottext">newHostEntry :: Text -&gt; Text -&gt; HostEntry
-</span><a href="Network.AWS.ECS.Types.HostEntry.html#newHostEntry"><span class="hs-identifier hs-var hs-var">newHostEntry</span></a></span></span><span> </span><span id="local-6989586621679453316"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453316"><span class="hs-identifier hs-var">pHostname_</span></a></span></span><span> </span><span id="local-6989586621679453315"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453315"><span class="hs-identifier hs-var">pIpAddress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.Types.HostEntry.html#newHostEntry"><span class="hs-identifier hs-var hs-var">newHostEntry</span></a></span></span><span> </span><span id="local-6989586621679454031"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454031"><span class="hs-identifier hs-var">pHostname_</span></a></span></span><span> </span><span id="local-6989586621679454030"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454030"><span class="hs-identifier hs-var">pIpAddress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">HostEntry' :: Text -&gt; Text -&gt; HostEntry
 </span><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry%27"><span class="hs-identifier hs-type">HostEntry'</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hostname:HostEntry' :: Text
 </span><a href="Network.AWS.ECS.Types.HostEntry.html#%24sel%3Ahostname%3AHostEntry%27"><span class="hs-identifier hs-var">hostname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453316"><span class="hs-identifier hs-var">pHostname_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679454031"><span class="hs-identifier hs-var">pHostname_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipAddress:HostEntry' :: Text
 </span><a href="Network.AWS.ECS.Types.HostEntry.html#%24sel%3AipAddress%3AHostEntry%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453315"><span class="hs-identifier hs-var">pIpAddress_</span></a></span><span>
+</span><a href="#local-6989586621679454030"><span class="hs-identifier hs-var">pIpAddress_</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The hostname to use in the @\/etc\/hosts@ entry.</span><span>
@@ -127,16 +127,16 @@ $cfrom :: forall x. HostEntry -&gt; Rep HostEntry x
 -&gt; (HostEntry -&gt; Text -&gt; HostEntry)
 -&gt; Lens HostEntry HostEntry Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry%27"><span class="hs-identifier hs-type">HostEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453311"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry%27"><span class="hs-identifier hs-type">HostEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454026"><span class="annot"><span class="annottext">Text
 hostname :: Text
 $sel:hostname:HostEntry' :: HostEntry -&gt; Text
-</span><a href="#local-6989586621679453311"><span class="hs-identifier hs-var hs-var">hostname</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453311"><span class="hs-identifier hs-var">hostname</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453310"><span class="annot"><span class="annottext">s :: HostEntry
-</span><a href="#local-6989586621679453310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry%27"><span class="hs-identifier hs-type">HostEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453309"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostEntry
-</span><a href="#local-6989586621679453310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostname:HostEntry' :: Text
+</span><a href="#local-6989586621679454026"><span class="hs-identifier hs-var hs-var">hostname</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454026"><span class="hs-identifier hs-var">hostname</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454025"><span class="annot"><span class="annottext">s :: HostEntry
+</span><a href="#local-6989586621679454025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry%27"><span class="hs-identifier hs-type">HostEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454024"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostEntry
+</span><a href="#local-6989586621679454025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostname:HostEntry' :: Text
 </span><a href="Network.AWS.ECS.Types.HostEntry.html#%24sel%3Ahostname%3AHostEntry%27"><span class="hs-identifier hs-var">hostname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry"><span class="hs-identifier hs-type">HostEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry"><span class="hs-identifier hs-type">HostEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The IP address to use in the @\/etc\/hosts@ entry.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#hostEntry_ipAddress"><span class="hs-identifier hs-type">hostEntry_ipAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry"><span class="hs-identifier hs-type">HostEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -145,58 +145,58 @@ $sel:hostname:HostEntry' :: HostEntry -&gt; Text
 -&gt; (HostEntry -&gt; Text -&gt; HostEntry)
 -&gt; Lens HostEntry HostEntry Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry%27"><span class="hs-identifier hs-type">HostEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453307"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry%27"><span class="hs-identifier hs-type">HostEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454022"><span class="annot"><span class="annottext">Text
 ipAddress :: Text
 $sel:ipAddress:HostEntry' :: HostEntry -&gt; Text
-</span><a href="#local-6989586621679453307"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453307"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453306"><span class="annot"><span class="annottext">s :: HostEntry
-</span><a href="#local-6989586621679453306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry%27"><span class="hs-identifier hs-type">HostEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453305"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostEntry
-</span><a href="#local-6989586621679453306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:HostEntry' :: Text
+</span><a href="#local-6989586621679454022"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454022"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454021"><span class="annot"><span class="annottext">s :: HostEntry
+</span><a href="#local-6989586621679454021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry%27"><span class="hs-identifier hs-type">HostEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454020"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HostEntry
+</span><a href="#local-6989586621679454021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:HostEntry' :: Text
 </span><a href="Network.AWS.ECS.Types.HostEntry.html#%24sel%3AipAddress%3AHostEntry%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry"><span class="hs-identifier hs-type">HostEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry"><span class="hs-identifier hs-type">HostEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453302"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry"><span class="hs-identifier hs-type">HostEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679453300"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HostEntry
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454017"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry"><span class="hs-identifier hs-type">HostEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679454015"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HostEntry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser HostEntry) -&gt; Value -&gt; Parser HostEntry
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HostEntry&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679453297"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679453297"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679454012"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679454012"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; HostEntry
 </span><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry%27"><span class="hs-identifier hs-var">HostEntry'</span></a></span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; HostEntry)
 -&gt; Parser Text -&gt; Parser (Text -&gt; HostEntry)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679453297"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679454012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hostname&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; HostEntry) -&gt; Parser Text -&gt; Parser HostEntry
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679453297"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679454012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ipAddress&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453291"><span id="local-6989586621679453293"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry"><span class="hs-identifier hs-type">HostEntry</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454006"><span id="local-6989586621679454008"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry"><span class="hs-identifier hs-type">HostEntry</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453288"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry"><span class="hs-identifier hs-type">HostEntry</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454003"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry"><span class="hs-identifier hs-type">HostEntry</span></a></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453280"><span id="local-6989586621679453282"><span id="local-6989586621679453284"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry"><span class="hs-identifier hs-type">HostEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679453278"><span class="annot"><span class="annottext">toJSON :: HostEntry -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry%27"><span class="hs-identifier hs-type">HostEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453275"><span id="local-6989586621679453276"><span class="annot"><span class="annottext">Text
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453995"><span id="local-6989586621679453997"><span id="local-6989586621679453999"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry"><span class="hs-identifier hs-type">HostEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679453993"><span class="annot"><span class="annottext">toJSON :: HostEntry -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostEntry.html#HostEntry%27"><span class="hs-identifier hs-type">HostEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453990"><span id="local-6989586621679453991"><span class="annot"><span class="annottext">Text
 ipAddress :: Text
 hostname :: Text
 $sel:ipAddress:HostEntry' :: HostEntry -&gt; Text
 $sel:hostname:HostEntry' :: HostEntry -&gt; Text
-</span><a href="#local-6989586621679453275"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679453990"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -208,14 +208,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;hostname&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453276"><span class="hs-identifier hs-var">hostname</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679453991"><span class="hs-identifier hs-var">hostname</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ipAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453275"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453990"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

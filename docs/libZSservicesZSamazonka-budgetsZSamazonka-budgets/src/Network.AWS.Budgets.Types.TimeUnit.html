@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- | The time unit of the budget, such as MONTHLY or QUARTERLY.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679209518"><span id="local-6989586621679209519"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TimeUnit"><span class="annot"><a href="Network.AWS.Budgets.Types.TimeUnit.html#TimeUnit"><span class="hs-identifier hs-var">TimeUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeUnit%27"><span class="annot"><a href="Network.AWS.Budgets.Types.TimeUnit.html#TimeUnit%27"><span class="hs-identifier hs-var">TimeUnit'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679209623"><span id="local-6989586621679209624"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TimeUnit"><span class="annot"><a href="Network.AWS.Budgets.Types.TimeUnit.html#TimeUnit"><span class="hs-identifier hs-var">TimeUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeUnit%27"><span class="annot"><a href="Network.AWS.Budgets.Types.TimeUnit.html#TimeUnit%27"><span class="hs-identifier hs-var">TimeUnit'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTimeUnit"><span class="annot"><span class="annottext">TimeUnit -&gt; Text
 </span><a href="Network.AWS.Budgets.Types.TimeUnit.html#fromTimeUnit"><span class="hs-identifier hs-var hs-var">fromTimeUnit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209510"><span id="local-6989586621679209512"><span id="local-6989586621679209514"><span class="annot"><span class="annottext">Int -&gt; TimeUnit -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209615"><span id="local-6989586621679209617"><span id="local-6989586621679209619"><span class="annot"><span class="annottext">Int -&gt; TimeUnit -&gt; ShowS
 [TimeUnit] -&gt; ShowS
 TimeUnit -&gt; String
 (Int -&gt; TimeUnit -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: TimeUnit -&gt; String
 showsPrec :: Int -&gt; TimeUnit -&gt; ShowS
 $cshowsPrec :: Int -&gt; TimeUnit -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679209501"><span id="local-6989586621679209503"><span id="local-6989586621679209505"><span id="local-6989586621679209507"><span class="annot"><span class="annottext">ReadPrec [TimeUnit]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679209606"><span id="local-6989586621679209608"><span id="local-6989586621679209610"><span id="local-6989586621679209612"><span class="annot"><span class="annottext">ReadPrec [TimeUnit]
 ReadPrec TimeUnit
 Int -&gt; ReadS TimeUnit
 ReadS [TimeUnit]
@@ -73,7 +73,7 @@ $creadList :: ReadS [TimeUnit]
 readsPrec :: Int -&gt; ReadS TimeUnit
 $creadsPrec :: Int -&gt; ReadS TimeUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679209496"><span id="local-6989586621679209498"><span class="annot"><span class="annottext">TimeUnit -&gt; TimeUnit -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679209601"><span id="local-6989586621679209603"><span class="annot"><span class="annottext">TimeUnit -&gt; TimeUnit -&gt; Bool
 (TimeUnit -&gt; TimeUnit -&gt; Bool)
 -&gt; (TimeUnit -&gt; TimeUnit -&gt; Bool) -&gt; Eq TimeUnit
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: TimeUnit -&gt; TimeUnit -&gt; Bool
 == :: TimeUnit -&gt; TimeUnit -&gt; Bool
 $c== :: TimeUnit -&gt; TimeUnit -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679209480"><span id="local-6989586621679209482"><span id="local-6989586621679209484"><span id="local-6989586621679209486"><span id="local-6989586621679209488"><span id="local-6989586621679209490"><span id="local-6989586621679209492"><span class="annot"><span class="annottext">Eq TimeUnit
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679209585"><span id="local-6989586621679209587"><span id="local-6989586621679209589"><span id="local-6989586621679209591"><span id="local-6989586621679209593"><span id="local-6989586621679209595"><span id="local-6989586621679209597"><span class="annot"><span class="annottext">Eq TimeUnit
 Eq TimeUnit
 -&gt; (TimeUnit -&gt; TimeUnit -&gt; Ordering)
 -&gt; (TimeUnit -&gt; TimeUnit -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. TimeUnit -&gt; Rep TimeUnit x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209472"><span id="local-6989586621679209474"><span class="annot"><span class="annottext">Int -&gt; TimeUnit -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209577"><span id="local-6989586621679209579"><span class="annot"><span class="annottext">Int -&gt; TimeUnit -&gt; Int
 TimeUnit -&gt; Int
 (Int -&gt; TimeUnit -&gt; Int) -&gt; (TimeUnit -&gt; Int) -&gt; Hashable TimeUnit
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -141,49 +141,49 @@ $chash :: TimeUnit -&gt; Int
 hashWithSalt :: Int -&gt; TimeUnit -&gt; Int
 $chashWithSalt :: Int -&gt; TimeUnit -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679209469"><span class="annot"><span class="annottext">TimeUnit -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679209574"><span class="annot"><span class="annottext">TimeUnit -&gt; ()
 (TimeUnit -&gt; ()) -&gt; NFData TimeUnit
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TimeUnit -&gt; ()
 $crnf :: TimeUnit -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679209466"><span class="annot"><span class="annottext">Text -&gt; Either String TimeUnit
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679209571"><span class="annot"><span class="annottext">Text -&gt; Either String TimeUnit
 (Text -&gt; Either String TimeUnit) -&gt; FromText TimeUnit
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TimeUnit
 $cfromText :: Text -&gt; Either String TimeUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679209463"><span class="annot"><span class="annottext">TimeUnit -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679209568"><span class="annot"><span class="annottext">TimeUnit -&gt; Text
 (TimeUnit -&gt; Text) -&gt; ToText TimeUnit
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TimeUnit -&gt; Text
 $ctoText :: TimeUnit -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679209460"><span class="annot"><span class="annottext">TimeUnit -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679209565"><span class="annot"><span class="annottext">TimeUnit -&gt; ByteString
 (TimeUnit -&gt; ByteString) -&gt; ToByteString TimeUnit
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TimeUnit -&gt; ByteString
 $ctoBS :: TimeUnit -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679209457"><span class="annot"><span class="annottext">TimeUnit -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679209562"><span class="annot"><span class="annottext">TimeUnit -&gt; ByteStringBuilder
 (TimeUnit -&gt; ByteStringBuilder) -&gt; ToLog TimeUnit
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TimeUnit -&gt; ByteStringBuilder
 $cbuild :: TimeUnit -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679209454"><span class="annot"><span class="annottext">HeaderName -&gt; TimeUnit -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679209559"><span class="annot"><span class="annottext">HeaderName -&gt; TimeUnit -&gt; [Header]
 (HeaderName -&gt; TimeUnit -&gt; [Header]) -&gt; ToHeader TimeUnit
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TimeUnit -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TimeUnit -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679209451"><span class="annot"><span class="annottext">TimeUnit -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679209556"><span class="annot"><span class="annottext">TimeUnit -&gt; QueryString
 (TimeUnit -&gt; QueryString) -&gt; ToQuery TimeUnit
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TimeUnit -&gt; QueryString
 $ctoQuery :: TimeUnit -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679209446"><span id="local-6989586621679209448"><span class="annot"><span class="annottext">Value -&gt; Parser [TimeUnit]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679209551"><span id="local-6989586621679209553"><span class="annot"><span class="annottext">Value -&gt; Parser [TimeUnit]
 Value -&gt; Parser TimeUnit
 (Value -&gt; Parser TimeUnit)
 -&gt; (Value -&gt; Parser [TimeUnit]) -&gt; FromJSON TimeUnit
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [TimeUnit]
 parseJSON :: Value -&gt; Parser TimeUnit
 $cparseJSON :: Value -&gt; Parser TimeUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679209441"><span id="local-6989586621679209443"><span class="annot"><span class="annottext">FromJSONKeyFunction [TimeUnit]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679209546"><span id="local-6989586621679209548"><span class="annot"><span class="annottext">FromJSONKeyFunction [TimeUnit]
 FromJSONKeyFunction TimeUnit
 FromJSONKeyFunction TimeUnit
 -&gt; FromJSONKeyFunction [TimeUnit] -&gt; FromJSONKey TimeUnit
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TimeUnit]
 fromJSONKey :: FromJSONKeyFunction TimeUnit
 $cfromJSONKey :: FromJSONKeyFunction TimeUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679209432"><span id="local-6989586621679209434"><span id="local-6989586621679209436"><span id="local-6989586621679209438"><span class="annot"><span class="annottext">[TimeUnit] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679209537"><span id="local-6989586621679209539"><span id="local-6989586621679209541"><span id="local-6989586621679209543"><span class="annot"><span class="annottext">[TimeUnit] -&gt; Encoding
 [TimeUnit] -&gt; Value
 TimeUnit -&gt; Encoding
 TimeUnit -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: TimeUnit -&gt; Encoding
 toJSON :: TimeUnit -&gt; Value
 $ctoJSON :: TimeUnit -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679209427"><span id="local-6989586621679209429"><span class="annot"><span class="annottext">ToJSONKeyFunction [TimeUnit]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679209532"><span id="local-6989586621679209534"><span class="annot"><span class="annottext">ToJSONKeyFunction [TimeUnit]
 ToJSONKeyFunction TimeUnit
 ToJSONKeyFunction TimeUnit
 -&gt; ToJSONKeyFunction [TimeUnit] -&gt; ToJSONKey TimeUnit
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TimeUnit]
 toJSONKey :: ToJSONKeyFunction TimeUnit
 $ctoJSONKey :: ToJSONKeyFunction TimeUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679209424"><span class="annot"><span class="annottext">[Node] -&gt; Either String TimeUnit
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679209529"><span class="annot"><span class="annottext">[Node] -&gt; Either String TimeUnit
 ([Node] -&gt; Either String TimeUnit) -&gt; FromXML TimeUnit
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TimeUnit
 $cparseXML :: [Node] -&gt; Either String TimeUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679209421"><span class="annot"><span class="annottext">TimeUnit -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679209526"><span class="annot"><span class="annottext">TimeUnit -&gt; XML
 (TimeUnit -&gt; XML) -&gt; ToXML TimeUnit
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TimeUnit -&gt; XML

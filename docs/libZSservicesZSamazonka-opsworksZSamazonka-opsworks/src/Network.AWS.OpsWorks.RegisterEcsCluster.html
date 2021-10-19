@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newRegisterEcsCluster' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679384025"><span id="local-6989586621679384026"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterEcsCluster"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-var">RegisterEcsCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterEcsCluster%27"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster%27"><span class="hs-identifier hs-var">RegisterEcsCluster'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679384430"><span id="local-6989586621679384431"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterEcsCluster"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-var">RegisterEcsCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterEcsCluster%27"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster%27"><span class="hs-identifier hs-var">RegisterEcsCluster'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The cluster\'s ARN.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AecsClusterArn%3ARegisterEcsCluster%27"><span class="annot"><span class="annottext">RegisterEcsCluster -&gt; Text
 </span><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#%24sel%3AecsClusterArn%3ARegisterEcsCluster%27"><span class="hs-identifier hs-var hs-var">ecsClusterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AstackId%3ARegisterEcsCluster%27"><span class="annot"><span class="annottext">RegisterEcsCluster -&gt; Text
 </span><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#%24sel%3AstackId%3ARegisterEcsCluster%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384018"><span id="local-6989586621679384020"><span class="annot"><span class="annottext">RegisterEcsCluster -&gt; RegisterEcsCluster -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384423"><span id="local-6989586621679384425"><span class="annot"><span class="annottext">RegisterEcsCluster -&gt; RegisterEcsCluster -&gt; Bool
 (RegisterEcsCluster -&gt; RegisterEcsCluster -&gt; Bool)
 -&gt; (RegisterEcsCluster -&gt; RegisterEcsCluster -&gt; Bool)
 -&gt; Eq RegisterEcsCluster
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegisterEcsCluster -&gt; RegisterEcsCluster -&gt; Bool
 == :: RegisterEcsCluster -&gt; RegisterEcsCluster -&gt; Bool
 $c== :: RegisterEcsCluster -&gt; RegisterEcsCluster -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384009"><span id="local-6989586621679384011"><span id="local-6989586621679384013"><span id="local-6989586621679384015"><span class="annot"><span class="annottext">ReadPrec [RegisterEcsCluster]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384414"><span id="local-6989586621679384416"><span id="local-6989586621679384418"><span id="local-6989586621679384420"><span class="annot"><span class="annottext">ReadPrec [RegisterEcsCluster]
 ReadPrec RegisterEcsCluster
 Int -&gt; ReadS RegisterEcsCluster
 ReadS [RegisterEcsCluster]
@@ -94,7 +94,7 @@ readList :: ReadS [RegisterEcsCluster]
 $creadList :: ReadS [RegisterEcsCluster]
 readsPrec :: Int -&gt; ReadS RegisterEcsCluster
 $creadsPrec :: Int -&gt; ReadS RegisterEcsCluster
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384002"><span id="local-6989586621679384004"><span id="local-6989586621679384006"><span class="annot"><span class="annottext">Int -&gt; RegisterEcsCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384407"><span id="local-6989586621679384409"><span id="local-6989586621679384411"><span class="annot"><span class="annottext">Int -&gt; RegisterEcsCluster -&gt; ShowS
 [RegisterEcsCluster] -&gt; ShowS
 RegisterEcsCluster -&gt; String
 (Int -&gt; RegisterEcsCluster -&gt; ShowS)
@@ -138,18 +138,18 @@ $cfrom :: forall x. RegisterEcsCluster -&gt; Rep RegisterEcsCluster x
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-type">RegisterEcsCluster</span></a></span><span>
 </span><span id="line-85"></span><span id="newRegisterEcsCluster"><span class="annot"><span class="annottext">newRegisterEcsCluster :: Text -&gt; Text -&gt; RegisterEcsCluster
-</span><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#newRegisterEcsCluster"><span class="hs-identifier hs-var hs-var">newRegisterEcsCluster</span></a></span></span><span> </span><span id="local-6989586621679383997"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383997"><span class="hs-identifier hs-var">pEcsClusterArn_</span></a></span></span><span> </span><span id="local-6989586621679383996"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383996"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#newRegisterEcsCluster"><span class="hs-identifier hs-var hs-var">newRegisterEcsCluster</span></a></span></span><span> </span><span id="local-6989586621679384402"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384402"><span class="hs-identifier hs-var">pEcsClusterArn_</span></a></span></span><span> </span><span id="local-6989586621679384401"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384401"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">RegisterEcsCluster' :: Text -&gt; Text -&gt; RegisterEcsCluster
 </span><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster%27"><span class="hs-identifier hs-type">RegisterEcsCluster'</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ecsClusterArn:RegisterEcsCluster' :: Text
 </span><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#%24sel%3AecsClusterArn%3ARegisterEcsCluster%27"><span class="hs-identifier hs-var">ecsClusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383997"><span class="hs-identifier hs-var">pEcsClusterArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679384402"><span class="hs-identifier hs-var">pEcsClusterArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackId:RegisterEcsCluster' :: Text
 </span><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#%24sel%3AstackId%3ARegisterEcsCluster%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383996"><span class="hs-identifier hs-var">pStackId_</span></a></span><span>
+</span><a href="#local-6989586621679384401"><span class="hs-identifier hs-var">pStackId_</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The cluster\'s ARN.</span><span>
@@ -159,16 +159,16 @@ $cfrom :: forall x. RegisterEcsCluster -&gt; Rep RegisterEcsCluster x
 -&gt; (RegisterEcsCluster -&gt; Text -&gt; RegisterEcsCluster)
 -&gt; Lens RegisterEcsCluster RegisterEcsCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster%27"><span class="hs-identifier hs-type">RegisterEcsCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383993"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster%27"><span class="hs-identifier hs-type">RegisterEcsCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384398"><span class="annot"><span class="annottext">Text
 ecsClusterArn :: Text
 $sel:ecsClusterArn:RegisterEcsCluster' :: RegisterEcsCluster -&gt; Text
-</span><a href="#local-6989586621679383993"><span class="hs-identifier hs-var hs-var">ecsClusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383993"><span class="hs-identifier hs-var">ecsClusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383992"><span class="annot"><span class="annottext">s :: RegisterEcsCluster
-</span><a href="#local-6989586621679383992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster%27"><span class="hs-identifier hs-type">RegisterEcsCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383991"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterEcsCluster
-</span><a href="#local-6989586621679383992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ecsClusterArn:RegisterEcsCluster' :: Text
+</span><a href="#local-6989586621679384398"><span class="hs-identifier hs-var hs-var">ecsClusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384398"><span class="hs-identifier hs-var">ecsClusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384397"><span class="annot"><span class="annottext">s :: RegisterEcsCluster
+</span><a href="#local-6989586621679384397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster%27"><span class="hs-identifier hs-type">RegisterEcsCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384396"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterEcsCluster
+</span><a href="#local-6989586621679384397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ecsClusterArn:RegisterEcsCluster' :: Text
 </span><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#%24sel%3AecsClusterArn%3ARegisterEcsCluster%27"><span class="hs-identifier hs-var">ecsClusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-type">RegisterEcsCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-type">RegisterEcsCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The stack ID.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#registerEcsCluster_stackId"><span class="hs-identifier hs-type">registerEcsCluster_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-type">RegisterEcsCluster</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -177,27 +177,27 @@ $sel:ecsClusterArn:RegisterEcsCluster' :: RegisterEcsCluster -&gt; Text
 -&gt; (RegisterEcsCluster -&gt; Text -&gt; RegisterEcsCluster)
 -&gt; Lens RegisterEcsCluster RegisterEcsCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster%27"><span class="hs-identifier hs-type">RegisterEcsCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383990"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster%27"><span class="hs-identifier hs-type">RegisterEcsCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384395"><span class="annot"><span class="annottext">Text
 stackId :: Text
 $sel:stackId:RegisterEcsCluster' :: RegisterEcsCluster -&gt; Text
-</span><a href="#local-6989586621679383990"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383990"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383989"><span class="annot"><span class="annottext">s :: RegisterEcsCluster
-</span><a href="#local-6989586621679383989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster%27"><span class="hs-identifier hs-type">RegisterEcsCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383988"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterEcsCluster
-</span><a href="#local-6989586621679383989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:RegisterEcsCluster' :: Text
+</span><a href="#local-6989586621679384395"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384395"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384394"><span class="annot"><span class="annottext">s :: RegisterEcsCluster
+</span><a href="#local-6989586621679384394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster%27"><span class="hs-identifier hs-type">RegisterEcsCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384393"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterEcsCluster
+</span><a href="#local-6989586621679384394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:RegisterEcsCluster' :: Text
 </span><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#%24sel%3AstackId%3ARegisterEcsCluster%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-type">RegisterEcsCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-type">RegisterEcsCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-type">RegisterEcsCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-type">RegisterEcsCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse"><span class="hs-identifier hs-type">RegisterEcsClusterResponse</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679383984"><span class="annot"><span class="annottext">request :: RegisterEcsCluster -&gt; Request RegisterEcsCluster
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679384389"><span class="annot"><span class="annottext">request :: RegisterEcsCluster -&gt; Request RegisterEcsCluster
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RegisterEcsCluster -&gt; Request RegisterEcsCluster
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679383980"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679384385"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RegisterEcsCluster
 -&gt; ClientResponse ClientBody
@@ -223,10 +223,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679383977"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383977"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679383976"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679383976"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679383975"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679383975"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679384382"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384382"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679384381"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679384381"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679384380"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679384380"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; RegisterEcsClusterResponse
 </span><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse%27"><span class="hs-identifier hs-var">RegisterEcsClusterResponse'</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; RegisterEcsClusterResponse)
@@ -234,7 +234,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; RegisterEcsClusterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679383975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679384380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EcsClusterArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -246,15 +246,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383977"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384382"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383967"><span id="local-6989586621679383969"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-type">RegisterEcsCluster</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384372"><span id="local-6989586621679384374"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-type">RegisterEcsCluster</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383964"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-type">RegisterEcsCluster</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384369"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-type">RegisterEcsCluster</span></a></span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-type">RegisterEcsCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679383960"><span class="annot"><span class="annottext">toHeaders :: RegisterEcsCluster -&gt; ResponseHeaders
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679384365"><span class="annot"><span class="annottext">toHeaders :: RegisterEcsCluster -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RegisterEcsCluster -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -281,14 +281,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383950"><span id="local-6989586621679383952"><span id="local-6989586621679383954"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-type">RegisterEcsCluster</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679383948"><span class="annot"><span class="annottext">toJSON :: RegisterEcsCluster -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster%27"><span class="hs-identifier hs-type">RegisterEcsCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383945"><span id="local-6989586621679383946"><span class="annot"><span class="annottext">Text
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384355"><span id="local-6989586621679384357"><span id="local-6989586621679384359"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-type">RegisterEcsCluster</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679384353"><span class="annot"><span class="annottext">toJSON :: RegisterEcsCluster -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster%27"><span class="hs-identifier hs-type">RegisterEcsCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384350"><span id="local-6989586621679384351"><span class="annot"><span class="annottext">Text
 stackId :: Text
 ecsClusterArn :: Text
 $sel:stackId:RegisterEcsCluster' :: RegisterEcsCluster -&gt; Text
 $sel:ecsClusterArn:RegisterEcsCluster' :: RegisterEcsCluster -&gt; Text
-</span><a href="#local-6989586621679383945"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679384350"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -301,26 +301,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;EcsClusterArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383946"><span class="hs-identifier hs-var">ecsClusterArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679384351"><span class="hs-identifier hs-var">ecsClusterArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383945"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384350"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-type">RegisterEcsCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679383939"><span class="annot"><span class="annottext">toPath :: RegisterEcsCluster -&gt; ByteString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679384344"><span class="annot"><span class="annottext">toPath :: RegisterEcsCluster -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RegisterEcsCluster -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsCluster"><span class="hs-identifier hs-type">RegisterEcsCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679383935"><span class="annot"><span class="annottext">toQuery :: RegisterEcsCluster -&gt; QueryString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679384340"><span class="annot"><span class="annottext">toQuery :: RegisterEcsCluster -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RegisterEcsCluster -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -330,7 +330,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-148"></span><span class="hs-comment">-- | Contains the response to a @RegisterEcsCluster@ request.</span><span>
 </span><span id="line-149"></span><span class="hs-comment">--</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- /See:/ 'newRegisterEcsClusterResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679383932"><span id="local-6989586621679383933"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterEcsClusterResponse"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse"><span class="hs-identifier hs-var">RegisterEcsClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterEcsClusterResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse%27"><span class="hs-identifier hs-var">RegisterEcsClusterResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679384337"><span id="local-6989586621679384338"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterEcsClusterResponse"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse"><span class="hs-identifier hs-var">RegisterEcsClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterEcsClusterResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse%27"><span class="hs-identifier hs-var">RegisterEcsClusterResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The cluster\'s ARN.</span><span>
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AecsClusterArn%3ARegisterEcsClusterResponse%27"><span class="annot"><span class="annottext">RegisterEcsClusterResponse -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#%24sel%3AecsClusterArn%3ARegisterEcsClusterResponse%27"><span class="hs-identifier hs-var hs-var">ecsClusterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -338,7 +338,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARegisterEcsClusterResponse%27"><span class="annot"><span class="annottext">RegisterEcsClusterResponse -&gt; Int
 </span><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#%24sel%3AhttpStatus%3ARegisterEcsClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383926"><span id="local-6989586621679383928"><span class="annot"><span class="annottext">RegisterEcsClusterResponse -&gt; RegisterEcsClusterResponse -&gt; Bool
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384331"><span id="local-6989586621679384333"><span class="annot"><span class="annottext">RegisterEcsClusterResponse -&gt; RegisterEcsClusterResponse -&gt; Bool
 (RegisterEcsClusterResponse -&gt; RegisterEcsClusterResponse -&gt; Bool)
 -&gt; (RegisterEcsClusterResponse
     -&gt; RegisterEcsClusterResponse -&gt; Bool)
@@ -348,7 +348,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegisterEcsClusterResponse -&gt; RegisterEcsClusterResponse -&gt; Bool
 == :: RegisterEcsClusterResponse -&gt; RegisterEcsClusterResponse -&gt; Bool
 $c== :: RegisterEcsClusterResponse -&gt; RegisterEcsClusterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383918"><span id="local-6989586621679383920"><span id="local-6989586621679383922"><span id="local-6989586621679383924"><span class="annot"><span class="annottext">ReadPrec [RegisterEcsClusterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384323"><span id="local-6989586621679384325"><span id="local-6989586621679384327"><span id="local-6989586621679384329"><span class="annot"><span class="annottext">ReadPrec [RegisterEcsClusterResponse]
 ReadPrec RegisterEcsClusterResponse
 Int -&gt; ReadS RegisterEcsClusterResponse
 ReadS [RegisterEcsClusterResponse]
@@ -368,7 +368,7 @@ readList :: ReadS [RegisterEcsClusterResponse]
 $creadList :: ReadS [RegisterEcsClusterResponse]
 readsPrec :: Int -&gt; ReadS RegisterEcsClusterResponse
 $creadsPrec :: Int -&gt; ReadS RegisterEcsClusterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383912"><span id="local-6989586621679383914"><span id="local-6989586621679383916"><span class="annot"><span class="annottext">Int -&gt; RegisterEcsClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384317"><span id="local-6989586621679384319"><span id="local-6989586621679384321"><span class="annot"><span class="annottext">Int -&gt; RegisterEcsClusterResponse -&gt; ShowS
 [RegisterEcsClusterResponse] -&gt; ShowS
 RegisterEcsClusterResponse -&gt; String
 (Int -&gt; RegisterEcsClusterResponse -&gt; ShowS)
@@ -416,8 +416,8 @@ RegisterEcsClusterResponse -&gt; Rep RegisterEcsClusterResponse x
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse"><span class="hs-identifier hs-type">RegisterEcsClusterResponse</span></a></span><span>
 </span><span id="line-174"></span><span id="newRegisterEcsClusterResponse"><span class="annot"><span class="annottext">newRegisterEcsClusterResponse :: Int -&gt; RegisterEcsClusterResponse
-</span><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#newRegisterEcsClusterResponse"><span class="hs-identifier hs-var hs-var">newRegisterEcsClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679383909"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383909"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#newRegisterEcsClusterResponse"><span class="hs-identifier hs-var hs-var">newRegisterEcsClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679384314"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384314"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">RegisterEcsClusterResponse' :: Maybe Text -&gt; Int -&gt; RegisterEcsClusterResponse
 </span><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse%27"><span class="hs-identifier hs-type">RegisterEcsClusterResponse'</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ecsClusterArn:RegisterEcsClusterResponse' :: Maybe Text
@@ -427,7 +427,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterEcsClusterResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#%24sel%3AhttpStatus%3ARegisterEcsClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383909"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679384314"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The cluster\'s ARN.</span><span>
@@ -443,16 +443,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse%27"><span class="hs-identifier hs-type">RegisterEcsClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383908"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse%27"><span class="hs-identifier hs-type">RegisterEcsClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384313"><span class="annot"><span class="annottext">Maybe Text
 ecsClusterArn :: Maybe Text
 $sel:ecsClusterArn:RegisterEcsClusterResponse' :: RegisterEcsClusterResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679383908"><span class="hs-identifier hs-var hs-var">ecsClusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679383908"><span class="hs-identifier hs-var">ecsClusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383907"><span class="annot"><span class="annottext">s :: RegisterEcsClusterResponse
-</span><a href="#local-6989586621679383907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse%27"><span class="hs-identifier hs-type">RegisterEcsClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383906"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679383906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterEcsClusterResponse
-</span><a href="#local-6989586621679383907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ecsClusterArn:RegisterEcsClusterResponse' :: Maybe Text
+</span><a href="#local-6989586621679384313"><span class="hs-identifier hs-var hs-var">ecsClusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384313"><span class="hs-identifier hs-var">ecsClusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384312"><span class="annot"><span class="annottext">s :: RegisterEcsClusterResponse
+</span><a href="#local-6989586621679384312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse%27"><span class="hs-identifier hs-type">RegisterEcsClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384311"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterEcsClusterResponse
+</span><a href="#local-6989586621679384312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ecsClusterArn:RegisterEcsClusterResponse' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#%24sel%3AecsClusterArn%3ARegisterEcsClusterResponse%27"><span class="hs-identifier hs-var">ecsClusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679383906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse"><span class="hs-identifier hs-type">RegisterEcsClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse"><span class="hs-identifier hs-type">RegisterEcsClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#registerEcsClusterResponse_httpStatus"><span class="hs-identifier hs-type">registerEcsClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse"><span class="hs-identifier hs-type">RegisterEcsClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -464,16 +464,16 @@ $sel:ecsClusterArn:RegisterEcsClusterResponse' :: RegisterEcsClusterResponse -&g
 -&gt; Lens
      RegisterEcsClusterResponse RegisterEcsClusterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse%27"><span class="hs-identifier hs-type">RegisterEcsClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383905"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse%27"><span class="hs-identifier hs-type">RegisterEcsClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384310"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RegisterEcsClusterResponse' :: RegisterEcsClusterResponse -&gt; Int
-</span><a href="#local-6989586621679383905"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383905"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383904"><span class="annot"><span class="annottext">s :: RegisterEcsClusterResponse
-</span><a href="#local-6989586621679383904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse%27"><span class="hs-identifier hs-type">RegisterEcsClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383903"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterEcsClusterResponse
-</span><a href="#local-6989586621679383904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterEcsClusterResponse' :: Int
+</span><a href="#local-6989586621679384310"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384310"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384309"><span class="annot"><span class="annottext">s :: RegisterEcsClusterResponse
+</span><a href="#local-6989586621679384309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse%27"><span class="hs-identifier hs-type">RegisterEcsClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384308"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterEcsClusterResponse
+</span><a href="#local-6989586621679384309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterEcsClusterResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#%24sel%3AhttpStatus%3ARegisterEcsClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse"><span class="hs-identifier hs-type">RegisterEcsClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse"><span class="hs-identifier hs-type">RegisterEcsClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383901"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse"><span class="hs-identifier hs-type">RegisterEcsClusterResponse</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384306"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.RegisterEcsCluster.html#RegisterEcsClusterResponse"><span class="hs-identifier hs-type">RegisterEcsClusterResponse</span></a></span></span><span>
 </span><span id="line-190"></span></pre></body></html>

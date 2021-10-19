@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-cloudhsmZSamazonka-cloudhsm
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.CloudHSM.Types.ClientVersion
@@ -174,14 +174,14 @@ module Network.AWS.CloudHSM.Types
 --   configuration.
 defaultService :: Service
 
--- | Indicates that an internal error occurred.
-_CloudHsmInternalException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | Indicates that one or more of the request parameters are not valid.
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Indicates that an exception occurred in the AWS CloudHSM service.
 _CloudHsmServiceException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Indicates that an internal error occurred.
+_CloudHsmInternalException :: AsError a => Getting (First ServiceError) a ServiceError
 newtype ClientVersion
 ClientVersion' :: Text -> ClientVersion
 [fromClientVersion] :: ClientVersion -> Text
@@ -483,6 +483,17 @@ ModifyHsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text
 -- | The new IAM role ARN.
 [$sel:iamRoleArn:ModifyHsm'] :: ModifyHsm -> Maybe Text
 
+-- | The new identifier of the subnet that the HSM is in. The new subnet
+--   must be in the same Availability Zone as the current subnet.
+[$sel:subnetId:ModifyHsm'] :: ModifyHsm -> Maybe Text
+
+-- | The new IP address for the syslog monitoring server. The AWS CloudHSM
+--   service only supports one syslog monitoring server.
+[$sel:syslogIp:ModifyHsm'] :: ModifyHsm -> Maybe Text
+
+-- | The new external ID.
+[$sel:externalId:ModifyHsm'] :: ModifyHsm -> Maybe Text
+
 -- | The new IP address for the elastic network interface (ENI) attached to
 --   the HSM.
 --   
@@ -490,17 +501,6 @@ ModifyHsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text
 --   specified, an IP address will be randomly chosen from the CIDR range
 --   of the new subnet.
 [$sel:eniIp:ModifyHsm'] :: ModifyHsm -> Maybe Text
-
--- | The new IP address for the syslog monitoring server. The AWS CloudHSM
---   service only supports one syslog monitoring server.
-[$sel:syslogIp:ModifyHsm'] :: ModifyHsm -> Maybe Text
-
--- | The new identifier of the subnet that the HSM is in. The new subnet
---   must be in the same Availability Zone as the current subnet.
-[$sel:subnetId:ModifyHsm'] :: ModifyHsm -> Maybe Text
-
--- | The new external ID.
-[$sel:externalId:ModifyHsm'] :: ModifyHsm -> Maybe Text
 
 -- | The ARN of the HSM to modify.
 [$sel:hsmArn:ModifyHsm'] :: ModifyHsm -> Text
@@ -516,23 +516,23 @@ ModifyHsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text
 --   <a>$sel:iamRoleArn:ModifyHsm'</a>, <a>modifyHsm_iamRoleArn</a> - The
 --   new IAM role ARN.
 --   
+--   <a>$sel:subnetId:ModifyHsm'</a>, <a>modifyHsm_subnetId</a> - The new
+--   identifier of the subnet that the HSM is in. The new subnet must be in
+--   the same Availability Zone as the current subnet.
+--   
+--   <a>$sel:syslogIp:ModifyHsm'</a>, <a>modifyHsm_syslogIp</a> - The new
+--   IP address for the syslog monitoring server. The AWS CloudHSM service
+--   only supports one syslog monitoring server.
+--   
+--   <a>$sel:externalId:ModifyHsm'</a>, <a>modifyHsm_externalId</a> - The
+--   new external ID.
+--   
 --   <a>$sel:eniIp:ModifyHsm'</a>, <a>modifyHsm_eniIp</a> - The new IP
 --   address for the elastic network interface (ENI) attached to the HSM.
 --   
 --   If the HSM is moved to a different subnet, and an IP address is not
 --   specified, an IP address will be randomly chosen from the CIDR range
 --   of the new subnet.
---   
---   <a>$sel:syslogIp:ModifyHsm'</a>, <a>modifyHsm_syslogIp</a> - The new
---   IP address for the syslog monitoring server. The AWS CloudHSM service
---   only supports one syslog monitoring server.
---   
---   <a>$sel:subnetId:ModifyHsm'</a>, <a>modifyHsm_subnetId</a> - The new
---   identifier of the subnet that the HSM is in. The new subnet must be in
---   the same Availability Zone as the current subnet.
---   
---   <a>$sel:externalId:ModifyHsm'</a>, <a>modifyHsm_externalId</a> - The
---   new external ID.
 --   
 --   <a>$sel:hsmArn:ModifyHsm'</a>, <a>modifyHsm_hsmArn</a> - The ARN of
 --   the HSM to modify.
@@ -541,6 +541,17 @@ newModifyHsm :: Text -> ModifyHsm
 -- | The new IAM role ARN.
 modifyHsm_iamRoleArn :: Lens' ModifyHsm (Maybe Text)
 
+-- | The new identifier of the subnet that the HSM is in. The new subnet
+--   must be in the same Availability Zone as the current subnet.
+modifyHsm_subnetId :: Lens' ModifyHsm (Maybe Text)
+
+-- | The new IP address for the syslog monitoring server. The AWS CloudHSM
+--   service only supports one syslog monitoring server.
+modifyHsm_syslogIp :: Lens' ModifyHsm (Maybe Text)
+
+-- | The new external ID.
+modifyHsm_externalId :: Lens' ModifyHsm (Maybe Text)
+
 -- | The new IP address for the elastic network interface (ENI) attached to
 --   the HSM.
 --   
@@ -548,17 +559,6 @@ modifyHsm_iamRoleArn :: Lens' ModifyHsm (Maybe Text)
 --   specified, an IP address will be randomly chosen from the CIDR range
 --   of the new subnet.
 modifyHsm_eniIp :: Lens' ModifyHsm (Maybe Text)
-
--- | The new IP address for the syslog monitoring server. The AWS CloudHSM
---   service only supports one syslog monitoring server.
-modifyHsm_syslogIp :: Lens' ModifyHsm (Maybe Text)
-
--- | The new identifier of the subnet that the HSM is in. The new subnet
---   must be in the same Availability Zone as the current subnet.
-modifyHsm_subnetId :: Lens' ModifyHsm (Maybe Text)
-
--- | The new external ID.
-modifyHsm_externalId :: Lens' ModifyHsm (Maybe Text)
 
 -- | The ARN of the HSM to modify.
 modifyHsm_hsmArn :: Lens' ModifyHsm Text
@@ -966,14 +966,14 @@ listHsms_nextToken :: Lens' ListHsms (Maybe Text)
 --   
 --   <i>See:</i> <a>newListHsmsResponse</a> smart constructor.
 data ListHsmsResponse
-ListHsmsResponse' :: Maybe [Text] -> Maybe Text -> Int -> ListHsmsResponse
-
--- | The list of ARNs that identify the HSMs.
-[$sel:hsmList:ListHsmsResponse'] :: ListHsmsResponse -> Maybe [Text]
+ListHsmsResponse' :: Maybe Text -> Maybe [Text] -> Int -> ListHsmsResponse
 
 -- | If not null, more results are available. Pass this value to
 --   <tt>ListHsms</tt> to retrieve the next set of items.
 [$sel:nextToken:ListHsmsResponse'] :: ListHsmsResponse -> Maybe Text
+
+-- | The list of ARNs that identify the HSMs.
+[$sel:hsmList:ListHsmsResponse'] :: ListHsmsResponse -> Maybe [Text]
 
 -- | The response's http status code.
 [$sel:httpStatus:ListHsmsResponse'] :: ListHsmsResponse -> Int
@@ -987,23 +987,23 @@ ListHsmsResponse' :: Maybe [Text] -> Maybe Text -> Int -> ListHsmsResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:hsmList:ListHsmsResponse'</a>, <a>listHsmsResponse_hsmList</a>
---   - The list of ARNs that identify the HSMs.
---   
 --   <a>$sel:nextToken:ListHsms'</a>, <a>listHsmsResponse_nextToken</a> -
 --   If not null, more results are available. Pass this value to
 --   <tt>ListHsms</tt> to retrieve the next set of items.
+--   
+--   <a>$sel:hsmList:ListHsmsResponse'</a>, <a>listHsmsResponse_hsmList</a>
+--   - The list of ARNs that identify the HSMs.
 --   
 --   <a>$sel:httpStatus:ListHsmsResponse'</a>,
 --   <a>listHsmsResponse_httpStatus</a> - The response's http status code.
 newListHsmsResponse :: Int -> ListHsmsResponse
 
--- | The list of ARNs that identify the HSMs.
-listHsmsResponse_hsmList :: Lens' ListHsmsResponse (Maybe [Text])
-
 -- | If not null, more results are available. Pass this value to
 --   <tt>ListHsms</tt> to retrieve the next set of items.
 listHsmsResponse_nextToken :: Lens' ListHsmsResponse (Maybe Text)
+
+-- | The list of ARNs that identify the HSMs.
+listHsmsResponse_hsmList :: Lens' ListHsmsResponse (Maybe [Text])
 
 -- | The response's http status code.
 listHsmsResponse_httpStatus :: Lens' ListHsmsResponse Int
@@ -1387,20 +1387,20 @@ describeLunaClient_certificateFingerprint :: Lens' DescribeLunaClient (Maybe Tex
 data DescribeLunaClientResponse
 DescribeLunaClientResponse' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Int -> DescribeLunaClientResponse
 
--- | The date and time the client was last modified.
-[$sel:lastModifiedTimestamp:DescribeLunaClientResponse'] :: DescribeLunaClientResponse -> Maybe Text
-
 -- | The ARN of the client.
 [$sel:clientArn:DescribeLunaClientResponse'] :: DescribeLunaClientResponse -> Maybe Text
 
--- | The label of the client.
-[$sel:label:DescribeLunaClientResponse'] :: DescribeLunaClientResponse -> Maybe Text
+-- | The date and time the client was last modified.
+[$sel:lastModifiedTimestamp:DescribeLunaClientResponse'] :: DescribeLunaClientResponse -> Maybe Text
+
+-- | The certificate fingerprint.
+[$sel:certificateFingerprint:DescribeLunaClientResponse'] :: DescribeLunaClientResponse -> Maybe Text
 
 -- | The certificate installed on the HSMs used by this client.
 [$sel:certificate:DescribeLunaClientResponse'] :: DescribeLunaClientResponse -> Maybe Text
 
--- | The certificate fingerprint.
-[$sel:certificateFingerprint:DescribeLunaClientResponse'] :: DescribeLunaClientResponse -> Maybe Text
+-- | The label of the client.
+[$sel:label:DescribeLunaClientResponse'] :: DescribeLunaClientResponse -> Maybe Text
 
 -- | The response's http status code.
 [$sel:httpStatus:DescribeLunaClientResponse'] :: DescribeLunaClientResponse -> Int
@@ -1414,43 +1414,43 @@ DescribeLunaClientResponse' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe T
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:clientArn:DescribeLunaClient'</a>,
+--   <a>describeLunaClientResponse_clientArn</a> - The ARN of the client.
+--   
 --   <a>$sel:lastModifiedTimestamp:DescribeLunaClientResponse'</a>,
 --   <a>describeLunaClientResponse_lastModifiedTimestamp</a> - The date and
 --   time the client was last modified.
 --   
---   <a>$sel:clientArn:DescribeLunaClient'</a>,
---   <a>describeLunaClientResponse_clientArn</a> - The ARN of the client.
---   
---   <a>$sel:label:DescribeLunaClientResponse'</a>,
---   <a>describeLunaClientResponse_label</a> - The label of the client.
+--   <a>$sel:certificateFingerprint:DescribeLunaClient'</a>,
+--   <a>describeLunaClientResponse_certificateFingerprint</a> - The
+--   certificate fingerprint.
 --   
 --   <a>$sel:certificate:DescribeLunaClientResponse'</a>,
 --   <a>describeLunaClientResponse_certificate</a> - The certificate
 --   installed on the HSMs used by this client.
 --   
---   <a>$sel:certificateFingerprint:DescribeLunaClient'</a>,
---   <a>describeLunaClientResponse_certificateFingerprint</a> - The
---   certificate fingerprint.
+--   <a>$sel:label:DescribeLunaClientResponse'</a>,
+--   <a>describeLunaClientResponse_label</a> - The label of the client.
 --   
 --   <a>$sel:httpStatus:DescribeLunaClientResponse'</a>,
 --   <a>describeLunaClientResponse_httpStatus</a> - The response's http
 --   status code.
 newDescribeLunaClientResponse :: Int -> DescribeLunaClientResponse
 
--- | The date and time the client was last modified.
-describeLunaClientResponse_lastModifiedTimestamp :: Lens' DescribeLunaClientResponse (Maybe Text)
-
 -- | The ARN of the client.
 describeLunaClientResponse_clientArn :: Lens' DescribeLunaClientResponse (Maybe Text)
 
--- | The label of the client.
-describeLunaClientResponse_label :: Lens' DescribeLunaClientResponse (Maybe Text)
+-- | The date and time the client was last modified.
+describeLunaClientResponse_lastModifiedTimestamp :: Lens' DescribeLunaClientResponse (Maybe Text)
+
+-- | The certificate fingerprint.
+describeLunaClientResponse_certificateFingerprint :: Lens' DescribeLunaClientResponse (Maybe Text)
 
 -- | The certificate installed on the HSMs used by this client.
 describeLunaClientResponse_certificate :: Lens' DescribeLunaClientResponse (Maybe Text)
 
--- | The certificate fingerprint.
-describeLunaClientResponse_certificateFingerprint :: Lens' DescribeLunaClientResponse (Maybe Text)
+-- | The label of the client.
+describeLunaClientResponse_label :: Lens' DescribeLunaClientResponse (Maybe Text)
 
 -- | The response's http status code.
 describeLunaClientResponse_httpStatus :: Lens' DescribeLunaClientResponse Int
@@ -1529,10 +1529,7 @@ describeHsm_hsmArn :: Lens' DescribeHsm (Maybe Text)
 --   
 --   <i>See:</i> <a>newDescribeHsmResponse</a> smart constructor.
 data DescribeHsmResponse
-DescribeHsmResponse' :: Maybe Text -> Maybe HsmStatus -> Maybe Text -> Maybe [Text] -> Maybe Text -> Maybe SubscriptionType -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Int -> DescribeHsmResponse
-
--- | The subscription start date.
-[$sel:subscriptionStartDate:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
+DescribeHsmResponse' :: Maybe HsmStatus -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe SubscriptionType -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe [Text] -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Int -> DescribeHsmResponse
 
 -- | The status of the HSM.
 [$sel:status:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe HsmStatus
@@ -1540,49 +1537,9 @@ DescribeHsmResponse' :: Maybe Text -> Maybe HsmStatus -> Maybe Text -> Maybe [Te
 -- | The ARN of the IAM role assigned to the HSM.
 [$sel:iamRoleArn:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
 
--- | The list of partitions on the HSM.
-[$sel:partitions:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe [Text]
-
--- | Contains additional information about the status of the HSM.
-[$sel:statusDetails:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
-[$sel:subscriptionType:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe SubscriptionType
-
--- | The IP address assigned to the HSM's ENI.
-[$sel:eniIp:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
-
--- | The date and time that the server certificate was last updated.
-[$sel:serverCertLastUpdated:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
-
 -- | The identifier of the elastic network interface (ENI) attached to the
 --   HSM.
 [$sel:eniId:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
-
--- | The Availability Zone that the HSM is in.
-[$sel:availabilityZone:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
-
--- | The identifier of the subnet that the HSM is in.
-[$sel:subnetId:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
-
--- | The HSM model type.
-[$sel:hsmType:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
-
--- | The public SSH key.
-[$sel:sshPublicKey:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
-
--- | The ARN of the HSM.
-[$sel:hsmArn:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
-
--- | The URI of the certificate server.
-[$sel:serverCertUri:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
-
--- | The serial number of the HSM.
-[$sel:serialNumber:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
-
--- | The name of the HSM vendor.
-[$sel:vendorName:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
-
--- | The subscription end date.
-[$sel:subscriptionEndDate:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
 
 -- | The identifier of the VPC that the HSM is in.
 [$sel:vpcId:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
@@ -1590,8 +1547,51 @@ DescribeHsmResponse' :: Maybe Text -> Maybe HsmStatus -> Maybe Text -> Maybe [Te
 -- | The date and time that the SSH key was last updated.
 [$sel:sshKeyLastUpdated:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
 
+-- | The subscription end date.
+[$sel:subscriptionEndDate:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
+
+-- | The URI of the certificate server.
+[$sel:serverCertUri:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
+[$sel:subscriptionType:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe SubscriptionType
+
+-- | The public SSH key.
+[$sel:sshPublicKey:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
+
+-- | The identifier of the subnet that the HSM is in.
+[$sel:subnetId:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
+
+-- | Contains additional information about the status of the HSM.
+[$sel:statusDetails:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
+
+-- | The list of partitions on the HSM.
+[$sel:partitions:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe [Text]
+
+-- | The subscription start date.
+[$sel:subscriptionStartDate:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
+
+-- | The Availability Zone that the HSM is in.
+[$sel:availabilityZone:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
+
+-- | The date and time that the server certificate was last updated.
+[$sel:serverCertLastUpdated:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
+
 -- | The HSM software version.
 [$sel:softwareVersion:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
+
+-- | The name of the HSM vendor.
+[$sel:vendorName:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
+
+-- | The serial number of the HSM.
+[$sel:serialNumber:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
+
+-- | The ARN of the HSM.
+[$sel:hsmArn:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
+
+-- | The IP address assigned to the HSM's ENI.
+[$sel:eniIp:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
+
+-- | The HSM model type.
+[$sel:hsmType:DescribeHsmResponse'] :: DescribeHsmResponse -> Maybe Text
 
 -- | The response's http status code.
 [$sel:httpStatus:DescribeHsmResponse'] :: DescribeHsmResponse -> Int
@@ -1605,10 +1605,6 @@ DescribeHsmResponse' :: Maybe Text -> Maybe HsmStatus -> Maybe Text -> Maybe [Te
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:subscriptionStartDate:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_subscriptionStartDate</a> - The subscription
---   start date.
---   
 --   <a>$sel:status:DescribeHsmResponse'</a>,
 --   <a>describeHsmResponse_status</a> - The status of the HSM.
 --   
@@ -1616,60 +1612,9 @@ DescribeHsmResponse' :: Maybe Text -> Maybe HsmStatus -> Maybe Text -> Maybe [Te
 --   <a>describeHsmResponse_iamRoleArn</a> - The ARN of the IAM role
 --   assigned to the HSM.
 --   
---   <a>$sel:partitions:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_partitions</a> - The list of partitions on the
---   HSM.
---   
---   <a>$sel:statusDetails:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_statusDetails</a> - Contains additional
---   information about the status of the HSM.
---   
---   <a>$sel:subscriptionType:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_subscriptionType</a> - Undocumented member.
---   
---   <a>$sel:eniIp:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_eniIp</a> - The IP address assigned to the
---   HSM's ENI.
---   
---   <a>$sel:serverCertLastUpdated:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_serverCertLastUpdated</a> - The date and time
---   that the server certificate was last updated.
---   
 --   <a>$sel:eniId:DescribeHsmResponse'</a>,
 --   <a>describeHsmResponse_eniId</a> - The identifier of the elastic
 --   network interface (ENI) attached to the HSM.
---   
---   <a>$sel:availabilityZone:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_availabilityZone</a> - The Availability Zone
---   that the HSM is in.
---   
---   <a>$sel:subnetId:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_subnetId</a> - The identifier of the subnet
---   that the HSM is in.
---   
---   <a>$sel:hsmType:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_hsmType</a> - The HSM model type.
---   
---   <a>$sel:sshPublicKey:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_sshPublicKey</a> - The public SSH key.
---   
---   <a>$sel:hsmArn:DescribeHsm'</a>, <a>describeHsmResponse_hsmArn</a> -
---   The ARN of the HSM.
---   
---   <a>$sel:serverCertUri:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_serverCertUri</a> - The URI of the certificate
---   server.
---   
---   <a>$sel:serialNumber:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_serialNumber</a> - The serial number of the
---   HSM.
---   
---   <a>$sel:vendorName:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_vendorName</a> - The name of the HSM vendor.
---   
---   <a>$sel:subscriptionEndDate:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_subscriptionEndDate</a> - The subscription end
---   date.
 --   
 --   <a>$sel:vpcId:DescribeHsmResponse'</a>,
 --   <a>describeHsmResponse_vpcId</a> - The identifier of the VPC that the
@@ -1679,16 +1624,68 @@ DescribeHsmResponse' :: Maybe Text -> Maybe HsmStatus -> Maybe Text -> Maybe [Te
 --   <a>describeHsmResponse_sshKeyLastUpdated</a> - The date and time that
 --   the SSH key was last updated.
 --   
+--   <a>$sel:subscriptionEndDate:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_subscriptionEndDate</a> - The subscription end
+--   date.
+--   
+--   <a>$sel:serverCertUri:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_serverCertUri</a> - The URI of the certificate
+--   server.
+--   
+--   <a>$sel:subscriptionType:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_subscriptionType</a> - Undocumented member.
+--   
+--   <a>$sel:sshPublicKey:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_sshPublicKey</a> - The public SSH key.
+--   
+--   <a>$sel:subnetId:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_subnetId</a> - The identifier of the subnet
+--   that the HSM is in.
+--   
+--   <a>$sel:statusDetails:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_statusDetails</a> - Contains additional
+--   information about the status of the HSM.
+--   
+--   <a>$sel:partitions:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_partitions</a> - The list of partitions on the
+--   HSM.
+--   
+--   <a>$sel:subscriptionStartDate:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_subscriptionStartDate</a> - The subscription
+--   start date.
+--   
+--   <a>$sel:availabilityZone:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_availabilityZone</a> - The Availability Zone
+--   that the HSM is in.
+--   
+--   <a>$sel:serverCertLastUpdated:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_serverCertLastUpdated</a> - The date and time
+--   that the server certificate was last updated.
+--   
 --   <a>$sel:softwareVersion:DescribeHsmResponse'</a>,
 --   <a>describeHsmResponse_softwareVersion</a> - The HSM software version.
+--   
+--   <a>$sel:vendorName:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_vendorName</a> - The name of the HSM vendor.
+--   
+--   <a>$sel:serialNumber:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_serialNumber</a> - The serial number of the
+--   HSM.
+--   
+--   <a>$sel:hsmArn:DescribeHsm'</a>, <a>describeHsmResponse_hsmArn</a> -
+--   The ARN of the HSM.
+--   
+--   <a>$sel:eniIp:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_eniIp</a> - The IP address assigned to the
+--   HSM's ENI.
+--   
+--   <a>$sel:hsmType:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_hsmType</a> - The HSM model type.
 --   
 --   <a>$sel:httpStatus:DescribeHsmResponse'</a>,
 --   <a>describeHsmResponse_httpStatus</a> - The response's http status
 --   code.
 newDescribeHsmResponse :: Int -> DescribeHsmResponse
-
--- | The subscription start date.
-describeHsmResponse_subscriptionStartDate :: Lens' DescribeHsmResponse (Maybe Text)
 
 -- | The status of the HSM.
 describeHsmResponse_status :: Lens' DescribeHsmResponse (Maybe HsmStatus)
@@ -1696,51 +1693,9 @@ describeHsmResponse_status :: Lens' DescribeHsmResponse (Maybe HsmStatus)
 -- | The ARN of the IAM role assigned to the HSM.
 describeHsmResponse_iamRoleArn :: Lens' DescribeHsmResponse (Maybe Text)
 
--- | The list of partitions on the HSM.
-describeHsmResponse_partitions :: Lens' DescribeHsmResponse (Maybe [Text])
-
--- | Contains additional information about the status of the HSM.
-describeHsmResponse_statusDetails :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | Undocumented member.
-describeHsmResponse_subscriptionType :: Lens' DescribeHsmResponse (Maybe SubscriptionType)
-
--- | The IP address assigned to the HSM's ENI.
-describeHsmResponse_eniIp :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The date and time that the server certificate was last updated.
-describeHsmResponse_serverCertLastUpdated :: Lens' DescribeHsmResponse (Maybe Text)
-
 -- | The identifier of the elastic network interface (ENI) attached to the
 --   HSM.
 describeHsmResponse_eniId :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The Availability Zone that the HSM is in.
-describeHsmResponse_availabilityZone :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The identifier of the subnet that the HSM is in.
-describeHsmResponse_subnetId :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The HSM model type.
-describeHsmResponse_hsmType :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The public SSH key.
-describeHsmResponse_sshPublicKey :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The ARN of the HSM.
-describeHsmResponse_hsmArn :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The URI of the certificate server.
-describeHsmResponse_serverCertUri :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The serial number of the HSM.
-describeHsmResponse_serialNumber :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The name of the HSM vendor.
-describeHsmResponse_vendorName :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The subscription end date.
-describeHsmResponse_subscriptionEndDate :: Lens' DescribeHsmResponse (Maybe Text)
 
 -- | The identifier of the VPC that the HSM is in.
 describeHsmResponse_vpcId :: Lens' DescribeHsmResponse (Maybe Text)
@@ -1748,8 +1703,53 @@ describeHsmResponse_vpcId :: Lens' DescribeHsmResponse (Maybe Text)
 -- | The date and time that the SSH key was last updated.
 describeHsmResponse_sshKeyLastUpdated :: Lens' DescribeHsmResponse (Maybe Text)
 
+-- | The subscription end date.
+describeHsmResponse_subscriptionEndDate :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The URI of the certificate server.
+describeHsmResponse_serverCertUri :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | Undocumented member.
+describeHsmResponse_subscriptionType :: Lens' DescribeHsmResponse (Maybe SubscriptionType)
+
+-- | The public SSH key.
+describeHsmResponse_sshPublicKey :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The identifier of the subnet that the HSM is in.
+describeHsmResponse_subnetId :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | Contains additional information about the status of the HSM.
+describeHsmResponse_statusDetails :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The list of partitions on the HSM.
+describeHsmResponse_partitions :: Lens' DescribeHsmResponse (Maybe [Text])
+
+-- | The subscription start date.
+describeHsmResponse_subscriptionStartDate :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The Availability Zone that the HSM is in.
+describeHsmResponse_availabilityZone :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The date and time that the server certificate was last updated.
+describeHsmResponse_serverCertLastUpdated :: Lens' DescribeHsmResponse (Maybe Text)
+
 -- | The HSM software version.
 describeHsmResponse_softwareVersion :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The name of the HSM vendor.
+describeHsmResponse_vendorName :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The serial number of the HSM.
+describeHsmResponse_serialNumber :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The ARN of the HSM.
+describeHsmResponse_hsmArn :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The IP address assigned to the HSM's ENI.
+describeHsmResponse_eniIp :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The HSM model type.
+describeHsmResponse_hsmType :: Lens' DescribeHsmResponse (Maybe Text)
 
 -- | The response's http status code.
 describeHsmResponse_httpStatus :: Lens' DescribeHsmResponse Int
@@ -1812,30 +1812,30 @@ describeHapg_hapgArn :: Lens' DescribeHapg Text
 --   
 --   <i>See:</i> <a>newDescribeHapgResponse</a> smart constructor.
 data DescribeHapgResponse
-DescribeHapgResponse' :: Maybe [Text] -> Maybe Text -> Maybe [Text] -> Maybe Text -> Maybe CloudHsmObjectState -> Maybe Text -> Maybe Text -> Maybe [Text] -> Maybe [Text] -> Int -> DescribeHapgResponse
+DescribeHapgResponse' :: Maybe CloudHsmObjectState -> Maybe Text -> Maybe [Text] -> Maybe [Text] -> Maybe Text -> Maybe [Text] -> Maybe [Text] -> Maybe Text -> Maybe Text -> Int -> DescribeHapgResponse
+
+-- | The state of the high-availability partition group.
+[$sel:state:DescribeHapgResponse'] :: DescribeHapgResponse -> Maybe CloudHsmObjectState
+
+-- | The date and time the high-availability partition group was last
+--   modified.
+[$sel:lastModifiedTimestamp:DescribeHapgResponse'] :: DescribeHapgResponse -> Maybe Text
+[$sel:hsmsPendingRegistration:DescribeHapgResponse'] :: DescribeHapgResponse -> Maybe [Text]
 [$sel:hsmsPendingDeletion:DescribeHapgResponse'] :: DescribeHapgResponse -> Maybe [Text]
 
--- | The ARN of the high-availability partition group.
-[$sel:hapgArn:DescribeHapgResponse'] :: DescribeHapgResponse -> Maybe Text
+-- | The serial number of the high-availability partition group.
+[$sel:hapgSerial:DescribeHapgResponse'] :: DescribeHapgResponse -> Maybe Text
+[$sel:hsmsLastActionFailed:DescribeHapgResponse'] :: DescribeHapgResponse -> Maybe [Text]
 
 -- | The list of partition serial numbers that belong to the
 --   high-availability partition group.
 [$sel:partitionSerialList:DescribeHapgResponse'] :: DescribeHapgResponse -> Maybe [Text]
 
--- | The date and time the high-availability partition group was last
---   modified.
-[$sel:lastModifiedTimestamp:DescribeHapgResponse'] :: DescribeHapgResponse -> Maybe Text
-
--- | The state of the high-availability partition group.
-[$sel:state:DescribeHapgResponse'] :: DescribeHapgResponse -> Maybe CloudHsmObjectState
-
--- | The serial number of the high-availability partition group.
-[$sel:hapgSerial:DescribeHapgResponse'] :: DescribeHapgResponse -> Maybe Text
+-- | The ARN of the high-availability partition group.
+[$sel:hapgArn:DescribeHapgResponse'] :: DescribeHapgResponse -> Maybe Text
 
 -- | The label for the high-availability partition group.
 [$sel:label:DescribeHapgResponse'] :: DescribeHapgResponse -> Maybe Text
-[$sel:hsmsPendingRegistration:DescribeHapgResponse'] :: DescribeHapgResponse -> Maybe [Text]
-[$sel:hsmsLastActionFailed:DescribeHapgResponse'] :: DescribeHapgResponse -> Maybe [Text]
 
 -- | The response's http status code.
 [$sel:httpStatus:DescribeHapgResponse'] :: DescribeHapgResponse -> Int
@@ -1849,69 +1849,69 @@ DescribeHapgResponse' :: Maybe [Text] -> Maybe Text -> Maybe [Text] -> Maybe Tex
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:hsmsPendingDeletion:DescribeHapgResponse'</a>,
---   <a>describeHapgResponse_hsmsPendingDeletion</a> -
---   
---   <a>$sel:hapgArn:DescribeHapg'</a>, <a>describeHapgResponse_hapgArn</a>
---   - The ARN of the high-availability partition group.
---   
---   <a>$sel:partitionSerialList:DescribeHapgResponse'</a>,
---   <a>describeHapgResponse_partitionSerialList</a> - The list of
---   partition serial numbers that belong to the high-availability
+--   <a>$sel:state:DescribeHapgResponse'</a>,
+--   <a>describeHapgResponse_state</a> - The state of the high-availability
 --   partition group.
 --   
 --   <a>$sel:lastModifiedTimestamp:DescribeHapgResponse'</a>,
 --   <a>describeHapgResponse_lastModifiedTimestamp</a> - The date and time
 --   the high-availability partition group was last modified.
 --   
---   <a>$sel:state:DescribeHapgResponse'</a>,
---   <a>describeHapgResponse_state</a> - The state of the high-availability
---   partition group.
+--   <a>$sel:hsmsPendingRegistration:DescribeHapgResponse'</a>,
+--   <a>describeHapgResponse_hsmsPendingRegistration</a> -
+--   
+--   <a>$sel:hsmsPendingDeletion:DescribeHapgResponse'</a>,
+--   <a>describeHapgResponse_hsmsPendingDeletion</a> -
 --   
 --   <a>$sel:hapgSerial:DescribeHapgResponse'</a>,
 --   <a>describeHapgResponse_hapgSerial</a> - The serial number of the
 --   high-availability partition group.
 --   
+--   <a>$sel:hsmsLastActionFailed:DescribeHapgResponse'</a>,
+--   <a>describeHapgResponse_hsmsLastActionFailed</a> -
+--   
+--   <a>$sel:partitionSerialList:DescribeHapgResponse'</a>,
+--   <a>describeHapgResponse_partitionSerialList</a> - The list of
+--   partition serial numbers that belong to the high-availability
+--   partition group.
+--   
+--   <a>$sel:hapgArn:DescribeHapg'</a>, <a>describeHapgResponse_hapgArn</a>
+--   - The ARN of the high-availability partition group.
+--   
 --   <a>$sel:label:DescribeHapgResponse'</a>,
 --   <a>describeHapgResponse_label</a> - The label for the
 --   high-availability partition group.
---   
---   <a>$sel:hsmsPendingRegistration:DescribeHapgResponse'</a>,
---   <a>describeHapgResponse_hsmsPendingRegistration</a> -
---   
---   <a>$sel:hsmsLastActionFailed:DescribeHapgResponse'</a>,
---   <a>describeHapgResponse_hsmsLastActionFailed</a> -
 --   
 --   <a>$sel:httpStatus:DescribeHapgResponse'</a>,
 --   <a>describeHapgResponse_httpStatus</a> - The response's http status
 --   code.
 newDescribeHapgResponse :: Int -> DescribeHapgResponse
 
-describeHapgResponse_hsmsPendingDeletion :: Lens' DescribeHapgResponse (Maybe [Text])
-
--- | The ARN of the high-availability partition group.
-describeHapgResponse_hapgArn :: Lens' DescribeHapgResponse (Maybe Text)
-
--- | The list of partition serial numbers that belong to the
---   high-availability partition group.
-describeHapgResponse_partitionSerialList :: Lens' DescribeHapgResponse (Maybe [Text])
+-- | The state of the high-availability partition group.
+describeHapgResponse_state :: Lens' DescribeHapgResponse (Maybe CloudHsmObjectState)
 
 -- | The date and time the high-availability partition group was last
 --   modified.
 describeHapgResponse_lastModifiedTimestamp :: Lens' DescribeHapgResponse (Maybe Text)
 
--- | The state of the high-availability partition group.
-describeHapgResponse_state :: Lens' DescribeHapgResponse (Maybe CloudHsmObjectState)
+describeHapgResponse_hsmsPendingRegistration :: Lens' DescribeHapgResponse (Maybe [Text])
+
+describeHapgResponse_hsmsPendingDeletion :: Lens' DescribeHapgResponse (Maybe [Text])
 
 -- | The serial number of the high-availability partition group.
 describeHapgResponse_hapgSerial :: Lens' DescribeHapgResponse (Maybe Text)
 
+describeHapgResponse_hsmsLastActionFailed :: Lens' DescribeHapgResponse (Maybe [Text])
+
+-- | The list of partition serial numbers that belong to the
+--   high-availability partition group.
+describeHapgResponse_partitionSerialList :: Lens' DescribeHapgResponse (Maybe [Text])
+
+-- | The ARN of the high-availability partition group.
+describeHapgResponse_hapgArn :: Lens' DescribeHapgResponse (Maybe Text)
+
 -- | The label for the high-availability partition group.
 describeHapgResponse_label :: Lens' DescribeHapgResponse (Maybe Text)
-
-describeHapgResponse_hsmsPendingRegistration :: Lens' DescribeHapgResponse (Maybe [Text])
-
-describeHapgResponse_hsmsLastActionFailed :: Lens' DescribeHapgResponse (Maybe [Text])
 
 -- | The response's http status code.
 describeHapgResponse_httpStatus :: Lens' DescribeHapgResponse Int
@@ -2324,11 +2324,9 @@ module Network.AWS.CloudHSM.CreateHsm
 data CreateHsm
 CreateHsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Text -> Text -> Text -> SubscriptionType -> CreateHsm
 
--- | The IP address to assign to the HSM's ENI.
---   
---   If an IP address is not specified, an IP address will be randomly
---   chosen from the CIDR range of the subnet.
-[$sel:eniIp:CreateHsm'] :: CreateHsm -> Maybe Text
+-- | A user-defined token to ensure idempotence. Subsequent calls to this
+--   operation with the same token will be ignored.
+[$sel:clientToken:CreateHsm'] :: CreateHsm -> Maybe Text
 
 -- | The IP address for the syslog monitoring server. The AWS CloudHSM
 --   service only supports one syslog monitoring server.
@@ -2337,9 +2335,11 @@ CreateHsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Text -> Te
 -- | The external ID from <tt>IamRoleArn</tt>, if present.
 [$sel:externalId:CreateHsm'] :: CreateHsm -> Maybe Text
 
--- | A user-defined token to ensure idempotence. Subsequent calls to this
---   operation with the same token will be ignored.
-[$sel:clientToken:CreateHsm'] :: CreateHsm -> Maybe Text
+-- | The IP address to assign to the HSM's ENI.
+--   
+--   If an IP address is not specified, an IP address will be randomly
+--   chosen from the CIDR range of the subnet.
+[$sel:eniIp:CreateHsm'] :: CreateHsm -> Maybe Text
 
 -- | The identifier of the subnet in your VPC in which to place the HSM.
 [$sel:subnetId:CreateHsm'] :: CreateHsm -> Text
@@ -2360,11 +2360,9 @@ CreateHsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Text -> Te
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:eniIp:CreateHsm'</a>, <a>createHsm_eniIp</a> - The IP address
---   to assign to the HSM's ENI.
---   
---   If an IP address is not specified, an IP address will be randomly
---   chosen from the CIDR range of the subnet.
+--   <a>$sel:clientToken:CreateHsm'</a>, <a>createHsm_clientToken</a> - A
+--   user-defined token to ensure idempotence. Subsequent calls to this
+--   operation with the same token will be ignored.
 --   
 --   <a>$sel:syslogIp:CreateHsm'</a>, <a>createHsm_syslogIp</a> - The IP
 --   address for the syslog monitoring server. The AWS CloudHSM service
@@ -2373,9 +2371,11 @@ CreateHsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Text -> Te
 --   <a>$sel:externalId:CreateHsm'</a>, <a>createHsm_externalId</a> - The
 --   external ID from <tt>IamRoleArn</tt>, if present.
 --   
---   <a>$sel:clientToken:CreateHsm'</a>, <a>createHsm_clientToken</a> - A
---   user-defined token to ensure idempotence. Subsequent calls to this
---   operation with the same token will be ignored.
+--   <a>$sel:eniIp:CreateHsm'</a>, <a>createHsm_eniIp</a> - The IP address
+--   to assign to the HSM's ENI.
+--   
+--   If an IP address is not specified, an IP address will be randomly
+--   chosen from the CIDR range of the subnet.
 --   
 --   <a>$sel:subnetId:CreateHsm'</a>, <a>createHsm_subnetId</a> - The
 --   identifier of the subnet in your VPC in which to place the HSM.
@@ -2391,11 +2391,9 @@ CreateHsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Text -> Te
 --   <a>createHsm_subscriptionType</a> - Undocumented member.
 newCreateHsm :: Text -> Text -> Text -> SubscriptionType -> CreateHsm
 
--- | The IP address to assign to the HSM's ENI.
---   
---   If an IP address is not specified, an IP address will be randomly
---   chosen from the CIDR range of the subnet.
-createHsm_eniIp :: Lens' CreateHsm (Maybe Text)
+-- | A user-defined token to ensure idempotence. Subsequent calls to this
+--   operation with the same token will be ignored.
+createHsm_clientToken :: Lens' CreateHsm (Maybe Text)
 
 -- | The IP address for the syslog monitoring server. The AWS CloudHSM
 --   service only supports one syslog monitoring server.
@@ -2404,9 +2402,11 @@ createHsm_syslogIp :: Lens' CreateHsm (Maybe Text)
 -- | The external ID from <tt>IamRoleArn</tt>, if present.
 createHsm_externalId :: Lens' CreateHsm (Maybe Text)
 
--- | A user-defined token to ensure idempotence. Subsequent calls to this
---   operation with the same token will be ignored.
-createHsm_clientToken :: Lens' CreateHsm (Maybe Text)
+-- | The IP address to assign to the HSM's ENI.
+--   
+--   If an IP address is not specified, an IP address will be randomly
+--   chosen from the CIDR range of the subnet.
+createHsm_eniIp :: Lens' CreateHsm (Maybe Text)
 
 -- | The identifier of the subnet in your VPC in which to place the HSM.
 createHsm_subnetId :: Lens' CreateHsm Text
@@ -2673,14 +2673,19 @@ deleteHapgResponse_httpStatus :: Lens' DeleteHapgResponse Int
 -- | The status of the action.
 deleteHapgResponse_status :: Lens' DeleteHapgResponse Text
 
--- | The ARN of the HSM to delete.
-deleteHsm_hsmArn :: Lens' DeleteHsm Text
+-- | The <tt>NextToken</tt> value from a previous call to
+--   <tt>ListHapgs</tt>. Pass null if this is the first call.
+listHapgs_nextToken :: Lens' ListHapgs (Maybe Text)
+
+-- | If not null, more results are available. Pass this value to
+--   <tt>ListHapgs</tt> to retrieve the next set of items.
+listHapgsResponse_nextToken :: Lens' ListHapgsResponse (Maybe Text)
 
 -- | The response's http status code.
-deleteHsmResponse_httpStatus :: Lens' DeleteHsmResponse Int
+listHapgsResponse_httpStatus :: Lens' ListHapgsResponse Int
 
--- | The status of the operation.
-deleteHsmResponse_status :: Lens' DeleteHsmResponse Text
+-- | The list of high-availability partition groups.
+listHapgsResponse_hapgList :: Lens' ListHapgsResponse [Text]
 
 -- | The ARN of the client.
 modifyLunaClient_clientArn :: Lens' ModifyLunaClient Text
@@ -2698,15 +2703,179 @@ modifyLunaClientResponse_httpStatus :: Lens' ModifyLunaClientResponse Int
 --   <tt>ListHsms</tt>. Pass null if this is the first call.
 listHsms_nextToken :: Lens' ListHsms (Maybe Text)
 
--- | The list of ARNs that identify the HSMs.
-listHsmsResponse_hsmList :: Lens' ListHsmsResponse (Maybe [Text])
-
 -- | If not null, more results are available. Pass this value to
 --   <tt>ListHsms</tt> to retrieve the next set of items.
 listHsmsResponse_nextToken :: Lens' ListHsmsResponse (Maybe Text)
 
+-- | The list of ARNs that identify the HSMs.
+listHsmsResponse_hsmList :: Lens' ListHsmsResponse (Maybe [Text])
+
 -- | The response's http status code.
 listHsmsResponse_httpStatus :: Lens' ListHsmsResponse Int
+
+-- | The ARN of the client.
+describeLunaClient_clientArn :: Lens' DescribeLunaClient (Maybe Text)
+
+-- | The certificate fingerprint.
+describeLunaClient_certificateFingerprint :: Lens' DescribeLunaClient (Maybe Text)
+
+-- | The ARN of the client.
+describeLunaClientResponse_clientArn :: Lens' DescribeLunaClientResponse (Maybe Text)
+
+-- | The date and time the client was last modified.
+describeLunaClientResponse_lastModifiedTimestamp :: Lens' DescribeLunaClientResponse (Maybe Text)
+
+-- | The certificate fingerprint.
+describeLunaClientResponse_certificateFingerprint :: Lens' DescribeLunaClientResponse (Maybe Text)
+
+-- | The certificate installed on the HSMs used by this client.
+describeLunaClientResponse_certificate :: Lens' DescribeLunaClientResponse (Maybe Text)
+
+-- | The label of the client.
+describeLunaClientResponse_label :: Lens' DescribeLunaClientResponse (Maybe Text)
+
+-- | The response's http status code.
+describeLunaClientResponse_httpStatus :: Lens' DescribeLunaClientResponse Int
+
+-- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
+listTagsForResource_resourceArn :: Lens' ListTagsForResource Text
+
+-- | The response's http status code.
+listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
+
+-- | One or more tags.
+listTagsForResourceResponse_tagList :: Lens' ListTagsForResourceResponse [Tag]
+
+-- | The label of the new high-availability partition group.
+createHapg_label :: Lens' CreateHapg Text
+
+-- | The ARN of the high-availability partition group.
+createHapgResponse_hapgArn :: Lens' CreateHapgResponse (Maybe Text)
+
+-- | The response's http status code.
+createHapgResponse_httpStatus :: Lens' CreateHapgResponse Int
+
+-- | A user-defined token to ensure idempotence. Subsequent calls to this
+--   operation with the same token will be ignored.
+createHsm_clientToken :: Lens' CreateHsm (Maybe Text)
+
+-- | The IP address for the syslog monitoring server. The AWS CloudHSM
+--   service only supports one syslog monitoring server.
+createHsm_syslogIp :: Lens' CreateHsm (Maybe Text)
+
+-- | The external ID from <tt>IamRoleArn</tt>, if present.
+createHsm_externalId :: Lens' CreateHsm (Maybe Text)
+
+-- | The IP address to assign to the HSM's ENI.
+--   
+--   If an IP address is not specified, an IP address will be randomly
+--   chosen from the CIDR range of the subnet.
+createHsm_eniIp :: Lens' CreateHsm (Maybe Text)
+
+-- | The identifier of the subnet in your VPC in which to place the HSM.
+createHsm_subnetId :: Lens' CreateHsm Text
+
+-- | The SSH public key to install on the HSM.
+createHsm_sshKey :: Lens' CreateHsm Text
+
+-- | The ARN of an IAM role to enable the AWS CloudHSM service to allocate
+--   an ENI on your behalf.
+createHsm_iamRoleArn :: Lens' CreateHsm Text
+
+-- | Undocumented member.
+createHsm_subscriptionType :: Lens' CreateHsm SubscriptionType
+
+-- | The ARN of the HSM.
+createHsmResponse_hsmArn :: Lens' CreateHsmResponse (Maybe Text)
+
+-- | The response's http status code.
+createHsmResponse_httpStatus :: Lens' CreateHsmResponse Int
+
+-- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
+removeTagsFromResource_resourceArn :: Lens' RemoveTagsFromResource Text
+
+-- | The tag key or keys to remove.
+--   
+--   Specify only the tag key to remove (not the value). To overwrite the
+--   value for an existing tag, use AddTagsToResource.
+removeTagsFromResource_tagKeyList :: Lens' RemoveTagsFromResource [Text]
+
+-- | The response's http status code.
+removeTagsFromResourceResponse_httpStatus :: Lens' RemoveTagsFromResourceResponse Int
+
+-- | The status of the operation.
+removeTagsFromResourceResponse_status :: Lens' RemoveTagsFromResourceResponse Text
+
+-- | The ARN of the high-availability partition group to describe.
+describeHapg_hapgArn :: Lens' DescribeHapg Text
+
+-- | The state of the high-availability partition group.
+describeHapgResponse_state :: Lens' DescribeHapgResponse (Maybe CloudHsmObjectState)
+
+-- | The date and time the high-availability partition group was last
+--   modified.
+describeHapgResponse_lastModifiedTimestamp :: Lens' DescribeHapgResponse (Maybe Text)
+
+describeHapgResponse_hsmsPendingRegistration :: Lens' DescribeHapgResponse (Maybe [Text])
+
+describeHapgResponse_hsmsPendingDeletion :: Lens' DescribeHapgResponse (Maybe [Text])
+
+-- | The serial number of the high-availability partition group.
+describeHapgResponse_hapgSerial :: Lens' DescribeHapgResponse (Maybe Text)
+
+describeHapgResponse_hsmsLastActionFailed :: Lens' DescribeHapgResponse (Maybe [Text])
+
+-- | The list of partition serial numbers that belong to the
+--   high-availability partition group.
+describeHapgResponse_partitionSerialList :: Lens' DescribeHapgResponse (Maybe [Text])
+
+-- | The ARN of the high-availability partition group.
+describeHapgResponse_hapgArn :: Lens' DescribeHapgResponse (Maybe Text)
+
+-- | The label for the high-availability partition group.
+describeHapgResponse_label :: Lens' DescribeHapgResponse (Maybe Text)
+
+-- | The response's http status code.
+describeHapgResponse_httpStatus :: Lens' DescribeHapgResponse Int
+
+-- | The label for the client.
+createLunaClient_label :: Lens' CreateLunaClient (Maybe Text)
+
+-- | The contents of a Base64-Encoded X.509 v3 certificate to be installed
+--   on the HSMs used by this client.
+createLunaClient_certificate :: Lens' CreateLunaClient Text
+
+-- | The ARN of the client.
+createLunaClientResponse_clientArn :: Lens' CreateLunaClientResponse (Maybe Text)
+
+-- | The response's http status code.
+createLunaClientResponse_httpStatus :: Lens' CreateLunaClientResponse Int
+
+-- | The <tt>NextToken</tt> value from a previous call to
+--   <tt>ListLunaClients</tt>. Pass null if this is the first call.
+listLunaClients_nextToken :: Lens' ListLunaClients (Maybe Text)
+
+-- | If not null, more results are available. Pass this to
+--   <tt>ListLunaClients</tt> to retrieve the next set of items.
+listLunaClientsResponse_nextToken :: Lens' ListLunaClientsResponse (Maybe Text)
+
+-- | The response's http status code.
+listLunaClientsResponse_httpStatus :: Lens' ListLunaClientsResponse Int
+
+-- | The list of clients.
+listLunaClientsResponse_clientList :: Lens' ListLunaClientsResponse [Text]
+
+-- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.
+addTagsToResource_resourceArn :: Lens' AddTagsToResource Text
+
+-- | One or more tags.
+addTagsToResource_tagList :: Lens' AddTagsToResource [Tag]
+
+-- | The response's http status code.
+addTagsToResourceResponse_httpStatus :: Lens' AddTagsToResourceResponse Int
+
+-- | The status of the operation.
+addTagsToResourceResponse_status :: Lens' AddTagsToResourceResponse Text
 
 -- | The ARN of the client.
 getConfig_clientArn :: Lens' GetConfig Text
@@ -2730,21 +2899,89 @@ getConfigResponse_configType :: Lens' GetConfigResponse (Maybe Text)
 -- | The response's http status code.
 getConfigResponse_httpStatus :: Lens' GetConfigResponse Int
 
--- | The ARN of the client to delete.
-deleteLunaClient_clientArn :: Lens' DeleteLunaClient Text
+-- | The ARN of the HSM to delete.
+deleteHsm_hsmArn :: Lens' DeleteHsm Text
 
 -- | The response's http status code.
-deleteLunaClientResponse_httpStatus :: Lens' DeleteLunaClientResponse Int
+deleteHsmResponse_httpStatus :: Lens' DeleteHsmResponse Int
 
--- | The status of the action.
-deleteLunaClientResponse_status :: Lens' DeleteLunaClientResponse Text
+-- | The status of the operation.
+deleteHsmResponse_status :: Lens' DeleteHsmResponse Text
 
--- | The list of Availability Zones that have available AWS CloudHSM
---   capacity.
-listAvailableZonesResponse_aZList :: Lens' ListAvailableZonesResponse (Maybe [Text])
+-- | The serial number of the HSM. Either the <tt>HsmArn</tt> or the
+--   <tt>HsmSerialNumber</tt> parameter must be specified.
+describeHsm_hsmSerialNumber :: Lens' DescribeHsm (Maybe Text)
+
+-- | The ARN of the HSM. Either the <tt>HsmArn</tt> or the
+--   <tt>SerialNumber</tt> parameter must be specified.
+describeHsm_hsmArn :: Lens' DescribeHsm (Maybe Text)
+
+-- | The status of the HSM.
+describeHsmResponse_status :: Lens' DescribeHsmResponse (Maybe HsmStatus)
+
+-- | The ARN of the IAM role assigned to the HSM.
+describeHsmResponse_iamRoleArn :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The identifier of the elastic network interface (ENI) attached to the
+--   HSM.
+describeHsmResponse_eniId :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The identifier of the VPC that the HSM is in.
+describeHsmResponse_vpcId :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The date and time that the SSH key was last updated.
+describeHsmResponse_sshKeyLastUpdated :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The subscription end date.
+describeHsmResponse_subscriptionEndDate :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The URI of the certificate server.
+describeHsmResponse_serverCertUri :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | Undocumented member.
+describeHsmResponse_subscriptionType :: Lens' DescribeHsmResponse (Maybe SubscriptionType)
+
+-- | The public SSH key.
+describeHsmResponse_sshPublicKey :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The identifier of the subnet that the HSM is in.
+describeHsmResponse_subnetId :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | Contains additional information about the status of the HSM.
+describeHsmResponse_statusDetails :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The list of partitions on the HSM.
+describeHsmResponse_partitions :: Lens' DescribeHsmResponse (Maybe [Text])
+
+-- | The subscription start date.
+describeHsmResponse_subscriptionStartDate :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The Availability Zone that the HSM is in.
+describeHsmResponse_availabilityZone :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The date and time that the server certificate was last updated.
+describeHsmResponse_serverCertLastUpdated :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The HSM software version.
+describeHsmResponse_softwareVersion :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The name of the HSM vendor.
+describeHsmResponse_vendorName :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The serial number of the HSM.
+describeHsmResponse_serialNumber :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The ARN of the HSM.
+describeHsmResponse_hsmArn :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The IP address assigned to the HSM's ENI.
+describeHsmResponse_eniIp :: Lens' DescribeHsmResponse (Maybe Text)
+
+-- | The HSM model type.
+describeHsmResponse_hsmType :: Lens' DescribeHsmResponse (Maybe Text)
 
 -- | The response's http status code.
-listAvailableZonesResponse_httpStatus :: Lens' ListAvailableZonesResponse Int
+describeHsmResponse_httpStatus :: Lens' DescribeHsmResponse Int
 
 -- | The list of partition serial numbers to make members of the
 --   high-availability partition group.
@@ -2762,216 +2999,28 @@ modifyHapgResponse_hapgArn :: Lens' ModifyHapgResponse (Maybe Text)
 -- | The response's http status code.
 modifyHapgResponse_httpStatus :: Lens' ModifyHapgResponse Int
 
--- | The <tt>NextToken</tt> value from a previous call to
---   <tt>ListLunaClients</tt>. Pass null if this is the first call.
-listLunaClients_nextToken :: Lens' ListLunaClients (Maybe Text)
-
--- | If not null, more results are available. Pass this to
---   <tt>ListLunaClients</tt> to retrieve the next set of items.
-listLunaClientsResponse_nextToken :: Lens' ListLunaClientsResponse (Maybe Text)
+-- | The ARN of the client to delete.
+deleteLunaClient_clientArn :: Lens' DeleteLunaClient Text
 
 -- | The response's http status code.
-listLunaClientsResponse_httpStatus :: Lens' ListLunaClientsResponse Int
+deleteLunaClientResponse_httpStatus :: Lens' DeleteLunaClientResponse Int
 
--- | The list of clients.
-listLunaClientsResponse_clientList :: Lens' ListLunaClientsResponse [Text]
-
--- | The serial number of the HSM. Either the <tt>HsmArn</tt> or the
---   <tt>HsmSerialNumber</tt> parameter must be specified.
-describeHsm_hsmSerialNumber :: Lens' DescribeHsm (Maybe Text)
-
--- | The ARN of the HSM. Either the <tt>HsmArn</tt> or the
---   <tt>SerialNumber</tt> parameter must be specified.
-describeHsm_hsmArn :: Lens' DescribeHsm (Maybe Text)
-
--- | The subscription start date.
-describeHsmResponse_subscriptionStartDate :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The status of the HSM.
-describeHsmResponse_status :: Lens' DescribeHsmResponse (Maybe HsmStatus)
-
--- | The ARN of the IAM role assigned to the HSM.
-describeHsmResponse_iamRoleArn :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The list of partitions on the HSM.
-describeHsmResponse_partitions :: Lens' DescribeHsmResponse (Maybe [Text])
-
--- | Contains additional information about the status of the HSM.
-describeHsmResponse_statusDetails :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | Undocumented member.
-describeHsmResponse_subscriptionType :: Lens' DescribeHsmResponse (Maybe SubscriptionType)
-
--- | The IP address assigned to the HSM's ENI.
-describeHsmResponse_eniIp :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The date and time that the server certificate was last updated.
-describeHsmResponse_serverCertLastUpdated :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The identifier of the elastic network interface (ENI) attached to the
---   HSM.
-describeHsmResponse_eniId :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The Availability Zone that the HSM is in.
-describeHsmResponse_availabilityZone :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The identifier of the subnet that the HSM is in.
-describeHsmResponse_subnetId :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The HSM model type.
-describeHsmResponse_hsmType :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The public SSH key.
-describeHsmResponse_sshPublicKey :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The ARN of the HSM.
-describeHsmResponse_hsmArn :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The URI of the certificate server.
-describeHsmResponse_serverCertUri :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The serial number of the HSM.
-describeHsmResponse_serialNumber :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The name of the HSM vendor.
-describeHsmResponse_vendorName :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The subscription end date.
-describeHsmResponse_subscriptionEndDate :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The identifier of the VPC that the HSM is in.
-describeHsmResponse_vpcId :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The date and time that the SSH key was last updated.
-describeHsmResponse_sshKeyLastUpdated :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The HSM software version.
-describeHsmResponse_softwareVersion :: Lens' DescribeHsmResponse (Maybe Text)
-
--- | The response's http status code.
-describeHsmResponse_httpStatus :: Lens' DescribeHsmResponse Int
-
--- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
-removeTagsFromResource_resourceArn :: Lens' RemoveTagsFromResource Text
-
--- | The tag key or keys to remove.
---   
---   Specify only the tag key to remove (not the value). To overwrite the
---   value for an existing tag, use AddTagsToResource.
-removeTagsFromResource_tagKeyList :: Lens' RemoveTagsFromResource [Text]
-
--- | The response's http status code.
-removeTagsFromResourceResponse_httpStatus :: Lens' RemoveTagsFromResourceResponse Int
-
--- | The status of the operation.
-removeTagsFromResourceResponse_status :: Lens' RemoveTagsFromResourceResponse Text
-
--- | The label for the client.
-createLunaClient_label :: Lens' CreateLunaClient (Maybe Text)
-
--- | The contents of a Base64-Encoded X.509 v3 certificate to be installed
---   on the HSMs used by this client.
-createLunaClient_certificate :: Lens' CreateLunaClient Text
-
--- | The ARN of the client.
-createLunaClientResponse_clientArn :: Lens' CreateLunaClientResponse (Maybe Text)
-
--- | The response's http status code.
-createLunaClientResponse_httpStatus :: Lens' CreateLunaClientResponse Int
-
--- | The ARN of the high-availability partition group to describe.
-describeHapg_hapgArn :: Lens' DescribeHapg Text
-
-describeHapgResponse_hsmsPendingDeletion :: Lens' DescribeHapgResponse (Maybe [Text])
-
--- | The ARN of the high-availability partition group.
-describeHapgResponse_hapgArn :: Lens' DescribeHapgResponse (Maybe Text)
-
--- | The list of partition serial numbers that belong to the
---   high-availability partition group.
-describeHapgResponse_partitionSerialList :: Lens' DescribeHapgResponse (Maybe [Text])
-
--- | The date and time the high-availability partition group was last
---   modified.
-describeHapgResponse_lastModifiedTimestamp :: Lens' DescribeHapgResponse (Maybe Text)
-
--- | The state of the high-availability partition group.
-describeHapgResponse_state :: Lens' DescribeHapgResponse (Maybe CloudHsmObjectState)
-
--- | The serial number of the high-availability partition group.
-describeHapgResponse_hapgSerial :: Lens' DescribeHapgResponse (Maybe Text)
-
--- | The label for the high-availability partition group.
-describeHapgResponse_label :: Lens' DescribeHapgResponse (Maybe Text)
-
-describeHapgResponse_hsmsPendingRegistration :: Lens' DescribeHapgResponse (Maybe [Text])
-
-describeHapgResponse_hsmsLastActionFailed :: Lens' DescribeHapgResponse (Maybe [Text])
-
--- | The response's http status code.
-describeHapgResponse_httpStatus :: Lens' DescribeHapgResponse Int
-
--- | The label of the new high-availability partition group.
-createHapg_label :: Lens' CreateHapg Text
-
--- | The ARN of the high-availability partition group.
-createHapgResponse_hapgArn :: Lens' CreateHapgResponse (Maybe Text)
-
--- | The response's http status code.
-createHapgResponse_httpStatus :: Lens' CreateHapgResponse Int
-
--- | The ARN of the client.
-describeLunaClient_clientArn :: Lens' DescribeLunaClient (Maybe Text)
-
--- | The certificate fingerprint.
-describeLunaClient_certificateFingerprint :: Lens' DescribeLunaClient (Maybe Text)
-
--- | The date and time the client was last modified.
-describeLunaClientResponse_lastModifiedTimestamp :: Lens' DescribeLunaClientResponse (Maybe Text)
-
--- | The ARN of the client.
-describeLunaClientResponse_clientArn :: Lens' DescribeLunaClientResponse (Maybe Text)
-
--- | The label of the client.
-describeLunaClientResponse_label :: Lens' DescribeLunaClientResponse (Maybe Text)
-
--- | The certificate installed on the HSMs used by this client.
-describeLunaClientResponse_certificate :: Lens' DescribeLunaClientResponse (Maybe Text)
-
--- | The certificate fingerprint.
-describeLunaClientResponse_certificateFingerprint :: Lens' DescribeLunaClientResponse (Maybe Text)
-
--- | The response's http status code.
-describeLunaClientResponse_httpStatus :: Lens' DescribeLunaClientResponse Int
-
--- | The <tt>NextToken</tt> value from a previous call to
---   <tt>ListHapgs</tt>. Pass null if this is the first call.
-listHapgs_nextToken :: Lens' ListHapgs (Maybe Text)
-
--- | If not null, more results are available. Pass this value to
---   <tt>ListHapgs</tt> to retrieve the next set of items.
-listHapgsResponse_nextToken :: Lens' ListHapgsResponse (Maybe Text)
-
--- | The response's http status code.
-listHapgsResponse_httpStatus :: Lens' ListHapgsResponse Int
-
--- | The list of high-availability partition groups.
-listHapgsResponse_hapgList :: Lens' ListHapgsResponse [Text]
-
--- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.
-addTagsToResource_resourceArn :: Lens' AddTagsToResource Text
-
--- | One or more tags.
-addTagsToResource_tagList :: Lens' AddTagsToResource [Tag]
-
--- | The response's http status code.
-addTagsToResourceResponse_httpStatus :: Lens' AddTagsToResourceResponse Int
-
--- | The status of the operation.
-addTagsToResourceResponse_status :: Lens' AddTagsToResourceResponse Text
+-- | The status of the action.
+deleteLunaClientResponse_status :: Lens' DeleteLunaClientResponse Text
 
 -- | The new IAM role ARN.
 modifyHsm_iamRoleArn :: Lens' ModifyHsm (Maybe Text)
+
+-- | The new identifier of the subnet that the HSM is in. The new subnet
+--   must be in the same Availability Zone as the current subnet.
+modifyHsm_subnetId :: Lens' ModifyHsm (Maybe Text)
+
+-- | The new IP address for the syslog monitoring server. The AWS CloudHSM
+--   service only supports one syslog monitoring server.
+modifyHsm_syslogIp :: Lens' ModifyHsm (Maybe Text)
+
+-- | The new external ID.
+modifyHsm_externalId :: Lens' ModifyHsm (Maybe Text)
 
 -- | The new IP address for the elastic network interface (ENI) attached to
 --   the HSM.
@@ -2980,17 +3029,6 @@ modifyHsm_iamRoleArn :: Lens' ModifyHsm (Maybe Text)
 --   specified, an IP address will be randomly chosen from the CIDR range
 --   of the new subnet.
 modifyHsm_eniIp :: Lens' ModifyHsm (Maybe Text)
-
--- | The new IP address for the syslog monitoring server. The AWS CloudHSM
---   service only supports one syslog monitoring server.
-modifyHsm_syslogIp :: Lens' ModifyHsm (Maybe Text)
-
--- | The new identifier of the subnet that the HSM is in. The new subnet
---   must be in the same Availability Zone as the current subnet.
-modifyHsm_subnetId :: Lens' ModifyHsm (Maybe Text)
-
--- | The new external ID.
-modifyHsm_externalId :: Lens' ModifyHsm (Maybe Text)
 
 -- | The ARN of the HSM to modify.
 modifyHsm_hsmArn :: Lens' ModifyHsm Text
@@ -3001,50 +3039,12 @@ modifyHsmResponse_hsmArn :: Lens' ModifyHsmResponse (Maybe Text)
 -- | The response's http status code.
 modifyHsmResponse_httpStatus :: Lens' ModifyHsmResponse Int
 
--- | The IP address to assign to the HSM's ENI.
---   
---   If an IP address is not specified, an IP address will be randomly
---   chosen from the CIDR range of the subnet.
-createHsm_eniIp :: Lens' CreateHsm (Maybe Text)
-
--- | The IP address for the syslog monitoring server. The AWS CloudHSM
---   service only supports one syslog monitoring server.
-createHsm_syslogIp :: Lens' CreateHsm (Maybe Text)
-
--- | The external ID from <tt>IamRoleArn</tt>, if present.
-createHsm_externalId :: Lens' CreateHsm (Maybe Text)
-
--- | A user-defined token to ensure idempotence. Subsequent calls to this
---   operation with the same token will be ignored.
-createHsm_clientToken :: Lens' CreateHsm (Maybe Text)
-
--- | The identifier of the subnet in your VPC in which to place the HSM.
-createHsm_subnetId :: Lens' CreateHsm Text
-
--- | The SSH public key to install on the HSM.
-createHsm_sshKey :: Lens' CreateHsm Text
-
--- | The ARN of an IAM role to enable the AWS CloudHSM service to allocate
---   an ENI on your behalf.
-createHsm_iamRoleArn :: Lens' CreateHsm Text
-
--- | Undocumented member.
-createHsm_subscriptionType :: Lens' CreateHsm SubscriptionType
-
--- | The ARN of the HSM.
-createHsmResponse_hsmArn :: Lens' CreateHsmResponse (Maybe Text)
+-- | The list of Availability Zones that have available AWS CloudHSM
+--   capacity.
+listAvailableZonesResponse_aZList :: Lens' ListAvailableZonesResponse (Maybe [Text])
 
 -- | The response's http status code.
-createHsmResponse_httpStatus :: Lens' CreateHsmResponse Int
-
--- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
-listTagsForResource_resourceArn :: Lens' ListTagsForResource Text
-
--- | The response's http status code.
-listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-
--- | One or more tags.
-listTagsForResourceResponse_tagList :: Lens' ListTagsForResourceResponse [Tag]
+listAvailableZonesResponse_httpStatus :: Lens' ListAvailableZonesResponse Int
 
 -- | The key of the tag.
 tag_key :: Lens' Tag Text
@@ -3075,14 +3075,14 @@ module Network.AWS.CloudHSM
 --   configuration.
 defaultService :: Service
 
--- | Indicates that an internal error occurred.
-_CloudHsmInternalException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | Indicates that one or more of the request parameters are not valid.
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Indicates that an exception occurred in the AWS CloudHSM service.
 _CloudHsmServiceException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Indicates that an internal error occurred.
+_CloudHsmInternalException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Contains the inputs for the DeleteHapg action.
 --   
@@ -3125,13 +3125,11 @@ DeleteHapgResponse' :: Int -> Text -> DeleteHapgResponse
 --   <a>deleteHapgResponse_status</a> - The status of the action.
 newDeleteHapgResponse :: Int -> Text -> DeleteHapgResponse
 
--- | Contains the inputs for the DeleteHsm operation.
---   
---   <i>See:</i> <a>newDeleteHsm</a> smart constructor.
-data DeleteHsm
-DeleteHsm' :: Text -> DeleteHsm
+-- | <i>See:</i> <a>newListHapgs</a> smart constructor.
+data ListHapgs
+ListHapgs' :: Maybe Text -> ListHapgs
 
--- | Create a value of <a>DeleteHsm</a> with all optional fields omitted.
+-- | Create a value of <a>ListHapgs</a> with all optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -3139,17 +3137,16 @@ DeleteHsm' :: Text -> DeleteHsm
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:hsmArn:DeleteHsm'</a>, <a>deleteHsm_hsmArn</a> - The ARN of
---   the HSM to delete.
-newDeleteHsm :: Text -> DeleteHsm
+--   <a>$sel:nextToken:ListHapgs'</a>, <a>listHapgs_nextToken</a> - The
+--   <tt>NextToken</tt> value from a previous call to <tt>ListHapgs</tt>.
+--   Pass null if this is the first call.
+newListHapgs :: ListHapgs
 
--- | Contains the output of the DeleteHsm operation.
---   
---   <i>See:</i> <a>newDeleteHsmResponse</a> smart constructor.
-data DeleteHsmResponse
-DeleteHsmResponse' :: Int -> Text -> DeleteHsmResponse
+-- | <i>See:</i> <a>newListHapgsResponse</a> smart constructor.
+data ListHapgsResponse
+ListHapgsResponse' :: Maybe Text -> Int -> [Text] -> ListHapgsResponse
 
--- | Create a value of <a>DeleteHsmResponse</a> with all optional fields
+-- | Create a value of <a>ListHapgsResponse</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3158,12 +3155,17 @@ DeleteHsmResponse' :: Int -> Text -> DeleteHsmResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:DeleteHsmResponse'</a>,
---   <a>deleteHsmResponse_httpStatus</a> - The response's http status code.
+--   <a>$sel:nextToken:ListHapgs'</a>, <a>listHapgsResponse_nextToken</a> -
+--   If not null, more results are available. Pass this value to
+--   <tt>ListHapgs</tt> to retrieve the next set of items.
 --   
---   <a>$sel:status:DeleteHsmResponse'</a>, <a>deleteHsmResponse_status</a>
---   - The status of the operation.
-newDeleteHsmResponse :: Int -> Text -> DeleteHsmResponse
+--   <a>$sel:httpStatus:ListHapgsResponse'</a>,
+--   <a>listHapgsResponse_httpStatus</a> - The response's http status code.
+--   
+--   <a>$sel:hapgList:ListHapgsResponse'</a>,
+--   <a>listHapgsResponse_hapgList</a> - The list of high-availability
+--   partition groups.
+newListHapgsResponse :: Int -> ListHapgsResponse
 
 -- | <i>See:</i> <a>newModifyLunaClient</a> smart constructor.
 data ModifyLunaClient
@@ -3228,7 +3230,7 @@ newListHsms :: ListHsms
 --   
 --   <i>See:</i> <a>newListHsmsResponse</a> smart constructor.
 data ListHsmsResponse
-ListHsmsResponse' :: Maybe [Text] -> Maybe Text -> Int -> ListHsmsResponse
+ListHsmsResponse' :: Maybe Text -> Maybe [Text] -> Int -> ListHsmsResponse
 
 -- | Create a value of <a>ListHsmsResponse</a> with all optional fields
 --   omitted.
@@ -3239,16 +3241,474 @@ ListHsmsResponse' :: Maybe [Text] -> Maybe Text -> Int -> ListHsmsResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:hsmList:ListHsmsResponse'</a>, <a>listHsmsResponse_hsmList</a>
---   - The list of ARNs that identify the HSMs.
---   
 --   <a>$sel:nextToken:ListHsms'</a>, <a>listHsmsResponse_nextToken</a> -
 --   If not null, more results are available. Pass this value to
 --   <tt>ListHsms</tt> to retrieve the next set of items.
 --   
+--   <a>$sel:hsmList:ListHsmsResponse'</a>, <a>listHsmsResponse_hsmList</a>
+--   - The list of ARNs that identify the HSMs.
+--   
 --   <a>$sel:httpStatus:ListHsmsResponse'</a>,
 --   <a>listHsmsResponse_httpStatus</a> - The response's http status code.
 newListHsmsResponse :: Int -> ListHsmsResponse
+
+-- | <i>See:</i> <a>newDescribeLunaClient</a> smart constructor.
+data DescribeLunaClient
+DescribeLunaClient' :: Maybe Text -> Maybe Text -> DescribeLunaClient
+
+-- | Create a value of <a>DescribeLunaClient</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:clientArn:DescribeLunaClient'</a>,
+--   <a>describeLunaClient_clientArn</a> - The ARN of the client.
+--   
+--   <a>$sel:certificateFingerprint:DescribeLunaClient'</a>,
+--   <a>describeLunaClient_certificateFingerprint</a> - The certificate
+--   fingerprint.
+newDescribeLunaClient :: DescribeLunaClient
+
+-- | <i>See:</i> <a>newDescribeLunaClientResponse</a> smart constructor.
+data DescribeLunaClientResponse
+DescribeLunaClientResponse' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Int -> DescribeLunaClientResponse
+
+-- | Create a value of <a>DescribeLunaClientResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:clientArn:DescribeLunaClient'</a>,
+--   <a>describeLunaClientResponse_clientArn</a> - The ARN of the client.
+--   
+--   <a>$sel:lastModifiedTimestamp:DescribeLunaClientResponse'</a>,
+--   <a>describeLunaClientResponse_lastModifiedTimestamp</a> - The date and
+--   time the client was last modified.
+--   
+--   <a>$sel:certificateFingerprint:DescribeLunaClient'</a>,
+--   <a>describeLunaClientResponse_certificateFingerprint</a> - The
+--   certificate fingerprint.
+--   
+--   <a>$sel:certificate:DescribeLunaClientResponse'</a>,
+--   <a>describeLunaClientResponse_certificate</a> - The certificate
+--   installed on the HSMs used by this client.
+--   
+--   <a>$sel:label:DescribeLunaClientResponse'</a>,
+--   <a>describeLunaClientResponse_label</a> - The label of the client.
+--   
+--   <a>$sel:httpStatus:DescribeLunaClientResponse'</a>,
+--   <a>describeLunaClientResponse_httpStatus</a> - The response's http
+--   status code.
+newDescribeLunaClientResponse :: Int -> DescribeLunaClientResponse
+
+-- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
+data ListTagsForResource
+ListTagsForResource' :: Text -> ListTagsForResource
+
+-- | Create a value of <a>ListTagsForResource</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:resourceArn:ListTagsForResource'</a>,
+--   <a>listTagsForResource_resourceArn</a> - The Amazon Resource Name
+--   (ARN) of the AWS CloudHSM resource.
+newListTagsForResource :: Text -> ListTagsForResource
+
+-- | <i>See:</i> <a>newListTagsForResourceResponse</a> smart constructor.
+data ListTagsForResourceResponse
+ListTagsForResourceResponse' :: Int -> [Tag] -> ListTagsForResourceResponse
+
+-- | Create a value of <a>ListTagsForResourceResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:ListTagsForResourceResponse'</a>,
+--   <a>listTagsForResourceResponse_httpStatus</a> - The response's http
+--   status code.
+--   
+--   <a>$sel:tagList:ListTagsForResourceResponse'</a>,
+--   <a>listTagsForResourceResponse_tagList</a> - One or more tags.
+newListTagsForResourceResponse :: Int -> ListTagsForResourceResponse
+
+-- | Contains the inputs for the CreateHapgRequest action.
+--   
+--   <i>See:</i> <a>newCreateHapg</a> smart constructor.
+data CreateHapg
+CreateHapg' :: Text -> CreateHapg
+
+-- | Create a value of <a>CreateHapg</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:label:CreateHapg'</a>, <a>createHapg_label</a> - The label of
+--   the new high-availability partition group.
+newCreateHapg :: Text -> CreateHapg
+
+-- | Contains the output of the CreateHAPartitionGroup action.
+--   
+--   <i>See:</i> <a>newCreateHapgResponse</a> smart constructor.
+data CreateHapgResponse
+CreateHapgResponse' :: Maybe Text -> Int -> CreateHapgResponse
+
+-- | Create a value of <a>CreateHapgResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:hapgArn:CreateHapgResponse'</a>,
+--   <a>createHapgResponse_hapgArn</a> - The ARN of the high-availability
+--   partition group.
+--   
+--   <a>$sel:httpStatus:CreateHapgResponse'</a>,
+--   <a>createHapgResponse_httpStatus</a> - The response's http status
+--   code.
+newCreateHapgResponse :: Int -> CreateHapgResponse
+
+-- | Contains the inputs for the <tt>CreateHsm</tt> operation.
+--   
+--   <i>See:</i> <a>newCreateHsm</a> smart constructor.
+data CreateHsm
+CreateHsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Text -> Text -> Text -> SubscriptionType -> CreateHsm
+
+-- | Create a value of <a>CreateHsm</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:clientToken:CreateHsm'</a>, <a>createHsm_clientToken</a> - A
+--   user-defined token to ensure idempotence. Subsequent calls to this
+--   operation with the same token will be ignored.
+--   
+--   <a>$sel:syslogIp:CreateHsm'</a>, <a>createHsm_syslogIp</a> - The IP
+--   address for the syslog monitoring server. The AWS CloudHSM service
+--   only supports one syslog monitoring server.
+--   
+--   <a>$sel:externalId:CreateHsm'</a>, <a>createHsm_externalId</a> - The
+--   external ID from <tt>IamRoleArn</tt>, if present.
+--   
+--   <a>$sel:eniIp:CreateHsm'</a>, <a>createHsm_eniIp</a> - The IP address
+--   to assign to the HSM's ENI.
+--   
+--   If an IP address is not specified, an IP address will be randomly
+--   chosen from the CIDR range of the subnet.
+--   
+--   <a>$sel:subnetId:CreateHsm'</a>, <a>createHsm_subnetId</a> - The
+--   identifier of the subnet in your VPC in which to place the HSM.
+--   
+--   <a>$sel:sshKey:CreateHsm'</a>, <a>createHsm_sshKey</a> - The SSH
+--   public key to install on the HSM.
+--   
+--   <a>$sel:iamRoleArn:CreateHsm'</a>, <a>createHsm_iamRoleArn</a> - The
+--   ARN of an IAM role to enable the AWS CloudHSM service to allocate an
+--   ENI on your behalf.
+--   
+--   <a>$sel:subscriptionType:CreateHsm'</a>,
+--   <a>createHsm_subscriptionType</a> - Undocumented member.
+newCreateHsm :: Text -> Text -> Text -> SubscriptionType -> CreateHsm
+
+-- | Contains the output of the <tt>CreateHsm</tt> operation.
+--   
+--   <i>See:</i> <a>newCreateHsmResponse</a> smart constructor.
+data CreateHsmResponse
+CreateHsmResponse' :: Maybe Text -> Int -> CreateHsmResponse
+
+-- | Create a value of <a>CreateHsmResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:hsmArn:CreateHsmResponse'</a>, <a>createHsmResponse_hsmArn</a>
+--   - The ARN of the HSM.
+--   
+--   <a>$sel:httpStatus:CreateHsmResponse'</a>,
+--   <a>createHsmResponse_httpStatus</a> - The response's http status code.
+newCreateHsmResponse :: Int -> CreateHsmResponse
+
+-- | <i>See:</i> <a>newRemoveTagsFromResource</a> smart constructor.
+data RemoveTagsFromResource
+RemoveTagsFromResource' :: Text -> [Text] -> RemoveTagsFromResource
+
+-- | Create a value of <a>RemoveTagsFromResource</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:resourceArn:RemoveTagsFromResource'</a>,
+--   <a>removeTagsFromResource_resourceArn</a> - The Amazon Resource Name
+--   (ARN) of the AWS CloudHSM resource.
+--   
+--   <a>$sel:tagKeyList:RemoveTagsFromResource'</a>,
+--   <a>removeTagsFromResource_tagKeyList</a> - The tag key or keys to
+--   remove.
+--   
+--   Specify only the tag key to remove (not the value). To overwrite the
+--   value for an existing tag, use AddTagsToResource.
+newRemoveTagsFromResource :: Text -> RemoveTagsFromResource
+
+-- | <i>See:</i> <a>newRemoveTagsFromResourceResponse</a> smart
+--   constructor.
+data RemoveTagsFromResourceResponse
+RemoveTagsFromResourceResponse' :: Int -> Text -> RemoveTagsFromResourceResponse
+
+-- | Create a value of <a>RemoveTagsFromResourceResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:RemoveTagsFromResourceResponse'</a>,
+--   <a>removeTagsFromResourceResponse_httpStatus</a> - The response's http
+--   status code.
+--   
+--   <a>$sel:status:RemoveTagsFromResourceResponse'</a>,
+--   <a>removeTagsFromResourceResponse_status</a> - The status of the
+--   operation.
+newRemoveTagsFromResourceResponse :: Int -> Text -> RemoveTagsFromResourceResponse
+
+-- | Contains the inputs for the DescribeHapg action.
+--   
+--   <i>See:</i> <a>newDescribeHapg</a> smart constructor.
+data DescribeHapg
+DescribeHapg' :: Text -> DescribeHapg
+
+-- | Create a value of <a>DescribeHapg</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:hapgArn:DescribeHapg'</a>, <a>describeHapg_hapgArn</a> - The
+--   ARN of the high-availability partition group to describe.
+newDescribeHapg :: Text -> DescribeHapg
+
+-- | Contains the output of the DescribeHapg action.
+--   
+--   <i>See:</i> <a>newDescribeHapgResponse</a> smart constructor.
+data DescribeHapgResponse
+DescribeHapgResponse' :: Maybe CloudHsmObjectState -> Maybe Text -> Maybe [Text] -> Maybe [Text] -> Maybe Text -> Maybe [Text] -> Maybe [Text] -> Maybe Text -> Maybe Text -> Int -> DescribeHapgResponse
+
+-- | Create a value of <a>DescribeHapgResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:state:DescribeHapgResponse'</a>,
+--   <a>describeHapgResponse_state</a> - The state of the high-availability
+--   partition group.
+--   
+--   <a>$sel:lastModifiedTimestamp:DescribeHapgResponse'</a>,
+--   <a>describeHapgResponse_lastModifiedTimestamp</a> - The date and time
+--   the high-availability partition group was last modified.
+--   
+--   <a>$sel:hsmsPendingRegistration:DescribeHapgResponse'</a>,
+--   <a>describeHapgResponse_hsmsPendingRegistration</a> -
+--   
+--   <a>$sel:hsmsPendingDeletion:DescribeHapgResponse'</a>,
+--   <a>describeHapgResponse_hsmsPendingDeletion</a> -
+--   
+--   <a>$sel:hapgSerial:DescribeHapgResponse'</a>,
+--   <a>describeHapgResponse_hapgSerial</a> - The serial number of the
+--   high-availability partition group.
+--   
+--   <a>$sel:hsmsLastActionFailed:DescribeHapgResponse'</a>,
+--   <a>describeHapgResponse_hsmsLastActionFailed</a> -
+--   
+--   <a>$sel:partitionSerialList:DescribeHapgResponse'</a>,
+--   <a>describeHapgResponse_partitionSerialList</a> - The list of
+--   partition serial numbers that belong to the high-availability
+--   partition group.
+--   
+--   <a>$sel:hapgArn:DescribeHapg'</a>, <a>describeHapgResponse_hapgArn</a>
+--   - The ARN of the high-availability partition group.
+--   
+--   <a>$sel:label:DescribeHapgResponse'</a>,
+--   <a>describeHapgResponse_label</a> - The label for the
+--   high-availability partition group.
+--   
+--   <a>$sel:httpStatus:DescribeHapgResponse'</a>,
+--   <a>describeHapgResponse_httpStatus</a> - The response's http status
+--   code.
+newDescribeHapgResponse :: Int -> DescribeHapgResponse
+
+-- | Contains the inputs for the CreateLunaClient action.
+--   
+--   <i>See:</i> <a>newCreateLunaClient</a> smart constructor.
+data CreateLunaClient
+CreateLunaClient' :: Maybe Text -> Text -> CreateLunaClient
+
+-- | Create a value of <a>CreateLunaClient</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:label:CreateLunaClient'</a>, <a>createLunaClient_label</a> -
+--   The label for the client.
+--   
+--   <a>$sel:certificate:CreateLunaClient'</a>,
+--   <a>createLunaClient_certificate</a> - The contents of a Base64-Encoded
+--   X.509 v3 certificate to be installed on the HSMs used by this client.
+newCreateLunaClient :: Text -> CreateLunaClient
+
+-- | Contains the output of the CreateLunaClient action.
+--   
+--   <i>See:</i> <a>newCreateLunaClientResponse</a> smart constructor.
+data CreateLunaClientResponse
+CreateLunaClientResponse' :: Maybe Text -> Int -> CreateLunaClientResponse
+
+-- | Create a value of <a>CreateLunaClientResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:clientArn:CreateLunaClientResponse'</a>,
+--   <a>createLunaClientResponse_clientArn</a> - The ARN of the client.
+--   
+--   <a>$sel:httpStatus:CreateLunaClientResponse'</a>,
+--   <a>createLunaClientResponse_httpStatus</a> - The response's http
+--   status code.
+newCreateLunaClientResponse :: Int -> CreateLunaClientResponse
+
+-- | <i>See:</i> <a>newListLunaClients</a> smart constructor.
+data ListLunaClients
+ListLunaClients' :: Maybe Text -> ListLunaClients
+
+-- | Create a value of <a>ListLunaClients</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListLunaClients'</a>,
+--   <a>listLunaClients_nextToken</a> - The <tt>NextToken</tt> value from a
+--   previous call to <tt>ListLunaClients</tt>. Pass null if this is the
+--   first call.
+newListLunaClients :: ListLunaClients
+
+-- | <i>See:</i> <a>newListLunaClientsResponse</a> smart constructor.
+data ListLunaClientsResponse
+ListLunaClientsResponse' :: Maybe Text -> Int -> [Text] -> ListLunaClientsResponse
+
+-- | Create a value of <a>ListLunaClientsResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListLunaClients'</a>,
+--   <a>listLunaClientsResponse_nextToken</a> - If not null, more results
+--   are available. Pass this to <tt>ListLunaClients</tt> to retrieve the
+--   next set of items.
+--   
+--   <a>$sel:httpStatus:ListLunaClientsResponse'</a>,
+--   <a>listLunaClientsResponse_httpStatus</a> - The response's http status
+--   code.
+--   
+--   <a>$sel:clientList:ListLunaClientsResponse'</a>,
+--   <a>listLunaClientsResponse_clientList</a> - The list of clients.
+newListLunaClientsResponse :: Int -> ListLunaClientsResponse
+
+-- | <i>See:</i> <a>newAddTagsToResource</a> smart constructor.
+data AddTagsToResource
+AddTagsToResource' :: Text -> [Tag] -> AddTagsToResource
+
+-- | Create a value of <a>AddTagsToResource</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:resourceArn:AddTagsToResource'</a>,
+--   <a>addTagsToResource_resourceArn</a> - The Amazon Resource Name (ARN)
+--   of the AWS CloudHSM resource to tag.
+--   
+--   <a>$sel:tagList:AddTagsToResource'</a>,
+--   <a>addTagsToResource_tagList</a> - One or more tags.
+newAddTagsToResource :: Text -> AddTagsToResource
+
+-- | <i>See:</i> <a>newAddTagsToResourceResponse</a> smart constructor.
+data AddTagsToResourceResponse
+AddTagsToResourceResponse' :: Int -> Text -> AddTagsToResourceResponse
+
+-- | Create a value of <a>AddTagsToResourceResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:AddTagsToResourceResponse'</a>,
+--   <a>addTagsToResourceResponse_httpStatus</a> - The response's http
+--   status code.
+--   
+--   <a>$sel:status:AddTagsToResourceResponse'</a>,
+--   <a>addTagsToResourceResponse_status</a> - The status of the operation.
+newAddTagsToResourceResponse :: Int -> Text -> AddTagsToResourceResponse
 
 -- | <i>See:</i> <a>newGetConfig</a> smart constructor.
 data GetConfig
@@ -3301,11 +3761,31 @@ GetConfigResponse' :: Maybe Text -> Maybe Text -> Maybe Text -> Int -> GetConfig
 --   <a>getConfigResponse_httpStatus</a> - The response's http status code.
 newGetConfigResponse :: Int -> GetConfigResponse
 
--- | <i>See:</i> <a>newDeleteLunaClient</a> smart constructor.
-data DeleteLunaClient
-DeleteLunaClient' :: Text -> DeleteLunaClient
+-- | Contains the inputs for the DeleteHsm operation.
+--   
+--   <i>See:</i> <a>newDeleteHsm</a> smart constructor.
+data DeleteHsm
+DeleteHsm' :: Text -> DeleteHsm
 
--- | Create a value of <a>DeleteLunaClient</a> with all optional fields
+-- | Create a value of <a>DeleteHsm</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:hsmArn:DeleteHsm'</a>, <a>deleteHsm_hsmArn</a> - The ARN of
+--   the HSM to delete.
+newDeleteHsm :: Text -> DeleteHsm
+
+-- | Contains the output of the DeleteHsm operation.
+--   
+--   <i>See:</i> <a>newDeleteHsmResponse</a> smart constructor.
+data DeleteHsmResponse
+DeleteHsmResponse' :: Int -> Text -> DeleteHsmResponse
+
+-- | Create a value of <a>DeleteHsmResponse</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3314,16 +3794,20 @@ DeleteLunaClient' :: Text -> DeleteLunaClient
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:clientArn:DeleteLunaClient'</a>,
---   <a>deleteLunaClient_clientArn</a> - The ARN of the client to delete.
-newDeleteLunaClient :: Text -> DeleteLunaClient
+--   <a>$sel:httpStatus:DeleteHsmResponse'</a>,
+--   <a>deleteHsmResponse_httpStatus</a> - The response's http status code.
+--   
+--   <a>$sel:status:DeleteHsmResponse'</a>, <a>deleteHsmResponse_status</a>
+--   - The status of the operation.
+newDeleteHsmResponse :: Int -> Text -> DeleteHsmResponse
 
--- | <i>See:</i> <a>newDeleteLunaClientResponse</a> smart constructor.
-data DeleteLunaClientResponse
-DeleteLunaClientResponse' :: Int -> Text -> DeleteLunaClientResponse
+-- | Contains the inputs for the DescribeHsm operation.
+--   
+--   <i>See:</i> <a>newDescribeHsm</a> smart constructor.
+data DescribeHsm
+DescribeHsm' :: Maybe Text -> Maybe Text -> DescribeHsm
 
--- | Create a value of <a>DeleteLunaClientResponse</a> with all optional
---   fields omitted.
+-- | Create a value of <a>DescribeHsm</a> with all optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -3331,48 +3815,112 @@ DeleteLunaClientResponse' :: Int -> Text -> DeleteLunaClientResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:DeleteLunaClientResponse'</a>,
---   <a>deleteLunaClientResponse_httpStatus</a> - The response's http
---   status code.
+--   <a>$sel:hsmSerialNumber:DescribeHsm'</a>,
+--   <a>describeHsm_hsmSerialNumber</a> - The serial number of the HSM.
+--   Either the <tt>HsmArn</tt> or the <tt>HsmSerialNumber</tt> parameter
+--   must be specified.
 --   
---   <a>$sel:status:DeleteLunaClientResponse'</a>,
---   <a>deleteLunaClientResponse_status</a> - The status of the action.
-newDeleteLunaClientResponse :: Int -> Text -> DeleteLunaClientResponse
+--   <a>$sel:hsmArn:DescribeHsm'</a>, <a>describeHsm_hsmArn</a> - The ARN
+--   of the HSM. Either the <tt>HsmArn</tt> or the <tt>SerialNumber</tt>
+--   parameter must be specified.
+newDescribeHsm :: DescribeHsm
 
--- | Contains the inputs for the ListAvailableZones action.
+-- | Contains the output of the DescribeHsm operation.
 --   
---   <i>See:</i> <a>newListAvailableZones</a> smart constructor.
-data ListAvailableZones
-ListAvailableZones' :: ListAvailableZones
+--   <i>See:</i> <a>newDescribeHsmResponse</a> smart constructor.
+data DescribeHsmResponse
+DescribeHsmResponse' :: Maybe HsmStatus -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe SubscriptionType -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe [Text] -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Int -> DescribeHsmResponse
 
--- | Create a value of <a>ListAvailableZones</a> with all optional fields
+-- | Create a value of <a>DescribeHsmResponse</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
-newListAvailableZones :: ListAvailableZones
-
--- | <i>See:</i> <a>newListAvailableZonesResponse</a> smart constructor.
-data ListAvailableZonesResponse
-ListAvailableZonesResponse' :: Maybe [Text] -> Int -> ListAvailableZonesResponse
-
--- | Create a value of <a>ListAvailableZonesResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:aZList:ListAvailableZonesResponse'</a>,
---   <a>listAvailableZonesResponse_aZList</a> - The list of Availability
---   Zones that have available AWS CloudHSM capacity.
+--   <a>$sel:status:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_status</a> - The status of the HSM.
 --   
---   <a>$sel:httpStatus:ListAvailableZonesResponse'</a>,
---   <a>listAvailableZonesResponse_httpStatus</a> - The response's http
---   status code.
-newListAvailableZonesResponse :: Int -> ListAvailableZonesResponse
+--   <a>$sel:iamRoleArn:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_iamRoleArn</a> - The ARN of the IAM role
+--   assigned to the HSM.
+--   
+--   <a>$sel:eniId:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_eniId</a> - The identifier of the elastic
+--   network interface (ENI) attached to the HSM.
+--   
+--   <a>$sel:vpcId:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_vpcId</a> - The identifier of the VPC that the
+--   HSM is in.
+--   
+--   <a>$sel:sshKeyLastUpdated:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_sshKeyLastUpdated</a> - The date and time that
+--   the SSH key was last updated.
+--   
+--   <a>$sel:subscriptionEndDate:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_subscriptionEndDate</a> - The subscription end
+--   date.
+--   
+--   <a>$sel:serverCertUri:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_serverCertUri</a> - The URI of the certificate
+--   server.
+--   
+--   <a>$sel:subscriptionType:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_subscriptionType</a> - Undocumented member.
+--   
+--   <a>$sel:sshPublicKey:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_sshPublicKey</a> - The public SSH key.
+--   
+--   <a>$sel:subnetId:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_subnetId</a> - The identifier of the subnet
+--   that the HSM is in.
+--   
+--   <a>$sel:statusDetails:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_statusDetails</a> - Contains additional
+--   information about the status of the HSM.
+--   
+--   <a>$sel:partitions:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_partitions</a> - The list of partitions on the
+--   HSM.
+--   
+--   <a>$sel:subscriptionStartDate:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_subscriptionStartDate</a> - The subscription
+--   start date.
+--   
+--   <a>$sel:availabilityZone:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_availabilityZone</a> - The Availability Zone
+--   that the HSM is in.
+--   
+--   <a>$sel:serverCertLastUpdated:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_serverCertLastUpdated</a> - The date and time
+--   that the server certificate was last updated.
+--   
+--   <a>$sel:softwareVersion:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_softwareVersion</a> - The HSM software version.
+--   
+--   <a>$sel:vendorName:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_vendorName</a> - The name of the HSM vendor.
+--   
+--   <a>$sel:serialNumber:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_serialNumber</a> - The serial number of the
+--   HSM.
+--   
+--   <a>$sel:hsmArn:DescribeHsm'</a>, <a>describeHsmResponse_hsmArn</a> -
+--   The ARN of the HSM.
+--   
+--   <a>$sel:eniIp:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_eniIp</a> - The IP address assigned to the
+--   HSM's ENI.
+--   
+--   <a>$sel:hsmType:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_hsmType</a> - The HSM model type.
+--   
+--   <a>$sel:httpStatus:DescribeHsmResponse'</a>,
+--   <a>describeHsmResponse_httpStatus</a> - The response's http status
+--   code.
+newDescribeHsmResponse :: Int -> DescribeHsmResponse
 
 -- | <i>See:</i> <a>newModifyHapg</a> smart constructor.
 data ModifyHapg
@@ -3418,11 +3966,11 @@ ModifyHapgResponse' :: Maybe Text -> Int -> ModifyHapgResponse
 --   code.
 newModifyHapgResponse :: Int -> ModifyHapgResponse
 
--- | <i>See:</i> <a>newListLunaClients</a> smart constructor.
-data ListLunaClients
-ListLunaClients' :: Maybe Text -> ListLunaClients
+-- | <i>See:</i> <a>newDeleteLunaClient</a> smart constructor.
+data DeleteLunaClient
+DeleteLunaClient' :: Text -> DeleteLunaClient
 
--- | Create a value of <a>ListLunaClients</a> with all optional fields
+-- | Create a value of <a>DeleteLunaClient</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3431,17 +3979,15 @@ ListLunaClients' :: Maybe Text -> ListLunaClients
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListLunaClients'</a>,
---   <a>listLunaClients_nextToken</a> - The <tt>NextToken</tt> value from a
---   previous call to <tt>ListLunaClients</tt>. Pass null if this is the
---   first call.
-newListLunaClients :: ListLunaClients
+--   <a>$sel:clientArn:DeleteLunaClient'</a>,
+--   <a>deleteLunaClient_clientArn</a> - The ARN of the client to delete.
+newDeleteLunaClient :: Text -> DeleteLunaClient
 
--- | <i>See:</i> <a>newListLunaClientsResponse</a> smart constructor.
-data ListLunaClientsResponse
-ListLunaClientsResponse' :: Maybe Text -> Int -> [Text] -> ListLunaClientsResponse
+-- | <i>See:</i> <a>newDeleteLunaClientResponse</a> smart constructor.
+data DeleteLunaClientResponse
+DeleteLunaClientResponse' :: Int -> Text -> DeleteLunaClientResponse
 
--- | Create a value of <a>ListLunaClientsResponse</a> with all optional
+-- | Create a value of <a>DeleteLunaClientResponse</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3450,488 +3996,13 @@ ListLunaClientsResponse' :: Maybe Text -> Int -> [Text] -> ListLunaClientsRespon
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListLunaClients'</a>,
---   <a>listLunaClientsResponse_nextToken</a> - If not null, more results
---   are available. Pass this to <tt>ListLunaClients</tt> to retrieve the
---   next set of items.
---   
---   <a>$sel:httpStatus:ListLunaClientsResponse'</a>,
---   <a>listLunaClientsResponse_httpStatus</a> - The response's http status
---   code.
---   
---   <a>$sel:clientList:ListLunaClientsResponse'</a>,
---   <a>listLunaClientsResponse_clientList</a> - The list of clients.
-newListLunaClientsResponse :: Int -> ListLunaClientsResponse
-
--- | Contains the inputs for the DescribeHsm operation.
---   
---   <i>See:</i> <a>newDescribeHsm</a> smart constructor.
-data DescribeHsm
-DescribeHsm' :: Maybe Text -> Maybe Text -> DescribeHsm
-
--- | Create a value of <a>DescribeHsm</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:hsmSerialNumber:DescribeHsm'</a>,
---   <a>describeHsm_hsmSerialNumber</a> - The serial number of the HSM.
---   Either the <tt>HsmArn</tt> or the <tt>HsmSerialNumber</tt> parameter
---   must be specified.
---   
---   <a>$sel:hsmArn:DescribeHsm'</a>, <a>describeHsm_hsmArn</a> - The ARN
---   of the HSM. Either the <tt>HsmArn</tt> or the <tt>SerialNumber</tt>
---   parameter must be specified.
-newDescribeHsm :: DescribeHsm
-
--- | Contains the output of the DescribeHsm operation.
---   
---   <i>See:</i> <a>newDescribeHsmResponse</a> smart constructor.
-data DescribeHsmResponse
-DescribeHsmResponse' :: Maybe Text -> Maybe HsmStatus -> Maybe Text -> Maybe [Text] -> Maybe Text -> Maybe SubscriptionType -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Int -> DescribeHsmResponse
-
--- | Create a value of <a>DescribeHsmResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:subscriptionStartDate:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_subscriptionStartDate</a> - The subscription
---   start date.
---   
---   <a>$sel:status:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_status</a> - The status of the HSM.
---   
---   <a>$sel:iamRoleArn:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_iamRoleArn</a> - The ARN of the IAM role
---   assigned to the HSM.
---   
---   <a>$sel:partitions:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_partitions</a> - The list of partitions on the
---   HSM.
---   
---   <a>$sel:statusDetails:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_statusDetails</a> - Contains additional
---   information about the status of the HSM.
---   
---   <a>$sel:subscriptionType:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_subscriptionType</a> - Undocumented member.
---   
---   <a>$sel:eniIp:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_eniIp</a> - The IP address assigned to the
---   HSM's ENI.
---   
---   <a>$sel:serverCertLastUpdated:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_serverCertLastUpdated</a> - The date and time
---   that the server certificate was last updated.
---   
---   <a>$sel:eniId:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_eniId</a> - The identifier of the elastic
---   network interface (ENI) attached to the HSM.
---   
---   <a>$sel:availabilityZone:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_availabilityZone</a> - The Availability Zone
---   that the HSM is in.
---   
---   <a>$sel:subnetId:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_subnetId</a> - The identifier of the subnet
---   that the HSM is in.
---   
---   <a>$sel:hsmType:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_hsmType</a> - The HSM model type.
---   
---   <a>$sel:sshPublicKey:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_sshPublicKey</a> - The public SSH key.
---   
---   <a>$sel:hsmArn:DescribeHsm'</a>, <a>describeHsmResponse_hsmArn</a> -
---   The ARN of the HSM.
---   
---   <a>$sel:serverCertUri:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_serverCertUri</a> - The URI of the certificate
---   server.
---   
---   <a>$sel:serialNumber:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_serialNumber</a> - The serial number of the
---   HSM.
---   
---   <a>$sel:vendorName:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_vendorName</a> - The name of the HSM vendor.
---   
---   <a>$sel:subscriptionEndDate:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_subscriptionEndDate</a> - The subscription end
---   date.
---   
---   <a>$sel:vpcId:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_vpcId</a> - The identifier of the VPC that the
---   HSM is in.
---   
---   <a>$sel:sshKeyLastUpdated:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_sshKeyLastUpdated</a> - The date and time that
---   the SSH key was last updated.
---   
---   <a>$sel:softwareVersion:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_softwareVersion</a> - The HSM software version.
---   
---   <a>$sel:httpStatus:DescribeHsmResponse'</a>,
---   <a>describeHsmResponse_httpStatus</a> - The response's http status
---   code.
-newDescribeHsmResponse :: Int -> DescribeHsmResponse
-
--- | <i>See:</i> <a>newRemoveTagsFromResource</a> smart constructor.
-data RemoveTagsFromResource
-RemoveTagsFromResource' :: Text -> [Text] -> RemoveTagsFromResource
-
--- | Create a value of <a>RemoveTagsFromResource</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:resourceArn:RemoveTagsFromResource'</a>,
---   <a>removeTagsFromResource_resourceArn</a> - The Amazon Resource Name
---   (ARN) of the AWS CloudHSM resource.
---   
---   <a>$sel:tagKeyList:RemoveTagsFromResource'</a>,
---   <a>removeTagsFromResource_tagKeyList</a> - The tag key or keys to
---   remove.
---   
---   Specify only the tag key to remove (not the value). To overwrite the
---   value for an existing tag, use AddTagsToResource.
-newRemoveTagsFromResource :: Text -> RemoveTagsFromResource
-
--- | <i>See:</i> <a>newRemoveTagsFromResourceResponse</a> smart
---   constructor.
-data RemoveTagsFromResourceResponse
-RemoveTagsFromResourceResponse' :: Int -> Text -> RemoveTagsFromResourceResponse
-
--- | Create a value of <a>RemoveTagsFromResourceResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:RemoveTagsFromResourceResponse'</a>,
---   <a>removeTagsFromResourceResponse_httpStatus</a> - The response's http
+--   <a>$sel:httpStatus:DeleteLunaClientResponse'</a>,
+--   <a>deleteLunaClientResponse_httpStatus</a> - The response's http
 --   status code.
 --   
---   <a>$sel:status:RemoveTagsFromResourceResponse'</a>,
---   <a>removeTagsFromResourceResponse_status</a> - The status of the
---   operation.
-newRemoveTagsFromResourceResponse :: Int -> Text -> RemoveTagsFromResourceResponse
-
--- | Contains the inputs for the CreateLunaClient action.
---   
---   <i>See:</i> <a>newCreateLunaClient</a> smart constructor.
-data CreateLunaClient
-CreateLunaClient' :: Maybe Text -> Text -> CreateLunaClient
-
--- | Create a value of <a>CreateLunaClient</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:label:CreateLunaClient'</a>, <a>createLunaClient_label</a> -
---   The label for the client.
---   
---   <a>$sel:certificate:CreateLunaClient'</a>,
---   <a>createLunaClient_certificate</a> - The contents of a Base64-Encoded
---   X.509 v3 certificate to be installed on the HSMs used by this client.
-newCreateLunaClient :: Text -> CreateLunaClient
-
--- | Contains the output of the CreateLunaClient action.
---   
---   <i>See:</i> <a>newCreateLunaClientResponse</a> smart constructor.
-data CreateLunaClientResponse
-CreateLunaClientResponse' :: Maybe Text -> Int -> CreateLunaClientResponse
-
--- | Create a value of <a>CreateLunaClientResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:clientArn:CreateLunaClientResponse'</a>,
---   <a>createLunaClientResponse_clientArn</a> - The ARN of the client.
---   
---   <a>$sel:httpStatus:CreateLunaClientResponse'</a>,
---   <a>createLunaClientResponse_httpStatus</a> - The response's http
---   status code.
-newCreateLunaClientResponse :: Int -> CreateLunaClientResponse
-
--- | Contains the inputs for the DescribeHapg action.
---   
---   <i>See:</i> <a>newDescribeHapg</a> smart constructor.
-data DescribeHapg
-DescribeHapg' :: Text -> DescribeHapg
-
--- | Create a value of <a>DescribeHapg</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:hapgArn:DescribeHapg'</a>, <a>describeHapg_hapgArn</a> - The
---   ARN of the high-availability partition group to describe.
-newDescribeHapg :: Text -> DescribeHapg
-
--- | Contains the output of the DescribeHapg action.
---   
---   <i>See:</i> <a>newDescribeHapgResponse</a> smart constructor.
-data DescribeHapgResponse
-DescribeHapgResponse' :: Maybe [Text] -> Maybe Text -> Maybe [Text] -> Maybe Text -> Maybe CloudHsmObjectState -> Maybe Text -> Maybe Text -> Maybe [Text] -> Maybe [Text] -> Int -> DescribeHapgResponse
-
--- | Create a value of <a>DescribeHapgResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:hsmsPendingDeletion:DescribeHapgResponse'</a>,
---   <a>describeHapgResponse_hsmsPendingDeletion</a> -
---   
---   <a>$sel:hapgArn:DescribeHapg'</a>, <a>describeHapgResponse_hapgArn</a>
---   - The ARN of the high-availability partition group.
---   
---   <a>$sel:partitionSerialList:DescribeHapgResponse'</a>,
---   <a>describeHapgResponse_partitionSerialList</a> - The list of
---   partition serial numbers that belong to the high-availability
---   partition group.
---   
---   <a>$sel:lastModifiedTimestamp:DescribeHapgResponse'</a>,
---   <a>describeHapgResponse_lastModifiedTimestamp</a> - The date and time
---   the high-availability partition group was last modified.
---   
---   <a>$sel:state:DescribeHapgResponse'</a>,
---   <a>describeHapgResponse_state</a> - The state of the high-availability
---   partition group.
---   
---   <a>$sel:hapgSerial:DescribeHapgResponse'</a>,
---   <a>describeHapgResponse_hapgSerial</a> - The serial number of the
---   high-availability partition group.
---   
---   <a>$sel:label:DescribeHapgResponse'</a>,
---   <a>describeHapgResponse_label</a> - The label for the
---   high-availability partition group.
---   
---   <a>$sel:hsmsPendingRegistration:DescribeHapgResponse'</a>,
---   <a>describeHapgResponse_hsmsPendingRegistration</a> -
---   
---   <a>$sel:hsmsLastActionFailed:DescribeHapgResponse'</a>,
---   <a>describeHapgResponse_hsmsLastActionFailed</a> -
---   
---   <a>$sel:httpStatus:DescribeHapgResponse'</a>,
---   <a>describeHapgResponse_httpStatus</a> - The response's http status
---   code.
-newDescribeHapgResponse :: Int -> DescribeHapgResponse
-
--- | Contains the inputs for the CreateHapgRequest action.
---   
---   <i>See:</i> <a>newCreateHapg</a> smart constructor.
-data CreateHapg
-CreateHapg' :: Text -> CreateHapg
-
--- | Create a value of <a>CreateHapg</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:label:CreateHapg'</a>, <a>createHapg_label</a> - The label of
---   the new high-availability partition group.
-newCreateHapg :: Text -> CreateHapg
-
--- | Contains the output of the CreateHAPartitionGroup action.
---   
---   <i>See:</i> <a>newCreateHapgResponse</a> smart constructor.
-data CreateHapgResponse
-CreateHapgResponse' :: Maybe Text -> Int -> CreateHapgResponse
-
--- | Create a value of <a>CreateHapgResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:hapgArn:CreateHapgResponse'</a>,
---   <a>createHapgResponse_hapgArn</a> - The ARN of the high-availability
---   partition group.
---   
---   <a>$sel:httpStatus:CreateHapgResponse'</a>,
---   <a>createHapgResponse_httpStatus</a> - The response's http status
---   code.
-newCreateHapgResponse :: Int -> CreateHapgResponse
-
--- | <i>See:</i> <a>newDescribeLunaClient</a> smart constructor.
-data DescribeLunaClient
-DescribeLunaClient' :: Maybe Text -> Maybe Text -> DescribeLunaClient
-
--- | Create a value of <a>DescribeLunaClient</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:clientArn:DescribeLunaClient'</a>,
---   <a>describeLunaClient_clientArn</a> - The ARN of the client.
---   
---   <a>$sel:certificateFingerprint:DescribeLunaClient'</a>,
---   <a>describeLunaClient_certificateFingerprint</a> - The certificate
---   fingerprint.
-newDescribeLunaClient :: DescribeLunaClient
-
--- | <i>See:</i> <a>newDescribeLunaClientResponse</a> smart constructor.
-data DescribeLunaClientResponse
-DescribeLunaClientResponse' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Int -> DescribeLunaClientResponse
-
--- | Create a value of <a>DescribeLunaClientResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:lastModifiedTimestamp:DescribeLunaClientResponse'</a>,
---   <a>describeLunaClientResponse_lastModifiedTimestamp</a> - The date and
---   time the client was last modified.
---   
---   <a>$sel:clientArn:DescribeLunaClient'</a>,
---   <a>describeLunaClientResponse_clientArn</a> - The ARN of the client.
---   
---   <a>$sel:label:DescribeLunaClientResponse'</a>,
---   <a>describeLunaClientResponse_label</a> - The label of the client.
---   
---   <a>$sel:certificate:DescribeLunaClientResponse'</a>,
---   <a>describeLunaClientResponse_certificate</a> - The certificate
---   installed on the HSMs used by this client.
---   
---   <a>$sel:certificateFingerprint:DescribeLunaClient'</a>,
---   <a>describeLunaClientResponse_certificateFingerprint</a> - The
---   certificate fingerprint.
---   
---   <a>$sel:httpStatus:DescribeLunaClientResponse'</a>,
---   <a>describeLunaClientResponse_httpStatus</a> - The response's http
---   status code.
-newDescribeLunaClientResponse :: Int -> DescribeLunaClientResponse
-
--- | <i>See:</i> <a>newListHapgs</a> smart constructor.
-data ListHapgs
-ListHapgs' :: Maybe Text -> ListHapgs
-
--- | Create a value of <a>ListHapgs</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListHapgs'</a>, <a>listHapgs_nextToken</a> - The
---   <tt>NextToken</tt> value from a previous call to <tt>ListHapgs</tt>.
---   Pass null if this is the first call.
-newListHapgs :: ListHapgs
-
--- | <i>See:</i> <a>newListHapgsResponse</a> smart constructor.
-data ListHapgsResponse
-ListHapgsResponse' :: Maybe Text -> Int -> [Text] -> ListHapgsResponse
-
--- | Create a value of <a>ListHapgsResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListHapgs'</a>, <a>listHapgsResponse_nextToken</a> -
---   If not null, more results are available. Pass this value to
---   <tt>ListHapgs</tt> to retrieve the next set of items.
---   
---   <a>$sel:httpStatus:ListHapgsResponse'</a>,
---   <a>listHapgsResponse_httpStatus</a> - The response's http status code.
---   
---   <a>$sel:hapgList:ListHapgsResponse'</a>,
---   <a>listHapgsResponse_hapgList</a> - The list of high-availability
---   partition groups.
-newListHapgsResponse :: Int -> ListHapgsResponse
-
--- | <i>See:</i> <a>newAddTagsToResource</a> smart constructor.
-data AddTagsToResource
-AddTagsToResource' :: Text -> [Tag] -> AddTagsToResource
-
--- | Create a value of <a>AddTagsToResource</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:resourceArn:AddTagsToResource'</a>,
---   <a>addTagsToResource_resourceArn</a> - The Amazon Resource Name (ARN)
---   of the AWS CloudHSM resource to tag.
---   
---   <a>$sel:tagList:AddTagsToResource'</a>,
---   <a>addTagsToResource_tagList</a> - One or more tags.
-newAddTagsToResource :: Text -> AddTagsToResource
-
--- | <i>See:</i> <a>newAddTagsToResourceResponse</a> smart constructor.
-data AddTagsToResourceResponse
-AddTagsToResourceResponse' :: Int -> Text -> AddTagsToResourceResponse
-
--- | Create a value of <a>AddTagsToResourceResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:AddTagsToResourceResponse'</a>,
---   <a>addTagsToResourceResponse_httpStatus</a> - The response's http
---   status code.
---   
---   <a>$sel:status:AddTagsToResourceResponse'</a>,
---   <a>addTagsToResourceResponse_status</a> - The status of the operation.
-newAddTagsToResourceResponse :: Int -> Text -> AddTagsToResourceResponse
+--   <a>$sel:status:DeleteLunaClientResponse'</a>,
+--   <a>deleteLunaClientResponse_status</a> - The status of the action.
+newDeleteLunaClientResponse :: Int -> Text -> DeleteLunaClientResponse
 
 -- | Contains the inputs for the ModifyHsm operation.
 --   
@@ -3950,23 +4021,23 @@ ModifyHsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text
 --   <a>$sel:iamRoleArn:ModifyHsm'</a>, <a>modifyHsm_iamRoleArn</a> - The
 --   new IAM role ARN.
 --   
+--   <a>$sel:subnetId:ModifyHsm'</a>, <a>modifyHsm_subnetId</a> - The new
+--   identifier of the subnet that the HSM is in. The new subnet must be in
+--   the same Availability Zone as the current subnet.
+--   
+--   <a>$sel:syslogIp:ModifyHsm'</a>, <a>modifyHsm_syslogIp</a> - The new
+--   IP address for the syslog monitoring server. The AWS CloudHSM service
+--   only supports one syslog monitoring server.
+--   
+--   <a>$sel:externalId:ModifyHsm'</a>, <a>modifyHsm_externalId</a> - The
+--   new external ID.
+--   
 --   <a>$sel:eniIp:ModifyHsm'</a>, <a>modifyHsm_eniIp</a> - The new IP
 --   address for the elastic network interface (ENI) attached to the HSM.
 --   
 --   If the HSM is moved to a different subnet, and an IP address is not
 --   specified, an IP address will be randomly chosen from the CIDR range
 --   of the new subnet.
---   
---   <a>$sel:syslogIp:ModifyHsm'</a>, <a>modifyHsm_syslogIp</a> - The new
---   IP address for the syslog monitoring server. The AWS CloudHSM service
---   only supports one syslog monitoring server.
---   
---   <a>$sel:subnetId:ModifyHsm'</a>, <a>modifyHsm_subnetId</a> - The new
---   identifier of the subnet that the HSM is in. The new subnet must be in
---   the same Availability Zone as the current subnet.
---   
---   <a>$sel:externalId:ModifyHsm'</a>, <a>modifyHsm_externalId</a> - The
---   new external ID.
 --   
 --   <a>$sel:hsmArn:ModifyHsm'</a>, <a>modifyHsm_hsmArn</a> - The ARN of
 --   the HSM to modify.
@@ -3994,96 +4065,24 @@ ModifyHsmResponse' :: Maybe Text -> Int -> ModifyHsmResponse
 --   <a>modifyHsmResponse_httpStatus</a> - The response's http status code.
 newModifyHsmResponse :: Int -> ModifyHsmResponse
 
--- | Contains the inputs for the <tt>CreateHsm</tt> operation.
+-- | Contains the inputs for the ListAvailableZones action.
 --   
---   <i>See:</i> <a>newCreateHsm</a> smart constructor.
-data CreateHsm
-CreateHsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Text -> Text -> Text -> SubscriptionType -> CreateHsm
+--   <i>See:</i> <a>newListAvailableZones</a> smart constructor.
+data ListAvailableZones
+ListAvailableZones' :: ListAvailableZones
 
--- | Create a value of <a>CreateHsm</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:eniIp:CreateHsm'</a>, <a>createHsm_eniIp</a> - The IP address
---   to assign to the HSM's ENI.
---   
---   If an IP address is not specified, an IP address will be randomly
---   chosen from the CIDR range of the subnet.
---   
---   <a>$sel:syslogIp:CreateHsm'</a>, <a>createHsm_syslogIp</a> - The IP
---   address for the syslog monitoring server. The AWS CloudHSM service
---   only supports one syslog monitoring server.
---   
---   <a>$sel:externalId:CreateHsm'</a>, <a>createHsm_externalId</a> - The
---   external ID from <tt>IamRoleArn</tt>, if present.
---   
---   <a>$sel:clientToken:CreateHsm'</a>, <a>createHsm_clientToken</a> - A
---   user-defined token to ensure idempotence. Subsequent calls to this
---   operation with the same token will be ignored.
---   
---   <a>$sel:subnetId:CreateHsm'</a>, <a>createHsm_subnetId</a> - The
---   identifier of the subnet in your VPC in which to place the HSM.
---   
---   <a>$sel:sshKey:CreateHsm'</a>, <a>createHsm_sshKey</a> - The SSH
---   public key to install on the HSM.
---   
---   <a>$sel:iamRoleArn:CreateHsm'</a>, <a>createHsm_iamRoleArn</a> - The
---   ARN of an IAM role to enable the AWS CloudHSM service to allocate an
---   ENI on your behalf.
---   
---   <a>$sel:subscriptionType:CreateHsm'</a>,
---   <a>createHsm_subscriptionType</a> - Undocumented member.
-newCreateHsm :: Text -> Text -> Text -> SubscriptionType -> CreateHsm
-
--- | Contains the output of the <tt>CreateHsm</tt> operation.
---   
---   <i>See:</i> <a>newCreateHsmResponse</a> smart constructor.
-data CreateHsmResponse
-CreateHsmResponse' :: Maybe Text -> Int -> CreateHsmResponse
-
--- | Create a value of <a>CreateHsmResponse</a> with all optional fields
+-- | Create a value of <a>ListAvailableZones</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:hsmArn:CreateHsmResponse'</a>, <a>createHsmResponse_hsmArn</a>
---   - The ARN of the HSM.
---   
---   <a>$sel:httpStatus:CreateHsmResponse'</a>,
---   <a>createHsmResponse_httpStatus</a> - The response's http status code.
-newCreateHsmResponse :: Int -> CreateHsmResponse
+newListAvailableZones :: ListAvailableZones
 
--- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
-data ListTagsForResource
-ListTagsForResource' :: Text -> ListTagsForResource
+-- | <i>See:</i> <a>newListAvailableZonesResponse</a> smart constructor.
+data ListAvailableZonesResponse
+ListAvailableZonesResponse' :: Maybe [Text] -> Int -> ListAvailableZonesResponse
 
--- | Create a value of <a>ListTagsForResource</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:resourceArn:ListTagsForResource'</a>,
---   <a>listTagsForResource_resourceArn</a> - The Amazon Resource Name
---   (ARN) of the AWS CloudHSM resource.
-newListTagsForResource :: Text -> ListTagsForResource
-
--- | <i>See:</i> <a>newListTagsForResourceResponse</a> smart constructor.
-data ListTagsForResourceResponse
-ListTagsForResourceResponse' :: Int -> [Tag] -> ListTagsForResourceResponse
-
--- | Create a value of <a>ListTagsForResourceResponse</a> with all optional
+-- | Create a value of <a>ListAvailableZonesResponse</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -4092,13 +4091,14 @@ ListTagsForResourceResponse' :: Int -> [Tag] -> ListTagsForResourceResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:ListTagsForResourceResponse'</a>,
---   <a>listTagsForResourceResponse_httpStatus</a> - The response's http
---   status code.
+--   <a>$sel:aZList:ListAvailableZonesResponse'</a>,
+--   <a>listAvailableZonesResponse_aZList</a> - The list of Availability
+--   Zones that have available AWS CloudHSM capacity.
 --   
---   <a>$sel:tagList:ListTagsForResourceResponse'</a>,
---   <a>listTagsForResourceResponse_tagList</a> - One or more tags.
-newListTagsForResourceResponse :: Int -> ListTagsForResourceResponse
+--   <a>$sel:httpStatus:ListAvailableZonesResponse'</a>,
+--   <a>listAvailableZonesResponse_httpStatus</a> - The response's http
+--   status code.
+newListAvailableZonesResponse :: Int -> ListAvailableZonesResponse
 newtype ClientVersion
 ClientVersion' :: Text -> ClientVersion
 [fromClientVersion] :: ClientVersion -> Text

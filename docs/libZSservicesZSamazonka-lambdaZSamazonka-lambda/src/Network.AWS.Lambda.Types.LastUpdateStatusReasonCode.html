@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-39"></span><span>
-</span><span id="line-40"></span><span id="local-6989586621679291813"><span id="local-6989586621679291814"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LastUpdateStatusReasonCode"><span class="annot"><a href="Network.AWS.Lambda.Types.LastUpdateStatusReasonCode.html#LastUpdateStatusReasonCode"><span class="hs-identifier hs-var">LastUpdateStatusReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LastUpdateStatusReasonCode%27"><span class="annot"><a href="Network.AWS.Lambda.Types.LastUpdateStatusReasonCode.html#LastUpdateStatusReasonCode%27"><span class="hs-identifier hs-var">LastUpdateStatusReasonCode'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679296656"><span id="local-6989586621679296657"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LastUpdateStatusReasonCode"><span class="annot"><a href="Network.AWS.Lambda.Types.LastUpdateStatusReasonCode.html#LastUpdateStatusReasonCode"><span class="hs-identifier hs-var">LastUpdateStatusReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LastUpdateStatusReasonCode%27"><span class="annot"><a href="Network.AWS.Lambda.Types.LastUpdateStatusReasonCode.html#LastUpdateStatusReasonCode%27"><span class="hs-identifier hs-var">LastUpdateStatusReasonCode'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLastUpdateStatusReasonCode"><span class="annot"><span class="annottext">LastUpdateStatusReasonCode -&gt; Text
 </span><a href="Network.AWS.Lambda.Types.LastUpdateStatusReasonCode.html#fromLastUpdateStatusReasonCode"><span class="hs-identifier hs-var hs-var">fromLastUpdateStatusReasonCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679291805"><span id="local-6989586621679291807"><span id="local-6989586621679291809"><span class="annot"><span class="annottext">Int -&gt; LastUpdateStatusReasonCode -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679296648"><span id="local-6989586621679296650"><span id="local-6989586621679296652"><span class="annot"><span class="annottext">Int -&gt; LastUpdateStatusReasonCode -&gt; ShowS
 [LastUpdateStatusReasonCode] -&gt; ShowS
 LastUpdateStatusReasonCode -&gt; String
 (Int -&gt; LastUpdateStatusReasonCode -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: LastUpdateStatusReasonCode -&gt; String
 showsPrec :: Int -&gt; LastUpdateStatusReasonCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; LastUpdateStatusReasonCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679291796"><span id="local-6989586621679291798"><span id="local-6989586621679291800"><span id="local-6989586621679291802"><span class="annot"><span class="annottext">ReadPrec [LastUpdateStatusReasonCode]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679296639"><span id="local-6989586621679296641"><span id="local-6989586621679296643"><span id="local-6989586621679296645"><span class="annot"><span class="annottext">ReadPrec [LastUpdateStatusReasonCode]
 ReadPrec LastUpdateStatusReasonCode
 Int -&gt; ReadS LastUpdateStatusReasonCode
 ReadS [LastUpdateStatusReasonCode]
@@ -80,7 +80,7 @@ $creadList :: ReadS [LastUpdateStatusReasonCode]
 readsPrec :: Int -&gt; ReadS LastUpdateStatusReasonCode
 $creadsPrec :: Int -&gt; ReadS LastUpdateStatusReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679291791"><span id="local-6989586621679291793"><span class="annot"><span class="annottext">LastUpdateStatusReasonCode -&gt; LastUpdateStatusReasonCode -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679296634"><span id="local-6989586621679296636"><span class="annot"><span class="annottext">LastUpdateStatusReasonCode -&gt; LastUpdateStatusReasonCode -&gt; Bool
 (LastUpdateStatusReasonCode -&gt; LastUpdateStatusReasonCode -&gt; Bool)
 -&gt; (LastUpdateStatusReasonCode
     -&gt; LastUpdateStatusReasonCode -&gt; Bool)
@@ -91,7 +91,7 @@ $c/= :: LastUpdateStatusReasonCode -&gt; LastUpdateStatusReasonCode -&gt; Bool
 == :: LastUpdateStatusReasonCode -&gt; LastUpdateStatusReasonCode -&gt; Bool
 $c== :: LastUpdateStatusReasonCode -&gt; LastUpdateStatusReasonCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679291775"><span id="local-6989586621679291777"><span id="local-6989586621679291779"><span id="local-6989586621679291781"><span id="local-6989586621679291783"><span id="local-6989586621679291785"><span id="local-6989586621679291787"><span class="annot"><span class="annottext">Eq LastUpdateStatusReasonCode
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679296618"><span id="local-6989586621679296620"><span id="local-6989586621679296622"><span id="local-6989586621679296624"><span id="local-6989586621679296626"><span id="local-6989586621679296628"><span id="local-6989586621679296630"><span class="annot"><span class="annottext">Eq LastUpdateStatusReasonCode
 Eq LastUpdateStatusReasonCode
 -&gt; (LastUpdateStatusReasonCode
     -&gt; LastUpdateStatusReasonCode -&gt; Ordering)
@@ -163,7 +163,7 @@ LastUpdateStatusReasonCode -&gt; Rep LastUpdateStatusReasonCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679291767"><span id="local-6989586621679291769"><span class="annot"><span class="annottext">Int -&gt; LastUpdateStatusReasonCode -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679296610"><span id="local-6989586621679296612"><span class="annot"><span class="annottext">Int -&gt; LastUpdateStatusReasonCode -&gt; Int
 LastUpdateStatusReasonCode -&gt; Int
 (Int -&gt; LastUpdateStatusReasonCode -&gt; Int)
 -&gt; (LastUpdateStatusReasonCode -&gt; Int)
@@ -174,56 +174,56 @@ $chash :: LastUpdateStatusReasonCode -&gt; Int
 hashWithSalt :: Int -&gt; LastUpdateStatusReasonCode -&gt; Int
 $chashWithSalt :: Int -&gt; LastUpdateStatusReasonCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679291764"><span class="annot"><span class="annottext">LastUpdateStatusReasonCode -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679296607"><span class="annot"><span class="annottext">LastUpdateStatusReasonCode -&gt; ()
 (LastUpdateStatusReasonCode -&gt; ())
 -&gt; NFData LastUpdateStatusReasonCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LastUpdateStatusReasonCode -&gt; ()
 $crnf :: LastUpdateStatusReasonCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679291761"><span class="annot"><span class="annottext">Text -&gt; Either String LastUpdateStatusReasonCode
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679296604"><span class="annot"><span class="annottext">Text -&gt; Either String LastUpdateStatusReasonCode
 (Text -&gt; Either String LastUpdateStatusReasonCode)
 -&gt; FromText LastUpdateStatusReasonCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LastUpdateStatusReasonCode
 $cfromText :: Text -&gt; Either String LastUpdateStatusReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679291758"><span class="annot"><span class="annottext">LastUpdateStatusReasonCode -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679296601"><span class="annot"><span class="annottext">LastUpdateStatusReasonCode -&gt; Text
 (LastUpdateStatusReasonCode -&gt; Text)
 -&gt; ToText LastUpdateStatusReasonCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LastUpdateStatusReasonCode -&gt; Text
 $ctoText :: LastUpdateStatusReasonCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679291755"><span class="annot"><span class="annottext">LastUpdateStatusReasonCode -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679296598"><span class="annot"><span class="annottext">LastUpdateStatusReasonCode -&gt; ByteString
 (LastUpdateStatusReasonCode -&gt; ByteString)
 -&gt; ToByteString LastUpdateStatusReasonCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LastUpdateStatusReasonCode -&gt; ByteString
 $ctoBS :: LastUpdateStatusReasonCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679291752"><span class="annot"><span class="annottext">LastUpdateStatusReasonCode -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679296595"><span class="annot"><span class="annottext">LastUpdateStatusReasonCode -&gt; ByteStringBuilder
 (LastUpdateStatusReasonCode -&gt; ByteStringBuilder)
 -&gt; ToLog LastUpdateStatusReasonCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LastUpdateStatusReasonCode -&gt; ByteStringBuilder
 $cbuild :: LastUpdateStatusReasonCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679291749"><span class="annot"><span class="annottext">HeaderName -&gt; LastUpdateStatusReasonCode -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679296592"><span class="annot"><span class="annottext">HeaderName -&gt; LastUpdateStatusReasonCode -&gt; [Header]
 (HeaderName -&gt; LastUpdateStatusReasonCode -&gt; [Header])
 -&gt; ToHeader LastUpdateStatusReasonCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LastUpdateStatusReasonCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LastUpdateStatusReasonCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679291746"><span class="annot"><span class="annottext">LastUpdateStatusReasonCode -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679296589"><span class="annot"><span class="annottext">LastUpdateStatusReasonCode -&gt; QueryString
 (LastUpdateStatusReasonCode -&gt; QueryString)
 -&gt; ToQuery LastUpdateStatusReasonCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LastUpdateStatusReasonCode -&gt; QueryString
 $ctoQuery :: LastUpdateStatusReasonCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679291741"><span id="local-6989586621679291743"><span class="annot"><span class="annottext">Value -&gt; Parser [LastUpdateStatusReasonCode]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679296584"><span id="local-6989586621679296586"><span class="annot"><span class="annottext">Value -&gt; Parser [LastUpdateStatusReasonCode]
 Value -&gt; Parser LastUpdateStatusReasonCode
 (Value -&gt; Parser LastUpdateStatusReasonCode)
 -&gt; (Value -&gt; Parser [LastUpdateStatusReasonCode])
@@ -235,7 +235,7 @@ $cparseJSONList :: Value -&gt; Parser [LastUpdateStatusReasonCode]
 parseJSON :: Value -&gt; Parser LastUpdateStatusReasonCode
 $cparseJSON :: Value -&gt; Parser LastUpdateStatusReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679291736"><span id="local-6989586621679291738"><span class="annot"><span class="annottext">FromJSONKeyFunction [LastUpdateStatusReasonCode]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679296579"><span id="local-6989586621679296581"><span class="annot"><span class="annottext">FromJSONKeyFunction [LastUpdateStatusReasonCode]
 FromJSONKeyFunction LastUpdateStatusReasonCode
 FromJSONKeyFunction LastUpdateStatusReasonCode
 -&gt; FromJSONKeyFunction [LastUpdateStatusReasonCode]
@@ -247,7 +247,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LastUpdateStatusReasonCode]
 fromJSONKey :: FromJSONKeyFunction LastUpdateStatusReasonCode
 $cfromJSONKey :: FromJSONKeyFunction LastUpdateStatusReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679291727"><span id="local-6989586621679291729"><span id="local-6989586621679291731"><span id="local-6989586621679291733"><span class="annot"><span class="annottext">[LastUpdateStatusReasonCode] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679296570"><span id="local-6989586621679296572"><span id="local-6989586621679296574"><span id="local-6989586621679296576"><span class="annot"><span class="annottext">[LastUpdateStatusReasonCode] -&gt; Encoding
 [LastUpdateStatusReasonCode] -&gt; Value
 LastUpdateStatusReasonCode -&gt; Encoding
 LastUpdateStatusReasonCode -&gt; Value
@@ -271,7 +271,7 @@ $ctoEncoding :: LastUpdateStatusReasonCode -&gt; Encoding
 toJSON :: LastUpdateStatusReasonCode -&gt; Value
 $ctoJSON :: LastUpdateStatusReasonCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679291722"><span id="local-6989586621679291724"><span class="annot"><span class="annottext">ToJSONKeyFunction [LastUpdateStatusReasonCode]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679296565"><span id="local-6989586621679296567"><span class="annot"><span class="annottext">ToJSONKeyFunction [LastUpdateStatusReasonCode]
 ToJSONKeyFunction LastUpdateStatusReasonCode
 ToJSONKeyFunction LastUpdateStatusReasonCode
 -&gt; ToJSONKeyFunction [LastUpdateStatusReasonCode]
@@ -283,14 +283,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LastUpdateStatusReasonCode]
 toJSONKey :: ToJSONKeyFunction LastUpdateStatusReasonCode
 $ctoJSONKey :: ToJSONKeyFunction LastUpdateStatusReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679291719"><span class="annot"><span class="annottext">[Node] -&gt; Either String LastUpdateStatusReasonCode
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679296562"><span class="annot"><span class="annottext">[Node] -&gt; Either String LastUpdateStatusReasonCode
 ([Node] -&gt; Either String LastUpdateStatusReasonCode)
 -&gt; FromXML LastUpdateStatusReasonCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LastUpdateStatusReasonCode
 $cparseXML :: [Node] -&gt; Either String LastUpdateStatusReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679291716"><span class="annot"><span class="annottext">LastUpdateStatusReasonCode -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679296559"><span class="annot"><span class="annottext">LastUpdateStatusReasonCode -&gt; XML
 (LastUpdateStatusReasonCode -&gt; XML)
 -&gt; ToXML LastUpdateStatusReasonCode
 forall a. (a -&gt; XML) -&gt; ToXML a

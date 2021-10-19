@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679362546"><span id="local-6989586621679362547"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DevicePoolType"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePoolType.html#DevicePoolType"><span class="hs-identifier hs-var">DevicePoolType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DevicePoolType%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePoolType.html#DevicePoolType%27"><span class="hs-identifier hs-var">DevicePoolType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679362781"><span id="local-6989586621679362782"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DevicePoolType"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePoolType.html#DevicePoolType"><span class="hs-identifier hs-var">DevicePoolType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DevicePoolType%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePoolType.html#DevicePoolType%27"><span class="hs-identifier hs-var">DevicePoolType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDevicePoolType"><span class="annot"><span class="annottext">DevicePoolType -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.Types.DevicePoolType.html#fromDevicePoolType"><span class="hs-identifier hs-var hs-var">fromDevicePoolType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679362538"><span id="local-6989586621679362540"><span id="local-6989586621679362542"><span class="annot"><span class="annottext">Int -&gt; DevicePoolType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679362773"><span id="local-6989586621679362775"><span id="local-6989586621679362777"><span class="annot"><span class="annottext">Int -&gt; DevicePoolType -&gt; ShowS
 [DevicePoolType] -&gt; ShowS
 DevicePoolType -&gt; String
 (Int -&gt; DevicePoolType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DevicePoolType -&gt; String
 showsPrec :: Int -&gt; DevicePoolType -&gt; ShowS
 $cshowsPrec :: Int -&gt; DevicePoolType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679362529"><span id="local-6989586621679362531"><span id="local-6989586621679362533"><span id="local-6989586621679362535"><span class="annot"><span class="annottext">ReadPrec [DevicePoolType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679362764"><span id="local-6989586621679362766"><span id="local-6989586621679362768"><span id="local-6989586621679362770"><span class="annot"><span class="annottext">ReadPrec [DevicePoolType]
 ReadPrec DevicePoolType
 Int -&gt; ReadS DevicePoolType
 ReadS [DevicePoolType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DevicePoolType]
 readsPrec :: Int -&gt; ReadS DevicePoolType
 $creadsPrec :: Int -&gt; ReadS DevicePoolType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679362524"><span id="local-6989586621679362526"><span class="annot"><span class="annottext">DevicePoolType -&gt; DevicePoolType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679362759"><span id="local-6989586621679362761"><span class="annot"><span class="annottext">DevicePoolType -&gt; DevicePoolType -&gt; Bool
 (DevicePoolType -&gt; DevicePoolType -&gt; Bool)
 -&gt; (DevicePoolType -&gt; DevicePoolType -&gt; Bool) -&gt; Eq DevicePoolType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: DevicePoolType -&gt; DevicePoolType -&gt; Bool
 == :: DevicePoolType -&gt; DevicePoolType -&gt; Bool
 $c== :: DevicePoolType -&gt; DevicePoolType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679362508"><span id="local-6989586621679362510"><span id="local-6989586621679362512"><span id="local-6989586621679362514"><span id="local-6989586621679362516"><span id="local-6989586621679362518"><span id="local-6989586621679362520"><span class="annot"><span class="annottext">Eq DevicePoolType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679362743"><span id="local-6989586621679362745"><span id="local-6989586621679362747"><span id="local-6989586621679362749"><span id="local-6989586621679362751"><span id="local-6989586621679362753"><span id="local-6989586621679362755"><span class="annot"><span class="annottext">Eq DevicePoolType
 Eq DevicePoolType
 -&gt; (DevicePoolType -&gt; DevicePoolType -&gt; Ordering)
 -&gt; (DevicePoolType -&gt; DevicePoolType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. DevicePoolType -&gt; Rep DevicePoolType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679362500"><span id="local-6989586621679362502"><span class="annot"><span class="annottext">Int -&gt; DevicePoolType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679362735"><span id="local-6989586621679362737"><span class="annot"><span class="annottext">Int -&gt; DevicePoolType -&gt; Int
 DevicePoolType -&gt; Int
 (Int -&gt; DevicePoolType -&gt; Int)
 -&gt; (DevicePoolType -&gt; Int) -&gt; Hashable DevicePoolType
@@ -142,50 +142,50 @@ $chash :: DevicePoolType -&gt; Int
 hashWithSalt :: Int -&gt; DevicePoolType -&gt; Int
 $chashWithSalt :: Int -&gt; DevicePoolType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679362497"><span class="annot"><span class="annottext">DevicePoolType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679362732"><span class="annot"><span class="annottext">DevicePoolType -&gt; ()
 (DevicePoolType -&gt; ()) -&gt; NFData DevicePoolType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DevicePoolType -&gt; ()
 $crnf :: DevicePoolType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679362494"><span class="annot"><span class="annottext">Text -&gt; Either String DevicePoolType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679362729"><span class="annot"><span class="annottext">Text -&gt; Either String DevicePoolType
 (Text -&gt; Either String DevicePoolType) -&gt; FromText DevicePoolType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DevicePoolType
 $cfromText :: Text -&gt; Either String DevicePoolType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679362491"><span class="annot"><span class="annottext">DevicePoolType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679362726"><span class="annot"><span class="annottext">DevicePoolType -&gt; Text
 (DevicePoolType -&gt; Text) -&gt; ToText DevicePoolType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DevicePoolType -&gt; Text
 $ctoText :: DevicePoolType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679362488"><span class="annot"><span class="annottext">DevicePoolType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679362723"><span class="annot"><span class="annottext">DevicePoolType -&gt; ByteString
 (DevicePoolType -&gt; ByteString) -&gt; ToByteString DevicePoolType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DevicePoolType -&gt; ByteString
 $ctoBS :: DevicePoolType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679362485"><span class="annot"><span class="annottext">DevicePoolType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679362720"><span class="annot"><span class="annottext">DevicePoolType -&gt; ByteStringBuilder
 (DevicePoolType -&gt; ByteStringBuilder) -&gt; ToLog DevicePoolType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DevicePoolType -&gt; ByteStringBuilder
 $cbuild :: DevicePoolType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679362482"><span class="annot"><span class="annottext">HeaderName -&gt; DevicePoolType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679362717"><span class="annot"><span class="annottext">HeaderName -&gt; DevicePoolType -&gt; [Header]
 (HeaderName -&gt; DevicePoolType -&gt; [Header])
 -&gt; ToHeader DevicePoolType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DevicePoolType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DevicePoolType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679362479"><span class="annot"><span class="annottext">DevicePoolType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679362714"><span class="annot"><span class="annottext">DevicePoolType -&gt; QueryString
 (DevicePoolType -&gt; QueryString) -&gt; ToQuery DevicePoolType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DevicePoolType -&gt; QueryString
 $ctoQuery :: DevicePoolType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679362474"><span id="local-6989586621679362476"><span class="annot"><span class="annottext">Value -&gt; Parser [DevicePoolType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679362709"><span id="local-6989586621679362711"><span class="annot"><span class="annottext">Value -&gt; Parser [DevicePoolType]
 Value -&gt; Parser DevicePoolType
 (Value -&gt; Parser DevicePoolType)
 -&gt; (Value -&gt; Parser [DevicePoolType]) -&gt; FromJSON DevicePoolType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [DevicePoolType]
 parseJSON :: Value -&gt; Parser DevicePoolType
 $cparseJSON :: Value -&gt; Parser DevicePoolType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679362469"><span id="local-6989586621679362471"><span class="annot"><span class="annottext">FromJSONKeyFunction [DevicePoolType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679362704"><span id="local-6989586621679362706"><span class="annot"><span class="annottext">FromJSONKeyFunction [DevicePoolType]
 FromJSONKeyFunction DevicePoolType
 FromJSONKeyFunction DevicePoolType
 -&gt; FromJSONKeyFunction [DevicePoolType]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DevicePoolType]
 fromJSONKey :: FromJSONKeyFunction DevicePoolType
 $cfromJSONKey :: FromJSONKeyFunction DevicePoolType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679362460"><span id="local-6989586621679362462"><span id="local-6989586621679362464"><span id="local-6989586621679362466"><span class="annot"><span class="annottext">[DevicePoolType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679362695"><span id="local-6989586621679362697"><span id="local-6989586621679362699"><span id="local-6989586621679362701"><span class="annot"><span class="annottext">[DevicePoolType] -&gt; Encoding
 [DevicePoolType] -&gt; Value
 DevicePoolType -&gt; Encoding
 DevicePoolType -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: DevicePoolType -&gt; Encoding
 toJSON :: DevicePoolType -&gt; Value
 $ctoJSON :: DevicePoolType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679362455"><span id="local-6989586621679362457"><span class="annot"><span class="annottext">ToJSONKeyFunction [DevicePoolType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679362690"><span id="local-6989586621679362692"><span class="annot"><span class="annottext">ToJSONKeyFunction [DevicePoolType]
 ToJSONKeyFunction DevicePoolType
 ToJSONKeyFunction DevicePoolType
 -&gt; ToJSONKeyFunction [DevicePoolType] -&gt; ToJSONKey DevicePoolType
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DevicePoolType]
 toJSONKey :: ToJSONKeyFunction DevicePoolType
 $ctoJSONKey :: ToJSONKeyFunction DevicePoolType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679362452"><span class="annot"><span class="annottext">[Node] -&gt; Either String DevicePoolType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679362687"><span class="annot"><span class="annottext">[Node] -&gt; Either String DevicePoolType
 ([Node] -&gt; Either String DevicePoolType) -&gt; FromXML DevicePoolType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DevicePoolType
 $cparseXML :: [Node] -&gt; Either String DevicePoolType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679362449"><span class="annot"><span class="annottext">DevicePoolType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679362684"><span class="annot"><span class="annottext">DevicePoolType -&gt; XML
 (DevicePoolType -&gt; XML) -&gt; ToXML DevicePoolType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DevicePoolType -&gt; XML

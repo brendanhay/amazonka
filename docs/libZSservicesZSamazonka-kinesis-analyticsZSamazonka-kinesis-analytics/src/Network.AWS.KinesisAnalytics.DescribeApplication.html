@@ -65,12 +65,12 @@
 </span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- /See:/ 'newDescribeApplication' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679213053"><span id="local-6989586621679213054"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeApplication"><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication"><span class="hs-identifier hs-var">DescribeApplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeApplication%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication%27"><span class="hs-identifier hs-var">DescribeApplication'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679213167"><span id="local-6989586621679213168"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeApplication"><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication"><span class="hs-identifier hs-var">DescribeApplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeApplication%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication%27"><span class="hs-identifier hs-var">DescribeApplication'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of the application.</span><span>
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AapplicationName%3ADescribeApplication%27"><span class="annot"><span class="annottext">DescribeApplication -&gt; Text
 </span><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#%24sel%3AapplicationName%3ADescribeApplication%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213047"><span id="local-6989586621679213049"><span class="annot"><span class="annottext">DescribeApplication -&gt; DescribeApplication -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213161"><span id="local-6989586621679213163"><span class="annot"><span class="annottext">DescribeApplication -&gt; DescribeApplication -&gt; Bool
 (DescribeApplication -&gt; DescribeApplication -&gt; Bool)
 -&gt; (DescribeApplication -&gt; DescribeApplication -&gt; Bool)
 -&gt; Eq DescribeApplication
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeApplication -&gt; DescribeApplication -&gt; Bool
 == :: DescribeApplication -&gt; DescribeApplication -&gt; Bool
 $c== :: DescribeApplication -&gt; DescribeApplication -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213038"><span id="local-6989586621679213040"><span id="local-6989586621679213042"><span id="local-6989586621679213044"><span class="annot"><span class="annottext">ReadPrec [DescribeApplication]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213152"><span id="local-6989586621679213154"><span id="local-6989586621679213156"><span id="local-6989586621679213158"><span class="annot"><span class="annottext">ReadPrec [DescribeApplication]
 ReadPrec DescribeApplication
 Int -&gt; ReadS DescribeApplication
 ReadS [DescribeApplication]
@@ -99,7 +99,7 @@ readList :: ReadS [DescribeApplication]
 $creadList :: ReadS [DescribeApplication]
 readsPrec :: Int -&gt; ReadS DescribeApplication
 $creadsPrec :: Int -&gt; ReadS DescribeApplication
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213031"><span id="local-6989586621679213033"><span id="local-6989586621679213035"><span class="annot"><span class="annottext">Int -&gt; DescribeApplication -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213145"><span id="local-6989586621679213147"><span id="local-6989586621679213149"><span class="annot"><span class="annottext">Int -&gt; DescribeApplication -&gt; ShowS
 [DescribeApplication] -&gt; ShowS
 DescribeApplication -&gt; String
 (Int -&gt; DescribeApplication -&gt; ShowS)
@@ -139,14 +139,14 @@ $cfrom :: forall x. DescribeApplication -&gt; Rep DescribeApplication x
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication"><span class="hs-identifier hs-type">DescribeApplication</span></a></span><span>
 </span><span id="line-87"></span><span id="newDescribeApplication"><span class="annot"><span class="annottext">newDescribeApplication :: Text -&gt; DescribeApplication
-</span><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#newDescribeApplication"><span class="hs-identifier hs-var hs-var">newDescribeApplication</span></a></span></span><span> </span><span id="local-6989586621679213026"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213026"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#newDescribeApplication"><span class="hs-identifier hs-var hs-var">newDescribeApplication</span></a></span></span><span> </span><span id="local-6989586621679213140"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213140"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">DescribeApplication' :: Text -&gt; DescribeApplication
 </span><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication%27"><span class="hs-identifier hs-type">DescribeApplication'</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationName:DescribeApplication' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#%24sel%3AapplicationName%3ADescribeApplication%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213026"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span>
+</span><a href="#local-6989586621679213140"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | Name of the application.</span><span>
@@ -156,27 +156,27 @@ $cfrom :: forall x. DescribeApplication -&gt; Rep DescribeApplication x
 -&gt; (DescribeApplication -&gt; Text -&gt; DescribeApplication)
 -&gt; Lens DescribeApplication DescribeApplication Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication%27"><span class="hs-identifier hs-type">DescribeApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213023"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication%27"><span class="hs-identifier hs-type">DescribeApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213137"><span class="annot"><span class="annottext">Text
 applicationName :: Text
 $sel:applicationName:DescribeApplication' :: DescribeApplication -&gt; Text
-</span><a href="#local-6989586621679213023"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213023"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213022"><span class="annot"><span class="annottext">s :: DescribeApplication
-</span><a href="#local-6989586621679213022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication%27"><span class="hs-identifier hs-type">DescribeApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213021"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplication
-</span><a href="#local-6989586621679213022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:DescribeApplication' :: Text
+</span><a href="#local-6989586621679213137"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213137"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213136"><span class="annot"><span class="annottext">s :: DescribeApplication
+</span><a href="#local-6989586621679213136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication%27"><span class="hs-identifier hs-type">DescribeApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213135"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplication
+</span><a href="#local-6989586621679213136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:DescribeApplication' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#%24sel%3AapplicationName%3ADescribeApplication%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication"><span class="hs-identifier hs-type">DescribeApplication</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication"><span class="hs-identifier hs-type">DescribeApplication</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication"><span class="hs-identifier hs-type">DescribeApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication"><span class="hs-identifier hs-type">DescribeApplication</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse"><span class="hs-identifier hs-type">DescribeApplicationResponse</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679213017"><span class="annot"><span class="annottext">request :: DescribeApplication -&gt; Request DescribeApplication
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679213131"><span class="annot"><span class="annottext">request :: DescribeApplication -&gt; Request DescribeApplication
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeApplication -&gt; Request DescribeApplication
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KinesisAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679213013"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679213127"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeApplication
 -&gt; ClientResponse ClientBody
@@ -202,10 +202,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679213010"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679213010"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679213009"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679213009"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679213008"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213008"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679213124"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679213124"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679213123"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679213123"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679213122"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213122"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ApplicationDetail -&gt; DescribeApplicationResponse
 </span><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse%27"><span class="hs-identifier hs-var">DescribeApplicationResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ApplicationDetail -&gt; DescribeApplicationResponse)
@@ -217,24 +217,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679213010"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213124"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either String (ApplicationDetail -&gt; DescribeApplicationResponse)
 -&gt; Either String ApplicationDetail
 -&gt; Either String DescribeApplicationResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String ApplicationDetail
+</span><a href="#local-6989586621679213122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String ApplicationDetail
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ApplicationDetail&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213000"><span id="local-6989586621679213002"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication"><span class="hs-identifier hs-type">DescribeApplication</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213114"><span id="local-6989586621679213116"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication"><span class="hs-identifier hs-type">DescribeApplication</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212997"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication"><span class="hs-identifier hs-type">DescribeApplication</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication"><span class="hs-identifier hs-type">DescribeApplication</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication"><span class="hs-identifier hs-type">DescribeApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679212993"><span class="annot"><span class="annottext">toHeaders :: DescribeApplication -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679213107"><span class="annot"><span class="annottext">toHeaders :: DescribeApplication -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeApplication -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -261,12 +261,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212983"><span id="local-6989586621679212985"><span id="local-6989586621679212987"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication"><span class="hs-identifier hs-type">DescribeApplication</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679212981"><span class="annot"><span class="annottext">toJSON :: DescribeApplication -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication%27"><span class="hs-identifier hs-type">DescribeApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212979"><span class="annot"><span class="annottext">Text
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213097"><span id="local-6989586621679213099"><span id="local-6989586621679213101"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication"><span class="hs-identifier hs-type">DescribeApplication</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679213095"><span class="annot"><span class="annottext">toJSON :: DescribeApplication -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication%27"><span class="hs-identifier hs-type">DescribeApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213093"><span class="annot"><span class="annottext">Text
 applicationName :: Text
 $sel:applicationName:DescribeApplication' :: DescribeApplication -&gt; Text
-</span><a href="#local-6989586621679212979"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679213093"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -279,19 +279,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ApplicationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679212979"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213093"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication"><span class="hs-identifier hs-type">DescribeApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679212973"><span class="annot"><span class="annottext">toPath :: DescribeApplication -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679213087"><span class="annot"><span class="annottext">toPath :: DescribeApplication -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeApplication -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplication"><span class="hs-identifier hs-type">DescribeApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679212969"><span class="annot"><span class="annottext">toQuery :: DescribeApplication -&gt; QueryString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679213083"><span class="annot"><span class="annottext">toQuery :: DescribeApplication -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeApplication -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -301,7 +301,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-144"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-145"></span><span class="hs-comment">--</span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- /See:/ 'newDescribeApplicationResponse' smart constructor.</span><span>
-</span><span id="line-147"></span><span id="local-6989586621679212966"><span id="local-6989586621679212967"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeApplicationResponse"><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse"><span class="hs-identifier hs-var">DescribeApplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeApplicationResponse%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse%27"><span class="hs-identifier hs-var">DescribeApplicationResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span id="local-6989586621679213080"><span id="local-6989586621679213081"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeApplicationResponse"><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse"><span class="hs-identifier hs-var">DescribeApplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeApplicationResponse%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse%27"><span class="hs-identifier hs-var">DescribeApplicationResponse'</span></a></span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeApplicationResponse%27"><span class="annot"><span class="annottext">DescribeApplicationResponse -&gt; Int
 </span><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#%24sel%3AhttpStatus%3ADescribeApplicationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -311,7 +311,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AapplicationDetail%3ADescribeApplicationResponse%27"><span class="annot"><span class="annottext">DescribeApplicationResponse -&gt; ApplicationDetail
 </span><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#%24sel%3AapplicationDetail%3ADescribeApplicationResponse%27"><span class="hs-identifier hs-var hs-var">applicationDetail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ApplicationDetail.html#ApplicationDetail"><span class="hs-identifier hs-type">ApplicationDetail</span></a></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212960"><span id="local-6989586621679212962"><span class="annot"><span class="annottext">DescribeApplicationResponse -&gt; DescribeApplicationResponse -&gt; Bool
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213074"><span id="local-6989586621679213076"><span class="annot"><span class="annottext">DescribeApplicationResponse -&gt; DescribeApplicationResponse -&gt; Bool
 (DescribeApplicationResponse
  -&gt; DescribeApplicationResponse -&gt; Bool)
 -&gt; (DescribeApplicationResponse
@@ -322,7 +322,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeApplicationResponse -&gt; DescribeApplicationResponse -&gt; Bool
 == :: DescribeApplicationResponse -&gt; DescribeApplicationResponse -&gt; Bool
 $c== :: DescribeApplicationResponse -&gt; DescribeApplicationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212952"><span id="local-6989586621679212954"><span id="local-6989586621679212956"><span id="local-6989586621679212958"><span class="annot"><span class="annottext">ReadPrec [DescribeApplicationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213066"><span id="local-6989586621679213068"><span id="local-6989586621679213070"><span id="local-6989586621679213072"><span class="annot"><span class="annottext">ReadPrec [DescribeApplicationResponse]
 ReadPrec DescribeApplicationResponse
 Int -&gt; ReadS DescribeApplicationResponse
 ReadS [DescribeApplicationResponse]
@@ -342,7 +342,7 @@ readList :: ReadS [DescribeApplicationResponse]
 $creadList :: ReadS [DescribeApplicationResponse]
 readsPrec :: Int -&gt; ReadS DescribeApplicationResponse
 $creadsPrec :: Int -&gt; ReadS DescribeApplicationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212946"><span id="local-6989586621679212948"><span id="local-6989586621679212950"><span class="annot"><span class="annottext">Int -&gt; DescribeApplicationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213060"><span id="local-6989586621679213062"><span id="local-6989586621679213064"><span class="annot"><span class="annottext">Int -&gt; DescribeApplicationResponse -&gt; ShowS
 [DescribeApplicationResponse] -&gt; ShowS
 DescribeApplicationResponse -&gt; String
 (Int -&gt; DescribeApplicationResponse -&gt; ShowS)
@@ -395,19 +395,19 @@ DescribeApplicationResponse -&gt; Rep DescribeApplicationResponse x
 </span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse"><span class="hs-identifier hs-type">DescribeApplicationResponse</span></a></span><span>
 </span><span id="line-176"></span><span id="newDescribeApplicationResponse"><span class="annot"><span class="annottext">newDescribeApplicationResponse :: Int -&gt; ApplicationDetail -&gt; DescribeApplicationResponse
 </span><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#newDescribeApplicationResponse"><span class="hs-identifier hs-var hs-var">newDescribeApplicationResponse</span></a></span></span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679212943"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679212943"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679212942"><span class="annot"><span class="annottext">ApplicationDetail
-</span><a href="#local-6989586621679212942"><span class="hs-identifier hs-var">pApplicationDetail_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679213057"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679213057"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679213056"><span class="annot"><span class="annottext">ApplicationDetail
+</span><a href="#local-6989586621679213056"><span class="hs-identifier hs-var">pApplicationDetail_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">DescribeApplicationResponse' :: Int -&gt; ApplicationDetail -&gt; DescribeApplicationResponse
 </span><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse%27"><span class="hs-identifier hs-type">DescribeApplicationResponse'</span></a></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeApplicationResponse' :: Int
 </span><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#%24sel%3AhttpStatus%3ADescribeApplicationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679212943"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213057"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationDetail:DescribeApplicationResponse' :: ApplicationDetail
 </span><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#%24sel%3AapplicationDetail%3ADescribeApplicationResponse%27"><span class="hs-identifier hs-var">applicationDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ApplicationDetail
-</span><a href="#local-6989586621679212942"><span class="hs-identifier hs-var">pApplicationDetail_</span></a></span><span>
+</span><a href="#local-6989586621679213056"><span class="hs-identifier hs-var">pApplicationDetail_</span></a></span><span>
 </span><span id="line-183"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -420,16 +420,16 @@ DescribeApplicationResponse -&gt; Rep DescribeApplicationResponse x
 -&gt; Lens
      DescribeApplicationResponse DescribeApplicationResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse%27"><span class="hs-identifier hs-type">DescribeApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212941"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse%27"><span class="hs-identifier hs-type">DescribeApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213055"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeApplicationResponse' :: DescribeApplicationResponse -&gt; Int
-</span><a href="#local-6989586621679212941"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679212941"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212940"><span class="annot"><span class="annottext">s :: DescribeApplicationResponse
-</span><a href="#local-6989586621679212940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse%27"><span class="hs-identifier hs-type">DescribeApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212939"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679212939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationResponse
-</span><a href="#local-6989586621679212940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeApplicationResponse' :: Int
+</span><a href="#local-6989586621679213055"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679213055"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213054"><span class="annot"><span class="annottext">s :: DescribeApplicationResponse
+</span><a href="#local-6989586621679213054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse%27"><span class="hs-identifier hs-type">DescribeApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213053"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679213053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationResponse
+</span><a href="#local-6989586621679213054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeApplicationResponse' :: Int
 </span><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#%24sel%3AhttpStatus%3ADescribeApplicationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679212939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse"><span class="hs-identifier hs-type">DescribeApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse"><span class="hs-identifier hs-type">DescribeApplicationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | Provides a description of the application, such as the application</span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- Amazon Resource Name (ARN), status, latest version, and input and output</span><span>
@@ -446,16 +446,16 @@ $sel:httpStatus:DescribeApplicationResponse' :: DescribeApplicationResponse -&gt
      ApplicationDetail
      ApplicationDetail
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse%27"><span class="hs-identifier hs-type">DescribeApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212938"><span class="annot"><span class="annottext">ApplicationDetail
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse%27"><span class="hs-identifier hs-type">DescribeApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213052"><span class="annot"><span class="annottext">ApplicationDetail
 applicationDetail :: ApplicationDetail
 $sel:applicationDetail:DescribeApplicationResponse' :: DescribeApplicationResponse -&gt; ApplicationDetail
-</span><a href="#local-6989586621679212938"><span class="hs-identifier hs-var hs-var">applicationDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationDetail
-</span><a href="#local-6989586621679212938"><span class="hs-identifier hs-var">applicationDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212937"><span class="annot"><span class="annottext">s :: DescribeApplicationResponse
-</span><a href="#local-6989586621679212937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse%27"><span class="hs-identifier hs-type">DescribeApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212936"><span class="annot"><span class="annottext">ApplicationDetail
-</span><a href="#local-6989586621679212936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationResponse
-</span><a href="#local-6989586621679212937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationDetail:DescribeApplicationResponse' :: ApplicationDetail
+</span><a href="#local-6989586621679213052"><span class="hs-identifier hs-var hs-var">applicationDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationDetail
+</span><a href="#local-6989586621679213052"><span class="hs-identifier hs-var">applicationDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213051"><span class="annot"><span class="annottext">s :: DescribeApplicationResponse
+</span><a href="#local-6989586621679213051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse%27"><span class="hs-identifier hs-type">DescribeApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213050"><span class="annot"><span class="annottext">ApplicationDetail
+</span><a href="#local-6989586621679213050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationResponse
+</span><a href="#local-6989586621679213051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationDetail:DescribeApplicationResponse' :: ApplicationDetail
 </span><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#%24sel%3AapplicationDetail%3ADescribeApplicationResponse%27"><span class="hs-identifier hs-var">applicationDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ApplicationDetail
-</span><a href="#local-6989586621679212936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse"><span class="hs-identifier hs-type">DescribeApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse"><span class="hs-identifier hs-type">DescribeApplicationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212934"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse"><span class="hs-identifier hs-type">DescribeApplicationResponse</span></a></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213048"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.DescribeApplication.html#DescribeApplicationResponse"><span class="hs-identifier hs-type">DescribeApplicationResponse</span></a></span></span><span>
 </span><span id="line-196"></span></pre></body></html>

@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newExecuteBudgetAction' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679210472"><span id="local-6989586621679210473"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecuteBudgetAction"><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-var">ExecuteBudgetAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecuteBudgetAction%27"><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-var">ExecuteBudgetAction'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679210580"><span id="local-6989586621679210581"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecuteBudgetAction"><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-var">ExecuteBudgetAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecuteBudgetAction%27"><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-var">ExecuteBudgetAction'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AaccountId%3AExecuteBudgetAction%27"><span class="annot"><span class="annottext">ExecuteBudgetAction -&gt; Text
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AaccountId%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AbudgetName%3AExecuteBudgetAction%27"><span class="annot"><span class="annottext">ExecuteBudgetAction -&gt; Text
@@ -65,7 +65,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AexecutionType%3AExecuteBudgetAction%27"><span class="annot"><span class="annottext">ExecuteBudgetAction -&gt; ExecutionType
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AexecutionType%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var hs-var">executionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ExecutionType.html#ExecutionType"><span class="hs-identifier hs-type">ExecutionType</span></a></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210463"><span id="local-6989586621679210465"><span class="annot"><span class="annottext">ExecuteBudgetAction -&gt; ExecuteBudgetAction -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210571"><span id="local-6989586621679210573"><span class="annot"><span class="annottext">ExecuteBudgetAction -&gt; ExecuteBudgetAction -&gt; Bool
 (ExecuteBudgetAction -&gt; ExecuteBudgetAction -&gt; Bool)
 -&gt; (ExecuteBudgetAction -&gt; ExecuteBudgetAction -&gt; Bool)
 -&gt; Eq ExecuteBudgetAction
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExecuteBudgetAction -&gt; ExecuteBudgetAction -&gt; Bool
 == :: ExecuteBudgetAction -&gt; ExecuteBudgetAction -&gt; Bool
 $c== :: ExecuteBudgetAction -&gt; ExecuteBudgetAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210454"><span id="local-6989586621679210456"><span id="local-6989586621679210458"><span id="local-6989586621679210460"><span class="annot"><span class="annottext">ReadPrec [ExecuteBudgetAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210562"><span id="local-6989586621679210564"><span id="local-6989586621679210566"><span id="local-6989586621679210568"><span class="annot"><span class="annottext">ReadPrec [ExecuteBudgetAction]
 ReadPrec ExecuteBudgetAction
 Int -&gt; ReadS ExecuteBudgetAction
 ReadS [ExecuteBudgetAction]
@@ -94,7 +94,7 @@ readList :: ReadS [ExecuteBudgetAction]
 $creadList :: ReadS [ExecuteBudgetAction]
 readsPrec :: Int -&gt; ReadS ExecuteBudgetAction
 $creadsPrec :: Int -&gt; ReadS ExecuteBudgetAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210447"><span id="local-6989586621679210449"><span id="local-6989586621679210451"><span class="annot"><span class="annottext">Int -&gt; ExecuteBudgetAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210555"><span id="local-6989586621679210557"><span id="local-6989586621679210559"><span class="annot"><span class="annottext">Int -&gt; ExecuteBudgetAction -&gt; ShowS
 [ExecuteBudgetAction] -&gt; ShowS
 ExecuteBudgetAction -&gt; String
 (Int -&gt; ExecuteBudgetAction -&gt; ShowS)
@@ -147,28 +147,28 @@ $cfrom :: forall x. ExecuteBudgetAction -&gt; Rep ExecuteBudgetAction x
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span>
 </span><span id="line-91"></span><span id="newExecuteBudgetAction"><span class="annot"><span class="annottext">newExecuteBudgetAction :: Text -&gt; Text -&gt; Text -&gt; ExecutionType -&gt; ExecuteBudgetAction
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#newExecuteBudgetAction"><span class="hs-identifier hs-var hs-var">newExecuteBudgetAction</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679210442"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210442"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679210441"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210441"><span class="hs-identifier hs-var">pBudgetName_</span></a></span></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679210440"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210440"><span class="hs-identifier hs-var">pActionId_</span></a></span></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679210439"><span class="annot"><span class="annottext">ExecutionType
-</span><a href="#local-6989586621679210439"><span class="hs-identifier hs-var">pExecutionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679210550"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210550"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679210549"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210549"><span class="hs-identifier hs-var">pBudgetName_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679210548"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210548"><span class="hs-identifier hs-var">pActionId_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679210547"><span class="annot"><span class="annottext">ExecutionType
+</span><a href="#local-6989586621679210547"><span class="hs-identifier hs-var">pExecutionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ExecuteBudgetAction' :: Text -&gt; Text -&gt; Text -&gt; ExecutionType -&gt; ExecuteBudgetAction
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:ExecuteBudgetAction' :: Text
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AaccountId%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210442"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210550"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:budgetName:ExecuteBudgetAction' :: Text
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AbudgetName%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210441"><span class="hs-identifier hs-var">pBudgetName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210549"><span class="hs-identifier hs-var">pBudgetName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:actionId:ExecuteBudgetAction' :: Text
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AactionId%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210440"><span class="hs-identifier hs-var">pActionId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210548"><span class="hs-identifier hs-var">pActionId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:executionType:ExecuteBudgetAction' :: ExecutionType
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AexecutionType%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var">executionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExecutionType
-</span><a href="#local-6989586621679210439"><span class="hs-identifier hs-var">pExecutionType_</span></a></span><span>
+</span><a href="#local-6989586621679210547"><span class="hs-identifier hs-var">pExecutionType_</span></a></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -178,16 +178,16 @@ $cfrom :: forall x. ExecuteBudgetAction -&gt; Rep ExecuteBudgetAction x
 -&gt; (ExecuteBudgetAction -&gt; Text -&gt; ExecuteBudgetAction)
 -&gt; Lens ExecuteBudgetAction ExecuteBudgetAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210436"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210544"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; Text
-</span><a href="#local-6989586621679210436"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210436"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210435"><span class="annot"><span class="annottext">s :: ExecuteBudgetAction
-</span><a href="#local-6989586621679210435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210434"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetAction
-</span><a href="#local-6989586621679210435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ExecuteBudgetAction' :: Text
+</span><a href="#local-6989586621679210544"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210544"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210543"><span class="annot"><span class="annottext">s :: ExecuteBudgetAction
+</span><a href="#local-6989586621679210543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210542"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetAction
+</span><a href="#local-6989586621679210543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ExecuteBudgetAction' :: Text
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AaccountId%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#executeBudgetAction_budgetName"><span class="hs-identifier hs-type">executeBudgetAction_budgetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -196,16 +196,16 @@ $sel:accountId:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; Text
 -&gt; (ExecuteBudgetAction -&gt; Text -&gt; ExecuteBudgetAction)
 -&gt; Lens ExecuteBudgetAction ExecuteBudgetAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210433"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210541"><span class="annot"><span class="annottext">Text
 budgetName :: Text
 $sel:budgetName:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; Text
-</span><a href="#local-6989586621679210433"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210433"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210432"><span class="annot"><span class="annottext">s :: ExecuteBudgetAction
-</span><a href="#local-6989586621679210432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210431"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetAction
-</span><a href="#local-6989586621679210432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetName:ExecuteBudgetAction' :: Text
+</span><a href="#local-6989586621679210541"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210541"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210540"><span class="annot"><span class="annottext">s :: ExecuteBudgetAction
+</span><a href="#local-6989586621679210540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210539"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetAction
+</span><a href="#local-6989586621679210540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetName:ExecuteBudgetAction' :: Text
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AbudgetName%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | A system-generated universally unique identifier (UUID) for the action.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#executeBudgetAction_actionId"><span class="hs-identifier hs-type">executeBudgetAction_actionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -214,16 +214,16 @@ $sel:budgetName:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; Text
 -&gt; (ExecuteBudgetAction -&gt; Text -&gt; ExecuteBudgetAction)
 -&gt; Lens ExecuteBudgetAction ExecuteBudgetAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210430"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210538"><span class="annot"><span class="annottext">Text
 actionId :: Text
 $sel:actionId:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; Text
-</span><a href="#local-6989586621679210430"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210430"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210429"><span class="annot"><span class="annottext">s :: ExecuteBudgetAction
-</span><a href="#local-6989586621679210429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210428"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetAction
-</span><a href="#local-6989586621679210429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionId:ExecuteBudgetAction' :: Text
+</span><a href="#local-6989586621679210538"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210538"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210537"><span class="annot"><span class="annottext">s :: ExecuteBudgetAction
+</span><a href="#local-6989586621679210537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210536"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetAction
+</span><a href="#local-6989586621679210537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionId:ExecuteBudgetAction' :: Text
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AactionId%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The type of execution.</span><span>
 </span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#executeBudgetAction_executionType"><span class="hs-identifier hs-type">executeBudgetAction_executionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ExecutionType.html#ExecutionType"><span class="hs-identifier hs-type">ExecutionType</span></a></span><span>
@@ -234,27 +234,27 @@ $sel:actionId:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; Text
 -&gt; Lens
      ExecuteBudgetAction ExecuteBudgetAction ExecutionType ExecutionType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210427"><span class="annot"><span class="annottext">ExecutionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210535"><span class="annot"><span class="annottext">ExecutionType
 executionType :: ExecutionType
 $sel:executionType:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; ExecutionType
-</span><a href="#local-6989586621679210427"><span class="hs-identifier hs-var hs-var">executionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionType
-</span><a href="#local-6989586621679210427"><span class="hs-identifier hs-var">executionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210426"><span class="annot"><span class="annottext">s :: ExecuteBudgetAction
-</span><a href="#local-6989586621679210426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210425"><span class="annot"><span class="annottext">ExecutionType
-</span><a href="#local-6989586621679210425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetAction
-</span><a href="#local-6989586621679210426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionType:ExecuteBudgetAction' :: ExecutionType
+</span><a href="#local-6989586621679210535"><span class="hs-identifier hs-var hs-var">executionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionType
+</span><a href="#local-6989586621679210535"><span class="hs-identifier hs-var">executionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210534"><span class="annot"><span class="annottext">s :: ExecuteBudgetAction
+</span><a href="#local-6989586621679210534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210533"><span class="annot"><span class="annottext">ExecutionType
+</span><a href="#local-6989586621679210533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetAction
+</span><a href="#local-6989586621679210534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionType:ExecuteBudgetAction' :: ExecutionType
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AexecutionType%3AExecuteBudgetAction%27"><span class="hs-identifier hs-var">executionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExecutionType
-</span><a href="#local-6989586621679210425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679210421"><span class="annot"><span class="annottext">request :: ExecuteBudgetAction -&gt; Request ExecuteBudgetAction
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679210529"><span class="annot"><span class="annottext">request :: ExecuteBudgetAction -&gt; Request ExecuteBudgetAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ExecuteBudgetAction -&gt; Request ExecuteBudgetAction
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Budgets.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679210417"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679210525"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ExecuteBudgetAction
 -&gt; ClientResponse ClientBody
@@ -280,10 +280,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210414"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679210414"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679210413"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679210413"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679210412"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210412"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210522"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210522"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679210521"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679210521"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679210520"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210520"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Int
 -&gt; Text
 -&gt; Text
@@ -308,7 +308,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679210414"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210522"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Text
@@ -319,7 +319,7 @@ forall a. Enum a =&gt; a -&gt; Int
      (Text -&gt; Text -&gt; ExecutionType -&gt; ExecuteBudgetActionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679210520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
@@ -331,7 +331,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
      String (Text -&gt; ExecutionType -&gt; ExecuteBudgetActionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679210520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BudgetName&quot;</span></span><span class="hs-special">)</span><span>
@@ -341,7 +341,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String (ExecutionType -&gt; ExecuteBudgetActionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679210520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ActionId&quot;</span></span><span class="hs-special">)</span><span>
@@ -350,18 +350,18 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String ExecuteBudgetActionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String ExecutionType
+</span><a href="#local-6989586621679210520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String ExecutionType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExecutionType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210404"><span id="local-6989586621679210406"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210512"><span id="local-6989586621679210514"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210401"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679210397"><span class="annot"><span class="annottext">toHeaders :: ExecuteBudgetAction -&gt; ResponseHeaders
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679210505"><span class="annot"><span class="annottext">toHeaders :: ExecuteBudgetAction -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ExecuteBudgetAction -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -388,9 +388,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210387"><span id="local-6989586621679210389"><span id="local-6989586621679210391"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679210385"><span class="annot"><span class="annottext">toJSON :: ExecuteBudgetAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210380"><span id="local-6989586621679210381"><span id="local-6989586621679210382"><span id="local-6989586621679210383"><span class="annot"><span class="annottext">Text
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210495"><span id="local-6989586621679210497"><span id="local-6989586621679210499"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679210493"><span class="annot"><span class="annottext">toJSON :: ExecuteBudgetAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction%27"><span class="hs-identifier hs-type">ExecuteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210488"><span id="local-6989586621679210489"><span id="local-6989586621679210490"><span id="local-6989586621679210491"><span class="annot"><span class="annottext">Text
 ExecutionType
 executionType :: ExecutionType
 actionId :: Text
@@ -400,7 +400,7 @@ $sel:executionType:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; ExecutionTy
 $sel:actionId:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; Text
 $sel:budgetName:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; Text
 $sel:accountId:ExecuteBudgetAction' :: ExecuteBudgetAction -&gt; Text
-</span><a href="#local-6989586621679210380"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679210488"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -412,21 +412,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210383"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210491"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BudgetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210382"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210490"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ActionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210381"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210489"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -434,19 +434,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ExecutionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExecutionType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ExecutionType
-</span><a href="#local-6989586621679210380"><span class="hs-identifier hs-var">executionType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210488"><span class="hs-identifier hs-var">executionType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679210374"><span class="annot"><span class="annottext">toPath :: ExecuteBudgetAction -&gt; ByteString
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679210482"><span class="annot"><span class="annottext">toPath :: ExecuteBudgetAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ExecuteBudgetAction -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetAction"><span class="hs-identifier hs-type">ExecuteBudgetAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679210370"><span class="annot"><span class="annottext">toQuery :: ExecuteBudgetAction -&gt; QueryString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679210478"><span class="annot"><span class="annottext">toQuery :: ExecuteBudgetAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ExecuteBudgetAction -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -454,7 +454,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newExecuteBudgetActionResponse' smart constructor.</span><span>
-</span><span id="line-173"></span><span id="local-6989586621679210367"><span id="local-6989586621679210368"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecuteBudgetActionResponse"><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-var">ExecuteBudgetActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecuteBudgetActionResponse%27"><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">ExecuteBudgetActionResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span id="local-6989586621679210475"><span id="local-6989586621679210476"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecuteBudgetActionResponse"><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-var">ExecuteBudgetActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecuteBudgetActionResponse%27"><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">ExecuteBudgetActionResponse'</span></a></span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-175"></span><span>    </span><span id="%24sel%3AhttpStatus%3AExecuteBudgetActionResponse%27"><span class="annot"><span class="annottext">ExecuteBudgetActionResponse -&gt; Int
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AhttpStatus%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -469,7 +469,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-181"></span><span>    </span><span id="%24sel%3AexecutionType%3AExecuteBudgetActionResponse%27"><span class="annot"><span class="annottext">ExecuteBudgetActionResponse -&gt; ExecutionType
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AexecutionType%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var hs-var">executionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ExecutionType.html#ExecutionType"><span class="hs-identifier hs-type">ExecutionType</span></a></span><span>
 </span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210358"><span id="local-6989586621679210360"><span class="annot"><span class="annottext">ExecuteBudgetActionResponse -&gt; ExecuteBudgetActionResponse -&gt; Bool
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210466"><span id="local-6989586621679210468"><span class="annot"><span class="annottext">ExecuteBudgetActionResponse -&gt; ExecuteBudgetActionResponse -&gt; Bool
 (ExecuteBudgetActionResponse
  -&gt; ExecuteBudgetActionResponse -&gt; Bool)
 -&gt; (ExecuteBudgetActionResponse
@@ -480,7 +480,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExecuteBudgetActionResponse -&gt; ExecuteBudgetActionResponse -&gt; Bool
 == :: ExecuteBudgetActionResponse -&gt; ExecuteBudgetActionResponse -&gt; Bool
 $c== :: ExecuteBudgetActionResponse -&gt; ExecuteBudgetActionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210350"><span id="local-6989586621679210352"><span id="local-6989586621679210354"><span id="local-6989586621679210356"><span class="annot"><span class="annottext">ReadPrec [ExecuteBudgetActionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210458"><span id="local-6989586621679210460"><span id="local-6989586621679210462"><span id="local-6989586621679210464"><span class="annot"><span class="annottext">ReadPrec [ExecuteBudgetActionResponse]
 ReadPrec ExecuteBudgetActionResponse
 Int -&gt; ReadS ExecuteBudgetActionResponse
 ReadS [ExecuteBudgetActionResponse]
@@ -500,7 +500,7 @@ readList :: ReadS [ExecuteBudgetActionResponse]
 $creadList :: ReadS [ExecuteBudgetActionResponse]
 readsPrec :: Int -&gt; ReadS ExecuteBudgetActionResponse
 $creadsPrec :: Int -&gt; ReadS ExecuteBudgetActionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210344"><span id="local-6989586621679210346"><span id="local-6989586621679210348"><span class="annot"><span class="annottext">Int -&gt; ExecuteBudgetActionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210452"><span id="local-6989586621679210454"><span id="local-6989586621679210456"><span class="annot"><span class="annottext">Int -&gt; ExecuteBudgetActionResponse -&gt; ShowS
 [ExecuteBudgetActionResponse] -&gt; ShowS
 ExecuteBudgetActionResponse -&gt; String
 (Int -&gt; ExecuteBudgetActionResponse -&gt; ShowS)
@@ -568,16 +568,16 @@ ExecuteBudgetActionResponse -&gt; Rep ExecuteBudgetActionResponse x
 -&gt; ExecutionType
 -&gt; ExecuteBudgetActionResponse
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#newExecuteBudgetActionResponse"><span class="hs-identifier hs-var hs-var">newExecuteBudgetActionResponse</span></a></span></span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679210341"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679210341"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679210340"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210340"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679210339"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210339"><span class="hs-identifier hs-var">pBudgetName_</span></a></span></span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621679210338"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210338"><span class="hs-identifier hs-var">pActionId_</span></a></span></span><span>
-</span><span id="line-219"></span><span>  </span><span id="local-6989586621679210337"><span class="annot"><span class="annottext">ExecutionType
-</span><a href="#local-6989586621679210337"><span class="hs-identifier hs-var">pExecutionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679210449"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210449"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679210448"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210448"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679210447"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210447"><span class="hs-identifier hs-var">pBudgetName_</span></a></span></span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679210446"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210446"><span class="hs-identifier hs-var">pActionId_</span></a></span></span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679210445"><span class="annot"><span class="annottext">ExecutionType
+</span><a href="#local-6989586621679210445"><span class="hs-identifier hs-var">pExecutionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">ExecuteBudgetActionResponse' :: Int
 -&gt; Text
 -&gt; Text
@@ -588,19 +588,19 @@ ExecuteBudgetActionResponse -&gt; Rep ExecuteBudgetActionResponse x
 </span><span id="line-221"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ExecuteBudgetActionResponse' :: Int
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AhttpStatus%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679210341"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210449"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">$sel:accountId:ExecuteBudgetActionResponse' :: Text
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AaccountId%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210340"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210448"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">$sel:budgetName:ExecuteBudgetActionResponse' :: Text
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AbudgetName%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210339"><span class="hs-identifier hs-var">pBudgetName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210447"><span class="hs-identifier hs-var">pBudgetName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">$sel:actionId:ExecuteBudgetActionResponse' :: Text
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AactionId%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210338"><span class="hs-identifier hs-var">pActionId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210446"><span class="hs-identifier hs-var">pActionId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">$sel:executionType:ExecuteBudgetActionResponse' :: ExecutionType
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AexecutionType%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">executionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExecutionType
-</span><a href="#local-6989586621679210337"><span class="hs-identifier hs-var">pExecutionType_</span></a></span><span>
+</span><a href="#local-6989586621679210445"><span class="hs-identifier hs-var">pExecutionType_</span></a></span><span>
 </span><span id="line-227"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -613,16 +613,16 @@ ExecuteBudgetActionResponse -&gt; Rep ExecuteBudgetActionResponse x
 -&gt; Lens
      ExecuteBudgetActionResponse ExecuteBudgetActionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210336"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210444"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ExecuteBudgetActionResponse' :: ExecuteBudgetActionResponse -&gt; Int
-</span><a href="#local-6989586621679210336"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679210336"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210335"><span class="annot"><span class="annottext">s :: ExecuteBudgetActionResponse
-</span><a href="#local-6989586621679210335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210334"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679210334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetActionResponse
-</span><a href="#local-6989586621679210335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ExecuteBudgetActionResponse' :: Int
+</span><a href="#local-6989586621679210444"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210444"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210443"><span class="annot"><span class="annottext">s :: ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210442"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ExecuteBudgetActionResponse' :: Int
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AhttpStatus%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679210334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-234"></span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_accountId"><span class="hs-identifier hs-type">executeBudgetActionResponse_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -634,16 +634,16 @@ $sel:httpStatus:ExecuteBudgetActionResponse' :: ExecuteBudgetActionResponse -&gt
 -&gt; Lens
      ExecuteBudgetActionResponse ExecuteBudgetActionResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210333"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210441"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:ExecuteBudgetActionResponse' :: ExecuteBudgetActionResponse -&gt; Text
-</span><a href="#local-6989586621679210333"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210333"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210332"><span class="annot"><span class="annottext">s :: ExecuteBudgetActionResponse
-</span><a href="#local-6989586621679210332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210331"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetActionResponse
-</span><a href="#local-6989586621679210332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ExecuteBudgetActionResponse' :: Text
+</span><a href="#local-6989586621679210441"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210441"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210440"><span class="annot"><span class="annottext">s :: ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210439"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ExecuteBudgetActionResponse' :: Text
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AaccountId%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-238"></span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_budgetName"><span class="hs-identifier hs-type">executeBudgetActionResponse_budgetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -655,16 +655,16 @@ $sel:accountId:ExecuteBudgetActionResponse' :: ExecuteBudgetActionResponse -&gt;
 -&gt; Lens
      ExecuteBudgetActionResponse ExecuteBudgetActionResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210330"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210438"><span class="annot"><span class="annottext">Text
 budgetName :: Text
 $sel:budgetName:ExecuteBudgetActionResponse' :: ExecuteBudgetActionResponse -&gt; Text
-</span><a href="#local-6989586621679210330"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210330"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210329"><span class="annot"><span class="annottext">s :: ExecuteBudgetActionResponse
-</span><a href="#local-6989586621679210329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210328"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetActionResponse
-</span><a href="#local-6989586621679210329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetName:ExecuteBudgetActionResponse' :: Text
+</span><a href="#local-6989586621679210438"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210438"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210437"><span class="annot"><span class="annottext">s :: ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210436"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetName:ExecuteBudgetActionResponse' :: Text
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AbudgetName%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- | A system-generated universally unique identifier (UUID) for the action.</span><span>
 </span><span id="line-242"></span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_actionId"><span class="hs-identifier hs-type">executeBudgetActionResponse_actionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -676,16 +676,16 @@ $sel:budgetName:ExecuteBudgetActionResponse' :: ExecuteBudgetActionResponse -&gt
 -&gt; Lens
      ExecuteBudgetActionResponse ExecuteBudgetActionResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210327"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210435"><span class="annot"><span class="annottext">Text
 actionId :: Text
 $sel:actionId:ExecuteBudgetActionResponse' :: ExecuteBudgetActionResponse -&gt; Text
-</span><a href="#local-6989586621679210327"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210327"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210326"><span class="annot"><span class="annottext">s :: ExecuteBudgetActionResponse
-</span><a href="#local-6989586621679210326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210325"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetActionResponse
-</span><a href="#local-6989586621679210326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionId:ExecuteBudgetActionResponse' :: Text
+</span><a href="#local-6989586621679210435"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210435"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210434"><span class="annot"><span class="annottext">s :: ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210433"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionId:ExecuteBudgetActionResponse' :: Text
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AactionId%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- | The type of execution.</span><span>
 </span><span id="line-246"></span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#executeBudgetActionResponse_executionType"><span class="hs-identifier hs-type">executeBudgetActionResponse_executionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ExecutionType.html#ExecutionType"><span class="hs-identifier hs-type">ExecutionType</span></a></span><span>
@@ -700,16 +700,16 @@ $sel:actionId:ExecuteBudgetActionResponse' :: ExecuteBudgetActionResponse -&gt; 
      ExecutionType
      ExecutionType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210324"><span class="annot"><span class="annottext">ExecutionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210432"><span class="annot"><span class="annottext">ExecutionType
 executionType :: ExecutionType
 $sel:executionType:ExecuteBudgetActionResponse' :: ExecuteBudgetActionResponse -&gt; ExecutionType
-</span><a href="#local-6989586621679210324"><span class="hs-identifier hs-var hs-var">executionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionType
-</span><a href="#local-6989586621679210324"><span class="hs-identifier hs-var">executionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210323"><span class="annot"><span class="annottext">s :: ExecuteBudgetActionResponse
-</span><a href="#local-6989586621679210323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210322"><span class="annot"><span class="annottext">ExecutionType
-</span><a href="#local-6989586621679210322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetActionResponse
-</span><a href="#local-6989586621679210323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionType:ExecuteBudgetActionResponse' :: ExecutionType
+</span><a href="#local-6989586621679210432"><span class="hs-identifier hs-var hs-var">executionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionType
+</span><a href="#local-6989586621679210432"><span class="hs-identifier hs-var">executionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210431"><span class="annot"><span class="annottext">s :: ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse%27"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210430"><span class="annot"><span class="annottext">ExecutionType
+</span><a href="#local-6989586621679210430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteBudgetActionResponse
+</span><a href="#local-6989586621679210431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionType:ExecuteBudgetActionResponse' :: ExecutionType
 </span><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#%24sel%3AexecutionType%3AExecuteBudgetActionResponse%27"><span class="hs-identifier hs-var">executionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExecutionType
-</span><a href="#local-6989586621679210322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210320"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210428"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.ExecuteBudgetAction.html#ExecuteBudgetActionResponse"><span class="hs-identifier hs-type">ExecuteBudgetActionResponse</span></a></span></span><span>
 </span><span id="line-250"></span></pre></body></html>

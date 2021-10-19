@@ -26,17 +26,17 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes an OpenID Connect configuration.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newOpenIDConnectConfig' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679250346"><span id="local-6989586621679250347"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpenIDConnectConfig"><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-var">OpenIDConnectConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpenIDConnectConfig%27"><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-var">OpenIDConnectConfig'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The client identifier of the Relying party at the OpenID identity</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- provider. This identifier is typically obtained when the Relying party</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- is registered with the OpenID identity provider. You can specify a</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- regular expression so the AppSync can validate against multiple client</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- identifiers at a time.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AclientId%3AOpenIDConnectConfig%27"><span class="annot"><span class="annottext">OpenIDConnectConfig -&gt; Maybe Text
-</span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#%24sel%3AclientId%3AOpenIDConnectConfig%27"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The number of milliseconds a token is valid after being authenticated.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AauthTTL%3AOpenIDConnectConfig%27"><span class="annot"><span class="annottext">OpenIDConnectConfig -&gt; Maybe Integer
+</span><span id="line-29"></span><span id="local-6989586621679250422"><span id="local-6989586621679250423"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpenIDConnectConfig"><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-var">OpenIDConnectConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpenIDConnectConfig%27"><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-var">OpenIDConnectConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of milliseconds a token is valid after being authenticated.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AauthTTL%3AOpenIDConnectConfig%27"><span class="annot"><span class="annottext">OpenIDConnectConfig -&gt; Maybe Integer
 </span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#%24sel%3AauthTTL%3AOpenIDConnectConfig%27"><span class="hs-identifier hs-var hs-var">authTTL</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The client identifier of the Relying party at the OpenID identity</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- provider. This identifier is typically obtained when the Relying party</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- is registered with the OpenID identity provider. You can specify a</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- regular expression so the AppSync can validate against multiple client</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- identifiers at a time.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AclientId%3AOpenIDConnectConfig%27"><span class="annot"><span class="annottext">OpenIDConnectConfig -&gt; Maybe Text
+</span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#%24sel%3AclientId%3AOpenIDConnectConfig%27"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The number of milliseconds a token is valid after being issued to a</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- user.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AiatTTL%3AOpenIDConnectConfig%27"><span class="annot"><span class="annottext">OpenIDConnectConfig -&gt; Maybe Integer
@@ -46,7 +46,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Aissuer%3AOpenIDConnectConfig%27"><span class="annot"><span class="annottext">OpenIDConnectConfig -&gt; Text
 </span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#%24sel%3Aissuer%3AOpenIDConnectConfig%27"><span class="hs-identifier hs-var hs-var">issuer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250337"><span id="local-6989586621679250339"><span class="annot"><span class="annottext">OpenIDConnectConfig -&gt; OpenIDConnectConfig -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250413"><span id="local-6989586621679250415"><span class="annot"><span class="annottext">OpenIDConnectConfig -&gt; OpenIDConnectConfig -&gt; Bool
 (OpenIDConnectConfig -&gt; OpenIDConnectConfig -&gt; Bool)
 -&gt; (OpenIDConnectConfig -&gt; OpenIDConnectConfig -&gt; Bool)
 -&gt; Eq OpenIDConnectConfig
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OpenIDConnectConfig -&gt; OpenIDConnectConfig -&gt; Bool
 == :: OpenIDConnectConfig -&gt; OpenIDConnectConfig -&gt; Bool
 $c== :: OpenIDConnectConfig -&gt; OpenIDConnectConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250328"><span id="local-6989586621679250330"><span id="local-6989586621679250332"><span id="local-6989586621679250334"><span class="annot"><span class="annottext">ReadPrec [OpenIDConnectConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250404"><span id="local-6989586621679250406"><span id="local-6989586621679250408"><span id="local-6989586621679250410"><span class="annot"><span class="annottext">ReadPrec [OpenIDConnectConfig]
 ReadPrec OpenIDConnectConfig
 Int -&gt; ReadS OpenIDConnectConfig
 ReadS [OpenIDConnectConfig]
@@ -75,7 +75,7 @@ readList :: ReadS [OpenIDConnectConfig]
 $creadList :: ReadS [OpenIDConnectConfig]
 readsPrec :: Int -&gt; ReadS OpenIDConnectConfig
 $creadsPrec :: Int -&gt; ReadS OpenIDConnectConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250321"><span id="local-6989586621679250323"><span id="local-6989586621679250325"><span class="annot"><span class="annottext">Int -&gt; OpenIDConnectConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250397"><span id="local-6989586621679250399"><span id="local-6989586621679250401"><span class="annot"><span class="annottext">Int -&gt; OpenIDConnectConfig -&gt; ShowS
 [OpenIDConnectConfig] -&gt; ShowS
 OpenIDConnectConfig -&gt; String
 (Int -&gt; OpenIDConnectConfig -&gt; ShowS)
@@ -109,13 +109,13 @@ $cfrom :: forall x. OpenIDConnectConfig -&gt; Rep OpenIDConnectConfig x
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'clientId', 'openIDConnectConfig_clientId' - The client identifier of the Relying party at the OpenID identity</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- provider. This identifier is typically obtained when the Relying party</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- is registered with the OpenID identity provider. You can specify a</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- regular expression so the AppSync can validate against multiple client</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- identifiers at a time.</span><span>
-</span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'authTTL', 'openIDConnectConfig_authTTL' - The number of milliseconds a token is valid after being authenticated.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'authTTL', 'openIDConnectConfig_authTTL' - The number of milliseconds a token is valid after being authenticated.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'clientId', 'openIDConnectConfig_clientId' - The client identifier of the Relying party at the OpenID identity</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- provider. This identifier is typically obtained when the Relying party</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- is registered with the OpenID identity provider. You can specify a</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- regular expression so the AppSync can validate against multiple client</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- identifiers at a time.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- 'iatTTL', 'openIDConnectConfig_iatTTL' - The number of milliseconds a token is valid after being issued to a</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- user.</span><span>
@@ -127,17 +127,17 @@ $cfrom :: forall x. OpenIDConnectConfig -&gt; Rep OpenIDConnectConfig x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span><span>
 </span><span id="line-72"></span><span id="newOpenIDConnectConfig"><span class="annot"><span class="annottext">newOpenIDConnectConfig :: Text -&gt; OpenIDConnectConfig
-</span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#newOpenIDConnectConfig"><span class="hs-identifier hs-var hs-var">newOpenIDConnectConfig</span></a></span></span><span> </span><span id="local-6989586621679250315"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250315"><span class="hs-identifier hs-var">pIssuer_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">OpenIDConnectConfig' :: Maybe Text
--&gt; Maybe Integer -&gt; Maybe Integer -&gt; Text -&gt; OpenIDConnectConfig
+</span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#newOpenIDConnectConfig"><span class="hs-identifier hs-var hs-var">newOpenIDConnectConfig</span></a></span></span><span> </span><span id="local-6989586621679250391"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250391"><span class="hs-identifier hs-var">pIssuer_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">OpenIDConnectConfig' :: Maybe Integer
+-&gt; Maybe Text -&gt; Maybe Integer -&gt; Text -&gt; OpenIDConnectConfig
 </span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientId:OpenIDConnectConfig' :: Maybe Text
-</span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#%24sel%3AclientId%3AOpenIDConnectConfig%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authTTL:OpenIDConnectConfig' :: Maybe Integer
+</span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#%24sel%3AauthTTL%3AOpenIDConnectConfig%27"><span class="hs-identifier hs-var">authTTL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:authTTL:OpenIDConnectConfig' :: Maybe Integer
-</span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#%24sel%3AauthTTL%3AOpenIDConnectConfig%27"><span class="hs-identifier hs-var">authTTL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientId:OpenIDConnectConfig' :: Maybe Text
+</span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#%24sel%3AclientId%3AOpenIDConnectConfig%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:iatTTL:OpenIDConnectConfig' :: Maybe Integer
@@ -146,36 +146,12 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:issuer:OpenIDConnectConfig' :: Text
 </span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#%24sel%3Aissuer%3AOpenIDConnectConfig%27"><span class="hs-identifier hs-var">issuer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250315"><span class="hs-identifier hs-var">pIssuer_</span></a></span><span>
+</span><a href="#local-6989586621679250391"><span class="hs-identifier hs-var">pIssuer_</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The client identifier of the Relying party at the OpenID identity</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- provider. This identifier is typically obtained when the Relying party</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- is registered with the OpenID identity provider. You can specify a</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- regular expression so the AppSync can validate against multiple client</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- identifiers at a time.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#openIDConnectConfig_clientId"><span class="hs-identifier hs-type">openIDConnectConfig_clientId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="openIDConnectConfig_clientId"><span class="annot"><span class="annottext">openIDConnectConfig_clientId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; OpenIDConnectConfig -&gt; f OpenIDConnectConfig
-</span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#openIDConnectConfig_clientId"><span class="hs-identifier hs-var hs-var">openIDConnectConfig_clientId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OpenIDConnectConfig -&gt; Maybe Text)
--&gt; (OpenIDConnectConfig -&gt; Maybe Text -&gt; OpenIDConnectConfig)
--&gt; Lens
-     OpenIDConnectConfig OpenIDConnectConfig (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250311"><span class="annot"><span class="annottext">Maybe Text
-clientId :: Maybe Text
-$sel:clientId:OpenIDConnectConfig' :: OpenIDConnectConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679250311"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250311"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250310"><span class="annot"><span class="annottext">s :: OpenIDConnectConfig
-</span><a href="#local-6989586621679250310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250309"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenIDConnectConfig
-</span><a href="#local-6989586621679250310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:OpenIDConnectConfig' :: Maybe Text
-</span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#%24sel%3AclientId%3AOpenIDConnectConfig%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The number of milliseconds a token is valid after being authenticated.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#openIDConnectConfig_authTTL"><span class="hs-identifier hs-type">openIDConnectConfig_authTTL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="openIDConnectConfig_authTTL"><span class="annot"><span class="annottext">openIDConnectConfig_authTTL :: (Maybe Integer -&gt; f (Maybe Integer))
+</span><span id="line-80"></span><span class="hs-comment">-- | The number of milliseconds a token is valid after being authenticated.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#openIDConnectConfig_authTTL"><span class="hs-identifier hs-type">openIDConnectConfig_authTTL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="openIDConnectConfig_authTTL"><span class="annot"><span class="annottext">openIDConnectConfig_authTTL :: (Maybe Integer -&gt; f (Maybe Integer))
 -&gt; OpenIDConnectConfig -&gt; f OpenIDConnectConfig
 </span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#openIDConnectConfig_authTTL"><span class="hs-identifier hs-var hs-var">openIDConnectConfig_authTTL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OpenIDConnectConfig -&gt; Maybe Integer)
 -&gt; (OpenIDConnectConfig -&gt; Maybe Integer -&gt; OpenIDConnectConfig)
@@ -185,16 +161,40 @@ $sel:clientId:OpenIDConnectConfig' :: OpenIDConnectConfig -&gt; Maybe Text
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250307"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250387"><span class="annot"><span class="annottext">Maybe Integer
 authTTL :: Maybe Integer
 $sel:authTTL:OpenIDConnectConfig' :: OpenIDConnectConfig -&gt; Maybe Integer
-</span><a href="#local-6989586621679250307"><span class="hs-identifier hs-var hs-var">authTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679250307"><span class="hs-identifier hs-var">authTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250306"><span class="annot"><span class="annottext">s :: OpenIDConnectConfig
-</span><a href="#local-6989586621679250306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250305"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679250305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenIDConnectConfig
-</span><a href="#local-6989586621679250306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authTTL:OpenIDConnectConfig' :: Maybe Integer
+</span><a href="#local-6989586621679250387"><span class="hs-identifier hs-var hs-var">authTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679250387"><span class="hs-identifier hs-var">authTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250386"><span class="annot"><span class="annottext">s :: OpenIDConnectConfig
+</span><a href="#local-6989586621679250386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250385"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679250385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenIDConnectConfig
+</span><a href="#local-6989586621679250386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authTTL:OpenIDConnectConfig' :: Maybe Integer
 </span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#%24sel%3AauthTTL%3AOpenIDConnectConfig%27"><span class="hs-identifier hs-var">authTTL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679250305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The client identifier of the Relying party at the OpenID identity</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- provider. This identifier is typically obtained when the Relying party</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- is registered with the OpenID identity provider. You can specify a</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- regular expression so the AppSync can validate against multiple client</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- identifiers at a time.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#openIDConnectConfig_clientId"><span class="hs-identifier hs-type">openIDConnectConfig_clientId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="openIDConnectConfig_clientId"><span class="annot"><span class="annottext">openIDConnectConfig_clientId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; OpenIDConnectConfig -&gt; f OpenIDConnectConfig
+</span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#openIDConnectConfig_clientId"><span class="hs-identifier hs-var hs-var">openIDConnectConfig_clientId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OpenIDConnectConfig -&gt; Maybe Text)
+-&gt; (OpenIDConnectConfig -&gt; Maybe Text -&gt; OpenIDConnectConfig)
+-&gt; Lens
+     OpenIDConnectConfig OpenIDConnectConfig (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250383"><span class="annot"><span class="annottext">Maybe Text
+clientId :: Maybe Text
+$sel:clientId:OpenIDConnectConfig' :: OpenIDConnectConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679250383"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250383"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250382"><span class="annot"><span class="annottext">s :: OpenIDConnectConfig
+</span><a href="#local-6989586621679250382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250381"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenIDConnectConfig
+</span><a href="#local-6989586621679250382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:OpenIDConnectConfig' :: Maybe Text
+</span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#%24sel%3AclientId%3AOpenIDConnectConfig%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The number of milliseconds a token is valid after being issued to a</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- user.</span><span>
@@ -209,16 +209,16 @@ $sel:authTTL:OpenIDConnectConfig' :: OpenIDConnectConfig -&gt; Maybe Integer
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250303"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250379"><span class="annot"><span class="annottext">Maybe Integer
 iatTTL :: Maybe Integer
 $sel:iatTTL:OpenIDConnectConfig' :: OpenIDConnectConfig -&gt; Maybe Integer
-</span><a href="#local-6989586621679250303"><span class="hs-identifier hs-var hs-var">iatTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679250303"><span class="hs-identifier hs-var">iatTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250302"><span class="annot"><span class="annottext">s :: OpenIDConnectConfig
-</span><a href="#local-6989586621679250302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250301"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679250301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenIDConnectConfig
-</span><a href="#local-6989586621679250302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iatTTL:OpenIDConnectConfig' :: Maybe Integer
+</span><a href="#local-6989586621679250379"><span class="hs-identifier hs-var hs-var">iatTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679250379"><span class="hs-identifier hs-var">iatTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250378"><span class="annot"><span class="annottext">s :: OpenIDConnectConfig
+</span><a href="#local-6989586621679250378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250377"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679250377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenIDConnectConfig
+</span><a href="#local-6989586621679250378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iatTTL:OpenIDConnectConfig' :: Maybe Integer
 </span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#%24sel%3AiatTTL%3AOpenIDConnectConfig%27"><span class="hs-identifier hs-var">iatTTL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679250301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The issuer for the OpenID Connect configuration. The issuer returned by</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- discovery must exactly match the value of @iss@ in the ID token.</span><span>
@@ -228,19 +228,19 @@ $sel:iatTTL:OpenIDConnectConfig' :: OpenIDConnectConfig -&gt; Maybe Integer
 -&gt; (OpenIDConnectConfig -&gt; Text -&gt; OpenIDConnectConfig)
 -&gt; Lens OpenIDConnectConfig OpenIDConnectConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250299"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250375"><span class="annot"><span class="annottext">Text
 issuer :: Text
 $sel:issuer:OpenIDConnectConfig' :: OpenIDConnectConfig -&gt; Text
-</span><a href="#local-6989586621679250299"><span class="hs-identifier hs-var hs-var">issuer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250299"><span class="hs-identifier hs-var">issuer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250298"><span class="annot"><span class="annottext">s :: OpenIDConnectConfig
-</span><a href="#local-6989586621679250298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250297"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenIDConnectConfig
-</span><a href="#local-6989586621679250298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issuer:OpenIDConnectConfig' :: Text
+</span><a href="#local-6989586621679250375"><span class="hs-identifier hs-var hs-var">issuer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250375"><span class="hs-identifier hs-var">issuer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250374"><span class="annot"><span class="annottext">s :: OpenIDConnectConfig
+</span><a href="#local-6989586621679250374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250373"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenIDConnectConfig
+</span><a href="#local-6989586621679250374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issuer:OpenIDConnectConfig' :: Text
 </span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#%24sel%3Aissuer%3AOpenIDConnectConfig%27"><span class="hs-identifier hs-var">issuer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250294"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679250292"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OpenIDConnectConfig
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250370"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679250368"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OpenIDConnectConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OpenIDConnectConfig)
@@ -250,37 +250,36 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OpenIDConnectConfig&quot;</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250289"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250289"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Integer -&gt; Maybe Integer -&gt; Text -&gt; OpenIDConnectConfig
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250365"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250365"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
+-&gt; Maybe Text -&gt; Maybe Integer -&gt; Text -&gt; OpenIDConnectConfig
 </span><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-var">OpenIDConnectConfig'</span></a></span><span>
-</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Integer -&gt; Maybe Integer -&gt; Text -&gt; OpenIDConnectConfig)
--&gt; Parser (Maybe Text)
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer
+ -&gt; Maybe Text -&gt; Maybe Integer -&gt; Text -&gt; OpenIDConnectConfig)
+-&gt; Parser (Maybe Integer)
 -&gt; Parser
-     (Maybe Integer -&gt; Maybe Integer -&gt; Text -&gt; OpenIDConnectConfig)
+     (Maybe Text -&gt; Maybe Integer -&gt; Text -&gt; OpenIDConnectConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;clientId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Integer -&gt; Maybe Integer -&gt; Text -&gt; OpenIDConnectConfig)
--&gt; Parser (Maybe Integer)
--&gt; Parser (Maybe Integer -&gt; Text -&gt; OpenIDConnectConfig)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679250365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authTTL&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Integer -&gt; Text -&gt; OpenIDConnectConfig)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Integer -&gt; Text -&gt; OpenIDConnectConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; Text -&gt; OpenIDConnectConfig)
 -&gt; Parser (Maybe Integer) -&gt; Parser (Text -&gt; OpenIDConnectConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679250365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;iatTTL&quot;</span></span><span class="hs-special">)</span><span>
@@ -288,63 +287,63 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser OpenIDConnectConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679250365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;issuer&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250282"><span id="local-6989586621679250284"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250358"><span id="local-6989586621679250360"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250279"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250355"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250271"><span id="local-6989586621679250273"><span id="local-6989586621679250275"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679250269"><span class="annot"><span class="annottext">toJSON :: OpenIDConnectConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250264"><span id="local-6989586621679250265"><span id="local-6989586621679250266"><span id="local-6989586621679250267"><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250347"><span id="local-6989586621679250349"><span id="local-6989586621679250351"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679250345"><span class="annot"><span class="annottext">toJSON :: OpenIDConnectConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig%27"><span class="hs-identifier hs-type">OpenIDConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250340"><span id="local-6989586621679250341"><span id="local-6989586621679250342"><span id="local-6989586621679250343"><span class="annot"><span class="annottext">Maybe Integer
 Maybe Text
 Text
 issuer :: Text
 iatTTL :: Maybe Integer
-authTTL :: Maybe Integer
 clientId :: Maybe Text
+authTTL :: Maybe Integer
 $sel:issuer:OpenIDConnectConfig' :: OpenIDConnectConfig -&gt; Text
 $sel:iatTTL:OpenIDConnectConfig' :: OpenIDConnectConfig -&gt; Maybe Integer
-$sel:authTTL:OpenIDConnectConfig' :: OpenIDConnectConfig -&gt; Maybe Integer
 $sel:clientId:OpenIDConnectConfig' :: OpenIDConnectConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679250264"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:authTTL:OpenIDConnectConfig' :: OpenIDConnectConfig -&gt; Maybe Integer
+</span><a href="#local-6989586621679250340"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;clientId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250267"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authTTL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679250266"><span class="hs-identifier hs-var">authTTL</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250343"><span class="hs-identifier hs-var">authTTL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250342"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;iatTTL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679250265"><span class="hs-identifier hs-var">iatTTL</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250341"><span class="hs-identifier hs-var">iatTTL</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;issuer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250264"><span class="hs-identifier hs-var">issuer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250340"><span class="hs-identifier hs-var">issuer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span></pre></body></html>

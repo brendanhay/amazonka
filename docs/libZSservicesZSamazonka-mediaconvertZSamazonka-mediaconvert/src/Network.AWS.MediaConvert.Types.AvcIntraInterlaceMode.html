@@ -45,13 +45,13 @@
 </span><span id="line-45"></span><span class="hs-comment">-- the same polarity as the source. If the source is progressive, the</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- output will be interlaced with top field bottom field first, depending</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- on which of the Follow options you choose.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679939079"><span id="local-6989586621679939080"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AvcIntraInterlaceMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraInterlaceMode.html#AvcIntraInterlaceMode"><span class="hs-identifier hs-var">AvcIntraInterlaceMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvcIntraInterlaceMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraInterlaceMode.html#AvcIntraInterlaceMode%27"><span class="hs-identifier hs-var">AvcIntraInterlaceMode'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679943701"><span id="local-6989586621679943702"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AvcIntraInterlaceMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraInterlaceMode.html#AvcIntraInterlaceMode"><span class="hs-identifier hs-var">AvcIntraInterlaceMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvcIntraInterlaceMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraInterlaceMode.html#AvcIntraInterlaceMode%27"><span class="hs-identifier hs-var">AvcIntraInterlaceMode'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAvcIntraInterlaceMode"><span class="annot"><span class="annottext">AvcIntraInterlaceMode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.AvcIntraInterlaceMode.html#fromAvcIntraInterlaceMode"><span class="hs-identifier hs-var hs-var">fromAvcIntraInterlaceMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679939071"><span id="local-6989586621679939073"><span id="local-6989586621679939075"><span class="annot"><span class="annottext">Int -&gt; AvcIntraInterlaceMode -&gt; ShowS
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943693"><span id="local-6989586621679943695"><span id="local-6989586621679943697"><span class="annot"><span class="annottext">Int -&gt; AvcIntraInterlaceMode -&gt; ShowS
 [AvcIntraInterlaceMode] -&gt; ShowS
 AvcIntraInterlaceMode -&gt; String
 (Int -&gt; AvcIntraInterlaceMode -&gt; ShowS)
@@ -67,7 +67,7 @@ $cshow :: AvcIntraInterlaceMode -&gt; String
 showsPrec :: Int -&gt; AvcIntraInterlaceMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; AvcIntraInterlaceMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679939062"><span id="local-6989586621679939064"><span id="local-6989586621679939066"><span id="local-6989586621679939068"><span class="annot"><span class="annottext">ReadPrec [AvcIntraInterlaceMode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679943684"><span id="local-6989586621679943686"><span id="local-6989586621679943688"><span id="local-6989586621679943690"><span class="annot"><span class="annottext">ReadPrec [AvcIntraInterlaceMode]
 ReadPrec AvcIntraInterlaceMode
 Int -&gt; ReadS AvcIntraInterlaceMode
 ReadS [AvcIntraInterlaceMode]
@@ -88,7 +88,7 @@ $creadList :: ReadS [AvcIntraInterlaceMode]
 readsPrec :: Int -&gt; ReadS AvcIntraInterlaceMode
 $creadsPrec :: Int -&gt; ReadS AvcIntraInterlaceMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679939057"><span id="local-6989586621679939059"><span class="annot"><span class="annottext">AvcIntraInterlaceMode -&gt; AvcIntraInterlaceMode -&gt; Bool
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679943679"><span id="local-6989586621679943681"><span class="annot"><span class="annottext">AvcIntraInterlaceMode -&gt; AvcIntraInterlaceMode -&gt; Bool
 (AvcIntraInterlaceMode -&gt; AvcIntraInterlaceMode -&gt; Bool)
 -&gt; (AvcIntraInterlaceMode -&gt; AvcIntraInterlaceMode -&gt; Bool)
 -&gt; Eq AvcIntraInterlaceMode
@@ -98,7 +98,7 @@ $c/= :: AvcIntraInterlaceMode -&gt; AvcIntraInterlaceMode -&gt; Bool
 == :: AvcIntraInterlaceMode -&gt; AvcIntraInterlaceMode -&gt; Bool
 $c== :: AvcIntraInterlaceMode -&gt; AvcIntraInterlaceMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679939041"><span id="local-6989586621679939043"><span id="local-6989586621679939045"><span id="local-6989586621679939047"><span id="local-6989586621679939049"><span id="local-6989586621679939051"><span id="local-6989586621679939053"><span class="annot"><span class="annottext">Eq AvcIntraInterlaceMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679943663"><span id="local-6989586621679943665"><span id="local-6989586621679943667"><span id="local-6989586621679943669"><span id="local-6989586621679943671"><span id="local-6989586621679943673"><span id="local-6989586621679943675"><span class="annot"><span class="annottext">Eq AvcIntraInterlaceMode
 Eq AvcIntraInterlaceMode
 -&gt; (AvcIntraInterlaceMode -&gt; AvcIntraInterlaceMode -&gt; Ordering)
 -&gt; (AvcIntraInterlaceMode -&gt; AvcIntraInterlaceMode -&gt; Bool)
@@ -156,7 +156,7 @@ $cfrom :: forall x. AvcIntraInterlaceMode -&gt; Rep AvcIntraInterlaceMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679939033"><span id="local-6989586621679939035"><span class="annot"><span class="annottext">Int -&gt; AvcIntraInterlaceMode -&gt; Int
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943655"><span id="local-6989586621679943657"><span class="annot"><span class="annottext">Int -&gt; AvcIntraInterlaceMode -&gt; Int
 AvcIntraInterlaceMode -&gt; Int
 (Int -&gt; AvcIntraInterlaceMode -&gt; Int)
 -&gt; (AvcIntraInterlaceMode -&gt; Int) -&gt; Hashable AvcIntraInterlaceMode
@@ -166,54 +166,54 @@ $chash :: AvcIntraInterlaceMode -&gt; Int
 hashWithSalt :: Int -&gt; AvcIntraInterlaceMode -&gt; Int
 $chashWithSalt :: Int -&gt; AvcIntraInterlaceMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679939030"><span class="annot"><span class="annottext">AvcIntraInterlaceMode -&gt; ()
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679943652"><span class="annot"><span class="annottext">AvcIntraInterlaceMode -&gt; ()
 (AvcIntraInterlaceMode -&gt; ()) -&gt; NFData AvcIntraInterlaceMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AvcIntraInterlaceMode -&gt; ()
 $crnf :: AvcIntraInterlaceMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679939027"><span class="annot"><span class="annottext">Text -&gt; Either String AvcIntraInterlaceMode
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679943649"><span class="annot"><span class="annottext">Text -&gt; Either String AvcIntraInterlaceMode
 (Text -&gt; Either String AvcIntraInterlaceMode)
 -&gt; FromText AvcIntraInterlaceMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AvcIntraInterlaceMode
 $cfromText :: Text -&gt; Either String AvcIntraInterlaceMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679939024"><span class="annot"><span class="annottext">AvcIntraInterlaceMode -&gt; Text
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679943646"><span class="annot"><span class="annottext">AvcIntraInterlaceMode -&gt; Text
 (AvcIntraInterlaceMode -&gt; Text) -&gt; ToText AvcIntraInterlaceMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AvcIntraInterlaceMode -&gt; Text
 $ctoText :: AvcIntraInterlaceMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679939021"><span class="annot"><span class="annottext">AvcIntraInterlaceMode -&gt; ByteString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679943643"><span class="annot"><span class="annottext">AvcIntraInterlaceMode -&gt; ByteString
 (AvcIntraInterlaceMode -&gt; ByteString)
 -&gt; ToByteString AvcIntraInterlaceMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AvcIntraInterlaceMode -&gt; ByteString
 $ctoBS :: AvcIntraInterlaceMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679939018"><span class="annot"><span class="annottext">AvcIntraInterlaceMode -&gt; ByteStringBuilder
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679943640"><span class="annot"><span class="annottext">AvcIntraInterlaceMode -&gt; ByteStringBuilder
 (AvcIntraInterlaceMode -&gt; ByteStringBuilder)
 -&gt; ToLog AvcIntraInterlaceMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AvcIntraInterlaceMode -&gt; ByteStringBuilder
 $cbuild :: AvcIntraInterlaceMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679939015"><span class="annot"><span class="annottext">HeaderName -&gt; AvcIntraInterlaceMode -&gt; [Header]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679943637"><span class="annot"><span class="annottext">HeaderName -&gt; AvcIntraInterlaceMode -&gt; [Header]
 (HeaderName -&gt; AvcIntraInterlaceMode -&gt; [Header])
 -&gt; ToHeader AvcIntraInterlaceMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AvcIntraInterlaceMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AvcIntraInterlaceMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679939012"><span class="annot"><span class="annottext">AvcIntraInterlaceMode -&gt; QueryString
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679943634"><span class="annot"><span class="annottext">AvcIntraInterlaceMode -&gt; QueryString
 (AvcIntraInterlaceMode -&gt; QueryString)
 -&gt; ToQuery AvcIntraInterlaceMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AvcIntraInterlaceMode -&gt; QueryString
 $ctoQuery :: AvcIntraInterlaceMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679939007"><span id="local-6989586621679939009"><span class="annot"><span class="annottext">Value -&gt; Parser [AvcIntraInterlaceMode]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679943629"><span id="local-6989586621679943631"><span class="annot"><span class="annottext">Value -&gt; Parser [AvcIntraInterlaceMode]
 Value -&gt; Parser AvcIntraInterlaceMode
 (Value -&gt; Parser AvcIntraInterlaceMode)
 -&gt; (Value -&gt; Parser [AvcIntraInterlaceMode])
@@ -225,7 +225,7 @@ $cparseJSONList :: Value -&gt; Parser [AvcIntraInterlaceMode]
 parseJSON :: Value -&gt; Parser AvcIntraInterlaceMode
 $cparseJSON :: Value -&gt; Parser AvcIntraInterlaceMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679939002"><span id="local-6989586621679939004"><span class="annot"><span class="annottext">FromJSONKeyFunction [AvcIntraInterlaceMode]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679943624"><span id="local-6989586621679943626"><span class="annot"><span class="annottext">FromJSONKeyFunction [AvcIntraInterlaceMode]
 FromJSONKeyFunction AvcIntraInterlaceMode
 FromJSONKeyFunction AvcIntraInterlaceMode
 -&gt; FromJSONKeyFunction [AvcIntraInterlaceMode]
@@ -237,7 +237,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AvcIntraInterlaceMode]
 fromJSONKey :: FromJSONKeyFunction AvcIntraInterlaceMode
 $cfromJSONKey :: FromJSONKeyFunction AvcIntraInterlaceMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679938993"><span id="local-6989586621679938995"><span id="local-6989586621679938997"><span id="local-6989586621679938999"><span class="annot"><span class="annottext">[AvcIntraInterlaceMode] -&gt; Encoding
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679943615"><span id="local-6989586621679943617"><span id="local-6989586621679943619"><span id="local-6989586621679943621"><span class="annot"><span class="annottext">[AvcIntraInterlaceMode] -&gt; Encoding
 [AvcIntraInterlaceMode] -&gt; Value
 AvcIntraInterlaceMode -&gt; Encoding
 AvcIntraInterlaceMode -&gt; Value
@@ -261,7 +261,7 @@ $ctoEncoding :: AvcIntraInterlaceMode -&gt; Encoding
 toJSON :: AvcIntraInterlaceMode -&gt; Value
 $ctoJSON :: AvcIntraInterlaceMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679938988"><span id="local-6989586621679938990"><span class="annot"><span class="annottext">ToJSONKeyFunction [AvcIntraInterlaceMode]
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679943610"><span id="local-6989586621679943612"><span class="annot"><span class="annottext">ToJSONKeyFunction [AvcIntraInterlaceMode]
 ToJSONKeyFunction AvcIntraInterlaceMode
 ToJSONKeyFunction AvcIntraInterlaceMode
 -&gt; ToJSONKeyFunction [AvcIntraInterlaceMode]
@@ -273,14 +273,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AvcIntraInterlaceMode]
 toJSONKey :: ToJSONKeyFunction AvcIntraInterlaceMode
 $ctoJSONKey :: ToJSONKeyFunction AvcIntraInterlaceMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679938985"><span class="annot"><span class="annottext">[Node] -&gt; Either String AvcIntraInterlaceMode
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679943607"><span class="annot"><span class="annottext">[Node] -&gt; Either String AvcIntraInterlaceMode
 ([Node] -&gt; Either String AvcIntraInterlaceMode)
 -&gt; FromXML AvcIntraInterlaceMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AvcIntraInterlaceMode
 $cparseXML :: [Node] -&gt; Either String AvcIntraInterlaceMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679938982"><span class="annot"><span class="annottext">AvcIntraInterlaceMode -&gt; XML
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679943604"><span class="annot"><span class="annottext">AvcIntraInterlaceMode -&gt; XML
 (AvcIntraInterlaceMode -&gt; XML) -&gt; ToXML AvcIntraInterlaceMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AvcIntraInterlaceMode -&gt; XML

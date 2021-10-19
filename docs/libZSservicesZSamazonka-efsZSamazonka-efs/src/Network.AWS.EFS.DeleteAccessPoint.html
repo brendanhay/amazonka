@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeleteAccessPoint' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679192431"><span id="local-6989586621679192432"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAccessPoint"><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-var">DeleteAccessPoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAccessPoint%27"><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint%27"><span class="hs-identifier hs-var">DeleteAccessPoint'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679192519"><span id="local-6989586621679192520"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAccessPoint"><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-var">DeleteAccessPoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAccessPoint%27"><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint%27"><span class="hs-identifier hs-var">DeleteAccessPoint'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the access point that you want to delete.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AaccessPointId%3ADeleteAccessPoint%27"><span class="annot"><span class="annottext">DeleteAccessPoint -&gt; Text
 </span><a href="Network.AWS.EFS.DeleteAccessPoint.html#%24sel%3AaccessPointId%3ADeleteAccessPoint%27"><span class="hs-identifier hs-var hs-var">accessPointId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679192425"><span id="local-6989586621679192427"><span class="annot"><span class="annottext">DeleteAccessPoint -&gt; DeleteAccessPoint -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679192513"><span id="local-6989586621679192515"><span class="annot"><span class="annottext">DeleteAccessPoint -&gt; DeleteAccessPoint -&gt; Bool
 (DeleteAccessPoint -&gt; DeleteAccessPoint -&gt; Bool)
 -&gt; (DeleteAccessPoint -&gt; DeleteAccessPoint -&gt; Bool)
 -&gt; Eq DeleteAccessPoint
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteAccessPoint -&gt; DeleteAccessPoint -&gt; Bool
 == :: DeleteAccessPoint -&gt; DeleteAccessPoint -&gt; Bool
 $c== :: DeleteAccessPoint -&gt; DeleteAccessPoint -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192416"><span id="local-6989586621679192418"><span id="local-6989586621679192420"><span id="local-6989586621679192422"><span class="annot"><span class="annottext">ReadPrec [DeleteAccessPoint]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192504"><span id="local-6989586621679192506"><span id="local-6989586621679192508"><span id="local-6989586621679192510"><span class="annot"><span class="annottext">ReadPrec [DeleteAccessPoint]
 ReadPrec DeleteAccessPoint
 Int -&gt; ReadS DeleteAccessPoint
 ReadS [DeleteAccessPoint]
@@ -83,7 +83,7 @@ readList :: ReadS [DeleteAccessPoint]
 $creadList :: ReadS [DeleteAccessPoint]
 readsPrec :: Int -&gt; ReadS DeleteAccessPoint
 $creadsPrec :: Int -&gt; ReadS DeleteAccessPoint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192409"><span id="local-6989586621679192411"><span id="local-6989586621679192413"><span class="annot"><span class="annottext">Int -&gt; DeleteAccessPoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192497"><span id="local-6989586621679192499"><span id="local-6989586621679192501"><span class="annot"><span class="annottext">Int -&gt; DeleteAccessPoint -&gt; ShowS
 [DeleteAccessPoint] -&gt; ShowS
 DeleteAccessPoint -&gt; String
 (Int -&gt; DeleteAccessPoint -&gt; ShowS)
@@ -123,12 +123,12 @@ $cfrom :: forall x. DeleteAccessPoint -&gt; Rep DeleteAccessPoint x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span><span>
 </span><span id="line-71"></span><span id="newDeleteAccessPoint"><span class="annot"><span class="annottext">newDeleteAccessPoint :: Text -&gt; DeleteAccessPoint
-</span><a href="Network.AWS.EFS.DeleteAccessPoint.html#newDeleteAccessPoint"><span class="hs-identifier hs-var hs-var">newDeleteAccessPoint</span></a></span></span><span> </span><span id="local-6989586621679192404"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679192404"><span class="hs-identifier hs-var">pAccessPointId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EFS.DeleteAccessPoint.html#newDeleteAccessPoint"><span class="hs-identifier hs-var hs-var">newDeleteAccessPoint</span></a></span></span><span> </span><span id="local-6989586621679192492"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192492"><span class="hs-identifier hs-var">pAccessPointId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DeleteAccessPoint' :: Text -&gt; DeleteAccessPoint
 </span><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint%27"><span class="hs-identifier hs-type">DeleteAccessPoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessPointId:DeleteAccessPoint' :: Text
 </span><a href="Network.AWS.EFS.DeleteAccessPoint.html#%24sel%3AaccessPointId%3ADeleteAccessPoint%27"><span class="hs-identifier hs-var">accessPointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679192404"><span class="hs-identifier hs-var">pAccessPointId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679192492"><span class="hs-identifier hs-var">pAccessPointId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The ID of the access point that you want to delete.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#deleteAccessPoint_accessPointId"><span class="hs-identifier hs-type">deleteAccessPoint_accessPointId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -137,27 +137,27 @@ $cfrom :: forall x. DeleteAccessPoint -&gt; Rep DeleteAccessPoint x
 -&gt; (DeleteAccessPoint -&gt; Text -&gt; DeleteAccessPoint)
 -&gt; Lens DeleteAccessPoint DeleteAccessPoint Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint%27"><span class="hs-identifier hs-type">DeleteAccessPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192401"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint%27"><span class="hs-identifier hs-type">DeleteAccessPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192489"><span class="annot"><span class="annottext">Text
 accessPointId :: Text
 $sel:accessPointId:DeleteAccessPoint' :: DeleteAccessPoint -&gt; Text
-</span><a href="#local-6989586621679192401"><span class="hs-identifier hs-var hs-var">accessPointId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679192401"><span class="hs-identifier hs-var">accessPointId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192400"><span class="annot"><span class="annottext">s :: DeleteAccessPoint
-</span><a href="#local-6989586621679192400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint%27"><span class="hs-identifier hs-type">DeleteAccessPoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192399"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679192399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAccessPoint
-</span><a href="#local-6989586621679192400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessPointId:DeleteAccessPoint' :: Text
+</span><a href="#local-6989586621679192489"><span class="hs-identifier hs-var hs-var">accessPointId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192489"><span class="hs-identifier hs-var">accessPointId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192488"><span class="annot"><span class="annottext">s :: DeleteAccessPoint
+</span><a href="#local-6989586621679192488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint%27"><span class="hs-identifier hs-type">DeleteAccessPoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192487"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAccessPoint
+</span><a href="#local-6989586621679192488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessPointId:DeleteAccessPoint' :: Text
 </span><a href="Network.AWS.EFS.DeleteAccessPoint.html#%24sel%3AaccessPointId%3ADeleteAccessPoint%27"><span class="hs-identifier hs-var">accessPointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679192399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679192487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPointResponse"><span class="hs-identifier hs-type">DeleteAccessPointResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679192395"><span class="annot"><span class="annottext">request :: DeleteAccessPoint -&gt; Request DeleteAccessPoint
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679192483"><span class="annot"><span class="annottext">request :: DeleteAccessPoint -&gt; Request DeleteAccessPoint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAccessPoint -&gt; Request DeleteAccessPoint
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EFS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679192391"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679192479"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteAccessPoint
 -&gt; ClientResponse ClientBody
@@ -183,12 +183,12 @@ AWSResponse a
 DeleteAccessPointResponse
 </span><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPointResponse%27"><span class="hs-identifier hs-var">DeleteAccessPointResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192384"><span id="local-6989586621679192386"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192472"><span id="local-6989586621679192474"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192381"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192469"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679192377"><span class="annot"><span class="annottext">toHeaders :: DeleteAccessPoint -&gt; [Header]
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679192465"><span class="annot"><span class="annottext">toHeaders :: DeleteAccessPoint -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteAccessPoint -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -196,11 +196,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679192372"><span class="annot"><span class="annottext">toPath :: DeleteAccessPoint -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint%27"><span class="hs-identifier hs-type">DeleteAccessPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192370"><span class="annot"><span class="annottext">Text
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679192460"><span class="annot"><span class="annottext">toPath :: DeleteAccessPoint -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint%27"><span class="hs-identifier hs-type">DeleteAccessPoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192458"><span class="annot"><span class="annottext">Text
 accessPointId :: Text
 $sel:accessPointId:DeleteAccessPoint' :: DeleteAccessPoint -&gt; Text
-</span><a href="#local-6989586621679192370"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679192458"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -209,11 +209,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679192370"><span class="hs-identifier hs-var">accessPointId</span></a></span><span>
+</span><a href="#local-6989586621679192458"><span class="hs-identifier hs-var">accessPointId</span></a></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPoint"><span class="hs-identifier hs-type">DeleteAccessPoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679192366"><span class="annot"><span class="annottext">toQuery :: DeleteAccessPoint -&gt; QueryString
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679192454"><span class="annot"><span class="annottext">toQuery :: DeleteAccessPoint -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteAccessPoint -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -221,10 +221,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | /See:/ 'newDeleteAccessPointResponse' smart constructor.</span><span>
-</span><span id="line-104"></span><span id="local-6989586621679192363"><span id="local-6989586621679192364"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAccessPointResponse"><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPointResponse"><span class="hs-identifier hs-var">DeleteAccessPointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAccessPointResponse%27"><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPointResponse%27"><span class="hs-identifier hs-var">DeleteAccessPointResponse'</span></a></span></span><span>
+</span><span id="line-104"></span><span id="local-6989586621679192451"><span id="local-6989586621679192452"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAccessPointResponse"><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPointResponse"><span class="hs-identifier hs-var">DeleteAccessPointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAccessPointResponse%27"><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPointResponse%27"><span class="hs-identifier hs-var">DeleteAccessPointResponse'</span></a></span></span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-107"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679192359"><span id="local-6989586621679192361"><span class="annot"><span class="annottext">DeleteAccessPointResponse -&gt; DeleteAccessPointResponse -&gt; Bool
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679192447"><span id="local-6989586621679192449"><span class="annot"><span class="annottext">DeleteAccessPointResponse -&gt; DeleteAccessPointResponse -&gt; Bool
 (DeleteAccessPointResponse -&gt; DeleteAccessPointResponse -&gt; Bool)
 -&gt; (DeleteAccessPointResponse -&gt; DeleteAccessPointResponse -&gt; Bool)
 -&gt; Eq DeleteAccessPointResponse
@@ -233,7 +233,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteAccessPointResponse -&gt; DeleteAccessPointResponse -&gt; Bool
 == :: DeleteAccessPointResponse -&gt; DeleteAccessPointResponse -&gt; Bool
 $c== :: DeleteAccessPointResponse -&gt; DeleteAccessPointResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192351"><span id="local-6989586621679192353"><span id="local-6989586621679192355"><span id="local-6989586621679192357"><span class="annot"><span class="annottext">ReadPrec [DeleteAccessPointResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192439"><span id="local-6989586621679192441"><span id="local-6989586621679192443"><span id="local-6989586621679192445"><span class="annot"><span class="annottext">ReadPrec [DeleteAccessPointResponse]
 ReadPrec DeleteAccessPointResponse
 Int -&gt; ReadS DeleteAccessPointResponse
 ReadS [DeleteAccessPointResponse]
@@ -253,7 +253,7 @@ readList :: ReadS [DeleteAccessPointResponse]
 $creadList :: ReadS [DeleteAccessPointResponse]
 readsPrec :: Int -&gt; ReadS DeleteAccessPointResponse
 $creadsPrec :: Int -&gt; ReadS DeleteAccessPointResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192345"><span id="local-6989586621679192347"><span id="local-6989586621679192349"><span class="annot"><span class="annottext">Int -&gt; DeleteAccessPointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192433"><span id="local-6989586621679192435"><span id="local-6989586621679192437"><span class="annot"><span class="annottext">Int -&gt; DeleteAccessPointResponse -&gt; ShowS
 [DeleteAccessPointResponse] -&gt; ShowS
 DeleteAccessPointResponse -&gt; String
 (Int -&gt; DeleteAccessPointResponse -&gt; ShowS)
@@ -296,5 +296,5 @@ DeleteAccessPointResponse -&gt; Rep DeleteAccessPointResponse x
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">DeleteAccessPointResponse
 </span><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPointResponse%27"><span class="hs-identifier hs-var">DeleteAccessPointResponse'</span></a></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192341"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPointResponse"><span class="hs-identifier hs-type">DeleteAccessPointResponse</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192429"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.DeleteAccessPoint.html#DeleteAccessPointResponse"><span class="hs-identifier hs-type">DeleteAccessPointResponse</span></a></span></span><span>
 </span><span id="line-119"></span></pre></body></html>

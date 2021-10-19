@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newCreateDBSnapshot' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679799913"><span id="local-6989586621679799914"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDBSnapshot"><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot"><span class="hs-identifier hs-var">CreateDBSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDBSnapshot%27"><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot%27"><span class="hs-identifier hs-var">CreateDBSnapshot'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679801071"><span id="local-6989586621679801072"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDBSnapshot"><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot"><span class="hs-identifier hs-var">CreateDBSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDBSnapshot%27"><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot%27"><span class="hs-identifier hs-var">CreateDBSnapshot'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Atags%3ACreateDBSnapshot%27"><span class="annot"><span class="annottext">CreateDBSnapshot -&gt; Maybe [Tag]
 </span><a href="Network.AWS.RDS.CreateDBSnapshot.html#%24sel%3Atags%3ACreateDBSnapshot%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The identifier for the DB snapshot.</span><span>
@@ -79,7 +79,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3AdbInstanceIdentifier%3ACreateDBSnapshot%27"><span class="annot"><span class="annottext">CreateDBSnapshot -&gt; Text
 </span><a href="Network.AWS.RDS.CreateDBSnapshot.html#%24sel%3AdbInstanceIdentifier%3ACreateDBSnapshot%27"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799905"><span id="local-6989586621679799907"><span class="annot"><span class="annottext">CreateDBSnapshot -&gt; CreateDBSnapshot -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679801063"><span id="local-6989586621679801065"><span class="annot"><span class="annottext">CreateDBSnapshot -&gt; CreateDBSnapshot -&gt; Bool
 (CreateDBSnapshot -&gt; CreateDBSnapshot -&gt; Bool)
 -&gt; (CreateDBSnapshot -&gt; CreateDBSnapshot -&gt; Bool)
 -&gt; Eq CreateDBSnapshot
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDBSnapshot -&gt; CreateDBSnapshot -&gt; Bool
 == :: CreateDBSnapshot -&gt; CreateDBSnapshot -&gt; Bool
 $c== :: CreateDBSnapshot -&gt; CreateDBSnapshot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799896"><span id="local-6989586621679799898"><span id="local-6989586621679799900"><span id="local-6989586621679799902"><span class="annot"><span class="annottext">ReadPrec [CreateDBSnapshot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679801054"><span id="local-6989586621679801056"><span id="local-6989586621679801058"><span id="local-6989586621679801060"><span class="annot"><span class="annottext">ReadPrec [CreateDBSnapshot]
 ReadPrec CreateDBSnapshot
 Int -&gt; ReadS CreateDBSnapshot
 ReadS [CreateDBSnapshot]
@@ -108,7 +108,7 @@ readList :: ReadS [CreateDBSnapshot]
 $creadList :: ReadS [CreateDBSnapshot]
 readsPrec :: Int -&gt; ReadS CreateDBSnapshot
 $creadsPrec :: Int -&gt; ReadS CreateDBSnapshot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799889"><span id="local-6989586621679799891"><span id="local-6989586621679799893"><span class="annot"><span class="annottext">Int -&gt; CreateDBSnapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679801047"><span id="local-6989586621679801049"><span id="local-6989586621679801051"><span class="annot"><span class="annottext">Int -&gt; CreateDBSnapshot -&gt; ShowS
 [CreateDBSnapshot] -&gt; ShowS
 CreateDBSnapshot -&gt; String
 (Int -&gt; CreateDBSnapshot -&gt; ShowS)
@@ -172,10 +172,10 @@ $cfrom :: forall x. CreateDBSnapshot -&gt; Rep CreateDBSnapshot x
 </span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot"><span class="hs-identifier hs-type">CreateDBSnapshot</span></a></span><span>
 </span><span id="line-117"></span><span id="newCreateDBSnapshot"><span class="annot"><span class="annottext">newCreateDBSnapshot :: Text -&gt; Text -&gt; CreateDBSnapshot
 </span><a href="Network.AWS.RDS.CreateDBSnapshot.html#newCreateDBSnapshot"><span class="hs-identifier hs-var hs-var">newCreateDBSnapshot</span></a></span></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679799884"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799884"><span class="hs-identifier hs-var">pDBSnapshotIdentifier_</span></a></span></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679799883"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799883"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679801042"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679801042"><span class="hs-identifier hs-var">pDBSnapshotIdentifier_</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679801041"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679801041"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">CreateDBSnapshot' :: Maybe [Tag] -&gt; Text -&gt; Text -&gt; CreateDBSnapshot
 </span><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot%27"><span class="hs-identifier hs-type">CreateDBSnapshot'</span></a></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateDBSnapshot' :: Maybe [Tag]
@@ -184,10 +184,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:dbSnapshotIdentifier:CreateDBSnapshot' :: Text
 </span><a href="Network.AWS.RDS.CreateDBSnapshot.html#%24sel%3AdbSnapshotIdentifier%3ACreateDBSnapshot%27"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799884"><span class="hs-identifier hs-var">pDBSnapshotIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679801042"><span class="hs-identifier hs-var">pDBSnapshotIdentifier_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:CreateDBSnapshot' :: Text
 </span><a href="Network.AWS.RDS.CreateDBSnapshot.html#%24sel%3AdbInstanceIdentifier%3ACreateDBSnapshot%27"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799883"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679801041"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -199,16 +199,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateDBSnapshot CreateDBSnapshot (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot%27"><span class="hs-identifier hs-type">CreateDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799880"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot%27"><span class="hs-identifier hs-type">CreateDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801038"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateDBSnapshot' :: CreateDBSnapshot -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679799880"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679799880"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799879"><span class="annot"><span class="annottext">s :: CreateDBSnapshot
-</span><a href="#local-6989586621679799879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot%27"><span class="hs-identifier hs-type">CreateDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799878"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679799878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSnapshot
-</span><a href="#local-6989586621679799879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDBSnapshot' :: Maybe [Tag]
+</span><a href="#local-6989586621679801038"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679801038"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801037"><span class="annot"><span class="annottext">s :: CreateDBSnapshot
+</span><a href="#local-6989586621679801037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot%27"><span class="hs-identifier hs-type">CreateDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801036"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679801036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSnapshot
+</span><a href="#local-6989586621679801037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDBSnapshot' :: Maybe [Tag]
 </span><a href="Network.AWS.RDS.CreateDBSnapshot.html#%24sel%3Atags%3ACreateDBSnapshot%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679799878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot"><span class="hs-identifier hs-type">CreateDBSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679801036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot"><span class="hs-identifier hs-type">CreateDBSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateDBSnapshot -&gt; f CreateDBSnapshot)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -222,8 +222,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The identifier for the DB snapshot.</span><span>
 </span><span id="line-131"></span><span class="hs-comment">--</span><span>
@@ -244,16 +244,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateDBSnapshot -&gt; Text -&gt; CreateDBSnapshot)
 -&gt; Lens CreateDBSnapshot CreateDBSnapshot Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot%27"><span class="hs-identifier hs-type">CreateDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799874"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot%27"><span class="hs-identifier hs-type">CreateDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801032"><span class="annot"><span class="annottext">Text
 dbSnapshotIdentifier :: Text
 $sel:dbSnapshotIdentifier:CreateDBSnapshot' :: CreateDBSnapshot -&gt; Text
-</span><a href="#local-6989586621679799874"><span class="hs-identifier hs-var hs-var">dbSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799874"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799873"><span class="annot"><span class="annottext">s :: CreateDBSnapshot
-</span><a href="#local-6989586621679799873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot%27"><span class="hs-identifier hs-type">CreateDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799872"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSnapshot
-</span><a href="#local-6989586621679799873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSnapshotIdentifier:CreateDBSnapshot' :: Text
+</span><a href="#local-6989586621679801032"><span class="hs-identifier hs-var hs-var">dbSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679801032"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801031"><span class="annot"><span class="annottext">s :: CreateDBSnapshot
+</span><a href="#local-6989586621679801031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot%27"><span class="hs-identifier hs-type">CreateDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801030"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679801030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSnapshot
+</span><a href="#local-6989586621679801031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSnapshotIdentifier:CreateDBSnapshot' :: Text
 </span><a href="Network.AWS.RDS.CreateDBSnapshot.html#%24sel%3AdbSnapshotIdentifier%3ACreateDBSnapshot%27"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot"><span class="hs-identifier hs-type">CreateDBSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679801030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot"><span class="hs-identifier hs-type">CreateDBSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The identifier of the DB instance that you want to create the snapshot</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- of.</span><span>
@@ -267,27 +267,27 @@ $sel:dbSnapshotIdentifier:CreateDBSnapshot' :: CreateDBSnapshot -&gt; Text
 -&gt; (CreateDBSnapshot -&gt; Text -&gt; CreateDBSnapshot)
 -&gt; Lens CreateDBSnapshot CreateDBSnapshot Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot%27"><span class="hs-identifier hs-type">CreateDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799871"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot%27"><span class="hs-identifier hs-type">CreateDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801029"><span class="annot"><span class="annottext">Text
 dbInstanceIdentifier :: Text
 $sel:dbInstanceIdentifier:CreateDBSnapshot' :: CreateDBSnapshot -&gt; Text
-</span><a href="#local-6989586621679799871"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799871"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799870"><span class="annot"><span class="annottext">s :: CreateDBSnapshot
-</span><a href="#local-6989586621679799870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot%27"><span class="hs-identifier hs-type">CreateDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799869"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSnapshot
-</span><a href="#local-6989586621679799870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:CreateDBSnapshot' :: Text
+</span><a href="#local-6989586621679801029"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679801029"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801028"><span class="annot"><span class="annottext">s :: CreateDBSnapshot
+</span><a href="#local-6989586621679801028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot%27"><span class="hs-identifier hs-type">CreateDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801027"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679801027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSnapshot
+</span><a href="#local-6989586621679801028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:CreateDBSnapshot' :: Text
 </span><a href="Network.AWS.RDS.CreateDBSnapshot.html#%24sel%3AdbInstanceIdentifier%3ACreateDBSnapshot%27"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot"><span class="hs-identifier hs-type">CreateDBSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679801027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot"><span class="hs-identifier hs-type">CreateDBSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot"><span class="hs-identifier hs-type">CreateDBSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-157"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot"><span class="hs-identifier hs-type">CreateDBSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse"><span class="hs-identifier hs-type">CreateDBSnapshotResponse</span></a></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679799865"><span class="annot"><span class="annottext">request :: CreateDBSnapshot -&gt; Request CreateDBSnapshot
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679801023"><span class="annot"><span class="annottext">request :: CreateDBSnapshot -&gt; Request CreateDBSnapshot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDBSnapshot -&gt; Request CreateDBSnapshot
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679799861"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679801019"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateDBSnapshot
 -&gt; ClientResponse ClientBody
@@ -316,10 +316,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateDBSnapshotResult&quot;</span></span><span>
-</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679799858"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679799858"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679799857"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679799857"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679799856"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679799856"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679801016"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679801016"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679801015"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679801015"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679801014"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679801014"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBSnapshot -&gt; Int -&gt; CreateDBSnapshotResponse
 </span><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse%27"><span class="hs-identifier hs-var">CreateDBSnapshotResponse'</span></a></span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DBSnapshot -&gt; Int -&gt; CreateDBSnapshotResponse)
@@ -327,7 +327,7 @@ Text
 -&gt; Either String (Int -&gt; CreateDBSnapshotResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679799856"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBSnapshot)
+</span><a href="#local-6989586621679801014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBSnapshot)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DBSnapshot&quot;</span></span><span class="hs-special">)</span><span>
@@ -339,15 +339,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679799858"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679801016"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799848"><span id="local-6989586621679799850"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot"><span class="hs-identifier hs-type">CreateDBSnapshot</span></a></span></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679801006"><span id="local-6989586621679801008"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot"><span class="hs-identifier hs-type">CreateDBSnapshot</span></a></span></span></span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799845"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot"><span class="hs-identifier hs-type">CreateDBSnapshot</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679801003"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot"><span class="hs-identifier hs-type">CreateDBSnapshot</span></a></span></span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot"><span class="hs-identifier hs-type">CreateDBSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679799841"><span class="annot"><span class="annottext">toHeaders :: CreateDBSnapshot -&gt; ResponseHeaders
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679800999"><span class="annot"><span class="annottext">toHeaders :: CreateDBSnapshot -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDBSnapshot -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -355,15 +355,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot"><span class="hs-identifier hs-type">CreateDBSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679799836"><span class="annot"><span class="annottext">toPath :: CreateDBSnapshot -&gt; ByteString
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679800994"><span class="annot"><span class="annottext">toPath :: CreateDBSnapshot -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDBSnapshot -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot"><span class="hs-identifier hs-type">CreateDBSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679799832"><span class="annot"><span class="annottext">toQuery :: CreateDBSnapshot -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot%27"><span class="hs-identifier hs-type">CreateDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799828"><span id="local-6989586621679799829"><span id="local-6989586621679799830"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679800990"><span class="annot"><span class="annottext">toQuery :: CreateDBSnapshot -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshot%27"><span class="hs-identifier hs-type">CreateDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800986"><span id="local-6989586621679800987"><span id="local-6989586621679800988"><span class="annot"><span class="annottext">Maybe [Tag]
 Text
 dbInstanceIdentifier :: Text
 dbSnapshotIdentifier :: Text
@@ -371,7 +371,7 @@ tags :: Maybe [Tag]
 $sel:dbInstanceIdentifier:CreateDBSnapshot' :: CreateDBSnapshot -&gt; Text
 $sel:dbSnapshotIdentifier:CreateDBSnapshot' :: CreateDBSnapshot -&gt; Text
 $sel:tags:CreateDBSnapshot' :: CreateDBSnapshot -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679799828"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679800986"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -402,28 +402,28 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679799830"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679800988"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DBSnapshotIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799829"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679800987"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DBInstanceIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799828"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679800986"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span>
 </span><span id="line-191"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | /See:/ 'newCreateDBSnapshotResponse' smart constructor.</span><span>
-</span><span id="line-194"></span><span id="local-6989586621679799824"><span id="local-6989586621679799825"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDBSnapshotResponse"><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse"><span class="hs-identifier hs-var">CreateDBSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDBSnapshotResponse%27"><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse%27"><span class="hs-identifier hs-var">CreateDBSnapshotResponse'</span></a></span></span><span>
+</span><span id="line-194"></span><span id="local-6989586621679800982"><span id="local-6989586621679800983"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDBSnapshotResponse"><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse"><span class="hs-identifier hs-var">CreateDBSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDBSnapshotResponse%27"><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse%27"><span class="hs-identifier hs-var">CreateDBSnapshotResponse'</span></a></span></span><span>
 </span><span id="line-195"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdbSnapshot%3ACreateDBSnapshotResponse%27"><span class="annot"><span class="annottext">CreateDBSnapshotResponse -&gt; Maybe DBSnapshot
 </span><a href="Network.AWS.RDS.CreateDBSnapshot.html#%24sel%3AdbSnapshot%3ACreateDBSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">dbSnapshot</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSnapshot.html#DBSnapshot"><span class="hs-identifier hs-type">DBSnapshot</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-197"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDBSnapshotResponse%27"><span class="annot"><span class="annottext">CreateDBSnapshotResponse -&gt; Int
 </span><a href="Network.AWS.RDS.CreateDBSnapshot.html#%24sel%3AhttpStatus%3ACreateDBSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-198"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799818"><span id="local-6989586621679799820"><span class="annot"><span class="annottext">CreateDBSnapshotResponse -&gt; CreateDBSnapshotResponse -&gt; Bool
+</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800976"><span id="local-6989586621679800978"><span class="annot"><span class="annottext">CreateDBSnapshotResponse -&gt; CreateDBSnapshotResponse -&gt; Bool
 (CreateDBSnapshotResponse -&gt; CreateDBSnapshotResponse -&gt; Bool)
 -&gt; (CreateDBSnapshotResponse -&gt; CreateDBSnapshotResponse -&gt; Bool)
 -&gt; Eq CreateDBSnapshotResponse
@@ -432,7 +432,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDBSnapshotResponse -&gt; CreateDBSnapshotResponse -&gt; Bool
 == :: CreateDBSnapshotResponse -&gt; CreateDBSnapshotResponse -&gt; Bool
 $c== :: CreateDBSnapshotResponse -&gt; CreateDBSnapshotResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799810"><span id="local-6989586621679799812"><span id="local-6989586621679799814"><span id="local-6989586621679799816"><span class="annot"><span class="annottext">ReadPrec [CreateDBSnapshotResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800968"><span id="local-6989586621679800970"><span id="local-6989586621679800972"><span id="local-6989586621679800974"><span class="annot"><span class="annottext">ReadPrec [CreateDBSnapshotResponse]
 ReadPrec CreateDBSnapshotResponse
 Int -&gt; ReadS CreateDBSnapshotResponse
 ReadS [CreateDBSnapshotResponse]
@@ -452,7 +452,7 @@ readList :: ReadS [CreateDBSnapshotResponse]
 $creadList :: ReadS [CreateDBSnapshotResponse]
 readsPrec :: Int -&gt; ReadS CreateDBSnapshotResponse
 $creadsPrec :: Int -&gt; ReadS CreateDBSnapshotResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799804"><span id="local-6989586621679799806"><span id="local-6989586621679799808"><span class="annot"><span class="annottext">Int -&gt; CreateDBSnapshotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800962"><span id="local-6989586621679800964"><span id="local-6989586621679800966"><span class="annot"><span class="annottext">Int -&gt; CreateDBSnapshotResponse -&gt; ShowS
 [CreateDBSnapshotResponse] -&gt; ShowS
 CreateDBSnapshotResponse -&gt; String
 (Int -&gt; CreateDBSnapshotResponse -&gt; ShowS)
@@ -500,8 +500,8 @@ CreateDBSnapshotResponse -&gt; Rep CreateDBSnapshotResponse x
 </span><span id="line-214"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse"><span class="hs-identifier hs-type">CreateDBSnapshotResponse</span></a></span><span>
 </span><span id="line-216"></span><span id="newCreateDBSnapshotResponse"><span class="annot"><span class="annottext">newCreateDBSnapshotResponse :: Int -&gt; CreateDBSnapshotResponse
-</span><a href="Network.AWS.RDS.CreateDBSnapshot.html#newCreateDBSnapshotResponse"><span class="hs-identifier hs-var hs-var">newCreateDBSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679799801"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679799801"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.CreateDBSnapshot.html#newCreateDBSnapshotResponse"><span class="hs-identifier hs-var hs-var">newCreateDBSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679800959"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679800959"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">CreateDBSnapshotResponse' :: Maybe DBSnapshot -&gt; Int -&gt; CreateDBSnapshotResponse
 </span><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse%27"><span class="hs-identifier hs-type">CreateDBSnapshotResponse'</span></a></span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbSnapshot:CreateDBSnapshotResponse' :: Maybe DBSnapshot
@@ -511,7 +511,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDBSnapshotResponse' :: Int
 </span><a href="Network.AWS.RDS.CreateDBSnapshot.html#%24sel%3AhttpStatus%3ACreateDBSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679799801"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679800959"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-221"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -527,16 +527,16 @@ forall a. Maybe a
      (Maybe DBSnapshot)
      (Maybe DBSnapshot)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse%27"><span class="hs-identifier hs-type">CreateDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799800"><span class="annot"><span class="annottext">Maybe DBSnapshot
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse%27"><span class="hs-identifier hs-type">CreateDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800958"><span class="annot"><span class="annottext">Maybe DBSnapshot
 dbSnapshot :: Maybe DBSnapshot
 $sel:dbSnapshot:CreateDBSnapshotResponse' :: CreateDBSnapshotResponse -&gt; Maybe DBSnapshot
-</span><a href="#local-6989586621679799800"><span class="hs-identifier hs-var hs-var">dbSnapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBSnapshot
-</span><a href="#local-6989586621679799800"><span class="hs-identifier hs-var">dbSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799799"><span class="annot"><span class="annottext">s :: CreateDBSnapshotResponse
-</span><a href="#local-6989586621679799799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse%27"><span class="hs-identifier hs-type">CreateDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799798"><span class="annot"><span class="annottext">Maybe DBSnapshot
-</span><a href="#local-6989586621679799798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSnapshotResponse
-</span><a href="#local-6989586621679799799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSnapshot:CreateDBSnapshotResponse' :: Maybe DBSnapshot
+</span><a href="#local-6989586621679800958"><span class="hs-identifier hs-var hs-var">dbSnapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBSnapshot
+</span><a href="#local-6989586621679800958"><span class="hs-identifier hs-var">dbSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800957"><span class="annot"><span class="annottext">s :: CreateDBSnapshotResponse
+</span><a href="#local-6989586621679800957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse%27"><span class="hs-identifier hs-type">CreateDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800956"><span class="annot"><span class="annottext">Maybe DBSnapshot
+</span><a href="#local-6989586621679800956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSnapshotResponse
+</span><a href="#local-6989586621679800957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSnapshot:CreateDBSnapshotResponse' :: Maybe DBSnapshot
 </span><a href="Network.AWS.RDS.CreateDBSnapshot.html#%24sel%3AdbSnapshot%3ACreateDBSnapshotResponse%27"><span class="hs-identifier hs-var">dbSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBSnapshot
-</span><a href="#local-6989586621679799798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse"><span class="hs-identifier hs-type">CreateDBSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse"><span class="hs-identifier hs-type">CreateDBSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-228"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#createDBSnapshotResponse_httpStatus"><span class="hs-identifier hs-type">createDBSnapshotResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse"><span class="hs-identifier hs-type">CreateDBSnapshotResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -546,16 +546,16 @@ $sel:dbSnapshot:CreateDBSnapshotResponse' :: CreateDBSnapshotResponse -&gt; Mayb
 -&gt; (CreateDBSnapshotResponse -&gt; Int -&gt; CreateDBSnapshotResponse)
 -&gt; Lens CreateDBSnapshotResponse CreateDBSnapshotResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse%27"><span class="hs-identifier hs-type">CreateDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799797"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse%27"><span class="hs-identifier hs-type">CreateDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800955"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateDBSnapshotResponse' :: CreateDBSnapshotResponse -&gt; Int
-</span><a href="#local-6989586621679799797"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679799797"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799796"><span class="annot"><span class="annottext">s :: CreateDBSnapshotResponse
-</span><a href="#local-6989586621679799796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse%27"><span class="hs-identifier hs-type">CreateDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799795"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679799795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSnapshotResponse
-</span><a href="#local-6989586621679799796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDBSnapshotResponse' :: Int
+</span><a href="#local-6989586621679800955"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679800955"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800954"><span class="annot"><span class="annottext">s :: CreateDBSnapshotResponse
+</span><a href="#local-6989586621679800954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse%27"><span class="hs-identifier hs-type">CreateDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800953"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679800953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSnapshotResponse
+</span><a href="#local-6989586621679800954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDBSnapshotResponse' :: Int
 </span><a href="Network.AWS.RDS.CreateDBSnapshot.html#%24sel%3AhttpStatus%3ACreateDBSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679799795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse"><span class="hs-identifier hs-type">CreateDBSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse"><span class="hs-identifier hs-type">CreateDBSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799793"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse"><span class="hs-identifier hs-type">CreateDBSnapshotResponse</span></a></span></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800951"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSnapshot.html#CreateDBSnapshotResponse"><span class="hs-identifier hs-type">CreateDBSnapshotResponse</span></a></span></span><span>
 </span><span id="line-232"></span></pre></body></html>

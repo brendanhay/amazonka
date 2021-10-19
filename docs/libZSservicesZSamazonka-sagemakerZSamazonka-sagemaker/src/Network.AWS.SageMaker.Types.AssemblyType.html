@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680289827"><span id="local-6989586621680289828"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssemblyType"><span class="annot"><a href="Network.AWS.SageMaker.Types.AssemblyType.html#AssemblyType"><span class="hs-identifier hs-var">AssemblyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssemblyType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AssemblyType.html#AssemblyType%27"><span class="hs-identifier hs-var">AssemblyType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680291185"><span id="local-6989586621680291186"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssemblyType"><span class="annot"><a href="Network.AWS.SageMaker.Types.AssemblyType.html#AssemblyType"><span class="hs-identifier hs-var">AssemblyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssemblyType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AssemblyType.html#AssemblyType%27"><span class="hs-identifier hs-var">AssemblyType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAssemblyType"><span class="annot"><span class="annottext">AssemblyType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.AssemblyType.html#fromAssemblyType"><span class="hs-identifier hs-var hs-var">fromAssemblyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680289819"><span id="local-6989586621680289821"><span id="local-6989586621680289823"><span class="annot"><span class="annottext">Int -&gt; AssemblyType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680291177"><span id="local-6989586621680291179"><span id="local-6989586621680291181"><span class="annot"><span class="annottext">Int -&gt; AssemblyType -&gt; ShowS
 [AssemblyType] -&gt; ShowS
 AssemblyType -&gt; String
 (Int -&gt; AssemblyType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: AssemblyType -&gt; String
 showsPrec :: Int -&gt; AssemblyType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AssemblyType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680289810"><span id="local-6989586621680289812"><span id="local-6989586621680289814"><span id="local-6989586621680289816"><span class="annot"><span class="annottext">ReadPrec [AssemblyType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680291168"><span id="local-6989586621680291170"><span id="local-6989586621680291172"><span id="local-6989586621680291174"><span class="annot"><span class="annottext">ReadPrec [AssemblyType]
 ReadPrec AssemblyType
 Int -&gt; ReadS AssemblyType
 ReadS [AssemblyType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [AssemblyType]
 readsPrec :: Int -&gt; ReadS AssemblyType
 $creadsPrec :: Int -&gt; ReadS AssemblyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680289805"><span id="local-6989586621680289807"><span class="annot"><span class="annottext">AssemblyType -&gt; AssemblyType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680291163"><span id="local-6989586621680291165"><span class="annot"><span class="annottext">AssemblyType -&gt; AssemblyType -&gt; Bool
 (AssemblyType -&gt; AssemblyType -&gt; Bool)
 -&gt; (AssemblyType -&gt; AssemblyType -&gt; Bool) -&gt; Eq AssemblyType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: AssemblyType -&gt; AssemblyType -&gt; Bool
 == :: AssemblyType -&gt; AssemblyType -&gt; Bool
 $c== :: AssemblyType -&gt; AssemblyType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680289789"><span id="local-6989586621680289791"><span id="local-6989586621680289793"><span id="local-6989586621680289795"><span id="local-6989586621680289797"><span id="local-6989586621680289799"><span id="local-6989586621680289801"><span class="annot"><span class="annottext">Eq AssemblyType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680291147"><span id="local-6989586621680291149"><span id="local-6989586621680291151"><span id="local-6989586621680291153"><span id="local-6989586621680291155"><span id="local-6989586621680291157"><span id="local-6989586621680291159"><span class="annot"><span class="annottext">Eq AssemblyType
 Eq AssemblyType
 -&gt; (AssemblyType -&gt; AssemblyType -&gt; Ordering)
 -&gt; (AssemblyType -&gt; AssemblyType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. AssemblyType -&gt; Rep AssemblyType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680289781"><span id="local-6989586621680289783"><span class="annot"><span class="annottext">Int -&gt; AssemblyType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680291139"><span id="local-6989586621680291141"><span class="annot"><span class="annottext">Int -&gt; AssemblyType -&gt; Int
 AssemblyType -&gt; Int
 (Int -&gt; AssemblyType -&gt; Int)
 -&gt; (AssemblyType -&gt; Int) -&gt; Hashable AssemblyType
@@ -142,49 +142,49 @@ $chash :: AssemblyType -&gt; Int
 hashWithSalt :: Int -&gt; AssemblyType -&gt; Int
 $chashWithSalt :: Int -&gt; AssemblyType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680289778"><span class="annot"><span class="annottext">AssemblyType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680291136"><span class="annot"><span class="annottext">AssemblyType -&gt; ()
 (AssemblyType -&gt; ()) -&gt; NFData AssemblyType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AssemblyType -&gt; ()
 $crnf :: AssemblyType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680289775"><span class="annot"><span class="annottext">Text -&gt; Either String AssemblyType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680291133"><span class="annot"><span class="annottext">Text -&gt; Either String AssemblyType
 (Text -&gt; Either String AssemblyType) -&gt; FromText AssemblyType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AssemblyType
 $cfromText :: Text -&gt; Either String AssemblyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680289772"><span class="annot"><span class="annottext">AssemblyType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680291130"><span class="annot"><span class="annottext">AssemblyType -&gt; Text
 (AssemblyType -&gt; Text) -&gt; ToText AssemblyType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AssemblyType -&gt; Text
 $ctoText :: AssemblyType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680289769"><span class="annot"><span class="annottext">AssemblyType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680291127"><span class="annot"><span class="annottext">AssemblyType -&gt; ByteString
 (AssemblyType -&gt; ByteString) -&gt; ToByteString AssemblyType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AssemblyType -&gt; ByteString
 $ctoBS :: AssemblyType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680289766"><span class="annot"><span class="annottext">AssemblyType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680291124"><span class="annot"><span class="annottext">AssemblyType -&gt; ByteStringBuilder
 (AssemblyType -&gt; ByteStringBuilder) -&gt; ToLog AssemblyType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AssemblyType -&gt; ByteStringBuilder
 $cbuild :: AssemblyType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680289763"><span class="annot"><span class="annottext">HeaderName -&gt; AssemblyType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680291121"><span class="annot"><span class="annottext">HeaderName -&gt; AssemblyType -&gt; [Header]
 (HeaderName -&gt; AssemblyType -&gt; [Header]) -&gt; ToHeader AssemblyType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AssemblyType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AssemblyType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680289760"><span class="annot"><span class="annottext">AssemblyType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680291118"><span class="annot"><span class="annottext">AssemblyType -&gt; QueryString
 (AssemblyType -&gt; QueryString) -&gt; ToQuery AssemblyType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AssemblyType -&gt; QueryString
 $ctoQuery :: AssemblyType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680289755"><span id="local-6989586621680289757"><span class="annot"><span class="annottext">Value -&gt; Parser [AssemblyType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680291113"><span id="local-6989586621680291115"><span class="annot"><span class="annottext">Value -&gt; Parser [AssemblyType]
 Value -&gt; Parser AssemblyType
 (Value -&gt; Parser AssemblyType)
 -&gt; (Value -&gt; Parser [AssemblyType]) -&gt; FromJSON AssemblyType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [AssemblyType]
 parseJSON :: Value -&gt; Parser AssemblyType
 $cparseJSON :: Value -&gt; Parser AssemblyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680289750"><span id="local-6989586621680289752"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssemblyType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680291108"><span id="local-6989586621680291110"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssemblyType]
 FromJSONKeyFunction AssemblyType
 FromJSONKeyFunction AssemblyType
 -&gt; FromJSONKeyFunction [AssemblyType] -&gt; FromJSONKey AssemblyType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AssemblyType]
 fromJSONKey :: FromJSONKeyFunction AssemblyType
 $cfromJSONKey :: FromJSONKeyFunction AssemblyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680289741"><span id="local-6989586621680289743"><span id="local-6989586621680289745"><span id="local-6989586621680289747"><span class="annot"><span class="annottext">[AssemblyType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680291099"><span id="local-6989586621680291101"><span id="local-6989586621680291103"><span id="local-6989586621680291105"><span class="annot"><span class="annottext">[AssemblyType] -&gt; Encoding
 [AssemblyType] -&gt; Value
 AssemblyType -&gt; Encoding
 AssemblyType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: AssemblyType -&gt; Encoding
 toJSON :: AssemblyType -&gt; Value
 $ctoJSON :: AssemblyType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680289736"><span id="local-6989586621680289738"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssemblyType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680291094"><span id="local-6989586621680291096"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssemblyType]
 ToJSONKeyFunction AssemblyType
 ToJSONKeyFunction AssemblyType
 -&gt; ToJSONKeyFunction [AssemblyType] -&gt; ToJSONKey AssemblyType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AssemblyType]
 toJSONKey :: ToJSONKeyFunction AssemblyType
 $ctoJSONKey :: ToJSONKeyFunction AssemblyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680289733"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssemblyType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680291091"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssemblyType
 ([Node] -&gt; Either String AssemblyType) -&gt; FromXML AssemblyType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AssemblyType
 $cparseXML :: [Node] -&gt; Either String AssemblyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680289730"><span class="annot"><span class="annottext">AssemblyType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680291088"><span class="annot"><span class="annottext">AssemblyType -&gt; XML
 (AssemblyType -&gt; XML) -&gt; ToXML AssemblyType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AssemblyType -&gt; XML

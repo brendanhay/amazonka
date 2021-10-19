@@ -30,42 +30,42 @@
 </span><span id="line-30"></span><span class="hs-comment">-- action execution ID, and the name, version, and timing of the action.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newActionExecutionDetail' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679280846"><span id="local-6989586621679280847"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionExecutionDetail"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-var">ActionExecutionDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionExecutionDetail%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-var">ActionExecutionDetail'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679281052"><span id="local-6989586621679281053"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionExecutionDetail"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-var">ActionExecutionDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionExecutionDetail%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-var">ActionExecutionDetail'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the action execution. Status categories are @InProgress@,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- @Succeeded@, and @Failed@.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe ActionExecutionStatus
 </span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3Astatus%3AActionExecutionDetail%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionStatus.html#ActionExecutionStatus"><span class="hs-identifier hs-type">ActionExecutionStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the action.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AactionName%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AactionName%3AActionExecutionDetail%27"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The action execution ID.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AactionExecutionId%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AactionExecutionId%3AActionExecutionDetail%27"><span class="hs-identifier hs-var hs-var">actionExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The last update time of the action execution.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AlastUpdateTime%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe POSIX
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AlastUpdateTime%3AActionExecutionDetail%27"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Input details for the action execution, such as role ARN, Region, and</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- input artifacts.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Ainput%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe ActionExecutionInput
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3Ainput%3AActionExecutionDetail%27"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionInput.html#ActionExecutionInput"><span class="hs-identifier hs-type">ActionExecutionInput</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The name of the stage that contains the action.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AstageName%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AstageName%3AActionExecutionDetail%27"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The start time of the action execution.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AstartTime%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe POSIX
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The start time of the action execution.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AstartTime%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe POSIX
 </span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AstartTime%3AActionExecutionDetail%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Output details for the action execution, such as the action execution</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- result.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aoutput%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe ActionExecutionOutput
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3Aoutput%3AActionExecutionDetail%27"><span class="hs-identifier hs-var hs-var">output</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionOutput.html#ActionExecutionOutput"><span class="hs-identifier hs-type">ActionExecutionOutput</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The version of the pipeline where the action was run.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3ApipelineVersion%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe Natural
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The version of the pipeline where the action was run.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3ApipelineVersion%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe Natural
 </span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3ApipelineVersion%3AActionExecutionDetail%27"><span class="hs-identifier hs-var hs-var">pipelineVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The pipeline execution ID for the action execution.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3ApipelineExecutionId%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3ApipelineExecutionId%3AActionExecutionDetail%27"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Input details for the action execution, such as role ARN, Region, and</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- input artifacts.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Ainput%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe ActionExecutionInput
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3Ainput%3AActionExecutionDetail%27"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionInput.html#ActionExecutionInput"><span class="hs-identifier hs-type">ActionExecutionInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the action.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AactionName%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AactionName%3AActionExecutionDetail%27"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Output details for the action execution, such as the action execution</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- result.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aoutput%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe ActionExecutionOutput
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3Aoutput%3AActionExecutionDetail%27"><span class="hs-identifier hs-var hs-var">output</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionOutput.html#ActionExecutionOutput"><span class="hs-identifier hs-type">ActionExecutionOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The pipeline execution ID for the action execution.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3ApipelineExecutionId%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3ApipelineExecutionId%3AActionExecutionDetail%27"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The name of the stage that contains the action.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AstageName%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AstageName%3AActionExecutionDetail%27"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The last update time of the action execution.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AlastUpdateTime%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe POSIX
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AlastUpdateTime%3AActionExecutionDetail%27"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The action execution ID.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AactionExecutionId%3AActionExecutionDetail%27"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AactionExecutionId%3AActionExecutionDetail%27"><span class="hs-identifier hs-var hs-var">actionExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280831"><span id="local-6989586621679280833"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; ActionExecutionDetail -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281037"><span id="local-6989586621679281039"><span class="annot"><span class="annottext">ActionExecutionDetail -&gt; ActionExecutionDetail -&gt; Bool
 (ActionExecutionDetail -&gt; ActionExecutionDetail -&gt; Bool)
 -&gt; (ActionExecutionDetail -&gt; ActionExecutionDetail -&gt; Bool)
 -&gt; Eq ActionExecutionDetail
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ActionExecutionDetail -&gt; ActionExecutionDetail -&gt; Bool
 == :: ActionExecutionDetail -&gt; ActionExecutionDetail -&gt; Bool
 $c== :: ActionExecutionDetail -&gt; ActionExecutionDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280822"><span id="local-6989586621679280824"><span id="local-6989586621679280826"><span id="local-6989586621679280828"><span class="annot"><span class="annottext">ReadPrec [ActionExecutionDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281028"><span id="local-6989586621679281030"><span id="local-6989586621679281032"><span id="local-6989586621679281034"><span class="annot"><span class="annottext">ReadPrec [ActionExecutionDetail]
 ReadPrec ActionExecutionDetail
 Int -&gt; ReadS ActionExecutionDetail
 ReadS [ActionExecutionDetail]
@@ -94,7 +94,7 @@ readList :: ReadS [ActionExecutionDetail]
 $creadList :: ReadS [ActionExecutionDetail]
 readsPrec :: Int -&gt; ReadS ActionExecutionDetail
 $creadsPrec :: Int -&gt; ReadS ActionExecutionDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280815"><span id="local-6989586621679280817"><span id="local-6989586621679280819"><span class="annot"><span class="annottext">Int -&gt; ActionExecutionDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281021"><span id="local-6989586621679281023"><span id="local-6989586621679281025"><span class="annot"><span class="annottext">Int -&gt; ActionExecutionDetail -&gt; ShowS
 [ActionExecutionDetail] -&gt; ShowS
 ActionExecutionDetail -&gt; String
 (Int -&gt; ActionExecutionDetail -&gt; ShowS)
@@ -131,38 +131,38 @@ $cfrom :: forall x. ActionExecutionDetail -&gt; Rep ActionExecutionDetail x
 </span><span id="line-68"></span><span class="hs-comment">-- 'status', 'actionExecutionDetail_status' - The status of the action execution. Status categories are @InProgress@,</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- @Succeeded@, and @Failed@.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'actionName', 'actionExecutionDetail_actionName' - The name of the action.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'startTime', 'actionExecutionDetail_startTime' - The start time of the action execution.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'actionExecutionId', 'actionExecutionDetail_actionExecutionId' - The action execution ID.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'pipelineVersion', 'actionExecutionDetail_pipelineVersion' - The version of the pipeline where the action was run.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'lastUpdateTime', 'actionExecutionDetail_lastUpdateTime' - The last update time of the action execution.</span><span>
-</span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'input', 'actionExecutionDetail_input' - Input details for the action execution, such as role ARN, Region, and</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- input artifacts.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'input', 'actionExecutionDetail_input' - Input details for the action execution, such as role ARN, Region, and</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- input artifacts.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'actionName', 'actionExecutionDetail_actionName' - The name of the action.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'stageName', 'actionExecutionDetail_stageName' - The name of the stage that contains the action.</span><span>
-</span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'startTime', 'actionExecutionDetail_startTime' - The start time of the action execution.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'output', 'actionExecutionDetail_output' - Output details for the action execution, such as the action execution</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- result.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'output', 'actionExecutionDetail_output' - Output details for the action execution, such as the action execution</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- result.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'pipelineExecutionId', 'actionExecutionDetail_pipelineExecutionId' - The pipeline execution ID for the action execution.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'stageName', 'actionExecutionDetail_stageName' - The name of the stage that contains the action.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'pipelineVersion', 'actionExecutionDetail_pipelineVersion' - The version of the pipeline where the action was run.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'lastUpdateTime', 'actionExecutionDetail_lastUpdateTime' - The last update time of the action execution.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'pipelineExecutionId', 'actionExecutionDetail_pipelineExecutionId' - The pipeline execution ID for the action execution.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'actionExecutionId', 'actionExecutionDetail_actionExecutionId' - The action execution ID.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#newActionExecutionDetail"><span class="hs-identifier hs-type">newActionExecutionDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span>
 </span><span id="line-92"></span><span id="newActionExecutionDetail"><span class="annot"><span class="annottext">newActionExecutionDetail :: ActionExecutionDetail
 </span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#newActionExecutionDetail"><span class="hs-identifier hs-var hs-var">newActionExecutionDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">ActionExecutionDetail' :: Maybe ActionExecutionStatus
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe POSIX
+-&gt; Maybe Natural
 -&gt; Maybe ActionExecutionInput
 -&gt; Maybe Text
--&gt; Maybe POSIX
 -&gt; Maybe ActionExecutionOutput
--&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; ActionExecutionDetail
 </span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span>
@@ -170,40 +170,40 @@ $cfrom :: forall x. ActionExecutionDetail -&gt; Rep ActionExecutionDetail x
 </span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3Astatus%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionExecutionStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionName:ActionExecutionDetail' :: Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AactionName%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionExecutionId:ActionExecutionDetail' :: Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AactionExecutionId%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">actionExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdateTime:ActionExecutionDetail' :: Maybe POSIX
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AlastUpdateTime%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:input:ActionExecutionDetail' :: Maybe ActionExecutionInput
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3Ainput%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionExecutionInput
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:stageName:ActionExecutionDetail' :: Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AstageName%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">stageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:ActionExecutionDetail' :: Maybe POSIX
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:ActionExecutionDetail' :: Maybe POSIX
 </span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AstartTime%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:output:ActionExecutionDetail' :: Maybe ActionExecutionOutput
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3Aoutput%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">output</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionExecutionOutput
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineVersion:ActionExecutionDetail' :: Maybe Natural
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineVersion:ActionExecutionDetail' :: Maybe Natural
 </span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3ApipelineVersion%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">pipelineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:ActionExecutionDetail' :: Maybe Text
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:input:ActionExecutionDetail' :: Maybe ActionExecutionInput
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3Ainput%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionExecutionInput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionName:ActionExecutionDetail' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AactionName%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:output:ActionExecutionDetail' :: Maybe ActionExecutionOutput
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3Aoutput%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">output</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionExecutionOutput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:ActionExecutionDetail' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3ApipelineExecutionId%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:stageName:ActionExecutionDetail' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AstageName%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">stageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdateTime:ActionExecutionDetail' :: Maybe POSIX
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AlastUpdateTime%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionExecutionId:ActionExecutionDetail' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AactionExecutionId%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">actionExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
@@ -222,152 +222,20 @@ forall a. Maybe a
      (Maybe ActionExecutionStatus)
      (Maybe ActionExecutionStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280806"><span class="annot"><span class="annottext">Maybe ActionExecutionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281012"><span class="annot"><span class="annottext">Maybe ActionExecutionStatus
 status :: Maybe ActionExecutionStatus
 $sel:status:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe ActionExecutionStatus
-</span><a href="#local-6989586621679280806"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionExecutionStatus
-</span><a href="#local-6989586621679280806"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280805"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
-</span><a href="#local-6989586621679280805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280804"><span class="annot"><span class="annottext">Maybe ActionExecutionStatus
-</span><a href="#local-6989586621679280804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
-</span><a href="#local-6989586621679280805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ActionExecutionDetail' :: Maybe ActionExecutionStatus
+</span><a href="#local-6989586621679281012"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionExecutionStatus
+</span><a href="#local-6989586621679281012"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281011"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
+</span><a href="#local-6989586621679281011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281010"><span class="annot"><span class="annottext">Maybe ActionExecutionStatus
+</span><a href="#local-6989586621679281010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
+</span><a href="#local-6989586621679281011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ActionExecutionDetail' :: Maybe ActionExecutionStatus
 </span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3Astatus%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionExecutionStatus
-</span><a href="#local-6989586621679280804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The name of the action.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_actionName"><span class="hs-identifier hs-type">actionExecutionDetail_actionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="actionExecutionDetail_actionName"><span class="annot"><span class="annottext">actionExecutionDetail_actionName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ActionExecutionDetail -&gt; f ActionExecutionDetail
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_actionName"><span class="hs-identifier hs-var hs-var">actionExecutionDetail_actionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionExecutionDetail -&gt; Maybe Text)
--&gt; (ActionExecutionDetail -&gt; Maybe Text -&gt; ActionExecutionDetail)
--&gt; Lens
-     ActionExecutionDetail
-     ActionExecutionDetail
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280802"><span class="annot"><span class="annottext">Maybe Text
-actionName :: Maybe Text
-$sel:actionName:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679280802"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280802"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280801"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
-</span><a href="#local-6989586621679280801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280800"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
-</span><a href="#local-6989586621679280801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionName:ActionExecutionDetail' :: Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AactionName%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The action execution ID.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_actionExecutionId"><span class="hs-identifier hs-type">actionExecutionDetail_actionExecutionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="actionExecutionDetail_actionExecutionId"><span class="annot"><span class="annottext">actionExecutionDetail_actionExecutionId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ActionExecutionDetail -&gt; f ActionExecutionDetail
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_actionExecutionId"><span class="hs-identifier hs-var hs-var">actionExecutionDetail_actionExecutionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionExecutionDetail -&gt; Maybe Text)
--&gt; (ActionExecutionDetail -&gt; Maybe Text -&gt; ActionExecutionDetail)
--&gt; Lens
-     ActionExecutionDetail
-     ActionExecutionDetail
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280798"><span class="annot"><span class="annottext">Maybe Text
-actionExecutionId :: Maybe Text
-$sel:actionExecutionId:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679280798"><span class="hs-identifier hs-var hs-var">actionExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280798"><span class="hs-identifier hs-var">actionExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280797"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
-</span><a href="#local-6989586621679280797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280796"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
-</span><a href="#local-6989586621679280797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionExecutionId:ActionExecutionDetail' :: Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AactionExecutionId%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">actionExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The last update time of the action execution.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_lastUpdateTime"><span class="hs-identifier hs-type">actionExecutionDetail_lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="actionExecutionDetail_lastUpdateTime"><span class="annot"><span class="annottext">actionExecutionDetail_lastUpdateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ActionExecutionDetail -&gt; f ActionExecutionDetail
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_lastUpdateTime"><span class="hs-identifier hs-var hs-var">actionExecutionDetail_lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionExecutionDetail -&gt; Maybe POSIX)
--&gt; (ActionExecutionDetail -&gt; Maybe POSIX -&gt; ActionExecutionDetail)
--&gt; Lens
-     ActionExecutionDetail
-     ActionExecutionDetail
-     (Maybe POSIX)
-     (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280794"><span class="annot"><span class="annottext">Maybe POSIX
-lastUpdateTime :: Maybe POSIX
-$sel:lastUpdateTime:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe POSIX
-</span><a href="#local-6989586621679280794"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679280794"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280793"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
-</span><a href="#local-6989586621679280793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280792"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679280792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
-</span><a href="#local-6989586621679280793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateTime:ActionExecutionDetail' :: Maybe POSIX
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AlastUpdateTime%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679280792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; ActionExecutionDetail -&gt; f ActionExecutionDetail)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ActionExecutionDetail
--&gt; f ActionExecutionDetail
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | Input details for the action execution, such as role ARN, Region, and</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- input artifacts.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_input"><span class="hs-identifier hs-type">actionExecutionDetail_input</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionInput.html#ActionExecutionInput"><span class="hs-identifier hs-type">ActionExecutionInput</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="actionExecutionDetail_input"><span class="annot"><span class="annottext">actionExecutionDetail_input :: (Maybe ActionExecutionInput -&gt; f (Maybe ActionExecutionInput))
--&gt; ActionExecutionDetail -&gt; f ActionExecutionDetail
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_input"><span class="hs-identifier hs-var hs-var">actionExecutionDetail_input</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionExecutionDetail -&gt; Maybe ActionExecutionInput)
--&gt; (ActionExecutionDetail
-    -&gt; Maybe ActionExecutionInput -&gt; ActionExecutionDetail)
--&gt; Lens
-     ActionExecutionDetail
-     ActionExecutionDetail
-     (Maybe ActionExecutionInput)
-     (Maybe ActionExecutionInput)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280787"><span class="annot"><span class="annottext">Maybe ActionExecutionInput
-input :: Maybe ActionExecutionInput
-$sel:input:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe ActionExecutionInput
-</span><a href="#local-6989586621679280787"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionExecutionInput
-</span><a href="#local-6989586621679280787"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280786"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
-</span><a href="#local-6989586621679280786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280785"><span class="annot"><span class="annottext">Maybe ActionExecutionInput
-</span><a href="#local-6989586621679280785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
-</span><a href="#local-6989586621679280786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:input:ActionExecutionDetail' :: Maybe ActionExecutionInput
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3Ainput%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionExecutionInput
-</span><a href="#local-6989586621679280785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | The name of the stage that contains the action.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_stageName"><span class="hs-identifier hs-type">actionExecutionDetail_stageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="actionExecutionDetail_stageName"><span class="annot"><span class="annottext">actionExecutionDetail_stageName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ActionExecutionDetail -&gt; f ActionExecutionDetail
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_stageName"><span class="hs-identifier hs-var hs-var">actionExecutionDetail_stageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionExecutionDetail -&gt; Maybe Text)
--&gt; (ActionExecutionDetail -&gt; Maybe Text -&gt; ActionExecutionDetail)
--&gt; Lens
-     ActionExecutionDetail
-     ActionExecutionDetail
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280783"><span class="annot"><span class="annottext">Maybe Text
-stageName :: Maybe Text
-$sel:stageName:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679280783"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280783"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280782"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
-</span><a href="#local-6989586621679280782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280781"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
-</span><a href="#local-6989586621679280782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stageName:ActionExecutionDetail' :: Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AstageName%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">stageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | The start time of the action execution.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_startTime"><span class="hs-identifier hs-type">actionExecutionDetail_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="actionExecutionDetail_startTime"><span class="annot"><span class="annottext">actionExecutionDetail_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-111"></span><span class="hs-comment">-- | The start time of the action execution.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_startTime"><span class="hs-identifier hs-type">actionExecutionDetail_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="actionExecutionDetail_startTime"><span class="annot"><span class="annottext">actionExecutionDetail_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ActionExecutionDetail -&gt; f ActionExecutionDetail
 </span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_startTime"><span class="hs-identifier hs-var hs-var">actionExecutionDetail_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionExecutionDetail -&gt; Maybe POSIX)
 -&gt; (ActionExecutionDetail -&gt; Maybe POSIX -&gt; ActionExecutionDetail)
@@ -377,16 +245,16 @@ $sel:stageName:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe Text
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280779"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281008"><span class="annot"><span class="annottext">Maybe POSIX
 startTime :: Maybe POSIX
 $sel:startTime:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe POSIX
-</span><a href="#local-6989586621679280779"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679280779"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280778"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
-</span><a href="#local-6989586621679280778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280777"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679280777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
-</span><a href="#local-6989586621679280778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:ActionExecutionDetail' :: Maybe POSIX
+</span><a href="#local-6989586621679281008"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679281008"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281007"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
+</span><a href="#local-6989586621679281007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281006"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679281006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
+</span><a href="#local-6989586621679281007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:ActionExecutionDetail' :: Maybe POSIX
 </span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AstartTime%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679280777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679281006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ActionExecutionDetail -&gt; f ActionExecutionDetail)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -402,35 +270,10 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | Output details for the action execution, such as the action execution</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- result.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_output"><span class="hs-identifier hs-type">actionExecutionDetail_output</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionOutput.html#ActionExecutionOutput"><span class="hs-identifier hs-type">ActionExecutionOutput</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="actionExecutionDetail_output"><span class="annot"><span class="annottext">actionExecutionDetail_output :: (Maybe ActionExecutionOutput -&gt; f (Maybe ActionExecutionOutput))
--&gt; ActionExecutionDetail -&gt; f ActionExecutionDetail
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_output"><span class="hs-identifier hs-var hs-var">actionExecutionDetail_output</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionExecutionDetail -&gt; Maybe ActionExecutionOutput)
--&gt; (ActionExecutionDetail
-    -&gt; Maybe ActionExecutionOutput -&gt; ActionExecutionDetail)
--&gt; Lens
-     ActionExecutionDetail
-     ActionExecutionDetail
-     (Maybe ActionExecutionOutput)
-     (Maybe ActionExecutionOutput)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280775"><span class="annot"><span class="annottext">Maybe ActionExecutionOutput
-output :: Maybe ActionExecutionOutput
-$sel:output:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe ActionExecutionOutput
-</span><a href="#local-6989586621679280775"><span class="hs-identifier hs-var hs-var">output</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionExecutionOutput
-</span><a href="#local-6989586621679280775"><span class="hs-identifier hs-var">output</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280774"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
-</span><a href="#local-6989586621679280774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280773"><span class="annot"><span class="annottext">Maybe ActionExecutionOutput
-</span><a href="#local-6989586621679280773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
-</span><a href="#local-6989586621679280774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:output:ActionExecutionDetail' :: Maybe ActionExecutionOutput
-</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3Aoutput%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">output</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionExecutionOutput
-</span><a href="#local-6989586621679280773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | The version of the pipeline where the action was run.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_pipelineVersion"><span class="hs-identifier hs-type">actionExecutionDetail_pipelineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="actionExecutionDetail_pipelineVersion"><span class="annot"><span class="annottext">actionExecutionDetail_pipelineVersion :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The version of the pipeline where the action was run.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_pipelineVersion"><span class="hs-identifier hs-type">actionExecutionDetail_pipelineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="actionExecutionDetail_pipelineVersion"><span class="annot"><span class="annottext">actionExecutionDetail_pipelineVersion :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; ActionExecutionDetail -&gt; f ActionExecutionDetail
 </span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_pipelineVersion"><span class="hs-identifier hs-var hs-var">actionExecutionDetail_pipelineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionExecutionDetail -&gt; Maybe Natural)
 -&gt; (ActionExecutionDetail
@@ -441,20 +284,93 @@ $sel:output:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe ActionEx
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280771"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281001"><span class="annot"><span class="annottext">Maybe Natural
 pipelineVersion :: Maybe Natural
 $sel:pipelineVersion:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe Natural
-</span><a href="#local-6989586621679280771"><span class="hs-identifier hs-var hs-var">pipelineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679280771"><span class="hs-identifier hs-var">pipelineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280770"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
-</span><a href="#local-6989586621679280770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280769"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679280769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
-</span><a href="#local-6989586621679280770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineVersion:ActionExecutionDetail' :: Maybe Natural
+</span><a href="#local-6989586621679281001"><span class="hs-identifier hs-var hs-var">pipelineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679281001"><span class="hs-identifier hs-var">pipelineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281000"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
+</span><a href="#local-6989586621679281000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280999"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679280999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
+</span><a href="#local-6989586621679281000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineVersion:ActionExecutionDetail' :: Maybe Natural
 </span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3ApipelineVersion%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">pipelineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679280769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- | The pipeline execution ID for the action execution.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_pipelineExecutionId"><span class="hs-identifier hs-type">actionExecutionDetail_pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="actionExecutionDetail_pipelineExecutionId"><span class="annot"><span class="annottext">actionExecutionDetail_pipelineExecutionId :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679280999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | Input details for the action execution, such as role ARN, Region, and</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- input artifacts.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_input"><span class="hs-identifier hs-type">actionExecutionDetail_input</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionInput.html#ActionExecutionInput"><span class="hs-identifier hs-type">ActionExecutionInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="actionExecutionDetail_input"><span class="annot"><span class="annottext">actionExecutionDetail_input :: (Maybe ActionExecutionInput -&gt; f (Maybe ActionExecutionInput))
+-&gt; ActionExecutionDetail -&gt; f ActionExecutionDetail
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_input"><span class="hs-identifier hs-var hs-var">actionExecutionDetail_input</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionExecutionDetail -&gt; Maybe ActionExecutionInput)
+-&gt; (ActionExecutionDetail
+    -&gt; Maybe ActionExecutionInput -&gt; ActionExecutionDetail)
+-&gt; Lens
+     ActionExecutionDetail
+     ActionExecutionDetail
+     (Maybe ActionExecutionInput)
+     (Maybe ActionExecutionInput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280997"><span class="annot"><span class="annottext">Maybe ActionExecutionInput
+input :: Maybe ActionExecutionInput
+$sel:input:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe ActionExecutionInput
+</span><a href="#local-6989586621679280997"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionExecutionInput
+</span><a href="#local-6989586621679280997"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280996"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
+</span><a href="#local-6989586621679280996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280995"><span class="annot"><span class="annottext">Maybe ActionExecutionInput
+</span><a href="#local-6989586621679280995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
+</span><a href="#local-6989586621679280996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:input:ActionExecutionDetail' :: Maybe ActionExecutionInput
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3Ainput%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionExecutionInput
+</span><a href="#local-6989586621679280995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The name of the action.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_actionName"><span class="hs-identifier hs-type">actionExecutionDetail_actionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="actionExecutionDetail_actionName"><span class="annot"><span class="annottext">actionExecutionDetail_actionName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ActionExecutionDetail -&gt; f ActionExecutionDetail
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_actionName"><span class="hs-identifier hs-var hs-var">actionExecutionDetail_actionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionExecutionDetail -&gt; Maybe Text)
+-&gt; (ActionExecutionDetail -&gt; Maybe Text -&gt; ActionExecutionDetail)
+-&gt; Lens
+     ActionExecutionDetail
+     ActionExecutionDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280993"><span class="annot"><span class="annottext">Maybe Text
+actionName :: Maybe Text
+$sel:actionName:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679280993"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280993"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280992"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
+</span><a href="#local-6989586621679280992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280991"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
+</span><a href="#local-6989586621679280992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionName:ActionExecutionDetail' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AactionName%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Output details for the action execution, such as the action execution</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- result.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_output"><span class="hs-identifier hs-type">actionExecutionDetail_output</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionOutput.html#ActionExecutionOutput"><span class="hs-identifier hs-type">ActionExecutionOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="actionExecutionDetail_output"><span class="annot"><span class="annottext">actionExecutionDetail_output :: (Maybe ActionExecutionOutput -&gt; f (Maybe ActionExecutionOutput))
+-&gt; ActionExecutionDetail -&gt; f ActionExecutionDetail
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_output"><span class="hs-identifier hs-var hs-var">actionExecutionDetail_output</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionExecutionDetail -&gt; Maybe ActionExecutionOutput)
+-&gt; (ActionExecutionDetail
+    -&gt; Maybe ActionExecutionOutput -&gt; ActionExecutionDetail)
+-&gt; Lens
+     ActionExecutionDetail
+     ActionExecutionDetail
+     (Maybe ActionExecutionOutput)
+     (Maybe ActionExecutionOutput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280989"><span class="annot"><span class="annottext">Maybe ActionExecutionOutput
+output :: Maybe ActionExecutionOutput
+$sel:output:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe ActionExecutionOutput
+</span><a href="#local-6989586621679280989"><span class="hs-identifier hs-var hs-var">output</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionExecutionOutput
+</span><a href="#local-6989586621679280989"><span class="hs-identifier hs-var">output</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280988"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
+</span><a href="#local-6989586621679280988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280987"><span class="annot"><span class="annottext">Maybe ActionExecutionOutput
+</span><a href="#local-6989586621679280987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
+</span><a href="#local-6989586621679280988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:output:ActionExecutionDetail' :: Maybe ActionExecutionOutput
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3Aoutput%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">output</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionExecutionOutput
+</span><a href="#local-6989586621679280987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The pipeline execution ID for the action execution.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_pipelineExecutionId"><span class="hs-identifier hs-type">actionExecutionDetail_pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="actionExecutionDetail_pipelineExecutionId"><span class="annot"><span class="annottext">actionExecutionDetail_pipelineExecutionId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ActionExecutionDetail -&gt; f ActionExecutionDetail
 </span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_pipelineExecutionId"><span class="hs-identifier hs-var hs-var">actionExecutionDetail_pipelineExecutionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionExecutionDetail -&gt; Maybe Text)
 -&gt; (ActionExecutionDetail -&gt; Maybe Text -&gt; ActionExecutionDetail)
@@ -464,19 +380,103 @@ $sel:pipelineVersion:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280767"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280985"><span class="annot"><span class="annottext">Maybe Text
 pipelineExecutionId :: Maybe Text
 $sel:pipelineExecutionId:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679280767"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280767"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280766"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
-</span><a href="#local-6989586621679280766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280765"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
-</span><a href="#local-6989586621679280766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:ActionExecutionDetail' :: Maybe Text
+</span><a href="#local-6989586621679280985"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280985"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280984"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
+</span><a href="#local-6989586621679280984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280983"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
+</span><a href="#local-6989586621679280984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:ActionExecutionDetail' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3ApipelineExecutionId%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The name of the stage that contains the action.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_stageName"><span class="hs-identifier hs-type">actionExecutionDetail_stageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="actionExecutionDetail_stageName"><span class="annot"><span class="annottext">actionExecutionDetail_stageName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ActionExecutionDetail -&gt; f ActionExecutionDetail
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_stageName"><span class="hs-identifier hs-var hs-var">actionExecutionDetail_stageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionExecutionDetail -&gt; Maybe Text)
+-&gt; (ActionExecutionDetail -&gt; Maybe Text -&gt; ActionExecutionDetail)
+-&gt; Lens
+     ActionExecutionDetail
+     ActionExecutionDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280981"><span class="annot"><span class="annottext">Maybe Text
+stageName :: Maybe Text
+$sel:stageName:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679280981"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280981"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280980"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
+</span><a href="#local-6989586621679280980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280979"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
+</span><a href="#local-6989586621679280980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stageName:ActionExecutionDetail' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AstageName%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">stageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The last update time of the action execution.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_lastUpdateTime"><span class="hs-identifier hs-type">actionExecutionDetail_lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="actionExecutionDetail_lastUpdateTime"><span class="annot"><span class="annottext">actionExecutionDetail_lastUpdateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ActionExecutionDetail -&gt; f ActionExecutionDetail
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_lastUpdateTime"><span class="hs-identifier hs-var hs-var">actionExecutionDetail_lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionExecutionDetail -&gt; Maybe POSIX)
+-&gt; (ActionExecutionDetail -&gt; Maybe POSIX -&gt; ActionExecutionDetail)
+-&gt; Lens
+     ActionExecutionDetail
+     ActionExecutionDetail
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280977"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdateTime :: Maybe POSIX
+$sel:lastUpdateTime:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe POSIX
+</span><a href="#local-6989586621679280977"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679280977"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280976"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
+</span><a href="#local-6989586621679280976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280975"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679280975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
+</span><a href="#local-6989586621679280976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateTime:ActionExecutionDetail' :: Maybe POSIX
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AlastUpdateTime%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679280975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ActionExecutionDetail -&gt; f ActionExecutionDetail)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ActionExecutionDetail
+-&gt; f ActionExecutionDetail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The action execution ID.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_actionExecutionId"><span class="hs-identifier hs-type">actionExecutionDetail_actionExecutionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="actionExecutionDetail_actionExecutionId"><span class="annot"><span class="annottext">actionExecutionDetail_actionExecutionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ActionExecutionDetail -&gt; f ActionExecutionDetail
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#actionExecutionDetail_actionExecutionId"><span class="hs-identifier hs-var hs-var">actionExecutionDetail_actionExecutionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionExecutionDetail -&gt; Maybe Text)
+-&gt; (ActionExecutionDetail -&gt; Maybe Text -&gt; ActionExecutionDetail)
+-&gt; Lens
+     ActionExecutionDetail
+     ActionExecutionDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280973"><span class="annot"><span class="annottext">Maybe Text
+actionExecutionId :: Maybe Text
+$sel:actionExecutionId:ActionExecutionDetail' :: ActionExecutionDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679280973"><span class="hs-identifier hs-var hs-var">actionExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280973"><span class="hs-identifier hs-var">actionExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280972"><span class="annot"><span class="annottext">s :: ActionExecutionDetail
+</span><a href="#local-6989586621679280972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-type">ActionExecutionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionExecutionDetail
+</span><a href="#local-6989586621679280972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionExecutionId:ActionExecutionDetail' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#%24sel%3AactionExecutionId%3AActionExecutionDetail%27"><span class="hs-identifier hs-var">actionExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280762"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679280760"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionExecutionDetail
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280968"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679280966"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionExecutionDetail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ActionExecutionDetail)
@@ -486,216 +486,214 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ActionExecutionDetail&quot;</span></span><span>
-</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280757"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280757"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280963"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280963"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe ActionExecutionStatus
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe POSIX
+-&gt; Maybe Natural
 -&gt; Maybe ActionExecutionInput
 -&gt; Maybe Text
--&gt; Maybe POSIX
 -&gt; Maybe ActionExecutionOutput
--&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; ActionExecutionDetail
 </span><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail%27"><span class="hs-identifier hs-var">ActionExecutionDetail'</span></a></span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ActionExecutionStatus
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe POSIX
+ -&gt; Maybe Natural
  -&gt; Maybe ActionExecutionInput
  -&gt; Maybe Text
- -&gt; Maybe POSIX
  -&gt; Maybe ActionExecutionOutput
- -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; ActionExecutionDetail)
 -&gt; Parser (Maybe ActionExecutionStatus)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
+     (Maybe POSIX
+      -&gt; Maybe Natural
       -&gt; Maybe ActionExecutionInput
       -&gt; Maybe Text
-      -&gt; Maybe POSIX
       -&gt; Maybe ActionExecutionOutput
-      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; ActionExecutionDetail)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ActionExecutionStatus)
+</span><a href="#local-6989586621679280963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ActionExecutionStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe ActionExecutionInput
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe ActionExecutionOutput
-   -&gt; Maybe Natural
-   -&gt; Maybe Text
-   -&gt; ActionExecutionDetail)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe ActionExecutionInput
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe ActionExecutionOutput
-      -&gt; Maybe Natural
-      -&gt; Maybe Text
-      -&gt; ActionExecutionDetail)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;actionName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe ActionExecutionInput
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe ActionExecutionOutput
-   -&gt; Maybe Natural
-   -&gt; Maybe Text
-   -&gt; ActionExecutionDetail)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe ActionExecutionInput
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe ActionExecutionOutput
-      -&gt; Maybe Natural
-      -&gt; Maybe Text
-      -&gt; ActionExecutionDetail)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;actionExecutionId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
+   -&gt; Maybe Natural
    -&gt; Maybe ActionExecutionInput
    -&gt; Maybe Text
-   -&gt; Maybe POSIX
    -&gt; Maybe ActionExecutionOutput
-   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; ActionExecutionDetail)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe ActionExecutionInput
+     (Maybe Natural
+      -&gt; Maybe ActionExecutionInput
+      -&gt; Maybe Text
+      -&gt; Maybe ActionExecutionOutput
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe POSIX
-      -&gt; Maybe ActionExecutionOutput
-      -&gt; Maybe Natural
       -&gt; Maybe Text
       -&gt; ActionExecutionDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679280963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lastUpdateTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ActionExecutionInput
+</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe ActionExecutionInput
+   -&gt; Maybe Text
+   -&gt; Maybe ActionExecutionOutput
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; ActionExecutionDetail)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe ActionExecutionInput
+      -&gt; Maybe Text
+      -&gt; Maybe ActionExecutionOutput
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; ActionExecutionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pipelineVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ActionExecutionInput
+   -&gt; Maybe Text
    -&gt; Maybe ActionExecutionOutput
-   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; ActionExecutionDetail)
 -&gt; Parser (Maybe ActionExecutionInput)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe POSIX
       -&gt; Maybe ActionExecutionOutput
-      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; ActionExecutionDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ActionExecutionInput)
+</span><a href="#local-6989586621679280963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ActionExecutionInput)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;input&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe POSIX
    -&gt; Maybe ActionExecutionOutput
-   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; ActionExecutionDetail)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe ActionExecutionOutput
-      -&gt; Maybe Natural
+     (Maybe ActionExecutionOutput
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; ActionExecutionDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679280963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;stageName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe ActionExecutionOutput
-   -&gt; Maybe Natural
+</span><span class="hs-string">&quot;actionName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ActionExecutionOutput
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; ActionExecutionDetail)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe ActionExecutionOutput
-      -&gt; Maybe Natural -&gt; Maybe Text -&gt; ActionExecutionDetail)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ActionExecutionOutput
-   -&gt; Maybe Natural -&gt; Maybe Text -&gt; ActionExecutionDetail)
 -&gt; Parser (Maybe ActionExecutionOutput)
--&gt; Parser (Maybe Natural -&gt; Maybe Text -&gt; ActionExecutionDetail)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; ActionExecutionDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ActionExecutionOutput)
+</span><a href="#local-6989586621679280963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ActionExecutionOutput)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;output&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Text -&gt; ActionExecutionDetail)
--&gt; Parser (Maybe Natural)
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; ActionExecutionDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ActionExecutionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pipelineExecutionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ActionExecutionDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; ActionExecutionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stageName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; ActionExecutionDetail)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser (Maybe Text -&gt; ActionExecutionDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679280963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;pipelineVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;lastUpdateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ActionExecutionDetail)
 -&gt; Parser (Maybe Text) -&gt; Parser ActionExecutionDetail
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679280963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;pipelineExecutionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;actionExecutionId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280751"><span id="local-6989586621679280753"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280957"><span id="local-6989586621679280959"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span></span></span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280748"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280954"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionExecutionDetail.html#ActionExecutionDetail"><span class="hs-identifier hs-type">ActionExecutionDetail</span></a></span></span><span>
 </span><span id="line-170"></span></pre></body></html>

@@ -26,18 +26,18 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | An OTA update summary.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newOTAUpdateSummary' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679790648"><span id="local-6989586621679790649"></span></span><span class="hs-keyword">data</span><span> </span><span id="OTAUpdateSummary"><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-var">OTAUpdateSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OTAUpdateSummary%27"><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary%27"><span class="hs-identifier hs-var">OTAUpdateSummary'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The OTA update ARN.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AotaUpdateArn%3AOTAUpdateSummary%27"><span class="annot"><span class="annottext">OTAUpdateSummary -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#%24sel%3AotaUpdateArn%3AOTAUpdateSummary%27"><span class="hs-identifier hs-var hs-var">otaUpdateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The date when the OTA update was created.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcreationDate%3AOTAUpdateSummary%27"><span class="annot"><span class="annottext">OTAUpdateSummary -&gt; Maybe POSIX
+</span><span id="line-29"></span><span id="local-6989586621679791507"><span id="local-6989586621679791508"></span></span><span class="hs-keyword">data</span><span> </span><span id="OTAUpdateSummary"><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-var">OTAUpdateSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OTAUpdateSummary%27"><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary%27"><span class="hs-identifier hs-var">OTAUpdateSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date when the OTA update was created.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AcreationDate%3AOTAUpdateSummary%27"><span class="annot"><span class="annottext">OTAUpdateSummary -&gt; Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#%24sel%3AcreationDate%3AOTAUpdateSummary%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The OTA update ID.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AotaUpdateId%3AOTAUpdateSummary%27"><span class="annot"><span class="annottext">OTAUpdateSummary -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#%24sel%3AotaUpdateId%3AOTAUpdateSummary%27"><span class="hs-identifier hs-var hs-var">otaUpdateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The OTA update ID.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AotaUpdateId%3AOTAUpdateSummary%27"><span class="annot"><span class="annottext">OTAUpdateSummary -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#%24sel%3AotaUpdateId%3AOTAUpdateSummary%27"><span class="hs-identifier hs-var hs-var">otaUpdateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The OTA update ARN.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AotaUpdateArn%3AOTAUpdateSummary%27"><span class="annot"><span class="annottext">OTAUpdateSummary -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#%24sel%3AotaUpdateArn%3AOTAUpdateSummary%27"><span class="hs-identifier hs-var hs-var">otaUpdateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679790640"><span id="local-6989586621679790642"><span class="annot"><span class="annottext">OTAUpdateSummary -&gt; OTAUpdateSummary -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679791499"><span id="local-6989586621679791501"><span class="annot"><span class="annottext">OTAUpdateSummary -&gt; OTAUpdateSummary -&gt; Bool
 (OTAUpdateSummary -&gt; OTAUpdateSummary -&gt; Bool)
 -&gt; (OTAUpdateSummary -&gt; OTAUpdateSummary -&gt; Bool)
 -&gt; Eq OTAUpdateSummary
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OTAUpdateSummary -&gt; OTAUpdateSummary -&gt; Bool
 == :: OTAUpdateSummary -&gt; OTAUpdateSummary -&gt; Bool
 $c== :: OTAUpdateSummary -&gt; OTAUpdateSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790631"><span id="local-6989586621679790633"><span id="local-6989586621679790635"><span id="local-6989586621679790637"><span class="annot"><span class="annottext">ReadPrec [OTAUpdateSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791490"><span id="local-6989586621679791492"><span id="local-6989586621679791494"><span id="local-6989586621679791496"><span class="annot"><span class="annottext">ReadPrec [OTAUpdateSummary]
 ReadPrec OTAUpdateSummary
 Int -&gt; ReadS OTAUpdateSummary
 ReadS [OTAUpdateSummary]
@@ -66,7 +66,7 @@ readList :: ReadS [OTAUpdateSummary]
 $creadList :: ReadS [OTAUpdateSummary]
 readsPrec :: Int -&gt; ReadS OTAUpdateSummary
 $creadsPrec :: Int -&gt; ReadS OTAUpdateSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790624"><span id="local-6989586621679790626"><span id="local-6989586621679790628"><span class="annot"><span class="annottext">Int -&gt; OTAUpdateSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791483"><span id="local-6989586621679791485"><span id="local-6989586621679791487"><span class="annot"><span class="annottext">Int -&gt; OTAUpdateSummary -&gt; ShowS
 [OTAUpdateSummary] -&gt; ShowS
 OTAUpdateSummary -&gt; String
 (Int -&gt; OTAUpdateSummary -&gt; ShowS)
@@ -100,69 +100,50 @@ $cfrom :: forall x. OTAUpdateSummary -&gt; Rep OTAUpdateSummary x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'otaUpdateArn', 'oTAUpdateSummary_otaUpdateArn' - The OTA update ARN.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'creationDate', 'oTAUpdateSummary_creationDate' - The date when the OTA update was created.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'creationDate', 'oTAUpdateSummary_creationDate' - The date when the OTA update was created.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'otaUpdateId', 'oTAUpdateSummary_otaUpdateId' - The OTA update ID.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'otaUpdateId', 'oTAUpdateSummary_otaUpdateId' - The OTA update ID.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'otaUpdateArn', 'oTAUpdateSummary_otaUpdateArn' - The OTA update ARN.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#newOTAUpdateSummary"><span class="hs-identifier hs-type">newOTAUpdateSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span><span>
 </span><span id="line-54"></span><span id="newOTAUpdateSummary"><span class="annot"><span class="annottext">newOTAUpdateSummary :: OTAUpdateSummary
 </span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#newOTAUpdateSummary"><span class="hs-identifier hs-var hs-var">newOTAUpdateSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">OTAUpdateSummary' :: Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; OTAUpdateSummary
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">OTAUpdateSummary' :: Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; OTAUpdateSummary
 </span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary%27"><span class="hs-identifier hs-type">OTAUpdateSummary'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:otaUpdateArn:OTAUpdateSummary' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#%24sel%3AotaUpdateArn%3AOTAUpdateSummary%27"><span class="hs-identifier hs-var">otaUpdateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:OTAUpdateSummary' :: Maybe POSIX
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationDate:OTAUpdateSummary' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#%24sel%3AcreationDate%3AOTAUpdateSummary%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:otaUpdateId:OTAUpdateSummary' :: Maybe Text
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:otaUpdateId:OTAUpdateSummary' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#%24sel%3AotaUpdateId%3AOTAUpdateSummary%27"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:otaUpdateArn:OTAUpdateSummary' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#%24sel%3AotaUpdateArn%3AOTAUpdateSummary%27"><span class="hs-identifier hs-var">otaUpdateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | The OTA update ARN.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#oTAUpdateSummary_otaUpdateArn"><span class="hs-identifier hs-type">oTAUpdateSummary_otaUpdateArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="oTAUpdateSummary_otaUpdateArn"><span class="annot"><span class="annottext">oTAUpdateSummary_otaUpdateArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; OTAUpdateSummary -&gt; f OTAUpdateSummary
-</span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#oTAUpdateSummary_otaUpdateArn"><span class="hs-identifier hs-var hs-var">oTAUpdateSummary_otaUpdateArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OTAUpdateSummary -&gt; Maybe Text)
--&gt; (OTAUpdateSummary -&gt; Maybe Text -&gt; OTAUpdateSummary)
--&gt; Lens OTAUpdateSummary OTAUpdateSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary%27"><span class="hs-identifier hs-type">OTAUpdateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790615"><span class="annot"><span class="annottext">Maybe Text
-otaUpdateArn :: Maybe Text
-$sel:otaUpdateArn:OTAUpdateSummary' :: OTAUpdateSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679790615"><span class="hs-identifier hs-var hs-var">otaUpdateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790615"><span class="hs-identifier hs-var">otaUpdateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790614"><span class="annot"><span class="annottext">s :: OTAUpdateSummary
-</span><a href="#local-6989586621679790614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary%27"><span class="hs-identifier hs-type">OTAUpdateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790613"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OTAUpdateSummary
-</span><a href="#local-6989586621679790614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaUpdateArn:OTAUpdateSummary' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#%24sel%3AotaUpdateArn%3AOTAUpdateSummary%27"><span class="hs-identifier hs-var">otaUpdateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | The date when the OTA update was created.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#oTAUpdateSummary_creationDate"><span class="hs-identifier hs-type">oTAUpdateSummary_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="oTAUpdateSummary_creationDate"><span class="annot"><span class="annottext">oTAUpdateSummary_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-61"></span><span class="hs-comment">-- | The date when the OTA update was created.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#oTAUpdateSummary_creationDate"><span class="hs-identifier hs-type">oTAUpdateSummary_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="oTAUpdateSummary_creationDate"><span class="annot"><span class="annottext">oTAUpdateSummary_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; OTAUpdateSummary -&gt; f OTAUpdateSummary
 </span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#oTAUpdateSummary_creationDate"><span class="hs-identifier hs-var hs-var">oTAUpdateSummary_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OTAUpdateSummary -&gt; Maybe POSIX)
 -&gt; (OTAUpdateSummary -&gt; Maybe POSIX -&gt; OTAUpdateSummary)
 -&gt; Lens
      OTAUpdateSummary OTAUpdateSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary%27"><span class="hs-identifier hs-type">OTAUpdateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790611"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary%27"><span class="hs-identifier hs-type">OTAUpdateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791474"><span class="annot"><span class="annottext">Maybe POSIX
 creationDate :: Maybe POSIX
 $sel:creationDate:OTAUpdateSummary' :: OTAUpdateSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679790611"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679790611"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790610"><span class="annot"><span class="annottext">s :: OTAUpdateSummary
-</span><a href="#local-6989586621679790610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary%27"><span class="hs-identifier hs-type">OTAUpdateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790609"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679790609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OTAUpdateSummary
-</span><a href="#local-6989586621679790610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:OTAUpdateSummary' :: Maybe POSIX
+</span><a href="#local-6989586621679791474"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679791474"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791473"><span class="annot"><span class="annottext">s :: OTAUpdateSummary
+</span><a href="#local-6989586621679791473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary%27"><span class="hs-identifier hs-type">OTAUpdateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791472"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679791472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OTAUpdateSummary
+</span><a href="#local-6989586621679791473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:OTAUpdateSummary' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#%24sel%3AcreationDate%3AOTAUpdateSummary%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679790609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679791472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; OTAUpdateSummary -&gt; f OTAUpdateSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -178,28 +159,47 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | The OTA update ID.</span><span>
-</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#oTAUpdateSummary_otaUpdateId"><span class="hs-identifier hs-type">oTAUpdateSummary_otaUpdateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span id="oTAUpdateSummary_otaUpdateId"><span class="annot"><span class="annottext">oTAUpdateSummary_otaUpdateId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The OTA update ID.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#oTAUpdateSummary_otaUpdateId"><span class="hs-identifier hs-type">oTAUpdateSummary_otaUpdateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="oTAUpdateSummary_otaUpdateId"><span class="annot"><span class="annottext">oTAUpdateSummary_otaUpdateId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; OTAUpdateSummary -&gt; f OTAUpdateSummary
 </span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#oTAUpdateSummary_otaUpdateId"><span class="hs-identifier hs-var hs-var">oTAUpdateSummary_otaUpdateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OTAUpdateSummary -&gt; Maybe Text)
 -&gt; (OTAUpdateSummary -&gt; Maybe Text -&gt; OTAUpdateSummary)
 -&gt; Lens OTAUpdateSummary OTAUpdateSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary%27"><span class="hs-identifier hs-type">OTAUpdateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790604"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary%27"><span class="hs-identifier hs-type">OTAUpdateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791467"><span class="annot"><span class="annottext">Maybe Text
 otaUpdateId :: Maybe Text
 $sel:otaUpdateId:OTAUpdateSummary' :: OTAUpdateSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679790604"><span class="hs-identifier hs-var hs-var">otaUpdateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790604"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790603"><span class="annot"><span class="annottext">s :: OTAUpdateSummary
-</span><a href="#local-6989586621679790603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary%27"><span class="hs-identifier hs-type">OTAUpdateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790602"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OTAUpdateSummary
-</span><a href="#local-6989586621679790603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaUpdateId:OTAUpdateSummary' :: Maybe Text
+</span><a href="#local-6989586621679791467"><span class="hs-identifier hs-var hs-var">otaUpdateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791467"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791466"><span class="annot"><span class="annottext">s :: OTAUpdateSummary
+</span><a href="#local-6989586621679791466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary%27"><span class="hs-identifier hs-type">OTAUpdateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791465"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OTAUpdateSummary
+</span><a href="#local-6989586621679791466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaUpdateId:OTAUpdateSummary' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#%24sel%3AotaUpdateId%3AOTAUpdateSummary%27"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The OTA update ARN.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#oTAUpdateSummary_otaUpdateArn"><span class="hs-identifier hs-type">oTAUpdateSummary_otaUpdateArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="oTAUpdateSummary_otaUpdateArn"><span class="annot"><span class="annottext">oTAUpdateSummary_otaUpdateArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; OTAUpdateSummary -&gt; f OTAUpdateSummary
+</span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#oTAUpdateSummary_otaUpdateArn"><span class="hs-identifier hs-var hs-var">oTAUpdateSummary_otaUpdateArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OTAUpdateSummary -&gt; Maybe Text)
+-&gt; (OTAUpdateSummary -&gt; Maybe Text -&gt; OTAUpdateSummary)
+-&gt; Lens OTAUpdateSummary OTAUpdateSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary%27"><span class="hs-identifier hs-type">OTAUpdateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791463"><span class="annot"><span class="annottext">Maybe Text
+otaUpdateArn :: Maybe Text
+$sel:otaUpdateArn:OTAUpdateSummary' :: OTAUpdateSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679791463"><span class="hs-identifier hs-var hs-var">otaUpdateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791463"><span class="hs-identifier hs-var">otaUpdateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791462"><span class="annot"><span class="annottext">s :: OTAUpdateSummary
+</span><a href="#local-6989586621679791462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary%27"><span class="hs-identifier hs-type">OTAUpdateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791461"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OTAUpdateSummary
+</span><a href="#local-6989586621679791462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaUpdateArn:OTAUpdateSummary' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#%24sel%3AotaUpdateArn%3AOTAUpdateSummary%27"><span class="hs-identifier hs-var">otaUpdateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790599"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679790597"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OTAUpdateSummary
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791458"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679791456"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OTAUpdateSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OTAUpdateSummary)
@@ -209,38 +209,38 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OTAUpdateSummary&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679790594"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790594"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; OTAUpdateSummary
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679791453"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679791453"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; OTAUpdateSummary
 </span><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary%27"><span class="hs-identifier hs-var">OTAUpdateSummary'</span></a></span><span>
-</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; OTAUpdateSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; OTAUpdateSummary)
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; OTAUpdateSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; OTAUpdateSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;otaUpdateArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; OTAUpdateSummary)
--&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Text -&gt; OTAUpdateSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679791453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; OTAUpdateSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; OTAUpdateSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679791453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;otaUpdateId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; OTAUpdateSummary)
 -&gt; Parser (Maybe Text) -&gt; Parser OTAUpdateSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679791453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;otaUpdateId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;otaUpdateArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790588"><span id="local-6989586621679790590"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791447"><span id="local-6989586621679791449"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790585"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791444"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateSummary.html#OTAUpdateSummary"><span class="hs-identifier hs-type">OTAUpdateSummary</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

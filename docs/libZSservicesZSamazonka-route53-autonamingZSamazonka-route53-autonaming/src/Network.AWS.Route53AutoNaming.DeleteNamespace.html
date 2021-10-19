@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.html"><span class="hs-identifier">Network.AWS.Route53AutoNaming.Types</span></a></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteNamespace' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679229669"><span id="local-6989586621679229670"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteNamespace"><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace"><span class="hs-identifier hs-var">DeleteNamespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteNamespace%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace%27"><span class="hs-identifier hs-var">DeleteNamespace'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679229822"><span id="local-6989586621679229823"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteNamespace"><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace"><span class="hs-identifier hs-var">DeleteNamespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteNamespace%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace%27"><span class="hs-identifier hs-var">DeleteNamespace'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the namespace that you want to delete.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3Aid%3ADeleteNamespace%27"><span class="annot"><span class="annottext">DeleteNamespace -&gt; Text
 </span><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#%24sel%3Aid%3ADeleteNamespace%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229663"><span id="local-6989586621679229665"><span class="annot"><span class="annottext">DeleteNamespace -&gt; DeleteNamespace -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229816"><span id="local-6989586621679229818"><span class="annot"><span class="annottext">DeleteNamespace -&gt; DeleteNamespace -&gt; Bool
 (DeleteNamespace -&gt; DeleteNamespace -&gt; Bool)
 -&gt; (DeleteNamespace -&gt; DeleteNamespace -&gt; Bool)
 -&gt; Eq DeleteNamespace
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteNamespace -&gt; DeleteNamespace -&gt; Bool
 == :: DeleteNamespace -&gt; DeleteNamespace -&gt; Bool
 $c== :: DeleteNamespace -&gt; DeleteNamespace -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229654"><span id="local-6989586621679229656"><span id="local-6989586621679229658"><span id="local-6989586621679229660"><span class="annot"><span class="annottext">ReadPrec [DeleteNamespace]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229807"><span id="local-6989586621679229809"><span id="local-6989586621679229811"><span id="local-6989586621679229813"><span class="annot"><span class="annottext">ReadPrec [DeleteNamespace]
 ReadPrec DeleteNamespace
 Int -&gt; ReadS DeleteNamespace
 ReadS [DeleteNamespace]
@@ -82,7 +82,7 @@ readList :: ReadS [DeleteNamespace]
 $creadList :: ReadS [DeleteNamespace]
 readsPrec :: Int -&gt; ReadS DeleteNamespace
 $creadsPrec :: Int -&gt; ReadS DeleteNamespace
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229647"><span id="local-6989586621679229649"><span id="local-6989586621679229651"><span class="annot"><span class="annottext">Int -&gt; DeleteNamespace -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229800"><span id="local-6989586621679229802"><span id="local-6989586621679229804"><span class="annot"><span class="annottext">Int -&gt; DeleteNamespace -&gt; ShowS
 [DeleteNamespace] -&gt; ShowS
 DeleteNamespace -&gt; String
 (Int -&gt; DeleteNamespace -&gt; ShowS)
@@ -122,11 +122,11 @@ $cfrom :: forall x. DeleteNamespace -&gt; Rep DeleteNamespace x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace"><span class="hs-identifier hs-type">DeleteNamespace</span></a></span><span>
 </span><span id="line-70"></span><span id="newDeleteNamespace"><span class="annot"><span class="annottext">newDeleteNamespace :: Text -&gt; DeleteNamespace
-</span><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#newDeleteNamespace"><span class="hs-identifier hs-var hs-var">newDeleteNamespace</span></a></span></span><span> </span><span id="local-6989586621679229642"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229642"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteNamespace' :: Text -&gt; DeleteNamespace
+</span><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#newDeleteNamespace"><span class="hs-identifier hs-var hs-var">newDeleteNamespace</span></a></span></span><span> </span><span id="local-6989586621679229795"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229795"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteNamespace' :: Text -&gt; DeleteNamespace
 </span><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace%27"><span class="hs-identifier hs-type">DeleteNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteNamespace' :: Text
 </span><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#%24sel%3Aid%3ADeleteNamespace%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229642"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679229795"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The ID of the namespace that you want to delete.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#deleteNamespace_id"><span class="hs-identifier hs-type">deleteNamespace_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace"><span class="hs-identifier hs-type">DeleteNamespace</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -135,27 +135,27 @@ $cfrom :: forall x. DeleteNamespace -&gt; Rep DeleteNamespace x
 -&gt; (DeleteNamespace -&gt; Text -&gt; DeleteNamespace)
 -&gt; Lens DeleteNamespace DeleteNamespace Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace%27"><span class="hs-identifier hs-type">DeleteNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229639"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace%27"><span class="hs-identifier hs-type">DeleteNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229792"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:DeleteNamespace' :: DeleteNamespace -&gt; Text
-</span><a href="#local-6989586621679229639"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229639"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229638"><span class="annot"><span class="annottext">s :: DeleteNamespace
-</span><a href="#local-6989586621679229638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace%27"><span class="hs-identifier hs-type">DeleteNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229637"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteNamespace
-</span><a href="#local-6989586621679229638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteNamespace' :: Text
+</span><a href="#local-6989586621679229792"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229792"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229791"><span class="annot"><span class="annottext">s :: DeleteNamespace
+</span><a href="#local-6989586621679229791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace%27"><span class="hs-identifier hs-type">DeleteNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229790"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteNamespace
+</span><a href="#local-6989586621679229791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteNamespace' :: Text
 </span><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#%24sel%3Aid%3ADeleteNamespace%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace"><span class="hs-identifier hs-type">DeleteNamespace</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace"><span class="hs-identifier hs-type">DeleteNamespace</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace"><span class="hs-identifier hs-type">DeleteNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace"><span class="hs-identifier hs-type">DeleteNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse"><span class="hs-identifier hs-type">DeleteNamespaceResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679229633"><span class="annot"><span class="annottext">request :: DeleteNamespace -&gt; Request DeleteNamespace
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679229786"><span class="annot"><span class="annottext">request :: DeleteNamespace -&gt; Request DeleteNamespace
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteNamespace -&gt; Request DeleteNamespace
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679229629"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679229782"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteNamespace
 -&gt; ClientResponse ClientBody
@@ -179,10 +179,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229626"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229626"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229625"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229624"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679229624"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229779"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229779"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229778"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679229778"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229777"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229777"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DeleteNamespaceResponse
 </span><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse%27"><span class="hs-identifier hs-var">DeleteNamespaceResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DeleteNamespaceResponse)
@@ -190,7 +190,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteNamespaceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679229624"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679229777"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OperationId&quot;</span></span><span class="hs-special">)</span><span>
@@ -202,15 +202,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229626"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229779"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229616"><span id="local-6989586621679229618"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace"><span class="hs-identifier hs-type">DeleteNamespace</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229769"><span id="local-6989586621679229771"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace"><span class="hs-identifier hs-type">DeleteNamespace</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229613"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace"><span class="hs-identifier hs-type">DeleteNamespace</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229766"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace"><span class="hs-identifier hs-type">DeleteNamespace</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace"><span class="hs-identifier hs-type">DeleteNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679229609"><span class="annot"><span class="annottext">toHeaders :: DeleteNamespace -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679229762"><span class="annot"><span class="annottext">toHeaders :: DeleteNamespace -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteNamespace -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -237,12 +237,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229599"><span id="local-6989586621679229601"><span id="local-6989586621679229603"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace"><span class="hs-identifier hs-type">DeleteNamespace</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679229597"><span class="annot"><span class="annottext">toJSON :: DeleteNamespace -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace%27"><span class="hs-identifier hs-type">DeleteNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229595"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229752"><span id="local-6989586621679229754"><span id="local-6989586621679229756"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace"><span class="hs-identifier hs-type">DeleteNamespace</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679229750"><span class="annot"><span class="annottext">toJSON :: DeleteNamespace -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace%27"><span class="hs-identifier hs-type">DeleteNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229748"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:DeleteNamespace' :: DeleteNamespace -&gt; Text
-</span><a href="#local-6989586621679229595"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679229748"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -253,17 +253,17 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229595"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229748"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace"><span class="hs-identifier hs-type">DeleteNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679229589"><span class="annot"><span class="annottext">toPath :: DeleteNamespace -&gt; ByteString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679229742"><span class="annot"><span class="annottext">toPath :: DeleteNamespace -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteNamespace -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespace"><span class="hs-identifier hs-type">DeleteNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679229585"><span class="annot"><span class="annottext">toQuery :: DeleteNamespace -&gt; QueryString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679229738"><span class="annot"><span class="annottext">toQuery :: DeleteNamespace -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteNamespace -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -271,7 +271,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newDeleteNamespaceResponse' smart constructor.</span><span>
-</span><span id="line-120"></span><span id="local-6989586621679229582"><span id="local-6989586621679229583"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteNamespaceResponse"><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse"><span class="hs-identifier hs-var">DeleteNamespaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteNamespaceResponse%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse%27"><span class="hs-identifier hs-var">DeleteNamespaceResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span id="local-6989586621679229735"><span id="local-6989586621679229736"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteNamespaceResponse"><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse"><span class="hs-identifier hs-var">DeleteNamespaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteNamespaceResponse%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse%27"><span class="hs-identifier hs-var">DeleteNamespaceResponse'</span></a></span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value that you can use to determine whether the request completed</span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-comment">-- successfully. To get the status of the operation, see</span><span>
 </span><span id="line-123"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation&gt;.</span><span>
@@ -281,7 +281,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteNamespaceResponse%27"><span class="annot"><span class="annottext">DeleteNamespaceResponse -&gt; Int
 </span><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#%24sel%3AhttpStatus%3ADeleteNamespaceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229576"><span id="local-6989586621679229578"><span class="annot"><span class="annottext">DeleteNamespaceResponse -&gt; DeleteNamespaceResponse -&gt; Bool
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229729"><span id="local-6989586621679229731"><span class="annot"><span class="annottext">DeleteNamespaceResponse -&gt; DeleteNamespaceResponse -&gt; Bool
 (DeleteNamespaceResponse -&gt; DeleteNamespaceResponse -&gt; Bool)
 -&gt; (DeleteNamespaceResponse -&gt; DeleteNamespaceResponse -&gt; Bool)
 -&gt; Eq DeleteNamespaceResponse
@@ -290,7 +290,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteNamespaceResponse -&gt; DeleteNamespaceResponse -&gt; Bool
 == :: DeleteNamespaceResponse -&gt; DeleteNamespaceResponse -&gt; Bool
 $c== :: DeleteNamespaceResponse -&gt; DeleteNamespaceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229568"><span id="local-6989586621679229570"><span id="local-6989586621679229572"><span id="local-6989586621679229574"><span class="annot"><span class="annottext">ReadPrec [DeleteNamespaceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229721"><span id="local-6989586621679229723"><span id="local-6989586621679229725"><span id="local-6989586621679229727"><span class="annot"><span class="annottext">ReadPrec [DeleteNamespaceResponse]
 ReadPrec DeleteNamespaceResponse
 Int -&gt; ReadS DeleteNamespaceResponse
 ReadS [DeleteNamespaceResponse]
@@ -310,7 +310,7 @@ readList :: ReadS [DeleteNamespaceResponse]
 $creadList :: ReadS [DeleteNamespaceResponse]
 readsPrec :: Int -&gt; ReadS DeleteNamespaceResponse
 $creadsPrec :: Int -&gt; ReadS DeleteNamespaceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229562"><span id="local-6989586621679229564"><span id="local-6989586621679229566"><span class="annot"><span class="annottext">Int -&gt; DeleteNamespaceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229715"><span id="local-6989586621679229717"><span id="local-6989586621679229719"><span class="annot"><span class="annottext">Int -&gt; DeleteNamespaceResponse -&gt; ShowS
 [DeleteNamespaceResponse] -&gt; ShowS
 DeleteNamespaceResponse -&gt; String
 (Int -&gt; DeleteNamespaceResponse -&gt; ShowS)
@@ -356,8 +356,8 @@ $cfrom :: forall x. DeleteNamespaceResponse -&gt; Rep DeleteNamespaceResponse x
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse"><span class="hs-identifier hs-type">DeleteNamespaceResponse</span></a></span><span>
 </span><span id="line-147"></span><span id="newDeleteNamespaceResponse"><span class="annot"><span class="annottext">newDeleteNamespaceResponse :: Int -&gt; DeleteNamespaceResponse
-</span><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#newDeleteNamespaceResponse"><span class="hs-identifier hs-var hs-var">newDeleteNamespaceResponse</span></a></span></span><span> </span><span id="local-6989586621679229559"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229559"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#newDeleteNamespaceResponse"><span class="hs-identifier hs-var hs-var">newDeleteNamespaceResponse</span></a></span></span><span> </span><span id="local-6989586621679229712"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229712"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">DeleteNamespaceResponse' :: Maybe Text -&gt; Int -&gt; DeleteNamespaceResponse
 </span><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse%27"><span class="hs-identifier hs-type">DeleteNamespaceResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operationId:DeleteNamespaceResponse' :: Maybe Text
@@ -367,7 +367,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteNamespaceResponse' :: Int
 </span><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#%24sel%3AhttpStatus%3ADeleteNamespaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229559"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679229712"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | A value that you can use to determine whether the request completed</span><span>
@@ -385,16 +385,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse%27"><span class="hs-identifier hs-type">DeleteNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229558"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse%27"><span class="hs-identifier hs-type">DeleteNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229711"><span class="annot"><span class="annottext">Maybe Text
 operationId :: Maybe Text
 $sel:operationId:DeleteNamespaceResponse' :: DeleteNamespaceResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679229558"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229558"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229557"><span class="annot"><span class="annottext">s :: DeleteNamespaceResponse
-</span><a href="#local-6989586621679229557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse%27"><span class="hs-identifier hs-type">DeleteNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229556"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteNamespaceResponse
-</span><a href="#local-6989586621679229557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:DeleteNamespaceResponse' :: Maybe Text
+</span><a href="#local-6989586621679229711"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229711"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229710"><span class="annot"><span class="annottext">s :: DeleteNamespaceResponse
+</span><a href="#local-6989586621679229710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse%27"><span class="hs-identifier hs-type">DeleteNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229709"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteNamespaceResponse
+</span><a href="#local-6989586621679229710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:DeleteNamespaceResponse' :: Maybe Text
 </span><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#%24sel%3AoperationId%3ADeleteNamespaceResponse%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse"><span class="hs-identifier hs-type">DeleteNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse"><span class="hs-identifier hs-type">DeleteNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-161"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#deleteNamespaceResponse_httpStatus"><span class="hs-identifier hs-type">deleteNamespaceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse"><span class="hs-identifier hs-type">DeleteNamespaceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -404,16 +404,16 @@ $sel:operationId:DeleteNamespaceResponse' :: DeleteNamespaceResponse -&gt; Maybe
 -&gt; (DeleteNamespaceResponse -&gt; Int -&gt; DeleteNamespaceResponse)
 -&gt; Lens DeleteNamespaceResponse DeleteNamespaceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse%27"><span class="hs-identifier hs-type">DeleteNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229555"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse%27"><span class="hs-identifier hs-type">DeleteNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229708"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteNamespaceResponse' :: DeleteNamespaceResponse -&gt; Int
-</span><a href="#local-6989586621679229555"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229555"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229554"><span class="annot"><span class="annottext">s :: DeleteNamespaceResponse
-</span><a href="#local-6989586621679229554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse%27"><span class="hs-identifier hs-type">DeleteNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229553"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteNamespaceResponse
-</span><a href="#local-6989586621679229554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteNamespaceResponse' :: Int
+</span><a href="#local-6989586621679229708"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229708"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229707"><span class="annot"><span class="annottext">s :: DeleteNamespaceResponse
+</span><a href="#local-6989586621679229707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse%27"><span class="hs-identifier hs-type">DeleteNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229706"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteNamespaceResponse
+</span><a href="#local-6989586621679229707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteNamespaceResponse' :: Int
 </span><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#%24sel%3AhttpStatus%3ADeleteNamespaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse"><span class="hs-identifier hs-type">DeleteNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse"><span class="hs-identifier hs-type">DeleteNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229551"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse"><span class="hs-identifier hs-type">DeleteNamespaceResponse</span></a></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229704"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteNamespace.html#DeleteNamespaceResponse"><span class="hs-identifier hs-type">DeleteNamespaceResponse</span></a></span></span><span>
 </span><span id="line-165"></span></pre></body></html>

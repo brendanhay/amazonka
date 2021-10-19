@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- conversation logs.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLogSettingsRequest' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679312652"><span id="local-6989586621679312653"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogSettingsRequest"><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest"><span class="hs-identifier hs-var">LogSettingsRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogSettingsRequest%27"><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-var">LogSettingsRequest'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679312937"><span id="local-6989586621679312938"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogSettingsRequest"><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest"><span class="hs-identifier hs-var">LogSettingsRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogSettingsRequest%27"><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-var">LogSettingsRequest'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS KMS customer managed key for</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- encrypting audio logs delivered to an S3 bucket. The key does not apply</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- to CloudWatch Logs and is optional for S3 buckets.</span><span>
@@ -48,7 +48,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AresourceArn%3ALogSettingsRequest%27"><span class="annot"><span class="annottext">LogSettingsRequest -&gt; Text
 </span><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#%24sel%3AresourceArn%3ALogSettingsRequest%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312643"><span id="local-6989586621679312645"><span class="annot"><span class="annottext">LogSettingsRequest -&gt; LogSettingsRequest -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312928"><span id="local-6989586621679312930"><span class="annot"><span class="annottext">LogSettingsRequest -&gt; LogSettingsRequest -&gt; Bool
 (LogSettingsRequest -&gt; LogSettingsRequest -&gt; Bool)
 -&gt; (LogSettingsRequest -&gt; LogSettingsRequest -&gt; Bool)
 -&gt; Eq LogSettingsRequest
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LogSettingsRequest -&gt; LogSettingsRequest -&gt; Bool
 == :: LogSettingsRequest -&gt; LogSettingsRequest -&gt; Bool
 $c== :: LogSettingsRequest -&gt; LogSettingsRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312634"><span id="local-6989586621679312636"><span id="local-6989586621679312638"><span id="local-6989586621679312640"><span class="annot"><span class="annottext">ReadPrec [LogSettingsRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312919"><span id="local-6989586621679312921"><span id="local-6989586621679312923"><span id="local-6989586621679312925"><span class="annot"><span class="annottext">ReadPrec [LogSettingsRequest]
 ReadPrec LogSettingsRequest
 Int -&gt; ReadS LogSettingsRequest
 ReadS [LogSettingsRequest]
@@ -77,7 +77,7 @@ readList :: ReadS [LogSettingsRequest]
 $creadList :: ReadS [LogSettingsRequest]
 readsPrec :: Int -&gt; ReadS LogSettingsRequest
 $creadsPrec :: Int -&gt; ReadS LogSettingsRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312627"><span id="local-6989586621679312629"><span id="local-6989586621679312631"><span class="annot"><span class="annottext">Int -&gt; LogSettingsRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312912"><span id="local-6989586621679312914"><span id="local-6989586621679312916"><span class="annot"><span class="annottext">Int -&gt; LogSettingsRequest -&gt; ShowS
 [LogSettingsRequest] -&gt; ShowS
 LogSettingsRequest -&gt; String
 (Int -&gt; LogSettingsRequest -&gt; ShowS)
@@ -133,12 +133,12 @@ $cfrom :: forall x. LogSettingsRequest -&gt; Rep LogSettingsRequest x
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest"><span class="hs-identifier hs-type">LogSettingsRequest</span></a></span><span>
 </span><span id="line-77"></span><span id="newLogSettingsRequest"><span class="annot"><span class="annottext">newLogSettingsRequest :: LogType -&gt; Destination -&gt; Text -&gt; LogSettingsRequest
 </span><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#newLogSettingsRequest"><span class="hs-identifier hs-var hs-var">newLogSettingsRequest</span></a></span></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679312621"><span class="annot"><span class="annottext">LogType
-</span><a href="#local-6989586621679312621"><span class="hs-identifier hs-var">pLogType_</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679312620"><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679312620"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679312619"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312619"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679312906"><span class="annot"><span class="annottext">LogType
+</span><a href="#local-6989586621679312906"><span class="hs-identifier hs-var">pLogType_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679312905"><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679312905"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679312904"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312904"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">LogSettingsRequest' :: Maybe Text -&gt; LogType -&gt; Destination -&gt; Text -&gt; LogSettingsRequest
 </span><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:kmsKeyArn:LogSettingsRequest' :: Maybe Text
@@ -147,13 +147,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:logType:LogSettingsRequest' :: LogType
 </span><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#%24sel%3AlogType%3ALogSettingsRequest%27"><span class="hs-identifier hs-var">logType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LogType
-</span><a href="#local-6989586621679312621"><span class="hs-identifier hs-var">pLogType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312906"><span class="hs-identifier hs-var">pLogType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:destination:LogSettingsRequest' :: Destination
 </span><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#%24sel%3Adestination%3ALogSettingsRequest%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679312620"><span class="hs-identifier hs-var">pDestination_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312905"><span class="hs-identifier hs-var">pDestination_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceArn:LogSettingsRequest' :: Text
 </span><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#%24sel%3AresourceArn%3ALogSettingsRequest%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312619"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span>
+</span><a href="#local-6989586621679312904"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS KMS customer managed key for</span><span>
@@ -167,16 +167,16 @@ forall a. Maybe a
 -&gt; Lens
      LogSettingsRequest LogSettingsRequest (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312615"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312900"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyArn :: Maybe Text
 $sel:kmsKeyArn:LogSettingsRequest' :: LogSettingsRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679312615"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679312615"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312614"><span class="annot"><span class="annottext">s :: LogSettingsRequest
-</span><a href="#local-6989586621679312614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312613"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679312613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogSettingsRequest
-</span><a href="#local-6989586621679312614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyArn:LogSettingsRequest' :: Maybe Text
+</span><a href="#local-6989586621679312900"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312900"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312899"><span class="annot"><span class="annottext">s :: LogSettingsRequest
+</span><a href="#local-6989586621679312899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312898"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogSettingsRequest
+</span><a href="#local-6989586621679312899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyArn:LogSettingsRequest' :: Maybe Text
 </span><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#%24sel%3AkmsKeyArn%3ALogSettingsRequest%27"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679312613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest"><span class="hs-identifier hs-type">LogSettingsRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest"><span class="hs-identifier hs-type">LogSettingsRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The type of logging to enable. Text logs are delivered to a CloudWatch</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- Logs log group. Audio logs are delivered to an S3 bucket.</span><span>
@@ -187,16 +187,16 @@ $sel:kmsKeyArn:LogSettingsRequest' :: LogSettingsRequest -&gt; Maybe Text
 -&gt; (LogSettingsRequest -&gt; LogType -&gt; LogSettingsRequest)
 -&gt; Lens LogSettingsRequest LogSettingsRequest LogType LogType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312611"><span class="annot"><span class="annottext">LogType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312896"><span class="annot"><span class="annottext">LogType
 logType :: LogType
 $sel:logType:LogSettingsRequest' :: LogSettingsRequest -&gt; LogType
-</span><a href="#local-6989586621679312611"><span class="hs-identifier hs-var hs-var">logType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogType
-</span><a href="#local-6989586621679312611"><span class="hs-identifier hs-var">logType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312610"><span class="annot"><span class="annottext">s :: LogSettingsRequest
-</span><a href="#local-6989586621679312610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312609"><span class="annot"><span class="annottext">LogType
-</span><a href="#local-6989586621679312609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogSettingsRequest
-</span><a href="#local-6989586621679312610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logType:LogSettingsRequest' :: LogType
+</span><a href="#local-6989586621679312896"><span class="hs-identifier hs-var hs-var">logType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogType
+</span><a href="#local-6989586621679312896"><span class="hs-identifier hs-var">logType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312895"><span class="annot"><span class="annottext">s :: LogSettingsRequest
+</span><a href="#local-6989586621679312895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312894"><span class="annot"><span class="annottext">LogType
+</span><a href="#local-6989586621679312894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogSettingsRequest
+</span><a href="#local-6989586621679312895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logType:LogSettingsRequest' :: LogType
 </span><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#%24sel%3AlogType%3ALogSettingsRequest%27"><span class="hs-identifier hs-var">logType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LogType
-</span><a href="#local-6989586621679312609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest"><span class="hs-identifier hs-type">LogSettingsRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest"><span class="hs-identifier hs-type">LogSettingsRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | Where the logs will be delivered. Text logs are delivered to a</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- CloudWatch Logs log group. Audio logs are delivered to an S3 bucket.</span><span>
@@ -208,16 +208,16 @@ $sel:logType:LogSettingsRequest' :: LogSettingsRequest -&gt; LogType
 -&gt; Lens
      LogSettingsRequest LogSettingsRequest Destination Destination
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312607"><span class="annot"><span class="annottext">Destination
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312892"><span class="annot"><span class="annottext">Destination
 destination :: Destination
 $sel:destination:LogSettingsRequest' :: LogSettingsRequest -&gt; Destination
-</span><a href="#local-6989586621679312607"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679312607"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312606"><span class="annot"><span class="annottext">s :: LogSettingsRequest
-</span><a href="#local-6989586621679312606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312605"><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679312605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogSettingsRequest
-</span><a href="#local-6989586621679312606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:LogSettingsRequest' :: Destination
+</span><a href="#local-6989586621679312892"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679312892"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312891"><span class="annot"><span class="annottext">s :: LogSettingsRequest
+</span><a href="#local-6989586621679312891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312890"><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679312890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogSettingsRequest
+</span><a href="#local-6989586621679312891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:LogSettingsRequest' :: Destination
 </span><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#%24sel%3Adestination%3ALogSettingsRequest%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679312605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest"><span class="hs-identifier hs-type">LogSettingsRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest"><span class="hs-identifier hs-type">LogSettingsRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- bucket where the logs should be delivered.</span><span>
@@ -227,24 +227,24 @@ $sel:destination:LogSettingsRequest' :: LogSettingsRequest -&gt; Destination
 -&gt; (LogSettingsRequest -&gt; Text -&gt; LogSettingsRequest)
 -&gt; Lens LogSettingsRequest LogSettingsRequest Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312603"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312888"><span class="annot"><span class="annottext">Text
 resourceArn :: Text
 $sel:resourceArn:LogSettingsRequest' :: LogSettingsRequest -&gt; Text
-</span><a href="#local-6989586621679312603"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312603"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312602"><span class="annot"><span class="annottext">s :: LogSettingsRequest
-</span><a href="#local-6989586621679312602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312601"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogSettingsRequest
-</span><a href="#local-6989586621679312602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:LogSettingsRequest' :: Text
+</span><a href="#local-6989586621679312888"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312888"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312887"><span class="annot"><span class="annottext">s :: LogSettingsRequest
+</span><a href="#local-6989586621679312887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312886"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogSettingsRequest
+</span><a href="#local-6989586621679312887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:LogSettingsRequest' :: Text
 </span><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#%24sel%3AresourceArn%3ALogSettingsRequest%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest"><span class="hs-identifier hs-type">LogSettingsRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest"><span class="hs-identifier hs-type">LogSettingsRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312597"><span id="local-6989586621679312599"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest"><span class="hs-identifier hs-type">LogSettingsRequest</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312882"><span id="local-6989586621679312884"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest"><span class="hs-identifier hs-type">LogSettingsRequest</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312594"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest"><span class="hs-identifier hs-type">LogSettingsRequest</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312879"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest"><span class="hs-identifier hs-type">LogSettingsRequest</span></a></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312586"><span id="local-6989586621679312588"><span id="local-6989586621679312590"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest"><span class="hs-identifier hs-type">LogSettingsRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679312584"><span class="annot"><span class="annottext">toJSON :: LogSettingsRequest -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312579"><span id="local-6989586621679312580"><span id="local-6989586621679312581"><span id="local-6989586621679312582"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312871"><span id="local-6989586621679312873"><span id="local-6989586621679312875"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest"><span class="hs-identifier hs-type">LogSettingsRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679312869"><span class="annot"><span class="annottext">toJSON :: LogSettingsRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsRequest.html#LogSettingsRequest%27"><span class="hs-identifier hs-type">LogSettingsRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312864"><span id="local-6989586621679312865"><span id="local-6989586621679312866"><span id="local-6989586621679312867"><span class="annot"><span class="annottext">Maybe Text
 Text
 Destination
 LogType
@@ -256,7 +256,7 @@ $sel:resourceArn:LogSettingsRequest' :: LogSettingsRequest -&gt; Text
 $sel:destination:LogSettingsRequest' :: LogSettingsRequest -&gt; Destination
 $sel:logType:LogSettingsRequest' :: LogSettingsRequest -&gt; LogType
 $sel:kmsKeyArn:LogSettingsRequest' :: LogSettingsRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679312579"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679312864"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -268,28 +268,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679312582"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312867"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LogType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LogType
-</span><a href="#local-6989586621679312581"><span class="hs-identifier hs-var">logType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312866"><span class="hs-identifier hs-var">logType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Destination -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679312580"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312865"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312579"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312864"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span></pre></body></html>

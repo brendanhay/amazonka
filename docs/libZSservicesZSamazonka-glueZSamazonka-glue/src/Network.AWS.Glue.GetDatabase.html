@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetDatabase' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679727592"><span id="local-6989586621679727593"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDatabase"><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase"><span class="hs-identifier hs-var">GetDatabase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDatabase%27"><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase%27"><span class="hs-identifier hs-var">GetDatabase'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679729372"><span id="local-6989586621679729373"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDatabase"><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase"><span class="hs-identifier hs-var">GetDatabase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDatabase%27"><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase%27"><span class="hs-identifier hs-var">GetDatabase'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Data Catalog in which the database resides. If none is</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- provided, the Amazon Web Services account ID is used by default.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AcatalogId%3AGetDatabase%27"><span class="annot"><span class="annottext">GetDatabase -&gt; Maybe Text
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3Aname%3AGetDatabase%27"><span class="annot"><span class="annottext">GetDatabase -&gt; Text
 </span><a href="Network.AWS.Glue.GetDatabase.html#%24sel%3Aname%3AGetDatabase%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679727585"><span id="local-6989586621679727587"><span class="annot"><span class="annottext">GetDatabase -&gt; GetDatabase -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679729365"><span id="local-6989586621679729367"><span class="annot"><span class="annottext">GetDatabase -&gt; GetDatabase -&gt; Bool
 (GetDatabase -&gt; GetDatabase -&gt; Bool)
 -&gt; (GetDatabase -&gt; GetDatabase -&gt; Bool) -&gt; Eq GetDatabase
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDatabase -&gt; GetDatabase -&gt; Bool
 == :: GetDatabase -&gt; GetDatabase -&gt; Bool
 $c== :: GetDatabase -&gt; GetDatabase -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679727576"><span id="local-6989586621679727578"><span id="local-6989586621679727580"><span id="local-6989586621679727582"><span class="annot"><span class="annottext">ReadPrec [GetDatabase]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679729356"><span id="local-6989586621679729358"><span id="local-6989586621679729360"><span id="local-6989586621679729362"><span class="annot"><span class="annottext">ReadPrec [GetDatabase]
 ReadPrec GetDatabase
 Int -&gt; ReadS GetDatabase
 ReadS [GetDatabase]
@@ -86,7 +86,7 @@ readList :: ReadS [GetDatabase]
 $creadList :: ReadS [GetDatabase]
 readsPrec :: Int -&gt; ReadS GetDatabase
 $creadsPrec :: Int -&gt; ReadS GetDatabase
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679727569"><span id="local-6989586621679727571"><span id="local-6989586621679727573"><span class="annot"><span class="annottext">Int -&gt; GetDatabase -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679729349"><span id="local-6989586621679729351"><span id="local-6989586621679729353"><span class="annot"><span class="annottext">Int -&gt; GetDatabase -&gt; ShowS
 [GetDatabase] -&gt; ShowS
 GetDatabase -&gt; String
 (Int -&gt; GetDatabase -&gt; ShowS)
@@ -130,8 +130,8 @@ $cfrom :: forall x. GetDatabase -&gt; Rep GetDatabase x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase"><span class="hs-identifier hs-type">GetDatabase</span></a></span><span>
 </span><span id="line-78"></span><span id="newGetDatabase"><span class="annot"><span class="annottext">newGetDatabase :: Text -&gt; GetDatabase
-</span><a href="Network.AWS.Glue.GetDatabase.html#newGetDatabase"><span class="hs-identifier hs-var hs-var">newGetDatabase</span></a></span></span><span> </span><span id="local-6989586621679727564"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679727564"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetDatabase.html#newGetDatabase"><span class="hs-identifier hs-var hs-var">newGetDatabase</span></a></span></span><span> </span><span id="local-6989586621679729344"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679729344"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">GetDatabase' :: Maybe Text -&gt; Text -&gt; GetDatabase
 </span><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase%27"><span class="hs-identifier hs-type">GetDatabase'</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:catalogId:GetDatabase' :: Maybe Text
@@ -140,7 +140,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GetDatabase' :: Text
 </span><a href="Network.AWS.Glue.GetDatabase.html#%24sel%3Aname%3AGetDatabase%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679727564"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679729344"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The ID of the Data Catalog in which the database resides. If none is</span><span>
@@ -151,16 +151,16 @@ forall a. Maybe a
 -&gt; (GetDatabase -&gt; Maybe Text -&gt; GetDatabase)
 -&gt; Lens GetDatabase GetDatabase (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase%27"><span class="hs-identifier hs-type">GetDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727561"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase%27"><span class="hs-identifier hs-type">GetDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729341"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:GetDatabase' :: GetDatabase -&gt; Maybe Text
-</span><a href="#local-6989586621679727561"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727561"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727560"><span class="annot"><span class="annottext">s :: GetDatabase
-</span><a href="#local-6989586621679727560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase%27"><span class="hs-identifier hs-type">GetDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727559"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDatabase
-</span><a href="#local-6989586621679727560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:GetDatabase' :: Maybe Text
+</span><a href="#local-6989586621679729341"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679729341"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679729340"><span class="annot"><span class="annottext">s :: GetDatabase
+</span><a href="#local-6989586621679729340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase%27"><span class="hs-identifier hs-type">GetDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679729339"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679729339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDatabase
+</span><a href="#local-6989586621679729340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:GetDatabase' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetDatabase.html#%24sel%3AcatalogId%3AGetDatabase%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase"><span class="hs-identifier hs-type">GetDatabase</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679729339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase"><span class="hs-identifier hs-type">GetDatabase</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The name of the database to retrieve. For Hive compatibility, this</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- should be all lowercase.</span><span>
@@ -170,25 +170,25 @@ $sel:catalogId:GetDatabase' :: GetDatabase -&gt; Maybe Text
 -&gt; (GetDatabase -&gt; Text -&gt; GetDatabase)
 -&gt; Lens GetDatabase GetDatabase Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase%27"><span class="hs-identifier hs-type">GetDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727558"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase%27"><span class="hs-identifier hs-type">GetDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729338"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:GetDatabase' :: GetDatabase -&gt; Text
-</span><a href="#local-6989586621679727558"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679727558"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727557"><span class="annot"><span class="annottext">s :: GetDatabase
-</span><a href="#local-6989586621679727557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase%27"><span class="hs-identifier hs-type">GetDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727556"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679727556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDatabase
-</span><a href="#local-6989586621679727557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetDatabase' :: Text
+</span><a href="#local-6989586621679729338"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679729338"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679729337"><span class="annot"><span class="annottext">s :: GetDatabase
+</span><a href="#local-6989586621679729337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase%27"><span class="hs-identifier hs-type">GetDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679729336"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679729336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDatabase
+</span><a href="#local-6989586621679729337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetDatabase' :: Text
 </span><a href="Network.AWS.Glue.GetDatabase.html#%24sel%3Aname%3AGetDatabase%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679727556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase"><span class="hs-identifier hs-type">GetDatabase</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679729336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase"><span class="hs-identifier hs-type">GetDatabase</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase"><span class="hs-identifier hs-type">GetDatabase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase"><span class="hs-identifier hs-type">GetDatabase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse"><span class="hs-identifier hs-type">GetDatabaseResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679727552"><span class="annot"><span class="annottext">request :: GetDatabase -&gt; Request GetDatabase
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679729332"><span class="annot"><span class="annottext">request :: GetDatabase -&gt; Request GetDatabase
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDatabase -&gt; Request GetDatabase
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679727548"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679729328"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetDatabase
 -&gt; ClientResponse ClientBody
@@ -212,10 +212,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679727545"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727545"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679727544"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679727544"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679727543"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679727543"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679729325"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679729325"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679729324"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679729324"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679729323"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679729323"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Database -&gt; Int -&gt; GetDatabaseResponse
 </span><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse%27"><span class="hs-identifier hs-var">GetDatabaseResponse'</span></a></span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Database -&gt; Int -&gt; GetDatabaseResponse)
@@ -223,7 +223,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetDatabaseResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679727543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Database)
+</span><a href="#local-6989586621679729323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Database)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Database&quot;</span></span><span class="hs-special">)</span><span>
@@ -235,15 +235,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727545"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679729325"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727535"><span id="local-6989586621679727537"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase"><span class="hs-identifier hs-type">GetDatabase</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679729315"><span id="local-6989586621679729317"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase"><span class="hs-identifier hs-type">GetDatabase</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727532"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase"><span class="hs-identifier hs-type">GetDatabase</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679729312"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase"><span class="hs-identifier hs-type">GetDatabase</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase"><span class="hs-identifier hs-type">GetDatabase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679727528"><span class="annot"><span class="annottext">toHeaders :: GetDatabase -&gt; ResponseHeaders
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679729308"><span class="annot"><span class="annottext">toHeaders :: GetDatabase -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDatabase -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -268,15 +268,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727518"><span id="local-6989586621679727520"><span id="local-6989586621679727522"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase"><span class="hs-identifier hs-type">GetDatabase</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679727516"><span class="annot"><span class="annottext">toJSON :: GetDatabase -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase%27"><span class="hs-identifier hs-type">GetDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727513"><span id="local-6989586621679727514"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679729298"><span id="local-6989586621679729300"><span id="local-6989586621679729302"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase"><span class="hs-identifier hs-type">GetDatabase</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679729296"><span class="annot"><span class="annottext">toJSON :: GetDatabase -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase%27"><span class="hs-identifier hs-type">GetDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729293"><span id="local-6989586621679729294"><span class="annot"><span class="annottext">Maybe Text
 Text
 name :: Text
 catalogId :: Maybe Text
 $sel:name:GetDatabase' :: GetDatabase -&gt; Text
 $sel:catalogId:GetDatabase' :: GetDatabase -&gt; Maybe Text
-</span><a href="#local-6989586621679727513"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679729293"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -288,26 +288,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727514"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679729294"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679727513"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679729293"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase"><span class="hs-identifier hs-type">GetDatabase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679727507"><span class="annot"><span class="annottext">toPath :: GetDatabase -&gt; ByteString
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679729287"><span class="annot"><span class="annottext">toPath :: GetDatabase -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDatabase -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabase"><span class="hs-identifier hs-type">GetDatabase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679727503"><span class="annot"><span class="annottext">toQuery :: GetDatabase -&gt; QueryString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679729283"><span class="annot"><span class="annottext">toQuery :: GetDatabase -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDatabase -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -315,7 +315,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newGetDatabaseResponse' smart constructor.</span><span>
-</span><span id="line-138"></span><span id="local-6989586621679727500"><span id="local-6989586621679727501"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDatabaseResponse"><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse"><span class="hs-identifier hs-var">GetDatabaseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDatabaseResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse%27"><span class="hs-identifier hs-var">GetDatabaseResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span id="local-6989586621679729280"><span id="local-6989586621679729281"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDatabaseResponse"><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse"><span class="hs-identifier hs-var">GetDatabaseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDatabaseResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse%27"><span class="hs-identifier hs-var">GetDatabaseResponse'</span></a></span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The definition of the specified database in the Data Catalog.</span><span>
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3Adatabase%3AGetDatabaseResponse%27"><span class="annot"><span class="annottext">GetDatabaseResponse -&gt; Maybe Database
 </span><a href="Network.AWS.Glue.GetDatabase.html#%24sel%3Adatabase%3AGetDatabaseResponse%27"><span class="hs-identifier hs-var hs-var">database</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">,</span><span>
@@ -323,7 +323,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDatabaseResponse%27"><span class="annot"><span class="annottext">GetDatabaseResponse -&gt; Int
 </span><a href="Network.AWS.Glue.GetDatabase.html#%24sel%3AhttpStatus%3AGetDatabaseResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679727494"><span id="local-6989586621679727496"><span class="annot"><span class="annottext">GetDatabaseResponse -&gt; GetDatabaseResponse -&gt; Bool
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679729274"><span id="local-6989586621679729276"><span class="annot"><span class="annottext">GetDatabaseResponse -&gt; GetDatabaseResponse -&gt; Bool
 (GetDatabaseResponse -&gt; GetDatabaseResponse -&gt; Bool)
 -&gt; (GetDatabaseResponse -&gt; GetDatabaseResponse -&gt; Bool)
 -&gt; Eq GetDatabaseResponse
@@ -332,7 +332,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDatabaseResponse -&gt; GetDatabaseResponse -&gt; Bool
 == :: GetDatabaseResponse -&gt; GetDatabaseResponse -&gt; Bool
 $c== :: GetDatabaseResponse -&gt; GetDatabaseResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679727486"><span id="local-6989586621679727488"><span id="local-6989586621679727490"><span id="local-6989586621679727492"><span class="annot"><span class="annottext">ReadPrec [GetDatabaseResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679729266"><span id="local-6989586621679729268"><span id="local-6989586621679729270"><span id="local-6989586621679729272"><span class="annot"><span class="annottext">ReadPrec [GetDatabaseResponse]
 ReadPrec GetDatabaseResponse
 Int -&gt; ReadS GetDatabaseResponse
 ReadS [GetDatabaseResponse]
@@ -352,7 +352,7 @@ readList :: ReadS [GetDatabaseResponse]
 $creadList :: ReadS [GetDatabaseResponse]
 readsPrec :: Int -&gt; ReadS GetDatabaseResponse
 $creadsPrec :: Int -&gt; ReadS GetDatabaseResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679727480"><span id="local-6989586621679727482"><span id="local-6989586621679727484"><span class="annot"><span class="annottext">Int -&gt; GetDatabaseResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679729260"><span id="local-6989586621679729262"><span id="local-6989586621679729264"><span class="annot"><span class="annottext">Int -&gt; GetDatabaseResponse -&gt; ShowS
 [GetDatabaseResponse] -&gt; ShowS
 GetDatabaseResponse -&gt; String
 (Int -&gt; GetDatabaseResponse -&gt; ShowS)
@@ -394,8 +394,8 @@ $cfrom :: forall x. GetDatabaseResponse -&gt; Rep GetDatabaseResponse x
 </span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse"><span class="hs-identifier hs-type">GetDatabaseResponse</span></a></span><span>
 </span><span id="line-161"></span><span id="newGetDatabaseResponse"><span class="annot"><span class="annottext">newGetDatabaseResponse :: Int -&gt; GetDatabaseResponse
-</span><a href="Network.AWS.Glue.GetDatabase.html#newGetDatabaseResponse"><span class="hs-identifier hs-var hs-var">newGetDatabaseResponse</span></a></span></span><span> </span><span id="local-6989586621679727477"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727477"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetDatabase.html#newGetDatabaseResponse"><span class="hs-identifier hs-var hs-var">newGetDatabaseResponse</span></a></span></span><span> </span><span id="local-6989586621679729257"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679729257"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">GetDatabaseResponse' :: Maybe Database -&gt; Int -&gt; GetDatabaseResponse
 </span><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse%27"><span class="hs-identifier hs-type">GetDatabaseResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:database:GetDatabaseResponse' :: Maybe Database
@@ -404,7 +404,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDatabaseResponse' :: Int
 </span><a href="Network.AWS.Glue.GetDatabase.html#%24sel%3AhttpStatus%3AGetDatabaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727477"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679729257"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The definition of the specified database in the Data Catalog.</span><span>
@@ -419,16 +419,16 @@ forall a. Maybe a
      (Maybe Database)
      (Maybe Database)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse%27"><span class="hs-identifier hs-type">GetDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727476"><span class="annot"><span class="annottext">Maybe Database
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse%27"><span class="hs-identifier hs-type">GetDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729256"><span class="annot"><span class="annottext">Maybe Database
 database :: Maybe Database
 $sel:database:GetDatabaseResponse' :: GetDatabaseResponse -&gt; Maybe Database
-</span><a href="#local-6989586621679727476"><span class="hs-identifier hs-var hs-var">database</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Database
-</span><a href="#local-6989586621679727476"><span class="hs-identifier hs-var">database</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727475"><span class="annot"><span class="annottext">s :: GetDatabaseResponse
-</span><a href="#local-6989586621679727475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse%27"><span class="hs-identifier hs-type">GetDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727474"><span class="annot"><span class="annottext">Maybe Database
-</span><a href="#local-6989586621679727474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDatabaseResponse
-</span><a href="#local-6989586621679727475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:database:GetDatabaseResponse' :: Maybe Database
+</span><a href="#local-6989586621679729256"><span class="hs-identifier hs-var hs-var">database</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Database
+</span><a href="#local-6989586621679729256"><span class="hs-identifier hs-var">database</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679729255"><span class="annot"><span class="annottext">s :: GetDatabaseResponse
+</span><a href="#local-6989586621679729255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse%27"><span class="hs-identifier hs-type">GetDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679729254"><span class="annot"><span class="annottext">Maybe Database
+</span><a href="#local-6989586621679729254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDatabaseResponse
+</span><a href="#local-6989586621679729255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:database:GetDatabaseResponse' :: Maybe Database
 </span><a href="Network.AWS.Glue.GetDatabase.html#%24sel%3Adatabase%3AGetDatabaseResponse%27"><span class="hs-identifier hs-var">database</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Database
-</span><a href="#local-6989586621679727474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse"><span class="hs-identifier hs-type">GetDatabaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679729254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse"><span class="hs-identifier hs-type">GetDatabaseResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#getDatabaseResponse_httpStatus"><span class="hs-identifier hs-type">getDatabaseResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse"><span class="hs-identifier hs-type">GetDatabaseResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -437,16 +437,16 @@ $sel:database:GetDatabaseResponse' :: GetDatabaseResponse -&gt; Maybe Database
 -&gt; (GetDatabaseResponse -&gt; Int -&gt; GetDatabaseResponse)
 -&gt; Lens GetDatabaseResponse GetDatabaseResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse%27"><span class="hs-identifier hs-type">GetDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727473"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse%27"><span class="hs-identifier hs-type">GetDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729253"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetDatabaseResponse' :: GetDatabaseResponse -&gt; Int
-</span><a href="#local-6989586621679727473"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727473"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727472"><span class="annot"><span class="annottext">s :: GetDatabaseResponse
-</span><a href="#local-6989586621679727472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse%27"><span class="hs-identifier hs-type">GetDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727471"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDatabaseResponse
-</span><a href="#local-6989586621679727472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDatabaseResponse' :: Int
+</span><a href="#local-6989586621679729253"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679729253"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679729252"><span class="annot"><span class="annottext">s :: GetDatabaseResponse
+</span><a href="#local-6989586621679729252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse%27"><span class="hs-identifier hs-type">GetDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679729251"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679729251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDatabaseResponse
+</span><a href="#local-6989586621679729252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDatabaseResponse' :: Int
 </span><a href="Network.AWS.Glue.GetDatabase.html#%24sel%3AhttpStatus%3AGetDatabaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse"><span class="hs-identifier hs-type">GetDatabaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679729251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse"><span class="hs-identifier hs-type">GetDatabaseResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727469"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse"><span class="hs-identifier hs-type">GetDatabaseResponse</span></a></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679729249"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDatabase.html#GetDatabaseResponse"><span class="hs-identifier hs-type">GetDatabaseResponse</span></a></span></span><span>
 </span><span id="line-176"></span></pre></body></html>

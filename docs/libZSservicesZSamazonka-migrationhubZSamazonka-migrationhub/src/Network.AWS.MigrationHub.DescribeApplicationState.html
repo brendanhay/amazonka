@@ -34,8 +34,8 @@
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#newDescribeApplicationStateResponse"><span class="hs-identifier">newDescribeApplicationStateResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#describeApplicationStateResponse_applicationStatus"><span class="hs-identifier">describeApplicationStateResponse_applicationStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#describeApplicationStateResponse_lastUpdatedTime"><span class="hs-identifier">describeApplicationStateResponse_lastUpdatedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#describeApplicationStateResponse_lastUpdatedTime"><span class="hs-identifier">describeApplicationStateResponse_lastUpdatedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#describeApplicationStateResponse_applicationStatus"><span class="hs-identifier">describeApplicationStateResponse_applicationStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#describeApplicationStateResponse_httpStatus"><span class="hs-identifier">describeApplicationStateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-41"></span><span class="hs-keyword">where</span><span>
@@ -48,13 +48,13 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribeApplicationState' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679173892"><span id="local-6989586621679173893"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeApplicationState"><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState"><span class="hs-identifier hs-var">DescribeApplicationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeApplicationState%27"><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState%27"><span class="hs-identifier hs-var">DescribeApplicationState'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679173936"><span id="local-6989586621679173937"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeApplicationState"><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState"><span class="hs-identifier hs-var">DescribeApplicationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeApplicationState%27"><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState%27"><span class="hs-identifier hs-var">DescribeApplicationState'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configurationId in Application Discovery Service that uniquely</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- identifies the grouped application.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AapplicationId%3ADescribeApplicationState%27"><span class="annot"><span class="annottext">DescribeApplicationState -&gt; Text
 </span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#%24sel%3AapplicationId%3ADescribeApplicationState%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679173886"><span id="local-6989586621679173888"><span class="annot"><span class="annottext">DescribeApplicationState -&gt; DescribeApplicationState -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679173930"><span id="local-6989586621679173932"><span class="annot"><span class="annottext">DescribeApplicationState -&gt; DescribeApplicationState -&gt; Bool
 (DescribeApplicationState -&gt; DescribeApplicationState -&gt; Bool)
 -&gt; (DescribeApplicationState -&gt; DescribeApplicationState -&gt; Bool)
 -&gt; Eq DescribeApplicationState
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeApplicationState -&gt; DescribeApplicationState -&gt; Bool
 == :: DescribeApplicationState -&gt; DescribeApplicationState -&gt; Bool
 $c== :: DescribeApplicationState -&gt; DescribeApplicationState -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173877"><span id="local-6989586621679173879"><span id="local-6989586621679173881"><span id="local-6989586621679173883"><span class="annot"><span class="annottext">ReadPrec [DescribeApplicationState]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173921"><span id="local-6989586621679173923"><span id="local-6989586621679173925"><span id="local-6989586621679173927"><span class="annot"><span class="annottext">ReadPrec [DescribeApplicationState]
 ReadPrec DescribeApplicationState
 Int -&gt; ReadS DescribeApplicationState
 ReadS [DescribeApplicationState]
@@ -83,7 +83,7 @@ readList :: ReadS [DescribeApplicationState]
 $creadList :: ReadS [DescribeApplicationState]
 readsPrec :: Int -&gt; ReadS DescribeApplicationState
 $creadsPrec :: Int -&gt; ReadS DescribeApplicationState
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173870"><span id="local-6989586621679173872"><span id="local-6989586621679173874"><span class="annot"><span class="annottext">Int -&gt; DescribeApplicationState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173914"><span id="local-6989586621679173916"><span id="local-6989586621679173918"><span class="annot"><span class="annottext">Int -&gt; DescribeApplicationState -&gt; ShowS
 [DescribeApplicationState] -&gt; ShowS
 DescribeApplicationState -&gt; String
 (Int -&gt; DescribeApplicationState -&gt; ShowS)
@@ -130,14 +130,14 @@ DescribeApplicationState -&gt; Rep DescribeApplicationState x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState"><span class="hs-identifier hs-type">DescribeApplicationState</span></a></span><span>
 </span><span id="line-72"></span><span id="newDescribeApplicationState"><span class="annot"><span class="annottext">newDescribeApplicationState :: Text -&gt; DescribeApplicationState
-</span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#newDescribeApplicationState"><span class="hs-identifier hs-var hs-var">newDescribeApplicationState</span></a></span></span><span> </span><span id="local-6989586621679173865"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679173865"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#newDescribeApplicationState"><span class="hs-identifier hs-var hs-var">newDescribeApplicationState</span></a></span></span><span> </span><span id="local-6989586621679173909"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173909"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DescribeApplicationState' :: Text -&gt; DescribeApplicationState
 </span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState%27"><span class="hs-identifier hs-type">DescribeApplicationState'</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationId:DescribeApplicationState' :: Text
 </span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#%24sel%3AapplicationId%3ADescribeApplicationState%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679173865"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
+</span><a href="#local-6989586621679173909"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The configurationId in Application Discovery Service that uniquely</span><span>
@@ -149,28 +149,28 @@ DescribeApplicationState -&gt; Rep DescribeApplicationState x
 -&gt; (DescribeApplicationState -&gt; Text -&gt; DescribeApplicationState)
 -&gt; Lens DescribeApplicationState DescribeApplicationState Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState%27"><span class="hs-identifier hs-type">DescribeApplicationState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173862"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState%27"><span class="hs-identifier hs-type">DescribeApplicationState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173906"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 $sel:applicationId:DescribeApplicationState' :: DescribeApplicationState -&gt; Text
-</span><a href="#local-6989586621679173862"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679173862"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173861"><span class="annot"><span class="annottext">s :: DescribeApplicationState
-</span><a href="#local-6989586621679173861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState%27"><span class="hs-identifier hs-type">DescribeApplicationState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173860"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679173860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationState
-</span><a href="#local-6989586621679173861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:DescribeApplicationState' :: Text
+</span><a href="#local-6989586621679173906"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173906"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173905"><span class="annot"><span class="annottext">s :: DescribeApplicationState
+</span><a href="#local-6989586621679173905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState%27"><span class="hs-identifier hs-type">DescribeApplicationState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173904"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationState
+</span><a href="#local-6989586621679173905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:DescribeApplicationState' :: Text
 </span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#%24sel%3AapplicationId%3ADescribeApplicationState%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679173860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState"><span class="hs-identifier hs-type">DescribeApplicationState</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679173904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState"><span class="hs-identifier hs-type">DescribeApplicationState</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState"><span class="hs-identifier hs-type">DescribeApplicationState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState"><span class="hs-identifier hs-type">DescribeApplicationState</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse"><span class="hs-identifier hs-type">DescribeApplicationStateResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679173856"><span class="annot"><span class="annottext">request :: DescribeApplicationState -&gt; Request DescribeApplicationState
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679173900"><span class="annot"><span class="annottext">request :: DescribeApplicationState -&gt; Request DescribeApplicationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeApplicationState -&gt; Request DescribeApplicationState
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MigrationHub.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679173852"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679173896"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeApplicationState
 -&gt; ClientResponse ClientBody
@@ -196,34 +196,42 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679173849"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679173849"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679173848"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679173848"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679173847"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173847"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe ApplicationStatus
--&gt; Maybe POSIX -&gt; Int -&gt; DescribeApplicationStateResponse
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679173893"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679173893"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679173892"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679173892"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679173891"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173891"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe ApplicationStatus
+-&gt; Int
+-&gt; DescribeApplicationStateResponse
 </span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse%27"><span class="hs-identifier hs-var">DescribeApplicationStateResponse'</span></a></span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ApplicationStatus
- -&gt; Maybe POSIX -&gt; Int -&gt; DescribeApplicationStateResponse)
--&gt; Either String (Maybe ApplicationStatus)
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe ApplicationStatus
+ -&gt; Int
+ -&gt; DescribeApplicationStateResponse)
+-&gt; Either String (Maybe POSIX)
 -&gt; Either
-     String (Maybe POSIX -&gt; Int -&gt; DescribeApplicationStateResponse)
+     String
+     (Maybe ApplicationStatus
+      -&gt; Int -&gt; DescribeApplicationStateResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ApplicationStatus)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ApplicationStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe POSIX -&gt; Int -&gt; DescribeApplicationStateResponse)
--&gt; Either String (Maybe POSIX)
--&gt; Either String (Int -&gt; DescribeApplicationStateResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679173891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastUpdatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ApplicationStatus
+   -&gt; Int -&gt; DescribeApplicationStateResponse)
+-&gt; Either String (Maybe ApplicationStatus)
+-&gt; Either String (Int -&gt; DescribeApplicationStateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ApplicationStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeApplicationStateResponse)
 -&gt; Either String Int
 -&gt; Either String DescribeApplicationStateResponse
@@ -233,15 +241,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679173849"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679173893"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173839"><span id="local-6989586621679173841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState"><span class="hs-identifier hs-type">DescribeApplicationState</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173883"><span id="local-6989586621679173885"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState"><span class="hs-identifier hs-type">DescribeApplicationState</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState"><span class="hs-identifier hs-type">DescribeApplicationState</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173880"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState"><span class="hs-identifier hs-type">DescribeApplicationState</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState"><span class="hs-identifier hs-type">DescribeApplicationState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679173832"><span class="annot"><span class="annottext">toHeaders :: DescribeApplicationState -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679173876"><span class="annot"><span class="annottext">toHeaders :: DescribeApplicationState -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeApplicationState -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -268,12 +276,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173822"><span id="local-6989586621679173824"><span id="local-6989586621679173826"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState"><span class="hs-identifier hs-type">DescribeApplicationState</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679173820"><span class="annot"><span class="annottext">toJSON :: DescribeApplicationState -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState%27"><span class="hs-identifier hs-type">DescribeApplicationState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173818"><span class="annot"><span class="annottext">Text
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173866"><span id="local-6989586621679173868"><span id="local-6989586621679173870"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState"><span class="hs-identifier hs-type">DescribeApplicationState</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679173864"><span class="annot"><span class="annottext">toJSON :: DescribeApplicationState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState%27"><span class="hs-identifier hs-type">DescribeApplicationState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173862"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 $sel:applicationId:DescribeApplicationState' :: DescribeApplicationState -&gt; Text
-</span><a href="#local-6989586621679173818"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679173862"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -286,19 +294,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ApplicationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679173818"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679173862"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState"><span class="hs-identifier hs-type">DescribeApplicationState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679173812"><span class="annot"><span class="annottext">toPath :: DescribeApplicationState -&gt; ByteString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679173856"><span class="annot"><span class="annottext">toPath :: DescribeApplicationState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeApplicationState -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationState"><span class="hs-identifier hs-type">DescribeApplicationState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679173808"><span class="annot"><span class="annottext">toQuery :: DescribeApplicationState -&gt; QueryString
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679173852"><span class="annot"><span class="annottext">toQuery :: DescribeApplicationState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeApplicationState -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -306,18 +314,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | /See:/ 'newDescribeApplicationStateResponse' smart constructor.</span><span>
-</span><span id="line-132"></span><span id="local-6989586621679173805"><span id="local-6989586621679173806"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeApplicationStateResponse"><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse"><span class="hs-identifier hs-var">DescribeApplicationStateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeApplicationStateResponse%27"><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse%27"><span class="hs-identifier hs-var">DescribeApplicationStateResponse'</span></a></span></span><span>
-</span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Status of the application - Not Started, In-Progress, Complete.</span><span>
-</span><span id="line-134"></span><span>    </span><span id="%24sel%3AapplicationStatus%3ADescribeApplicationStateResponse%27"><span class="annot"><span class="annottext">DescribeApplicationStateResponse -&gt; Maybe ApplicationStatus
-</span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#%24sel%3AapplicationStatus%3ADescribeApplicationStateResponse%27"><span class="hs-identifier hs-var hs-var">applicationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ApplicationStatus.html#ApplicationStatus"><span class="hs-identifier hs-type">ApplicationStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The timestamp when the application status was last updated.</span><span>
-</span><span id="line-136"></span><span>    </span><span id="%24sel%3AlastUpdatedTime%3ADescribeApplicationStateResponse%27"><span class="annot"><span class="annottext">DescribeApplicationStateResponse -&gt; Maybe POSIX
+</span><span id="line-132"></span><span id="local-6989586621679173849"><span id="local-6989586621679173850"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeApplicationStateResponse"><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse"><span class="hs-identifier hs-var">DescribeApplicationStateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeApplicationStateResponse%27"><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse%27"><span class="hs-identifier hs-var">DescribeApplicationStateResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timestamp when the application status was last updated.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AlastUpdatedTime%3ADescribeApplicationStateResponse%27"><span class="annot"><span class="annottext">DescribeApplicationStateResponse -&gt; Maybe POSIX
 </span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#%24sel%3AlastUpdatedTime%3ADescribeApplicationStateResponse%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | Status of the application - Not Started, In-Progress, Complete.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AapplicationStatus%3ADescribeApplicationStateResponse%27"><span class="annot"><span class="annottext">DescribeApplicationStateResponse -&gt; Maybe ApplicationStatus
+</span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#%24sel%3AapplicationStatus%3ADescribeApplicationStateResponse%27"><span class="hs-identifier hs-var hs-var">applicationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ApplicationStatus.html#ApplicationStatus"><span class="hs-identifier hs-type">ApplicationStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeApplicationStateResponse%27"><span class="annot"><span class="annottext">DescribeApplicationStateResponse -&gt; Int
 </span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#%24sel%3AhttpStatus%3ADescribeApplicationStateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679173798"><span id="local-6989586621679173800"><span class="annot"><span class="annottext">DescribeApplicationStateResponse
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679173842"><span id="local-6989586621679173844"><span class="annot"><span class="annottext">DescribeApplicationStateResponse
 -&gt; DescribeApplicationStateResponse -&gt; Bool
 (DescribeApplicationStateResponse
  -&gt; DescribeApplicationStateResponse -&gt; Bool)
@@ -333,7 +341,7 @@ $c/= :: DescribeApplicationStateResponse
 -&gt; DescribeApplicationStateResponse -&gt; Bool
 $c== :: DescribeApplicationStateResponse
 -&gt; DescribeApplicationStateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173790"><span id="local-6989586621679173792"><span id="local-6989586621679173794"><span id="local-6989586621679173796"><span class="annot"><span class="annottext">ReadPrec [DescribeApplicationStateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173834"><span id="local-6989586621679173836"><span id="local-6989586621679173838"><span id="local-6989586621679173840"><span class="annot"><span class="annottext">ReadPrec [DescribeApplicationStateResponse]
 ReadPrec DescribeApplicationStateResponse
 Int -&gt; ReadS DescribeApplicationStateResponse
 ReadS [DescribeApplicationStateResponse]
@@ -353,7 +361,7 @@ readList :: ReadS [DescribeApplicationStateResponse]
 $creadList :: ReadS [DescribeApplicationStateResponse]
 readsPrec :: Int -&gt; ReadS DescribeApplicationStateResponse
 $creadsPrec :: Int -&gt; ReadS DescribeApplicationStateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173784"><span id="local-6989586621679173786"><span id="local-6989586621679173788"><span class="annot"><span class="annottext">Int -&gt; DescribeApplicationStateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173828"><span id="local-6989586621679173830"><span id="local-6989586621679173832"><span class="annot"><span class="annottext">Int -&gt; DescribeApplicationStateResponse -&gt; ShowS
 [DescribeApplicationStateResponse] -&gt; ShowS
 DescribeApplicationStateResponse -&gt; String
 (Int -&gt; DescribeApplicationStateResponse -&gt; ShowS)
@@ -399,9 +407,9 @@ DescribeApplicationStateResponse
 </span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-149"></span><span class="hs-comment">--</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- 'applicationStatus', 'describeApplicationStateResponse_applicationStatus' - Status of the application - Not Started, In-Progress, Complete.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'lastUpdatedTime', 'describeApplicationStateResponse_lastUpdatedTime' - The timestamp when the application status was last updated.</span><span>
 </span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- 'lastUpdatedTime', 'describeApplicationStateResponse_lastUpdatedTime' - The timestamp when the application status was last updated.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'applicationStatus', 'describeApplicationStateResponse_applicationStatus' - Status of the application - Not Started, In-Progress, Complete.</span><span>
 </span><span id="line-153"></span><span class="hs-comment">--</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- 'httpStatus', 'describeApplicationStateResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-155"></span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#newDescribeApplicationStateResponse"><span class="hs-identifier hs-type">newDescribeApplicationStateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -409,53 +417,30 @@ DescribeApplicationStateResponse
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse"><span class="hs-identifier hs-type">DescribeApplicationStateResponse</span></a></span><span>
 </span><span id="line-159"></span><span id="newDescribeApplicationStateResponse"><span class="annot"><span class="annottext">newDescribeApplicationStateResponse :: Int -&gt; DescribeApplicationStateResponse
-</span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#newDescribeApplicationStateResponse"><span class="hs-identifier hs-var hs-var">newDescribeApplicationStateResponse</span></a></span></span><span> </span><span id="local-6989586621679173781"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679173781"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">DescribeApplicationStateResponse' :: Maybe ApplicationStatus
--&gt; Maybe POSIX -&gt; Int -&gt; DescribeApplicationStateResponse
+</span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#newDescribeApplicationStateResponse"><span class="hs-identifier hs-var hs-var">newDescribeApplicationStateResponse</span></a></span></span><span> </span><span id="local-6989586621679173825"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679173825"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">DescribeApplicationStateResponse' :: Maybe POSIX
+-&gt; Maybe ApplicationStatus
+-&gt; Int
+-&gt; DescribeApplicationStateResponse
 </span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse%27"><span class="hs-identifier hs-type">DescribeApplicationStateResponse'</span></a></span><span>
-</span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationStatus:DescribeApplicationStateResponse' :: Maybe ApplicationStatus
-</span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#%24sel%3AapplicationStatus%3ADescribeApplicationStateResponse%27"><span class="hs-identifier hs-var">applicationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Maybe ApplicationStatus
+</span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:DescribeApplicationStateResponse' :: Maybe POSIX
+</span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#%24sel%3AlastUpdatedTime%3ADescribeApplicationStateResponse%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:DescribeApplicationStateResponse' :: Maybe POSIX
-</span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#%24sel%3AlastUpdatedTime%3ADescribeApplicationStateResponse%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationStatus:DescribeApplicationStateResponse' :: Maybe ApplicationStatus
+</span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#%24sel%3AapplicationStatus%3ADescribeApplicationStateResponse%27"><span class="hs-identifier hs-var">applicationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeApplicationStateResponse' :: Int
 </span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#%24sel%3AhttpStatus%3ADescribeApplicationStateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679173781"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679173825"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- | Status of the application - Not Started, In-Progress, Complete.</span><span>
-</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#describeApplicationStateResponse_applicationStatus"><span class="hs-identifier hs-type">describeApplicationStateResponse_applicationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse"><span class="hs-identifier hs-type">DescribeApplicationStateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ApplicationStatus.html#ApplicationStatus"><span class="hs-identifier hs-type">ApplicationStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span id="describeApplicationStateResponse_applicationStatus"><span class="annot"><span class="annottext">describeApplicationStateResponse_applicationStatus :: (Maybe ApplicationStatus -&gt; f (Maybe ApplicationStatus))
--&gt; DescribeApplicationStateResponse
--&gt; f DescribeApplicationStateResponse
-</span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#describeApplicationStateResponse_applicationStatus"><span class="hs-identifier hs-var hs-var">describeApplicationStateResponse_applicationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationStateResponse -&gt; Maybe ApplicationStatus)
--&gt; (DescribeApplicationStateResponse
-    -&gt; Maybe ApplicationStatus -&gt; DescribeApplicationStateResponse)
--&gt; Lens
-     DescribeApplicationStateResponse
-     DescribeApplicationStateResponse
-     (Maybe ApplicationStatus)
-     (Maybe ApplicationStatus)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse%27"><span class="hs-identifier hs-type">DescribeApplicationStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173780"><span class="annot"><span class="annottext">Maybe ApplicationStatus
-applicationStatus :: Maybe ApplicationStatus
-$sel:applicationStatus:DescribeApplicationStateResponse' :: DescribeApplicationStateResponse -&gt; Maybe ApplicationStatus
-</span><a href="#local-6989586621679173780"><span class="hs-identifier hs-var hs-var">applicationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationStatus
-</span><a href="#local-6989586621679173780"><span class="hs-identifier hs-var">applicationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173779"><span class="annot"><span class="annottext">s :: DescribeApplicationStateResponse
-</span><a href="#local-6989586621679173779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse%27"><span class="hs-identifier hs-type">DescribeApplicationStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173778"><span class="annot"><span class="annottext">Maybe ApplicationStatus
-</span><a href="#local-6989586621679173778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationStateResponse
-</span><a href="#local-6989586621679173779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationStatus:DescribeApplicationStateResponse' :: Maybe ApplicationStatus
-</span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#%24sel%3AapplicationStatus%3ADescribeApplicationStateResponse%27"><span class="hs-identifier hs-var">applicationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationStatus
-</span><a href="#local-6989586621679173778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse"><span class="hs-identifier hs-type">DescribeApplicationStateResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- | The timestamp when the application status was last updated.</span><span>
-</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#describeApplicationStateResponse_lastUpdatedTime"><span class="hs-identifier hs-type">describeApplicationStateResponse_lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse"><span class="hs-identifier hs-type">DescribeApplicationStateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span id="describeApplicationStateResponse_lastUpdatedTime"><span class="annot"><span class="annottext">describeApplicationStateResponse_lastUpdatedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-167"></span><span class="hs-comment">-- | The timestamp when the application status was last updated.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#describeApplicationStateResponse_lastUpdatedTime"><span class="hs-identifier hs-type">describeApplicationStateResponse_lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse"><span class="hs-identifier hs-type">DescribeApplicationStateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="describeApplicationStateResponse_lastUpdatedTime"><span class="annot"><span class="annottext">describeApplicationStateResponse_lastUpdatedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; DescribeApplicationStateResponse
 -&gt; f DescribeApplicationStateResponse
 </span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#describeApplicationStateResponse_lastUpdatedTime"><span class="hs-identifier hs-var hs-var">describeApplicationStateResponse_lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationStateResponse -&gt; Maybe POSIX)
@@ -467,16 +452,16 @@ $sel:applicationStatus:DescribeApplicationStateResponse' :: DescribeApplicationS
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse%27"><span class="hs-identifier hs-type">DescribeApplicationStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173777"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse%27"><span class="hs-identifier hs-type">DescribeApplicationStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173824"><span class="annot"><span class="annottext">Maybe POSIX
 lastUpdatedTime :: Maybe POSIX
 $sel:lastUpdatedTime:DescribeApplicationStateResponse' :: DescribeApplicationStateResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679173777"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679173777"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173776"><span class="annot"><span class="annottext">s :: DescribeApplicationStateResponse
-</span><a href="#local-6989586621679173776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse%27"><span class="hs-identifier hs-type">DescribeApplicationStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173775"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679173775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationStateResponse
-</span><a href="#local-6989586621679173776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:DescribeApplicationStateResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679173824"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679173824"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173823"><span class="annot"><span class="annottext">s :: DescribeApplicationStateResponse
+</span><a href="#local-6989586621679173823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse%27"><span class="hs-identifier hs-type">DescribeApplicationStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173822"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679173822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationStateResponse
+</span><a href="#local-6989586621679173823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:DescribeApplicationStateResponse' :: Maybe POSIX
 </span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#%24sel%3AlastUpdatedTime%3ADescribeApplicationStateResponse%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679173775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse"><span class="hs-identifier hs-type">DescribeApplicationStateResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679173822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse"><span class="hs-identifier hs-type">DescribeApplicationStateResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DescribeApplicationStateResponse
  -&gt; f DescribeApplicationStateResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -493,6 +478,31 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | Status of the application - Not Started, In-Progress, Complete.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#describeApplicationStateResponse_applicationStatus"><span class="hs-identifier hs-type">describeApplicationStateResponse_applicationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse"><span class="hs-identifier hs-type">DescribeApplicationStateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ApplicationStatus.html#ApplicationStatus"><span class="hs-identifier hs-type">ApplicationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="describeApplicationStateResponse_applicationStatus"><span class="annot"><span class="annottext">describeApplicationStateResponse_applicationStatus :: (Maybe ApplicationStatus -&gt; f (Maybe ApplicationStatus))
+-&gt; DescribeApplicationStateResponse
+-&gt; f DescribeApplicationStateResponse
+</span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#describeApplicationStateResponse_applicationStatus"><span class="hs-identifier hs-var hs-var">describeApplicationStateResponse_applicationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationStateResponse -&gt; Maybe ApplicationStatus)
+-&gt; (DescribeApplicationStateResponse
+    -&gt; Maybe ApplicationStatus -&gt; DescribeApplicationStateResponse)
+-&gt; Lens
+     DescribeApplicationStateResponse
+     DescribeApplicationStateResponse
+     (Maybe ApplicationStatus)
+     (Maybe ApplicationStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse%27"><span class="hs-identifier hs-type">DescribeApplicationStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173818"><span class="annot"><span class="annottext">Maybe ApplicationStatus
+applicationStatus :: Maybe ApplicationStatus
+$sel:applicationStatus:DescribeApplicationStateResponse' :: DescribeApplicationStateResponse -&gt; Maybe ApplicationStatus
+</span><a href="#local-6989586621679173818"><span class="hs-identifier hs-var hs-var">applicationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationStatus
+</span><a href="#local-6989586621679173818"><span class="hs-identifier hs-var">applicationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173817"><span class="annot"><span class="annottext">s :: DescribeApplicationStateResponse
+</span><a href="#local-6989586621679173817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse%27"><span class="hs-identifier hs-type">DescribeApplicationStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173816"><span class="annot"><span class="annottext">Maybe ApplicationStatus
+</span><a href="#local-6989586621679173816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationStateResponse
+</span><a href="#local-6989586621679173817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationStatus:DescribeApplicationStateResponse' :: Maybe ApplicationStatus
+</span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#%24sel%3AapplicationStatus%3ADescribeApplicationStateResponse%27"><span class="hs-identifier hs-var">applicationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationStatus
+</span><a href="#local-6989586621679173816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse"><span class="hs-identifier hs-type">DescribeApplicationStateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-176"></span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#describeApplicationStateResponse_httpStatus"><span class="hs-identifier hs-type">describeApplicationStateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse"><span class="hs-identifier hs-type">DescribeApplicationStateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -508,18 +518,18 @@ forall (a :: Format). Iso' (Time a) UTCTime
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse%27"><span class="hs-identifier hs-type">DescribeApplicationStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173771"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse%27"><span class="hs-identifier hs-type">DescribeApplicationStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173815"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeApplicationStateResponse' :: DescribeApplicationStateResponse -&gt; Int
-</span><a href="#local-6989586621679173771"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679173771"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173770"><span class="annot"><span class="annottext">s :: DescribeApplicationStateResponse
-</span><a href="#local-6989586621679173770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse%27"><span class="hs-identifier hs-type">DescribeApplicationStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173769"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679173769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationStateResponse
-</span><a href="#local-6989586621679173770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeApplicationStateResponse' :: Int
+</span><a href="#local-6989586621679173815"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679173815"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173814"><span class="annot"><span class="annottext">s :: DescribeApplicationStateResponse
+</span><a href="#local-6989586621679173814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse%27"><span class="hs-identifier hs-type">DescribeApplicationStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173813"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679173813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationStateResponse
+</span><a href="#local-6989586621679173814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeApplicationStateResponse' :: Int
 </span><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#%24sel%3AhttpStatus%3ADescribeApplicationStateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679173769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse"><span class="hs-identifier hs-type">DescribeApplicationStateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679173813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse"><span class="hs-identifier hs-type">DescribeApplicationStateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679173767"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679173811"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.MigrationHub.DescribeApplicationState.html#DescribeApplicationStateResponse"><span class="hs-identifier hs-type">DescribeApplicationStateResponse</span></a></span></span><span>
 </span><span id="line-182"></span></pre></body></html>

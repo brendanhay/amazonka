@@ -39,43 +39,43 @@
 </span><span id="line-39"></span><span class="hs-comment">-- versions 4.8.0 and later, excluding 5.0.x versions.</span><span>
 </span><span id="line-40"></span><span class="hs-comment">--</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newInstanceTypeConfig' smart constructor.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679380205"><span id="local-6989586621679380206"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceTypeConfig"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-var">InstanceTypeConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceTypeConfig%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-var">InstanceTypeConfig'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679380572"><span id="local-6989586621679380573"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceTypeConfig"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-var">InstanceTypeConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceTypeConfig%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-var">InstanceTypeConfig'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configuration of Amazon Elastic Block Store (Amazon EBS) attached to</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- each instance as defined by @InstanceType@.</span><span>
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AebsConfiguration%3AInstanceTypeConfig%27"><span class="annot"><span class="annottext">InstanceTypeConfig -&gt; Maybe EbsConfiguration
 </span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AebsConfiguration%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var hs-var">ebsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.EbsConfiguration.html#EbsConfiguration"><span class="hs-identifier hs-type">EbsConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A configuration classification that applies when provisioning cluster</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- instances, which can include configurations for applications and</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- software that run on the cluster.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aconfigurations%3AInstanceTypeConfig%27"><span class="annot"><span class="annottext">InstanceTypeConfig -&gt; Maybe [Configuration]
-</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3Aconfigurations%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var hs-var">configurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The bid price for each EC2 Spot Instance type as defined by</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ is provided,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AbidPrice%3AInstanceTypeConfig%27"><span class="annot"><span class="annottext">InstanceTypeConfig -&gt; Maybe Text
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The bid price for each EC2 Spot Instance type as defined by</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ is provided,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AbidPrice%3AInstanceTypeConfig%27"><span class="annot"><span class="annottext">InstanceTypeConfig -&gt; Maybe Text
 </span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AbidPrice%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var hs-var">bidPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The bid price, as a percentage of On-Demand price, for each EC2 Spot</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Instance as defined by @InstanceType@. Expressed as a number (for</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- example, 20 specifies 20%). If neither @BidPrice@ nor</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ is provided,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AbidPriceAsPercentageOfOnDemandPrice%3AInstanceTypeConfig%27"><span class="annot"><span class="annottext">InstanceTypeConfig -&gt; Maybe Double
-</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AbidPriceAsPercentageOfOnDemandPrice%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var hs-var">bidPriceAsPercentageOfOnDemandPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The custom AMI ID to use for the instance type.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AcustomAmiId%3AInstanceTypeConfig%27"><span class="annot"><span class="annottext">InstanceTypeConfig -&gt; Maybe Text
-</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AcustomAmiId%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var hs-var">customAmiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The number of units that a provisioned instance of this type provides</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- toward fulfilling the target capacities defined in InstanceFleetConfig.</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- This value is 1 for a master instance fleet, and must be 1 or greater</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- for core and task instance fleets. Defaults to 1 if not specified.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3AweightedCapacity%3AInstanceTypeConfig%27"><span class="annot"><span class="annottext">InstanceTypeConfig -&gt; Maybe Natural
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The number of units that a provisioned instance of this type provides</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- toward fulfilling the target capacities defined in InstanceFleetConfig.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- This value is 1 for a master instance fleet, and must be 1 or greater</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- for core and task instance fleets. Defaults to 1 if not specified.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AweightedCapacity%3AInstanceTypeConfig%27"><span class="annot"><span class="annottext">InstanceTypeConfig -&gt; Maybe Natural
 </span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AweightedCapacity%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var hs-var">weightedCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | A configuration classification that applies when provisioning cluster</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- instances, which can include configurations for applications and</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- software that run on the cluster.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aconfigurations%3AInstanceTypeConfig%27"><span class="annot"><span class="annottext">InstanceTypeConfig -&gt; Maybe [Configuration]
+</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3Aconfigurations%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var hs-var">configurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The custom AMI ID to use for the instance type.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AcustomAmiId%3AInstanceTypeConfig%27"><span class="annot"><span class="annottext">InstanceTypeConfig -&gt; Maybe Text
+</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AcustomAmiId%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var hs-var">customAmiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The bid price, as a percentage of On-Demand price, for each EC2 Spot</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Instance as defined by @InstanceType@. Expressed as a number (for</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- example, 20 specifies 20%). If neither @BidPrice@ nor</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ is provided,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AbidPriceAsPercentageOfOnDemandPrice%3AInstanceTypeConfig%27"><span class="annot"><span class="annottext">InstanceTypeConfig -&gt; Maybe Double
+</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AbidPriceAsPercentageOfOnDemandPrice%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var hs-var">bidPriceAsPercentageOfOnDemandPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | An EC2 instance type, such as @m3.xlarge@.</span><span>
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AinstanceType%3AInstanceTypeConfig%27"><span class="annot"><span class="annottext">InstanceTypeConfig -&gt; Text
 </span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AinstanceType%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679380193"><span id="local-6989586621679380195"><span class="annot"><span class="annottext">InstanceTypeConfig -&gt; InstanceTypeConfig -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679380560"><span id="local-6989586621679380562"><span class="annot"><span class="annottext">InstanceTypeConfig -&gt; InstanceTypeConfig -&gt; Bool
 (InstanceTypeConfig -&gt; InstanceTypeConfig -&gt; Bool)
 -&gt; (InstanceTypeConfig -&gt; InstanceTypeConfig -&gt; Bool)
 -&gt; Eq InstanceTypeConfig
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceTypeConfig -&gt; InstanceTypeConfig -&gt; Bool
 == :: InstanceTypeConfig -&gt; InstanceTypeConfig -&gt; Bool
 $c== :: InstanceTypeConfig -&gt; InstanceTypeConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380184"><span id="local-6989586621679380186"><span id="local-6989586621679380188"><span id="local-6989586621679380190"><span class="annot"><span class="annottext">ReadPrec [InstanceTypeConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380551"><span id="local-6989586621679380553"><span id="local-6989586621679380555"><span id="local-6989586621679380557"><span class="annot"><span class="annottext">ReadPrec [InstanceTypeConfig]
 ReadPrec InstanceTypeConfig
 Int -&gt; ReadS InstanceTypeConfig
 ReadS [InstanceTypeConfig]
@@ -104,7 +104,7 @@ readList :: ReadS [InstanceTypeConfig]
 $creadList :: ReadS [InstanceTypeConfig]
 readsPrec :: Int -&gt; ReadS InstanceTypeConfig
 $creadsPrec :: Int -&gt; ReadS InstanceTypeConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380177"><span id="local-6989586621679380179"><span id="local-6989586621679380181"><span class="annot"><span class="annottext">Int -&gt; InstanceTypeConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380544"><span id="local-6989586621679380546"><span id="local-6989586621679380548"><span class="annot"><span class="annottext">Int -&gt; InstanceTypeConfig -&gt; ShowS
 [InstanceTypeConfig] -&gt; ShowS
 InstanceTypeConfig -&gt; String
 (Int -&gt; InstanceTypeConfig -&gt; ShowS)
@@ -141,27 +141,27 @@ $cfrom :: forall x. InstanceTypeConfig -&gt; Rep InstanceTypeConfig x
 </span><span id="line-81"></span><span class="hs-comment">-- 'ebsConfiguration', 'instanceTypeConfig_ebsConfiguration' - The configuration of Amazon Elastic Block Store (Amazon EBS) attached to</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- each instance as defined by @InstanceType@.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'configurations', 'instanceTypeConfig_configurations' - A configuration classification that applies when provisioning cluster</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- instances, which can include configurations for applications and</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- software that run on the cluster.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'bidPrice', 'instanceTypeConfig_bidPrice' - The bid price for each EC2 Spot Instance type as defined by</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ is provided,</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'bidPriceAsPercentageOfOnDemandPrice', 'instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice' - The bid price, as a percentage of On-Demand price, for each EC2 Spot</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- Instance as defined by @InstanceType@. Expressed as a number (for</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- example, 20 specifies 20%). If neither @BidPrice@ nor</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ is provided,</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'customAmiId', 'instanceTypeConfig_customAmiId' - The custom AMI ID to use for the instance type.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'weightedCapacity', 'instanceTypeConfig_weightedCapacity' - The number of units that a provisioned instance of this type provides</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- toward fulfilling the target capacities defined in InstanceFleetConfig.</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- This value is 1 for a master instance fleet, and must be 1 or greater</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- for core and task instance fleets. Defaults to 1 if not specified.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'bidPrice', 'instanceTypeConfig_bidPrice' - The bid price for each EC2 Spot Instance type as defined by</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ is provided,</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'weightedCapacity', 'instanceTypeConfig_weightedCapacity' - The number of units that a provisioned instance of this type provides</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- toward fulfilling the target capacities defined in InstanceFleetConfig.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- This value is 1 for a master instance fleet, and must be 1 or greater</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- for core and task instance fleets. Defaults to 1 if not specified.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'configurations', 'instanceTypeConfig_configurations' - A configuration classification that applies when provisioning cluster</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- instances, which can include configurations for applications and</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- software that run on the cluster.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'customAmiId', 'instanceTypeConfig_customAmiId' - The custom AMI ID to use for the instance type.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'bidPriceAsPercentageOfOnDemandPrice', 'instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice' - The bid price, as a percentage of On-Demand price, for each EC2 Spot</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Instance as defined by @InstanceType@. Expressed as a number (for</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- example, 20 specifies 20%). If neither @BidPrice@ nor</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ is provided,</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.</span><span>
 </span><span id="line-105"></span><span class="hs-comment">--</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- 'instanceType', 'instanceTypeConfig_instanceType' - An EC2 instance type, such as @m3.xlarge@.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#newInstanceTypeConfig"><span class="hs-identifier hs-type">newInstanceTypeConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -169,14 +169,14 @@ $cfrom :: forall x. InstanceTypeConfig -&gt; Rep InstanceTypeConfig x
 </span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span>
 </span><span id="line-111"></span><span id="newInstanceTypeConfig"><span class="annot"><span class="annottext">newInstanceTypeConfig :: Text -&gt; InstanceTypeConfig
-</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#newInstanceTypeConfig"><span class="hs-identifier hs-var hs-var">newInstanceTypeConfig</span></a></span></span><span> </span><span id="local-6989586621679380171"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679380171"><span class="hs-identifier hs-var">pInstanceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#newInstanceTypeConfig"><span class="hs-identifier hs-var hs-var">newInstanceTypeConfig</span></a></span></span><span> </span><span id="local-6989586621679380538"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679380538"><span class="hs-identifier hs-var">pInstanceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">InstanceTypeConfig' :: Maybe EbsConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; Maybe [Configuration]
 -&gt; Maybe Text
 -&gt; Maybe Double
--&gt; Maybe Text
--&gt; Maybe Natural
 -&gt; Text
 -&gt; InstanceTypeConfig
 </span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span>
@@ -185,30 +185,30 @@ $cfrom :: forall x. InstanceTypeConfig -&gt; Rep InstanceTypeConfig x
 </span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">Maybe EbsConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:configurations:InstanceTypeConfig' :: Maybe [Configuration]
-</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3Aconfigurations%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">configurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Configuration]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:bidPrice:InstanceTypeConfig' :: Maybe Text
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:bidPrice:InstanceTypeConfig' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AbidPrice%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">bidPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:bidPriceAsPercentageOfOnDemandPrice:InstanceTypeConfig' :: Maybe Double
-</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AbidPriceAsPercentageOfOnDemandPrice%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">bidPriceAsPercentageOfOnDemandPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:weightedCapacity:InstanceTypeConfig' :: Maybe Natural
+</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AweightedCapacity%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">weightedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:customAmiId:InstanceTypeConfig' :: Maybe Text
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:configurations:InstanceTypeConfig' :: Maybe [Configuration]
+</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3Aconfigurations%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">configurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Configuration]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:customAmiId:InstanceTypeConfig' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AcustomAmiId%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">customAmiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:weightedCapacity:InstanceTypeConfig' :: Maybe Natural
-</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AweightedCapacity%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">weightedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:bidPriceAsPercentageOfOnDemandPrice:InstanceTypeConfig' :: Maybe Double
+</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AbidPriceAsPercentageOfOnDemandPrice%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">bidPriceAsPercentageOfOnDemandPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:InstanceTypeConfig' :: Text
 </span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AinstanceType%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679380171"><span class="hs-identifier hs-var">pInstanceType_</span></a></span><span>
+</span><a href="#local-6989586621679380538"><span class="hs-identifier hs-var">pInstanceType_</span></a></span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The configuration of Amazon Elastic Block Store (Amazon EBS) attached to</span><span>
@@ -225,22 +225,71 @@ forall a. Maybe a
      (Maybe EbsConfiguration)
      (Maybe EbsConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380167"><span class="annot"><span class="annottext">Maybe EbsConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380534"><span class="annot"><span class="annottext">Maybe EbsConfiguration
 ebsConfiguration :: Maybe EbsConfiguration
 $sel:ebsConfiguration:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe EbsConfiguration
-</span><a href="#local-6989586621679380167"><span class="hs-identifier hs-var hs-var">ebsConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EbsConfiguration
-</span><a href="#local-6989586621679380167"><span class="hs-identifier hs-var">ebsConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380166"><span class="annot"><span class="annottext">s :: InstanceTypeConfig
-</span><a href="#local-6989586621679380166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380165"><span class="annot"><span class="annottext">Maybe EbsConfiguration
-</span><a href="#local-6989586621679380165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTypeConfig
-</span><a href="#local-6989586621679380166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ebsConfiguration:InstanceTypeConfig' :: Maybe EbsConfiguration
+</span><a href="#local-6989586621679380534"><span class="hs-identifier hs-var hs-var">ebsConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EbsConfiguration
+</span><a href="#local-6989586621679380534"><span class="hs-identifier hs-var">ebsConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380533"><span class="annot"><span class="annottext">s :: InstanceTypeConfig
+</span><a href="#local-6989586621679380533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380532"><span class="annot"><span class="annottext">Maybe EbsConfiguration
+</span><a href="#local-6989586621679380532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTypeConfig
+</span><a href="#local-6989586621679380533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ebsConfiguration:InstanceTypeConfig' :: Maybe EbsConfiguration
 </span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AebsConfiguration%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">ebsConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EbsConfiguration
-</span><a href="#local-6989586621679380165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679380532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | A configuration classification that applies when provisioning cluster</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- instances, which can include configurations for applications and</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- software that run on the cluster.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_configurations"><span class="hs-identifier hs-type">instanceTypeConfig_configurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="instanceTypeConfig_configurations"><span class="annot"><span class="annottext">instanceTypeConfig_configurations :: (Maybe [Configuration] -&gt; f (Maybe [Configuration]))
+</span><span id="line-129"></span><span class="hs-comment">-- | The bid price for each EC2 Spot Instance type as defined by</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ is provided,</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_bidPrice"><span class="hs-identifier hs-type">instanceTypeConfig_bidPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="instanceTypeConfig_bidPrice"><span class="annot"><span class="annottext">instanceTypeConfig_bidPrice :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceTypeConfig -&gt; f InstanceTypeConfig
+</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_bidPrice"><span class="hs-identifier hs-var hs-var">instanceTypeConfig_bidPrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceTypeConfig -&gt; Maybe Text)
+-&gt; (InstanceTypeConfig -&gt; Maybe Text -&gt; InstanceTypeConfig)
+-&gt; Lens
+     InstanceTypeConfig InstanceTypeConfig (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380530"><span class="annot"><span class="annottext">Maybe Text
+bidPrice :: Maybe Text
+$sel:bidPrice:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679380530"><span class="hs-identifier hs-var hs-var">bidPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380530"><span class="hs-identifier hs-var">bidPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380529"><span class="annot"><span class="annottext">s :: InstanceTypeConfig
+</span><a href="#local-6989586621679380529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380528"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTypeConfig
+</span><a href="#local-6989586621679380529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bidPrice:InstanceTypeConfig' :: Maybe Text
+</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AbidPrice%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">bidPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The number of units that a provisioned instance of this type provides</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- toward fulfilling the target capacities defined in InstanceFleetConfig.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- This value is 1 for a master instance fleet, and must be 1 or greater</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- for core and task instance fleets. Defaults to 1 if not specified.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_weightedCapacity"><span class="hs-identifier hs-type">instanceTypeConfig_weightedCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="instanceTypeConfig_weightedCapacity"><span class="annot"><span class="annottext">instanceTypeConfig_weightedCapacity :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; InstanceTypeConfig -&gt; f InstanceTypeConfig
+</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_weightedCapacity"><span class="hs-identifier hs-var hs-var">instanceTypeConfig_weightedCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceTypeConfig -&gt; Maybe Natural)
+-&gt; (InstanceTypeConfig -&gt; Maybe Natural -&gt; InstanceTypeConfig)
+-&gt; Lens
+     InstanceTypeConfig
+     InstanceTypeConfig
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380526"><span class="annot"><span class="annottext">Maybe Natural
+weightedCapacity :: Maybe Natural
+$sel:weightedCapacity:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe Natural
+</span><a href="#local-6989586621679380526"><span class="hs-identifier hs-var hs-var">weightedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679380526"><span class="hs-identifier hs-var">weightedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380525"><span class="annot"><span class="annottext">s :: InstanceTypeConfig
+</span><a href="#local-6989586621679380525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380524"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679380524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTypeConfig
+</span><a href="#local-6989586621679380525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:weightedCapacity:InstanceTypeConfig' :: Maybe Natural
+</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AweightedCapacity%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">weightedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679380524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | A configuration classification that applies when provisioning cluster</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- instances, which can include configurations for applications and</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- software that run on the cluster.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_configurations"><span class="hs-identifier hs-type">instanceTypeConfig_configurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="instanceTypeConfig_configurations"><span class="annot"><span class="annottext">instanceTypeConfig_configurations :: (Maybe [Configuration] -&gt; f (Maybe [Configuration]))
 -&gt; InstanceTypeConfig -&gt; f InstanceTypeConfig
 </span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_configurations"><span class="hs-identifier hs-var hs-var">instanceTypeConfig_configurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceTypeConfig -&gt; Maybe [Configuration])
 -&gt; (InstanceTypeConfig
@@ -251,16 +300,16 @@ $sel:ebsConfiguration:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe EbsC
      (Maybe [Configuration])
      (Maybe [Configuration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380163"><span class="annot"><span class="annottext">Maybe [Configuration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380522"><span class="annot"><span class="annottext">Maybe [Configuration]
 configurations :: Maybe [Configuration]
 $sel:configurations:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe [Configuration]
-</span><a href="#local-6989586621679380163"><span class="hs-identifier hs-var hs-var">configurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Configuration]
-</span><a href="#local-6989586621679380163"><span class="hs-identifier hs-var">configurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380162"><span class="annot"><span class="annottext">s :: InstanceTypeConfig
-</span><a href="#local-6989586621679380162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380161"><span class="annot"><span class="annottext">Maybe [Configuration]
-</span><a href="#local-6989586621679380161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTypeConfig
-</span><a href="#local-6989586621679380162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurations:InstanceTypeConfig' :: Maybe [Configuration]
+</span><a href="#local-6989586621679380522"><span class="hs-identifier hs-var hs-var">configurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Configuration]
+</span><a href="#local-6989586621679380522"><span class="hs-identifier hs-var">configurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380521"><span class="annot"><span class="annottext">s :: InstanceTypeConfig
+</span><a href="#local-6989586621679380521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380520"><span class="annot"><span class="annottext">Maybe [Configuration]
+</span><a href="#local-6989586621679380520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTypeConfig
+</span><a href="#local-6989586621679380521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurations:InstanceTypeConfig' :: Maybe [Configuration]
 </span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3Aconfigurations%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">configurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Configuration]
-</span><a href="#local-6989586621679380161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Configuration] -&gt; f (Maybe [Configuration]))
+</span><a href="#local-6989586621679380520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Configuration] -&gt; f (Maybe [Configuration]))
  -&gt; InstanceTypeConfig -&gt; f InstanceTypeConfig)
 -&gt; ((Maybe [Configuration] -&gt; f (Maybe [Configuration]))
     -&gt; Maybe [Configuration] -&gt; f (Maybe [Configuration]))
@@ -280,101 +329,52 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [Configuration] [Configuration] [Configuration] [Configuration]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | The bid price for each EC2 Spot Instance type as defined by</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ is provided,</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_bidPrice"><span class="hs-identifier hs-type">instanceTypeConfig_bidPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="instanceTypeConfig_bidPrice"><span class="annot"><span class="annottext">instanceTypeConfig_bidPrice :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InstanceTypeConfig -&gt; f InstanceTypeConfig
-</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_bidPrice"><span class="hs-identifier hs-var hs-var">instanceTypeConfig_bidPrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceTypeConfig -&gt; Maybe Text)
--&gt; (InstanceTypeConfig -&gt; Maybe Text -&gt; InstanceTypeConfig)
--&gt; Lens
-     InstanceTypeConfig InstanceTypeConfig (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380156"><span class="annot"><span class="annottext">Maybe Text
-bidPrice :: Maybe Text
-$sel:bidPrice:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679380156"><span class="hs-identifier hs-var hs-var">bidPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679380156"><span class="hs-identifier hs-var">bidPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380155"><span class="annot"><span class="annottext">s :: InstanceTypeConfig
-</span><a href="#local-6989586621679380155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380154"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679380154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTypeConfig
-</span><a href="#local-6989586621679380155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bidPrice:InstanceTypeConfig' :: Maybe Text
-</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AbidPrice%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">bidPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679380154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | The bid price, as a percentage of On-Demand price, for each EC2 Spot</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- Instance as defined by @InstanceType@. Expressed as a number (for</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- example, 20 specifies 20%). If neither @BidPrice@ nor</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ is provided,</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.</span><span>
-</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice"><span class="hs-identifier hs-type">instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span id="instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice"><span class="annot"><span class="annottext">instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice :: (Maybe Double -&gt; f (Maybe Double))
--&gt; InstanceTypeConfig -&gt; f InstanceTypeConfig
-</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice"><span class="hs-identifier hs-var hs-var">instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceTypeConfig -&gt; Maybe Double)
--&gt; (InstanceTypeConfig -&gt; Maybe Double -&gt; InstanceTypeConfig)
--&gt; Lens
-     InstanceTypeConfig InstanceTypeConfig (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380152"><span class="annot"><span class="annottext">Maybe Double
-bidPriceAsPercentageOfOnDemandPrice :: Maybe Double
-$sel:bidPriceAsPercentageOfOnDemandPrice:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe Double
-</span><a href="#local-6989586621679380152"><span class="hs-identifier hs-var hs-var">bidPriceAsPercentageOfOnDemandPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679380152"><span class="hs-identifier hs-var">bidPriceAsPercentageOfOnDemandPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380151"><span class="annot"><span class="annottext">s :: InstanceTypeConfig
-</span><a href="#local-6989586621679380151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380150"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679380150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTypeConfig
-</span><a href="#local-6989586621679380151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bidPriceAsPercentageOfOnDemandPrice:InstanceTypeConfig' :: Maybe Double
-</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AbidPriceAsPercentageOfOnDemandPrice%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">bidPriceAsPercentageOfOnDemandPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679380150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- | The custom AMI ID to use for the instance type.</span><span>
-</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_customAmiId"><span class="hs-identifier hs-type">instanceTypeConfig_customAmiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span id="instanceTypeConfig_customAmiId"><span class="annot"><span class="annottext">instanceTypeConfig_customAmiId :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The custom AMI ID to use for the instance type.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_customAmiId"><span class="hs-identifier hs-type">instanceTypeConfig_customAmiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="instanceTypeConfig_customAmiId"><span class="annot"><span class="annottext">instanceTypeConfig_customAmiId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; InstanceTypeConfig -&gt; f InstanceTypeConfig
 </span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_customAmiId"><span class="hs-identifier hs-var hs-var">instanceTypeConfig_customAmiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceTypeConfig -&gt; Maybe Text)
 -&gt; (InstanceTypeConfig -&gt; Maybe Text -&gt; InstanceTypeConfig)
 -&gt; Lens
      InstanceTypeConfig InstanceTypeConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380148"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380515"><span class="annot"><span class="annottext">Maybe Text
 customAmiId :: Maybe Text
 $sel:customAmiId:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679380148"><span class="hs-identifier hs-var hs-var">customAmiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679380148"><span class="hs-identifier hs-var">customAmiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380147"><span class="annot"><span class="annottext">s :: InstanceTypeConfig
-</span><a href="#local-6989586621679380147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380146"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679380146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTypeConfig
-</span><a href="#local-6989586621679380147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customAmiId:InstanceTypeConfig' :: Maybe Text
+</span><a href="#local-6989586621679380515"><span class="hs-identifier hs-var hs-var">customAmiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380515"><span class="hs-identifier hs-var">customAmiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380514"><span class="annot"><span class="annottext">s :: InstanceTypeConfig
+</span><a href="#local-6989586621679380514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380513"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTypeConfig
+</span><a href="#local-6989586621679380514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customAmiId:InstanceTypeConfig' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AcustomAmiId%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">customAmiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679380146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- | The number of units that a provisioned instance of this type provides</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- toward fulfilling the target capacities defined in InstanceFleetConfig.</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- This value is 1 for a master instance fleet, and must be 1 or greater</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- for core and task instance fleets. Defaults to 1 if not specified.</span><span>
-</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_weightedCapacity"><span class="hs-identifier hs-type">instanceTypeConfig_weightedCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span id="instanceTypeConfig_weightedCapacity"><span class="annot"><span class="annottext">instanceTypeConfig_weightedCapacity :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><a href="#local-6989586621679380513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The bid price, as a percentage of On-Demand price, for each EC2 Spot</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Instance as defined by @InstanceType@. Expressed as a number (for</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- example, 20 specifies 20%). If neither @BidPrice@ nor</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ is provided,</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice"><span class="hs-identifier hs-type">instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice"><span class="annot"><span class="annottext">instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice :: (Maybe Double -&gt; f (Maybe Double))
 -&gt; InstanceTypeConfig -&gt; f InstanceTypeConfig
-</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_weightedCapacity"><span class="hs-identifier hs-var hs-var">instanceTypeConfig_weightedCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceTypeConfig -&gt; Maybe Natural)
--&gt; (InstanceTypeConfig -&gt; Maybe Natural -&gt; InstanceTypeConfig)
+</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice"><span class="hs-identifier hs-var hs-var">instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceTypeConfig -&gt; Maybe Double)
+-&gt; (InstanceTypeConfig -&gt; Maybe Double -&gt; InstanceTypeConfig)
 -&gt; Lens
-     InstanceTypeConfig
-     InstanceTypeConfig
-     (Maybe Natural)
-     (Maybe Natural)
+     InstanceTypeConfig InstanceTypeConfig (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380144"><span class="annot"><span class="annottext">Maybe Natural
-weightedCapacity :: Maybe Natural
-$sel:weightedCapacity:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621679380144"><span class="hs-identifier hs-var hs-var">weightedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679380144"><span class="hs-identifier hs-var">weightedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380143"><span class="annot"><span class="annottext">s :: InstanceTypeConfig
-</span><a href="#local-6989586621679380143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380142"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679380142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTypeConfig
-</span><a href="#local-6989586621679380143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:weightedCapacity:InstanceTypeConfig' :: Maybe Natural
-</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AweightedCapacity%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">weightedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679380142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380511"><span class="annot"><span class="annottext">Maybe Double
+bidPriceAsPercentageOfOnDemandPrice :: Maybe Double
+$sel:bidPriceAsPercentageOfOnDemandPrice:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe Double
+</span><a href="#local-6989586621679380511"><span class="hs-identifier hs-var hs-var">bidPriceAsPercentageOfOnDemandPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679380511"><span class="hs-identifier hs-var">bidPriceAsPercentageOfOnDemandPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380510"><span class="annot"><span class="annottext">s :: InstanceTypeConfig
+</span><a href="#local-6989586621679380510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380509"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679380509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTypeConfig
+</span><a href="#local-6989586621679380510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bidPriceAsPercentageOfOnDemandPrice:InstanceTypeConfig' :: Maybe Double
+</span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AbidPriceAsPercentageOfOnDemandPrice%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">bidPriceAsPercentageOfOnDemandPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679380509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | An EC2 instance type, such as @m3.xlarge@.</span><span>
 </span><span id="line-162"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#instanceTypeConfig_instanceType"><span class="hs-identifier hs-type">instanceTypeConfig_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -383,44 +383,44 @@ $sel:weightedCapacity:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe Natu
 -&gt; (InstanceTypeConfig -&gt; Text -&gt; InstanceTypeConfig)
 -&gt; Lens InstanceTypeConfig InstanceTypeConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380140"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380507"><span class="annot"><span class="annottext">Text
 instanceType :: Text
 $sel:instanceType:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Text
-</span><a href="#local-6989586621679380140"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679380140"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380139"><span class="annot"><span class="annottext">s :: InstanceTypeConfig
-</span><a href="#local-6989586621679380139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380138"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679380138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTypeConfig
-</span><a href="#local-6989586621679380139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:InstanceTypeConfig' :: Text
+</span><a href="#local-6989586621679380507"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679380507"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380506"><span class="annot"><span class="annottext">s :: InstanceTypeConfig
+</span><a href="#local-6989586621679380506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380505"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679380505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTypeConfig
+</span><a href="#local-6989586621679380506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:InstanceTypeConfig' :: Text
 </span><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#%24sel%3AinstanceType%3AInstanceTypeConfig%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679380138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679380505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380134"><span id="local-6989586621679380136"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380501"><span id="local-6989586621679380503"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span></span></span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380131"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span></span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380123"><span id="local-6989586621679380125"><span id="local-6989586621679380127"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679380121"><span class="annot"><span class="annottext">toJSON :: InstanceTypeConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380113"><span id="local-6989586621679380114"><span id="local-6989586621679380115"><span id="local-6989586621679380116"><span id="local-6989586621679380117"><span id="local-6989586621679380118"><span id="local-6989586621679380119"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380490"><span id="local-6989586621679380492"><span id="local-6989586621679380494"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig"><span class="hs-identifier hs-type">InstanceTypeConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679380488"><span class="annot"><span class="annottext">toJSON :: InstanceTypeConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeConfig.html#InstanceTypeConfig%27"><span class="hs-identifier hs-type">InstanceTypeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380480"><span id="local-6989586621679380481"><span id="local-6989586621679380482"><span id="local-6989586621679380483"><span id="local-6989586621679380484"><span id="local-6989586621679380485"><span id="local-6989586621679380486"><span class="annot"><span class="annottext">Maybe Double
 Maybe Natural
 Maybe [Configuration]
 Maybe Text
 Maybe EbsConfiguration
 Text
 instanceType :: Text
-weightedCapacity :: Maybe Natural
-customAmiId :: Maybe Text
 bidPriceAsPercentageOfOnDemandPrice :: Maybe Double
-bidPrice :: Maybe Text
+customAmiId :: Maybe Text
 configurations :: Maybe [Configuration]
+weightedCapacity :: Maybe Natural
+bidPrice :: Maybe Text
 ebsConfiguration :: Maybe EbsConfiguration
 $sel:instanceType:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Text
-$sel:weightedCapacity:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe Natural
-$sel:customAmiId:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe Text
 $sel:bidPriceAsPercentageOfOnDemandPrice:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe Double
-$sel:bidPrice:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe Text
+$sel:customAmiId:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe Text
 $sel:configurations:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe [Configuration]
+$sel:weightedCapacity:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe Natural
+$sel:bidPrice:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe Text
 $sel:ebsConfiguration:InstanceTypeConfig' :: InstanceTypeConfig -&gt; Maybe EbsConfiguration
-</span><a href="#local-6989586621679380113"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679380480"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -433,52 +433,52 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">(EbsConfiguration -&gt; Pair) -&gt; Maybe EbsConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EbsConfiguration
-</span><a href="#local-6989586621679380119"><span class="hs-identifier hs-var">ebsConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679380486"><span class="hs-identifier hs-var">ebsConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Configurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Configuration] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">([Configuration] -&gt; Pair) -&gt; Maybe [Configuration] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Configuration]
-</span><a href="#local-6989586621679380118"><span class="hs-identifier hs-var">configurations</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BidPrice&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679380117"><span class="hs-identifier hs-var">bidPrice</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BidPriceAsPercentageOfOnDemandPrice&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+</span><a href="#local-6989586621679380485"><span class="hs-identifier hs-var">bidPrice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WeightedCapacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679380116"><span class="hs-identifier hs-var">bidPriceAsPercentageOfOnDemandPrice</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679380484"><span class="hs-identifier hs-var">weightedCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Configurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Configuration] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">([Configuration] -&gt; Pair) -&gt; Maybe [Configuration] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Configuration]
+</span><a href="#local-6989586621679380483"><span class="hs-identifier hs-var">configurations</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomAmiId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679380115"><span class="hs-identifier hs-var">customAmiId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679380482"><span class="hs-identifier hs-var">customAmiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;WeightedCapacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+</span><span class="hs-string">&quot;BidPriceAsPercentageOfOnDemandPrice&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+</span><span id="line-182"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679380114"><span class="hs-identifier hs-var">weightedCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679380481"><span class="hs-identifier hs-var">bidPriceAsPercentageOfOnDemandPrice</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679380113"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679380480"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span></pre></body></html>

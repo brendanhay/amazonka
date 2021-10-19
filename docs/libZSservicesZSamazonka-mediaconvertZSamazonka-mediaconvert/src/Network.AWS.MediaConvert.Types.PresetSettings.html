@@ -30,27 +30,27 @@
 </span><span id="line-30"></span><span class="hs-comment">-- | Settings for preset</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newPresetSettings' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621680017325"><span id="local-6989586621680017326"></span></span><span class="hs-keyword">data</span><span> </span><span id="PresetSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-var">PresetSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PresetSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-var">PresetSettings'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | (AudioDescriptions) contains groups of audio encoding settings organized</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- by audio codec. Include one instance of (AudioDescriptions) per output.</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- (AudioDescriptions) can contain multiple groups of encoding settings.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AaudioDescriptions%3APresetSettings%27"><span class="annot"><span class="annottext">PresetSettings -&gt; Maybe [AudioDescription]
-</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AaudioDescriptions%3APresetSettings%27"><span class="hs-identifier hs-var hs-var">audioDescriptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioDescription.html#AudioDescription"><span class="hs-identifier hs-type">AudioDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Container specific settings.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcontainerSettings%3APresetSettings%27"><span class="annot"><span class="annottext">PresetSettings -&gt; Maybe ContainerSettings
-</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AcontainerSettings%3APresetSettings%27"><span class="hs-identifier hs-var hs-var">containerSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ContainerSettings.html#ContainerSettings"><span class="hs-identifier hs-type">ContainerSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | VideoDescription contains a group of video encoding settings. The</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- specific video settings depend on the video codec that you choose for</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- the property codec. Include one instance of VideoDescription per output.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AvideoDescription%3APresetSettings%27"><span class="annot"><span class="annottext">PresetSettings -&gt; Maybe VideoDescription
+</span><span id="line-33"></span><span id="local-6989586621680022261"><span id="local-6989586621680022262"></span></span><span class="hs-keyword">data</span><span> </span><span id="PresetSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-var">PresetSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PresetSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-var">PresetSettings'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This object holds groups of settings related to captions for one output.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- For each output that has captions, include one instance of</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- CaptionDescriptions.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcaptionDescriptions%3APresetSettings%27"><span class="annot"><span class="annottext">PresetSettings -&gt; Maybe [CaptionDescriptionPreset]
+</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AcaptionDescriptions%3APresetSettings%27"><span class="hs-identifier hs-var hs-var">captionDescriptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionDescriptionPreset.html#CaptionDescriptionPreset"><span class="hs-identifier hs-type">CaptionDescriptionPreset</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | VideoDescription contains a group of video encoding settings. The</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- specific video settings depend on the video codec that you choose for</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- the property codec. Include one instance of VideoDescription per output.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AvideoDescription%3APresetSettings%27"><span class="annot"><span class="annottext">PresetSettings -&gt; Maybe VideoDescription
 </span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AvideoDescription%3APresetSettings%27"><span class="hs-identifier hs-var hs-var">videoDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoDescription.html#VideoDescription"><span class="hs-identifier hs-type">VideoDescription</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | This object holds groups of settings related to captions for one output.</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- For each output that has captions, include one instance of</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- CaptionDescriptions.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AcaptionDescriptions%3APresetSettings%27"><span class="annot"><span class="annottext">PresetSettings -&gt; Maybe [CaptionDescriptionPreset]
-</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AcaptionDescriptions%3APresetSettings%27"><span class="hs-identifier hs-var hs-var">captionDescriptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionDescriptionPreset.html#CaptionDescriptionPreset"><span class="hs-identifier hs-type">CaptionDescriptionPreset</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Container specific settings.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcontainerSettings%3APresetSettings%27"><span class="annot"><span class="annottext">PresetSettings -&gt; Maybe ContainerSettings
+</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AcontainerSettings%3APresetSettings%27"><span class="hs-identifier hs-var hs-var">containerSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ContainerSettings.html#ContainerSettings"><span class="hs-identifier hs-type">ContainerSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | (AudioDescriptions) contains groups of audio encoding settings organized</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- by audio codec. Include one instance of (AudioDescriptions) per output.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- (AudioDescriptions) can contain multiple groups of encoding settings.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AaudioDescriptions%3APresetSettings%27"><span class="annot"><span class="annottext">PresetSettings -&gt; Maybe [AudioDescription]
+</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AaudioDescriptions%3APresetSettings%27"><span class="hs-identifier hs-var hs-var">audioDescriptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioDescription.html#AudioDescription"><span class="hs-identifier hs-type">AudioDescription</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680017316"><span id="local-6989586621680017318"><span class="annot"><span class="annottext">PresetSettings -&gt; PresetSettings -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680022252"><span id="local-6989586621680022254"><span class="annot"><span class="annottext">PresetSettings -&gt; PresetSettings -&gt; Bool
 (PresetSettings -&gt; PresetSettings -&gt; Bool)
 -&gt; (PresetSettings -&gt; PresetSettings -&gt; Bool) -&gt; Eq PresetSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PresetSettings -&gt; PresetSettings -&gt; Bool
 == :: PresetSettings -&gt; PresetSettings -&gt; Bool
 $c== :: PresetSettings -&gt; PresetSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680017307"><span id="local-6989586621680017309"><span id="local-6989586621680017311"><span id="local-6989586621680017313"><span class="annot"><span class="annottext">ReadPrec [PresetSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680022243"><span id="local-6989586621680022245"><span id="local-6989586621680022247"><span id="local-6989586621680022249"><span class="annot"><span class="annottext">ReadPrec [PresetSettings]
 ReadPrec PresetSettings
 Int -&gt; ReadS PresetSettings
 ReadS [PresetSettings]
@@ -78,7 +78,7 @@ readList :: ReadS [PresetSettings]
 $creadList :: ReadS [PresetSettings]
 readsPrec :: Int -&gt; ReadS PresetSettings
 $creadsPrec :: Int -&gt; ReadS PresetSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680017300"><span id="local-6989586621680017302"><span id="local-6989586621680017304"><span class="annot"><span class="annottext">Int -&gt; PresetSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680022236"><span id="local-6989586621680022238"><span id="local-6989586621680022240"><span class="annot"><span class="annottext">Int -&gt; PresetSettings -&gt; ShowS
 [PresetSettings] -&gt; ShowS
 PresetSettings -&gt; String
 (Int -&gt; PresetSettings -&gt; ShowS)
@@ -112,153 +112,53 @@ $cfrom :: forall x. PresetSettings -&gt; Rep PresetSettings x
 </span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'audioDescriptions', 'presetSettings_audioDescriptions' - (AudioDescriptions) contains groups of audio encoding settings organized</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- by audio codec. Include one instance of (AudioDescriptions) per output.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- (AudioDescriptions) can contain multiple groups of encoding settings.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'captionDescriptions', 'presetSettings_captionDescriptions' - This object holds groups of settings related to captions for one output.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- For each output that has captions, include one instance of</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- CaptionDescriptions.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'containerSettings', 'presetSettings_containerSettings' - Container specific settings.</span><span>
-</span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'videoDescription', 'presetSettings_videoDescription' - VideoDescription contains a group of video encoding settings. The</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- specific video settings depend on the video codec that you choose for</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- the property codec. Include one instance of VideoDescription per output.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'videoDescription', 'presetSettings_videoDescription' - VideoDescription contains a group of video encoding settings. The</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- specific video settings depend on the video codec that you choose for</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- the property codec. Include one instance of VideoDescription per output.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'containerSettings', 'presetSettings_containerSettings' - Container specific settings.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'captionDescriptions', 'presetSettings_captionDescriptions' - This object holds groups of settings related to captions for one output.</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- For each output that has captions, include one instance of</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- CaptionDescriptions.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'audioDescriptions', 'presetSettings_audioDescriptions' - (AudioDescriptions) contains groups of audio encoding settings organized</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- by audio codec. Include one instance of (AudioDescriptions) per output.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- (AudioDescriptions) can contain multiple groups of encoding settings.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#newPresetSettings"><span class="hs-identifier hs-type">newPresetSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span>
 </span><span id="line-74"></span><span id="newPresetSettings"><span class="annot"><span class="annottext">newPresetSettings :: PresetSettings
 </span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#newPresetSettings"><span class="hs-identifier hs-var hs-var">newPresetSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">PresetSettings' :: Maybe [AudioDescription]
--&gt; Maybe ContainerSettings
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">PresetSettings' :: Maybe [CaptionDescriptionPreset]
 -&gt; Maybe VideoDescription
--&gt; Maybe [CaptionDescriptionPreset]
+-&gt; Maybe ContainerSettings
+-&gt; Maybe [AudioDescription]
 -&gt; PresetSettings
 </span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:audioDescriptions:PresetSettings' :: Maybe [AudioDescription]
-</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AaudioDescriptions%3APresetSettings%27"><span class="hs-identifier hs-var">audioDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Maybe [AudioDescription]
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:captionDescriptions:PresetSettings' :: Maybe [CaptionDescriptionPreset]
+</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AcaptionDescriptions%3APresetSettings%27"><span class="hs-identifier hs-var">captionDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Maybe [CaptionDescriptionPreset]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerSettings:PresetSettings' :: Maybe ContainerSettings
-</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AcontainerSettings%3APresetSettings%27"><span class="hs-identifier hs-var">containerSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerSettings
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:videoDescription:PresetSettings' :: Maybe VideoDescription
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:videoDescription:PresetSettings' :: Maybe VideoDescription
 </span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AvideoDescription%3APresetSettings%27"><span class="hs-identifier hs-var">videoDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoDescription
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:captionDescriptions:PresetSettings' :: Maybe [CaptionDescriptionPreset]
-</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AcaptionDescriptions%3APresetSettings%27"><span class="hs-identifier hs-var">captionDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionDescriptionPreset]
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerSettings:PresetSettings' :: Maybe ContainerSettings
+</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AcontainerSettings%3APresetSettings%27"><span class="hs-identifier hs-var">containerSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:audioDescriptions:PresetSettings' :: Maybe [AudioDescription]
+</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AaudioDescriptions%3APresetSettings%27"><span class="hs-identifier hs-var">audioDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AudioDescription]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | (AudioDescriptions) contains groups of audio encoding settings organized</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- by audio codec. Include one instance of (AudioDescriptions) per output.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- (AudioDescriptions) can contain multiple groups of encoding settings.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#presetSettings_audioDescriptions"><span class="hs-identifier hs-type">presetSettings_audioDescriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioDescription.html#AudioDescription"><span class="hs-identifier hs-type">AudioDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="presetSettings_audioDescriptions"><span class="annot"><span class="annottext">presetSettings_audioDescriptions :: (Maybe [AudioDescription] -&gt; f (Maybe [AudioDescription]))
--&gt; PresetSettings -&gt; f PresetSettings
-</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#presetSettings_audioDescriptions"><span class="hs-identifier hs-var hs-var">presetSettings_audioDescriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PresetSettings -&gt; Maybe [AudioDescription])
--&gt; (PresetSettings -&gt; Maybe [AudioDescription] -&gt; PresetSettings)
--&gt; Lens
-     PresetSettings
-     PresetSettings
-     (Maybe [AudioDescription])
-     (Maybe [AudioDescription])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017291"><span class="annot"><span class="annottext">Maybe [AudioDescription]
-audioDescriptions :: Maybe [AudioDescription]
-$sel:audioDescriptions:PresetSettings' :: PresetSettings -&gt; Maybe [AudioDescription]
-</span><a href="#local-6989586621680017291"><span class="hs-identifier hs-var hs-var">audioDescriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AudioDescription]
-</span><a href="#local-6989586621680017291"><span class="hs-identifier hs-var">audioDescriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017290"><span class="annot"><span class="annottext">s :: PresetSettings
-</span><a href="#local-6989586621680017290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017289"><span class="annot"><span class="annottext">Maybe [AudioDescription]
-</span><a href="#local-6989586621680017289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetSettings
-</span><a href="#local-6989586621680017290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioDescriptions:PresetSettings' :: Maybe [AudioDescription]
-</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AaudioDescriptions%3APresetSettings%27"><span class="hs-identifier hs-var">audioDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AudioDescription]
-</span><a href="#local-6989586621680017289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AudioDescription] -&gt; f (Maybe [AudioDescription]))
- -&gt; PresetSettings -&gt; f PresetSettings)
--&gt; ((Maybe [AudioDescription] -&gt; f (Maybe [AudioDescription]))
-    -&gt; Maybe [AudioDescription] -&gt; f (Maybe [AudioDescription]))
--&gt; (Maybe [AudioDescription] -&gt; f (Maybe [AudioDescription]))
--&gt; PresetSettings
--&gt; f PresetSettings
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [AudioDescription]
-  [AudioDescription]
-  [AudioDescription]
-  [AudioDescription]
--&gt; Iso
-     (Maybe [AudioDescription])
-     (Maybe [AudioDescription])
-     (Maybe [AudioDescription])
-     (Maybe [AudioDescription])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [AudioDescription]
-  [AudioDescription]
-  [AudioDescription]
-  [AudioDescription]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | Container specific settings.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#presetSettings_containerSettings"><span class="hs-identifier hs-type">presetSettings_containerSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ContainerSettings.html#ContainerSettings"><span class="hs-identifier hs-type">ContainerSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="presetSettings_containerSettings"><span class="annot"><span class="annottext">presetSettings_containerSettings :: (Maybe ContainerSettings -&gt; f (Maybe ContainerSettings))
--&gt; PresetSettings -&gt; f PresetSettings
-</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#presetSettings_containerSettings"><span class="hs-identifier hs-var hs-var">presetSettings_containerSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PresetSettings -&gt; Maybe ContainerSettings)
--&gt; (PresetSettings -&gt; Maybe ContainerSettings -&gt; PresetSettings)
--&gt; Lens
-     PresetSettings
-     PresetSettings
-     (Maybe ContainerSettings)
-     (Maybe ContainerSettings)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017284"><span class="annot"><span class="annottext">Maybe ContainerSettings
-containerSettings :: Maybe ContainerSettings
-$sel:containerSettings:PresetSettings' :: PresetSettings -&gt; Maybe ContainerSettings
-</span><a href="#local-6989586621680017284"><span class="hs-identifier hs-var hs-var">containerSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerSettings
-</span><a href="#local-6989586621680017284"><span class="hs-identifier hs-var">containerSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017283"><span class="annot"><span class="annottext">s :: PresetSettings
-</span><a href="#local-6989586621680017283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017282"><span class="annot"><span class="annottext">Maybe ContainerSettings
-</span><a href="#local-6989586621680017282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetSettings
-</span><a href="#local-6989586621680017283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerSettings:PresetSettings' :: Maybe ContainerSettings
-</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AcontainerSettings%3APresetSettings%27"><span class="hs-identifier hs-var">containerSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerSettings
-</span><a href="#local-6989586621680017282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | VideoDescription contains a group of video encoding settings. The</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- specific video settings depend on the video codec that you choose for</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- the property codec. Include one instance of VideoDescription per output.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#presetSettings_videoDescription"><span class="hs-identifier hs-type">presetSettings_videoDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoDescription.html#VideoDescription"><span class="hs-identifier hs-type">VideoDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="presetSettings_videoDescription"><span class="annot"><span class="annottext">presetSettings_videoDescription :: (Maybe VideoDescription -&gt; f (Maybe VideoDescription))
--&gt; PresetSettings -&gt; f PresetSettings
-</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#presetSettings_videoDescription"><span class="hs-identifier hs-var hs-var">presetSettings_videoDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PresetSettings -&gt; Maybe VideoDescription)
--&gt; (PresetSettings -&gt; Maybe VideoDescription -&gt; PresetSettings)
--&gt; Lens
-     PresetSettings
-     PresetSettings
-     (Maybe VideoDescription)
-     (Maybe VideoDescription)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017280"><span class="annot"><span class="annottext">Maybe VideoDescription
-videoDescription :: Maybe VideoDescription
-$sel:videoDescription:PresetSettings' :: PresetSettings -&gt; Maybe VideoDescription
-</span><a href="#local-6989586621680017280"><span class="hs-identifier hs-var hs-var">videoDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoDescription
-</span><a href="#local-6989586621680017280"><span class="hs-identifier hs-var">videoDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017279"><span class="annot"><span class="annottext">s :: PresetSettings
-</span><a href="#local-6989586621680017279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017278"><span class="annot"><span class="annottext">Maybe VideoDescription
-</span><a href="#local-6989586621680017278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetSettings
-</span><a href="#local-6989586621680017279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoDescription:PresetSettings' :: Maybe VideoDescription
-</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AvideoDescription%3APresetSettings%27"><span class="hs-identifier hs-var">videoDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoDescription
-</span><a href="#local-6989586621680017278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | This object holds groups of settings related to captions for one output.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- For each output that has captions, include one instance of</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- CaptionDescriptions.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#presetSettings_captionDescriptions"><span class="hs-identifier hs-type">presetSettings_captionDescriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionDescriptionPreset.html#CaptionDescriptionPreset"><span class="hs-identifier hs-type">CaptionDescriptionPreset</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="presetSettings_captionDescriptions"><span class="annot"><span class="annottext">presetSettings_captionDescriptions :: (Maybe [CaptionDescriptionPreset]
+</span><span id="line-83"></span><span class="hs-comment">-- | This object holds groups of settings related to captions for one output.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- For each output that has captions, include one instance of</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- CaptionDescriptions.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#presetSettings_captionDescriptions"><span class="hs-identifier hs-type">presetSettings_captionDescriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionDescriptionPreset.html#CaptionDescriptionPreset"><span class="hs-identifier hs-type">CaptionDescriptionPreset</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="presetSettings_captionDescriptions"><span class="annot"><span class="annottext">presetSettings_captionDescriptions :: (Maybe [CaptionDescriptionPreset]
  -&gt; f (Maybe [CaptionDescriptionPreset]))
 -&gt; PresetSettings -&gt; f PresetSettings
 </span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#presetSettings_captionDescriptions"><span class="hs-identifier hs-var hs-var">presetSettings_captionDescriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PresetSettings -&gt; Maybe [CaptionDescriptionPreset])
@@ -270,16 +170,16 @@ $sel:videoDescription:PresetSettings' :: PresetSettings -&gt; Maybe VideoDescrip
      (Maybe [CaptionDescriptionPreset])
      (Maybe [CaptionDescriptionPreset])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017276"><span class="annot"><span class="annottext">Maybe [CaptionDescriptionPreset]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680022227"><span class="annot"><span class="annottext">Maybe [CaptionDescriptionPreset]
 captionDescriptions :: Maybe [CaptionDescriptionPreset]
 $sel:captionDescriptions:PresetSettings' :: PresetSettings -&gt; Maybe [CaptionDescriptionPreset]
-</span><a href="#local-6989586621680017276"><span class="hs-identifier hs-var hs-var">captionDescriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionDescriptionPreset]
-</span><a href="#local-6989586621680017276"><span class="hs-identifier hs-var">captionDescriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017275"><span class="annot"><span class="annottext">s :: PresetSettings
-</span><a href="#local-6989586621680017275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017274"><span class="annot"><span class="annottext">Maybe [CaptionDescriptionPreset]
-</span><a href="#local-6989586621680017274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetSettings
-</span><a href="#local-6989586621680017275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captionDescriptions:PresetSettings' :: Maybe [CaptionDescriptionPreset]
+</span><a href="#local-6989586621680022227"><span class="hs-identifier hs-var hs-var">captionDescriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionDescriptionPreset]
+</span><a href="#local-6989586621680022227"><span class="hs-identifier hs-var">captionDescriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680022226"><span class="annot"><span class="annottext">s :: PresetSettings
+</span><a href="#local-6989586621680022226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680022225"><span class="annot"><span class="annottext">Maybe [CaptionDescriptionPreset]
+</span><a href="#local-6989586621680022225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetSettings
+</span><a href="#local-6989586621680022226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captionDescriptions:PresetSettings' :: Maybe [CaptionDescriptionPreset]
 </span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AcaptionDescriptions%3APresetSettings%27"><span class="hs-identifier hs-var">captionDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionDescriptionPreset]
-</span><a href="#local-6989586621680017274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CaptionDescriptionPreset]
+</span><a href="#local-6989586621680022225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CaptionDescriptionPreset]
   -&gt; f (Maybe [CaptionDescriptionPreset]))
  -&gt; PresetSettings -&gt; f PresetSettings)
 -&gt; ((Maybe [CaptionDescriptionPreset]
@@ -309,11 +209,111 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [CaptionDescriptionPreset]
   [CaptionDescriptionPreset]
   [CaptionDescriptionPreset]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | VideoDescription contains a group of video encoding settings. The</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- specific video settings depend on the video codec that you choose for</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- the property codec. Include one instance of VideoDescription per output.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#presetSettings_videoDescription"><span class="hs-identifier hs-type">presetSettings_videoDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoDescription.html#VideoDescription"><span class="hs-identifier hs-type">VideoDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="presetSettings_videoDescription"><span class="annot"><span class="annottext">presetSettings_videoDescription :: (Maybe VideoDescription -&gt; f (Maybe VideoDescription))
+-&gt; PresetSettings -&gt; f PresetSettings
+</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#presetSettings_videoDescription"><span class="hs-identifier hs-var hs-var">presetSettings_videoDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PresetSettings -&gt; Maybe VideoDescription)
+-&gt; (PresetSettings -&gt; Maybe VideoDescription -&gt; PresetSettings)
+-&gt; Lens
+     PresetSettings
+     PresetSettings
+     (Maybe VideoDescription)
+     (Maybe VideoDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680022220"><span class="annot"><span class="annottext">Maybe VideoDescription
+videoDescription :: Maybe VideoDescription
+$sel:videoDescription:PresetSettings' :: PresetSettings -&gt; Maybe VideoDescription
+</span><a href="#local-6989586621680022220"><span class="hs-identifier hs-var hs-var">videoDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoDescription
+</span><a href="#local-6989586621680022220"><span class="hs-identifier hs-var">videoDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680022219"><span class="annot"><span class="annottext">s :: PresetSettings
+</span><a href="#local-6989586621680022219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680022218"><span class="annot"><span class="annottext">Maybe VideoDescription
+</span><a href="#local-6989586621680022218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetSettings
+</span><a href="#local-6989586621680022219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoDescription:PresetSettings' :: Maybe VideoDescription
+</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AvideoDescription%3APresetSettings%27"><span class="hs-identifier hs-var">videoDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoDescription
+</span><a href="#local-6989586621680022218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Container specific settings.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#presetSettings_containerSettings"><span class="hs-identifier hs-type">presetSettings_containerSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ContainerSettings.html#ContainerSettings"><span class="hs-identifier hs-type">ContainerSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="presetSettings_containerSettings"><span class="annot"><span class="annottext">presetSettings_containerSettings :: (Maybe ContainerSettings -&gt; f (Maybe ContainerSettings))
+-&gt; PresetSettings -&gt; f PresetSettings
+</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#presetSettings_containerSettings"><span class="hs-identifier hs-var hs-var">presetSettings_containerSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PresetSettings -&gt; Maybe ContainerSettings)
+-&gt; (PresetSettings -&gt; Maybe ContainerSettings -&gt; PresetSettings)
+-&gt; Lens
+     PresetSettings
+     PresetSettings
+     (Maybe ContainerSettings)
+     (Maybe ContainerSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680022216"><span class="annot"><span class="annottext">Maybe ContainerSettings
+containerSettings :: Maybe ContainerSettings
+$sel:containerSettings:PresetSettings' :: PresetSettings -&gt; Maybe ContainerSettings
+</span><a href="#local-6989586621680022216"><span class="hs-identifier hs-var hs-var">containerSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerSettings
+</span><a href="#local-6989586621680022216"><span class="hs-identifier hs-var">containerSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680022215"><span class="annot"><span class="annottext">s :: PresetSettings
+</span><a href="#local-6989586621680022215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680022214"><span class="annot"><span class="annottext">Maybe ContainerSettings
+</span><a href="#local-6989586621680022214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetSettings
+</span><a href="#local-6989586621680022215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerSettings:PresetSettings' :: Maybe ContainerSettings
+</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AcontainerSettings%3APresetSettings%27"><span class="hs-identifier hs-var">containerSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerSettings
+</span><a href="#local-6989586621680022214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | (AudioDescriptions) contains groups of audio encoding settings organized</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- by audio codec. Include one instance of (AudioDescriptions) per output.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- (AudioDescriptions) can contain multiple groups of encoding settings.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#presetSettings_audioDescriptions"><span class="hs-identifier hs-type">presetSettings_audioDescriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioDescription.html#AudioDescription"><span class="hs-identifier hs-type">AudioDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="presetSettings_audioDescriptions"><span class="annot"><span class="annottext">presetSettings_audioDescriptions :: (Maybe [AudioDescription] -&gt; f (Maybe [AudioDescription]))
+-&gt; PresetSettings -&gt; f PresetSettings
+</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#presetSettings_audioDescriptions"><span class="hs-identifier hs-var hs-var">presetSettings_audioDescriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PresetSettings -&gt; Maybe [AudioDescription])
+-&gt; (PresetSettings -&gt; Maybe [AudioDescription] -&gt; PresetSettings)
+-&gt; Lens
+     PresetSettings
+     PresetSettings
+     (Maybe [AudioDescription])
+     (Maybe [AudioDescription])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680022212"><span class="annot"><span class="annottext">Maybe [AudioDescription]
+audioDescriptions :: Maybe [AudioDescription]
+$sel:audioDescriptions:PresetSettings' :: PresetSettings -&gt; Maybe [AudioDescription]
+</span><a href="#local-6989586621680022212"><span class="hs-identifier hs-var hs-var">audioDescriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AudioDescription]
+</span><a href="#local-6989586621680022212"><span class="hs-identifier hs-var">audioDescriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680022211"><span class="annot"><span class="annottext">s :: PresetSettings
+</span><a href="#local-6989586621680022211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680022210"><span class="annot"><span class="annottext">Maybe [AudioDescription]
+</span><a href="#local-6989586621680022210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetSettings
+</span><a href="#local-6989586621680022211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioDescriptions:PresetSettings' :: Maybe [AudioDescription]
+</span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#%24sel%3AaudioDescriptions%3APresetSettings%27"><span class="hs-identifier hs-var">audioDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AudioDescription]
+</span><a href="#local-6989586621680022210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AudioDescription] -&gt; f (Maybe [AudioDescription]))
+ -&gt; PresetSettings -&gt; f PresetSettings)
+-&gt; ((Maybe [AudioDescription] -&gt; f (Maybe [AudioDescription]))
+    -&gt; Maybe [AudioDescription] -&gt; f (Maybe [AudioDescription]))
+-&gt; (Maybe [AudioDescription] -&gt; f (Maybe [AudioDescription]))
+-&gt; PresetSettings
+-&gt; f PresetSettings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AudioDescription]
+  [AudioDescription]
+  [AudioDescription]
+  [AudioDescription]
+-&gt; Iso
+     (Maybe [AudioDescription])
+     (Maybe [AudioDescription])
+     (Maybe [AudioDescription])
+     (Maybe [AudioDescription])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AudioDescription]
+  [AudioDescription]
+  [AudioDescription]
+  [AudioDescription]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680017271"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621680017269"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PresetSettings
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680022207"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621680022205"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PresetSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PresetSettings)
@@ -323,142 +323,141 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PresetSettings&quot;</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680017266"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680017266"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AudioDescription]
--&gt; Maybe ContainerSettings
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680022202"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680022202"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe [CaptionDescriptionPreset]
 -&gt; Maybe VideoDescription
--&gt; Maybe [CaptionDescriptionPreset]
+-&gt; Maybe ContainerSettings
+-&gt; Maybe [AudioDescription]
 -&gt; PresetSettings
 </span><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-var">PresetSettings'</span></a></span><span>
-</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AudioDescription]
- -&gt; Maybe ContainerSettings
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [CaptionDescriptionPreset]
  -&gt; Maybe VideoDescription
- -&gt; Maybe [CaptionDescriptionPreset]
+ -&gt; Maybe ContainerSettings
+ -&gt; Maybe [AudioDescription]
  -&gt; PresetSettings)
--&gt; Parser (Maybe [AudioDescription])
+-&gt; Parser (Maybe [CaptionDescriptionPreset])
 -&gt; Parser
-     (Maybe ContainerSettings
-      -&gt; Maybe VideoDescription
-      -&gt; Maybe [CaptionDescriptionPreset]
+     (Maybe VideoDescription
+      -&gt; Maybe ContainerSettings
+      -&gt; Maybe [AudioDescription]
       -&gt; PresetSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680017266"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AudioDescription]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;audioDescriptions&quot;</span></span><span>
-</span><span id="line-112"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AudioDescription]))
--&gt; Maybe [AudioDescription] -&gt; Parser (Maybe [AudioDescription])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AudioDescription]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-113"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ContainerSettings
-   -&gt; Maybe VideoDescription
-   -&gt; Maybe [CaptionDescriptionPreset]
-   -&gt; PresetSettings)
--&gt; Parser (Maybe ContainerSettings)
--&gt; Parser
-     (Maybe VideoDescription
-      -&gt; Maybe [CaptionDescriptionPreset] -&gt; PresetSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680017266"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerSettings)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;containerSettings&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe VideoDescription
-   -&gt; Maybe [CaptionDescriptionPreset] -&gt; PresetSettings)
--&gt; Parser (Maybe VideoDescription)
--&gt; Parser (Maybe [CaptionDescriptionPreset] -&gt; PresetSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680017266"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VideoDescription)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;videoDescription&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [CaptionDescriptionPreset] -&gt; PresetSettings)
--&gt; Parser (Maybe [CaptionDescriptionPreset])
--&gt; Parser PresetSettings
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680017266"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CaptionDescriptionPreset]))
+</span><a href="#local-6989586621680022202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CaptionDescriptionPreset]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;captionDescriptions&quot;</span></span><span>
-</span><span id="line-117"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [CaptionDescriptionPreset]))
+</span><span id="line-112"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [CaptionDescriptionPreset]))
 -&gt; Maybe [CaptionDescriptionPreset]
 -&gt; Parser (Maybe [CaptionDescriptionPreset])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionDescriptionPreset]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-113"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe VideoDescription
+   -&gt; Maybe ContainerSettings
+   -&gt; Maybe [AudioDescription]
+   -&gt; PresetSettings)
+-&gt; Parser (Maybe VideoDescription)
+-&gt; Parser
+     (Maybe ContainerSettings
+      -&gt; Maybe [AudioDescription] -&gt; PresetSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680022202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VideoDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;videoDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ContainerSettings
+   -&gt; Maybe [AudioDescription] -&gt; PresetSettings)
+-&gt; Parser (Maybe ContainerSettings)
+-&gt; Parser (Maybe [AudioDescription] -&gt; PresetSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680022202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [AudioDescription] -&gt; PresetSettings)
+-&gt; Parser (Maybe [AudioDescription]) -&gt; Parser PresetSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680022202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AudioDescription]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audioDescriptions&quot;</span></span><span>
+</span><span id="line-117"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AudioDescription]))
+-&gt; Maybe [AudioDescription] -&gt; Parser (Maybe [AudioDescription])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AudioDescription]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680017259"><span id="local-6989586621680017261"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680022195"><span id="local-6989586621680022197"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680017256"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680022192"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680017248"><span id="local-6989586621680017250"><span id="local-6989586621680017252"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621680017246"><span class="annot"><span class="annottext">toJSON :: PresetSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017241"><span id="local-6989586621680017242"><span id="local-6989586621680017243"><span id="local-6989586621680017244"><span class="annot"><span class="annottext">Maybe [AudioDescription]
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680022184"><span id="local-6989586621680022186"><span id="local-6989586621680022188"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings"><span class="hs-identifier hs-type">PresetSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621680022182"><span class="annot"><span class="annottext">toJSON :: PresetSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.PresetSettings.html#PresetSettings%27"><span class="hs-identifier hs-type">PresetSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680022177"><span id="local-6989586621680022178"><span id="local-6989586621680022179"><span id="local-6989586621680022180"><span class="annot"><span class="annottext">Maybe [AudioDescription]
 Maybe [CaptionDescriptionPreset]
 Maybe ContainerSettings
 Maybe VideoDescription
-captionDescriptions :: Maybe [CaptionDescriptionPreset]
-videoDescription :: Maybe VideoDescription
-containerSettings :: Maybe ContainerSettings
 audioDescriptions :: Maybe [AudioDescription]
-$sel:captionDescriptions:PresetSettings' :: PresetSettings -&gt; Maybe [CaptionDescriptionPreset]
-$sel:videoDescription:PresetSettings' :: PresetSettings -&gt; Maybe VideoDescription
-$sel:containerSettings:PresetSettings' :: PresetSettings -&gt; Maybe ContainerSettings
+containerSettings :: Maybe ContainerSettings
+videoDescription :: Maybe VideoDescription
+captionDescriptions :: Maybe [CaptionDescriptionPreset]
 $sel:audioDescriptions:PresetSettings' :: PresetSettings -&gt; Maybe [AudioDescription]
-</span><a href="#local-6989586621680017241"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:containerSettings:PresetSettings' :: PresetSettings -&gt; Maybe ContainerSettings
+$sel:videoDescription:PresetSettings' :: PresetSettings -&gt; Maybe VideoDescription
+$sel:captionDescriptions:PresetSettings' :: PresetSettings -&gt; Maybe [CaptionDescriptionPreset]
+</span><a href="#local-6989586621680022177"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;audioDescriptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AudioDescription] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">([AudioDescription] -&gt; Pair)
--&gt; Maybe [AudioDescription] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AudioDescription]
-</span><a href="#local-6989586621680017244"><span class="hs-identifier hs-var">audioDescriptions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;containerSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContainerSettings -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">(ContainerSettings -&gt; Pair)
--&gt; Maybe ContainerSettings -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ContainerSettings
-</span><a href="#local-6989586621680017243"><span class="hs-identifier hs-var">containerSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;videoDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VideoDescription -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">(VideoDescription -&gt; Pair) -&gt; Maybe VideoDescription -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VideoDescription
-</span><a href="#local-6989586621680017242"><span class="hs-identifier hs-var">videoDescription</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;captionDescriptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CaptionDescriptionPreset] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">([CaptionDescriptionPreset] -&gt; Pair)
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">([CaptionDescriptionPreset] -&gt; Pair)
 -&gt; Maybe [CaptionDescriptionPreset] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionDescriptionPreset]
-</span><a href="#local-6989586621680017241"><span class="hs-identifier hs-var">captionDescriptions</span></a></span><span>
+</span><a href="#local-6989586621680022180"><span class="hs-identifier hs-var">captionDescriptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;videoDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VideoDescription -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">(VideoDescription -&gt; Pair) -&gt; Maybe VideoDescription -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VideoDescription
+</span><a href="#local-6989586621680022179"><span class="hs-identifier hs-var">videoDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContainerSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">(ContainerSettings -&gt; Pair)
+-&gt; Maybe ContainerSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ContainerSettings
+</span><a href="#local-6989586621680022178"><span class="hs-identifier hs-var">containerSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;audioDescriptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AudioDescription] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">([AudioDescription] -&gt; Pair)
+-&gt; Maybe [AudioDescription] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AudioDescription]
+</span><a href="#local-6989586621680022177"><span class="hs-identifier hs-var">audioDescriptions</span></a></span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- ARN.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMappingRule' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679183482"><span id="local-6989586621679183483"></span></span><span class="hs-keyword">data</span><span> </span><span id="MappingRule"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-var">MappingRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MappingRule%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-var">MappingRule'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679183646"><span id="local-6989586621679183647"></span></span><span class="hs-keyword">data</span><span> </span><span id="MappingRule"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-var">MappingRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MappingRule%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-var">MappingRule'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The claim name that must be present in the token, for example,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- \&quot;isAdmin\&quot; or \&quot;paid\&quot;.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aclaim%3AMappingRule%27"><span class="annot"><span class="annottext">MappingRule -&gt; Text
@@ -45,7 +45,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AroleARN%3AMappingRule%27"><span class="annot"><span class="annottext">MappingRule -&gt; Text
 </span><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#%24sel%3AroleARN%3AMappingRule%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183473"><span id="local-6989586621679183475"><span class="annot"><span class="annottext">MappingRule -&gt; MappingRule -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183637"><span id="local-6989586621679183639"><span class="annot"><span class="annottext">MappingRule -&gt; MappingRule -&gt; Bool
 (MappingRule -&gt; MappingRule -&gt; Bool)
 -&gt; (MappingRule -&gt; MappingRule -&gt; Bool) -&gt; Eq MappingRule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MappingRule -&gt; MappingRule -&gt; Bool
 == :: MappingRule -&gt; MappingRule -&gt; Bool
 $c== :: MappingRule -&gt; MappingRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183464"><span id="local-6989586621679183466"><span id="local-6989586621679183468"><span id="local-6989586621679183470"><span class="annot"><span class="annottext">ReadPrec [MappingRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183628"><span id="local-6989586621679183630"><span id="local-6989586621679183632"><span id="local-6989586621679183634"><span class="annot"><span class="annottext">ReadPrec [MappingRule]
 ReadPrec MappingRule
 Int -&gt; ReadS MappingRule
 ReadS [MappingRule]
@@ -73,7 +73,7 @@ readList :: ReadS [MappingRule]
 $creadList :: ReadS [MappingRule]
 readsPrec :: Int -&gt; ReadS MappingRule
 $creadsPrec :: Int -&gt; ReadS MappingRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183457"><span id="local-6989586621679183459"><span id="local-6989586621679183461"><span class="annot"><span class="annottext">Int -&gt; MappingRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183621"><span id="local-6989586621679183623"><span id="local-6989586621679183625"><span class="annot"><span class="annottext">Int -&gt; MappingRule -&gt; ShowS
 [MappingRule] -&gt; ShowS
 MappingRule -&gt; String
 (Int -&gt; MappingRule -&gt; ShowS)
@@ -128,25 +128,25 @@ $cfrom :: forall x. MappingRule -&gt; Rep MappingRule x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span><span>
 </span><span id="line-74"></span><span id="newMappingRule"><span class="annot"><span class="annottext">newMappingRule :: Text -&gt; MappingRuleMatchType -&gt; Text -&gt; Text -&gt; MappingRule
-</span><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#newMappingRule"><span class="hs-identifier hs-var hs-var">newMappingRule</span></a></span></span><span> </span><span id="local-6989586621679183451"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183451"><span class="hs-identifier hs-var">pClaim_</span></a></span></span><span> </span><span id="local-6989586621679183450"><span class="annot"><span class="annottext">MappingRuleMatchType
-</span><a href="#local-6989586621679183450"><span class="hs-identifier hs-var">pMatchType_</span></a></span></span><span> </span><span id="local-6989586621679183449"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183449"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span id="local-6989586621679183448"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183448"><span class="hs-identifier hs-var">pRoleARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#newMappingRule"><span class="hs-identifier hs-var hs-var">newMappingRule</span></a></span></span><span> </span><span id="local-6989586621679183615"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183615"><span class="hs-identifier hs-var">pClaim_</span></a></span></span><span> </span><span id="local-6989586621679183614"><span class="annot"><span class="annottext">MappingRuleMatchType
+</span><a href="#local-6989586621679183614"><span class="hs-identifier hs-var">pMatchType_</span></a></span></span><span> </span><span id="local-6989586621679183613"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183613"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span id="local-6989586621679183612"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183612"><span class="hs-identifier hs-var">pRoleARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">MappingRule' :: Text -&gt; MappingRuleMatchType -&gt; Text -&gt; Text -&gt; MappingRule
 </span><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:claim:MappingRule' :: Text
 </span><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#%24sel%3Aclaim%3AMappingRule%27"><span class="hs-identifier hs-var">claim</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183451"><span class="hs-identifier hs-var">pClaim_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679183615"><span class="hs-identifier hs-var">pClaim_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:matchType:MappingRule' :: MappingRuleMatchType
 </span><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#%24sel%3AmatchType%3AMappingRule%27"><span class="hs-identifier hs-var">matchType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MappingRuleMatchType
-</span><a href="#local-6989586621679183450"><span class="hs-identifier hs-var">pMatchType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679183614"><span class="hs-identifier hs-var">pMatchType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:MappingRule' :: Text
 </span><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#%24sel%3Avalue%3AMappingRule%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183449"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679183613"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleARN:MappingRule' :: Text
 </span><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#%24sel%3AroleARN%3AMappingRule%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183448"><span class="hs-identifier hs-var">pRoleARN_</span></a></span><span>
+</span><a href="#local-6989586621679183612"><span class="hs-identifier hs-var">pRoleARN_</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The claim name that must be present in the token, for example,</span><span>
@@ -157,16 +157,16 @@ $cfrom :: forall x. MappingRule -&gt; Rep MappingRule x
 -&gt; (MappingRule -&gt; Text -&gt; MappingRule)
 -&gt; Lens MappingRule MappingRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183444"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183608"><span class="annot"><span class="annottext">Text
 claim :: Text
 $sel:claim:MappingRule' :: MappingRule -&gt; Text
-</span><a href="#local-6989586621679183444"><span class="hs-identifier hs-var hs-var">claim</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183444"><span class="hs-identifier hs-var">claim</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183443"><span class="annot"><span class="annottext">s :: MappingRule
-</span><a href="#local-6989586621679183443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183442"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingRule
-</span><a href="#local-6989586621679183443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:claim:MappingRule' :: Text
+</span><a href="#local-6989586621679183608"><span class="hs-identifier hs-var hs-var">claim</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183608"><span class="hs-identifier hs-var">claim</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183607"><span class="annot"><span class="annottext">s :: MappingRule
+</span><a href="#local-6989586621679183607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183606"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingRule
+</span><a href="#local-6989586621679183607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:claim:MappingRule' :: Text
 </span><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#%24sel%3Aclaim%3AMappingRule%27"><span class="hs-identifier hs-var">claim</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679183606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The match condition that specifies how closely the claim value in the</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- IdP token must match @Value@.</span><span>
@@ -178,16 +178,16 @@ $sel:claim:MappingRule' :: MappingRule -&gt; Text
 -&gt; Lens
      MappingRule MappingRule MappingRuleMatchType MappingRuleMatchType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183440"><span class="annot"><span class="annottext">MappingRuleMatchType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183604"><span class="annot"><span class="annottext">MappingRuleMatchType
 matchType :: MappingRuleMatchType
 $sel:matchType:MappingRule' :: MappingRule -&gt; MappingRuleMatchType
-</span><a href="#local-6989586621679183440"><span class="hs-identifier hs-var hs-var">matchType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingRuleMatchType
-</span><a href="#local-6989586621679183440"><span class="hs-identifier hs-var">matchType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183439"><span class="annot"><span class="annottext">s :: MappingRule
-</span><a href="#local-6989586621679183439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183438"><span class="annot"><span class="annottext">MappingRuleMatchType
-</span><a href="#local-6989586621679183438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingRule
-</span><a href="#local-6989586621679183439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchType:MappingRule' :: MappingRuleMatchType
+</span><a href="#local-6989586621679183604"><span class="hs-identifier hs-var hs-var">matchType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingRuleMatchType
+</span><a href="#local-6989586621679183604"><span class="hs-identifier hs-var">matchType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183603"><span class="annot"><span class="annottext">s :: MappingRule
+</span><a href="#local-6989586621679183603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183602"><span class="annot"><span class="annottext">MappingRuleMatchType
+</span><a href="#local-6989586621679183602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingRule
+</span><a href="#local-6989586621679183603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchType:MappingRule' :: MappingRuleMatchType
 </span><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#%24sel%3AmatchType%3AMappingRule%27"><span class="hs-identifier hs-var">matchType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MappingRuleMatchType
-</span><a href="#local-6989586621679183438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679183602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | A brief string that the claim must match, for example, \&quot;paid\&quot; or</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- \&quot;yes\&quot;.</span><span>
@@ -197,16 +197,16 @@ $sel:matchType:MappingRule' :: MappingRule -&gt; MappingRuleMatchType
 -&gt; (MappingRule -&gt; Text -&gt; MappingRule)
 -&gt; Lens MappingRule MappingRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183436"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183600"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:MappingRule' :: MappingRule -&gt; Text
-</span><a href="#local-6989586621679183436"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183436"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183435"><span class="annot"><span class="annottext">s :: MappingRule
-</span><a href="#local-6989586621679183435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183434"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingRule
-</span><a href="#local-6989586621679183435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:MappingRule' :: Text
+</span><a href="#local-6989586621679183600"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183600"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183599"><span class="annot"><span class="annottext">s :: MappingRule
+</span><a href="#local-6989586621679183599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183598"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingRule
+</span><a href="#local-6989586621679183599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:MappingRule' :: Text
 </span><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#%24sel%3Avalue%3AMappingRule%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679183598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The role ARN.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#mappingRule_roleARN"><span class="hs-identifier hs-type">mappingRule_roleARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -215,19 +215,19 @@ $sel:value:MappingRule' :: MappingRule -&gt; Text
 -&gt; (MappingRule -&gt; Text -&gt; MappingRule)
 -&gt; Lens MappingRule MappingRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183432"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183596"><span class="annot"><span class="annottext">Text
 roleARN :: Text
 $sel:roleARN:MappingRule' :: MappingRule -&gt; Text
-</span><a href="#local-6989586621679183432"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183432"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183431"><span class="annot"><span class="annottext">s :: MappingRule
-</span><a href="#local-6989586621679183431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183430"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingRule
-</span><a href="#local-6989586621679183431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:MappingRule' :: Text
+</span><a href="#local-6989586621679183596"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183596"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183595"><span class="annot"><span class="annottext">s :: MappingRule
+</span><a href="#local-6989586621679183595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183594"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingRule
+</span><a href="#local-6989586621679183595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:MappingRule' :: Text
 </span><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#%24sel%3AroleARN%3AMappingRule%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679183594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183427"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679183425"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MappingRule
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183591"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679183589"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MappingRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MappingRule) -&gt; Value -&gt; Parser MappingRule
@@ -235,8 +235,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MappingRule&quot;</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679183422"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183422"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679183586"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679183586"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; MappingRuleMatchType -&gt; Text -&gt; Text -&gt; MappingRule
 </span><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-var">MappingRule'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; MappingRuleMatchType -&gt; Text -&gt; Text -&gt; MappingRule)
@@ -244,7 +244,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (MappingRuleMatchType -&gt; Text -&gt; Text -&gt; MappingRule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183422"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679183586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Claim&quot;</span></span><span class="hs-special">)</span><span>
@@ -253,7 +253,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; MappingRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183422"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser MappingRuleMatchType
+</span><a href="#local-6989586621679183586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser MappingRuleMatchType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MatchType&quot;</span></span><span class="hs-special">)</span><span>
@@ -261,26 +261,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; MappingRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183422"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679183586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; MappingRule) -&gt; Parser Text -&gt; Parser MappingRule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183422"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679183586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleARN&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183416"><span id="local-6989586621679183418"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183580"><span id="local-6989586621679183582"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183413"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183577"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183405"><span id="local-6989586621679183407"><span id="local-6989586621679183409"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679183403"><span class="annot"><span class="annottext">toJSON :: MappingRule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183398"><span id="local-6989586621679183399"><span id="local-6989586621679183400"><span id="local-6989586621679183401"><span class="annot"><span class="annottext">Text
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183569"><span id="local-6989586621679183571"><span id="local-6989586621679183573"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679183567"><span class="annot"><span class="annottext">toJSON :: MappingRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule%27"><span class="hs-identifier hs-type">MappingRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183562"><span id="local-6989586621679183563"><span id="local-6989586621679183564"><span id="local-6989586621679183565"><span class="annot"><span class="annottext">Text
 MappingRuleMatchType
 roleARN :: Text
 value :: Text
@@ -290,7 +290,7 @@ $sel:roleARN:MappingRule' :: MappingRule -&gt; Text
 $sel:value:MappingRule' :: MappingRule -&gt; Text
 $sel:matchType:MappingRule' :: MappingRule -&gt; MappingRuleMatchType
 $sel:claim:MappingRule' :: MappingRule -&gt; Text
-</span><a href="#local-6989586621679183398"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679183562"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -302,28 +302,28 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Claim&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183401"><span class="hs-identifier hs-var">claim</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679183565"><span class="hs-identifier hs-var">claim</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MatchType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MappingRuleMatchType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MappingRuleMatchType
-</span><a href="#local-6989586621679183400"><span class="hs-identifier hs-var">matchType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679183564"><span class="hs-identifier hs-var">matchType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183399"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679183563"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183398"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679183562"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span></pre></body></html>

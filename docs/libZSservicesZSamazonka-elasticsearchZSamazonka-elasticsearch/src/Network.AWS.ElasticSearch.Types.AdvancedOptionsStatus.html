@@ -39,7 +39,7 @@
 </span><span id="line-39"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuring Advanced Options&gt;.</span><span>
 </span><span id="line-40"></span><span class="hs-comment">--</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newAdvancedOptionsStatus' smart constructor.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679297875"><span id="local-6989586621679297876"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdvancedOptionsStatus"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-var">AdvancedOptionsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdvancedOptionsStatus%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-var">AdvancedOptionsStatus'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679298079"><span id="local-6989586621679298080"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdvancedOptionsStatus"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-var">AdvancedOptionsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdvancedOptionsStatus%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-var">AdvancedOptionsStatus'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the status of advanced options for the specified Elasticsearch</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- domain.</span><span>
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3Aoptions%3AAdvancedOptionsStatus%27"><span class="annot"><span class="annottext">AdvancedOptionsStatus -&gt; HashMap Text Text
@@ -49,7 +49,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3Astatus%3AAdvancedOptionsStatus%27"><span class="annot"><span class="annottext">AdvancedOptionsStatus -&gt; OptionStatus
 </span><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#%24sel%3Astatus%3AAdvancedOptionsStatus%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297868"><span id="local-6989586621679297870"><span class="annot"><span class="annottext">AdvancedOptionsStatus -&gt; AdvancedOptionsStatus -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298072"><span id="local-6989586621679298074"><span class="annot"><span class="annottext">AdvancedOptionsStatus -&gt; AdvancedOptionsStatus -&gt; Bool
 (AdvancedOptionsStatus -&gt; AdvancedOptionsStatus -&gt; Bool)
 -&gt; (AdvancedOptionsStatus -&gt; AdvancedOptionsStatus -&gt; Bool)
 -&gt; Eq AdvancedOptionsStatus
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AdvancedOptionsStatus -&gt; AdvancedOptionsStatus -&gt; Bool
 == :: AdvancedOptionsStatus -&gt; AdvancedOptionsStatus -&gt; Bool
 $c== :: AdvancedOptionsStatus -&gt; AdvancedOptionsStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297859"><span id="local-6989586621679297861"><span id="local-6989586621679297863"><span id="local-6989586621679297865"><span class="annot"><span class="annottext">ReadPrec [AdvancedOptionsStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298063"><span id="local-6989586621679298065"><span id="local-6989586621679298067"><span id="local-6989586621679298069"><span class="annot"><span class="annottext">ReadPrec [AdvancedOptionsStatus]
 ReadPrec AdvancedOptionsStatus
 Int -&gt; ReadS AdvancedOptionsStatus
 ReadS [AdvancedOptionsStatus]
@@ -78,7 +78,7 @@ readList :: ReadS [AdvancedOptionsStatus]
 $creadList :: ReadS [AdvancedOptionsStatus]
 readsPrec :: Int -&gt; ReadS AdvancedOptionsStatus
 $creadsPrec :: Int -&gt; ReadS AdvancedOptionsStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297852"><span id="local-6989586621679297854"><span id="local-6989586621679297856"><span class="annot"><span class="annottext">Int -&gt; AdvancedOptionsStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298056"><span id="local-6989586621679298058"><span id="local-6989586621679298060"><span class="annot"><span class="annottext">Int -&gt; AdvancedOptionsStatus -&gt; ShowS
 [AdvancedOptionsStatus] -&gt; ShowS
 AdvancedOptionsStatus -&gt; String
 (Int -&gt; AdvancedOptionsStatus -&gt; ShowS)
@@ -122,8 +122,8 @@ $cfrom :: forall x. AdvancedOptionsStatus -&gt; Rep AdvancedOptionsStatus x
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span><span>
 </span><span id="line-69"></span><span id="newAdvancedOptionsStatus"><span class="annot"><span class="annottext">newAdvancedOptionsStatus :: OptionStatus -&gt; AdvancedOptionsStatus
-</span><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#newAdvancedOptionsStatus"><span class="hs-identifier hs-var hs-var">newAdvancedOptionsStatus</span></a></span></span><span> </span><span id="local-6989586621679297846"><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679297846"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#newAdvancedOptionsStatus"><span class="hs-identifier hs-var hs-var">newAdvancedOptionsStatus</span></a></span></span><span> </span><span id="local-6989586621679298050"><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679298050"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">AdvancedOptionsStatus' :: HashMap Text Text -&gt; OptionStatus -&gt; AdvancedOptionsStatus
 </span><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-type">AdvancedOptionsStatus'</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:options:AdvancedOptionsStatus' :: HashMap Text Text
@@ -132,7 +132,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:AdvancedOptionsStatus' :: OptionStatus
 </span><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#%24sel%3Astatus%3AAdvancedOptionsStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679297846"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621679298050"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | Specifies the status of advanced options for the specified Elasticsearch</span><span>
@@ -149,16 +149,16 @@ forall a. Monoid a =&gt; a
      (HashMap Text Text)
      (HashMap Text Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-type">AdvancedOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297842"><span class="annot"><span class="annottext">HashMap Text Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-type">AdvancedOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298046"><span class="annot"><span class="annottext">HashMap Text Text
 options :: HashMap Text Text
 $sel:options:AdvancedOptionsStatus' :: AdvancedOptionsStatus -&gt; HashMap Text Text
-</span><a href="#local-6989586621679297842"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679297842"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297841"><span class="annot"><span class="annottext">s :: AdvancedOptionsStatus
-</span><a href="#local-6989586621679297841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-type">AdvancedOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297840"><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679297840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedOptionsStatus
-</span><a href="#local-6989586621679297841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:AdvancedOptionsStatus' :: HashMap Text Text
+</span><a href="#local-6989586621679298046"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679298046"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298045"><span class="annot"><span class="annottext">s :: AdvancedOptionsStatus
+</span><a href="#local-6989586621679298045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-type">AdvancedOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298044"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679298044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedOptionsStatus
+</span><a href="#local-6989586621679298045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:AdvancedOptionsStatus' :: HashMap Text Text
 </span><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#%24sel%3Aoptions%3AAdvancedOptionsStatus%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679297840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+</span><a href="#local-6989586621679298044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
  -&gt; AdvancedOptionsStatus -&gt; f AdvancedOptionsStatus)
 -&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
     -&gt; HashMap Text Text -&gt; f (HashMap Text Text))
@@ -168,8 +168,8 @@ $sel:options:AdvancedOptionsStatus' :: AdvancedOptionsStatus -&gt; HashMap Text 
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
 -&gt; HashMap Text Text -&gt; f (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Specifies the status of @OptionStatus@ for advanced options for the</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- specified Elasticsearch domain.</span><span>
@@ -184,19 +184,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      OptionStatus
      OptionStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-type">AdvancedOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297836"><span class="annot"><span class="annottext">OptionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-type">AdvancedOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298040"><span class="annot"><span class="annottext">OptionStatus
 status :: OptionStatus
 $sel:status:AdvancedOptionsStatus' :: AdvancedOptionsStatus -&gt; OptionStatus
-</span><a href="#local-6989586621679297836"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679297836"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297835"><span class="annot"><span class="annottext">s :: AdvancedOptionsStatus
-</span><a href="#local-6989586621679297835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-type">AdvancedOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297834"><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679297834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedOptionsStatus
-</span><a href="#local-6989586621679297835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AdvancedOptionsStatus' :: OptionStatus
+</span><a href="#local-6989586621679298040"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679298040"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298039"><span class="annot"><span class="annottext">s :: AdvancedOptionsStatus
+</span><a href="#local-6989586621679298039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-type">AdvancedOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298038"><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679298038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedOptionsStatus
+</span><a href="#local-6989586621679298039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AdvancedOptionsStatus' :: OptionStatus
 </span><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#%24sel%3Astatus%3AAdvancedOptionsStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679297834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297831"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679297829"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AdvancedOptionsStatus
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298035"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679298033"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AdvancedOptionsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AdvancedOptionsStatus)
@@ -206,8 +206,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AdvancedOptionsStatus&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297826"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297826"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298030"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298030"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">HashMap Text Text -&gt; OptionStatus -&gt; AdvancedOptionsStatus
 </span><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus%27"><span class="hs-identifier hs-var">AdvancedOptionsStatus'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; OptionStatus -&gt; AdvancedOptionsStatus)
@@ -215,7 +215,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (OptionStatus -&gt; AdvancedOptionsStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297826"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (HashMap Text Text))
+</span><a href="#local-6989586621679298030"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (HashMap Text Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Options&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text))
@@ -228,13 +228,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser OptionStatus -&gt; Parser AdvancedOptionsStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297826"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OptionStatus
+</span><a href="#local-6989586621679298030"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OptionStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297818"><span id="local-6989586621679297820"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298022"><span id="local-6989586621679298024"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297815"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298019"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus.html#AdvancedOptionsStatus"><span class="hs-identifier hs-type">AdvancedOptionsStatus</span></a></span></span><span>
 </span><span id="line-98"></span></pre></body></html>

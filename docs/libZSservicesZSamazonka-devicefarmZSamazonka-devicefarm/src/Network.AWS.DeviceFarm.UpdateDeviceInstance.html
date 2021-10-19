@@ -27,8 +27,8 @@
 </span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#newUpdateDeviceInstance"><span class="hs-identifier">newUpdateDeviceInstance</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#updateDeviceInstance_labels"><span class="hs-identifier">updateDeviceInstance_labels</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#updateDeviceInstance_profileArn"><span class="hs-identifier">updateDeviceInstance_profileArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#updateDeviceInstance_profileArn"><span class="hs-identifier">updateDeviceInstance_profileArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#updateDeviceInstance_labels"><span class="hs-identifier">updateDeviceInstance_labels</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#updateDeviceInstance_arn"><span class="hs-identifier">updateDeviceInstance_arn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -49,19 +49,19 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newUpdateDeviceInstance' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679389348"><span id="local-6989586621679389349"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDeviceInstance"><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-var">UpdateDeviceInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDeviceInstance%27"><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance%27"><span class="hs-identifier hs-var">UpdateDeviceInstance'</span></a></span></span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of strings that you want to associate with the device instance.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3Alabels%3AUpdateDeviceInstance%27"><span class="annot"><span class="annottext">UpdateDeviceInstance -&gt; Maybe [Text]
-</span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#%24sel%3Alabels%3AUpdateDeviceInstance%27"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The ARN of the profile that you want to associate with the device</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- instance.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3AprofileArn%3AUpdateDeviceInstance%27"><span class="annot"><span class="annottext">UpdateDeviceInstance -&gt; Maybe Text
+</span><span id="line-52"></span><span id="local-6989586621679389634"><span id="local-6989586621679389635"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDeviceInstance"><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-var">UpdateDeviceInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDeviceInstance%27"><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance%27"><span class="hs-identifier hs-var">UpdateDeviceInstance'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the profile that you want to associate with the device</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AprofileArn%3AUpdateDeviceInstance%27"><span class="annot"><span class="annottext">UpdateDeviceInstance -&gt; Maybe Text
 </span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#%24sel%3AprofileArn%3AUpdateDeviceInstance%27"><span class="hs-identifier hs-var hs-var">profileArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | An array of strings that you want to associate with the device instance.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Alabels%3AUpdateDeviceInstance%27"><span class="annot"><span class="annottext">UpdateDeviceInstance -&gt; Maybe [Text]
+</span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#%24sel%3Alabels%3AUpdateDeviceInstance%27"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the device instance.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3Aarn%3AUpdateDeviceInstance%27"><span class="annot"><span class="annottext">UpdateDeviceInstance -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#%24sel%3Aarn%3AUpdateDeviceInstance%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389340"><span id="local-6989586621679389342"><span class="annot"><span class="annottext">UpdateDeviceInstance -&gt; UpdateDeviceInstance -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389626"><span id="local-6989586621679389628"><span class="annot"><span class="annottext">UpdateDeviceInstance -&gt; UpdateDeviceInstance -&gt; Bool
 (UpdateDeviceInstance -&gt; UpdateDeviceInstance -&gt; Bool)
 -&gt; (UpdateDeviceInstance -&gt; UpdateDeviceInstance -&gt; Bool)
 -&gt; Eq UpdateDeviceInstance
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDeviceInstance -&gt; UpdateDeviceInstance -&gt; Bool
 == :: UpdateDeviceInstance -&gt; UpdateDeviceInstance -&gt; Bool
 $c== :: UpdateDeviceInstance -&gt; UpdateDeviceInstance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389331"><span id="local-6989586621679389333"><span id="local-6989586621679389335"><span id="local-6989586621679389337"><span class="annot"><span class="annottext">ReadPrec [UpdateDeviceInstance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389617"><span id="local-6989586621679389619"><span id="local-6989586621679389621"><span id="local-6989586621679389623"><span class="annot"><span class="annottext">ReadPrec [UpdateDeviceInstance]
 ReadPrec UpdateDeviceInstance
 Int -&gt; ReadS UpdateDeviceInstance
 ReadS [UpdateDeviceInstance]
@@ -90,7 +90,7 @@ readList :: ReadS [UpdateDeviceInstance]
 $creadList :: ReadS [UpdateDeviceInstance]
 readsPrec :: Int -&gt; ReadS UpdateDeviceInstance
 $creadsPrec :: Int -&gt; ReadS UpdateDeviceInstance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389324"><span id="local-6989586621679389326"><span id="local-6989586621679389328"><span class="annot"><span class="annottext">Int -&gt; UpdateDeviceInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389610"><span id="local-6989586621679389612"><span id="local-6989586621679389614"><span class="annot"><span class="annottext">Int -&gt; UpdateDeviceInstance -&gt; ShowS
 [UpdateDeviceInstance] -&gt; ShowS
 UpdateDeviceInstance -&gt; String
 (Int -&gt; UpdateDeviceInstance -&gt; ShowS)
@@ -124,10 +124,10 @@ $cfrom :: forall x. UpdateDeviceInstance -&gt; Rep UpdateDeviceInstance x
 </span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'labels', 'updateDeviceInstance_labels' - An array of strings that you want to associate with the device instance.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'profileArn', 'updateDeviceInstance_profileArn' - The ARN of the profile that you want to associate with the device</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'profileArn', 'updateDeviceInstance_profileArn' - The ARN of the profile that you want to associate with the device</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'labels', 'updateDeviceInstance_labels' - An array of strings that you want to associate with the device instance.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- 'arn', 'updateDeviceInstance_arn' - The Amazon Resource Name (ARN) of the device instance.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#newUpdateDeviceInstance"><span class="hs-identifier hs-type">newUpdateDeviceInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -135,26 +135,47 @@ $cfrom :: forall x. UpdateDeviceInstance -&gt; Rep UpdateDeviceInstance x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span><span>
 </span><span id="line-81"></span><span id="newUpdateDeviceInstance"><span class="annot"><span class="annottext">newUpdateDeviceInstance :: Text -&gt; UpdateDeviceInstance
-</span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#newUpdateDeviceInstance"><span class="hs-identifier hs-var hs-var">newUpdateDeviceInstance</span></a></span></span><span> </span><span id="local-6989586621679389319"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389319"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">UpdateDeviceInstance' :: Maybe [Text] -&gt; Maybe Text -&gt; Text -&gt; UpdateDeviceInstance
+</span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#newUpdateDeviceInstance"><span class="hs-identifier hs-var hs-var">newUpdateDeviceInstance</span></a></span></span><span> </span><span id="local-6989586621679389605"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389605"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">UpdateDeviceInstance' :: Maybe Text -&gt; Maybe [Text] -&gt; Text -&gt; UpdateDeviceInstance
 </span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance%27"><span class="hs-identifier hs-type">UpdateDeviceInstance'</span></a></span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:labels:UpdateDeviceInstance' :: Maybe [Text]
-</span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#%24sel%3Alabels%3AUpdateDeviceInstance%27"><span class="hs-identifier hs-var">labels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:profileArn:UpdateDeviceInstance' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#%24sel%3AprofileArn%3AUpdateDeviceInstance%27"><span class="hs-identifier hs-var">profileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:profileArn:UpdateDeviceInstance' :: Maybe Text
-</span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#%24sel%3AprofileArn%3AUpdateDeviceInstance%27"><span class="hs-identifier hs-var">profileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:labels:UpdateDeviceInstance' :: Maybe [Text]
+</span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#%24sel%3Alabels%3AUpdateDeviceInstance%27"><span class="hs-identifier hs-var">labels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:UpdateDeviceInstance' :: Text
 </span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#%24sel%3Aarn%3AUpdateDeviceInstance%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389319"><span class="hs-identifier hs-var">pArn_</span></a></span><span>
+</span><a href="#local-6989586621679389605"><span class="hs-identifier hs-var">pArn_</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | An array of strings that you want to associate with the device instance.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#updateDeviceInstance_labels"><span class="hs-identifier hs-type">updateDeviceInstance_labels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="updateDeviceInstance_labels"><span class="annot"><span class="annottext">updateDeviceInstance_labels :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-88"></span><span class="hs-comment">-- | The ARN of the profile that you want to associate with the device</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#updateDeviceInstance_profileArn"><span class="hs-identifier hs-type">updateDeviceInstance_profileArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="updateDeviceInstance_profileArn"><span class="annot"><span class="annottext">updateDeviceInstance_profileArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDeviceInstance -&gt; f UpdateDeviceInstance
+</span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#updateDeviceInstance_profileArn"><span class="hs-identifier hs-var hs-var">updateDeviceInstance_profileArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDeviceInstance -&gt; Maybe Text)
+-&gt; (UpdateDeviceInstance -&gt; Maybe Text -&gt; UpdateDeviceInstance)
+-&gt; Lens
+     UpdateDeviceInstance UpdateDeviceInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance%27"><span class="hs-identifier hs-type">UpdateDeviceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389602"><span class="annot"><span class="annottext">Maybe Text
+profileArn :: Maybe Text
+$sel:profileArn:UpdateDeviceInstance' :: UpdateDeviceInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679389602"><span class="hs-identifier hs-var hs-var">profileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389602"><span class="hs-identifier hs-var">profileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389601"><span class="annot"><span class="annottext">s :: UpdateDeviceInstance
+</span><a href="#local-6989586621679389601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance%27"><span class="hs-identifier hs-type">UpdateDeviceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389600"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceInstance
+</span><a href="#local-6989586621679389601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileArn:UpdateDeviceInstance' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#%24sel%3AprofileArn%3AUpdateDeviceInstance%27"><span class="hs-identifier hs-var">profileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | An array of strings that you want to associate with the device instance.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#updateDeviceInstance_labels"><span class="hs-identifier hs-type">updateDeviceInstance_labels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="updateDeviceInstance_labels"><span class="annot"><span class="annottext">updateDeviceInstance_labels :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; UpdateDeviceInstance -&gt; f UpdateDeviceInstance
 </span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#updateDeviceInstance_labels"><span class="hs-identifier hs-var hs-var">updateDeviceInstance_labels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDeviceInstance -&gt; Maybe [Text])
 -&gt; (UpdateDeviceInstance -&gt; Maybe [Text] -&gt; UpdateDeviceInstance)
@@ -164,16 +185,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance%27"><span class="hs-identifier hs-type">UpdateDeviceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389316"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance%27"><span class="hs-identifier hs-type">UpdateDeviceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389599"><span class="annot"><span class="annottext">Maybe [Text]
 labels :: Maybe [Text]
 $sel:labels:UpdateDeviceInstance' :: UpdateDeviceInstance -&gt; Maybe [Text]
-</span><a href="#local-6989586621679389316"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679389316"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389315"><span class="annot"><span class="annottext">s :: UpdateDeviceInstance
-</span><a href="#local-6989586621679389315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance%27"><span class="hs-identifier hs-type">UpdateDeviceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389314"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679389314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceInstance
-</span><a href="#local-6989586621679389315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labels:UpdateDeviceInstance' :: Maybe [Text]
+</span><a href="#local-6989586621679389599"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679389599"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389598"><span class="annot"><span class="annottext">s :: UpdateDeviceInstance
+</span><a href="#local-6989586621679389598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance%27"><span class="hs-identifier hs-type">UpdateDeviceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389597"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679389597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceInstance
+</span><a href="#local-6989586621679389598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labels:UpdateDeviceInstance' :: Maybe [Text]
 </span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#%24sel%3Alabels%3AUpdateDeviceInstance%27"><span class="hs-identifier hs-var">labels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679389314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679389597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; UpdateDeviceInstance -&gt; f UpdateDeviceInstance)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -187,29 +208,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | The ARN of the profile that you want to associate with the device</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- instance.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#updateDeviceInstance_profileArn"><span class="hs-identifier hs-type">updateDeviceInstance_profileArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="updateDeviceInstance_profileArn"><span class="annot"><span class="annottext">updateDeviceInstance_profileArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UpdateDeviceInstance -&gt; f UpdateDeviceInstance
-</span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#updateDeviceInstance_profileArn"><span class="hs-identifier hs-var hs-var">updateDeviceInstance_profileArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDeviceInstance -&gt; Maybe Text)
--&gt; (UpdateDeviceInstance -&gt; Maybe Text -&gt; UpdateDeviceInstance)
--&gt; Lens
-     UpdateDeviceInstance UpdateDeviceInstance (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance%27"><span class="hs-identifier hs-type">UpdateDeviceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389310"><span class="annot"><span class="annottext">Maybe Text
-profileArn :: Maybe Text
-$sel:profileArn:UpdateDeviceInstance' :: UpdateDeviceInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679389310"><span class="hs-identifier hs-var hs-var">profileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389310"><span class="hs-identifier hs-var">profileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389309"><span class="annot"><span class="annottext">s :: UpdateDeviceInstance
-</span><a href="#local-6989586621679389309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance%27"><span class="hs-identifier hs-type">UpdateDeviceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389308"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceInstance
-</span><a href="#local-6989586621679389309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileArn:UpdateDeviceInstance' :: Maybe Text
-</span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#%24sel%3AprofileArn%3AUpdateDeviceInstance%27"><span class="hs-identifier hs-var">profileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the device instance.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#updateDeviceInstance_arn"><span class="hs-identifier hs-type">updateDeviceInstance_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -218,27 +218,27 @@ $sel:profileArn:UpdateDeviceInstance' :: UpdateDeviceInstance -&gt; Maybe Text
 -&gt; (UpdateDeviceInstance -&gt; Text -&gt; UpdateDeviceInstance)
 -&gt; Lens UpdateDeviceInstance UpdateDeviceInstance Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance%27"><span class="hs-identifier hs-type">UpdateDeviceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389307"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance%27"><span class="hs-identifier hs-type">UpdateDeviceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389593"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:UpdateDeviceInstance' :: UpdateDeviceInstance -&gt; Text
-</span><a href="#local-6989586621679389307"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389307"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389306"><span class="annot"><span class="annottext">s :: UpdateDeviceInstance
-</span><a href="#local-6989586621679389306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance%27"><span class="hs-identifier hs-type">UpdateDeviceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389305"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceInstance
-</span><a href="#local-6989586621679389306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:UpdateDeviceInstance' :: Text
+</span><a href="#local-6989586621679389593"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389593"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389592"><span class="annot"><span class="annottext">s :: UpdateDeviceInstance
+</span><a href="#local-6989586621679389592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance%27"><span class="hs-identifier hs-type">UpdateDeviceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389591"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceInstance
+</span><a href="#local-6989586621679389592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:UpdateDeviceInstance' :: Text
 </span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#%24sel%3Aarn%3AUpdateDeviceInstance%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse"><span class="hs-identifier hs-type">UpdateDeviceInstanceResponse</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679389301"><span class="annot"><span class="annottext">request :: UpdateDeviceInstance -&gt; Request UpdateDeviceInstance
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679389587"><span class="annot"><span class="annottext">request :: UpdateDeviceInstance -&gt; Request UpdateDeviceInstance
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDeviceInstance -&gt; Request UpdateDeviceInstance
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679389297"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679389583"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateDeviceInstance
 -&gt; ClientResponse ClientBody
@@ -264,10 +264,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389294"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389294"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389293"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679389293"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389292"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679389292"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389580"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389580"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389579"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679389579"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389578"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679389578"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe DeviceInstance -&gt; Int -&gt; UpdateDeviceInstanceResponse
 </span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse%27"><span class="hs-identifier hs-var">UpdateDeviceInstanceResponse'</span></a></span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DeviceInstance -&gt; Int -&gt; UpdateDeviceInstanceResponse)
@@ -275,7 +275,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateDeviceInstanceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679389292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DeviceInstance)
+</span><a href="#local-6989586621679389578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DeviceInstance)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deviceInstance&quot;</span></span><span class="hs-special">)</span><span>
@@ -287,15 +287,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389294"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389580"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389284"><span id="local-6989586621679389286"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389570"><span id="local-6989586621679389572"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389281"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389567"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679389277"><span class="annot"><span class="annottext">toHeaders :: UpdateDeviceInstance -&gt; ResponseHeaders
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679389563"><span class="annot"><span class="annottext">toHeaders :: UpdateDeviceInstance -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateDeviceInstance -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -322,56 +322,56 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389267"><span id="local-6989586621679389269"><span id="local-6989586621679389271"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679389265"><span class="annot"><span class="annottext">toJSON :: UpdateDeviceInstance -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance%27"><span class="hs-identifier hs-type">UpdateDeviceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389261"><span id="local-6989586621679389262"><span id="local-6989586621679389263"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389553"><span id="local-6989586621679389555"><span id="local-6989586621679389557"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679389551"><span class="annot"><span class="annottext">toJSON :: UpdateDeviceInstance -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance%27"><span class="hs-identifier hs-type">UpdateDeviceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389547"><span id="local-6989586621679389548"><span id="local-6989586621679389549"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 Text
 arn :: Text
-profileArn :: Maybe Text
 labels :: Maybe [Text]
+profileArn :: Maybe Text
 $sel:arn:UpdateDeviceInstance' :: UpdateDeviceInstance -&gt; Text
-$sel:profileArn:UpdateDeviceInstance' :: UpdateDeviceInstance -&gt; Maybe Text
 $sel:labels:UpdateDeviceInstance' :: UpdateDeviceInstance -&gt; Maybe [Text]
-</span><a href="#local-6989586621679389261"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:profileArn:UpdateDeviceInstance' :: UpdateDeviceInstance -&gt; Maybe Text
+</span><a href="#local-6989586621679389547"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;labels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679389263"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;profileArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389262"><span class="hs-identifier hs-var">profileArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389549"><span class="hs-identifier hs-var">profileArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;labels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679389548"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389261"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389547"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679389255"><span class="annot"><span class="annottext">toPath :: UpdateDeviceInstance -&gt; ByteString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679389541"><span class="annot"><span class="annottext">toPath :: UpdateDeviceInstance -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateDeviceInstance -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstance"><span class="hs-identifier hs-type">UpdateDeviceInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679389251"><span class="annot"><span class="annottext">toQuery :: UpdateDeviceInstance -&gt; QueryString
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679389537"><span class="annot"><span class="annottext">toQuery :: UpdateDeviceInstance -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDeviceInstance -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -379,7 +379,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newUpdateDeviceInstanceResponse' smart constructor.</span><span>
-</span><span id="line-150"></span><span id="local-6989586621679389248"><span id="local-6989586621679389249"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDeviceInstanceResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse"><span class="hs-identifier hs-var">UpdateDeviceInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDeviceInstanceResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse%27"><span class="hs-identifier hs-var">UpdateDeviceInstanceResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span id="local-6989586621679389534"><span id="local-6989586621679389535"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDeviceInstanceResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse"><span class="hs-identifier hs-var">UpdateDeviceInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDeviceInstanceResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse%27"><span class="hs-identifier hs-var">UpdateDeviceInstanceResponse'</span></a></span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that contains information about your device instance.</span><span>
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3AdeviceInstance%3AUpdateDeviceInstanceResponse%27"><span class="annot"><span class="annottext">UpdateDeviceInstanceResponse -&gt; Maybe DeviceInstance
 </span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#%24sel%3AdeviceInstance%3AUpdateDeviceInstanceResponse%27"><span class="hs-identifier hs-var hs-var">deviceInstance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceInstance.html#DeviceInstance"><span class="hs-identifier hs-type">DeviceInstance</span></a></span><span class="hs-special">,</span><span>
@@ -387,7 +387,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateDeviceInstanceResponse%27"><span class="annot"><span class="annottext">UpdateDeviceInstanceResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#%24sel%3AhttpStatus%3AUpdateDeviceInstanceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389242"><span id="local-6989586621679389244"><span class="annot"><span class="annottext">UpdateDeviceInstanceResponse
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389528"><span id="local-6989586621679389530"><span class="annot"><span class="annottext">UpdateDeviceInstanceResponse
 -&gt; UpdateDeviceInstanceResponse -&gt; Bool
 (UpdateDeviceInstanceResponse
  -&gt; UpdateDeviceInstanceResponse -&gt; Bool)
@@ -403,7 +403,7 @@ $c/= :: UpdateDeviceInstanceResponse
 -&gt; UpdateDeviceInstanceResponse -&gt; Bool
 $c== :: UpdateDeviceInstanceResponse
 -&gt; UpdateDeviceInstanceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389234"><span id="local-6989586621679389236"><span id="local-6989586621679389238"><span id="local-6989586621679389240"><span class="annot"><span class="annottext">ReadPrec [UpdateDeviceInstanceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389520"><span id="local-6989586621679389522"><span id="local-6989586621679389524"><span id="local-6989586621679389526"><span class="annot"><span class="annottext">ReadPrec [UpdateDeviceInstanceResponse]
 ReadPrec UpdateDeviceInstanceResponse
 Int -&gt; ReadS UpdateDeviceInstanceResponse
 ReadS [UpdateDeviceInstanceResponse]
@@ -423,7 +423,7 @@ readList :: ReadS [UpdateDeviceInstanceResponse]
 $creadList :: ReadS [UpdateDeviceInstanceResponse]
 readsPrec :: Int -&gt; ReadS UpdateDeviceInstanceResponse
 $creadsPrec :: Int -&gt; ReadS UpdateDeviceInstanceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389228"><span id="local-6989586621679389230"><span id="local-6989586621679389232"><span class="annot"><span class="annottext">Int -&gt; UpdateDeviceInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389514"><span id="local-6989586621679389516"><span id="local-6989586621679389518"><span class="annot"><span class="annottext">Int -&gt; UpdateDeviceInstanceResponse -&gt; ShowS
 [UpdateDeviceInstanceResponse] -&gt; ShowS
 UpdateDeviceInstanceResponse -&gt; String
 (Int -&gt; UpdateDeviceInstanceResponse -&gt; ShowS)
@@ -471,8 +471,8 @@ UpdateDeviceInstanceResponse -&gt; Rep UpdateDeviceInstanceResponse x
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse"><span class="hs-identifier hs-type">UpdateDeviceInstanceResponse</span></a></span><span>
 </span><span id="line-173"></span><span id="newUpdateDeviceInstanceResponse"><span class="annot"><span class="annottext">newUpdateDeviceInstanceResponse :: Int -&gt; UpdateDeviceInstanceResponse
-</span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#newUpdateDeviceInstanceResponse"><span class="hs-identifier hs-var hs-var">newUpdateDeviceInstanceResponse</span></a></span></span><span> </span><span id="local-6989586621679389225"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389225"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#newUpdateDeviceInstanceResponse"><span class="hs-identifier hs-var hs-var">newUpdateDeviceInstanceResponse</span></a></span></span><span> </span><span id="local-6989586621679389511"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389511"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">UpdateDeviceInstanceResponse' :: Maybe DeviceInstance -&gt; Int -&gt; UpdateDeviceInstanceResponse
 </span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse%27"><span class="hs-identifier hs-type">UpdateDeviceInstanceResponse'</span></a></span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceInstance:UpdateDeviceInstanceResponse' :: Maybe DeviceInstance
@@ -482,7 +482,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDeviceInstanceResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#%24sel%3AhttpStatus%3AUpdateDeviceInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389225"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679389511"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | An object that contains information about your device instance.</span><span>
@@ -498,16 +498,16 @@ forall a. Maybe a
      (Maybe DeviceInstance)
      (Maybe DeviceInstance)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse%27"><span class="hs-identifier hs-type">UpdateDeviceInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389224"><span class="annot"><span class="annottext">Maybe DeviceInstance
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse%27"><span class="hs-identifier hs-type">UpdateDeviceInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389510"><span class="annot"><span class="annottext">Maybe DeviceInstance
 deviceInstance :: Maybe DeviceInstance
 $sel:deviceInstance:UpdateDeviceInstanceResponse' :: UpdateDeviceInstanceResponse -&gt; Maybe DeviceInstance
-</span><a href="#local-6989586621679389224"><span class="hs-identifier hs-var hs-var">deviceInstance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceInstance
-</span><a href="#local-6989586621679389224"><span class="hs-identifier hs-var">deviceInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389223"><span class="annot"><span class="annottext">s :: UpdateDeviceInstanceResponse
-</span><a href="#local-6989586621679389223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse%27"><span class="hs-identifier hs-type">UpdateDeviceInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389222"><span class="annot"><span class="annottext">Maybe DeviceInstance
-</span><a href="#local-6989586621679389222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceInstanceResponse
-</span><a href="#local-6989586621679389223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceInstance:UpdateDeviceInstanceResponse' :: Maybe DeviceInstance
+</span><a href="#local-6989586621679389510"><span class="hs-identifier hs-var hs-var">deviceInstance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceInstance
+</span><a href="#local-6989586621679389510"><span class="hs-identifier hs-var">deviceInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389509"><span class="annot"><span class="annottext">s :: UpdateDeviceInstanceResponse
+</span><a href="#local-6989586621679389509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse%27"><span class="hs-identifier hs-type">UpdateDeviceInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389508"><span class="annot"><span class="annottext">Maybe DeviceInstance
+</span><a href="#local-6989586621679389508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceInstanceResponse
+</span><a href="#local-6989586621679389509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceInstance:UpdateDeviceInstanceResponse' :: Maybe DeviceInstance
 </span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#%24sel%3AdeviceInstance%3AUpdateDeviceInstanceResponse%27"><span class="hs-identifier hs-var">deviceInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceInstance
-</span><a href="#local-6989586621679389222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse"><span class="hs-identifier hs-type">UpdateDeviceInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse"><span class="hs-identifier hs-type">UpdateDeviceInstanceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-185"></span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#updateDeviceInstanceResponse_httpStatus"><span class="hs-identifier hs-type">updateDeviceInstanceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse"><span class="hs-identifier hs-type">UpdateDeviceInstanceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -519,16 +519,16 @@ $sel:deviceInstance:UpdateDeviceInstanceResponse' :: UpdateDeviceInstanceRespons
 -&gt; Lens
      UpdateDeviceInstanceResponse UpdateDeviceInstanceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse%27"><span class="hs-identifier hs-type">UpdateDeviceInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389221"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse%27"><span class="hs-identifier hs-type">UpdateDeviceInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389507"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateDeviceInstanceResponse' :: UpdateDeviceInstanceResponse -&gt; Int
-</span><a href="#local-6989586621679389221"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389221"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389220"><span class="annot"><span class="annottext">s :: UpdateDeviceInstanceResponse
-</span><a href="#local-6989586621679389220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse%27"><span class="hs-identifier hs-type">UpdateDeviceInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389219"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceInstanceResponse
-</span><a href="#local-6989586621679389220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDeviceInstanceResponse' :: Int
+</span><a href="#local-6989586621679389507"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389507"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389506"><span class="annot"><span class="annottext">s :: UpdateDeviceInstanceResponse
+</span><a href="#local-6989586621679389506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse%27"><span class="hs-identifier hs-type">UpdateDeviceInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389505"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceInstanceResponse
+</span><a href="#local-6989586621679389506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDeviceInstanceResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#%24sel%3AhttpStatus%3AUpdateDeviceInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse"><span class="hs-identifier hs-type">UpdateDeviceInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse"><span class="hs-identifier hs-type">UpdateDeviceInstanceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389217"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse"><span class="hs-identifier hs-type">UpdateDeviceInstanceResponse</span></a></span></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateDeviceInstance.html#UpdateDeviceInstanceResponse"><span class="hs-identifier hs-type">UpdateDeviceInstanceResponse</span></a></span></span><span>
 </span><span id="line-189"></span></pre></body></html>

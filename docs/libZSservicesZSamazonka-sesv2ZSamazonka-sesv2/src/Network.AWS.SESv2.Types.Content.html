@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- character set specification.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newContent' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679323084"><span id="local-6989586621679323085"></span></span><span class="hs-keyword">data</span><span> </span><span id="Content"><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-var">Content</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Content%27"><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content%27"><span class="hs-identifier hs-var">Content'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679325383"><span id="local-6989586621679325384"></span></span><span class="hs-keyword">data</span><span> </span><span id="Content"><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-var">Content</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Content%27"><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content%27"><span class="hs-identifier hs-var">Content'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The character set for the content. Because of the constraints of the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- SMTP protocol, Amazon SES uses 7-bit ASCII by default. If the text</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- includes characters outside of the ASCII range, you have to specify a</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Adata%27%3AContent%27"><span class="annot"><span class="annottext">Content -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.Content.html#%24sel%3Adata%27%3AContent%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323077"><span id="local-6989586621679323079"><span class="annot"><span class="annottext">Content -&gt; Content -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325376"><span id="local-6989586621679325378"><span class="annot"><span class="annottext">Content -&gt; Content -&gt; Bool
 (Content -&gt; Content -&gt; Bool)
 -&gt; (Content -&gt; Content -&gt; Bool) -&gt; Eq Content
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Content -&gt; Content -&gt; Bool
 == :: Content -&gt; Content -&gt; Bool
 $c== :: Content -&gt; Content -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323068"><span id="local-6989586621679323070"><span id="local-6989586621679323072"><span id="local-6989586621679323074"><span class="annot"><span class="annottext">ReadPrec [Content]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325367"><span id="local-6989586621679325369"><span id="local-6989586621679325371"><span id="local-6989586621679325373"><span class="annot"><span class="annottext">ReadPrec [Content]
 ReadPrec Content
 Int -&gt; ReadS Content
 ReadS [Content]
@@ -67,7 +67,7 @@ readList :: ReadS [Content]
 $creadList :: ReadS [Content]
 readsPrec :: Int -&gt; ReadS Content
 $creadsPrec :: Int -&gt; ReadS Content
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323061"><span id="local-6989586621679323063"><span id="local-6989586621679323065"><span class="annot"><span class="annottext">Int -&gt; Content -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325360"><span id="local-6989586621679325362"><span id="local-6989586621679325364"><span class="annot"><span class="annottext">Int -&gt; Content -&gt; ShowS
 [Content] -&gt; ShowS
 Content -&gt; String
 (Int -&gt; Content -&gt; ShowS)
@@ -110,15 +110,15 @@ $cfrom :: forall x. Content -&gt; Rep Content x
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span>
 </span><span id="line-61"></span><span id="newContent"><span class="annot"><span class="annottext">newContent :: Text -&gt; Content
-</span><a href="Network.AWS.SESv2.Types.Content.html#newContent"><span class="hs-identifier hs-var hs-var">newContent</span></a></span></span><span> </span><span id="local-6989586621679323055"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323055"><span class="hs-identifier hs-var">pData_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.Types.Content.html#newContent"><span class="hs-identifier hs-var hs-var">newContent</span></a></span></span><span> </span><span id="local-6989586621679325354"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679325354"><span class="hs-identifier hs-var">pData_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">Content' :: Maybe Text -&gt; Text -&gt; Content
 </span><a href="Network.AWS.SESv2.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:charset:Content' :: Maybe Text
 </span><a href="Network.AWS.SESv2.Types.Content.html#%24sel%3Acharset%3AContent%27"><span class="hs-identifier hs-var">charset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:data':Content' :: Text
 </span><a href="Network.AWS.SESv2.Types.Content.html#%24sel%3Adata%27%3AContent%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323055"><span class="hs-identifier hs-var">pData_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679325354"><span class="hs-identifier hs-var">pData_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The character set for the content. Because of the constraints of the</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- SMTP protocol, Amazon SES uses 7-bit ASCII by default. If the text</span><span>
@@ -131,16 +131,16 @@ forall a. Maybe a
 -&gt; (Content -&gt; Maybe Text -&gt; Content)
 -&gt; Lens Content Content (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323051"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325350"><span class="annot"><span class="annottext">Maybe Text
 charset :: Maybe Text
 $sel:charset:Content' :: Content -&gt; Maybe Text
-</span><a href="#local-6989586621679323051"><span class="hs-identifier hs-var hs-var">charset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679323051"><span class="hs-identifier hs-var">charset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323050"><span class="annot"><span class="annottext">s :: Content
-</span><a href="#local-6989586621679323050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323049"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679323049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Content
-</span><a href="#local-6989586621679323050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:charset:Content' :: Maybe Text
+</span><a href="#local-6989586621679325350"><span class="hs-identifier hs-var hs-var">charset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325350"><span class="hs-identifier hs-var">charset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325349"><span class="annot"><span class="annottext">s :: Content
+</span><a href="#local-6989586621679325349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325348"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Content
+</span><a href="#local-6989586621679325349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:charset:Content' :: Maybe Text
 </span><a href="Network.AWS.SESv2.Types.Content.html#%24sel%3Acharset%3AContent%27"><span class="hs-identifier hs-var">charset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679323049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679325348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The content of the message itself.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#content_data"><span class="hs-identifier hs-type">content_data</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -148,30 +148,30 @@ $sel:charset:Content' :: Content -&gt; Maybe Text
 </span><a href="Network.AWS.SESv2.Types.Content.html#content_data"><span class="hs-identifier hs-var hs-var">content_data</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Content -&gt; Text)
 -&gt; (Content -&gt; Text -&gt; Content) -&gt; Lens Content Content Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323047"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325346"><span class="annot"><span class="annottext">Text
 data' :: Text
 $sel:data':Content' :: Content -&gt; Text
-</span><a href="#local-6989586621679323047"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323047"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323046"><span class="annot"><span class="annottext">s :: Content
-</span><a href="#local-6989586621679323046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323045"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Content
-</span><a href="#local-6989586621679323046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':Content' :: Text
+</span><a href="#local-6989586621679325346"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679325346"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325345"><span class="annot"><span class="annottext">s :: Content
+</span><a href="#local-6989586621679325345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325344"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679325344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Content
+</span><a href="#local-6989586621679325345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':Content' :: Text
 </span><a href="Network.AWS.SESv2.Types.Content.html#%24sel%3Adata%27%3AContent%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679325344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323041"><span id="local-6989586621679323043"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325340"><span id="local-6989586621679325342"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323038"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325337"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323030"><span id="local-6989586621679323032"><span id="local-6989586621679323034"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679323028"><span class="annot"><span class="annottext">toJSON :: Content -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323025"><span id="local-6989586621679323026"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325329"><span id="local-6989586621679325331"><span id="local-6989586621679325333"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679325327"><span class="annot"><span class="annottext">toJSON :: Content -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325324"><span id="local-6989586621679325325"><span class="annot"><span class="annottext">Maybe Text
 Text
 data' :: Text
 charset :: Maybe Text
 $sel:data':Content' :: Content -&gt; Text
 $sel:charset:Content' :: Content -&gt; Maybe Text
-</span><a href="#local-6989586621679323025"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679325324"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -183,14 +183,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679323026"><span class="hs-identifier hs-var">charset</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679325325"><span class="hs-identifier hs-var">charset</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Data&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323025"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679325324"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span></pre></body></html>

@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679807789"><span id="local-6989586621679807790"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PatchProperty"><span class="annot"><a href="Network.AWS.SSM.Types.PatchProperty.html#PatchProperty"><span class="hs-identifier hs-var">PatchProperty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchProperty%27"><span class="annot"><a href="Network.AWS.SSM.Types.PatchProperty.html#PatchProperty%27"><span class="hs-identifier hs-var">PatchProperty'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679809473"><span id="local-6989586621679809474"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PatchProperty"><span class="annot"><a href="Network.AWS.SSM.Types.PatchProperty.html#PatchProperty"><span class="hs-identifier hs-var">PatchProperty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchProperty%27"><span class="annot"><a href="Network.AWS.SSM.Types.PatchProperty.html#PatchProperty%27"><span class="hs-identifier hs-var">PatchProperty'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPatchProperty"><span class="annot"><span class="annottext">PatchProperty -&gt; Text
 </span><a href="Network.AWS.SSM.Types.PatchProperty.html#fromPatchProperty"><span class="hs-identifier hs-var hs-var">fromPatchProperty</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679807781"><span id="local-6989586621679807783"><span id="local-6989586621679807785"><span class="annot"><span class="annottext">Int -&gt; PatchProperty -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679809465"><span id="local-6989586621679809467"><span id="local-6989586621679809469"><span class="annot"><span class="annottext">Int -&gt; PatchProperty -&gt; ShowS
 [PatchProperty] -&gt; ShowS
 PatchProperty -&gt; String
 (Int -&gt; PatchProperty -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: PatchProperty -&gt; String
 showsPrec :: Int -&gt; PatchProperty -&gt; ShowS
 $cshowsPrec :: Int -&gt; PatchProperty -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679807772"><span id="local-6989586621679807774"><span id="local-6989586621679807776"><span id="local-6989586621679807778"><span class="annot"><span class="annottext">ReadPrec [PatchProperty]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679809456"><span id="local-6989586621679809458"><span id="local-6989586621679809460"><span id="local-6989586621679809462"><span class="annot"><span class="annottext">ReadPrec [PatchProperty]
 ReadPrec PatchProperty
 Int -&gt; ReadS PatchProperty
 ReadS [PatchProperty]
@@ -76,7 +76,7 @@ $creadList :: ReadS [PatchProperty]
 readsPrec :: Int -&gt; ReadS PatchProperty
 $creadsPrec :: Int -&gt; ReadS PatchProperty
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679807767"><span id="local-6989586621679807769"><span class="annot"><span class="annottext">PatchProperty -&gt; PatchProperty -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679809451"><span id="local-6989586621679809453"><span class="annot"><span class="annottext">PatchProperty -&gt; PatchProperty -&gt; Bool
 (PatchProperty -&gt; PatchProperty -&gt; Bool)
 -&gt; (PatchProperty -&gt; PatchProperty -&gt; Bool) -&gt; Eq PatchProperty
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: PatchProperty -&gt; PatchProperty -&gt; Bool
 == :: PatchProperty -&gt; PatchProperty -&gt; Bool
 $c== :: PatchProperty -&gt; PatchProperty -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679807751"><span id="local-6989586621679807753"><span id="local-6989586621679807755"><span id="local-6989586621679807757"><span id="local-6989586621679807759"><span id="local-6989586621679807761"><span id="local-6989586621679807763"><span class="annot"><span class="annottext">Eq PatchProperty
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679809435"><span id="local-6989586621679809437"><span id="local-6989586621679809439"><span id="local-6989586621679809441"><span id="local-6989586621679809443"><span id="local-6989586621679809445"><span id="local-6989586621679809447"><span class="annot"><span class="annottext">Eq PatchProperty
 Eq PatchProperty
 -&gt; (PatchProperty -&gt; PatchProperty -&gt; Ordering)
 -&gt; (PatchProperty -&gt; PatchProperty -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. PatchProperty -&gt; Rep PatchProperty x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679807743"><span id="local-6989586621679807745"><span class="annot"><span class="annottext">Int -&gt; PatchProperty -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679809427"><span id="local-6989586621679809429"><span class="annot"><span class="annottext">Int -&gt; PatchProperty -&gt; Int
 PatchProperty -&gt; Int
 (Int -&gt; PatchProperty -&gt; Int)
 -&gt; (PatchProperty -&gt; Int) -&gt; Hashable PatchProperty
@@ -146,49 +146,49 @@ $chash :: PatchProperty -&gt; Int
 hashWithSalt :: Int -&gt; PatchProperty -&gt; Int
 $chashWithSalt :: Int -&gt; PatchProperty -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679807740"><span class="annot"><span class="annottext">PatchProperty -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679809424"><span class="annot"><span class="annottext">PatchProperty -&gt; ()
 (PatchProperty -&gt; ()) -&gt; NFData PatchProperty
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PatchProperty -&gt; ()
 $crnf :: PatchProperty -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679807737"><span class="annot"><span class="annottext">Text -&gt; Either String PatchProperty
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679809421"><span class="annot"><span class="annottext">Text -&gt; Either String PatchProperty
 (Text -&gt; Either String PatchProperty) -&gt; FromText PatchProperty
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PatchProperty
 $cfromText :: Text -&gt; Either String PatchProperty
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679807734"><span class="annot"><span class="annottext">PatchProperty -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679809418"><span class="annot"><span class="annottext">PatchProperty -&gt; Text
 (PatchProperty -&gt; Text) -&gt; ToText PatchProperty
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PatchProperty -&gt; Text
 $ctoText :: PatchProperty -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679807731"><span class="annot"><span class="annottext">PatchProperty -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679809415"><span class="annot"><span class="annottext">PatchProperty -&gt; ByteString
 (PatchProperty -&gt; ByteString) -&gt; ToByteString PatchProperty
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PatchProperty -&gt; ByteString
 $ctoBS :: PatchProperty -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679807728"><span class="annot"><span class="annottext">PatchProperty -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679809412"><span class="annot"><span class="annottext">PatchProperty -&gt; ByteStringBuilder
 (PatchProperty -&gt; ByteStringBuilder) -&gt; ToLog PatchProperty
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PatchProperty -&gt; ByteStringBuilder
 $cbuild :: PatchProperty -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679807725"><span class="annot"><span class="annottext">HeaderName -&gt; PatchProperty -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679809409"><span class="annot"><span class="annottext">HeaderName -&gt; PatchProperty -&gt; [Header]
 (HeaderName -&gt; PatchProperty -&gt; [Header]) -&gt; ToHeader PatchProperty
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PatchProperty -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PatchProperty -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679807722"><span class="annot"><span class="annottext">PatchProperty -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679809406"><span class="annot"><span class="annottext">PatchProperty -&gt; QueryString
 (PatchProperty -&gt; QueryString) -&gt; ToQuery PatchProperty
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PatchProperty -&gt; QueryString
 $ctoQuery :: PatchProperty -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679807717"><span id="local-6989586621679807719"><span class="annot"><span class="annottext">Value -&gt; Parser [PatchProperty]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679809401"><span id="local-6989586621679809403"><span class="annot"><span class="annottext">Value -&gt; Parser [PatchProperty]
 Value -&gt; Parser PatchProperty
 (Value -&gt; Parser PatchProperty)
 -&gt; (Value -&gt; Parser [PatchProperty]) -&gt; FromJSON PatchProperty
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [PatchProperty]
 parseJSON :: Value -&gt; Parser PatchProperty
 $cparseJSON :: Value -&gt; Parser PatchProperty
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679807712"><span id="local-6989586621679807714"><span class="annot"><span class="annottext">FromJSONKeyFunction [PatchProperty]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679809396"><span id="local-6989586621679809398"><span class="annot"><span class="annottext">FromJSONKeyFunction [PatchProperty]
 FromJSONKeyFunction PatchProperty
 FromJSONKeyFunction PatchProperty
 -&gt; FromJSONKeyFunction [PatchProperty] -&gt; FromJSONKey PatchProperty
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PatchProperty]
 fromJSONKey :: FromJSONKeyFunction PatchProperty
 $cfromJSONKey :: FromJSONKeyFunction PatchProperty
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679807703"><span id="local-6989586621679807705"><span id="local-6989586621679807707"><span id="local-6989586621679807709"><span class="annot"><span class="annottext">[PatchProperty] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679809387"><span id="local-6989586621679809389"><span id="local-6989586621679809391"><span id="local-6989586621679809393"><span class="annot"><span class="annottext">[PatchProperty] -&gt; Encoding
 [PatchProperty] -&gt; Value
 PatchProperty -&gt; Encoding
 PatchProperty -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: PatchProperty -&gt; Encoding
 toJSON :: PatchProperty -&gt; Value
 $ctoJSON :: PatchProperty -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679807698"><span id="local-6989586621679807700"><span class="annot"><span class="annottext">ToJSONKeyFunction [PatchProperty]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679809382"><span id="local-6989586621679809384"><span class="annot"><span class="annottext">ToJSONKeyFunction [PatchProperty]
 ToJSONKeyFunction PatchProperty
 ToJSONKeyFunction PatchProperty
 -&gt; ToJSONKeyFunction [PatchProperty] -&gt; ToJSONKey PatchProperty
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PatchProperty]
 toJSONKey :: ToJSONKeyFunction PatchProperty
 $ctoJSONKey :: ToJSONKeyFunction PatchProperty
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679807695"><span class="annot"><span class="annottext">[Node] -&gt; Either String PatchProperty
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679809379"><span class="annot"><span class="annottext">[Node] -&gt; Either String PatchProperty
 ([Node] -&gt; Either String PatchProperty) -&gt; FromXML PatchProperty
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PatchProperty
 $cparseXML :: [Node] -&gt; Either String PatchProperty
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679807692"><span class="annot"><span class="annottext">PatchProperty -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679809376"><span class="annot"><span class="annottext">PatchProperty -&gt; XML
 (PatchProperty -&gt; XML) -&gt; ToXML PatchProperty
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PatchProperty -&gt; XML

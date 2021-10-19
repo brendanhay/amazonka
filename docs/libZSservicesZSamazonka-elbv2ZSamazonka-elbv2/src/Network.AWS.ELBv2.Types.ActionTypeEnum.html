@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679245899"><span id="local-6989586621679245900"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActionTypeEnum"><span class="annot"><a href="Network.AWS.ELBv2.Types.ActionTypeEnum.html#ActionTypeEnum"><span class="hs-identifier hs-var">ActionTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionTypeEnum%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.ActionTypeEnum.html#ActionTypeEnum%27"><span class="hs-identifier hs-var">ActionTypeEnum'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679248594"><span id="local-6989586621679248595"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActionTypeEnum"><span class="annot"><a href="Network.AWS.ELBv2.Types.ActionTypeEnum.html#ActionTypeEnum"><span class="hs-identifier hs-var">ActionTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionTypeEnum%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.ActionTypeEnum.html#ActionTypeEnum%27"><span class="hs-identifier hs-var">ActionTypeEnum'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromActionTypeEnum"><span class="annot"><span class="annottext">ActionTypeEnum -&gt; Text
 </span><a href="Network.AWS.ELBv2.Types.ActionTypeEnum.html#fromActionTypeEnum"><span class="hs-identifier hs-var hs-var">fromActionTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245891"><span id="local-6989586621679245893"><span id="local-6989586621679245895"><span class="annot"><span class="annottext">Int -&gt; ActionTypeEnum -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248586"><span id="local-6989586621679248588"><span id="local-6989586621679248590"><span class="annot"><span class="annottext">Int -&gt; ActionTypeEnum -&gt; ShowS
 [ActionTypeEnum] -&gt; ShowS
 ActionTypeEnum -&gt; String
 (Int -&gt; ActionTypeEnum -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ActionTypeEnum -&gt; String
 showsPrec :: Int -&gt; ActionTypeEnum -&gt; ShowS
 $cshowsPrec :: Int -&gt; ActionTypeEnum -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679245882"><span id="local-6989586621679245884"><span id="local-6989586621679245886"><span id="local-6989586621679245888"><span class="annot"><span class="annottext">ReadPrec [ActionTypeEnum]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679248577"><span id="local-6989586621679248579"><span id="local-6989586621679248581"><span id="local-6989586621679248583"><span class="annot"><span class="annottext">ReadPrec [ActionTypeEnum]
 ReadPrec ActionTypeEnum
 Int -&gt; ReadS ActionTypeEnum
 ReadS [ActionTypeEnum]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ActionTypeEnum]
 readsPrec :: Int -&gt; ReadS ActionTypeEnum
 $creadsPrec :: Int -&gt; ReadS ActionTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679245877"><span id="local-6989586621679245879"><span class="annot"><span class="annottext">ActionTypeEnum -&gt; ActionTypeEnum -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679248572"><span id="local-6989586621679248574"><span class="annot"><span class="annottext">ActionTypeEnum -&gt; ActionTypeEnum -&gt; Bool
 (ActionTypeEnum -&gt; ActionTypeEnum -&gt; Bool)
 -&gt; (ActionTypeEnum -&gt; ActionTypeEnum -&gt; Bool) -&gt; Eq ActionTypeEnum
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: ActionTypeEnum -&gt; ActionTypeEnum -&gt; Bool
 == :: ActionTypeEnum -&gt; ActionTypeEnum -&gt; Bool
 $c== :: ActionTypeEnum -&gt; ActionTypeEnum -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679245861"><span id="local-6989586621679245863"><span id="local-6989586621679245865"><span id="local-6989586621679245867"><span id="local-6989586621679245869"><span id="local-6989586621679245871"><span id="local-6989586621679245873"><span class="annot"><span class="annottext">Eq ActionTypeEnum
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679248556"><span id="local-6989586621679248558"><span id="local-6989586621679248560"><span id="local-6989586621679248562"><span id="local-6989586621679248564"><span id="local-6989586621679248566"><span id="local-6989586621679248568"><span class="annot"><span class="annottext">Eq ActionTypeEnum
 Eq ActionTypeEnum
 -&gt; (ActionTypeEnum -&gt; ActionTypeEnum -&gt; Ordering)
 -&gt; (ActionTypeEnum -&gt; ActionTypeEnum -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. ActionTypeEnum -&gt; Rep ActionTypeEnum x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245853"><span id="local-6989586621679245855"><span class="annot"><span class="annottext">Int -&gt; ActionTypeEnum -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248548"><span id="local-6989586621679248550"><span class="annot"><span class="annottext">Int -&gt; ActionTypeEnum -&gt; Int
 ActionTypeEnum -&gt; Int
 (Int -&gt; ActionTypeEnum -&gt; Int)
 -&gt; (ActionTypeEnum -&gt; Int) -&gt; Hashable ActionTypeEnum
@@ -145,50 +145,50 @@ $chash :: ActionTypeEnum -&gt; Int
 hashWithSalt :: Int -&gt; ActionTypeEnum -&gt; Int
 $chashWithSalt :: Int -&gt; ActionTypeEnum -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679245850"><span class="annot"><span class="annottext">ActionTypeEnum -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679248545"><span class="annot"><span class="annottext">ActionTypeEnum -&gt; ()
 (ActionTypeEnum -&gt; ()) -&gt; NFData ActionTypeEnum
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ActionTypeEnum -&gt; ()
 $crnf :: ActionTypeEnum -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679245847"><span class="annot"><span class="annottext">Text -&gt; Either String ActionTypeEnum
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679248542"><span class="annot"><span class="annottext">Text -&gt; Either String ActionTypeEnum
 (Text -&gt; Either String ActionTypeEnum) -&gt; FromText ActionTypeEnum
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ActionTypeEnum
 $cfromText :: Text -&gt; Either String ActionTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679245844"><span class="annot"><span class="annottext">ActionTypeEnum -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679248539"><span class="annot"><span class="annottext">ActionTypeEnum -&gt; Text
 (ActionTypeEnum -&gt; Text) -&gt; ToText ActionTypeEnum
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ActionTypeEnum -&gt; Text
 $ctoText :: ActionTypeEnum -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679245841"><span class="annot"><span class="annottext">ActionTypeEnum -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679248536"><span class="annot"><span class="annottext">ActionTypeEnum -&gt; ByteString
 (ActionTypeEnum -&gt; ByteString) -&gt; ToByteString ActionTypeEnum
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ActionTypeEnum -&gt; ByteString
 $ctoBS :: ActionTypeEnum -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679245838"><span class="annot"><span class="annottext">ActionTypeEnum -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679248533"><span class="annot"><span class="annottext">ActionTypeEnum -&gt; ByteStringBuilder
 (ActionTypeEnum -&gt; ByteStringBuilder) -&gt; ToLog ActionTypeEnum
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ActionTypeEnum -&gt; ByteStringBuilder
 $cbuild :: ActionTypeEnum -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679245835"><span class="annot"><span class="annottext">HeaderName -&gt; ActionTypeEnum -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679248530"><span class="annot"><span class="annottext">HeaderName -&gt; ActionTypeEnum -&gt; [Header]
 (HeaderName -&gt; ActionTypeEnum -&gt; [Header])
 -&gt; ToHeader ActionTypeEnum
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ActionTypeEnum -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ActionTypeEnum -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679245832"><span class="annot"><span class="annottext">ActionTypeEnum -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679248527"><span class="annot"><span class="annottext">ActionTypeEnum -&gt; QueryString
 (ActionTypeEnum -&gt; QueryString) -&gt; ToQuery ActionTypeEnum
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ActionTypeEnum -&gt; QueryString
 $ctoQuery :: ActionTypeEnum -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679245827"><span id="local-6989586621679245829"><span class="annot"><span class="annottext">Value -&gt; Parser [ActionTypeEnum]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679248522"><span id="local-6989586621679248524"><span class="annot"><span class="annottext">Value -&gt; Parser [ActionTypeEnum]
 Value -&gt; Parser ActionTypeEnum
 (Value -&gt; Parser ActionTypeEnum)
 -&gt; (Value -&gt; Parser [ActionTypeEnum]) -&gt; FromJSON ActionTypeEnum
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [ActionTypeEnum]
 parseJSON :: Value -&gt; Parser ActionTypeEnum
 $cparseJSON :: Value -&gt; Parser ActionTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679245822"><span id="local-6989586621679245824"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActionTypeEnum]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679248517"><span id="local-6989586621679248519"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActionTypeEnum]
 FromJSONKeyFunction ActionTypeEnum
 FromJSONKeyFunction ActionTypeEnum
 -&gt; FromJSONKeyFunction [ActionTypeEnum]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ActionTypeEnum]
 fromJSONKey :: FromJSONKeyFunction ActionTypeEnum
 $cfromJSONKey :: FromJSONKeyFunction ActionTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679245813"><span id="local-6989586621679245815"><span id="local-6989586621679245817"><span id="local-6989586621679245819"><span class="annot"><span class="annottext">[ActionTypeEnum] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679248508"><span id="local-6989586621679248510"><span id="local-6989586621679248512"><span id="local-6989586621679248514"><span class="annot"><span class="annottext">[ActionTypeEnum] -&gt; Encoding
 [ActionTypeEnum] -&gt; Value
 ActionTypeEnum -&gt; Encoding
 ActionTypeEnum -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: ActionTypeEnum -&gt; Encoding
 toJSON :: ActionTypeEnum -&gt; Value
 $ctoJSON :: ActionTypeEnum -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679245808"><span id="local-6989586621679245810"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActionTypeEnum]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679248503"><span id="local-6989586621679248505"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActionTypeEnum]
 ToJSONKeyFunction ActionTypeEnum
 ToJSONKeyFunction ActionTypeEnum
 -&gt; ToJSONKeyFunction [ActionTypeEnum] -&gt; ToJSONKey ActionTypeEnum
@@ -246,13 +246,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ActionTypeEnum]
 toJSONKey :: ToJSONKeyFunction ActionTypeEnum
 $ctoJSONKey :: ToJSONKeyFunction ActionTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679245805"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActionTypeEnum
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679248500"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActionTypeEnum
 ([Node] -&gt; Either String ActionTypeEnum) -&gt; FromXML ActionTypeEnum
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ActionTypeEnum
 $cparseXML :: [Node] -&gt; Either String ActionTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679245802"><span class="annot"><span class="annottext">ActionTypeEnum -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679248497"><span class="annot"><span class="annottext">ActionTypeEnum -&gt; XML
 (ActionTypeEnum -&gt; XML) -&gt; ToXML ActionTypeEnum
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ActionTypeEnum -&gt; XML

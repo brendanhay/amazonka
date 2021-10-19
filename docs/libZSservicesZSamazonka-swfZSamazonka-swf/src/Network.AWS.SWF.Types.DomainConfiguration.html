@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains the configuration settings of a domain.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDomainConfiguration' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679345200"><span id="local-6989586621679345201"></span></span><span class="hs-keyword">data</span><span> </span><span id="DomainConfiguration"><span class="annot"><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration"><span class="hs-identifier hs-var">DomainConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainConfiguration%27"><span class="annot"><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration%27"><span class="hs-identifier hs-var">DomainConfiguration'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679345277"><span id="local-6989586621679345278"></span></span><span class="hs-keyword">data</span><span> </span><span id="DomainConfiguration"><span class="annot"><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration"><span class="hs-identifier hs-var">DomainConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainConfiguration%27"><span class="annot"><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration%27"><span class="hs-identifier hs-var">DomainConfiguration'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The retention period for workflow executions in this domain.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AworkflowExecutionRetentionPeriodInDays%3ADomainConfiguration%27"><span class="annot"><span class="annottext">DomainConfiguration -&gt; Text
 </span><a href="Network.AWS.SWF.Types.DomainConfiguration.html#%24sel%3AworkflowExecutionRetentionPeriodInDays%3ADomainConfiguration%27"><span class="hs-identifier hs-var hs-var">workflowExecutionRetentionPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345194"><span id="local-6989586621679345196"><span class="annot"><span class="annottext">DomainConfiguration -&gt; DomainConfiguration -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345271"><span id="local-6989586621679345273"><span class="annot"><span class="annottext">DomainConfiguration -&gt; DomainConfiguration -&gt; Bool
 (DomainConfiguration -&gt; DomainConfiguration -&gt; Bool)
 -&gt; (DomainConfiguration -&gt; DomainConfiguration -&gt; Bool)
 -&gt; Eq DomainConfiguration
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DomainConfiguration -&gt; DomainConfiguration -&gt; Bool
 == :: DomainConfiguration -&gt; DomainConfiguration -&gt; Bool
 $c== :: DomainConfiguration -&gt; DomainConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345185"><span id="local-6989586621679345187"><span id="local-6989586621679345189"><span id="local-6989586621679345191"><span class="annot"><span class="annottext">ReadPrec [DomainConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345262"><span id="local-6989586621679345264"><span id="local-6989586621679345266"><span id="local-6989586621679345268"><span class="annot"><span class="annottext">ReadPrec [DomainConfiguration]
 ReadPrec DomainConfiguration
 Int -&gt; ReadS DomainConfiguration
 ReadS [DomainConfiguration]
@@ -60,7 +60,7 @@ readList :: ReadS [DomainConfiguration]
 $creadList :: ReadS [DomainConfiguration]
 readsPrec :: Int -&gt; ReadS DomainConfiguration
 $creadsPrec :: Int -&gt; ReadS DomainConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345178"><span id="local-6989586621679345180"><span id="local-6989586621679345182"><span class="annot"><span class="annottext">Int -&gt; DomainConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345255"><span id="local-6989586621679345257"><span id="local-6989586621679345259"><span class="annot"><span class="annottext">Int -&gt; DomainConfiguration -&gt; ShowS
 [DomainConfiguration] -&gt; ShowS
 DomainConfiguration -&gt; String
 (Int -&gt; DomainConfiguration -&gt; ShowS)
@@ -101,14 +101,14 @@ $cfrom :: forall x. DomainConfiguration -&gt; Rep DomainConfiguration x
 </span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration"><span class="hs-identifier hs-type">DomainConfiguration</span></a></span><span>
 </span><span id="line-48"></span><span id="newDomainConfiguration"><span class="annot"><span class="annottext">newDomainConfiguration :: Text -&gt; DomainConfiguration
 </span><a href="Network.AWS.SWF.Types.DomainConfiguration.html#newDomainConfiguration"><span class="hs-identifier hs-var hs-var">newDomainConfiguration</span></a></span></span><span>
-</span><span id="line-49"></span><span>  </span><span id="local-6989586621679345172"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679345172"><span class="hs-identifier hs-var">pWorkflowExecutionRetentionPeriodInDays_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-49"></span><span>  </span><span id="local-6989586621679345249"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345249"><span class="hs-identifier hs-var">pWorkflowExecutionRetentionPeriodInDays_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><span class="annottext">DomainConfiguration' :: Text -&gt; DomainConfiguration
 </span><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration%27"><span class="hs-identifier hs-type">DomainConfiguration'</span></a></span><span>
 </span><span id="line-51"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:workflowExecutionRetentionPeriodInDays:DomainConfiguration' :: Text
 </span><a href="Network.AWS.SWF.Types.DomainConfiguration.html#%24sel%3AworkflowExecutionRetentionPeriodInDays%3ADomainConfiguration%27"><span class="hs-identifier hs-var">workflowExecutionRetentionPeriodInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679345172"><span class="hs-identifier hs-var">pWorkflowExecutionRetentionPeriodInDays_</span></a></span><span>
+</span><a href="#local-6989586621679345249"><span class="hs-identifier hs-var">pWorkflowExecutionRetentionPeriodInDays_</span></a></span><span>
 </span><span id="line-53"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | The retention period for workflow executions in this domain.</span><span>
@@ -118,19 +118,19 @@ $cfrom :: forall x. DomainConfiguration -&gt; Rep DomainConfiguration x
 -&gt; (DomainConfiguration -&gt; Text -&gt; DomainConfiguration)
 -&gt; Lens DomainConfiguration DomainConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration%27"><span class="hs-identifier hs-type">DomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345168"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration%27"><span class="hs-identifier hs-type">DomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345245"><span class="annot"><span class="annottext">Text
 workflowExecutionRetentionPeriodInDays :: Text
 $sel:workflowExecutionRetentionPeriodInDays:DomainConfiguration' :: DomainConfiguration -&gt; Text
-</span><a href="#local-6989586621679345168"><span class="hs-identifier hs-var hs-var">workflowExecutionRetentionPeriodInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679345168"><span class="hs-identifier hs-var">workflowExecutionRetentionPeriodInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345167"><span class="annot"><span class="annottext">s :: DomainConfiguration
-</span><a href="#local-6989586621679345167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration%27"><span class="hs-identifier hs-type">DomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345166"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679345166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainConfiguration
-</span><a href="#local-6989586621679345167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowExecutionRetentionPeriodInDays:DomainConfiguration' :: Text
+</span><a href="#local-6989586621679345245"><span class="hs-identifier hs-var hs-var">workflowExecutionRetentionPeriodInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345245"><span class="hs-identifier hs-var">workflowExecutionRetentionPeriodInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345244"><span class="annot"><span class="annottext">s :: DomainConfiguration
+</span><a href="#local-6989586621679345244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration%27"><span class="hs-identifier hs-type">DomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345243"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainConfiguration
+</span><a href="#local-6989586621679345244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowExecutionRetentionPeriodInDays:DomainConfiguration' :: Text
 </span><a href="Network.AWS.SWF.Types.DomainConfiguration.html#%24sel%3AworkflowExecutionRetentionPeriodInDays%3ADomainConfiguration%27"><span class="hs-identifier hs-var">workflowExecutionRetentionPeriodInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679345166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration"><span class="hs-identifier hs-type">DomainConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration"><span class="hs-identifier hs-type">DomainConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345163"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration"><span class="hs-identifier hs-type">DomainConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679345161"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DomainConfiguration
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345240"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration"><span class="hs-identifier hs-type">DomainConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679345238"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DomainConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DomainConfiguration)
@@ -140,21 +140,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DomainConfiguration&quot;</span></span><span>
-</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679345158"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679345158"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679345235"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345235"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; DomainConfiguration
 </span><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration%27"><span class="hs-identifier hs-var">DomainConfiguration'</span></a></span><span>
 </span><span id="line-65"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; DomainConfiguration)
 -&gt; Parser Text -&gt; Parser DomainConfiguration
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679345158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679345235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;workflowExecutionRetentionPeriodInDays&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345152"><span id="local-6989586621679345154"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration"><span class="hs-identifier hs-type">DomainConfiguration</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345229"><span id="local-6989586621679345231"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration"><span class="hs-identifier hs-type">DomainConfiguration</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration"><span class="hs-identifier hs-type">DomainConfiguration</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345226"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DomainConfiguration.html#DomainConfiguration"><span class="hs-identifier hs-type">DomainConfiguration</span></a></span></span><span>
 </span><span id="line-71"></span></pre></body></html>

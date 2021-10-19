@@ -47,10 +47,10 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDescribeRegistry' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679241500"><span id="local-6989586621679241501"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRegistry"><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistry"><span class="hs-identifier hs-var">DescribeRegistry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRegistry%27"><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistry%27"><span class="hs-identifier hs-var">DescribeRegistry'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679241660"><span id="local-6989586621679241661"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRegistry"><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistry"><span class="hs-identifier hs-var">DescribeRegistry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRegistry%27"><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistry%27"><span class="hs-identifier hs-var">DescribeRegistry'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241495"><span id="local-6989586621679241497"><span class="annot"><span class="annottext">DescribeRegistry -&gt; DescribeRegistry -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241655"><span id="local-6989586621679241657"><span class="annot"><span class="annottext">DescribeRegistry -&gt; DescribeRegistry -&gt; Bool
 (DescribeRegistry -&gt; DescribeRegistry -&gt; Bool)
 -&gt; (DescribeRegistry -&gt; DescribeRegistry -&gt; Bool)
 -&gt; Eq DescribeRegistry
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeRegistry -&gt; DescribeRegistry -&gt; Bool
 == :: DescribeRegistry -&gt; DescribeRegistry -&gt; Bool
 $c== :: DescribeRegistry -&gt; DescribeRegistry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241486"><span id="local-6989586621679241488"><span id="local-6989586621679241490"><span id="local-6989586621679241492"><span class="annot"><span class="annottext">ReadPrec [DescribeRegistry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241646"><span id="local-6989586621679241648"><span id="local-6989586621679241650"><span id="local-6989586621679241652"><span class="annot"><span class="annottext">ReadPrec [DescribeRegistry]
 ReadPrec DescribeRegistry
 Int -&gt; ReadS DescribeRegistry
 ReadS [DescribeRegistry]
@@ -79,7 +79,7 @@ readList :: ReadS [DescribeRegistry]
 $creadList :: ReadS [DescribeRegistry]
 readsPrec :: Int -&gt; ReadS DescribeRegistry
 $creadsPrec :: Int -&gt; ReadS DescribeRegistry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241479"><span id="local-6989586621679241481"><span id="local-6989586621679241483"><span class="annot"><span class="annottext">Int -&gt; DescribeRegistry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241639"><span id="local-6989586621679241641"><span id="local-6989586621679241643"><span class="annot"><span class="annottext">Int -&gt; DescribeRegistry -&gt; ShowS
 [DescribeRegistry] -&gt; ShowS
 DescribeRegistry -&gt; String
 (Int -&gt; DescribeRegistry -&gt; ShowS)
@@ -119,12 +119,12 @@ $cfrom :: forall x. DescribeRegistry -&gt; Rep DescribeRegistry x
 </span><span id="line-64"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-65"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistry"><span class="hs-identifier hs-type">DescribeRegistry</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse"><span class="hs-identifier hs-type">DescribeRegistryResponse</span></a></span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679241471"><span class="annot"><span class="annottext">request :: DescribeRegistry -&gt; Request DescribeRegistry
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679241631"><span class="annot"><span class="annottext">request :: DescribeRegistry -&gt; Request DescribeRegistry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeRegistry -&gt; Request DescribeRegistry
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679241467"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679241627"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeRegistry
 -&gt; ClientResponse ClientBody
@@ -148,10 +148,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679241464"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241464"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679241463"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679241463"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679241462"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679241462"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679241624"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241624"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679241623"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679241623"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679241622"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241622"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReplicationConfiguration
 -&gt; Maybe Text -&gt; Int -&gt; DescribeRegistryResponse
 </span><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse%27"><span class="hs-identifier hs-var">DescribeRegistryResponse'</span></a></span><span>
@@ -161,7 +161,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeRegistryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679241462"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ReplicationConfiguration)
+</span><a href="#local-6989586621679241622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ReplicationConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;replicationConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -170,7 +170,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeRegistryResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679241462"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679241622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;registryId&quot;</span></span><span class="hs-special">)</span><span>
@@ -182,15 +182,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241464"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679241624"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241454"><span id="local-6989586621679241456"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistry"><span class="hs-identifier hs-type">DescribeRegistry</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241614"><span id="local-6989586621679241616"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistry"><span class="hs-identifier hs-type">DescribeRegistry</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241451"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistry"><span class="hs-identifier hs-type">DescribeRegistry</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241611"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistry"><span class="hs-identifier hs-type">DescribeRegistry</span></a></span></span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistry"><span class="hs-identifier hs-type">DescribeRegistry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679241447"><span class="annot"><span class="annottext">toHeaders :: DescribeRegistry -&gt; ResponseHeaders
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679241607"><span class="annot"><span class="annottext">toHeaders :: DescribeRegistry -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeRegistry -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -217,8 +217,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-93"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241437"><span id="local-6989586621679241439"><span id="local-6989586621679241441"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistry"><span class="hs-identifier hs-type">DescribeRegistry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679241435"><span class="annot"><span class="annottext">toJSON :: DescribeRegistry -&gt; Value
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241597"><span id="local-6989586621679241599"><span id="local-6989586621679241601"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistry"><span class="hs-identifier hs-type">DescribeRegistry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679241595"><span class="annot"><span class="annottext">toJSON :: DescribeRegistry -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; DescribeRegistry -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -227,14 +227,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistry"><span class="hs-identifier hs-type">DescribeRegistry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679241430"><span class="annot"><span class="annottext">toPath :: DescribeRegistry -&gt; ByteString
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679241590"><span class="annot"><span class="annottext">toPath :: DescribeRegistry -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeRegistry -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistry"><span class="hs-identifier hs-type">DescribeRegistry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679241426"><span class="annot"><span class="annottext">toQuery :: DescribeRegistry -&gt; QueryString
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679241586"><span class="annot"><span class="annottext">toQuery :: DescribeRegistry -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeRegistry -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -242,7 +242,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | /See:/ 'newDescribeRegistryResponse' smart constructor.</span><span>
-</span><span id="line-106"></span><span id="local-6989586621679241423"><span id="local-6989586621679241424"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRegistryResponse"><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse"><span class="hs-identifier hs-var">DescribeRegistryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRegistryResponse%27"><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse%27"><span class="hs-identifier hs-var">DescribeRegistryResponse'</span></a></span></span><span>
+</span><span id="line-106"></span><span id="local-6989586621679241583"><span id="local-6989586621679241584"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRegistryResponse"><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse"><span class="hs-identifier hs-var">DescribeRegistryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRegistryResponse%27"><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse%27"><span class="hs-identifier hs-var">DescribeRegistryResponse'</span></a></span></span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The replication configuration for the registry.</span><span>
 </span><span id="line-108"></span><span>    </span><span id="%24sel%3AreplicationConfiguration%3ADescribeRegistryResponse%27"><span class="annot"><span class="annottext">DescribeRegistryResponse -&gt; Maybe ReplicationConfiguration
 </span><a href="Network.AWS.ECR.DescribeRegistry.html#%24sel%3AreplicationConfiguration%3ADescribeRegistryResponse%27"><span class="hs-identifier hs-var hs-var">replicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span><span class="hs-special">,</span><span>
@@ -253,7 +253,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-112"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeRegistryResponse%27"><span class="annot"><span class="annottext">DescribeRegistryResponse -&gt; Int
 </span><a href="Network.AWS.ECR.DescribeRegistry.html#%24sel%3AhttpStatus%3ADescribeRegistryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241416"><span id="local-6989586621679241418"><span class="annot"><span class="annottext">DescribeRegistryResponse -&gt; DescribeRegistryResponse -&gt; Bool
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241576"><span id="local-6989586621679241578"><span class="annot"><span class="annottext">DescribeRegistryResponse -&gt; DescribeRegistryResponse -&gt; Bool
 (DescribeRegistryResponse -&gt; DescribeRegistryResponse -&gt; Bool)
 -&gt; (DescribeRegistryResponse -&gt; DescribeRegistryResponse -&gt; Bool)
 -&gt; Eq DescribeRegistryResponse
@@ -262,7 +262,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeRegistryResponse -&gt; DescribeRegistryResponse -&gt; Bool
 == :: DescribeRegistryResponse -&gt; DescribeRegistryResponse -&gt; Bool
 $c== :: DescribeRegistryResponse -&gt; DescribeRegistryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241408"><span id="local-6989586621679241410"><span id="local-6989586621679241412"><span id="local-6989586621679241414"><span class="annot"><span class="annottext">ReadPrec [DescribeRegistryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241568"><span id="local-6989586621679241570"><span id="local-6989586621679241572"><span id="local-6989586621679241574"><span class="annot"><span class="annottext">ReadPrec [DescribeRegistryResponse]
 ReadPrec DescribeRegistryResponse
 Int -&gt; ReadS DescribeRegistryResponse
 ReadS [DescribeRegistryResponse]
@@ -282,7 +282,7 @@ readList :: ReadS [DescribeRegistryResponse]
 $creadList :: ReadS [DescribeRegistryResponse]
 readsPrec :: Int -&gt; ReadS DescribeRegistryResponse
 $creadsPrec :: Int -&gt; ReadS DescribeRegistryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241402"><span id="local-6989586621679241404"><span id="local-6989586621679241406"><span class="annot"><span class="annottext">Int -&gt; DescribeRegistryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241562"><span id="local-6989586621679241564"><span id="local-6989586621679241566"><span class="annot"><span class="annottext">Int -&gt; DescribeRegistryResponse -&gt; ShowS
 [DescribeRegistryResponse] -&gt; ShowS
 DescribeRegistryResponse -&gt; String
 (Int -&gt; DescribeRegistryResponse -&gt; ShowS)
@@ -332,8 +332,8 @@ DescribeRegistryResponse -&gt; Rep DescribeRegistryResponse x
 </span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse"><span class="hs-identifier hs-type">DescribeRegistryResponse</span></a></span><span>
 </span><span id="line-133"></span><span id="newDescribeRegistryResponse"><span class="annot"><span class="annottext">newDescribeRegistryResponse :: Int -&gt; DescribeRegistryResponse
-</span><a href="Network.AWS.ECR.DescribeRegistry.html#newDescribeRegistryResponse"><span class="hs-identifier hs-var hs-var">newDescribeRegistryResponse</span></a></span></span><span> </span><span id="local-6989586621679241399"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241399"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECR.DescribeRegistry.html#newDescribeRegistryResponse"><span class="hs-identifier hs-var hs-var">newDescribeRegistryResponse</span></a></span></span><span> </span><span id="local-6989586621679241559"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241559"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">DescribeRegistryResponse' :: Maybe ReplicationConfiguration
 -&gt; Maybe Text -&gt; Int -&gt; DescribeRegistryResponse
 </span><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse%27"><span class="hs-identifier hs-type">DescribeRegistryResponse'</span></a></span><span>
@@ -348,7 +348,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRegistryResponse' :: Int
 </span><a href="Network.AWS.ECR.DescribeRegistry.html#%24sel%3AhttpStatus%3ADescribeRegistryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241399"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679241559"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-139"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | The replication configuration for the registry.</span><span>
@@ -365,16 +365,16 @@ forall a. Maybe a
      (Maybe ReplicationConfiguration)
      (Maybe ReplicationConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse%27"><span class="hs-identifier hs-type">DescribeRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241396"><span class="annot"><span class="annottext">Maybe ReplicationConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse%27"><span class="hs-identifier hs-type">DescribeRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241556"><span class="annot"><span class="annottext">Maybe ReplicationConfiguration
 replicationConfiguration :: Maybe ReplicationConfiguration
 $sel:replicationConfiguration:DescribeRegistryResponse' :: DescribeRegistryResponse -&gt; Maybe ReplicationConfiguration
-</span><a href="#local-6989586621679241396"><span class="hs-identifier hs-var hs-var">replicationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfiguration
-</span><a href="#local-6989586621679241396"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241395"><span class="annot"><span class="annottext">s :: DescribeRegistryResponse
-</span><a href="#local-6989586621679241395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse%27"><span class="hs-identifier hs-type">DescribeRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241394"><span class="annot"><span class="annottext">Maybe ReplicationConfiguration
-</span><a href="#local-6989586621679241394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRegistryResponse
-</span><a href="#local-6989586621679241395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationConfiguration:DescribeRegistryResponse' :: Maybe ReplicationConfiguration
+</span><a href="#local-6989586621679241556"><span class="hs-identifier hs-var hs-var">replicationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfiguration
+</span><a href="#local-6989586621679241556"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241555"><span class="annot"><span class="annottext">s :: DescribeRegistryResponse
+</span><a href="#local-6989586621679241555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse%27"><span class="hs-identifier hs-type">DescribeRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241554"><span class="annot"><span class="annottext">Maybe ReplicationConfiguration
+</span><a href="#local-6989586621679241554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRegistryResponse
+</span><a href="#local-6989586621679241555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationConfiguration:DescribeRegistryResponse' :: Maybe ReplicationConfiguration
 </span><a href="Network.AWS.ECR.DescribeRegistry.html#%24sel%3AreplicationConfiguration%3ADescribeRegistryResponse%27"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfiguration
-</span><a href="#local-6989586621679241394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse"><span class="hs-identifier hs-type">DescribeRegistryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679241554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse"><span class="hs-identifier hs-type">DescribeRegistryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The ID of the registry.</span><span>
 </span><span id="line-146"></span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#describeRegistryResponse_registryId"><span class="hs-identifier hs-type">describeRegistryResponse_registryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse"><span class="hs-identifier hs-type">DescribeRegistryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -389,16 +389,16 @@ $sel:replicationConfiguration:DescribeRegistryResponse' :: DescribeRegistryRespo
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse%27"><span class="hs-identifier hs-type">DescribeRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241393"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse%27"><span class="hs-identifier hs-type">DescribeRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241553"><span class="annot"><span class="annottext">Maybe Text
 registryId :: Maybe Text
 $sel:registryId:DescribeRegistryResponse' :: DescribeRegistryResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679241393"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241393"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241392"><span class="annot"><span class="annottext">s :: DescribeRegistryResponse
-</span><a href="#local-6989586621679241392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse%27"><span class="hs-identifier hs-type">DescribeRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241391"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRegistryResponse
-</span><a href="#local-6989586621679241392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:DescribeRegistryResponse' :: Maybe Text
+</span><a href="#local-6989586621679241553"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241553"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241552"><span class="annot"><span class="annottext">s :: DescribeRegistryResponse
+</span><a href="#local-6989586621679241552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse%27"><span class="hs-identifier hs-type">DescribeRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241551"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRegistryResponse
+</span><a href="#local-6989586621679241552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:DescribeRegistryResponse' :: Maybe Text
 </span><a href="Network.AWS.ECR.DescribeRegistry.html#%24sel%3AregistryId%3ADescribeRegistryResponse%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse"><span class="hs-identifier hs-type">DescribeRegistryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679241551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse"><span class="hs-identifier hs-type">DescribeRegistryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-150"></span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#describeRegistryResponse_httpStatus"><span class="hs-identifier hs-type">describeRegistryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse"><span class="hs-identifier hs-type">DescribeRegistryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -408,16 +408,16 @@ $sel:registryId:DescribeRegistryResponse' :: DescribeRegistryResponse -&gt; Mayb
 -&gt; (DescribeRegistryResponse -&gt; Int -&gt; DescribeRegistryResponse)
 -&gt; Lens DescribeRegistryResponse DescribeRegistryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse%27"><span class="hs-identifier hs-type">DescribeRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241390"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse%27"><span class="hs-identifier hs-type">DescribeRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241550"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeRegistryResponse' :: DescribeRegistryResponse -&gt; Int
-</span><a href="#local-6989586621679241390"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241390"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241389"><span class="annot"><span class="annottext">s :: DescribeRegistryResponse
-</span><a href="#local-6989586621679241389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse%27"><span class="hs-identifier hs-type">DescribeRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241388"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRegistryResponse
-</span><a href="#local-6989586621679241389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRegistryResponse' :: Int
+</span><a href="#local-6989586621679241550"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241550"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241549"><span class="annot"><span class="annottext">s :: DescribeRegistryResponse
+</span><a href="#local-6989586621679241549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse%27"><span class="hs-identifier hs-type">DescribeRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241548"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRegistryResponse
+</span><a href="#local-6989586621679241549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRegistryResponse' :: Int
 </span><a href="Network.AWS.ECR.DescribeRegistry.html#%24sel%3AhttpStatus%3ADescribeRegistryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse"><span class="hs-identifier hs-type">DescribeRegistryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679241548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse"><span class="hs-identifier hs-type">DescribeRegistryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241386"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse"><span class="hs-identifier hs-type">DescribeRegistryResponse</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241546"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRegistry.html#DescribeRegistryResponse"><span class="hs-identifier hs-type">DescribeRegistryResponse</span></a></span></span><span>
 </span><span id="line-154"></span></pre></body></html>

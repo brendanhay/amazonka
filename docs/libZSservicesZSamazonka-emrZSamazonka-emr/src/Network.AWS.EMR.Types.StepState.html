@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679376938"><span id="local-6989586621679376939"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StepState"><span class="annot"><a href="Network.AWS.EMR.Types.StepState.html#StepState"><span class="hs-identifier hs-var">StepState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepState%27"><span class="annot"><a href="Network.AWS.EMR.Types.StepState.html#StepState%27"><span class="hs-identifier hs-var">StepState'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679377294"><span id="local-6989586621679377295"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StepState"><span class="annot"><a href="Network.AWS.EMR.Types.StepState.html#StepState"><span class="hs-identifier hs-var">StepState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepState%27"><span class="annot"><a href="Network.AWS.EMR.Types.StepState.html#StepState%27"><span class="hs-identifier hs-var">StepState'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStepState"><span class="annot"><span class="annottext">StepState -&gt; Text
 </span><a href="Network.AWS.EMR.Types.StepState.html#fromStepState"><span class="hs-identifier hs-var hs-var">fromStepState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679376930"><span id="local-6989586621679376932"><span id="local-6989586621679376934"><span class="annot"><span class="annottext">Int -&gt; StepState -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377286"><span id="local-6989586621679377288"><span id="local-6989586621679377290"><span class="annot"><span class="annottext">Int -&gt; StepState -&gt; ShowS
 [StepState] -&gt; ShowS
 StepState -&gt; String
 (Int -&gt; StepState -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: StepState -&gt; String
 showsPrec :: Int -&gt; StepState -&gt; ShowS
 $cshowsPrec :: Int -&gt; StepState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679376921"><span id="local-6989586621679376923"><span id="local-6989586621679376925"><span id="local-6989586621679376927"><span class="annot"><span class="annottext">ReadPrec [StepState]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679377277"><span id="local-6989586621679377279"><span id="local-6989586621679377281"><span id="local-6989586621679377283"><span class="annot"><span class="annottext">ReadPrec [StepState]
 ReadPrec StepState
 Int -&gt; ReadS StepState
 ReadS [StepState]
@@ -77,7 +77,7 @@ $creadList :: ReadS [StepState]
 readsPrec :: Int -&gt; ReadS StepState
 $creadsPrec :: Int -&gt; ReadS StepState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679376916"><span id="local-6989586621679376918"><span class="annot"><span class="annottext">StepState -&gt; StepState -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679377272"><span id="local-6989586621679377274"><span class="annot"><span class="annottext">StepState -&gt; StepState -&gt; Bool
 (StepState -&gt; StepState -&gt; Bool)
 -&gt; (StepState -&gt; StepState -&gt; Bool) -&gt; Eq StepState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: StepState -&gt; StepState -&gt; Bool
 == :: StepState -&gt; StepState -&gt; Bool
 $c== :: StepState -&gt; StepState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679376900"><span id="local-6989586621679376902"><span id="local-6989586621679376904"><span id="local-6989586621679376906"><span id="local-6989586621679376908"><span id="local-6989586621679376910"><span id="local-6989586621679376912"><span class="annot"><span class="annottext">Eq StepState
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679377256"><span id="local-6989586621679377258"><span id="local-6989586621679377260"><span id="local-6989586621679377262"><span id="local-6989586621679377264"><span id="local-6989586621679377266"><span id="local-6989586621679377268"><span class="annot"><span class="annottext">Eq StepState
 Eq StepState
 -&gt; (StepState -&gt; StepState -&gt; Ordering)
 -&gt; (StepState -&gt; StepState -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. StepState -&gt; Rep StepState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679376892"><span id="local-6989586621679376894"><span class="annot"><span class="annottext">Int -&gt; StepState -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377248"><span id="local-6989586621679377250"><span class="annot"><span class="annottext">Int -&gt; StepState -&gt; Int
 StepState -&gt; Int
 (Int -&gt; StepState -&gt; Int)
 -&gt; (StepState -&gt; Int) -&gt; Hashable StepState
@@ -146,49 +146,49 @@ $chash :: StepState -&gt; Int
 hashWithSalt :: Int -&gt; StepState -&gt; Int
 $chashWithSalt :: Int -&gt; StepState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679376889"><span class="annot"><span class="annottext">StepState -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679377245"><span class="annot"><span class="annottext">StepState -&gt; ()
 (StepState -&gt; ()) -&gt; NFData StepState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StepState -&gt; ()
 $crnf :: StepState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679376886"><span class="annot"><span class="annottext">Text -&gt; Either String StepState
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679377242"><span class="annot"><span class="annottext">Text -&gt; Either String StepState
 (Text -&gt; Either String StepState) -&gt; FromText StepState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StepState
 $cfromText :: Text -&gt; Either String StepState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679376883"><span class="annot"><span class="annottext">StepState -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679377239"><span class="annot"><span class="annottext">StepState -&gt; Text
 (StepState -&gt; Text) -&gt; ToText StepState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StepState -&gt; Text
 $ctoText :: StepState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679376880"><span class="annot"><span class="annottext">StepState -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679377236"><span class="annot"><span class="annottext">StepState -&gt; ByteString
 (StepState -&gt; ByteString) -&gt; ToByteString StepState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StepState -&gt; ByteString
 $ctoBS :: StepState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679376877"><span class="annot"><span class="annottext">StepState -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679377233"><span class="annot"><span class="annottext">StepState -&gt; ByteStringBuilder
 (StepState -&gt; ByteStringBuilder) -&gt; ToLog StepState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StepState -&gt; ByteStringBuilder
 $cbuild :: StepState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679376874"><span class="annot"><span class="annottext">HeaderName -&gt; StepState -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679377230"><span class="annot"><span class="annottext">HeaderName -&gt; StepState -&gt; [Header]
 (HeaderName -&gt; StepState -&gt; [Header]) -&gt; ToHeader StepState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StepState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StepState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679376871"><span class="annot"><span class="annottext">StepState -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679377227"><span class="annot"><span class="annottext">StepState -&gt; QueryString
 (StepState -&gt; QueryString) -&gt; ToQuery StepState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StepState -&gt; QueryString
 $ctoQuery :: StepState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679376866"><span id="local-6989586621679376868"><span class="annot"><span class="annottext">Value -&gt; Parser [StepState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679377222"><span id="local-6989586621679377224"><span class="annot"><span class="annottext">Value -&gt; Parser [StepState]
 Value -&gt; Parser StepState
 (Value -&gt; Parser StepState)
 -&gt; (Value -&gt; Parser [StepState]) -&gt; FromJSON StepState
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [StepState]
 parseJSON :: Value -&gt; Parser StepState
 $cparseJSON :: Value -&gt; Parser StepState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679376861"><span id="local-6989586621679376863"><span class="annot"><span class="annottext">FromJSONKeyFunction [StepState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679377217"><span id="local-6989586621679377219"><span class="annot"><span class="annottext">FromJSONKeyFunction [StepState]
 FromJSONKeyFunction StepState
 FromJSONKeyFunction StepState
 -&gt; FromJSONKeyFunction [StepState] -&gt; FromJSONKey StepState
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StepState]
 fromJSONKey :: FromJSONKeyFunction StepState
 $cfromJSONKey :: FromJSONKeyFunction StepState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679376852"><span id="local-6989586621679376854"><span id="local-6989586621679376856"><span id="local-6989586621679376858"><span class="annot"><span class="annottext">[StepState] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679377208"><span id="local-6989586621679377210"><span id="local-6989586621679377212"><span id="local-6989586621679377214"><span class="annot"><span class="annottext">[StepState] -&gt; Encoding
 [StepState] -&gt; Value
 StepState -&gt; Encoding
 StepState -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: StepState -&gt; Encoding
 toJSON :: StepState -&gt; Value
 $ctoJSON :: StepState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679376847"><span id="local-6989586621679376849"><span class="annot"><span class="annottext">ToJSONKeyFunction [StepState]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679377203"><span id="local-6989586621679377205"><span class="annot"><span class="annottext">ToJSONKeyFunction [StepState]
 ToJSONKeyFunction StepState
 ToJSONKeyFunction StepState
 -&gt; ToJSONKeyFunction [StepState] -&gt; ToJSONKey StepState
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StepState]
 toJSONKey :: ToJSONKeyFunction StepState
 $ctoJSONKey :: ToJSONKeyFunction StepState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679376844"><span class="annot"><span class="annottext">[Node] -&gt; Either String StepState
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679377200"><span class="annot"><span class="annottext">[Node] -&gt; Either String StepState
 ([Node] -&gt; Either String StepState) -&gt; FromXML StepState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StepState
 $cparseXML :: [Node] -&gt; Either String StepState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679376841"><span class="annot"><span class="annottext">StepState -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679377197"><span class="annot"><span class="annottext">StepState -&gt; XML
 (StepState -&gt; XML) -&gt; ToXML StepState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StepState -&gt; XML

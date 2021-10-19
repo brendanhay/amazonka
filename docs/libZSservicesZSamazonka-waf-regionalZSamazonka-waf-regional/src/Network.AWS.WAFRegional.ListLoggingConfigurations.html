@@ -44,8 +44,8 @@
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#newListLoggingConfigurationsResponse"><span class="hs-identifier">newListLoggingConfigurationsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#listLoggingConfigurationsResponse_loggingConfigurations"><span class="hs-identifier">listLoggingConfigurationsResponse_loggingConfigurations</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#listLoggingConfigurationsResponse_nextMarker"><span class="hs-identifier">listLoggingConfigurationsResponse_nextMarker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#listLoggingConfigurationsResponse_nextMarker"><span class="hs-identifier">listLoggingConfigurationsResponse_nextMarker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#listLoggingConfigurationsResponse_loggingConfigurations"><span class="hs-identifier">listLoggingConfigurationsResponse_loggingConfigurations</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#listLoggingConfigurationsResponse_httpStatus"><span class="hs-identifier">listLoggingConfigurationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span class="hs-keyword">where</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.html"><span class="hs-identifier">Network.AWS.WAFRegional.Types</span></a></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newListLoggingConfigurations' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679316289"><span id="local-6989586621679316290"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLoggingConfigurations"><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations"><span class="hs-identifier hs-var">ListLoggingConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLoggingConfigurations%27"><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations%27"><span class="hs-identifier hs-var">ListLoggingConfigurations'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679316559"><span id="local-6989586621679316560"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLoggingConfigurations"><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations"><span class="hs-identifier hs-var">ListLoggingConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLoggingConfigurations%27"><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations%27"><span class="hs-identifier hs-var">ListLoggingConfigurations'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you specify a value for @Limit@ and you have more</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- @LoggingConfigurations@ than the value of @Limit@, AWS WAF returns a</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @NextMarker@ value in the response that allows you to list another group</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3Alimit%3AListLoggingConfigurations%27"><span class="annot"><span class="annottext">ListLoggingConfigurations -&gt; Maybe Natural
 </span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#%24sel%3Alimit%3AListLoggingConfigurations%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316282"><span id="local-6989586621679316284"><span class="annot"><span class="annottext">ListLoggingConfigurations -&gt; ListLoggingConfigurations -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316552"><span id="local-6989586621679316554"><span class="annot"><span class="annottext">ListLoggingConfigurations -&gt; ListLoggingConfigurations -&gt; Bool
 (ListLoggingConfigurations -&gt; ListLoggingConfigurations -&gt; Bool)
 -&gt; (ListLoggingConfigurations -&gt; ListLoggingConfigurations -&gt; Bool)
 -&gt; Eq ListLoggingConfigurations
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListLoggingConfigurations -&gt; ListLoggingConfigurations -&gt; Bool
 == :: ListLoggingConfigurations -&gt; ListLoggingConfigurations -&gt; Bool
 $c== :: ListLoggingConfigurations -&gt; ListLoggingConfigurations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316273"><span id="local-6989586621679316275"><span id="local-6989586621679316277"><span id="local-6989586621679316279"><span class="annot"><span class="annottext">ReadPrec [ListLoggingConfigurations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316543"><span id="local-6989586621679316545"><span id="local-6989586621679316547"><span id="local-6989586621679316549"><span class="annot"><span class="annottext">ReadPrec [ListLoggingConfigurations]
 ReadPrec ListLoggingConfigurations
 Int -&gt; ReadS ListLoggingConfigurations
 ReadS [ListLoggingConfigurations]
@@ -105,7 +105,7 @@ readList :: ReadS [ListLoggingConfigurations]
 $creadList :: ReadS [ListLoggingConfigurations]
 readsPrec :: Int -&gt; ReadS ListLoggingConfigurations
 $creadsPrec :: Int -&gt; ReadS ListLoggingConfigurations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316266"><span id="local-6989586621679316268"><span id="local-6989586621679316270"><span class="annot"><span class="annottext">Int -&gt; ListLoggingConfigurations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316536"><span id="local-6989586621679316538"><span id="local-6989586621679316540"><span class="annot"><span class="annottext">Int -&gt; ListLoggingConfigurations -&gt; ShowS
 [ListLoggingConfigurations] -&gt; ShowS
 ListLoggingConfigurations -&gt; String
 (Int -&gt; ListLoggingConfigurations -&gt; ShowS)
@@ -194,16 +194,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations%27"><span class="hs-identifier hs-type">ListLoggingConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316259"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations%27"><span class="hs-identifier hs-type">ListLoggingConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316529"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListLoggingConfigurations' :: ListLoggingConfigurations -&gt; Maybe Text
-</span><a href="#local-6989586621679316259"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316259"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316258"><span class="annot"><span class="annottext">s :: ListLoggingConfigurations
-</span><a href="#local-6989586621679316258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations%27"><span class="hs-identifier hs-type">ListLoggingConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316257"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLoggingConfigurations
-</span><a href="#local-6989586621679316258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListLoggingConfigurations' :: Maybe Text
+</span><a href="#local-6989586621679316529"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316529"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316528"><span class="annot"><span class="annottext">s :: ListLoggingConfigurations
+</span><a href="#local-6989586621679316528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations%27"><span class="hs-identifier hs-type">ListLoggingConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316527"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLoggingConfigurations
+</span><a href="#local-6989586621679316528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListLoggingConfigurations' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#%24sel%3AnextMarker%3AListLoggingConfigurations%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations"><span class="hs-identifier hs-type">ListLoggingConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations"><span class="hs-identifier hs-type">ListLoggingConfigurations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | Specifies the number of @LoggingConfigurations@ that you want AWS WAF to</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- return for this request. If you have more @LoggingConfigurations@ than</span><span>
@@ -222,28 +222,28 @@ $sel:nextMarker:ListLoggingConfigurations' :: ListLoggingConfigurations -&gt; Ma
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations%27"><span class="hs-identifier hs-type">ListLoggingConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316256"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations%27"><span class="hs-identifier hs-type">ListLoggingConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316526"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListLoggingConfigurations' :: ListLoggingConfigurations -&gt; Maybe Natural
-</span><a href="#local-6989586621679316256"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679316256"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316255"><span class="annot"><span class="annottext">s :: ListLoggingConfigurations
-</span><a href="#local-6989586621679316255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations%27"><span class="hs-identifier hs-type">ListLoggingConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316254"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679316254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLoggingConfigurations
-</span><a href="#local-6989586621679316255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListLoggingConfigurations' :: Maybe Natural
+</span><a href="#local-6989586621679316526"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679316526"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316525"><span class="annot"><span class="annottext">s :: ListLoggingConfigurations
+</span><a href="#local-6989586621679316525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations%27"><span class="hs-identifier hs-type">ListLoggingConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316524"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679316524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLoggingConfigurations
+</span><a href="#local-6989586621679316525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListLoggingConfigurations' :: Maybe Natural
 </span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#%24sel%3Alimit%3AListLoggingConfigurations%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679316254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations"><span class="hs-identifier hs-type">ListLoggingConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations"><span class="hs-identifier hs-type">ListLoggingConfigurations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations"><span class="hs-identifier hs-type">ListLoggingConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-129"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations"><span class="hs-identifier hs-type">ListLoggingConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679316250"><span class="annot"><span class="annottext">request :: ListLoggingConfigurations -&gt; Request ListLoggingConfigurations
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679316520"><span class="annot"><span class="annottext">request :: ListLoggingConfigurations -&gt; Request ListLoggingConfigurations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListLoggingConfigurations -&gt; Request ListLoggingConfigurations
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WAFRegional.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679316246"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679316516"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListLoggingConfigurations
 -&gt; ClientResponse ClientBody
@@ -269,43 +269,51 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316243"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316243"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679316242"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679316242"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679316241"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316241"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe [LoggingConfiguration]
--&gt; Maybe Text -&gt; Int -&gt; ListLoggingConfigurationsResponse
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316513"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316513"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679316512"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679316512"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679316511"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316511"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [LoggingConfiguration]
+-&gt; Int
+-&gt; ListLoggingConfigurationsResponse
 </span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-var">ListLoggingConfigurationsResponse'</span></a></span><span>
-</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [LoggingConfiguration]
- -&gt; Maybe Text -&gt; Int -&gt; ListLoggingConfigurationsResponse)
--&gt; Either String (Maybe [LoggingConfiguration])
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [LoggingConfiguration]
+ -&gt; Int
+ -&gt; ListLoggingConfigurationsResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; ListLoggingConfigurationsResponse)
+     String
+     (Maybe [LoggingConfiguration]
+      -&gt; Int -&gt; ListLoggingConfigurationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316511"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [LoggingConfiguration]
+   -&gt; Int -&gt; ListLoggingConfigurationsResponse)
+-&gt; Either String (Maybe [LoggingConfiguration])
+-&gt; Either String (Int -&gt; ListLoggingConfigurationsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316511"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [LoggingConfiguration]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LoggingConfigurations&quot;</span></span><span>
-</span><span id="line-137"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [LoggingConfiguration]))
+</span><span id="line-138"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [LoggingConfiguration]))
 -&gt; Maybe [LoggingConfiguration]
 -&gt; Either String (Maybe [LoggingConfiguration])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LoggingConfiguration]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-138"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Int -&gt; ListLoggingConfigurationsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; ListLoggingConfigurationsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListLoggingConfigurationsResponse)
 -&gt; Either String Int
 -&gt; Either String ListLoggingConfigurationsResponse
@@ -315,15 +323,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316243"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316513"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316232"><span id="local-6989586621679316234"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations"><span class="hs-identifier hs-type">ListLoggingConfigurations</span></a></span></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316502"><span id="local-6989586621679316504"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations"><span class="hs-identifier hs-type">ListLoggingConfigurations</span></a></span></span></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316229"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations"><span class="hs-identifier hs-type">ListLoggingConfigurations</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316499"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations"><span class="hs-identifier hs-type">ListLoggingConfigurations</span></a></span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations"><span class="hs-identifier hs-type">ListLoggingConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679316225"><span class="annot"><span class="annottext">toHeaders :: ListLoggingConfigurations -&gt; ResponseHeaders
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679316495"><span class="annot"><span class="annottext">toHeaders :: ListLoggingConfigurations -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListLoggingConfigurations -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -350,15 +358,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316215"><span id="local-6989586621679316217"><span id="local-6989586621679316219"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations"><span class="hs-identifier hs-type">ListLoggingConfigurations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679316213"><span class="annot"><span class="annottext">toJSON :: ListLoggingConfigurations -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations%27"><span class="hs-identifier hs-type">ListLoggingConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316210"><span id="local-6989586621679316211"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316485"><span id="local-6989586621679316487"><span id="local-6989586621679316489"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations"><span class="hs-identifier hs-type">ListLoggingConfigurations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679316483"><span class="annot"><span class="annottext">toJSON :: ListLoggingConfigurations -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations%27"><span class="hs-identifier hs-type">ListLoggingConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316480"><span id="local-6989586621679316481"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 limit :: Maybe Natural
 nextMarker :: Maybe Text
 $sel:limit:ListLoggingConfigurations' :: ListLoggingConfigurations -&gt; Maybe Natural
 $sel:nextMarker:ListLoggingConfigurations' :: ListLoggingConfigurations -&gt; Maybe Text
-</span><a href="#local-6989586621679316210"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679316480"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -370,26 +378,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316211"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316481"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679316210"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><a href="#local-6989586621679316480"><span class="hs-identifier hs-var">limit</span></a></span><span>
 </span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations"><span class="hs-identifier hs-type">ListLoggingConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679316204"><span class="annot"><span class="annottext">toPath :: ListLoggingConfigurations -&gt; ByteString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679316474"><span class="annot"><span class="annottext">toPath :: ListLoggingConfigurations -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListLoggingConfigurations -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurations"><span class="hs-identifier hs-type">ListLoggingConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679316200"><span class="annot"><span class="annottext">toQuery :: ListLoggingConfigurations -&gt; QueryString
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679316470"><span class="annot"><span class="annottext">toQuery :: ListLoggingConfigurations -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListLoggingConfigurations -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -397,22 +405,22 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | /See:/ 'newListLoggingConfigurationsResponse' smart constructor.</span><span>
-</span><span id="line-178"></span><span id="local-6989586621679316197"><span id="local-6989586621679316198"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLoggingConfigurationsResponse"><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse"><span class="hs-identifier hs-var">ListLoggingConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLoggingConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-var">ListLoggingConfigurationsResponse'</span></a></span></span><span>
-</span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of LoggingConfiguration objects.</span><span>
-</span><span id="line-180"></span><span>    </span><span id="%24sel%3AloggingConfigurations%3AListLoggingConfigurationsResponse%27"><span class="annot"><span class="annottext">ListLoggingConfigurationsResponse -&gt; Maybe [LoggingConfiguration]
-</span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#%24sel%3AloggingConfigurations%3AListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">loggingConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- | If you have more @LoggingConfigurations@ than the number that you</span><span>
-</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- specified for @Limit@ in the request, the response includes a</span><span>
-</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- @NextMarker@ value. To list more @LoggingConfigurations@, submit another</span><span>
-</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- @ListLoggingConfigurations@ request, and specify the @NextMarker@ value</span><span>
-</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- from the response in the @NextMarker@ value in the next request.</span><span>
-</span><span id="line-186"></span><span>    </span><span id="%24sel%3AnextMarker%3AListLoggingConfigurationsResponse%27"><span class="annot"><span class="annottext">ListLoggingConfigurationsResponse -&gt; Maybe Text
+</span><span id="line-178"></span><span id="local-6989586621679316467"><span id="local-6989586621679316468"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLoggingConfigurationsResponse"><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse"><span class="hs-identifier hs-var">ListLoggingConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLoggingConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-var">ListLoggingConfigurationsResponse'</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you have more @LoggingConfigurations@ than the number that you</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- specified for @Limit@ in the request, the response includes a</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- @NextMarker@ value. To list more @LoggingConfigurations@, submit another</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- @ListLoggingConfigurations@ request, and specify the @NextMarker@ value</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- from the response in the @NextMarker@ value in the next request.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AnextMarker%3AListLoggingConfigurationsResponse%27"><span class="annot"><span class="annottext">ListLoggingConfigurationsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#%24sel%3AnextMarker%3AListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | An array of LoggingConfiguration objects.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3AloggingConfigurations%3AListLoggingConfigurationsResponse%27"><span class="annot"><span class="annottext">ListLoggingConfigurationsResponse -&gt; Maybe [LoggingConfiguration]
+</span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#%24sel%3AloggingConfigurations%3AListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">loggingConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-188"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListLoggingConfigurationsResponse%27"><span class="annot"><span class="annottext">ListLoggingConfigurationsResponse -&gt; Int
 </span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#%24sel%3AhttpStatus%3AListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316190"><span id="local-6989586621679316192"><span class="annot"><span class="annottext">ListLoggingConfigurationsResponse
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316460"><span id="local-6989586621679316462"><span class="annot"><span class="annottext">ListLoggingConfigurationsResponse
 -&gt; ListLoggingConfigurationsResponse -&gt; Bool
 (ListLoggingConfigurationsResponse
  -&gt; ListLoggingConfigurationsResponse -&gt; Bool)
@@ -428,7 +436,7 @@ $c/= :: ListLoggingConfigurationsResponse
 -&gt; ListLoggingConfigurationsResponse -&gt; Bool
 $c== :: ListLoggingConfigurationsResponse
 -&gt; ListLoggingConfigurationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316182"><span id="local-6989586621679316184"><span id="local-6989586621679316186"><span id="local-6989586621679316188"><span class="annot"><span class="annottext">ReadPrec [ListLoggingConfigurationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316452"><span id="local-6989586621679316454"><span id="local-6989586621679316456"><span id="local-6989586621679316458"><span class="annot"><span class="annottext">ReadPrec [ListLoggingConfigurationsResponse]
 ReadPrec ListLoggingConfigurationsResponse
 Int -&gt; ReadS ListLoggingConfigurationsResponse
 ReadS [ListLoggingConfigurationsResponse]
@@ -448,7 +456,7 @@ readList :: ReadS [ListLoggingConfigurationsResponse]
 $creadList :: ReadS [ListLoggingConfigurationsResponse]
 readsPrec :: Int -&gt; ReadS ListLoggingConfigurationsResponse
 $creadsPrec :: Int -&gt; ReadS ListLoggingConfigurationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316176"><span id="local-6989586621679316178"><span id="local-6989586621679316180"><span class="annot"><span class="annottext">Int -&gt; ListLoggingConfigurationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316446"><span id="local-6989586621679316448"><span id="local-6989586621679316450"><span class="annot"><span class="annottext">Int -&gt; ListLoggingConfigurationsResponse -&gt; ShowS
 [ListLoggingConfigurationsResponse] -&gt; ShowS
 ListLoggingConfigurationsResponse -&gt; String
 (Int -&gt; ListLoggingConfigurationsResponse -&gt; ShowS)
@@ -494,13 +502,13 @@ ListLoggingConfigurationsResponse
 </span><span id="line-197"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-199"></span><span class="hs-comment">--</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- 'loggingConfigurations', 'listLoggingConfigurationsResponse_loggingConfigurations' - An array of LoggingConfiguration objects.</span><span>
-</span><span id="line-201"></span><span class="hs-comment">--</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- 'nextMarker', 'listLoggingConfigurationsResponse_nextMarker' - If you have more @LoggingConfigurations@ than the number that you</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- specified for @Limit@ in the request, the response includes a</span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- @NextMarker@ value. To list more @LoggingConfigurations@, submit another</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- @ListLoggingConfigurations@ request, and specify the @NextMarker@ value</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- from the response in the @NextMarker@ value in the next request.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'nextMarker', 'listLoggingConfigurationsResponse_nextMarker' - If you have more @LoggingConfigurations@ than the number that you</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- specified for @Limit@ in the request, the response includes a</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- @NextMarker@ value. To list more @LoggingConfigurations@, submit another</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- @ListLoggingConfigurations@ request, and specify the @NextMarker@ value</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- from the response in the @NextMarker@ value in the next request.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'loggingConfigurations', 'listLoggingConfigurationsResponse_loggingConfigurations' - An array of LoggingConfiguration objects.</span><span>
 </span><span id="line-207"></span><span class="hs-comment">--</span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- 'httpStatus', 'listLoggingConfigurationsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-209"></span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#newListLoggingConfigurationsResponse"><span class="hs-identifier hs-type">newListLoggingConfigurationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -508,28 +516,59 @@ ListLoggingConfigurationsResponse
 </span><span id="line-211"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-212"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse</span></a></span><span>
 </span><span id="line-213"></span><span id="newListLoggingConfigurationsResponse"><span class="annot"><span class="annottext">newListLoggingConfigurationsResponse :: Int -&gt; ListLoggingConfigurationsResponse
-</span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#newListLoggingConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newListLoggingConfigurationsResponse</span></a></span></span><span> </span><span id="local-6989586621679316173"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316173"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-214"></span><span>  </span><span class="annot"><span class="annottext">ListLoggingConfigurationsResponse' :: Maybe [LoggingConfiguration]
--&gt; Maybe Text -&gt; Int -&gt; ListLoggingConfigurationsResponse
+</span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#newListLoggingConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newListLoggingConfigurationsResponse</span></a></span></span><span> </span><span id="local-6989586621679316443"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316443"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><span class="annottext">ListLoggingConfigurationsResponse' :: Maybe Text
+-&gt; Maybe [LoggingConfiguration]
+-&gt; Int
+-&gt; ListLoggingConfigurationsResponse
 </span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse'</span></a></span><span>
-</span><span id="line-215"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loggingConfigurations:ListLoggingConfigurationsResponse' :: Maybe [LoggingConfiguration]
-</span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#%24sel%3AloggingConfigurations%3AListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-var">loggingConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">Maybe [LoggingConfiguration]
+</span><span id="line-215"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextMarker:ListLoggingConfigurationsResponse' :: Maybe Text
+</span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#%24sel%3AnextMarker%3AListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextMarker:ListLoggingConfigurationsResponse' :: Maybe Text
-</span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#%24sel%3AnextMarker%3AListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:loggingConfigurations:ListLoggingConfigurationsResponse' :: Maybe [LoggingConfiguration]
+</span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#%24sel%3AloggingConfigurations%3AListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-var">loggingConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LoggingConfiguration]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListLoggingConfigurationsResponse' :: Int
 </span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#%24sel%3AhttpStatus%3AListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316173"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679316443"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-219"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- | An array of LoggingConfiguration objects.</span><span>
-</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#listLoggingConfigurationsResponse_loggingConfigurations"><span class="hs-identifier hs-type">listLoggingConfigurationsResponse_loggingConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-223"></span><span id="listLoggingConfigurationsResponse_loggingConfigurations"><span class="annot"><span class="annottext">listLoggingConfigurationsResponse_loggingConfigurations :: (Maybe [LoggingConfiguration] -&gt; f (Maybe [LoggingConfiguration]))
+</span><span id="line-221"></span><span class="hs-comment">-- | If you have more @LoggingConfigurations@ than the number that you</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- specified for @Limit@ in the request, the response includes a</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- @NextMarker@ value. To list more @LoggingConfigurations@, submit another</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- @ListLoggingConfigurations@ request, and specify the @NextMarker@ value</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- from the response in the @NextMarker@ value in the next request.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#listLoggingConfigurationsResponse_nextMarker"><span class="hs-identifier hs-type">listLoggingConfigurationsResponse_nextMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="listLoggingConfigurationsResponse_nextMarker"><span class="annot"><span class="annottext">listLoggingConfigurationsResponse_nextMarker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListLoggingConfigurationsResponse
+-&gt; f ListLoggingConfigurationsResponse
+</span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#listLoggingConfigurationsResponse_nextMarker"><span class="hs-identifier hs-var hs-var">listLoggingConfigurationsResponse_nextMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLoggingConfigurationsResponse -&gt; Maybe Text)
+-&gt; (ListLoggingConfigurationsResponse
+    -&gt; Maybe Text -&gt; ListLoggingConfigurationsResponse)
+-&gt; Lens
+     ListLoggingConfigurationsResponse
+     ListLoggingConfigurationsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316442"><span class="annot"><span class="annottext">Maybe Text
+nextMarker :: Maybe Text
+$sel:nextMarker:ListLoggingConfigurationsResponse' :: ListLoggingConfigurationsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679316442"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316442"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316441"><span class="annot"><span class="annottext">s :: ListLoggingConfigurationsResponse
+</span><a href="#local-6989586621679316441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316440"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLoggingConfigurationsResponse
+</span><a href="#local-6989586621679316441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListLoggingConfigurationsResponse' :: Maybe Text
+</span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#%24sel%3AnextMarker%3AListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | An array of LoggingConfiguration objects.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#listLoggingConfigurationsResponse_loggingConfigurations"><span class="hs-identifier hs-type">listLoggingConfigurationsResponse_loggingConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="listLoggingConfigurationsResponse_loggingConfigurations"><span class="annot"><span class="annottext">listLoggingConfigurationsResponse_loggingConfigurations :: (Maybe [LoggingConfiguration] -&gt; f (Maybe [LoggingConfiguration]))
 -&gt; ListLoggingConfigurationsResponse
 -&gt; f ListLoggingConfigurationsResponse
 </span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#listLoggingConfigurationsResponse_loggingConfigurations"><span class="hs-identifier hs-var hs-var">listLoggingConfigurationsResponse_loggingConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLoggingConfigurationsResponse -&gt; Maybe [LoggingConfiguration])
@@ -542,16 +581,16 @@ forall a. Maybe a
      (Maybe [LoggingConfiguration])
      (Maybe [LoggingConfiguration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316172"><span class="annot"><span class="annottext">Maybe [LoggingConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316439"><span class="annot"><span class="annottext">Maybe [LoggingConfiguration]
 loggingConfigurations :: Maybe [LoggingConfiguration]
 $sel:loggingConfigurations:ListLoggingConfigurationsResponse' :: ListLoggingConfigurationsResponse -&gt; Maybe [LoggingConfiguration]
-</span><a href="#local-6989586621679316172"><span class="hs-identifier hs-var hs-var">loggingConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LoggingConfiguration]
-</span><a href="#local-6989586621679316172"><span class="hs-identifier hs-var">loggingConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316171"><span class="annot"><span class="annottext">s :: ListLoggingConfigurationsResponse
-</span><a href="#local-6989586621679316171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316170"><span class="annot"><span class="annottext">Maybe [LoggingConfiguration]
-</span><a href="#local-6989586621679316170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLoggingConfigurationsResponse
-</span><a href="#local-6989586621679316171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingConfigurations:ListLoggingConfigurationsResponse' :: Maybe [LoggingConfiguration]
+</span><a href="#local-6989586621679316439"><span class="hs-identifier hs-var hs-var">loggingConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LoggingConfiguration]
+</span><a href="#local-6989586621679316439"><span class="hs-identifier hs-var">loggingConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316438"><span class="annot"><span class="annottext">s :: ListLoggingConfigurationsResponse
+</span><a href="#local-6989586621679316438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316437"><span class="annot"><span class="annottext">Maybe [LoggingConfiguration]
+</span><a href="#local-6989586621679316437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLoggingConfigurationsResponse
+</span><a href="#local-6989586621679316438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingConfigurations:ListLoggingConfigurationsResponse' :: Maybe [LoggingConfiguration]
 </span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#%24sel%3AloggingConfigurations%3AListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-var">loggingConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LoggingConfiguration]
-</span><a href="#local-6989586621679316170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LoggingConfiguration] -&gt; f (Maybe [LoggingConfiguration]))
+</span><a href="#local-6989586621679316437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LoggingConfiguration] -&gt; f (Maybe [LoggingConfiguration]))
  -&gt; ListLoggingConfigurationsResponse
  -&gt; f ListLoggingConfigurationsResponse)
 -&gt; ((Maybe [LoggingConfiguration]
@@ -581,37 +620,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [LoggingConfiguration]
   [LoggingConfiguration]
   [LoggingConfiguration]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- | If you have more @LoggingConfigurations@ than the number that you</span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- specified for @Limit@ in the request, the response includes a</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- @NextMarker@ value. To list more @LoggingConfigurations@, submit another</span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- @ListLoggingConfigurations@ request, and specify the @NextMarker@ value</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- from the response in the @NextMarker@ value in the next request.</span><span>
-</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#listLoggingConfigurationsResponse_nextMarker"><span class="hs-identifier hs-type">listLoggingConfigurationsResponse_nextMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-231"></span><span id="listLoggingConfigurationsResponse_nextMarker"><span class="annot"><span class="annottext">listLoggingConfigurationsResponse_nextMarker :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListLoggingConfigurationsResponse
--&gt; f ListLoggingConfigurationsResponse
-</span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#listLoggingConfigurationsResponse_nextMarker"><span class="hs-identifier hs-var hs-var">listLoggingConfigurationsResponse_nextMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLoggingConfigurationsResponse -&gt; Maybe Text)
--&gt; (ListLoggingConfigurationsResponse
-    -&gt; Maybe Text -&gt; ListLoggingConfigurationsResponse)
--&gt; Lens
-     ListLoggingConfigurationsResponse
-     ListLoggingConfigurationsResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316166"><span class="annot"><span class="annottext">Maybe Text
-nextMarker :: Maybe Text
-$sel:nextMarker:ListLoggingConfigurationsResponse' :: ListLoggingConfigurationsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679316166"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316166"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316165"><span class="annot"><span class="annottext">s :: ListLoggingConfigurationsResponse
-</span><a href="#local-6989586621679316165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316164"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLoggingConfigurationsResponse
-</span><a href="#local-6989586621679316165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListLoggingConfigurationsResponse' :: Maybe Text
-</span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#%24sel%3AnextMarker%3AListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-234"></span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#listLoggingConfigurationsResponse_httpStatus"><span class="hs-identifier hs-type">listLoggingConfigurationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -627,18 +637,18 @@ $sel:nextMarker:ListLoggingConfigurationsResponse' :: ListLoggingConfigurationsR
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316163"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316433"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListLoggingConfigurationsResponse' :: ListLoggingConfigurationsResponse -&gt; Int
-</span><a href="#local-6989586621679316163"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316163"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316162"><span class="annot"><span class="annottext">s :: ListLoggingConfigurationsResponse
-</span><a href="#local-6989586621679316162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316161"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLoggingConfigurationsResponse
-</span><a href="#local-6989586621679316162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListLoggingConfigurationsResponse' :: Int
+</span><a href="#local-6989586621679316433"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316433"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316432"><span class="annot"><span class="annottext">s :: ListLoggingConfigurationsResponse
+</span><a href="#local-6989586621679316432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316431"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLoggingConfigurationsResponse
+</span><a href="#local-6989586621679316432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListLoggingConfigurationsResponse' :: Int
 </span><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#%24sel%3AhttpStatus%3AListLoggingConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-238"></span><span>  </span><span id="local-6989586621679316159"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679316429"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-239"></span><span>    </span><span class="annot"><a href="Network.AWS.WAFRegional.ListLoggingConfigurations.html#ListLoggingConfigurationsResponse"><span class="hs-identifier hs-type">ListLoggingConfigurationsResponse</span></a></span></span><span>
 </span><span id="line-240"></span></pre></body></html>

@@ -37,9 +37,9 @@
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#newGetPackageVersionHistoryResponse"><span class="hs-identifier">newGetPackageVersionHistoryResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistoryResponse_nextToken"><span class="hs-identifier">getPackageVersionHistoryResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistoryResponse_packageID"><span class="hs-identifier">getPackageVersionHistoryResponse_packageID</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistoryResponse_packageVersionHistoryList"><span class="hs-identifier">getPackageVersionHistoryResponse_packageVersionHistoryList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistoryResponse_packageID"><span class="hs-identifier">getPackageVersionHistoryResponse_packageID</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistoryResponse_packageVersionHistoryList"><span class="hs-identifier">getPackageVersionHistoryResponse_packageVersionHistoryList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistoryResponse_nextToken"><span class="hs-identifier">getPackageVersionHistoryResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistoryResponse_httpStatus"><span class="hs-identifier">getPackageVersionHistoryResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span class="hs-keyword">where</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-comment">-- operation.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newGetPackageVersionHistory' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679309526"><span id="local-6989586621679309527"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPackageVersionHistory"><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-var">GetPackageVersionHistory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPackageVersionHistory%27"><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-var">GetPackageVersionHistory'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679309755"><span id="local-6989586621679309756"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPackageVersionHistory"><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-var">GetPackageVersionHistory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPackageVersionHistory%27"><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-var">GetPackageVersionHistory'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Used for pagination. Only necessary if a previous API call includes a</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- non-null NextToken value. If provided, returns results for the next</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- page.</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3ApackageID%3AGetPackageVersionHistory%27"><span class="annot"><span class="annottext">GetPackageVersionHistory -&gt; Text
 </span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3ApackageID%3AGetPackageVersionHistory%27"><span class="hs-identifier hs-var hs-var">packageID</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309518"><span id="local-6989586621679309520"><span class="annot"><span class="annottext">GetPackageVersionHistory -&gt; GetPackageVersionHistory -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309747"><span id="local-6989586621679309749"><span class="annot"><span class="annottext">GetPackageVersionHistory -&gt; GetPackageVersionHistory -&gt; Bool
 (GetPackageVersionHistory -&gt; GetPackageVersionHistory -&gt; Bool)
 -&gt; (GetPackageVersionHistory -&gt; GetPackageVersionHistory -&gt; Bool)
 -&gt; Eq GetPackageVersionHistory
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetPackageVersionHistory -&gt; GetPackageVersionHistory -&gt; Bool
 == :: GetPackageVersionHistory -&gt; GetPackageVersionHistory -&gt; Bool
 $c== :: GetPackageVersionHistory -&gt; GetPackageVersionHistory -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309509"><span id="local-6989586621679309511"><span id="local-6989586621679309513"><span id="local-6989586621679309515"><span class="annot"><span class="annottext">ReadPrec [GetPackageVersionHistory]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309738"><span id="local-6989586621679309740"><span id="local-6989586621679309742"><span id="local-6989586621679309744"><span class="annot"><span class="annottext">ReadPrec [GetPackageVersionHistory]
 ReadPrec GetPackageVersionHistory
 Int -&gt; ReadS GetPackageVersionHistory
 ReadS [GetPackageVersionHistory]
@@ -97,7 +97,7 @@ readList :: ReadS [GetPackageVersionHistory]
 $creadList :: ReadS [GetPackageVersionHistory]
 readsPrec :: Int -&gt; ReadS GetPackageVersionHistory
 $creadsPrec :: Int -&gt; ReadS GetPackageVersionHistory
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309502"><span id="local-6989586621679309504"><span id="local-6989586621679309506"><span class="annot"><span class="annottext">Int -&gt; GetPackageVersionHistory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309731"><span id="local-6989586621679309733"><span id="local-6989586621679309735"><span class="annot"><span class="annottext">Int -&gt; GetPackageVersionHistory -&gt; ShowS
 [GetPackageVersionHistory] -&gt; ShowS
 GetPackageVersionHistory -&gt; String
 (Int -&gt; GetPackageVersionHistory -&gt; ShowS)
@@ -149,8 +149,8 @@ GetPackageVersionHistory -&gt; Rep GetPackageVersionHistory x
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-type">GetPackageVersionHistory</span></a></span><span>
 </span><span id="line-89"></span><span id="newGetPackageVersionHistory"><span class="annot"><span class="annottext">newGetPackageVersionHistory :: Text -&gt; GetPackageVersionHistory
-</span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#newGetPackageVersionHistory"><span class="hs-identifier hs-var hs-var">newGetPackageVersionHistory</span></a></span></span><span> </span><span id="local-6989586621679309497"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309497"><span class="hs-identifier hs-var">pPackageID_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#newGetPackageVersionHistory"><span class="hs-identifier hs-var hs-var">newGetPackageVersionHistory</span></a></span></span><span> </span><span id="local-6989586621679309726"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309726"><span class="hs-identifier hs-var">pPackageID_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">GetPackageVersionHistory' :: Maybe Text -&gt; Maybe Int -&gt; Text -&gt; GetPackageVersionHistory
 </span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-type">GetPackageVersionHistory'</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetPackageVersionHistory' :: Maybe Text
@@ -164,7 +164,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:packageID:GetPackageVersionHistory' :: Text
 </span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3ApackageID%3AGetPackageVersionHistory%27"><span class="hs-identifier hs-var">packageID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309497"><span class="hs-identifier hs-var">pPackageID_</span></a></span><span>
+</span><a href="#local-6989586621679309726"><span class="hs-identifier hs-var">pPackageID_</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | Used for pagination. Only necessary if a previous API call includes a</span><span>
@@ -182,16 +182,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-type">GetPackageVersionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309494"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-type">GetPackageVersionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309723"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetPackageVersionHistory' :: GetPackageVersionHistory -&gt; Maybe Text
-</span><a href="#local-6989586621679309494"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309494"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309493"><span class="annot"><span class="annottext">s :: GetPackageVersionHistory
-</span><a href="#local-6989586621679309493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-type">GetPackageVersionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309492"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionHistory
-</span><a href="#local-6989586621679309493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetPackageVersionHistory' :: Maybe Text
+</span><a href="#local-6989586621679309723"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309723"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309722"><span class="annot"><span class="annottext">s :: GetPackageVersionHistory
+</span><a href="#local-6989586621679309722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-type">GetPackageVersionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309721"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionHistory
+</span><a href="#local-6989586621679309722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetPackageVersionHistory' :: Maybe Text
 </span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3AnextToken%3AGetPackageVersionHistory%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-type">GetPackageVersionHistory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-type">GetPackageVersionHistory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | Limits results to a maximum number of versions.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistory_maxResults"><span class="hs-identifier hs-type">getPackageVersionHistory_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-type">GetPackageVersionHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -206,16 +206,16 @@ $sel:nextToken:GetPackageVersionHistory' :: GetPackageVersionHistory -&gt; Maybe
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-type">GetPackageVersionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309491"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-type">GetPackageVersionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309720"><span class="annot"><span class="annottext">Maybe Int
 maxResults :: Maybe Int
 $sel:maxResults:GetPackageVersionHistory' :: GetPackageVersionHistory -&gt; Maybe Int
-</span><a href="#local-6989586621679309491"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679309491"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309490"><span class="annot"><span class="annottext">s :: GetPackageVersionHistory
-</span><a href="#local-6989586621679309490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-type">GetPackageVersionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309489"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679309489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionHistory
-</span><a href="#local-6989586621679309490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetPackageVersionHistory' :: Maybe Int
+</span><a href="#local-6989586621679309720"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679309720"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309719"><span class="annot"><span class="annottext">s :: GetPackageVersionHistory
+</span><a href="#local-6989586621679309719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-type">GetPackageVersionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309718"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679309718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionHistory
+</span><a href="#local-6989586621679309719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetPackageVersionHistory' :: Maybe Int
 </span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3AmaxResults%3AGetPackageVersionHistory%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679309489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-type">GetPackageVersionHistory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-type">GetPackageVersionHistory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | Returns an audit history of versions of the package.</span><span>
 </span><span id="line-108"></span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistory_packageID"><span class="hs-identifier hs-type">getPackageVersionHistory_packageID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-type">GetPackageVersionHistory</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -225,28 +225,28 @@ $sel:maxResults:GetPackageVersionHistory' :: GetPackageVersionHistory -&gt; Mayb
 -&gt; (GetPackageVersionHistory -&gt; Text -&gt; GetPackageVersionHistory)
 -&gt; Lens GetPackageVersionHistory GetPackageVersionHistory Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-type">GetPackageVersionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309488"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-type">GetPackageVersionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309717"><span class="annot"><span class="annottext">Text
 packageID :: Text
 $sel:packageID:GetPackageVersionHistory' :: GetPackageVersionHistory -&gt; Text
-</span><a href="#local-6989586621679309488"><span class="hs-identifier hs-var hs-var">packageID</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309488"><span class="hs-identifier hs-var">packageID</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309487"><span class="annot"><span class="annottext">s :: GetPackageVersionHistory
-</span><a href="#local-6989586621679309487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-type">GetPackageVersionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309486"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionHistory
-</span><a href="#local-6989586621679309487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageID:GetPackageVersionHistory' :: Text
+</span><a href="#local-6989586621679309717"><span class="hs-identifier hs-var hs-var">packageID</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309717"><span class="hs-identifier hs-var">packageID</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309716"><span class="annot"><span class="annottext">s :: GetPackageVersionHistory
+</span><a href="#local-6989586621679309716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-type">GetPackageVersionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309715"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionHistory
+</span><a href="#local-6989586621679309716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageID:GetPackageVersionHistory' :: Text
 </span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3ApackageID%3AGetPackageVersionHistory%27"><span class="hs-identifier hs-var">packageID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-type">GetPackageVersionHistory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-type">GetPackageVersionHistory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-type">GetPackageVersionHistory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-type">GetPackageVersionHistory</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679309482"><span class="annot"><span class="annottext">request :: GetPackageVersionHistory -&gt; Request GetPackageVersionHistory
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679309711"><span class="annot"><span class="annottext">request :: GetPackageVersionHistory -&gt; Request GetPackageVersionHistory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetPackageVersionHistory -&gt; Request GetPackageVersionHistory
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElasticSearch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679309478"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679309707"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetPackageVersionHistory
 -&gt; ClientResponse ClientBody
@@ -272,72 +272,64 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309475"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309475"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679309474"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679309474"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679309473"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309473"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309704"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309704"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679309703"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679309703"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679309702"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309702"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
 -&gt; Maybe [PackageVersionHistory]
+-&gt; Maybe Text
 -&gt; Int
 -&gt; GetPackageVersionHistoryResponse
 </span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var">GetPackageVersionHistoryResponse'</span></a></span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe [PackageVersionHistory]
+ -&gt; Maybe Text
  -&gt; Int
  -&gt; GetPackageVersionHistoryResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe [PackageVersionHistory]
-      -&gt; Int
-      -&gt; GetPackageVersionHistoryResponse)
+     (Maybe [PackageVersionHistory]
+      -&gt; Maybe Text -&gt; Int -&gt; GetPackageVersionHistoryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309473"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe [PackageVersionHistory]
-   -&gt; Int
-   -&gt; GetPackageVersionHistoryResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [PackageVersionHistory]
-      -&gt; Int -&gt; GetPackageVersionHistoryResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309473"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679309702"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PackageID&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe [PackageVersionHistory]
-   -&gt; Int -&gt; GetPackageVersionHistoryResponse)
+   -&gt; Maybe Text -&gt; Int -&gt; GetPackageVersionHistoryResponse)
 -&gt; Either String (Maybe [PackageVersionHistory])
--&gt; Either String (Int -&gt; GetPackageVersionHistoryResponse)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; GetPackageVersionHistoryResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309473"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309702"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [PackageVersionHistory]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PackageVersionHistoryList&quot;</span></span><span>
-</span><span id="line-123"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PackageVersionHistory]))
+</span><span id="line-122"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PackageVersionHistory]))
 -&gt; Maybe [PackageVersionHistory]
 -&gt; Either String (Maybe [PackageVersionHistory])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PackageVersionHistory]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-124"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; GetPackageVersionHistoryResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetPackageVersionHistoryResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309702"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetPackageVersionHistoryResponse)
 -&gt; Either String Int
 -&gt; Either String GetPackageVersionHistoryResponse
@@ -347,15 +339,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309475"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309704"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309464"><span id="local-6989586621679309466"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-type">GetPackageVersionHistory</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309693"><span id="local-6989586621679309695"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-type">GetPackageVersionHistory</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309461"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-type">GetPackageVersionHistory</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309690"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-type">GetPackageVersionHistory</span></a></span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-type">GetPackageVersionHistory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679309457"><span class="annot"><span class="annottext">toHeaders :: GetPackageVersionHistory -&gt; ResponseHeaders
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679309686"><span class="annot"><span class="annottext">toHeaders :: GetPackageVersionHistory -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetPackageVersionHistory -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -363,8 +355,8 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-type">GetPackageVersionHistory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679309452"><span class="annot"><span class="annottext">toPath :: GetPackageVersionHistory -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-type">GetPackageVersionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309448"><span id="local-6989586621679309449"><span id="local-6989586621679309450"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679309681"><span class="annot"><span class="annottext">toPath :: GetPackageVersionHistory -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-type">GetPackageVersionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309677"><span id="local-6989586621679309678"><span id="local-6989586621679309679"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Text
 packageID :: Text
@@ -373,7 +365,7 @@ nextToken :: Maybe Text
 $sel:packageID:GetPackageVersionHistory' :: GetPackageVersionHistory -&gt; Text
 $sel:maxResults:GetPackageVersionHistory' :: GetPackageVersionHistory -&gt; Maybe Int
 $sel:nextToken:GetPackageVersionHistory' :: GetPackageVersionHistory -&gt; Maybe Text
-</span><a href="#local-6989586621679309448"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679309677"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -382,14 +374,14 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309448"><span class="hs-identifier hs-var">packageID</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679309677"><span class="hs-identifier hs-var">packageID</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/history&quot;</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory"><span class="hs-identifier hs-type">GetPackageVersionHistory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679309444"><span class="annot"><span class="annottext">toQuery :: GetPackageVersionHistory -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-type">GetPackageVersionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309440"><span id="local-6989586621679309441"><span id="local-6989586621679309442"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679309673"><span class="annot"><span class="annottext">toQuery :: GetPackageVersionHistory -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistory%27"><span class="hs-identifier hs-type">GetPackageVersionHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309669"><span id="local-6989586621679309670"><span id="local-6989586621679309671"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Text
 packageID :: Text
@@ -398,7 +390,7 @@ nextToken :: Maybe Text
 $sel:packageID:GetPackageVersionHistory' :: GetPackageVersionHistory -&gt; Text
 $sel:maxResults:GetPackageVersionHistory' :: GetPackageVersionHistory -&gt; Maybe Int
 $sel:nextToken:GetPackageVersionHistory' :: GetPackageVersionHistory -&gt; Maybe Text
-</span><a href="#local-6989586621679309440"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679309669"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -406,31 +398,31 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309442"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679309671"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679309441"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679309670"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | Container for response returned by @ GetPackageVersionHistory @</span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- operation.</span><span>
 </span><span id="line-152"></span><span class="hs-comment">--</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- /See:/ 'newGetPackageVersionHistoryResponse' smart constructor.</span><span>
-</span><span id="line-154"></span><span id="local-6989586621679309437"><span id="local-6989586621679309438"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPackageVersionHistoryResponse"><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-var">GetPackageVersionHistoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPackageVersionHistoryResponse%27"><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var">GetPackageVersionHistoryResponse'</span></a></span></span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AnextToken%3AGetPackageVersionHistoryResponse%27"><span class="annot"><span class="annottext">GetPackageVersionHistoryResponse -&gt; Maybe Text
-</span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3AnextToken%3AGetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-156"></span><span>    </span><span id="%24sel%3ApackageID%3AGetPackageVersionHistoryResponse%27"><span class="annot"><span class="annottext">GetPackageVersionHistoryResponse -&gt; Maybe Text
+</span><span id="line-154"></span><span id="local-6989586621679309666"><span id="local-6989586621679309667"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPackageVersionHistoryResponse"><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-var">GetPackageVersionHistoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPackageVersionHistoryResponse%27"><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var">GetPackageVersionHistoryResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3ApackageID%3AGetPackageVersionHistoryResponse%27"><span class="annot"><span class="annottext">GetPackageVersionHistoryResponse -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3ApackageID%3AGetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var hs-var">packageID</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | List of @PackageVersionHistory@ objects.</span><span>
-</span><span id="line-158"></span><span>    </span><span id="%24sel%3ApackageVersionHistoryList%3AGetPackageVersionHistoryResponse%27"><span class="annot"><span class="annottext">GetPackageVersionHistoryResponse -&gt; Maybe [PackageVersionHistory]
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | List of @PackageVersionHistory@ objects.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3ApackageVersionHistoryList%3AGetPackageVersionHistoryResponse%27"><span class="annot"><span class="annottext">GetPackageVersionHistoryResponse -&gt; Maybe [PackageVersionHistory]
 </span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3ApackageVersionHistoryList%3AGetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var hs-var">packageVersionHistoryList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.PackageVersionHistory.html#PackageVersionHistory"><span class="hs-identifier hs-type">PackageVersionHistory</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AnextToken%3AGetPackageVersionHistoryResponse%27"><span class="annot"><span class="annottext">GetPackageVersionHistoryResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3AnextToken%3AGetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetPackageVersionHistoryResponse%27"><span class="annot"><span class="annottext">GetPackageVersionHistoryResponse -&gt; Int
 </span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3AhttpStatus%3AGetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309429"><span id="local-6989586621679309431"><span class="annot"><span class="annottext">GetPackageVersionHistoryResponse
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309658"><span id="local-6989586621679309660"><span class="annot"><span class="annottext">GetPackageVersionHistoryResponse
 -&gt; GetPackageVersionHistoryResponse -&gt; Bool
 (GetPackageVersionHistoryResponse
  -&gt; GetPackageVersionHistoryResponse -&gt; Bool)
@@ -446,7 +438,7 @@ $c/= :: GetPackageVersionHistoryResponse
 -&gt; GetPackageVersionHistoryResponse -&gt; Bool
 $c== :: GetPackageVersionHistoryResponse
 -&gt; GetPackageVersionHistoryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309421"><span id="local-6989586621679309423"><span id="local-6989586621679309425"><span id="local-6989586621679309427"><span class="annot"><span class="annottext">ReadPrec [GetPackageVersionHistoryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309650"><span id="local-6989586621679309652"><span id="local-6989586621679309654"><span id="local-6989586621679309656"><span class="annot"><span class="annottext">ReadPrec [GetPackageVersionHistoryResponse]
 ReadPrec GetPackageVersionHistoryResponse
 Int -&gt; ReadS GetPackageVersionHistoryResponse
 ReadS [GetPackageVersionHistoryResponse]
@@ -466,7 +458,7 @@ readList :: ReadS [GetPackageVersionHistoryResponse]
 $creadList :: ReadS [GetPackageVersionHistoryResponse]
 readsPrec :: Int -&gt; ReadS GetPackageVersionHistoryResponse
 $creadsPrec :: Int -&gt; ReadS GetPackageVersionHistoryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309415"><span id="local-6989586621679309417"><span id="local-6989586621679309419"><span class="annot"><span class="annottext">Int -&gt; GetPackageVersionHistoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309644"><span id="local-6989586621679309646"><span id="local-6989586621679309648"><span class="annot"><span class="annottext">Int -&gt; GetPackageVersionHistoryResponse -&gt; ShowS
 [GetPackageVersionHistoryResponse] -&gt; ShowS
 GetPackageVersionHistoryResponse -&gt; String
 (Int -&gt; GetPackageVersionHistoryResponse -&gt; ShowS)
@@ -512,11 +504,11 @@ GetPackageVersionHistoryResponse
 </span><span id="line-169"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-171"></span><span class="hs-comment">--</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- 'nextToken', 'getPackageVersionHistoryResponse_nextToken' - Undocumented member.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'packageID', 'getPackageVersionHistoryResponse_packageID' - Undocumented member.</span><span>
 </span><span id="line-173"></span><span class="hs-comment">--</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- 'packageID', 'getPackageVersionHistoryResponse_packageID' - Undocumented member.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'packageVersionHistoryList', 'getPackageVersionHistoryResponse_packageVersionHistoryList' - List of @PackageVersionHistory@ objects.</span><span>
 </span><span id="line-175"></span><span class="hs-comment">--</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- 'packageVersionHistoryList', 'getPackageVersionHistoryResponse_packageVersionHistoryList' - List of @PackageVersionHistory@ objects.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'nextToken', 'getPackageVersionHistoryResponse_nextToken' - Undocumented member.</span><span>
 </span><span id="line-177"></span><span class="hs-comment">--</span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- 'httpStatus', 'getPackageVersionHistoryResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-179"></span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#newGetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">newGetPackageVersionHistoryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -524,61 +516,36 @@ GetPackageVersionHistoryResponse
 </span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse</span></a></span><span>
 </span><span id="line-183"></span><span id="newGetPackageVersionHistoryResponse"><span class="annot"><span class="annottext">newGetPackageVersionHistoryResponse :: Int -&gt; GetPackageVersionHistoryResponse
-</span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#newGetPackageVersionHistoryResponse"><span class="hs-identifier hs-var hs-var">newGetPackageVersionHistoryResponse</span></a></span></span><span> </span><span id="local-6989586621679309412"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309412"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#newGetPackageVersionHistoryResponse"><span class="hs-identifier hs-var hs-var">newGetPackageVersionHistoryResponse</span></a></span></span><span> </span><span id="local-6989586621679309641"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309641"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><span class="annottext">GetPackageVersionHistoryResponse' :: Maybe Text
--&gt; Maybe Text
 -&gt; Maybe [PackageVersionHistory]
+-&gt; Maybe Text
 -&gt; Int
 -&gt; GetPackageVersionHistoryResponse
 </span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse'</span></a></span><span>
-</span><span id="line-185"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetPackageVersionHistoryResponse' :: Maybe Text
-</span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3AnextToken%3AGetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:packageID:GetPackageVersionHistoryResponse' :: Maybe Text
+</span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3ApackageID%3AGetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var">packageID</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:packageID:GetPackageVersionHistoryResponse' :: Maybe Text
-</span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3ApackageID%3AGetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var">packageID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:packageVersionHistoryList:GetPackageVersionHistoryResponse' :: Maybe [PackageVersionHistory]
+</span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3ApackageVersionHistoryList%3AGetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var">packageVersionHistoryList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">Maybe [PackageVersionHistory]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:packageVersionHistoryList:GetPackageVersionHistoryResponse' :: Maybe [PackageVersionHistory]
-</span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3ApackageVersionHistoryList%3AGetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var">packageVersionHistoryList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">Maybe [PackageVersionHistory]
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetPackageVersionHistoryResponse' :: Maybe Text
+</span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3AnextToken%3AGetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetPackageVersionHistoryResponse' :: Int
 </span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3AhttpStatus%3AGetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309412"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679309641"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistoryResponse_nextToken"><span class="hs-identifier hs-type">getPackageVersionHistoryResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-195"></span><span id="getPackageVersionHistoryResponse_nextToken"><span class="annot"><span class="annottext">getPackageVersionHistoryResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetPackageVersionHistoryResponse
--&gt; f GetPackageVersionHistoryResponse
-</span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistoryResponse_nextToken"><span class="hs-identifier hs-var hs-var">getPackageVersionHistoryResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionHistoryResponse -&gt; Maybe Text)
--&gt; (GetPackageVersionHistoryResponse
-    -&gt; Maybe Text -&gt; GetPackageVersionHistoryResponse)
--&gt; Lens
-     GetPackageVersionHistoryResponse
-     GetPackageVersionHistoryResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309411"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:GetPackageVersionHistoryResponse' :: GetPackageVersionHistoryResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679309411"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309411"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309410"><span class="annot"><span class="annottext">s :: GetPackageVersionHistoryResponse
-</span><a href="#local-6989586621679309410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309409"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionHistoryResponse
-</span><a href="#local-6989586621679309410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetPackageVersionHistoryResponse' :: Maybe Text
-</span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3AnextToken%3AGetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistoryResponse_packageID"><span class="hs-identifier hs-type">getPackageVersionHistoryResponse_packageID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-199"></span><span id="getPackageVersionHistoryResponse_packageID"><span class="annot"><span class="annottext">getPackageVersionHistoryResponse_packageID :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistoryResponse_packageID"><span class="hs-identifier hs-type">getPackageVersionHistoryResponse_packageID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="getPackageVersionHistoryResponse_packageID"><span class="annot"><span class="annottext">getPackageVersionHistoryResponse_packageID :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetPackageVersionHistoryResponse
 -&gt; f GetPackageVersionHistoryResponse
 </span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistoryResponse_packageID"><span class="hs-identifier hs-var hs-var">getPackageVersionHistoryResponse_packageID</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionHistoryResponse -&gt; Maybe Text)
@@ -590,20 +557,20 @@ $sel:nextToken:GetPackageVersionHistoryResponse' :: GetPackageVersionHistoryResp
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309408"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309640"><span class="annot"><span class="annottext">Maybe Text
 packageID :: Maybe Text
 $sel:packageID:GetPackageVersionHistoryResponse' :: GetPackageVersionHistoryResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679309408"><span class="hs-identifier hs-var hs-var">packageID</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309408"><span class="hs-identifier hs-var">packageID</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309407"><span class="annot"><span class="annottext">s :: GetPackageVersionHistoryResponse
-</span><a href="#local-6989586621679309407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309406"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionHistoryResponse
-</span><a href="#local-6989586621679309407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageID:GetPackageVersionHistoryResponse' :: Maybe Text
+</span><a href="#local-6989586621679309640"><span class="hs-identifier hs-var hs-var">packageID</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309640"><span class="hs-identifier hs-var">packageID</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309639"><span class="annot"><span class="annottext">s :: GetPackageVersionHistoryResponse
+</span><a href="#local-6989586621679309639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309638"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionHistoryResponse
+</span><a href="#local-6989586621679309639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageID:GetPackageVersionHistoryResponse' :: Maybe Text
 </span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3ApackageID%3AGetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var">packageID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-200"></span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- | List of @PackageVersionHistory@ objects.</span><span>
-</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistoryResponse_packageVersionHistoryList"><span class="hs-identifier hs-type">getPackageVersionHistoryResponse_packageVersionHistoryList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.PackageVersionHistory.html#PackageVersionHistory"><span class="hs-identifier hs-type">PackageVersionHistory</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-203"></span><span id="getPackageVersionHistoryResponse_packageVersionHistoryList"><span class="annot"><span class="annottext">getPackageVersionHistoryResponse_packageVersionHistoryList :: (Maybe [PackageVersionHistory]
+</span><a href="#local-6989586621679309638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | List of @PackageVersionHistory@ objects.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistoryResponse_packageVersionHistoryList"><span class="hs-identifier hs-type">getPackageVersionHistoryResponse_packageVersionHistoryList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.PackageVersionHistory.html#PackageVersionHistory"><span class="hs-identifier hs-type">PackageVersionHistory</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="getPackageVersionHistoryResponse_packageVersionHistoryList"><span class="annot"><span class="annottext">getPackageVersionHistoryResponse_packageVersionHistoryList :: (Maybe [PackageVersionHistory]
  -&gt; f (Maybe [PackageVersionHistory]))
 -&gt; GetPackageVersionHistoryResponse
 -&gt; f GetPackageVersionHistoryResponse
@@ -617,16 +584,16 @@ $sel:packageID:GetPackageVersionHistoryResponse' :: GetPackageVersionHistoryResp
      (Maybe [PackageVersionHistory])
      (Maybe [PackageVersionHistory])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309405"><span class="annot"><span class="annottext">Maybe [PackageVersionHistory]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309637"><span class="annot"><span class="annottext">Maybe [PackageVersionHistory]
 packageVersionHistoryList :: Maybe [PackageVersionHistory]
 $sel:packageVersionHistoryList:GetPackageVersionHistoryResponse' :: GetPackageVersionHistoryResponse -&gt; Maybe [PackageVersionHistory]
-</span><a href="#local-6989586621679309405"><span class="hs-identifier hs-var hs-var">packageVersionHistoryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PackageVersionHistory]
-</span><a href="#local-6989586621679309405"><span class="hs-identifier hs-var">packageVersionHistoryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309404"><span class="annot"><span class="annottext">s :: GetPackageVersionHistoryResponse
-</span><a href="#local-6989586621679309404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309403"><span class="annot"><span class="annottext">Maybe [PackageVersionHistory]
-</span><a href="#local-6989586621679309403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionHistoryResponse
-</span><a href="#local-6989586621679309404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageVersionHistoryList:GetPackageVersionHistoryResponse' :: Maybe [PackageVersionHistory]
+</span><a href="#local-6989586621679309637"><span class="hs-identifier hs-var hs-var">packageVersionHistoryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PackageVersionHistory]
+</span><a href="#local-6989586621679309637"><span class="hs-identifier hs-var">packageVersionHistoryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309636"><span class="annot"><span class="annottext">s :: GetPackageVersionHistoryResponse
+</span><a href="#local-6989586621679309636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309635"><span class="annot"><span class="annottext">Maybe [PackageVersionHistory]
+</span><a href="#local-6989586621679309635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionHistoryResponse
+</span><a href="#local-6989586621679309636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageVersionHistoryList:GetPackageVersionHistoryResponse' :: Maybe [PackageVersionHistory]
 </span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3ApackageVersionHistoryList%3AGetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var">packageVersionHistoryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PackageVersionHistory]
-</span><a href="#local-6989586621679309403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PackageVersionHistory]
+</span><a href="#local-6989586621679309635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PackageVersionHistory]
   -&gt; f (Maybe [PackageVersionHistory]))
  -&gt; GetPackageVersionHistoryResponse
  -&gt; f GetPackageVersionHistoryResponse)
@@ -657,8 +624,33 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [PackageVersionHistory]
   [PackageVersionHistory]
   [PackageVersionHistory]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistoryResponse_nextToken"><span class="hs-identifier hs-type">getPackageVersionHistoryResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="getPackageVersionHistoryResponse_nextToken"><span class="annot"><span class="annottext">getPackageVersionHistoryResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPackageVersionHistoryResponse
+-&gt; f GetPackageVersionHistoryResponse
+</span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistoryResponse_nextToken"><span class="hs-identifier hs-var hs-var">getPackageVersionHistoryResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionHistoryResponse -&gt; Maybe Text)
+-&gt; (GetPackageVersionHistoryResponse
+    -&gt; Maybe Text -&gt; GetPackageVersionHistoryResponse)
+-&gt; Lens
+     GetPackageVersionHistoryResponse
+     GetPackageVersionHistoryResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309631"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetPackageVersionHistoryResponse' :: GetPackageVersionHistoryResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679309631"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309631"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309630"><span class="annot"><span class="annottext">s :: GetPackageVersionHistoryResponse
+</span><a href="#local-6989586621679309630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309629"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionHistoryResponse
+</span><a href="#local-6989586621679309630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetPackageVersionHistoryResponse' :: Maybe Text
+</span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3AnextToken%3AGetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-206"></span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#getPackageVersionHistoryResponse_httpStatus"><span class="hs-identifier hs-type">getPackageVersionHistoryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -674,18 +666,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309399"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309628"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetPackageVersionHistoryResponse' :: GetPackageVersionHistoryResponse -&gt; Int
-</span><a href="#local-6989586621679309399"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309399"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309398"><span class="annot"><span class="annottext">s :: GetPackageVersionHistoryResponse
-</span><a href="#local-6989586621679309398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309397"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionHistoryResponse
-</span><a href="#local-6989586621679309398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPackageVersionHistoryResponse' :: Int
+</span><a href="#local-6989586621679309628"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309628"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309627"><span class="annot"><span class="annottext">s :: GetPackageVersionHistoryResponse
+</span><a href="#local-6989586621679309627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309626"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionHistoryResponse
+</span><a href="#local-6989586621679309627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPackageVersionHistoryResponse' :: Int
 </span><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#%24sel%3AhttpStatus%3AGetPackageVersionHistoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679309395"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679309624"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.GetPackageVersionHistory.html#GetPackageVersionHistoryResponse"><span class="hs-identifier hs-type">GetPackageVersionHistoryResponse</span></a></span></span><span>
 </span><span id="line-212"></span></pre></body></html>

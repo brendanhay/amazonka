@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679276263"><span id="local-6989586621679276264"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ArtifactStoreType"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStoreType.html#ArtifactStoreType"><span class="hs-identifier hs-var">ArtifactStoreType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactStoreType%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStoreType.html#ArtifactStoreType%27"><span class="hs-identifier hs-var">ArtifactStoreType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679276463"><span id="local-6989586621679276464"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ArtifactStoreType"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStoreType.html#ArtifactStoreType"><span class="hs-identifier hs-var">ArtifactStoreType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactStoreType%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStoreType.html#ArtifactStoreType%27"><span class="hs-identifier hs-var">ArtifactStoreType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromArtifactStoreType"><span class="annot"><span class="annottext">ArtifactStoreType -&gt; Text
 </span><a href="Network.AWS.CodePipeline.Types.ArtifactStoreType.html#fromArtifactStoreType"><span class="hs-identifier hs-var hs-var">fromArtifactStoreType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276255"><span id="local-6989586621679276257"><span id="local-6989586621679276259"><span class="annot"><span class="annottext">Int -&gt; ArtifactStoreType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276455"><span id="local-6989586621679276457"><span id="local-6989586621679276459"><span class="annot"><span class="annottext">Int -&gt; ArtifactStoreType -&gt; ShowS
 [ArtifactStoreType] -&gt; ShowS
 ArtifactStoreType -&gt; String
 (Int -&gt; ArtifactStoreType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: ArtifactStoreType -&gt; String
 showsPrec :: Int -&gt; ArtifactStoreType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ArtifactStoreType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679276246"><span id="local-6989586621679276248"><span id="local-6989586621679276250"><span id="local-6989586621679276252"><span class="annot"><span class="annottext">ReadPrec [ArtifactStoreType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679276446"><span id="local-6989586621679276448"><span id="local-6989586621679276450"><span id="local-6989586621679276452"><span class="annot"><span class="annottext">ReadPrec [ArtifactStoreType]
 ReadPrec ArtifactStoreType
 Int -&gt; ReadS ArtifactStoreType
 ReadS [ArtifactStoreType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [ArtifactStoreType]
 readsPrec :: Int -&gt; ReadS ArtifactStoreType
 $creadsPrec :: Int -&gt; ReadS ArtifactStoreType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679276241"><span id="local-6989586621679276243"><span class="annot"><span class="annottext">ArtifactStoreType -&gt; ArtifactStoreType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679276441"><span id="local-6989586621679276443"><span class="annot"><span class="annottext">ArtifactStoreType -&gt; ArtifactStoreType -&gt; Bool
 (ArtifactStoreType -&gt; ArtifactStoreType -&gt; Bool)
 -&gt; (ArtifactStoreType -&gt; ArtifactStoreType -&gt; Bool)
 -&gt; Eq ArtifactStoreType
@@ -81,7 +81,7 @@ $c/= :: ArtifactStoreType -&gt; ArtifactStoreType -&gt; Bool
 == :: ArtifactStoreType -&gt; ArtifactStoreType -&gt; Bool
 $c== :: ArtifactStoreType -&gt; ArtifactStoreType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679276225"><span id="local-6989586621679276227"><span id="local-6989586621679276229"><span id="local-6989586621679276231"><span id="local-6989586621679276233"><span id="local-6989586621679276235"><span id="local-6989586621679276237"><span class="annot"><span class="annottext">Eq ArtifactStoreType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679276425"><span id="local-6989586621679276427"><span id="local-6989586621679276429"><span id="local-6989586621679276431"><span id="local-6989586621679276433"><span id="local-6989586621679276435"><span id="local-6989586621679276437"><span class="annot"><span class="annottext">Eq ArtifactStoreType
 Eq ArtifactStoreType
 -&gt; (ArtifactStoreType -&gt; ArtifactStoreType -&gt; Ordering)
 -&gt; (ArtifactStoreType -&gt; ArtifactStoreType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ArtifactStoreType -&gt; Rep ArtifactStoreType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276217"><span id="local-6989586621679276219"><span class="annot"><span class="annottext">Int -&gt; ArtifactStoreType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276417"><span id="local-6989586621679276419"><span class="annot"><span class="annottext">Int -&gt; ArtifactStoreType -&gt; Int
 ArtifactStoreType -&gt; Int
 (Int -&gt; ArtifactStoreType -&gt; Int)
 -&gt; (ArtifactStoreType -&gt; Int) -&gt; Hashable ArtifactStoreType
@@ -142,51 +142,51 @@ $chash :: ArtifactStoreType -&gt; Int
 hashWithSalt :: Int -&gt; ArtifactStoreType -&gt; Int
 $chashWithSalt :: Int -&gt; ArtifactStoreType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679276214"><span class="annot"><span class="annottext">ArtifactStoreType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679276414"><span class="annot"><span class="annottext">ArtifactStoreType -&gt; ()
 (ArtifactStoreType -&gt; ()) -&gt; NFData ArtifactStoreType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ArtifactStoreType -&gt; ()
 $crnf :: ArtifactStoreType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679276211"><span class="annot"><span class="annottext">Text -&gt; Either String ArtifactStoreType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679276411"><span class="annot"><span class="annottext">Text -&gt; Either String ArtifactStoreType
 (Text -&gt; Either String ArtifactStoreType)
 -&gt; FromText ArtifactStoreType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ArtifactStoreType
 $cfromText :: Text -&gt; Either String ArtifactStoreType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679276208"><span class="annot"><span class="annottext">ArtifactStoreType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679276408"><span class="annot"><span class="annottext">ArtifactStoreType -&gt; Text
 (ArtifactStoreType -&gt; Text) -&gt; ToText ArtifactStoreType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ArtifactStoreType -&gt; Text
 $ctoText :: ArtifactStoreType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679276205"><span class="annot"><span class="annottext">ArtifactStoreType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679276405"><span class="annot"><span class="annottext">ArtifactStoreType -&gt; ByteString
 (ArtifactStoreType -&gt; ByteString) -&gt; ToByteString ArtifactStoreType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ArtifactStoreType -&gt; ByteString
 $ctoBS :: ArtifactStoreType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679276202"><span class="annot"><span class="annottext">ArtifactStoreType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679276402"><span class="annot"><span class="annottext">ArtifactStoreType -&gt; ByteStringBuilder
 (ArtifactStoreType -&gt; ByteStringBuilder) -&gt; ToLog ArtifactStoreType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ArtifactStoreType -&gt; ByteStringBuilder
 $cbuild :: ArtifactStoreType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679276199"><span class="annot"><span class="annottext">HeaderName -&gt; ArtifactStoreType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679276399"><span class="annot"><span class="annottext">HeaderName -&gt; ArtifactStoreType -&gt; [Header]
 (HeaderName -&gt; ArtifactStoreType -&gt; [Header])
 -&gt; ToHeader ArtifactStoreType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ArtifactStoreType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ArtifactStoreType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679276196"><span class="annot"><span class="annottext">ArtifactStoreType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679276396"><span class="annot"><span class="annottext">ArtifactStoreType -&gt; QueryString
 (ArtifactStoreType -&gt; QueryString) -&gt; ToQuery ArtifactStoreType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ArtifactStoreType -&gt; QueryString
 $ctoQuery :: ArtifactStoreType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679276191"><span id="local-6989586621679276193"><span class="annot"><span class="annottext">Value -&gt; Parser [ArtifactStoreType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679276391"><span id="local-6989586621679276393"><span class="annot"><span class="annottext">Value -&gt; Parser [ArtifactStoreType]
 Value -&gt; Parser ArtifactStoreType
 (Value -&gt; Parser ArtifactStoreType)
 -&gt; (Value -&gt; Parser [ArtifactStoreType])
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [ArtifactStoreType]
 parseJSON :: Value -&gt; Parser ArtifactStoreType
 $cparseJSON :: Value -&gt; Parser ArtifactStoreType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679276186"><span id="local-6989586621679276188"><span class="annot"><span class="annottext">FromJSONKeyFunction [ArtifactStoreType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679276386"><span id="local-6989586621679276388"><span class="annot"><span class="annottext">FromJSONKeyFunction [ArtifactStoreType]
 FromJSONKeyFunction ArtifactStoreType
 FromJSONKeyFunction ArtifactStoreType
 -&gt; FromJSONKeyFunction [ArtifactStoreType]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ArtifactStoreType]
 fromJSONKey :: FromJSONKeyFunction ArtifactStoreType
 $cfromJSONKey :: FromJSONKeyFunction ArtifactStoreType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679276177"><span id="local-6989586621679276179"><span id="local-6989586621679276181"><span id="local-6989586621679276183"><span class="annot"><span class="annottext">[ArtifactStoreType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679276377"><span id="local-6989586621679276379"><span id="local-6989586621679276381"><span id="local-6989586621679276383"><span class="annot"><span class="annottext">[ArtifactStoreType] -&gt; Encoding
 [ArtifactStoreType] -&gt; Value
 ArtifactStoreType -&gt; Encoding
 ArtifactStoreType -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: ArtifactStoreType -&gt; Encoding
 toJSON :: ArtifactStoreType -&gt; Value
 $ctoJSON :: ArtifactStoreType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679276172"><span id="local-6989586621679276174"><span class="annot"><span class="annottext">ToJSONKeyFunction [ArtifactStoreType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679276372"><span id="local-6989586621679276374"><span class="annot"><span class="annottext">ToJSONKeyFunction [ArtifactStoreType]
 ToJSONKeyFunction ArtifactStoreType
 ToJSONKeyFunction ArtifactStoreType
 -&gt; ToJSONKeyFunction [ArtifactStoreType]
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ArtifactStoreType]
 toJSONKey :: ToJSONKeyFunction ArtifactStoreType
 $ctoJSONKey :: ToJSONKeyFunction ArtifactStoreType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679276169"><span class="annot"><span class="annottext">[Node] -&gt; Either String ArtifactStoreType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679276369"><span class="annot"><span class="annottext">[Node] -&gt; Either String ArtifactStoreType
 ([Node] -&gt; Either String ArtifactStoreType)
 -&gt; FromXML ArtifactStoreType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ArtifactStoreType
 $cparseXML :: [Node] -&gt; Either String ArtifactStoreType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679276166"><span class="annot"><span class="annottext">ArtifactStoreType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679276366"><span class="annot"><span class="annottext">ArtifactStoreType -&gt; XML
 (ArtifactStoreType -&gt; XML) -&gt; ToXML ArtifactStoreType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ArtifactStoreType -&gt; XML

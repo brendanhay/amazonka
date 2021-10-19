@@ -26,27 +26,27 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Defines a mapping.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMappingEntry' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679689546"><span id="local-6989586621679689547"></span></span><span class="hs-keyword">data</span><span> </span><span id="MappingEntry"><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-var">MappingEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MappingEntry%27"><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-var">MappingEntry'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The target type.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AtargetType%3AMappingEntry%27"><span class="annot"><span class="annottext">MappingEntry -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AtargetType%3AMappingEntry%27"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The target table.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AtargetTable%3AMappingEntry%27"><span class="annot"><span class="annottext">MappingEntry -&gt; Maybe Text
+</span><span id="line-29"></span><span id="local-6989586621679691201"><span id="local-6989586621679691202"></span></span><span class="hs-keyword">data</span><span> </span><span id="MappingEntry"><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-var">MappingEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MappingEntry%27"><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-var">MappingEntry'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The target table.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AtargetTable%3AMappingEntry%27"><span class="annot"><span class="annottext">MappingEntry -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AtargetTable%3AMappingEntry%27"><span class="hs-identifier hs-var hs-var">targetTable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The target path.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AtargetPath%3AMappingEntry%27"><span class="annot"><span class="annottext">MappingEntry -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AtargetPath%3AMappingEntry%27"><span class="hs-identifier hs-var hs-var">targetPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the source table.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsourceTable%3AMappingEntry%27"><span class="annot"><span class="annottext">MappingEntry -&gt; Maybe Text
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The source type.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsourceType%3AMappingEntry%27"><span class="annot"><span class="annottext">MappingEntry -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AsourceType%3AMappingEntry%27"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the source table.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsourceTable%3AMappingEntry%27"><span class="annot"><span class="annottext">MappingEntry -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AsourceTable%3AMappingEntry%27"><span class="hs-identifier hs-var hs-var">sourceTable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The source path.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AsourcePath%3AMappingEntry%27"><span class="annot"><span class="annottext">MappingEntry -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AsourcePath%3AMappingEntry%27"><span class="hs-identifier hs-var hs-var">sourcePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The source type.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AsourceType%3AMappingEntry%27"><span class="annot"><span class="annottext">MappingEntry -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AsourceType%3AMappingEntry%27"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The target type.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AtargetType%3AMappingEntry%27"><span class="annot"><span class="annottext">MappingEntry -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AtargetType%3AMappingEntry%27"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The target path.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AtargetPath%3AMappingEntry%27"><span class="annot"><span class="annottext">MappingEntry -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AtargetPath%3AMappingEntry%27"><span class="hs-identifier hs-var hs-var">targetPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The source path.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AsourcePath%3AMappingEntry%27"><span class="annot"><span class="annottext">MappingEntry -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AsourcePath%3AMappingEntry%27"><span class="hs-identifier hs-var hs-var">sourcePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679689535"><span id="local-6989586621679689537"><span class="annot"><span class="annottext">MappingEntry -&gt; MappingEntry -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679691190"><span id="local-6989586621679691192"><span class="annot"><span class="annottext">MappingEntry -&gt; MappingEntry -&gt; Bool
 (MappingEntry -&gt; MappingEntry -&gt; Bool)
 -&gt; (MappingEntry -&gt; MappingEntry -&gt; Bool) -&gt; Eq MappingEntry
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MappingEntry -&gt; MappingEntry -&gt; Bool
 == :: MappingEntry -&gt; MappingEntry -&gt; Bool
 $c== :: MappingEntry -&gt; MappingEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679689526"><span id="local-6989586621679689528"><span id="local-6989586621679689530"><span id="local-6989586621679689532"><span class="annot"><span class="annottext">ReadPrec [MappingEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679691181"><span id="local-6989586621679691183"><span id="local-6989586621679691185"><span id="local-6989586621679691187"><span class="annot"><span class="annottext">ReadPrec [MappingEntry]
 ReadPrec MappingEntry
 Int -&gt; ReadS MappingEntry
 ReadS [MappingEntry]
@@ -74,7 +74,7 @@ readList :: ReadS [MappingEntry]
 $creadList :: ReadS [MappingEntry]
 readsPrec :: Int -&gt; ReadS MappingEntry
 $creadsPrec :: Int -&gt; ReadS MappingEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679689519"><span id="local-6989586621679689521"><span id="local-6989586621679689523"><span class="annot"><span class="annottext">Int -&gt; MappingEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679691174"><span id="local-6989586621679691176"><span id="local-6989586621679691178"><span class="annot"><span class="annottext">Int -&gt; MappingEntry -&gt; ShowS
 [MappingEntry] -&gt; ShowS
 MappingEntry -&gt; String
 (Int -&gt; MappingEntry -&gt; ShowS)
@@ -108,17 +108,17 @@ $cfrom :: forall x. MappingEntry -&gt; Rep MappingEntry x
 </span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'targetType', 'mappingEntry_targetType' - The target type.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'targetTable', 'mappingEntry_targetTable' - The target table.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'targetTable', 'mappingEntry_targetTable' - The target table.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'sourceType', 'mappingEntry_sourceType' - The source type.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'targetPath', 'mappingEntry_targetPath' - The target path.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'sourceTable', 'mappingEntry_sourceTable' - The name of the source table.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'sourceTable', 'mappingEntry_sourceTable' - The name of the source table.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'targetType', 'mappingEntry_targetType' - The target type.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'sourcePath', 'mappingEntry_sourcePath' - The source path.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'targetPath', 'mappingEntry_targetPath' - The target path.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'sourceType', 'mappingEntry_sourceType' - The source type.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'sourcePath', 'mappingEntry_sourcePath' - The source path.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#newMappingEntry"><span class="hs-identifier hs-type">newMappingEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span>
 </span><span id="line-66"></span><span id="newMappingEntry"><span class="annot"><span class="annottext">newMappingEntry :: MappingEntry
@@ -131,142 +131,142 @@ $cfrom :: forall x. MappingEntry -&gt; Rep MappingEntry x
 -&gt; Maybe Text
 -&gt; MappingEntry
 </span><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetType:MappingEntry' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AtargetType%3AMappingEntry%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetTable:MappingEntry' :: Maybe Text
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetTable:MappingEntry' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AtargetTable%3AMappingEntry%27"><span class="hs-identifier hs-var">targetTable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetPath:MappingEntry' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AtargetPath%3AMappingEntry%27"><span class="hs-identifier hs-var">targetPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceType:MappingEntry' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AsourceType%3AMappingEntry%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceTable:MappingEntry' :: Maybe Text
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceTable:MappingEntry' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AsourceTable%3AMappingEntry%27"><span class="hs-identifier hs-var">sourceTable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourcePath:MappingEntry' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AsourcePath%3AMappingEntry%27"><span class="hs-identifier hs-var">sourcePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetType:MappingEntry' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AtargetType%3AMappingEntry%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceType:MappingEntry' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AsourceType%3AMappingEntry%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetPath:MappingEntry' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AtargetPath%3AMappingEntry%27"><span class="hs-identifier hs-var">targetPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourcePath:MappingEntry' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AsourcePath%3AMappingEntry%27"><span class="hs-identifier hs-var">sourcePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | The target type.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_targetType"><span class="hs-identifier hs-type">mappingEntry_targetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="mappingEntry_targetType"><span class="annot"><span class="annottext">mappingEntry_targetType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MappingEntry -&gt; f MappingEntry
-</span><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_targetType"><span class="hs-identifier hs-var hs-var">mappingEntry_targetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MappingEntry -&gt; Maybe Text)
--&gt; (MappingEntry -&gt; Maybe Text -&gt; MappingEntry)
--&gt; Lens MappingEntry MappingEntry (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689510"><span class="annot"><span class="annottext">Maybe Text
-targetType :: Maybe Text
-$sel:targetType:MappingEntry' :: MappingEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679689510"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689510"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689509"><span class="annot"><span class="annottext">s :: MappingEntry
-</span><a href="#local-6989586621679689509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689508"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingEntry
-</span><a href="#local-6989586621679689509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetType:MappingEntry' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AtargetType%3AMappingEntry%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The target table.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_targetTable"><span class="hs-identifier hs-type">mappingEntry_targetTable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="mappingEntry_targetTable"><span class="annot"><span class="annottext">mappingEntry_targetTable :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MappingEntry -&gt; f MappingEntry
+</span><span id="line-76"></span><span class="hs-comment">-- | The target table.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_targetTable"><span class="hs-identifier hs-type">mappingEntry_targetTable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="mappingEntry_targetTable"><span class="annot"><span class="annottext">mappingEntry_targetTable :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MappingEntry -&gt; f MappingEntry
 </span><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_targetTable"><span class="hs-identifier hs-var hs-var">mappingEntry_targetTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MappingEntry -&gt; Maybe Text)
 -&gt; (MappingEntry -&gt; Maybe Text -&gt; MappingEntry)
 -&gt; Lens MappingEntry MappingEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689506"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691165"><span class="annot"><span class="annottext">Maybe Text
 targetTable :: Maybe Text
 $sel:targetTable:MappingEntry' :: MappingEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679689506"><span class="hs-identifier hs-var hs-var">targetTable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689506"><span class="hs-identifier hs-var">targetTable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689505"><span class="annot"><span class="annottext">s :: MappingEntry
-</span><a href="#local-6989586621679689505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689504"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingEntry
-</span><a href="#local-6989586621679689505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetTable:MappingEntry' :: Maybe Text
+</span><a href="#local-6989586621679691165"><span class="hs-identifier hs-var hs-var">targetTable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691165"><span class="hs-identifier hs-var">targetTable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691164"><span class="annot"><span class="annottext">s :: MappingEntry
+</span><a href="#local-6989586621679691164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691163"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingEntry
+</span><a href="#local-6989586621679691164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetTable:MappingEntry' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AtargetTable%3AMappingEntry%27"><span class="hs-identifier hs-var">targetTable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The target path.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_targetPath"><span class="hs-identifier hs-type">mappingEntry_targetPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="mappingEntry_targetPath"><span class="annot"><span class="annottext">mappingEntry_targetPath :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MappingEntry -&gt; f MappingEntry
-</span><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_targetPath"><span class="hs-identifier hs-var hs-var">mappingEntry_targetPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MappingEntry -&gt; Maybe Text)
--&gt; (MappingEntry -&gt; Maybe Text -&gt; MappingEntry)
--&gt; Lens MappingEntry MappingEntry (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689502"><span class="annot"><span class="annottext">Maybe Text
-targetPath :: Maybe Text
-$sel:targetPath:MappingEntry' :: MappingEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679689502"><span class="hs-identifier hs-var hs-var">targetPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689502"><span class="hs-identifier hs-var">targetPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689501"><span class="annot"><span class="annottext">s :: MappingEntry
-</span><a href="#local-6989586621679689501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689500"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingEntry
-</span><a href="#local-6989586621679689501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetPath:MappingEntry' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AtargetPath%3AMappingEntry%27"><span class="hs-identifier hs-var">targetPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The name of the source table.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_sourceTable"><span class="hs-identifier hs-type">mappingEntry_sourceTable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="mappingEntry_sourceTable"><span class="annot"><span class="annottext">mappingEntry_sourceTable :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MappingEntry -&gt; f MappingEntry
-</span><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_sourceTable"><span class="hs-identifier hs-var hs-var">mappingEntry_sourceTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MappingEntry -&gt; Maybe Text)
--&gt; (MappingEntry -&gt; Maybe Text -&gt; MappingEntry)
--&gt; Lens MappingEntry MappingEntry (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689498"><span class="annot"><span class="annottext">Maybe Text
-sourceTable :: Maybe Text
-$sel:sourceTable:MappingEntry' :: MappingEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679689498"><span class="hs-identifier hs-var hs-var">sourceTable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689498"><span class="hs-identifier hs-var">sourceTable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689497"><span class="annot"><span class="annottext">s :: MappingEntry
-</span><a href="#local-6989586621679689497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689496"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingEntry
-</span><a href="#local-6989586621679689497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceTable:MappingEntry' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AsourceTable%3AMappingEntry%27"><span class="hs-identifier hs-var">sourceTable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | The source path.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_sourcePath"><span class="hs-identifier hs-type">mappingEntry_sourcePath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="mappingEntry_sourcePath"><span class="annot"><span class="annottext">mappingEntry_sourcePath :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MappingEntry -&gt; f MappingEntry
-</span><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_sourcePath"><span class="hs-identifier hs-var hs-var">mappingEntry_sourcePath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MappingEntry -&gt; Maybe Text)
--&gt; (MappingEntry -&gt; Maybe Text -&gt; MappingEntry)
--&gt; Lens MappingEntry MappingEntry (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689494"><span class="annot"><span class="annottext">Maybe Text
-sourcePath :: Maybe Text
-$sel:sourcePath:MappingEntry' :: MappingEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679689494"><span class="hs-identifier hs-var hs-var">sourcePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689494"><span class="hs-identifier hs-var">sourcePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689493"><span class="annot"><span class="annottext">s :: MappingEntry
-</span><a href="#local-6989586621679689493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689492"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingEntry
-</span><a href="#local-6989586621679689493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourcePath:MappingEntry' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AsourcePath%3AMappingEntry%27"><span class="hs-identifier hs-var">sourcePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The source type.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_sourceType"><span class="hs-identifier hs-type">mappingEntry_sourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="mappingEntry_sourceType"><span class="annot"><span class="annottext">mappingEntry_sourceType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MappingEntry -&gt; f MappingEntry
+</span><a href="#local-6989586621679691163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The source type.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_sourceType"><span class="hs-identifier hs-type">mappingEntry_sourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="mappingEntry_sourceType"><span class="annot"><span class="annottext">mappingEntry_sourceType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MappingEntry -&gt; f MappingEntry
 </span><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_sourceType"><span class="hs-identifier hs-var hs-var">mappingEntry_sourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MappingEntry -&gt; Maybe Text)
 -&gt; (MappingEntry -&gt; Maybe Text -&gt; MappingEntry)
 -&gt; Lens MappingEntry MappingEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689490"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691161"><span class="annot"><span class="annottext">Maybe Text
 sourceType :: Maybe Text
 $sel:sourceType:MappingEntry' :: MappingEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679689490"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689490"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689489"><span class="annot"><span class="annottext">s :: MappingEntry
-</span><a href="#local-6989586621679689489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689488"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingEntry
-</span><a href="#local-6989586621679689489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:MappingEntry' :: Maybe Text
+</span><a href="#local-6989586621679691161"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691161"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691160"><span class="annot"><span class="annottext">s :: MappingEntry
+</span><a href="#local-6989586621679691160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691159"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingEntry
+</span><a href="#local-6989586621679691160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:MappingEntry' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AsourceType%3AMappingEntry%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679691159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The name of the source table.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_sourceTable"><span class="hs-identifier hs-type">mappingEntry_sourceTable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="mappingEntry_sourceTable"><span class="annot"><span class="annottext">mappingEntry_sourceTable :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MappingEntry -&gt; f MappingEntry
+</span><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_sourceTable"><span class="hs-identifier hs-var hs-var">mappingEntry_sourceTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MappingEntry -&gt; Maybe Text)
+-&gt; (MappingEntry -&gt; Maybe Text -&gt; MappingEntry)
+-&gt; Lens MappingEntry MappingEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691157"><span class="annot"><span class="annottext">Maybe Text
+sourceTable :: Maybe Text
+$sel:sourceTable:MappingEntry' :: MappingEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679691157"><span class="hs-identifier hs-var hs-var">sourceTable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691157"><span class="hs-identifier hs-var">sourceTable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691156"><span class="annot"><span class="annottext">s :: MappingEntry
+</span><a href="#local-6989586621679691156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691155"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingEntry
+</span><a href="#local-6989586621679691156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceTable:MappingEntry' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AsourceTable%3AMappingEntry%27"><span class="hs-identifier hs-var">sourceTable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The target type.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_targetType"><span class="hs-identifier hs-type">mappingEntry_targetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="mappingEntry_targetType"><span class="annot"><span class="annottext">mappingEntry_targetType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MappingEntry -&gt; f MappingEntry
+</span><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_targetType"><span class="hs-identifier hs-var hs-var">mappingEntry_targetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MappingEntry -&gt; Maybe Text)
+-&gt; (MappingEntry -&gt; Maybe Text -&gt; MappingEntry)
+-&gt; Lens MappingEntry MappingEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691153"><span class="annot"><span class="annottext">Maybe Text
+targetType :: Maybe Text
+$sel:targetType:MappingEntry' :: MappingEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679691153"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691153"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691152"><span class="annot"><span class="annottext">s :: MappingEntry
+</span><a href="#local-6989586621679691152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691151"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingEntry
+</span><a href="#local-6989586621679691152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetType:MappingEntry' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AtargetType%3AMappingEntry%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The target path.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_targetPath"><span class="hs-identifier hs-type">mappingEntry_targetPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="mappingEntry_targetPath"><span class="annot"><span class="annottext">mappingEntry_targetPath :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MappingEntry -&gt; f MappingEntry
+</span><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_targetPath"><span class="hs-identifier hs-var hs-var">mappingEntry_targetPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MappingEntry -&gt; Maybe Text)
+-&gt; (MappingEntry -&gt; Maybe Text -&gt; MappingEntry)
+-&gt; Lens MappingEntry MappingEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691149"><span class="annot"><span class="annottext">Maybe Text
+targetPath :: Maybe Text
+$sel:targetPath:MappingEntry' :: MappingEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679691149"><span class="hs-identifier hs-var hs-var">targetPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691149"><span class="hs-identifier hs-var">targetPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691148"><span class="annot"><span class="annottext">s :: MappingEntry
+</span><a href="#local-6989586621679691148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691147"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingEntry
+</span><a href="#local-6989586621679691148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetPath:MappingEntry' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AtargetPath%3AMappingEntry%27"><span class="hs-identifier hs-var">targetPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The source path.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_sourcePath"><span class="hs-identifier hs-type">mappingEntry_sourcePath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="mappingEntry_sourcePath"><span class="annot"><span class="annottext">mappingEntry_sourcePath :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MappingEntry -&gt; f MappingEntry
+</span><a href="Network.AWS.Glue.Types.MappingEntry.html#mappingEntry_sourcePath"><span class="hs-identifier hs-var hs-var">mappingEntry_sourcePath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MappingEntry -&gt; Maybe Text)
+-&gt; (MappingEntry -&gt; Maybe Text -&gt; MappingEntry)
+-&gt; Lens MappingEntry MappingEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691145"><span class="annot"><span class="annottext">Maybe Text
+sourcePath :: Maybe Text
+$sel:sourcePath:MappingEntry' :: MappingEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679691145"><span class="hs-identifier hs-var hs-var">sourcePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691145"><span class="hs-identifier hs-var">sourcePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691144"><span class="annot"><span class="annottext">s :: MappingEntry
+</span><a href="#local-6989586621679691144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691143"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MappingEntry
+</span><a href="#local-6989586621679691144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourcePath:MappingEntry' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.MappingEntry.html#%24sel%3AsourcePath%3AMappingEntry%27"><span class="hs-identifier hs-var">sourcePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679689485"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679689483"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MappingEntry
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691140"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679691138"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MappingEntry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MappingEntry) -&gt; Value -&gt; Parser MappingEntry
@@ -274,8 +274,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MappingEntry&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679689480"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679689480"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679691135"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679691135"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -301,10 +301,10 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; MappingEntry)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679689480"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679691135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TargetType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TargetTable&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
@@ -318,10 +318,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; MappingEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679689480"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679691135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TargetTable&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SourceType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; MappingEntry)
@@ -329,104 +329,104 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; MappingEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679689480"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679691135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TargetPath&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SourceTable&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; MappingEntry)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; MappingEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679689480"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679691135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SourceTable&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TargetType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; MappingEntry)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; MappingEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679689480"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679691135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SourcePath&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TargetPath&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MappingEntry)
 -&gt; Parser (Maybe Text) -&gt; Parser MappingEntry
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679689480"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679691135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SourcePath&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679689474"><span id="local-6989586621679689476"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691129"><span id="local-6989586621679691131"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679689471"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691126"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679689463"><span id="local-6989586621679689465"><span id="local-6989586621679689467"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679689461"><span class="annot"><span class="annottext">toJSON :: MappingEntry -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689454"><span id="local-6989586621679689455"><span id="local-6989586621679689456"><span id="local-6989586621679689457"><span id="local-6989586621679689458"><span id="local-6989586621679689459"><span class="annot"><span class="annottext">Maybe Text
-sourceType :: Maybe Text
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691118"><span id="local-6989586621679691120"><span id="local-6989586621679691122"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry"><span class="hs-identifier hs-type">MappingEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679691116"><span class="annot"><span class="annottext">toJSON :: MappingEntry -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MappingEntry.html#MappingEntry%27"><span class="hs-identifier hs-type">MappingEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691109"><span id="local-6989586621679691110"><span id="local-6989586621679691111"><span id="local-6989586621679691112"><span id="local-6989586621679691113"><span id="local-6989586621679691114"><span class="annot"><span class="annottext">Maybe Text
 sourcePath :: Maybe Text
-sourceTable :: Maybe Text
 targetPath :: Maybe Text
-targetTable :: Maybe Text
 targetType :: Maybe Text
-$sel:sourceType:MappingEntry' :: MappingEntry -&gt; Maybe Text
+sourceTable :: Maybe Text
+sourceType :: Maybe Text
+targetTable :: Maybe Text
 $sel:sourcePath:MappingEntry' :: MappingEntry -&gt; Maybe Text
-$sel:sourceTable:MappingEntry' :: MappingEntry -&gt; Maybe Text
 $sel:targetPath:MappingEntry' :: MappingEntry -&gt; Maybe Text
-$sel:targetTable:MappingEntry' :: MappingEntry -&gt; Maybe Text
 $sel:targetType:MappingEntry' :: MappingEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679689454"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:sourceTable:MappingEntry' :: MappingEntry -&gt; Maybe Text
+$sel:sourceType:MappingEntry' :: MappingEntry -&gt; Maybe Text
+$sel:targetTable:MappingEntry' :: MappingEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679691109"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TargetType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689459"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetTable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689458"><span class="hs-identifier hs-var">targetTable</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TargetPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689457"><span class="hs-identifier hs-var">targetPath</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SourceTable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689456"><span class="hs-identifier hs-var">sourceTable</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SourcePath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689455"><span class="hs-identifier hs-var">sourcePath</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-127"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679691114"><span class="hs-identifier hs-var">targetTable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679689454"><span class="hs-identifier hs-var">sourceType</span></a></span><span>
+</span><a href="#local-6989586621679691113"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceTable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691112"><span class="hs-identifier hs-var">sourceTable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691111"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691110"><span class="hs-identifier hs-var">targetPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourcePath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691109"><span class="hs-identifier hs-var">sourcePath</span></a></span><span>
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span></pre></body></html>

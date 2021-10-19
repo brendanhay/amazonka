@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Identifies an DMS resource and any pending actions for it.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newResourcePendingMaintenanceActions' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679437847"><span id="local-6989586621679437848"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourcePendingMaintenanceActions"><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions"><span class="hs-identifier hs-var">ResourcePendingMaintenanceActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourcePendingMaintenanceActions%27"><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions%27"><span class="hs-identifier hs-var">ResourcePendingMaintenanceActions'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679438126"><span id="local-6989586621679438127"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourcePendingMaintenanceActions"><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions"><span class="hs-identifier hs-var">ResourcePendingMaintenanceActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourcePendingMaintenanceActions%27"><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions%27"><span class="hs-identifier hs-var">ResourcePendingMaintenanceActions'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Detailed information about the pending maintenance action.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3ApendingMaintenanceActionDetails%3AResourcePendingMaintenanceActions%27"><span class="annot"><span class="annottext">ResourcePendingMaintenanceActions
 -&gt; Maybe [PendingMaintenanceAction]
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AresourceIdentifier%3AResourcePendingMaintenanceActions%27"><span class="annot"><span class="annottext">ResourcePendingMaintenanceActions -&gt; Maybe Text
 </span><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#%24sel%3AresourceIdentifier%3AResourcePendingMaintenanceActions%27"><span class="hs-identifier hs-var hs-var">resourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679437840"><span id="local-6989586621679437842"><span class="annot"><span class="annottext">ResourcePendingMaintenanceActions
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679438119"><span id="local-6989586621679438121"><span class="annot"><span class="annottext">ResourcePendingMaintenanceActions
 -&gt; ResourcePendingMaintenanceActions -&gt; Bool
 (ResourcePendingMaintenanceActions
  -&gt; ResourcePendingMaintenanceActions -&gt; Bool)
@@ -56,7 +56,7 @@ $c/= :: ResourcePendingMaintenanceActions
 -&gt; ResourcePendingMaintenanceActions -&gt; Bool
 $c== :: ResourcePendingMaintenanceActions
 -&gt; ResourcePendingMaintenanceActions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437831"><span id="local-6989586621679437833"><span id="local-6989586621679437835"><span id="local-6989586621679437837"><span class="annot"><span class="annottext">ReadPrec [ResourcePendingMaintenanceActions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679438110"><span id="local-6989586621679438112"><span id="local-6989586621679438114"><span id="local-6989586621679438116"><span class="annot"><span class="annottext">ReadPrec [ResourcePendingMaintenanceActions]
 ReadPrec ResourcePendingMaintenanceActions
 Int -&gt; ReadS ResourcePendingMaintenanceActions
 ReadS [ResourcePendingMaintenanceActions]
@@ -76,7 +76,7 @@ readList :: ReadS [ResourcePendingMaintenanceActions]
 $creadList :: ReadS [ResourcePendingMaintenanceActions]
 readsPrec :: Int -&gt; ReadS ResourcePendingMaintenanceActions
 $creadsPrec :: Int -&gt; ReadS ResourcePendingMaintenanceActions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437824"><span id="local-6989586621679437826"><span id="local-6989586621679437828"><span class="annot"><span class="annottext">Int -&gt; ResourcePendingMaintenanceActions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679438103"><span id="local-6989586621679438105"><span id="local-6989586621679438107"><span class="annot"><span class="annottext">Int -&gt; ResourcePendingMaintenanceActions -&gt; ShowS
 [ResourcePendingMaintenanceActions] -&gt; ShowS
 ResourcePendingMaintenanceActions -&gt; String
 (Int -&gt; ResourcePendingMaintenanceActions -&gt; ShowS)
@@ -164,17 +164,17 @@ forall a. Maybe a
      (Maybe [PendingMaintenanceAction])
      (Maybe [PendingMaintenanceAction])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions%27"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437815"><span class="annot"><span class="annottext">Maybe [PendingMaintenanceAction]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions%27"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679438094"><span class="annot"><span class="annottext">Maybe [PendingMaintenanceAction]
 pendingMaintenanceActionDetails :: Maybe [PendingMaintenanceAction]
 $sel:pendingMaintenanceActionDetails:ResourcePendingMaintenanceActions' :: ResourcePendingMaintenanceActions
 -&gt; Maybe [PendingMaintenanceAction]
-</span><a href="#local-6989586621679437815"><span class="hs-identifier hs-var hs-var">pendingMaintenanceActionDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PendingMaintenanceAction]
-</span><a href="#local-6989586621679437815"><span class="hs-identifier hs-var">pendingMaintenanceActionDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437814"><span class="annot"><span class="annottext">s :: ResourcePendingMaintenanceActions
-</span><a href="#local-6989586621679437814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions%27"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437813"><span class="annot"><span class="annottext">Maybe [PendingMaintenanceAction]
-</span><a href="#local-6989586621679437813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourcePendingMaintenanceActions
-</span><a href="#local-6989586621679437814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingMaintenanceActionDetails:ResourcePendingMaintenanceActions' :: Maybe [PendingMaintenanceAction]
+</span><a href="#local-6989586621679438094"><span class="hs-identifier hs-var hs-var">pendingMaintenanceActionDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PendingMaintenanceAction]
+</span><a href="#local-6989586621679438094"><span class="hs-identifier hs-var">pendingMaintenanceActionDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679438093"><span class="annot"><span class="annottext">s :: ResourcePendingMaintenanceActions
+</span><a href="#local-6989586621679438093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions%27"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679438092"><span class="annot"><span class="annottext">Maybe [PendingMaintenanceAction]
+</span><a href="#local-6989586621679438092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourcePendingMaintenanceActions
+</span><a href="#local-6989586621679438093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingMaintenanceActionDetails:ResourcePendingMaintenanceActions' :: Maybe [PendingMaintenanceAction]
 </span><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#%24sel%3ApendingMaintenanceActionDetails%3AResourcePendingMaintenanceActions%27"><span class="hs-identifier hs-var">pendingMaintenanceActionDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PendingMaintenanceAction]
-</span><a href="#local-6989586621679437813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PendingMaintenanceAction]
+</span><a href="#local-6989586621679438092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PendingMaintenanceAction]
   -&gt; f (Maybe [PendingMaintenanceAction]))
  -&gt; ResourcePendingMaintenanceActions
  -&gt; f ResourcePendingMaintenanceActions)
@@ -205,8 +205,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [PendingMaintenanceAction]
   [PendingMaintenanceAction]
   [PendingMaintenanceAction]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the DMS resource that the pending</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- maintenance action applies to. For information about creating an ARN,</span><span>
@@ -226,22 +226,22 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions%27"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437808"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions%27"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679438087"><span class="annot"><span class="annottext">Maybe Text
 resourceIdentifier :: Maybe Text
 $sel:resourceIdentifier:ResourcePendingMaintenanceActions' :: ResourcePendingMaintenanceActions -&gt; Maybe Text
-</span><a href="#local-6989586621679437808"><span class="hs-identifier hs-var hs-var">resourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437808"><span class="hs-identifier hs-var">resourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437807"><span class="annot"><span class="annottext">s :: ResourcePendingMaintenanceActions
-</span><a href="#local-6989586621679437807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions%27"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437806"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourcePendingMaintenanceActions
-</span><a href="#local-6989586621679437807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdentifier:ResourcePendingMaintenanceActions' :: Maybe Text
+</span><a href="#local-6989586621679438087"><span class="hs-identifier hs-var hs-var">resourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679438087"><span class="hs-identifier hs-var">resourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679438086"><span class="annot"><span class="annottext">s :: ResourcePendingMaintenanceActions
+</span><a href="#local-6989586621679438086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions%27"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679438085"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679438085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourcePendingMaintenanceActions
+</span><a href="#local-6989586621679438086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdentifier:ResourcePendingMaintenanceActions' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#%24sel%3AresourceIdentifier%3AResourcePendingMaintenanceActions%27"><span class="hs-identifier hs-var">resourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679438085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679437803"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679438082"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions</span></a></span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679437801"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourcePendingMaintenanceActions
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679438080"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourcePendingMaintenanceActions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourcePendingMaintenanceActions)
@@ -251,8 +251,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourcePendingMaintenanceActions&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679437798"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437798"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679438077"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679438077"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PendingMaintenanceAction]
 -&gt; Maybe Text -&gt; ResourcePendingMaintenanceActions
 </span><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions%27"><span class="hs-identifier hs-var">ResourcePendingMaintenanceActions'</span></a></span><span>
@@ -262,7 +262,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; ResourcePendingMaintenanceActions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PendingMaintenanceAction]))
+</span><a href="#local-6989586621679438077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PendingMaintenanceAction]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PendingMaintenanceActionDetails&quot;</span></span><span>
@@ -278,17 +278,17 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser ResourcePendingMaintenanceActions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679438077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceIdentifier&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679437791"><span id="local-6989586621679437793"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679438070"><span id="local-6989586621679438072"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679437788"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679438067"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.Types.ResourcePendingMaintenanceActions.html#ResourcePendingMaintenanceActions"><span class="hs-identifier hs-type">ResourcePendingMaintenanceActions</span></a></span></span><span>
 </span><span id="line-100"></span></pre></body></html>

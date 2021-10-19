@@ -28,30 +28,30 @@
 </span><span id="line-28"></span><span class="hs-comment">-- location and encryption configuration for the query results.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newResultConfigurationUpdates' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679218047"><span id="local-6989586621679218048"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResultConfigurationUpdates"><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-var">ResultConfigurationUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResultConfigurationUpdates%27"><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-var">ResultConfigurationUpdates'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The encryption configuration for the query results.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AencryptionConfiguration%3AResultConfigurationUpdates%27"><span class="annot"><span class="annottext">ResultConfigurationUpdates -&gt; Maybe EncryptionConfiguration
-</span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#%24sel%3AencryptionConfiguration%3AResultConfigurationUpdates%27"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier hs-type">EncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | If set to \&quot;true\&quot;, indicates that the previously-specified query</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- results location (also known as a client-side setting) for queries in</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- this workgroup should be ignored and set to null. If set to \&quot;false\&quot; or</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- not set, and a value is present in the @OutputLocation@ in</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @ResultConfigurationUpdates@ (the client-side setting), the</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @OutputLocation@ in the workgroup\'s @ResultConfiguration@ will be</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- updated with the new value. For more information, see</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings&gt;.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AremoveOutputLocation%3AResultConfigurationUpdates%27"><span class="annot"><span class="annottext">ResultConfigurationUpdates -&gt; Maybe Bool
+</span><span id="line-31"></span><span id="local-6989586621679218206"><span id="local-6989586621679218207"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResultConfigurationUpdates"><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-var">ResultConfigurationUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResultConfigurationUpdates%27"><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-var">ResultConfigurationUpdates'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If set to \&quot;true\&quot;, indicates that the previously-specified query</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- results location (also known as a client-side setting) for queries in</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- this workgroup should be ignored and set to null. If set to \&quot;false\&quot; or</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- not set, and a value is present in the @OutputLocation@ in</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @ResultConfigurationUpdates@ (the client-side setting), the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @OutputLocation@ in the workgroup\'s @ResultConfiguration@ will be</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- updated with the new value. For more information, see</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings&gt;.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AremoveOutputLocation%3AResultConfigurationUpdates%27"><span class="annot"><span class="annottext">ResultConfigurationUpdates -&gt; Maybe Bool
 </span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#%24sel%3AremoveOutputLocation%3AResultConfigurationUpdates%27"><span class="hs-identifier hs-var hs-var">removeOutputLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | If set to \&quot;true\&quot;, indicates that the previously-specified encryption</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- configuration (also known as the client-side setting) for queries in</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- this workgroup should be ignored and set to null. If set to \&quot;false\&quot; or</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- not set, and a value is present in the @EncryptionConfiguration@ in</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- @ResultConfigurationUpdates@ (the client-side setting), the</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- @EncryptionConfiguration@ in the workgroup\'s @ResultConfiguration@ will</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- be updated with the new value. For more information, see</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings&gt;.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AremoveEncryptionConfiguration%3AResultConfigurationUpdates%27"><span class="annot"><span class="annottext">ResultConfigurationUpdates -&gt; Maybe Bool
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | If set to \&quot;true\&quot;, indicates that the previously-specified encryption</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- configuration (also known as the client-side setting) for queries in</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- this workgroup should be ignored and set to null. If set to \&quot;false\&quot; or</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- not set, and a value is present in the @EncryptionConfiguration@ in</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @ResultConfigurationUpdates@ (the client-side setting), the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- @EncryptionConfiguration@ in the workgroup\'s @ResultConfiguration@ will</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- be updated with the new value. For more information, see</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings&gt;.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AremoveEncryptionConfiguration%3AResultConfigurationUpdates%27"><span class="annot"><span class="annottext">ResultConfigurationUpdates -&gt; Maybe Bool
 </span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#%24sel%3AremoveEncryptionConfiguration%3AResultConfigurationUpdates%27"><span class="hs-identifier hs-var hs-var">removeEncryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The encryption configuration for the query results.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AencryptionConfiguration%3AResultConfigurationUpdates%27"><span class="annot"><span class="annottext">ResultConfigurationUpdates -&gt; Maybe EncryptionConfiguration
+</span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#%24sel%3AencryptionConfiguration%3AResultConfigurationUpdates%27"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier hs-type">EncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The location in Amazon S3 where your query results are stored, such as</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- @s3:\/\/path\/to\/query\/bucket\/@. For more information, see</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/athena/latest/ug/querying.html Query Results&gt;</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AoutputLocation%3AResultConfigurationUpdates%27"><span class="annot"><span class="annottext">ResultConfigurationUpdates -&gt; Maybe Text
 </span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#%24sel%3AoutputLocation%3AResultConfigurationUpdates%27"><span class="hs-identifier hs-var hs-var">outputLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218038"><span id="local-6989586621679218040"><span class="annot"><span class="annottext">ResultConfigurationUpdates -&gt; ResultConfigurationUpdates -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218197"><span id="local-6989586621679218199"><span class="annot"><span class="annottext">ResultConfigurationUpdates -&gt; ResultConfigurationUpdates -&gt; Bool
 (ResultConfigurationUpdates -&gt; ResultConfigurationUpdates -&gt; Bool)
 -&gt; (ResultConfigurationUpdates
     -&gt; ResultConfigurationUpdates -&gt; Bool)
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResultConfigurationUpdates -&gt; ResultConfigurationUpdates -&gt; Bool
 == :: ResultConfigurationUpdates -&gt; ResultConfigurationUpdates -&gt; Bool
 $c== :: ResultConfigurationUpdates -&gt; ResultConfigurationUpdates -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218029"><span id="local-6989586621679218031"><span id="local-6989586621679218033"><span id="local-6989586621679218035"><span class="annot"><span class="annottext">ReadPrec [ResultConfigurationUpdates]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218188"><span id="local-6989586621679218190"><span id="local-6989586621679218192"><span id="local-6989586621679218194"><span class="annot"><span class="annottext">ReadPrec [ResultConfigurationUpdates]
 ReadPrec ResultConfigurationUpdates
 Int -&gt; ReadS ResultConfigurationUpdates
 ReadS [ResultConfigurationUpdates]
@@ -94,7 +94,7 @@ readList :: ReadS [ResultConfigurationUpdates]
 $creadList :: ReadS [ResultConfigurationUpdates]
 readsPrec :: Int -&gt; ReadS ResultConfigurationUpdates
 $creadsPrec :: Int -&gt; ReadS ResultConfigurationUpdates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218022"><span id="local-6989586621679218024"><span id="local-6989586621679218026"><span class="annot"><span class="annottext">Int -&gt; ResultConfigurationUpdates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218181"><span id="local-6989586621679218183"><span id="local-6989586621679218185"><span class="annot"><span class="annottext">Int -&gt; ResultConfigurationUpdates -&gt; ShowS
 [ResultConfigurationUpdates] -&gt; ShowS
 ResultConfigurationUpdates -&gt; String
 (Int -&gt; ResultConfigurationUpdates -&gt; ShowS)
@@ -134,25 +134,25 @@ ResultConfigurationUpdates -&gt; Rep ResultConfigurationUpdates x
 </span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'encryptionConfiguration', 'resultConfigurationUpdates_encryptionConfiguration' - The encryption configuration for the query results.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'removeOutputLocation', 'resultConfigurationUpdates_removeOutputLocation' - If set to \&quot;true\&quot;, indicates that the previously-specified query</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- results location (also known as a client-side setting) for queries in</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- this workgroup should be ignored and set to null. If set to \&quot;false\&quot; or</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- not set, and a value is present in the @OutputLocation@ in</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- @ResultConfigurationUpdates@ (the client-side setting), the</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- @OutputLocation@ in the workgroup\'s @ResultConfiguration@ will be</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- updated with the new value. For more information, see</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings&gt;.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'removeEncryptionConfiguration', 'resultConfigurationUpdates_removeEncryptionConfiguration' - If set to \&quot;true\&quot;, indicates that the previously-specified encryption</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- configuration (also known as the client-side setting) for queries in</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- this workgroup should be ignored and set to null. If set to \&quot;false\&quot; or</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- not set, and a value is present in the @EncryptionConfiguration@ in</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- @ResultConfigurationUpdates@ (the client-side setting), the</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- @EncryptionConfiguration@ in the workgroup\'s @ResultConfiguration@ will</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- be updated with the new value. For more information, see</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings&gt;.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'removeOutputLocation', 'resultConfigurationUpdates_removeOutputLocation' - If set to \&quot;true\&quot;, indicates that the previously-specified query</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- results location (also known as a client-side setting) for queries in</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- this workgroup should be ignored and set to null. If set to \&quot;false\&quot; or</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- not set, and a value is present in the @OutputLocation@ in</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- @ResultConfigurationUpdates@ (the client-side setting), the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- @OutputLocation@ in the workgroup\'s @ResultConfiguration@ will be</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- updated with the new value. For more information, see</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings&gt;.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'removeEncryptionConfiguration', 'resultConfigurationUpdates_removeEncryptionConfiguration' - If set to \&quot;true\&quot;, indicates that the previously-specified encryption</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- configuration (also known as the client-side setting) for queries in</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- this workgroup should be ignored and set to null. If set to \&quot;false\&quot; or</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- not set, and a value is present in the @EncryptionConfiguration@ in</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- @ResultConfigurationUpdates@ (the client-side setting), the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- @EncryptionConfiguration@ in the workgroup\'s @ResultConfiguration@ will</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- be updated with the new value. For more information, see</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings&gt;.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'encryptionConfiguration', 'resultConfigurationUpdates_encryptionConfiguration' - The encryption configuration for the query results.</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- 'outputLocation', 'resultConfigurationUpdates_outputLocation' - The location in Amazon S3 where your query results are stored, such as</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- @s3:\/\/path\/to\/query\/bucket\/@. For more information, see</span><span>
@@ -167,23 +167,23 @@ ResultConfigurationUpdates -&gt; Rep ResultConfigurationUpdates x
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span><span>
 </span><span id="line-104"></span><span id="newResultConfigurationUpdates"><span class="annot"><span class="annottext">newResultConfigurationUpdates :: ResultConfigurationUpdates
 </span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#newResultConfigurationUpdates"><span class="hs-identifier hs-var hs-var">newResultConfigurationUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">ResultConfigurationUpdates' :: Maybe EncryptionConfiguration
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">ResultConfigurationUpdates' :: Maybe Bool
 -&gt; Maybe Bool
--&gt; Maybe Bool
+-&gt; Maybe EncryptionConfiguration
 -&gt; Maybe Text
 -&gt; ResultConfigurationUpdates
 </span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:ResultConfigurationUpdates' :: Maybe EncryptionConfiguration
-</span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#%24sel%3AencryptionConfiguration%3AResultConfigurationUpdates%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:removeOutputLocation:ResultConfigurationUpdates' :: Maybe Bool
+</span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#%24sel%3AremoveOutputLocation%3AResultConfigurationUpdates%27"><span class="hs-identifier hs-var">removeOutputLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:removeOutputLocation:ResultConfigurationUpdates' :: Maybe Bool
-</span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#%24sel%3AremoveOutputLocation%3AResultConfigurationUpdates%27"><span class="hs-identifier hs-var">removeOutputLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:removeEncryptionConfiguration:ResultConfigurationUpdates' :: Maybe Bool
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:removeEncryptionConfiguration:ResultConfigurationUpdates' :: Maybe Bool
 </span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#%24sel%3AremoveEncryptionConfiguration%3AResultConfigurationUpdates%27"><span class="hs-identifier hs-var">removeEncryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:ResultConfigurationUpdates' :: Maybe EncryptionConfiguration
+</span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#%24sel%3AencryptionConfiguration%3AResultConfigurationUpdates%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputLocation:ResultConfigurationUpdates' :: Maybe Text
@@ -192,9 +192,71 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The encryption configuration for the query results.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#resultConfigurationUpdates_encryptionConfiguration"><span class="hs-identifier hs-type">resultConfigurationUpdates_encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier hs-type">EncryptionConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="resultConfigurationUpdates_encryptionConfiguration"><span class="annot"><span class="annottext">resultConfigurationUpdates_encryptionConfiguration :: (Maybe EncryptionConfiguration
+</span><span id="line-113"></span><span class="hs-comment">-- | If set to \&quot;true\&quot;, indicates that the previously-specified query</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- results location (also known as a client-side setting) for queries in</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- this workgroup should be ignored and set to null. If set to \&quot;false\&quot; or</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- not set, and a value is present in the @OutputLocation@ in</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- @ResultConfigurationUpdates@ (the client-side setting), the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- @OutputLocation@ in the workgroup\'s @ResultConfiguration@ will be</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- updated with the new value. For more information, see</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings&gt;.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#resultConfigurationUpdates_removeOutputLocation"><span class="hs-identifier hs-type">resultConfigurationUpdates_removeOutputLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="resultConfigurationUpdates_removeOutputLocation"><span class="annot"><span class="annottext">resultConfigurationUpdates_removeOutputLocation :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ResultConfigurationUpdates -&gt; f ResultConfigurationUpdates
+</span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#resultConfigurationUpdates_removeOutputLocation"><span class="hs-identifier hs-var hs-var">resultConfigurationUpdates_removeOutputLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResultConfigurationUpdates -&gt; Maybe Bool)
+-&gt; (ResultConfigurationUpdates
+    -&gt; Maybe Bool -&gt; ResultConfigurationUpdates)
+-&gt; Lens
+     ResultConfigurationUpdates
+     ResultConfigurationUpdates
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218172"><span class="annot"><span class="annottext">Maybe Bool
+removeOutputLocation :: Maybe Bool
+$sel:removeOutputLocation:ResultConfigurationUpdates' :: ResultConfigurationUpdates -&gt; Maybe Bool
+</span><a href="#local-6989586621679218172"><span class="hs-identifier hs-var hs-var">removeOutputLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679218172"><span class="hs-identifier hs-var">removeOutputLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218171"><span class="annot"><span class="annottext">s :: ResultConfigurationUpdates
+</span><a href="#local-6989586621679218171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218170"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679218170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultConfigurationUpdates
+</span><a href="#local-6989586621679218171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeOutputLocation:ResultConfigurationUpdates' :: Maybe Bool
+</span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#%24sel%3AremoveOutputLocation%3AResultConfigurationUpdates%27"><span class="hs-identifier hs-var">removeOutputLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679218170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | If set to \&quot;true\&quot;, indicates that the previously-specified encryption</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- configuration (also known as the client-side setting) for queries in</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- this workgroup should be ignored and set to null. If set to \&quot;false\&quot; or</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- not set, and a value is present in the @EncryptionConfiguration@ in</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- @ResultConfigurationUpdates@ (the client-side setting), the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- @EncryptionConfiguration@ in the workgroup\'s @ResultConfiguration@ will</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- be updated with the new value. For more information, see</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings&gt;.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#resultConfigurationUpdates_removeEncryptionConfiguration"><span class="hs-identifier hs-type">resultConfigurationUpdates_removeEncryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="resultConfigurationUpdates_removeEncryptionConfiguration"><span class="annot"><span class="annottext">resultConfigurationUpdates_removeEncryptionConfiguration :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ResultConfigurationUpdates -&gt; f ResultConfigurationUpdates
+</span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#resultConfigurationUpdates_removeEncryptionConfiguration"><span class="hs-identifier hs-var hs-var">resultConfigurationUpdates_removeEncryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResultConfigurationUpdates -&gt; Maybe Bool)
+-&gt; (ResultConfigurationUpdates
+    -&gt; Maybe Bool -&gt; ResultConfigurationUpdates)
+-&gt; Lens
+     ResultConfigurationUpdates
+     ResultConfigurationUpdates
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218168"><span class="annot"><span class="annottext">Maybe Bool
+removeEncryptionConfiguration :: Maybe Bool
+$sel:removeEncryptionConfiguration:ResultConfigurationUpdates' :: ResultConfigurationUpdates -&gt; Maybe Bool
+</span><a href="#local-6989586621679218168"><span class="hs-identifier hs-var hs-var">removeEncryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679218168"><span class="hs-identifier hs-var">removeEncryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218167"><span class="annot"><span class="annottext">s :: ResultConfigurationUpdates
+</span><a href="#local-6989586621679218167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218166"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679218166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultConfigurationUpdates
+</span><a href="#local-6989586621679218167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeEncryptionConfiguration:ResultConfigurationUpdates' :: Maybe Bool
+</span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#%24sel%3AremoveEncryptionConfiguration%3AResultConfigurationUpdates%27"><span class="hs-identifier hs-var">removeEncryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679218166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The encryption configuration for the query results.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#resultConfigurationUpdates_encryptionConfiguration"><span class="hs-identifier hs-type">resultConfigurationUpdates_encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier hs-type">EncryptionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="resultConfigurationUpdates_encryptionConfiguration"><span class="annot"><span class="annottext">resultConfigurationUpdates_encryptionConfiguration :: (Maybe EncryptionConfiguration
  -&gt; f (Maybe EncryptionConfiguration))
 -&gt; ResultConfigurationUpdates -&gt; f ResultConfigurationUpdates
 </span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#resultConfigurationUpdates_encryptionConfiguration"><span class="hs-identifier hs-var hs-var">resultConfigurationUpdates_encryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResultConfigurationUpdates -&gt; Maybe EncryptionConfiguration)
@@ -206,78 +268,16 @@ forall a. Maybe a
      (Maybe EncryptionConfiguration)
      (Maybe EncryptionConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218013"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218164"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
 encryptionConfiguration :: Maybe EncryptionConfiguration
 $sel:encryptionConfiguration:ResultConfigurationUpdates' :: ResultConfigurationUpdates -&gt; Maybe EncryptionConfiguration
-</span><a href="#local-6989586621679218013"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
-</span><a href="#local-6989586621679218013"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218012"><span class="annot"><span class="annottext">s :: ResultConfigurationUpdates
-</span><a href="#local-6989586621679218012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218011"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
-</span><a href="#local-6989586621679218011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultConfigurationUpdates
-</span><a href="#local-6989586621679218012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:ResultConfigurationUpdates' :: Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679218164"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679218164"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218163"><span class="annot"><span class="annottext">s :: ResultConfigurationUpdates
+</span><a href="#local-6989586621679218163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218162"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679218162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultConfigurationUpdates
+</span><a href="#local-6989586621679218163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:ResultConfigurationUpdates' :: Maybe EncryptionConfiguration
 </span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#%24sel%3AencryptionConfiguration%3AResultConfigurationUpdates%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
-</span><a href="#local-6989586621679218011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | If set to \&quot;true\&quot;, indicates that the previously-specified query</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- results location (also known as a client-side setting) for queries in</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- this workgroup should be ignored and set to null. If set to \&quot;false\&quot; or</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- not set, and a value is present in the @OutputLocation@ in</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- @ResultConfigurationUpdates@ (the client-side setting), the</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- @OutputLocation@ in the workgroup\'s @ResultConfiguration@ will be</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- updated with the new value. For more information, see</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings&gt;.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#resultConfigurationUpdates_removeOutputLocation"><span class="hs-identifier hs-type">resultConfigurationUpdates_removeOutputLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="resultConfigurationUpdates_removeOutputLocation"><span class="annot"><span class="annottext">resultConfigurationUpdates_removeOutputLocation :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ResultConfigurationUpdates -&gt; f ResultConfigurationUpdates
-</span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#resultConfigurationUpdates_removeOutputLocation"><span class="hs-identifier hs-var hs-var">resultConfigurationUpdates_removeOutputLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResultConfigurationUpdates -&gt; Maybe Bool)
--&gt; (ResultConfigurationUpdates
-    -&gt; Maybe Bool -&gt; ResultConfigurationUpdates)
--&gt; Lens
-     ResultConfigurationUpdates
-     ResultConfigurationUpdates
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218009"><span class="annot"><span class="annottext">Maybe Bool
-removeOutputLocation :: Maybe Bool
-$sel:removeOutputLocation:ResultConfigurationUpdates' :: ResultConfigurationUpdates -&gt; Maybe Bool
-</span><a href="#local-6989586621679218009"><span class="hs-identifier hs-var hs-var">removeOutputLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679218009"><span class="hs-identifier hs-var">removeOutputLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218008"><span class="annot"><span class="annottext">s :: ResultConfigurationUpdates
-</span><a href="#local-6989586621679218008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218007"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679218007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultConfigurationUpdates
-</span><a href="#local-6989586621679218008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeOutputLocation:ResultConfigurationUpdates' :: Maybe Bool
-</span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#%24sel%3AremoveOutputLocation%3AResultConfigurationUpdates%27"><span class="hs-identifier hs-var">removeOutputLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679218007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | If set to \&quot;true\&quot;, indicates that the previously-specified encryption</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- configuration (also known as the client-side setting) for queries in</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- this workgroup should be ignored and set to null. If set to \&quot;false\&quot; or</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- not set, and a value is present in the @EncryptionConfiguration@ in</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- @ResultConfigurationUpdates@ (the client-side setting), the</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- @EncryptionConfiguration@ in the workgroup\'s @ResultConfiguration@ will</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- be updated with the new value. For more information, see</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings&gt;.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#resultConfigurationUpdates_removeEncryptionConfiguration"><span class="hs-identifier hs-type">resultConfigurationUpdates_removeEncryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="resultConfigurationUpdates_removeEncryptionConfiguration"><span class="annot"><span class="annottext">resultConfigurationUpdates_removeEncryptionConfiguration :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ResultConfigurationUpdates -&gt; f ResultConfigurationUpdates
-</span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#resultConfigurationUpdates_removeEncryptionConfiguration"><span class="hs-identifier hs-var hs-var">resultConfigurationUpdates_removeEncryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResultConfigurationUpdates -&gt; Maybe Bool)
--&gt; (ResultConfigurationUpdates
-    -&gt; Maybe Bool -&gt; ResultConfigurationUpdates)
--&gt; Lens
-     ResultConfigurationUpdates
-     ResultConfigurationUpdates
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218005"><span class="annot"><span class="annottext">Maybe Bool
-removeEncryptionConfiguration :: Maybe Bool
-$sel:removeEncryptionConfiguration:ResultConfigurationUpdates' :: ResultConfigurationUpdates -&gt; Maybe Bool
-</span><a href="#local-6989586621679218005"><span class="hs-identifier hs-var hs-var">removeEncryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679218005"><span class="hs-identifier hs-var">removeEncryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218004"><span class="annot"><span class="annottext">s :: ResultConfigurationUpdates
-</span><a href="#local-6989586621679218004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218003"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679218003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultConfigurationUpdates
-</span><a href="#local-6989586621679218004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeEncryptionConfiguration:ResultConfigurationUpdates' :: Maybe Bool
-</span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#%24sel%3AremoveEncryptionConfiguration%3AResultConfigurationUpdates%27"><span class="hs-identifier hs-var">removeEncryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679218003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679218162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The location in Amazon S3 where your query results are stored, such as</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- @s3:\/\/path\/to\/query\/bucket\/@. For more information, see</span><span>
@@ -300,65 +300,65 @@ $sel:removeEncryptionConfiguration:ResultConfigurationUpdates' :: ResultConfigur
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218001"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218160"><span class="annot"><span class="annottext">Maybe Text
 outputLocation :: Maybe Text
 $sel:outputLocation:ResultConfigurationUpdates' :: ResultConfigurationUpdates -&gt; Maybe Text
-</span><a href="#local-6989586621679218001"><span class="hs-identifier hs-var hs-var">outputLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218001"><span class="hs-identifier hs-var">outputLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218000"><span class="annot"><span class="annottext">s :: ResultConfigurationUpdates
-</span><a href="#local-6989586621679218000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217999"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679217999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultConfigurationUpdates
-</span><a href="#local-6989586621679218000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputLocation:ResultConfigurationUpdates' :: Maybe Text
+</span><a href="#local-6989586621679218160"><span class="hs-identifier hs-var hs-var">outputLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218160"><span class="hs-identifier hs-var">outputLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218159"><span class="annot"><span class="annottext">s :: ResultConfigurationUpdates
+</span><a href="#local-6989586621679218159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218158"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultConfigurationUpdates
+</span><a href="#local-6989586621679218159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputLocation:ResultConfigurationUpdates' :: Maybe Text
 </span><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#%24sel%3AoutputLocation%3AResultConfigurationUpdates%27"><span class="hs-identifier hs-var">outputLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679217999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679218158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217995"><span id="local-6989586621679217997"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218154"><span id="local-6989586621679218156"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217992"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218151"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217984"><span id="local-6989586621679217986"><span id="local-6989586621679217988"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679217982"><span class="annot"><span class="annottext">toJSON :: ResultConfigurationUpdates -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217977"><span id="local-6989586621679217978"><span id="local-6989586621679217979"><span id="local-6989586621679217980"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218143"><span id="local-6989586621679218145"><span id="local-6989586621679218147"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates"><span class="hs-identifier hs-type">ResultConfigurationUpdates</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679218141"><span class="annot"><span class="annottext">toJSON :: ResultConfigurationUpdates -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultConfigurationUpdates.html#ResultConfigurationUpdates%27"><span class="hs-identifier hs-type">ResultConfigurationUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218136"><span id="local-6989586621679218137"><span id="local-6989586621679218138"><span id="local-6989586621679218139"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe EncryptionConfiguration
 outputLocation :: Maybe Text
+encryptionConfiguration :: Maybe EncryptionConfiguration
 removeEncryptionConfiguration :: Maybe Bool
 removeOutputLocation :: Maybe Bool
-encryptionConfiguration :: Maybe EncryptionConfiguration
 $sel:outputLocation:ResultConfigurationUpdates' :: ResultConfigurationUpdates -&gt; Maybe Text
+$sel:encryptionConfiguration:ResultConfigurationUpdates' :: ResultConfigurationUpdates -&gt; Maybe EncryptionConfiguration
 $sel:removeEncryptionConfiguration:ResultConfigurationUpdates' :: ResultConfigurationUpdates -&gt; Maybe Bool
 $sel:removeOutputLocation:ResultConfigurationUpdates' :: ResultConfigurationUpdates -&gt; Maybe Bool
-$sel:encryptionConfiguration:ResultConfigurationUpdates' :: ResultConfigurationUpdates -&gt; Maybe EncryptionConfiguration
-</span><a href="#local-6989586621679217977"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679218136"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-159"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EncryptionConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EncryptionConfiguration -&gt; Pair
+</span><span class="hs-string">&quot;RemoveOutputLocation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">(EncryptionConfiguration -&gt; Pair)
--&gt; Maybe EncryptionConfiguration -&gt; Maybe Pair
+</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
-</span><a href="#local-6989586621679217980"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679218139"><span class="hs-identifier hs-var">removeOutputLocation</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RemoveOutputLocation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+</span><span class="hs-string">&quot;RemoveEncryptionConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679217979"><span class="hs-identifier hs-var">removeOutputLocation</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679218138"><span class="hs-identifier hs-var">removeEncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RemoveEncryptionConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+</span><span class="hs-string">&quot;EncryptionConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EncryptionConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">(EncryptionConfiguration -&gt; Pair)
+-&gt; Maybe EncryptionConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679217978"><span class="hs-identifier hs-var">removeEncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679218137"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OutputLocation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -366,7 +366,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679217977"><span class="hs-identifier hs-var">outputLocation</span></a></span><span>
+</span><a href="#local-6989586621679218136"><span class="hs-identifier hs-var">outputLocation</span></a></span><span>
 </span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span></pre></body></html>

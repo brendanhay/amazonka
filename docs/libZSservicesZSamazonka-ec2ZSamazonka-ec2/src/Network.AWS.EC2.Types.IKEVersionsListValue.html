@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The internet key exchange (IKE) version permitted for the VPN tunnel.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newIKEVersionsListValue' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681077973"><span id="local-6989586621681077974"></span></span><span class="hs-keyword">data</span><span> </span><span id="IKEVersionsListValue"><span class="annot"><a href="Network.AWS.EC2.Types.IKEVersionsListValue.html#IKEVersionsListValue"><span class="hs-identifier hs-var">IKEVersionsListValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IKEVersionsListValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.IKEVersionsListValue.html#IKEVersionsListValue%27"><span class="hs-identifier hs-var">IKEVersionsListValue'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681112323"><span id="local-6989586621681112324"></span></span><span class="hs-keyword">data</span><span> </span><span id="IKEVersionsListValue"><span class="annot"><a href="Network.AWS.EC2.Types.IKEVersionsListValue.html#IKEVersionsListValue"><span class="hs-identifier hs-var">IKEVersionsListValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IKEVersionsListValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.IKEVersionsListValue.html#IKEVersionsListValue%27"><span class="hs-identifier hs-var">IKEVersionsListValue'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IKE version.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalue%3AIKEVersionsListValue%27"><span class="annot"><span class="annottext">IKEVersionsListValue -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.IKEVersionsListValue.html#%24sel%3Avalue%3AIKEVersionsListValue%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681077967"><span id="local-6989586621681077969"><span class="annot"><span class="annottext">IKEVersionsListValue -&gt; IKEVersionsListValue -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681112317"><span id="local-6989586621681112319"><span class="annot"><span class="annottext">IKEVersionsListValue -&gt; IKEVersionsListValue -&gt; Bool
 (IKEVersionsListValue -&gt; IKEVersionsListValue -&gt; Bool)
 -&gt; (IKEVersionsListValue -&gt; IKEVersionsListValue -&gt; Bool)
 -&gt; Eq IKEVersionsListValue
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IKEVersionsListValue -&gt; IKEVersionsListValue -&gt; Bool
 == :: IKEVersionsListValue -&gt; IKEVersionsListValue -&gt; Bool
 $c== :: IKEVersionsListValue -&gt; IKEVersionsListValue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681077958"><span id="local-6989586621681077960"><span id="local-6989586621681077962"><span id="local-6989586621681077964"><span class="annot"><span class="annottext">ReadPrec [IKEVersionsListValue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681112308"><span id="local-6989586621681112310"><span id="local-6989586621681112312"><span id="local-6989586621681112314"><span class="annot"><span class="annottext">ReadPrec [IKEVersionsListValue]
 ReadPrec IKEVersionsListValue
 Int -&gt; ReadS IKEVersionsListValue
 ReadS [IKEVersionsListValue]
@@ -61,7 +61,7 @@ readList :: ReadS [IKEVersionsListValue]
 $creadList :: ReadS [IKEVersionsListValue]
 readsPrec :: Int -&gt; ReadS IKEVersionsListValue
 $creadsPrec :: Int -&gt; ReadS IKEVersionsListValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681077951"><span id="local-6989586621681077953"><span id="local-6989586621681077955"><span class="annot"><span class="annottext">Int -&gt; IKEVersionsListValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681112301"><span id="local-6989586621681112303"><span id="local-6989586621681112305"><span class="annot"><span class="annottext">Int -&gt; IKEVersionsListValue -&gt; ShowS
 [IKEVersionsListValue] -&gt; ShowS
 IKEVersionsListValue -&gt; String
 (Int -&gt; IKEVersionsListValue -&gt; ShowS)
@@ -115,33 +115,33 @@ forall a. Maybe a
 -&gt; Lens
      IKEVersionsListValue IKEVersionsListValue (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.IKEVersionsListValue.html#IKEVersionsListValue%27"><span class="hs-identifier hs-type">IKEVersionsListValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681077942"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.IKEVersionsListValue.html#IKEVersionsListValue%27"><span class="hs-identifier hs-type">IKEVersionsListValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681112292"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:IKEVersionsListValue' :: IKEVersionsListValue -&gt; Maybe Text
-</span><a href="#local-6989586621681077942"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681077942"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681077941"><span class="annot"><span class="annottext">s :: IKEVersionsListValue
-</span><a href="#local-6989586621681077941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.IKEVersionsListValue.html#IKEVersionsListValue%27"><span class="hs-identifier hs-type">IKEVersionsListValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681077940"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681077940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IKEVersionsListValue
-</span><a href="#local-6989586621681077941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:IKEVersionsListValue' :: Maybe Text
+</span><a href="#local-6989586621681112292"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681112292"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681112291"><span class="annot"><span class="annottext">s :: IKEVersionsListValue
+</span><a href="#local-6989586621681112291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.IKEVersionsListValue.html#IKEVersionsListValue%27"><span class="hs-identifier hs-type">IKEVersionsListValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681112290"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681112290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IKEVersionsListValue
+</span><a href="#local-6989586621681112291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:IKEVersionsListValue' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.IKEVersionsListValue.html#%24sel%3Avalue%3AIKEVersionsListValue%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681077940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IKEVersionsListValue.html#IKEVersionsListValue"><span class="hs-identifier hs-type">IKEVersionsListValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681112290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IKEVersionsListValue.html#IKEVersionsListValue"><span class="hs-identifier hs-type">IKEVersionsListValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IKEVersionsListValue.html#IKEVersionsListValue"><span class="hs-identifier hs-type">IKEVersionsListValue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621681077937"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IKEVersionsListValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681077935"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681077935"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621681112287"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IKEVersionsListValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681112285"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681112285"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; IKEVersionsListValue
 </span><a href="Network.AWS.EC2.Types.IKEVersionsListValue.html#IKEVersionsListValue%27"><span class="hs-identifier hs-var">IKEVersionsListValue'</span></a></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; IKEVersionsListValue)
 -&gt; Either String (Maybe Text) -&gt; Either String IKEVersionsListValue
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681077935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681112285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681077929"><span id="local-6989586621681077931"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IKEVersionsListValue.html#IKEVersionsListValue"><span class="hs-identifier hs-type">IKEVersionsListValue</span></a></span></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681112279"><span id="local-6989586621681112281"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IKEVersionsListValue.html#IKEVersionsListValue"><span class="hs-identifier hs-type">IKEVersionsListValue</span></a></span></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681077926"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IKEVersionsListValue.html#IKEVersionsListValue"><span class="hs-identifier hs-type">IKEVersionsListValue</span></a></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681112276"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IKEVersionsListValue.html#IKEVersionsListValue"><span class="hs-identifier hs-type">IKEVersionsListValue</span></a></span></span><span>
 </span><span id="line-62"></span></pre></body></html>

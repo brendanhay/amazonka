@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679450211"><span id="local-6989586621679450212"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentRolloutState"><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentRolloutState.html#DeploymentRolloutState"><span class="hs-identifier hs-var">DeploymentRolloutState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentRolloutState%27"><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentRolloutState.html#DeploymentRolloutState%27"><span class="hs-identifier hs-var">DeploymentRolloutState'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679450922"><span id="local-6989586621679450923"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentRolloutState"><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentRolloutState.html#DeploymentRolloutState"><span class="hs-identifier hs-var">DeploymentRolloutState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentRolloutState%27"><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentRolloutState.html#DeploymentRolloutState%27"><span class="hs-identifier hs-var">DeploymentRolloutState'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeploymentRolloutState"><span class="annot"><span class="annottext">DeploymentRolloutState -&gt; Text
 </span><a href="Network.AWS.ECS.Types.DeploymentRolloutState.html#fromDeploymentRolloutState"><span class="hs-identifier hs-var hs-var">fromDeploymentRolloutState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679450203"><span id="local-6989586621679450205"><span id="local-6989586621679450207"><span class="annot"><span class="annottext">Int -&gt; DeploymentRolloutState -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679450914"><span id="local-6989586621679450916"><span id="local-6989586621679450918"><span class="annot"><span class="annottext">Int -&gt; DeploymentRolloutState -&gt; ShowS
 [DeploymentRolloutState] -&gt; ShowS
 DeploymentRolloutState -&gt; String
 (Int -&gt; DeploymentRolloutState -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: DeploymentRolloutState -&gt; String
 showsPrec :: Int -&gt; DeploymentRolloutState -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeploymentRolloutState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679450194"><span id="local-6989586621679450196"><span id="local-6989586621679450198"><span id="local-6989586621679450200"><span class="annot"><span class="annottext">ReadPrec [DeploymentRolloutState]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679450905"><span id="local-6989586621679450907"><span id="local-6989586621679450909"><span id="local-6989586621679450911"><span class="annot"><span class="annottext">ReadPrec [DeploymentRolloutState]
 ReadPrec DeploymentRolloutState
 Int -&gt; ReadS DeploymentRolloutState
 ReadS [DeploymentRolloutState]
@@ -73,7 +73,7 @@ $creadList :: ReadS [DeploymentRolloutState]
 readsPrec :: Int -&gt; ReadS DeploymentRolloutState
 $creadsPrec :: Int -&gt; ReadS DeploymentRolloutState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679450189"><span id="local-6989586621679450191"><span class="annot"><span class="annottext">DeploymentRolloutState -&gt; DeploymentRolloutState -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679450900"><span id="local-6989586621679450902"><span class="annot"><span class="annottext">DeploymentRolloutState -&gt; DeploymentRolloutState -&gt; Bool
 (DeploymentRolloutState -&gt; DeploymentRolloutState -&gt; Bool)
 -&gt; (DeploymentRolloutState -&gt; DeploymentRolloutState -&gt; Bool)
 -&gt; Eq DeploymentRolloutState
@@ -83,7 +83,7 @@ $c/= :: DeploymentRolloutState -&gt; DeploymentRolloutState -&gt; Bool
 == :: DeploymentRolloutState -&gt; DeploymentRolloutState -&gt; Bool
 $c== :: DeploymentRolloutState -&gt; DeploymentRolloutState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679450173"><span id="local-6989586621679450175"><span id="local-6989586621679450177"><span id="local-6989586621679450179"><span id="local-6989586621679450181"><span id="local-6989586621679450183"><span id="local-6989586621679450185"><span class="annot"><span class="annottext">Eq DeploymentRolloutState
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679450884"><span id="local-6989586621679450886"><span id="local-6989586621679450888"><span id="local-6989586621679450890"><span id="local-6989586621679450892"><span id="local-6989586621679450894"><span id="local-6989586621679450896"><span class="annot"><span class="annottext">Eq DeploymentRolloutState
 Eq DeploymentRolloutState
 -&gt; (DeploymentRolloutState -&gt; DeploymentRolloutState -&gt; Ordering)
 -&gt; (DeploymentRolloutState -&gt; DeploymentRolloutState -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. DeploymentRolloutState -&gt; Rep DeploymentRolloutState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679450165"><span id="local-6989586621679450167"><span class="annot"><span class="annottext">Int -&gt; DeploymentRolloutState -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679450876"><span id="local-6989586621679450878"><span class="annot"><span class="annottext">Int -&gt; DeploymentRolloutState -&gt; Int
 DeploymentRolloutState -&gt; Int
 (Int -&gt; DeploymentRolloutState -&gt; Int)
 -&gt; (DeploymentRolloutState -&gt; Int)
@@ -153,54 +153,54 @@ $chash :: DeploymentRolloutState -&gt; Int
 hashWithSalt :: Int -&gt; DeploymentRolloutState -&gt; Int
 $chashWithSalt :: Int -&gt; DeploymentRolloutState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679450162"><span class="annot"><span class="annottext">DeploymentRolloutState -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679450873"><span class="annot"><span class="annottext">DeploymentRolloutState -&gt; ()
 (DeploymentRolloutState -&gt; ()) -&gt; NFData DeploymentRolloutState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeploymentRolloutState -&gt; ()
 $crnf :: DeploymentRolloutState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679450159"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentRolloutState
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679450870"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentRolloutState
 (Text -&gt; Either String DeploymentRolloutState)
 -&gt; FromText DeploymentRolloutState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeploymentRolloutState
 $cfromText :: Text -&gt; Either String DeploymentRolloutState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679450156"><span class="annot"><span class="annottext">DeploymentRolloutState -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679450867"><span class="annot"><span class="annottext">DeploymentRolloutState -&gt; Text
 (DeploymentRolloutState -&gt; Text) -&gt; ToText DeploymentRolloutState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeploymentRolloutState -&gt; Text
 $ctoText :: DeploymentRolloutState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679450153"><span class="annot"><span class="annottext">DeploymentRolloutState -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679450864"><span class="annot"><span class="annottext">DeploymentRolloutState -&gt; ByteString
 (DeploymentRolloutState -&gt; ByteString)
 -&gt; ToByteString DeploymentRolloutState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeploymentRolloutState -&gt; ByteString
 $ctoBS :: DeploymentRolloutState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679450150"><span class="annot"><span class="annottext">DeploymentRolloutState -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679450861"><span class="annot"><span class="annottext">DeploymentRolloutState -&gt; ByteStringBuilder
 (DeploymentRolloutState -&gt; ByteStringBuilder)
 -&gt; ToLog DeploymentRolloutState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeploymentRolloutState -&gt; ByteStringBuilder
 $cbuild :: DeploymentRolloutState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679450147"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentRolloutState -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679450858"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentRolloutState -&gt; [Header]
 (HeaderName -&gt; DeploymentRolloutState -&gt; [Header])
 -&gt; ToHeader DeploymentRolloutState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeploymentRolloutState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeploymentRolloutState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679450144"><span class="annot"><span class="annottext">DeploymentRolloutState -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679450855"><span class="annot"><span class="annottext">DeploymentRolloutState -&gt; QueryString
 (DeploymentRolloutState -&gt; QueryString)
 -&gt; ToQuery DeploymentRolloutState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeploymentRolloutState -&gt; QueryString
 $ctoQuery :: DeploymentRolloutState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679450139"><span id="local-6989586621679450141"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentRolloutState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679450850"><span id="local-6989586621679450852"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentRolloutState]
 Value -&gt; Parser DeploymentRolloutState
 (Value -&gt; Parser DeploymentRolloutState)
 -&gt; (Value -&gt; Parser [DeploymentRolloutState])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [DeploymentRolloutState]
 parseJSON :: Value -&gt; Parser DeploymentRolloutState
 $cparseJSON :: Value -&gt; Parser DeploymentRolloutState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679450134"><span id="local-6989586621679450136"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentRolloutState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679450845"><span id="local-6989586621679450847"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentRolloutState]
 FromJSONKeyFunction DeploymentRolloutState
 FromJSONKeyFunction DeploymentRolloutState
 -&gt; FromJSONKeyFunction [DeploymentRolloutState]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeploymentRolloutState]
 fromJSONKey :: FromJSONKeyFunction DeploymentRolloutState
 $cfromJSONKey :: FromJSONKeyFunction DeploymentRolloutState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679450125"><span id="local-6989586621679450127"><span id="local-6989586621679450129"><span id="local-6989586621679450131"><span class="annot"><span class="annottext">[DeploymentRolloutState] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679450836"><span id="local-6989586621679450838"><span id="local-6989586621679450840"><span id="local-6989586621679450842"><span class="annot"><span class="annottext">[DeploymentRolloutState] -&gt; Encoding
 [DeploymentRolloutState] -&gt; Value
 DeploymentRolloutState -&gt; Encoding
 DeploymentRolloutState -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: DeploymentRolloutState -&gt; Encoding
 toJSON :: DeploymentRolloutState -&gt; Value
 $ctoJSON :: DeploymentRolloutState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679450120"><span id="local-6989586621679450122"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentRolloutState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679450831"><span id="local-6989586621679450833"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentRolloutState]
 ToJSONKeyFunction DeploymentRolloutState
 ToJSONKeyFunction DeploymentRolloutState
 -&gt; ToJSONKeyFunction [DeploymentRolloutState]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeploymentRolloutState]
 toJSONKey :: ToJSONKeyFunction DeploymentRolloutState
 $ctoJSONKey :: ToJSONKeyFunction DeploymentRolloutState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679450117"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentRolloutState
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679450828"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentRolloutState
 ([Node] -&gt; Either String DeploymentRolloutState)
 -&gt; FromXML DeploymentRolloutState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeploymentRolloutState
 $cparseXML :: [Node] -&gt; Either String DeploymentRolloutState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679450114"><span class="annot"><span class="annottext">DeploymentRolloutState -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679450825"><span class="annot"><span class="annottext">DeploymentRolloutState -&gt; XML
 (DeploymentRolloutState -&gt; XML) -&gt; ToXML DeploymentRolloutState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeploymentRolloutState -&gt; XML

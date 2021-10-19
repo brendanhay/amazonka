@@ -46,9 +46,9 @@
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#newDescribeStackResources"><span class="hs-identifier">newDescribeStackResources</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#describeStackResources_stackName"><span class="hs-identifier">describeStackResources_stackName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#describeStackResources_logicalResourceId"><span class="hs-identifier">describeStackResources_logicalResourceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#describeStackResources_physicalResourceId"><span class="hs-identifier">describeStackResources_physicalResourceId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#describeStackResources_logicalResourceId"><span class="hs-identifier">describeStackResources_logicalResourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#describeStackResources_stackName"><span class="hs-identifier">describeStackResources_stackName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse"><span class="hs-identifier">DescribeStackResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -70,42 +70,42 @@
 </span><span id="line-70"></span><span class="hs-comment">-- | The input for DescribeStackResources action.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- /See:/ 'newDescribeStackResources' smart constructor.</span><span>
-</span><span id="line-73"></span><span id="local-6989586621679438410"><span id="local-6989586621679438411"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStackResources"><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-var">DescribeStackResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStackResources%27"><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources%27"><span class="hs-identifier hs-var">DescribeStackResources'</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name or the unique stack ID that is associated with the stack, which</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- are not always interchangeable:</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   Running stacks: You can specify either the stack\'s name or its</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     unique stack ID.</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- -   Deleted stacks: You must specify the unique stack ID.</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- Default: There is no default value.</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- Required: Conditional. If you do not specify @StackName@, you must</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- specify @PhysicalResourceId@.</span><span>
-</span><span id="line-86"></span><span>    </span><span id="%24sel%3AstackName%3ADescribeStackResources%27"><span class="annot"><span class="annottext">DescribeStackResources -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AstackName%3ADescribeStackResources%27"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The name or unique identifier that corresponds to a physical instance ID</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- of a resource supported by CloudFormation.</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- For example, for an Amazon Elastic Compute Cloud (EC2) instance,</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- @PhysicalResourceId@ corresponds to the @InstanceId@. You can pass the</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- instance belongs to and what other resources are part of the stack.</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- Required: Conditional. If you do not specify @PhysicalResourceId@, you</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- must specify @StackName@.</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- Default: There is no default value.</span><span>
-</span><span id="line-99"></span><span>    </span><span id="%24sel%3AphysicalResourceId%3ADescribeStackResources%27"><span class="annot"><span class="annottext">DescribeStackResources -&gt; Maybe Text
+</span><span id="line-73"></span><span id="local-6989586621679438846"><span id="local-6989586621679438847"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStackResources"><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-var">DescribeStackResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStackResources%27"><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources%27"><span class="hs-identifier hs-var">DescribeStackResources'</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The logical name of the resource as specified in the template.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- Default: There is no default value.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AlogicalResourceId%3ADescribeStackResources%27"><span class="annot"><span class="annottext">DescribeStackResources -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AlogicalResourceId%3ADescribeStackResources%27"><span class="hs-identifier hs-var hs-var">logicalResourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The name or unique identifier that corresponds to a physical instance ID</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- of a resource supported by CloudFormation.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- For example, for an Amazon Elastic Compute Cloud (EC2) instance,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- @PhysicalResourceId@ corresponds to the @InstanceId@. You can pass the</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- instance belongs to and what other resources are part of the stack.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- Required: Conditional. If you do not specify @PhysicalResourceId@, you</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- must specify @StackName@.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- Default: There is no default value.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AphysicalResourceId%3ADescribeStackResources%27"><span class="annot"><span class="annottext">DescribeStackResources -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AphysicalResourceId%3ADescribeStackResources%27"><span class="hs-identifier hs-var hs-var">physicalResourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | The logical name of the resource as specified in the template.</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- Default: There is no default value.</span><span>
-</span><span id="line-103"></span><span>    </span><span id="%24sel%3AlogicalResourceId%3ADescribeStackResources%27"><span class="annot"><span class="annottext">DescribeStackResources -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AlogicalResourceId%3ADescribeStackResources%27"><span class="hs-identifier hs-var hs-var">logicalResourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The name or the unique stack ID that is associated with the stack, which</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- are not always interchangeable:</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- -   Running stacks: You can specify either the stack\'s name or its</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--     unique stack ID.</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- -   Deleted stacks: You must specify the unique stack ID.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- Default: There is no default value.</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- Required: Conditional. If you do not specify @StackName@, you must</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- specify @PhysicalResourceId@.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AstackName%3ADescribeStackResources%27"><span class="annot"><span class="annottext">DescribeStackResources -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AstackName%3ADescribeStackResources%27"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-105"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679438402"><span id="local-6989586621679438404"><span class="annot"><span class="annottext">DescribeStackResources -&gt; DescribeStackResources -&gt; Bool
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679438838"><span id="local-6989586621679438840"><span class="annot"><span class="annottext">DescribeStackResources -&gt; DescribeStackResources -&gt; Bool
 (DescribeStackResources -&gt; DescribeStackResources -&gt; Bool)
 -&gt; (DescribeStackResources -&gt; DescribeStackResources -&gt; Bool)
 -&gt; Eq DescribeStackResources
@@ -114,7 +114,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeStackResources -&gt; DescribeStackResources -&gt; Bool
 == :: DescribeStackResources -&gt; DescribeStackResources -&gt; Bool
 $c== :: DescribeStackResources -&gt; DescribeStackResources -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679438393"><span id="local-6989586621679438395"><span id="local-6989586621679438397"><span id="local-6989586621679438399"><span class="annot"><span class="annottext">ReadPrec [DescribeStackResources]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679438829"><span id="local-6989586621679438831"><span id="local-6989586621679438833"><span id="local-6989586621679438835"><span class="annot"><span class="annottext">ReadPrec [DescribeStackResources]
 ReadPrec DescribeStackResources
 Int -&gt; ReadS DescribeStackResources
 ReadS [DescribeStackResources]
@@ -134,7 +134,7 @@ readList :: ReadS [DescribeStackResources]
 $creadList :: ReadS [DescribeStackResources]
 readsPrec :: Int -&gt; ReadS DescribeStackResources
 $creadsPrec :: Int -&gt; ReadS DescribeStackResources
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679438386"><span id="local-6989586621679438388"><span id="local-6989586621679438390"><span class="annot"><span class="annottext">Int -&gt; DescribeStackResources -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679438822"><span id="local-6989586621679438824"><span id="local-6989586621679438826"><span class="annot"><span class="annottext">Int -&gt; DescribeStackResources -&gt; ShowS
 [DescribeStackResources] -&gt; ShowS
 DescribeStackResources -&gt; String
 (Int -&gt; DescribeStackResources -&gt; ShowS)
@@ -169,43 +169,43 @@ $cfrom :: forall x. DescribeStackResources -&gt; Rep DescribeStackResources x
 </span><span id="line-112"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- 'stackName', 'describeStackResources_stackName' - The name or the unique stack ID that is associated with the stack, which</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- are not always interchangeable:</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- -   Running stacks: You can specify either the stack\'s name or its</span><span>
-</span><span id="line-119"></span><span class="hs-comment">--     unique stack ID.</span><span>
-</span><span id="line-120"></span><span class="hs-comment">--</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- -   Deleted stacks: You must specify the unique stack ID.</span><span>
-</span><span id="line-122"></span><span class="hs-comment">--</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- Default: There is no default value.</span><span>
-</span><span id="line-124"></span><span class="hs-comment">--</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- Required: Conditional. If you do not specify @StackName@, you must</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- specify @PhysicalResourceId@.</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- 'physicalResourceId', 'describeStackResources_physicalResourceId' - The name or unique identifier that corresponds to a physical instance ID</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- of a resource supported by CloudFormation.</span><span>
-</span><span id="line-130"></span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- For example, for an Amazon Elastic Compute Cloud (EC2) instance,</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- @PhysicalResourceId@ corresponds to the @InstanceId@. You can pass the</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- instance belongs to and what other resources are part of the stack.</span><span>
-</span><span id="line-135"></span><span class="hs-comment">--</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- Required: Conditional. If you do not specify @PhysicalResourceId@, you</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- must specify @StackName@.</span><span>
-</span><span id="line-138"></span><span class="hs-comment">--</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- Default: There is no default value.</span><span>
-</span><span id="line-140"></span><span class="hs-comment">--</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- 'logicalResourceId', 'describeStackResources_logicalResourceId' - The logical name of the resource as specified in the template.</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- Default: There is no default value.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'logicalResourceId', 'describeStackResources_logicalResourceId' - The logical name of the resource as specified in the template.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Default: There is no default value.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'physicalResourceId', 'describeStackResources_physicalResourceId' - The name or unique identifier that corresponds to a physical instance ID</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- of a resource supported by CloudFormation.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- For example, for an Amazon Elastic Compute Cloud (EC2) instance,</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- @PhysicalResourceId@ corresponds to the @InstanceId@. You can pass the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- instance belongs to and what other resources are part of the stack.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Required: Conditional. If you do not specify @PhysicalResourceId@, you</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- must specify @StackName@.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Default: There is no default value.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'stackName', 'describeStackResources_stackName' - The name or the unique stack ID that is associated with the stack, which</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- are not always interchangeable:</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- -   Running stacks: You can specify either the stack\'s name or its</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--     unique stack ID.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   Deleted stacks: You must specify the unique stack ID.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Default: There is no default value.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Required: Conditional. If you do not specify @StackName@, you must</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- specify @PhysicalResourceId@.</span><span>
 </span><span id="line-144"></span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#newDescribeStackResources"><span class="hs-identifier hs-type">newDescribeStackResources</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span><span>
 </span><span id="line-146"></span><span id="newDescribeStackResources"><span class="annot"><span class="annottext">newDescribeStackResources :: DescribeStackResources
 </span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#newDescribeStackResources"><span class="hs-identifier hs-var hs-var">newDescribeStackResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">DescribeStackResources' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DescribeStackResources
 </span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources%27"><span class="hs-identifier hs-type">DescribeStackResources'</span></a></span><span>
-</span><span id="line-148"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stackName:DescribeStackResources' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AstackName%3ADescribeStackResources%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logicalResourceId:DescribeStackResources' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AlogicalResourceId%3ADescribeStackResources%27"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
@@ -213,85 +213,17 @@ forall a. Maybe a
 </span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AphysicalResourceId%3ADescribeStackResources%27"><span class="hs-identifier hs-var">physicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:logicalResourceId:DescribeStackResources' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AlogicalResourceId%3ADescribeStackResources%27"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackName:DescribeStackResources' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AstackName%3ADescribeStackResources%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- | The name or the unique stack ID that is associated with the stack, which</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- are not always interchangeable:</span><span>
-</span><span id="line-156"></span><span class="hs-comment">--</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- -   Running stacks: You can specify either the stack\'s name or its</span><span>
-</span><span id="line-158"></span><span class="hs-comment">--     unique stack ID.</span><span>
-</span><span id="line-159"></span><span class="hs-comment">--</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- -   Deleted stacks: You must specify the unique stack ID.</span><span>
-</span><span id="line-161"></span><span class="hs-comment">--</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- Default: There is no default value.</span><span>
-</span><span id="line-163"></span><span class="hs-comment">--</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- Required: Conditional. If you do not specify @StackName@, you must</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- specify @PhysicalResourceId@.</span><span>
-</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#describeStackResources_stackName"><span class="hs-identifier hs-type">describeStackResources_stackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span id="describeStackResources_stackName"><span class="annot"><span class="annottext">describeStackResources_stackName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeStackResources -&gt; f DescribeStackResources
-</span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#describeStackResources_stackName"><span class="hs-identifier hs-var hs-var">describeStackResources_stackName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStackResources -&gt; Maybe Text)
--&gt; (DescribeStackResources -&gt; Maybe Text -&gt; DescribeStackResources)
--&gt; Lens
-     DescribeStackResources
-     DescribeStackResources
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources%27"><span class="hs-identifier hs-type">DescribeStackResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679438379"><span class="annot"><span class="annottext">Maybe Text
-stackName :: Maybe Text
-$sel:stackName:DescribeStackResources' :: DescribeStackResources -&gt; Maybe Text
-</span><a href="#local-6989586621679438379"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679438379"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679438378"><span class="annot"><span class="annottext">s :: DescribeStackResources
-</span><a href="#local-6989586621679438378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources%27"><span class="hs-identifier hs-type">DescribeStackResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679438377"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679438377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackResources
-</span><a href="#local-6989586621679438378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:DescribeStackResources' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AstackName%3ADescribeStackResources%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679438377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- | The name or unique identifier that corresponds to a physical instance ID</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- of a resource supported by CloudFormation.</span><span>
-</span><span id="line-171"></span><span class="hs-comment">--</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- For example, for an Amazon Elastic Compute Cloud (EC2) instance,</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- @PhysicalResourceId@ corresponds to the @InstanceId@. You can pass the</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- instance belongs to and what other resources are part of the stack.</span><span>
-</span><span id="line-176"></span><span class="hs-comment">--</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- Required: Conditional. If you do not specify @PhysicalResourceId@, you</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- must specify @StackName@.</span><span>
-</span><span id="line-179"></span><span class="hs-comment">--</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- Default: There is no default value.</span><span>
-</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#describeStackResources_physicalResourceId"><span class="hs-identifier hs-type">describeStackResources_physicalResourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span id="describeStackResources_physicalResourceId"><span class="annot"><span class="annottext">describeStackResources_physicalResourceId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeStackResources -&gt; f DescribeStackResources
-</span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#describeStackResources_physicalResourceId"><span class="hs-identifier hs-var hs-var">describeStackResources_physicalResourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStackResources -&gt; Maybe Text)
--&gt; (DescribeStackResources -&gt; Maybe Text -&gt; DescribeStackResources)
--&gt; Lens
-     DescribeStackResources
-     DescribeStackResources
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources%27"><span class="hs-identifier hs-type">DescribeStackResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679438376"><span class="annot"><span class="annottext">Maybe Text
-physicalResourceId :: Maybe Text
-$sel:physicalResourceId:DescribeStackResources' :: DescribeStackResources -&gt; Maybe Text
-</span><a href="#local-6989586621679438376"><span class="hs-identifier hs-var hs-var">physicalResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679438376"><span class="hs-identifier hs-var">physicalResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679438375"><span class="annot"><span class="annottext">s :: DescribeStackResources
-</span><a href="#local-6989586621679438375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources%27"><span class="hs-identifier hs-type">DescribeStackResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679438374"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679438374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackResources
-</span><a href="#local-6989586621679438375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:physicalResourceId:DescribeStackResources' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AphysicalResourceId%3ADescribeStackResources%27"><span class="hs-identifier hs-var">physicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679438374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- | The logical name of the resource as specified in the template.</span><span>
-</span><span id="line-185"></span><span class="hs-comment">--</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- Default: There is no default value.</span><span>
-</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#describeStackResources_logicalResourceId"><span class="hs-identifier hs-type">describeStackResources_logicalResourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span id="describeStackResources_logicalResourceId"><span class="annot"><span class="annottext">describeStackResources_logicalResourceId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-154"></span><span class="hs-comment">-- | The logical name of the resource as specified in the template.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Default: There is no default value.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#describeStackResources_logicalResourceId"><span class="hs-identifier hs-type">describeStackResources_logicalResourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="describeStackResources_logicalResourceId"><span class="annot"><span class="annottext">describeStackResources_logicalResourceId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeStackResources -&gt; f DescribeStackResources
 </span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#describeStackResources_logicalResourceId"><span class="hs-identifier hs-var hs-var">describeStackResources_logicalResourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStackResources -&gt; Maybe Text)
 -&gt; (DescribeStackResources -&gt; Maybe Text -&gt; DescribeStackResources)
@@ -301,27 +233,95 @@ $sel:physicalResourceId:DescribeStackResources' :: DescribeStackResources -&gt; 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources%27"><span class="hs-identifier hs-type">DescribeStackResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679438373"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources%27"><span class="hs-identifier hs-type">DescribeStackResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679438815"><span class="annot"><span class="annottext">Maybe Text
 logicalResourceId :: Maybe Text
 $sel:logicalResourceId:DescribeStackResources' :: DescribeStackResources -&gt; Maybe Text
-</span><a href="#local-6989586621679438373"><span class="hs-identifier hs-var hs-var">logicalResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679438373"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679438372"><span class="annot"><span class="annottext">s :: DescribeStackResources
-</span><a href="#local-6989586621679438372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources%27"><span class="hs-identifier hs-type">DescribeStackResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679438371"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679438371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackResources
-</span><a href="#local-6989586621679438372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logicalResourceId:DescribeStackResources' :: Maybe Text
+</span><a href="#local-6989586621679438815"><span class="hs-identifier hs-var hs-var">logicalResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679438815"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679438814"><span class="annot"><span class="annottext">s :: DescribeStackResources
+</span><a href="#local-6989586621679438814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources%27"><span class="hs-identifier hs-type">DescribeStackResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679438813"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679438813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackResources
+</span><a href="#local-6989586621679438814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logicalResourceId:DescribeStackResources' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AlogicalResourceId%3ADescribeStackResources%27"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679438371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679438813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The name or unique identifier that corresponds to a physical instance ID</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- of a resource supported by CloudFormation.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- For example, for an Amazon Elastic Compute Cloud (EC2) instance,</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- @PhysicalResourceId@ corresponds to the @InstanceId@. You can pass the</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- instance belongs to and what other resources are part of the stack.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Required: Conditional. If you do not specify @PhysicalResourceId@, you</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- must specify @StackName@.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Default: There is no default value.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#describeStackResources_physicalResourceId"><span class="hs-identifier hs-type">describeStackResources_physicalResourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="describeStackResources_physicalResourceId"><span class="annot"><span class="annottext">describeStackResources_physicalResourceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeStackResources -&gt; f DescribeStackResources
+</span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#describeStackResources_physicalResourceId"><span class="hs-identifier hs-var hs-var">describeStackResources_physicalResourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStackResources -&gt; Maybe Text)
+-&gt; (DescribeStackResources -&gt; Maybe Text -&gt; DescribeStackResources)
+-&gt; Lens
+     DescribeStackResources
+     DescribeStackResources
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources%27"><span class="hs-identifier hs-type">DescribeStackResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679438812"><span class="annot"><span class="annottext">Maybe Text
+physicalResourceId :: Maybe Text
+$sel:physicalResourceId:DescribeStackResources' :: DescribeStackResources -&gt; Maybe Text
+</span><a href="#local-6989586621679438812"><span class="hs-identifier hs-var hs-var">physicalResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679438812"><span class="hs-identifier hs-var">physicalResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679438811"><span class="annot"><span class="annottext">s :: DescribeStackResources
+</span><a href="#local-6989586621679438811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources%27"><span class="hs-identifier hs-type">DescribeStackResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679438810"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679438810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackResources
+</span><a href="#local-6989586621679438811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:physicalResourceId:DescribeStackResources' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AphysicalResourceId%3ADescribeStackResources%27"><span class="hs-identifier hs-var">physicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679438810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The name or the unique stack ID that is associated with the stack, which</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- are not always interchangeable:</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- -   Running stacks: You can specify either the stack\'s name or its</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--     unique stack ID.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- -   Deleted stacks: You must specify the unique stack ID.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Default: There is no default value.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Required: Conditional. If you do not specify @StackName@, you must</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- specify @PhysicalResourceId@.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#describeStackResources_stackName"><span class="hs-identifier hs-type">describeStackResources_stackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="describeStackResources_stackName"><span class="annot"><span class="annottext">describeStackResources_stackName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeStackResources -&gt; f DescribeStackResources
+</span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#describeStackResources_stackName"><span class="hs-identifier hs-var hs-var">describeStackResources_stackName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStackResources -&gt; Maybe Text)
+-&gt; (DescribeStackResources -&gt; Maybe Text -&gt; DescribeStackResources)
+-&gt; Lens
+     DescribeStackResources
+     DescribeStackResources
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources%27"><span class="hs-identifier hs-type">DescribeStackResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679438809"><span class="annot"><span class="annottext">Maybe Text
+stackName :: Maybe Text
+$sel:stackName:DescribeStackResources' :: DescribeStackResources -&gt; Maybe Text
+</span><a href="#local-6989586621679438809"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679438809"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679438808"><span class="annot"><span class="annottext">s :: DescribeStackResources
+</span><a href="#local-6989586621679438808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources%27"><span class="hs-identifier hs-type">DescribeStackResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679438807"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679438807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackResources
+</span><a href="#local-6989586621679438808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:DescribeStackResources' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AstackName%3ADescribeStackResources%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679438807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-191"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-192"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse"><span class="hs-identifier hs-type">DescribeStackResourcesResponse</span></a></span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679438367"><span class="annot"><span class="annottext">request :: DescribeStackResources -&gt; Request DescribeStackResources
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679438803"><span class="annot"><span class="annottext">request :: DescribeStackResources -&gt; Request DescribeStackResources
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeStackResources -&gt; Request DescribeStackResources
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFormation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679438363"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679438799"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeStackResources
 -&gt; ClientResponse ClientBody
@@ -352,10 +352,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeStackResourcesResult&quot;</span></span><span>
-</span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679438360"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679438360"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679438359"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679438359"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679438358"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679438358"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679438796"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679438796"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679438795"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679438795"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679438794"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679438794"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-199"></span><span>          </span><span class="annot"><span class="annottext">Maybe [StackResource] -&gt; Int -&gt; DescribeStackResourcesResponse
 </span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse%27"><span class="hs-identifier hs-var">DescribeStackResourcesResponse'</span></a></span><span>
 </span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [StackResource] -&gt; Int -&gt; DescribeStackResourcesResponse)
@@ -363,7 +363,7 @@ Text
 -&gt; Either String (Int -&gt; DescribeStackResourcesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679438358"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679438794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackResources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -394,15 +394,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679438360"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679438796"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679438347"><span id="local-6989586621679438349"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span></span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679438783"><span id="local-6989586621679438785"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span></span></span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679438344"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679438780"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span></span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679438340"><span class="annot"><span class="annottext">toHeaders :: DescribeStackResources -&gt; ResponseHeaders
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679438776"><span class="annot"><span class="annottext">toHeaders :: DescribeStackResources -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeStackResources -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -410,22 +410,22 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679438335"><span class="annot"><span class="annottext">toPath :: DescribeStackResources -&gt; ByteString
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679438771"><span class="annot"><span class="annottext">toPath :: DescribeStackResources -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeStackResources -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources"><span class="hs-identifier hs-type">DescribeStackResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679438331"><span class="annot"><span class="annottext">toQuery :: DescribeStackResources -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources%27"><span class="hs-identifier hs-type">DescribeStackResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679438327"><span id="local-6989586621679438328"><span id="local-6989586621679438329"><span class="annot"><span class="annottext">Maybe Text
-logicalResourceId :: Maybe Text
-physicalResourceId :: Maybe Text
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679438767"><span class="annot"><span class="annottext">toQuery :: DescribeStackResources -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResources%27"><span class="hs-identifier hs-type">DescribeStackResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679438763"><span id="local-6989586621679438764"><span id="local-6989586621679438765"><span class="annot"><span class="annottext">Maybe Text
 stackName :: Maybe Text
-$sel:logicalResourceId:DescribeStackResources' :: DescribeStackResources -&gt; Maybe Text
-$sel:physicalResourceId:DescribeStackResources' :: DescribeStackResources -&gt; Maybe Text
+physicalResourceId :: Maybe Text
+logicalResourceId :: Maybe Text
 $sel:stackName:DescribeStackResources' :: DescribeStackResources -&gt; Maybe Text
-</span><a href="#local-6989586621679438327"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:physicalResourceId:DescribeStackResources' :: DescribeStackResources -&gt; Maybe Text
+$sel:logicalResourceId:DescribeStackResources' :: DescribeStackResources -&gt; Maybe Text
+</span><a href="#local-6989586621679438763"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -442,26 +442,26 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2010-05-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;StackName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+</span><span class="hs-string">&quot;LogicalResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679438329"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679438765"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PhysicalResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679438328"><span class="hs-identifier hs-var">physicalResourceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679438764"><span class="hs-identifier hs-var">physicalResourceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;LogicalResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+</span><span class="hs-string">&quot;StackName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679438327"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span>
+</span><a href="#local-6989586621679438763"><span class="hs-identifier hs-var">stackName</span></a></span><span>
 </span><span id="line-226"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | The output for a DescribeStackResources action.</span><span>
 </span><span id="line-229"></span><span class="hs-comment">--</span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- /See:/ 'newDescribeStackResourcesResponse' smart constructor.</span><span>
-</span><span id="line-231"></span><span id="local-6989586621679438324"><span id="local-6989586621679438325"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStackResourcesResponse"><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse"><span class="hs-identifier hs-var">DescribeStackResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStackResourcesResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse%27"><span class="hs-identifier hs-var">DescribeStackResourcesResponse'</span></a></span></span><span>
+</span><span id="line-231"></span><span id="local-6989586621679438760"><span id="local-6989586621679438761"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStackResourcesResponse"><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse"><span class="hs-identifier hs-var">DescribeStackResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStackResourcesResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse%27"><span class="hs-identifier hs-var">DescribeStackResourcesResponse'</span></a></span></span><span>
 </span><span id="line-232"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of @StackResource@ structures.</span><span>
 </span><span id="line-233"></span><span>    </span><span id="%24sel%3AstackResources%3ADescribeStackResourcesResponse%27"><span class="annot"><span class="annottext">DescribeStackResourcesResponse -&gt; Maybe [StackResource]
 </span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AstackResources%3ADescribeStackResourcesResponse%27"><span class="hs-identifier hs-var hs-var">stackResources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResource.html#StackResource"><span class="hs-identifier hs-type">StackResource</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -469,7 +469,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-235"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeStackResourcesResponse%27"><span class="annot"><span class="annottext">DescribeStackResourcesResponse -&gt; Int
 </span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AhttpStatus%3ADescribeStackResourcesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-236"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-237"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679438318"><span id="local-6989586621679438320"><span class="annot"><span class="annottext">DescribeStackResourcesResponse
+</span><span id="line-237"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679438754"><span id="local-6989586621679438756"><span class="annot"><span class="annottext">DescribeStackResourcesResponse
 -&gt; DescribeStackResourcesResponse -&gt; Bool
 (DescribeStackResourcesResponse
  -&gt; DescribeStackResourcesResponse -&gt; Bool)
@@ -485,7 +485,7 @@ $c/= :: DescribeStackResourcesResponse
 -&gt; DescribeStackResourcesResponse -&gt; Bool
 $c== :: DescribeStackResourcesResponse
 -&gt; DescribeStackResourcesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679438310"><span id="local-6989586621679438312"><span id="local-6989586621679438314"><span id="local-6989586621679438316"><span class="annot"><span class="annottext">ReadPrec [DescribeStackResourcesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679438746"><span id="local-6989586621679438748"><span id="local-6989586621679438750"><span id="local-6989586621679438752"><span class="annot"><span class="annottext">ReadPrec [DescribeStackResourcesResponse]
 ReadPrec DescribeStackResourcesResponse
 Int -&gt; ReadS DescribeStackResourcesResponse
 ReadS [DescribeStackResourcesResponse]
@@ -505,7 +505,7 @@ readList :: ReadS [DescribeStackResourcesResponse]
 $creadList :: ReadS [DescribeStackResourcesResponse]
 readsPrec :: Int -&gt; ReadS DescribeStackResourcesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeStackResourcesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679438304"><span id="local-6989586621679438306"><span id="local-6989586621679438308"><span class="annot"><span class="annottext">Int -&gt; DescribeStackResourcesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679438740"><span id="local-6989586621679438742"><span id="local-6989586621679438744"><span class="annot"><span class="annottext">Int -&gt; DescribeStackResourcesResponse -&gt; ShowS
 [DescribeStackResourcesResponse] -&gt; ShowS
 DescribeStackResourcesResponse -&gt; String
 (Int -&gt; DescribeStackResourcesResponse -&gt; ShowS)
@@ -559,8 +559,8 @@ DescribeStackResourcesResponse
 </span><span id="line-252"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-253"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse"><span class="hs-identifier hs-type">DescribeStackResourcesResponse</span></a></span><span>
 </span><span id="line-254"></span><span id="newDescribeStackResourcesResponse"><span class="annot"><span class="annottext">newDescribeStackResourcesResponse :: Int -&gt; DescribeStackResourcesResponse
-</span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#newDescribeStackResourcesResponse"><span class="hs-identifier hs-var hs-var">newDescribeStackResourcesResponse</span></a></span></span><span> </span><span id="local-6989586621679438301"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679438301"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#newDescribeStackResourcesResponse"><span class="hs-identifier hs-var hs-var">newDescribeStackResourcesResponse</span></a></span></span><span> </span><span id="local-6989586621679438737"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679438737"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-255"></span><span>  </span><span class="annot"><span class="annottext">DescribeStackResourcesResponse' :: Maybe [StackResource] -&gt; Int -&gt; DescribeStackResourcesResponse
 </span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse%27"><span class="hs-identifier hs-type">DescribeStackResourcesResponse'</span></a></span><span>
 </span><span id="line-256"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stackResources:DescribeStackResourcesResponse' :: Maybe [StackResource]
@@ -570,7 +570,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStackResourcesResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AhttpStatus%3ADescribeStackResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679438301"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679438737"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-259"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- | A list of @StackResource@ structures.</span><span>
@@ -587,16 +587,16 @@ forall a. Maybe a
      (Maybe [StackResource])
      (Maybe [StackResource])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse%27"><span class="hs-identifier hs-type">DescribeStackResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679438300"><span class="annot"><span class="annottext">Maybe [StackResource]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse%27"><span class="hs-identifier hs-type">DescribeStackResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679438736"><span class="annot"><span class="annottext">Maybe [StackResource]
 stackResources :: Maybe [StackResource]
 $sel:stackResources:DescribeStackResourcesResponse' :: DescribeStackResourcesResponse -&gt; Maybe [StackResource]
-</span><a href="#local-6989586621679438300"><span class="hs-identifier hs-var hs-var">stackResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [StackResource]
-</span><a href="#local-6989586621679438300"><span class="hs-identifier hs-var">stackResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679438299"><span class="annot"><span class="annottext">s :: DescribeStackResourcesResponse
-</span><a href="#local-6989586621679438299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse%27"><span class="hs-identifier hs-type">DescribeStackResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679438298"><span class="annot"><span class="annottext">Maybe [StackResource]
-</span><a href="#local-6989586621679438298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackResourcesResponse
-</span><a href="#local-6989586621679438299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackResources:DescribeStackResourcesResponse' :: Maybe [StackResource]
+</span><a href="#local-6989586621679438736"><span class="hs-identifier hs-var hs-var">stackResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [StackResource]
+</span><a href="#local-6989586621679438736"><span class="hs-identifier hs-var">stackResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679438735"><span class="annot"><span class="annottext">s :: DescribeStackResourcesResponse
+</span><a href="#local-6989586621679438735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse%27"><span class="hs-identifier hs-type">DescribeStackResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679438734"><span class="annot"><span class="annottext">Maybe [StackResource]
+</span><a href="#local-6989586621679438734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackResourcesResponse
+</span><a href="#local-6989586621679438735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackResources:DescribeStackResourcesResponse' :: Maybe [StackResource]
 </span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AstackResources%3ADescribeStackResourcesResponse%27"><span class="hs-identifier hs-var">stackResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [StackResource]
-</span><a href="#local-6989586621679438298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse"><span class="hs-identifier hs-type">DescribeStackResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [StackResource] -&gt; f (Maybe [StackResource]))
+</span><a href="#local-6989586621679438734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse"><span class="hs-identifier hs-type">DescribeStackResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [StackResource] -&gt; f (Maybe [StackResource]))
  -&gt; DescribeStackResourcesResponse
  -&gt; f DescribeStackResourcesResponse)
 -&gt; ((Maybe [StackResource] -&gt; f (Maybe [StackResource]))
@@ -617,8 +617,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [StackResource] [StackResource] [StackResource] [StackResource]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-266"></span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#describeStackResourcesResponse_httpStatus"><span class="hs-identifier hs-type">describeStackResourcesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse"><span class="hs-identifier hs-type">DescribeStackResourcesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -634,18 +634,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse%27"><span class="hs-identifier hs-type">DescribeStackResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679438294"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse%27"><span class="hs-identifier hs-type">DescribeStackResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679438730"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeStackResourcesResponse' :: DescribeStackResourcesResponse -&gt; Int
-</span><a href="#local-6989586621679438294"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679438294"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679438293"><span class="annot"><span class="annottext">s :: DescribeStackResourcesResponse
-</span><a href="#local-6989586621679438293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse%27"><span class="hs-identifier hs-type">DescribeStackResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679438292"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679438292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackResourcesResponse
-</span><a href="#local-6989586621679438293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStackResourcesResponse' :: Int
+</span><a href="#local-6989586621679438730"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679438730"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679438729"><span class="annot"><span class="annottext">s :: DescribeStackResourcesResponse
+</span><a href="#local-6989586621679438729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse%27"><span class="hs-identifier hs-type">DescribeStackResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679438728"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679438728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackResourcesResponse
+</span><a href="#local-6989586621679438729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStackResourcesResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.DescribeStackResources.html#%24sel%3AhttpStatus%3ADescribeStackResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679438292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse"><span class="hs-identifier hs-type">DescribeStackResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679438728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse"><span class="hs-identifier hs-type">DescribeStackResourcesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-268"></span><span>
 </span><span id="line-269"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-270"></span><span>  </span><span id="local-6989586621679438290"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621679438726"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-271"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackResources.html#DescribeStackResourcesResponse"><span class="hs-identifier hs-type">DescribeStackResourcesResponse</span></a></span></span><span>
 </span><span id="line-272"></span></pre></body></html>

@@ -50,10 +50,10 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDescribeLimits' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679204751"><span id="local-6989586621679204752"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLimits"><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-var">DescribeLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLimits%27"><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimits%27"><span class="hs-identifier hs-var">DescribeLimits'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679204870"><span id="local-6989586621679204871"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLimits"><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-var">DescribeLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLimits%27"><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimits%27"><span class="hs-identifier hs-var">DescribeLimits'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204746"><span id="local-6989586621679204748"><span class="annot"><span class="annottext">DescribeLimits -&gt; DescribeLimits -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204865"><span id="local-6989586621679204867"><span class="annot"><span class="annottext">DescribeLimits -&gt; DescribeLimits -&gt; Bool
 (DescribeLimits -&gt; DescribeLimits -&gt; Bool)
 -&gt; (DescribeLimits -&gt; DescribeLimits -&gt; Bool) -&gt; Eq DescribeLimits
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeLimits -&gt; DescribeLimits -&gt; Bool
 == :: DescribeLimits -&gt; DescribeLimits -&gt; Bool
 $c== :: DescribeLimits -&gt; DescribeLimits -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204737"><span id="local-6989586621679204739"><span id="local-6989586621679204741"><span id="local-6989586621679204743"><span class="annot"><span class="annottext">ReadPrec [DescribeLimits]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204856"><span id="local-6989586621679204858"><span id="local-6989586621679204860"><span id="local-6989586621679204862"><span class="annot"><span class="annottext">ReadPrec [DescribeLimits]
 ReadPrec DescribeLimits
 Int -&gt; ReadS DescribeLimits
 ReadS [DescribeLimits]
@@ -81,7 +81,7 @@ readList :: ReadS [DescribeLimits]
 $creadList :: ReadS [DescribeLimits]
 readsPrec :: Int -&gt; ReadS DescribeLimits
 $creadsPrec :: Int -&gt; ReadS DescribeLimits
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204730"><span id="local-6989586621679204732"><span id="local-6989586621679204734"><span class="annot"><span class="annottext">Int -&gt; DescribeLimits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204849"><span id="local-6989586621679204851"><span id="local-6989586621679204853"><span class="annot"><span class="annottext">Int -&gt; DescribeLimits -&gt; ShowS
 [DescribeLimits] -&gt; ShowS
 DescribeLimits -&gt; String
 (Int -&gt; DescribeLimits -&gt; ShowS)
@@ -121,12 +121,12 @@ $cfrom :: forall x. DescribeLimits -&gt; Rep DescribeLimits x
 </span><span id="line-67"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-68"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679204722"><span class="annot"><span class="annottext">request :: DescribeLimits -&gt; Request DescribeLimits
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679204841"><span class="annot"><span class="annottext">request :: DescribeLimits -&gt; Request DescribeLimits
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeLimits -&gt; Request DescribeLimits
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Kinesis.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679204718"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679204837"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeLimits
 -&gt; ClientResponse ClientBody
@@ -150,10 +150,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679204715"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204715"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679204714"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679204714"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679204713"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679204713"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679204834"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204834"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679204833"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679204833"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679204832"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204832"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Natural -&gt; Natural -&gt; DescribeLimitsResponse
 </span><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-var">DescribeLimitsResponse'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Natural -&gt; Natural -&gt; DescribeLimitsResponse)
@@ -165,13 +165,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204715"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204834"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Either String (Natural -&gt; Natural -&gt; DescribeLimitsResponse)
 -&gt; Either String Natural
 -&gt; Either String (Natural -&gt; DescribeLimitsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679204713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Natural
+</span><a href="#local-6989586621679204832"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ShardLimit&quot;</span></span><span class="hs-special">)</span><span>
@@ -179,18 +179,18 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String Natural -&gt; Either String DescribeLimitsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679204713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Natural
+</span><a href="#local-6989586621679204832"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OpenShardCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204705"><span id="local-6989586621679204707"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204824"><span id="local-6989586621679204826"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204702"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204821"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679204698"><span class="annot"><span class="annottext">toHeaders :: DescribeLimits -&gt; ResponseHeaders
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679204817"><span class="annot"><span class="annottext">toHeaders :: DescribeLimits -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeLimits -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -217,8 +217,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204688"><span id="local-6989586621679204690"><span id="local-6989586621679204692"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679204686"><span class="annot"><span class="annottext">toJSON :: DescribeLimits -&gt; Value
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204807"><span id="local-6989586621679204809"><span id="local-6989586621679204811"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679204805"><span class="annot"><span class="annottext">toJSON :: DescribeLimits -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; DescribeLimits -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -227,14 +227,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679204681"><span class="annot"><span class="annottext">toPath :: DescribeLimits -&gt; ByteString
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679204800"><span class="annot"><span class="annottext">toPath :: DescribeLimits -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeLimits -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimits"><span class="hs-identifier hs-type">DescribeLimits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679204677"><span class="annot"><span class="annottext">toQuery :: DescribeLimits -&gt; QueryString
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679204796"><span class="annot"><span class="annottext">toQuery :: DescribeLimits -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeLimits -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -242,7 +242,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | /See:/ 'newDescribeLimitsResponse' smart constructor.</span><span>
-</span><span id="line-109"></span><span id="local-6989586621679204674"><span id="local-6989586621679204675"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLimitsResponse"><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-var">DescribeLimitsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLimitsResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-var">DescribeLimitsResponse'</span></a></span></span><span>
+</span><span id="line-109"></span><span id="local-6989586621679204793"><span id="local-6989586621679204794"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLimitsResponse"><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-var">DescribeLimitsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLimitsResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-var">DescribeLimitsResponse'</span></a></span></span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-111"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeLimitsResponse%27"><span class="annot"><span class="annottext">DescribeLimitsResponse -&gt; Int
 </span><a href="Network.AWS.Kinesis.DescribeLimits.html#%24sel%3AhttpStatus%3ADescribeLimitsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -253,7 +253,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-115"></span><span>    </span><span id="%24sel%3AopenShardCount%3ADescribeLimitsResponse%27"><span class="annot"><span class="annottext">DescribeLimitsResponse -&gt; Natural
 </span><a href="Network.AWS.Kinesis.DescribeLimits.html#%24sel%3AopenShardCount%3ADescribeLimitsResponse%27"><span class="hs-identifier hs-var hs-var">openShardCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204667"><span id="local-6989586621679204669"><span class="annot"><span class="annottext">DescribeLimitsResponse -&gt; DescribeLimitsResponse -&gt; Bool
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204786"><span id="local-6989586621679204788"><span class="annot"><span class="annottext">DescribeLimitsResponse -&gt; DescribeLimitsResponse -&gt; Bool
 (DescribeLimitsResponse -&gt; DescribeLimitsResponse -&gt; Bool)
 -&gt; (DescribeLimitsResponse -&gt; DescribeLimitsResponse -&gt; Bool)
 -&gt; Eq DescribeLimitsResponse
@@ -262,7 +262,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeLimitsResponse -&gt; DescribeLimitsResponse -&gt; Bool
 == :: DescribeLimitsResponse -&gt; DescribeLimitsResponse -&gt; Bool
 $c== :: DescribeLimitsResponse -&gt; DescribeLimitsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204659"><span id="local-6989586621679204661"><span id="local-6989586621679204663"><span id="local-6989586621679204665"><span class="annot"><span class="annottext">ReadPrec [DescribeLimitsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204778"><span id="local-6989586621679204780"><span id="local-6989586621679204782"><span id="local-6989586621679204784"><span class="annot"><span class="annottext">ReadPrec [DescribeLimitsResponse]
 ReadPrec DescribeLimitsResponse
 Int -&gt; ReadS DescribeLimitsResponse
 ReadS [DescribeLimitsResponse]
@@ -282,7 +282,7 @@ readList :: ReadS [DescribeLimitsResponse]
 $creadList :: ReadS [DescribeLimitsResponse]
 readsPrec :: Int -&gt; ReadS DescribeLimitsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeLimitsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204653"><span id="local-6989586621679204655"><span id="local-6989586621679204657"><span class="annot"><span class="annottext">Int -&gt; DescribeLimitsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204772"><span id="local-6989586621679204774"><span id="local-6989586621679204776"><span class="annot"><span class="annottext">Int -&gt; DescribeLimitsResponse -&gt; ShowS
 [DescribeLimitsResponse] -&gt; ShowS
 DescribeLimitsResponse -&gt; String
 (Int -&gt; DescribeLimitsResponse -&gt; ShowS)
@@ -332,23 +332,23 @@ $cfrom :: forall x. DescribeLimitsResponse -&gt; Rep DescribeLimitsResponse x
 </span><span id="line-139"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span>
 </span><span id="line-140"></span><span id="newDescribeLimitsResponse"><span class="annot"><span class="annottext">newDescribeLimitsResponse :: Int -&gt; Natural -&gt; Natural -&gt; DescribeLimitsResponse
 </span><a href="Network.AWS.Kinesis.DescribeLimits.html#newDescribeLimitsResponse"><span class="hs-identifier hs-var hs-var">newDescribeLimitsResponse</span></a></span></span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679204650"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204650"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679204649"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679204649"><span class="hs-identifier hs-var">pShardLimit_</span></a></span></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679204648"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679204648"><span class="hs-identifier hs-var">pOpenShardCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679204769"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204769"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679204768"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679204768"><span class="hs-identifier hs-var">pShardLimit_</span></a></span></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679204767"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679204767"><span class="hs-identifier hs-var">pOpenShardCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">DescribeLimitsResponse' :: Int -&gt; Natural -&gt; Natural -&gt; DescribeLimitsResponse
 </span><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLimitsResponse' :: Int
 </span><a href="Network.AWS.Kinesis.DescribeLimits.html#%24sel%3AhttpStatus%3ADescribeLimitsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204650"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679204769"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:shardLimit:DescribeLimitsResponse' :: Natural
 </span><a href="Network.AWS.Kinesis.DescribeLimits.html#%24sel%3AshardLimit%3ADescribeLimitsResponse%27"><span class="hs-identifier hs-var">shardLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679204649"><span class="hs-identifier hs-var">pShardLimit_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679204768"><span class="hs-identifier hs-var">pShardLimit_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">$sel:openShardCount:DescribeLimitsResponse' :: Natural
 </span><a href="Network.AWS.Kinesis.DescribeLimits.html#%24sel%3AopenShardCount%3ADescribeLimitsResponse%27"><span class="hs-identifier hs-var">openShardCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679204648"><span class="hs-identifier hs-var">pOpenShardCount_</span></a></span><span>
+</span><a href="#local-6989586621679204767"><span class="hs-identifier hs-var">pOpenShardCount_</span></a></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -359,16 +359,16 @@ $cfrom :: forall x. DescribeLimitsResponse -&gt; Rep DescribeLimitsResponse x
 -&gt; (DescribeLimitsResponse -&gt; Int -&gt; DescribeLimitsResponse)
 -&gt; Lens DescribeLimitsResponse DescribeLimitsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204645"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204764"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeLimitsResponse' :: DescribeLimitsResponse -&gt; Int
-</span><a href="#local-6989586621679204645"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204645"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204644"><span class="annot"><span class="annottext">s :: DescribeLimitsResponse
-</span><a href="#local-6989586621679204644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204643"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLimitsResponse
-</span><a href="#local-6989586621679204644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLimitsResponse' :: Int
+</span><a href="#local-6989586621679204764"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204764"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204763"><span class="annot"><span class="annottext">s :: DescribeLimitsResponse
+</span><a href="#local-6989586621679204763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204762"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLimitsResponse
+</span><a href="#local-6989586621679204763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLimitsResponse' :: Int
 </span><a href="Network.AWS.Kinesis.DescribeLimits.html#%24sel%3AhttpStatus%3ADescribeLimitsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The maximum number of shards.</span><span>
 </span><span id="line-155"></span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#describeLimitsResponse_shardLimit"><span class="hs-identifier hs-type">describeLimitsResponse_shardLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -379,16 +379,16 @@ $sel:httpStatus:DescribeLimitsResponse' :: DescribeLimitsResponse -&gt; Int
 -&gt; Lens
      DescribeLimitsResponse DescribeLimitsResponse Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204642"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204761"><span class="annot"><span class="annottext">Natural
 shardLimit :: Natural
 $sel:shardLimit:DescribeLimitsResponse' :: DescribeLimitsResponse -&gt; Natural
-</span><a href="#local-6989586621679204642"><span class="hs-identifier hs-var hs-var">shardLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679204642"><span class="hs-identifier hs-var">shardLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204641"><span class="annot"><span class="annottext">s :: DescribeLimitsResponse
-</span><a href="#local-6989586621679204641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204640"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679204640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLimitsResponse
-</span><a href="#local-6989586621679204641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardLimit:DescribeLimitsResponse' :: Natural
+</span><a href="#local-6989586621679204761"><span class="hs-identifier hs-var hs-var">shardLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679204761"><span class="hs-identifier hs-var">shardLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204760"><span class="annot"><span class="annottext">s :: DescribeLimitsResponse
+</span><a href="#local-6989586621679204760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204759"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679204759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLimitsResponse
+</span><a href="#local-6989586621679204760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardLimit:DescribeLimitsResponse' :: Natural
 </span><a href="Network.AWS.Kinesis.DescribeLimits.html#%24sel%3AshardLimit%3ADescribeLimitsResponse%27"><span class="hs-identifier hs-var">shardLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679204640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | The number of open shards.</span><span>
 </span><span id="line-159"></span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#describeLimitsResponse_openShardCount"><span class="hs-identifier hs-type">describeLimitsResponse_openShardCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -399,16 +399,16 @@ $sel:shardLimit:DescribeLimitsResponse' :: DescribeLimitsResponse -&gt; Natural
 -&gt; Lens
      DescribeLimitsResponse DescribeLimitsResponse Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204639"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204758"><span class="annot"><span class="annottext">Natural
 openShardCount :: Natural
 $sel:openShardCount:DescribeLimitsResponse' :: DescribeLimitsResponse -&gt; Natural
-</span><a href="#local-6989586621679204639"><span class="hs-identifier hs-var hs-var">openShardCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679204639"><span class="hs-identifier hs-var">openShardCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204638"><span class="annot"><span class="annottext">s :: DescribeLimitsResponse
-</span><a href="#local-6989586621679204638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204637"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679204637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLimitsResponse
-</span><a href="#local-6989586621679204638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:openShardCount:DescribeLimitsResponse' :: Natural
+</span><a href="#local-6989586621679204758"><span class="hs-identifier hs-var hs-var">openShardCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679204758"><span class="hs-identifier hs-var">openShardCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204757"><span class="annot"><span class="annottext">s :: DescribeLimitsResponse
+</span><a href="#local-6989586621679204757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse%27"><span class="hs-identifier hs-type">DescribeLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204756"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679204756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLimitsResponse
+</span><a href="#local-6989586621679204757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:openShardCount:DescribeLimitsResponse' :: Natural
 </span><a href="Network.AWS.Kinesis.DescribeLimits.html#%24sel%3AopenShardCount%3ADescribeLimitsResponse%27"><span class="hs-identifier hs-var">openShardCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679204637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204635"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204754"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.DescribeLimits.html#DescribeLimitsResponse"><span class="hs-identifier hs-type">DescribeLimitsResponse</span></a></span></span><span>
 </span><span id="line-163"></span></pre></body></html>

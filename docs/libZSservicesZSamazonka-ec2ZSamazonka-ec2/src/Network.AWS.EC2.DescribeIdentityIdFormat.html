@@ -69,7 +69,7 @@
 </span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | /See:/ 'newDescribeIdentityIdFormat' smart constructor.</span><span>
-</span><span id="line-72"></span><span id="local-6989586621681227641"><span id="local-6989586621681227642"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIdentityIdFormat"><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat"><span class="hs-identifier hs-var">DescribeIdentityIdFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIdentityIdFormat%27"><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat%27"><span class="hs-identifier hs-var">DescribeIdentityIdFormat'</span></a></span></span><span>
+</span><span id="line-72"></span><span id="local-6989586621681263390"><span id="local-6989586621681263391"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIdentityIdFormat"><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat"><span class="hs-identifier hs-var">DescribeIdentityIdFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIdentityIdFormat%27"><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat%27"><span class="hs-identifier hs-var">DescribeIdentityIdFormat'</span></a></span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ |</span><span>
@@ -87,7 +87,7 @@
 </span><span id="line-86"></span><span>    </span><span id="%24sel%3AprincipalArn%3ADescribeIdentityIdFormat%27"><span class="annot"><span class="annottext">DescribeIdentityIdFormat -&gt; Text
 </span><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#%24sel%3AprincipalArn%3ADescribeIdentityIdFormat%27"><span class="hs-identifier hs-var hs-var">principalArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681227634"><span id="local-6989586621681227636"><span class="annot"><span class="annottext">DescribeIdentityIdFormat -&gt; DescribeIdentityIdFormat -&gt; Bool
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681263383"><span id="local-6989586621681263385"><span class="annot"><span class="annottext">DescribeIdentityIdFormat -&gt; DescribeIdentityIdFormat -&gt; Bool
 (DescribeIdentityIdFormat -&gt; DescribeIdentityIdFormat -&gt; Bool)
 -&gt; (DescribeIdentityIdFormat -&gt; DescribeIdentityIdFormat -&gt; Bool)
 -&gt; Eq DescribeIdentityIdFormat
@@ -96,7 +96,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeIdentityIdFormat -&gt; DescribeIdentityIdFormat -&gt; Bool
 == :: DescribeIdentityIdFormat -&gt; DescribeIdentityIdFormat -&gt; Bool
 $c== :: DescribeIdentityIdFormat -&gt; DescribeIdentityIdFormat -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681227625"><span id="local-6989586621681227627"><span id="local-6989586621681227629"><span id="local-6989586621681227631"><span class="annot"><span class="annottext">ReadPrec [DescribeIdentityIdFormat]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681263374"><span id="local-6989586621681263376"><span id="local-6989586621681263378"><span id="local-6989586621681263380"><span class="annot"><span class="annottext">ReadPrec [DescribeIdentityIdFormat]
 ReadPrec DescribeIdentityIdFormat
 Int -&gt; ReadS DescribeIdentityIdFormat
 ReadS [DescribeIdentityIdFormat]
@@ -116,7 +116,7 @@ readList :: ReadS [DescribeIdentityIdFormat]
 $creadList :: ReadS [DescribeIdentityIdFormat]
 readsPrec :: Int -&gt; ReadS DescribeIdentityIdFormat
 $creadsPrec :: Int -&gt; ReadS DescribeIdentityIdFormat
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681227618"><span id="local-6989586621681227620"><span id="local-6989586621681227622"><span class="annot"><span class="annottext">Int -&gt; DescribeIdentityIdFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681263367"><span id="local-6989586621681263369"><span id="local-6989586621681263371"><span class="annot"><span class="annottext">Int -&gt; DescribeIdentityIdFormat -&gt; ShowS
 [DescribeIdentityIdFormat] -&gt; ShowS
 DescribeIdentityIdFormat -&gt; String
 (Int -&gt; DescribeIdentityIdFormat -&gt; ShowS)
@@ -174,8 +174,8 @@ DescribeIdentityIdFormat -&gt; Rep DescribeIdentityIdFormat x
 </span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat"><span class="hs-identifier hs-type">DescribeIdentityIdFormat</span></a></span><span>
 </span><span id="line-115"></span><span id="newDescribeIdentityIdFormat"><span class="annot"><span class="annottext">newDescribeIdentityIdFormat :: Text -&gt; DescribeIdentityIdFormat
-</span><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#newDescribeIdentityIdFormat"><span class="hs-identifier hs-var hs-var">newDescribeIdentityIdFormat</span></a></span></span><span> </span><span id="local-6989586621681227613"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681227613"><span class="hs-identifier hs-var">pPrincipalArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#newDescribeIdentityIdFormat"><span class="hs-identifier hs-var hs-var">newDescribeIdentityIdFormat</span></a></span></span><span> </span><span id="local-6989586621681263362"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681263362"><span class="hs-identifier hs-var">pPrincipalArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">DescribeIdentityIdFormat' :: Maybe Text -&gt; Text -&gt; DescribeIdentityIdFormat
 </span><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormat'</span></a></span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resource:DescribeIdentityIdFormat' :: Maybe Text
@@ -185,7 +185,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:principalArn:DescribeIdentityIdFormat' :: Text
 </span><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#%24sel%3AprincipalArn%3ADescribeIdentityIdFormat%27"><span class="hs-identifier hs-var">principalArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681227613"><span class="hs-identifier hs-var">pPrincipalArn_</span></a></span><span>
+</span><a href="#local-6989586621681263362"><span class="hs-identifier hs-var">pPrincipalArn_</span></a></span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@</span><span>
@@ -210,16 +210,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227610"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681263359"><span class="annot"><span class="annottext">Maybe Text
 resource :: Maybe Text
 $sel:resource:DescribeIdentityIdFormat' :: DescribeIdentityIdFormat -&gt; Maybe Text
-</span><a href="#local-6989586621681227610"><span class="hs-identifier hs-var hs-var">resource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681227610"><span class="hs-identifier hs-var">resource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227609"><span class="annot"><span class="annottext">s :: DescribeIdentityIdFormat
-</span><a href="#local-6989586621681227609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227608"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681227608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityIdFormat
-</span><a href="#local-6989586621681227609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resource:DescribeIdentityIdFormat' :: Maybe Text
+</span><a href="#local-6989586621681263359"><span class="hs-identifier hs-var hs-var">resource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681263359"><span class="hs-identifier hs-var">resource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681263358"><span class="annot"><span class="annottext">s :: DescribeIdentityIdFormat
+</span><a href="#local-6989586621681263358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681263357"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681263357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityIdFormat
+</span><a href="#local-6989586621681263358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resource:DescribeIdentityIdFormat' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#%24sel%3Aresource%3ADescribeIdentityIdFormat%27"><span class="hs-identifier hs-var">resource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681227608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat"><span class="hs-identifier hs-type">DescribeIdentityIdFormat</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681263357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat"><span class="hs-identifier hs-type">DescribeIdentityIdFormat</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The ARN of the principal, which can be an IAM role, IAM user, or the</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- root user.</span><span>
@@ -230,28 +230,28 @@ $sel:resource:DescribeIdentityIdFormat' :: DescribeIdentityIdFormat -&gt; Maybe 
 -&gt; (DescribeIdentityIdFormat -&gt; Text -&gt; DescribeIdentityIdFormat)
 -&gt; Lens DescribeIdentityIdFormat DescribeIdentityIdFormat Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227607"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681263356"><span class="annot"><span class="annottext">Text
 principalArn :: Text
 $sel:principalArn:DescribeIdentityIdFormat' :: DescribeIdentityIdFormat -&gt; Text
-</span><a href="#local-6989586621681227607"><span class="hs-identifier hs-var hs-var">principalArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681227607"><span class="hs-identifier hs-var">principalArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227606"><span class="annot"><span class="annottext">s :: DescribeIdentityIdFormat
-</span><a href="#local-6989586621681227606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227605"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681227605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityIdFormat
-</span><a href="#local-6989586621681227606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalArn:DescribeIdentityIdFormat' :: Text
+</span><a href="#local-6989586621681263356"><span class="hs-identifier hs-var hs-var">principalArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681263356"><span class="hs-identifier hs-var">principalArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681263355"><span class="annot"><span class="annottext">s :: DescribeIdentityIdFormat
+</span><a href="#local-6989586621681263355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681263354"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681263354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityIdFormat
+</span><a href="#local-6989586621681263355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalArn:DescribeIdentityIdFormat' :: Text
 </span><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#%24sel%3AprincipalArn%3ADescribeIdentityIdFormat%27"><span class="hs-identifier hs-var">principalArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681227605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat"><span class="hs-identifier hs-type">DescribeIdentityIdFormat</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681263354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat"><span class="hs-identifier hs-type">DescribeIdentityIdFormat</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat"><span class="hs-identifier hs-type">DescribeIdentityIdFormat</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-142"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat"><span class="hs-identifier hs-type">DescribeIdentityIdFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse"><span class="hs-identifier hs-type">DescribeIdentityIdFormatResponse</span></a></span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621681227601"><span class="annot"><span class="annottext">request :: DescribeIdentityIdFormat -&gt; Request DescribeIdentityIdFormat
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621681263350"><span class="annot"><span class="annottext">request :: DescribeIdentityIdFormat -&gt; Request DescribeIdentityIdFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeIdentityIdFormat -&gt; Request DescribeIdentityIdFormat
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621681227597"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621681263346"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeIdentityIdFormat
 -&gt; ClientResponse ClientBody
@@ -277,10 +277,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681227594"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681227594"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681227593"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681227593"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681227592"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681227592"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681263343"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681263343"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681263342"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681263342"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681263341"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681263341"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Maybe [IdFormat] -&gt; Int -&gt; DescribeIdentityIdFormatResponse
 </span><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse%27"><span class="hs-identifier hs-var">DescribeIdentityIdFormatResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [IdFormat] -&gt; Int -&gt; DescribeIdentityIdFormatResponse)
@@ -288,7 +288,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeIdentityIdFormatResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681227592"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681263341"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;statusSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -319,15 +319,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681227594"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681263343"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681227581"><span id="local-6989586621681227583"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat"><span class="hs-identifier hs-type">DescribeIdentityIdFormat</span></a></span></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681263330"><span id="local-6989586621681263332"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat"><span class="hs-identifier hs-type">DescribeIdentityIdFormat</span></a></span></span></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681227578"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat"><span class="hs-identifier hs-type">DescribeIdentityIdFormat</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681263327"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat"><span class="hs-identifier hs-type">DescribeIdentityIdFormat</span></a></span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat"><span class="hs-identifier hs-type">DescribeIdentityIdFormat</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621681227574"><span class="annot"><span class="annottext">toHeaders :: DescribeIdentityIdFormat -&gt; ResponseHeaders
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621681263323"><span class="annot"><span class="annottext">toHeaders :: DescribeIdentityIdFormat -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeIdentityIdFormat -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -335,21 +335,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat"><span class="hs-identifier hs-type">DescribeIdentityIdFormat</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621681227569"><span class="annot"><span class="annottext">toPath :: DescribeIdentityIdFormat -&gt; ByteString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621681263318"><span class="annot"><span class="annottext">toPath :: DescribeIdentityIdFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeIdentityIdFormat -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat"><span class="hs-identifier hs-type">DescribeIdentityIdFormat</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621681227565"><span class="annot"><span class="annottext">toQuery :: DescribeIdentityIdFormat -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227562"><span id="local-6989586621681227563"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621681263314"><span class="annot"><span class="annottext">toQuery :: DescribeIdentityIdFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormat%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681263311"><span id="local-6989586621681263312"><span class="annot"><span class="annottext">Maybe Text
 Text
 principalArn :: Text
 resource :: Maybe Text
 $sel:principalArn:DescribeIdentityIdFormat' :: DescribeIdentityIdFormat -&gt; Text
 $sel:resource:DescribeIdentityIdFormat' :: DescribeIdentityIdFormat -&gt; Maybe Text
-</span><a href="#local-6989586621681227562"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681263311"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -369,16 +369,16 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Resource&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681227563"><span class="hs-identifier hs-var">resource</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681263312"><span class="hs-identifier hs-var">resource</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PrincipalArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681227562"><span class="hs-identifier hs-var">principalArn</span></a></span><span>
+</span><a href="#local-6989586621681263311"><span class="hs-identifier hs-var">principalArn</span></a></span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | /See:/ 'newDescribeIdentityIdFormatResponse' smart constructor.</span><span>
-</span><span id="line-177"></span><span id="local-6989586621681227559"><span id="local-6989586621681227560"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIdentityIdFormatResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse"><span class="hs-identifier hs-var">DescribeIdentityIdFormatResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIdentityIdFormatResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse%27"><span class="hs-identifier hs-var">DescribeIdentityIdFormatResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span id="local-6989586621681263308"><span id="local-6989586621681263309"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIdentityIdFormatResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse"><span class="hs-identifier hs-var">DescribeIdentityIdFormatResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIdentityIdFormatResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse%27"><span class="hs-identifier hs-var">DescribeIdentityIdFormatResponse'</span></a></span></span><span>
 </span><span id="line-178"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the ID format for the resources.</span><span>
 </span><span id="line-179"></span><span>    </span><span id="%24sel%3Astatuses%3ADescribeIdentityIdFormatResponse%27"><span class="annot"><span class="annottext">DescribeIdentityIdFormatResponse -&gt; Maybe [IdFormat]
 </span><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#%24sel%3Astatuses%3ADescribeIdentityIdFormatResponse%27"><span class="hs-identifier hs-var hs-var">statuses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.IdFormat.html#IdFormat"><span class="hs-identifier hs-type">IdFormat</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -386,7 +386,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeIdentityIdFormatResponse%27"><span class="annot"><span class="annottext">DescribeIdentityIdFormatResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#%24sel%3AhttpStatus%3ADescribeIdentityIdFormatResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681227553"><span id="local-6989586621681227555"><span class="annot"><span class="annottext">DescribeIdentityIdFormatResponse
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681263302"><span id="local-6989586621681263304"><span class="annot"><span class="annottext">DescribeIdentityIdFormatResponse
 -&gt; DescribeIdentityIdFormatResponse -&gt; Bool
 (DescribeIdentityIdFormatResponse
  -&gt; DescribeIdentityIdFormatResponse -&gt; Bool)
@@ -402,7 +402,7 @@ $c/= :: DescribeIdentityIdFormatResponse
 -&gt; DescribeIdentityIdFormatResponse -&gt; Bool
 $c== :: DescribeIdentityIdFormatResponse
 -&gt; DescribeIdentityIdFormatResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681227545"><span id="local-6989586621681227547"><span id="local-6989586621681227549"><span id="local-6989586621681227551"><span class="annot"><span class="annottext">ReadPrec [DescribeIdentityIdFormatResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681263294"><span id="local-6989586621681263296"><span id="local-6989586621681263298"><span id="local-6989586621681263300"><span class="annot"><span class="annottext">ReadPrec [DescribeIdentityIdFormatResponse]
 ReadPrec DescribeIdentityIdFormatResponse
 Int -&gt; ReadS DescribeIdentityIdFormatResponse
 ReadS [DescribeIdentityIdFormatResponse]
@@ -422,7 +422,7 @@ readList :: ReadS [DescribeIdentityIdFormatResponse]
 $creadList :: ReadS [DescribeIdentityIdFormatResponse]
 readsPrec :: Int -&gt; ReadS DescribeIdentityIdFormatResponse
 $creadsPrec :: Int -&gt; ReadS DescribeIdentityIdFormatResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681227539"><span id="local-6989586621681227541"><span id="local-6989586621681227543"><span class="annot"><span class="annottext">Int -&gt; DescribeIdentityIdFormatResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681263288"><span id="local-6989586621681263290"><span id="local-6989586621681263292"><span class="annot"><span class="annottext">Int -&gt; DescribeIdentityIdFormatResponse -&gt; ShowS
 [DescribeIdentityIdFormatResponse] -&gt; ShowS
 DescribeIdentityIdFormatResponse -&gt; String
 (Int -&gt; DescribeIdentityIdFormatResponse -&gt; ShowS)
@@ -476,8 +476,8 @@ DescribeIdentityIdFormatResponse
 </span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-199"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse"><span class="hs-identifier hs-type">DescribeIdentityIdFormatResponse</span></a></span><span>
 </span><span id="line-200"></span><span id="newDescribeIdentityIdFormatResponse"><span class="annot"><span class="annottext">newDescribeIdentityIdFormatResponse :: Int -&gt; DescribeIdentityIdFormatResponse
-</span><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#newDescribeIdentityIdFormatResponse"><span class="hs-identifier hs-var hs-var">newDescribeIdentityIdFormatResponse</span></a></span></span><span> </span><span id="local-6989586621681227536"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681227536"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#newDescribeIdentityIdFormatResponse"><span class="hs-identifier hs-var hs-var">newDescribeIdentityIdFormatResponse</span></a></span></span><span> </span><span id="local-6989586621681263285"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681263285"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">DescribeIdentityIdFormatResponse' :: Maybe [IdFormat] -&gt; Int -&gt; DescribeIdentityIdFormatResponse
 </span><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormatResponse'</span></a></span><span>
 </span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statuses:DescribeIdentityIdFormatResponse' :: Maybe [IdFormat]
@@ -487,7 +487,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIdentityIdFormatResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#%24sel%3AhttpStatus%3ADescribeIdentityIdFormatResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681227536"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681263285"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-205"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | Information about the ID format for the resources.</span><span>
@@ -504,16 +504,16 @@ forall a. Maybe a
      (Maybe [IdFormat])
      (Maybe [IdFormat])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227535"><span class="annot"><span class="annottext">Maybe [IdFormat]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681263284"><span class="annot"><span class="annottext">Maybe [IdFormat]
 statuses :: Maybe [IdFormat]
 $sel:statuses:DescribeIdentityIdFormatResponse' :: DescribeIdentityIdFormatResponse -&gt; Maybe [IdFormat]
-</span><a href="#local-6989586621681227535"><span class="hs-identifier hs-var hs-var">statuses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IdFormat]
-</span><a href="#local-6989586621681227535"><span class="hs-identifier hs-var">statuses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227534"><span class="annot"><span class="annottext">s :: DescribeIdentityIdFormatResponse
-</span><a href="#local-6989586621681227534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227533"><span class="annot"><span class="annottext">Maybe [IdFormat]
-</span><a href="#local-6989586621681227533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityIdFormatResponse
-</span><a href="#local-6989586621681227534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statuses:DescribeIdentityIdFormatResponse' :: Maybe [IdFormat]
+</span><a href="#local-6989586621681263284"><span class="hs-identifier hs-var hs-var">statuses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IdFormat]
+</span><a href="#local-6989586621681263284"><span class="hs-identifier hs-var">statuses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681263283"><span class="annot"><span class="annottext">s :: DescribeIdentityIdFormatResponse
+</span><a href="#local-6989586621681263283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681263282"><span class="annot"><span class="annottext">Maybe [IdFormat]
+</span><a href="#local-6989586621681263282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityIdFormatResponse
+</span><a href="#local-6989586621681263283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statuses:DescribeIdentityIdFormatResponse' :: Maybe [IdFormat]
 </span><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#%24sel%3Astatuses%3ADescribeIdentityIdFormatResponse%27"><span class="hs-identifier hs-var">statuses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IdFormat]
-</span><a href="#local-6989586621681227533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse"><span class="hs-identifier hs-type">DescribeIdentityIdFormatResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IdFormat] -&gt; f (Maybe [IdFormat]))
+</span><a href="#local-6989586621681263282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse"><span class="hs-identifier hs-type">DescribeIdentityIdFormatResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IdFormat] -&gt; f (Maybe [IdFormat]))
  -&gt; DescribeIdentityIdFormatResponse
  -&gt; f DescribeIdentityIdFormatResponse)
 -&gt; ((Maybe [IdFormat] -&gt; f (Maybe [IdFormat]))
@@ -532,8 +532,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [IdFormat] [IdFormat] [IdFormat] [IdFormat]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-212"></span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#describeIdentityIdFormatResponse_httpStatus"><span class="hs-identifier hs-type">describeIdentityIdFormatResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse"><span class="hs-identifier hs-type">DescribeIdentityIdFormatResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -549,18 +549,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681227529"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681263278"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeIdentityIdFormatResponse' :: DescribeIdentityIdFormatResponse -&gt; Int
-</span><a href="#local-6989586621681227529"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681227529"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681227528"><span class="annot"><span class="annottext">s :: DescribeIdentityIdFormatResponse
-</span><a href="#local-6989586621681227528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681227527"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681227527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityIdFormatResponse
-</span><a href="#local-6989586621681227528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIdentityIdFormatResponse' :: Int
+</span><a href="#local-6989586621681263278"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681263278"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681263277"><span class="annot"><span class="annottext">s :: DescribeIdentityIdFormatResponse
+</span><a href="#local-6989586621681263277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse%27"><span class="hs-identifier hs-type">DescribeIdentityIdFormatResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681263276"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681263276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityIdFormatResponse
+</span><a href="#local-6989586621681263277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIdentityIdFormatResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#%24sel%3AhttpStatus%3ADescribeIdentityIdFormatResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681227527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse"><span class="hs-identifier hs-type">DescribeIdentityIdFormatResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681263276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse"><span class="hs-identifier hs-type">DescribeIdentityIdFormatResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621681227525"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621681263274"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-217"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeIdentityIdFormat.html#DescribeIdentityIdFormatResponse"><span class="hs-identifier hs-type">DescribeIdentityIdFormatResponse</span></a></span></span><span>
 </span><span id="line-218"></span></pre></body></html>

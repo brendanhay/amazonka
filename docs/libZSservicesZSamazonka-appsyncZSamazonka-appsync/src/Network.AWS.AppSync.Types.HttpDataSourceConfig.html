@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes an HTTP data source configuration.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newHttpDataSourceConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679249728"><span id="local-6989586621679249729"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpDataSourceConfig"><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig"><span class="hs-identifier hs-var">HttpDataSourceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpDataSourceConfig%27"><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig%27"><span class="hs-identifier hs-var">HttpDataSourceConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679249804"><span id="local-6989586621679249805"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpDataSourceConfig"><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig"><span class="hs-identifier hs-var">HttpDataSourceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpDataSourceConfig%27"><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig%27"><span class="hs-identifier hs-var">HttpDataSourceConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The authorization config in case the HTTP endpoint requires</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- authorization.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AauthorizationConfig%3AHttpDataSourceConfig%27"><span class="annot"><span class="annottext">HttpDataSourceConfig -&gt; Maybe AuthorizationConfig
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Aendpoint%3AHttpDataSourceConfig%27"><span class="annot"><span class="annottext">HttpDataSourceConfig -&gt; Maybe Text
 </span><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#%24sel%3Aendpoint%3AHttpDataSourceConfig%27"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249721"><span id="local-6989586621679249723"><span class="annot"><span class="annottext">HttpDataSourceConfig -&gt; HttpDataSourceConfig -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249797"><span id="local-6989586621679249799"><span class="annot"><span class="annottext">HttpDataSourceConfig -&gt; HttpDataSourceConfig -&gt; Bool
 (HttpDataSourceConfig -&gt; HttpDataSourceConfig -&gt; Bool)
 -&gt; (HttpDataSourceConfig -&gt; HttpDataSourceConfig -&gt; Bool)
 -&gt; Eq HttpDataSourceConfig
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HttpDataSourceConfig -&gt; HttpDataSourceConfig -&gt; Bool
 == :: HttpDataSourceConfig -&gt; HttpDataSourceConfig -&gt; Bool
 $c== :: HttpDataSourceConfig -&gt; HttpDataSourceConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249712"><span id="local-6989586621679249714"><span id="local-6989586621679249716"><span id="local-6989586621679249718"><span class="annot"><span class="annottext">ReadPrec [HttpDataSourceConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249788"><span id="local-6989586621679249790"><span id="local-6989586621679249792"><span id="local-6989586621679249794"><span class="annot"><span class="annottext">ReadPrec [HttpDataSourceConfig]
 ReadPrec HttpDataSourceConfig
 Int -&gt; ReadS HttpDataSourceConfig
 ReadS [HttpDataSourceConfig]
@@ -68,7 +68,7 @@ readList :: ReadS [HttpDataSourceConfig]
 $creadList :: ReadS [HttpDataSourceConfig]
 readsPrec :: Int -&gt; ReadS HttpDataSourceConfig
 $creadsPrec :: Int -&gt; ReadS HttpDataSourceConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249705"><span id="local-6989586621679249707"><span id="local-6989586621679249709"><span class="annot"><span class="annottext">Int -&gt; HttpDataSourceConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249781"><span id="local-6989586621679249783"><span id="local-6989586621679249785"><span class="annot"><span class="annottext">Int -&gt; HttpDataSourceConfig -&gt; ShowS
 [HttpDataSourceConfig] -&gt; ShowS
 HttpDataSourceConfig -&gt; String
 (Int -&gt; HttpDataSourceConfig -&gt; ShowS)
@@ -140,16 +140,16 @@ forall a. Maybe a
      (Maybe AuthorizationConfig)
      (Maybe AuthorizationConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig%27"><span class="hs-identifier hs-type">HttpDataSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249696"><span class="annot"><span class="annottext">Maybe AuthorizationConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig%27"><span class="hs-identifier hs-type">HttpDataSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249772"><span class="annot"><span class="annottext">Maybe AuthorizationConfig
 authorizationConfig :: Maybe AuthorizationConfig
 $sel:authorizationConfig:HttpDataSourceConfig' :: HttpDataSourceConfig -&gt; Maybe AuthorizationConfig
-</span><a href="#local-6989586621679249696"><span class="hs-identifier hs-var hs-var">authorizationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizationConfig
-</span><a href="#local-6989586621679249696"><span class="hs-identifier hs-var">authorizationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249695"><span class="annot"><span class="annottext">s :: HttpDataSourceConfig
-</span><a href="#local-6989586621679249695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig%27"><span class="hs-identifier hs-type">HttpDataSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249694"><span class="annot"><span class="annottext">Maybe AuthorizationConfig
-</span><a href="#local-6989586621679249694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpDataSourceConfig
-</span><a href="#local-6989586621679249695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationConfig:HttpDataSourceConfig' :: Maybe AuthorizationConfig
+</span><a href="#local-6989586621679249772"><span class="hs-identifier hs-var hs-var">authorizationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizationConfig
+</span><a href="#local-6989586621679249772"><span class="hs-identifier hs-var">authorizationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249771"><span class="annot"><span class="annottext">s :: HttpDataSourceConfig
+</span><a href="#local-6989586621679249771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig%27"><span class="hs-identifier hs-type">HttpDataSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249770"><span class="annot"><span class="annottext">Maybe AuthorizationConfig
+</span><a href="#local-6989586621679249770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpDataSourceConfig
+</span><a href="#local-6989586621679249771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationConfig:HttpDataSourceConfig' :: Maybe AuthorizationConfig
 </span><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#%24sel%3AauthorizationConfig%3AHttpDataSourceConfig%27"><span class="hs-identifier hs-var">authorizationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizationConfig
-</span><a href="#local-6989586621679249694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig"><span class="hs-identifier hs-type">HttpDataSourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig"><span class="hs-identifier hs-type">HttpDataSourceConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The HTTP URL endpoint. You can either specify the domain name or IP, and</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- port combination, and the URL scheme must be HTTP or HTTPS. If the port</span><span>
@@ -163,19 +163,19 @@ $sel:authorizationConfig:HttpDataSourceConfig' :: HttpDataSourceConfig -&gt; May
 -&gt; Lens
      HttpDataSourceConfig HttpDataSourceConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig%27"><span class="hs-identifier hs-type">HttpDataSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249692"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig%27"><span class="hs-identifier hs-type">HttpDataSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249768"><span class="annot"><span class="annottext">Maybe Text
 endpoint :: Maybe Text
 $sel:endpoint:HttpDataSourceConfig' :: HttpDataSourceConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679249692"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249692"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249691"><span class="annot"><span class="annottext">s :: HttpDataSourceConfig
-</span><a href="#local-6989586621679249691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig%27"><span class="hs-identifier hs-type">HttpDataSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249690"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpDataSourceConfig
-</span><a href="#local-6989586621679249691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:HttpDataSourceConfig' :: Maybe Text
+</span><a href="#local-6989586621679249768"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249768"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249767"><span class="annot"><span class="annottext">s :: HttpDataSourceConfig
+</span><a href="#local-6989586621679249767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig%27"><span class="hs-identifier hs-type">HttpDataSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249766"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpDataSourceConfig
+</span><a href="#local-6989586621679249767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:HttpDataSourceConfig' :: Maybe Text
 </span><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#%24sel%3Aendpoint%3AHttpDataSourceConfig%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig"><span class="hs-identifier hs-type">HttpDataSourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig"><span class="hs-identifier hs-type">HttpDataSourceConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249687"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig"><span class="hs-identifier hs-type">HttpDataSourceConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679249685"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HttpDataSourceConfig
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249763"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig"><span class="hs-identifier hs-type">HttpDataSourceConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679249761"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HttpDataSourceConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HttpDataSourceConfig)
@@ -185,8 +185,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HttpDataSourceConfig&quot;</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249682"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249682"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249758"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249758"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe AuthorizationConfig -&gt; Maybe Text -&gt; HttpDataSourceConfig
 </span><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig%27"><span class="hs-identifier hs-var">HttpDataSourceConfig'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AuthorizationConfig -&gt; Maybe Text -&gt; HttpDataSourceConfig)
@@ -194,7 +194,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; HttpDataSourceConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AuthorizationConfig)
+</span><a href="#local-6989586621679249758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AuthorizationConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authorizationConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -202,25 +202,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser HttpDataSourceConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679249758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;endpoint&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249676"><span id="local-6989586621679249678"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig"><span class="hs-identifier hs-type">HttpDataSourceConfig</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249752"><span id="local-6989586621679249754"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig"><span class="hs-identifier hs-type">HttpDataSourceConfig</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249673"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig"><span class="hs-identifier hs-type">HttpDataSourceConfig</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249749"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig"><span class="hs-identifier hs-type">HttpDataSourceConfig</span></a></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249665"><span id="local-6989586621679249667"><span id="local-6989586621679249669"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig"><span class="hs-identifier hs-type">HttpDataSourceConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679249663"><span class="annot"><span class="annottext">toJSON :: HttpDataSourceConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig%27"><span class="hs-identifier hs-type">HttpDataSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249660"><span id="local-6989586621679249661"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249741"><span id="local-6989586621679249743"><span id="local-6989586621679249745"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig"><span class="hs-identifier hs-type">HttpDataSourceConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679249739"><span class="annot"><span class="annottext">toJSON :: HttpDataSourceConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.HttpDataSourceConfig.html#HttpDataSourceConfig%27"><span class="hs-identifier hs-type">HttpDataSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249736"><span id="local-6989586621679249737"><span class="annot"><span class="annottext">Maybe Text
 Maybe AuthorizationConfig
 endpoint :: Maybe Text
 authorizationConfig :: Maybe AuthorizationConfig
 $sel:endpoint:HttpDataSourceConfig' :: HttpDataSourceConfig -&gt; Maybe Text
 $sel:authorizationConfig:HttpDataSourceConfig' :: HttpDataSourceConfig -&gt; Maybe AuthorizationConfig
-</span><a href="#local-6989586621679249660"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679249736"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -234,14 +234,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AuthorizationConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizationConfig
-</span><a href="#local-6989586621679249661"><span class="hs-identifier hs-var">authorizationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249737"><span class="hs-identifier hs-var">authorizationConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;endpoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249660"><span class="hs-identifier hs-var">endpoint</span></a></span><span>
+</span><a href="#local-6989586621679249736"><span class="hs-identifier hs-var">endpoint</span></a></span><span>
 </span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span></pre></body></html>

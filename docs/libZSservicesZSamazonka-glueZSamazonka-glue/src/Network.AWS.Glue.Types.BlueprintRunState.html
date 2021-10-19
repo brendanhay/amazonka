@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679677446"><span id="local-6989586621679677447"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BlueprintRunState"><span class="annot"><a href="Network.AWS.Glue.Types.BlueprintRunState.html#BlueprintRunState"><span class="hs-identifier hs-var">BlueprintRunState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlueprintRunState%27"><span class="annot"><a href="Network.AWS.Glue.Types.BlueprintRunState.html#BlueprintRunState%27"><span class="hs-identifier hs-var">BlueprintRunState'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679679086"><span id="local-6989586621679679087"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BlueprintRunState"><span class="annot"><a href="Network.AWS.Glue.Types.BlueprintRunState.html#BlueprintRunState"><span class="hs-identifier hs-var">BlueprintRunState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlueprintRunState%27"><span class="annot"><a href="Network.AWS.Glue.Types.BlueprintRunState.html#BlueprintRunState%27"><span class="hs-identifier hs-var">BlueprintRunState'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBlueprintRunState"><span class="annot"><span class="annottext">BlueprintRunState -&gt; Text
 </span><a href="Network.AWS.Glue.Types.BlueprintRunState.html#fromBlueprintRunState"><span class="hs-identifier hs-var hs-var">fromBlueprintRunState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679677438"><span id="local-6989586621679677440"><span id="local-6989586621679677442"><span class="annot"><span class="annottext">Int -&gt; BlueprintRunState -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679679078"><span id="local-6989586621679679080"><span id="local-6989586621679679082"><span class="annot"><span class="annottext">Int -&gt; BlueprintRunState -&gt; ShowS
 [BlueprintRunState] -&gt; ShowS
 BlueprintRunState -&gt; String
 (Int -&gt; BlueprintRunState -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: BlueprintRunState -&gt; String
 showsPrec :: Int -&gt; BlueprintRunState -&gt; ShowS
 $cshowsPrec :: Int -&gt; BlueprintRunState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679677429"><span id="local-6989586621679677431"><span id="local-6989586621679677433"><span id="local-6989586621679677435"><span class="annot"><span class="annottext">ReadPrec [BlueprintRunState]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679679069"><span id="local-6989586621679679071"><span id="local-6989586621679679073"><span id="local-6989586621679679075"><span class="annot"><span class="annottext">ReadPrec [BlueprintRunState]
 ReadPrec BlueprintRunState
 Int -&gt; ReadS BlueprintRunState
 ReadS [BlueprintRunState]
@@ -74,7 +74,7 @@ $creadList :: ReadS [BlueprintRunState]
 readsPrec :: Int -&gt; ReadS BlueprintRunState
 $creadsPrec :: Int -&gt; ReadS BlueprintRunState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679677424"><span id="local-6989586621679677426"><span class="annot"><span class="annottext">BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679679064"><span id="local-6989586621679679066"><span class="annot"><span class="annottext">BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
 (BlueprintRunState -&gt; BlueprintRunState -&gt; Bool)
 -&gt; (BlueprintRunState -&gt; BlueprintRunState -&gt; Bool)
 -&gt; Eq BlueprintRunState
@@ -84,7 +84,7 @@ $c/= :: BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
 == :: BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
 $c== :: BlueprintRunState -&gt; BlueprintRunState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679677408"><span id="local-6989586621679677410"><span id="local-6989586621679677412"><span id="local-6989586621679677414"><span id="local-6989586621679677416"><span id="local-6989586621679677418"><span id="local-6989586621679677420"><span class="annot"><span class="annottext">Eq BlueprintRunState
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679679048"><span id="local-6989586621679679050"><span id="local-6989586621679679052"><span id="local-6989586621679679054"><span id="local-6989586621679679056"><span id="local-6989586621679679058"><span id="local-6989586621679679060"><span class="annot"><span class="annottext">Eq BlueprintRunState
 Eq BlueprintRunState
 -&gt; (BlueprintRunState -&gt; BlueprintRunState -&gt; Ordering)
 -&gt; (BlueprintRunState -&gt; BlueprintRunState -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. BlueprintRunState -&gt; Rep BlueprintRunState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679677400"><span id="local-6989586621679677402"><span class="annot"><span class="annottext">Int -&gt; BlueprintRunState -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679679040"><span id="local-6989586621679679042"><span class="annot"><span class="annottext">Int -&gt; BlueprintRunState -&gt; Int
 BlueprintRunState -&gt; Int
 (Int -&gt; BlueprintRunState -&gt; Int)
 -&gt; (BlueprintRunState -&gt; Int) -&gt; Hashable BlueprintRunState
@@ -145,51 +145,51 @@ $chash :: BlueprintRunState -&gt; Int
 hashWithSalt :: Int -&gt; BlueprintRunState -&gt; Int
 $chashWithSalt :: Int -&gt; BlueprintRunState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679677397"><span class="annot"><span class="annottext">BlueprintRunState -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679679037"><span class="annot"><span class="annottext">BlueprintRunState -&gt; ()
 (BlueprintRunState -&gt; ()) -&gt; NFData BlueprintRunState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BlueprintRunState -&gt; ()
 $crnf :: BlueprintRunState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679677394"><span class="annot"><span class="annottext">Text -&gt; Either String BlueprintRunState
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679679034"><span class="annot"><span class="annottext">Text -&gt; Either String BlueprintRunState
 (Text -&gt; Either String BlueprintRunState)
 -&gt; FromText BlueprintRunState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BlueprintRunState
 $cfromText :: Text -&gt; Either String BlueprintRunState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679677391"><span class="annot"><span class="annottext">BlueprintRunState -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679679031"><span class="annot"><span class="annottext">BlueprintRunState -&gt; Text
 (BlueprintRunState -&gt; Text) -&gt; ToText BlueprintRunState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BlueprintRunState -&gt; Text
 $ctoText :: BlueprintRunState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679677388"><span class="annot"><span class="annottext">BlueprintRunState -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679679028"><span class="annot"><span class="annottext">BlueprintRunState -&gt; ByteString
 (BlueprintRunState -&gt; ByteString) -&gt; ToByteString BlueprintRunState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BlueprintRunState -&gt; ByteString
 $ctoBS :: BlueprintRunState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679677385"><span class="annot"><span class="annottext">BlueprintRunState -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679679025"><span class="annot"><span class="annottext">BlueprintRunState -&gt; ByteStringBuilder
 (BlueprintRunState -&gt; ByteStringBuilder) -&gt; ToLog BlueprintRunState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BlueprintRunState -&gt; ByteStringBuilder
 $cbuild :: BlueprintRunState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679677382"><span class="annot"><span class="annottext">HeaderName -&gt; BlueprintRunState -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679679022"><span class="annot"><span class="annottext">HeaderName -&gt; BlueprintRunState -&gt; [Header]
 (HeaderName -&gt; BlueprintRunState -&gt; [Header])
 -&gt; ToHeader BlueprintRunState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BlueprintRunState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BlueprintRunState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679677379"><span class="annot"><span class="annottext">BlueprintRunState -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679679019"><span class="annot"><span class="annottext">BlueprintRunState -&gt; QueryString
 (BlueprintRunState -&gt; QueryString) -&gt; ToQuery BlueprintRunState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BlueprintRunState -&gt; QueryString
 $ctoQuery :: BlueprintRunState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679677374"><span id="local-6989586621679677376"><span class="annot"><span class="annottext">Value -&gt; Parser [BlueprintRunState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679679014"><span id="local-6989586621679679016"><span class="annot"><span class="annottext">Value -&gt; Parser [BlueprintRunState]
 Value -&gt; Parser BlueprintRunState
 (Value -&gt; Parser BlueprintRunState)
 -&gt; (Value -&gt; Parser [BlueprintRunState])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [BlueprintRunState]
 parseJSON :: Value -&gt; Parser BlueprintRunState
 $cparseJSON :: Value -&gt; Parser BlueprintRunState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679677369"><span id="local-6989586621679677371"><span class="annot"><span class="annottext">FromJSONKeyFunction [BlueprintRunState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679679009"><span id="local-6989586621679679011"><span class="annot"><span class="annottext">FromJSONKeyFunction [BlueprintRunState]
 FromJSONKeyFunction BlueprintRunState
 FromJSONKeyFunction BlueprintRunState
 -&gt; FromJSONKeyFunction [BlueprintRunState]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BlueprintRunState]
 fromJSONKey :: FromJSONKeyFunction BlueprintRunState
 $cfromJSONKey :: FromJSONKeyFunction BlueprintRunState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679677360"><span id="local-6989586621679677362"><span id="local-6989586621679677364"><span id="local-6989586621679677366"><span class="annot"><span class="annottext">[BlueprintRunState] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679679000"><span id="local-6989586621679679002"><span id="local-6989586621679679004"><span id="local-6989586621679679006"><span class="annot"><span class="annottext">[BlueprintRunState] -&gt; Encoding
 [BlueprintRunState] -&gt; Value
 BlueprintRunState -&gt; Encoding
 BlueprintRunState -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: BlueprintRunState -&gt; Encoding
 toJSON :: BlueprintRunState -&gt; Value
 $ctoJSON :: BlueprintRunState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679677355"><span id="local-6989586621679677357"><span class="annot"><span class="annottext">ToJSONKeyFunction [BlueprintRunState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679678995"><span id="local-6989586621679678997"><span class="annot"><span class="annottext">ToJSONKeyFunction [BlueprintRunState]
 ToJSONKeyFunction BlueprintRunState
 ToJSONKeyFunction BlueprintRunState
 -&gt; ToJSONKeyFunction [BlueprintRunState]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BlueprintRunState]
 toJSONKey :: ToJSONKeyFunction BlueprintRunState
 $ctoJSONKey :: ToJSONKeyFunction BlueprintRunState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679677352"><span class="annot"><span class="annottext">[Node] -&gt; Either String BlueprintRunState
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679678992"><span class="annot"><span class="annottext">[Node] -&gt; Either String BlueprintRunState
 ([Node] -&gt; Either String BlueprintRunState)
 -&gt; FromXML BlueprintRunState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BlueprintRunState
 $cparseXML :: [Node] -&gt; Either String BlueprintRunState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679677349"><span class="annot"><span class="annottext">BlueprintRunState -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679678989"><span class="annot"><span class="annottext">BlueprintRunState -&gt; XML
 (BlueprintRunState -&gt; XML) -&gt; ToXML BlueprintRunState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BlueprintRunState -&gt; XML

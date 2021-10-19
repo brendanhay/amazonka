@@ -48,8 +48,8 @@
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#newMigrateWorkspaceResponse"><span class="hs-identifier">newMigrateWorkspaceResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#migrateWorkspaceResponse_targetWorkspaceId"><span class="hs-identifier">migrateWorkspaceResponse_targetWorkspaceId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#migrateWorkspaceResponse_sourceWorkspaceId"><span class="hs-identifier">migrateWorkspaceResponse_sourceWorkspaceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#migrateWorkspaceResponse_sourceWorkspaceId"><span class="hs-identifier">migrateWorkspaceResponse_sourceWorkspaceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#migrateWorkspaceResponse_targetWorkspaceId"><span class="hs-identifier">migrateWorkspaceResponse_targetWorkspaceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#migrateWorkspaceResponse_httpStatus"><span class="hs-identifier">migrateWorkspaceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span class="hs-keyword">where</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types</span></a></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newMigrateWorkspace' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679278650"><span id="local-6989586621679278651"></span></span><span class="hs-keyword">data</span><span> </span><span id="MigrateWorkspace"><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-var">MigrateWorkspace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MigrateWorkspace%27"><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace%27"><span class="hs-identifier hs-var">MigrateWorkspace'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679281506"><span id="local-6989586621679281507"></span></span><span class="hs-keyword">data</span><span> </span><span id="MigrateWorkspace"><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-var">MigrateWorkspace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MigrateWorkspace%27"><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace%27"><span class="hs-identifier hs-var">MigrateWorkspace'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the WorkSpace to migrate from.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AsourceWorkspaceId%3AMigrateWorkspace%27"><span class="annot"><span class="annottext">MigrateWorkspace -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AsourceWorkspaceId%3AMigrateWorkspace%27"><span class="hs-identifier hs-var hs-var">sourceWorkspaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AbundleId%3AMigrateWorkspace%27"><span class="annot"><span class="annottext">MigrateWorkspace -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AbundleId%3AMigrateWorkspace%27"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278643"><span id="local-6989586621679278645"><span class="annot"><span class="annottext">MigrateWorkspace -&gt; MigrateWorkspace -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281499"><span id="local-6989586621679281501"><span class="annot"><span class="annottext">MigrateWorkspace -&gt; MigrateWorkspace -&gt; Bool
 (MigrateWorkspace -&gt; MigrateWorkspace -&gt; Bool)
 -&gt; (MigrateWorkspace -&gt; MigrateWorkspace -&gt; Bool)
 -&gt; Eq MigrateWorkspace
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MigrateWorkspace -&gt; MigrateWorkspace -&gt; Bool
 == :: MigrateWorkspace -&gt; MigrateWorkspace -&gt; Bool
 $c== :: MigrateWorkspace -&gt; MigrateWorkspace -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278634"><span id="local-6989586621679278636"><span id="local-6989586621679278638"><span id="local-6989586621679278640"><span class="annot"><span class="annottext">ReadPrec [MigrateWorkspace]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281490"><span id="local-6989586621679281492"><span id="local-6989586621679281494"><span id="local-6989586621679281496"><span class="annot"><span class="annottext">ReadPrec [MigrateWorkspace]
 ReadPrec MigrateWorkspace
 Int -&gt; ReadS MigrateWorkspace
 ReadS [MigrateWorkspace]
@@ -99,7 +99,7 @@ readList :: ReadS [MigrateWorkspace]
 $creadList :: ReadS [MigrateWorkspace]
 readsPrec :: Int -&gt; ReadS MigrateWorkspace
 $creadsPrec :: Int -&gt; ReadS MigrateWorkspace
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278627"><span id="local-6989586621679278629"><span id="local-6989586621679278631"><span class="annot"><span class="annottext">Int -&gt; MigrateWorkspace -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281483"><span id="local-6989586621679281485"><span id="local-6989586621679281487"><span class="annot"><span class="annottext">Int -&gt; MigrateWorkspace -&gt; ShowS
 [MigrateWorkspace] -&gt; ShowS
 MigrateWorkspace -&gt; String
 (Int -&gt; MigrateWorkspace -&gt; ShowS)
@@ -143,18 +143,18 @@ $cfrom :: forall x. MigrateWorkspace -&gt; Rep MigrateWorkspace x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-type">MigrateWorkspace</span></a></span><span>
 </span><span id="line-90"></span><span id="newMigrateWorkspace"><span class="annot"><span class="annottext">newMigrateWorkspace :: Text -&gt; Text -&gt; MigrateWorkspace
-</span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#newMigrateWorkspace"><span class="hs-identifier hs-var hs-var">newMigrateWorkspace</span></a></span></span><span> </span><span id="local-6989586621679278622"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278622"><span class="hs-identifier hs-var">pSourceWorkspaceId_</span></a></span></span><span> </span><span id="local-6989586621679278621"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278621"><span class="hs-identifier hs-var">pBundleId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#newMigrateWorkspace"><span class="hs-identifier hs-var hs-var">newMigrateWorkspace</span></a></span></span><span> </span><span id="local-6989586621679281478"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281478"><span class="hs-identifier hs-var">pSourceWorkspaceId_</span></a></span></span><span> </span><span id="local-6989586621679281477"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281477"><span class="hs-identifier hs-var">pBundleId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">MigrateWorkspace' :: Text -&gt; Text -&gt; MigrateWorkspace
 </span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace%27"><span class="hs-identifier hs-type">MigrateWorkspace'</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceWorkspaceId:MigrateWorkspace' :: Text
 </span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AsourceWorkspaceId%3AMigrateWorkspace%27"><span class="hs-identifier hs-var">sourceWorkspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278622"><span class="hs-identifier hs-var">pSourceWorkspaceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679281478"><span class="hs-identifier hs-var">pSourceWorkspaceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:bundleId:MigrateWorkspace' :: Text
 </span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AbundleId%3AMigrateWorkspace%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278621"><span class="hs-identifier hs-var">pBundleId_</span></a></span><span>
+</span><a href="#local-6989586621679281477"><span class="hs-identifier hs-var">pBundleId_</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The identifier of the WorkSpace to migrate from.</span><span>
@@ -164,16 +164,16 @@ $cfrom :: forall x. MigrateWorkspace -&gt; Rep MigrateWorkspace x
 -&gt; (MigrateWorkspace -&gt; Text -&gt; MigrateWorkspace)
 -&gt; Lens MigrateWorkspace MigrateWorkspace Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace%27"><span class="hs-identifier hs-type">MigrateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278618"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace%27"><span class="hs-identifier hs-type">MigrateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281474"><span class="annot"><span class="annottext">Text
 sourceWorkspaceId :: Text
 $sel:sourceWorkspaceId:MigrateWorkspace' :: MigrateWorkspace -&gt; Text
-</span><a href="#local-6989586621679278618"><span class="hs-identifier hs-var hs-var">sourceWorkspaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278618"><span class="hs-identifier hs-var">sourceWorkspaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278617"><span class="annot"><span class="annottext">s :: MigrateWorkspace
-</span><a href="#local-6989586621679278617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace%27"><span class="hs-identifier hs-type">MigrateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278616"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrateWorkspace
-</span><a href="#local-6989586621679278617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceWorkspaceId:MigrateWorkspace' :: Text
+</span><a href="#local-6989586621679281474"><span class="hs-identifier hs-var hs-var">sourceWorkspaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281474"><span class="hs-identifier hs-var">sourceWorkspaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281473"><span class="annot"><span class="annottext">s :: MigrateWorkspace
+</span><a href="#local-6989586621679281473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace%27"><span class="hs-identifier hs-type">MigrateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281472"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrateWorkspace
+</span><a href="#local-6989586621679281473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceWorkspaceId:MigrateWorkspace' :: Text
 </span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AsourceWorkspaceId%3AMigrateWorkspace%27"><span class="hs-identifier hs-var">sourceWorkspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-type">MigrateWorkspace</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-type">MigrateWorkspace</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The identifier of the target bundle type to migrate the WorkSpace to.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#migrateWorkspace_bundleId"><span class="hs-identifier hs-type">migrateWorkspace_bundleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-type">MigrateWorkspace</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -182,27 +182,27 @@ $sel:sourceWorkspaceId:MigrateWorkspace' :: MigrateWorkspace -&gt; Text
 -&gt; (MigrateWorkspace -&gt; Text -&gt; MigrateWorkspace)
 -&gt; Lens MigrateWorkspace MigrateWorkspace Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace%27"><span class="hs-identifier hs-type">MigrateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278615"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace%27"><span class="hs-identifier hs-type">MigrateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281471"><span class="annot"><span class="annottext">Text
 bundleId :: Text
 $sel:bundleId:MigrateWorkspace' :: MigrateWorkspace -&gt; Text
-</span><a href="#local-6989586621679278615"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278615"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278614"><span class="annot"><span class="annottext">s :: MigrateWorkspace
-</span><a href="#local-6989586621679278614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace%27"><span class="hs-identifier hs-type">MigrateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278613"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrateWorkspace
-</span><a href="#local-6989586621679278614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleId:MigrateWorkspace' :: Text
+</span><a href="#local-6989586621679281471"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281471"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281470"><span class="annot"><span class="annottext">s :: MigrateWorkspace
+</span><a href="#local-6989586621679281470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace%27"><span class="hs-identifier hs-type">MigrateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281469"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrateWorkspace
+</span><a href="#local-6989586621679281470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleId:MigrateWorkspace' :: Text
 </span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AbundleId%3AMigrateWorkspace%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-type">MigrateWorkspace</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-type">MigrateWorkspace</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-type">MigrateWorkspace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-107"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-type">MigrateWorkspace</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse"><span class="hs-identifier hs-type">MigrateWorkspaceResponse</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679278609"><span class="annot"><span class="annottext">request :: MigrateWorkspace -&gt; Request MigrateWorkspace
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679281465"><span class="annot"><span class="annottext">request :: MigrateWorkspace -&gt; Request MigrateWorkspace
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; MigrateWorkspace -&gt; Request MigrateWorkspace
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679278605"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679281461"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy MigrateWorkspace
 -&gt; ClientResponse ClientBody
@@ -226,10 +226,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278602"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278602"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679278601"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679278601"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679278600"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278600"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679281458"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281458"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679281457"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679281457"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679281456"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281456"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; MigrateWorkspaceResponse
 </span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse%27"><span class="hs-identifier hs-var">MigrateWorkspaceResponse'</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; MigrateWorkspaceResponse)
@@ -237,19 +237,19 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; MigrateWorkspaceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278600"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679281456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TargetWorkspaceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SourceWorkspaceId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; MigrateWorkspaceResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; MigrateWorkspaceResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278600"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679281456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SourceWorkspaceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TargetWorkspaceId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; MigrateWorkspaceResponse)
 -&gt; Either String Int -&gt; Either String MigrateWorkspaceResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -258,15 +258,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278602"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281458"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278592"><span id="local-6989586621679278594"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-type">MigrateWorkspace</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281448"><span id="local-6989586621679281450"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-type">MigrateWorkspace</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278589"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-type">MigrateWorkspace</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281445"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-type">MigrateWorkspace</span></a></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-type">MigrateWorkspace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679278585"><span class="annot"><span class="annottext">toHeaders :: MigrateWorkspace -&gt; ResponseHeaders
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679281441"><span class="annot"><span class="annottext">toHeaders :: MigrateWorkspace -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; MigrateWorkspace -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -293,14 +293,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278575"><span id="local-6989586621679278577"><span id="local-6989586621679278579"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-type">MigrateWorkspace</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679278573"><span class="annot"><span class="annottext">toJSON :: MigrateWorkspace -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace%27"><span class="hs-identifier hs-type">MigrateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278570"><span id="local-6989586621679278571"><span class="annot"><span class="annottext">Text
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281431"><span id="local-6989586621679281433"><span id="local-6989586621679281435"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-type">MigrateWorkspace</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679281429"><span class="annot"><span class="annottext">toJSON :: MigrateWorkspace -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace%27"><span class="hs-identifier hs-type">MigrateWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281426"><span id="local-6989586621679281427"><span class="annot"><span class="annottext">Text
 bundleId :: Text
 sourceWorkspaceId :: Text
 $sel:bundleId:MigrateWorkspace' :: MigrateWorkspace -&gt; Text
 $sel:sourceWorkspaceId:MigrateWorkspace' :: MigrateWorkspace -&gt; Text
-</span><a href="#local-6989586621679278570"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679281426"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -313,26 +313,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SourceWorkspaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278571"><span class="hs-identifier hs-var">sourceWorkspaceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679281427"><span class="hs-identifier hs-var">sourceWorkspaceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BundleId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278570"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281426"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-type">MigrateWorkspace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679278564"><span class="annot"><span class="annottext">toPath :: MigrateWorkspace -&gt; ByteString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679281420"><span class="annot"><span class="annottext">toPath :: MigrateWorkspace -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; MigrateWorkspace -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspace"><span class="hs-identifier hs-type">MigrateWorkspace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679278560"><span class="annot"><span class="annottext">toQuery :: MigrateWorkspace -&gt; QueryString
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679281416"><span class="annot"><span class="annottext">toQuery :: MigrateWorkspace -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; MigrateWorkspace -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -340,20 +340,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newMigrateWorkspaceResponse' smart constructor.</span><span>
-</span><span id="line-155"></span><span id="local-6989586621679278557"><span id="local-6989586621679278558"></span></span><span class="hs-keyword">data</span><span> </span><span id="MigrateWorkspaceResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse"><span class="hs-identifier hs-var">MigrateWorkspaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MigrateWorkspaceResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse%27"><span class="hs-identifier hs-var">MigrateWorkspaceResponse'</span></a></span></span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new identifier of the WorkSpace that is being migrated. If the</span><span>
-</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- migration does not succeed, the target WorkSpace ID will not be used,</span><span>
-</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- and the WorkSpace will still have the original WorkSpace ID.</span><span>
-</span><span id="line-159"></span><span>    </span><span id="%24sel%3AtargetWorkspaceId%3AMigrateWorkspaceResponse%27"><span class="annot"><span class="annottext">MigrateWorkspaceResponse -&gt; Maybe Text
-</span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AtargetWorkspaceId%3AMigrateWorkspaceResponse%27"><span class="hs-identifier hs-var hs-var">targetWorkspaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | The original identifier of the WorkSpace that is being migrated.</span><span>
-</span><span id="line-161"></span><span>    </span><span id="%24sel%3AsourceWorkspaceId%3AMigrateWorkspaceResponse%27"><span class="annot"><span class="annottext">MigrateWorkspaceResponse -&gt; Maybe Text
+</span><span id="line-155"></span><span id="local-6989586621679281413"><span id="local-6989586621679281414"></span></span><span class="hs-keyword">data</span><span> </span><span id="MigrateWorkspaceResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse"><span class="hs-identifier hs-var">MigrateWorkspaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MigrateWorkspaceResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse%27"><span class="hs-identifier hs-var">MigrateWorkspaceResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The original identifier of the WorkSpace that is being migrated.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AsourceWorkspaceId%3AMigrateWorkspaceResponse%27"><span class="annot"><span class="annottext">MigrateWorkspaceResponse -&gt; Maybe Text
 </span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AsourceWorkspaceId%3AMigrateWorkspaceResponse%27"><span class="hs-identifier hs-var hs-var">sourceWorkspaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The new identifier of the WorkSpace that is being migrated. If the</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- migration does not succeed, the target WorkSpace ID will not be used,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- and the WorkSpace will still have the original WorkSpace ID.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AtargetWorkspaceId%3AMigrateWorkspaceResponse%27"><span class="annot"><span class="annottext">MigrateWorkspaceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AtargetWorkspaceId%3AMigrateWorkspaceResponse%27"><span class="hs-identifier hs-var hs-var">targetWorkspaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3AMigrateWorkspaceResponse%27"><span class="annot"><span class="annottext">MigrateWorkspaceResponse -&gt; Int
 </span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AhttpStatus%3AMigrateWorkspaceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278550"><span id="local-6989586621679278552"><span class="annot"><span class="annottext">MigrateWorkspaceResponse -&gt; MigrateWorkspaceResponse -&gt; Bool
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281406"><span id="local-6989586621679281408"><span class="annot"><span class="annottext">MigrateWorkspaceResponse -&gt; MigrateWorkspaceResponse -&gt; Bool
 (MigrateWorkspaceResponse -&gt; MigrateWorkspaceResponse -&gt; Bool)
 -&gt; (MigrateWorkspaceResponse -&gt; MigrateWorkspaceResponse -&gt; Bool)
 -&gt; Eq MigrateWorkspaceResponse
@@ -362,7 +362,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MigrateWorkspaceResponse -&gt; MigrateWorkspaceResponse -&gt; Bool
 == :: MigrateWorkspaceResponse -&gt; MigrateWorkspaceResponse -&gt; Bool
 $c== :: MigrateWorkspaceResponse -&gt; MigrateWorkspaceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278542"><span id="local-6989586621679278544"><span id="local-6989586621679278546"><span id="local-6989586621679278548"><span class="annot"><span class="annottext">ReadPrec [MigrateWorkspaceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281398"><span id="local-6989586621679281400"><span id="local-6989586621679281402"><span id="local-6989586621679281404"><span class="annot"><span class="annottext">ReadPrec [MigrateWorkspaceResponse]
 ReadPrec MigrateWorkspaceResponse
 Int -&gt; ReadS MigrateWorkspaceResponse
 ReadS [MigrateWorkspaceResponse]
@@ -382,7 +382,7 @@ readList :: ReadS [MigrateWorkspaceResponse]
 $creadList :: ReadS [MigrateWorkspaceResponse]
 readsPrec :: Int -&gt; ReadS MigrateWorkspaceResponse
 $creadsPrec :: Int -&gt; ReadS MigrateWorkspaceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278536"><span id="local-6989586621679278538"><span id="local-6989586621679278540"><span class="annot"><span class="annottext">Int -&gt; MigrateWorkspaceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281392"><span id="local-6989586621679281394"><span id="local-6989586621679281396"><span class="annot"><span class="annottext">Int -&gt; MigrateWorkspaceResponse -&gt; ShowS
 [MigrateWorkspaceResponse] -&gt; ShowS
 MigrateWorkspaceResponse -&gt; String
 (Int -&gt; MigrateWorkspaceResponse -&gt; ShowS)
@@ -422,11 +422,11 @@ MigrateWorkspaceResponse -&gt; Rep MigrateWorkspaceResponse x
 </span><span id="line-172"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-174"></span><span class="hs-comment">--</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- 'targetWorkspaceId', 'migrateWorkspaceResponse_targetWorkspaceId' - The new identifier of the WorkSpace that is being migrated. If the</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- migration does not succeed, the target WorkSpace ID will not be used,</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- and the WorkSpace will still have the original WorkSpace ID.</span><span>
-</span><span id="line-178"></span><span class="hs-comment">--</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- 'sourceWorkspaceId', 'migrateWorkspaceResponse_sourceWorkspaceId' - The original identifier of the WorkSpace that is being migrated.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'sourceWorkspaceId', 'migrateWorkspaceResponse_sourceWorkspaceId' - The original identifier of the WorkSpace that is being migrated.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'targetWorkspaceId', 'migrateWorkspaceResponse_targetWorkspaceId' - The new identifier of the WorkSpace that is being migrated. If the</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- migration does not succeed, the target WorkSpace ID will not be used,</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- and the WorkSpace will still have the original WorkSpace ID.</span><span>
 </span><span id="line-180"></span><span class="hs-comment">--</span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- 'httpStatus', 'migrateWorkspaceResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-182"></span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#newMigrateWorkspaceResponse"><span class="hs-identifier hs-type">newMigrateWorkspaceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -434,53 +434,27 @@ MigrateWorkspaceResponse -&gt; Rep MigrateWorkspaceResponse x
 </span><span id="line-184"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-185"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse"><span class="hs-identifier hs-type">MigrateWorkspaceResponse</span></a></span><span>
 </span><span id="line-186"></span><span id="newMigrateWorkspaceResponse"><span class="annot"><span class="annottext">newMigrateWorkspaceResponse :: Int -&gt; MigrateWorkspaceResponse
-</span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#newMigrateWorkspaceResponse"><span class="hs-identifier hs-var hs-var">newMigrateWorkspaceResponse</span></a></span></span><span> </span><span id="local-6989586621679278533"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278533"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#newMigrateWorkspaceResponse"><span class="hs-identifier hs-var hs-var">newMigrateWorkspaceResponse</span></a></span></span><span> </span><span id="local-6989586621679281389"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281389"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-187"></span><span>  </span><span class="annot"><span class="annottext">MigrateWorkspaceResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; MigrateWorkspaceResponse
 </span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse%27"><span class="hs-identifier hs-type">MigrateWorkspaceResponse'</span></a></span><span>
-</span><span id="line-188"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetWorkspaceId:MigrateWorkspaceResponse' :: Maybe Text
-</span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AtargetWorkspaceId%3AMigrateWorkspaceResponse%27"><span class="hs-identifier hs-var">targetWorkspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceWorkspaceId:MigrateWorkspaceResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AsourceWorkspaceId%3AMigrateWorkspaceResponse%27"><span class="hs-identifier hs-var">sourceWorkspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceWorkspaceId:MigrateWorkspaceResponse' :: Maybe Text
-</span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AsourceWorkspaceId%3AMigrateWorkspaceResponse%27"><span class="hs-identifier hs-var">sourceWorkspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetWorkspaceId:MigrateWorkspaceResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AtargetWorkspaceId%3AMigrateWorkspaceResponse%27"><span class="hs-identifier hs-var">targetWorkspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:MigrateWorkspaceResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AhttpStatus%3AMigrateWorkspaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278533"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679281389"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- | The new identifier of the WorkSpace that is being migrated. If the</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- migration does not succeed, the target WorkSpace ID will not be used,</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- and the WorkSpace will still have the original WorkSpace ID.</span><span>
-</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#migrateWorkspaceResponse_targetWorkspaceId"><span class="hs-identifier hs-type">migrateWorkspaceResponse_targetWorkspaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse"><span class="hs-identifier hs-type">MigrateWorkspaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-198"></span><span id="migrateWorkspaceResponse_targetWorkspaceId"><span class="annot"><span class="annottext">migrateWorkspaceResponse_targetWorkspaceId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MigrateWorkspaceResponse -&gt; f MigrateWorkspaceResponse
-</span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#migrateWorkspaceResponse_targetWorkspaceId"><span class="hs-identifier hs-var hs-var">migrateWorkspaceResponse_targetWorkspaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MigrateWorkspaceResponse -&gt; Maybe Text)
--&gt; (MigrateWorkspaceResponse
-    -&gt; Maybe Text -&gt; MigrateWorkspaceResponse)
--&gt; Lens
-     MigrateWorkspaceResponse
-     MigrateWorkspaceResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse%27"><span class="hs-identifier hs-type">MigrateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278532"><span class="annot"><span class="annottext">Maybe Text
-targetWorkspaceId :: Maybe Text
-$sel:targetWorkspaceId:MigrateWorkspaceResponse' :: MigrateWorkspaceResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679278532"><span class="hs-identifier hs-var hs-var">targetWorkspaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278532"><span class="hs-identifier hs-var">targetWorkspaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278531"><span class="annot"><span class="annottext">s :: MigrateWorkspaceResponse
-</span><a href="#local-6989586621679278531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse%27"><span class="hs-identifier hs-type">MigrateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278530"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrateWorkspaceResponse
-</span><a href="#local-6989586621679278531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetWorkspaceId:MigrateWorkspaceResponse' :: Maybe Text
-</span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AtargetWorkspaceId%3AMigrateWorkspaceResponse%27"><span class="hs-identifier hs-var">targetWorkspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse"><span class="hs-identifier hs-type">MigrateWorkspaceResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- | The original identifier of the WorkSpace that is being migrated.</span><span>
-</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#migrateWorkspaceResponse_sourceWorkspaceId"><span class="hs-identifier hs-type">migrateWorkspaceResponse_sourceWorkspaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse"><span class="hs-identifier hs-type">MigrateWorkspaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-202"></span><span id="migrateWorkspaceResponse_sourceWorkspaceId"><span class="annot"><span class="annottext">migrateWorkspaceResponse_sourceWorkspaceId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-194"></span><span class="hs-comment">-- | The original identifier of the WorkSpace that is being migrated.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#migrateWorkspaceResponse_sourceWorkspaceId"><span class="hs-identifier hs-type">migrateWorkspaceResponse_sourceWorkspaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse"><span class="hs-identifier hs-type">MigrateWorkspaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="migrateWorkspaceResponse_sourceWorkspaceId"><span class="annot"><span class="annottext">migrateWorkspaceResponse_sourceWorkspaceId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; MigrateWorkspaceResponse -&gt; f MigrateWorkspaceResponse
 </span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#migrateWorkspaceResponse_sourceWorkspaceId"><span class="hs-identifier hs-var hs-var">migrateWorkspaceResponse_sourceWorkspaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MigrateWorkspaceResponse -&gt; Maybe Text)
 -&gt; (MigrateWorkspaceResponse
@@ -491,16 +465,42 @@ $sel:targetWorkspaceId:MigrateWorkspaceResponse' :: MigrateWorkspaceResponse -&g
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse%27"><span class="hs-identifier hs-type">MigrateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278529"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse%27"><span class="hs-identifier hs-type">MigrateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281388"><span class="annot"><span class="annottext">Maybe Text
 sourceWorkspaceId :: Maybe Text
 $sel:sourceWorkspaceId:MigrateWorkspaceResponse' :: MigrateWorkspaceResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679278529"><span class="hs-identifier hs-var hs-var">sourceWorkspaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278529"><span class="hs-identifier hs-var">sourceWorkspaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278528"><span class="annot"><span class="annottext">s :: MigrateWorkspaceResponse
-</span><a href="#local-6989586621679278528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse%27"><span class="hs-identifier hs-type">MigrateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278527"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrateWorkspaceResponse
-</span><a href="#local-6989586621679278528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceWorkspaceId:MigrateWorkspaceResponse' :: Maybe Text
+</span><a href="#local-6989586621679281388"><span class="hs-identifier hs-var hs-var">sourceWorkspaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281388"><span class="hs-identifier hs-var">sourceWorkspaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281387"><span class="annot"><span class="annottext">s :: MigrateWorkspaceResponse
+</span><a href="#local-6989586621679281387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse%27"><span class="hs-identifier hs-type">MigrateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281386"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrateWorkspaceResponse
+</span><a href="#local-6989586621679281387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceWorkspaceId:MigrateWorkspaceResponse' :: Maybe Text
 </span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AsourceWorkspaceId%3AMigrateWorkspaceResponse%27"><span class="hs-identifier hs-var">sourceWorkspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse"><span class="hs-identifier hs-type">MigrateWorkspaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse"><span class="hs-identifier hs-type">MigrateWorkspaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The new identifier of the WorkSpace that is being migrated. If the</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- migration does not succeed, the target WorkSpace ID will not be used,</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- and the WorkSpace will still have the original WorkSpace ID.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#migrateWorkspaceResponse_targetWorkspaceId"><span class="hs-identifier hs-type">migrateWorkspaceResponse_targetWorkspaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse"><span class="hs-identifier hs-type">MigrateWorkspaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="migrateWorkspaceResponse_targetWorkspaceId"><span class="annot"><span class="annottext">migrateWorkspaceResponse_targetWorkspaceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MigrateWorkspaceResponse -&gt; f MigrateWorkspaceResponse
+</span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#migrateWorkspaceResponse_targetWorkspaceId"><span class="hs-identifier hs-var hs-var">migrateWorkspaceResponse_targetWorkspaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MigrateWorkspaceResponse -&gt; Maybe Text)
+-&gt; (MigrateWorkspaceResponse
+    -&gt; Maybe Text -&gt; MigrateWorkspaceResponse)
+-&gt; Lens
+     MigrateWorkspaceResponse
+     MigrateWorkspaceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse%27"><span class="hs-identifier hs-type">MigrateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281385"><span class="annot"><span class="annottext">Maybe Text
+targetWorkspaceId :: Maybe Text
+$sel:targetWorkspaceId:MigrateWorkspaceResponse' :: MigrateWorkspaceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679281385"><span class="hs-identifier hs-var hs-var">targetWorkspaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281385"><span class="hs-identifier hs-var">targetWorkspaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281384"><span class="annot"><span class="annottext">s :: MigrateWorkspaceResponse
+</span><a href="#local-6989586621679281384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse%27"><span class="hs-identifier hs-type">MigrateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281383"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrateWorkspaceResponse
+</span><a href="#local-6989586621679281384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetWorkspaceId:MigrateWorkspaceResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AtargetWorkspaceId%3AMigrateWorkspaceResponse%27"><span class="hs-identifier hs-var">targetWorkspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse"><span class="hs-identifier hs-type">MigrateWorkspaceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-205"></span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#migrateWorkspaceResponse_httpStatus"><span class="hs-identifier hs-type">migrateWorkspaceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse"><span class="hs-identifier hs-type">MigrateWorkspaceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -510,16 +510,16 @@ $sel:sourceWorkspaceId:MigrateWorkspaceResponse' :: MigrateWorkspaceResponse -&g
 -&gt; (MigrateWorkspaceResponse -&gt; Int -&gt; MigrateWorkspaceResponse)
 -&gt; Lens MigrateWorkspaceResponse MigrateWorkspaceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse%27"><span class="hs-identifier hs-type">MigrateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278526"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse%27"><span class="hs-identifier hs-type">MigrateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281382"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:MigrateWorkspaceResponse' :: MigrateWorkspaceResponse -&gt; Int
-</span><a href="#local-6989586621679278526"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278526"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278525"><span class="annot"><span class="annottext">s :: MigrateWorkspaceResponse
-</span><a href="#local-6989586621679278525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse%27"><span class="hs-identifier hs-type">MigrateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278524"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrateWorkspaceResponse
-</span><a href="#local-6989586621679278525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:MigrateWorkspaceResponse' :: Int
+</span><a href="#local-6989586621679281382"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281382"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281381"><span class="annot"><span class="annottext">s :: MigrateWorkspaceResponse
+</span><a href="#local-6989586621679281381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse%27"><span class="hs-identifier hs-type">MigrateWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281380"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrateWorkspaceResponse
+</span><a href="#local-6989586621679281381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:MigrateWorkspaceResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#%24sel%3AhttpStatus%3AMigrateWorkspaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse"><span class="hs-identifier hs-type">MigrateWorkspaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse"><span class="hs-identifier hs-type">MigrateWorkspaceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278522"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse"><span class="hs-identifier hs-type">MigrateWorkspaceResponse</span></a></span></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281378"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.MigrateWorkspace.html#MigrateWorkspaceResponse"><span class="hs-identifier hs-type">MigrateWorkspaceResponse</span></a></span></span><span>
 </span><span id="line-209"></span></pre></body></html>

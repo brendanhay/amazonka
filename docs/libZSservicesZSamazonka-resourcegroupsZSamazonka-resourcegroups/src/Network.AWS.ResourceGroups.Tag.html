@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newTag' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679177938"><span id="local-6989586621679177939"></span></span><span class="hs-keyword">data</span><span> </span><span id="Tag"><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tag%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag%27"><span class="hs-identifier hs-var">Tag'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679178071"><span id="local-6989586621679178072"></span></span><span class="hs-keyword">data</span><span> </span><span id="Tag"><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tag%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag%27"><span class="hs-identifier hs-var">Tag'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the resource group to which to add tags.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3Aarn%3ATag%27"><span class="annot"><span class="annottext">Tag -&gt; Text
 </span><a href="Network.AWS.ResourceGroups.Tag.html#%24sel%3Aarn%3ATag%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -71,14 +71,14 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3Atags%3ATag%27"><span class="annot"><span class="annottext">Tag -&gt; HashMap Text Text
 </span><a href="Network.AWS.ResourceGroups.Tag.html#%24sel%3Atags%3ATag%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177931"><span id="local-6989586621679177933"><span class="annot"><span class="annottext">Tag -&gt; Tag -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178064"><span id="local-6989586621679178066"><span class="annot"><span class="annottext">Tag -&gt; Tag -&gt; Bool
 (Tag -&gt; Tag -&gt; Bool) -&gt; (Tag -&gt; Tag -&gt; Bool) -&gt; Eq Tag
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Tag -&gt; Tag -&gt; Bool
 $c/= :: Tag -&gt; Tag -&gt; Bool
 == :: Tag -&gt; Tag -&gt; Bool
 $c== :: Tag -&gt; Tag -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177922"><span id="local-6989586621679177924"><span id="local-6989586621679177926"><span id="local-6989586621679177928"><span class="annot"><span class="annottext">ReadPrec [Tag]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178055"><span id="local-6989586621679178057"><span id="local-6989586621679178059"><span id="local-6989586621679178061"><span class="annot"><span class="annottext">ReadPrec [Tag]
 ReadPrec Tag
 Int -&gt; ReadS Tag
 ReadS [Tag]
@@ -95,7 +95,7 @@ readList :: ReadS [Tag]
 $creadList :: ReadS [Tag]
 readsPrec :: Int -&gt; ReadS Tag
 $creadsPrec :: Int -&gt; ReadS Tag
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177915"><span id="local-6989586621679177917"><span id="local-6989586621679177919"><span class="annot"><span class="annottext">Int -&gt; Tag -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178048"><span id="local-6989586621679178050"><span id="local-6989586621679178052"><span class="annot"><span class="annottext">Int -&gt; Tag -&gt; ShowS
 [Tag] -&gt; ShowS
 Tag -&gt; String
 (Int -&gt; Tag -&gt; ShowS)
@@ -135,12 +135,12 @@ $cfrom :: forall x. Tag -&gt; Rep Tag x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span>
 </span><span id="line-90"></span><span id="newTag"><span class="annot"><span class="annottext">newTag :: Text -&gt; Tag
-</span><a href="Network.AWS.ResourceGroups.Tag.html#newTag"><span class="hs-identifier hs-var hs-var">newTag</span></a></span></span><span> </span><span id="local-6989586621679177910"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177910"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ResourceGroups.Tag.html#newTag"><span class="hs-identifier hs-var hs-var">newTag</span></a></span></span><span> </span><span id="local-6989586621679178043"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178043"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">Tag' :: Text -&gt; HashMap Text Text -&gt; Tag
 </span><a href="Network.AWS.ResourceGroups.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Tag' :: Text
 </span><a href="Network.AWS.ResourceGroups.Tag.html#%24sel%3Aarn%3ATag%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177910"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:tags:Tag' :: HashMap Text Text
+</span><a href="#local-6989586621679178043"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:tags:Tag' :: HashMap Text Text
 </span><a href="Network.AWS.ResourceGroups.Tag.html#%24sel%3Atags%3ATag%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">}</span><span>
@@ -150,16 +150,16 @@ forall a. Monoid a =&gt; a
 </span><span id="line-95"></span><span id="tag_arn"><span class="annot"><span class="annottext">tag_arn :: (Text -&gt; f Text) -&gt; Tag -&gt; f Tag
 </span><a href="Network.AWS.ResourceGroups.Tag.html#tag_arn"><span class="hs-identifier hs-var hs-var">tag_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Tag -&gt; Text) -&gt; (Tag -&gt; Text -&gt; Tag) -&gt; Lens Tag Tag Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177907"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178040"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:Tag' :: Tag -&gt; Text
-</span><a href="#local-6989586621679177907"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177907"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177906"><span class="annot"><span class="annottext">s :: Tag
-</span><a href="#local-6989586621679177906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177905"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tag
-</span><a href="#local-6989586621679177906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Tag' :: Text
+</span><a href="#local-6989586621679178040"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178040"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178039"><span class="annot"><span class="annottext">s :: Tag
+</span><a href="#local-6989586621679178039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178038"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tag
+</span><a href="#local-6989586621679178039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Tag' :: Text
 </span><a href="Network.AWS.ResourceGroups.Tag.html#%24sel%3Aarn%3ATag%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The tags to add to the specified resource group. A tag is a</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- string-to-string map of key-value pairs.</span><span>
@@ -169,16 +169,16 @@ $sel:arn:Tag' :: Tag -&gt; Text
 -&gt; (Tag -&gt; HashMap Text Text -&gt; Tag)
 -&gt; Lens Tag Tag (HashMap Text Text) (HashMap Text Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177904"><span class="annot"><span class="annottext">HashMap Text Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178037"><span class="annot"><span class="annottext">HashMap Text Text
 tags :: HashMap Text Text
 $sel:tags:Tag' :: Tag -&gt; HashMap Text Text
-</span><a href="#local-6989586621679177904"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679177904"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177903"><span class="annot"><span class="annottext">s :: Tag
-</span><a href="#local-6989586621679177903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177902"><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679177902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tag
-</span><a href="#local-6989586621679177903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Tag' :: HashMap Text Text
+</span><a href="#local-6989586621679178037"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679178037"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178036"><span class="annot"><span class="annottext">s :: Tag
+</span><a href="#local-6989586621679178036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178035"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679178035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tag
+</span><a href="#local-6989586621679178036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Tag' :: HashMap Text Text
 </span><a href="Network.AWS.ResourceGroups.Tag.html#%24sel%3Atags%3ATag%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679177902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text)) -&gt; Tag -&gt; f Tag)
+</span><a href="#local-6989586621679178035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text)) -&gt; Tag -&gt; f Tag)
 -&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
     -&gt; HashMap Text Text -&gt; f (HashMap Text Text))
 -&gt; (HashMap Text Text -&gt; f (HashMap Text Text))
@@ -187,17 +187,17 @@ $sel:tags:Tag' :: Tag -&gt; HashMap Text Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
 -&gt; HashMap Text Text -&gt; f (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse"><span class="hs-identifier hs-type">TagResponse</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679177896"><span class="annot"><span class="annottext">request :: Tag -&gt; Request Tag
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679178029"><span class="annot"><span class="annottext">request :: Tag -&gt; Request Tag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Tag -&gt; Request Tag
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ResourceGroups.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679177892"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679178025"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy Tag
 -&gt; ClientResponse ClientBody
@@ -219,10 +219,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177889"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177889"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679177888"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679177888"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679177887"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177887"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178022"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178022"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178021"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679178021"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178020"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178020"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; TagResponse
 </span><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse%27"><span class="hs-identifier hs-var">TagResponse'</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; TagResponse)
@@ -230,7 +230,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe (HashMap Text Text) -&gt; Int -&gt; TagResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177887"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679178020"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
@@ -239,7 +239,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; TagResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177887"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679178020"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
@@ -257,30 +257,30 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177889"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178022"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177878"><span id="local-6989586621679177880"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178011"><span id="local-6989586621679178013"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177875"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178008"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679177871"><span class="annot"><span class="annottext">toHeaders :: Tag -&gt; ResponseHeaders
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679178004"><span class="annot"><span class="annottext">toHeaders :: Tag -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; Tag -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177862"><span id="local-6989586621679177864"><span id="local-6989586621679177866"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679177860"><span class="annot"><span class="annottext">toJSON :: Tag -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177857"><span id="local-6989586621679177858"><span class="annot"><span class="annottext">Text
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177995"><span id="local-6989586621679177997"><span id="local-6989586621679177999"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679177993"><span class="annot"><span class="annottext">toJSON :: Tag -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177990"><span id="local-6989586621679177991"><span class="annot"><span class="annottext">Text
 HashMap Text Text
 tags :: HashMap Text Text
 arn :: Text
 $sel:tags:Tag' :: Tag -&gt; HashMap Text Text
 $sel:arn:Tag' :: Tag -&gt; Text
-</span><a href="#local-6989586621679177857"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679177990"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -292,18 +292,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679177857"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679177990"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679177851"><span class="annot"><span class="annottext">toPath :: Tag -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177848"><span id="local-6989586621679177849"><span class="annot"><span class="annottext">Text
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679177984"><span class="annot"><span class="annottext">toPath :: Tag -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177981"><span id="local-6989586621679177982"><span class="annot"><span class="annottext">Text
 HashMap Text Text
 tags :: HashMap Text Text
 arn :: Text
 $sel:tags:Tag' :: Tag -&gt; HashMap Text Text
 $sel:arn:Tag' :: Tag -&gt; Text
-</span><a href="#local-6989586621679177848"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679177981"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -311,11 +311,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/resources/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177849"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679177982"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/tags&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679177844"><span class="annot"><span class="annottext">toQuery :: Tag -&gt; QueryString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679177977"><span class="annot"><span class="annottext">toQuery :: Tag -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; Tag -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -323,7 +323,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newTagResponse' smart constructor.</span><span>
-</span><span id="line-137"></span><span id="local-6989586621679177841"><span id="local-6989586621679177842"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagResponse"><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse"><span class="hs-identifier hs-var">TagResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagResponse%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse%27"><span class="hs-identifier hs-var">TagResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span id="local-6989586621679177974"><span id="local-6989586621679177975"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagResponse"><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse"><span class="hs-identifier hs-var">TagResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagResponse%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse%27"><span class="hs-identifier hs-var">TagResponse'</span></a></span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the tagged resource.</span><span>
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3Aarn%3ATagResponse%27"><span class="annot"><span class="annottext">TagResponse -&gt; Maybe Text
 </span><a href="Network.AWS.ResourceGroups.Tag.html#%24sel%3Aarn%3ATagResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -334,7 +334,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATagResponse%27"><span class="annot"><span class="annottext">TagResponse -&gt; Int
 </span><a href="Network.AWS.ResourceGroups.Tag.html#%24sel%3AhttpStatus%3ATagResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177834"><span id="local-6989586621679177836"><span class="annot"><span class="annottext">TagResponse -&gt; TagResponse -&gt; Bool
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177967"><span id="local-6989586621679177969"><span class="annot"><span class="annottext">TagResponse -&gt; TagResponse -&gt; Bool
 (TagResponse -&gt; TagResponse -&gt; Bool)
 -&gt; (TagResponse -&gt; TagResponse -&gt; Bool) -&gt; Eq TagResponse
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -342,7 +342,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagResponse -&gt; TagResponse -&gt; Bool
 == :: TagResponse -&gt; TagResponse -&gt; Bool
 $c== :: TagResponse -&gt; TagResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177826"><span id="local-6989586621679177828"><span id="local-6989586621679177830"><span id="local-6989586621679177832"><span class="annot"><span class="annottext">ReadPrec [TagResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177959"><span id="local-6989586621679177961"><span id="local-6989586621679177963"><span id="local-6989586621679177965"><span class="annot"><span class="annottext">ReadPrec [TagResponse]
 ReadPrec TagResponse
 Int -&gt; ReadS TagResponse
 ReadS [TagResponse]
@@ -362,7 +362,7 @@ readList :: ReadS [TagResponse]
 $creadList :: ReadS [TagResponse]
 readsPrec :: Int -&gt; ReadS TagResponse
 $creadsPrec :: Int -&gt; ReadS TagResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177820"><span id="local-6989586621679177822"><span id="local-6989586621679177824"><span class="annot"><span class="annottext">Int -&gt; TagResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177953"><span id="local-6989586621679177955"><span id="local-6989586621679177957"><span class="annot"><span class="annottext">Int -&gt; TagResponse -&gt; ShowS
 [TagResponse] -&gt; ShowS
 TagResponse -&gt; String
 (Int -&gt; TagResponse -&gt; ShowS)
@@ -406,8 +406,8 @@ $cfrom :: forall x. TagResponse -&gt; Rep TagResponse x
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse"><span class="hs-identifier hs-type">TagResponse</span></a></span><span>
 </span><span id="line-164"></span><span id="newTagResponse"><span class="annot"><span class="annottext">newTagResponse :: Int -&gt; TagResponse
-</span><a href="Network.AWS.ResourceGroups.Tag.html#newTagResponse"><span class="hs-identifier hs-var hs-var">newTagResponse</span></a></span></span><span> </span><span id="local-6989586621679177817"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177817"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ResourceGroups.Tag.html#newTagResponse"><span class="hs-identifier hs-var hs-var">newTagResponse</span></a></span></span><span> </span><span id="local-6989586621679177950"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177950"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">TagResponse' :: Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; TagResponse
 </span><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse%27"><span class="hs-identifier hs-type">TagResponse'</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:TagResponse' :: Maybe Text
@@ -420,7 +420,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:TagResponse' :: Int
 </span><a href="Network.AWS.ResourceGroups.Tag.html#%24sel%3AhttpStatus%3ATagResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177817"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679177950"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The ARN of the tagged resource.</span><span>
@@ -430,16 +430,16 @@ forall a. Maybe a
 -&gt; (TagResponse -&gt; Maybe Text -&gt; TagResponse)
 -&gt; Lens TagResponse TagResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse%27"><span class="hs-identifier hs-type">TagResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177816"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse%27"><span class="hs-identifier hs-type">TagResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177949"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:TagResponse' :: TagResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679177816"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177816"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177815"><span class="annot"><span class="annottext">s :: TagResponse
-</span><a href="#local-6989586621679177815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse%27"><span class="hs-identifier hs-type">TagResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177814"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResponse
-</span><a href="#local-6989586621679177815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:TagResponse' :: Maybe Text
+</span><a href="#local-6989586621679177949"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177949"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177948"><span class="annot"><span class="annottext">s :: TagResponse
+</span><a href="#local-6989586621679177948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse%27"><span class="hs-identifier hs-type">TagResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177947"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResponse
+</span><a href="#local-6989586621679177948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:TagResponse' :: Maybe Text
 </span><a href="Network.AWS.ResourceGroups.Tag.html#%24sel%3Aarn%3ATagResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse"><span class="hs-identifier hs-type">TagResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse"><span class="hs-identifier hs-type">TagResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The tags that have been added to the specified resource group.</span><span>
 </span><span id="line-176"></span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#tagResponse_tags"><span class="hs-identifier hs-type">tagResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse"><span class="hs-identifier hs-type">TagResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -453,16 +453,16 @@ $sel:arn:TagResponse' :: TagResponse -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse%27"><span class="hs-identifier hs-type">TagResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177813"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse%27"><span class="hs-identifier hs-type">TagResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177946"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:TagResponse' :: TagResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679177813"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679177813"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177812"><span class="annot"><span class="annottext">s :: TagResponse
-</span><a href="#local-6989586621679177812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse%27"><span class="hs-identifier hs-type">TagResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177811"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679177811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResponse
-</span><a href="#local-6989586621679177812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679177946"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679177946"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177945"><span class="annot"><span class="annottext">s :: TagResponse
+</span><a href="#local-6989586621679177945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse%27"><span class="hs-identifier hs-type">TagResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177944"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679177944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResponse
+</span><a href="#local-6989586621679177945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.ResourceGroups.Tag.html#%24sel%3Atags%3ATagResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679177811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse"><span class="hs-identifier hs-type">TagResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679177944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse"><span class="hs-identifier hs-type">TagResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; TagResponse -&gt; f TagResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -488,8 +488,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-180"></span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#tagResponse_httpStatus"><span class="hs-identifier hs-type">tagResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse"><span class="hs-identifier hs-type">TagResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -498,16 +498,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (TagResponse -&gt; Int -&gt; TagResponse)
 -&gt; Lens TagResponse TagResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse%27"><span class="hs-identifier hs-type">TagResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177809"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse%27"><span class="hs-identifier hs-type">TagResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177942"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:TagResponse' :: TagResponse -&gt; Int
-</span><a href="#local-6989586621679177809"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177809"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177808"><span class="annot"><span class="annottext">s :: TagResponse
-</span><a href="#local-6989586621679177808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse%27"><span class="hs-identifier hs-type">TagResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177807"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResponse
-</span><a href="#local-6989586621679177808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TagResponse' :: Int
+</span><a href="#local-6989586621679177942"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177942"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177941"><span class="annot"><span class="annottext">s :: TagResponse
+</span><a href="#local-6989586621679177941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse%27"><span class="hs-identifier hs-type">TagResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177940"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResponse
+</span><a href="#local-6989586621679177941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TagResponse' :: Int
 </span><a href="Network.AWS.ResourceGroups.Tag.html#%24sel%3AhttpStatus%3ATagResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse"><span class="hs-identifier hs-type">TagResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse"><span class="hs-identifier hs-type">TagResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177805"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse"><span class="hs-identifier hs-type">TagResponse</span></a></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177938"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Tag.html#TagResponse"><span class="hs-identifier hs-type">TagResponse</span></a></span></span><span>
 </span><span id="line-184"></span></pre></body></html>

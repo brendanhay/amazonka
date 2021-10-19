@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newAttachTypedLink' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679348238"><span id="local-6989586621679348239"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachTypedLink"><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-var">AttachTypedLink</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachTypedLink%27"><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-var">AttachTypedLink'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679348659"><span id="local-6989586621679348660"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachTypedLink"><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-var">AttachTypedLink</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachTypedLink%27"><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-var">AttachTypedLink'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the directory where you want to attach</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the typed link.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AdirectoryArn%3AAttachTypedLink%27"><span class="annot"><span class="annottext">AttachTypedLink -&gt; Text
@@ -71,7 +71,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3Aattributes%3AAttachTypedLink%27"><span class="annot"><span class="annottext">AttachTypedLink -&gt; [AttributeNameAndValue]
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#%24sel%3Aattributes%3AAttachTypedLink%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeNameAndValue.html#AttributeNameAndValue"><span class="hs-identifier hs-type">AttributeNameAndValue</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348228"><span id="local-6989586621679348230"><span class="annot"><span class="annottext">AttachTypedLink -&gt; AttachTypedLink -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348649"><span id="local-6989586621679348651"><span class="annot"><span class="annottext">AttachTypedLink -&gt; AttachTypedLink -&gt; Bool
 (AttachTypedLink -&gt; AttachTypedLink -&gt; Bool)
 -&gt; (AttachTypedLink -&gt; AttachTypedLink -&gt; Bool)
 -&gt; Eq AttachTypedLink
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttachTypedLink -&gt; AttachTypedLink -&gt; Bool
 == :: AttachTypedLink -&gt; AttachTypedLink -&gt; Bool
 $c== :: AttachTypedLink -&gt; AttachTypedLink -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348219"><span id="local-6989586621679348221"><span id="local-6989586621679348223"><span id="local-6989586621679348225"><span class="annot"><span class="annottext">ReadPrec [AttachTypedLink]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348640"><span id="local-6989586621679348642"><span id="local-6989586621679348644"><span id="local-6989586621679348646"><span class="annot"><span class="annottext">ReadPrec [AttachTypedLink]
 ReadPrec AttachTypedLink
 Int -&gt; ReadS AttachTypedLink
 ReadS [AttachTypedLink]
@@ -100,7 +100,7 @@ readList :: ReadS [AttachTypedLink]
 $creadList :: ReadS [AttachTypedLink]
 readsPrec :: Int -&gt; ReadS AttachTypedLink
 $creadsPrec :: Int -&gt; ReadS AttachTypedLink
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348212"><span id="local-6989586621679348214"><span id="local-6989586621679348216"><span class="annot"><span class="annottext">Int -&gt; AttachTypedLink -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348633"><span id="local-6989586621679348635"><span id="local-6989586621679348637"><span class="annot"><span class="annottext">Int -&gt; AttachTypedLink -&gt; ShowS
 [AttachTypedLink] -&gt; ShowS
 AttachTypedLink -&gt; String
 (Int -&gt; AttachTypedLink -&gt; ShowS)
@@ -160,14 +160,14 @@ $cfrom :: forall x. AttachTypedLink -&gt; Rep AttachTypedLink x
 -&gt; TypedLinkSchemaAndFacetName
 -&gt; AttachTypedLink
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#newAttachTypedLink"><span class="hs-identifier hs-var hs-var">newAttachTypedLink</span></a></span></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679348207"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348207"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679348206"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679348206"><span class="hs-identifier hs-var">pSourceObjectReference_</span></a></span></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679348205"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679348205"><span class="hs-identifier hs-var">pTargetObjectReference_</span></a></span></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679348204"><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
-</span><a href="#local-6989586621679348204"><span class="hs-identifier hs-var">pTypedLinkFacet_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679348628"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348628"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679348627"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679348627"><span class="hs-identifier hs-var">pSourceObjectReference_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679348626"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679348626"><span class="hs-identifier hs-var">pTargetObjectReference_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679348625"><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
+</span><a href="#local-6989586621679348625"><span class="hs-identifier hs-var">pTypedLinkFacet_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">AttachTypedLink' :: Text
 -&gt; ObjectReference
 -&gt; ObjectReference
@@ -177,16 +177,16 @@ $cfrom :: forall x. AttachTypedLink -&gt; Rep AttachTypedLink x
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryArn:AttachTypedLink' :: Text
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#%24sel%3AdirectoryArn%3AAttachTypedLink%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348207"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679348628"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceObjectReference:AttachTypedLink' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#%24sel%3AsourceObjectReference%3AAttachTypedLink%27"><span class="hs-identifier hs-var">sourceObjectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679348206"><span class="hs-identifier hs-var">pSourceObjectReference_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679348627"><span class="hs-identifier hs-var">pSourceObjectReference_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetObjectReference:AttachTypedLink' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#%24sel%3AtargetObjectReference%3AAttachTypedLink%27"><span class="hs-identifier hs-var">targetObjectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679348205"><span class="hs-identifier hs-var">pTargetObjectReference_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679348626"><span class="hs-identifier hs-var">pTargetObjectReference_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:typedLinkFacet:AttachTypedLink' :: TypedLinkSchemaAndFacetName
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#%24sel%3AtypedLinkFacet%3AAttachTypedLink%27"><span class="hs-identifier hs-var">typedLinkFacet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
-</span><a href="#local-6989586621679348204"><span class="hs-identifier hs-var">pTypedLinkFacet_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679348625"><span class="hs-identifier hs-var">pTypedLinkFacet_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:attributes:AttachTypedLink' :: [AttributeNameAndValue]
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#%24sel%3Aattributes%3AAttachTypedLink%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AttributeNameAndValue]
 forall a. Monoid a =&gt; a
@@ -201,16 +201,16 @@ forall a. Monoid a =&gt; a
 -&gt; (AttachTypedLink -&gt; Text -&gt; AttachTypedLink)
 -&gt; Lens AttachTypedLink AttachTypedLink Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348201"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348622"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 $sel:directoryArn:AttachTypedLink' :: AttachTypedLink -&gt; Text
-</span><a href="#local-6989586621679348201"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348201"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348200"><span class="annot"><span class="annottext">s :: AttachTypedLink
-</span><a href="#local-6989586621679348200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348199"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachTypedLink
-</span><a href="#local-6989586621679348200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:AttachTypedLink' :: Text
+</span><a href="#local-6989586621679348622"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348622"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348621"><span class="annot"><span class="annottext">s :: AttachTypedLink
+</span><a href="#local-6989586621679348621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348620"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachTypedLink
+</span><a href="#local-6989586621679348621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:AttachTypedLink' :: Text
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#%24sel%3AdirectoryArn%3AAttachTypedLink%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | Identifies the source object that the typed link will attach to.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#attachTypedLink_sourceObjectReference"><span class="hs-identifier hs-type">attachTypedLink_sourceObjectReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span>
@@ -221,16 +221,16 @@ $sel:directoryArn:AttachTypedLink' :: AttachTypedLink -&gt; Text
 -&gt; Lens
      AttachTypedLink AttachTypedLink ObjectReference ObjectReference
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348198"><span class="annot"><span class="annottext">ObjectReference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348619"><span class="annot"><span class="annottext">ObjectReference
 sourceObjectReference :: ObjectReference
 $sel:sourceObjectReference:AttachTypedLink' :: AttachTypedLink -&gt; ObjectReference
-</span><a href="#local-6989586621679348198"><span class="hs-identifier hs-var hs-var">sourceObjectReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679348198"><span class="hs-identifier hs-var">sourceObjectReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348197"><span class="annot"><span class="annottext">s :: AttachTypedLink
-</span><a href="#local-6989586621679348197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348196"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679348196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachTypedLink
-</span><a href="#local-6989586621679348197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceObjectReference:AttachTypedLink' :: ObjectReference
+</span><a href="#local-6989586621679348619"><span class="hs-identifier hs-var hs-var">sourceObjectReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679348619"><span class="hs-identifier hs-var">sourceObjectReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348618"><span class="annot"><span class="annottext">s :: AttachTypedLink
+</span><a href="#local-6989586621679348618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348617"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679348617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachTypedLink
+</span><a href="#local-6989586621679348618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceObjectReference:AttachTypedLink' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#%24sel%3AsourceObjectReference%3AAttachTypedLink%27"><span class="hs-identifier hs-var">sourceObjectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679348196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | Identifies the target object that the typed link will attach to.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#attachTypedLink_targetObjectReference"><span class="hs-identifier hs-type">attachTypedLink_targetObjectReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span>
@@ -241,16 +241,16 @@ $sel:sourceObjectReference:AttachTypedLink' :: AttachTypedLink -&gt; ObjectRefer
 -&gt; Lens
      AttachTypedLink AttachTypedLink ObjectReference ObjectReference
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348195"><span class="annot"><span class="annottext">ObjectReference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348616"><span class="annot"><span class="annottext">ObjectReference
 targetObjectReference :: ObjectReference
 $sel:targetObjectReference:AttachTypedLink' :: AttachTypedLink -&gt; ObjectReference
-</span><a href="#local-6989586621679348195"><span class="hs-identifier hs-var hs-var">targetObjectReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679348195"><span class="hs-identifier hs-var">targetObjectReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348194"><span class="annot"><span class="annottext">s :: AttachTypedLink
-</span><a href="#local-6989586621679348194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348193"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679348193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachTypedLink
-</span><a href="#local-6989586621679348194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetObjectReference:AttachTypedLink' :: ObjectReference
+</span><a href="#local-6989586621679348616"><span class="hs-identifier hs-var hs-var">targetObjectReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679348616"><span class="hs-identifier hs-var">targetObjectReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348615"><span class="annot"><span class="annottext">s :: AttachTypedLink
+</span><a href="#local-6989586621679348615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348614"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679348614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachTypedLink
+</span><a href="#local-6989586621679348615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetObjectReference:AttachTypedLink' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#%24sel%3AtargetObjectReference%3AAttachTypedLink%27"><span class="hs-identifier hs-var">targetObjectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679348193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | Identifies the typed link facet that is associated with the typed link.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#attachTypedLink_typedLinkFacet"><span class="hs-identifier hs-type">attachTypedLink_typedLinkFacet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSchemaAndFacetName.html#TypedLinkSchemaAndFacetName"><span class="hs-identifier hs-type">TypedLinkSchemaAndFacetName</span></a></span><span>
@@ -265,16 +265,16 @@ $sel:targetObjectReference:AttachTypedLink' :: AttachTypedLink -&gt; ObjectRefer
      TypedLinkSchemaAndFacetName
      TypedLinkSchemaAndFacetName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348192"><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348613"><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
 typedLinkFacet :: TypedLinkSchemaAndFacetName
 $sel:typedLinkFacet:AttachTypedLink' :: AttachTypedLink -&gt; TypedLinkSchemaAndFacetName
-</span><a href="#local-6989586621679348192"><span class="hs-identifier hs-var hs-var">typedLinkFacet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
-</span><a href="#local-6989586621679348192"><span class="hs-identifier hs-var">typedLinkFacet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348191"><span class="annot"><span class="annottext">s :: AttachTypedLink
-</span><a href="#local-6989586621679348191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348190"><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
-</span><a href="#local-6989586621679348190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachTypedLink
-</span><a href="#local-6989586621679348191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typedLinkFacet:AttachTypedLink' :: TypedLinkSchemaAndFacetName
+</span><a href="#local-6989586621679348613"><span class="hs-identifier hs-var hs-var">typedLinkFacet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
+</span><a href="#local-6989586621679348613"><span class="hs-identifier hs-var">typedLinkFacet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348612"><span class="annot"><span class="annottext">s :: AttachTypedLink
+</span><a href="#local-6989586621679348612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348611"><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
+</span><a href="#local-6989586621679348611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachTypedLink
+</span><a href="#local-6989586621679348612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typedLinkFacet:AttachTypedLink' :: TypedLinkSchemaAndFacetName
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#%24sel%3AtypedLinkFacet%3AAttachTypedLink%27"><span class="hs-identifier hs-var">typedLinkFacet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
-</span><a href="#local-6989586621679348190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | A set of attributes that are associated with the typed link.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#attachTypedLink_attributes"><span class="hs-identifier hs-type">attachTypedLink_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeNameAndValue.html#AttributeNameAndValue"><span class="hs-identifier hs-type">AttributeNameAndValue</span></a></span><span class="hs-special">]</span><span>
@@ -288,16 +288,16 @@ $sel:typedLinkFacet:AttachTypedLink' :: AttachTypedLink -&gt; TypedLinkSchemaAnd
      [AttributeNameAndValue]
      [AttributeNameAndValue]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348189"><span class="annot"><span class="annottext">[AttributeNameAndValue]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348610"><span class="annot"><span class="annottext">[AttributeNameAndValue]
 attributes :: [AttributeNameAndValue]
 $sel:attributes:AttachTypedLink' :: AttachTypedLink -&gt; [AttributeNameAndValue]
-</span><a href="#local-6989586621679348189"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AttributeNameAndValue]
-</span><a href="#local-6989586621679348189"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348188"><span class="annot"><span class="annottext">s :: AttachTypedLink
-</span><a href="#local-6989586621679348188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348187"><span class="annot"><span class="annottext">[AttributeNameAndValue]
-</span><a href="#local-6989586621679348187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachTypedLink
-</span><a href="#local-6989586621679348188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:AttachTypedLink' :: [AttributeNameAndValue]
+</span><a href="#local-6989586621679348610"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AttributeNameAndValue]
+</span><a href="#local-6989586621679348610"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348609"><span class="annot"><span class="annottext">s :: AttachTypedLink
+</span><a href="#local-6989586621679348609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348608"><span class="annot"><span class="annottext">[AttributeNameAndValue]
+</span><a href="#local-6989586621679348608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachTypedLink
+</span><a href="#local-6989586621679348609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:AttachTypedLink' :: [AttributeNameAndValue]
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#%24sel%3Aattributes%3AAttachTypedLink%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AttributeNameAndValue]
-</span><a href="#local-6989586621679348187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AttributeNameAndValue] -&gt; f [AttributeNameAndValue])
+</span><a href="#local-6989586621679348608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AttributeNameAndValue] -&gt; f [AttributeNameAndValue])
  -&gt; AttachTypedLink -&gt; f AttachTypedLink)
 -&gt; (([AttributeNameAndValue] -&gt; f [AttributeNameAndValue])
     -&gt; [AttributeNameAndValue] -&gt; f [AttributeNameAndValue])
@@ -307,19 +307,19 @@ $sel:attributes:AttachTypedLink' :: AttachTypedLink -&gt; [AttributeNameAndValue
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AttributeNameAndValue] -&gt; f [AttributeNameAndValue])
 -&gt; [AttributeNameAndValue] -&gt; f [AttributeNameAndValue]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse"><span class="hs-identifier hs-type">AttachTypedLinkResponse</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679348181"><span class="annot"><span class="annottext">request :: AttachTypedLink -&gt; Request AttachTypedLink
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679348602"><span class="annot"><span class="annottext">request :: AttachTypedLink -&gt; Request AttachTypedLink
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AttachTypedLink -&gt; Request AttachTypedLink
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679348177"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679348598"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AttachTypedLink
 -&gt; ClientResponse ClientBody
@@ -343,10 +343,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348174"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348174"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679348173"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679348173"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679348172"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679348172"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348595"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348595"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679348594"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679348594"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679348593"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348593"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe TypedLinkSpecifier -&gt; Int -&gt; AttachTypedLinkResponse
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse%27"><span class="hs-identifier hs-var">AttachTypedLinkResponse'</span></a></span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TypedLinkSpecifier -&gt; Int -&gt; AttachTypedLinkResponse)
@@ -354,7 +354,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; AttachTypedLinkResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679348172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TypedLinkSpecifier)
+</span><a href="#local-6989586621679348593"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TypedLinkSpecifier)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TypedLinkSpecifier&quot;</span></span><span class="hs-special">)</span><span>
@@ -366,16 +366,16 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348174"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348595"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348164"><span id="local-6989586621679348166"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348585"><span id="local-6989586621679348587"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348161"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348582"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679348157"><span class="annot"><span class="annottext">toHeaders :: AttachTypedLink -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348151"><span id="local-6989586621679348152"><span id="local-6989586621679348153"><span id="local-6989586621679348154"><span id="local-6989586621679348155"><span class="annot"><span class="annottext">[AttributeNameAndValue]
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679348578"><span class="annot"><span class="annottext">toHeaders :: AttachTypedLink -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348572"><span id="local-6989586621679348573"><span id="local-6989586621679348574"><span id="local-6989586621679348575"><span id="local-6989586621679348576"><span class="annot"><span class="annottext">[AttributeNameAndValue]
 Text
 ObjectReference
 TypedLinkSchemaAndFacetName
@@ -389,7 +389,7 @@ $sel:typedLinkFacet:AttachTypedLink' :: AttachTypedLink -&gt; TypedLinkSchemaAnd
 $sel:targetObjectReference:AttachTypedLink' :: AttachTypedLink -&gt; ObjectReference
 $sel:sourceObjectReference:AttachTypedLink' :: AttachTypedLink -&gt; ObjectReference
 $sel:directoryArn:AttachTypedLink' :: AttachTypedLink -&gt; Text
-</span><a href="#local-6989586621679348151"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679348572"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -397,11 +397,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348155"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679348576"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348143"><span id="local-6989586621679348145"><span id="local-6989586621679348147"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679348141"><span class="annot"><span class="annottext">toJSON :: AttachTypedLink -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348135"><span id="local-6989586621679348136"><span id="local-6989586621679348137"><span id="local-6989586621679348138"><span id="local-6989586621679348139"><span class="annot"><span class="annottext">[AttributeNameAndValue]
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348564"><span id="local-6989586621679348566"><span id="local-6989586621679348568"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679348562"><span class="annot"><span class="annottext">toJSON :: AttachTypedLink -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink%27"><span class="hs-identifier hs-type">AttachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348556"><span id="local-6989586621679348557"><span id="local-6989586621679348558"><span id="local-6989586621679348559"><span id="local-6989586621679348560"><span class="annot"><span class="annottext">[AttributeNameAndValue]
 Text
 ObjectReference
 TypedLinkSchemaAndFacetName
@@ -415,7 +415,7 @@ $sel:typedLinkFacet:AttachTypedLink' :: AttachTypedLink -&gt; TypedLinkSchemaAnd
 $sel:targetObjectReference:AttachTypedLink' :: AttachTypedLink -&gt; ObjectReference
 $sel:sourceObjectReference:AttachTypedLink' :: AttachTypedLink -&gt; ObjectReference
 $sel:directoryArn:AttachTypedLink' :: AttachTypedLink -&gt; Text
-</span><a href="#local-6989586621679348135"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679348556"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -429,7 +429,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-161"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ObjectReference -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679348138"><span class="hs-identifier hs-var">sourceObjectReference</span></a></span><span>
+</span><a href="#local-6989586621679348559"><span class="hs-identifier hs-var">sourceObjectReference</span></a></span><span>
 </span><span id="line-162"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -439,7 +439,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-165"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ObjectReference -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679348137"><span class="hs-identifier hs-var">targetObjectReference</span></a></span><span>
+</span><a href="#local-6989586621679348558"><span class="hs-identifier hs-var">targetObjectReference</span></a></span><span>
 </span><span id="line-166"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -448,19 +448,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TypedLinkFacet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TypedLinkSchemaAndFacetName -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
-</span><a href="#local-6989586621679348136"><span class="hs-identifier hs-var">typedLinkFacet</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679348557"><span class="hs-identifier hs-var">typedLinkFacet</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AttributeNameAndValue] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[AttributeNameAndValue]
-</span><a href="#local-6989586621679348135"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348556"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679348129"><span class="annot"><span class="annottext">toPath :: AttachTypedLink -&gt; ByteString
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679348550"><span class="annot"><span class="annottext">toPath :: AttachTypedLink -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; AttachTypedLink -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -469,7 +469,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/typedlink/attach&quot;</span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLink"><span class="hs-identifier hs-type">AttachTypedLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679348124"><span class="annot"><span class="annottext">toQuery :: AttachTypedLink -&gt; QueryString
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679348545"><span class="annot"><span class="annottext">toQuery :: AttachTypedLink -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AttachTypedLink -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -477,7 +477,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newAttachTypedLinkResponse' smart constructor.</span><span>
-</span><span id="line-182"></span><span id="local-6989586621679348121"><span id="local-6989586621679348122"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachTypedLinkResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse"><span class="hs-identifier hs-var">AttachTypedLinkResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachTypedLinkResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse%27"><span class="hs-identifier hs-var">AttachTypedLinkResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span id="local-6989586621679348542"><span id="local-6989586621679348543"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachTypedLinkResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse"><span class="hs-identifier hs-var">AttachTypedLinkResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachTypedLinkResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse%27"><span class="hs-identifier hs-var">AttachTypedLinkResponse'</span></a></span></span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns a typed link specifier as output.</span><span>
 </span><span id="line-184"></span><span>    </span><span id="%24sel%3AtypedLinkSpecifier%3AAttachTypedLinkResponse%27"><span class="annot"><span class="annottext">AttachTypedLinkResponse -&gt; Maybe TypedLinkSpecifier
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#%24sel%3AtypedLinkSpecifier%3AAttachTypedLinkResponse%27"><span class="hs-identifier hs-var hs-var">typedLinkSpecifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span><span class="hs-special">,</span><span>
@@ -485,7 +485,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAttachTypedLinkResponse%27"><span class="annot"><span class="annottext">AttachTypedLinkResponse -&gt; Int
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#%24sel%3AhttpStatus%3AAttachTypedLinkResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348115"><span id="local-6989586621679348117"><span class="annot"><span class="annottext">AttachTypedLinkResponse -&gt; AttachTypedLinkResponse -&gt; Bool
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348536"><span id="local-6989586621679348538"><span class="annot"><span class="annottext">AttachTypedLinkResponse -&gt; AttachTypedLinkResponse -&gt; Bool
 (AttachTypedLinkResponse -&gt; AttachTypedLinkResponse -&gt; Bool)
 -&gt; (AttachTypedLinkResponse -&gt; AttachTypedLinkResponse -&gt; Bool)
 -&gt; Eq AttachTypedLinkResponse
@@ -494,7 +494,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttachTypedLinkResponse -&gt; AttachTypedLinkResponse -&gt; Bool
 == :: AttachTypedLinkResponse -&gt; AttachTypedLinkResponse -&gt; Bool
 $c== :: AttachTypedLinkResponse -&gt; AttachTypedLinkResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348107"><span id="local-6989586621679348109"><span id="local-6989586621679348111"><span id="local-6989586621679348113"><span class="annot"><span class="annottext">ReadPrec [AttachTypedLinkResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348528"><span id="local-6989586621679348530"><span id="local-6989586621679348532"><span id="local-6989586621679348534"><span class="annot"><span class="annottext">ReadPrec [AttachTypedLinkResponse]
 ReadPrec AttachTypedLinkResponse
 Int -&gt; ReadS AttachTypedLinkResponse
 ReadS [AttachTypedLinkResponse]
@@ -514,7 +514,7 @@ readList :: ReadS [AttachTypedLinkResponse]
 $creadList :: ReadS [AttachTypedLinkResponse]
 readsPrec :: Int -&gt; ReadS AttachTypedLinkResponse
 $creadsPrec :: Int -&gt; ReadS AttachTypedLinkResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348101"><span id="local-6989586621679348103"><span id="local-6989586621679348105"><span class="annot"><span class="annottext">Int -&gt; AttachTypedLinkResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348522"><span id="local-6989586621679348524"><span id="local-6989586621679348526"><span class="annot"><span class="annottext">Int -&gt; AttachTypedLinkResponse -&gt; ShowS
 [AttachTypedLinkResponse] -&gt; ShowS
 AttachTypedLinkResponse -&gt; String
 (Int -&gt; AttachTypedLinkResponse -&gt; ShowS)
@@ -558,8 +558,8 @@ $cfrom :: forall x. AttachTypedLinkResponse -&gt; Rep AttachTypedLinkResponse x
 </span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-204"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse"><span class="hs-identifier hs-type">AttachTypedLinkResponse</span></a></span><span>
 </span><span id="line-205"></span><span id="newAttachTypedLinkResponse"><span class="annot"><span class="annottext">newAttachTypedLinkResponse :: Int -&gt; AttachTypedLinkResponse
-</span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#newAttachTypedLinkResponse"><span class="hs-identifier hs-var hs-var">newAttachTypedLinkResponse</span></a></span></span><span> </span><span id="local-6989586621679348098"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348098"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#newAttachTypedLinkResponse"><span class="hs-identifier hs-var hs-var">newAttachTypedLinkResponse</span></a></span></span><span> </span><span id="local-6989586621679348519"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348519"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-206"></span><span>  </span><span class="annot"><span class="annottext">AttachTypedLinkResponse' :: Maybe TypedLinkSpecifier -&gt; Int -&gt; AttachTypedLinkResponse
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse%27"><span class="hs-identifier hs-type">AttachTypedLinkResponse'</span></a></span><span>
 </span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:typedLinkSpecifier:AttachTypedLinkResponse' :: Maybe TypedLinkSpecifier
@@ -569,7 +569,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AttachTypedLinkResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#%24sel%3AhttpStatus%3AAttachTypedLinkResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348098"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679348519"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | Returns a typed link specifier as output.</span><span>
@@ -585,16 +585,16 @@ forall a. Maybe a
      (Maybe TypedLinkSpecifier)
      (Maybe TypedLinkSpecifier)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse%27"><span class="hs-identifier hs-type">AttachTypedLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348097"><span class="annot"><span class="annottext">Maybe TypedLinkSpecifier
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse%27"><span class="hs-identifier hs-type">AttachTypedLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348518"><span class="annot"><span class="annottext">Maybe TypedLinkSpecifier
 typedLinkSpecifier :: Maybe TypedLinkSpecifier
 $sel:typedLinkSpecifier:AttachTypedLinkResponse' :: AttachTypedLinkResponse -&gt; Maybe TypedLinkSpecifier
-</span><a href="#local-6989586621679348097"><span class="hs-identifier hs-var hs-var">typedLinkSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TypedLinkSpecifier
-</span><a href="#local-6989586621679348097"><span class="hs-identifier hs-var">typedLinkSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348096"><span class="annot"><span class="annottext">s :: AttachTypedLinkResponse
-</span><a href="#local-6989586621679348096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse%27"><span class="hs-identifier hs-type">AttachTypedLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348095"><span class="annot"><span class="annottext">Maybe TypedLinkSpecifier
-</span><a href="#local-6989586621679348095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachTypedLinkResponse
-</span><a href="#local-6989586621679348096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typedLinkSpecifier:AttachTypedLinkResponse' :: Maybe TypedLinkSpecifier
+</span><a href="#local-6989586621679348518"><span class="hs-identifier hs-var hs-var">typedLinkSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TypedLinkSpecifier
+</span><a href="#local-6989586621679348518"><span class="hs-identifier hs-var">typedLinkSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348517"><span class="annot"><span class="annottext">s :: AttachTypedLinkResponse
+</span><a href="#local-6989586621679348517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse%27"><span class="hs-identifier hs-type">AttachTypedLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348516"><span class="annot"><span class="annottext">Maybe TypedLinkSpecifier
+</span><a href="#local-6989586621679348516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachTypedLinkResponse
+</span><a href="#local-6989586621679348517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typedLinkSpecifier:AttachTypedLinkResponse' :: Maybe TypedLinkSpecifier
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#%24sel%3AtypedLinkSpecifier%3AAttachTypedLinkResponse%27"><span class="hs-identifier hs-var">typedLinkSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TypedLinkSpecifier
-</span><a href="#local-6989586621679348095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse"><span class="hs-identifier hs-type">AttachTypedLinkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse"><span class="hs-identifier hs-type">AttachTypedLinkResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-217"></span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#attachTypedLinkResponse_httpStatus"><span class="hs-identifier hs-type">attachTypedLinkResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse"><span class="hs-identifier hs-type">AttachTypedLinkResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -604,16 +604,16 @@ $sel:typedLinkSpecifier:AttachTypedLinkResponse' :: AttachTypedLinkResponse -&gt
 -&gt; (AttachTypedLinkResponse -&gt; Int -&gt; AttachTypedLinkResponse)
 -&gt; Lens AttachTypedLinkResponse AttachTypedLinkResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse%27"><span class="hs-identifier hs-type">AttachTypedLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348094"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse%27"><span class="hs-identifier hs-type">AttachTypedLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348515"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AttachTypedLinkResponse' :: AttachTypedLinkResponse -&gt; Int
-</span><a href="#local-6989586621679348094"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348094"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348093"><span class="annot"><span class="annottext">s :: AttachTypedLinkResponse
-</span><a href="#local-6989586621679348093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse%27"><span class="hs-identifier hs-type">AttachTypedLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348092"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachTypedLinkResponse
-</span><a href="#local-6989586621679348093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AttachTypedLinkResponse' :: Int
+</span><a href="#local-6989586621679348515"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348515"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348514"><span class="annot"><span class="annottext">s :: AttachTypedLinkResponse
+</span><a href="#local-6989586621679348514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse%27"><span class="hs-identifier hs-type">AttachTypedLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348513"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachTypedLinkResponse
+</span><a href="#local-6989586621679348514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AttachTypedLinkResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#%24sel%3AhttpStatus%3AAttachTypedLinkResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse"><span class="hs-identifier hs-type">AttachTypedLinkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse"><span class="hs-identifier hs-type">AttachTypedLinkResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348090"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse"><span class="hs-identifier hs-type">AttachTypedLinkResponse</span></a></span></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348511"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachTypedLink.html#AttachTypedLinkResponse"><span class="hs-identifier hs-type">AttachTypedLinkResponse</span></a></span></span><span>
 </span><span id="line-221"></span></pre></body></html>

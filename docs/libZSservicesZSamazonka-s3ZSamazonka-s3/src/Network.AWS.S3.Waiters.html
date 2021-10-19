@@ -23,93 +23,93 @@
 </span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Lens.html"><span class="hs-identifier">Network.AWS.S3.Lens</span></a></span><span>
 </span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-25"></span><span>
-</span><span id="line-26"></span><span class="hs-comment">-- | Polls 'Network.AWS.S3.HeadBucket' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.</span><span>
-</span><span id="line-27"></span><span class="annot"><a href="Network.AWS.S3.Waiters.html#newBucketNotExists"><span class="hs-identifier hs-type">newBucketNotExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-type">HeadBucket</span></a></span><span>
-</span><span id="line-28"></span><span id="newBucketNotExists"><span class="annot"><span class="annottext">newBucketNotExists :: Wait HeadBucket
-</span><a href="Network.AWS.S3.Waiters.html#newBucketNotExists"><span class="hs-identifier hs-var hs-var">newBucketNotExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Polls 'Network.AWS.S3.HeadObject' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.</span><span>
+</span><span id="line-27"></span><span class="annot"><a href="Network.AWS.S3.Waiters.html#newObjectNotExists"><span class="hs-identifier hs-type">newObjectNotExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadObject.html#HeadObject"><span class="hs-identifier hs-type">HeadObject</span></a></span><span>
+</span><span id="line-28"></span><span id="newObjectNotExists"><span class="annot"><span class="annottext">newObjectNotExists :: Wait HeadObject
+</span><a href="Network.AWS.S3.Waiters.html#newObjectNotExists"><span class="hs-identifier hs-var hs-var">newObjectNotExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-29"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
 </span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
 </span><span id="line-30"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
 </span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;BucketNotExists&quot;</span></span><span class="hs-special">,</span><span>
+</span><span class="hs-string">&quot;ObjectNotExists&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-31"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
 </span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">20</span></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
 </span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
 </span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor HeadBucket]
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor HeadObject]
 </span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-34"></span><span>        </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor HeadBucket
+</span><span id="line-34"></span><span>        </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor HeadObject
 forall a. Int -&gt; Accept -&gt; Acceptor a
 </span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">404</span></span><span> </span><span class="annot"><span class="annottext">Accept
 </span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span class="hs-special">]</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span class="hs-comment">-- | Polls 'Network.AWS.S3.HeadObject' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.</span><span>
-</span><span id="line-38"></span><span class="annot"><a href="Network.AWS.S3.Waiters.html#newObjectExists"><span class="hs-identifier hs-type">newObjectExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadObject.html#HeadObject"><span class="hs-identifier hs-type">HeadObject</span></a></span><span>
-</span><span id="line-39"></span><span id="newObjectExists"><span class="annot"><span class="annottext">newObjectExists :: Wait HeadObject
-</span><a href="Network.AWS.S3.Waiters.html#newObjectExists"><span class="hs-identifier hs-var hs-var">newObjectExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- | Polls 'Network.AWS.S3.HeadBucket' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.</span><span>
+</span><span id="line-38"></span><span class="annot"><a href="Network.AWS.S3.Waiters.html#newBucketExists"><span class="hs-identifier hs-type">newBucketExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-type">HeadBucket</span></a></span><span>
+</span><span id="line-39"></span><span id="newBucketExists"><span class="annot"><span class="annottext">newBucketExists :: Wait HeadBucket
+</span><a href="Network.AWS.S3.Waiters.html#newBucketExists"><span class="hs-identifier hs-var hs-var">newBucketExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-40"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
 </span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
 </span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;ObjectExists&quot;</span></span><span class="hs-special">,</span><span>
+</span><span class="hs-string">&quot;BucketExists&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
 </span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">20</span></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
 </span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
 </span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor HeadObject]
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor HeadBucket]
 </span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-45"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor HeadObject
+</span><span id="line-45"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor HeadBucket
 forall a. Int -&gt; Accept -&gt; Acceptor a
 </span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">200</span></span><span> </span><span class="annot"><span class="annottext">Accept
 </span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor HeadObject
-forall a. Int -&gt; Accept -&gt; Acceptor a
-</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">404</span></span><span> </span><span class="annot"><span class="annottext">Accept
-</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
-</span><span id="line-47"></span><span>        </span><span class="hs-special">]</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- | Polls 'Network.AWS.S3.HeadBucket' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.</span><span>
-</span><span id="line-51"></span><span class="annot"><a href="Network.AWS.S3.Waiters.html#newBucketExists"><span class="hs-identifier hs-type">newBucketExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-type">HeadBucket</span></a></span><span>
-</span><span id="line-52"></span><span id="newBucketExists"><span class="annot"><span class="annottext">newBucketExists :: Wait HeadBucket
-</span><a href="Network.AWS.S3.Waiters.html#newBucketExists"><span class="hs-identifier hs-var hs-var">newBucketExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
-</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
-</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;BucketExists&quot;</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
-</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">20</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
-</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
-</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor HeadBucket]
-</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-58"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor HeadBucket
-forall a. Int -&gt; Accept -&gt; Acceptor a
-</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">200</span></span><span> </span><span class="annot"><span class="annottext">Accept
-</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor HeadBucket
+</span><span id="line-46"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor HeadBucket
 forall a. Int -&gt; Accept -&gt; Acceptor a
 </span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">301</span></span><span> </span><span class="annot"><span class="annottext">Accept
 </span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor HeadBucket
+</span><span id="line-47"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor HeadBucket
 forall a. Int -&gt; Accept -&gt; Acceptor a
 </span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">403</span></span><span> </span><span class="annot"><span class="annottext">Accept
 </span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor HeadBucket
+</span><span id="line-48"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor HeadBucket
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">404</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span id="line-49"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | Polls 'Network.AWS.S3.HeadObject' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.S3.Waiters.html#newObjectExists"><span class="hs-identifier hs-type">newObjectExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadObject.html#HeadObject"><span class="hs-identifier hs-type">HeadObject</span></a></span><span>
+</span><span id="line-54"></span><span id="newObjectExists"><span class="annot"><span class="annottext">newObjectExists :: Wait HeadObject
+</span><a href="Network.AWS.S3.Waiters.html#newObjectExists"><span class="hs-identifier hs-var hs-var">newObjectExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ObjectExists&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">20</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor HeadObject]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor HeadObject
+forall a. Int -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">200</span></span><span> </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor HeadObject
 forall a. Int -&gt; Accept -&gt; Acceptor a
 </span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">404</span></span><span> </span><span class="annot"><span class="annottext">Accept
@@ -117,24 +117,24 @@ forall a. Int -&gt; Accept -&gt; Acceptor a
 </span><span id="line-62"></span><span>        </span><span class="hs-special">]</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | Polls 'Network.AWS.S3.HeadObject' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.S3.Waiters.html#newObjectNotExists"><span class="hs-identifier hs-type">newObjectNotExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadObject.html#HeadObject"><span class="hs-identifier hs-type">HeadObject</span></a></span><span>
-</span><span id="line-67"></span><span id="newObjectNotExists"><span class="annot"><span class="annottext">newObjectNotExists :: Wait HeadObject
-</span><a href="Network.AWS.S3.Waiters.html#newObjectNotExists"><span class="hs-identifier hs-var hs-var">newObjectNotExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | Polls 'Network.AWS.S3.HeadBucket' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.S3.Waiters.html#newBucketNotExists"><span class="hs-identifier hs-type">newBucketNotExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-type">HeadBucket</span></a></span><span>
+</span><span id="line-67"></span><span id="newBucketNotExists"><span class="annot"><span class="annottext">newBucketNotExists :: Wait HeadBucket
+</span><a href="Network.AWS.S3.Waiters.html#newBucketNotExists"><span class="hs-identifier hs-var hs-var">newBucketNotExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
 </span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
 </span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;ObjectNotExists&quot;</span></span><span class="hs-special">,</span><span>
+</span><span class="hs-string">&quot;BucketNotExists&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
 </span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">20</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
 </span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
 </span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor HeadObject]
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor HeadBucket]
 </span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>        </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor HeadObject
+</span><span id="line-73"></span><span>        </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Int -&gt; Accept -&gt; Acceptor HeadBucket
 forall a. Int -&gt; Accept -&gt; Acceptor a
 </span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">404</span></span><span> </span><span class="annot"><span class="annottext">Accept

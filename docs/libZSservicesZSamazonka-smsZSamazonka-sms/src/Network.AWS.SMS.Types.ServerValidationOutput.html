@@ -27,11 +27,11 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains output from validating an instance.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newServerValidationOutput' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679249551"><span id="local-6989586621679249552"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServerValidationOutput"><span class="annot"><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#ServerValidationOutput"><span class="hs-identifier hs-var">ServerValidationOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerValidationOutput%27"><span class="annot"><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#ServerValidationOutput%27"><span class="hs-identifier hs-var">ServerValidationOutput'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679249682"><span id="local-6989586621679249683"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServerValidationOutput"><span class="annot"><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#ServerValidationOutput"><span class="hs-identifier hs-var">ServerValidationOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerValidationOutput%27"><span class="annot"><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#ServerValidationOutput%27"><span class="hs-identifier hs-var">ServerValidationOutput'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Aserver%3AServerValidationOutput%27"><span class="annot"><span class="annottext">ServerValidationOutput -&gt; Maybe Server
 </span><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#%24sel%3Aserver%3AServerValidationOutput%27"><span class="hs-identifier hs-var hs-var">server</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249545"><span id="local-6989586621679249547"><span class="annot"><span class="annottext">ServerValidationOutput -&gt; ServerValidationOutput -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249676"><span id="local-6989586621679249678"><span class="annot"><span class="annottext">ServerValidationOutput -&gt; ServerValidationOutput -&gt; Bool
 (ServerValidationOutput -&gt; ServerValidationOutput -&gt; Bool)
 -&gt; (ServerValidationOutput -&gt; ServerValidationOutput -&gt; Bool)
 -&gt; Eq ServerValidationOutput
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ServerValidationOutput -&gt; ServerValidationOutput -&gt; Bool
 == :: ServerValidationOutput -&gt; ServerValidationOutput -&gt; Bool
 $c== :: ServerValidationOutput -&gt; ServerValidationOutput -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249536"><span id="local-6989586621679249538"><span id="local-6989586621679249540"><span id="local-6989586621679249542"><span class="annot"><span class="annottext">ReadPrec [ServerValidationOutput]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249667"><span id="local-6989586621679249669"><span id="local-6989586621679249671"><span id="local-6989586621679249673"><span class="annot"><span class="annottext">ReadPrec [ServerValidationOutput]
 ReadPrec ServerValidationOutput
 Int -&gt; ReadS ServerValidationOutput
 ReadS [ServerValidationOutput]
@@ -60,7 +60,7 @@ readList :: ReadS [ServerValidationOutput]
 $creadList :: ReadS [ServerValidationOutput]
 readsPrec :: Int -&gt; ReadS ServerValidationOutput
 $creadsPrec :: Int -&gt; ReadS ServerValidationOutput
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249529"><span id="local-6989586621679249531"><span id="local-6989586621679249533"><span class="annot"><span class="annottext">Int -&gt; ServerValidationOutput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249660"><span id="local-6989586621679249662"><span id="local-6989586621679249664"><span class="annot"><span class="annottext">Int -&gt; ServerValidationOutput -&gt; ShowS
 [ServerValidationOutput] -&gt; ShowS
 ServerValidationOutput -&gt; String
 (Int -&gt; ServerValidationOutput -&gt; ShowS)
@@ -119,19 +119,19 @@ forall a. Maybe a
      (Maybe Server)
      (Maybe Server)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#ServerValidationOutput%27"><span class="hs-identifier hs-type">ServerValidationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249520"><span class="annot"><span class="annottext">Maybe Server
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#ServerValidationOutput%27"><span class="hs-identifier hs-type">ServerValidationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249651"><span class="annot"><span class="annottext">Maybe Server
 server :: Maybe Server
 $sel:server:ServerValidationOutput' :: ServerValidationOutput -&gt; Maybe Server
-</span><a href="#local-6989586621679249520"><span class="hs-identifier hs-var hs-var">server</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Server
-</span><a href="#local-6989586621679249520"><span class="hs-identifier hs-var">server</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249519"><span class="annot"><span class="annottext">s :: ServerValidationOutput
-</span><a href="#local-6989586621679249519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#ServerValidationOutput%27"><span class="hs-identifier hs-type">ServerValidationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249518"><span class="annot"><span class="annottext">Maybe Server
-</span><a href="#local-6989586621679249518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerValidationOutput
-</span><a href="#local-6989586621679249519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:server:ServerValidationOutput' :: Maybe Server
+</span><a href="#local-6989586621679249651"><span class="hs-identifier hs-var hs-var">server</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Server
+</span><a href="#local-6989586621679249651"><span class="hs-identifier hs-var">server</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249650"><span class="annot"><span class="annottext">s :: ServerValidationOutput
+</span><a href="#local-6989586621679249650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#ServerValidationOutput%27"><span class="hs-identifier hs-type">ServerValidationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249649"><span class="annot"><span class="annottext">Maybe Server
+</span><a href="#local-6989586621679249649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerValidationOutput
+</span><a href="#local-6989586621679249650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:server:ServerValidationOutput' :: Maybe Server
 </span><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#%24sel%3Aserver%3AServerValidationOutput%27"><span class="hs-identifier hs-var">server</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Server
-</span><a href="#local-6989586621679249518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#ServerValidationOutput"><span class="hs-identifier hs-type">ServerValidationOutput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#ServerValidationOutput"><span class="hs-identifier hs-type">ServerValidationOutput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249515"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#ServerValidationOutput"><span class="hs-identifier hs-type">ServerValidationOutput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679249513"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServerValidationOutput
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249646"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#ServerValidationOutput"><span class="hs-identifier hs-type">ServerValidationOutput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679249644"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServerValidationOutput
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ServerValidationOutput)
@@ -141,21 +141,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ServerValidationOutput&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249510"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249510"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249641"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249641"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Server -&gt; ServerValidationOutput
 </span><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#ServerValidationOutput%27"><span class="hs-identifier hs-var">ServerValidationOutput'</span></a></span><span>
 </span><span id="line-59"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Server -&gt; ServerValidationOutput)
 -&gt; Parser (Maybe Server) -&gt; Parser ServerValidationOutput
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249510"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Server)
+</span><a href="#local-6989586621679249641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Server)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;server&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249504"><span id="local-6989586621679249506"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#ServerValidationOutput"><span class="hs-identifier hs-type">ServerValidationOutput</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249635"><span id="local-6989586621679249637"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#ServerValidationOutput"><span class="hs-identifier hs-type">ServerValidationOutput</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249501"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#ServerValidationOutput"><span class="hs-identifier hs-type">ServerValidationOutput</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249632"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerValidationOutput.html#ServerValidationOutput"><span class="hs-identifier hs-type">ServerValidationOutput</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

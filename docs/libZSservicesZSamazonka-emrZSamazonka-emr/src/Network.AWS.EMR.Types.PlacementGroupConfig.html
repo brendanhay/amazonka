@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- AmazonElasticMapReducePlacementGroupPolicy to the EMR role.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newPlacementGroupConfig' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679373560"><span id="local-6989586621679373561"></span></span><span class="hs-keyword">data</span><span> </span><span id="PlacementGroupConfig"><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig"><span class="hs-identifier hs-var">PlacementGroupConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlacementGroupConfig%27"><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig%27"><span class="hs-identifier hs-var">PlacementGroupConfig'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679373912"><span id="local-6989586621679373913"></span></span><span class="hs-keyword">data</span><span> </span><span id="PlacementGroupConfig"><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig"><span class="hs-identifier hs-var">PlacementGroupConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlacementGroupConfig%27"><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig%27"><span class="hs-identifier hs-var">PlacementGroupConfig'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | EC2 Placement Group strategy associated with instance role.</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Starting with Amazon EMR version 5.23.0, the only supported placement</span><span>
@@ -47,7 +47,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AinstanceRole%3APlacementGroupConfig%27"><span class="annot"><span class="annottext">PlacementGroupConfig -&gt; InstanceRoleType
 </span><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#%24sel%3AinstanceRole%3APlacementGroupConfig%27"><span class="hs-identifier hs-var hs-var">instanceRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceRoleType.html#InstanceRoleType"><span class="hs-identifier hs-type">InstanceRoleType</span></a></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373553"><span id="local-6989586621679373555"><span class="annot"><span class="annottext">PlacementGroupConfig -&gt; PlacementGroupConfig -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373905"><span id="local-6989586621679373907"><span class="annot"><span class="annottext">PlacementGroupConfig -&gt; PlacementGroupConfig -&gt; Bool
 (PlacementGroupConfig -&gt; PlacementGroupConfig -&gt; Bool)
 -&gt; (PlacementGroupConfig -&gt; PlacementGroupConfig -&gt; Bool)
 -&gt; Eq PlacementGroupConfig
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PlacementGroupConfig -&gt; PlacementGroupConfig -&gt; Bool
 == :: PlacementGroupConfig -&gt; PlacementGroupConfig -&gt; Bool
 $c== :: PlacementGroupConfig -&gt; PlacementGroupConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373544"><span id="local-6989586621679373546"><span id="local-6989586621679373548"><span id="local-6989586621679373550"><span class="annot"><span class="annottext">ReadPrec [PlacementGroupConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373896"><span id="local-6989586621679373898"><span id="local-6989586621679373900"><span id="local-6989586621679373902"><span class="annot"><span class="annottext">ReadPrec [PlacementGroupConfig]
 ReadPrec PlacementGroupConfig
 Int -&gt; ReadS PlacementGroupConfig
 ReadS [PlacementGroupConfig]
@@ -76,7 +76,7 @@ readList :: ReadS [PlacementGroupConfig]
 $creadList :: ReadS [PlacementGroupConfig]
 readsPrec :: Int -&gt; ReadS PlacementGroupConfig
 $creadsPrec :: Int -&gt; ReadS PlacementGroupConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373537"><span id="local-6989586621679373539"><span id="local-6989586621679373541"><span class="annot"><span class="annottext">Int -&gt; PlacementGroupConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373889"><span id="local-6989586621679373891"><span id="local-6989586621679373893"><span class="annot"><span class="annottext">Int -&gt; PlacementGroupConfig -&gt; ShowS
 [PlacementGroupConfig] -&gt; ShowS
 PlacementGroupConfig -&gt; String
 (Int -&gt; PlacementGroupConfig -&gt; ShowS)
@@ -124,8 +124,8 @@ $cfrom :: forall x. PlacementGroupConfig -&gt; Rep PlacementGroupConfig x
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceRoleType.html#InstanceRoleType"><span class="hs-identifier hs-type">InstanceRoleType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig"><span class="hs-identifier hs-type">PlacementGroupConfig</span></a></span><span>
 </span><span id="line-71"></span><span id="newPlacementGroupConfig"><span class="annot"><span class="annottext">newPlacementGroupConfig :: InstanceRoleType -&gt; PlacementGroupConfig
-</span><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#newPlacementGroupConfig"><span class="hs-identifier hs-var hs-var">newPlacementGroupConfig</span></a></span></span><span> </span><span id="local-6989586621679373531"><span class="annot"><span class="annottext">InstanceRoleType
-</span><a href="#local-6989586621679373531"><span class="hs-identifier hs-var">pInstanceRole_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#newPlacementGroupConfig"><span class="hs-identifier hs-var hs-var">newPlacementGroupConfig</span></a></span></span><span> </span><span id="local-6989586621679373883"><span class="annot"><span class="annottext">InstanceRoleType
+</span><a href="#local-6989586621679373883"><span class="hs-identifier hs-var">pInstanceRole_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">PlacementGroupConfig' :: Maybe PlacementGroupStrategy
 -&gt; InstanceRoleType -&gt; PlacementGroupConfig
 </span><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig%27"><span class="hs-identifier hs-type">PlacementGroupConfig'</span></a></span><span>
@@ -136,7 +136,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceRole:PlacementGroupConfig' :: InstanceRoleType
 </span><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#%24sel%3AinstanceRole%3APlacementGroupConfig%27"><span class="hs-identifier hs-var">instanceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InstanceRoleType
-</span><a href="#local-6989586621679373531"><span class="hs-identifier hs-var">pInstanceRole_</span></a></span><span>
+</span><a href="#local-6989586621679373883"><span class="hs-identifier hs-var">pInstanceRole_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | EC2 Placement Group strategy associated with instance role.</span><span>
@@ -155,16 +155,16 @@ forall a. Maybe a
      (Maybe PlacementGroupStrategy)
      (Maybe PlacementGroupStrategy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig%27"><span class="hs-identifier hs-type">PlacementGroupConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373527"><span class="annot"><span class="annottext">Maybe PlacementGroupStrategy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig%27"><span class="hs-identifier hs-type">PlacementGroupConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373879"><span class="annot"><span class="annottext">Maybe PlacementGroupStrategy
 placementStrategy :: Maybe PlacementGroupStrategy
 $sel:placementStrategy:PlacementGroupConfig' :: PlacementGroupConfig -&gt; Maybe PlacementGroupStrategy
-</span><a href="#local-6989586621679373527"><span class="hs-identifier hs-var hs-var">placementStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementGroupStrategy
-</span><a href="#local-6989586621679373527"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373526"><span class="annot"><span class="annottext">s :: PlacementGroupConfig
-</span><a href="#local-6989586621679373526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig%27"><span class="hs-identifier hs-type">PlacementGroupConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373525"><span class="annot"><span class="annottext">Maybe PlacementGroupStrategy
-</span><a href="#local-6989586621679373525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementGroupConfig
-</span><a href="#local-6989586621679373526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementStrategy:PlacementGroupConfig' :: Maybe PlacementGroupStrategy
+</span><a href="#local-6989586621679373879"><span class="hs-identifier hs-var hs-var">placementStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementGroupStrategy
+</span><a href="#local-6989586621679373879"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373878"><span class="annot"><span class="annottext">s :: PlacementGroupConfig
+</span><a href="#local-6989586621679373878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig%27"><span class="hs-identifier hs-type">PlacementGroupConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373877"><span class="annot"><span class="annottext">Maybe PlacementGroupStrategy
+</span><a href="#local-6989586621679373877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementGroupConfig
+</span><a href="#local-6989586621679373878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementStrategy:PlacementGroupConfig' :: Maybe PlacementGroupStrategy
 </span><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#%24sel%3AplacementStrategy%3APlacementGroupConfig%27"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementGroupStrategy
-</span><a href="#local-6989586621679373525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig"><span class="hs-identifier hs-type">PlacementGroupConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig"><span class="hs-identifier hs-type">PlacementGroupConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | Role of the instance in the cluster.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
@@ -182,19 +182,19 @@ $sel:placementStrategy:PlacementGroupConfig' :: PlacementGroupConfig -&gt; Maybe
      InstanceRoleType
      InstanceRoleType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig%27"><span class="hs-identifier hs-type">PlacementGroupConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373523"><span class="annot"><span class="annottext">InstanceRoleType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig%27"><span class="hs-identifier hs-type">PlacementGroupConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373875"><span class="annot"><span class="annottext">InstanceRoleType
 instanceRole :: InstanceRoleType
 $sel:instanceRole:PlacementGroupConfig' :: PlacementGroupConfig -&gt; InstanceRoleType
-</span><a href="#local-6989586621679373523"><span class="hs-identifier hs-var hs-var">instanceRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRoleType
-</span><a href="#local-6989586621679373523"><span class="hs-identifier hs-var">instanceRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373522"><span class="annot"><span class="annottext">s :: PlacementGroupConfig
-</span><a href="#local-6989586621679373522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig%27"><span class="hs-identifier hs-type">PlacementGroupConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373521"><span class="annot"><span class="annottext">InstanceRoleType
-</span><a href="#local-6989586621679373521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementGroupConfig
-</span><a href="#local-6989586621679373522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceRole:PlacementGroupConfig' :: InstanceRoleType
+</span><a href="#local-6989586621679373875"><span class="hs-identifier hs-var hs-var">instanceRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRoleType
+</span><a href="#local-6989586621679373875"><span class="hs-identifier hs-var">instanceRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373874"><span class="annot"><span class="annottext">s :: PlacementGroupConfig
+</span><a href="#local-6989586621679373874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig%27"><span class="hs-identifier hs-type">PlacementGroupConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373873"><span class="annot"><span class="annottext">InstanceRoleType
+</span><a href="#local-6989586621679373873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementGroupConfig
+</span><a href="#local-6989586621679373874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceRole:PlacementGroupConfig' :: InstanceRoleType
 </span><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#%24sel%3AinstanceRole%3APlacementGroupConfig%27"><span class="hs-identifier hs-var">instanceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InstanceRoleType
-</span><a href="#local-6989586621679373521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig"><span class="hs-identifier hs-type">PlacementGroupConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig"><span class="hs-identifier hs-type">PlacementGroupConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373518"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig"><span class="hs-identifier hs-type">PlacementGroupConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679373516"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PlacementGroupConfig
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373870"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig"><span class="hs-identifier hs-type">PlacementGroupConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679373868"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PlacementGroupConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PlacementGroupConfig)
@@ -204,8 +204,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PlacementGroupConfig&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373513"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373513"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373865"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373865"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe PlacementGroupStrategy
 -&gt; InstanceRoleType -&gt; PlacementGroupConfig
 </span><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig%27"><span class="hs-identifier hs-var">PlacementGroupConfig'</span></a></span><span>
@@ -215,7 +215,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (InstanceRoleType -&gt; PlacementGroupConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PlacementGroupStrategy)
+</span><a href="#local-6989586621679373865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PlacementGroupStrategy)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlacementStrategy&quot;</span></span><span class="hs-special">)</span><span>
@@ -223,25 +223,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser InstanceRoleType -&gt; Parser PlacementGroupConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser InstanceRoleType
+</span><a href="#local-6989586621679373865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser InstanceRoleType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceRole&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373506"><span id="local-6989586621679373508"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig"><span class="hs-identifier hs-type">PlacementGroupConfig</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373858"><span id="local-6989586621679373860"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig"><span class="hs-identifier hs-type">PlacementGroupConfig</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig"><span class="hs-identifier hs-type">PlacementGroupConfig</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373855"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig"><span class="hs-identifier hs-type">PlacementGroupConfig</span></a></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373495"><span id="local-6989586621679373497"><span id="local-6989586621679373499"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig"><span class="hs-identifier hs-type">PlacementGroupConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679373493"><span class="annot"><span class="annottext">toJSON :: PlacementGroupConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig%27"><span class="hs-identifier hs-type">PlacementGroupConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373490"><span id="local-6989586621679373491"><span class="annot"><span class="annottext">Maybe PlacementGroupStrategy
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373847"><span id="local-6989586621679373849"><span id="local-6989586621679373851"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig"><span class="hs-identifier hs-type">PlacementGroupConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679373845"><span class="annot"><span class="annottext">toJSON :: PlacementGroupConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PlacementGroupConfig.html#PlacementGroupConfig%27"><span class="hs-identifier hs-type">PlacementGroupConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373842"><span id="local-6989586621679373843"><span class="annot"><span class="annottext">Maybe PlacementGroupStrategy
 InstanceRoleType
 instanceRole :: InstanceRoleType
 placementStrategy :: Maybe PlacementGroupStrategy
 $sel:instanceRole:PlacementGroupConfig' :: PlacementGroupConfig -&gt; InstanceRoleType
 $sel:placementStrategy:PlacementGroupConfig' :: PlacementGroupConfig -&gt; Maybe PlacementGroupStrategy
-</span><a href="#local-6989586621679373490"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679373842"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -255,14 +255,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe PlacementGroupStrategy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PlacementGroupStrategy
-</span><a href="#local-6989586621679373491"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373843"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InstanceRoleType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">InstanceRoleType
-</span><a href="#local-6989586621679373490"><span class="hs-identifier hs-var">instanceRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373842"><span class="hs-identifier hs-var">instanceRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span></pre></body></html>

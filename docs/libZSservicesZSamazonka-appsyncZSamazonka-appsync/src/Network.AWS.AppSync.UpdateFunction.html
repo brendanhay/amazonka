@@ -27,10 +27,10 @@
 </span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#newUpdateFunction"><span class="hs-identifier">newUpdateFunction</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_responseMappingTemplate"><span class="hs-identifier">updateFunction_responseMappingTemplate</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_syncConfig"><span class="hs-identifier">updateFunction_syncConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_description"><span class="hs-identifier">updateFunction_description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_requestMappingTemplate"><span class="hs-identifier">updateFunction_requestMappingTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_requestMappingTemplate"><span class="hs-identifier">updateFunction_requestMappingTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_responseMappingTemplate"><span class="hs-identifier">updateFunction_responseMappingTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_syncConfig"><span class="hs-identifier">updateFunction_syncConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_description"><span class="hs-identifier">updateFunction_description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_apiId"><span class="hs-identifier">updateFunction_apiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_name"><span class="hs-identifier">updateFunction_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_functionId"><span class="hs-identifier">updateFunction_functionId</span></a></span><span class="hs-special">,</span><span>
@@ -55,19 +55,19 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newUpdateFunction' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679262021"><span id="local-6989586621679262022"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFunction"><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-var">UpdateFunction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFunction%27"><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-var">UpdateFunction'</span></a></span></span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @Function@ request mapping template.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AresponseMappingTemplate%3AUpdateFunction%27"><span class="annot"><span class="annottext">UpdateFunction -&gt; Maybe Text
-</span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AresponseMappingTemplate%3AUpdateFunction%27"><span class="hs-identifier hs-var hs-var">responseMappingTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AsyncConfig%3AUpdateFunction%27"><span class="annot"><span class="annottext">UpdateFunction -&gt; Maybe SyncConfig
-</span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AsyncConfig%3AUpdateFunction%27"><span class="hs-identifier hs-var hs-var">syncConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The @Function@ description.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateFunction%27"><span class="annot"><span class="annottext">UpdateFunction -&gt; Maybe Text
-</span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3Adescription%3AUpdateFunction%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The @Function@ request mapping template. Functions support only the</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- 2018-05-29 version of the request mapping template.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3ArequestMappingTemplate%3AUpdateFunction%27"><span class="annot"><span class="annottext">UpdateFunction -&gt; Maybe Text
+</span><span id="line-58"></span><span id="local-6989586621679262112"><span id="local-6989586621679262113"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFunction"><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-var">UpdateFunction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFunction%27"><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-var">UpdateFunction'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @Function@ request mapping template. Functions support only the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- 2018-05-29 version of the request mapping template.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3ArequestMappingTemplate%3AUpdateFunction%27"><span class="annot"><span class="annottext">UpdateFunction -&gt; Maybe Text
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3ArequestMappingTemplate%3AUpdateFunction%27"><span class="hs-identifier hs-var hs-var">requestMappingTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The @Function@ request mapping template.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AresponseMappingTemplate%3AUpdateFunction%27"><span class="annot"><span class="annottext">UpdateFunction -&gt; Maybe Text
+</span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AresponseMappingTemplate%3AUpdateFunction%27"><span class="hs-identifier hs-var hs-var">responseMappingTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AsyncConfig%3AUpdateFunction%27"><span class="annot"><span class="annottext">UpdateFunction -&gt; Maybe SyncConfig
+</span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AsyncConfig%3AUpdateFunction%27"><span class="hs-identifier hs-var hs-var">syncConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The @Function@ description.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateFunction%27"><span class="annot"><span class="annottext">UpdateFunction -&gt; Maybe Text
+</span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3Adescription%3AUpdateFunction%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The GraphQL API ID.</span><span>
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AapiId%3AUpdateFunction%27"><span class="annot"><span class="annottext">UpdateFunction -&gt; Text
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AapiId%3AUpdateFunction%27"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -85,7 +85,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3AfunctionVersion%3AUpdateFunction%27"><span class="annot"><span class="annottext">UpdateFunction -&gt; Text
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AfunctionVersion%3AUpdateFunction%27"><span class="hs-identifier hs-var hs-var">functionVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262007"><span id="local-6989586621679262009"><span class="annot"><span class="annottext">UpdateFunction -&gt; UpdateFunction -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262098"><span id="local-6989586621679262100"><span class="annot"><span class="annottext">UpdateFunction -&gt; UpdateFunction -&gt; Bool
 (UpdateFunction -&gt; UpdateFunction -&gt; Bool)
 -&gt; (UpdateFunction -&gt; UpdateFunction -&gt; Bool) -&gt; Eq UpdateFunction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateFunction -&gt; UpdateFunction -&gt; Bool
 == :: UpdateFunction -&gt; UpdateFunction -&gt; Bool
 $c== :: UpdateFunction -&gt; UpdateFunction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261998"><span id="local-6989586621679262000"><span id="local-6989586621679262002"><span id="local-6989586621679262004"><span class="annot"><span class="annottext">ReadPrec [UpdateFunction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262089"><span id="local-6989586621679262091"><span id="local-6989586621679262093"><span id="local-6989586621679262095"><span class="annot"><span class="annottext">ReadPrec [UpdateFunction]
 ReadPrec UpdateFunction
 Int -&gt; ReadS UpdateFunction
 ReadS [UpdateFunction]
@@ -113,7 +113,7 @@ readList :: ReadS [UpdateFunction]
 $creadList :: ReadS [UpdateFunction]
 readsPrec :: Int -&gt; ReadS UpdateFunction
 $creadsPrec :: Int -&gt; ReadS UpdateFunction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261991"><span id="local-6989586621679261993"><span id="local-6989586621679261995"><span class="annot"><span class="annottext">Int -&gt; UpdateFunction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262082"><span id="local-6989586621679262084"><span id="local-6989586621679262086"><span class="annot"><span class="annottext">Int -&gt; UpdateFunction -&gt; ShowS
 [UpdateFunction] -&gt; ShowS
 UpdateFunction -&gt; String
 (Int -&gt; UpdateFunction -&gt; ShowS)
@@ -147,14 +147,14 @@ $cfrom :: forall x. UpdateFunction -&gt; Rep UpdateFunction x
 </span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'responseMappingTemplate', 'updateFunction_responseMappingTemplate' - The @Function@ request mapping template.</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'syncConfig', 'updateFunction_syncConfig' - Undocumented member.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'description', 'updateFunction_description' - The @Function@ description.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'requestMappingTemplate', 'updateFunction_requestMappingTemplate' - The @Function@ request mapping template. Functions support only the</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 2018-05-29 version of the request mapping template.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'requestMappingTemplate', 'updateFunction_requestMappingTemplate' - The @Function@ request mapping template. Functions support only the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 2018-05-29 version of the request mapping template.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'responseMappingTemplate', 'updateFunction_responseMappingTemplate' - The @Function@ request mapping template.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'syncConfig', 'updateFunction_syncConfig' - Undocumented member.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'description', 'updateFunction_description' - The @Function@ description.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- 'apiId', 'updateFunction_apiId' - The GraphQL API ID.</span><span>
 </span><span id="line-99"></span><span class="hs-comment">--</span><span>
@@ -180,19 +180,19 @@ $cfrom :: forall x. UpdateFunction -&gt; Rep UpdateFunction x
 </span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span>
 </span><span id="line-120"></span><span id="newUpdateFunction"><span class="annot"><span class="annottext">newUpdateFunction :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; UpdateFunction
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#newUpdateFunction"><span class="hs-identifier hs-var hs-var">newUpdateFunction</span></a></span></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679261986"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261986"><span class="hs-identifier hs-var">pApiId_</span></a></span></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679261985"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261985"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679261984"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261984"><span class="hs-identifier hs-var">pFunctionId_</span></a></span></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679261983"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261983"><span class="hs-identifier hs-var">pDataSourceName_</span></a></span></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679261982"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261982"><span class="hs-identifier hs-var">pFunctionVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679262077"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262077"><span class="hs-identifier hs-var">pApiId_</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679262076"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262076"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679262075"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262075"><span class="hs-identifier hs-var">pFunctionId_</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679262074"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262074"><span class="hs-identifier hs-var">pDataSourceName_</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679262073"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">pFunctionVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">UpdateFunction' :: Maybe Text
--&gt; Maybe SyncConfig
 -&gt; Maybe Text
+-&gt; Maybe SyncConfig
 -&gt; Maybe Text
 -&gt; Text
 -&gt; Text
@@ -201,117 +201,117 @@ $cfrom :: forall x. UpdateFunction -&gt; Rep UpdateFunction x
 -&gt; Text
 -&gt; UpdateFunction
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:responseMappingTemplate:UpdateFunction' :: Maybe Text
-</span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AresponseMappingTemplate%3AUpdateFunction%27"><span class="hs-identifier hs-var">responseMappingTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestMappingTemplate:UpdateFunction' :: Maybe Text
+</span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3ArequestMappingTemplate%3AUpdateFunction%27"><span class="hs-identifier hs-var">requestMappingTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:syncConfig:UpdateFunction' :: Maybe SyncConfig
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:responseMappingTemplate:UpdateFunction' :: Maybe Text
+</span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AresponseMappingTemplate%3AUpdateFunction%27"><span class="hs-identifier hs-var">responseMappingTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:syncConfig:UpdateFunction' :: Maybe SyncConfig
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AsyncConfig%3AUpdateFunction%27"><span class="hs-identifier hs-var">syncConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SyncConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:UpdateFunction' :: Maybe Text
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:UpdateFunction' :: Maybe Text
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3Adescription%3AUpdateFunction%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:requestMappingTemplate:UpdateFunction' :: Maybe Text
-</span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3ArequestMappingTemplate%3AUpdateFunction%27"><span class="hs-identifier hs-var">requestMappingTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">$sel:apiId:UpdateFunction' :: Text
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AapiId%3AUpdateFunction%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261986"><span class="hs-identifier hs-var">pApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262077"><span class="hs-identifier hs-var">pApiId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:UpdateFunction' :: Text
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3Aname%3AUpdateFunction%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261985"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262076"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">$sel:functionId:UpdateFunction' :: Text
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AfunctionId%3AUpdateFunction%27"><span class="hs-identifier hs-var">functionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261984"><span class="hs-identifier hs-var">pFunctionId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262075"><span class="hs-identifier hs-var">pFunctionId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSourceName:UpdateFunction' :: Text
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AdataSourceName%3AUpdateFunction%27"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261983"><span class="hs-identifier hs-var">pDataSourceName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262074"><span class="hs-identifier hs-var">pDataSourceName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:functionVersion:UpdateFunction' :: Text
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AfunctionVersion%3AUpdateFunction%27"><span class="hs-identifier hs-var">functionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261982"><span class="hs-identifier hs-var">pFunctionVersion_</span></a></span><span>
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">pFunctionVersion_</span></a></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | The @Function@ request mapping template.</span><span>
-</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_responseMappingTemplate"><span class="hs-identifier hs-type">updateFunction_responseMappingTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span id="updateFunction_responseMappingTemplate"><span class="annot"><span class="annottext">updateFunction_responseMappingTemplate :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-139"></span><span class="hs-comment">-- | The @Function@ request mapping template. Functions support only the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 2018-05-29 version of the request mapping template.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_requestMappingTemplate"><span class="hs-identifier hs-type">updateFunction_requestMappingTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="updateFunction_requestMappingTemplate"><span class="annot"><span class="annottext">updateFunction_requestMappingTemplate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFunction -&gt; f UpdateFunction
+</span><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_requestMappingTemplate"><span class="hs-identifier hs-var hs-var">updateFunction_requestMappingTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFunction -&gt; Maybe Text)
+-&gt; (UpdateFunction -&gt; Maybe Text -&gt; UpdateFunction)
+-&gt; Lens UpdateFunction UpdateFunction (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262070"><span class="annot"><span class="annottext">Maybe Text
+requestMappingTemplate :: Maybe Text
+$sel:requestMappingTemplate:UpdateFunction' :: UpdateFunction -&gt; Maybe Text
+</span><a href="#local-6989586621679262070"><span class="hs-identifier hs-var hs-var">requestMappingTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262070"><span class="hs-identifier hs-var">requestMappingTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262069"><span class="annot"><span class="annottext">s :: UpdateFunction
+</span><a href="#local-6989586621679262069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262068"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunction
+</span><a href="#local-6989586621679262069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestMappingTemplate:UpdateFunction' :: Maybe Text
+</span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3ArequestMappingTemplate%3AUpdateFunction%27"><span class="hs-identifier hs-var">requestMappingTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The @Function@ request mapping template.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_responseMappingTemplate"><span class="hs-identifier hs-type">updateFunction_responseMappingTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="updateFunction_responseMappingTemplate"><span class="annot"><span class="annottext">updateFunction_responseMappingTemplate :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UpdateFunction -&gt; f UpdateFunction
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_responseMappingTemplate"><span class="hs-identifier hs-var hs-var">updateFunction_responseMappingTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFunction -&gt; Maybe Text)
 -&gt; (UpdateFunction -&gt; Maybe Text -&gt; UpdateFunction)
 -&gt; Lens UpdateFunction UpdateFunction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261979"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262067"><span class="annot"><span class="annottext">Maybe Text
 responseMappingTemplate :: Maybe Text
 $sel:responseMappingTemplate:UpdateFunction' :: UpdateFunction -&gt; Maybe Text
-</span><a href="#local-6989586621679261979"><span class="hs-identifier hs-var hs-var">responseMappingTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261979"><span class="hs-identifier hs-var">responseMappingTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261978"><span class="annot"><span class="annottext">s :: UpdateFunction
-</span><a href="#local-6989586621679261978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261977"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunction
-</span><a href="#local-6989586621679261978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseMappingTemplate:UpdateFunction' :: Maybe Text
+</span><a href="#local-6989586621679262067"><span class="hs-identifier hs-var hs-var">responseMappingTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262067"><span class="hs-identifier hs-var">responseMappingTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262066"><span class="annot"><span class="annottext">s :: UpdateFunction
+</span><a href="#local-6989586621679262066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262065"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunction
+</span><a href="#local-6989586621679262066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseMappingTemplate:UpdateFunction' :: Maybe Text
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AresponseMappingTemplate%3AUpdateFunction%27"><span class="hs-identifier hs-var">responseMappingTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_syncConfig"><span class="hs-identifier hs-type">updateFunction_syncConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span id="updateFunction_syncConfig"><span class="annot"><span class="annottext">updateFunction_syncConfig :: (Maybe SyncConfig -&gt; f (Maybe SyncConfig))
+</span><a href="#local-6989586621679262065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_syncConfig"><span class="hs-identifier hs-type">updateFunction_syncConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="updateFunction_syncConfig"><span class="annot"><span class="annottext">updateFunction_syncConfig :: (Maybe SyncConfig -&gt; f (Maybe SyncConfig))
 -&gt; UpdateFunction -&gt; f UpdateFunction
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_syncConfig"><span class="hs-identifier hs-var hs-var">updateFunction_syncConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFunction -&gt; Maybe SyncConfig)
 -&gt; (UpdateFunction -&gt; Maybe SyncConfig -&gt; UpdateFunction)
 -&gt; Lens
      UpdateFunction UpdateFunction (Maybe SyncConfig) (Maybe SyncConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261976"><span class="annot"><span class="annottext">Maybe SyncConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262064"><span class="annot"><span class="annottext">Maybe SyncConfig
 syncConfig :: Maybe SyncConfig
 $sel:syncConfig:UpdateFunction' :: UpdateFunction -&gt; Maybe SyncConfig
-</span><a href="#local-6989586621679261976"><span class="hs-identifier hs-var hs-var">syncConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SyncConfig
-</span><a href="#local-6989586621679261976"><span class="hs-identifier hs-var">syncConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261975"><span class="annot"><span class="annottext">s :: UpdateFunction
-</span><a href="#local-6989586621679261975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261974"><span class="annot"><span class="annottext">Maybe SyncConfig
-</span><a href="#local-6989586621679261974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunction
-</span><a href="#local-6989586621679261975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:syncConfig:UpdateFunction' :: Maybe SyncConfig
+</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var hs-var">syncConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SyncConfig
+</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">syncConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262063"><span class="annot"><span class="annottext">s :: UpdateFunction
+</span><a href="#local-6989586621679262063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262062"><span class="annot"><span class="annottext">Maybe SyncConfig
+</span><a href="#local-6989586621679262062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunction
+</span><a href="#local-6989586621679262063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:syncConfig:UpdateFunction' :: Maybe SyncConfig
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AsyncConfig%3AUpdateFunction%27"><span class="hs-identifier hs-var">syncConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SyncConfig
-</span><a href="#local-6989586621679261974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- | The @Function@ description.</span><span>
-</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_description"><span class="hs-identifier hs-type">updateFunction_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span id="updateFunction_description"><span class="annot"><span class="annottext">updateFunction_description :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679262062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The @Function@ description.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_description"><span class="hs-identifier hs-type">updateFunction_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="updateFunction_description"><span class="annot"><span class="annottext">updateFunction_description :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UpdateFunction -&gt; f UpdateFunction
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_description"><span class="hs-identifier hs-var hs-var">updateFunction_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFunction -&gt; Maybe Text)
 -&gt; (UpdateFunction -&gt; Maybe Text -&gt; UpdateFunction)
 -&gt; Lens UpdateFunction UpdateFunction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261973"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262061"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:UpdateFunction' :: UpdateFunction -&gt; Maybe Text
-</span><a href="#local-6989586621679261973"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261973"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261972"><span class="annot"><span class="annottext">s :: UpdateFunction
-</span><a href="#local-6989586621679261972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261971"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunction
-</span><a href="#local-6989586621679261972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateFunction' :: Maybe Text
+</span><a href="#local-6989586621679262061"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262061"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262060"><span class="annot"><span class="annottext">s :: UpdateFunction
+</span><a href="#local-6989586621679262060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262059"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunction
+</span><a href="#local-6989586621679262060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateFunction' :: Maybe Text
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3Adescription%3AUpdateFunction%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- | The @Function@ request mapping template. Functions support only the</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- 2018-05-29 version of the request mapping template.</span><span>
-</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_requestMappingTemplate"><span class="hs-identifier hs-type">updateFunction_requestMappingTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span id="updateFunction_requestMappingTemplate"><span class="annot"><span class="annottext">updateFunction_requestMappingTemplate :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UpdateFunction -&gt; f UpdateFunction
-</span><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_requestMappingTemplate"><span class="hs-identifier hs-var hs-var">updateFunction_requestMappingTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFunction -&gt; Maybe Text)
--&gt; (UpdateFunction -&gt; Maybe Text -&gt; UpdateFunction)
--&gt; Lens UpdateFunction UpdateFunction (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261970"><span class="annot"><span class="annottext">Maybe Text
-requestMappingTemplate :: Maybe Text
-$sel:requestMappingTemplate:UpdateFunction' :: UpdateFunction -&gt; Maybe Text
-</span><a href="#local-6989586621679261970"><span class="hs-identifier hs-var hs-var">requestMappingTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261970"><span class="hs-identifier hs-var">requestMappingTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261969"><span class="annot"><span class="annottext">s :: UpdateFunction
-</span><a href="#local-6989586621679261969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261968"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunction
-</span><a href="#local-6989586621679261969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestMappingTemplate:UpdateFunction' :: Maybe Text
-</span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3ArequestMappingTemplate%3AUpdateFunction%27"><span class="hs-identifier hs-var">requestMappingTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The GraphQL API ID.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_apiId"><span class="hs-identifier hs-type">updateFunction_apiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -320,16 +320,16 @@ $sel:requestMappingTemplate:UpdateFunction' :: UpdateFunction -&gt; Maybe Text
 -&gt; (UpdateFunction -&gt; Text -&gt; UpdateFunction)
 -&gt; Lens UpdateFunction UpdateFunction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261967"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262058"><span class="annot"><span class="annottext">Text
 apiId :: Text
 $sel:apiId:UpdateFunction' :: UpdateFunction -&gt; Text
-</span><a href="#local-6989586621679261967"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261967"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261966"><span class="annot"><span class="annottext">s :: UpdateFunction
-</span><a href="#local-6989586621679261966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261965"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunction
-</span><a href="#local-6989586621679261966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:UpdateFunction' :: Text
+</span><a href="#local-6989586621679262058"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262058"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262057"><span class="annot"><span class="annottext">s :: UpdateFunction
+</span><a href="#local-6989586621679262057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262056"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunction
+</span><a href="#local-6989586621679262057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:UpdateFunction' :: Text
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AapiId%3AUpdateFunction%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The @Function@ name.</span><span>
 </span><span id="line-161"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_name"><span class="hs-identifier hs-type">updateFunction_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -338,16 +338,16 @@ $sel:apiId:UpdateFunction' :: UpdateFunction -&gt; Text
 -&gt; (UpdateFunction -&gt; Text -&gt; UpdateFunction)
 -&gt; Lens UpdateFunction UpdateFunction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261964"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262055"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:UpdateFunction' :: UpdateFunction -&gt; Text
-</span><a href="#local-6989586621679261964"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261964"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261963"><span class="annot"><span class="annottext">s :: UpdateFunction
-</span><a href="#local-6989586621679261963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261962"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunction
-</span><a href="#local-6989586621679261963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateFunction' :: Text
+</span><a href="#local-6989586621679262055"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262055"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262054"><span class="annot"><span class="annottext">s :: UpdateFunction
+</span><a href="#local-6989586621679262054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262053"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunction
+</span><a href="#local-6989586621679262054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateFunction' :: Text
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3Aname%3AUpdateFunction%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The function ID.</span><span>
 </span><span id="line-165"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_functionId"><span class="hs-identifier hs-type">updateFunction_functionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -356,16 +356,16 @@ $sel:name:UpdateFunction' :: UpdateFunction -&gt; Text
 -&gt; (UpdateFunction -&gt; Text -&gt; UpdateFunction)
 -&gt; Lens UpdateFunction UpdateFunction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261961"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262052"><span class="annot"><span class="annottext">Text
 functionId :: Text
 $sel:functionId:UpdateFunction' :: UpdateFunction -&gt; Text
-</span><a href="#local-6989586621679261961"><span class="hs-identifier hs-var hs-var">functionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261961"><span class="hs-identifier hs-var">functionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261960"><span class="annot"><span class="annottext">s :: UpdateFunction
-</span><a href="#local-6989586621679261960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261959"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunction
-</span><a href="#local-6989586621679261960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionId:UpdateFunction' :: Text
+</span><a href="#local-6989586621679262052"><span class="hs-identifier hs-var hs-var">functionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262052"><span class="hs-identifier hs-var">functionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262051"><span class="annot"><span class="annottext">s :: UpdateFunction
+</span><a href="#local-6989586621679262051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262050"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunction
+</span><a href="#local-6989586621679262051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionId:UpdateFunction' :: Text
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AfunctionId%3AUpdateFunction%27"><span class="hs-identifier hs-var">functionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The @Function@ @DataSource@ name.</span><span>
 </span><span id="line-169"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunction_dataSourceName"><span class="hs-identifier hs-type">updateFunction_dataSourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -374,16 +374,16 @@ $sel:functionId:UpdateFunction' :: UpdateFunction -&gt; Text
 -&gt; (UpdateFunction -&gt; Text -&gt; UpdateFunction)
 -&gt; Lens UpdateFunction UpdateFunction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261958"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262049"><span class="annot"><span class="annottext">Text
 dataSourceName :: Text
 $sel:dataSourceName:UpdateFunction' :: UpdateFunction -&gt; Text
-</span><a href="#local-6989586621679261958"><span class="hs-identifier hs-var hs-var">dataSourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261958"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261957"><span class="annot"><span class="annottext">s :: UpdateFunction
-</span><a href="#local-6989586621679261957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261956"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunction
-</span><a href="#local-6989586621679261957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceName:UpdateFunction' :: Text
+</span><a href="#local-6989586621679262049"><span class="hs-identifier hs-var hs-var">dataSourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262049"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262048"><span class="annot"><span class="annottext">s :: UpdateFunction
+</span><a href="#local-6989586621679262048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262047"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunction
+</span><a href="#local-6989586621679262048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceName:UpdateFunction' :: Text
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AdataSourceName%3AUpdateFunction%27"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The @version@ of the request mapping template. Currently the supported</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- value is 2018-05-29.</span><span>
@@ -393,27 +393,27 @@ $sel:dataSourceName:UpdateFunction' :: UpdateFunction -&gt; Text
 -&gt; (UpdateFunction -&gt; Text -&gt; UpdateFunction)
 -&gt; Lens UpdateFunction UpdateFunction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261955"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262046"><span class="annot"><span class="annottext">Text
 functionVersion :: Text
 $sel:functionVersion:UpdateFunction' :: UpdateFunction -&gt; Text
-</span><a href="#local-6989586621679261955"><span class="hs-identifier hs-var hs-var">functionVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261955"><span class="hs-identifier hs-var">functionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261954"><span class="annot"><span class="annottext">s :: UpdateFunction
-</span><a href="#local-6989586621679261954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261953"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunction
-</span><a href="#local-6989586621679261954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionVersion:UpdateFunction' :: Text
+</span><a href="#local-6989586621679262046"><span class="hs-identifier hs-var hs-var">functionVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262046"><span class="hs-identifier hs-var">functionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262045"><span class="annot"><span class="annottext">s :: UpdateFunction
+</span><a href="#local-6989586621679262045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262044"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunction
+</span><a href="#local-6989586621679262045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionVersion:UpdateFunction' :: Text
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AfunctionVersion%3AUpdateFunction%27"><span class="hs-identifier hs-var">functionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-178"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-179"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>      </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse"><span class="hs-identifier hs-type">UpdateFunctionResponse</span></a></span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679261949"><span class="annot"><span class="annottext">request :: UpdateFunction -&gt; Request UpdateFunction
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679262040"><span class="annot"><span class="annottext">request :: UpdateFunction -&gt; Request UpdateFunction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateFunction -&gt; Request UpdateFunction
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679261945"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679262036"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateFunction
 -&gt; ClientResponse ClientBody
@@ -437,10 +437,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679261942"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261942"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679261941"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679261941"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679261940"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261940"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262033"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262033"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679262032"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679262032"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679262031"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262031"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">Maybe FunctionConfiguration -&gt; Int -&gt; UpdateFunctionResponse
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse%27"><span class="hs-identifier hs-var">UpdateFunctionResponse'</span></a></span><span>
 </span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FunctionConfiguration -&gt; Int -&gt; UpdateFunctionResponse)
@@ -448,7 +448,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateFunctionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261940"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe FunctionConfiguration)
+</span><a href="#local-6989586621679262031"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe FunctionConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;functionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -460,15 +460,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261942"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262033"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261932"><span id="local-6989586621679261934"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262023"><span id="local-6989586621679262025"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span></span></span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261929"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262020"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span></span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679261925"><span class="annot"><span class="annottext">toHeaders :: UpdateFunction -&gt; ResponseHeaders
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679262016"><span class="annot"><span class="annottext">toHeaders :: UpdateFunction -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateFunction -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -487,9 +487,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-202"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-203"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261915"><span id="local-6989586621679261917"><span id="local-6989586621679261919"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621679261913"><span class="annot"><span class="annottext">toJSON :: UpdateFunction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261903"><span id="local-6989586621679261904"><span id="local-6989586621679261905"><span id="local-6989586621679261906"><span id="local-6989586621679261907"><span id="local-6989586621679261908"><span id="local-6989586621679261909"><span id="local-6989586621679261910"><span id="local-6989586621679261911"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262006"><span id="local-6989586621679262008"><span id="local-6989586621679262010"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679262004"><span class="annot"><span class="annottext">toJSON :: UpdateFunction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261994"><span id="local-6989586621679261995"><span id="local-6989586621679261996"><span id="local-6989586621679261997"><span id="local-6989586621679261998"><span id="local-6989586621679261999"><span id="local-6989586621679262000"><span id="local-6989586621679262001"><span id="local-6989586621679262002"><span class="annot"><span class="annottext">Maybe Text
 Maybe SyncConfig
 Text
 functionVersion :: Text
@@ -497,62 +497,62 @@ dataSourceName :: Text
 functionId :: Text
 name :: Text
 apiId :: Text
-requestMappingTemplate :: Maybe Text
 description :: Maybe Text
 syncConfig :: Maybe SyncConfig
 responseMappingTemplate :: Maybe Text
+requestMappingTemplate :: Maybe Text
 $sel:functionVersion:UpdateFunction' :: UpdateFunction -&gt; Text
 $sel:dataSourceName:UpdateFunction' :: UpdateFunction -&gt; Text
 $sel:functionId:UpdateFunction' :: UpdateFunction -&gt; Text
 $sel:name:UpdateFunction' :: UpdateFunction -&gt; Text
 $sel:apiId:UpdateFunction' :: UpdateFunction -&gt; Text
-$sel:requestMappingTemplate:UpdateFunction' :: UpdateFunction -&gt; Maybe Text
 $sel:description:UpdateFunction' :: UpdateFunction -&gt; Maybe Text
 $sel:syncConfig:UpdateFunction' :: UpdateFunction -&gt; Maybe SyncConfig
 $sel:responseMappingTemplate:UpdateFunction' :: UpdateFunction -&gt; Maybe Text
-</span><a href="#local-6989586621679261903"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:requestMappingTemplate:UpdateFunction' :: UpdateFunction -&gt; Maybe Text
+</span><a href="#local-6989586621679261994"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-208"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-209"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;responseMappingTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;requestMappingTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261911"><span class="hs-identifier hs-var">responseMappingTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262002"><span class="hs-identifier hs-var">requestMappingTemplate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;responseMappingTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262001"><span class="hs-identifier hs-var">responseMappingTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;syncConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SyncConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SyncConfig -&gt; Pair) -&gt; Maybe SyncConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SyncConfig
-</span><a href="#local-6989586621679261910"><span class="hs-identifier hs-var">syncConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262000"><span class="hs-identifier hs-var">syncConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261909"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;requestMappingTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-214"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261908"><span class="hs-identifier hs-var">requestMappingTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261999"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261906"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261997"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -560,7 +560,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;dataSourceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261904"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261995"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -568,13 +568,13 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;functionVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261903"><span class="hs-identifier hs-var">functionVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261994"><span class="hs-identifier hs-var">functionVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679261897"><span class="annot"><span class="annottext">toPath :: UpdateFunction -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261887"><span id="local-6989586621679261888"><span id="local-6989586621679261889"><span id="local-6989586621679261890"><span id="local-6989586621679261891"><span id="local-6989586621679261892"><span id="local-6989586621679261893"><span id="local-6989586621679261894"><span id="local-6989586621679261895"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679261988"><span class="annot"><span class="annottext">toPath :: UpdateFunction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction%27"><span class="hs-identifier hs-type">UpdateFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261978"><span id="local-6989586621679261979"><span id="local-6989586621679261980"><span id="local-6989586621679261981"><span id="local-6989586621679261982"><span id="local-6989586621679261983"><span id="local-6989586621679261984"><span id="local-6989586621679261985"><span id="local-6989586621679261986"><span class="annot"><span class="annottext">Maybe Text
 Maybe SyncConfig
 Text
 functionVersion :: Text
@@ -582,20 +582,20 @@ dataSourceName :: Text
 functionId :: Text
 name :: Text
 apiId :: Text
-requestMappingTemplate :: Maybe Text
 description :: Maybe Text
 syncConfig :: Maybe SyncConfig
 responseMappingTemplate :: Maybe Text
+requestMappingTemplate :: Maybe Text
 $sel:functionVersion:UpdateFunction' :: UpdateFunction -&gt; Text
 $sel:dataSourceName:UpdateFunction' :: UpdateFunction -&gt; Text
 $sel:functionId:UpdateFunction' :: UpdateFunction -&gt; Text
 $sel:name:UpdateFunction' :: UpdateFunction -&gt; Text
 $sel:apiId:UpdateFunction' :: UpdateFunction -&gt; Text
-$sel:requestMappingTemplate:UpdateFunction' :: UpdateFunction -&gt; Maybe Text
 $sel:description:UpdateFunction' :: UpdateFunction -&gt; Maybe Text
 $sel:syncConfig:UpdateFunction' :: UpdateFunction -&gt; Maybe SyncConfig
 $sel:responseMappingTemplate:UpdateFunction' :: UpdateFunction -&gt; Maybe Text
-</span><a href="#local-6989586621679261887"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:requestMappingTemplate:UpdateFunction' :: UpdateFunction -&gt; Maybe Text
+</span><a href="#local-6989586621679261978"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -604,17 +604,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261891"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261982"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/functions/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261889"><span class="hs-identifier hs-var">functionId</span></a></span><span>
+</span><a href="#local-6989586621679261980"><span class="hs-identifier hs-var">functionId</span></a></span><span>
 </span><span id="line-230"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunction"><span class="hs-identifier hs-type">UpdateFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-233"></span><span>  </span><span id="local-6989586621679261883"><span class="annot"><span class="annottext">toQuery :: UpdateFunction -&gt; QueryString
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679261974"><span class="annot"><span class="annottext">toQuery :: UpdateFunction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateFunction -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -622,7 +622,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | /See:/ 'newUpdateFunctionResponse' smart constructor.</span><span>
-</span><span id="line-236"></span><span id="local-6989586621679261880"><span id="local-6989586621679261881"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFunctionResponse"><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse"><span class="hs-identifier hs-var">UpdateFunctionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFunctionResponse%27"><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse%27"><span class="hs-identifier hs-var">UpdateFunctionResponse'</span></a></span></span><span>
+</span><span id="line-236"></span><span id="local-6989586621679261971"><span id="local-6989586621679261972"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFunctionResponse"><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse"><span class="hs-identifier hs-var">UpdateFunctionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFunctionResponse%27"><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse%27"><span class="hs-identifier hs-var">UpdateFunctionResponse'</span></a></span></span><span>
 </span><span id="line-237"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @Function@ object.</span><span>
 </span><span id="line-238"></span><span>    </span><span id="%24sel%3AfunctionConfiguration%3AUpdateFunctionResponse%27"><span class="annot"><span class="annottext">UpdateFunctionResponse -&gt; Maybe FunctionConfiguration
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AfunctionConfiguration%3AUpdateFunctionResponse%27"><span class="hs-identifier hs-var hs-var">functionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.FunctionConfiguration.html#FunctionConfiguration"><span class="hs-identifier hs-type">FunctionConfiguration</span></a></span><span class="hs-special">,</span><span>
@@ -630,7 +630,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-240"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateFunctionResponse%27"><span class="annot"><span class="annottext">UpdateFunctionResponse -&gt; Int
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AhttpStatus%3AUpdateFunctionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-241"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261874"><span id="local-6989586621679261876"><span class="annot"><span class="annottext">UpdateFunctionResponse -&gt; UpdateFunctionResponse -&gt; Bool
+</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261965"><span id="local-6989586621679261967"><span class="annot"><span class="annottext">UpdateFunctionResponse -&gt; UpdateFunctionResponse -&gt; Bool
 (UpdateFunctionResponse -&gt; UpdateFunctionResponse -&gt; Bool)
 -&gt; (UpdateFunctionResponse -&gt; UpdateFunctionResponse -&gt; Bool)
 -&gt; Eq UpdateFunctionResponse
@@ -639,7 +639,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateFunctionResponse -&gt; UpdateFunctionResponse -&gt; Bool
 == :: UpdateFunctionResponse -&gt; UpdateFunctionResponse -&gt; Bool
 $c== :: UpdateFunctionResponse -&gt; UpdateFunctionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261866"><span id="local-6989586621679261868"><span id="local-6989586621679261870"><span id="local-6989586621679261872"><span class="annot"><span class="annottext">ReadPrec [UpdateFunctionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261957"><span id="local-6989586621679261959"><span id="local-6989586621679261961"><span id="local-6989586621679261963"><span class="annot"><span class="annottext">ReadPrec [UpdateFunctionResponse]
 ReadPrec UpdateFunctionResponse
 Int -&gt; ReadS UpdateFunctionResponse
 ReadS [UpdateFunctionResponse]
@@ -659,7 +659,7 @@ readList :: ReadS [UpdateFunctionResponse]
 $creadList :: ReadS [UpdateFunctionResponse]
 readsPrec :: Int -&gt; ReadS UpdateFunctionResponse
 $creadsPrec :: Int -&gt; ReadS UpdateFunctionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261860"><span id="local-6989586621679261862"><span id="local-6989586621679261864"><span class="annot"><span class="annottext">Int -&gt; UpdateFunctionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261951"><span id="local-6989586621679261953"><span id="local-6989586621679261955"><span class="annot"><span class="annottext">Int -&gt; UpdateFunctionResponse -&gt; ShowS
 [UpdateFunctionResponse] -&gt; ShowS
 UpdateFunctionResponse -&gt; String
 (Int -&gt; UpdateFunctionResponse -&gt; ShowS)
@@ -702,8 +702,8 @@ $cfrom :: forall x. UpdateFunctionResponse -&gt; Rep UpdateFunctionResponse x
 </span><span id="line-257"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-258"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse"><span class="hs-identifier hs-type">UpdateFunctionResponse</span></a></span><span>
 </span><span id="line-259"></span><span id="newUpdateFunctionResponse"><span class="annot"><span class="annottext">newUpdateFunctionResponse :: Int -&gt; UpdateFunctionResponse
-</span><a href="Network.AWS.AppSync.UpdateFunction.html#newUpdateFunctionResponse"><span class="hs-identifier hs-var hs-var">newUpdateFunctionResponse</span></a></span></span><span> </span><span id="local-6989586621679261857"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261857"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppSync.UpdateFunction.html#newUpdateFunctionResponse"><span class="hs-identifier hs-var hs-var">newUpdateFunctionResponse</span></a></span></span><span> </span><span id="local-6989586621679261948"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261948"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-260"></span><span>  </span><span class="annot"><span class="annottext">UpdateFunctionResponse' :: Maybe FunctionConfiguration -&gt; Int -&gt; UpdateFunctionResponse
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse%27"><span class="hs-identifier hs-type">UpdateFunctionResponse'</span></a></span><span>
 </span><span id="line-261"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:functionConfiguration:UpdateFunctionResponse' :: Maybe FunctionConfiguration
@@ -713,7 +713,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-263"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFunctionResponse' :: Int
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AhttpStatus%3AUpdateFunctionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261857"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679261948"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-264"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-265"></span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- | The @Function@ object.</span><span>
@@ -729,16 +729,16 @@ forall a. Maybe a
      (Maybe FunctionConfiguration)
      (Maybe FunctionConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse%27"><span class="hs-identifier hs-type">UpdateFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261856"><span class="annot"><span class="annottext">Maybe FunctionConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse%27"><span class="hs-identifier hs-type">UpdateFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261947"><span class="annot"><span class="annottext">Maybe FunctionConfiguration
 functionConfiguration :: Maybe FunctionConfiguration
 $sel:functionConfiguration:UpdateFunctionResponse' :: UpdateFunctionResponse -&gt; Maybe FunctionConfiguration
-</span><a href="#local-6989586621679261856"><span class="hs-identifier hs-var hs-var">functionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionConfiguration
-</span><a href="#local-6989586621679261856"><span class="hs-identifier hs-var">functionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261855"><span class="annot"><span class="annottext">s :: UpdateFunctionResponse
-</span><a href="#local-6989586621679261855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse%27"><span class="hs-identifier hs-type">UpdateFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261854"><span class="annot"><span class="annottext">Maybe FunctionConfiguration
-</span><a href="#local-6989586621679261854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunctionResponse
-</span><a href="#local-6989586621679261855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionConfiguration:UpdateFunctionResponse' :: Maybe FunctionConfiguration
+</span><a href="#local-6989586621679261947"><span class="hs-identifier hs-var hs-var">functionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionConfiguration
+</span><a href="#local-6989586621679261947"><span class="hs-identifier hs-var">functionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261946"><span class="annot"><span class="annottext">s :: UpdateFunctionResponse
+</span><a href="#local-6989586621679261946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse%27"><span class="hs-identifier hs-type">UpdateFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261945"><span class="annot"><span class="annottext">Maybe FunctionConfiguration
+</span><a href="#local-6989586621679261945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunctionResponse
+</span><a href="#local-6989586621679261946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionConfiguration:UpdateFunctionResponse' :: Maybe FunctionConfiguration
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AfunctionConfiguration%3AUpdateFunctionResponse%27"><span class="hs-identifier hs-var">functionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionConfiguration
-</span><a href="#local-6989586621679261854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse"><span class="hs-identifier hs-type">UpdateFunctionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse"><span class="hs-identifier hs-type">UpdateFunctionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-271"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#updateFunctionResponse_httpStatus"><span class="hs-identifier hs-type">updateFunctionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse"><span class="hs-identifier hs-type">UpdateFunctionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -748,16 +748,16 @@ $sel:functionConfiguration:UpdateFunctionResponse' :: UpdateFunctionResponse -&g
 -&gt; (UpdateFunctionResponse -&gt; Int -&gt; UpdateFunctionResponse)
 -&gt; Lens UpdateFunctionResponse UpdateFunctionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse%27"><span class="hs-identifier hs-type">UpdateFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261853"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse%27"><span class="hs-identifier hs-type">UpdateFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261944"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateFunctionResponse' :: UpdateFunctionResponse -&gt; Int
-</span><a href="#local-6989586621679261853"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261853"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261852"><span class="annot"><span class="annottext">s :: UpdateFunctionResponse
-</span><a href="#local-6989586621679261852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse%27"><span class="hs-identifier hs-type">UpdateFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261851"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunctionResponse
-</span><a href="#local-6989586621679261852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFunctionResponse' :: Int
+</span><a href="#local-6989586621679261944"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261944"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261943"><span class="annot"><span class="annottext">s :: UpdateFunctionResponse
+</span><a href="#local-6989586621679261943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse%27"><span class="hs-identifier hs-type">UpdateFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261942"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFunctionResponse
+</span><a href="#local-6989586621679261943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFunctionResponse' :: Int
 </span><a href="Network.AWS.AppSync.UpdateFunction.html#%24sel%3AhttpStatus%3AUpdateFunctionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse"><span class="hs-identifier hs-type">UpdateFunctionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse"><span class="hs-identifier hs-type">UpdateFunctionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
-</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261849"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse"><span class="hs-identifier hs-type">UpdateFunctionResponse</span></a></span></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261940"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateFunction.html#UpdateFunctionResponse"><span class="hs-identifier hs-type">UpdateFunctionResponse</span></a></span></span><span>
 </span><span id="line-275"></span></pre></body></html>

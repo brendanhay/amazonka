@@ -27,26 +27,26 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Hls Akamai Settings</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newHlsAkamaiSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679878593"><span id="local-6989586621679878594"></span></span><span class="hs-keyword">data</span><span> </span><span id="HlsAkamaiSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-var">HlsAkamaiSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsAkamaiSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-var">HlsAkamaiSettings'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Size in seconds of file cache for streaming outputs.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AfilecacheDuration%3AHlsAkamaiSettings%27"><span class="annot"><span class="annottext">HlsAkamaiSettings -&gt; Maybe Natural
-</span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3AfilecacheDuration%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var hs-var">filecacheDuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Specify whether or not to use chunked transfer encoding to Akamai. User</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- should contact Akamai to enable this feature.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AhttpTransferMode%3AHlsAkamaiSettings%27"><span class="annot"><span class="annottext">HlsAkamaiSettings -&gt; Maybe HlsAkamaiHttpTransferMode
+</span><span id="line-30"></span><span id="local-6989586621679885254"><span id="local-6989586621679885255"></span></span><span class="hs-keyword">data</span><span> </span><span id="HlsAkamaiSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-var">HlsAkamaiSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsAkamaiSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-var">HlsAkamaiSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify whether or not to use chunked transfer encoding to Akamai. User</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- should contact Akamai to enable this feature.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AhttpTransferMode%3AHlsAkamaiSettings%27"><span class="annot"><span class="annottext">HlsAkamaiSettings -&gt; Maybe HlsAkamaiHttpTransferMode
 </span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3AhttpTransferMode%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var hs-var">httpTransferMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiHttpTransferMode.html#HlsAkamaiHttpTransferMode"><span class="hs-identifier hs-type">HlsAkamaiHttpTransferMode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Number of retry attempts that will be made before the Live Event is put</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- into an error state.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AnumRetries%3AHlsAkamaiSettings%27"><span class="annot"><span class="annottext">HlsAkamaiSettings -&gt; Maybe Natural
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Number of retry attempts that will be made before the Live Event is put</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- into an error state.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AnumRetries%3AHlsAkamaiSettings%27"><span class="annot"><span class="annottext">HlsAkamaiSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3AnumRetries%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var hs-var">numRetries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Number of seconds to wait before retrying connection to the CDN if the</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- connection is lost.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AconnectionRetryInterval%3AHlsAkamaiSettings%27"><span class="annot"><span class="annottext">HlsAkamaiSettings -&gt; Maybe Natural
-</span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3AconnectionRetryInterval%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var hs-var">connectionRetryInterval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Token parameter for authenticated akamai. If not specified, _gda_ is</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- used.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3Atoken%3AHlsAkamaiSettings%27"><span class="annot"><span class="annottext">HlsAkamaiSettings -&gt; Maybe Text
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Token parameter for authenticated akamai. If not specified, _gda_ is</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Atoken%3AHlsAkamaiSettings%27"><span class="annot"><span class="annottext">HlsAkamaiSettings -&gt; Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3Atoken%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Number of seconds to wait before retrying connection to the CDN if the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- connection is lost.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AconnectionRetryInterval%3AHlsAkamaiSettings%27"><span class="annot"><span class="annottext">HlsAkamaiSettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3AconnectionRetryInterval%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var hs-var">connectionRetryInterval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Size in seconds of file cache for streaming outputs.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AfilecacheDuration%3AHlsAkamaiSettings%27"><span class="annot"><span class="annottext">HlsAkamaiSettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3AfilecacheDuration%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var hs-var">filecacheDuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | If a streaming output fails, number of seconds to wait until a restart</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- is initiated. A value of 0 means never restart.</span><span>
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3ArestartDelay%3AHlsAkamaiSettings%27"><span class="annot"><span class="annottext">HlsAkamaiSettings -&gt; Maybe Natural
@@ -55,7 +55,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3Asalt%3AHlsAkamaiSettings%27"><span class="annot"><span class="annottext">HlsAkamaiSettings -&gt; Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3Asalt%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var hs-var">salt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679878581"><span id="local-6989586621679878583"><span class="annot"><span class="annottext">HlsAkamaiSettings -&gt; HlsAkamaiSettings -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679885242"><span id="local-6989586621679885244"><span class="annot"><span class="annottext">HlsAkamaiSettings -&gt; HlsAkamaiSettings -&gt; Bool
 (HlsAkamaiSettings -&gt; HlsAkamaiSettings -&gt; Bool)
 -&gt; (HlsAkamaiSettings -&gt; HlsAkamaiSettings -&gt; Bool)
 -&gt; Eq HlsAkamaiSettings
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HlsAkamaiSettings -&gt; HlsAkamaiSettings -&gt; Bool
 == :: HlsAkamaiSettings -&gt; HlsAkamaiSettings -&gt; Bool
 $c== :: HlsAkamaiSettings -&gt; HlsAkamaiSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679878572"><span id="local-6989586621679878574"><span id="local-6989586621679878576"><span id="local-6989586621679878578"><span class="annot"><span class="annottext">ReadPrec [HlsAkamaiSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679885233"><span id="local-6989586621679885235"><span id="local-6989586621679885237"><span id="local-6989586621679885239"><span class="annot"><span class="annottext">ReadPrec [HlsAkamaiSettings]
 ReadPrec HlsAkamaiSettings
 Int -&gt; ReadS HlsAkamaiSettings
 ReadS [HlsAkamaiSettings]
@@ -84,7 +84,7 @@ readList :: ReadS [HlsAkamaiSettings]
 $creadList :: ReadS [HlsAkamaiSettings]
 readsPrec :: Int -&gt; ReadS HlsAkamaiSettings
 $creadsPrec :: Int -&gt; ReadS HlsAkamaiSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679878565"><span id="local-6989586621679878567"><span id="local-6989586621679878569"><span class="annot"><span class="annottext">Int -&gt; HlsAkamaiSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679885226"><span id="local-6989586621679885228"><span id="local-6989586621679885230"><span class="annot"><span class="annottext">Int -&gt; HlsAkamaiSettings -&gt; ShowS
 [HlsAkamaiSettings] -&gt; ShowS
 HlsAkamaiSettings -&gt; String
 (Int -&gt; HlsAkamaiSettings -&gt; ShowS)
@@ -118,19 +118,19 @@ $cfrom :: forall x. HlsAkamaiSettings -&gt; Rep HlsAkamaiSettings x
 </span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'filecacheDuration', 'hlsAkamaiSettings_filecacheDuration' - Size in seconds of file cache for streaming outputs.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'httpTransferMode', 'hlsAkamaiSettings_httpTransferMode' - Specify whether or not to use chunked transfer encoding to Akamai. User</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- should contact Akamai to enable this feature.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'numRetries', 'hlsAkamaiSettings_numRetries' - Number of retry attempts that will be made before the Live Event is put</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- into an error state.</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'connectionRetryInterval', 'hlsAkamaiSettings_connectionRetryInterval' - Number of seconds to wait before retrying connection to the CDN if the</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- connection is lost.</span><span>
-</span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'token', 'hlsAkamaiSettings_token' - Token parameter for authenticated akamai. If not specified, _gda_ is</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'httpTransferMode', 'hlsAkamaiSettings_httpTransferMode' - Specify whether or not to use chunked transfer encoding to Akamai. User</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- should contact Akamai to enable this feature.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'numRetries', 'hlsAkamaiSettings_numRetries' - Number of retry attempts that will be made before the Live Event is put</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- into an error state.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'token', 'hlsAkamaiSettings_token' - Token parameter for authenticated akamai. If not specified, _gda_ is</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'connectionRetryInterval', 'hlsAkamaiSettings_connectionRetryInterval' - Number of seconds to wait before retrying connection to the CDN if the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- connection is lost.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'filecacheDuration', 'hlsAkamaiSettings_filecacheDuration' - Size in seconds of file cache for streaming outputs.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- 'restartDelay', 'hlsAkamaiSettings_restartDelay' - If a streaming output fails, number of seconds to wait until a restart</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- is initiated. A value of 0 means never restart.</span><span>
@@ -140,34 +140,34 @@ $cfrom :: forall x. HlsAkamaiSettings -&gt; Rep HlsAkamaiSettings x
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span>
 </span><span id="line-81"></span><span id="newHlsAkamaiSettings"><span class="annot"><span class="annottext">newHlsAkamaiSettings :: HlsAkamaiSettings
 </span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#newHlsAkamaiSettings"><span class="hs-identifier hs-var hs-var">newHlsAkamaiSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">HlsAkamaiSettings' :: Maybe Natural
--&gt; Maybe HlsAkamaiHttpTransferMode
--&gt; Maybe Natural
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">HlsAkamaiSettings' :: Maybe HlsAkamaiHttpTransferMode
 -&gt; Maybe Natural
 -&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Natural
 -&gt; Maybe Natural
 -&gt; Maybe Text
 -&gt; HlsAkamaiSettings
 </span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filecacheDuration:HlsAkamaiSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3AfilecacheDuration%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var">filecacheDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpTransferMode:HlsAkamaiSettings' :: Maybe HlsAkamaiHttpTransferMode
+</span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3AhttpTransferMode%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var">httpTransferMode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Maybe HlsAkamaiHttpTransferMode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpTransferMode:HlsAkamaiSettings' :: Maybe HlsAkamaiHttpTransferMode
-</span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3AhttpTransferMode%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var">httpTransferMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsAkamaiHttpTransferMode
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:numRetries:HlsAkamaiSettings' :: Maybe Natural
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:numRetries:HlsAkamaiSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3AnumRetries%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var">numRetries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:token:HlsAkamaiSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3Atoken%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var">token</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionRetryInterval:HlsAkamaiSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3AconnectionRetryInterval%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var">connectionRetryInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:token:HlsAkamaiSettings' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3Atoken%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var">token</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:filecacheDuration:HlsAkamaiSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3AfilecacheDuration%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var">filecacheDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:restartDelay:HlsAkamaiSettings' :: Maybe Natural
@@ -180,30 +180,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | Size in seconds of file cache for streaming outputs.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#hlsAkamaiSettings_filecacheDuration"><span class="hs-identifier hs-type">hlsAkamaiSettings_filecacheDuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="hlsAkamaiSettings_filecacheDuration"><span class="annot"><span class="annottext">hlsAkamaiSettings_filecacheDuration :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; HlsAkamaiSettings -&gt; f HlsAkamaiSettings
-</span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#hlsAkamaiSettings_filecacheDuration"><span class="hs-identifier hs-var hs-var">hlsAkamaiSettings_filecacheDuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsAkamaiSettings -&gt; Maybe Natural)
--&gt; (HlsAkamaiSettings -&gt; Maybe Natural -&gt; HlsAkamaiSettings)
--&gt; Lens
-     HlsAkamaiSettings HlsAkamaiSettings (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679878556"><span class="annot"><span class="annottext">Maybe Natural
-filecacheDuration :: Maybe Natural
-$sel:filecacheDuration:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679878556"><span class="hs-identifier hs-var hs-var">filecacheDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878556"><span class="hs-identifier hs-var">filecacheDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679878555"><span class="annot"><span class="annottext">s :: HlsAkamaiSettings
-</span><a href="#local-6989586621679878555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679878554"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsAkamaiSettings
-</span><a href="#local-6989586621679878555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filecacheDuration:HlsAkamaiSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3AfilecacheDuration%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var">filecacheDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | Specify whether or not to use chunked transfer encoding to Akamai. User</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- should contact Akamai to enable this feature.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#hlsAkamaiSettings_httpTransferMode"><span class="hs-identifier hs-type">hlsAkamaiSettings_httpTransferMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiHttpTransferMode.html#HlsAkamaiHttpTransferMode"><span class="hs-identifier hs-type">HlsAkamaiHttpTransferMode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="hlsAkamaiSettings_httpTransferMode"><span class="annot"><span class="annottext">hlsAkamaiSettings_httpTransferMode :: (Maybe HlsAkamaiHttpTransferMode
+</span><span id="line-93"></span><span class="hs-comment">-- | Specify whether or not to use chunked transfer encoding to Akamai. User</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- should contact Akamai to enable this feature.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#hlsAkamaiSettings_httpTransferMode"><span class="hs-identifier hs-type">hlsAkamaiSettings_httpTransferMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiHttpTransferMode.html#HlsAkamaiHttpTransferMode"><span class="hs-identifier hs-type">HlsAkamaiHttpTransferMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="hlsAkamaiSettings_httpTransferMode"><span class="annot"><span class="annottext">hlsAkamaiSettings_httpTransferMode :: (Maybe HlsAkamaiHttpTransferMode
  -&gt; f (Maybe HlsAkamaiHttpTransferMode))
 -&gt; HlsAkamaiSettings -&gt; f HlsAkamaiSettings
 </span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#hlsAkamaiSettings_httpTransferMode"><span class="hs-identifier hs-var hs-var">hlsAkamaiSettings_httpTransferMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsAkamaiSettings -&gt; Maybe HlsAkamaiHttpTransferMode)
@@ -215,79 +195,99 @@ $sel:filecacheDuration:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Natur
      (Maybe HlsAkamaiHttpTransferMode)
      (Maybe HlsAkamaiHttpTransferMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679878552"><span class="annot"><span class="annottext">Maybe HlsAkamaiHttpTransferMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679885217"><span class="annot"><span class="annottext">Maybe HlsAkamaiHttpTransferMode
 httpTransferMode :: Maybe HlsAkamaiHttpTransferMode
 $sel:httpTransferMode:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe HlsAkamaiHttpTransferMode
-</span><a href="#local-6989586621679878552"><span class="hs-identifier hs-var hs-var">httpTransferMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsAkamaiHttpTransferMode
-</span><a href="#local-6989586621679878552"><span class="hs-identifier hs-var">httpTransferMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679878551"><span class="annot"><span class="annottext">s :: HlsAkamaiSettings
-</span><a href="#local-6989586621679878551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679878550"><span class="annot"><span class="annottext">Maybe HlsAkamaiHttpTransferMode
-</span><a href="#local-6989586621679878550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsAkamaiSettings
-</span><a href="#local-6989586621679878551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpTransferMode:HlsAkamaiSettings' :: Maybe HlsAkamaiHttpTransferMode
+</span><a href="#local-6989586621679885217"><span class="hs-identifier hs-var hs-var">httpTransferMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsAkamaiHttpTransferMode
+</span><a href="#local-6989586621679885217"><span class="hs-identifier hs-var">httpTransferMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679885216"><span class="annot"><span class="annottext">s :: HlsAkamaiSettings
+</span><a href="#local-6989586621679885216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679885215"><span class="annot"><span class="annottext">Maybe HlsAkamaiHttpTransferMode
+</span><a href="#local-6989586621679885215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsAkamaiSettings
+</span><a href="#local-6989586621679885216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpTransferMode:HlsAkamaiSettings' :: Maybe HlsAkamaiHttpTransferMode
 </span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3AhttpTransferMode%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var">httpTransferMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsAkamaiHttpTransferMode
-</span><a href="#local-6989586621679878550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | Number of retry attempts that will be made before the Live Event is put</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- into an error state.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#hlsAkamaiSettings_numRetries"><span class="hs-identifier hs-type">hlsAkamaiSettings_numRetries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="hlsAkamaiSettings_numRetries"><span class="annot"><span class="annottext">hlsAkamaiSettings_numRetries :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><a href="#local-6989586621679885215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Number of retry attempts that will be made before the Live Event is put</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- into an error state.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#hlsAkamaiSettings_numRetries"><span class="hs-identifier hs-type">hlsAkamaiSettings_numRetries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="hlsAkamaiSettings_numRetries"><span class="annot"><span class="annottext">hlsAkamaiSettings_numRetries :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; HlsAkamaiSettings -&gt; f HlsAkamaiSettings
 </span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#hlsAkamaiSettings_numRetries"><span class="hs-identifier hs-var hs-var">hlsAkamaiSettings_numRetries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsAkamaiSettings -&gt; Maybe Natural)
 -&gt; (HlsAkamaiSettings -&gt; Maybe Natural -&gt; HlsAkamaiSettings)
 -&gt; Lens
      HlsAkamaiSettings HlsAkamaiSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679878548"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679885213"><span class="annot"><span class="annottext">Maybe Natural
 numRetries :: Maybe Natural
 $sel:numRetries:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679878548"><span class="hs-identifier hs-var hs-var">numRetries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878548"><span class="hs-identifier hs-var">numRetries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679878547"><span class="annot"><span class="annottext">s :: HlsAkamaiSettings
-</span><a href="#local-6989586621679878547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679878546"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsAkamaiSettings
-</span><a href="#local-6989586621679878547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numRetries:HlsAkamaiSettings' :: Maybe Natural
+</span><a href="#local-6989586621679885213"><span class="hs-identifier hs-var hs-var">numRetries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885213"><span class="hs-identifier hs-var">numRetries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679885212"><span class="annot"><span class="annottext">s :: HlsAkamaiSettings
+</span><a href="#local-6989586621679885212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679885211"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsAkamaiSettings
+</span><a href="#local-6989586621679885212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numRetries:HlsAkamaiSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3AnumRetries%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var">numRetries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | Number of seconds to wait before retrying connection to the CDN if the</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- connection is lost.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#hlsAkamaiSettings_connectionRetryInterval"><span class="hs-identifier hs-type">hlsAkamaiSettings_connectionRetryInterval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="hlsAkamaiSettings_connectionRetryInterval"><span class="annot"><span class="annottext">hlsAkamaiSettings_connectionRetryInterval :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; HlsAkamaiSettings -&gt; f HlsAkamaiSettings
-</span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#hlsAkamaiSettings_connectionRetryInterval"><span class="hs-identifier hs-var hs-var">hlsAkamaiSettings_connectionRetryInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsAkamaiSettings -&gt; Maybe Natural)
--&gt; (HlsAkamaiSettings -&gt; Maybe Natural -&gt; HlsAkamaiSettings)
--&gt; Lens
-     HlsAkamaiSettings HlsAkamaiSettings (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679878544"><span class="annot"><span class="annottext">Maybe Natural
-connectionRetryInterval :: Maybe Natural
-$sel:connectionRetryInterval:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679878544"><span class="hs-identifier hs-var hs-var">connectionRetryInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878544"><span class="hs-identifier hs-var">connectionRetryInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679878543"><span class="annot"><span class="annottext">s :: HlsAkamaiSettings
-</span><a href="#local-6989586621679878543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679878542"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsAkamaiSettings
-</span><a href="#local-6989586621679878543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionRetryInterval:HlsAkamaiSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3AconnectionRetryInterval%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var">connectionRetryInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | Token parameter for authenticated akamai. If not specified, _gda_ is</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- used.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#hlsAkamaiSettings_token"><span class="hs-identifier hs-type">hlsAkamaiSettings_token</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="hlsAkamaiSettings_token"><span class="annot"><span class="annottext">hlsAkamaiSettings_token :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679885211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | Token parameter for authenticated akamai. If not specified, _gda_ is</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#hlsAkamaiSettings_token"><span class="hs-identifier hs-type">hlsAkamaiSettings_token</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="hlsAkamaiSettings_token"><span class="annot"><span class="annottext">hlsAkamaiSettings_token :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; HlsAkamaiSettings -&gt; f HlsAkamaiSettings
 </span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#hlsAkamaiSettings_token"><span class="hs-identifier hs-var hs-var">hlsAkamaiSettings_token</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsAkamaiSettings -&gt; Maybe Text)
 -&gt; (HlsAkamaiSettings -&gt; Maybe Text -&gt; HlsAkamaiSettings)
 -&gt; Lens
      HlsAkamaiSettings HlsAkamaiSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679878540"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679885209"><span class="annot"><span class="annottext">Maybe Text
 token :: Maybe Text
 $sel:token:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679878540"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679878540"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679878539"><span class="annot"><span class="annottext">s :: HlsAkamaiSettings
-</span><a href="#local-6989586621679878539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679878538"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679878538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsAkamaiSettings
-</span><a href="#local-6989586621679878539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:token:HlsAkamaiSettings' :: Maybe Text
+</span><a href="#local-6989586621679885209"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679885209"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679885208"><span class="annot"><span class="annottext">s :: HlsAkamaiSettings
+</span><a href="#local-6989586621679885208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679885207"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679885207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsAkamaiSettings
+</span><a href="#local-6989586621679885208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:token:HlsAkamaiSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3Atoken%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var">token</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679878538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679885207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | Number of seconds to wait before retrying connection to the CDN if the</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- connection is lost.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#hlsAkamaiSettings_connectionRetryInterval"><span class="hs-identifier hs-type">hlsAkamaiSettings_connectionRetryInterval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="hlsAkamaiSettings_connectionRetryInterval"><span class="annot"><span class="annottext">hlsAkamaiSettings_connectionRetryInterval :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; HlsAkamaiSettings -&gt; f HlsAkamaiSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#hlsAkamaiSettings_connectionRetryInterval"><span class="hs-identifier hs-var hs-var">hlsAkamaiSettings_connectionRetryInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsAkamaiSettings -&gt; Maybe Natural)
+-&gt; (HlsAkamaiSettings -&gt; Maybe Natural -&gt; HlsAkamaiSettings)
+-&gt; Lens
+     HlsAkamaiSettings HlsAkamaiSettings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679885205"><span class="annot"><span class="annottext">Maybe Natural
+connectionRetryInterval :: Maybe Natural
+$sel:connectionRetryInterval:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679885205"><span class="hs-identifier hs-var hs-var">connectionRetryInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885205"><span class="hs-identifier hs-var">connectionRetryInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679885204"><span class="annot"><span class="annottext">s :: HlsAkamaiSettings
+</span><a href="#local-6989586621679885204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679885203"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsAkamaiSettings
+</span><a href="#local-6989586621679885204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionRetryInterval:HlsAkamaiSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3AconnectionRetryInterval%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var">connectionRetryInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | Size in seconds of file cache for streaming outputs.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#hlsAkamaiSettings_filecacheDuration"><span class="hs-identifier hs-type">hlsAkamaiSettings_filecacheDuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="hlsAkamaiSettings_filecacheDuration"><span class="annot"><span class="annottext">hlsAkamaiSettings_filecacheDuration :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; HlsAkamaiSettings -&gt; f HlsAkamaiSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#hlsAkamaiSettings_filecacheDuration"><span class="hs-identifier hs-var hs-var">hlsAkamaiSettings_filecacheDuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsAkamaiSettings -&gt; Maybe Natural)
+-&gt; (HlsAkamaiSettings -&gt; Maybe Natural -&gt; HlsAkamaiSettings)
+-&gt; Lens
+     HlsAkamaiSettings HlsAkamaiSettings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679885201"><span class="annot"><span class="annottext">Maybe Natural
+filecacheDuration :: Maybe Natural
+$sel:filecacheDuration:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679885201"><span class="hs-identifier hs-var hs-var">filecacheDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885201"><span class="hs-identifier hs-var">filecacheDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679885200"><span class="annot"><span class="annottext">s :: HlsAkamaiSettings
+</span><a href="#local-6989586621679885200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679885199"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsAkamaiSettings
+</span><a href="#local-6989586621679885200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filecacheDuration:HlsAkamaiSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3AfilecacheDuration%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var">filecacheDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | If a streaming output fails, number of seconds to wait until a restart</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- is initiated. A value of 0 means never restart.</span><span>
@@ -299,16 +299,16 @@ $sel:token:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Text
 -&gt; Lens
      HlsAkamaiSettings HlsAkamaiSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679878536"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679885197"><span class="annot"><span class="annottext">Maybe Natural
 restartDelay :: Maybe Natural
 $sel:restartDelay:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679878536"><span class="hs-identifier hs-var hs-var">restartDelay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878536"><span class="hs-identifier hs-var">restartDelay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679878535"><span class="annot"><span class="annottext">s :: HlsAkamaiSettings
-</span><a href="#local-6989586621679878535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679878534"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsAkamaiSettings
-</span><a href="#local-6989586621679878535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restartDelay:HlsAkamaiSettings' :: Maybe Natural
+</span><a href="#local-6989586621679885197"><span class="hs-identifier hs-var hs-var">restartDelay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885197"><span class="hs-identifier hs-var">restartDelay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679885196"><span class="annot"><span class="annottext">s :: HlsAkamaiSettings
+</span><a href="#local-6989586621679885196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679885195"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsAkamaiSettings
+</span><a href="#local-6989586621679885196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restartDelay:HlsAkamaiSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3ArestartDelay%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var">restartDelay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679885195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | Salt for authenticated Akamai.</span><span>
 </span><span id="line-123"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#hlsAkamaiSettings_salt"><span class="hs-identifier hs-type">hlsAkamaiSettings_salt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -319,19 +319,19 @@ $sel:restartDelay:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Natural
 -&gt; Lens
      HlsAkamaiSettings HlsAkamaiSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679878532"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679885193"><span class="annot"><span class="annottext">Maybe Text
 salt :: Maybe Text
 $sel:salt:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679878532"><span class="hs-identifier hs-var hs-var">salt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679878532"><span class="hs-identifier hs-var">salt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679878531"><span class="annot"><span class="annottext">s :: HlsAkamaiSettings
-</span><a href="#local-6989586621679878531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679878530"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679878530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsAkamaiSettings
-</span><a href="#local-6989586621679878531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:salt:HlsAkamaiSettings' :: Maybe Text
+</span><a href="#local-6989586621679885193"><span class="hs-identifier hs-var hs-var">salt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679885193"><span class="hs-identifier hs-var">salt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679885192"><span class="annot"><span class="annottext">s :: HlsAkamaiSettings
+</span><a href="#local-6989586621679885192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679885191"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679885191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsAkamaiSettings
+</span><a href="#local-6989586621679885192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:salt:HlsAkamaiSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#%24sel%3Asalt%3AHlsAkamaiSettings%27"><span class="hs-identifier hs-var">salt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679878530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679885191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679878527"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679878525"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HlsAkamaiSettings
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679885188"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679885186"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HlsAkamaiSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HlsAkamaiSettings)
@@ -341,107 +341,113 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HlsAkamaiSettings&quot;</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679878522"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679878522"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
--&gt; Maybe HlsAkamaiHttpTransferMode
--&gt; Maybe Natural
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679885183"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679885183"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe HlsAkamaiHttpTransferMode
 -&gt; Maybe Natural
 -&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Natural
 -&gt; Maybe Natural
 -&gt; Maybe Text
 -&gt; HlsAkamaiSettings
 </span><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-var">HlsAkamaiSettings'</span></a></span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
- -&gt; Maybe HlsAkamaiHttpTransferMode
- -&gt; Maybe Natural
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe HlsAkamaiHttpTransferMode
  -&gt; Maybe Natural
  -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
  -&gt; Maybe Natural
  -&gt; Maybe Text
  -&gt; HlsAkamaiSettings)
--&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe HlsAkamaiHttpTransferMode)
 -&gt; Parser
-     (Maybe HlsAkamaiHttpTransferMode
-      -&gt; Maybe Natural
-      -&gt; Maybe Natural
+     (Maybe Natural
       -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
       -&gt; Maybe Natural
       -&gt; Maybe Text
       -&gt; HlsAkamaiSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679878522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679885183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsAkamaiHttpTransferMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;filecacheDuration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;httpTransferMode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe HlsAkamaiHttpTransferMode
-   -&gt; Maybe Natural
-   -&gt; Maybe Natural
+  (Maybe Natural
    -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
    -&gt; Maybe Natural
    -&gt; Maybe Text
    -&gt; HlsAkamaiSettings)
--&gt; Parser (Maybe HlsAkamaiHttpTransferMode)
+-&gt; Parser (Maybe Natural)
 -&gt; Parser
-     (Maybe Natural
+     (Maybe Text
       -&gt; Maybe Natural
-      -&gt; Maybe Text
+      -&gt; Maybe Natural
       -&gt; Maybe Natural
       -&gt; Maybe Text
       -&gt; HlsAkamaiSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679878522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsAkamaiHttpTransferMode)
+</span><a href="#local-6989586621679885183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;httpTransferMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;numRetries&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Natural
+  (Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
    -&gt; Maybe Natural
    -&gt; Maybe Text
+   -&gt; HlsAkamaiSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; HlsAkamaiSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679885183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;token&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
    -&gt; Maybe Natural
    -&gt; Maybe Text
    -&gt; HlsAkamaiSettings)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser
-     (Maybe Natural
-      -&gt; Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; HlsAkamaiSettings)
+     (Maybe Natural -&gt; Maybe Natural -&gt; Maybe Text -&gt; HlsAkamaiSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679878522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;numRetries&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Natural
-   -&gt; Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; HlsAkamaiSettings)
--&gt; Parser (Maybe Natural)
--&gt; Parser
-     (Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; HlsAkamaiSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679878522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679885183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;connectionRetryInterval&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; HlsAkamaiSettings)
--&gt; Parser (Maybe Text)
+  (Maybe Natural -&gt; Maybe Natural -&gt; Maybe Text -&gt; HlsAkamaiSettings)
+-&gt; Parser (Maybe Natural)
 -&gt; Parser (Maybe Natural -&gt; Maybe Text -&gt; HlsAkamaiSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679878522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679885183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;token&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;filecacheDuration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Text -&gt; HlsAkamaiSettings)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser (Maybe Text -&gt; HlsAkamaiSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679878522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679885183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;restartDelay&quot;</span></span><span class="hs-special">)</span><span>
@@ -449,94 +455,94 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser HlsAkamaiSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679878522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679885183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;salt&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679878516"><span id="local-6989586621679878518"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679885177"><span id="local-6989586621679885179"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679878513"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679885174"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679878505"><span id="local-6989586621679878507"><span id="local-6989586621679878509"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679878503"><span class="annot"><span class="annottext">toJSON :: HlsAkamaiSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679878495"><span id="local-6989586621679878496"><span id="local-6989586621679878497"><span id="local-6989586621679878498"><span id="local-6989586621679878499"><span id="local-6989586621679878500"><span id="local-6989586621679878501"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679885166"><span id="local-6989586621679885168"><span id="local-6989586621679885170"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings"><span class="hs-identifier hs-type">HlsAkamaiSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679885164"><span class="annot"><span class="annottext">toJSON :: HlsAkamaiSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsAkamaiSettings.html#HlsAkamaiSettings%27"><span class="hs-identifier hs-type">HlsAkamaiSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679885156"><span id="local-6989586621679885157"><span id="local-6989586621679885158"><span id="local-6989586621679885159"><span id="local-6989586621679885160"><span id="local-6989586621679885161"><span id="local-6989586621679885162"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe HlsAkamaiHttpTransferMode
 salt :: Maybe Text
 restartDelay :: Maybe Natural
-token :: Maybe Text
+filecacheDuration :: Maybe Natural
 connectionRetryInterval :: Maybe Natural
+token :: Maybe Text
 numRetries :: Maybe Natural
 httpTransferMode :: Maybe HlsAkamaiHttpTransferMode
-filecacheDuration :: Maybe Natural
 $sel:salt:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Text
 $sel:restartDelay:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Natural
-$sel:token:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Text
+$sel:filecacheDuration:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Natural
 $sel:connectionRetryInterval:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Natural
+$sel:token:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Text
 $sel:numRetries:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Natural
 $sel:httpTransferMode:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe HlsAkamaiHttpTransferMode
-$sel:filecacheDuration:HlsAkamaiSettings' :: HlsAkamaiSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679878495"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679885156"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-149"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;filecacheDuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878501"><span class="hs-identifier hs-var">filecacheDuration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;httpTransferMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HlsAkamaiHttpTransferMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">(HlsAkamaiHttpTransferMode -&gt; Pair)
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">(HlsAkamaiHttpTransferMode -&gt; Pair)
 -&gt; Maybe HlsAkamaiHttpTransferMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HlsAkamaiHttpTransferMode
-</span><a href="#local-6989586621679878500"><span class="hs-identifier hs-var">httpTransferMode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679885162"><span class="hs-identifier hs-var">httpTransferMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;numRetries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878499"><span class="hs-identifier hs-var">numRetries</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;connectionRetryInterval&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878498"><span class="hs-identifier hs-var">connectionRetryInterval</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679885161"><span class="hs-identifier hs-var">numRetries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;token&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679878497"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679885160"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectionRetryInterval&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885159"><span class="hs-identifier hs-var">connectionRetryInterval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filecacheDuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885158"><span class="hs-identifier hs-var">filecacheDuration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;restartDelay&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878496"><span class="hs-identifier hs-var">restartDelay</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679885157"><span class="hs-identifier hs-var">restartDelay</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;salt&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679878495"><span class="hs-identifier hs-var">salt</span></a></span><span>
+</span><a href="#local-6989586621679885156"><span class="hs-identifier hs-var">salt</span></a></span><span>
 </span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span></pre></body></html>

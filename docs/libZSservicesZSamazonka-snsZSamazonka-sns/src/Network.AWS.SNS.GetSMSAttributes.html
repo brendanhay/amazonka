@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- | The input for the @GetSMSAttributes@ request.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newGetSMSAttributes' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679197660"><span id="local-6989586621679197661"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSMSAttributes"><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes"><span class="hs-identifier hs-var">GetSMSAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSMSAttributes%27"><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes%27"><span class="hs-identifier hs-var">GetSMSAttributes'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679197811"><span id="local-6989586621679197812"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSMSAttributes"><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes"><span class="hs-identifier hs-var">GetSMSAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSMSAttributes%27"><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes%27"><span class="hs-identifier hs-var">GetSMSAttributes'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the individual attribute names, such as @MonthlySpendLimit@,</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- for which you want values.</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3Aattributes%3AGetSMSAttributes%27"><span class="annot"><span class="annottext">GetSMSAttributes -&gt; Maybe [Text]
 </span><a href="Network.AWS.SNS.GetSMSAttributes.html#%24sel%3Aattributes%3AGetSMSAttributes%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197654"><span id="local-6989586621679197656"><span class="annot"><span class="annottext">GetSMSAttributes -&gt; GetSMSAttributes -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197805"><span id="local-6989586621679197807"><span class="annot"><span class="annottext">GetSMSAttributes -&gt; GetSMSAttributes -&gt; Bool
 (GetSMSAttributes -&gt; GetSMSAttributes -&gt; Bool)
 -&gt; (GetSMSAttributes -&gt; GetSMSAttributes -&gt; Bool)
 -&gt; Eq GetSMSAttributes
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetSMSAttributes -&gt; GetSMSAttributes -&gt; Bool
 == :: GetSMSAttributes -&gt; GetSMSAttributes -&gt; Bool
 $c== :: GetSMSAttributes -&gt; GetSMSAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197645"><span id="local-6989586621679197647"><span id="local-6989586621679197649"><span id="local-6989586621679197651"><span class="annot"><span class="annottext">ReadPrec [GetSMSAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197796"><span id="local-6989586621679197798"><span id="local-6989586621679197800"><span id="local-6989586621679197802"><span class="annot"><span class="annottext">ReadPrec [GetSMSAttributes]
 ReadPrec GetSMSAttributes
 Int -&gt; ReadS GetSMSAttributes
 ReadS [GetSMSAttributes]
@@ -91,7 +91,7 @@ readList :: ReadS [GetSMSAttributes]
 $creadList :: ReadS [GetSMSAttributes]
 readsPrec :: Int -&gt; ReadS GetSMSAttributes
 $creadsPrec :: Int -&gt; ReadS GetSMSAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197638"><span id="local-6989586621679197640"><span id="local-6989586621679197642"><span class="annot"><span class="annottext">Int -&gt; GetSMSAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197789"><span id="local-6989586621679197791"><span id="local-6989586621679197793"><span class="annot"><span class="annottext">Int -&gt; GetSMSAttributes -&gt; ShowS
 [GetSMSAttributes] -&gt; ShowS
 GetSMSAttributes -&gt; String
 (Int -&gt; GetSMSAttributes -&gt; ShowS)
@@ -157,16 +157,16 @@ forall a. Maybe a
 -&gt; Lens
      GetSMSAttributes GetSMSAttributes (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes%27"><span class="hs-identifier hs-type">GetSMSAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197631"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes%27"><span class="hs-identifier hs-type">GetSMSAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197782"><span class="annot"><span class="annottext">Maybe [Text]
 attributes :: Maybe [Text]
 $sel:attributes:GetSMSAttributes' :: GetSMSAttributes -&gt; Maybe [Text]
-</span><a href="#local-6989586621679197631"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679197631"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197630"><span class="annot"><span class="annottext">s :: GetSMSAttributes
-</span><a href="#local-6989586621679197630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes%27"><span class="hs-identifier hs-type">GetSMSAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197629"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679197629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSMSAttributes
-</span><a href="#local-6989586621679197630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:GetSMSAttributes' :: Maybe [Text]
+</span><a href="#local-6989586621679197782"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679197782"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197781"><span class="annot"><span class="annottext">s :: GetSMSAttributes
+</span><a href="#local-6989586621679197781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes%27"><span class="hs-identifier hs-type">GetSMSAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197780"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679197780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSMSAttributes
+</span><a href="#local-6989586621679197781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:GetSMSAttributes' :: Maybe [Text]
 </span><a href="Network.AWS.SNS.GetSMSAttributes.html#%24sel%3Aattributes%3AGetSMSAttributes%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679197629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes"><span class="hs-identifier hs-type">GetSMSAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679197780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes"><span class="hs-identifier hs-type">GetSMSAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; GetSMSAttributes -&gt; f GetSMSAttributes)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -180,19 +180,19 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes"><span class="hs-identifier hs-type">GetSMSAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes"><span class="hs-identifier hs-type">GetSMSAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse"><span class="hs-identifier hs-type">GetSMSAttributesResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679197622"><span class="annot"><span class="annottext">request :: GetSMSAttributes -&gt; Request GetSMSAttributes
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679197773"><span class="annot"><span class="annottext">request :: GetSMSAttributes -&gt; Request GetSMSAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetSMSAttributes -&gt; Request GetSMSAttributes
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SNS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679197618"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679197769"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetSMSAttributes
 -&gt; ClientResponse ClientBody
@@ -221,10 +221,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GetSMSAttributesResult&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197615"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197615"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679197614"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679197614"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679197613"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679197613"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197766"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197766"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679197765"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679197765"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679197764"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679197764"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text) -&gt; Int -&gt; GetSMSAttributesResponse
 </span><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse%27"><span class="hs-identifier hs-var">GetSMSAttributesResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text) -&gt; Int -&gt; GetSMSAttributesResponse)
@@ -232,7 +232,7 @@ Text
 -&gt; Either String (Int -&gt; GetSMSAttributesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679197613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679197764"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -266,15 +266,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197615"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197766"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197602"><span id="local-6989586621679197604"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes"><span class="hs-identifier hs-type">GetSMSAttributes</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197753"><span id="local-6989586621679197755"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes"><span class="hs-identifier hs-type">GetSMSAttributes</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes"><span class="hs-identifier hs-type">GetSMSAttributes</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197750"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes"><span class="hs-identifier hs-type">GetSMSAttributes</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes"><span class="hs-identifier hs-type">GetSMSAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679197595"><span class="annot"><span class="annottext">toHeaders :: GetSMSAttributes -&gt; ResponseHeaders
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679197746"><span class="annot"><span class="annottext">toHeaders :: GetSMSAttributes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetSMSAttributes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -282,18 +282,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes"><span class="hs-identifier hs-type">GetSMSAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679197590"><span class="annot"><span class="annottext">toPath :: GetSMSAttributes -&gt; ByteString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679197741"><span class="annot"><span class="annottext">toPath :: GetSMSAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetSMSAttributes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes"><span class="hs-identifier hs-type">GetSMSAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679197586"><span class="annot"><span class="annottext">toQuery :: GetSMSAttributes -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes%27"><span class="hs-identifier hs-type">GetSMSAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197584"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679197737"><span class="annot"><span class="annottext">toQuery :: GetSMSAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributes%27"><span class="hs-identifier hs-type">GetSMSAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197735"><span class="annot"><span class="annottext">Maybe [Text]
 attributes :: Maybe [Text]
 $sel:attributes:GetSMSAttributes' :: GetSMSAttributes -&gt; Maybe [Text]
-</span><a href="#local-6989586621679197584"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679197735"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -324,13 +324,13 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679197584"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197735"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The response from the @GetSMSAttributes@ request.</span><span>
 </span><span id="line-135"></span><span class="hs-comment">--</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- /See:/ 'newGetSMSAttributesResponse' smart constructor.</span><span>
-</span><span id="line-137"></span><span id="local-6989586621679197580"><span id="local-6989586621679197581"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSMSAttributesResponse"><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse"><span class="hs-identifier hs-var">GetSMSAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSMSAttributesResponse%27"><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse%27"><span class="hs-identifier hs-var">GetSMSAttributesResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span id="local-6989586621679197731"><span id="local-6989586621679197732"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSMSAttributesResponse"><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse"><span class="hs-identifier hs-var">GetSMSAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSMSAttributesResponse%27"><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse%27"><span class="hs-identifier hs-var">GetSMSAttributesResponse'</span></a></span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The SMS attribute names and their values.</span><span>
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3Aattributes%3AGetSMSAttributesResponse%27"><span class="annot"><span class="annottext">GetSMSAttributesResponse -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SNS.GetSMSAttributes.html#%24sel%3Aattributes%3AGetSMSAttributesResponse%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -338,7 +338,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetSMSAttributesResponse%27"><span class="annot"><span class="annottext">GetSMSAttributesResponse -&gt; Int
 </span><a href="Network.AWS.SNS.GetSMSAttributes.html#%24sel%3AhttpStatus%3AGetSMSAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197574"><span id="local-6989586621679197576"><span class="annot"><span class="annottext">GetSMSAttributesResponse -&gt; GetSMSAttributesResponse -&gt; Bool
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197725"><span id="local-6989586621679197727"><span class="annot"><span class="annottext">GetSMSAttributesResponse -&gt; GetSMSAttributesResponse -&gt; Bool
 (GetSMSAttributesResponse -&gt; GetSMSAttributesResponse -&gt; Bool)
 -&gt; (GetSMSAttributesResponse -&gt; GetSMSAttributesResponse -&gt; Bool)
 -&gt; Eq GetSMSAttributesResponse
@@ -347,7 +347,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetSMSAttributesResponse -&gt; GetSMSAttributesResponse -&gt; Bool
 == :: GetSMSAttributesResponse -&gt; GetSMSAttributesResponse -&gt; Bool
 $c== :: GetSMSAttributesResponse -&gt; GetSMSAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197566"><span id="local-6989586621679197568"><span id="local-6989586621679197570"><span id="local-6989586621679197572"><span class="annot"><span class="annottext">ReadPrec [GetSMSAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197717"><span id="local-6989586621679197719"><span id="local-6989586621679197721"><span id="local-6989586621679197723"><span class="annot"><span class="annottext">ReadPrec [GetSMSAttributesResponse]
 ReadPrec GetSMSAttributesResponse
 Int -&gt; ReadS GetSMSAttributesResponse
 ReadS [GetSMSAttributesResponse]
@@ -367,7 +367,7 @@ readList :: ReadS [GetSMSAttributesResponse]
 $creadList :: ReadS [GetSMSAttributesResponse]
 readsPrec :: Int -&gt; ReadS GetSMSAttributesResponse
 $creadsPrec :: Int -&gt; ReadS GetSMSAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197560"><span id="local-6989586621679197562"><span id="local-6989586621679197564"><span class="annot"><span class="annottext">Int -&gt; GetSMSAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197711"><span id="local-6989586621679197713"><span id="local-6989586621679197715"><span class="annot"><span class="annottext">Int -&gt; GetSMSAttributesResponse -&gt; ShowS
 [GetSMSAttributesResponse] -&gt; ShowS
 GetSMSAttributesResponse -&gt; String
 (Int -&gt; GetSMSAttributesResponse -&gt; ShowS)
@@ -415,8 +415,8 @@ GetSMSAttributesResponse -&gt; Rep GetSMSAttributesResponse x
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse"><span class="hs-identifier hs-type">GetSMSAttributesResponse</span></a></span><span>
 </span><span id="line-160"></span><span id="newGetSMSAttributesResponse"><span class="annot"><span class="annottext">newGetSMSAttributesResponse :: Int -&gt; GetSMSAttributesResponse
-</span><a href="Network.AWS.SNS.GetSMSAttributes.html#newGetSMSAttributesResponse"><span class="hs-identifier hs-var hs-var">newGetSMSAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679197557"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197557"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SNS.GetSMSAttributes.html#newGetSMSAttributesResponse"><span class="hs-identifier hs-var hs-var">newGetSMSAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679197708"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197708"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">GetSMSAttributesResponse' :: Maybe (HashMap Text Text) -&gt; Int -&gt; GetSMSAttributesResponse
 </span><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse%27"><span class="hs-identifier hs-type">GetSMSAttributesResponse'</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributes:GetSMSAttributesResponse' :: Maybe (HashMap Text Text)
@@ -426,7 +426,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetSMSAttributesResponse' :: Int
 </span><a href="Network.AWS.SNS.GetSMSAttributes.html#%24sel%3AhttpStatus%3AGetSMSAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197557"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679197708"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The SMS attribute names and their values.</span><span>
@@ -442,16 +442,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse%27"><span class="hs-identifier hs-type">GetSMSAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197556"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse%27"><span class="hs-identifier hs-type">GetSMSAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197707"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 attributes :: Maybe (HashMap Text Text)
 $sel:attributes:GetSMSAttributesResponse' :: GetSMSAttributesResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679197556"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679197556"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197555"><span class="annot"><span class="annottext">s :: GetSMSAttributesResponse
-</span><a href="#local-6989586621679197555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse%27"><span class="hs-identifier hs-type">GetSMSAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197554"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679197554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSMSAttributesResponse
-</span><a href="#local-6989586621679197555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:GetSMSAttributesResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679197707"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679197707"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197706"><span class="annot"><span class="annottext">s :: GetSMSAttributesResponse
+</span><a href="#local-6989586621679197706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse%27"><span class="hs-identifier hs-type">GetSMSAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197705"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679197705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSMSAttributesResponse
+</span><a href="#local-6989586621679197706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:GetSMSAttributesResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SNS.GetSMSAttributes.html#%24sel%3Aattributes%3AGetSMSAttributesResponse%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679197554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse"><span class="hs-identifier hs-type">GetSMSAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679197705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse"><span class="hs-identifier hs-type">GetSMSAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; GetSMSAttributesResponse -&gt; f GetSMSAttributesResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -477,8 +477,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#getSMSAttributesResponse_httpStatus"><span class="hs-identifier hs-type">getSMSAttributesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse"><span class="hs-identifier hs-type">GetSMSAttributesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -488,16 +488,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetSMSAttributesResponse -&gt; Int -&gt; GetSMSAttributesResponse)
 -&gt; Lens GetSMSAttributesResponse GetSMSAttributesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse%27"><span class="hs-identifier hs-type">GetSMSAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197553"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse%27"><span class="hs-identifier hs-type">GetSMSAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197704"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetSMSAttributesResponse' :: GetSMSAttributesResponse -&gt; Int
-</span><a href="#local-6989586621679197553"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197553"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197552"><span class="annot"><span class="annottext">s :: GetSMSAttributesResponse
-</span><a href="#local-6989586621679197552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse%27"><span class="hs-identifier hs-type">GetSMSAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197551"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSMSAttributesResponse
-</span><a href="#local-6989586621679197552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSMSAttributesResponse' :: Int
+</span><a href="#local-6989586621679197704"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197704"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197703"><span class="annot"><span class="annottext">s :: GetSMSAttributesResponse
+</span><a href="#local-6989586621679197703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse%27"><span class="hs-identifier hs-type">GetSMSAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197702"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSMSAttributesResponse
+</span><a href="#local-6989586621679197703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSMSAttributesResponse' :: Int
 </span><a href="Network.AWS.SNS.GetSMSAttributes.html#%24sel%3AhttpStatus%3AGetSMSAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse"><span class="hs-identifier hs-type">GetSMSAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse"><span class="hs-identifier hs-type">GetSMSAttributesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197549"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse"><span class="hs-identifier hs-type">GetSMSAttributesResponse</span></a></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197700"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSMSAttributes.html#GetSMSAttributesResponse"><span class="hs-identifier hs-type">GetSMSAttributesResponse</span></a></span></span><span>
 </span><span id="line-176"></span></pre></body></html>

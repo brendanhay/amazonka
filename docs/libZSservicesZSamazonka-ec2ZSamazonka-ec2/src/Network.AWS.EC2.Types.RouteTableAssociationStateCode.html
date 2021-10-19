@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621681111020"><span id="local-6989586621681111021"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RouteTableAssociationStateCode"><span class="annot"><a href="Network.AWS.EC2.Types.RouteTableAssociationStateCode.html#RouteTableAssociationStateCode"><span class="hs-identifier hs-var">RouteTableAssociationStateCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RouteTableAssociationStateCode%27"><span class="annot"><a href="Network.AWS.EC2.Types.RouteTableAssociationStateCode.html#RouteTableAssociationStateCode%27"><span class="hs-identifier hs-var">RouteTableAssociationStateCode'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621681145860"><span id="local-6989586621681145861"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RouteTableAssociationStateCode"><span class="annot"><a href="Network.AWS.EC2.Types.RouteTableAssociationStateCode.html#RouteTableAssociationStateCode"><span class="hs-identifier hs-var">RouteTableAssociationStateCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RouteTableAssociationStateCode%27"><span class="annot"><a href="Network.AWS.EC2.Types.RouteTableAssociationStateCode.html#RouteTableAssociationStateCode%27"><span class="hs-identifier hs-var">RouteTableAssociationStateCode'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRouteTableAssociationStateCode"><span class="annot"><span class="annottext">RouteTableAssociationStateCode -&gt; Text
 </span><a href="Network.AWS.EC2.Types.RouteTableAssociationStateCode.html#fromRouteTableAssociationStateCode"><span class="hs-identifier hs-var hs-var">fromRouteTableAssociationStateCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681111012"><span id="local-6989586621681111014"><span id="local-6989586621681111016"><span class="annot"><span class="annottext">Int -&gt; RouteTableAssociationStateCode -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681145852"><span id="local-6989586621681145854"><span id="local-6989586621681145856"><span class="annot"><span class="annottext">Int -&gt; RouteTableAssociationStateCode -&gt; ShowS
 [RouteTableAssociationStateCode] -&gt; ShowS
 RouteTableAssociationStateCode -&gt; String
 (Int -&gt; RouteTableAssociationStateCode -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: RouteTableAssociationStateCode -&gt; String
 showsPrec :: Int -&gt; RouteTableAssociationStateCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; RouteTableAssociationStateCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681111003"><span id="local-6989586621681111005"><span id="local-6989586621681111007"><span id="local-6989586621681111009"><span class="annot"><span class="annottext">ReadPrec [RouteTableAssociationStateCode]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681145843"><span id="local-6989586621681145845"><span id="local-6989586621681145847"><span id="local-6989586621681145849"><span class="annot"><span class="annottext">ReadPrec [RouteTableAssociationStateCode]
 ReadPrec RouteTableAssociationStateCode
 Int -&gt; ReadS RouteTableAssociationStateCode
 ReadS [RouteTableAssociationStateCode]
@@ -76,7 +76,7 @@ $creadList :: ReadS [RouteTableAssociationStateCode]
 readsPrec :: Int -&gt; ReadS RouteTableAssociationStateCode
 $creadsPrec :: Int -&gt; ReadS RouteTableAssociationStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681110998"><span id="local-6989586621681111000"><span class="annot"><span class="annottext">RouteTableAssociationStateCode
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681145838"><span id="local-6989586621681145840"><span class="annot"><span class="annottext">RouteTableAssociationStateCode
 -&gt; RouteTableAssociationStateCode -&gt; Bool
 (RouteTableAssociationStateCode
  -&gt; RouteTableAssociationStateCode -&gt; Bool)
@@ -93,7 +93,7 @@ $c/= :: RouteTableAssociationStateCode
 $c== :: RouteTableAssociationStateCode
 -&gt; RouteTableAssociationStateCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621681110982"><span id="local-6989586621681110984"><span id="local-6989586621681110986"><span id="local-6989586621681110988"><span id="local-6989586621681110990"><span id="local-6989586621681110992"><span id="local-6989586621681110994"><span class="annot"><span class="annottext">Eq RouteTableAssociationStateCode
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681145822"><span id="local-6989586621681145824"><span id="local-6989586621681145826"><span id="local-6989586621681145828"><span id="local-6989586621681145830"><span id="local-6989586621681145832"><span id="local-6989586621681145834"><span class="annot"><span class="annottext">Eq RouteTableAssociationStateCode
 Eq RouteTableAssociationStateCode
 -&gt; (RouteTableAssociationStateCode
     -&gt; RouteTableAssociationStateCode -&gt; Ordering)
@@ -182,7 +182,7 @@ RouteTableAssociationStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681110974"><span id="local-6989586621681110976"><span class="annot"><span class="annottext">Int -&gt; RouteTableAssociationStateCode -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681145814"><span id="local-6989586621681145816"><span class="annot"><span class="annottext">Int -&gt; RouteTableAssociationStateCode -&gt; Int
 RouteTableAssociationStateCode -&gt; Int
 (Int -&gt; RouteTableAssociationStateCode -&gt; Int)
 -&gt; (RouteTableAssociationStateCode -&gt; Int)
@@ -193,56 +193,56 @@ $chash :: RouteTableAssociationStateCode -&gt; Int
 hashWithSalt :: Int -&gt; RouteTableAssociationStateCode -&gt; Int
 $chashWithSalt :: Int -&gt; RouteTableAssociationStateCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681110971"><span class="annot"><span class="annottext">RouteTableAssociationStateCode -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681145811"><span class="annot"><span class="annottext">RouteTableAssociationStateCode -&gt; ()
 (RouteTableAssociationStateCode -&gt; ())
 -&gt; NFData RouteTableAssociationStateCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RouteTableAssociationStateCode -&gt; ()
 $crnf :: RouteTableAssociationStateCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681110968"><span class="annot"><span class="annottext">Text -&gt; Either String RouteTableAssociationStateCode
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681145808"><span class="annot"><span class="annottext">Text -&gt; Either String RouteTableAssociationStateCode
 (Text -&gt; Either String RouteTableAssociationStateCode)
 -&gt; FromText RouteTableAssociationStateCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RouteTableAssociationStateCode
 $cfromText :: Text -&gt; Either String RouteTableAssociationStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681110965"><span class="annot"><span class="annottext">RouteTableAssociationStateCode -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681145805"><span class="annot"><span class="annottext">RouteTableAssociationStateCode -&gt; Text
 (RouteTableAssociationStateCode -&gt; Text)
 -&gt; ToText RouteTableAssociationStateCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RouteTableAssociationStateCode -&gt; Text
 $ctoText :: RouteTableAssociationStateCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681110962"><span class="annot"><span class="annottext">RouteTableAssociationStateCode -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681145802"><span class="annot"><span class="annottext">RouteTableAssociationStateCode -&gt; ByteString
 (RouteTableAssociationStateCode -&gt; ByteString)
 -&gt; ToByteString RouteTableAssociationStateCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RouteTableAssociationStateCode -&gt; ByteString
 $ctoBS :: RouteTableAssociationStateCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681110959"><span class="annot"><span class="annottext">RouteTableAssociationStateCode -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681145799"><span class="annot"><span class="annottext">RouteTableAssociationStateCode -&gt; ByteStringBuilder
 (RouteTableAssociationStateCode -&gt; ByteStringBuilder)
 -&gt; ToLog RouteTableAssociationStateCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RouteTableAssociationStateCode -&gt; ByteStringBuilder
 $cbuild :: RouteTableAssociationStateCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681110956"><span class="annot"><span class="annottext">HeaderName -&gt; RouteTableAssociationStateCode -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681145796"><span class="annot"><span class="annottext">HeaderName -&gt; RouteTableAssociationStateCode -&gt; [Header]
 (HeaderName -&gt; RouteTableAssociationStateCode -&gt; [Header])
 -&gt; ToHeader RouteTableAssociationStateCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RouteTableAssociationStateCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RouteTableAssociationStateCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681110953"><span class="annot"><span class="annottext">RouteTableAssociationStateCode -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681145793"><span class="annot"><span class="annottext">RouteTableAssociationStateCode -&gt; QueryString
 (RouteTableAssociationStateCode -&gt; QueryString)
 -&gt; ToQuery RouteTableAssociationStateCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RouteTableAssociationStateCode -&gt; QueryString
 $ctoQuery :: RouteTableAssociationStateCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681110948"><span id="local-6989586621681110950"><span class="annot"><span class="annottext">Value -&gt; Parser [RouteTableAssociationStateCode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681145788"><span id="local-6989586621681145790"><span class="annot"><span class="annottext">Value -&gt; Parser [RouteTableAssociationStateCode]
 Value -&gt; Parser RouteTableAssociationStateCode
 (Value -&gt; Parser RouteTableAssociationStateCode)
 -&gt; (Value -&gt; Parser [RouteTableAssociationStateCode])
@@ -254,7 +254,7 @@ $cparseJSONList :: Value -&gt; Parser [RouteTableAssociationStateCode]
 parseJSON :: Value -&gt; Parser RouteTableAssociationStateCode
 $cparseJSON :: Value -&gt; Parser RouteTableAssociationStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681110943"><span id="local-6989586621681110945"><span class="annot"><span class="annottext">FromJSONKeyFunction [RouteTableAssociationStateCode]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681145783"><span id="local-6989586621681145785"><span class="annot"><span class="annottext">FromJSONKeyFunction [RouteTableAssociationStateCode]
 FromJSONKeyFunction RouteTableAssociationStateCode
 FromJSONKeyFunction RouteTableAssociationStateCode
 -&gt; FromJSONKeyFunction [RouteTableAssociationStateCode]
@@ -266,7 +266,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RouteTableAssociationStateCode]
 fromJSONKey :: FromJSONKeyFunction RouteTableAssociationStateCode
 $cfromJSONKey :: FromJSONKeyFunction RouteTableAssociationStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681110934"><span id="local-6989586621681110936"><span id="local-6989586621681110938"><span id="local-6989586621681110940"><span class="annot"><span class="annottext">[RouteTableAssociationStateCode] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681145774"><span id="local-6989586621681145776"><span id="local-6989586621681145778"><span id="local-6989586621681145780"><span class="annot"><span class="annottext">[RouteTableAssociationStateCode] -&gt; Encoding
 [RouteTableAssociationStateCode] -&gt; Value
 RouteTableAssociationStateCode -&gt; Encoding
 RouteTableAssociationStateCode -&gt; Value
@@ -290,7 +290,7 @@ $ctoEncoding :: RouteTableAssociationStateCode -&gt; Encoding
 toJSON :: RouteTableAssociationStateCode -&gt; Value
 $ctoJSON :: RouteTableAssociationStateCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681110929"><span id="local-6989586621681110931"><span class="annot"><span class="annottext">ToJSONKeyFunction [RouteTableAssociationStateCode]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681145769"><span id="local-6989586621681145771"><span class="annot"><span class="annottext">ToJSONKeyFunction [RouteTableAssociationStateCode]
 ToJSONKeyFunction RouteTableAssociationStateCode
 ToJSONKeyFunction RouteTableAssociationStateCode
 -&gt; ToJSONKeyFunction [RouteTableAssociationStateCode]
@@ -302,14 +302,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RouteTableAssociationStateCode]
 toJSONKey :: ToJSONKeyFunction RouteTableAssociationStateCode
 $ctoJSONKey :: ToJSONKeyFunction RouteTableAssociationStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681110926"><span class="annot"><span class="annottext">[Node] -&gt; Either String RouteTableAssociationStateCode
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681145766"><span class="annot"><span class="annottext">[Node] -&gt; Either String RouteTableAssociationStateCode
 ([Node] -&gt; Either String RouteTableAssociationStateCode)
 -&gt; FromXML RouteTableAssociationStateCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RouteTableAssociationStateCode
 $cparseXML :: [Node] -&gt; Either String RouteTableAssociationStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621681110923"><span class="annot"><span class="annottext">RouteTableAssociationStateCode -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681145763"><span class="annot"><span class="annottext">RouteTableAssociationStateCode -&gt; XML
 (RouteTableAssociationStateCode -&gt; XML)
 -&gt; ToXML RouteTableAssociationStateCode
 forall a. (a -&gt; XML) -&gt; ToXML a

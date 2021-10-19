@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-sdbZSamazonka-sdb
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.SDB.Types.Attribute
@@ -10,8 +10,8 @@ module Network.AWS.SDB.Types.Attribute
 -- | <i>See:</i> <a>newAttribute</a> smart constructor.
 data Attribute
 Attribute' :: Maybe Text -> Maybe Text -> Text -> Text -> Attribute
-[$sel:alternateNameEncoding:Attribute'] :: Attribute -> Maybe Text
 [$sel:alternateValueEncoding:Attribute'] :: Attribute -> Maybe Text
+[$sel:alternateNameEncoding:Attribute'] :: Attribute -> Maybe Text
 
 -- | The name of the attribute.
 [$sel:name:Attribute'] :: Attribute -> Text
@@ -27,11 +27,11 @@ Attribute' :: Maybe Text -> Maybe Text -> Text -> Text -> Attribute
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:alternateNameEncoding:Attribute'</a>,
---   <a>attribute_alternateNameEncoding</a> -
---   
 --   <a>$sel:alternateValueEncoding:Attribute'</a>,
 --   <a>attribute_alternateValueEncoding</a> -
+--   
+--   <a>$sel:alternateNameEncoding:Attribute'</a>,
+--   <a>attribute_alternateNameEncoding</a> -
 --   
 --   <a>$sel:name:Attribute'</a>, <a>attribute_name</a> - The name of the
 --   attribute.
@@ -40,9 +40,9 @@ Attribute' :: Maybe Text -> Maybe Text -> Text -> Text -> Attribute
 --   the attribute.
 newAttribute :: Text -> Text -> Attribute
 
-attribute_alternateNameEncoding :: Lens' Attribute (Maybe Text)
-
 attribute_alternateValueEncoding :: Lens' Attribute (Maybe Text)
+
+attribute_alternateNameEncoding :: Lens' Attribute (Maybe Text)
 
 -- | The name of the attribute.
 attribute_name :: Lens' Attribute Text
@@ -265,12 +265,12 @@ UpdateCondition' :: Maybe Bool -> Maybe Text -> Maybe Text -> UpdateCondition
 --   satisfied.
 [$sel:exists:UpdateCondition'] :: UpdateCondition -> Maybe Bool
 
--- | The name of the attribute involved in the condition.
-[$sel:name:UpdateCondition'] :: UpdateCondition -> Maybe Text
-
 -- | The value of an attribute. This value can only be specified when the
 --   <tt>Exists</tt> parameter is equal to <tt>true</tt>.
 [$sel:value:UpdateCondition'] :: UpdateCondition -> Maybe Text
+
+-- | The name of the attribute involved in the condition.
+[$sel:name:UpdateCondition'] :: UpdateCondition -> Maybe Text
 
 -- | Create a value of <a>UpdateCondition</a> with all optional fields
 --   omitted.
@@ -289,12 +289,12 @@ UpdateCondition' :: Maybe Bool -> Maybe Text -> Maybe Text -> UpdateCondition
 --   attribute should not exist in order for the update condition to be
 --   satisfied.
 --   
---   <a>$sel:name:UpdateCondition'</a>, <a>updateCondition_name</a> - The
---   name of the attribute involved in the condition.
---   
 --   <a>$sel:value:UpdateCondition'</a>, <a>updateCondition_value</a> - The
 --   value of an attribute. This value can only be specified when the
 --   <tt>Exists</tt> parameter is equal to <tt>true</tt>.
+--   
+--   <a>$sel:name:UpdateCondition'</a>, <a>updateCondition_name</a> - The
+--   name of the attribute involved in the condition.
 newUpdateCondition :: UpdateCondition
 
 -- | A value specifying whether or not the specified attribute must exist
@@ -305,12 +305,12 @@ newUpdateCondition :: UpdateCondition
 --   satisfied.
 updateCondition_exists :: Lens' UpdateCondition (Maybe Bool)
 
--- | The name of the attribute involved in the condition.
-updateCondition_name :: Lens' UpdateCondition (Maybe Text)
-
 -- | The value of an attribute. This value can only be specified when the
 --   <tt>Exists</tt> parameter is equal to <tt>true</tt>.
 updateCondition_value :: Lens' UpdateCondition (Maybe Text)
+
+-- | The name of the attribute involved in the condition.
+updateCondition_name :: Lens' UpdateCondition (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.SDB.Types.UpdateCondition.UpdateCondition
 instance GHC.Show.Show Network.AWS.SDB.Types.UpdateCondition.UpdateCondition
 instance GHC.Read.Read Network.AWS.SDB.Types.UpdateCondition.UpdateCondition
@@ -326,50 +326,32 @@ module Network.AWS.SDB.Types
 --   configuration.
 defaultService :: Service
 
--- | Too many attributes in this domain.
-_NumberDomainAttributesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Too many items exist in a single call.
-_NumberSubmittedItemsExceeded :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Too many predicates exist in the query expression.
+_InvalidNumberValueTests :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The specified domain does not exist.
 _NoSuchDomain :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Too many bytes in this domain.
-_NumberDomainBytesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Too many domains exist per this account.
-_NumberDomainsExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Too many predicates exist in the query expression.
-_InvalidNumberPredicates :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The item name was specified more than once.
-_DuplicateItemName :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Too many items exist in a single call.
+_NumberSubmittedItemsExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The specified attribute does not exist.
 _AttributeDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Too many predicates exist in the query expression.
-_InvalidNumberValueTests :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Too many attributes in this domain.
+_NumberDomainAttributesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The specified query expression syntax is not valid.
-_InvalidQueryExpression :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The item name was specified more than once.
+_DuplicateItemName :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Too many attributes exist in a single call.
-_NumberSubmittedAttributesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The value for a parameter is invalid.
-_InvalidParameterValue :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Too many attributes requested.
-_TooManyRequestedAttributes :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The request must contain the specified missing parameter.
+_MissingParameter :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The specified NextToken is not valid.
 _InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The request must contain the specified missing parameter.
-_MissingParameter :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The value for a parameter is invalid.
+_InvalidParameterValue :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Too many attributes in this item.
 _NumberItemAttributesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
@@ -378,11 +360,29 @@ _NumberItemAttributesExceeded :: AsError a => Getting (First ServiceError) a Ser
 --   specified query expression.
 _RequestTimeout :: AsError a => Getting (First ServiceError) a ServiceError
 
+-- | Too many attributes requested.
+_TooManyRequestedAttributes :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Too many predicates exist in the query expression.
+_InvalidNumberPredicates :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Too many domains exist per this account.
+_NumberDomainsExceeded :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Too many attributes exist in a single call.
+_NumberSubmittedAttributesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Too many bytes in this domain.
+_NumberDomainBytesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The specified query expression syntax is not valid.
+_InvalidQueryExpression :: AsError a => Getting (First ServiceError) a ServiceError
+
 -- | <i>See:</i> <a>newAttribute</a> smart constructor.
 data Attribute
 Attribute' :: Maybe Text -> Maybe Text -> Text -> Text -> Attribute
-[$sel:alternateNameEncoding:Attribute'] :: Attribute -> Maybe Text
 [$sel:alternateValueEncoding:Attribute'] :: Attribute -> Maybe Text
+[$sel:alternateNameEncoding:Attribute'] :: Attribute -> Maybe Text
 
 -- | The name of the attribute.
 [$sel:name:Attribute'] :: Attribute -> Text
@@ -398,11 +398,11 @@ Attribute' :: Maybe Text -> Maybe Text -> Text -> Text -> Attribute
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:alternateNameEncoding:Attribute'</a>,
---   <a>attribute_alternateNameEncoding</a> -
---   
 --   <a>$sel:alternateValueEncoding:Attribute'</a>,
 --   <a>attribute_alternateValueEncoding</a> -
+--   
+--   <a>$sel:alternateNameEncoding:Attribute'</a>,
+--   <a>attribute_alternateNameEncoding</a> -
 --   
 --   <a>$sel:name:Attribute'</a>, <a>attribute_name</a> - The name of the
 --   attribute.
@@ -411,9 +411,9 @@ Attribute' :: Maybe Text -> Maybe Text -> Text -> Text -> Attribute
 --   the attribute.
 newAttribute :: Text -> Text -> Attribute
 
-attribute_alternateNameEncoding :: Lens' Attribute (Maybe Text)
-
 attribute_alternateValueEncoding :: Lens' Attribute (Maybe Text)
+
+attribute_alternateNameEncoding :: Lens' Attribute (Maybe Text)
 
 -- | The name of the attribute.
 attribute_name :: Lens' Attribute Text
@@ -585,12 +585,12 @@ UpdateCondition' :: Maybe Bool -> Maybe Text -> Maybe Text -> UpdateCondition
 --   satisfied.
 [$sel:exists:UpdateCondition'] :: UpdateCondition -> Maybe Bool
 
--- | The name of the attribute involved in the condition.
-[$sel:name:UpdateCondition'] :: UpdateCondition -> Maybe Text
-
 -- | The value of an attribute. This value can only be specified when the
 --   <tt>Exists</tt> parameter is equal to <tt>true</tt>.
 [$sel:value:UpdateCondition'] :: UpdateCondition -> Maybe Text
+
+-- | The name of the attribute involved in the condition.
+[$sel:name:UpdateCondition'] :: UpdateCondition -> Maybe Text
 
 -- | Create a value of <a>UpdateCondition</a> with all optional fields
 --   omitted.
@@ -609,12 +609,12 @@ UpdateCondition' :: Maybe Bool -> Maybe Text -> Maybe Text -> UpdateCondition
 --   attribute should not exist in order for the update condition to be
 --   satisfied.
 --   
---   <a>$sel:name:UpdateCondition'</a>, <a>updateCondition_name</a> - The
---   name of the attribute involved in the condition.
---   
 --   <a>$sel:value:UpdateCondition'</a>, <a>updateCondition_value</a> - The
 --   value of an attribute. This value can only be specified when the
 --   <tt>Exists</tt> parameter is equal to <tt>true</tt>.
+--   
+--   <a>$sel:name:UpdateCondition'</a>, <a>updateCondition_name</a> - The
+--   name of the attribute involved in the condition.
 newUpdateCondition :: UpdateCondition
 
 -- | A value specifying whether or not the specified attribute must exist
@@ -625,12 +625,12 @@ newUpdateCondition :: UpdateCondition
 --   satisfied.
 updateCondition_exists :: Lens' UpdateCondition (Maybe Bool)
 
--- | The name of the attribute involved in the condition.
-updateCondition_name :: Lens' UpdateCondition (Maybe Text)
-
 -- | The value of an attribute. This value can only be specified when the
 --   <tt>Exists</tt> parameter is equal to <tt>true</tt>.
 updateCondition_value :: Lens' UpdateCondition (Maybe Text)
+
+-- | The name of the attribute involved in the condition.
+updateCondition_name :: Lens' UpdateCondition (Maybe Text)
 
 
 -- | The <tt>Select</tt> operation returns a set of attributes for
@@ -652,11 +652,7 @@ module Network.AWS.SDB.Select
 
 -- | <i>See:</i> <a>newSelect</a> smart constructor.
 data Select
-Select' :: Maybe Text -> Maybe Bool -> Text -> Select
-
--- | A string informing Amazon SimpleDB where to start the next list of
---   <tt>ItemNames</tt>.
-[$sel:nextToken:Select'] :: Select -> Maybe Text
+Select' :: Maybe Bool -> Maybe Text -> Text -> Select
 
 -- | Determines whether or not strong consistency should be enforced when
 --   data is read from SimpleDB. If <tt>true</tt>, any data previously
@@ -664,6 +660,10 @@ Select' :: Maybe Text -> Maybe Bool -> Text -> Select
 --   consistent eventually, and the client may not see data that was
 --   written immediately before your read.
 [$sel:consistentRead:Select'] :: Select -> Maybe Bool
+
+-- | A string informing Amazon SimpleDB where to start the next list of
+--   <tt>ItemNames</tt>.
+[$sel:nextToken:Select'] :: Select -> Maybe Text
 
 -- | The expression used to query the domain.
 [$sel:selectExpression:Select'] :: Select -> Text
@@ -676,10 +676,6 @@ Select' :: Maybe Text -> Maybe Bool -> Text -> Select
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:Select'</a>, <a>select_nextToken</a> - A string
---   informing Amazon SimpleDB where to start the next list of
---   <tt>ItemNames</tt>.
---   
 --   <a>$sel:consistentRead:Select'</a>, <a>select_consistentRead</a> -
 --   Determines whether or not strong consistency should be enforced when
 --   data is read from SimpleDB. If <tt>true</tt>, any data previously
@@ -687,13 +683,13 @@ Select' :: Maybe Text -> Maybe Bool -> Text -> Select
 --   consistent eventually, and the client may not see data that was
 --   written immediately before your read.
 --   
+--   <a>$sel:nextToken:Select'</a>, <a>select_nextToken</a> - A string
+--   informing Amazon SimpleDB where to start the next list of
+--   <tt>ItemNames</tt>.
+--   
 --   <a>$sel:selectExpression:Select'</a>, <a>select_selectExpression</a> -
 --   The expression used to query the domain.
 newSelect :: Text -> Select
-
--- | A string informing Amazon SimpleDB where to start the next list of
---   <tt>ItemNames</tt>.
-select_nextToken :: Lens' Select (Maybe Text)
 
 -- | Determines whether or not strong consistency should be enforced when
 --   data is read from SimpleDB. If <tt>true</tt>, any data previously
@@ -702,20 +698,24 @@ select_nextToken :: Lens' Select (Maybe Text)
 --   written immediately before your read.
 select_consistentRead :: Lens' Select (Maybe Bool)
 
+-- | A string informing Amazon SimpleDB where to start the next list of
+--   <tt>ItemNames</tt>.
+select_nextToken :: Lens' Select (Maybe Text)
+
 -- | The expression used to query the domain.
 select_selectExpression :: Lens' Select Text
 
 -- | <i>See:</i> <a>newSelectResponse</a> smart constructor.
 data SelectResponse
-SelectResponse' :: Maybe Text -> Maybe [Item] -> Int -> SelectResponse
+SelectResponse' :: Maybe [Item] -> Maybe Text -> Int -> SelectResponse
+
+-- | A list of items that match the select expression.
+[$sel:items:SelectResponse'] :: SelectResponse -> Maybe [Item]
 
 -- | An opaque token indicating that more items than
 --   <tt>MaxNumberOfItems</tt> were matched, the response size exceeded 1
 --   megabyte, or the execution time exceeded 5 seconds.
 [$sel:nextToken:SelectResponse'] :: SelectResponse -> Maybe Text
-
--- | A list of items that match the select expression.
-[$sel:items:SelectResponse'] :: SelectResponse -> Maybe [Item]
 
 -- | The response's http status code.
 [$sel:httpStatus:SelectResponse'] :: SelectResponse -> Int
@@ -729,25 +729,25 @@ SelectResponse' :: Maybe Text -> Maybe [Item] -> Int -> SelectResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:items:SelectResponse'</a>, <a>selectResponse_items</a> - A
+--   list of items that match the select expression.
+--   
 --   <a>$sel:nextToken:Select'</a>, <a>selectResponse_nextToken</a> - An
 --   opaque token indicating that more items than <tt>MaxNumberOfItems</tt>
 --   were matched, the response size exceeded 1 megabyte, or the execution
 --   time exceeded 5 seconds.
 --   
---   <a>$sel:items:SelectResponse'</a>, <a>selectResponse_items</a> - A
---   list of items that match the select expression.
---   
 --   <a>$sel:httpStatus:SelectResponse'</a>,
 --   <a>selectResponse_httpStatus</a> - The response's http status code.
 newSelectResponse :: Int -> SelectResponse
+
+-- | A list of items that match the select expression.
+selectResponse_items :: Lens' SelectResponse (Maybe [Item])
 
 -- | An opaque token indicating that more items than
 --   <tt>MaxNumberOfItems</tt> were matched, the response size exceeded 1
 --   megabyte, or the execution time exceeded 5 seconds.
 selectResponse_nextToken :: Lens' SelectResponse (Maybe Text)
-
--- | A list of items that match the select expression.
-selectResponse_items :: Lens' SelectResponse (Maybe [Item])
 
 -- | The response's http status code.
 selectResponse_httpStatus :: Lens' SelectResponse Int
@@ -910,15 +910,15 @@ module Network.AWS.SDB.ListDomains
 
 -- | <i>See:</i> <a>newListDomains</a> smart constructor.
 data ListDomains
-ListDomains' :: Maybe Text -> Maybe Int -> ListDomains
-
--- | A string informing Amazon SimpleDB where to start the next list of
---   domain names.
-[$sel:nextToken:ListDomains'] :: ListDomains -> Maybe Text
+ListDomains' :: Maybe Int -> Maybe Text -> ListDomains
 
 -- | The maximum number of domain names you want returned. The range is 1
 --   to 100. The default setting is 100.
 [$sel:maxNumberOfDomains:ListDomains'] :: ListDomains -> Maybe Int
+
+-- | A string informing Amazon SimpleDB where to start the next list of
+--   domain names.
+[$sel:nextToken:ListDomains'] :: ListDomains -> Maybe Text
 
 -- | Create a value of <a>ListDomains</a> with all optional fields omitted.
 --   
@@ -928,23 +928,23 @@ ListDomains' :: Maybe Text -> Maybe Int -> ListDomains
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListDomains'</a>, <a>listDomains_nextToken</a> - A
---   string informing Amazon SimpleDB where to start the next list of
---   domain names.
---   
 --   <a>$sel:maxNumberOfDomains:ListDomains'</a>,
 --   <a>listDomains_maxNumberOfDomains</a> - The maximum number of domain
 --   names you want returned. The range is 1 to 100. The default setting is
 --   100.
-newListDomains :: ListDomains
-
--- | A string informing Amazon SimpleDB where to start the next list of
+--   
+--   <a>$sel:nextToken:ListDomains'</a>, <a>listDomains_nextToken</a> - A
+--   string informing Amazon SimpleDB where to start the next list of
 --   domain names.
-listDomains_nextToken :: Lens' ListDomains (Maybe Text)
+newListDomains :: ListDomains
 
 -- | The maximum number of domain names you want returned. The range is 1
 --   to 100. The default setting is 100.
 listDomains_maxNumberOfDomains :: Lens' ListDomains (Maybe Int)
+
+-- | A string informing Amazon SimpleDB where to start the next list of
+--   domain names.
+listDomains_nextToken :: Lens' ListDomains (Maybe Text)
 
 -- | <i>See:</i> <a>newListDomainsResponse</a> smart constructor.
 data ListDomainsResponse
@@ -1163,7 +1163,16 @@ domainMetadata_domainName :: Lens' DomainMetadata Text
 
 -- | <i>See:</i> <a>newDomainMetadataResponse</a> smart constructor.
 data DomainMetadataResponse
-DomainMetadataResponse' :: Maybe Integer -> Maybe Int -> Maybe Int -> Maybe Integer -> Maybe Int -> Maybe Int -> Maybe Integer -> Int -> DomainMetadataResponse
+DomainMetadataResponse' :: Maybe Integer -> Maybe Integer -> Maybe Int -> Maybe Integer -> Maybe Int -> Maybe Int -> Maybe Int -> Int -> DomainMetadataResponse
+
+-- | The total size of all item names in the domain, in bytes.
+[$sel:itemNamesSizeBytes:DomainMetadataResponse'] :: DomainMetadataResponse -> Maybe Integer
+
+-- | The total size of all attribute values in the domain, in bytes.
+[$sel:attributeValuesSizeBytes:DomainMetadataResponse'] :: DomainMetadataResponse -> Maybe Integer
+
+-- | The number of unique attribute names in the domain.
+[$sel:attributeNameCount:DomainMetadataResponse'] :: DomainMetadataResponse -> Maybe Int
 
 -- | The total size of all unique attribute names in the domain, in bytes.
 [$sel:attributeNamesSizeBytes:DomainMetadataResponse'] :: DomainMetadataResponse -> Maybe Integer
@@ -1171,21 +1180,12 @@ DomainMetadataResponse' :: Maybe Integer -> Maybe Int -> Maybe Int -> Maybe Inte
 -- | The number of all attribute name/value pairs in the domain.
 [$sel:attributeValueCount:DomainMetadataResponse'] :: DomainMetadataResponse -> Maybe Int
 
--- | The number of unique attribute names in the domain.
-[$sel:attributeNameCount:DomainMetadataResponse'] :: DomainMetadataResponse -> Maybe Int
-
--- | The total size of all attribute values in the domain, in bytes.
-[$sel:attributeValuesSizeBytes:DomainMetadataResponse'] :: DomainMetadataResponse -> Maybe Integer
+-- | The number of all items in the domain.
+[$sel:itemCount:DomainMetadataResponse'] :: DomainMetadataResponse -> Maybe Int
 
 -- | The data and time when metadata was calculated, in Epoch (UNIX)
 --   seconds.
 [$sel:timestamp:DomainMetadataResponse'] :: DomainMetadataResponse -> Maybe Int
-
--- | The number of all items in the domain.
-[$sel:itemCount:DomainMetadataResponse'] :: DomainMetadataResponse -> Maybe Int
-
--- | The total size of all item names in the domain, in bytes.
-[$sel:itemNamesSizeBytes:DomainMetadataResponse'] :: DomainMetadataResponse -> Maybe Integer
 
 -- | The response's http status code.
 [$sel:httpStatus:DomainMetadataResponse'] :: DomainMetadataResponse -> Int
@@ -1199,6 +1199,18 @@ DomainMetadataResponse' :: Maybe Integer -> Maybe Int -> Maybe Int -> Maybe Inte
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:itemNamesSizeBytes:DomainMetadataResponse'</a>,
+--   <a>domainMetadataResponse_itemNamesSizeBytes</a> - The total size of
+--   all item names in the domain, in bytes.
+--   
+--   <a>$sel:attributeValuesSizeBytes:DomainMetadataResponse'</a>,
+--   <a>domainMetadataResponse_attributeValuesSizeBytes</a> - The total
+--   size of all attribute values in the domain, in bytes.
+--   
+--   <a>$sel:attributeNameCount:DomainMetadataResponse'</a>,
+--   <a>domainMetadataResponse_attributeNameCount</a> - The number of
+--   unique attribute names in the domain.
+--   
 --   <a>$sel:attributeNamesSizeBytes:DomainMetadataResponse'</a>,
 --   <a>domainMetadataResponse_attributeNamesSizeBytes</a> - The total size
 --   of all unique attribute names in the domain, in bytes.
@@ -1207,30 +1219,27 @@ DomainMetadataResponse' :: Maybe Integer -> Maybe Int -> Maybe Int -> Maybe Inte
 --   <a>domainMetadataResponse_attributeValueCount</a> - The number of all
 --   attribute name/value pairs in the domain.
 --   
---   <a>$sel:attributeNameCount:DomainMetadataResponse'</a>,
---   <a>domainMetadataResponse_attributeNameCount</a> - The number of
---   unique attribute names in the domain.
---   
---   <a>$sel:attributeValuesSizeBytes:DomainMetadataResponse'</a>,
---   <a>domainMetadataResponse_attributeValuesSizeBytes</a> - The total
---   size of all attribute values in the domain, in bytes.
+--   <a>$sel:itemCount:DomainMetadataResponse'</a>,
+--   <a>domainMetadataResponse_itemCount</a> - The number of all items in
+--   the domain.
 --   
 --   <a>$sel:timestamp:DomainMetadataResponse'</a>,
 --   <a>domainMetadataResponse_timestamp</a> - The data and time when
 --   metadata was calculated, in Epoch (UNIX) seconds.
 --   
---   <a>$sel:itemCount:DomainMetadataResponse'</a>,
---   <a>domainMetadataResponse_itemCount</a> - The number of all items in
---   the domain.
---   
---   <a>$sel:itemNamesSizeBytes:DomainMetadataResponse'</a>,
---   <a>domainMetadataResponse_itemNamesSizeBytes</a> - The total size of
---   all item names in the domain, in bytes.
---   
 --   <a>$sel:httpStatus:DomainMetadataResponse'</a>,
 --   <a>domainMetadataResponse_httpStatus</a> - The response's http status
 --   code.
 newDomainMetadataResponse :: Int -> DomainMetadataResponse
+
+-- | The total size of all item names in the domain, in bytes.
+domainMetadataResponse_itemNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
+
+-- | The total size of all attribute values in the domain, in bytes.
+domainMetadataResponse_attributeValuesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
+
+-- | The number of unique attribute names in the domain.
+domainMetadataResponse_attributeNameCount :: Lens' DomainMetadataResponse (Maybe Int)
 
 -- | The total size of all unique attribute names in the domain, in bytes.
 domainMetadataResponse_attributeNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
@@ -1238,21 +1247,12 @@ domainMetadataResponse_attributeNamesSizeBytes :: Lens' DomainMetadataResponse (
 -- | The number of all attribute name/value pairs in the domain.
 domainMetadataResponse_attributeValueCount :: Lens' DomainMetadataResponse (Maybe Int)
 
--- | The number of unique attribute names in the domain.
-domainMetadataResponse_attributeNameCount :: Lens' DomainMetadataResponse (Maybe Int)
-
--- | The total size of all attribute values in the domain, in bytes.
-domainMetadataResponse_attributeValuesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
+-- | The number of all items in the domain.
+domainMetadataResponse_itemCount :: Lens' DomainMetadataResponse (Maybe Int)
 
 -- | The data and time when metadata was calculated, in Epoch (UNIX)
 --   seconds.
 domainMetadataResponse_timestamp :: Lens' DomainMetadataResponse (Maybe Int)
-
--- | The number of all items in the domain.
-domainMetadataResponse_itemCount :: Lens' DomainMetadataResponse (Maybe Int)
-
--- | The total size of all item names in the domain, in bytes.
-domainMetadataResponse_itemNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
 
 -- | The response's http status code.
 domainMetadataResponse_httpStatus :: Lens' DomainMetadataResponse Int
@@ -1344,17 +1344,17 @@ module Network.AWS.SDB.DeleteAttributes
 
 -- | <i>See:</i> <a>newDeleteAttributes</a> smart constructor.
 data DeleteAttributes
-DeleteAttributes' :: Maybe UpdateCondition -> Maybe [Attribute] -> Text -> Text -> DeleteAttributes
+DeleteAttributes' :: Maybe [Attribute] -> Maybe UpdateCondition -> Text -> Text -> DeleteAttributes
+
+-- | A list of Attributes. Similar to columns on a spreadsheet, attributes
+--   represent categories of data that can be assigned to items.
+[$sel:attributes:DeleteAttributes'] :: DeleteAttributes -> Maybe [Attribute]
 
 -- | The update condition which, if specified, determines whether the
 --   specified attributes will be deleted or not. The update condition must
 --   be satisfied in order for this request to be processed and the
 --   attributes to be deleted.
 [$sel:expected:DeleteAttributes'] :: DeleteAttributes -> Maybe UpdateCondition
-
--- | A list of Attributes. Similar to columns on a spreadsheet, attributes
---   represent categories of data that can be assigned to items.
-[$sel:attributes:DeleteAttributes'] :: DeleteAttributes -> Maybe [Attribute]
 
 -- | The name of the domain in which to perform the operation.
 [$sel:domainName:DeleteAttributes'] :: DeleteAttributes -> Text
@@ -1373,16 +1373,16 @@ DeleteAttributes' :: Maybe UpdateCondition -> Maybe [Attribute] -> Text -> Text 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:attributes:DeleteAttributes'</a>,
+--   <a>deleteAttributes_attributes</a> - A list of Attributes. Similar to
+--   columns on a spreadsheet, attributes represent categories of data that
+--   can be assigned to items.
+--   
 --   <a>$sel:expected:DeleteAttributes'</a>,
 --   <a>deleteAttributes_expected</a> - The update condition which, if
 --   specified, determines whether the specified attributes will be deleted
 --   or not. The update condition must be satisfied in order for this
 --   request to be processed and the attributes to be deleted.
---   
---   <a>$sel:attributes:DeleteAttributes'</a>,
---   <a>deleteAttributes_attributes</a> - A list of Attributes. Similar to
---   columns on a spreadsheet, attributes represent categories of data that
---   can be assigned to items.
 --   
 --   <a>$sel:domainName:DeleteAttributes'</a>,
 --   <a>deleteAttributes_domainName</a> - The name of the domain in which
@@ -1394,15 +1394,15 @@ DeleteAttributes' :: Maybe UpdateCondition -> Maybe [Attribute] -> Text -> Text 
 --   one or more value-attribute pairs.
 newDeleteAttributes :: Text -> Text -> DeleteAttributes
 
+-- | A list of Attributes. Similar to columns on a spreadsheet, attributes
+--   represent categories of data that can be assigned to items.
+deleteAttributes_attributes :: Lens' DeleteAttributes (Maybe [Attribute])
+
 -- | The update condition which, if specified, determines whether the
 --   specified attributes will be deleted or not. The update condition must
 --   be satisfied in order for this request to be processed and the
 --   attributes to be deleted.
 deleteAttributes_expected :: Lens' DeleteAttributes (Maybe UpdateCondition)
-
--- | A list of Attributes. Similar to columns on a spreadsheet, attributes
---   represent categories of data that can be assigned to items.
-deleteAttributes_attributes :: Lens' DeleteAttributes (Maybe [Attribute])
 
 -- | The name of the domain in which to perform the operation.
 deleteAttributes_domainName :: Lens' DeleteAttributes Text
@@ -1695,83 +1695,17 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SDB.BatchDeleteAttributes.Ba
 
 module Network.AWS.SDB.Lens
 
--- | A string informing Amazon SimpleDB where to start the next list of
---   domain names.
-listDomains_nextToken :: Lens' ListDomains (Maybe Text)
+-- | The name of the domain in which the attributes are being deleted.
+batchDeleteAttributes_domainName :: Lens' BatchDeleteAttributes Text
 
--- | The maximum number of domain names you want returned. The range is 1
---   to 100. The default setting is 100.
-listDomains_maxNumberOfDomains :: Lens' ListDomains (Maybe Int)
-
--- | A list of domain names that match the expression.
-listDomainsResponse_domainNames :: Lens' ListDomainsResponse (Maybe [Text])
-
--- | An opaque token indicating that there are more domains than the
---   specified <tt>MaxNumberOfDomains</tt> still available.
-listDomainsResponse_nextToken :: Lens' ListDomainsResponse (Maybe Text)
-
--- | The response's http status code.
-listDomainsResponse_httpStatus :: Lens' ListDomainsResponse Int
-
--- | The update condition which, if specified, determines whether the
---   specified attributes will be deleted or not. The update condition must
---   be satisfied in order for this request to be processed and the
---   attributes to be deleted.
-deleteAttributes_expected :: Lens' DeleteAttributes (Maybe UpdateCondition)
-
--- | A list of Attributes. Similar to columns on a spreadsheet, attributes
---   represent categories of data that can be assigned to items.
-deleteAttributes_attributes :: Lens' DeleteAttributes (Maybe [Attribute])
-
--- | The name of the domain in which to perform the operation.
-deleteAttributes_domainName :: Lens' DeleteAttributes Text
-
--- | The name of the item. Similar to rows on a spreadsheet, items
---   represent individual objects that contain one or more value-attribute
---   pairs.
-deleteAttributes_itemName :: Lens' DeleteAttributes Text
-
--- | The name of the domain for which to display the metadata of.
-domainMetadata_domainName :: Lens' DomainMetadata Text
-
--- | The total size of all unique attribute names in the domain, in bytes.
-domainMetadataResponse_attributeNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
-
--- | The number of all attribute name/value pairs in the domain.
-domainMetadataResponse_attributeValueCount :: Lens' DomainMetadataResponse (Maybe Int)
-
--- | The number of unique attribute names in the domain.
-domainMetadataResponse_attributeNameCount :: Lens' DomainMetadataResponse (Maybe Int)
-
--- | The total size of all attribute values in the domain, in bytes.
-domainMetadataResponse_attributeValuesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
-
--- | The data and time when metadata was calculated, in Epoch (UNIX)
---   seconds.
-domainMetadataResponse_timestamp :: Lens' DomainMetadataResponse (Maybe Int)
-
--- | The number of all items in the domain.
-domainMetadataResponse_itemCount :: Lens' DomainMetadataResponse (Maybe Int)
-
--- | The total size of all item names in the domain, in bytes.
-domainMetadataResponse_itemNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
-
--- | The response's http status code.
-domainMetadataResponse_httpStatus :: Lens' DomainMetadataResponse Int
+-- | A list of items on which to perform the operation.
+batchDeleteAttributes_items :: Lens' BatchDeleteAttributes [DeletableItem]
 
 -- | The name of the domain in which the attributes are being stored.
 batchPutAttributes_domainName :: Lens' BatchPutAttributes Text
 
 -- | A list of items on which to perform the operation.
 batchPutAttributes_items :: Lens' BatchPutAttributes [ReplaceableItem]
-
--- | The name of the domain to create. The name can range between 3 and 255
---   characters and can contain the following characters: a-z, A-Z, 0-9,
---   '_', '-', and '.'.
-createDomain_domainName :: Lens' CreateDomain Text
-
--- | The name of the domain to delete.
-deleteDomain_domainName :: Lens' DeleteDomain Text
 
 -- | Determines whether or not strong consistency should be enforced when
 --   data is read from SimpleDB. If <tt>true</tt>, any data previously
@@ -1795,6 +1729,82 @@ getAttributesResponse_attributes :: Lens' GetAttributesResponse (Maybe [Attribut
 -- | The response's http status code.
 getAttributesResponse_httpStatus :: Lens' GetAttributesResponse Int
 
+-- | The name of the domain to create. The name can range between 3 and 255
+--   characters and can contain the following characters: a-z, A-Z, 0-9,
+--   '_', '-', and '.'.
+createDomain_domainName :: Lens' CreateDomain Text
+
+-- | The name of the domain for which to display the metadata of.
+domainMetadata_domainName :: Lens' DomainMetadata Text
+
+-- | The total size of all item names in the domain, in bytes.
+domainMetadataResponse_itemNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
+
+-- | The total size of all attribute values in the domain, in bytes.
+domainMetadataResponse_attributeValuesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
+
+-- | The number of unique attribute names in the domain.
+domainMetadataResponse_attributeNameCount :: Lens' DomainMetadataResponse (Maybe Int)
+
+-- | The total size of all unique attribute names in the domain, in bytes.
+domainMetadataResponse_attributeNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
+
+-- | The number of all attribute name/value pairs in the domain.
+domainMetadataResponse_attributeValueCount :: Lens' DomainMetadataResponse (Maybe Int)
+
+-- | The number of all items in the domain.
+domainMetadataResponse_itemCount :: Lens' DomainMetadataResponse (Maybe Int)
+
+-- | The data and time when metadata was calculated, in Epoch (UNIX)
+--   seconds.
+domainMetadataResponse_timestamp :: Lens' DomainMetadataResponse (Maybe Int)
+
+-- | The response's http status code.
+domainMetadataResponse_httpStatus :: Lens' DomainMetadataResponse Int
+
+-- | Determines whether or not strong consistency should be enforced when
+--   data is read from SimpleDB. If <tt>true</tt>, any data previously
+--   written to SimpleDB will be returned. Otherwise, results will be
+--   consistent eventually, and the client may not see data that was
+--   written immediately before your read.
+select_consistentRead :: Lens' Select (Maybe Bool)
+
+-- | A string informing Amazon SimpleDB where to start the next list of
+--   <tt>ItemNames</tt>.
+select_nextToken :: Lens' Select (Maybe Text)
+
+-- | The expression used to query the domain.
+select_selectExpression :: Lens' Select Text
+
+-- | A list of items that match the select expression.
+selectResponse_items :: Lens' SelectResponse (Maybe [Item])
+
+-- | An opaque token indicating that more items than
+--   <tt>MaxNumberOfItems</tt> were matched, the response size exceeded 1
+--   megabyte, or the execution time exceeded 5 seconds.
+selectResponse_nextToken :: Lens' SelectResponse (Maybe Text)
+
+-- | The response's http status code.
+selectResponse_httpStatus :: Lens' SelectResponse Int
+
+-- | A list of Attributes. Similar to columns on a spreadsheet, attributes
+--   represent categories of data that can be assigned to items.
+deleteAttributes_attributes :: Lens' DeleteAttributes (Maybe [Attribute])
+
+-- | The update condition which, if specified, determines whether the
+--   specified attributes will be deleted or not. The update condition must
+--   be satisfied in order for this request to be processed and the
+--   attributes to be deleted.
+deleteAttributes_expected :: Lens' DeleteAttributes (Maybe UpdateCondition)
+
+-- | The name of the domain in which to perform the operation.
+deleteAttributes_domainName :: Lens' DeleteAttributes Text
+
+-- | The name of the item. Similar to rows on a spreadsheet, items
+--   represent individual objects that contain one or more value-attribute
+--   pairs.
+deleteAttributes_itemName :: Lens' DeleteAttributes Text
+
 -- | The update condition which, if specified, determines whether the
 --   specified attributes will be updated or not. The update condition must
 --   be satisfied in order for this request to be processed and the
@@ -1810,40 +1820,30 @@ putAttributes_itemName :: Lens' PutAttributes Text
 -- | The list of attributes.
 putAttributes_attributes :: Lens' PutAttributes [ReplaceableAttribute]
 
+-- | The name of the domain to delete.
+deleteDomain_domainName :: Lens' DeleteDomain Text
+
+-- | The maximum number of domain names you want returned. The range is 1
+--   to 100. The default setting is 100.
+listDomains_maxNumberOfDomains :: Lens' ListDomains (Maybe Int)
+
 -- | A string informing Amazon SimpleDB where to start the next list of
---   <tt>ItemNames</tt>.
-select_nextToken :: Lens' Select (Maybe Text)
+--   domain names.
+listDomains_nextToken :: Lens' ListDomains (Maybe Text)
 
--- | Determines whether or not strong consistency should be enforced when
---   data is read from SimpleDB. If <tt>true</tt>, any data previously
---   written to SimpleDB will be returned. Otherwise, results will be
---   consistent eventually, and the client may not see data that was
---   written immediately before your read.
-select_consistentRead :: Lens' Select (Maybe Bool)
+-- | A list of domain names that match the expression.
+listDomainsResponse_domainNames :: Lens' ListDomainsResponse (Maybe [Text])
 
--- | The expression used to query the domain.
-select_selectExpression :: Lens' Select Text
-
--- | An opaque token indicating that more items than
---   <tt>MaxNumberOfItems</tt> were matched, the response size exceeded 1
---   megabyte, or the execution time exceeded 5 seconds.
-selectResponse_nextToken :: Lens' SelectResponse (Maybe Text)
-
--- | A list of items that match the select expression.
-selectResponse_items :: Lens' SelectResponse (Maybe [Item])
+-- | An opaque token indicating that there are more domains than the
+--   specified <tt>MaxNumberOfDomains</tt> still available.
+listDomainsResponse_nextToken :: Lens' ListDomainsResponse (Maybe Text)
 
 -- | The response's http status code.
-selectResponse_httpStatus :: Lens' SelectResponse Int
-
--- | The name of the domain in which the attributes are being deleted.
-batchDeleteAttributes_domainName :: Lens' BatchDeleteAttributes Text
-
--- | A list of items on which to perform the operation.
-batchDeleteAttributes_items :: Lens' BatchDeleteAttributes [DeletableItem]
-
-attribute_alternateNameEncoding :: Lens' Attribute (Maybe Text)
+listDomainsResponse_httpStatus :: Lens' ListDomainsResponse Int
 
 attribute_alternateValueEncoding :: Lens' Attribute (Maybe Text)
+
+attribute_alternateNameEncoding :: Lens' Attribute (Maybe Text)
 
 -- | The name of the attribute.
 attribute_name :: Lens' Attribute Text
@@ -1890,12 +1890,12 @@ replaceableItem_attributes :: Lens' ReplaceableItem [ReplaceableAttribute]
 --   satisfied.
 updateCondition_exists :: Lens' UpdateCondition (Maybe Bool)
 
--- | The name of the attribute involved in the condition.
-updateCondition_name :: Lens' UpdateCondition (Maybe Text)
-
 -- | The value of an attribute. This value can only be specified when the
 --   <tt>Exists</tt> parameter is equal to <tt>true</tt>.
 updateCondition_value :: Lens' UpdateCondition (Maybe Text)
+
+-- | The name of the attribute involved in the condition.
+updateCondition_name :: Lens' UpdateCondition (Maybe Text)
 
 
 module Network.AWS.SDB.Waiters
@@ -1927,50 +1927,32 @@ module Network.AWS.SDB
 --   configuration.
 defaultService :: Service
 
--- | Too many attributes in this domain.
-_NumberDomainAttributesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Too many items exist in a single call.
-_NumberSubmittedItemsExceeded :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Too many predicates exist in the query expression.
+_InvalidNumberValueTests :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The specified domain does not exist.
 _NoSuchDomain :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Too many bytes in this domain.
-_NumberDomainBytesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Too many domains exist per this account.
-_NumberDomainsExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Too many predicates exist in the query expression.
-_InvalidNumberPredicates :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The item name was specified more than once.
-_DuplicateItemName :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Too many items exist in a single call.
+_NumberSubmittedItemsExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The specified attribute does not exist.
 _AttributeDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Too many predicates exist in the query expression.
-_InvalidNumberValueTests :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Too many attributes in this domain.
+_NumberDomainAttributesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The specified query expression syntax is not valid.
-_InvalidQueryExpression :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The item name was specified more than once.
+_DuplicateItemName :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Too many attributes exist in a single call.
-_NumberSubmittedAttributesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The value for a parameter is invalid.
-_InvalidParameterValue :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Too many attributes requested.
-_TooManyRequestedAttributes :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The request must contain the specified missing parameter.
+_MissingParameter :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The specified NextToken is not valid.
 _InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The request must contain the specified missing parameter.
-_MissingParameter :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The value for a parameter is invalid.
+_InvalidParameterValue :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Too many attributes in this item.
 _NumberItemAttributesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1979,123 +1961,29 @@ _NumberItemAttributesExceeded :: AsError a => Getting (First ServiceError) a Ser
 --   specified query expression.
 _RequestTimeout :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | <i>See:</i> <a>newListDomains</a> smart constructor.
-data ListDomains
-ListDomains' :: Maybe Text -> Maybe Int -> ListDomains
+-- | Too many attributes requested.
+_TooManyRequestedAttributes :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Create a value of <a>ListDomains</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListDomains'</a>, <a>listDomains_nextToken</a> - A
---   string informing Amazon SimpleDB where to start the next list of
---   domain names.
---   
---   <a>$sel:maxNumberOfDomains:ListDomains'</a>,
---   <a>listDomains_maxNumberOfDomains</a> - The maximum number of domain
---   names you want returned. The range is 1 to 100. The default setting is
---   100.
-newListDomains :: ListDomains
+-- | Too many predicates exist in the query expression.
+_InvalidNumberPredicates :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | <i>See:</i> <a>newListDomainsResponse</a> smart constructor.
-data ListDomainsResponse
-ListDomainsResponse' :: Maybe [Text] -> Maybe Text -> Int -> ListDomainsResponse
+-- | Too many domains exist per this account.
+_NumberDomainsExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Create a value of <a>ListDomainsResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:domainNames:ListDomainsResponse'</a>,
---   <a>listDomainsResponse_domainNames</a> - A list of domain names that
---   match the expression.
---   
---   <a>$sel:nextToken:ListDomains'</a>,
---   <a>listDomainsResponse_nextToken</a> - An opaque token indicating that
---   there are more domains than the specified <tt>MaxNumberOfDomains</tt>
---   still available.
---   
---   <a>$sel:httpStatus:ListDomainsResponse'</a>,
---   <a>listDomainsResponse_httpStatus</a> - The response's http status
---   code.
-newListDomainsResponse :: Int -> ListDomainsResponse
+-- | Too many attributes exist in a single call.
+_NumberSubmittedAttributesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | <i>See:</i> <a>newDeleteAttributes</a> smart constructor.
-data DeleteAttributes
-DeleteAttributes' :: Maybe UpdateCondition -> Maybe [Attribute] -> Text -> Text -> DeleteAttributes
+-- | Too many bytes in this domain.
+_NumberDomainBytesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Create a value of <a>DeleteAttributes</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:expected:DeleteAttributes'</a>,
---   <a>deleteAttributes_expected</a> - The update condition which, if
---   specified, determines whether the specified attributes will be deleted
---   or not. The update condition must be satisfied in order for this
---   request to be processed and the attributes to be deleted.
---   
---   <a>$sel:attributes:DeleteAttributes'</a>,
---   <a>deleteAttributes_attributes</a> - A list of Attributes. Similar to
---   columns on a spreadsheet, attributes represent categories of data that
---   can be assigned to items.
---   
---   <a>$sel:domainName:DeleteAttributes'</a>,
---   <a>deleteAttributes_domainName</a> - The name of the domain in which
---   to perform the operation.
---   
---   <a>$sel:itemName:DeleteAttributes'</a>,
---   <a>deleteAttributes_itemName</a> - The name of the item. Similar to
---   rows on a spreadsheet, items represent individual objects that contain
---   one or more value-attribute pairs.
-newDeleteAttributes :: Text -> Text -> DeleteAttributes
+-- | The specified query expression syntax is not valid.
+_InvalidQueryExpression :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | <i>See:</i> <a>newDeleteAttributesResponse</a> smart constructor.
-data DeleteAttributesResponse
-DeleteAttributesResponse' :: DeleteAttributesResponse
+-- | <i>See:</i> <a>newBatchDeleteAttributes</a> smart constructor.
+data BatchDeleteAttributes
+BatchDeleteAttributes' :: Text -> [DeletableItem] -> BatchDeleteAttributes
 
--- | Create a value of <a>DeleteAttributesResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
-newDeleteAttributesResponse :: DeleteAttributesResponse
-
--- | <i>See:</i> <a>newDomainMetadata</a> smart constructor.
-data DomainMetadata
-DomainMetadata' :: Text -> DomainMetadata
-
--- | Create a value of <a>DomainMetadata</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:domainName:DomainMetadata'</a>,
---   <a>domainMetadata_domainName</a> - The name of the domain for which to
---   display the metadata of.
-newDomainMetadata :: Text -> DomainMetadata
-
--- | <i>See:</i> <a>newDomainMetadataResponse</a> smart constructor.
-data DomainMetadataResponse
-DomainMetadataResponse' :: Maybe Integer -> Maybe Int -> Maybe Int -> Maybe Integer -> Maybe Int -> Maybe Int -> Maybe Integer -> Int -> DomainMetadataResponse
-
--- | Create a value of <a>DomainMetadataResponse</a> with all optional
+-- | Create a value of <a>BatchDeleteAttributes</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -2104,38 +1992,25 @@ DomainMetadataResponse' :: Maybe Integer -> Maybe Int -> Maybe Int -> Maybe Inte
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:attributeNamesSizeBytes:DomainMetadataResponse'</a>,
---   <a>domainMetadataResponse_attributeNamesSizeBytes</a> - The total size
---   of all unique attribute names in the domain, in bytes.
+--   <a>$sel:domainName:BatchDeleteAttributes'</a>,
+--   <a>batchDeleteAttributes_domainName</a> - The name of the domain in
+--   which the attributes are being deleted.
 --   
---   <a>$sel:attributeValueCount:DomainMetadataResponse'</a>,
---   <a>domainMetadataResponse_attributeValueCount</a> - The number of all
---   attribute name/value pairs in the domain.
+--   <a>$sel:items:BatchDeleteAttributes'</a>,
+--   <a>batchDeleteAttributes_items</a> - A list of items on which to
+--   perform the operation.
+newBatchDeleteAttributes :: Text -> BatchDeleteAttributes
+
+-- | <i>See:</i> <a>newBatchDeleteAttributesResponse</a> smart constructor.
+data BatchDeleteAttributesResponse
+BatchDeleteAttributesResponse' :: BatchDeleteAttributesResponse
+
+-- | Create a value of <a>BatchDeleteAttributesResponse</a> with all
+--   optional fields omitted.
 --   
---   <a>$sel:attributeNameCount:DomainMetadataResponse'</a>,
---   <a>domainMetadataResponse_attributeNameCount</a> - The number of
---   unique attribute names in the domain.
---   
---   <a>$sel:attributeValuesSizeBytes:DomainMetadataResponse'</a>,
---   <a>domainMetadataResponse_attributeValuesSizeBytes</a> - The total
---   size of all attribute values in the domain, in bytes.
---   
---   <a>$sel:timestamp:DomainMetadataResponse'</a>,
---   <a>domainMetadataResponse_timestamp</a> - The data and time when
---   metadata was calculated, in Epoch (UNIX) seconds.
---   
---   <a>$sel:itemCount:DomainMetadataResponse'</a>,
---   <a>domainMetadataResponse_itemCount</a> - The number of all items in
---   the domain.
---   
---   <a>$sel:itemNamesSizeBytes:DomainMetadataResponse'</a>,
---   <a>domainMetadataResponse_itemNamesSizeBytes</a> - The total size of
---   all item names in the domain, in bytes.
---   
---   <a>$sel:httpStatus:DomainMetadataResponse'</a>,
---   <a>domainMetadataResponse_httpStatus</a> - The response's http status
---   code.
-newDomainMetadataResponse :: Int -> DomainMetadataResponse
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+newBatchDeleteAttributesResponse :: BatchDeleteAttributesResponse
 
 -- | <i>See:</i> <a>newBatchPutAttributes</a> smart constructor.
 data BatchPutAttributes
@@ -2168,64 +2043,6 @@ BatchPutAttributesResponse' :: BatchPutAttributesResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newBatchPutAttributesResponse :: BatchPutAttributesResponse
-
--- | <i>See:</i> <a>newCreateDomain</a> smart constructor.
-data CreateDomain
-CreateDomain' :: Text -> CreateDomain
-
--- | Create a value of <a>CreateDomain</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:domainName:CreateDomain'</a>, <a>createDomain_domainName</a> -
---   The name of the domain to create. The name can range between 3 and 255
---   characters and can contain the following characters: a-z, A-Z, 0-9,
---   '_', '-', and '.'.
-newCreateDomain :: Text -> CreateDomain
-
--- | <i>See:</i> <a>newCreateDomainResponse</a> smart constructor.
-data CreateDomainResponse
-CreateDomainResponse' :: CreateDomainResponse
-
--- | Create a value of <a>CreateDomainResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
-newCreateDomainResponse :: CreateDomainResponse
-
--- | <i>See:</i> <a>newDeleteDomain</a> smart constructor.
-data DeleteDomain
-DeleteDomain' :: Text -> DeleteDomain
-
--- | Create a value of <a>DeleteDomain</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:domainName:DeleteDomain'</a>, <a>deleteDomain_domainName</a> -
---   The name of the domain to delete.
-newDeleteDomain :: Text -> DeleteDomain
-
--- | <i>See:</i> <a>newDeleteDomainResponse</a> smart constructor.
-data DeleteDomainResponse
-DeleteDomainResponse' :: DeleteDomainResponse
-
--- | Create a value of <a>DeleteDomainResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
-newDeleteDomainResponse :: DeleteDomainResponse
 
 -- | <i>See:</i> <a>newGetAttributes</a> smart constructor.
 data GetAttributes
@@ -2279,6 +2096,197 @@ GetAttributesResponse' :: Maybe [Attribute] -> Int -> GetAttributesResponse
 --   code.
 newGetAttributesResponse :: Int -> GetAttributesResponse
 
+-- | <i>See:</i> <a>newCreateDomain</a> smart constructor.
+data CreateDomain
+CreateDomain' :: Text -> CreateDomain
+
+-- | Create a value of <a>CreateDomain</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:domainName:CreateDomain'</a>, <a>createDomain_domainName</a> -
+--   The name of the domain to create. The name can range between 3 and 255
+--   characters and can contain the following characters: a-z, A-Z, 0-9,
+--   '_', '-', and '.'.
+newCreateDomain :: Text -> CreateDomain
+
+-- | <i>See:</i> <a>newCreateDomainResponse</a> smart constructor.
+data CreateDomainResponse
+CreateDomainResponse' :: CreateDomainResponse
+
+-- | Create a value of <a>CreateDomainResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+newCreateDomainResponse :: CreateDomainResponse
+
+-- | <i>See:</i> <a>newDomainMetadata</a> smart constructor.
+data DomainMetadata
+DomainMetadata' :: Text -> DomainMetadata
+
+-- | Create a value of <a>DomainMetadata</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:domainName:DomainMetadata'</a>,
+--   <a>domainMetadata_domainName</a> - The name of the domain for which to
+--   display the metadata of.
+newDomainMetadata :: Text -> DomainMetadata
+
+-- | <i>See:</i> <a>newDomainMetadataResponse</a> smart constructor.
+data DomainMetadataResponse
+DomainMetadataResponse' :: Maybe Integer -> Maybe Integer -> Maybe Int -> Maybe Integer -> Maybe Int -> Maybe Int -> Maybe Int -> Int -> DomainMetadataResponse
+
+-- | Create a value of <a>DomainMetadataResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:itemNamesSizeBytes:DomainMetadataResponse'</a>,
+--   <a>domainMetadataResponse_itemNamesSizeBytes</a> - The total size of
+--   all item names in the domain, in bytes.
+--   
+--   <a>$sel:attributeValuesSizeBytes:DomainMetadataResponse'</a>,
+--   <a>domainMetadataResponse_attributeValuesSizeBytes</a> - The total
+--   size of all attribute values in the domain, in bytes.
+--   
+--   <a>$sel:attributeNameCount:DomainMetadataResponse'</a>,
+--   <a>domainMetadataResponse_attributeNameCount</a> - The number of
+--   unique attribute names in the domain.
+--   
+--   <a>$sel:attributeNamesSizeBytes:DomainMetadataResponse'</a>,
+--   <a>domainMetadataResponse_attributeNamesSizeBytes</a> - The total size
+--   of all unique attribute names in the domain, in bytes.
+--   
+--   <a>$sel:attributeValueCount:DomainMetadataResponse'</a>,
+--   <a>domainMetadataResponse_attributeValueCount</a> - The number of all
+--   attribute name/value pairs in the domain.
+--   
+--   <a>$sel:itemCount:DomainMetadataResponse'</a>,
+--   <a>domainMetadataResponse_itemCount</a> - The number of all items in
+--   the domain.
+--   
+--   <a>$sel:timestamp:DomainMetadataResponse'</a>,
+--   <a>domainMetadataResponse_timestamp</a> - The data and time when
+--   metadata was calculated, in Epoch (UNIX) seconds.
+--   
+--   <a>$sel:httpStatus:DomainMetadataResponse'</a>,
+--   <a>domainMetadataResponse_httpStatus</a> - The response's http status
+--   code.
+newDomainMetadataResponse :: Int -> DomainMetadataResponse
+
+-- | <i>See:</i> <a>newSelect</a> smart constructor.
+data Select
+Select' :: Maybe Bool -> Maybe Text -> Text -> Select
+
+-- | Create a value of <a>Select</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:consistentRead:Select'</a>, <a>select_consistentRead</a> -
+--   Determines whether or not strong consistency should be enforced when
+--   data is read from SimpleDB. If <tt>true</tt>, any data previously
+--   written to SimpleDB will be returned. Otherwise, results will be
+--   consistent eventually, and the client may not see data that was
+--   written immediately before your read.
+--   
+--   <a>$sel:nextToken:Select'</a>, <a>select_nextToken</a> - A string
+--   informing Amazon SimpleDB where to start the next list of
+--   <tt>ItemNames</tt>.
+--   
+--   <a>$sel:selectExpression:Select'</a>, <a>select_selectExpression</a> -
+--   The expression used to query the domain.
+newSelect :: Text -> Select
+
+-- | <i>See:</i> <a>newSelectResponse</a> smart constructor.
+data SelectResponse
+SelectResponse' :: Maybe [Item] -> Maybe Text -> Int -> SelectResponse
+
+-- | Create a value of <a>SelectResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:items:SelectResponse'</a>, <a>selectResponse_items</a> - A
+--   list of items that match the select expression.
+--   
+--   <a>$sel:nextToken:Select'</a>, <a>selectResponse_nextToken</a> - An
+--   opaque token indicating that more items than <tt>MaxNumberOfItems</tt>
+--   were matched, the response size exceeded 1 megabyte, or the execution
+--   time exceeded 5 seconds.
+--   
+--   <a>$sel:httpStatus:SelectResponse'</a>,
+--   <a>selectResponse_httpStatus</a> - The response's http status code.
+newSelectResponse :: Int -> SelectResponse
+
+-- | <i>See:</i> <a>newDeleteAttributes</a> smart constructor.
+data DeleteAttributes
+DeleteAttributes' :: Maybe [Attribute] -> Maybe UpdateCondition -> Text -> Text -> DeleteAttributes
+
+-- | Create a value of <a>DeleteAttributes</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:attributes:DeleteAttributes'</a>,
+--   <a>deleteAttributes_attributes</a> - A list of Attributes. Similar to
+--   columns on a spreadsheet, attributes represent categories of data that
+--   can be assigned to items.
+--   
+--   <a>$sel:expected:DeleteAttributes'</a>,
+--   <a>deleteAttributes_expected</a> - The update condition which, if
+--   specified, determines whether the specified attributes will be deleted
+--   or not. The update condition must be satisfied in order for this
+--   request to be processed and the attributes to be deleted.
+--   
+--   <a>$sel:domainName:DeleteAttributes'</a>,
+--   <a>deleteAttributes_domainName</a> - The name of the domain in which
+--   to perform the operation.
+--   
+--   <a>$sel:itemName:DeleteAttributes'</a>,
+--   <a>deleteAttributes_itemName</a> - The name of the item. Similar to
+--   rows on a spreadsheet, items represent individual objects that contain
+--   one or more value-attribute pairs.
+newDeleteAttributes :: Text -> Text -> DeleteAttributes
+
+-- | <i>See:</i> <a>newDeleteAttributesResponse</a> smart constructor.
+data DeleteAttributesResponse
+DeleteAttributesResponse' :: DeleteAttributesResponse
+
+-- | Create a value of <a>DeleteAttributesResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+newDeleteAttributesResponse :: DeleteAttributesResponse
+
 -- | <i>See:</i> <a>newPutAttributes</a> smart constructor.
 data PutAttributes
 PutAttributes' :: Maybe UpdateCondition -> Text -> Text -> [ReplaceableAttribute] -> PutAttributes
@@ -2319,38 +2327,11 @@ PutAttributesResponse' :: PutAttributesResponse
 --   fields.
 newPutAttributesResponse :: PutAttributesResponse
 
--- | <i>See:</i> <a>newSelect</a> smart constructor.
-data Select
-Select' :: Maybe Text -> Maybe Bool -> Text -> Select
+-- | <i>See:</i> <a>newDeleteDomain</a> smart constructor.
+data DeleteDomain
+DeleteDomain' :: Text -> DeleteDomain
 
--- | Create a value of <a>Select</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:Select'</a>, <a>select_nextToken</a> - A string
---   informing Amazon SimpleDB where to start the next list of
---   <tt>ItemNames</tt>.
---   
---   <a>$sel:consistentRead:Select'</a>, <a>select_consistentRead</a> -
---   Determines whether or not strong consistency should be enforced when
---   data is read from SimpleDB. If <tt>true</tt>, any data previously
---   written to SimpleDB will be returned. Otherwise, results will be
---   consistent eventually, and the client may not see data that was
---   written immediately before your read.
---   
---   <a>$sel:selectExpression:Select'</a>, <a>select_selectExpression</a> -
---   The expression used to query the domain.
-newSelect :: Text -> Select
-
--- | <i>See:</i> <a>newSelectResponse</a> smart constructor.
-data SelectResponse
-SelectResponse' :: Maybe Text -> Maybe [Item] -> Int -> SelectResponse
-
--- | Create a value of <a>SelectResponse</a> with all optional fields
+-- | Create a value of <a>DeleteDomain</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -2359,24 +2340,26 @@ SelectResponse' :: Maybe Text -> Maybe [Item] -> Int -> SelectResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:Select'</a>, <a>selectResponse_nextToken</a> - An
---   opaque token indicating that more items than <tt>MaxNumberOfItems</tt>
---   were matched, the response size exceeded 1 megabyte, or the execution
---   time exceeded 5 seconds.
---   
---   <a>$sel:items:SelectResponse'</a>, <a>selectResponse_items</a> - A
---   list of items that match the select expression.
---   
---   <a>$sel:httpStatus:SelectResponse'</a>,
---   <a>selectResponse_httpStatus</a> - The response's http status code.
-newSelectResponse :: Int -> SelectResponse
+--   <a>$sel:domainName:DeleteDomain'</a>, <a>deleteDomain_domainName</a> -
+--   The name of the domain to delete.
+newDeleteDomain :: Text -> DeleteDomain
 
--- | <i>See:</i> <a>newBatchDeleteAttributes</a> smart constructor.
-data BatchDeleteAttributes
-BatchDeleteAttributes' :: Text -> [DeletableItem] -> BatchDeleteAttributes
+-- | <i>See:</i> <a>newDeleteDomainResponse</a> smart constructor.
+data DeleteDomainResponse
+DeleteDomainResponse' :: DeleteDomainResponse
 
--- | Create a value of <a>BatchDeleteAttributes</a> with all optional
---   fields omitted.
+-- | Create a value of <a>DeleteDomainResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+newDeleteDomainResponse :: DeleteDomainResponse
+
+-- | <i>See:</i> <a>newListDomains</a> smart constructor.
+data ListDomains
+ListDomains' :: Maybe Int -> Maybe Text -> ListDomains
+
+-- | Create a value of <a>ListDomains</a> with all optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -2384,25 +2367,42 @@ BatchDeleteAttributes' :: Text -> [DeletableItem] -> BatchDeleteAttributes
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:domainName:BatchDeleteAttributes'</a>,
---   <a>batchDeleteAttributes_domainName</a> - The name of the domain in
---   which the attributes are being deleted.
+--   <a>$sel:maxNumberOfDomains:ListDomains'</a>,
+--   <a>listDomains_maxNumberOfDomains</a> - The maximum number of domain
+--   names you want returned. The range is 1 to 100. The default setting is
+--   100.
 --   
---   <a>$sel:items:BatchDeleteAttributes'</a>,
---   <a>batchDeleteAttributes_items</a> - A list of items on which to
---   perform the operation.
-newBatchDeleteAttributes :: Text -> BatchDeleteAttributes
+--   <a>$sel:nextToken:ListDomains'</a>, <a>listDomains_nextToken</a> - A
+--   string informing Amazon SimpleDB where to start the next list of
+--   domain names.
+newListDomains :: ListDomains
 
--- | <i>See:</i> <a>newBatchDeleteAttributesResponse</a> smart constructor.
-data BatchDeleteAttributesResponse
-BatchDeleteAttributesResponse' :: BatchDeleteAttributesResponse
+-- | <i>See:</i> <a>newListDomainsResponse</a> smart constructor.
+data ListDomainsResponse
+ListDomainsResponse' :: Maybe [Text] -> Maybe Text -> Int -> ListDomainsResponse
 
--- | Create a value of <a>BatchDeleteAttributesResponse</a> with all
---   optional fields omitted.
+-- | Create a value of <a>ListDomainsResponse</a> with all optional fields
+--   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
-newBatchDeleteAttributesResponse :: BatchDeleteAttributesResponse
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:domainNames:ListDomainsResponse'</a>,
+--   <a>listDomainsResponse_domainNames</a> - A list of domain names that
+--   match the expression.
+--   
+--   <a>$sel:nextToken:ListDomains'</a>,
+--   <a>listDomainsResponse_nextToken</a> - An opaque token indicating that
+--   there are more domains than the specified <tt>MaxNumberOfDomains</tt>
+--   still available.
+--   
+--   <a>$sel:httpStatus:ListDomainsResponse'</a>,
+--   <a>listDomainsResponse_httpStatus</a> - The response's http status
+--   code.
+newListDomainsResponse :: Int -> ListDomainsResponse
 
 -- | <i>See:</i> <a>newAttribute</a> smart constructor.
 data Attribute
@@ -2416,11 +2416,11 @@ Attribute' :: Maybe Text -> Maybe Text -> Text -> Text -> Attribute
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:alternateNameEncoding:Attribute'</a>,
---   <a>attribute_alternateNameEncoding</a> -
---   
 --   <a>$sel:alternateValueEncoding:Attribute'</a>,
 --   <a>attribute_alternateValueEncoding</a> -
+--   
+--   <a>$sel:alternateNameEncoding:Attribute'</a>,
+--   <a>attribute_alternateNameEncoding</a> -
 --   
 --   <a>$sel:name:Attribute'</a>, <a>attribute_name</a> - The name of the
 --   attribute.
@@ -2545,10 +2545,10 @@ UpdateCondition' :: Maybe Bool -> Maybe Text -> Maybe Text -> UpdateCondition
 --   attribute should not exist in order for the update condition to be
 --   satisfied.
 --   
---   <a>$sel:name:UpdateCondition'</a>, <a>updateCondition_name</a> - The
---   name of the attribute involved in the condition.
---   
 --   <a>$sel:value:UpdateCondition'</a>, <a>updateCondition_value</a> - The
 --   value of an attribute. This value can only be specified when the
 --   <tt>Exists</tt> parameter is equal to <tt>true</tt>.
+--   
+--   <a>$sel:name:UpdateCondition'</a>, <a>updateCondition_name</a> - The
+--   name of the attribute involved in the condition.
 newUpdateCondition :: UpdateCondition

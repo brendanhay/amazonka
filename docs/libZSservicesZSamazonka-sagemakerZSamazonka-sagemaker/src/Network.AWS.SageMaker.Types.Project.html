@@ -31,40 +31,40 @@
 </span><span id="line-31"></span><span class="hs-comment">-- | The properties of a project as returned by the Search API.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newProject' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621680355267"><span id="local-6989586621680355268"></span></span><span class="hs-keyword">data</span><span> </span><span id="Project"><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-var">Project</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Project%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-var">Project'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680356709"><span id="local-6989586621680356710"></span></span><span class="hs-keyword">data</span><span> </span><span id="Project"><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-var">Project</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Project%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-var">Project'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A timestamp specifying when the project was created.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AcreationTime%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AcreationTime%3AProject%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ID of the project.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AprojectId%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectId%3AProject%27"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the project.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AprojectName%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectName%3AProject%27"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AserviceCatalogProvisionedProductDetails%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe ServiceCatalogProvisionedProductDetails
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AserviceCatalogProvisionedProductDetails%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe ServiceCatalogProvisionedProductDetails
 </span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AserviceCatalogProvisionedProductDetails%3AProject%27"><span class="hs-identifier hs-var hs-var">serviceCatalogProvisionedProductDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ServiceCatalogProvisionedProductDetails.html#ServiceCatalogProvisionedProductDetails"><span class="hs-identifier hs-type">ServiceCatalogProvisionedProductDetails</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3Atags%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe [Tag]
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3Atags%3AProject%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The status of the project.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AprojectStatus%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe ProjectStatus
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectStatus%3AProject%27"><span class="hs-identifier hs-var hs-var">projectStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Who created the project.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AcreatedBy%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe UserContext
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Who created the project.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcreatedBy%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe UserContext
 </span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AcreatedBy%3AProject%27"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserContext.html#UserContext"><span class="hs-identifier hs-type">UserContext</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The description of the project.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AprojectDescription%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectDescription%3AProject%27"><span class="hs-identifier hs-var hs-var">projectDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the project.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AprojectArn%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The status of the project.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AprojectStatus%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe ProjectStatus
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectStatus%3AProject%27"><span class="hs-identifier hs-var hs-var">projectStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of the project.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AprojectName%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectName%3AProject%27"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AserviceCatalogProvisioningDetails%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe ServiceCatalogProvisioningDetails
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AserviceCatalogProvisioningDetails%3AProject%27"><span class="hs-identifier hs-var hs-var">serviceCatalogProvisioningDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ServiceCatalogProvisioningDetails.html#ServiceCatalogProvisioningDetails"><span class="hs-identifier hs-type">ServiceCatalogProvisioningDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The ID of the project.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AprojectId%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectId%3AProject%27"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the project.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AprojectArn%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectArn%3AProject%27"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AserviceCatalogProvisioningDetails%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe ServiceCatalogProvisioningDetails
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AserviceCatalogProvisioningDetails%3AProject%27"><span class="hs-identifier hs-var hs-var">serviceCatalogProvisioningDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ServiceCatalogProvisioningDetails.html#ServiceCatalogProvisioningDetails"><span class="hs-identifier hs-type">ServiceCatalogProvisioningDetails</span></a></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The description of the project.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AprojectDescription%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectDescription%3AProject%27"><span class="hs-identifier hs-var hs-var">projectDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Atags%3AProject%27"><span class="annot"><span class="annottext">Project -&gt; Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3Atags%3AProject%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680355252"><span id="local-6989586621680355254"><span class="annot"><span class="annottext">Project -&gt; Project -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680356694"><span id="local-6989586621680356696"><span class="annot"><span class="annottext">Project -&gt; Project -&gt; Bool
 (Project -&gt; Project -&gt; Bool)
 -&gt; (Project -&gt; Project -&gt; Bool) -&gt; Eq Project
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Project -&gt; Project -&gt; Bool
 == :: Project -&gt; Project -&gt; Bool
 $c== :: Project -&gt; Project -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680355243"><span id="local-6989586621680355245"><span id="local-6989586621680355247"><span id="local-6989586621680355249"><span class="annot"><span class="annottext">ReadPrec [Project]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680356685"><span id="local-6989586621680356687"><span id="local-6989586621680356689"><span id="local-6989586621680356691"><span class="annot"><span class="annottext">ReadPrec [Project]
 ReadPrec Project
 Int -&gt; ReadS Project
 ReadS [Project]
@@ -92,7 +92,7 @@ readList :: ReadS [Project]
 $creadList :: ReadS [Project]
 readsPrec :: Int -&gt; ReadS Project
 $creadsPrec :: Int -&gt; ReadS Project
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680355236"><span id="local-6989586621680355238"><span id="local-6989586621680355240"><span class="annot"><span class="annottext">Int -&gt; Project -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680356678"><span id="local-6989586621680356680"><span id="local-6989586621680356682"><span class="annot"><span class="annottext">Int -&gt; Project -&gt; ShowS
 [Project] -&gt; ShowS
 Project -&gt; String
 (Int -&gt; Project -&gt; ShowS)
@@ -125,81 +125,81 @@ $cfrom :: forall x. Project -&gt; Rep Project x
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- 'creationTime', 'project_creationTime' - A timestamp specifying when the project was created.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'projectId', 'project_projectId' - The ID of the project.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'serviceCatalogProvisionedProductDetails', 'project_serviceCatalogProvisionedProductDetails' - Undocumented member.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'projectName', 'project_projectName' - The name of the project.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'createdBy', 'project_createdBy' - Who created the project.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'serviceCatalogProvisionedProductDetails', 'project_serviceCatalogProvisionedProductDetails' - Undocumented member.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'projectStatus', 'project_projectStatus' - The status of the project.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'tags', 'project_tags' - An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'projectStatus', 'project_projectStatus' - The status of the project.</span><span>
-</span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'createdBy', 'project_createdBy' - Who created the project.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'projectDescription', 'project_projectDescription' - The description of the project.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'projectArn', 'project_projectArn' - The Amazon Resource Name (ARN) of the project.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'serviceCatalogProvisioningDetails', 'project_serviceCatalogProvisioningDetails' - Undocumented member.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'projectName', 'project_projectName' - The name of the project.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'serviceCatalogProvisioningDetails', 'project_serviceCatalogProvisioningDetails' - Undocumented member.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'projectId', 'project_projectId' - The ID of the project.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'projectArn', 'project_projectArn' - The Amazon Resource Name (ARN) of the project.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'projectDescription', 'project_projectDescription' - The description of the project.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'tags', 'project_tags' - An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#newProject"><span class="hs-identifier hs-type">newProject</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span>
 </span><span id="line-91"></span><span id="newProject"><span class="annot"><span class="annottext">newProject :: Project
 </span><a href="Network.AWS.SageMaker.Types.Project.html#newProject"><span class="hs-identifier hs-var hs-var">newProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">Project' :: Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe ServiceCatalogProvisionedProductDetails
--&gt; Maybe [Tag]
--&gt; Maybe ProjectStatus
 -&gt; Maybe UserContext
--&gt; Maybe Text
+-&gt; Maybe ProjectStatus
 -&gt; Maybe Text
 -&gt; Maybe ServiceCatalogProvisioningDetails
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
 -&gt; Project
 </span><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:Project' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AcreationTime%3AProject%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectId:Project' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectId%3AProject%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectName:Project' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectName%3AProject%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceCatalogProvisionedProductDetails:Project' :: Maybe ServiceCatalogProvisionedProductDetails
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceCatalogProvisionedProductDetails:Project' :: Maybe ServiceCatalogProvisionedProductDetails
 </span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AserviceCatalogProvisionedProductDetails%3AProject%27"><span class="hs-identifier hs-var">serviceCatalogProvisionedProductDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisionedProductDetails
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisionedProductDetails
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Project' :: Maybe [Tag]
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3Atags%3AProject%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectStatus:Project' :: Maybe ProjectStatus
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectStatus%3AProject%27"><span class="hs-identifier hs-var">projectStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectStatus
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBy:Project' :: Maybe UserContext
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBy:Project' :: Maybe UserContext
 </span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AcreatedBy%3AProject%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectDescription:Project' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectDescription%3AProject%27"><span class="hs-identifier hs-var">projectDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectStatus:Project' :: Maybe ProjectStatus
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectStatus%3AProject%27"><span class="hs-identifier hs-var">projectStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectArn:Project' :: Maybe Text
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectName:Project' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectName%3AProject%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceCatalogProvisioningDetails:Project' :: Maybe ServiceCatalogProvisioningDetails
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AserviceCatalogProvisioningDetails%3AProject%27"><span class="hs-identifier hs-var">serviceCatalogProvisioningDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisioningDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectId:Project' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectId%3AProject%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectArn:Project' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectArn%3AProject%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceCatalogProvisioningDetails:Project' :: Maybe ServiceCatalogProvisioningDetails
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AserviceCatalogProvisioningDetails%3AProject%27"><span class="hs-identifier hs-var">serviceCatalogProvisioningDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisioningDetails
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectDescription:Project' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectDescription%3AProject%27"><span class="hs-identifier hs-var">projectDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Project' :: Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3Atags%3AProject%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
@@ -211,16 +211,16 @@ forall a. Maybe a
 -&gt; (Project -&gt; Maybe POSIX -&gt; Project)
 -&gt; Lens Project Project (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355227"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356669"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:Project' :: Project -&gt; Maybe POSIX
-</span><a href="#local-6989586621680355227"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680355227"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355226"><span class="annot"><span class="annottext">s :: Project
-</span><a href="#local-6989586621680355226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355225"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680355225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
-</span><a href="#local-6989586621680355226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Project' :: Maybe POSIX
+</span><a href="#local-6989586621680356669"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680356669"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356668"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621680356668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356667"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680356667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621680356668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Project' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AcreationTime%3AProject%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680355225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Project -&gt; f Project)
+</span><a href="#local-6989586621680356667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Project -&gt; f Project)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -236,45 +236,9 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The ID of the project.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#project_projectId"><span class="hs-identifier hs-type">project_projectId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="project_projectId"><span class="annot"><span class="annottext">project_projectId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
-</span><a href="Network.AWS.SageMaker.Types.Project.html#project_projectId"><span class="hs-identifier hs-var hs-var">project_projectId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
--&gt; (Project -&gt; Maybe Text -&gt; Project)
--&gt; Lens Project Project (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355220"><span class="annot"><span class="annottext">Maybe Text
-projectId :: Maybe Text
-$sel:projectId:Project' :: Project -&gt; Maybe Text
-</span><a href="#local-6989586621680355220"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355220"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355219"><span class="annot"><span class="annottext">s :: Project
-</span><a href="#local-6989586621680355219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355218"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
-</span><a href="#local-6989586621680355219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:Project' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectId%3AProject%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The name of the project.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#project_projectName"><span class="hs-identifier hs-type">project_projectName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="project_projectName"><span class="annot"><span class="annottext">project_projectName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
-</span><a href="Network.AWS.SageMaker.Types.Project.html#project_projectName"><span class="hs-identifier hs-var hs-var">project_projectName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
--&gt; (Project -&gt; Maybe Text -&gt; Project)
--&gt; Lens Project Project (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355216"><span class="annot"><span class="annottext">Maybe Text
-projectName :: Maybe Text
-$sel:projectName:Project' :: Project -&gt; Maybe Text
-</span><a href="#local-6989586621680355216"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355216"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355215"><span class="annot"><span class="annottext">s :: Project
-</span><a href="#local-6989586621680355215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355214"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
-</span><a href="#local-6989586621680355215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:Project' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectName%3AProject%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#project_serviceCatalogProvisionedProductDetails"><span class="hs-identifier hs-type">project_serviceCatalogProvisionedProductDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ServiceCatalogProvisionedProductDetails.html#ServiceCatalogProvisionedProductDetails"><span class="hs-identifier hs-type">ServiceCatalogProvisionedProductDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="project_serviceCatalogProvisionedProductDetails"><span class="annot"><span class="annottext">project_serviceCatalogProvisionedProductDetails :: (Maybe ServiceCatalogProvisionedProductDetails
+</span><span id="line-110"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#project_serviceCatalogProvisionedProductDetails"><span class="hs-identifier hs-type">project_serviceCatalogProvisionedProductDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ServiceCatalogProvisionedProductDetails.html#ServiceCatalogProvisionedProductDetails"><span class="hs-identifier hs-type">ServiceCatalogProvisionedProductDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="project_serviceCatalogProvisionedProductDetails"><span class="annot"><span class="annottext">project_serviceCatalogProvisionedProductDetails :: (Maybe ServiceCatalogProvisionedProductDetails
  -&gt; f (Maybe ServiceCatalogProvisionedProductDetails))
 -&gt; Project -&gt; f Project
 </span><a href="Network.AWS.SageMaker.Types.Project.html#project_serviceCatalogProvisionedProductDetails"><span class="hs-identifier hs-var hs-var">project_serviceCatalogProvisionedProductDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe ServiceCatalogProvisionedProductDetails)
@@ -286,37 +250,171 @@ $sel:projectName:Project' :: Project -&gt; Maybe Text
      (Maybe ServiceCatalogProvisionedProductDetails)
      (Maybe ServiceCatalogProvisionedProductDetails)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355212"><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisionedProductDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356662"><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisionedProductDetails
 serviceCatalogProvisionedProductDetails :: Maybe ServiceCatalogProvisionedProductDetails
 $sel:serviceCatalogProvisionedProductDetails:Project' :: Project -&gt; Maybe ServiceCatalogProvisionedProductDetails
-</span><a href="#local-6989586621680355212"><span class="hs-identifier hs-var hs-var">serviceCatalogProvisionedProductDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisionedProductDetails
-</span><a href="#local-6989586621680355212"><span class="hs-identifier hs-var">serviceCatalogProvisionedProductDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355211"><span class="annot"><span class="annottext">s :: Project
-</span><a href="#local-6989586621680355211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355210"><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisionedProductDetails
-</span><a href="#local-6989586621680355210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
-</span><a href="#local-6989586621680355211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCatalogProvisionedProductDetails:Project' :: Maybe ServiceCatalogProvisionedProductDetails
+</span><a href="#local-6989586621680356662"><span class="hs-identifier hs-var hs-var">serviceCatalogProvisionedProductDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisionedProductDetails
+</span><a href="#local-6989586621680356662"><span class="hs-identifier hs-var">serviceCatalogProvisionedProductDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356661"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621680356661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356660"><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisionedProductDetails
+</span><a href="#local-6989586621680356660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621680356661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCatalogProvisionedProductDetails:Project' :: Maybe ServiceCatalogProvisionedProductDetails
 </span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AserviceCatalogProvisionedProductDetails%3AProject%27"><span class="hs-identifier hs-var">serviceCatalogProvisionedProductDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisionedProductDetails
-</span><a href="#local-6989586621680355210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680356660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Who created the project.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#project_createdBy"><span class="hs-identifier hs-type">project_createdBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserContext.html#UserContext"><span class="hs-identifier hs-type">UserContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="project_createdBy"><span class="annot"><span class="annottext">project_createdBy :: (Maybe UserContext -&gt; f (Maybe UserContext))
+-&gt; Project -&gt; f Project
+</span><a href="Network.AWS.SageMaker.Types.Project.html#project_createdBy"><span class="hs-identifier hs-var hs-var">project_createdBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe UserContext)
+-&gt; (Project -&gt; Maybe UserContext -&gt; Project)
+-&gt; Lens Project Project (Maybe UserContext) (Maybe UserContext)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356658"><span class="annot"><span class="annottext">Maybe UserContext
+createdBy :: Maybe UserContext
+$sel:createdBy:Project' :: Project -&gt; Maybe UserContext
+</span><a href="#local-6989586621680356658"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
+</span><a href="#local-6989586621680356658"><span class="hs-identifier hs-var">createdBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356657"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621680356657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356656"><span class="annot"><span class="annottext">Maybe UserContext
+</span><a href="#local-6989586621680356656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621680356657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBy:Project' :: Maybe UserContext
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AcreatedBy%3AProject%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
+</span><a href="#local-6989586621680356656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The status of the project.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#project_projectStatus"><span class="hs-identifier hs-type">project_projectStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="project_projectStatus"><span class="annot"><span class="annottext">project_projectStatus :: (Maybe ProjectStatus -&gt; f (Maybe ProjectStatus))
+-&gt; Project -&gt; f Project
+</span><a href="Network.AWS.SageMaker.Types.Project.html#project_projectStatus"><span class="hs-identifier hs-var hs-var">project_projectStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe ProjectStatus)
+-&gt; (Project -&gt; Maybe ProjectStatus -&gt; Project)
+-&gt; Lens Project Project (Maybe ProjectStatus) (Maybe ProjectStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356654"><span class="annot"><span class="annottext">Maybe ProjectStatus
+projectStatus :: Maybe ProjectStatus
+$sel:projectStatus:Project' :: Project -&gt; Maybe ProjectStatus
+</span><a href="#local-6989586621680356654"><span class="hs-identifier hs-var hs-var">projectStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectStatus
+</span><a href="#local-6989586621680356654"><span class="hs-identifier hs-var">projectStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356653"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621680356653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356652"><span class="annot"><span class="annottext">Maybe ProjectStatus
+</span><a href="#local-6989586621680356652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621680356653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectStatus:Project' :: Maybe ProjectStatus
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectStatus%3AProject%27"><span class="hs-identifier hs-var">projectStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectStatus
+</span><a href="#local-6989586621680356652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#project_tags"><span class="hs-identifier hs-type">project_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="project_tags"><span class="annot"><span class="annottext">project_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Project -&gt; f Project
+</span><span id="line-122"></span><span class="hs-comment">-- | The name of the project.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#project_projectName"><span class="hs-identifier hs-type">project_projectName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="project_projectName"><span class="annot"><span class="annottext">project_projectName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
+</span><a href="Network.AWS.SageMaker.Types.Project.html#project_projectName"><span class="hs-identifier hs-var hs-var">project_projectName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
+-&gt; (Project -&gt; Maybe Text -&gt; Project)
+-&gt; Lens Project Project (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356650"><span class="annot"><span class="annottext">Maybe Text
+projectName :: Maybe Text
+$sel:projectName:Project' :: Project -&gt; Maybe Text
+</span><a href="#local-6989586621680356650"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356650"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356649"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621680356649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356648"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621680356649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:Project' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectName%3AProject%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#project_serviceCatalogProvisioningDetails"><span class="hs-identifier hs-type">project_serviceCatalogProvisioningDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ServiceCatalogProvisioningDetails.html#ServiceCatalogProvisioningDetails"><span class="hs-identifier hs-type">ServiceCatalogProvisioningDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="project_serviceCatalogProvisioningDetails"><span class="annot"><span class="annottext">project_serviceCatalogProvisioningDetails :: (Maybe ServiceCatalogProvisioningDetails
+ -&gt; f (Maybe ServiceCatalogProvisioningDetails))
+-&gt; Project -&gt; f Project
+</span><a href="Network.AWS.SageMaker.Types.Project.html#project_serviceCatalogProvisioningDetails"><span class="hs-identifier hs-var hs-var">project_serviceCatalogProvisioningDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe ServiceCatalogProvisioningDetails)
+-&gt; (Project -&gt; Maybe ServiceCatalogProvisioningDetails -&gt; Project)
+-&gt; Lens
+     Project
+     Project
+     (Maybe ServiceCatalogProvisioningDetails)
+     (Maybe ServiceCatalogProvisioningDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356646"><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisioningDetails
+serviceCatalogProvisioningDetails :: Maybe ServiceCatalogProvisioningDetails
+$sel:serviceCatalogProvisioningDetails:Project' :: Project -&gt; Maybe ServiceCatalogProvisioningDetails
+</span><a href="#local-6989586621680356646"><span class="hs-identifier hs-var hs-var">serviceCatalogProvisioningDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisioningDetails
+</span><a href="#local-6989586621680356646"><span class="hs-identifier hs-var">serviceCatalogProvisioningDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356645"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621680356645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356644"><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisioningDetails
+</span><a href="#local-6989586621680356644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621680356645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCatalogProvisioningDetails:Project' :: Maybe ServiceCatalogProvisioningDetails
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AserviceCatalogProvisioningDetails%3AProject%27"><span class="hs-identifier hs-var">serviceCatalogProvisioningDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisioningDetails
+</span><a href="#local-6989586621680356644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The ID of the project.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#project_projectId"><span class="hs-identifier hs-type">project_projectId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="project_projectId"><span class="annot"><span class="annottext">project_projectId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
+</span><a href="Network.AWS.SageMaker.Types.Project.html#project_projectId"><span class="hs-identifier hs-var hs-var">project_projectId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
+-&gt; (Project -&gt; Maybe Text -&gt; Project)
+-&gt; Lens Project Project (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356642"><span class="annot"><span class="annottext">Maybe Text
+projectId :: Maybe Text
+$sel:projectId:Project' :: Project -&gt; Maybe Text
+</span><a href="#local-6989586621680356642"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356642"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356641"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621680356641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356640"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621680356641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:Project' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectId%3AProject%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the project.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#project_projectArn"><span class="hs-identifier hs-type">project_projectArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="project_projectArn"><span class="annot"><span class="annottext">project_projectArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
+</span><a href="Network.AWS.SageMaker.Types.Project.html#project_projectArn"><span class="hs-identifier hs-var hs-var">project_projectArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
+-&gt; (Project -&gt; Maybe Text -&gt; Project)
+-&gt; Lens Project Project (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356638"><span class="annot"><span class="annottext">Maybe Text
+projectArn :: Maybe Text
+$sel:projectArn:Project' :: Project -&gt; Maybe Text
+</span><a href="#local-6989586621680356638"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356638"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356637"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621680356637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356636"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621680356637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectArn:Project' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectArn%3AProject%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The description of the project.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#project_projectDescription"><span class="hs-identifier hs-type">project_projectDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="project_projectDescription"><span class="annot"><span class="annottext">project_projectDescription :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
+</span><a href="Network.AWS.SageMaker.Types.Project.html#project_projectDescription"><span class="hs-identifier hs-var hs-var">project_projectDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
+-&gt; (Project -&gt; Maybe Text -&gt; Project)
+-&gt; Lens Project Project (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356634"><span class="annot"><span class="annottext">Maybe Text
+projectDescription :: Maybe Text
+$sel:projectDescription:Project' :: Project -&gt; Maybe Text
+</span><a href="#local-6989586621680356634"><span class="hs-identifier hs-var hs-var">projectDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356634"><span class="hs-identifier hs-var">projectDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356633"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621680356633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356632"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621680356633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectDescription:Project' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectDescription%3AProject%27"><span class="hs-identifier hs-var">projectDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680356632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#project_tags"><span class="hs-identifier hs-type">project_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="project_tags"><span class="annot"><span class="annottext">project_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Project -&gt; f Project
 </span><a href="Network.AWS.SageMaker.Types.Project.html#project_tags"><span class="hs-identifier hs-var hs-var">project_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe [Tag])
 -&gt; (Project -&gt; Maybe [Tag] -&gt; Project)
 -&gt; Lens Project Project (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355208"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680356630"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:Project' :: Project -&gt; Maybe [Tag]
-</span><a href="#local-6989586621680355208"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680355208"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355207"><span class="annot"><span class="annottext">s :: Project
-</span><a href="#local-6989586621680355207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355206"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680355206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
-</span><a href="#local-6989586621680355207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Project' :: Maybe [Tag]
+</span><a href="#local-6989586621680356630"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680356630"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680356629"><span class="annot"><span class="annottext">s :: Project
+</span><a href="#local-6989586621680356629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680356628"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680356628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
+</span><a href="#local-6989586621680356629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Project' :: Maybe [Tag]
 </span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3Atags%3AProject%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680355206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Project -&gt; f Project)
+</span><a href="#local-6989586621680356628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Project -&gt; f Project)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -329,258 +427,211 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The status of the project.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#project_projectStatus"><span class="hs-identifier hs-type">project_projectStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="project_projectStatus"><span class="annot"><span class="annottext">project_projectStatus :: (Maybe ProjectStatus -&gt; f (Maybe ProjectStatus))
--&gt; Project -&gt; f Project
-</span><a href="Network.AWS.SageMaker.Types.Project.html#project_projectStatus"><span class="hs-identifier hs-var hs-var">project_projectStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe ProjectStatus)
--&gt; (Project -&gt; Maybe ProjectStatus -&gt; Project)
--&gt; Lens Project Project (Maybe ProjectStatus) (Maybe ProjectStatus)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355203"><span class="annot"><span class="annottext">Maybe ProjectStatus
-projectStatus :: Maybe ProjectStatus
-$sel:projectStatus:Project' :: Project -&gt; Maybe ProjectStatus
-</span><a href="#local-6989586621680355203"><span class="hs-identifier hs-var hs-var">projectStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectStatus
-</span><a href="#local-6989586621680355203"><span class="hs-identifier hs-var">projectStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355202"><span class="annot"><span class="annottext">s :: Project
-</span><a href="#local-6989586621680355202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355201"><span class="annot"><span class="annottext">Maybe ProjectStatus
-</span><a href="#local-6989586621680355201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
-</span><a href="#local-6989586621680355202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectStatus:Project' :: Maybe ProjectStatus
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectStatus%3AProject%27"><span class="hs-identifier hs-var">projectStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectStatus
-</span><a href="#local-6989586621680355201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | Who created the project.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#project_createdBy"><span class="hs-identifier hs-type">project_createdBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserContext.html#UserContext"><span class="hs-identifier hs-type">UserContext</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="project_createdBy"><span class="annot"><span class="annottext">project_createdBy :: (Maybe UserContext -&gt; f (Maybe UserContext))
--&gt; Project -&gt; f Project
-</span><a href="Network.AWS.SageMaker.Types.Project.html#project_createdBy"><span class="hs-identifier hs-var hs-var">project_createdBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe UserContext)
--&gt; (Project -&gt; Maybe UserContext -&gt; Project)
--&gt; Lens Project Project (Maybe UserContext) (Maybe UserContext)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355199"><span class="annot"><span class="annottext">Maybe UserContext
-createdBy :: Maybe UserContext
-$sel:createdBy:Project' :: Project -&gt; Maybe UserContext
-</span><a href="#local-6989586621680355199"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
-</span><a href="#local-6989586621680355199"><span class="hs-identifier hs-var">createdBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355198"><span class="annot"><span class="annottext">s :: Project
-</span><a href="#local-6989586621680355198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355197"><span class="annot"><span class="annottext">Maybe UserContext
-</span><a href="#local-6989586621680355197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
-</span><a href="#local-6989586621680355198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBy:Project' :: Maybe UserContext
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AcreatedBy%3AProject%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContext
-</span><a href="#local-6989586621680355197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | The description of the project.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#project_projectDescription"><span class="hs-identifier hs-type">project_projectDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="project_projectDescription"><span class="annot"><span class="annottext">project_projectDescription :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
-</span><a href="Network.AWS.SageMaker.Types.Project.html#project_projectDescription"><span class="hs-identifier hs-var hs-var">project_projectDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
--&gt; (Project -&gt; Maybe Text -&gt; Project)
--&gt; Lens Project Project (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355195"><span class="annot"><span class="annottext">Maybe Text
-projectDescription :: Maybe Text
-$sel:projectDescription:Project' :: Project -&gt; Maybe Text
-</span><a href="#local-6989586621680355195"><span class="hs-identifier hs-var hs-var">projectDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355195"><span class="hs-identifier hs-var">projectDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355194"><span class="annot"><span class="annottext">s :: Project
-</span><a href="#local-6989586621680355194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355193"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
-</span><a href="#local-6989586621680355194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectDescription:Project' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectDescription%3AProject%27"><span class="hs-identifier hs-var">projectDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the project.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#project_projectArn"><span class="hs-identifier hs-type">project_projectArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="project_projectArn"><span class="annot"><span class="annottext">project_projectArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Project -&gt; f Project
-</span><a href="Network.AWS.SageMaker.Types.Project.html#project_projectArn"><span class="hs-identifier hs-var hs-var">project_projectArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe Text)
--&gt; (Project -&gt; Maybe Text -&gt; Project)
--&gt; Lens Project Project (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355191"><span class="annot"><span class="annottext">Maybe Text
-projectArn :: Maybe Text
-$sel:projectArn:Project' :: Project -&gt; Maybe Text
-</span><a href="#local-6989586621680355191"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355191"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355190"><span class="annot"><span class="annottext">s :: Project
-</span><a href="#local-6989586621680355190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355189"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
-</span><a href="#local-6989586621680355190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectArn:Project' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AprojectArn%3AProject%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#project_serviceCatalogProvisioningDetails"><span class="hs-identifier hs-type">project_serviceCatalogProvisioningDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ServiceCatalogProvisioningDetails.html#ServiceCatalogProvisioningDetails"><span class="hs-identifier hs-type">ServiceCatalogProvisioningDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="project_serviceCatalogProvisioningDetails"><span class="annot"><span class="annottext">project_serviceCatalogProvisioningDetails :: (Maybe ServiceCatalogProvisioningDetails
- -&gt; f (Maybe ServiceCatalogProvisioningDetails))
--&gt; Project -&gt; f Project
-</span><a href="Network.AWS.SageMaker.Types.Project.html#project_serviceCatalogProvisioningDetails"><span class="hs-identifier hs-var hs-var">project_serviceCatalogProvisioningDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Project -&gt; Maybe ServiceCatalogProvisioningDetails)
--&gt; (Project -&gt; Maybe ServiceCatalogProvisioningDetails -&gt; Project)
--&gt; Lens
-     Project
-     Project
-     (Maybe ServiceCatalogProvisioningDetails)
-     (Maybe ServiceCatalogProvisioningDetails)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355187"><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisioningDetails
-serviceCatalogProvisioningDetails :: Maybe ServiceCatalogProvisioningDetails
-$sel:serviceCatalogProvisioningDetails:Project' :: Project -&gt; Maybe ServiceCatalogProvisioningDetails
-</span><a href="#local-6989586621680355187"><span class="hs-identifier hs-var hs-var">serviceCatalogProvisioningDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisioningDetails
-</span><a href="#local-6989586621680355187"><span class="hs-identifier hs-var">serviceCatalogProvisioningDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355186"><span class="annot"><span class="annottext">s :: Project
-</span><a href="#local-6989586621680355186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-type">Project'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355185"><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisioningDetails
-</span><a href="#local-6989586621680355185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Project
-</span><a href="#local-6989586621680355186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCatalogProvisioningDetails:Project' :: Maybe ServiceCatalogProvisioningDetails
-</span><a href="Network.AWS.SageMaker.Types.Project.html#%24sel%3AserviceCatalogProvisioningDetails%3AProject%27"><span class="hs-identifier hs-var">serviceCatalogProvisioningDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceCatalogProvisioningDetails
-</span><a href="#local-6989586621680355185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355182"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621680355180"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Project
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680356624"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621680356622"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Project
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Project) -&gt; Value -&gt; Parser Project
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Project&quot;</span></span><span>
-</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680355177"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355177"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680356619"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356619"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe ServiceCatalogProvisionedProductDetails
--&gt; Maybe [Tag]
--&gt; Maybe ProjectStatus
 -&gt; Maybe UserContext
--&gt; Maybe Text
+-&gt; Maybe ProjectStatus
 -&gt; Maybe Text
 -&gt; Maybe ServiceCatalogProvisioningDetails
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
 -&gt; Project
 </span><a href="Network.AWS.SageMaker.Types.Project.html#Project%27"><span class="hs-identifier hs-var">Project'</span></a></span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe ServiceCatalogProvisionedProductDetails
- -&gt; Maybe [Tag]
- -&gt; Maybe ProjectStatus
  -&gt; Maybe UserContext
- -&gt; Maybe Text
+ -&gt; Maybe ProjectStatus
  -&gt; Maybe Text
  -&gt; Maybe ServiceCatalogProvisioningDetails
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Tag]
  -&gt; Project)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ServiceCatalogProvisionedProductDetails
-      -&gt; Maybe [Tag]
-      -&gt; Maybe ProjectStatus
+     (Maybe ServiceCatalogProvisionedProductDetails
       -&gt; Maybe UserContext
-      -&gt; Maybe Text
+      -&gt; Maybe ProjectStatus
       -&gt; Maybe Text
       -&gt; Maybe ServiceCatalogProvisioningDetails
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
       -&gt; Project)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680356619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ServiceCatalogProvisionedProductDetails
-   -&gt; Maybe [Tag]
-   -&gt; Maybe ProjectStatus
-   -&gt; Maybe UserContext
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ServiceCatalogProvisioningDetails
-   -&gt; Project)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe ServiceCatalogProvisionedProductDetails
-      -&gt; Maybe [Tag]
-      -&gt; Maybe ProjectStatus
-      -&gt; Maybe UserContext
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ServiceCatalogProvisioningDetails
-      -&gt; Project)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProjectId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe ServiceCatalogProvisionedProductDetails
-   -&gt; Maybe [Tag]
-   -&gt; Maybe ProjectStatus
-   -&gt; Maybe UserContext
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ServiceCatalogProvisioningDetails
-   -&gt; Project)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe ServiceCatalogProvisionedProductDetails
-      -&gt; Maybe [Tag]
-      -&gt; Maybe ProjectStatus
-      -&gt; Maybe UserContext
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ServiceCatalogProvisioningDetails
-      -&gt; Project)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProjectName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe ServiceCatalogProvisionedProductDetails
-   -&gt; Maybe [Tag]
-   -&gt; Maybe ProjectStatus
    -&gt; Maybe UserContext
-   -&gt; Maybe Text
+   -&gt; Maybe ProjectStatus
    -&gt; Maybe Text
    -&gt; Maybe ServiceCatalogProvisioningDetails
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
    -&gt; Project)
 -&gt; Parser (Maybe ServiceCatalogProvisionedProductDetails)
 -&gt; Parser
-     (Maybe [Tag]
+     (Maybe UserContext
       -&gt; Maybe ProjectStatus
-      -&gt; Maybe UserContext
-      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe ServiceCatalogProvisioningDetails
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
       -&gt; Project)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355177"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-159"></span><span>                            </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356619"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-157"></span><span>                            </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe ServiceCatalogProvisionedProductDetails)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceCatalogProvisionedProductDetails&quot;</span></span><span>
-</span><span id="line-160"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [Tag]
+</span><span id="line-158"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe UserContext
    -&gt; Maybe ProjectStatus
-   -&gt; Maybe UserContext
-   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe ServiceCatalogProvisioningDetails
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
    -&gt; Project)
--&gt; Parser (Maybe [Tag])
+-&gt; Parser (Maybe UserContext)
 -&gt; Parser
      (Maybe ProjectStatus
-      -&gt; Maybe UserContext
-      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe ServiceCatalogProvisioningDetails
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
       -&gt; Project)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
+</span><a href="#local-6989586621680356619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UserContext)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ProjectStatus
+   -&gt; Maybe Text
+   -&gt; Maybe ServiceCatalogProvisioningDetails
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Project)
+-&gt; Parser (Maybe ProjectStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ServiceCatalogProvisioningDetails
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProjectStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProjectStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ServiceCatalogProvisioningDetails
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Project)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ServiceCatalogProvisioningDetails
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProjectName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ServiceCatalogProvisioningDetails
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; Project)
+-&gt; Parser (Maybe ServiceCatalogProvisioningDetails)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceCatalogProvisioningDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceCatalogProvisioningDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Project)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProjectId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Project)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe [Tag] -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProjectArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Tag] -&gt; Project)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe [Tag] -&gt; Project)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProjectDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Tag] -&gt; Project)
+-&gt; Parser (Maybe [Tag]) -&gt; Parser Project
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680356619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tag])) -&gt; Maybe [Tag] -&gt; Parser (Maybe [Tag])
@@ -588,80 +639,9 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ProjectStatus
-   -&gt; Maybe UserContext
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ServiceCatalogProvisioningDetails
-   -&gt; Project)
--&gt; Parser (Maybe ProjectStatus)
--&gt; Parser
-     (Maybe UserContext
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ServiceCatalogProvisioningDetails
-      -&gt; Project)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProjectStatus)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProjectStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe UserContext
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ServiceCatalogProvisioningDetails
-   -&gt; Project)
--&gt; Parser (Maybe UserContext)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ServiceCatalogProvisioningDetails
-      -&gt; Project)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UserContext)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreatedBy&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ServiceCatalogProvisioningDetails
-   -&gt; Project)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text -&gt; Maybe ServiceCatalogProvisioningDetails -&gt; Project)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProjectDescription&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text -&gt; Maybe ServiceCatalogProvisioningDetails -&gt; Project)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe ServiceCatalogProvisioningDetails -&gt; Project)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProjectArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ServiceCatalogProvisioningDetails -&gt; Project)
--&gt; Parser (Maybe ServiceCatalogProvisioningDetails)
--&gt; Parser Project
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceCatalogProvisioningDetails)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ServiceCatalogProvisioningDetails&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355170"><span id="local-6989586621680355172"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680356612"><span id="local-6989586621680356614"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span></span></span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355167"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680356609"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span></span><span>
 </span><span id="line-172"></span></pre></body></html>

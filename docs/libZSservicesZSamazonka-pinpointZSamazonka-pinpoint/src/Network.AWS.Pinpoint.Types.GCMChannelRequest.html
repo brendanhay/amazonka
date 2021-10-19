@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- (GCM), service.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newGCMChannelRequest' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679598710"><span id="local-6989586621679598711"></span></span><span class="hs-keyword">data</span><span> </span><span id="GCMChannelRequest"><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest"><span class="hs-identifier hs-var">GCMChannelRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GCMChannelRequest%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest%27"><span class="hs-identifier hs-var">GCMChannelRequest'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679599162"><span id="local-6989586621679599163"></span></span><span class="hs-keyword">data</span><span> </span><span id="GCMChannelRequest"><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest"><span class="hs-identifier hs-var">GCMChannelRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GCMChannelRequest%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest%27"><span class="hs-identifier hs-var">GCMChannelRequest'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether to enable the GCM channel for the application.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aenabled%3AGCMChannelRequest%27"><span class="annot"><span class="annottext">GCMChannelRequest -&gt; Maybe Bool
 </span><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#%24sel%3Aenabled%3AGCMChannelRequest%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AapiKey%3AGCMChannelRequest%27"><span class="annot"><span class="annottext">GCMChannelRequest -&gt; Text
 </span><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#%24sel%3AapiKey%3AGCMChannelRequest%27"><span class="hs-identifier hs-var hs-var">apiKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679598703"><span id="local-6989586621679598705"><span class="annot"><span class="annottext">GCMChannelRequest -&gt; GCMChannelRequest -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679599155"><span id="local-6989586621679599157"><span class="annot"><span class="annottext">GCMChannelRequest -&gt; GCMChannelRequest -&gt; Bool
 (GCMChannelRequest -&gt; GCMChannelRequest -&gt; Bool)
 -&gt; (GCMChannelRequest -&gt; GCMChannelRequest -&gt; Bool)
 -&gt; Eq GCMChannelRequest
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GCMChannelRequest -&gt; GCMChannelRequest -&gt; Bool
 == :: GCMChannelRequest -&gt; GCMChannelRequest -&gt; Bool
 $c== :: GCMChannelRequest -&gt; GCMChannelRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679598694"><span id="local-6989586621679598696"><span id="local-6989586621679598698"><span id="local-6989586621679598700"><span class="annot"><span class="annottext">ReadPrec [GCMChannelRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679599146"><span id="local-6989586621679599148"><span id="local-6989586621679599150"><span id="local-6989586621679599152"><span class="annot"><span class="annottext">ReadPrec [GCMChannelRequest]
 ReadPrec GCMChannelRequest
 Int -&gt; ReadS GCMChannelRequest
 ReadS [GCMChannelRequest]
@@ -67,7 +67,7 @@ readList :: ReadS [GCMChannelRequest]
 $creadList :: ReadS [GCMChannelRequest]
 readsPrec :: Int -&gt; ReadS GCMChannelRequest
 $creadsPrec :: Int -&gt; ReadS GCMChannelRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679598687"><span id="local-6989586621679598689"><span id="local-6989586621679598691"><span class="annot"><span class="annottext">Int -&gt; GCMChannelRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679599139"><span id="local-6989586621679599141"><span id="local-6989586621679599143"><span class="annot"><span class="annottext">Int -&gt; GCMChannelRequest -&gt; ShowS
 [GCMChannelRequest] -&gt; ShowS
 GCMChannelRequest -&gt; String
 (Int -&gt; GCMChannelRequest -&gt; ShowS)
@@ -110,8 +110,8 @@ $cfrom :: forall x. GCMChannelRequest -&gt; Rep GCMChannelRequest x
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest"><span class="hs-identifier hs-type">GCMChannelRequest</span></a></span><span>
 </span><span id="line-57"></span><span id="newGCMChannelRequest"><span class="annot"><span class="annottext">newGCMChannelRequest :: Text -&gt; GCMChannelRequest
-</span><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#newGCMChannelRequest"><span class="hs-identifier hs-var hs-var">newGCMChannelRequest</span></a></span></span><span> </span><span id="local-6989586621679598681"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679598681"><span class="hs-identifier hs-var">pApiKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#newGCMChannelRequest"><span class="hs-identifier hs-var hs-var">newGCMChannelRequest</span></a></span></span><span> </span><span id="local-6989586621679599133"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679599133"><span class="hs-identifier hs-var">pApiKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">GCMChannelRequest' :: Maybe Bool -&gt; Text -&gt; GCMChannelRequest
 </span><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest%27"><span class="hs-identifier hs-type">GCMChannelRequest'</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:enabled:GCMChannelRequest' :: Maybe Bool
@@ -120,7 +120,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiKey:GCMChannelRequest' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#%24sel%3AapiKey%3AGCMChannelRequest%27"><span class="hs-identifier hs-var">apiKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679598681"><span class="hs-identifier hs-var">pApiKey_</span></a></span><span>
+</span><a href="#local-6989586621679599133"><span class="hs-identifier hs-var">pApiKey_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | Specifies whether to enable the GCM channel for the application.</span><span>
@@ -132,16 +132,16 @@ forall a. Maybe a
 -&gt; Lens
      GCMChannelRequest GCMChannelRequest (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest%27"><span class="hs-identifier hs-type">GCMChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598677"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest%27"><span class="hs-identifier hs-type">GCMChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679599129"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:GCMChannelRequest' :: GCMChannelRequest -&gt; Maybe Bool
-</span><a href="#local-6989586621679598677"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679598677"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679598676"><span class="annot"><span class="annottext">s :: GCMChannelRequest
-</span><a href="#local-6989586621679598676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest%27"><span class="hs-identifier hs-type">GCMChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679598675"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679598675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GCMChannelRequest
-</span><a href="#local-6989586621679598676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:GCMChannelRequest' :: Maybe Bool
+</span><a href="#local-6989586621679599129"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679599129"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679599128"><span class="annot"><span class="annottext">s :: GCMChannelRequest
+</span><a href="#local-6989586621679599128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest%27"><span class="hs-identifier hs-type">GCMChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679599127"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679599127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GCMChannelRequest
+</span><a href="#local-6989586621679599128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:GCMChannelRequest' :: Maybe Bool
 </span><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#%24sel%3Aenabled%3AGCMChannelRequest%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679598675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest"><span class="hs-identifier hs-type">GCMChannelRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679599127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest"><span class="hs-identifier hs-type">GCMChannelRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The Web API Key, also referred to as an /API_KEY/ or /server key/, that</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- you received from Google to communicate with Google services.</span><span>
@@ -151,30 +151,30 @@ $sel:enabled:GCMChannelRequest' :: GCMChannelRequest -&gt; Maybe Bool
 -&gt; (GCMChannelRequest -&gt; Text -&gt; GCMChannelRequest)
 -&gt; Lens GCMChannelRequest GCMChannelRequest Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest%27"><span class="hs-identifier hs-type">GCMChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598673"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest%27"><span class="hs-identifier hs-type">GCMChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679599125"><span class="annot"><span class="annottext">Text
 apiKey :: Text
 $sel:apiKey:GCMChannelRequest' :: GCMChannelRequest -&gt; Text
-</span><a href="#local-6989586621679598673"><span class="hs-identifier hs-var hs-var">apiKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679598673"><span class="hs-identifier hs-var">apiKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679598672"><span class="annot"><span class="annottext">s :: GCMChannelRequest
-</span><a href="#local-6989586621679598672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest%27"><span class="hs-identifier hs-type">GCMChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679598671"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679598671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GCMChannelRequest
-</span><a href="#local-6989586621679598672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKey:GCMChannelRequest' :: Text
+</span><a href="#local-6989586621679599125"><span class="hs-identifier hs-var hs-var">apiKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679599125"><span class="hs-identifier hs-var">apiKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679599124"><span class="annot"><span class="annottext">s :: GCMChannelRequest
+</span><a href="#local-6989586621679599124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest%27"><span class="hs-identifier hs-type">GCMChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679599123"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679599123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GCMChannelRequest
+</span><a href="#local-6989586621679599124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKey:GCMChannelRequest' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#%24sel%3AapiKey%3AGCMChannelRequest%27"><span class="hs-identifier hs-var">apiKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679598671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest"><span class="hs-identifier hs-type">GCMChannelRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679599123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest"><span class="hs-identifier hs-type">GCMChannelRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679598667"><span id="local-6989586621679598669"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest"><span class="hs-identifier hs-type">GCMChannelRequest</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599119"><span id="local-6989586621679599121"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest"><span class="hs-identifier hs-type">GCMChannelRequest</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679598664"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest"><span class="hs-identifier hs-type">GCMChannelRequest</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599116"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest"><span class="hs-identifier hs-type">GCMChannelRequest</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679598656"><span id="local-6989586621679598658"><span id="local-6989586621679598660"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest"><span class="hs-identifier hs-type">GCMChannelRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679598654"><span class="annot"><span class="annottext">toJSON :: GCMChannelRequest -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest%27"><span class="hs-identifier hs-type">GCMChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598651"><span id="local-6989586621679598652"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599108"><span id="local-6989586621679599110"><span id="local-6989586621679599112"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest"><span class="hs-identifier hs-type">GCMChannelRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679599106"><span class="annot"><span class="annottext">toJSON :: GCMChannelRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMChannelRequest.html#GCMChannelRequest%27"><span class="hs-identifier hs-type">GCMChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679599103"><span id="local-6989586621679599104"><span class="annot"><span class="annottext">Maybe Bool
 Text
 apiKey :: Text
 enabled :: Maybe Bool
 $sel:apiKey:GCMChannelRequest' :: GCMChannelRequest -&gt; Text
 $sel:enabled:GCMChannelRequest' :: GCMChannelRequest -&gt; Maybe Bool
-</span><a href="#local-6989586621679598651"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679599103"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -186,14 +186,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679598652"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679599104"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ApiKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679598651"><span class="hs-identifier hs-var">apiKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679599103"><span class="hs-identifier hs-var">apiKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span></pre></body></html>

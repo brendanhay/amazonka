@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-comment">-- captions in XML format contained within fragmented MP4 files. This set</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- of fragmented MP4 files is separate from your video and audio fragmented</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- MP4 files.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679985381"><span id="local-6989586621679985382"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MpdCaptionContainerType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType"><span class="hs-identifier hs-var">MpdCaptionContainerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MpdCaptionContainerType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType%27"><span class="hs-identifier hs-var">MpdCaptionContainerType'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679990171"><span id="local-6989586621679990172"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MpdCaptionContainerType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType"><span class="hs-identifier hs-var">MpdCaptionContainerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MpdCaptionContainerType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdCaptionContainerType.html#MpdCaptionContainerType%27"><span class="hs-identifier hs-var">MpdCaptionContainerType'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMpdCaptionContainerType"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.MpdCaptionContainerType.html#fromMpdCaptionContainerType"><span class="hs-identifier hs-var hs-var">fromMpdCaptionContainerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679985373"><span id="local-6989586621679985375"><span id="local-6989586621679985377"><span class="annot"><span class="annottext">Int -&gt; MpdCaptionContainerType -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679990163"><span id="local-6989586621679990165"><span id="local-6989586621679990167"><span class="annot"><span class="annottext">Int -&gt; MpdCaptionContainerType -&gt; ShowS
 [MpdCaptionContainerType] -&gt; ShowS
 MpdCaptionContainerType -&gt; String
 (Int -&gt; MpdCaptionContainerType -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: MpdCaptionContainerType -&gt; String
 showsPrec :: Int -&gt; MpdCaptionContainerType -&gt; ShowS
 $cshowsPrec :: Int -&gt; MpdCaptionContainerType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679985364"><span id="local-6989586621679985366"><span id="local-6989586621679985368"><span id="local-6989586621679985370"><span class="annot"><span class="annottext">ReadPrec [MpdCaptionContainerType]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679990154"><span id="local-6989586621679990156"><span id="local-6989586621679990158"><span id="local-6989586621679990160"><span class="annot"><span class="annottext">ReadPrec [MpdCaptionContainerType]
 ReadPrec MpdCaptionContainerType
 Int -&gt; ReadS MpdCaptionContainerType
 ReadS [MpdCaptionContainerType]
@@ -79,7 +79,7 @@ $creadList :: ReadS [MpdCaptionContainerType]
 readsPrec :: Int -&gt; ReadS MpdCaptionContainerType
 $creadsPrec :: Int -&gt; ReadS MpdCaptionContainerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679985359"><span id="local-6989586621679985361"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679990149"><span id="local-6989586621679990151"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
 (MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool)
 -&gt; (MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool)
 -&gt; Eq MpdCaptionContainerType
@@ -89,7 +89,7 @@ $c/= :: MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
 == :: MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
 $c== :: MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679985343"><span id="local-6989586621679985345"><span id="local-6989586621679985347"><span id="local-6989586621679985349"><span id="local-6989586621679985351"><span id="local-6989586621679985353"><span id="local-6989586621679985355"><span class="annot"><span class="annottext">Eq MpdCaptionContainerType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679990133"><span id="local-6989586621679990135"><span id="local-6989586621679990137"><span id="local-6989586621679990139"><span id="local-6989586621679990141"><span id="local-6989586621679990143"><span id="local-6989586621679990145"><span class="annot"><span class="annottext">Eq MpdCaptionContainerType
 Eq MpdCaptionContainerType
 -&gt; (MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Ordering)
 -&gt; (MpdCaptionContainerType -&gt; MpdCaptionContainerType -&gt; Bool)
@@ -149,7 +149,7 @@ $cfrom :: forall x. MpdCaptionContainerType -&gt; Rep MpdCaptionContainerType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679985335"><span id="local-6989586621679985337"><span class="annot"><span class="annottext">Int -&gt; MpdCaptionContainerType -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679990125"><span id="local-6989586621679990127"><span class="annot"><span class="annottext">Int -&gt; MpdCaptionContainerType -&gt; Int
 MpdCaptionContainerType -&gt; Int
 (Int -&gt; MpdCaptionContainerType -&gt; Int)
 -&gt; (MpdCaptionContainerType -&gt; Int)
@@ -160,54 +160,54 @@ $chash :: MpdCaptionContainerType -&gt; Int
 hashWithSalt :: Int -&gt; MpdCaptionContainerType -&gt; Int
 $chashWithSalt :: Int -&gt; MpdCaptionContainerType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679985332"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679990122"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; ()
 (MpdCaptionContainerType -&gt; ()) -&gt; NFData MpdCaptionContainerType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MpdCaptionContainerType -&gt; ()
 $crnf :: MpdCaptionContainerType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679985329"><span class="annot"><span class="annottext">Text -&gt; Either String MpdCaptionContainerType
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679990119"><span class="annot"><span class="annottext">Text -&gt; Either String MpdCaptionContainerType
 (Text -&gt; Either String MpdCaptionContainerType)
 -&gt; FromText MpdCaptionContainerType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MpdCaptionContainerType
 $cfromText :: Text -&gt; Either String MpdCaptionContainerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679985326"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679990116"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; Text
 (MpdCaptionContainerType -&gt; Text) -&gt; ToText MpdCaptionContainerType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MpdCaptionContainerType -&gt; Text
 $ctoText :: MpdCaptionContainerType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679985323"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679990113"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; ByteString
 (MpdCaptionContainerType -&gt; ByteString)
 -&gt; ToByteString MpdCaptionContainerType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MpdCaptionContainerType -&gt; ByteString
 $ctoBS :: MpdCaptionContainerType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679985320"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679990110"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; ByteStringBuilder
 (MpdCaptionContainerType -&gt; ByteStringBuilder)
 -&gt; ToLog MpdCaptionContainerType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MpdCaptionContainerType -&gt; ByteStringBuilder
 $cbuild :: MpdCaptionContainerType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679985317"><span class="annot"><span class="annottext">HeaderName -&gt; MpdCaptionContainerType -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679990107"><span class="annot"><span class="annottext">HeaderName -&gt; MpdCaptionContainerType -&gt; [Header]
 (HeaderName -&gt; MpdCaptionContainerType -&gt; [Header])
 -&gt; ToHeader MpdCaptionContainerType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MpdCaptionContainerType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MpdCaptionContainerType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679985314"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679990104"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; QueryString
 (MpdCaptionContainerType -&gt; QueryString)
 -&gt; ToQuery MpdCaptionContainerType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MpdCaptionContainerType -&gt; QueryString
 $ctoQuery :: MpdCaptionContainerType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679985309"><span id="local-6989586621679985311"><span class="annot"><span class="annottext">Value -&gt; Parser [MpdCaptionContainerType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679990099"><span id="local-6989586621679990101"><span class="annot"><span class="annottext">Value -&gt; Parser [MpdCaptionContainerType]
 Value -&gt; Parser MpdCaptionContainerType
 (Value -&gt; Parser MpdCaptionContainerType)
 -&gt; (Value -&gt; Parser [MpdCaptionContainerType])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [MpdCaptionContainerType]
 parseJSON :: Value -&gt; Parser MpdCaptionContainerType
 $cparseJSON :: Value -&gt; Parser MpdCaptionContainerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679985304"><span id="local-6989586621679985306"><span class="annot"><span class="annottext">FromJSONKeyFunction [MpdCaptionContainerType]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679990094"><span id="local-6989586621679990096"><span class="annot"><span class="annottext">FromJSONKeyFunction [MpdCaptionContainerType]
 FromJSONKeyFunction MpdCaptionContainerType
 FromJSONKeyFunction MpdCaptionContainerType
 -&gt; FromJSONKeyFunction [MpdCaptionContainerType]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MpdCaptionContainerType]
 fromJSONKey :: FromJSONKeyFunction MpdCaptionContainerType
 $cfromJSONKey :: FromJSONKeyFunction MpdCaptionContainerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679985295"><span id="local-6989586621679985297"><span id="local-6989586621679985299"><span id="local-6989586621679985301"><span class="annot"><span class="annottext">[MpdCaptionContainerType] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679990085"><span id="local-6989586621679990087"><span id="local-6989586621679990089"><span id="local-6989586621679990091"><span class="annot"><span class="annottext">[MpdCaptionContainerType] -&gt; Encoding
 [MpdCaptionContainerType] -&gt; Value
 MpdCaptionContainerType -&gt; Encoding
 MpdCaptionContainerType -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: MpdCaptionContainerType -&gt; Encoding
 toJSON :: MpdCaptionContainerType -&gt; Value
 $ctoJSON :: MpdCaptionContainerType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679985290"><span id="local-6989586621679985292"><span class="annot"><span class="annottext">ToJSONKeyFunction [MpdCaptionContainerType]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679990080"><span id="local-6989586621679990082"><span class="annot"><span class="annottext">ToJSONKeyFunction [MpdCaptionContainerType]
 ToJSONKeyFunction MpdCaptionContainerType
 ToJSONKeyFunction MpdCaptionContainerType
 -&gt; ToJSONKeyFunction [MpdCaptionContainerType]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MpdCaptionContainerType]
 toJSONKey :: ToJSONKeyFunction MpdCaptionContainerType
 $ctoJSONKey :: ToJSONKeyFunction MpdCaptionContainerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679985287"><span class="annot"><span class="annottext">[Node] -&gt; Either String MpdCaptionContainerType
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679990077"><span class="annot"><span class="annottext">[Node] -&gt; Either String MpdCaptionContainerType
 ([Node] -&gt; Either String MpdCaptionContainerType)
 -&gt; FromXML MpdCaptionContainerType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MpdCaptionContainerType
 $cparseXML :: [Node] -&gt; Either String MpdCaptionContainerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679985284"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679990074"><span class="annot"><span class="annottext">MpdCaptionContainerType -&gt; XML
 (MpdCaptionContainerType -&gt; XML) -&gt; ToXML MpdCaptionContainerType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MpdCaptionContainerType -&gt; XML

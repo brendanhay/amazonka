@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Represents the output of a LookupPolicy response operation.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBatchLookupPolicyResponse' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679327088"><span id="local-6989586621679327089"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchLookupPolicyResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse"><span class="hs-identifier hs-var">BatchLookupPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchLookupPolicyResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse%27"><span class="hs-identifier hs-var">BatchLookupPolicyResponse'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679327441"><span id="local-6989586621679327442"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchLookupPolicyResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse"><span class="hs-identifier hs-var">BatchLookupPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchLookupPolicyResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse%27"><span class="hs-identifier hs-var">BatchLookupPolicyResponse'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AnextToken%3ABatchLookupPolicyResponse%27"><span class="annot"><span class="annottext">BatchLookupPolicyResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#%24sel%3AnextToken%3ABatchLookupPolicyResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3ApolicyToPathList%3ABatchLookupPolicyResponse%27"><span class="annot"><span class="annottext">BatchLookupPolicyResponse -&gt; Maybe [PolicyToPath]
 </span><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#%24sel%3ApolicyToPathList%3ABatchLookupPolicyResponse%27"><span class="hs-identifier hs-var hs-var">policyToPathList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327081"><span id="local-6989586621679327083"><span class="annot"><span class="annottext">BatchLookupPolicyResponse -&gt; BatchLookupPolicyResponse -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327434"><span id="local-6989586621679327436"><span class="annot"><span class="annottext">BatchLookupPolicyResponse -&gt; BatchLookupPolicyResponse -&gt; Bool
 (BatchLookupPolicyResponse -&gt; BatchLookupPolicyResponse -&gt; Bool)
 -&gt; (BatchLookupPolicyResponse -&gt; BatchLookupPolicyResponse -&gt; Bool)
 -&gt; Eq BatchLookupPolicyResponse
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchLookupPolicyResponse -&gt; BatchLookupPolicyResponse -&gt; Bool
 == :: BatchLookupPolicyResponse -&gt; BatchLookupPolicyResponse -&gt; Bool
 $c== :: BatchLookupPolicyResponse -&gt; BatchLookupPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327072"><span id="local-6989586621679327074"><span id="local-6989586621679327076"><span id="local-6989586621679327078"><span class="annot"><span class="annottext">ReadPrec [BatchLookupPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327425"><span id="local-6989586621679327427"><span id="local-6989586621679327429"><span id="local-6989586621679327431"><span class="annot"><span class="annottext">ReadPrec [BatchLookupPolicyResponse]
 ReadPrec BatchLookupPolicyResponse
 Int -&gt; ReadS BatchLookupPolicyResponse
 ReadS [BatchLookupPolicyResponse]
@@ -66,7 +66,7 @@ readList :: ReadS [BatchLookupPolicyResponse]
 $creadList :: ReadS [BatchLookupPolicyResponse]
 readsPrec :: Int -&gt; ReadS BatchLookupPolicyResponse
 $creadsPrec :: Int -&gt; ReadS BatchLookupPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327065"><span id="local-6989586621679327067"><span id="local-6989586621679327069"><span class="annot"><span class="annottext">Int -&gt; BatchLookupPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327418"><span id="local-6989586621679327420"><span id="local-6989586621679327422"><span class="annot"><span class="annottext">Int -&gt; BatchLookupPolicyResponse -&gt; ShowS
 [BatchLookupPolicyResponse] -&gt; ShowS
 BatchLookupPolicyResponse -&gt; String
 (Int -&gt; BatchLookupPolicyResponse -&gt; ShowS)
@@ -141,16 +141,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse%27"><span class="hs-identifier hs-type">BatchLookupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327056"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse%27"><span class="hs-identifier hs-type">BatchLookupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327409"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:BatchLookupPolicyResponse' :: BatchLookupPolicyResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679327056"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679327056"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327055"><span class="annot"><span class="annottext">s :: BatchLookupPolicyResponse
-</span><a href="#local-6989586621679327055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse%27"><span class="hs-identifier hs-type">BatchLookupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327054"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679327054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchLookupPolicyResponse
-</span><a href="#local-6989586621679327055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:BatchLookupPolicyResponse' :: Maybe Text
+</span><a href="#local-6989586621679327409"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327409"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327408"><span class="annot"><span class="annottext">s :: BatchLookupPolicyResponse
+</span><a href="#local-6989586621679327408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse%27"><span class="hs-identifier hs-type">BatchLookupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327407"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchLookupPolicyResponse
+</span><a href="#local-6989586621679327408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:BatchLookupPolicyResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#%24sel%3AnextToken%3ABatchLookupPolicyResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679327054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse"><span class="hs-identifier hs-type">BatchLookupPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679327407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse"><span class="hs-identifier hs-type">BatchLookupPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | Provides list of path to policies. Policies contain @PolicyId@,</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- @ObjectIdentifier@, and @PolicyType@. For more information, see</span><span>
@@ -167,16 +167,16 @@ $sel:nextToken:BatchLookupPolicyResponse' :: BatchLookupPolicyResponse -&gt; May
      (Maybe [PolicyToPath])
      (Maybe [PolicyToPath])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse%27"><span class="hs-identifier hs-type">BatchLookupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327052"><span class="annot"><span class="annottext">Maybe [PolicyToPath]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse%27"><span class="hs-identifier hs-type">BatchLookupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327405"><span class="annot"><span class="annottext">Maybe [PolicyToPath]
 policyToPathList :: Maybe [PolicyToPath]
 $sel:policyToPathList:BatchLookupPolicyResponse' :: BatchLookupPolicyResponse -&gt; Maybe [PolicyToPath]
-</span><a href="#local-6989586621679327052"><span class="hs-identifier hs-var hs-var">policyToPathList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyToPath]
-</span><a href="#local-6989586621679327052"><span class="hs-identifier hs-var">policyToPathList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327051"><span class="annot"><span class="annottext">s :: BatchLookupPolicyResponse
-</span><a href="#local-6989586621679327051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse%27"><span class="hs-identifier hs-type">BatchLookupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327050"><span class="annot"><span class="annottext">Maybe [PolicyToPath]
-</span><a href="#local-6989586621679327050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchLookupPolicyResponse
-</span><a href="#local-6989586621679327051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyToPathList:BatchLookupPolicyResponse' :: Maybe [PolicyToPath]
+</span><a href="#local-6989586621679327405"><span class="hs-identifier hs-var hs-var">policyToPathList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyToPath]
+</span><a href="#local-6989586621679327405"><span class="hs-identifier hs-var">policyToPathList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327404"><span class="annot"><span class="annottext">s :: BatchLookupPolicyResponse
+</span><a href="#local-6989586621679327404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse%27"><span class="hs-identifier hs-type">BatchLookupPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327403"><span class="annot"><span class="annottext">Maybe [PolicyToPath]
+</span><a href="#local-6989586621679327403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchLookupPolicyResponse
+</span><a href="#local-6989586621679327404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyToPathList:BatchLookupPolicyResponse' :: Maybe [PolicyToPath]
 </span><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#%24sel%3ApolicyToPathList%3ABatchLookupPolicyResponse%27"><span class="hs-identifier hs-var">policyToPathList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyToPath]
-</span><a href="#local-6989586621679327050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse"><span class="hs-identifier hs-type">BatchLookupPolicyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyToPath] -&gt; f (Maybe [PolicyToPath]))
+</span><a href="#local-6989586621679327403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse"><span class="hs-identifier hs-type">BatchLookupPolicyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyToPath] -&gt; f (Maybe [PolicyToPath]))
  -&gt; BatchLookupPolicyResponse -&gt; f BatchLookupPolicyResponse)
 -&gt; ((Maybe [PolicyToPath] -&gt; f (Maybe [PolicyToPath]))
     -&gt; Maybe [PolicyToPath] -&gt; f (Maybe [PolicyToPath]))
@@ -194,11 +194,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PolicyToPath] [PolicyToPath] [PolicyToPath] [PolicyToPath]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327044"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse"><span class="hs-identifier hs-type">BatchLookupPolicyResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679327042"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchLookupPolicyResponse
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327397"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse"><span class="hs-identifier hs-type">BatchLookupPolicyResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679327395"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchLookupPolicyResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BatchLookupPolicyResponse)
@@ -208,8 +208,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BatchLookupPolicyResponse&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679327039"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679327039"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679327392"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327392"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [PolicyToPath] -&gt; BatchLookupPolicyResponse
 </span><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse%27"><span class="hs-identifier hs-var">BatchLookupPolicyResponse'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [PolicyToPath] -&gt; BatchLookupPolicyResponse)
@@ -217,7 +217,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [PolicyToPath] -&gt; BatchLookupPolicyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679327039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679327392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -226,7 +226,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser BatchLookupPolicyResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679327039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PolicyToPath]))
+</span><a href="#local-6989586621679327392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PolicyToPath]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyToPathList&quot;</span></span><span>
@@ -239,7 +239,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-81"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327032"><span id="local-6989586621679327034"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse"><span class="hs-identifier hs-type">BatchLookupPolicyResponse</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327385"><span id="local-6989586621679327387"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse"><span class="hs-identifier hs-type">BatchLookupPolicyResponse</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327029"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse"><span class="hs-identifier hs-type">BatchLookupPolicyResponse</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327382"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse.html#BatchLookupPolicyResponse"><span class="hs-identifier hs-type">BatchLookupPolicyResponse</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

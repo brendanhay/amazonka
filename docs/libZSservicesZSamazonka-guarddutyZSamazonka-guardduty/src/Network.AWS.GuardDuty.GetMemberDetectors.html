@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetMemberDetectors' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679308199"><span id="local-6989586621679308200"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMemberDetectors"><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-var">GetMemberDetectors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMemberDetectors%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors%27"><span class="hs-identifier hs-var">GetMemberDetectors'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679308521"><span id="local-6989586621679308522"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMemberDetectors"><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-var">GetMemberDetectors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMemberDetectors%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors%27"><span class="hs-identifier hs-var">GetMemberDetectors'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The detector ID for the administrator account.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AdetectorId%3AGetMemberDetectors%27"><span class="annot"><span class="annottext">GetMemberDetectors -&gt; Text
 </span><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#%24sel%3AdetectorId%3AGetMemberDetectors%27"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AaccountIds%3AGetMemberDetectors%27"><span class="annot"><span class="annottext">GetMemberDetectors -&gt; NonEmpty Text
 </span><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#%24sel%3AaccountIds%3AGetMemberDetectors%27"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308192"><span id="local-6989586621679308194"><span class="annot"><span class="annottext">GetMemberDetectors -&gt; GetMemberDetectors -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308514"><span id="local-6989586621679308516"><span class="annot"><span class="annottext">GetMemberDetectors -&gt; GetMemberDetectors -&gt; Bool
 (GetMemberDetectors -&gt; GetMemberDetectors -&gt; Bool)
 -&gt; (GetMemberDetectors -&gt; GetMemberDetectors -&gt; Bool)
 -&gt; Eq GetMemberDetectors
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetMemberDetectors -&gt; GetMemberDetectors -&gt; Bool
 == :: GetMemberDetectors -&gt; GetMemberDetectors -&gt; Bool
 $c== :: GetMemberDetectors -&gt; GetMemberDetectors -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308183"><span id="local-6989586621679308185"><span id="local-6989586621679308187"><span id="local-6989586621679308189"><span class="annot"><span class="annottext">ReadPrec [GetMemberDetectors]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308505"><span id="local-6989586621679308507"><span id="local-6989586621679308509"><span id="local-6989586621679308511"><span class="annot"><span class="annottext">ReadPrec [GetMemberDetectors]
 ReadPrec GetMemberDetectors
 Int -&gt; ReadS GetMemberDetectors
 ReadS [GetMemberDetectors]
@@ -87,7 +87,7 @@ readList :: ReadS [GetMemberDetectors]
 $creadList :: ReadS [GetMemberDetectors]
 readsPrec :: Int -&gt; ReadS GetMemberDetectors
 $creadsPrec :: Int -&gt; ReadS GetMemberDetectors
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308176"><span id="local-6989586621679308178"><span id="local-6989586621679308180"><span class="annot"><span class="annottext">Int -&gt; GetMemberDetectors -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308498"><span id="local-6989586621679308500"><span id="local-6989586621679308502"><span class="annot"><span class="annottext">Int -&gt; GetMemberDetectors -&gt; ShowS
 [GetMemberDetectors] -&gt; ShowS
 GetMemberDetectors -&gt; String
 (Int -&gt; GetMemberDetectors -&gt; ShowS)
@@ -131,24 +131,24 @@ $cfrom :: forall x. GetMemberDetectors -&gt; Rep GetMemberDetectors x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-type">GetMemberDetectors</span></a></span><span>
 </span><span id="line-78"></span><span id="newGetMemberDetectors"><span class="annot"><span class="annottext">newGetMemberDetectors :: Text -&gt; NonEmpty Text -&gt; GetMemberDetectors
-</span><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#newGetMemberDetectors"><span class="hs-identifier hs-var hs-var">newGetMemberDetectors</span></a></span></span><span> </span><span id="local-6989586621679308171"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308171"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span id="local-6989586621679308170"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679308170"><span class="hs-identifier hs-var">pAccountIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#newGetMemberDetectors"><span class="hs-identifier hs-var hs-var">newGetMemberDetectors</span></a></span></span><span> </span><span id="local-6989586621679308493"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308493"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span id="local-6989586621679308492"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679308492"><span class="hs-identifier hs-var">pAccountIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">GetMemberDetectors' :: Text -&gt; NonEmpty Text -&gt; GetMemberDetectors
 </span><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors%27"><span class="hs-identifier hs-type">GetMemberDetectors'</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detectorId:GetMemberDetectors' :: Text
 </span><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#%24sel%3AdetectorId%3AGetMemberDetectors%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308171"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679308493"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountIds:GetMemberDetectors' :: NonEmpty Text
 </span><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#%24sel%3AaccountIds%3AGetMemberDetectors%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679308170"><span class="hs-identifier hs-var">pAccountIds_</span></a></span><span>
+</span><a href="#local-6989586621679308492"><span class="hs-identifier hs-var">pAccountIds_</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The detector ID for the administrator account.</span><span>
@@ -158,16 +158,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (GetMemberDetectors -&gt; Text -&gt; GetMemberDetectors)
 -&gt; Lens GetMemberDetectors GetMemberDetectors Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors%27"><span class="hs-identifier hs-type">GetMemberDetectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308165"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors%27"><span class="hs-identifier hs-type">GetMemberDetectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308487"><span class="annot"><span class="annottext">Text
 detectorId :: Text
 $sel:detectorId:GetMemberDetectors' :: GetMemberDetectors -&gt; Text
-</span><a href="#local-6989586621679308165"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308165"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308164"><span class="annot"><span class="annottext">s :: GetMemberDetectors
-</span><a href="#local-6989586621679308164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors%27"><span class="hs-identifier hs-type">GetMemberDetectors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308163"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMemberDetectors
-</span><a href="#local-6989586621679308164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:GetMemberDetectors' :: Text
+</span><a href="#local-6989586621679308487"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308487"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308486"><span class="annot"><span class="annottext">s :: GetMemberDetectors
+</span><a href="#local-6989586621679308486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors%27"><span class="hs-identifier hs-type">GetMemberDetectors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308485"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMemberDetectors
+</span><a href="#local-6989586621679308486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:GetMemberDetectors' :: Text
 </span><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#%24sel%3AdetectorId%3AGetMemberDetectors%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-type">GetMemberDetectors</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-type">GetMemberDetectors</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The account ID of the member account.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#getMemberDetectors_accountIds"><span class="hs-identifier hs-type">getMemberDetectors_accountIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-type">GetMemberDetectors</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -181,16 +181,16 @@ $sel:detectorId:GetMemberDetectors' :: GetMemberDetectors -&gt; Text
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors%27"><span class="hs-identifier hs-type">GetMemberDetectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308162"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors%27"><span class="hs-identifier hs-type">GetMemberDetectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308484"><span class="annot"><span class="annottext">NonEmpty Text
 accountIds :: NonEmpty Text
 $sel:accountIds:GetMemberDetectors' :: GetMemberDetectors -&gt; NonEmpty Text
-</span><a href="#local-6989586621679308162"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679308162"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308161"><span class="annot"><span class="annottext">s :: GetMemberDetectors
-</span><a href="#local-6989586621679308161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors%27"><span class="hs-identifier hs-type">GetMemberDetectors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308160"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679308160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMemberDetectors
-</span><a href="#local-6989586621679308161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:GetMemberDetectors' :: NonEmpty Text
+</span><a href="#local-6989586621679308484"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679308484"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308483"><span class="annot"><span class="annottext">s :: GetMemberDetectors
+</span><a href="#local-6989586621679308483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors%27"><span class="hs-identifier hs-type">GetMemberDetectors'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308482"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679308482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMemberDetectors
+</span><a href="#local-6989586621679308483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:GetMemberDetectors' :: NonEmpty Text
 </span><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#%24sel%3AaccountIds%3AGetMemberDetectors%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679308160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-type">GetMemberDetectors</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679308482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-type">GetMemberDetectors</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; GetMemberDetectors -&gt; f GetMemberDetectors)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -200,19 +200,19 @@ $sel:accountIds:GetMemberDetectors' :: GetMemberDetectors -&gt; NonEmpty Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-type">GetMemberDetectors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-type">GetMemberDetectors</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse"><span class="hs-identifier hs-type">GetMemberDetectorsResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679308155"><span class="annot"><span class="annottext">request :: GetMemberDetectors -&gt; Request GetMemberDetectors
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679308477"><span class="annot"><span class="annottext">request :: GetMemberDetectors -&gt; Request GetMemberDetectors
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetMemberDetectors -&gt; Request GetMemberDetectors
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679308151"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679308473"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetMemberDetectors
 -&gt; ClientResponse ClientBody
@@ -238,10 +238,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308148"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308148"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679308147"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679308147"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679308146"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308146"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308470"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308470"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679308469"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679308469"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679308468"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679308468"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Int
 -&gt; NonEmpty MemberDataSourceConfiguration
 -&gt; [UnprocessedAccount]
@@ -262,7 +262,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308148"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308470"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (NonEmpty MemberDataSourceConfiguration
@@ -272,7 +272,7 @@ forall a. Enum a =&gt; a -&gt; Int
      String ([UnprocessedAccount] -&gt; GetMemberDetectorsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679308468"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (NonEmpty MemberDataSourceConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -282,7 +282,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String GetMemberDetectorsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [UnprocessedAccount])
+</span><a href="#local-6989586621679308468"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [UnprocessedAccount])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;unprocessedAccounts&quot;</span></span><span>
@@ -295,12 +295,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-105"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308136"><span id="local-6989586621679308138"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-type">GetMemberDetectors</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308458"><span id="local-6989586621679308460"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-type">GetMemberDetectors</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308133"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-type">GetMemberDetectors</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308455"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-type">GetMemberDetectors</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-type">GetMemberDetectors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679308129"><span class="annot"><span class="annottext">toHeaders :: GetMemberDetectors -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679308451"><span class="annot"><span class="annottext">toHeaders :: GetMemberDetectors -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetMemberDetectors -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -319,15 +319,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308119"><span id="local-6989586621679308121"><span id="local-6989586621679308123"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-type">GetMemberDetectors</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679308117"><span class="annot"><span class="annottext">toJSON :: GetMemberDetectors -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors%27"><span class="hs-identifier hs-type">GetMemberDetectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308114"><span id="local-6989586621679308115"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308441"><span id="local-6989586621679308443"><span id="local-6989586621679308445"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-type">GetMemberDetectors</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679308439"><span class="annot"><span class="annottext">toJSON :: GetMemberDetectors -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors%27"><span class="hs-identifier hs-type">GetMemberDetectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308436"><span id="local-6989586621679308437"><span class="annot"><span class="annottext">NonEmpty Text
 Text
 accountIds :: NonEmpty Text
 detectorId :: Text
 $sel:accountIds:GetMemberDetectors' :: GetMemberDetectors -&gt; NonEmpty Text
 $sel:detectorId:GetMemberDetectors' :: GetMemberDetectors -&gt; Text
-</span><a href="#local-6989586621679308114"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679308436"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -339,18 +339,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;accountIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679308114"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679308436"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-type">GetMemberDetectors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679308108"><span class="annot"><span class="annottext">toPath :: GetMemberDetectors -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors%27"><span class="hs-identifier hs-type">GetMemberDetectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308105"><span id="local-6989586621679308106"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679308430"><span class="annot"><span class="annottext">toPath :: GetMemberDetectors -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors%27"><span class="hs-identifier hs-type">GetMemberDetectors'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308427"><span id="local-6989586621679308428"><span class="annot"><span class="annottext">NonEmpty Text
 Text
 accountIds :: NonEmpty Text
 detectorId :: Text
 $sel:accountIds:GetMemberDetectors' :: GetMemberDetectors -&gt; NonEmpty Text
 $sel:detectorId:GetMemberDetectors' :: GetMemberDetectors -&gt; Text
-</span><a href="#local-6989586621679308105"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679308427"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -359,13 +359,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308106"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679308428"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/member/detector/get&quot;</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectors"><span class="hs-identifier hs-type">GetMemberDetectors</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679308101"><span class="annot"><span class="annottext">toQuery :: GetMemberDetectors -&gt; QueryString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679308423"><span class="annot"><span class="annottext">toQuery :: GetMemberDetectors -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetMemberDetectors -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -373,7 +373,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newGetMemberDetectorsResponse' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621679308098"><span id="local-6989586621679308099"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMemberDetectorsResponse"><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse"><span class="hs-identifier hs-var">GetMemberDetectorsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMemberDetectorsResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse%27"><span class="hs-identifier hs-var">GetMemberDetectorsResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621679308420"><span id="local-6989586621679308421"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMemberDetectorsResponse"><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse"><span class="hs-identifier hs-var">GetMemberDetectorsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMemberDetectorsResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse%27"><span class="hs-identifier hs-var">GetMemberDetectorsResponse'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetMemberDetectorsResponse%27"><span class="annot"><span class="annottext">GetMemberDetectorsResponse -&gt; Int
 </span><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#%24sel%3AhttpStatus%3AGetMemberDetectorsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -387,7 +387,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AunprocessedAccounts%3AGetMemberDetectorsResponse%27"><span class="annot"><span class="annottext">GetMemberDetectorsResponse -&gt; [UnprocessedAccount]
 </span><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#%24sel%3AunprocessedAccounts%3AGetMemberDetectorsResponse%27"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308091"><span id="local-6989586621679308093"><span class="annot"><span class="annottext">GetMemberDetectorsResponse -&gt; GetMemberDetectorsResponse -&gt; Bool
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308413"><span id="local-6989586621679308415"><span class="annot"><span class="annottext">GetMemberDetectorsResponse -&gt; GetMemberDetectorsResponse -&gt; Bool
 (GetMemberDetectorsResponse -&gt; GetMemberDetectorsResponse -&gt; Bool)
 -&gt; (GetMemberDetectorsResponse
     -&gt; GetMemberDetectorsResponse -&gt; Bool)
@@ -397,7 +397,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetMemberDetectorsResponse -&gt; GetMemberDetectorsResponse -&gt; Bool
 == :: GetMemberDetectorsResponse -&gt; GetMemberDetectorsResponse -&gt; Bool
 $c== :: GetMemberDetectorsResponse -&gt; GetMemberDetectorsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308083"><span id="local-6989586621679308085"><span id="local-6989586621679308087"><span id="local-6989586621679308089"><span class="annot"><span class="annottext">ReadPrec [GetMemberDetectorsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308405"><span id="local-6989586621679308407"><span id="local-6989586621679308409"><span id="local-6989586621679308411"><span class="annot"><span class="annottext">ReadPrec [GetMemberDetectorsResponse]
 ReadPrec GetMemberDetectorsResponse
 Int -&gt; ReadS GetMemberDetectorsResponse
 ReadS [GetMemberDetectorsResponse]
@@ -417,7 +417,7 @@ readList :: ReadS [GetMemberDetectorsResponse]
 $creadList :: ReadS [GetMemberDetectorsResponse]
 readsPrec :: Int -&gt; ReadS GetMemberDetectorsResponse
 $creadsPrec :: Int -&gt; ReadS GetMemberDetectorsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308077"><span id="local-6989586621679308079"><span id="local-6989586621679308081"><span class="annot"><span class="annottext">Int -&gt; GetMemberDetectorsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308399"><span id="local-6989586621679308401"><span id="local-6989586621679308403"><span class="annot"><span class="annottext">Int -&gt; GetMemberDetectorsResponse -&gt; ShowS
 [GetMemberDetectorsResponse] -&gt; ShowS
 GetMemberDetectorsResponse -&gt; String
 (Int -&gt; GetMemberDetectorsResponse -&gt; ShowS)
@@ -474,10 +474,10 @@ GetMemberDetectorsResponse -&gt; Rep GetMemberDetectorsResponse x
 -&gt; NonEmpty MemberDataSourceConfiguration
 -&gt; GetMemberDetectorsResponse
 </span><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#newGetMemberDetectorsResponse"><span class="hs-identifier hs-var hs-var">newGetMemberDetectorsResponse</span></a></span></span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679308074"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308074"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679308073"><span class="annot"><span class="annottext">NonEmpty MemberDataSourceConfiguration
-</span><a href="#local-6989586621679308073"><span class="hs-identifier hs-var">pMemberDataSourceConfigurations_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679308396"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308396"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679308395"><span class="annot"><span class="annottext">NonEmpty MemberDataSourceConfiguration
+</span><a href="#local-6989586621679308395"><span class="hs-identifier hs-var">pMemberDataSourceConfigurations_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">GetMemberDetectorsResponse' :: Int
 -&gt; NonEmpty MemberDataSourceConfiguration
 -&gt; [UnprocessedAccount]
@@ -486,7 +486,7 @@ GetMemberDetectorsResponse -&gt; Rep GetMemberDetectorsResponse x
 </span><span id="line-179"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetMemberDetectorsResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#%24sel%3AhttpStatus%3AGetMemberDetectorsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308074"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679308396"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">$sel:memberDataSourceConfigurations:GetMemberDetectorsResponse' :: NonEmpty MemberDataSourceConfiguration
 </span><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#%24sel%3AmemberDataSourceConfigurations%3AGetMemberDetectorsResponse%27"><span class="hs-identifier hs-var">memberDataSourceConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">Tagged
@@ -495,8 +495,8 @@ GetMemberDetectorsResponse -&gt; Rep GetMemberDetectorsResponse x
 -&gt; Tagged
      (NonEmpty MemberDataSourceConfiguration)
      (Identity (NonEmpty MemberDataSourceConfiguration))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">(Tagged
    (NonEmpty MemberDataSourceConfiguration)
    (Identity (NonEmpty MemberDataSourceConfiguration))
@@ -507,7 +507,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; NonEmpty MemberDataSourceConfiguration
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty MemberDataSourceConfiguration
-</span><a href="#local-6989586621679308073"><span class="hs-identifier hs-var">pMemberDataSourceConfigurations_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679308395"><span class="hs-identifier hs-var">pMemberDataSourceConfigurations_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:GetMemberDetectorsResponse' :: [UnprocessedAccount]
 </span><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#%24sel%3AunprocessedAccounts%3AGetMemberDetectorsResponse%27"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
 forall a. Monoid a =&gt; a
@@ -524,16 +524,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      GetMemberDetectorsResponse GetMemberDetectorsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse%27"><span class="hs-identifier hs-type">GetMemberDetectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308072"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse%27"><span class="hs-identifier hs-type">GetMemberDetectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308394"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetMemberDetectorsResponse' :: GetMemberDetectorsResponse -&gt; Int
-</span><a href="#local-6989586621679308072"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308072"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308071"><span class="annot"><span class="annottext">s :: GetMemberDetectorsResponse
-</span><a href="#local-6989586621679308071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse%27"><span class="hs-identifier hs-type">GetMemberDetectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308070"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMemberDetectorsResponse
-</span><a href="#local-6989586621679308071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMemberDetectorsResponse' :: Int
+</span><a href="#local-6989586621679308394"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308394"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308393"><span class="annot"><span class="annottext">s :: GetMemberDetectorsResponse
+</span><a href="#local-6989586621679308393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse%27"><span class="hs-identifier hs-type">GetMemberDetectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308392"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMemberDetectorsResponse
+</span><a href="#local-6989586621679308393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMemberDetectorsResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#%24sel%3AhttpStatus%3AGetMemberDetectorsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse"><span class="hs-identifier hs-type">GetMemberDetectorsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse"><span class="hs-identifier hs-type">GetMemberDetectorsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | An object that describes which data sources are enabled for a member</span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- account.</span><span>
@@ -552,17 +552,17 @@ $sel:httpStatus:GetMemberDetectorsResponse' :: GetMemberDetectorsResponse -&gt; 
      (NonEmpty MemberDataSourceConfiguration)
      (NonEmpty MemberDataSourceConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse%27"><span class="hs-identifier hs-type">GetMemberDetectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308069"><span class="annot"><span class="annottext">NonEmpty MemberDataSourceConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse%27"><span class="hs-identifier hs-type">GetMemberDetectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308391"><span class="annot"><span class="annottext">NonEmpty MemberDataSourceConfiguration
 memberDataSourceConfigurations :: NonEmpty MemberDataSourceConfiguration
 $sel:memberDataSourceConfigurations:GetMemberDetectorsResponse' :: GetMemberDetectorsResponse
 -&gt; NonEmpty MemberDataSourceConfiguration
-</span><a href="#local-6989586621679308069"><span class="hs-identifier hs-var hs-var">memberDataSourceConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty MemberDataSourceConfiguration
-</span><a href="#local-6989586621679308069"><span class="hs-identifier hs-var">memberDataSourceConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308068"><span class="annot"><span class="annottext">s :: GetMemberDetectorsResponse
-</span><a href="#local-6989586621679308068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse%27"><span class="hs-identifier hs-type">GetMemberDetectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308067"><span class="annot"><span class="annottext">NonEmpty MemberDataSourceConfiguration
-</span><a href="#local-6989586621679308067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMemberDetectorsResponse
-</span><a href="#local-6989586621679308068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberDataSourceConfigurations:GetMemberDetectorsResponse' :: NonEmpty MemberDataSourceConfiguration
+</span><a href="#local-6989586621679308391"><span class="hs-identifier hs-var hs-var">memberDataSourceConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty MemberDataSourceConfiguration
+</span><a href="#local-6989586621679308391"><span class="hs-identifier hs-var">memberDataSourceConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308390"><span class="annot"><span class="annottext">s :: GetMemberDetectorsResponse
+</span><a href="#local-6989586621679308390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse%27"><span class="hs-identifier hs-type">GetMemberDetectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308389"><span class="annot"><span class="annottext">NonEmpty MemberDataSourceConfiguration
+</span><a href="#local-6989586621679308389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMemberDetectorsResponse
+</span><a href="#local-6989586621679308390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberDataSourceConfigurations:GetMemberDetectorsResponse' :: NonEmpty MemberDataSourceConfiguration
 </span><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#%24sel%3AmemberDataSourceConfigurations%3AGetMemberDetectorsResponse%27"><span class="hs-identifier hs-var">memberDataSourceConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty MemberDataSourceConfiguration
-</span><a href="#local-6989586621679308067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse"><span class="hs-identifier hs-type">GetMemberDetectorsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty MemberDataSourceConfiguration
+</span><a href="#local-6989586621679308389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse"><span class="hs-identifier hs-type">GetMemberDetectorsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty MemberDataSourceConfiguration
   -&gt; f (NonEmpty MemberDataSourceConfiguration))
  -&gt; GetMemberDetectorsResponse -&gt; f GetMemberDetectorsResponse)
 -&gt; ((NonEmpty MemberDataSourceConfiguration
@@ -578,8 +578,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
  -&gt; f (NonEmpty MemberDataSourceConfiguration))
 -&gt; NonEmpty MemberDataSourceConfiguration
 -&gt; f (NonEmpty MemberDataSourceConfiguration)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | A list of member account IDs that were unable to be processed along with</span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- an explanation for why they were not processed.</span><span>
@@ -595,16 +595,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      [UnprocessedAccount]
      [UnprocessedAccount]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse%27"><span class="hs-identifier hs-type">GetMemberDetectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308066"><span class="annot"><span class="annottext">[UnprocessedAccount]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse%27"><span class="hs-identifier hs-type">GetMemberDetectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308388"><span class="annot"><span class="annottext">[UnprocessedAccount]
 unprocessedAccounts :: [UnprocessedAccount]
 $sel:unprocessedAccounts:GetMemberDetectorsResponse' :: GetMemberDetectorsResponse -&gt; [UnprocessedAccount]
-</span><a href="#local-6989586621679308066"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
-</span><a href="#local-6989586621679308066"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308065"><span class="annot"><span class="annottext">s :: GetMemberDetectorsResponse
-</span><a href="#local-6989586621679308065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse%27"><span class="hs-identifier hs-type">GetMemberDetectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308064"><span class="annot"><span class="annottext">[UnprocessedAccount]
-</span><a href="#local-6989586621679308064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMemberDetectorsResponse
-</span><a href="#local-6989586621679308065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:GetMemberDetectorsResponse' :: [UnprocessedAccount]
+</span><a href="#local-6989586621679308388"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
+</span><a href="#local-6989586621679308388"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308387"><span class="annot"><span class="annottext">s :: GetMemberDetectorsResponse
+</span><a href="#local-6989586621679308387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse%27"><span class="hs-identifier hs-type">GetMemberDetectorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308386"><span class="annot"><span class="annottext">[UnprocessedAccount]
+</span><a href="#local-6989586621679308386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMemberDetectorsResponse
+</span><a href="#local-6989586621679308387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:GetMemberDetectorsResponse' :: [UnprocessedAccount]
 </span><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#%24sel%3AunprocessedAccounts%3AGetMemberDetectorsResponse%27"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
-</span><a href="#local-6989586621679308064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse"><span class="hs-identifier hs-type">GetMemberDetectorsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([UnprocessedAccount] -&gt; f [UnprocessedAccount])
+</span><a href="#local-6989586621679308386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse"><span class="hs-identifier hs-type">GetMemberDetectorsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([UnprocessedAccount] -&gt; f [UnprocessedAccount])
  -&gt; GetMemberDetectorsResponse -&gt; f GetMemberDetectorsResponse)
 -&gt; (([UnprocessedAccount] -&gt; f [UnprocessedAccount])
     -&gt; [UnprocessedAccount] -&gt; f [UnprocessedAccount])
@@ -614,8 +614,8 @@ $sel:unprocessedAccounts:GetMemberDetectorsResponse' :: GetMemberDetectorsRespon
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([UnprocessedAccount] -&gt; f [UnprocessedAccount])
 -&gt; [UnprocessedAccount] -&gt; f [UnprocessedAccount]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-200"></span><span>
-</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308062"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse"><span class="hs-identifier hs-type">GetMemberDetectorsResponse</span></a></span></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308384"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMemberDetectors.html#GetMemberDetectorsResponse"><span class="hs-identifier hs-type">GetMemberDetectorsResponse</span></a></span></span><span>
 </span><span id="line-202"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679699705"><span id="local-6989586621679699706"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TaskRunSortColumnType"><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortColumnType.html#TaskRunSortColumnType"><span class="hs-identifier hs-var">TaskRunSortColumnType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskRunSortColumnType%27"><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortColumnType.html#TaskRunSortColumnType%27"><span class="hs-identifier hs-var">TaskRunSortColumnType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679701411"><span id="local-6989586621679701412"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TaskRunSortColumnType"><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortColumnType.html#TaskRunSortColumnType"><span class="hs-identifier hs-var">TaskRunSortColumnType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskRunSortColumnType%27"><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortColumnType.html#TaskRunSortColumnType%27"><span class="hs-identifier hs-var">TaskRunSortColumnType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTaskRunSortColumnType"><span class="annot"><span class="annottext">TaskRunSortColumnType -&gt; Text
 </span><a href="Network.AWS.Glue.Types.TaskRunSortColumnType.html#fromTaskRunSortColumnType"><span class="hs-identifier hs-var hs-var">fromTaskRunSortColumnType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679699697"><span id="local-6989586621679699699"><span id="local-6989586621679699701"><span class="annot"><span class="annottext">Int -&gt; TaskRunSortColumnType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679701403"><span id="local-6989586621679701405"><span id="local-6989586621679701407"><span class="annot"><span class="annottext">Int -&gt; TaskRunSortColumnType -&gt; ShowS
 [TaskRunSortColumnType] -&gt; ShowS
 TaskRunSortColumnType -&gt; String
 (Int -&gt; TaskRunSortColumnType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: TaskRunSortColumnType -&gt; String
 showsPrec :: Int -&gt; TaskRunSortColumnType -&gt; ShowS
 $cshowsPrec :: Int -&gt; TaskRunSortColumnType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679699688"><span id="local-6989586621679699690"><span id="local-6989586621679699692"><span id="local-6989586621679699694"><span class="annot"><span class="annottext">ReadPrec [TaskRunSortColumnType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679701394"><span id="local-6989586621679701396"><span id="local-6989586621679701398"><span id="local-6989586621679701400"><span class="annot"><span class="annottext">ReadPrec [TaskRunSortColumnType]
 ReadPrec TaskRunSortColumnType
 Int -&gt; ReadS TaskRunSortColumnType
 ReadS [TaskRunSortColumnType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [TaskRunSortColumnType]
 readsPrec :: Int -&gt; ReadS TaskRunSortColumnType
 $creadsPrec :: Int -&gt; ReadS TaskRunSortColumnType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679699683"><span id="local-6989586621679699685"><span class="annot"><span class="annottext">TaskRunSortColumnType -&gt; TaskRunSortColumnType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679701389"><span id="local-6989586621679701391"><span class="annot"><span class="annottext">TaskRunSortColumnType -&gt; TaskRunSortColumnType -&gt; Bool
 (TaskRunSortColumnType -&gt; TaskRunSortColumnType -&gt; Bool)
 -&gt; (TaskRunSortColumnType -&gt; TaskRunSortColumnType -&gt; Bool)
 -&gt; Eq TaskRunSortColumnType
@@ -83,7 +83,7 @@ $c/= :: TaskRunSortColumnType -&gt; TaskRunSortColumnType -&gt; Bool
 == :: TaskRunSortColumnType -&gt; TaskRunSortColumnType -&gt; Bool
 $c== :: TaskRunSortColumnType -&gt; TaskRunSortColumnType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679699667"><span id="local-6989586621679699669"><span id="local-6989586621679699671"><span id="local-6989586621679699673"><span id="local-6989586621679699675"><span id="local-6989586621679699677"><span id="local-6989586621679699679"><span class="annot"><span class="annottext">Eq TaskRunSortColumnType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679701373"><span id="local-6989586621679701375"><span id="local-6989586621679701377"><span id="local-6989586621679701379"><span id="local-6989586621679701381"><span id="local-6989586621679701383"><span id="local-6989586621679701385"><span class="annot"><span class="annottext">Eq TaskRunSortColumnType
 Eq TaskRunSortColumnType
 -&gt; (TaskRunSortColumnType -&gt; TaskRunSortColumnType -&gt; Ordering)
 -&gt; (TaskRunSortColumnType -&gt; TaskRunSortColumnType -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. TaskRunSortColumnType -&gt; Rep TaskRunSortColumnType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679699659"><span id="local-6989586621679699661"><span class="annot"><span class="annottext">Int -&gt; TaskRunSortColumnType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679701365"><span id="local-6989586621679701367"><span class="annot"><span class="annottext">Int -&gt; TaskRunSortColumnType -&gt; Int
 TaskRunSortColumnType -&gt; Int
 (Int -&gt; TaskRunSortColumnType -&gt; Int)
 -&gt; (TaskRunSortColumnType -&gt; Int) -&gt; Hashable TaskRunSortColumnType
@@ -151,54 +151,54 @@ $chash :: TaskRunSortColumnType -&gt; Int
 hashWithSalt :: Int -&gt; TaskRunSortColumnType -&gt; Int
 $chashWithSalt :: Int -&gt; TaskRunSortColumnType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679699656"><span class="annot"><span class="annottext">TaskRunSortColumnType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679701362"><span class="annot"><span class="annottext">TaskRunSortColumnType -&gt; ()
 (TaskRunSortColumnType -&gt; ()) -&gt; NFData TaskRunSortColumnType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TaskRunSortColumnType -&gt; ()
 $crnf :: TaskRunSortColumnType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679699653"><span class="annot"><span class="annottext">Text -&gt; Either String TaskRunSortColumnType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679701359"><span class="annot"><span class="annottext">Text -&gt; Either String TaskRunSortColumnType
 (Text -&gt; Either String TaskRunSortColumnType)
 -&gt; FromText TaskRunSortColumnType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TaskRunSortColumnType
 $cfromText :: Text -&gt; Either String TaskRunSortColumnType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679699650"><span class="annot"><span class="annottext">TaskRunSortColumnType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679701356"><span class="annot"><span class="annottext">TaskRunSortColumnType -&gt; Text
 (TaskRunSortColumnType -&gt; Text) -&gt; ToText TaskRunSortColumnType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TaskRunSortColumnType -&gt; Text
 $ctoText :: TaskRunSortColumnType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679699647"><span class="annot"><span class="annottext">TaskRunSortColumnType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679701353"><span class="annot"><span class="annottext">TaskRunSortColumnType -&gt; ByteString
 (TaskRunSortColumnType -&gt; ByteString)
 -&gt; ToByteString TaskRunSortColumnType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TaskRunSortColumnType -&gt; ByteString
 $ctoBS :: TaskRunSortColumnType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679699644"><span class="annot"><span class="annottext">TaskRunSortColumnType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679701350"><span class="annot"><span class="annottext">TaskRunSortColumnType -&gt; ByteStringBuilder
 (TaskRunSortColumnType -&gt; ByteStringBuilder)
 -&gt; ToLog TaskRunSortColumnType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TaskRunSortColumnType -&gt; ByteStringBuilder
 $cbuild :: TaskRunSortColumnType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679699641"><span class="annot"><span class="annottext">HeaderName -&gt; TaskRunSortColumnType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679701347"><span class="annot"><span class="annottext">HeaderName -&gt; TaskRunSortColumnType -&gt; [Header]
 (HeaderName -&gt; TaskRunSortColumnType -&gt; [Header])
 -&gt; ToHeader TaskRunSortColumnType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TaskRunSortColumnType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TaskRunSortColumnType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679699638"><span class="annot"><span class="annottext">TaskRunSortColumnType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679701344"><span class="annot"><span class="annottext">TaskRunSortColumnType -&gt; QueryString
 (TaskRunSortColumnType -&gt; QueryString)
 -&gt; ToQuery TaskRunSortColumnType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TaskRunSortColumnType -&gt; QueryString
 $ctoQuery :: TaskRunSortColumnType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679699633"><span id="local-6989586621679699635"><span class="annot"><span class="annottext">Value -&gt; Parser [TaskRunSortColumnType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679701339"><span id="local-6989586621679701341"><span class="annot"><span class="annottext">Value -&gt; Parser [TaskRunSortColumnType]
 Value -&gt; Parser TaskRunSortColumnType
 (Value -&gt; Parser TaskRunSortColumnType)
 -&gt; (Value -&gt; Parser [TaskRunSortColumnType])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [TaskRunSortColumnType]
 parseJSON :: Value -&gt; Parser TaskRunSortColumnType
 $cparseJSON :: Value -&gt; Parser TaskRunSortColumnType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679699628"><span id="local-6989586621679699630"><span class="annot"><span class="annottext">FromJSONKeyFunction [TaskRunSortColumnType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679701334"><span id="local-6989586621679701336"><span class="annot"><span class="annottext">FromJSONKeyFunction [TaskRunSortColumnType]
 FromJSONKeyFunction TaskRunSortColumnType
 FromJSONKeyFunction TaskRunSortColumnType
 -&gt; FromJSONKeyFunction [TaskRunSortColumnType]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TaskRunSortColumnType]
 fromJSONKey :: FromJSONKeyFunction TaskRunSortColumnType
 $cfromJSONKey :: FromJSONKeyFunction TaskRunSortColumnType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679699619"><span id="local-6989586621679699621"><span id="local-6989586621679699623"><span id="local-6989586621679699625"><span class="annot"><span class="annottext">[TaskRunSortColumnType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679701325"><span id="local-6989586621679701327"><span id="local-6989586621679701329"><span id="local-6989586621679701331"><span class="annot"><span class="annottext">[TaskRunSortColumnType] -&gt; Encoding
 [TaskRunSortColumnType] -&gt; Value
 TaskRunSortColumnType -&gt; Encoding
 TaskRunSortColumnType -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: TaskRunSortColumnType -&gt; Encoding
 toJSON :: TaskRunSortColumnType -&gt; Value
 $ctoJSON :: TaskRunSortColumnType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679699614"><span id="local-6989586621679699616"><span class="annot"><span class="annottext">ToJSONKeyFunction [TaskRunSortColumnType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679701320"><span id="local-6989586621679701322"><span class="annot"><span class="annottext">ToJSONKeyFunction [TaskRunSortColumnType]
 ToJSONKeyFunction TaskRunSortColumnType
 ToJSONKeyFunction TaskRunSortColumnType
 -&gt; ToJSONKeyFunction [TaskRunSortColumnType]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TaskRunSortColumnType]
 toJSONKey :: ToJSONKeyFunction TaskRunSortColumnType
 $ctoJSONKey :: ToJSONKeyFunction TaskRunSortColumnType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679699611"><span class="annot"><span class="annottext">[Node] -&gt; Either String TaskRunSortColumnType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679701317"><span class="annot"><span class="annottext">[Node] -&gt; Either String TaskRunSortColumnType
 ([Node] -&gt; Either String TaskRunSortColumnType)
 -&gt; FromXML TaskRunSortColumnType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TaskRunSortColumnType
 $cparseXML :: [Node] -&gt; Either String TaskRunSortColumnType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679699608"><span class="annot"><span class="annottext">TaskRunSortColumnType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679701314"><span class="annot"><span class="annottext">TaskRunSortColumnType -&gt; XML
 (TaskRunSortColumnType -&gt; XML) -&gt; ToXML TaskRunSortColumnType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TaskRunSortColumnType -&gt; XML

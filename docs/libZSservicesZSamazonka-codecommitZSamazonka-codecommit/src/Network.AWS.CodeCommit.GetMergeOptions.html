@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newGetMergeOptions' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679363749"><span id="local-6989586621679363750"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMergeOptions"><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-var">GetMergeOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMergeOptions%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-var">GetMergeOptions'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679364044"><span id="local-6989586621679364045"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMergeOptions"><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-var">GetMergeOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMergeOptions%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-var">GetMergeOptions'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The level of conflict detail to use. If unspecified, the default</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- FILE_LEVEL is used, which returns a not-mergeable result if the same</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- file has differences in both branches. If LINE_LEVEL is specified, a</span><span>
@@ -83,7 +83,7 @@
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3AdestinationCommitSpecifier%3AGetMergeOptions%27"><span class="annot"><span class="annottext">GetMergeOptions -&gt; Text
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AdestinationCommitSpecifier%3AGetMergeOptions%27"><span class="hs-identifier hs-var hs-var">destinationCommitSpecifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679363739"><span id="local-6989586621679363741"><span class="annot"><span class="annottext">GetMergeOptions -&gt; GetMergeOptions -&gt; Bool
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364034"><span id="local-6989586621679364036"><span class="annot"><span class="annottext">GetMergeOptions -&gt; GetMergeOptions -&gt; Bool
 (GetMergeOptions -&gt; GetMergeOptions -&gt; Bool)
 -&gt; (GetMergeOptions -&gt; GetMergeOptions -&gt; Bool)
 -&gt; Eq GetMergeOptions
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetMergeOptions -&gt; GetMergeOptions -&gt; Bool
 == :: GetMergeOptions -&gt; GetMergeOptions -&gt; Bool
 $c== :: GetMergeOptions -&gt; GetMergeOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363730"><span id="local-6989586621679363732"><span id="local-6989586621679363734"><span id="local-6989586621679363736"><span class="annot"><span class="annottext">ReadPrec [GetMergeOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364025"><span id="local-6989586621679364027"><span id="local-6989586621679364029"><span id="local-6989586621679364031"><span class="annot"><span class="annottext">ReadPrec [GetMergeOptions]
 ReadPrec GetMergeOptions
 Int -&gt; ReadS GetMergeOptions
 ReadS [GetMergeOptions]
@@ -112,7 +112,7 @@ readList :: ReadS [GetMergeOptions]
 $creadList :: ReadS [GetMergeOptions]
 readsPrec :: Int -&gt; ReadS GetMergeOptions
 $creadsPrec :: Int -&gt; ReadS GetMergeOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363723"><span id="local-6989586621679363725"><span id="local-6989586621679363727"><span class="annot"><span class="annottext">Int -&gt; GetMergeOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364018"><span id="local-6989586621679364020"><span id="local-6989586621679364022"><span class="annot"><span class="annottext">Int -&gt; GetMergeOptions -&gt; ShowS
 [GetMergeOptions] -&gt; ShowS
 GetMergeOptions -&gt; String
 (Int -&gt; GetMergeOptions -&gt; ShowS)
@@ -175,12 +175,12 @@ $cfrom :: forall x. GetMergeOptions -&gt; Rep GetMergeOptions x
 </span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span><span>
 </span><span id="line-118"></span><span id="newGetMergeOptions"><span class="annot"><span class="annottext">newGetMergeOptions :: Text -&gt; Text -&gt; Text -&gt; GetMergeOptions
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#newGetMergeOptions"><span class="hs-identifier hs-var hs-var">newGetMergeOptions</span></a></span></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679363718"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363718"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679363717"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363717"><span class="hs-identifier hs-var">pSourceCommitSpecifier_</span></a></span></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679363716"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363716"><span class="hs-identifier hs-var">pDestinationCommitSpecifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679364013"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364013"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679364012"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364012"><span class="hs-identifier hs-var">pSourceCommitSpecifier_</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679364011"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364011"><span class="hs-identifier hs-var">pDestinationCommitSpecifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">GetMergeOptions' :: Maybe ConflictDetailLevelTypeEnum
 -&gt; Maybe ConflictResolutionStrategyTypeEnum
 -&gt; Text
@@ -199,14 +199,14 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:repositoryName:GetMergeOptions' :: Text
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3ArepositoryName%3AGetMergeOptions%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363718"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679364013"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceCommitSpecifier:GetMergeOptions' :: Text
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AsourceCommitSpecifier%3AGetMergeOptions%27"><span class="hs-identifier hs-var">sourceCommitSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363717"><span class="hs-identifier hs-var">pSourceCommitSpecifier_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679364012"><span class="hs-identifier hs-var">pSourceCommitSpecifier_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationCommitSpecifier:GetMergeOptions' :: Text
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AdestinationCommitSpecifier%3AGetMergeOptions%27"><span class="hs-identifier hs-var">destinationCommitSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363716"><span class="hs-identifier hs-var">pDestinationCommitSpecifier_</span></a></span><span>
+</span><a href="#local-6989586621679364011"><span class="hs-identifier hs-var">pDestinationCommitSpecifier_</span></a></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | The level of conflict detail to use. If unspecified, the default</span><span>
@@ -227,16 +227,16 @@ forall a. Maybe a
      (Maybe ConflictDetailLevelTypeEnum)
      (Maybe ConflictDetailLevelTypeEnum)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363713"><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364008"><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
 conflictDetailLevel :: Maybe ConflictDetailLevelTypeEnum
 $sel:conflictDetailLevel:GetMergeOptions' :: GetMergeOptions -&gt; Maybe ConflictDetailLevelTypeEnum
-</span><a href="#local-6989586621679363713"><span class="hs-identifier hs-var hs-var">conflictDetailLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
-</span><a href="#local-6989586621679363713"><span class="hs-identifier hs-var">conflictDetailLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363712"><span class="annot"><span class="annottext">s :: GetMergeOptions
-</span><a href="#local-6989586621679363712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363711"><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
-</span><a href="#local-6989586621679363711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptions
-</span><a href="#local-6989586621679363712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictDetailLevel:GetMergeOptions' :: Maybe ConflictDetailLevelTypeEnum
+</span><a href="#local-6989586621679364008"><span class="hs-identifier hs-var hs-var">conflictDetailLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
+</span><a href="#local-6989586621679364008"><span class="hs-identifier hs-var">conflictDetailLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364007"><span class="annot"><span class="annottext">s :: GetMergeOptions
+</span><a href="#local-6989586621679364007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364006"><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
+</span><a href="#local-6989586621679364006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptions
+</span><a href="#local-6989586621679364007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictDetailLevel:GetMergeOptions' :: Maybe ConflictDetailLevelTypeEnum
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AconflictDetailLevel%3AGetMergeOptions%27"><span class="hs-identifier hs-var">conflictDetailLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
-</span><a href="#local-6989586621679363711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | Specifies which branch to use when resolving conflicts, or whether to</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- attempt automatically merging two versions of a file. The default is</span><span>
@@ -255,16 +255,16 @@ $sel:conflictDetailLevel:GetMergeOptions' :: GetMergeOptions -&gt; Maybe Conflic
      (Maybe ConflictResolutionStrategyTypeEnum)
      (Maybe ConflictResolutionStrategyTypeEnum)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363710"><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364005"><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
 conflictResolutionStrategy :: Maybe ConflictResolutionStrategyTypeEnum
 $sel:conflictResolutionStrategy:GetMergeOptions' :: GetMergeOptions -&gt; Maybe ConflictResolutionStrategyTypeEnum
-</span><a href="#local-6989586621679363710"><span class="hs-identifier hs-var hs-var">conflictResolutionStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
-</span><a href="#local-6989586621679363710"><span class="hs-identifier hs-var">conflictResolutionStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363709"><span class="annot"><span class="annottext">s :: GetMergeOptions
-</span><a href="#local-6989586621679363709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363708"><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
-</span><a href="#local-6989586621679363708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptions
-</span><a href="#local-6989586621679363709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictResolutionStrategy:GetMergeOptions' :: Maybe ConflictResolutionStrategyTypeEnum
+</span><a href="#local-6989586621679364005"><span class="hs-identifier hs-var hs-var">conflictResolutionStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
+</span><a href="#local-6989586621679364005"><span class="hs-identifier hs-var">conflictResolutionStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364004"><span class="annot"><span class="annottext">s :: GetMergeOptions
+</span><a href="#local-6989586621679364004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364003"><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
+</span><a href="#local-6989586621679364003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptions
+</span><a href="#local-6989586621679364004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictResolutionStrategy:GetMergeOptions' :: Maybe ConflictResolutionStrategyTypeEnum
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AconflictResolutionStrategy%3AGetMergeOptions%27"><span class="hs-identifier hs-var">conflictResolutionStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
-</span><a href="#local-6989586621679363708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The name of the repository that contains the commits about which you</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- want to get merge options.</span><span>
@@ -274,16 +274,16 @@ $sel:conflictResolutionStrategy:GetMergeOptions' :: GetMergeOptions -&gt; Maybe 
 -&gt; (GetMergeOptions -&gt; Text -&gt; GetMergeOptions)
 -&gt; Lens GetMergeOptions GetMergeOptions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363707"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364002"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:GetMergeOptions' :: GetMergeOptions -&gt; Text
-</span><a href="#local-6989586621679363707"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363707"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363706"><span class="annot"><span class="annottext">s :: GetMergeOptions
-</span><a href="#local-6989586621679363706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363705"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptions
-</span><a href="#local-6989586621679363706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetMergeOptions' :: Text
+</span><a href="#local-6989586621679364002"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364002"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364001"><span class="annot"><span class="annottext">s :: GetMergeOptions
+</span><a href="#local-6989586621679364001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364000"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptions
+</span><a href="#local-6989586621679364001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetMergeOptions' :: Text
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3ArepositoryName%3AGetMergeOptions%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The branch, tag, HEAD, or other fully qualified reference used to</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- identify a commit (for example, a branch name or a full commit ID).</span><span>
@@ -293,16 +293,16 @@ $sel:repositoryName:GetMergeOptions' :: GetMergeOptions -&gt; Text
 -&gt; (GetMergeOptions -&gt; Text -&gt; GetMergeOptions)
 -&gt; Lens GetMergeOptions GetMergeOptions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363704"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363999"><span class="annot"><span class="annottext">Text
 sourceCommitSpecifier :: Text
 $sel:sourceCommitSpecifier:GetMergeOptions' :: GetMergeOptions -&gt; Text
-</span><a href="#local-6989586621679363704"><span class="hs-identifier hs-var hs-var">sourceCommitSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363704"><span class="hs-identifier hs-var">sourceCommitSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363703"><span class="annot"><span class="annottext">s :: GetMergeOptions
-</span><a href="#local-6989586621679363703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363702"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptions
-</span><a href="#local-6989586621679363703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceCommitSpecifier:GetMergeOptions' :: Text
+</span><a href="#local-6989586621679363999"><span class="hs-identifier hs-var hs-var">sourceCommitSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363999"><span class="hs-identifier hs-var">sourceCommitSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363998"><span class="annot"><span class="annottext">s :: GetMergeOptions
+</span><a href="#local-6989586621679363998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363997"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptions
+</span><a href="#local-6989586621679363998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceCommitSpecifier:GetMergeOptions' :: Text
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AsourceCommitSpecifier%3AGetMergeOptions%27"><span class="hs-identifier hs-var">sourceCommitSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679363997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The branch, tag, HEAD, or other fully qualified reference used to</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- identify a commit (for example, a branch name or a full commit ID).</span><span>
@@ -312,27 +312,27 @@ $sel:sourceCommitSpecifier:GetMergeOptions' :: GetMergeOptions -&gt; Text
 -&gt; (GetMergeOptions -&gt; Text -&gt; GetMergeOptions)
 -&gt; Lens GetMergeOptions GetMergeOptions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363701"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363996"><span class="annot"><span class="annottext">Text
 destinationCommitSpecifier :: Text
 $sel:destinationCommitSpecifier:GetMergeOptions' :: GetMergeOptions -&gt; Text
-</span><a href="#local-6989586621679363701"><span class="hs-identifier hs-var hs-var">destinationCommitSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363701"><span class="hs-identifier hs-var">destinationCommitSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363700"><span class="annot"><span class="annottext">s :: GetMergeOptions
-</span><a href="#local-6989586621679363700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363699"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptions
-</span><a href="#local-6989586621679363700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationCommitSpecifier:GetMergeOptions' :: Text
+</span><a href="#local-6989586621679363996"><span class="hs-identifier hs-var hs-var">destinationCommitSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363996"><span class="hs-identifier hs-var">destinationCommitSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363995"><span class="annot"><span class="annottext">s :: GetMergeOptions
+</span><a href="#local-6989586621679363995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363994"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptions
+</span><a href="#local-6989586621679363995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationCommitSpecifier:GetMergeOptions' :: Text
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AdestinationCommitSpecifier%3AGetMergeOptions%27"><span class="hs-identifier hs-var">destinationCommitSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679363994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-164"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse"><span class="hs-identifier hs-type">GetMergeOptionsResponse</span></a></span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679363695"><span class="annot"><span class="annottext">request :: GetMergeOptions -&gt; Request GetMergeOptions
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679363990"><span class="annot"><span class="annottext">request :: GetMergeOptions -&gt; Request GetMergeOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetMergeOptions -&gt; Request GetMergeOptions
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679363691"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679363986"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetMergeOptions
 -&gt; ClientResponse ClientBody
@@ -356,10 +356,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679363688"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679363688"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679363687"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679363687"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679363686"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363686"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679363983"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679363983"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679363982"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679363982"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679363981"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679363981"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Int
 -&gt; [MergeOptionTypeEnum]
 -&gt; Text
@@ -384,7 +384,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679363688"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679363983"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   ([MergeOptionTypeEnum]
@@ -393,7 +393,7 @@ forall a. Enum a =&gt; a -&gt; Int
 -&gt; Either String (Text -&gt; Text -&gt; Text -&gt; GetMergeOptionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [MergeOptionTypeEnum])
+</span><a href="#local-6989586621679363981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [MergeOptionTypeEnum])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mergeOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [MergeOptionTypeEnum])
@@ -407,7 +407,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Text -&gt; Text -&gt; GetMergeOptionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679363981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceCommitId&quot;</span></span><span class="hs-special">)</span><span>
@@ -416,7 +416,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; GetMergeOptionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679363981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destinationCommitId&quot;</span></span><span class="hs-special">)</span><span>
@@ -424,18 +424,18 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String GetMergeOptionsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679363981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;baseCommitId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363676"><span id="local-6989586621679363678"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363971"><span id="local-6989586621679363973"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span></span></span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363673"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363968"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679363669"><span class="annot"><span class="annottext">toHeaders :: GetMergeOptions -&gt; ResponseHeaders
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679363964"><span class="annot"><span class="annottext">toHeaders :: GetMergeOptions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetMergeOptions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -462,9 +462,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-194"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363659"><span id="local-6989586621679363661"><span id="local-6989586621679363663"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679363657"><span class="annot"><span class="annottext">toJSON :: GetMergeOptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363651"><span id="local-6989586621679363652"><span id="local-6989586621679363653"><span id="local-6989586621679363654"><span id="local-6989586621679363655"><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363954"><span id="local-6989586621679363956"><span id="local-6989586621679363958"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679363952"><span class="annot"><span class="annottext">toJSON :: GetMergeOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions%27"><span class="hs-identifier hs-type">GetMergeOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363946"><span id="local-6989586621679363947"><span id="local-6989586621679363948"><span id="local-6989586621679363949"><span id="local-6989586621679363950"><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
 Maybe ConflictResolutionStrategyTypeEnum
 Text
 destinationCommitSpecifier :: Text
@@ -477,7 +477,7 @@ $sel:sourceCommitSpecifier:GetMergeOptions' :: GetMergeOptions -&gt; Text
 $sel:repositoryName:GetMergeOptions' :: GetMergeOptions -&gt; Text
 $sel:conflictResolutionStrategy:GetMergeOptions' :: GetMergeOptions -&gt; Maybe ConflictResolutionStrategyTypeEnum
 $sel:conflictDetailLevel:GetMergeOptions' :: GetMergeOptions -&gt; Maybe ConflictDetailLevelTypeEnum
-</span><a href="#local-6989586621679363651"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679363946"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -491,7 +491,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ConflictDetailLevelTypeEnum -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
-</span><a href="#local-6989586621679363655"><span class="hs-identifier hs-var">conflictDetailLevel</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679363950"><span class="hs-identifier hs-var">conflictDetailLevel</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;conflictResolutionStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConflictResolutionStrategyTypeEnum -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -500,7 +500,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ConflictResolutionStrategyTypeEnum -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
-</span><a href="#local-6989586621679363654"><span class="hs-identifier hs-var">conflictResolutionStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679363949"><span class="hs-identifier hs-var">conflictResolutionStrategy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -508,7 +508,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363653"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679363948"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -517,7 +517,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-209"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363652"><span class="hs-identifier hs-var">sourceCommitSpecifier</span></a></span><span>
+</span><a href="#local-6989586621679363947"><span class="hs-identifier hs-var">sourceCommitSpecifier</span></a></span><span>
 </span><span id="line-210"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -527,20 +527,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-213"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363651"><span class="hs-identifier hs-var">destinationCommitSpecifier</span></a></span><span>
+</span><a href="#local-6989586621679363946"><span class="hs-identifier hs-var">destinationCommitSpecifier</span></a></span><span>
 </span><span id="line-214"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-216"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-219"></span><span>  </span><span id="local-6989586621679363645"><span class="annot"><span class="annottext">toPath :: GetMergeOptions -&gt; ByteString
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679363940"><span class="annot"><span class="annottext">toPath :: GetMergeOptions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetMergeOptions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptions"><span class="hs-identifier hs-type">GetMergeOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-222"></span><span>  </span><span id="local-6989586621679363641"><span class="annot"><span class="annottext">toQuery :: GetMergeOptions -&gt; QueryString
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679363936"><span class="annot"><span class="annottext">toQuery :: GetMergeOptions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetMergeOptions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -548,7 +548,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | /See:/ 'newGetMergeOptionsResponse' smart constructor.</span><span>
-</span><span id="line-225"></span><span id="local-6989586621679363638"><span id="local-6989586621679363639"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMergeOptionsResponse"><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse"><span class="hs-identifier hs-var">GetMergeOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMergeOptionsResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-var">GetMergeOptionsResponse'</span></a></span></span><span>
+</span><span id="line-225"></span><span id="local-6989586621679363933"><span id="local-6989586621679363934"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMergeOptionsResponse"><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse"><span class="hs-identifier hs-var">GetMergeOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMergeOptionsResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-var">GetMergeOptionsResponse'</span></a></span></span><span>
 </span><span id="line-226"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-227"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetMergeOptionsResponse%27"><span class="annot"><span class="annottext">GetMergeOptionsResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AhttpStatus%3AGetMergeOptionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -567,7 +567,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-237"></span><span>    </span><span id="%24sel%3AbaseCommitId%3AGetMergeOptionsResponse%27"><span class="annot"><span class="annottext">GetMergeOptionsResponse -&gt; Text
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AbaseCommitId%3AGetMergeOptionsResponse%27"><span class="hs-identifier hs-var hs-var">baseCommitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-238"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-239"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679363629"><span id="local-6989586621679363631"><span class="annot"><span class="annottext">GetMergeOptionsResponse -&gt; GetMergeOptionsResponse -&gt; Bool
+</span><span id="line-239"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679363924"><span id="local-6989586621679363926"><span class="annot"><span class="annottext">GetMergeOptionsResponse -&gt; GetMergeOptionsResponse -&gt; Bool
 (GetMergeOptionsResponse -&gt; GetMergeOptionsResponse -&gt; Bool)
 -&gt; (GetMergeOptionsResponse -&gt; GetMergeOptionsResponse -&gt; Bool)
 -&gt; Eq GetMergeOptionsResponse
@@ -576,7 +576,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetMergeOptionsResponse -&gt; GetMergeOptionsResponse -&gt; Bool
 == :: GetMergeOptionsResponse -&gt; GetMergeOptionsResponse -&gt; Bool
 $c== :: GetMergeOptionsResponse -&gt; GetMergeOptionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363621"><span id="local-6989586621679363623"><span id="local-6989586621679363625"><span id="local-6989586621679363627"><span class="annot"><span class="annottext">ReadPrec [GetMergeOptionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363916"><span id="local-6989586621679363918"><span id="local-6989586621679363920"><span id="local-6989586621679363922"><span class="annot"><span class="annottext">ReadPrec [GetMergeOptionsResponse]
 ReadPrec GetMergeOptionsResponse
 Int -&gt; ReadS GetMergeOptionsResponse
 ReadS [GetMergeOptionsResponse]
@@ -596,7 +596,7 @@ readList :: ReadS [GetMergeOptionsResponse]
 $creadList :: ReadS [GetMergeOptionsResponse]
 readsPrec :: Int -&gt; ReadS GetMergeOptionsResponse
 $creadsPrec :: Int -&gt; ReadS GetMergeOptionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363615"><span id="local-6989586621679363617"><span id="local-6989586621679363619"><span class="annot"><span class="annottext">Int -&gt; GetMergeOptionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363910"><span id="local-6989586621679363912"><span id="local-6989586621679363914"><span class="annot"><span class="annottext">Int -&gt; GetMergeOptionsResponse -&gt; ShowS
 [GetMergeOptionsResponse] -&gt; ShowS
 GetMergeOptionsResponse -&gt; String
 (Int -&gt; GetMergeOptionsResponse -&gt; ShowS)
@@ -655,14 +655,14 @@ $cfrom :: forall x. GetMergeOptionsResponse -&gt; Rep GetMergeOptionsResponse x
 </span><span id="line-269"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse"><span class="hs-identifier hs-type">GetMergeOptionsResponse</span></a></span><span>
 </span><span id="line-270"></span><span id="newGetMergeOptionsResponse"><span class="annot"><span class="annottext">newGetMergeOptionsResponse :: Int -&gt; Text -&gt; Text -&gt; Text -&gt; GetMergeOptionsResponse
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#newGetMergeOptionsResponse"><span class="hs-identifier hs-var hs-var">newGetMergeOptionsResponse</span></a></span></span><span>
-</span><span id="line-271"></span><span>  </span><span id="local-6989586621679363612"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679363612"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-272"></span><span>  </span><span id="local-6989586621679363611"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363611"><span class="hs-identifier hs-var">pSourceCommitId_</span></a></span></span><span>
-</span><span id="line-273"></span><span>  </span><span id="local-6989586621679363610"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363610"><span class="hs-identifier hs-var">pDestinationCommitId_</span></a></span></span><span>
-</span><span id="line-274"></span><span>  </span><span id="local-6989586621679363609"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363609"><span class="hs-identifier hs-var">pBaseCommitId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679363907"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679363907"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-272"></span><span>  </span><span id="local-6989586621679363906"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363906"><span class="hs-identifier hs-var">pSourceCommitId_</span></a></span></span><span>
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621679363905"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363905"><span class="hs-identifier hs-var">pDestinationCommitId_</span></a></span></span><span>
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621679363904"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363904"><span class="hs-identifier hs-var">pBaseCommitId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-275"></span><span>    </span><span class="annot"><span class="annottext">GetMergeOptionsResponse' :: Int
 -&gt; [MergeOptionTypeEnum]
 -&gt; Text
@@ -672,20 +672,20 @@ $cfrom :: forall x. GetMergeOptionsResponse -&gt; Rep GetMergeOptionsResponse x
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span>
 </span><span id="line-276"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetMergeOptionsResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AhttpStatus%3AGetMergeOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679363612"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679363907"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-277"></span><span>        </span><span class="annot"><span class="annottext">$sel:mergeOptions:GetMergeOptionsResponse' :: [MergeOptionTypeEnum]
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AmergeOptions%3AGetMergeOptionsResponse%27"><span class="hs-identifier hs-var">mergeOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MergeOptionTypeEnum]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-278"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceCommitId:GetMergeOptionsResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AsourceCommitId%3AGetMergeOptionsResponse%27"><span class="hs-identifier hs-var">sourceCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363611"><span class="hs-identifier hs-var">pSourceCommitId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679363906"><span class="hs-identifier hs-var">pSourceCommitId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-279"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationCommitId:GetMergeOptionsResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AdestinationCommitId%3AGetMergeOptionsResponse%27"><span class="hs-identifier hs-var">destinationCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363610"><span class="hs-identifier hs-var">pDestinationCommitId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679363905"><span class="hs-identifier hs-var">pDestinationCommitId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-280"></span><span>        </span><span class="annot"><span class="annottext">$sel:baseCommitId:GetMergeOptionsResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AbaseCommitId%3AGetMergeOptionsResponse%27"><span class="hs-identifier hs-var">baseCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363609"><span class="hs-identifier hs-var">pBaseCommitId_</span></a></span><span>
+</span><a href="#local-6989586621679363904"><span class="hs-identifier hs-var">pBaseCommitId_</span></a></span><span>
 </span><span id="line-281"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-282"></span><span>
 </span><span id="line-283"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -696,16 +696,16 @@ forall a. Monoid a =&gt; a
 -&gt; (GetMergeOptionsResponse -&gt; Int -&gt; GetMergeOptionsResponse)
 -&gt; Lens GetMergeOptionsResponse GetMergeOptionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363608"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363903"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetMergeOptionsResponse' :: GetMergeOptionsResponse -&gt; Int
-</span><a href="#local-6989586621679363608"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679363608"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363607"><span class="annot"><span class="annottext">s :: GetMergeOptionsResponse
-</span><a href="#local-6989586621679363607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363606"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679363606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptionsResponse
-</span><a href="#local-6989586621679363607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMergeOptionsResponse' :: Int
+</span><a href="#local-6989586621679363903"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679363903"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363902"><span class="annot"><span class="annottext">s :: GetMergeOptionsResponse
+</span><a href="#local-6989586621679363902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363901"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679363901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptionsResponse
+</span><a href="#local-6989586621679363902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMergeOptionsResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AhttpStatus%3AGetMergeOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679363606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse"><span class="hs-identifier hs-type">GetMergeOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679363901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse"><span class="hs-identifier hs-type">GetMergeOptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-286"></span><span>
 </span><span id="line-287"></span><span class="hs-comment">-- | The merge option or strategy used to merge the code.</span><span>
 </span><span id="line-288"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#getMergeOptionsResponse_mergeOptions"><span class="hs-identifier hs-type">getMergeOptionsResponse_mergeOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse"><span class="hs-identifier hs-type">GetMergeOptionsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOptionTypeEnum.html#MergeOptionTypeEnum"><span class="hs-identifier hs-type">MergeOptionTypeEnum</span></a></span><span class="hs-special">]</span><span>
@@ -720,16 +720,16 @@ $sel:httpStatus:GetMergeOptionsResponse' :: GetMergeOptionsResponse -&gt; Int
      [MergeOptionTypeEnum]
      [MergeOptionTypeEnum]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363605"><span class="annot"><span class="annottext">[MergeOptionTypeEnum]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363900"><span class="annot"><span class="annottext">[MergeOptionTypeEnum]
 mergeOptions :: [MergeOptionTypeEnum]
 $sel:mergeOptions:GetMergeOptionsResponse' :: GetMergeOptionsResponse -&gt; [MergeOptionTypeEnum]
-</span><a href="#local-6989586621679363605"><span class="hs-identifier hs-var hs-var">mergeOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MergeOptionTypeEnum]
-</span><a href="#local-6989586621679363605"><span class="hs-identifier hs-var">mergeOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363604"><span class="annot"><span class="annottext">s :: GetMergeOptionsResponse
-</span><a href="#local-6989586621679363604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363603"><span class="annot"><span class="annottext">[MergeOptionTypeEnum]
-</span><a href="#local-6989586621679363603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptionsResponse
-</span><a href="#local-6989586621679363604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergeOptions:GetMergeOptionsResponse' :: [MergeOptionTypeEnum]
+</span><a href="#local-6989586621679363900"><span class="hs-identifier hs-var hs-var">mergeOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MergeOptionTypeEnum]
+</span><a href="#local-6989586621679363900"><span class="hs-identifier hs-var">mergeOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363899"><span class="annot"><span class="annottext">s :: GetMergeOptionsResponse
+</span><a href="#local-6989586621679363899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363898"><span class="annot"><span class="annottext">[MergeOptionTypeEnum]
+</span><a href="#local-6989586621679363898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptionsResponse
+</span><a href="#local-6989586621679363899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergeOptions:GetMergeOptionsResponse' :: [MergeOptionTypeEnum]
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AmergeOptions%3AGetMergeOptionsResponse%27"><span class="hs-identifier hs-var">mergeOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MergeOptionTypeEnum]
-</span><a href="#local-6989586621679363603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse"><span class="hs-identifier hs-type">GetMergeOptionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MergeOptionTypeEnum] -&gt; f [MergeOptionTypeEnum])
+</span><a href="#local-6989586621679363898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse"><span class="hs-identifier hs-type">GetMergeOptionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MergeOptionTypeEnum] -&gt; f [MergeOptionTypeEnum])
  -&gt; GetMergeOptionsResponse -&gt; f GetMergeOptionsResponse)
 -&gt; (([MergeOptionTypeEnum] -&gt; f [MergeOptionTypeEnum])
     -&gt; [MergeOptionTypeEnum] -&gt; f [MergeOptionTypeEnum])
@@ -739,8 +739,8 @@ $sel:mergeOptions:GetMergeOptionsResponse' :: GetMergeOptionsResponse -&gt; [Mer
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([MergeOptionTypeEnum] -&gt; f [MergeOptionTypeEnum])
 -&gt; [MergeOptionTypeEnum] -&gt; f [MergeOptionTypeEnum]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-290"></span><span>
 </span><span id="line-291"></span><span class="hs-comment">-- | The commit ID of the source commit specifier that was used in the merge</span><span>
 </span><span id="line-292"></span><span class="hs-comment">-- evaluation.</span><span>
@@ -751,16 +751,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetMergeOptionsResponse -&gt; Text -&gt; GetMergeOptionsResponse)
 -&gt; Lens GetMergeOptionsResponse GetMergeOptionsResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363600"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363895"><span class="annot"><span class="annottext">Text
 sourceCommitId :: Text
 $sel:sourceCommitId:GetMergeOptionsResponse' :: GetMergeOptionsResponse -&gt; Text
-</span><a href="#local-6989586621679363600"><span class="hs-identifier hs-var hs-var">sourceCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363600"><span class="hs-identifier hs-var">sourceCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363599"><span class="annot"><span class="annottext">s :: GetMergeOptionsResponse
-</span><a href="#local-6989586621679363599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363598"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptionsResponse
-</span><a href="#local-6989586621679363599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceCommitId:GetMergeOptionsResponse' :: Text
+</span><a href="#local-6989586621679363895"><span class="hs-identifier hs-var hs-var">sourceCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363895"><span class="hs-identifier hs-var">sourceCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363894"><span class="annot"><span class="annottext">s :: GetMergeOptionsResponse
+</span><a href="#local-6989586621679363894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363893"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptionsResponse
+</span><a href="#local-6989586621679363894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceCommitId:GetMergeOptionsResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AsourceCommitId%3AGetMergeOptionsResponse%27"><span class="hs-identifier hs-var">sourceCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse"><span class="hs-identifier hs-type">GetMergeOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679363893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse"><span class="hs-identifier hs-type">GetMergeOptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-295"></span><span>
 </span><span id="line-296"></span><span class="hs-comment">-- | The commit ID of the destination commit specifier that was used in the</span><span>
 </span><span id="line-297"></span><span class="hs-comment">-- merge evaluation.</span><span>
@@ -771,16 +771,16 @@ $sel:sourceCommitId:GetMergeOptionsResponse' :: GetMergeOptionsResponse -&gt; Te
 -&gt; (GetMergeOptionsResponse -&gt; Text -&gt; GetMergeOptionsResponse)
 -&gt; Lens GetMergeOptionsResponse GetMergeOptionsResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363597"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363892"><span class="annot"><span class="annottext">Text
 destinationCommitId :: Text
 $sel:destinationCommitId:GetMergeOptionsResponse' :: GetMergeOptionsResponse -&gt; Text
-</span><a href="#local-6989586621679363597"><span class="hs-identifier hs-var hs-var">destinationCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363597"><span class="hs-identifier hs-var">destinationCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363596"><span class="annot"><span class="annottext">s :: GetMergeOptionsResponse
-</span><a href="#local-6989586621679363596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363595"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptionsResponse
-</span><a href="#local-6989586621679363596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationCommitId:GetMergeOptionsResponse' :: Text
+</span><a href="#local-6989586621679363892"><span class="hs-identifier hs-var hs-var">destinationCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363892"><span class="hs-identifier hs-var">destinationCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363891"><span class="annot"><span class="annottext">s :: GetMergeOptionsResponse
+</span><a href="#local-6989586621679363891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363890"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptionsResponse
+</span><a href="#local-6989586621679363891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationCommitId:GetMergeOptionsResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AdestinationCommitId%3AGetMergeOptionsResponse%27"><span class="hs-identifier hs-var">destinationCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse"><span class="hs-identifier hs-type">GetMergeOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679363890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse"><span class="hs-identifier hs-type">GetMergeOptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-300"></span><span>
 </span><span id="line-301"></span><span class="hs-comment">-- | The commit ID of the merge base.</span><span>
 </span><span id="line-302"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#getMergeOptionsResponse_baseCommitId"><span class="hs-identifier hs-type">getMergeOptionsResponse_baseCommitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse"><span class="hs-identifier hs-type">GetMergeOptionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -790,16 +790,16 @@ $sel:destinationCommitId:GetMergeOptionsResponse' :: GetMergeOptionsResponse -&g
 -&gt; (GetMergeOptionsResponse -&gt; Text -&gt; GetMergeOptionsResponse)
 -&gt; Lens GetMergeOptionsResponse GetMergeOptionsResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363594"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363889"><span class="annot"><span class="annottext">Text
 baseCommitId :: Text
 $sel:baseCommitId:GetMergeOptionsResponse' :: GetMergeOptionsResponse -&gt; Text
-</span><a href="#local-6989586621679363594"><span class="hs-identifier hs-var hs-var">baseCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363594"><span class="hs-identifier hs-var">baseCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363593"><span class="annot"><span class="annottext">s :: GetMergeOptionsResponse
-</span><a href="#local-6989586621679363593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363592"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptionsResponse
-</span><a href="#local-6989586621679363593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseCommitId:GetMergeOptionsResponse' :: Text
+</span><a href="#local-6989586621679363889"><span class="hs-identifier hs-var hs-var">baseCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363889"><span class="hs-identifier hs-var">baseCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363888"><span class="annot"><span class="annottext">s :: GetMergeOptionsResponse
+</span><a href="#local-6989586621679363888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse%27"><span class="hs-identifier hs-type">GetMergeOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363887"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeOptionsResponse
+</span><a href="#local-6989586621679363888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseCommitId:GetMergeOptionsResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.GetMergeOptions.html#%24sel%3AbaseCommitId%3AGetMergeOptionsResponse%27"><span class="hs-identifier hs-var">baseCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679363592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse"><span class="hs-identifier hs-type">GetMergeOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679363887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse"><span class="hs-identifier hs-type">GetMergeOptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-304"></span><span>
-</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363590"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse"><span class="hs-identifier hs-type">GetMergeOptionsResponse</span></a></span></span><span>
+</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363885"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeOptions.html#GetMergeOptionsResponse"><span class="hs-identifier hs-type">GetMergeOptionsResponse</span></a></span></span><span>
 </span><span id="line-306"></span></pre></body></html>

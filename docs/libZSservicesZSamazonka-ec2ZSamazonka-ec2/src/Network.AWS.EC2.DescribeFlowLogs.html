@@ -32,10 +32,10 @@
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_nextToken"><span class="hs-identifier">describeFlowLogs_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_maxResults"><span class="hs-identifier">describeFlowLogs_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_dryRun"><span class="hs-identifier">describeFlowLogs_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_flowLogIds"><span class="hs-identifier">describeFlowLogs_flowLogIds</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_filter"><span class="hs-identifier">describeFlowLogs_filter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_flowLogIds"><span class="hs-identifier">describeFlowLogs_flowLogIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_filter"><span class="hs-identifier">describeFlowLogs_filter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_dryRun"><span class="hs-identifier">describeFlowLogs_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_maxResults"><span class="hs-identifier">describeFlowLogs_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse"><span class="hs-identifier">DescribeFlowLogsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -56,56 +56,56 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newDescribeFlowLogs' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621681229721"><span id="local-6989586621681229722"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFlowLogs"><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-var">DescribeFlowLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFlowLogs%27"><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-var">DescribeFlowLogs'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621681265477"><span id="local-6989586621681265478"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFlowLogs"><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-var">DescribeFlowLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFlowLogs%27"><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-var">DescribeFlowLogs'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next page of results.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeFlowLogs%27"><span class="annot"><span class="annottext">DescribeFlowLogs -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AnextToken%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- value.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeFlowLogs%27"><span class="annot"><span class="annottext">DescribeFlowLogs -&gt; Maybe Int
-</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AmaxResults%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeFlowLogs%27"><span class="annot"><span class="annottext">DescribeFlowLogs -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AdryRun%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | One or more flow log IDs.</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- Constraint: Maximum of 1000 flow log IDs.</span><span>
-</span><span id="line-74"></span><span>    </span><span id="%24sel%3AflowLogIds%3ADescribeFlowLogs%27"><span class="annot"><span class="annottext">DescribeFlowLogs -&gt; Maybe [Text]
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | One or more flow log IDs.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- Constraint: Maximum of 1000 flow log IDs.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AflowLogIds%3ADescribeFlowLogs%27"><span class="annot"><span class="annottext">DescribeFlowLogs -&gt; Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AflowLogIds%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var hs-var">flowLogIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | One or more filters.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | One or more filters.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ |</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     @FAILED@).</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   @log-destination-type@ - The type of destination to which the flow</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     log publishes data. Possible destination types include</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--     @cloud-watch-logs@ and @s3@.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   @flow-log-id@ - The ID of the flow log.</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ |</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     @FAILED@).</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- -   @log-destination-type@ - The type of destination to which the flow</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     log publishes data. Possible destination types include</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     @cloud-watch-logs@ and @s3@.</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- -   @flow-log-id@ - The ID of the flow log.</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- -   @log-group-name@ - The name of the log group.</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- -   @resource-id@ - The ID of the VPC, subnet, or network interface.</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- -   @traffic-type@ - The type of traffic (@ACCEPT@ | @REJECT@ | @ALL@).</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of a tag assigned to the</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     resource. Use the tag key in the filter name and the tag value as</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     the filter value. For example, to find all resources that have a tag</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">--     the filter name and @TeamA@ for the filter value.</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- -   @tag-key@ - The key of a tag assigned to the resource. Use this</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">--     filter to find all resources assigned a tag with a specific key,</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     regardless of the tag value.</span><span>
-</span><span id="line-101"></span><span>    </span><span id="%24sel%3Afilter%27%3ADescribeFlowLogs%27"><span class="annot"><span class="annottext">DescribeFlowLogs -&gt; Maybe [Filter]
-</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3Afilter%27%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   @log-group-name@ - The name of the log group.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   @resource-id@ - The ID of the VPC, subnet, or network interface.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   @traffic-type@ - The type of traffic (@ACCEPT@ | @REJECT@ | @ALL@).</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of a tag assigned to the</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     resource. Use the tag key in the filter name and the tag value as</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     the filter value. For example, to find all resources that have a tag</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     the filter name and @TeamA@ for the filter value.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   @tag-key@ - The key of a tag assigned to the resource. Use this</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     filter to find all resources assigned a tag with a specific key,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--     regardless of the tag value.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3Afilter%27%3ADescribeFlowLogs%27"><span class="annot"><span class="annottext">DescribeFlowLogs -&gt; Maybe [Filter]
+</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3Afilter%27%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeFlowLogs%27"><span class="annot"><span class="annottext">DescribeFlowLogs -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AdryRun%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeFlowLogs%27"><span class="annot"><span class="annottext">DescribeFlowLogs -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AmaxResults%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-103"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681229711"><span id="local-6989586621681229713"><span class="annot"><span class="annottext">DescribeFlowLogs -&gt; DescribeFlowLogs -&gt; Bool
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681265467"><span id="local-6989586621681265469"><span class="annot"><span class="annottext">DescribeFlowLogs -&gt; DescribeFlowLogs -&gt; Bool
 (DescribeFlowLogs -&gt; DescribeFlowLogs -&gt; Bool)
 -&gt; (DescribeFlowLogs -&gt; DescribeFlowLogs -&gt; Bool)
 -&gt; Eq DescribeFlowLogs
@@ -114,7 +114,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeFlowLogs -&gt; DescribeFlowLogs -&gt; Bool
 == :: DescribeFlowLogs -&gt; DescribeFlowLogs -&gt; Bool
 $c== :: DescribeFlowLogs -&gt; DescribeFlowLogs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681229702"><span id="local-6989586621681229704"><span id="local-6989586621681229706"><span id="local-6989586621681229708"><span class="annot"><span class="annottext">ReadPrec [DescribeFlowLogs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265458"><span id="local-6989586621681265460"><span id="local-6989586621681265462"><span id="local-6989586621681265464"><span class="annot"><span class="annottext">ReadPrec [DescribeFlowLogs]
 ReadPrec DescribeFlowLogs
 Int -&gt; ReadS DescribeFlowLogs
 ReadS [DescribeFlowLogs]
@@ -134,7 +134,7 @@ readList :: ReadS [DescribeFlowLogs]
 $creadList :: ReadS [DescribeFlowLogs]
 readsPrec :: Int -&gt; ReadS DescribeFlowLogs
 $creadsPrec :: Int -&gt; ReadS DescribeFlowLogs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681229695"><span id="local-6989586621681229697"><span id="local-6989586621681229699"><span class="annot"><span class="annottext">Int -&gt; DescribeFlowLogs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265451"><span id="local-6989586621681265453"><span id="local-6989586621681265455"><span class="annot"><span class="annottext">Int -&gt; DescribeFlowLogs -&gt; ShowS
 [DescribeFlowLogs] -&gt; ShowS
 DescribeFlowLogs -&gt; String
 (Int -&gt; DescribeFlowLogs -&gt; ShowS)
@@ -170,74 +170,74 @@ $cfrom :: forall x. DescribeFlowLogs -&gt; Rep DescribeFlowLogs x
 </span><span id="line-112"></span><span class="hs-comment">--</span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- 'nextToken', 'describeFlowLogs_nextToken' - The token for the next page of results.</span><span>
 </span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- 'maxResults', 'describeFlowLogs_maxResults' - The maximum number of results to return with a single call. To retrieve</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'flowLogIds', 'describeFlowLogs_flowLogIds' - One or more flow log IDs.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Constraint: Maximum of 1000 flow log IDs.</span><span>
 </span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- 'dryRun', 'describeFlowLogs_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'filter'', 'describeFlowLogs_filter' - One or more filters.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- -   @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ |</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--     @FAILED@).</span><span>
 </span><span id="line-123"></span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- 'flowLogIds', 'describeFlowLogs_flowLogIds' - One or more flow log IDs.</span><span>
-</span><span id="line-125"></span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- Constraint: Maximum of 1000 flow log IDs.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -   @log-destination-type@ - The type of destination to which the flow</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--     log publishes data. Possible destination types include</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     @cloud-watch-logs@ and @s3@.</span><span>
 </span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- 'filter'', 'describeFlowLogs_filter' - One or more filters.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   @flow-log-id@ - The ID of the flow log.</span><span>
 </span><span id="line-129"></span><span class="hs-comment">--</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- -   @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ |</span><span>
-</span><span id="line-131"></span><span class="hs-comment">--     @FAILED@).</span><span>
-</span><span id="line-132"></span><span class="hs-comment">--</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- -   @log-destination-type@ - The type of destination to which the flow</span><span>
-</span><span id="line-134"></span><span class="hs-comment">--     log publishes data. Possible destination types include</span><span>
-</span><span id="line-135"></span><span class="hs-comment">--     @cloud-watch-logs@ and @s3@.</span><span>
-</span><span id="line-136"></span><span class="hs-comment">--</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- -   @flow-log-id@ - The ID of the flow log.</span><span>
-</span><span id="line-138"></span><span class="hs-comment">--</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- -   @log-group-name@ - The name of the log group.</span><span>
-</span><span id="line-140"></span><span class="hs-comment">--</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- -   @resource-id@ - The ID of the VPC, subnet, or network interface.</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- -   @traffic-type@ - The type of traffic (@ACCEPT@ | @REJECT@ | @ALL@).</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of a tag assigned to the</span><span>
-</span><span id="line-146"></span><span class="hs-comment">--     resource. Use the tag key in the filter name and the tag value as</span><span>
-</span><span id="line-147"></span><span class="hs-comment">--     the filter value. For example, to find all resources that have a tag</span><span>
-</span><span id="line-148"></span><span class="hs-comment">--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for</span><span>
-</span><span id="line-149"></span><span class="hs-comment">--     the filter name and @TeamA@ for the filter value.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- -   @log-group-name@ - The name of the log group.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- -   @resource-id@ - The ID of the VPC, subnet, or network interface.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- -   @traffic-type@ - The type of traffic (@ACCEPT@ | @REJECT@ | @ALL@).</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of a tag assigned to the</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--     resource. Use the tag key in the filter name and the tag value as</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--     the filter value. For example, to find all resources that have a tag</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--     the filter name and @TeamA@ for the filter value.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- -   @tag-key@ - The key of a tag assigned to the resource. Use this</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--     filter to find all resources assigned a tag with a specific key,</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     regardless of the tag value.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'dryRun', 'describeFlowLogs_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
 </span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- -   @tag-key@ - The key of a tag assigned to the resource. Use this</span><span>
-</span><span id="line-152"></span><span class="hs-comment">--     filter to find all resources assigned a tag with a specific key,</span><span>
-</span><span id="line-153"></span><span class="hs-comment">--     regardless of the tag value.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'maxResults', 'describeFlowLogs_maxResults' - The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- value.</span><span>
 </span><span id="line-154"></span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#newDescribeFlowLogs"><span class="hs-identifier hs-type">newDescribeFlowLogs</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span>
 </span><span id="line-156"></span><span id="newDescribeFlowLogs"><span class="annot"><span class="annottext">newDescribeFlowLogs :: DescribeFlowLogs
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#newDescribeFlowLogs"><span class="hs-identifier hs-var hs-var">newDescribeFlowLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">DescribeFlowLogs' :: Maybe Text
--&gt; Maybe Int
--&gt; Maybe Bool
 -&gt; Maybe [Text]
 -&gt; Maybe [Filter]
+-&gt; Maybe Bool
+-&gt; Maybe Int
 -&gt; DescribeFlowLogs
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeFlowLogs' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AnextToken%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeFlowLogs' :: Maybe Int
-</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AmaxResults%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DescribeFlowLogs' :: Maybe Bool
-</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AdryRun%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:flowLogIds:DescribeFlowLogs' :: Maybe [Text]
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:flowLogIds:DescribeFlowLogs' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AflowLogIds%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var">flowLogIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':DescribeFlowLogs' :: Maybe [Filter]
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':DescribeFlowLogs' :: Maybe [Filter]
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3Afilter%27%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DescribeFlowLogs' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AdryRun%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeFlowLogs' :: Maybe Int
+</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AmaxResults%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
@@ -250,81 +250,38 @@ forall a. Maybe a
 -&gt; (DescribeFlowLogs -&gt; Maybe Text -&gt; DescribeFlowLogs)
 -&gt; Lens DescribeFlowLogs DescribeFlowLogs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681229689"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265445"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeFlowLogs' :: DescribeFlowLogs -&gt; Maybe Text
-</span><a href="#local-6989586621681229689"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681229689"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681229688"><span class="annot"><span class="annottext">s :: DescribeFlowLogs
-</span><a href="#local-6989586621681229688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681229687"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681229687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFlowLogs
-</span><a href="#local-6989586621681229688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeFlowLogs' :: Maybe Text
+</span><a href="#local-6989586621681265445"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681265445"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265444"><span class="annot"><span class="annottext">s :: DescribeFlowLogs
+</span><a href="#local-6989586621681265444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265443"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681265443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFlowLogs
+</span><a href="#local-6989586621681265444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeFlowLogs' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AnextToken%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681229687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681265443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- value.</span><span>
-</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_maxResults"><span class="hs-identifier hs-type">describeFlowLogs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span id="describeFlowLogs_maxResults"><span class="annot"><span class="annottext">describeFlowLogs_maxResults :: (Maybe Int -&gt; f (Maybe Int))
--&gt; DescribeFlowLogs -&gt; f DescribeFlowLogs
-</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_maxResults"><span class="hs-identifier hs-var hs-var">describeFlowLogs_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFlowLogs -&gt; Maybe Int)
--&gt; (DescribeFlowLogs -&gt; Maybe Int -&gt; DescribeFlowLogs)
--&gt; Lens DescribeFlowLogs DescribeFlowLogs (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681229686"><span class="annot"><span class="annottext">Maybe Int
-maxResults :: Maybe Int
-$sel:maxResults:DescribeFlowLogs' :: DescribeFlowLogs -&gt; Maybe Int
-</span><a href="#local-6989586621681229686"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681229686"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681229685"><span class="annot"><span class="annottext">s :: DescribeFlowLogs
-</span><a href="#local-6989586621681229685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681229684"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681229684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFlowLogs
-</span><a href="#local-6989586621681229685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeFlowLogs' :: Maybe Int
-</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AmaxResults%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681229684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_dryRun"><span class="hs-identifier hs-type">describeFlowLogs_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span id="describeFlowLogs_dryRun"><span class="annot"><span class="annottext">describeFlowLogs_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; DescribeFlowLogs -&gt; f DescribeFlowLogs
-</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_dryRun"><span class="hs-identifier hs-var hs-var">describeFlowLogs_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFlowLogs -&gt; Maybe Bool)
--&gt; (DescribeFlowLogs -&gt; Maybe Bool -&gt; DescribeFlowLogs)
--&gt; Lens DescribeFlowLogs DescribeFlowLogs (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681229683"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:DescribeFlowLogs' :: DescribeFlowLogs -&gt; Maybe Bool
-</span><a href="#local-6989586621681229683"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681229683"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681229682"><span class="annot"><span class="annottext">s :: DescribeFlowLogs
-</span><a href="#local-6989586621681229682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681229681"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681229681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFlowLogs
-</span><a href="#local-6989586621681229682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeFlowLogs' :: Maybe Bool
-</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AdryRun%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681229681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- | One or more flow log IDs.</span><span>
-</span><span id="line-183"></span><span class="hs-comment">--</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- Constraint: Maximum of 1000 flow log IDs.</span><span>
-</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_flowLogIds"><span class="hs-identifier hs-type">describeFlowLogs_flowLogIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span id="describeFlowLogs_flowLogIds"><span class="annot"><span class="annottext">describeFlowLogs_flowLogIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-169"></span><span class="hs-comment">-- | One or more flow log IDs.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Constraint: Maximum of 1000 flow log IDs.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_flowLogIds"><span class="hs-identifier hs-type">describeFlowLogs_flowLogIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="describeFlowLogs_flowLogIds"><span class="annot"><span class="annottext">describeFlowLogs_flowLogIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; DescribeFlowLogs -&gt; f DescribeFlowLogs
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_flowLogIds"><span class="hs-identifier hs-var hs-var">describeFlowLogs_flowLogIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFlowLogs -&gt; Maybe [Text])
 -&gt; (DescribeFlowLogs -&gt; Maybe [Text] -&gt; DescribeFlowLogs)
 -&gt; Lens
      DescribeFlowLogs DescribeFlowLogs (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681229680"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265442"><span class="annot"><span class="annottext">Maybe [Text]
 flowLogIds :: Maybe [Text]
 $sel:flowLogIds:DescribeFlowLogs' :: DescribeFlowLogs -&gt; Maybe [Text]
-</span><a href="#local-6989586621681229680"><span class="hs-identifier hs-var hs-var">flowLogIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681229680"><span class="hs-identifier hs-var">flowLogIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681229679"><span class="annot"><span class="annottext">s :: DescribeFlowLogs
-</span><a href="#local-6989586621681229679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681229678"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681229678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFlowLogs
-</span><a href="#local-6989586621681229679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowLogIds:DescribeFlowLogs' :: Maybe [Text]
+</span><a href="#local-6989586621681265442"><span class="hs-identifier hs-var hs-var">flowLogIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681265442"><span class="hs-identifier hs-var">flowLogIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265441"><span class="annot"><span class="annottext">s :: DescribeFlowLogs
+</span><a href="#local-6989586621681265441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265440"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681265440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFlowLogs
+</span><a href="#local-6989586621681265441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowLogIds:DescribeFlowLogs' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AflowLogIds%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var">flowLogIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681229678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681265440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeFlowLogs -&gt; f DescribeFlowLogs)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -338,53 +295,53 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- | One or more filters.</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | One or more filters.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- -   @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ |</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     @FAILED@).</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- -   @log-destination-type@ - The type of destination to which the flow</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     log publishes data. Possible destination types include</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--     @cloud-watch-logs@ and @s3@.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- -   @flow-log-id@ - The ID of the flow log.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- -   @log-group-name@ - The name of the log group.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- -   @resource-id@ - The ID of the VPC, subnet, or network interface.</span><span>
 </span><span id="line-189"></span><span class="hs-comment">--</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- -   @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ |</span><span>
-</span><span id="line-191"></span><span class="hs-comment">--     @FAILED@).</span><span>
-</span><span id="line-192"></span><span class="hs-comment">--</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- -   @log-destination-type@ - The type of destination to which the flow</span><span>
-</span><span id="line-194"></span><span class="hs-comment">--     log publishes data. Possible destination types include</span><span>
-</span><span id="line-195"></span><span class="hs-comment">--     @cloud-watch-logs@ and @s3@.</span><span>
-</span><span id="line-196"></span><span class="hs-comment">--</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- -   @flow-log-id@ - The ID of the flow log.</span><span>
-</span><span id="line-198"></span><span class="hs-comment">--</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- -   @log-group-name@ - The name of the log group.</span><span>
-</span><span id="line-200"></span><span class="hs-comment">--</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- -   @resource-id@ - The ID of the VPC, subnet, or network interface.</span><span>
-</span><span id="line-202"></span><span class="hs-comment">--</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- -   @traffic-type@ - The type of traffic (@ACCEPT@ | @REJECT@ | @ALL@).</span><span>
-</span><span id="line-204"></span><span class="hs-comment">--</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of a tag assigned to the</span><span>
-</span><span id="line-206"></span><span class="hs-comment">--     resource. Use the tag key in the filter name and the tag value as</span><span>
-</span><span id="line-207"></span><span class="hs-comment">--     the filter value. For example, to find all resources that have a tag</span><span>
-</span><span id="line-208"></span><span class="hs-comment">--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for</span><span>
-</span><span id="line-209"></span><span class="hs-comment">--     the filter name and @TeamA@ for the filter value.</span><span>
-</span><span id="line-210"></span><span class="hs-comment">--</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- -   @tag-key@ - The key of a tag assigned to the resource. Use this</span><span>
-</span><span id="line-212"></span><span class="hs-comment">--     filter to find all resources assigned a tag with a specific key,</span><span>
-</span><span id="line-213"></span><span class="hs-comment">--     regardless of the tag value.</span><span>
-</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_filter"><span class="hs-identifier hs-type">describeFlowLogs_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-215"></span><span id="describeFlowLogs_filter"><span class="annot"><span class="annottext">describeFlowLogs_filter :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><span id="line-190"></span><span class="hs-comment">-- -   @traffic-type@ - The type of traffic (@ACCEPT@ | @REJECT@ | @ALL@).</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of a tag assigned to the</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--     resource. Use the tag key in the filter name and the tag value as</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--     the filter value. For example, to find all resources that have a tag</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--     the filter name and @TeamA@ for the filter value.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- -   @tag-key@ - The key of a tag assigned to the resource. Use this</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--     filter to find all resources assigned a tag with a specific key,</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--     regardless of the tag value.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_filter"><span class="hs-identifier hs-type">describeFlowLogs_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="describeFlowLogs_filter"><span class="annot"><span class="annottext">describeFlowLogs_filter :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
 -&gt; DescribeFlowLogs -&gt; f DescribeFlowLogs
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_filter"><span class="hs-identifier hs-var hs-var">describeFlowLogs_filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFlowLogs -&gt; Maybe [Filter])
 -&gt; (DescribeFlowLogs -&gt; Maybe [Filter] -&gt; DescribeFlowLogs)
 -&gt; Lens
      DescribeFlowLogs DescribeFlowLogs (Maybe [Filter]) (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681229674"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265436"><span class="annot"><span class="annottext">Maybe [Filter]
 filter' :: Maybe [Filter]
 $sel:filter':DescribeFlowLogs' :: DescribeFlowLogs -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681229674"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681229674"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681229673"><span class="annot"><span class="annottext">s :: DescribeFlowLogs
-</span><a href="#local-6989586621681229673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681229672"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681229672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFlowLogs
-</span><a href="#local-6989586621681229673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':DescribeFlowLogs' :: Maybe [Filter]
+</span><a href="#local-6989586621681265436"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681265436"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265435"><span class="annot"><span class="annottext">s :: DescribeFlowLogs
+</span><a href="#local-6989586621681265435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265434"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681265434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFlowLogs
+</span><a href="#local-6989586621681265435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':DescribeFlowLogs' :: Maybe [Filter]
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3Afilter%27%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681229672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621681265434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeFlowLogs -&gt; f DescribeFlowLogs)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -399,21 +356,64 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_dryRun"><span class="hs-identifier hs-type">describeFlowLogs_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="describeFlowLogs_dryRun"><span class="annot"><span class="annottext">describeFlowLogs_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeFlowLogs -&gt; f DescribeFlowLogs
+</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_dryRun"><span class="hs-identifier hs-var hs-var">describeFlowLogs_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFlowLogs -&gt; Maybe Bool)
+-&gt; (DescribeFlowLogs -&gt; Maybe Bool -&gt; DescribeFlowLogs)
+-&gt; Lens DescribeFlowLogs DescribeFlowLogs (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265433"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DescribeFlowLogs' :: DescribeFlowLogs -&gt; Maybe Bool
+</span><a href="#local-6989586621681265433"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681265433"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265432"><span class="annot"><span class="annottext">s :: DescribeFlowLogs
+</span><a href="#local-6989586621681265432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265431"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681265431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFlowLogs
+</span><a href="#local-6989586621681265432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeFlowLogs' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AdryRun%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681265431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_maxResults"><span class="hs-identifier hs-type">describeFlowLogs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="describeFlowLogs_maxResults"><span class="annot"><span class="annottext">describeFlowLogs_maxResults :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeFlowLogs -&gt; f DescribeFlowLogs
+</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogs_maxResults"><span class="hs-identifier hs-var hs-var">describeFlowLogs_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFlowLogs -&gt; Maybe Int)
+-&gt; (DescribeFlowLogs -&gt; Maybe Int -&gt; DescribeFlowLogs)
+-&gt; Lens DescribeFlowLogs DescribeFlowLogs (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265430"><span class="annot"><span class="annottext">Maybe Int
+maxResults :: Maybe Int
+$sel:maxResults:DescribeFlowLogs' :: DescribeFlowLogs -&gt; Maybe Int
+</span><a href="#local-6989586621681265430"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681265430"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265429"><span class="annot"><span class="annottext">s :: DescribeFlowLogs
+</span><a href="#local-6989586621681265429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265428"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681265428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFlowLogs
+</span><a href="#local-6989586621681265429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeFlowLogs' :: Maybe Int
+</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AmaxResults%3ADescribeFlowLogs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681265428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621681229668"><span class="annot"><span class="annottext">page :: DescribeFlowLogs
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621681265424"><span class="annot"><span class="annottext">page :: DescribeFlowLogs
 -&gt; AWSResponse DescribeFlowLogs -&gt; Maybe DescribeFlowLogs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681229666"><span class="annot"><span class="annottext">DescribeFlowLogs
-</span><a href="#local-6989586621681229666"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681229665"><span class="annot"><span class="annottext">AWSResponse DescribeFlowLogs
-</span><a href="#local-6989586621681229665"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681265422"><span class="annot"><span class="annottext">DescribeFlowLogs
+</span><a href="#local-6989586621681265422"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681265421"><span class="annot"><span class="annottext">AWSResponse DescribeFlowLogs
+</span><a href="#local-6989586621681265421"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-219"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-220"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeFlowLogs
 DescribeFlowLogsResponse
-</span><a href="#local-6989586621681229665"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681265421"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">DescribeFlowLogsResponse
 -&gt; Getting (First Text) DescribeFlowLogsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -442,7 +442,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-226"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeFlowLogs
 DescribeFlowLogsResponse
-</span><a href="#local-6989586621681229665"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681265421"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">DescribeFlowLogsResponse
 -&gt; Getting (First [FlowLog]) DescribeFlowLogsResponse [FlowLog]
 -&gt; Maybe [FlowLog]
@@ -476,7 +476,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">DescribeFlowLogs
-</span><a href="#local-6989586621681229666"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621681265422"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-234"></span><span>          </span><span class="annot"><span class="annottext">DescribeFlowLogs
 -&gt; (DescribeFlowLogs -&gt; DescribeFlowLogs) -&gt; DescribeFlowLogs
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -490,7 +490,7 @@ Lens DescribeFlowLogs DescribeFlowLogs (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeFlowLogs
 DescribeFlowLogsResponse
-</span><a href="#local-6989586621681229665"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681265421"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-236"></span><span>          </span><span class="annot"><span class="annottext">DescribeFlowLogsResponse
 -&gt; Getting (First Text) DescribeFlowLogsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -515,12 +515,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-240"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-241"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-242"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse"><span class="hs-identifier hs-type">DescribeFlowLogsResponse</span></a></span><span>
-</span><span id="line-243"></span><span>  </span><span id="local-6989586621681229656"><span class="annot"><span class="annottext">request :: DescribeFlowLogs -&gt; Request DescribeFlowLogs
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621681265412"><span class="annot"><span class="annottext">request :: DescribeFlowLogs -&gt; Request DescribeFlowLogs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeFlowLogs -&gt; Request DescribeFlowLogs
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621681229652"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621681265408"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeFlowLogs
 -&gt; ClientResponse ClientBody
@@ -544,10 +544,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681229649"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681229649"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681229648"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681229648"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681229647"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681229647"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681265405"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681265405"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681265404"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681265404"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681265403"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681265403"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-247"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [FlowLog] -&gt; Int -&gt; DescribeFlowLogsResponse
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse%27"><span class="hs-identifier hs-var">DescribeFlowLogsResponse'</span></a></span><span>
 </span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [FlowLog] -&gt; Int -&gt; DescribeFlowLogsResponse)
@@ -556,7 +556,7 @@ MonadResource m =&gt;
      String (Maybe [FlowLog] -&gt; Int -&gt; DescribeFlowLogsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681229647"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681265403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -565,7 +565,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeFlowLogsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681229647"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681265403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;flowLogSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -595,15 +595,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681229649"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681265405"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>
-</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681229636"><span id="local-6989586621681229638"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span></span></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681265392"><span id="local-6989586621681265394"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span></span></span><span>
 </span><span id="line-256"></span><span>
-</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681229633"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681265389"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span></span><span>
 </span><span id="line-258"></span><span>
 </span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-260"></span><span>  </span><span id="local-6989586621681229629"><span class="annot"><span class="annottext">toHeaders :: DescribeFlowLogs -&gt; ResponseHeaders
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621681265385"><span class="annot"><span class="annottext">toHeaders :: DescribeFlowLogs -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeFlowLogs -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -611,30 +611,30 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-263"></span><span>  </span><span id="local-6989586621681229624"><span class="annot"><span class="annottext">toPath :: DescribeFlowLogs -&gt; ByteString
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621681265380"><span class="annot"><span class="annottext">toPath :: DescribeFlowLogs -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeFlowLogs -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs"><span class="hs-identifier hs-type">DescribeFlowLogs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-266"></span><span>  </span><span id="local-6989586621681229620"><span class="annot"><span class="annottext">toQuery :: DescribeFlowLogs -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681229614"><span id="local-6989586621681229615"><span id="local-6989586621681229616"><span id="local-6989586621681229617"><span id="local-6989586621681229618"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621681265376"><span class="annot"><span class="annottext">toQuery :: DescribeFlowLogs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogs%27"><span class="hs-identifier hs-type">DescribeFlowLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265370"><span id="local-6989586621681265371"><span id="local-6989586621681265372"><span id="local-6989586621681265373"><span id="local-6989586621681265374"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe [Text]
 Maybe [Filter]
 Maybe Text
+maxResults :: Maybe Int
+dryRun :: Maybe Bool
 filter' :: Maybe [Filter]
 flowLogIds :: Maybe [Text]
-dryRun :: Maybe Bool
-maxResults :: Maybe Int
 nextToken :: Maybe Text
+$sel:maxResults:DescribeFlowLogs' :: DescribeFlowLogs -&gt; Maybe Int
+$sel:dryRun:DescribeFlowLogs' :: DescribeFlowLogs -&gt; Maybe Bool
 $sel:filter':DescribeFlowLogs' :: DescribeFlowLogs -&gt; Maybe [Filter]
 $sel:flowLogIds:DescribeFlowLogs' :: DescribeFlowLogs -&gt; Maybe [Text]
-$sel:dryRun:DescribeFlowLogs' :: DescribeFlowLogs -&gt; Maybe Bool
-$sel:maxResults:DescribeFlowLogs' :: DescribeFlowLogs -&gt; Maybe Int
 $sel:nextToken:DescribeFlowLogs' :: DescribeFlowLogs -&gt; Maybe Text
-</span><a href="#local-6989586621681229614"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681265370"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-267"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -654,35 +654,25 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681229618"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681229617"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681229616"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+</span><a href="#local-6989586621681265374"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-276"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+</span><span id="line-274"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;FlowLogId&quot;</span></span><span>
-</span><span id="line-277"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+</span><span id="line-275"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681229615"><span class="hs-identifier hs-var">flowLogIds</span></a></span><span>
-</span><span id="line-278"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-279"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+</span><a href="#local-6989586621681265373"><span class="hs-identifier hs-var">flowLogIds</span></a></span><span>
+</span><span id="line-276"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-280"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+</span><span id="line-278"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
@@ -690,11 +680,21 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681229614"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681265372"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681265371"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681265370"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-281"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-282"></span><span>
 </span><span id="line-283"></span><span class="hs-comment">-- | /See:/ 'newDescribeFlowLogsResponse' smart constructor.</span><span>
-</span><span id="line-284"></span><span id="local-6989586621681229610"><span id="local-6989586621681229611"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFlowLogsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse"><span class="hs-identifier hs-var">DescribeFlowLogsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFlowLogsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse%27"><span class="hs-identifier hs-var">DescribeFlowLogsResponse'</span></a></span></span><span>
+</span><span id="line-284"></span><span id="local-6989586621681265366"><span id="local-6989586621681265367"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFlowLogsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse"><span class="hs-identifier hs-var">DescribeFlowLogsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFlowLogsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse%27"><span class="hs-identifier hs-var">DescribeFlowLogsResponse'</span></a></span></span><span>
 </span><span id="line-285"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
 </span><span id="line-286"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
 </span><span id="line-287"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeFlowLogsResponse%27"><span class="annot"><span class="annottext">DescribeFlowLogsResponse -&gt; Maybe Text
@@ -706,7 +706,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span id="line-291"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeFlowLogsResponse%27"><span class="annot"><span class="annottext">DescribeFlowLogsResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AhttpStatus%3ADescribeFlowLogsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-292"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-293"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681229603"><span id="local-6989586621681229605"><span class="annot"><span class="annottext">DescribeFlowLogsResponse -&gt; DescribeFlowLogsResponse -&gt; Bool
+</span><span id="line-293"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681265359"><span id="local-6989586621681265361"><span class="annot"><span class="annottext">DescribeFlowLogsResponse -&gt; DescribeFlowLogsResponse -&gt; Bool
 (DescribeFlowLogsResponse -&gt; DescribeFlowLogsResponse -&gt; Bool)
 -&gt; (DescribeFlowLogsResponse -&gt; DescribeFlowLogsResponse -&gt; Bool)
 -&gt; Eq DescribeFlowLogsResponse
@@ -715,7 +715,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeFlowLogsResponse -&gt; DescribeFlowLogsResponse -&gt; Bool
 == :: DescribeFlowLogsResponse -&gt; DescribeFlowLogsResponse -&gt; Bool
 $c== :: DescribeFlowLogsResponse -&gt; DescribeFlowLogsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681229595"><span id="local-6989586621681229597"><span id="local-6989586621681229599"><span id="local-6989586621681229601"><span class="annot"><span class="annottext">ReadPrec [DescribeFlowLogsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265351"><span id="local-6989586621681265353"><span id="local-6989586621681265355"><span id="local-6989586621681265357"><span class="annot"><span class="annottext">ReadPrec [DescribeFlowLogsResponse]
 ReadPrec DescribeFlowLogsResponse
 Int -&gt; ReadS DescribeFlowLogsResponse
 ReadS [DescribeFlowLogsResponse]
@@ -735,7 +735,7 @@ readList :: ReadS [DescribeFlowLogsResponse]
 $creadList :: ReadS [DescribeFlowLogsResponse]
 readsPrec :: Int -&gt; ReadS DescribeFlowLogsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeFlowLogsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681229589"><span id="local-6989586621681229591"><span id="local-6989586621681229593"><span class="annot"><span class="annottext">Int -&gt; DescribeFlowLogsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265345"><span id="local-6989586621681265347"><span id="local-6989586621681265349"><span class="annot"><span class="annottext">Int -&gt; DescribeFlowLogsResponse -&gt; ShowS
 [DescribeFlowLogsResponse] -&gt; ShowS
 DescribeFlowLogsResponse -&gt; String
 (Int -&gt; DescribeFlowLogsResponse -&gt; ShowS)
@@ -786,8 +786,8 @@ DescribeFlowLogsResponse -&gt; Rep DescribeFlowLogsResponse x
 </span><span id="line-311"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-312"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse"><span class="hs-identifier hs-type">DescribeFlowLogsResponse</span></a></span><span>
 </span><span id="line-313"></span><span id="newDescribeFlowLogsResponse"><span class="annot"><span class="annottext">newDescribeFlowLogsResponse :: Int -&gt; DescribeFlowLogsResponse
-</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#newDescribeFlowLogsResponse"><span class="hs-identifier hs-var hs-var">newDescribeFlowLogsResponse</span></a></span></span><span> </span><span id="local-6989586621681229586"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681229586"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DescribeFlowLogs.html#newDescribeFlowLogsResponse"><span class="hs-identifier hs-var hs-var">newDescribeFlowLogsResponse</span></a></span></span><span> </span><span id="local-6989586621681265342"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681265342"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-314"></span><span>  </span><span class="annot"><span class="annottext">DescribeFlowLogsResponse' :: Maybe Text -&gt; Maybe [FlowLog] -&gt; Int -&gt; DescribeFlowLogsResponse
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse%27"><span class="hs-identifier hs-type">DescribeFlowLogsResponse'</span></a></span><span>
 </span><span id="line-315"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeFlowLogsResponse' :: Maybe Text
@@ -801,7 +801,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-318"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFlowLogsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AhttpStatus%3ADescribeFlowLogsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681229586"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681265342"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-319"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-320"></span><span>
 </span><span id="line-321"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
@@ -814,16 +814,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeFlowLogsResponse)
 -&gt; Lens' DescribeFlowLogsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse%27"><span class="hs-identifier hs-type">DescribeFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681229585"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse%27"><span class="hs-identifier hs-type">DescribeFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265341"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeFlowLogsResponse' :: DescribeFlowLogsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681229585"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681229585"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681229584"><span class="annot"><span class="annottext">s :: DescribeFlowLogsResponse
-</span><a href="#local-6989586621681229584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse%27"><span class="hs-identifier hs-type">DescribeFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681229583"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681229583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFlowLogsResponse
-</span><a href="#local-6989586621681229584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeFlowLogsResponse' :: Maybe Text
+</span><a href="#local-6989586621681265341"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681265341"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265340"><span class="annot"><span class="annottext">s :: DescribeFlowLogsResponse
+</span><a href="#local-6989586621681265340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse%27"><span class="hs-identifier hs-type">DescribeFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265339"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681265339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFlowLogsResponse
+</span><a href="#local-6989586621681265340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeFlowLogsResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AnextToken%3ADescribeFlowLogsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681229583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse"><span class="hs-identifier hs-type">DescribeFlowLogsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681265339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse"><span class="hs-identifier hs-type">DescribeFlowLogsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-325"></span><span>
 </span><span id="line-326"></span><span class="hs-comment">-- | Information about the flow logs.</span><span>
 </span><span id="line-327"></span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogsResponse_flowLogs"><span class="hs-identifier hs-type">describeFlowLogsResponse_flowLogs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse"><span class="hs-identifier hs-type">DescribeFlowLogsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.FlowLog.html#FlowLog"><span class="hs-identifier hs-type">FlowLog</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -834,16 +834,16 @@ $sel:nextToken:DescribeFlowLogsResponse' :: DescribeFlowLogsResponse -&gt; Maybe
     -&gt; Maybe [FlowLog] -&gt; DescribeFlowLogsResponse)
 -&gt; Lens' DescribeFlowLogsResponse (Maybe [FlowLog])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse%27"><span class="hs-identifier hs-type">DescribeFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681229582"><span class="annot"><span class="annottext">Maybe [FlowLog]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse%27"><span class="hs-identifier hs-type">DescribeFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265338"><span class="annot"><span class="annottext">Maybe [FlowLog]
 flowLogs :: Maybe [FlowLog]
 $sel:flowLogs:DescribeFlowLogsResponse' :: DescribeFlowLogsResponse -&gt; Maybe [FlowLog]
-</span><a href="#local-6989586621681229582"><span class="hs-identifier hs-var hs-var">flowLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FlowLog]
-</span><a href="#local-6989586621681229582"><span class="hs-identifier hs-var">flowLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681229581"><span class="annot"><span class="annottext">s :: DescribeFlowLogsResponse
-</span><a href="#local-6989586621681229581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse%27"><span class="hs-identifier hs-type">DescribeFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681229580"><span class="annot"><span class="annottext">Maybe [FlowLog]
-</span><a href="#local-6989586621681229580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFlowLogsResponse
-</span><a href="#local-6989586621681229581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowLogs:DescribeFlowLogsResponse' :: Maybe [FlowLog]
+</span><a href="#local-6989586621681265338"><span class="hs-identifier hs-var hs-var">flowLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FlowLog]
+</span><a href="#local-6989586621681265338"><span class="hs-identifier hs-var">flowLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265337"><span class="annot"><span class="annottext">s :: DescribeFlowLogsResponse
+</span><a href="#local-6989586621681265337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse%27"><span class="hs-identifier hs-type">DescribeFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265336"><span class="annot"><span class="annottext">Maybe [FlowLog]
+</span><a href="#local-6989586621681265336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFlowLogsResponse
+</span><a href="#local-6989586621681265337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowLogs:DescribeFlowLogsResponse' :: Maybe [FlowLog]
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AflowLogs%3ADescribeFlowLogsResponse%27"><span class="hs-identifier hs-var">flowLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FlowLog]
-</span><a href="#local-6989586621681229580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse"><span class="hs-identifier hs-type">DescribeFlowLogsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FlowLog] -&gt; f (Maybe [FlowLog]))
+</span><a href="#local-6989586621681265336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse"><span class="hs-identifier hs-type">DescribeFlowLogsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FlowLog] -&gt; f (Maybe [FlowLog]))
  -&gt; DescribeFlowLogsResponse -&gt; f DescribeFlowLogsResponse)
 -&gt; ((Maybe [FlowLog] -&gt; f (Maybe [FlowLog]))
     -&gt; Maybe [FlowLog] -&gt; f (Maybe [FlowLog]))
@@ -861,8 +861,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [FlowLog] [FlowLog] [FlowLog] [FlowLog]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-329"></span><span>
 </span><span id="line-330"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-331"></span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#describeFlowLogsResponse_httpStatus"><span class="hs-identifier hs-type">describeFlowLogsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse"><span class="hs-identifier hs-type">DescribeFlowLogsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -872,16 +872,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (DescribeFlowLogsResponse -&gt; Int -&gt; DescribeFlowLogsResponse)
 -&gt; Lens DescribeFlowLogsResponse DescribeFlowLogsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse%27"><span class="hs-identifier hs-type">DescribeFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681229579"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse%27"><span class="hs-identifier hs-type">DescribeFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265335"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeFlowLogsResponse' :: DescribeFlowLogsResponse -&gt; Int
-</span><a href="#local-6989586621681229579"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681229579"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681229578"><span class="annot"><span class="annottext">s :: DescribeFlowLogsResponse
-</span><a href="#local-6989586621681229578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse%27"><span class="hs-identifier hs-type">DescribeFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681229577"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681229577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFlowLogsResponse
-</span><a href="#local-6989586621681229578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFlowLogsResponse' :: Int
+</span><a href="#local-6989586621681265335"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681265335"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265334"><span class="annot"><span class="annottext">s :: DescribeFlowLogsResponse
+</span><a href="#local-6989586621681265334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse%27"><span class="hs-identifier hs-type">DescribeFlowLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265333"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681265333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFlowLogsResponse
+</span><a href="#local-6989586621681265334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFlowLogsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeFlowLogs.html#%24sel%3AhttpStatus%3ADescribeFlowLogsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681229577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse"><span class="hs-identifier hs-type">DescribeFlowLogsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681265333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse"><span class="hs-identifier hs-type">DescribeFlowLogsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-333"></span><span>
-</span><span id="line-334"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681229575"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse"><span class="hs-identifier hs-type">DescribeFlowLogsResponse</span></a></span></span><span>
+</span><span id="line-334"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681265331"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFlowLogs.html#DescribeFlowLogsResponse"><span class="hs-identifier hs-type">DescribeFlowLogsResponse</span></a></span></span><span>
 </span><span id="line-335"></span></pre></body></html>

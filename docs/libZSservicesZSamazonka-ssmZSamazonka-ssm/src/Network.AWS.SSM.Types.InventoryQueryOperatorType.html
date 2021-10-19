@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679795826"><span id="local-6989586621679795827"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InventoryQueryOperatorType"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryQueryOperatorType.html#InventoryQueryOperatorType"><span class="hs-identifier hs-var">InventoryQueryOperatorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryQueryOperatorType%27"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryQueryOperatorType.html#InventoryQueryOperatorType%27"><span class="hs-identifier hs-var">InventoryQueryOperatorType'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679797465"><span id="local-6989586621679797466"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InventoryQueryOperatorType"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryQueryOperatorType.html#InventoryQueryOperatorType"><span class="hs-identifier hs-var">InventoryQueryOperatorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryQueryOperatorType%27"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryQueryOperatorType.html#InventoryQueryOperatorType%27"><span class="hs-identifier hs-var">InventoryQueryOperatorType'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInventoryQueryOperatorType"><span class="annot"><span class="annottext">InventoryQueryOperatorType -&gt; Text
 </span><a href="Network.AWS.SSM.Types.InventoryQueryOperatorType.html#fromInventoryQueryOperatorType"><span class="hs-identifier hs-var hs-var">fromInventoryQueryOperatorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679795818"><span id="local-6989586621679795820"><span id="local-6989586621679795822"><span class="annot"><span class="annottext">Int -&gt; InventoryQueryOperatorType -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679797457"><span id="local-6989586621679797459"><span id="local-6989586621679797461"><span class="annot"><span class="annottext">Int -&gt; InventoryQueryOperatorType -&gt; ShowS
 [InventoryQueryOperatorType] -&gt; ShowS
 InventoryQueryOperatorType -&gt; String
 (Int -&gt; InventoryQueryOperatorType -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: InventoryQueryOperatorType -&gt; String
 showsPrec :: Int -&gt; InventoryQueryOperatorType -&gt; ShowS
 $cshowsPrec :: Int -&gt; InventoryQueryOperatorType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679795809"><span id="local-6989586621679795811"><span id="local-6989586621679795813"><span id="local-6989586621679795815"><span class="annot"><span class="annottext">ReadPrec [InventoryQueryOperatorType]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679797448"><span id="local-6989586621679797450"><span id="local-6989586621679797452"><span id="local-6989586621679797454"><span class="annot"><span class="annottext">ReadPrec [InventoryQueryOperatorType]
 ReadPrec InventoryQueryOperatorType
 Int -&gt; ReadS InventoryQueryOperatorType
 ReadS [InventoryQueryOperatorType]
@@ -76,7 +76,7 @@ $creadList :: ReadS [InventoryQueryOperatorType]
 readsPrec :: Int -&gt; ReadS InventoryQueryOperatorType
 $creadsPrec :: Int -&gt; ReadS InventoryQueryOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679795804"><span id="local-6989586621679795806"><span class="annot"><span class="annottext">InventoryQueryOperatorType -&gt; InventoryQueryOperatorType -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679797443"><span id="local-6989586621679797445"><span class="annot"><span class="annottext">InventoryQueryOperatorType -&gt; InventoryQueryOperatorType -&gt; Bool
 (InventoryQueryOperatorType -&gt; InventoryQueryOperatorType -&gt; Bool)
 -&gt; (InventoryQueryOperatorType
     -&gt; InventoryQueryOperatorType -&gt; Bool)
@@ -87,7 +87,7 @@ $c/= :: InventoryQueryOperatorType -&gt; InventoryQueryOperatorType -&gt; Bool
 == :: InventoryQueryOperatorType -&gt; InventoryQueryOperatorType -&gt; Bool
 $c== :: InventoryQueryOperatorType -&gt; InventoryQueryOperatorType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679795788"><span id="local-6989586621679795790"><span id="local-6989586621679795792"><span id="local-6989586621679795794"><span id="local-6989586621679795796"><span id="local-6989586621679795798"><span id="local-6989586621679795800"><span class="annot"><span class="annottext">Eq InventoryQueryOperatorType
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679797427"><span id="local-6989586621679797429"><span id="local-6989586621679797431"><span id="local-6989586621679797433"><span id="local-6989586621679797435"><span id="local-6989586621679797437"><span id="local-6989586621679797439"><span class="annot"><span class="annottext">Eq InventoryQueryOperatorType
 Eq InventoryQueryOperatorType
 -&gt; (InventoryQueryOperatorType
     -&gt; InventoryQueryOperatorType -&gt; Ordering)
@@ -159,7 +159,7 @@ InventoryQueryOperatorType -&gt; Rep InventoryQueryOperatorType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679795780"><span id="local-6989586621679795782"><span class="annot"><span class="annottext">Int -&gt; InventoryQueryOperatorType -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679797419"><span id="local-6989586621679797421"><span class="annot"><span class="annottext">Int -&gt; InventoryQueryOperatorType -&gt; Int
 InventoryQueryOperatorType -&gt; Int
 (Int -&gt; InventoryQueryOperatorType -&gt; Int)
 -&gt; (InventoryQueryOperatorType -&gt; Int)
@@ -170,56 +170,56 @@ $chash :: InventoryQueryOperatorType -&gt; Int
 hashWithSalt :: Int -&gt; InventoryQueryOperatorType -&gt; Int
 $chashWithSalt :: Int -&gt; InventoryQueryOperatorType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679795777"><span class="annot"><span class="annottext">InventoryQueryOperatorType -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679797416"><span class="annot"><span class="annottext">InventoryQueryOperatorType -&gt; ()
 (InventoryQueryOperatorType -&gt; ())
 -&gt; NFData InventoryQueryOperatorType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InventoryQueryOperatorType -&gt; ()
 $crnf :: InventoryQueryOperatorType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679795774"><span class="annot"><span class="annottext">Text -&gt; Either String InventoryQueryOperatorType
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679797413"><span class="annot"><span class="annottext">Text -&gt; Either String InventoryQueryOperatorType
 (Text -&gt; Either String InventoryQueryOperatorType)
 -&gt; FromText InventoryQueryOperatorType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InventoryQueryOperatorType
 $cfromText :: Text -&gt; Either String InventoryQueryOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679795771"><span class="annot"><span class="annottext">InventoryQueryOperatorType -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679797410"><span class="annot"><span class="annottext">InventoryQueryOperatorType -&gt; Text
 (InventoryQueryOperatorType -&gt; Text)
 -&gt; ToText InventoryQueryOperatorType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InventoryQueryOperatorType -&gt; Text
 $ctoText :: InventoryQueryOperatorType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679795768"><span class="annot"><span class="annottext">InventoryQueryOperatorType -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679797407"><span class="annot"><span class="annottext">InventoryQueryOperatorType -&gt; ByteString
 (InventoryQueryOperatorType -&gt; ByteString)
 -&gt; ToByteString InventoryQueryOperatorType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InventoryQueryOperatorType -&gt; ByteString
 $ctoBS :: InventoryQueryOperatorType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679795765"><span class="annot"><span class="annottext">InventoryQueryOperatorType -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679797404"><span class="annot"><span class="annottext">InventoryQueryOperatorType -&gt; ByteStringBuilder
 (InventoryQueryOperatorType -&gt; ByteStringBuilder)
 -&gt; ToLog InventoryQueryOperatorType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InventoryQueryOperatorType -&gt; ByteStringBuilder
 $cbuild :: InventoryQueryOperatorType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679795762"><span class="annot"><span class="annottext">HeaderName -&gt; InventoryQueryOperatorType -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679797401"><span class="annot"><span class="annottext">HeaderName -&gt; InventoryQueryOperatorType -&gt; [Header]
 (HeaderName -&gt; InventoryQueryOperatorType -&gt; [Header])
 -&gt; ToHeader InventoryQueryOperatorType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InventoryQueryOperatorType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InventoryQueryOperatorType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679795759"><span class="annot"><span class="annottext">InventoryQueryOperatorType -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679797398"><span class="annot"><span class="annottext">InventoryQueryOperatorType -&gt; QueryString
 (InventoryQueryOperatorType -&gt; QueryString)
 -&gt; ToQuery InventoryQueryOperatorType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InventoryQueryOperatorType -&gt; QueryString
 $ctoQuery :: InventoryQueryOperatorType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679795754"><span id="local-6989586621679795756"><span class="annot"><span class="annottext">Value -&gt; Parser [InventoryQueryOperatorType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679797393"><span id="local-6989586621679797395"><span class="annot"><span class="annottext">Value -&gt; Parser [InventoryQueryOperatorType]
 Value -&gt; Parser InventoryQueryOperatorType
 (Value -&gt; Parser InventoryQueryOperatorType)
 -&gt; (Value -&gt; Parser [InventoryQueryOperatorType])
@@ -231,7 +231,7 @@ $cparseJSONList :: Value -&gt; Parser [InventoryQueryOperatorType]
 parseJSON :: Value -&gt; Parser InventoryQueryOperatorType
 $cparseJSON :: Value -&gt; Parser InventoryQueryOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679795749"><span id="local-6989586621679795751"><span class="annot"><span class="annottext">FromJSONKeyFunction [InventoryQueryOperatorType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679797388"><span id="local-6989586621679797390"><span class="annot"><span class="annottext">FromJSONKeyFunction [InventoryQueryOperatorType]
 FromJSONKeyFunction InventoryQueryOperatorType
 FromJSONKeyFunction InventoryQueryOperatorType
 -&gt; FromJSONKeyFunction [InventoryQueryOperatorType]
@@ -243,7 +243,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InventoryQueryOperatorType]
 fromJSONKey :: FromJSONKeyFunction InventoryQueryOperatorType
 $cfromJSONKey :: FromJSONKeyFunction InventoryQueryOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679795740"><span id="local-6989586621679795742"><span id="local-6989586621679795744"><span id="local-6989586621679795746"><span class="annot"><span class="annottext">[InventoryQueryOperatorType] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679797379"><span id="local-6989586621679797381"><span id="local-6989586621679797383"><span id="local-6989586621679797385"><span class="annot"><span class="annottext">[InventoryQueryOperatorType] -&gt; Encoding
 [InventoryQueryOperatorType] -&gt; Value
 InventoryQueryOperatorType -&gt; Encoding
 InventoryQueryOperatorType -&gt; Value
@@ -267,7 +267,7 @@ $ctoEncoding :: InventoryQueryOperatorType -&gt; Encoding
 toJSON :: InventoryQueryOperatorType -&gt; Value
 $ctoJSON :: InventoryQueryOperatorType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679795735"><span id="local-6989586621679795737"><span class="annot"><span class="annottext">ToJSONKeyFunction [InventoryQueryOperatorType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679797374"><span id="local-6989586621679797376"><span class="annot"><span class="annottext">ToJSONKeyFunction [InventoryQueryOperatorType]
 ToJSONKeyFunction InventoryQueryOperatorType
 ToJSONKeyFunction InventoryQueryOperatorType
 -&gt; ToJSONKeyFunction [InventoryQueryOperatorType]
@@ -279,14 +279,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InventoryQueryOperatorType]
 toJSONKey :: ToJSONKeyFunction InventoryQueryOperatorType
 $ctoJSONKey :: ToJSONKeyFunction InventoryQueryOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679795732"><span class="annot"><span class="annottext">[Node] -&gt; Either String InventoryQueryOperatorType
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679797371"><span class="annot"><span class="annottext">[Node] -&gt; Either String InventoryQueryOperatorType
 ([Node] -&gt; Either String InventoryQueryOperatorType)
 -&gt; FromXML InventoryQueryOperatorType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InventoryQueryOperatorType
 $cparseXML :: [Node] -&gt; Either String InventoryQueryOperatorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679795729"><span class="annot"><span class="annottext">InventoryQueryOperatorType -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679797368"><span class="annot"><span class="annottext">InventoryQueryOperatorType -&gt; XML
 (InventoryQueryOperatorType -&gt; XML)
 -&gt; ToXML InventoryQueryOperatorType
 forall a. (a -&gt; XML) -&gt; ToXML a

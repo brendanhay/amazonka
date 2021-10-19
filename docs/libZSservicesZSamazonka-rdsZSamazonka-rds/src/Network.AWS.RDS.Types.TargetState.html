@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679766892"><span id="local-6989586621679766893"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TargetState"><span class="annot"><a href="Network.AWS.RDS.Types.TargetState.html#TargetState"><span class="hs-identifier hs-var">TargetState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetState%27"><span class="annot"><a href="Network.AWS.RDS.Types.TargetState.html#TargetState%27"><span class="hs-identifier hs-var">TargetState'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679767963"><span id="local-6989586621679767964"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TargetState"><span class="annot"><a href="Network.AWS.RDS.Types.TargetState.html#TargetState"><span class="hs-identifier hs-var">TargetState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetState%27"><span class="annot"><a href="Network.AWS.RDS.Types.TargetState.html#TargetState%27"><span class="hs-identifier hs-var">TargetState'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTargetState"><span class="annot"><span class="annottext">TargetState -&gt; Text
 </span><a href="Network.AWS.RDS.Types.TargetState.html#fromTargetState"><span class="hs-identifier hs-var hs-var">fromTargetState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679766884"><span id="local-6989586621679766886"><span id="local-6989586621679766888"><span class="annot"><span class="annottext">Int -&gt; TargetState -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679767955"><span id="local-6989586621679767957"><span id="local-6989586621679767959"><span class="annot"><span class="annottext">Int -&gt; TargetState -&gt; ShowS
 [TargetState] -&gt; ShowS
 TargetState -&gt; String
 (Int -&gt; TargetState -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: TargetState -&gt; String
 showsPrec :: Int -&gt; TargetState -&gt; ShowS
 $cshowsPrec :: Int -&gt; TargetState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679766875"><span id="local-6989586621679766877"><span id="local-6989586621679766879"><span id="local-6989586621679766881"><span class="annot"><span class="annottext">ReadPrec [TargetState]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679767946"><span id="local-6989586621679767948"><span id="local-6989586621679767950"><span id="local-6989586621679767952"><span class="annot"><span class="annottext">ReadPrec [TargetState]
 ReadPrec TargetState
 Int -&gt; ReadS TargetState
 ReadS [TargetState]
@@ -73,7 +73,7 @@ $creadList :: ReadS [TargetState]
 readsPrec :: Int -&gt; ReadS TargetState
 $creadsPrec :: Int -&gt; ReadS TargetState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679766870"><span id="local-6989586621679766872"><span class="annot"><span class="annottext">TargetState -&gt; TargetState -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679767941"><span id="local-6989586621679767943"><span class="annot"><span class="annottext">TargetState -&gt; TargetState -&gt; Bool
 (TargetState -&gt; TargetState -&gt; Bool)
 -&gt; (TargetState -&gt; TargetState -&gt; Bool) -&gt; Eq TargetState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: TargetState -&gt; TargetState -&gt; Bool
 == :: TargetState -&gt; TargetState -&gt; Bool
 $c== :: TargetState -&gt; TargetState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679766854"><span id="local-6989586621679766856"><span id="local-6989586621679766858"><span id="local-6989586621679766860"><span id="local-6989586621679766862"><span id="local-6989586621679766864"><span id="local-6989586621679766866"><span class="annot"><span class="annottext">Eq TargetState
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679767925"><span id="local-6989586621679767927"><span id="local-6989586621679767929"><span id="local-6989586621679767931"><span id="local-6989586621679767933"><span id="local-6989586621679767935"><span id="local-6989586621679767937"><span class="annot"><span class="annottext">Eq TargetState
 Eq TargetState
 -&gt; (TargetState -&gt; TargetState -&gt; Ordering)
 -&gt; (TargetState -&gt; TargetState -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. TargetState -&gt; Rep TargetState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679766846"><span id="local-6989586621679766848"><span class="annot"><span class="annottext">Int -&gt; TargetState -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679767917"><span id="local-6989586621679767919"><span class="annot"><span class="annottext">Int -&gt; TargetState -&gt; Int
 TargetState -&gt; Int
 (Int -&gt; TargetState -&gt; Int)
 -&gt; (TargetState -&gt; Int) -&gt; Hashable TargetState
@@ -143,49 +143,49 @@ $chash :: TargetState -&gt; Int
 hashWithSalt :: Int -&gt; TargetState -&gt; Int
 $chashWithSalt :: Int -&gt; TargetState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679766843"><span class="annot"><span class="annottext">TargetState -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679767914"><span class="annot"><span class="annottext">TargetState -&gt; ()
 (TargetState -&gt; ()) -&gt; NFData TargetState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TargetState -&gt; ()
 $crnf :: TargetState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679766840"><span class="annot"><span class="annottext">Text -&gt; Either String TargetState
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679767911"><span class="annot"><span class="annottext">Text -&gt; Either String TargetState
 (Text -&gt; Either String TargetState) -&gt; FromText TargetState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TargetState
 $cfromText :: Text -&gt; Either String TargetState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679766837"><span class="annot"><span class="annottext">TargetState -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679767908"><span class="annot"><span class="annottext">TargetState -&gt; Text
 (TargetState -&gt; Text) -&gt; ToText TargetState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TargetState -&gt; Text
 $ctoText :: TargetState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679766834"><span class="annot"><span class="annottext">TargetState -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679767905"><span class="annot"><span class="annottext">TargetState -&gt; ByteString
 (TargetState -&gt; ByteString) -&gt; ToByteString TargetState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TargetState -&gt; ByteString
 $ctoBS :: TargetState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679766831"><span class="annot"><span class="annottext">TargetState -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679767902"><span class="annot"><span class="annottext">TargetState -&gt; ByteStringBuilder
 (TargetState -&gt; ByteStringBuilder) -&gt; ToLog TargetState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TargetState -&gt; ByteStringBuilder
 $cbuild :: TargetState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679766828"><span class="annot"><span class="annottext">HeaderName -&gt; TargetState -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679767899"><span class="annot"><span class="annottext">HeaderName -&gt; TargetState -&gt; [Header]
 (HeaderName -&gt; TargetState -&gt; [Header]) -&gt; ToHeader TargetState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TargetState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TargetState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679766825"><span class="annot"><span class="annottext">TargetState -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679767896"><span class="annot"><span class="annottext">TargetState -&gt; QueryString
 (TargetState -&gt; QueryString) -&gt; ToQuery TargetState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TargetState -&gt; QueryString
 $ctoQuery :: TargetState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679766820"><span id="local-6989586621679766822"><span class="annot"><span class="annottext">Value -&gt; Parser [TargetState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679767891"><span id="local-6989586621679767893"><span class="annot"><span class="annottext">Value -&gt; Parser [TargetState]
 Value -&gt; Parser TargetState
 (Value -&gt; Parser TargetState)
 -&gt; (Value -&gt; Parser [TargetState]) -&gt; FromJSON TargetState
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [TargetState]
 parseJSON :: Value -&gt; Parser TargetState
 $cparseJSON :: Value -&gt; Parser TargetState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679766815"><span id="local-6989586621679766817"><span class="annot"><span class="annottext">FromJSONKeyFunction [TargetState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679767886"><span id="local-6989586621679767888"><span class="annot"><span class="annottext">FromJSONKeyFunction [TargetState]
 FromJSONKeyFunction TargetState
 FromJSONKeyFunction TargetState
 -&gt; FromJSONKeyFunction [TargetState] -&gt; FromJSONKey TargetState
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TargetState]
 fromJSONKey :: FromJSONKeyFunction TargetState
 $cfromJSONKey :: FromJSONKeyFunction TargetState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679766806"><span id="local-6989586621679766808"><span id="local-6989586621679766810"><span id="local-6989586621679766812"><span class="annot"><span class="annottext">[TargetState] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679767877"><span id="local-6989586621679767879"><span id="local-6989586621679767881"><span id="local-6989586621679767883"><span class="annot"><span class="annottext">[TargetState] -&gt; Encoding
 [TargetState] -&gt; Value
 TargetState -&gt; Encoding
 TargetState -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: TargetState -&gt; Encoding
 toJSON :: TargetState -&gt; Value
 $ctoJSON :: TargetState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679766801"><span id="local-6989586621679766803"><span class="annot"><span class="annottext">ToJSONKeyFunction [TargetState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679767872"><span id="local-6989586621679767874"><span class="annot"><span class="annottext">ToJSONKeyFunction [TargetState]
 ToJSONKeyFunction TargetState
 ToJSONKeyFunction TargetState
 -&gt; ToJSONKeyFunction [TargetState] -&gt; ToJSONKey TargetState
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TargetState]
 toJSONKey :: ToJSONKeyFunction TargetState
 $ctoJSONKey :: ToJSONKeyFunction TargetState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679766798"><span class="annot"><span class="annottext">[Node] -&gt; Either String TargetState
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679767869"><span class="annot"><span class="annottext">[Node] -&gt; Either String TargetState
 ([Node] -&gt; Either String TargetState) -&gt; FromXML TargetState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TargetState
 $cparseXML :: [Node] -&gt; Either String TargetState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679766795"><span class="annot"><span class="annottext">TargetState -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679767866"><span class="annot"><span class="annottext">TargetState -&gt; XML
 (TargetState -&gt; XML) -&gt; ToXML TargetState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TargetState -&gt; XML

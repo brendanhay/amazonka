@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- that is created.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newJob' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679213655"><span id="local-6989586621679213656"></span></span><span class="hs-keyword">data</span><span> </span><span id="Job"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-var">Job</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Job%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-var">Job'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679213779"><span id="local-6989586621679213780"></span></span><span class="hs-keyword">data</span><span> </span><span id="Job"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-var">Job</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Job%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-var">Job'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the job: @Submitted@, @Progressing@, @Complete@,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @Canceled@, or @Error@.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Astatus%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
@@ -119,14 +119,14 @@
 </span><span id="line-108"></span><span>    </span><span id="%24sel%3Atiming%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Timing
 </span><a href="Network.AWS.ElasticTranscoder.Types.Job.html#%24sel%3Atiming%3AJob%27"><span class="hs-identifier hs-var hs-var">timing</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213638"><span id="local-6989586621679213640"><span class="annot"><span class="annottext">Job -&gt; Job -&gt; Bool
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213762"><span id="local-6989586621679213764"><span class="annot"><span class="annottext">Job -&gt; Job -&gt; Bool
 (Job -&gt; Job -&gt; Bool) -&gt; (Job -&gt; Job -&gt; Bool) -&gt; Eq Job
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Job -&gt; Job -&gt; Bool
 $c/= :: Job -&gt; Job -&gt; Bool
 == :: Job -&gt; Job -&gt; Bool
 $c== :: Job -&gt; Job -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213629"><span id="local-6989586621679213631"><span id="local-6989586621679213633"><span id="local-6989586621679213635"><span class="annot"><span class="annottext">ReadPrec [Job]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213753"><span id="local-6989586621679213755"><span id="local-6989586621679213757"><span id="local-6989586621679213759"><span class="annot"><span class="annottext">ReadPrec [Job]
 ReadPrec Job
 Int -&gt; ReadS Job
 ReadS [Job]
@@ -143,7 +143,7 @@ readList :: ReadS [Job]
 $creadList :: ReadS [Job]
 readsPrec :: Int -&gt; ReadS Job
 $creadsPrec :: Int -&gt; ReadS Job
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213622"><span id="local-6989586621679213624"><span id="local-6989586621679213626"><span class="annot"><span class="annottext">Int -&gt; Job -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213746"><span id="local-6989586621679213748"><span id="local-6989586621679213750"><span class="annot"><span class="annottext">Int -&gt; Job -&gt; ShowS
 [Job] -&gt; ShowS
 Job -&gt; String
 (Int -&gt; Job -&gt; ShowS)
@@ -323,16 +323,16 @@ forall a. Maybe a
 -&gt; (Job -&gt; Maybe Text -&gt; Job)
 -&gt; Lens Job Job (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213613"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213737"><span class="annot"><span class="annottext">Maybe Text
 status :: Maybe Text
 $sel:status:Job' :: Job -&gt; Maybe Text
-</span><a href="#local-6989586621679213613"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213613"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213612"><span class="annot"><span class="annottext">s :: Job
-</span><a href="#local-6989586621679213612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213611"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
-</span><a href="#local-6989586621679213612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Job' :: Maybe Text
+</span><a href="#local-6989586621679213737"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213737"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213736"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213735"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Job' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Job.html#%24sel%3Astatus%3AJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | The @Id@ of the pipeline that you want Elastic Transcoder to use for</span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- transcoding. The pipeline determines several settings, including the</span><span>
@@ -345,16 +345,16 @@ $sel:status:Job' :: Job -&gt; Maybe Text
 -&gt; (Job -&gt; Maybe Text -&gt; Job)
 -&gt; Lens Job Job (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213609"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213733"><span class="annot"><span class="annottext">Maybe Text
 pipelineId :: Maybe Text
 $sel:pipelineId:Job' :: Job -&gt; Maybe Text
-</span><a href="#local-6989586621679213609"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213609"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213608"><span class="annot"><span class="annottext">s :: Job
-</span><a href="#local-6989586621679213608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213607"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
-</span><a href="#local-6989586621679213608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineId:Job' :: Maybe Text
+</span><a href="#local-6989586621679213733"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213733"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213732"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213731"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineId:Job' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Job.html#%24sel%3ApipelineId%3AJob%27"><span class="hs-identifier hs-var">pipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the job.</span><span>
 </span><span id="line-225"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#job_arn"><span class="hs-identifier hs-type">job_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -363,16 +363,16 @@ $sel:pipelineId:Job' :: Job -&gt; Maybe Text
 -&gt; (Job -&gt; Maybe Text -&gt; Job)
 -&gt; Lens Job Job (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213605"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213729"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:Job' :: Job -&gt; Maybe Text
-</span><a href="#local-6989586621679213605"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213605"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213604"><span class="annot"><span class="annottext">s :: Job
-</span><a href="#local-6989586621679213604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213603"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
-</span><a href="#local-6989586621679213604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Job' :: Maybe Text
+</span><a href="#local-6989586621679213729"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213729"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213728"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213727"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Job' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Job.html#%24sel%3Aarn%3AJob%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | Information about the files that you\'re transcoding. If you specified</span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- multiple files for this job, Elastic Transcoder stitches the files</span><span>
@@ -383,16 +383,16 @@ $sel:arn:Job' :: Job -&gt; Maybe Text
 -&gt; (Job -&gt; Maybe [JobInput] -&gt; Job)
 -&gt; Lens Job Job (Maybe [JobInput]) (Maybe [JobInput])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213601"><span class="annot"><span class="annottext">Maybe [JobInput]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213725"><span class="annot"><span class="annottext">Maybe [JobInput]
 inputs :: Maybe [JobInput]
 $sel:inputs:Job' :: Job -&gt; Maybe [JobInput]
-</span><a href="#local-6989586621679213601"><span class="hs-identifier hs-var hs-var">inputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobInput]
-</span><a href="#local-6989586621679213601"><span class="hs-identifier hs-var">inputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213600"><span class="annot"><span class="annottext">s :: Job
-</span><a href="#local-6989586621679213600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213599"><span class="annot"><span class="annottext">Maybe [JobInput]
-</span><a href="#local-6989586621679213599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
-</span><a href="#local-6989586621679213600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputs:Job' :: Maybe [JobInput]
+</span><a href="#local-6989586621679213725"><span class="hs-identifier hs-var hs-var">inputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobInput]
+</span><a href="#local-6989586621679213725"><span class="hs-identifier hs-var">inputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213724"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213723"><span class="annot"><span class="annottext">Maybe [JobInput]
+</span><a href="#local-6989586621679213723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputs:Job' :: Maybe [JobInput]
 </span><a href="Network.AWS.ElasticTranscoder.Types.Job.html#%24sel%3Ainputs%3AJob%27"><span class="hs-identifier hs-var">inputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobInput]
-</span><a href="#local-6989586621679213599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobInput] -&gt; f (Maybe [JobInput])) -&gt; Job -&gt; f Job)
+</span><a href="#local-6989586621679213723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobInput] -&gt; f (Maybe [JobInput])) -&gt; Job -&gt; f Job)
 -&gt; ((Maybe [JobInput] -&gt; f (Maybe [JobInput]))
     -&gt; Maybe [JobInput] -&gt; f (Maybe [JobInput]))
 -&gt; (Maybe [JobInput] -&gt; f (Maybe [JobInput]))
@@ -409,8 +409,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [JobInput] [JobInput] [JobInput] [JobInput]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | A section of the request or response body that provides information</span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- about the file that is being transcoded.</span><span>
@@ -420,16 +420,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (Job -&gt; Maybe JobInput -&gt; Job)
 -&gt; Lens Job Job (Maybe JobInput) (Maybe JobInput)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213594"><span class="annot"><span class="annottext">Maybe JobInput
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213718"><span class="annot"><span class="annottext">Maybe JobInput
 input :: Maybe JobInput
 $sel:input:Job' :: Job -&gt; Maybe JobInput
-</span><a href="#local-6989586621679213594"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobInput
-</span><a href="#local-6989586621679213594"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213593"><span class="annot"><span class="annottext">s :: Job
-</span><a href="#local-6989586621679213593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213592"><span class="annot"><span class="annottext">Maybe JobInput
-</span><a href="#local-6989586621679213592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
-</span><a href="#local-6989586621679213593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:input:Job' :: Maybe JobInput
+</span><a href="#local-6989586621679213718"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobInput
+</span><a href="#local-6989586621679213718"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213717"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213716"><span class="annot"><span class="annottext">Maybe JobInput
+</span><a href="#local-6989586621679213716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:input:Job' :: Maybe JobInput
 </span><a href="Network.AWS.ElasticTranscoder.Types.Job.html#%24sel%3Ainput%3AJob%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobInput
-</span><a href="#local-6989586621679213592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>
 </span><span id="line-239"></span><span class="hs-comment">-- | User-defined metadata that you want to associate with an Elastic</span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- Transcoder job. You specify metadata in @key\/value@ pairs, and you can</span><span>
@@ -455,16 +455,16 @@ $sel:input:Job' :: Job -&gt; Maybe JobInput
 -&gt; Lens
      Job Job (Maybe (HashMap Text Text)) (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213590"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213714"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 userMetadata :: Maybe (HashMap Text Text)
 $sel:userMetadata:Job' :: Job -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679213590"><span class="hs-identifier hs-var hs-var">userMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679213590"><span class="hs-identifier hs-var">userMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213589"><span class="annot"><span class="annottext">s :: Job
-</span><a href="#local-6989586621679213589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213588"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679213588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
-</span><a href="#local-6989586621679213589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userMetadata:Job' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679213714"><span class="hs-identifier hs-var hs-var">userMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679213714"><span class="hs-identifier hs-var">userMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213713"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213712"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679213712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userMetadata:Job' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.ElasticTranscoder.Types.Job.html#%24sel%3AuserMetadata%3AJob%27"><span class="hs-identifier hs-var">userMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679213588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679213712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; Job -&gt; f Job)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -490,8 +490,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-257"></span><span>
 </span><span id="line-258"></span><span class="hs-comment">-- | Information about the output files. We recommend that you use the</span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- @Outputs@ syntax for all jobs, even when you want Elastic Transcoder to</span><span>
@@ -508,16 +508,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (Job -&gt; Maybe [JobOutput] -&gt; Job)
 -&gt; Lens Job Job (Maybe [JobOutput]) (Maybe [JobOutput])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213586"><span class="annot"><span class="annottext">Maybe [JobOutput]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213710"><span class="annot"><span class="annottext">Maybe [JobOutput]
 outputs :: Maybe [JobOutput]
 $sel:outputs:Job' :: Job -&gt; Maybe [JobOutput]
-</span><a href="#local-6989586621679213586"><span class="hs-identifier hs-var hs-var">outputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobOutput]
-</span><a href="#local-6989586621679213586"><span class="hs-identifier hs-var">outputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213585"><span class="annot"><span class="annottext">s :: Job
-</span><a href="#local-6989586621679213585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213584"><span class="annot"><span class="annottext">Maybe [JobOutput]
-</span><a href="#local-6989586621679213584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
-</span><a href="#local-6989586621679213585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputs:Job' :: Maybe [JobOutput]
+</span><a href="#local-6989586621679213710"><span class="hs-identifier hs-var hs-var">outputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobOutput]
+</span><a href="#local-6989586621679213710"><span class="hs-identifier hs-var">outputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213709"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213708"><span class="annot"><span class="annottext">Maybe [JobOutput]
+</span><a href="#local-6989586621679213708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputs:Job' :: Maybe [JobOutput]
 </span><a href="Network.AWS.ElasticTranscoder.Types.Job.html#%24sel%3Aoutputs%3AJob%27"><span class="hs-identifier hs-var">outputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobOutput]
-</span><a href="#local-6989586621679213584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobOutput] -&gt; f (Maybe [JobOutput])) -&gt; Job -&gt; f Job)
+</span><a href="#local-6989586621679213708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobOutput] -&gt; f (Maybe [JobOutput])) -&gt; Job -&gt; f Job)
 -&gt; ((Maybe [JobOutput] -&gt; f (Maybe [JobOutput]))
     -&gt; Maybe [JobOutput] -&gt; f (Maybe [JobOutput]))
 -&gt; (Maybe [JobOutput] -&gt; f (Maybe [JobOutput]))
@@ -534,8 +534,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [JobOutput] [JobOutput] [JobOutput] [JobOutput]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | If you specified one output for a job, information about that output. If</span><span>
 </span><span id="line-271"></span><span class="hs-comment">-- you specified multiple outputs for a job, the Output object lists</span><span>
@@ -552,16 +552,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (Job -&gt; Maybe JobOutput -&gt; Job)
 -&gt; Lens Job Job (Maybe JobOutput) (Maybe JobOutput)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213582"><span class="annot"><span class="annottext">Maybe JobOutput
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213706"><span class="annot"><span class="annottext">Maybe JobOutput
 output :: Maybe JobOutput
 $sel:output:Job' :: Job -&gt; Maybe JobOutput
-</span><a href="#local-6989586621679213582"><span class="hs-identifier hs-var hs-var">output</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobOutput
-</span><a href="#local-6989586621679213582"><span class="hs-identifier hs-var">output</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213581"><span class="annot"><span class="annottext">s :: Job
-</span><a href="#local-6989586621679213581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213580"><span class="annot"><span class="annottext">Maybe JobOutput
-</span><a href="#local-6989586621679213580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
-</span><a href="#local-6989586621679213581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:output:Job' :: Maybe JobOutput
+</span><a href="#local-6989586621679213706"><span class="hs-identifier hs-var hs-var">output</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobOutput
+</span><a href="#local-6989586621679213706"><span class="hs-identifier hs-var">output</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213705"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213704"><span class="annot"><span class="annottext">Maybe JobOutput
+</span><a href="#local-6989586621679213704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:output:Job' :: Maybe JobOutput
 </span><a href="Network.AWS.ElasticTranscoder.Types.Job.html#%24sel%3Aoutput%3AJob%27"><span class="hs-identifier hs-var">output</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobOutput
-</span><a href="#local-6989586621679213580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-281"></span><span>
 </span><span id="line-282"></span><span class="hs-comment">-- | The identifier that Elastic Transcoder assigned to the job. You use this</span><span>
 </span><span id="line-283"></span><span class="hs-comment">-- value to get settings for the job or to delete the job.</span><span>
@@ -571,16 +571,16 @@ $sel:output:Job' :: Job -&gt; Maybe JobOutput
 -&gt; (Job -&gt; Maybe Text -&gt; Job)
 -&gt; Lens Job Job (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213578"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213702"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:Job' :: Job -&gt; Maybe Text
-</span><a href="#local-6989586621679213578"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213578"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213577"><span class="annot"><span class="annottext">s :: Job
-</span><a href="#local-6989586621679213577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213576"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
-</span><a href="#local-6989586621679213577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Job' :: Maybe Text
+</span><a href="#local-6989586621679213702"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213702"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213701"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213700"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Job' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Job.html#%24sel%3Aid%3AJob%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-286"></span><span>
 </span><span id="line-287"></span><span class="hs-comment">-- | Outputs in Fragmented MP4 or MPEG-TS format only.</span><span>
 </span><span id="line-288"></span><span class="hs-comment">--</span><span>
@@ -596,16 +596,16 @@ $sel:id:Job' :: Job -&gt; Maybe Text
 -&gt; (Job -&gt; Maybe [Playlist] -&gt; Job)
 -&gt; Lens Job Job (Maybe [Playlist]) (Maybe [Playlist])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213574"><span class="annot"><span class="annottext">Maybe [Playlist]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213698"><span class="annot"><span class="annottext">Maybe [Playlist]
 playlists :: Maybe [Playlist]
 $sel:playlists:Job' :: Job -&gt; Maybe [Playlist]
-</span><a href="#local-6989586621679213574"><span class="hs-identifier hs-var hs-var">playlists</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Playlist]
-</span><a href="#local-6989586621679213574"><span class="hs-identifier hs-var">playlists</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213573"><span class="annot"><span class="annottext">s :: Job
-</span><a href="#local-6989586621679213573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213572"><span class="annot"><span class="annottext">Maybe [Playlist]
-</span><a href="#local-6989586621679213572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
-</span><a href="#local-6989586621679213573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playlists:Job' :: Maybe [Playlist]
+</span><a href="#local-6989586621679213698"><span class="hs-identifier hs-var hs-var">playlists</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Playlist]
+</span><a href="#local-6989586621679213698"><span class="hs-identifier hs-var">playlists</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213697"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213696"><span class="annot"><span class="annottext">Maybe [Playlist]
+</span><a href="#local-6989586621679213696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playlists:Job' :: Maybe [Playlist]
 </span><a href="Network.AWS.ElasticTranscoder.Types.Job.html#%24sel%3Aplaylists%3AJob%27"><span class="hs-identifier hs-var">playlists</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Playlist]
-</span><a href="#local-6989586621679213572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Playlist] -&gt; f (Maybe [Playlist])) -&gt; Job -&gt; f Job)
+</span><a href="#local-6989586621679213696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Playlist] -&gt; f (Maybe [Playlist])) -&gt; Job -&gt; f Job)
 -&gt; ((Maybe [Playlist] -&gt; f (Maybe [Playlist]))
     -&gt; Maybe [Playlist] -&gt; f (Maybe [Playlist]))
 -&gt; (Maybe [Playlist] -&gt; f (Maybe [Playlist]))
@@ -622,8 +622,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Playlist] [Playlist] [Playlist] [Playlist]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-297"></span><span>
 </span><span id="line-298"></span><span class="hs-comment">-- | The value, if any, that you want Elastic Transcoder to prepend to the</span><span>
 </span><span id="line-299"></span><span class="hs-comment">-- names of all files that this job creates, including output files,</span><span>
@@ -635,16 +635,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (Job -&gt; Maybe Text -&gt; Job)
 -&gt; Lens Job Job (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213570"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213694"><span class="annot"><span class="annottext">Maybe Text
 outputKeyPrefix :: Maybe Text
 $sel:outputKeyPrefix:Job' :: Job -&gt; Maybe Text
-</span><a href="#local-6989586621679213570"><span class="hs-identifier hs-var hs-var">outputKeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213570"><span class="hs-identifier hs-var">outputKeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213569"><span class="annot"><span class="annottext">s :: Job
-</span><a href="#local-6989586621679213569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213568"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
-</span><a href="#local-6989586621679213569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputKeyPrefix:Job' :: Maybe Text
+</span><a href="#local-6989586621679213694"><span class="hs-identifier hs-var hs-var">outputKeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213694"><span class="hs-identifier hs-var">outputKeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213693"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213692"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputKeyPrefix:Job' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Job.html#%24sel%3AoutputKeyPrefix%3AJob%27"><span class="hs-identifier hs-var">outputKeyPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-304"></span><span>
 </span><span id="line-305"></span><span class="hs-comment">-- | Details about the timing of a job.</span><span>
 </span><span id="line-306"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#job_timing"><span class="hs-identifier hs-type">job_timing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span><span class="hs-special">)</span><span>
@@ -653,27 +653,27 @@ $sel:outputKeyPrefix:Job' :: Job -&gt; Maybe Text
 -&gt; (Job -&gt; Maybe Timing -&gt; Job)
 -&gt; Lens Job Job (Maybe Timing) (Maybe Timing)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213566"><span class="annot"><span class="annottext">Maybe Timing
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213690"><span class="annot"><span class="annottext">Maybe Timing
 timing :: Maybe Timing
 $sel:timing:Job' :: Job -&gt; Maybe Timing
-</span><a href="#local-6989586621679213566"><span class="hs-identifier hs-var hs-var">timing</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Timing
-</span><a href="#local-6989586621679213566"><span class="hs-identifier hs-var">timing</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213565"><span class="annot"><span class="annottext">s :: Job
-</span><a href="#local-6989586621679213565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213564"><span class="annot"><span class="annottext">Maybe Timing
-</span><a href="#local-6989586621679213564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
-</span><a href="#local-6989586621679213565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timing:Job' :: Maybe Timing
+</span><a href="#local-6989586621679213690"><span class="hs-identifier hs-var hs-var">timing</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Timing
+</span><a href="#local-6989586621679213690"><span class="hs-identifier hs-var">timing</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213689"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213688"><span class="annot"><span class="annottext">Maybe Timing
+</span><a href="#local-6989586621679213688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timing:Job' :: Maybe Timing
 </span><a href="Network.AWS.ElasticTranscoder.Types.Job.html#%24sel%3Atiming%3AJob%27"><span class="hs-identifier hs-var">timing</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Timing
-</span><a href="#local-6989586621679213564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-308"></span><span>
-</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213561"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-310"></span><span>  </span><span id="local-6989586621679213559"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Job
+</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213685"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-310"></span><span>  </span><span id="local-6989586621679213683"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Job
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-311"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Job) -&gt; Value -&gt; Parser Job
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-312"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Job&quot;</span></span><span>
-</span><span id="line-313"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679213556"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213556"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-313"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679213680"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213680"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-314"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -717,7 +717,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Job)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679213680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -749,7 +749,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Job)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679213680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PipelineId&quot;</span></span><span class="hs-special">)</span><span>
@@ -779,7 +779,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Job)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679213680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
@@ -807,7 +807,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Job)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [JobInput]))
+</span><a href="#local-6989586621679213680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [JobInput]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Inputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [JobInput]))
@@ -838,7 +838,7 @@ forall a. Monoid a =&gt; a
       -&gt; Job)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobInput)
+</span><a href="#local-6989586621679213680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobInput)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Input&quot;</span></span><span class="hs-special">)</span><span>
@@ -862,7 +862,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Job)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679213680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserMetadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -889,7 +889,7 @@ forall a. Monoid a =&gt; a
       -&gt; Job)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [JobOutput]))
+</span><a href="#local-6989586621679213680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [JobOutput]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Outputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [JobOutput]))
@@ -911,7 +911,7 @@ forall a. Monoid a =&gt; a
       -&gt; Maybe [Playlist] -&gt; Maybe Text -&gt; Maybe Timing -&gt; Job)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobOutput)
+</span><a href="#local-6989586621679213680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobOutput)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Output&quot;</span></span><span class="hs-special">)</span><span>
@@ -922,7 +922,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Playlist] -&gt; Maybe Text -&gt; Maybe Timing -&gt; Job)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679213680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -931,7 +931,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Timing -&gt; Job)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Playlist]))
+</span><a href="#local-6989586621679213680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Playlist]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Playlists&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Playlist]))
@@ -944,20 +944,20 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Timing -&gt; Job)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679213680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OutputKeyPrefix&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-326"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Timing -&gt; Job) -&gt; Parser (Maybe Timing) -&gt; Parser Job
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Timing)
+</span><a href="#local-6989586621679213680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Timing)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timing&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-327"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-328"></span><span>
-</span><span id="line-329"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213549"><span id="local-6989586621679213551"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span></span><span>
+</span><span id="line-329"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213673"><span id="local-6989586621679213675"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span></span><span>
 </span><span id="line-330"></span><span>
-</span><span id="line-331"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213546"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213670"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span><span>
 </span><span id="line-332"></span></pre></body></html>

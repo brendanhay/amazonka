@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-comment">-- | The input for the UpdateThingShadow operation.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newUpdateThingShadow' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679145025"><span id="local-6989586621679145026"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateThingShadow"><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-var">UpdateThingShadow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateThingShadow%27"><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-var">UpdateThingShadow'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679145037"><span id="local-6989586621679145038"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateThingShadow"><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-var">UpdateThingShadow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateThingShadow%27"><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-var">UpdateThingShadow'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the shadow.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AshadowName%3AUpdateThingShadow%27"><span class="annot"><span class="annottext">UpdateThingShadow -&gt; Maybe Text
 </span><a href="Network.AWS.IoTData.UpdateThingShadow.html#%24sel%3AshadowName%3AUpdateThingShadow%27"><span class="hs-identifier hs-var hs-var">shadowName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3Apayload%3AUpdateThingShadow%27"><span class="annot"><span class="annottext">UpdateThingShadow -&gt; ByteString
 </span><a href="Network.AWS.IoTData.UpdateThingShadow.html#%24sel%3Apayload%3AUpdateThingShadow%27"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679145017"><span id="local-6989586621679145019"><span class="annot"><span class="annottext">UpdateThingShadow -&gt; UpdateThingShadow -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679145029"><span id="local-6989586621679145031"><span class="annot"><span class="annottext">UpdateThingShadow -&gt; UpdateThingShadow -&gt; Bool
 (UpdateThingShadow -&gt; UpdateThingShadow -&gt; Bool)
 -&gt; (UpdateThingShadow -&gt; UpdateThingShadow -&gt; Bool)
 -&gt; Eq UpdateThingShadow
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateThingShadow -&gt; UpdateThingShadow -&gt; Bool
 == :: UpdateThingShadow -&gt; UpdateThingShadow -&gt; Bool
 $c== :: UpdateThingShadow -&gt; UpdateThingShadow -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679145010"><span id="local-6989586621679145012"><span id="local-6989586621679145014"><span class="annot"><span class="annottext">Int -&gt; UpdateThingShadow -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679145022"><span id="local-6989586621679145024"><span id="local-6989586621679145026"><span class="annot"><span class="annottext">Int -&gt; UpdateThingShadow -&gt; ShowS
 [UpdateThingShadow] -&gt; ShowS
 UpdateThingShadow -&gt; String
 (Int -&gt; UpdateThingShadow -&gt; ShowS)
@@ -125,9 +125,9 @@ $cfrom :: forall x. UpdateThingShadow -&gt; Rep UpdateThingShadow x
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span><span>
 </span><span id="line-91"></span><span id="newUpdateThingShadow"><span class="annot"><span class="annottext">newUpdateThingShadow :: Text -&gt; ByteString -&gt; UpdateThingShadow
-</span><a href="Network.AWS.IoTData.UpdateThingShadow.html#newUpdateThingShadow"><span class="hs-identifier hs-var hs-var">newUpdateThingShadow</span></a></span></span><span> </span><span id="local-6989586621679145005"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679145005"><span class="hs-identifier hs-var">pThingName_</span></a></span></span><span> </span><span id="local-6989586621679145004"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679145004"><span class="hs-identifier hs-var">pPayload_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTData.UpdateThingShadow.html#newUpdateThingShadow"><span class="hs-identifier hs-var hs-var">newUpdateThingShadow</span></a></span></span><span> </span><span id="local-6989586621679145017"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145017"><span class="hs-identifier hs-var">pThingName_</span></a></span></span><span> </span><span id="local-6989586621679145016"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679145016"><span class="hs-identifier hs-var">pPayload_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">UpdateThingShadow' :: Maybe Text -&gt; Text -&gt; ByteString -&gt; UpdateThingShadow
 </span><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:shadowName:UpdateThingShadow' :: Maybe Text
@@ -136,10 +136,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingName:UpdateThingShadow' :: Text
 </span><a href="Network.AWS.IoTData.UpdateThingShadow.html#%24sel%3AthingName%3AUpdateThingShadow%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679145005"><span class="hs-identifier hs-var">pThingName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679145017"><span class="hs-identifier hs-var">pThingName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:payload:UpdateThingShadow' :: ByteString
 </span><a href="Network.AWS.IoTData.UpdateThingShadow.html#%24sel%3Apayload%3AUpdateThingShadow%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679145004"><span class="hs-identifier hs-var">pPayload_</span></a></span><span>
+</span><a href="#local-6989586621679145016"><span class="hs-identifier hs-var">pPayload_</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The name of the shadow.</span><span>
@@ -151,16 +151,16 @@ forall a. Maybe a
 -&gt; Lens
      UpdateThingShadow UpdateThingShadow (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145001"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145013"><span class="annot"><span class="annottext">Maybe Text
 shadowName :: Maybe Text
 $sel:shadowName:UpdateThingShadow' :: UpdateThingShadow -&gt; Maybe Text
-</span><a href="#local-6989586621679145001"><span class="hs-identifier hs-var hs-var">shadowName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679145001"><span class="hs-identifier hs-var">shadowName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145000"><span class="annot"><span class="annottext">s :: UpdateThingShadow
-</span><a href="#local-6989586621679145000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144999"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679144999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingShadow
-</span><a href="#local-6989586621679145000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shadowName:UpdateThingShadow' :: Maybe Text
+</span><a href="#local-6989586621679145013"><span class="hs-identifier hs-var hs-var">shadowName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679145013"><span class="hs-identifier hs-var">shadowName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145012"><span class="annot"><span class="annottext">s :: UpdateThingShadow
+</span><a href="#local-6989586621679145012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145011"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679145011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingShadow
+</span><a href="#local-6989586621679145012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shadowName:UpdateThingShadow' :: Maybe Text
 </span><a href="Network.AWS.IoTData.UpdateThingShadow.html#%24sel%3AshadowName%3AUpdateThingShadow%27"><span class="hs-identifier hs-var">shadowName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679144999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679145011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The name of the thing.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#updateThingShadow_thingName"><span class="hs-identifier hs-type">updateThingShadow_thingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -169,16 +169,16 @@ $sel:shadowName:UpdateThingShadow' :: UpdateThingShadow -&gt; Maybe Text
 -&gt; (UpdateThingShadow -&gt; Text -&gt; UpdateThingShadow)
 -&gt; Lens UpdateThingShadow UpdateThingShadow Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144998"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145010"><span class="annot"><span class="annottext">Text
 thingName :: Text
 $sel:thingName:UpdateThingShadow' :: UpdateThingShadow -&gt; Text
-</span><a href="#local-6989586621679144998"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144998"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144997"><span class="annot"><span class="annottext">s :: UpdateThingShadow
-</span><a href="#local-6989586621679144997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144996"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingShadow
-</span><a href="#local-6989586621679144997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:UpdateThingShadow' :: Text
+</span><a href="#local-6989586621679145010"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145010"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145009"><span class="annot"><span class="annottext">s :: UpdateThingShadow
+</span><a href="#local-6989586621679145009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145008"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingShadow
+</span><a href="#local-6989586621679145009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:UpdateThingShadow' :: Text
 </span><a href="Network.AWS.IoTData.UpdateThingShadow.html#%24sel%3AthingName%3AUpdateThingShadow%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679145008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The state information, in JSON format.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#updateThingShadow_payload"><span class="hs-identifier hs-type">updateThingShadow_payload</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
@@ -188,27 +188,27 @@ $sel:thingName:UpdateThingShadow' :: UpdateThingShadow -&gt; Text
 -&gt; (UpdateThingShadow -&gt; ByteString -&gt; UpdateThingShadow)
 -&gt; Lens UpdateThingShadow UpdateThingShadow ByteString ByteString
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144995"><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145007"><span class="annot"><span class="annottext">ByteString
 payload :: ByteString
 $sel:payload:UpdateThingShadow' :: UpdateThingShadow -&gt; ByteString
-</span><a href="#local-6989586621679144995"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679144995"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144994"><span class="annot"><span class="annottext">s :: UpdateThingShadow
-</span><a href="#local-6989586621679144994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144993"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679144993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingShadow
-</span><a href="#local-6989586621679144994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:UpdateThingShadow' :: ByteString
+</span><a href="#local-6989586621679145007"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679145007"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145006"><span class="annot"><span class="annottext">s :: UpdateThingShadow
+</span><a href="#local-6989586621679145006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145005"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679145005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingShadow
+</span><a href="#local-6989586621679145006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:UpdateThingShadow' :: ByteString
 </span><a href="Network.AWS.IoTData.UpdateThingShadow.html#%24sel%3Apayload%3AUpdateThingShadow%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679144993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679145005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse"><span class="hs-identifier hs-type">UpdateThingShadowResponse</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679144989"><span class="annot"><span class="annottext">request :: UpdateThingShadow -&gt; Request UpdateThingShadow
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679145001"><span class="annot"><span class="annottext">request :: UpdateThingShadow -&gt; Request UpdateThingShadow
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateThingShadow -&gt; Request UpdateThingShadow
 forall a. (ToRequest a, ToBody a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postBody</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTData.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679144985"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679144997"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateThingShadow
 -&gt; ClientResponse ClientBody
@@ -235,10 +235,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveBytes</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679144982"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144982"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679144981"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679144981"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679144980"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679144980"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679144994"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144994"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679144993"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679144993"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679144992"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679144992"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe ByteString -&gt; Int -&gt; UpdateThingShadowResponse
 </span><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse%27"><span class="hs-identifier hs-var">UpdateThingShadowResponse'</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ByteString -&gt; Int -&gt; UpdateThingShadowResponse)
@@ -251,7 +251,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; ByteString
 </span><span class="hs-identifier hs-var">Prelude.coerce</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679144980"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679144992"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateThingShadowResponse)
 -&gt; Either String Int -&gt; Either String UpdateThingShadowResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -260,16 +260,16 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144982"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679144994"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144973"><span id="local-6989586621679144975"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144985"><span id="local-6989586621679144987"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144970"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144982"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToBody</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679144966"><span class="annot"><span class="annottext">toBody :: UpdateThingShadow -&gt; RequestBody
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toBody</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144962"><span id="local-6989586621679144963"><span id="local-6989586621679144964"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679144978"><span class="annot"><span class="annottext">toBody :: UpdateThingShadow -&gt; RequestBody
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toBody</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144974"><span id="local-6989586621679144975"><span id="local-6989586621679144976"><span class="annot"><span class="annottext">Maybe Text
 ByteString
 Text
 payload :: ByteString
@@ -278,13 +278,13 @@ shadowName :: Maybe Text
 $sel:payload:UpdateThingShadow' :: UpdateThingShadow -&gt; ByteString
 $sel:thingName:UpdateThingShadow' :: UpdateThingShadow -&gt; Text
 $sel:shadowName:UpdateThingShadow' :: UpdateThingShadow -&gt; Maybe Text
-</span><a href="#local-6989586621679144962"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RequestBody
+</span><a href="#local-6989586621679144974"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RequestBody
 forall a. ToBody a =&gt; a -&gt; RequestBody
 </span><span class="hs-identifier hs-var">Core.toBody</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679144962"><span class="hs-identifier hs-var">payload</span></a></span><span>
+</span><a href="#local-6989586621679144974"><span class="hs-identifier hs-var">payload</span></a></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679144959"><span class="annot"><span class="annottext">toHeaders :: UpdateThingShadow -&gt; ResponseHeaders
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679144971"><span class="annot"><span class="annottext">toHeaders :: UpdateThingShadow -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateThingShadow -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -292,8 +292,8 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679144954"><span class="annot"><span class="annottext">toPath :: UpdateThingShadow -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144950"><span id="local-6989586621679144951"><span id="local-6989586621679144952"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679144966"><span class="annot"><span class="annottext">toPath :: UpdateThingShadow -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144962"><span id="local-6989586621679144963"><span id="local-6989586621679144964"><span class="annot"><span class="annottext">Maybe Text
 ByteString
 Text
 payload :: ByteString
@@ -302,7 +302,7 @@ shadowName :: Maybe Text
 $sel:payload:UpdateThingShadow' :: UpdateThingShadow -&gt; ByteString
 $sel:thingName:UpdateThingShadow' :: UpdateThingShadow -&gt; Text
 $sel:shadowName:UpdateThingShadow' :: UpdateThingShadow -&gt; Maybe Text
-</span><a href="#local-6989586621679144950"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679144962"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -310,12 +310,12 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/things/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144951"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679144963"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/shadow&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow"><span class="hs-identifier hs-type">UpdateThingShadow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679144946"><span class="annot"><span class="annottext">toQuery :: UpdateThingShadow -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144942"><span id="local-6989586621679144943"><span id="local-6989586621679144944"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679144958"><span class="annot"><span class="annottext">toQuery :: UpdateThingShadow -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadow%27"><span class="hs-identifier hs-type">UpdateThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144954"><span id="local-6989586621679144955"><span id="local-6989586621679144956"><span class="annot"><span class="annottext">Maybe Text
 ByteString
 Text
 payload :: ByteString
@@ -324,19 +324,19 @@ shadowName :: Maybe Text
 $sel:payload:UpdateThingShadow' :: UpdateThingShadow -&gt; ByteString
 $sel:thingName:UpdateThingShadow' :: UpdateThingShadow -&gt; Text
 $sel:shadowName:UpdateThingShadow' :: UpdateThingShadow -&gt; Maybe Text
-</span><a href="#local-6989586621679144942"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679144954"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679144944"><span class="hs-identifier hs-var">shadowName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679144956"><span class="hs-identifier hs-var">shadowName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The output from the UpdateThingShadow operation.</span><span>
 </span><span id="line-143"></span><span class="hs-comment">--</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- /See:/ 'newUpdateThingShadowResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679144939"><span id="local-6989586621679144940"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateThingShadowResponse"><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse"><span class="hs-identifier hs-var">UpdateThingShadowResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateThingShadowResponse%27"><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse%27"><span class="hs-identifier hs-var">UpdateThingShadowResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span id="local-6989586621679144951"><span id="local-6989586621679144952"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateThingShadowResponse"><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse"><span class="hs-identifier hs-var">UpdateThingShadowResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateThingShadowResponse%27"><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse%27"><span class="hs-identifier hs-var">UpdateThingShadowResponse'</span></a></span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state information, in JSON format.</span><span>
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3Apayload%3AUpdateThingShadowResponse%27"><span class="annot"><span class="annottext">UpdateThingShadowResponse -&gt; Maybe ByteString
 </span><a href="Network.AWS.IoTData.UpdateThingShadow.html#%24sel%3Apayload%3AUpdateThingShadowResponse%27"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">,</span><span>
@@ -344,7 +344,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateThingShadowResponse%27"><span class="annot"><span class="annottext">UpdateThingShadowResponse -&gt; Int
 </span><a href="Network.AWS.IoTData.UpdateThingShadow.html#%24sel%3AhttpStatus%3AUpdateThingShadowResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679144933"><span id="local-6989586621679144935"><span class="annot"><span class="annottext">UpdateThingShadowResponse -&gt; UpdateThingShadowResponse -&gt; Bool
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679144945"><span id="local-6989586621679144947"><span class="annot"><span class="annottext">UpdateThingShadowResponse -&gt; UpdateThingShadowResponse -&gt; Bool
 (UpdateThingShadowResponse -&gt; UpdateThingShadowResponse -&gt; Bool)
 -&gt; (UpdateThingShadowResponse -&gt; UpdateThingShadowResponse -&gt; Bool)
 -&gt; Eq UpdateThingShadowResponse
@@ -353,7 +353,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateThingShadowResponse -&gt; UpdateThingShadowResponse -&gt; Bool
 == :: UpdateThingShadowResponse -&gt; UpdateThingShadowResponse -&gt; Bool
 $c== :: UpdateThingShadowResponse -&gt; UpdateThingShadowResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144927"><span id="local-6989586621679144929"><span id="local-6989586621679144931"><span class="annot"><span class="annottext">Int -&gt; UpdateThingShadowResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144939"><span id="local-6989586621679144941"><span id="local-6989586621679144943"><span class="annot"><span class="annottext">Int -&gt; UpdateThingShadowResponse -&gt; ShowS
 [UpdateThingShadowResponse] -&gt; ShowS
 UpdateThingShadowResponse -&gt; String
 (Int -&gt; UpdateThingShadowResponse -&gt; ShowS)
@@ -401,8 +401,8 @@ UpdateThingShadowResponse -&gt; Rep UpdateThingShadowResponse x
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse"><span class="hs-identifier hs-type">UpdateThingShadowResponse</span></a></span><span>
 </span><span id="line-168"></span><span id="newUpdateThingShadowResponse"><span class="annot"><span class="annottext">newUpdateThingShadowResponse :: Int -&gt; UpdateThingShadowResponse
-</span><a href="Network.AWS.IoTData.UpdateThingShadow.html#newUpdateThingShadowResponse"><span class="hs-identifier hs-var hs-var">newUpdateThingShadowResponse</span></a></span></span><span> </span><span id="local-6989586621679144924"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144924"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTData.UpdateThingShadow.html#newUpdateThingShadowResponse"><span class="hs-identifier hs-var hs-var">newUpdateThingShadowResponse</span></a></span></span><span> </span><span id="local-6989586621679144936"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144936"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="annottext">UpdateThingShadowResponse' :: Maybe ByteString -&gt; Int -&gt; UpdateThingShadowResponse
 </span><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse%27"><span class="hs-identifier hs-type">UpdateThingShadowResponse'</span></a></span><span>
 </span><span id="line-170"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:payload:UpdateThingShadowResponse' :: Maybe ByteString
@@ -412,7 +412,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateThingShadowResponse' :: Int
 </span><a href="Network.AWS.IoTData.UpdateThingShadow.html#%24sel%3AhttpStatus%3AUpdateThingShadowResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144924"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679144936"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The state information, in JSON format.</span><span>
@@ -428,16 +428,16 @@ forall a. Maybe a
      (Maybe ByteString)
      (Maybe ByteString)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse%27"><span class="hs-identifier hs-type">UpdateThingShadowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144923"><span class="annot"><span class="annottext">Maybe ByteString
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse%27"><span class="hs-identifier hs-type">UpdateThingShadowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144935"><span class="annot"><span class="annottext">Maybe ByteString
 payload :: Maybe ByteString
 $sel:payload:UpdateThingShadowResponse' :: UpdateThingShadowResponse -&gt; Maybe ByteString
-</span><a href="#local-6989586621679144923"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
-</span><a href="#local-6989586621679144923"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144922"><span class="annot"><span class="annottext">s :: UpdateThingShadowResponse
-</span><a href="#local-6989586621679144922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse%27"><span class="hs-identifier hs-type">UpdateThingShadowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144921"><span class="annot"><span class="annottext">Maybe ByteString
-</span><a href="#local-6989586621679144921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingShadowResponse
-</span><a href="#local-6989586621679144922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:UpdateThingShadowResponse' :: Maybe ByteString
+</span><a href="#local-6989586621679144935"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679144935"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144934"><span class="annot"><span class="annottext">s :: UpdateThingShadowResponse
+</span><a href="#local-6989586621679144934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse%27"><span class="hs-identifier hs-type">UpdateThingShadowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144933"><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679144933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingShadowResponse
+</span><a href="#local-6989586621679144934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:UpdateThingShadowResponse' :: Maybe ByteString
 </span><a href="Network.AWS.IoTData.UpdateThingShadow.html#%24sel%3Apayload%3AUpdateThingShadowResponse%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
-</span><a href="#local-6989586621679144921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse"><span class="hs-identifier hs-type">UpdateThingShadowResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679144933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse"><span class="hs-identifier hs-type">UpdateThingShadowResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-180"></span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#updateThingShadowResponse_httpStatus"><span class="hs-identifier hs-type">updateThingShadowResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse"><span class="hs-identifier hs-type">UpdateThingShadowResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -447,16 +447,16 @@ $sel:payload:UpdateThingShadowResponse' :: UpdateThingShadowResponse -&gt; Maybe
 -&gt; (UpdateThingShadowResponse -&gt; Int -&gt; UpdateThingShadowResponse)
 -&gt; Lens UpdateThingShadowResponse UpdateThingShadowResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse%27"><span class="hs-identifier hs-type">UpdateThingShadowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144920"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse%27"><span class="hs-identifier hs-type">UpdateThingShadowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144932"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateThingShadowResponse' :: UpdateThingShadowResponse -&gt; Int
-</span><a href="#local-6989586621679144920"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144920"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144919"><span class="annot"><span class="annottext">s :: UpdateThingShadowResponse
-</span><a href="#local-6989586621679144919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse%27"><span class="hs-identifier hs-type">UpdateThingShadowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144918"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingShadowResponse
-</span><a href="#local-6989586621679144919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateThingShadowResponse' :: Int
+</span><a href="#local-6989586621679144932"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144932"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144931"><span class="annot"><span class="annottext">s :: UpdateThingShadowResponse
+</span><a href="#local-6989586621679144931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse%27"><span class="hs-identifier hs-type">UpdateThingShadowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144930"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThingShadowResponse
+</span><a href="#local-6989586621679144931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateThingShadowResponse' :: Int
 </span><a href="Network.AWS.IoTData.UpdateThingShadow.html#%24sel%3AhttpStatus%3AUpdateThingShadowResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse"><span class="hs-identifier hs-type">UpdateThingShadowResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679144930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse"><span class="hs-identifier hs-type">UpdateThingShadowResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144916"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse"><span class="hs-identifier hs-type">UpdateThingShadowResponse</span></a></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144928"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.UpdateThingShadow.html#UpdateThingShadowResponse"><span class="hs-identifier hs-type">UpdateThingShadowResponse</span></a></span></span><span>
 </span><span id="line-184"></span></pre></body></html>

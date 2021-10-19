@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Placeholder documentation for AudioSilenceFailoverSettings</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAudioSilenceFailoverSettings' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679859832"><span id="local-6989586621679859833"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioSilenceFailoverSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings"><span class="hs-identifier hs-var">AudioSilenceFailoverSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioSilenceFailoverSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings%27"><span class="hs-identifier hs-var">AudioSilenceFailoverSettings'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679866489"><span id="local-6989586621679866490"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioSilenceFailoverSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings"><span class="hs-identifier hs-var">AudioSilenceFailoverSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioSilenceFailoverSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings%27"><span class="hs-identifier hs-var">AudioSilenceFailoverSettings'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount of time (in milliseconds) that the active input must be</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- silent before automatic input failover occurs. Silence is defined as</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- audio loss or audio quieter than -50 dBFS.</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AaudioSelectorName%3AAudioSilenceFailoverSettings%27"><span class="annot"><span class="annottext">AudioSilenceFailoverSettings -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#%24sel%3AaudioSelectorName%3AAudioSilenceFailoverSettings%27"><span class="hs-identifier hs-var hs-var">audioSelectorName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679859825"><span id="local-6989586621679859827"><span class="annot"><span class="annottext">AudioSilenceFailoverSettings
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679866482"><span id="local-6989586621679866484"><span class="annot"><span class="annottext">AudioSilenceFailoverSettings
 -&gt; AudioSilenceFailoverSettings -&gt; Bool
 (AudioSilenceFailoverSettings
  -&gt; AudioSilenceFailoverSettings -&gt; Bool)
@@ -54,7 +54,7 @@ $c/= :: AudioSilenceFailoverSettings
 -&gt; AudioSilenceFailoverSettings -&gt; Bool
 $c== :: AudioSilenceFailoverSettings
 -&gt; AudioSilenceFailoverSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679859816"><span id="local-6989586621679859818"><span id="local-6989586621679859820"><span id="local-6989586621679859822"><span class="annot"><span class="annottext">ReadPrec [AudioSilenceFailoverSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679866473"><span id="local-6989586621679866475"><span id="local-6989586621679866477"><span id="local-6989586621679866479"><span class="annot"><span class="annottext">ReadPrec [AudioSilenceFailoverSettings]
 ReadPrec AudioSilenceFailoverSettings
 Int -&gt; ReadS AudioSilenceFailoverSettings
 ReadS [AudioSilenceFailoverSettings]
@@ -74,7 +74,7 @@ readList :: ReadS [AudioSilenceFailoverSettings]
 $creadList :: ReadS [AudioSilenceFailoverSettings]
 readsPrec :: Int -&gt; ReadS AudioSilenceFailoverSettings
 $creadsPrec :: Int -&gt; ReadS AudioSilenceFailoverSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679859809"><span id="local-6989586621679859811"><span id="local-6989586621679859813"><span class="annot"><span class="annottext">Int -&gt; AudioSilenceFailoverSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679866466"><span id="local-6989586621679866468"><span id="local-6989586621679866470"><span class="annot"><span class="annottext">Int -&gt; AudioSilenceFailoverSettings -&gt; ShowS
 [AudioSilenceFailoverSettings] -&gt; ShowS
 AudioSilenceFailoverSettings -&gt; String
 (Int -&gt; AudioSilenceFailoverSettings -&gt; ShowS)
@@ -126,8 +126,8 @@ AudioSilenceFailoverSettings -&gt; Rep AudioSilenceFailoverSettings x
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings</span></a></span><span>
 </span><span id="line-60"></span><span id="newAudioSilenceFailoverSettings"><span class="annot"><span class="annottext">newAudioSilenceFailoverSettings :: Text -&gt; AudioSilenceFailoverSettings
-</span><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#newAudioSilenceFailoverSettings"><span class="hs-identifier hs-var hs-var">newAudioSilenceFailoverSettings</span></a></span></span><span> </span><span id="local-6989586621679859803"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679859803"><span class="hs-identifier hs-var">pAudioSelectorName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#newAudioSilenceFailoverSettings"><span class="hs-identifier hs-var hs-var">newAudioSilenceFailoverSettings</span></a></span></span><span> </span><span id="local-6989586621679866460"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679866460"><span class="hs-identifier hs-var">pAudioSelectorName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">AudioSilenceFailoverSettings' :: Maybe Natural -&gt; Text -&gt; AudioSilenceFailoverSettings
 </span><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings%27"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings'</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:audioSilenceThresholdMsec:AudioSilenceFailoverSettings' :: Maybe Natural
@@ -137,7 +137,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:audioSelectorName:AudioSilenceFailoverSettings' :: Text
 </span><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#%24sel%3AaudioSelectorName%3AAudioSilenceFailoverSettings%27"><span class="hs-identifier hs-var">audioSelectorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679859803"><span class="hs-identifier hs-var">pAudioSelectorName_</span></a></span><span>
+</span><a href="#local-6989586621679866460"><span class="hs-identifier hs-var">pAudioSelectorName_</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The amount of time (in milliseconds) that the active input must be</span><span>
@@ -155,16 +155,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings%27"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859799"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings%27"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679866456"><span class="annot"><span class="annottext">Maybe Natural
 audioSilenceThresholdMsec :: Maybe Natural
 $sel:audioSilenceThresholdMsec:AudioSilenceFailoverSettings' :: AudioSilenceFailoverSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679859799"><span class="hs-identifier hs-var hs-var">audioSilenceThresholdMsec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679859799"><span class="hs-identifier hs-var">audioSilenceThresholdMsec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859798"><span class="annot"><span class="annottext">s :: AudioSilenceFailoverSettings
-</span><a href="#local-6989586621679859798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings%27"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859797"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679859797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioSilenceFailoverSettings
-</span><a href="#local-6989586621679859798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioSilenceThresholdMsec:AudioSilenceFailoverSettings' :: Maybe Natural
+</span><a href="#local-6989586621679866456"><span class="hs-identifier hs-var hs-var">audioSilenceThresholdMsec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679866456"><span class="hs-identifier hs-var">audioSilenceThresholdMsec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679866455"><span class="annot"><span class="annottext">s :: AudioSilenceFailoverSettings
+</span><a href="#local-6989586621679866455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings%27"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679866454"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679866454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioSilenceFailoverSettings
+</span><a href="#local-6989586621679866455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioSilenceThresholdMsec:AudioSilenceFailoverSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#%24sel%3AaudioSilenceThresholdMsec%3AAudioSilenceFailoverSettings%27"><span class="hs-identifier hs-var">audioSilenceThresholdMsec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679859797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679866454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The name of the audio selector in the input that MediaLive should</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- monitor to detect silence. Select your most important rendition. If you</span><span>
@@ -178,19 +178,19 @@ $sel:audioSilenceThresholdMsec:AudioSilenceFailoverSettings' :: AudioSilenceFail
 -&gt; Lens
      AudioSilenceFailoverSettings AudioSilenceFailoverSettings Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings%27"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859795"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings%27"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679866452"><span class="annot"><span class="annottext">Text
 audioSelectorName :: Text
 $sel:audioSelectorName:AudioSilenceFailoverSettings' :: AudioSilenceFailoverSettings -&gt; Text
-</span><a href="#local-6989586621679859795"><span class="hs-identifier hs-var hs-var">audioSelectorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679859795"><span class="hs-identifier hs-var">audioSelectorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859794"><span class="annot"><span class="annottext">s :: AudioSilenceFailoverSettings
-</span><a href="#local-6989586621679859794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings%27"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859793"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679859793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioSilenceFailoverSettings
-</span><a href="#local-6989586621679859794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioSelectorName:AudioSilenceFailoverSettings' :: Text
+</span><a href="#local-6989586621679866452"><span class="hs-identifier hs-var hs-var">audioSelectorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679866452"><span class="hs-identifier hs-var">audioSelectorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679866451"><span class="annot"><span class="annottext">s :: AudioSilenceFailoverSettings
+</span><a href="#local-6989586621679866451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings%27"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679866450"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679866450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioSilenceFailoverSettings
+</span><a href="#local-6989586621679866451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioSelectorName:AudioSilenceFailoverSettings' :: Text
 </span><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#%24sel%3AaudioSelectorName%3AAudioSilenceFailoverSettings%27"><span class="hs-identifier hs-var">audioSelectorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679859793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679866450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679859790"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679859788"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioSilenceFailoverSettings
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679866447"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679866445"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioSilenceFailoverSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AudioSilenceFailoverSettings)
@@ -200,8 +200,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AudioSilenceFailoverSettings&quot;</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679859785"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679859785"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679866442"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679866442"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Text -&gt; AudioSilenceFailoverSettings
 </span><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings%27"><span class="hs-identifier hs-var">AudioSilenceFailoverSettings'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Text -&gt; AudioSilenceFailoverSettings)
@@ -209,7 +209,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; AudioSilenceFailoverSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679859785"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679866442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioSilenceThresholdMsec&quot;</span></span><span class="hs-special">)</span><span>
@@ -217,27 +217,27 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser AudioSilenceFailoverSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679859785"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679866442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioSelectorName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679859778"><span id="local-6989586621679859780"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679866435"><span id="local-6989586621679866437"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679859775"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679866432"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings</span></a></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679859767"><span id="local-6989586621679859769"><span id="local-6989586621679859771"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679859765"><span class="annot"><span class="annottext">toJSON :: AudioSilenceFailoverSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings%27"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859762"><span id="local-6989586621679859763"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679866424"><span id="local-6989586621679866426"><span id="local-6989586621679866428"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679866422"><span class="annot"><span class="annottext">toJSON :: AudioSilenceFailoverSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioSilenceFailoverSettings.html#AudioSilenceFailoverSettings%27"><span class="hs-identifier hs-type">AudioSilenceFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679866419"><span id="local-6989586621679866420"><span class="annot"><span class="annottext">Maybe Natural
 Text
 audioSelectorName :: Text
 audioSilenceThresholdMsec :: Maybe Natural
 $sel:audioSelectorName:AudioSilenceFailoverSettings' :: AudioSilenceFailoverSettings -&gt; Text
 $sel:audioSilenceThresholdMsec:AudioSilenceFailoverSettings' :: AudioSilenceFailoverSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679859762"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679866419"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -250,7 +250,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679859763"><span class="hs-identifier hs-var">audioSilenceThresholdMsec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679866420"><span class="hs-identifier hs-var">audioSilenceThresholdMsec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -258,7 +258,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;audioSelectorName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679859762"><span class="hs-identifier hs-var">audioSelectorName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679866419"><span class="hs-identifier hs-var">audioSelectorName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span></pre></body></html>
